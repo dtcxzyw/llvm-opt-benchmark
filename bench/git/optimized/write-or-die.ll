@@ -1,14 +1,14 @@
 ; ModuleID = 'bench/git/original/write-or-die.ll'
 source_filename = "bench/git/original/write-or-die.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
-@maybe_flush_or_die.skip_stdout_flush = internal unnamed_addr global i32 -1, align 4
 @stdout = external local_unnamed_addr global ptr, align 8
+@maybe_flush_or_die.force_flush_stdout = internal unnamed_addr global i32 -1, align 4
 @.str = private unnamed_addr constant [10 x i8] c"GIT_FLUSH\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"write failure on '%s'\00", align 1
 @.str.2 = private unnamed_addr constant [12 x i8] c"write error\00", align 1
@@ -21,320 +21,323 @@ target triple = "x86_64-unknown-linux-gnu"
 @fsync_method = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @maybe_flush_or_die(ptr noundef %f, ptr noundef %desc) local_unnamed_addr #0 {
-entry:
-  %st = alloca %struct.stat, align 8
-  %0 = load ptr, ptr @stdout, align 8
-  %cmp = icmp eq ptr %f, %0
-  br i1 %cmp, label %if.then, label %if.end16
+define dso_local void @maybe_flush_or_die(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca %struct.stat, align 8
+  %4 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %5 = icmp eq ptr %0, %4
+  br i1 %5, label %6, label %24
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr @maybe_flush_or_die.skip_stdout_flush, align 4
-  %cmp1 = icmp slt i32 %1, 0
-  br i1 %cmp1, label %if.then2, label %if.end10
+6:                                                ; preds = %2
+  %7 = load i32, ptr @maybe_flush_or_die.force_flush_stdout, align 4, !tbaa !9
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %20
 
-if.then2:                                         ; preds = %if.then
-  %call = tail call i32 @git_env_bool(ptr noundef nonnull @.str, i32 noundef -1) #7
-  store i32 %call, ptr @maybe_flush_or_die.skip_stdout_flush, align 4
-  %cmp3 = icmp slt i32 %call, 0
-  br i1 %cmp3, label %if.then4, label %if.end10
+9:                                                ; preds = %6
+  %10 = tail call i32 @git_env_bool(ptr noundef nonnull @.str, i32 noundef -1) #8
+  store i32 %10, ptr @maybe_flush_or_die.force_flush_stdout, align 4, !tbaa !9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %20
 
-if.then4:                                         ; preds = %if.then2
-  %2 = load ptr, ptr @stdout, align 8
-  %call5 = tail call i32 @fileno(ptr noundef %2) #7
-  %call6 = call i32 @fstat64(i32 noundef %call5, ptr noundef nonnull %st) #7
-  %tobool.not = icmp eq i32 %call6, 0
-  br i1 %tobool.not, label %if.else, label %if.end10.thread
+12:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #8
+  %13 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %14 = tail call i32 @fileno(ptr noundef %13) #8
+  %15 = call i32 @fstat64(i32 noundef %14, ptr noundef nonnull %3) #8
+  %.not = icmp ne i32 %15, 0
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %17 = load i32, ptr %16, align 8
+  %18 = and i32 %17, 61440
+  %19 = icmp ne i32 %18, 32768
+  %narrow = select i1 %.not, i1 true, i1 %19
+  %storemerge = zext i1 %narrow to i32
+  store i32 %storemerge, ptr @maybe_flush_or_die.force_flush_stdout, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #8
+  br label %20
 
-if.end10.thread:                                  ; preds = %if.then4
-  store i32 0, ptr @maybe_flush_or_die.skip_stdout_flush, align 4
-  br label %if.end16
+20:                                               ; preds = %9, %12, %6
+  %21 = phi i32 [ %10, %9 ], [ %storemerge, %12 ], [ %7, %6 ]
+  %.not4 = icmp eq i32 %21, 0
+  br i1 %.not4, label %22, label %24
 
-if.else:                                          ; preds = %if.then4
-  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
-  %3 = load i32, ptr %st_mode, align 8
-  %and = and i32 %3, 61440
-  %cmp8 = icmp eq i32 %and, 32768
-  %conv = zext i1 %cmp8 to i32
-  store i32 %conv, ptr @maybe_flush_or_die.skip_stdout_flush, align 4
-  br label %if.end10
+22:                                               ; preds = %20
+  %23 = tail call i32 @ferror(ptr noundef %0) #8
+  %.not5 = icmp eq i32 %23, 0
+  br i1 %.not5, label %29, label %24
 
-if.end10:                                         ; preds = %if.then2, %if.else, %if.then
-  %4 = phi i32 [ %call, %if.then2 ], [ %conv, %if.else ], [ %1, %if.then ]
-  %tobool11.not = icmp eq i32 %4, 0
-  br i1 %tobool11.not, label %if.end16, label %land.lhs.true
+24:                                               ; preds = %20, %22, %2
+  %25 = tail call i32 @fflush(ptr noundef %0)
+  %.not6 = icmp eq i32 %25, 0
+  br i1 %.not6, label %29, label %26
 
-land.lhs.true:                                    ; preds = %if.end10
-  %call12 = tail call i32 @ferror(ptr noundef %f) #7
-  %tobool13.not = icmp eq i32 %call12, 0
-  br i1 %tobool13.not, label %if.end21, label %if.end16
-
-if.end16:                                         ; preds = %if.end10.thread, %if.end10, %land.lhs.true, %entry
-  %call17 = tail call i32 @fflush(ptr noundef %f)
-  %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %if.end21, label %if.then19
-
-if.then19:                                        ; preds = %if.end16
-  %call20 = tail call ptr @__errno_location() #8
-  %5 = load i32, ptr %call20, align 4
-  tail call void @check_pipe(i32 noundef %5) #7
-  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.1, ptr noundef %desc) #9
+26:                                               ; preds = %24
+  %27 = tail call ptr @__errno_location() #9
+  %28 = load i32, ptr %27, align 4, !tbaa !9
+  tail call void @check_pipe(i32 noundef %28) #8
+  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.1, ptr noundef %1) #10
   unreachable
 
-if.end21:                                         ; preds = %land.lhs.true, %if.end16
+29:                                               ; preds = %22, %24
   ret void
 }
 
 declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @check_pipe(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @die_errno(ptr noundef, ...) local_unnamed_addr #5
+declare void @die_errno(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fprintf_or_die(ptr noundef captures(none) %f, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #0 {
-entry:
-  %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call = call i32 @vfprintf(ptr noundef %f, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end.p0(ptr nonnull %ap)
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @fprintf_or_die(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
+  %3 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.va_start.p0(ptr nonnull %3)
+  %4 = call i32 @vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #8
+  call void @llvm.va_end.p0(ptr nonnull %3)
+  %5 = icmp slt i32 %4, 0
+  br i1 %5, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %call3 = tail call ptr @__errno_location() #8
-  %0 = load i32, ptr %call3, align 4
-  call void @check_pipe(i32 noundef %0) #7
-  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.2) #9
+6:                                                ; preds = %2
+  %7 = tail call ptr @__errno_location() #9
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  call void @check_pipe(i32 noundef %8) #8
+  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.2) #10
   unreachable
 
-if.end:                                           ; preds = %entry
+9:                                                ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fsync_or_die(i32 noundef %fd, ptr noundef %msg) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @use_fsync, align 4
-  %cmp.i = icmp slt i32 %0, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+define dso_local void @fsync_or_die(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr @use_fsync, align 4, !tbaa !9
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %7
 
-if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @git_env_bool(ptr noundef nonnull @.str.6, i32 noundef 1) #7
-  store i32 %call.i, ptr @use_fsync, align 4
-  br label %if.end.i
+5:                                                ; preds = %2
+  %6 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.6, i32 noundef 1) #8
+  store i32 %6, ptr @use_fsync, align 4, !tbaa !9
+  br label %7
 
-if.end.i:                                         ; preds = %if.then.i, %entry
-  %1 = phi i32 [ %call.i, %if.then.i ], [ %0, %entry ]
-  %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %if.end, label %if.end2.i
+7:                                                ; preds = %5, %2
+  %8 = phi i32 [ %6, %5 ], [ %3, %2 ]
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %maybe_fsync.exit.thread, label %9
 
-if.end2.i:                                        ; preds = %if.end.i
-  %2 = load i32, ptr @fsync_method, align 4
-  %cmp3.i = icmp eq i32 %2, 1
-  br i1 %cmp3.i, label %land.lhs.true.i, label %maybe_fsync.exit
+9:                                                ; preds = %7
+  %10 = load i32, ptr @fsync_method, align 4, !tbaa !9
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %12, label %maybe_fsync.exit
 
-land.lhs.true.i:                                  ; preds = %if.end2.i
-  %call4.i = tail call i32 @git_fsync(i32 noundef %fd, i32 noundef 0) #7
-  %cmp5.i = icmp sgt i32 %call4.i, -1
-  br i1 %cmp5.i, label %if.end, label %maybe_fsync.exit
+12:                                               ; preds = %9
+  %13 = tail call i32 @git_fsync(i32 noundef %0, i32 noundef 0) #8
+  %14 = icmp sgt i32 %13, -1
+  br i1 %14, label %maybe_fsync.exit.thread, label %maybe_fsync.exit
 
-maybe_fsync.exit:                                 ; preds = %if.end2.i, %land.lhs.true.i
-  %call8.i = tail call i32 @git_fsync(i32 noundef %fd, i32 noundef 1) #7
-  %cmp = icmp slt i32 %call8.i, 0
-  br i1 %cmp, label %if.then, label %if.end
+maybe_fsync.exit:                                 ; preds = %9, %12
+  %15 = tail call i32 @git_fsync(i32 noundef %0, i32 noundef 1) #8
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %maybe_fsync.exit.thread
 
-if.then:                                          ; preds = %maybe_fsync.exit
-  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.3, ptr noundef %msg) #9
+17:                                               ; preds = %maybe_fsync.exit
+  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.3, ptr noundef %1) #10
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true.i, %if.end.i, %maybe_fsync.exit
+maybe_fsync.exit.thread:                          ; preds = %12, %7, %maybe_fsync.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fsync_component(i32 noundef %component, i32 noundef %fd) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @fsync_components, align 4
-  %and = and i32 %0, %component
-  %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %return, label %if.then
+define dso_local i32 @fsync_component(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr @fsync_components, align 4, !tbaa !9
+  %4 = and i32 %3, %0
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %maybe_fsync.exit, label %5
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr @use_fsync, align 4
-  %cmp.i = icmp slt i32 %1, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+5:                                                ; preds = %2
+  %6 = load i32, ptr @use_fsync, align 4, !tbaa !9
+  %7 = icmp slt i32 %6, 0
+  br i1 %7, label %8, label %10
 
-if.then.i:                                        ; preds = %if.then
-  %call.i = tail call i32 @git_env_bool(ptr noundef nonnull @.str.6, i32 noundef 1) #7
-  store i32 %call.i, ptr @use_fsync, align 4
-  br label %if.end.i
+8:                                                ; preds = %5
+  %9 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.6, i32 noundef 1) #8
+  store i32 %9, ptr @use_fsync, align 4, !tbaa !9
+  br label %10
 
-if.end.i:                                         ; preds = %if.then.i, %if.then
-  %2 = phi i32 [ %call.i, %if.then.i ], [ %1, %if.then ]
-  %tobool.not.i = icmp eq i32 %2, 0
-  br i1 %tobool.not.i, label %return, label %if.end2.i
+10:                                               ; preds = %8, %5
+  %11 = phi i32 [ %9, %8 ], [ %6, %5 ]
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %maybe_fsync.exit, label %12
 
-if.end2.i:                                        ; preds = %if.end.i
-  %3 = load i32, ptr @fsync_method, align 4
-  %cmp3.i = icmp eq i32 %3, 1
-  br i1 %cmp3.i, label %land.lhs.true.i, label %if.end7.i
+12:                                               ; preds = %10
+  %13 = load i32, ptr @fsync_method, align 4, !tbaa !9
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %15, label %18
 
-land.lhs.true.i:                                  ; preds = %if.end2.i
-  %call4.i = tail call i32 @git_fsync(i32 noundef %fd, i32 noundef 0) #7
-  %cmp5.i = icmp sgt i32 %call4.i, -1
-  br i1 %cmp5.i, label %return, label %if.end7.i
+15:                                               ; preds = %12
+  %16 = tail call i32 @git_fsync(i32 noundef %1, i32 noundef 0) #8
+  %17 = icmp sgt i32 %16, -1
+  br i1 %17, label %maybe_fsync.exit, label %18
 
-if.end7.i:                                        ; preds = %land.lhs.true.i, %if.end2.i
-  %call8.i = tail call i32 @git_fsync(i32 noundef %fd, i32 noundef 1) #7
-  br label %return
+18:                                               ; preds = %15, %12
+  %19 = tail call i32 @git_fsync(i32 noundef %1, i32 noundef 1) #8
+  br label %maybe_fsync.exit
 
-return:                                           ; preds = %if.end7.i, %land.lhs.true.i, %if.end.i, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call8.i, %if.end7.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true.i ]
-  ret i32 %retval.0
+maybe_fsync.exit:                                 ; preds = %18, %15, %10, %2
+  %.0 = phi i32 [ 0, %2 ], [ %19, %18 ], [ 0, %10 ], [ 0, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fsync_component_or_die(i32 noundef %component, i32 noundef %fd, ptr noundef %msg) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @fsync_components, align 4
-  %and = and i32 %0, %component
-  %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define dso_local void @fsync_component_or_die(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = load i32, ptr @fsync_components, align 4, !tbaa !9
+  %5 = and i32 %4, %0
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %fsync_or_die.exit, label %6
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr @use_fsync, align 4
-  %cmp.i.i = icmp slt i32 %1, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
+6:                                                ; preds = %3
+  %7 = load i32, ptr @use_fsync, align 4, !tbaa !9
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %11
 
-if.then.i.i:                                      ; preds = %if.then
-  %call.i.i = tail call i32 @git_env_bool(ptr noundef nonnull @.str.6, i32 noundef 1) #7
-  store i32 %call.i.i, ptr @use_fsync, align 4
-  br label %if.end.i.i
+9:                                                ; preds = %6
+  %10 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.6, i32 noundef 1) #8
+  store i32 %10, ptr @use_fsync, align 4, !tbaa !9
+  br label %11
 
-if.end.i.i:                                       ; preds = %if.then.i.i, %if.then
-  %2 = phi i32 [ %call.i.i, %if.then.i.i ], [ %1, %if.then ]
-  %tobool.not.i.i = icmp eq i32 %2, 0
-  br i1 %tobool.not.i.i, label %if.end, label %if.end2.i.i
+11:                                               ; preds = %9, %6
+  %12 = phi i32 [ %10, %9 ], [ %7, %6 ]
+  %.not.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i, label %fsync_or_die.exit, label %13
 
-if.end2.i.i:                                      ; preds = %if.end.i.i
-  %3 = load i32, ptr @fsync_method, align 4
-  %cmp3.i.i = icmp eq i32 %3, 1
-  br i1 %cmp3.i.i, label %land.lhs.true.i.i, label %maybe_fsync.exit.i
+13:                                               ; preds = %11
+  %14 = load i32, ptr @fsync_method, align 4, !tbaa !9
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %16, label %maybe_fsync.exit.i
 
-land.lhs.true.i.i:                                ; preds = %if.end2.i.i
-  %call4.i.i = tail call i32 @git_fsync(i32 noundef %fd, i32 noundef 0) #7
-  %cmp5.i.i = icmp sgt i32 %call4.i.i, -1
-  br i1 %cmp5.i.i, label %if.end, label %maybe_fsync.exit.i
+16:                                               ; preds = %13
+  %17 = tail call i32 @git_fsync(i32 noundef %1, i32 noundef 0) #8
+  %18 = icmp sgt i32 %17, -1
+  br i1 %18, label %fsync_or_die.exit, label %maybe_fsync.exit.i
 
-maybe_fsync.exit.i:                               ; preds = %land.lhs.true.i.i, %if.end2.i.i
-  %call8.i.i = tail call i32 @git_fsync(i32 noundef %fd, i32 noundef 1) #7
-  %cmp.i = icmp slt i32 %call8.i.i, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end
+maybe_fsync.exit.i:                               ; preds = %16, %13
+  %19 = tail call i32 @git_fsync(i32 noundef %1, i32 noundef 1) #8
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %fsync_or_die.exit
 
-if.then.i:                                        ; preds = %maybe_fsync.exit.i
-  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.3, ptr noundef %msg) #9
+21:                                               ; preds = %maybe_fsync.exit.i
+  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.3, ptr noundef %2) #10
   unreachable
 
-if.end:                                           ; preds = %maybe_fsync.exit.i, %land.lhs.true.i.i, %if.end.i.i, %entry
+fsync_or_die.exit:                                ; preds = %maybe_fsync.exit.i, %16, %11, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @write_or_die(i32 noundef %fd, ptr noundef %buf, i64 noundef %count) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @write_in_full(i32 noundef %fd, ptr noundef %buf, i64 noundef %count) #7
-  %cmp = icmp slt i64 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @write_or_die(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i64 @write_in_full(i32 noundef %0, ptr noundef %1, i64 noundef %2) #8
+  %5 = icmp slt i64 %4, 0
+  br i1 %5, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #8
-  %0 = load i32, ptr %call1, align 4
-  tail call void @check_pipe(i32 noundef %0) #7
-  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.2) #9
+6:                                                ; preds = %3
+  %7 = tail call ptr @__errno_location() #9
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  tail call void @check_pipe(i32 noundef %8) #8
+  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.2) #10
   unreachable
 
-if.end:                                           ; preds = %entry
+9:                                                ; preds = %3
   ret void
 }
 
 declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fwrite_or_die(ptr noundef captures(none) %f, ptr noundef captures(none) %buf, i64 noundef %count) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @fwrite(ptr noundef %buf, i64 noundef 1, i64 noundef %count, ptr noundef %f)
-  %cmp.not = icmp eq i64 %call, %count
-  br i1 %cmp.not, label %if.end, label %if.then
+define dso_local void @fwrite_or_die(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %0)
+  %.not = icmp eq i64 %4, %2
+  br i1 %.not, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.4) #9
+5:                                                ; preds = %3
+  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.4) #10
   unreachable
 
-if.end:                                           ; preds = %entry
+6:                                                ; preds = %3
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fflush_or_die(ptr noundef captures(none) %f) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @fflush(ptr noundef %f)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define dso_local void @fflush_or_die(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @fflush(ptr noundef %0)
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %4, label %3
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.5) #9
+3:                                                ; preds = %1
+  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.5) #10
   unreachable
 
-if.end:                                           ; preds = %entry
+4:                                                ; preds = %1
   ret void
 }
 
 declare i32 @git_fsync(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #6
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { noreturn nounwind }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(none) }
-attributes #9 = { noreturn nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}

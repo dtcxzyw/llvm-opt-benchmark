@@ -1,464 +1,516 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ewah_bitmap = type { ptr, i64, i64, i64, ptr }
 %struct.rlw_iterator = type { ptr, i64, i64, i64, %struct.anon }
 %struct.anon = type { ptr, i32, i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rlwit_init(ptr noundef %it, ptr noundef %from_ewah) #0 {
-entry:
-  %it.addr = alloca ptr, align 8
-  %from_ewah.addr = alloca ptr, align 8
-  store ptr %it, ptr %it.addr, align 8
-  store ptr %from_ewah, ptr %from_ewah.addr, align 8
-  %0 = load ptr, ptr %from_ewah.addr, align 8
-  %buffer = getelementptr inbounds %struct.ewah_bitmap, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %buffer, align 8
-  %2 = load ptr, ptr %it.addr, align 8
-  %buffer1 = getelementptr inbounds %struct.rlw_iterator, ptr %2, i32 0, i32 0
-  store ptr %1, ptr %buffer1, align 8
-  %3 = load ptr, ptr %from_ewah.addr, align 8
-  %buffer_size = getelementptr inbounds %struct.ewah_bitmap, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %buffer_size, align 8
-  %5 = load ptr, ptr %it.addr, align 8
-  %size = getelementptr inbounds %struct.rlw_iterator, ptr %5, i32 0, i32 1
-  store i64 %4, ptr %size, align 8
-  %6 = load ptr, ptr %it.addr, align 8
-  %pointer = getelementptr inbounds %struct.rlw_iterator, ptr %6, i32 0, i32 2
-  store i64 0, ptr %pointer, align 8
-  %7 = load ptr, ptr %it.addr, align 8
-  %call = call i32 @next_word(ptr noundef %7)
-  %8 = load ptr, ptr %it.addr, align 8
-  %call2 = call i64 @rlwit_literal_words(ptr noundef %8)
-  %9 = load ptr, ptr %it.addr, align 8
-  %rlw = getelementptr inbounds %struct.rlw_iterator, ptr %9, i32 0, i32 4
-  %literal_word_offset = getelementptr inbounds %struct.anon, ptr %rlw, i32 0, i32 3
-  %10 = load i32, ptr %literal_word_offset, align 8
-  %conv = sext i32 %10 to i64
-  %add = add i64 %call2, %conv
-  %11 = load ptr, ptr %it.addr, align 8
-  %literal_word_start = getelementptr inbounds %struct.rlw_iterator, ptr %11, i32 0, i32 3
-  store i64 %add, ptr %literal_word_start, align 8
+define dso_local void @rlwit_init(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw %struct.ewah_bitmap, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8, !tbaa !15
+  %10 = load ptr, ptr %4, align 8, !tbaa !9
+  %11 = getelementptr inbounds nuw %struct.ewah_bitmap, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !19
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %13, i32 0, i32 1
+  store i64 %12, ptr %14, align 8, !tbaa !20
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %15, i32 0, i32 2
+  store i64 0, ptr %16, align 8, !tbaa !21
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = call i32 @next_word(ptr noundef %17)
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = call i64 @rlwit_literal_words(ptr noundef %19)
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds nuw %struct.anon, ptr %22, i32 0, i32 3
+  %24 = load i32, ptr %23, align 8, !tbaa !22
+  %25 = sext i32 %24 to i64
+  %26 = add i64 %20, %25
+  %27 = load ptr, ptr %3, align 8, !tbaa !4
+  %28 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %27, i32 0, i32 3
+  store i64 %26, ptr %28, align 8, !tbaa !23
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @next_word(ptr noundef %it) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %it.addr = alloca ptr, align 8
-  store ptr %it, ptr %it.addr, align 8
-  %0 = load ptr, ptr %it.addr, align 8
-  %pointer = getelementptr inbounds %struct.rlw_iterator, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %pointer, align 8
-  %2 = load ptr, ptr %it.addr, align 8
-  %size = getelementptr inbounds %struct.rlw_iterator, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %size, align 8
-  %cmp = icmp uge i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @next_word(ptr noundef %0) #1 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
+  %5 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %4, i32 0, i32 2
+  %6 = load i64, ptr %5, align 8, !tbaa !21
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %7, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !20
+  %10 = icmp uge i64 %6, %9
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %62
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %it.addr, align 8
-  %buffer = getelementptr inbounds %struct.rlw_iterator, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %buffer, align 8
-  %6 = load ptr, ptr %it.addr, align 8
-  %pointer1 = getelementptr inbounds %struct.rlw_iterator, ptr %6, i32 0, i32 2
-  %7 = load i64, ptr %pointer1, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %5, i64 %7
-  %8 = load ptr, ptr %it.addr, align 8
-  %rlw = getelementptr inbounds %struct.rlw_iterator, ptr %8, i32 0, i32 4
-  %word = getelementptr inbounds %struct.anon, ptr %rlw, i32 0, i32 0
-  store ptr %arrayidx, ptr %word, align 8
-  %9 = load ptr, ptr %it.addr, align 8
-  %rlw2 = getelementptr inbounds %struct.rlw_iterator, ptr %9, i32 0, i32 4
-  %word3 = getelementptr inbounds %struct.anon, ptr %rlw2, i32 0, i32 0
-  %10 = load ptr, ptr %word3, align 8
-  %call = call i64 @rlw_get_literal_words(ptr noundef %10)
-  %add = add i64 %call, 1
-  %11 = load ptr, ptr %it.addr, align 8
-  %pointer4 = getelementptr inbounds %struct.rlw_iterator, ptr %11, i32 0, i32 2
-  %12 = load i64, ptr %pointer4, align 8
-  %add5 = add i64 %12, %add
-  store i64 %add5, ptr %pointer4, align 8
-  %13 = load ptr, ptr %it.addr, align 8
-  %rlw6 = getelementptr inbounds %struct.rlw_iterator, ptr %13, i32 0, i32 4
-  %word7 = getelementptr inbounds %struct.anon, ptr %rlw6, i32 0, i32 0
-  %14 = load ptr, ptr %word7, align 8
-  %call8 = call i64 @rlw_get_literal_words(ptr noundef %14)
-  %conv = trunc i64 %call8 to i32
-  %15 = load ptr, ptr %it.addr, align 8
-  %rlw9 = getelementptr inbounds %struct.rlw_iterator, ptr %15, i32 0, i32 4
-  %literal_words = getelementptr inbounds %struct.anon, ptr %rlw9, i32 0, i32 1
-  store i32 %conv, ptr %literal_words, align 8
-  %16 = load ptr, ptr %it.addr, align 8
-  %rlw10 = getelementptr inbounds %struct.rlw_iterator, ptr %16, i32 0, i32 4
-  %word11 = getelementptr inbounds %struct.anon, ptr %rlw10, i32 0, i32 0
-  %17 = load ptr, ptr %word11, align 8
-  %call12 = call i64 @rlw_get_running_len(ptr noundef %17)
-  %conv13 = trunc i64 %call12 to i32
-  %18 = load ptr, ptr %it.addr, align 8
-  %rlw14 = getelementptr inbounds %struct.rlw_iterator, ptr %18, i32 0, i32 4
-  %running_len = getelementptr inbounds %struct.anon, ptr %rlw14, i32 0, i32 2
-  store i32 %conv13, ptr %running_len, align 4
-  %19 = load ptr, ptr %it.addr, align 8
-  %rlw15 = getelementptr inbounds %struct.rlw_iterator, ptr %19, i32 0, i32 4
-  %word16 = getelementptr inbounds %struct.anon, ptr %rlw15, i32 0, i32 0
-  %20 = load ptr, ptr %word16, align 8
-  %call17 = call i32 @rlw_get_run_bit(ptr noundef %20)
-  %21 = load ptr, ptr %it.addr, align 8
-  %rlw18 = getelementptr inbounds %struct.rlw_iterator, ptr %21, i32 0, i32 4
-  %running_bit = getelementptr inbounds %struct.anon, ptr %rlw18, i32 0, i32 4
-  store i32 %call17, ptr %running_bit, align 4
-  %22 = load ptr, ptr %it.addr, align 8
-  %rlw19 = getelementptr inbounds %struct.rlw_iterator, ptr %22, i32 0, i32 4
-  %literal_word_offset = getelementptr inbounds %struct.anon, ptr %rlw19, i32 0, i32 3
-  store i32 0, ptr %literal_word_offset, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !15
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %16, i32 0, i32 2
+  %18 = load i64, ptr %17, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %18
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %20, i32 0, i32 4
+  %22 = getelementptr inbounds nuw %struct.anon, ptr %21, i32 0, i32 0
+  store ptr %19, ptr %22, align 8, !tbaa !24
+  %23 = load ptr, ptr %3, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %23, i32 0, i32 4
+  %25 = getelementptr inbounds nuw %struct.anon, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !24
+  %27 = call i64 @rlw_get_literal_words(ptr noundef %26)
+  %28 = add i64 %27, 1
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %29, i32 0, i32 2
+  %31 = load i64, ptr %30, align 8, !tbaa !21
+  %32 = add i64 %31, %28
+  store i64 %32, ptr %30, align 8, !tbaa !21
+  %33 = load ptr, ptr %3, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %33, i32 0, i32 4
+  %35 = getelementptr inbounds nuw %struct.anon, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
+  %37 = call i64 @rlw_get_literal_words(ptr noundef %36)
+  %38 = trunc i64 %37 to i32
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %39, i32 0, i32 4
+  %41 = getelementptr inbounds nuw %struct.anon, ptr %40, i32 0, i32 1
+  store i32 %38, ptr %41, align 8, !tbaa !25
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %42, i32 0, i32 4
+  %44 = getelementptr inbounds nuw %struct.anon, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !24
+  %46 = call i64 @rlw_get_running_len(ptr noundef %45)
+  %47 = trunc i64 %46 to i32
+  %48 = load ptr, ptr %3, align 8, !tbaa !4
+  %49 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %48, i32 0, i32 4
+  %50 = getelementptr inbounds nuw %struct.anon, ptr %49, i32 0, i32 2
+  store i32 %47, ptr %50, align 4, !tbaa !26
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %51, i32 0, i32 4
+  %53 = getelementptr inbounds nuw %struct.anon, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = call i32 @rlw_get_run_bit(ptr noundef %54)
+  %56 = load ptr, ptr %3, align 8, !tbaa !4
+  %57 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %56, i32 0, i32 4
+  %58 = getelementptr inbounds nuw %struct.anon, ptr %57, i32 0, i32 4
+  store i32 %55, ptr %58, align 4, !tbaa !27
+  %59 = load ptr, ptr %3, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %59, i32 0, i32 4
+  %61 = getelementptr inbounds nuw %struct.anon, ptr %60, i32 0, i32 3
+  store i32 0, ptr %61, align 8, !tbaa !22
+  store i32 1, ptr %2, align 4
+  br label %62
 
-return:                                           ; preds = %if.end, %if.then
-  %23 = load i32, ptr %retval, align 4
-  ret i32 %23
+62:                                               ; preds = %12, %11
+  %63 = load i32, ptr %2, align 4
+  ret i32 %63
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @rlwit_literal_words(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %3, i32 0, i32 2
+  %5 = load i64, ptr %4, align 8, !tbaa !21
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %6, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct.anon, ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 8, !tbaa !25
+  %10 = sext i32 %9 to i64
+  %11 = sub i64 %5, %10
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rlwit_literal_words(ptr noundef %it) #0 {
-entry:
-  %it.addr = alloca ptr, align 8
-  store ptr %it, ptr %it.addr, align 8
-  %0 = load ptr, ptr %it.addr, align 8
-  %pointer = getelementptr inbounds %struct.rlw_iterator, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %pointer, align 8
-  %2 = load ptr, ptr %it.addr, align 8
-  %rlw = getelementptr inbounds %struct.rlw_iterator, ptr %2, i32 0, i32 4
-  %literal_words = getelementptr inbounds %struct.anon, ptr %rlw, i32 0, i32 1
-  %3 = load i32, ptr %literal_words, align 8
-  %conv = sext i32 %3 to i64
-  %sub = sub i64 %1, %conv
-  ret i64 %sub
-}
+define dso_local void @rlwit_discard_first_words(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !28
+  br label %7
 
-; Function Attrs: nounwind uwtable
-define dso_local void @rlwit_discard_first_words(ptr noundef %it, i64 noundef %x) #0 {
-entry:
-  %it.addr = alloca ptr, align 8
-  %x.addr = alloca i64, align 8
-  %discard = alloca i64, align 8
-  store ptr %it, ptr %it.addr, align 8
-  store i64 %x, ptr %x.addr, align 8
-  br label %while.cond
+7:                                                ; preds = %96, %2
+  %8 = load i64, ptr %4, align 8, !tbaa !28
+  %9 = icmp ugt i64 %8, 0
+  br i1 %9, label %10, label %97
 
-while.cond:                                       ; preds = %if.end39, %entry
-  %0 = load i64, ptr %x.addr, align 8
-  %cmp = icmp ugt i64 %0, 0
-  br i1 %cmp, label %while.body, label %while.end
+10:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %11, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct.anon, ptr %12, i32 0, i32 2
+  %14 = load i32, ptr %13, align 4, !tbaa !26
+  %15 = sext i32 %14 to i64
+  %16 = load i64, ptr %4, align 8, !tbaa !28
+  %17 = icmp ugt i64 %15, %16
+  br i1 %17, label %18, label %27
 
-while.body:                                       ; preds = %while.cond
-  %1 = load ptr, ptr %it.addr, align 8
-  %rlw = getelementptr inbounds %struct.rlw_iterator, ptr %1, i32 0, i32 4
-  %running_len = getelementptr inbounds %struct.anon, ptr %rlw, i32 0, i32 2
-  %2 = load i32, ptr %running_len, align 4
-  %conv = sext i32 %2 to i64
-  %3 = load i64, ptr %x.addr, align 8
-  %cmp1 = icmp ugt i64 %conv, %3
-  br i1 %cmp1, label %if.then, label %if.end
+18:                                               ; preds = %10
+  %19 = load i64, ptr %4, align 8, !tbaa !28
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %20, i32 0, i32 4
+  %22 = getelementptr inbounds nuw %struct.anon, ptr %21, i32 0, i32 2
+  %23 = load i32, ptr %22, align 4, !tbaa !26
+  %24 = sext i32 %23 to i64
+  %25 = sub i64 %24, %19
+  %26 = trunc i64 %25 to i32
+  store i32 %26, ptr %22, align 4, !tbaa !26
+  store i32 1, ptr %6, align 4
+  br label %94
 
-if.then:                                          ; preds = %while.body
-  %4 = load i64, ptr %x.addr, align 8
-  %5 = load ptr, ptr %it.addr, align 8
-  %rlw3 = getelementptr inbounds %struct.rlw_iterator, ptr %5, i32 0, i32 4
-  %running_len4 = getelementptr inbounds %struct.anon, ptr %rlw3, i32 0, i32 2
-  %6 = load i32, ptr %running_len4, align 4
-  %conv5 = sext i32 %6 to i64
-  %sub = sub i64 %conv5, %4
-  %conv6 = trunc i64 %sub to i32
-  store i32 %conv6, ptr %running_len4, align 4
-  br label %while.end
+27:                                               ; preds = %10
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %28, i32 0, i32 4
+  %30 = getelementptr inbounds nuw %struct.anon, ptr %29, i32 0, i32 2
+  %31 = load i32, ptr %30, align 4, !tbaa !26
+  %32 = sext i32 %31 to i64
+  %33 = load i64, ptr %4, align 8, !tbaa !28
+  %34 = sub i64 %33, %32
+  store i64 %34, ptr %4, align 8, !tbaa !28
+  %35 = load ptr, ptr %3, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %35, i32 0, i32 4
+  %37 = getelementptr inbounds nuw %struct.anon, ptr %36, i32 0, i32 2
+  store i32 0, ptr %37, align 4, !tbaa !26
+  %38 = load i64, ptr %4, align 8, !tbaa !28
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %39, i32 0, i32 4
+  %41 = getelementptr inbounds nuw %struct.anon, ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8, !tbaa !25
+  %43 = sext i32 %42 to i64
+  %44 = icmp ugt i64 %38, %43
+  br i1 %44, label %45, label %51
 
-if.end:                                           ; preds = %while.body
-  %7 = load ptr, ptr %it.addr, align 8
-  %rlw7 = getelementptr inbounds %struct.rlw_iterator, ptr %7, i32 0, i32 4
-  %running_len8 = getelementptr inbounds %struct.anon, ptr %rlw7, i32 0, i32 2
-  %8 = load i32, ptr %running_len8, align 4
-  %conv9 = sext i32 %8 to i64
-  %9 = load i64, ptr %x.addr, align 8
-  %sub10 = sub i64 %9, %conv9
-  store i64 %sub10, ptr %x.addr, align 8
-  %10 = load ptr, ptr %it.addr, align 8
-  %rlw11 = getelementptr inbounds %struct.rlw_iterator, ptr %10, i32 0, i32 4
-  %running_len12 = getelementptr inbounds %struct.anon, ptr %rlw11, i32 0, i32 2
-  store i32 0, ptr %running_len12, align 4
-  %11 = load i64, ptr %x.addr, align 8
-  %12 = load ptr, ptr %it.addr, align 8
-  %rlw13 = getelementptr inbounds %struct.rlw_iterator, ptr %12, i32 0, i32 4
-  %literal_words = getelementptr inbounds %struct.anon, ptr %rlw13, i32 0, i32 1
-  %13 = load i32, ptr %literal_words, align 8
-  %conv14 = sext i32 %13 to i64
-  %cmp15 = icmp ugt i64 %11, %conv14
-  br i1 %cmp15, label %cond.true, label %cond.false
+45:                                               ; preds = %27
+  %46 = load ptr, ptr %3, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %46, i32 0, i32 4
+  %48 = getelementptr inbounds nuw %struct.anon, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 8, !tbaa !25
+  %50 = sext i32 %49 to i64
+  br label %53
 
-cond.true:                                        ; preds = %if.end
-  %14 = load ptr, ptr %it.addr, align 8
-  %rlw17 = getelementptr inbounds %struct.rlw_iterator, ptr %14, i32 0, i32 4
-  %literal_words18 = getelementptr inbounds %struct.anon, ptr %rlw17, i32 0, i32 1
-  %15 = load i32, ptr %literal_words18, align 8
-  %conv19 = sext i32 %15 to i64
-  br label %cond.end
+51:                                               ; preds = %27
+  %52 = load i64, ptr %4, align 8, !tbaa !28
+  br label %53
 
-cond.false:                                       ; preds = %if.end
-  %16 = load i64, ptr %x.addr, align 8
-  br label %cond.end
+53:                                               ; preds = %51, %45
+  %54 = phi i64 [ %50, %45 ], [ %52, %51 ]
+  store i64 %54, ptr %5, align 8, !tbaa !28
+  %55 = load i64, ptr %5, align 8, !tbaa !28
+  %56 = load ptr, ptr %3, align 8, !tbaa !4
+  %57 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %56, i32 0, i32 3
+  %58 = load i64, ptr %57, align 8, !tbaa !23
+  %59 = add i64 %58, %55
+  store i64 %59, ptr %57, align 8, !tbaa !23
+  %60 = load i64, ptr %5, align 8, !tbaa !28
+  %61 = load ptr, ptr %3, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %61, i32 0, i32 4
+  %63 = getelementptr inbounds nuw %struct.anon, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8, !tbaa !25
+  %65 = sext i32 %64 to i64
+  %66 = sub i64 %65, %60
+  %67 = trunc i64 %66 to i32
+  store i32 %67, ptr %63, align 8, !tbaa !25
+  %68 = load i64, ptr %5, align 8, !tbaa !28
+  %69 = load i64, ptr %4, align 8, !tbaa !28
+  %70 = sub i64 %69, %68
+  store i64 %70, ptr %4, align 8, !tbaa !28
+  %71 = load i64, ptr %4, align 8, !tbaa !28
+  %72 = icmp ugt i64 %71, 0
+  br i1 %72, label %77, label %73
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %conv19, %cond.true ], [ %16, %cond.false ]
-  store i64 %cond, ptr %discard, align 8
-  %17 = load i64, ptr %discard, align 8
-  %18 = load ptr, ptr %it.addr, align 8
-  %literal_word_start = getelementptr inbounds %struct.rlw_iterator, ptr %18, i32 0, i32 3
-  %19 = load i64, ptr %literal_word_start, align 8
-  %add = add i64 %19, %17
-  store i64 %add, ptr %literal_word_start, align 8
-  %20 = load i64, ptr %discard, align 8
-  %21 = load ptr, ptr %it.addr, align 8
-  %rlw20 = getelementptr inbounds %struct.rlw_iterator, ptr %21, i32 0, i32 4
-  %literal_words21 = getelementptr inbounds %struct.anon, ptr %rlw20, i32 0, i32 1
-  %22 = load i32, ptr %literal_words21, align 8
-  %conv22 = sext i32 %22 to i64
-  %sub23 = sub i64 %conv22, %20
-  %conv24 = trunc i64 %sub23 to i32
-  store i32 %conv24, ptr %literal_words21, align 8
-  %23 = load i64, ptr %discard, align 8
-  %24 = load i64, ptr %x.addr, align 8
-  %sub25 = sub i64 %24, %23
-  store i64 %sub25, ptr %x.addr, align 8
-  %25 = load i64, ptr %x.addr, align 8
-  %cmp26 = icmp ugt i64 %25, 0
-  br i1 %cmp26, label %if.then30, label %lor.lhs.false
+73:                                               ; preds = %53
+  %74 = load ptr, ptr %3, align 8, !tbaa !4
+  %75 = call i64 @rlwit_word_size(ptr noundef %74)
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %77, label %93
 
-lor.lhs.false:                                    ; preds = %cond.end
-  %26 = load ptr, ptr %it.addr, align 8
-  %call = call i64 @rlwit_word_size(ptr noundef %26)
-  %cmp28 = icmp eq i64 %call, 0
-  br i1 %cmp28, label %if.then30, label %if.end39
+77:                                               ; preds = %73, %53
+  %78 = load ptr, ptr %3, align 8, !tbaa !4
+  %79 = call i32 @next_word(ptr noundef %78)
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %82, label %81
 
-if.then30:                                        ; preds = %lor.lhs.false, %cond.end
-  %27 = load ptr, ptr %it.addr, align 8
-  %call31 = call i32 @next_word(ptr noundef %27)
-  %tobool = icmp ne i32 %call31, 0
-  br i1 %tobool, label %if.end33, label %if.then32
+81:                                               ; preds = %77
+  store i32 3, ptr %6, align 4
+  br label %94
 
-if.then32:                                        ; preds = %if.then30
-  br label %while.end
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %3, align 8, !tbaa !4
+  %84 = call i64 @rlwit_literal_words(ptr noundef %83)
+  %85 = load ptr, ptr %3, align 8, !tbaa !4
+  %86 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %85, i32 0, i32 4
+  %87 = getelementptr inbounds nuw %struct.anon, ptr %86, i32 0, i32 3
+  %88 = load i32, ptr %87, align 8, !tbaa !22
+  %89 = sext i32 %88 to i64
+  %90 = add i64 %84, %89
+  %91 = load ptr, ptr %3, align 8, !tbaa !4
+  %92 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %91, i32 0, i32 3
+  store i64 %90, ptr %92, align 8, !tbaa !23
+  br label %93
 
-if.end33:                                         ; preds = %if.then30
-  %28 = load ptr, ptr %it.addr, align 8
-  %call34 = call i64 @rlwit_literal_words(ptr noundef %28)
-  %29 = load ptr, ptr %it.addr, align 8
-  %rlw35 = getelementptr inbounds %struct.rlw_iterator, ptr %29, i32 0, i32 4
-  %literal_word_offset = getelementptr inbounds %struct.anon, ptr %rlw35, i32 0, i32 3
-  %30 = load i32, ptr %literal_word_offset, align 8
-  %conv36 = sext i32 %30 to i64
-  %add37 = add i64 %call34, %conv36
-  %31 = load ptr, ptr %it.addr, align 8
-  %literal_word_start38 = getelementptr inbounds %struct.rlw_iterator, ptr %31, i32 0, i32 3
-  store i64 %add37, ptr %literal_word_start38, align 8
-  br label %if.end39
+93:                                               ; preds = %82, %73
+  store i32 0, ptr %6, align 4
+  br label %94
 
-if.end39:                                         ; preds = %if.end33, %lor.lhs.false
-  br label %while.cond, !llvm.loop !5
+94:                                               ; preds = %93, %81, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  %95 = load i32, ptr %6, align 4
+  switch i32 %95, label %98 [
+    i32 0, label %96
+    i32 1, label %97
+    i32 3, label %97
+  ]
 
-while.end:                                        ; preds = %if.then32, %if.then, %while.cond
+96:                                               ; preds = %94
+  br label %7, !llvm.loop !29
+
+97:                                               ; preds = %94, %94, %7
   ret void
+
+98:                                               ; preds = %94
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @rlwit_word_size(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %3, i32 0, i32 4
+  %5 = getelementptr inbounds nuw %struct.anon, ptr %4, i32 0, i32 2
+  %6 = load i32, ptr %5, align 4, !tbaa !26
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %7, i32 0, i32 4
+  %9 = getelementptr inbounds nuw %struct.anon, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !25
+  %11 = add nsw i32 %6, %10
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rlwit_word_size(ptr noundef %it) #0 {
-entry:
-  %it.addr = alloca ptr, align 8
-  store ptr %it, ptr %it.addr, align 8
-  %0 = load ptr, ptr %it.addr, align 8
-  %rlw = getelementptr inbounds %struct.rlw_iterator, ptr %0, i32 0, i32 4
-  %running_len = getelementptr inbounds %struct.anon, ptr %rlw, i32 0, i32 2
-  %1 = load i32, ptr %running_len, align 4
-  %2 = load ptr, ptr %it.addr, align 8
-  %rlw1 = getelementptr inbounds %struct.rlw_iterator, ptr %2, i32 0, i32 4
-  %literal_words = getelementptr inbounds %struct.anon, ptr %rlw1, i32 0, i32 1
-  %3 = load i32, ptr %literal_words, align 8
-  %add = add nsw i32 %1, %3
-  %conv = sext i32 %add to i64
-  ret i64 %conv
+define dso_local i64 @rlwit_discharge(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store i64 %2, ptr %7, align 8, !tbaa !28
+  store i32 %3, ptr %8, align 4, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  store i64 0, ptr %9, align 8, !tbaa !28
+  br label %12
+
+12:                                               ; preds = %64, %4
+  %13 = load i64, ptr %9, align 8, !tbaa !28
+  %14 = load i64, ptr %7, align 8, !tbaa !28
+  %15 = icmp ult i64 %13, %14
+  br i1 %15, label %16, label %20
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8, !tbaa !4
+  %18 = call i64 @rlwit_word_size(ptr noundef %17)
+  %19 = icmp ugt i64 %18, 0
+  br label %20
+
+20:                                               ; preds = %16, %12
+  %21 = phi i1 [ false, %12 ], [ %19, %16 ]
+  br i1 %21, label %22, label %82
+
+22:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %23 = load ptr, ptr %5, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %23, i32 0, i32 4
+  %25 = getelementptr inbounds nuw %struct.anon, ptr %24, i32 0, i32 2
+  %26 = load i32, ptr %25, align 4, !tbaa !26
+  %27 = sext i32 %26 to i64
+  store i64 %27, ptr %11, align 8, !tbaa !28
+  %28 = load i64, ptr %9, align 8, !tbaa !28
+  %29 = load i64, ptr %11, align 8, !tbaa !28
+  %30 = add i64 %28, %29
+  %31 = load i64, ptr %7, align 8, !tbaa !28
+  %32 = icmp ugt i64 %30, %31
+  br i1 %32, label %33, label %37
+
+33:                                               ; preds = %22
+  %34 = load i64, ptr %7, align 8, !tbaa !28
+  %35 = load i64, ptr %9, align 8, !tbaa !28
+  %36 = sub i64 %34, %35
+  store i64 %36, ptr %11, align 8, !tbaa !28
+  br label %37
+
+37:                                               ; preds = %33, %22
+  %38 = load ptr, ptr %6, align 8, !tbaa !9
+  %39 = load ptr, ptr %5, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %39, i32 0, i32 4
+  %41 = getelementptr inbounds nuw %struct.anon, ptr %40, i32 0, i32 4
+  %42 = load i32, ptr %41, align 4, !tbaa !27
+  %43 = load i32, ptr %8, align 4, !tbaa !31
+  %44 = xor i32 %42, %43
+  %45 = load i64, ptr %11, align 8, !tbaa !28
+  %46 = call i64 @ewah_add_empty_words(ptr noundef %38, i32 noundef %44, i64 noundef %45)
+  %47 = load i64, ptr %11, align 8, !tbaa !28
+  %48 = load i64, ptr %9, align 8, !tbaa !28
+  %49 = add i64 %48, %47
+  store i64 %49, ptr %9, align 8, !tbaa !28
+  %50 = load ptr, ptr %5, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %50, i32 0, i32 4
+  %52 = getelementptr inbounds nuw %struct.anon, ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 8, !tbaa !25
+  %54 = sext i32 %53 to i64
+  store i64 %54, ptr %10, align 8, !tbaa !28
+  %55 = load i64, ptr %10, align 8, !tbaa !28
+  %56 = load i64, ptr %9, align 8, !tbaa !28
+  %57 = add i64 %55, %56
+  %58 = load i64, ptr %7, align 8, !tbaa !28
+  %59 = icmp ugt i64 %57, %58
+  br i1 %59, label %60, label %64
+
+60:                                               ; preds = %37
+  %61 = load i64, ptr %7, align 8, !tbaa !28
+  %62 = load i64, ptr %9, align 8, !tbaa !28
+  %63 = sub i64 %61, %62
+  store i64 %63, ptr %10, align 8, !tbaa !28
+  br label %64
+
+64:                                               ; preds = %60, %37
+  %65 = load ptr, ptr %6, align 8, !tbaa !9
+  %66 = load ptr, ptr %5, align 8, !tbaa !4
+  %67 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8, !tbaa !15
+  %69 = load ptr, ptr %5, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw %struct.rlw_iterator, ptr %69, i32 0, i32 3
+  %71 = load i64, ptr %70, align 8, !tbaa !23
+  %72 = getelementptr inbounds nuw i64, ptr %68, i64 %71
+  %73 = load i64, ptr %10, align 8, !tbaa !28
+  %74 = load i32, ptr %8, align 4, !tbaa !31
+  call void @ewah_add_dirty_words(ptr noundef %65, ptr noundef %72, i64 noundef %73, i32 noundef %74)
+  %75 = load ptr, ptr %5, align 8, !tbaa !4
+  %76 = load i64, ptr %10, align 8, !tbaa !28
+  %77 = load i64, ptr %11, align 8, !tbaa !28
+  %78 = add i64 %76, %77
+  call void @rlwit_discard_first_words(ptr noundef %75, i64 noundef %78)
+  %79 = load i64, ptr %10, align 8, !tbaa !28
+  %80 = load i64, ptr %9, align 8, !tbaa !28
+  %81 = add i64 %80, %79
+  store i64 %81, ptr %9, align 8, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  br label %12, !llvm.loop !32
+
+82:                                               ; preds = %20
+  %83 = load i64, ptr %9, align 8, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  ret i64 %83
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local i64 @rlwit_discharge(ptr noundef %it, ptr noundef %out, i64 noundef %max, i32 noundef %negate) #0 {
-entry:
-  %it.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %max.addr = alloca i64, align 8
-  %negate.addr = alloca i32, align 4
-  %index = alloca i64, align 8
-  %pd = alloca i64, align 8
-  %pl = alloca i64, align 8
-  store ptr %it, ptr %it.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i64 %max, ptr %max.addr, align 8
-  store i32 %negate, ptr %negate.addr, align 4
-  store i64 0, ptr %index, align 8
-  br label %while.cond
+declare i64 @ewah_add_empty_words(ptr noundef, i32 noundef, i64 noundef) #3
 
-while.cond:                                       ; preds = %if.end14, %entry
-  %0 = load i64, ptr %index, align 8
-  %1 = load i64, ptr %max.addr, align 8
-  %cmp = icmp ult i64 %0, %1
-  br i1 %cmp, label %land.rhs, label %land.end
+declare void @ewah_add_dirty_words(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #3
 
-land.rhs:                                         ; preds = %while.cond
-  %2 = load ptr, ptr %it.addr, align 8
-  %call = call i64 @rlwit_word_size(ptr noundef %2)
-  %cmp1 = icmp ugt i64 %call, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %3 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
-  br i1 %3, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %4 = load ptr, ptr %it.addr, align 8
-  %rlw = getelementptr inbounds %struct.rlw_iterator, ptr %4, i32 0, i32 4
-  %running_len = getelementptr inbounds %struct.anon, ptr %rlw, i32 0, i32 2
-  %5 = load i32, ptr %running_len, align 4
-  %conv = sext i32 %5 to i64
-  store i64 %conv, ptr %pl, align 8
-  %6 = load i64, ptr %index, align 8
-  %7 = load i64, ptr %pl, align 8
-  %add = add i64 %6, %7
-  %8 = load i64, ptr %max.addr, align 8
-  %cmp2 = icmp ugt i64 %add, %8
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %while.body
-  %9 = load i64, ptr %max.addr, align 8
-  %10 = load i64, ptr %index, align 8
-  %sub = sub i64 %9, %10
-  store i64 %sub, ptr %pl, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %while.body
-  %11 = load ptr, ptr %out.addr, align 8
-  %12 = load ptr, ptr %it.addr, align 8
-  %rlw4 = getelementptr inbounds %struct.rlw_iterator, ptr %12, i32 0, i32 4
-  %running_bit = getelementptr inbounds %struct.anon, ptr %rlw4, i32 0, i32 4
-  %13 = load i32, ptr %running_bit, align 4
-  %14 = load i32, ptr %negate.addr, align 4
-  %xor = xor i32 %13, %14
-  %15 = load i64, ptr %pl, align 8
-  %call5 = call i64 @ewah_add_empty_words(ptr noundef %11, i32 noundef %xor, i64 noundef %15)
-  %16 = load i64, ptr %pl, align 8
-  %17 = load i64, ptr %index, align 8
-  %add6 = add i64 %17, %16
-  store i64 %add6, ptr %index, align 8
-  %18 = load ptr, ptr %it.addr, align 8
-  %rlw7 = getelementptr inbounds %struct.rlw_iterator, ptr %18, i32 0, i32 4
-  %literal_words = getelementptr inbounds %struct.anon, ptr %rlw7, i32 0, i32 1
-  %19 = load i32, ptr %literal_words, align 8
-  %conv8 = sext i32 %19 to i64
-  store i64 %conv8, ptr %pd, align 8
-  %20 = load i64, ptr %pd, align 8
-  %21 = load i64, ptr %index, align 8
-  %add9 = add i64 %20, %21
-  %22 = load i64, ptr %max.addr, align 8
-  %cmp10 = icmp ugt i64 %add9, %22
-  br i1 %cmp10, label %if.then12, label %if.end14
-
-if.then12:                                        ; preds = %if.end
-  %23 = load i64, ptr %max.addr, align 8
-  %24 = load i64, ptr %index, align 8
-  %sub13 = sub i64 %23, %24
-  store i64 %sub13, ptr %pd, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then12, %if.end
-  %25 = load ptr, ptr %out.addr, align 8
-  %26 = load ptr, ptr %it.addr, align 8
-  %buffer = getelementptr inbounds %struct.rlw_iterator, ptr %26, i32 0, i32 0
-  %27 = load ptr, ptr %buffer, align 8
-  %28 = load ptr, ptr %it.addr, align 8
-  %literal_word_start = getelementptr inbounds %struct.rlw_iterator, ptr %28, i32 0, i32 3
-  %29 = load i64, ptr %literal_word_start, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %27, i64 %29
-  %30 = load i64, ptr %pd, align 8
-  %31 = load i32, ptr %negate.addr, align 4
-  call void @ewah_add_dirty_words(ptr noundef %25, ptr noundef %add.ptr, i64 noundef %30, i32 noundef %31)
-  %32 = load ptr, ptr %it.addr, align 8
-  %33 = load i64, ptr %pd, align 8
-  %34 = load i64, ptr %pl, align 8
-  %add15 = add i64 %33, %34
-  call void @rlwit_discard_first_words(ptr noundef %32, i64 noundef %add15)
-  %35 = load i64, ptr %pd, align 8
-  %36 = load i64, ptr %index, align 8
-  %add16 = add i64 %36, %35
-  store i64 %add16, ptr %index, align 8
-  br label %while.cond, !llvm.loop !7
-
-while.end:                                        ; preds = %land.end
-  %37 = load i64, ptr %index, align 8
-  ret i64 %37
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @rlw_get_literal_words(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %4 = load i64, ptr %3, align 8, !tbaa !28
+  %5 = lshr i64 %4, 33
+  ret i64 %5
 }
 
-declare i64 @ewah_add_empty_words(ptr noundef, i32 noundef, i64 noundef) #1
-
-declare void @ewah_add_dirty_words(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @rlw_get_literal_words(ptr noundef %word) #0 {
-entry:
-  %word.addr = alloca ptr, align 8
-  store ptr %word, ptr %word.addr, align 8
-  %0 = load ptr, ptr %word.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %shr = lshr i64 %1, 33
-  ret i64 %shr
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @rlw_get_running_len(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %4 = load i64, ptr %3, align 8, !tbaa !28
+  %5 = lshr i64 %4, 1
+  %6 = and i64 %5, 4294967295
+  ret i64 %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @rlw_get_running_len(ptr noundef %word) #0 {
-entry:
-  %word.addr = alloca ptr, align 8
-  store ptr %word, ptr %word.addr, align 8
-  %0 = load ptr, ptr %word.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %shr = lshr i64 %1, 1
-  %and = and i64 %shr, 4294967295
-  ret i64 %and
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @rlw_get_run_bit(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %4 = load i64, ptr %3, align 8, !tbaa !28
+  %5 = and i64 %4, 1
+  %6 = trunc i64 %5 to i32
+  ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @rlw_get_run_bit(ptr noundef %word) #0 {
-entry:
-  %word.addr = alloca ptr, align 8
-  store ptr %word, ptr %word.addr, align 8
-  %0 = load ptr, ptr %word.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %and = and i64 %1, 1
-  %conv = trunc i64 %and to i32
-  ret i32 %conv
-}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS12rlw_iterator", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS11ewah_bitmap", !6, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"ewah_bitmap", !13, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !13, i64 32}
+!13 = !{!"p1 long", !6, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!16, !13, i64 0}
+!16 = !{!"rlw_iterator", !13, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !17, i64 32}
+!17 = !{!"", !13, i64 0, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!12, !14, i64 8}
+!20 = !{!16, !14, i64 8}
+!21 = !{!16, !14, i64 16}
+!22 = !{!16, !18, i64 48}
+!23 = !{!16, !14, i64 24}
+!24 = !{!16, !13, i64 32}
+!25 = !{!16, !18, i64 40}
+!26 = !{!16, !18, i64 44}
+!27 = !{!16, !18, i64 52}
+!28 = !{!14, !14, i64 0}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = !{!18, !18, i64 0}
+!32 = distinct !{!32, !30}
+!33 = !{!13, !13, i64 0}

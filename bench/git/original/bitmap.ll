@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.bitmap = type { ptr, i64 }
 %struct.ewah_iterator = type { ptr, i64, i64, i64, i64, i64, i64, i32 }
@@ -8,1147 +8,1475 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bitmap_word_alloc(i64 noundef %word_alloc) #0 {
-entry:
-  %word_alloc.addr = alloca i64, align 8
-  %bitmap = alloca ptr, align 8
-  store i64 %word_alloc, ptr %word_alloc.addr, align 8
-  %call = call ptr @xmalloc(i64 noundef 16)
-  store ptr %call, ptr %bitmap, align 8
-  %0 = load i64, ptr %word_alloc.addr, align 8
-  %call1 = call ptr @xcalloc(i64 noundef %0, i64 noundef 8)
-  %1 = load ptr, ptr %bitmap, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %1, i32 0, i32 0
-  store ptr %call1, ptr %words, align 8
-  %2 = load i64, ptr %word_alloc.addr, align 8
-  %3 = load ptr, ptr %bitmap, align 8
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %3, i32 0, i32 1
-  store i64 %2, ptr %word_alloc2, align 8
-  %4 = load ptr, ptr %bitmap, align 8
-  ret ptr %4
+define dso_local ptr @bitmap_word_alloc(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = call ptr @xmalloc(i64 noundef 16)
+  store ptr %4, ptr %3, align 8, !tbaa !8
+  %5 = load i64, ptr %2, align 8, !tbaa !4
+  %6 = call ptr @xcalloc(i64 noundef %5, i64 noundef 8)
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.bitmap, ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !11
+  %9 = load i64, ptr %2, align 8, !tbaa !4
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.bitmap, ptr %10, i32 0, i32 1
+  store i64 %9, ptr %11, align 8, !tbaa !14
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %12
 }
 
-declare ptr @xmalloc(i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @xcalloc(i64 noundef, i64 noundef) #1
+declare ptr @xmalloc(i64 noundef) #2
+
+declare ptr @xcalloc(i64 noundef, i64 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @bitmap_new() #0 {
-entry:
-  %call = call ptr @bitmap_word_alloc(i64 noundef 32)
-  ret ptr %call
+  %1 = call ptr @bitmap_word_alloc(i64 noundef 32)
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bitmap_dup(ptr noundef %src) #0 {
-entry:
-  %src.addr = alloca ptr, align 8
-  %dst = alloca ptr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  %0 = load ptr, ptr %src.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %word_alloc, align 8
-  %call = call ptr @bitmap_word_alloc(i64 noundef %1)
-  store ptr %call, ptr %dst, align 8
-  %2 = load ptr, ptr %dst, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %words, align 8
-  %4 = load ptr, ptr %src.addr, align 8
-  %words1 = getelementptr inbounds %struct.bitmap, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %words1, align 8
-  %6 = load ptr, ptr %src.addr, align 8
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %6, i32 0, i32 1
-  %7 = load i64, ptr %word_alloc2, align 8
-  call void @copy_array(ptr noundef %3, ptr noundef %5, i64 noundef %7, i64 noundef 8)
-  %8 = load ptr, ptr %dst, align 8
-  ret ptr %8
+define dso_local ptr @bitmap_dup(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw %struct.bitmap, ptr %4, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8, !tbaa !14
+  %7 = call ptr @bitmap_word_alloc(i64 noundef %6)
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.bitmap, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %11 = load ptr, ptr %2, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.bitmap, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !11
+  %14 = load ptr, ptr %2, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.bitmap, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !14
+  call void @copy_array(ptr noundef %10, ptr noundef %13, i64 noundef %16, i64 noundef 8)
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @copy_array(ptr noundef %dst, ptr noundef %src, i64 noundef %n, i64 noundef %size) #0 {
-entry:
-  %dst.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %n.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @copy_array(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #3 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i64 %2, ptr %7, align 8, !tbaa !4
+  store i64 %3, ptr %8, align 8, !tbaa !4
+  %9 = load i64, ptr %7, align 8, !tbaa !4
+  %10 = icmp ne i64 %9, 0
+  br i1 %10, label %11, label %17
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %dst.addr, align 8
-  %2 = load ptr, ptr %src.addr, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %4 = load i64, ptr %n.addr, align 8
-  %call = call i64 @st_mult(i64 noundef %3, i64 noundef %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %2, i64 %call, i1 false)
-  br label %if.end
+11:                                               ; preds = %4
+  %12 = load ptr, ptr %5, align 8, !tbaa !15
+  %13 = load ptr, ptr %6, align 8, !tbaa !15
+  %14 = load i64, ptr %8, align 8, !tbaa !4
+  %15 = load i64, ptr %7, align 8, !tbaa !4
+  %16 = call i64 @st_mult(i64 noundef %14, i64 noundef %15)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %13, i64 %16, i1 false)
+  br label %17
 
-if.end:                                           ; preds = %if.then, %entry
+17:                                               ; preds = %11, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_set(ptr noundef %self, i64 noundef %pos) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %pos.addr = alloca i64, align 8
-  %block = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i64 %pos, ptr %pos.addr, align 8
-  %0 = load i64, ptr %pos.addr, align 8
-  %div = udiv i64 %0, 64
-  store i64 %div, ptr %block, align 8
-  %1 = load ptr, ptr %self.addr, align 8
-  %2 = load i64, ptr %block, align 8
-  %add = add i64 %2, 1
-  call void @bitmap_grow(ptr noundef %1, i64 noundef %add)
-  %3 = load i64, ptr %pos.addr, align 8
-  %rem = urem i64 %3, 64
-  %shl = shl i64 1, %rem
-  %4 = load ptr, ptr %self.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %words, align 8
-  %6 = load i64, ptr %block, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %5, i64 %6
-  %7 = load i64, ptr %arrayidx, align 8
-  %or = or i64 %7, %shl
-  store i64 %or, ptr %arrayidx, align 8
+define dso_local void @bitmap_set(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load i64, ptr %4, align 8, !tbaa !4
+  %7 = udiv i64 %6, 64
+  store i64 %7, ptr %5, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = load i64, ptr %5, align 8, !tbaa !4
+  %10 = add i64 %9, 1
+  call void @bitmap_grow(ptr noundef %8, i64 noundef %10)
+  %11 = load i64, ptr %4, align 8, !tbaa !4
+  %12 = urem i64 %11, 64
+  %13 = shl i64 1, %12
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.bitmap, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = load i64, ptr %5, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
+  %19 = load i64, ptr %18, align 8, !tbaa !4
+  %20 = or i64 %19, %13
+  store i64 %20, ptr %18, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bitmap_grow(ptr noundef %self, i64 noundef %word_alloc) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %word_alloc.addr = alloca i64, align 8
-  %old_size = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i64 %word_alloc, ptr %word_alloc.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %word_alloc1 = getelementptr inbounds %struct.bitmap, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %word_alloc1, align 8
-  store i64 %1, ptr %old_size, align 8
-  br label %do.body
+define internal void @bitmap_grow(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.bitmap, ptr %6, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8, !tbaa !14
+  store i64 %8, ptr %5, align 8, !tbaa !4
+  br label %9
 
-do.body:                                          ; preds = %entry
-  %2 = load i64, ptr %word_alloc.addr, align 8
-  %3 = load ptr, ptr %self.addr, align 8
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %word_alloc2, align 8
-  %cmp = icmp ugt i64 %2, %4
-  br i1 %cmp, label %if.then, label %if.end15
+9:                                                ; preds = %2
+  %10 = load i64, ptr %4, align 8, !tbaa !4
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.bitmap, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !14
+  %14 = icmp ugt i64 %10, %13
+  br i1 %14, label %15, label %48
 
-if.then:                                          ; preds = %do.body
-  %5 = load ptr, ptr %self.addr, align 8
-  %word_alloc3 = getelementptr inbounds %struct.bitmap, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %word_alloc3, align 8
-  %add = add i64 %6, 16
-  %mul = mul i64 %add, 3
-  %div = udiv i64 %mul, 2
-  %7 = load i64, ptr %word_alloc.addr, align 8
-  %cmp4 = icmp ult i64 %div, %7
-  br i1 %cmp4, label %if.then5, label %if.else
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.bitmap, ptr %16, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8, !tbaa !14
+  %19 = add i64 %18, 16
+  %20 = mul i64 %19, 3
+  %21 = udiv i64 %20, 2
+  %22 = load i64, ptr %4, align 8, !tbaa !4
+  %23 = icmp ult i64 %21, %22
+  br i1 %23, label %24, label %28
 
-if.then5:                                         ; preds = %if.then
-  %8 = load i64, ptr %word_alloc.addr, align 8
-  %9 = load ptr, ptr %self.addr, align 8
-  %word_alloc6 = getelementptr inbounds %struct.bitmap, ptr %9, i32 0, i32 1
-  store i64 %8, ptr %word_alloc6, align 8
-  br label %if.end
+24:                                               ; preds = %15
+  %25 = load i64, ptr %4, align 8, !tbaa !4
+  %26 = load ptr, ptr %3, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.bitmap, ptr %26, i32 0, i32 1
+  store i64 %25, ptr %27, align 8, !tbaa !14
+  br label %37
 
-if.else:                                          ; preds = %if.then
-  %10 = load ptr, ptr %self.addr, align 8
-  %word_alloc7 = getelementptr inbounds %struct.bitmap, ptr %10, i32 0, i32 1
-  %11 = load i64, ptr %word_alloc7, align 8
-  %add8 = add i64 %11, 16
-  %mul9 = mul i64 %add8, 3
-  %div10 = udiv i64 %mul9, 2
-  %12 = load ptr, ptr %self.addr, align 8
-  %word_alloc11 = getelementptr inbounds %struct.bitmap, ptr %12, i32 0, i32 1
-  store i64 %div10, ptr %word_alloc11, align 8
-  br label %if.end
+28:                                               ; preds = %15
+  %29 = load ptr, ptr %3, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.bitmap, ptr %29, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8, !tbaa !14
+  %32 = add i64 %31, 16
+  %33 = mul i64 %32, 3
+  %34 = udiv i64 %33, 2
+  %35 = load ptr, ptr %3, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %struct.bitmap, ptr %35, i32 0, i32 1
+  store i64 %34, ptr %36, align 8, !tbaa !14
+  br label %37
 
-if.end:                                           ; preds = %if.else, %if.then5
-  %13 = load ptr, ptr %self.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %words, align 8
-  %15 = load ptr, ptr %self.addr, align 8
-  %word_alloc12 = getelementptr inbounds %struct.bitmap, ptr %15, i32 0, i32 1
-  %16 = load i64, ptr %word_alloc12, align 8
-  %call = call i64 @st_mult(i64 noundef 8, i64 noundef %16)
-  %call13 = call ptr @xrealloc(ptr noundef %14, i64 noundef %call)
-  %17 = load ptr, ptr %self.addr, align 8
-  %words14 = getelementptr inbounds %struct.bitmap, ptr %17, i32 0, i32 0
-  store ptr %call13, ptr %words14, align 8
-  br label %if.end15
+37:                                               ; preds = %28, %24
+  %38 = load ptr, ptr %3, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.bitmap, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !11
+  %41 = load ptr, ptr %3, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.bitmap, ptr %41, i32 0, i32 1
+  %43 = load i64, ptr %42, align 8, !tbaa !14
+  %44 = call i64 @st_mult(i64 noundef 8, i64 noundef %43)
+  %45 = call ptr @xrealloc(ptr noundef %40, i64 noundef %44)
+  %46 = load ptr, ptr %3, align 8, !tbaa !8
+  %47 = getelementptr inbounds nuw %struct.bitmap, ptr %46, i32 0, i32 0
+  store ptr %45, ptr %47, align 8, !tbaa !11
+  br label %48
 
-if.end15:                                         ; preds = %if.end, %do.body
-  br label %do.end
+48:                                               ; preds = %37, %9
+  br label %49
 
-do.end:                                           ; preds = %if.end15
-  %18 = load ptr, ptr %self.addr, align 8
-  %words16 = getelementptr inbounds %struct.bitmap, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %words16, align 8
-  %20 = load i64, ptr %old_size, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %19, i64 %20
-  %21 = load ptr, ptr %self.addr, align 8
-  %word_alloc17 = getelementptr inbounds %struct.bitmap, ptr %21, i32 0, i32 1
-  %22 = load i64, ptr %word_alloc17, align 8
-  %23 = load i64, ptr %old_size, align 8
-  %sub = sub i64 %22, %23
-  %mul18 = mul i64 %sub, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %mul18, i1 false)
+49:                                               ; preds = %48
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %3, align 8, !tbaa !8
+  %52 = getelementptr inbounds nuw %struct.bitmap, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !11
+  %54 = load i64, ptr %5, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
+  %56 = load ptr, ptr %3, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw %struct.bitmap, ptr %56, i32 0, i32 1
+  %58 = load i64, ptr %57, align 8, !tbaa !14
+  %59 = load i64, ptr %5, align 8, !tbaa !4
+  %60 = sub i64 %58, %59
+  %61 = mul i64 %60, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %61, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_unset(ptr noundef %self, i64 noundef %pos) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %pos.addr = alloca i64, align 8
-  %block = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i64 %pos, ptr %pos.addr, align 8
-  %0 = load i64, ptr %pos.addr, align 8
-  %div = udiv i64 %0, 64
-  store i64 %div, ptr %block, align 8
-  %1 = load i64, ptr %block, align 8
-  %2 = load ptr, ptr %self.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %word_alloc, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @bitmap_unset(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load i64, ptr %4, align 8, !tbaa !4
+  %7 = udiv i64 %6, 64
+  store i64 %7, ptr %5, align 8, !tbaa !4
+  %8 = load i64, ptr %5, align 8, !tbaa !4
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.bitmap, ptr %9, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8, !tbaa !14
+  %12 = icmp ult i64 %8, %11
+  br i1 %12, label %13, label %25
 
-if.then:                                          ; preds = %entry
-  %4 = load i64, ptr %pos.addr, align 8
-  %rem = urem i64 %4, 64
-  %shl = shl i64 1, %rem
-  %not = xor i64 %shl, -1
-  %5 = load ptr, ptr %self.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %words, align 8
-  %7 = load i64, ptr %block, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %6, i64 %7
-  %8 = load i64, ptr %arrayidx, align 8
-  %and = and i64 %8, %not
-  store i64 %and, ptr %arrayidx, align 8
-  br label %if.end
+13:                                               ; preds = %2
+  %14 = load i64, ptr %4, align 8, !tbaa !4
+  %15 = urem i64 %14, 64
+  %16 = shl i64 1, %15
+  %17 = xor i64 %16, -1
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.bitmap, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !11
+  %21 = load i64, ptr %5, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw i64, ptr %20, i64 %21
+  %23 = load i64, ptr %22, align 8, !tbaa !4
+  %24 = and i64 %23, %17
+  store i64 %24, ptr %22, align 8, !tbaa !4
+  br label %25
 
-if.end:                                           ; preds = %if.then, %entry
+25:                                               ; preds = %13, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bitmap_get(ptr noundef %self, i64 noundef %pos) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %pos.addr = alloca i64, align 8
-  %block = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i64 %pos, ptr %pos.addr, align 8
-  %0 = load i64, ptr %pos.addr, align 8
-  %div = udiv i64 %0, 64
-  store i64 %div, ptr %block, align 8
-  %1 = load i64, ptr %block, align 8
-  %2 = load ptr, ptr %self.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %word_alloc, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %land.rhs, label %land.end
+define dso_local i32 @bitmap_get(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load i64, ptr %4, align 8, !tbaa !4
+  %7 = udiv i64 %6, 64
+  store i64 %7, ptr %5, align 8, !tbaa !4
+  %8 = load i64, ptr %5, align 8, !tbaa !4
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.bitmap, ptr %9, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8, !tbaa !14
+  %12 = icmp ult i64 %8, %11
+  br i1 %12, label %13, label %25
 
-land.rhs:                                         ; preds = %entry
-  %4 = load ptr, ptr %self.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %words, align 8
-  %6 = load i64, ptr %block, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %5, i64 %6
-  %7 = load i64, ptr %arrayidx, align 8
-  %8 = load i64, ptr %pos.addr, align 8
-  %rem = urem i64 %8, 64
-  %shl = shl i64 1, %rem
-  %and = and i64 %7, %shl
-  %cmp1 = icmp ne i64 %and, 0
-  br label %land.end
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.bitmap, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = load i64, ptr %5, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
+  %19 = load i64, ptr %18, align 8, !tbaa !4
+  %20 = load i64, ptr %4, align 8, !tbaa !4
+  %21 = urem i64 %20, 64
+  %22 = shl i64 1, %21
+  %23 = and i64 %19, %22
+  %24 = icmp ne i64 %23, 0
+  br label %25
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %9 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
-  %land.ext = zext i1 %9 to i32
-  ret i32 %land.ext
+25:                                               ; preds = %13, %2
+  %26 = phi i1 [ false, %2 ], [ %24, %13 ]
+  %27 = zext i1 %26 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bitmap_to_ewah(ptr noundef %bitmap) #0 {
-entry:
-  %bitmap.addr = alloca ptr, align 8
-  %ewah = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %running_empty_words = alloca i64, align 8
-  %last_word = alloca i64, align 8
-  store ptr %bitmap, ptr %bitmap.addr, align 8
-  %call = call ptr @ewah_new()
-  store ptr %call, ptr %ewah, align 8
-  store i64 0, ptr %running_empty_words, align 8
-  store i64 0, ptr %last_word, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define dso_local ptr @bitmap_to_ewah(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %7 = call ptr @ewah_new()
+  store ptr %7, ptr %3, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  store i64 0, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store i64 0, ptr %6, align 8, !tbaa !4
+  store i64 0, ptr %4, align 8, !tbaa !4
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load ptr, ptr %bitmap.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %word_alloc, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+8:                                                ; preds = %46, %1
+  %9 = load i64, ptr %4, align 8, !tbaa !4
+  %10 = load ptr, ptr %2, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.bitmap, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !14
+  %13 = icmp ult i64 %9, %12
+  br i1 %13, label %14, label %49
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %bitmap.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %words, align 8
-  %5 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %4, i64 %5
-  %6 = load i64, ptr %arrayidx, align 8
-  %cmp1 = icmp eq i64 %6, 0
-  br i1 %cmp1, label %if.then, label %if.end
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %2, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.bitmap, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !11
+  %18 = load i64, ptr %4, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !4
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %22, label %25
 
-if.then:                                          ; preds = %for.body
-  %7 = load i64, ptr %running_empty_words, align 8
-  %inc = add i64 %7, 1
-  store i64 %inc, ptr %running_empty_words, align 8
-  br label %for.inc
+22:                                               ; preds = %14
+  %23 = load i64, ptr %5, align 8, !tbaa !4
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %5, align 8, !tbaa !4
+  br label %46
 
-if.end:                                           ; preds = %for.body
-  %8 = load i64, ptr %last_word, align 8
-  %cmp2 = icmp ne i64 %8, 0
-  br i1 %cmp2, label %if.then3, label %if.end5
+25:                                               ; preds = %14
+  %26 = load i64, ptr %6, align 8, !tbaa !4
+  %27 = icmp ne i64 %26, 0
+  br i1 %27, label %28, label %32
 
-if.then3:                                         ; preds = %if.end
-  %9 = load ptr, ptr %ewah, align 8
-  %10 = load i64, ptr %last_word, align 8
-  %call4 = call i64 @ewah_add(ptr noundef %9, i64 noundef %10)
-  br label %if.end5
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %3, align 8, !tbaa !16
+  %30 = load i64, ptr %6, align 8, !tbaa !4
+  %31 = call i64 @ewah_add(ptr noundef %29, i64 noundef %30)
+  br label %32
 
-if.end5:                                          ; preds = %if.then3, %if.end
-  %11 = load i64, ptr %running_empty_words, align 8
-  %cmp6 = icmp ugt i64 %11, 0
-  br i1 %cmp6, label %if.then7, label %if.end9
+32:                                               ; preds = %28, %25
+  %33 = load i64, ptr %5, align 8, !tbaa !4
+  %34 = icmp ugt i64 %33, 0
+  br i1 %34, label %35, label %39
 
-if.then7:                                         ; preds = %if.end5
-  %12 = load ptr, ptr %ewah, align 8
-  %13 = load i64, ptr %running_empty_words, align 8
-  %call8 = call i64 @ewah_add_empty_words(ptr noundef %12, i32 noundef 0, i64 noundef %13)
-  store i64 0, ptr %running_empty_words, align 8
-  br label %if.end9
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %3, align 8, !tbaa !16
+  %37 = load i64, ptr %5, align 8, !tbaa !4
+  %38 = call i64 @ewah_add_empty_words(ptr noundef %36, i32 noundef 0, i64 noundef %37)
+  store i64 0, ptr %5, align 8, !tbaa !4
+  br label %39
 
-if.end9:                                          ; preds = %if.then7, %if.end5
-  %14 = load ptr, ptr %bitmap.addr, align 8
-  %words10 = getelementptr inbounds %struct.bitmap, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %words10, align 8
-  %16 = load i64, ptr %i, align 8
-  %arrayidx11 = getelementptr inbounds i64, ptr %15, i64 %16
-  %17 = load i64, ptr %arrayidx11, align 8
-  store i64 %17, ptr %last_word, align 8
-  br label %for.inc
+39:                                               ; preds = %35, %32
+  %40 = load ptr, ptr %2, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw %struct.bitmap, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !11
+  %43 = load i64, ptr %4, align 8, !tbaa !4
+  %44 = getelementptr inbounds nuw i64, ptr %42, i64 %43
+  %45 = load i64, ptr %44, align 8, !tbaa !4
+  store i64 %45, ptr %6, align 8, !tbaa !4
+  br label %46
 
-for.inc:                                          ; preds = %if.end9, %if.then
-  %18 = load i64, ptr %i, align 8
-  %inc12 = add i64 %18, 1
-  store i64 %inc12, ptr %i, align 8
-  br label %for.cond, !llvm.loop !5
+46:                                               ; preds = %39, %22
+  %47 = load i64, ptr %4, align 8, !tbaa !4
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %4, align 8, !tbaa !4
+  br label %8, !llvm.loop !18
 
-for.end:                                          ; preds = %for.cond
-  %19 = load ptr, ptr %ewah, align 8
-  %20 = load i64, ptr %last_word, align 8
-  %call13 = call i64 @ewah_add(ptr noundef %19, i64 noundef %20)
-  %21 = load ptr, ptr %ewah, align 8
-  ret ptr %21
+49:                                               ; preds = %8
+  %50 = load ptr, ptr %3, align 8, !tbaa !16
+  %51 = load i64, ptr %6, align 8, !tbaa !4
+  %52 = call i64 @ewah_add(ptr noundef %50, i64 noundef %51)
+  %53 = load ptr, ptr %3, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %53
 }
 
-declare ptr @ewah_new() #1
+declare ptr @ewah_new() #2
 
-declare i64 @ewah_add(ptr noundef, i64 noundef) #1
+declare i64 @ewah_add(ptr noundef, i64 noundef) #2
 
-declare i64 @ewah_add_empty_words(ptr noundef, i32 noundef, i64 noundef) #1
+declare i64 @ewah_add_empty_words(ptr noundef, i32 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ewah_to_bitmap(ptr noundef %ewah) #0 {
-entry:
-  %ewah.addr = alloca ptr, align 8
-  %bitmap = alloca ptr, align 8
-  %it = alloca %struct.ewah_iterator, align 8
-  %blowup = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %ewah, ptr %ewah.addr, align 8
-  %call = call ptr @bitmap_new()
-  store ptr %call, ptr %bitmap, align 8
-  store i64 0, ptr %i, align 8
-  %0 = load ptr, ptr %ewah.addr, align 8
-  call void @ewah_iterator_init(ptr noundef %it, ptr noundef %0)
-  br label %while.cond
+define dso_local ptr @ewah_to_bitmap(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.ewah_iterator, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %7 = call ptr @bitmap_new()
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store i64 0, ptr %6, align 8, !tbaa !4
+  %8 = load ptr, ptr %2, align 8, !tbaa !16
+  call void @ewah_iterator_init(ptr noundef %4, ptr noundef %8)
+  br label %9
 
-while.cond:                                       ; preds = %do.end, %entry
-  %call1 = call i32 @ewah_iterator_next(ptr noundef %blowup, ptr noundef %it)
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %while.body, label %while.end
+9:                                                ; preds = %57, %1
+  %10 = call i32 @ewah_iterator_next(ptr noundef %5, ptr noundef %4)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %65
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body
+12:                                               ; preds = %9
+  br label %13
 
-do.body:                                          ; preds = %while.body
-  %1 = load i64, ptr %i, align 8
-  %add = add i64 %1, 1
-  %2 = load ptr, ptr %bitmap, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %word_alloc, align 8
-  %cmp = icmp ugt i64 %add, %3
-  br i1 %cmp, label %if.then, label %if.end18
+13:                                               ; preds = %12
+  %14 = load i64, ptr %6, align 8, !tbaa !4
+  %15 = add i64 %14, 1
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.bitmap, ptr %16, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8, !tbaa !14
+  %19 = icmp ugt i64 %15, %18
+  br i1 %19, label %20, label %55
 
-if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr %bitmap, align 8
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %word_alloc2, align 8
-  %add3 = add i64 %5, 16
-  %mul = mul i64 %add3, 3
-  %div = udiv i64 %mul, 2
-  %6 = load i64, ptr %i, align 8
-  %add4 = add i64 %6, 1
-  %cmp5 = icmp ult i64 %div, %add4
-  br i1 %cmp5, label %if.then6, label %if.else
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %3, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.bitmap, ptr %21, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8, !tbaa !14
+  %24 = add i64 %23, 16
+  %25 = mul i64 %24, 3
+  %26 = udiv i64 %25, 2
+  %27 = load i64, ptr %6, align 8, !tbaa !4
+  %28 = add i64 %27, 1
+  %29 = icmp ult i64 %26, %28
+  br i1 %29, label %30, label %35
 
-if.then6:                                         ; preds = %if.then
-  %7 = load i64, ptr %i, align 8
-  %add7 = add i64 %7, 1
-  %8 = load ptr, ptr %bitmap, align 8
-  %word_alloc8 = getelementptr inbounds %struct.bitmap, ptr %8, i32 0, i32 1
-  store i64 %add7, ptr %word_alloc8, align 8
-  br label %if.end
+30:                                               ; preds = %20
+  %31 = load i64, ptr %6, align 8, !tbaa !4
+  %32 = add i64 %31, 1
+  %33 = load ptr, ptr %3, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.bitmap, ptr %33, i32 0, i32 1
+  store i64 %32, ptr %34, align 8, !tbaa !14
+  br label %44
 
-if.else:                                          ; preds = %if.then
-  %9 = load ptr, ptr %bitmap, align 8
-  %word_alloc9 = getelementptr inbounds %struct.bitmap, ptr %9, i32 0, i32 1
-  %10 = load i64, ptr %word_alloc9, align 8
-  %add10 = add i64 %10, 16
-  %mul11 = mul i64 %add10, 3
-  %div12 = udiv i64 %mul11, 2
-  %11 = load ptr, ptr %bitmap, align 8
-  %word_alloc13 = getelementptr inbounds %struct.bitmap, ptr %11, i32 0, i32 1
-  store i64 %div12, ptr %word_alloc13, align 8
-  br label %if.end
+35:                                               ; preds = %20
+  %36 = load ptr, ptr %3, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.bitmap, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8, !tbaa !14
+  %39 = add i64 %38, 16
+  %40 = mul i64 %39, 3
+  %41 = udiv i64 %40, 2
+  %42 = load ptr, ptr %3, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.bitmap, ptr %42, i32 0, i32 1
+  store i64 %41, ptr %43, align 8, !tbaa !14
+  br label %44
 
-if.end:                                           ; preds = %if.else, %if.then6
-  %12 = load ptr, ptr %bitmap, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %words, align 8
-  %14 = load ptr, ptr %bitmap, align 8
-  %word_alloc14 = getelementptr inbounds %struct.bitmap, ptr %14, i32 0, i32 1
-  %15 = load i64, ptr %word_alloc14, align 8
-  %call15 = call i64 @st_mult(i64 noundef 8, i64 noundef %15)
-  %call16 = call ptr @xrealloc(ptr noundef %13, i64 noundef %call15)
-  %16 = load ptr, ptr %bitmap, align 8
-  %words17 = getelementptr inbounds %struct.bitmap, ptr %16, i32 0, i32 0
-  store ptr %call16, ptr %words17, align 8
-  br label %if.end18
+44:                                               ; preds = %35, %30
+  %45 = load ptr, ptr %3, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.bitmap, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !11
+  %48 = load ptr, ptr %3, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.bitmap, ptr %48, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8, !tbaa !14
+  %51 = call i64 @st_mult(i64 noundef 8, i64 noundef %50)
+  %52 = call ptr @xrealloc(ptr noundef %47, i64 noundef %51)
+  %53 = load ptr, ptr %3, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.bitmap, ptr %53, i32 0, i32 0
+  store ptr %52, ptr %54, align 8, !tbaa !11
+  br label %55
 
-if.end18:                                         ; preds = %if.end, %do.body
-  br label %do.end
+55:                                               ; preds = %44, %13
+  br label %56
 
-do.end:                                           ; preds = %if.end18
-  %17 = load i64, ptr %blowup, align 8
-  %18 = load ptr, ptr %bitmap, align 8
-  %words19 = getelementptr inbounds %struct.bitmap, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %words19, align 8
-  %20 = load i64, ptr %i, align 8
-  %inc = add i64 %20, 1
-  store i64 %inc, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %19, i64 %20
-  store i64 %17, ptr %arrayidx, align 8
-  br label %while.cond, !llvm.loop !7
+56:                                               ; preds = %55
+  br label %57
 
-while.end:                                        ; preds = %while.cond
-  %21 = load i64, ptr %i, align 8
-  %22 = load ptr, ptr %bitmap, align 8
-  %word_alloc20 = getelementptr inbounds %struct.bitmap, ptr %22, i32 0, i32 1
-  store i64 %21, ptr %word_alloc20, align 8
-  %23 = load ptr, ptr %bitmap, align 8
-  ret ptr %23
+57:                                               ; preds = %56
+  %58 = load i64, ptr %5, align 8, !tbaa !4
+  %59 = load ptr, ptr %3, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw %struct.bitmap, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8, !tbaa !11
+  %62 = load i64, ptr %6, align 8, !tbaa !4
+  %63 = add i64 %62, 1
+  store i64 %63, ptr %6, align 8, !tbaa !4
+  %64 = getelementptr inbounds nuw i64, ptr %61, i64 %62
+  store i64 %58, ptr %64, align 8, !tbaa !4
+  br label %9, !llvm.loop !20
+
+65:                                               ; preds = %9
+  %66 = load i64, ptr %6, align 8, !tbaa !4
+  %67 = load ptr, ptr %3, align 8, !tbaa !8
+  %68 = getelementptr inbounds nuw %struct.bitmap, ptr %67, i32 0, i32 1
+  store i64 %66, ptr %68, align 8, !tbaa !14
+  %69 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %69
 }
 
-declare void @ewah_iterator_init(ptr noundef, ptr noundef) #1
+declare void @ewah_iterator_init(ptr noundef, ptr noundef) #2
 
-declare i32 @ewah_iterator_next(ptr noundef, ptr noundef) #1
+declare i32 @ewah_iterator_next(ptr noundef, ptr noundef) #2
 
-declare ptr @xrealloc(ptr noundef, i64 noundef) #1
+declare ptr @xrealloc(ptr noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i64 @st_mult(i64 noundef %a, i64 noundef %b) #0 {
-entry:
-  %a.addr = alloca i64, align 8
-  %b.addr = alloca i64, align 8
-  store i64 %a, ptr %a.addr, align 8
-  store i64 %b, ptr %b.addr, align 8
-  %0 = load i64, ptr %a.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @st_mult(i64 noundef %0, i64 noundef %1) #3 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  %5 = load i64, ptr %3, align 8, !tbaa !4
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %7, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %b.addr, align 8
-  %2 = load i64, ptr %a.addr, align 8
-  %div = udiv i64 -1, %2
-  %cmp = icmp ugt i64 %1, %div
-  br i1 %cmp, label %if.then, label %if.end
+7:                                                ; preds = %2
+  %8 = load i64, ptr %4, align 8, !tbaa !4
+  %9 = load i64, ptr %3, align 8, !tbaa !4
+  %10 = udiv i64 -1, %9
+  %11 = icmp ugt i64 %8, %10
+  br i1 %11, label %12, label %15
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load i64, ptr %a.addr, align 8
-  %4 = load i64, ptr %b.addr, align 8
-  call void (ptr, ...) @die(ptr noundef @.str, i64 noundef %3, i64 noundef %4) #6
+12:                                               ; preds = %7
+  %13 = load i64, ptr %3, align 8, !tbaa !4
+  %14 = load i64, ptr %4, align 8, !tbaa !4
+  call void (ptr, ...) @die(ptr noundef @.str, i64 noundef %13, i64 noundef %14) #9
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %5 = load i64, ptr %a.addr, align 8
-  %6 = load i64, ptr %b.addr, align 8
-  %mul = mul i64 %5, %6
-  ret i64 %mul
+15:                                               ; preds = %7, %2
+  %16 = load i64, ptr %3, align 8, !tbaa !4
+  %17 = load i64, ptr %4, align 8, !tbaa !4
+  %18 = mul i64 %16, %17
+  ret i64 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_and_not(ptr noundef %self, ptr noundef %other) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %count = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %word_alloc, align 8
-  %2 = load ptr, ptr %other.addr, align 8
-  %word_alloc1 = getelementptr inbounds %struct.bitmap, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %word_alloc1, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %cond.true, label %cond.false
+define dso_local void @bitmap_and_not(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.bitmap, ptr %7, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !14
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.bitmap, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !14
+  %13 = icmp ult i64 %9, %12
+  br i1 %13, label %14, label %18
 
-cond.true:                                        ; preds = %entry
-  %4 = load ptr, ptr %self.addr, align 8
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %word_alloc2, align 8
-  br label %cond.end
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.bitmap, ptr %15, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8, !tbaa !14
+  br label %22
 
-cond.false:                                       ; preds = %entry
-  %6 = load ptr, ptr %other.addr, align 8
-  %word_alloc3 = getelementptr inbounds %struct.bitmap, ptr %6, i32 0, i32 1
-  %7 = load i64, ptr %word_alloc3, align 8
-  br label %cond.end
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.bitmap, ptr %19, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !14
+  br label %22
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %5, %cond.true ], [ %7, %cond.false ]
-  store i64 %cond, ptr %count, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+22:                                               ; preds = %18, %14
+  %23 = phi i64 [ %17, %14 ], [ %21, %18 ]
+  store i64 %23, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store i64 0, ptr %6, align 8, !tbaa !4
+  br label %24
 
-for.cond:                                         ; preds = %for.inc, %cond.end
-  %8 = load i64, ptr %i, align 8
-  %9 = load i64, ptr %count, align 8
-  %cmp4 = icmp ult i64 %8, %9
-  br i1 %cmp4, label %for.body, label %for.end
+24:                                               ; preds = %43, %22
+  %25 = load i64, ptr %6, align 8, !tbaa !4
+  %26 = load i64, ptr %5, align 8, !tbaa !4
+  %27 = icmp ult i64 %25, %26
+  br i1 %27, label %28, label %46
 
-for.body:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %other.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %words, align 8
-  %12 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %11, i64 %12
-  %13 = load i64, ptr %arrayidx, align 8
-  %not = xor i64 %13, -1
-  %14 = load ptr, ptr %self.addr, align 8
-  %words5 = getelementptr inbounds %struct.bitmap, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %words5, align 8
-  %16 = load i64, ptr %i, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %15, i64 %16
-  %17 = load i64, ptr %arrayidx6, align 8
-  %and = and i64 %17, %not
-  store i64 %and, ptr %arrayidx6, align 8
-  br label %for.inc
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %4, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.bitmap, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !11
+  %32 = load i64, ptr %6, align 8, !tbaa !4
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %34 = load i64, ptr %33, align 8, !tbaa !4
+  %35 = xor i64 %34, -1
+  %36 = load ptr, ptr %3, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.bitmap, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !11
+  %39 = load i64, ptr %6, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
+  %41 = load i64, ptr %40, align 8, !tbaa !4
+  %42 = and i64 %41, %35
+  store i64 %42, ptr %40, align 8, !tbaa !4
+  br label %43
 
-for.inc:                                          ; preds = %for.body
-  %18 = load i64, ptr %i, align 8
-  %inc = add i64 %18, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !8
+43:                                               ; preds = %28
+  %44 = load i64, ptr %6, align 8, !tbaa !4
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %6, align 8, !tbaa !4
+  br label %24, !llvm.loop !21
 
-for.end:                                          ; preds = %for.cond
+46:                                               ; preds = %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_or(ptr noundef %self, ptr noundef %other) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %1 = load ptr, ptr %other.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %word_alloc, align 8
-  call void @bitmap_grow(ptr noundef %0, i64 noundef %2)
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define dso_local void @bitmap_or(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.bitmap, ptr %7, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !14
+  call void @bitmap_grow(ptr noundef %6, i64 noundef %9)
+  store i64 0, ptr %5, align 8, !tbaa !4
+  br label %10
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i64, ptr %i, align 8
-  %4 = load ptr, ptr %other.addr, align 8
-  %word_alloc1 = getelementptr inbounds %struct.bitmap, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %word_alloc1, align 8
-  %cmp = icmp ult i64 %3, %5
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %30, %2
+  %11 = load i64, ptr %5, align 8, !tbaa !4
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.bitmap, ptr %12, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8, !tbaa !14
+  %15 = icmp ult i64 %11, %14
+  br i1 %15, label %16, label %33
 
-for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %other.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %words, align 8
-  %8 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %7, i64 %8
-  %9 = load i64, ptr %arrayidx, align 8
-  %10 = load ptr, ptr %self.addr, align 8
-  %words2 = getelementptr inbounds %struct.bitmap, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %words2, align 8
-  %12 = load i64, ptr %i, align 8
-  %arrayidx3 = getelementptr inbounds i64, ptr %11, i64 %12
-  %13 = load i64, ptr %arrayidx3, align 8
-  %or = or i64 %13, %9
-  store i64 %or, ptr %arrayidx3, align 8
-  br label %for.inc
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.bitmap, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !11
+  %20 = load i64, ptr %5, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %20
+  %22 = load i64, ptr %21, align 8, !tbaa !4
+  %23 = load ptr, ptr %3, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.bitmap, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !11
+  %26 = load i64, ptr %5, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %28 = load i64, ptr %27, align 8, !tbaa !4
+  %29 = or i64 %28, %22
+  store i64 %29, ptr %27, align 8, !tbaa !4
+  br label %30
 
-for.inc:                                          ; preds = %for.body
-  %14 = load i64, ptr %i, align 8
-  %inc = add i64 %14, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+30:                                               ; preds = %16
+  %31 = load i64, ptr %5, align 8, !tbaa !4
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %5, align 8, !tbaa !4
+  br label %10, !llvm.loop !22
 
-for.end:                                          ; preds = %for.cond
+33:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_or_ewah(ptr noundef %self, ptr noundef %other) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %original_size = alloca i64, align 8
-  %other_final = alloca i64, align 8
-  %i = alloca i64, align 8
-  %it = alloca %struct.ewah_iterator, align 8
-  %word = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %word_alloc, align 8
-  store i64 %1, ptr %original_size, align 8
-  %2 = load ptr, ptr %other.addr, align 8
-  %bit_size = getelementptr inbounds %struct.ewah_bitmap, ptr %2, i32 0, i32 3
-  %3 = load i64, ptr %bit_size, align 8
-  %div = udiv i64 %3, 64
-  %add = add i64 %div, 1
-  store i64 %add, ptr %other_final, align 8
-  store i64 0, ptr %i, align 8
-  %4 = load ptr, ptr %self.addr, align 8
-  %word_alloc1 = getelementptr inbounds %struct.bitmap, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %word_alloc1, align 8
-  %6 = load i64, ptr %other_final, align 8
-  %cmp = icmp ult i64 %5, %6
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @ewah_bitmap_is_subset(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.ewah_iterator, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %10 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @ewah_iterator_init(ptr noundef %6, ptr noundef %10)
+  store i64 0, ptr %8, align 8, !tbaa !4
+  br label %11
 
-if.then:                                          ; preds = %entry
-  %7 = load i64, ptr %other_final, align 8
-  %8 = load ptr, ptr %self.addr, align 8
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %8, i32 0, i32 1
-  store i64 %7, ptr %word_alloc2, align 8
-  %9 = load ptr, ptr %self.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %words, align 8
-  %11 = load ptr, ptr %self.addr, align 8
-  %word_alloc3 = getelementptr inbounds %struct.bitmap, ptr %11, i32 0, i32 1
-  %12 = load i64, ptr %word_alloc3, align 8
-  %call = call i64 @st_mult(i64 noundef 8, i64 noundef %12)
-  %call4 = call ptr @xrealloc(ptr noundef %10, i64 noundef %call)
-  %13 = load ptr, ptr %self.addr, align 8
-  %words5 = getelementptr inbounds %struct.bitmap, ptr %13, i32 0, i32 0
-  store ptr %call4, ptr %words5, align 8
-  %14 = load ptr, ptr %self.addr, align 8
-  %words6 = getelementptr inbounds %struct.bitmap, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %words6, align 8
-  %16 = load i64, ptr %original_size, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %15, i64 %16
-  %17 = load ptr, ptr %self.addr, align 8
-  %word_alloc7 = getelementptr inbounds %struct.bitmap, ptr %17, i32 0, i32 1
-  %18 = load i64, ptr %word_alloc7, align 8
-  %19 = load i64, ptr %original_size, align 8
-  %sub = sub i64 %18, %19
-  %mul = mul i64 %sub, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %mul, i1 false)
-  br label %if.end
+11:                                               ; preds = %34, %2
+  %12 = load i64, ptr %8, align 8, !tbaa !4
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.bitmap, ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !14
+  %16 = icmp ult i64 %12, %15
+  br i1 %16, label %17, label %37
 
-if.end:                                           ; preds = %if.then, %entry
-  %20 = load ptr, ptr %other.addr, align 8
-  call void @ewah_iterator_init(ptr noundef %it, ptr noundef %20)
-  br label %while.cond
+17:                                               ; preds = %11
+  %18 = call i32 @ewah_iterator_next(ptr noundef %7, ptr noundef %6)
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %21, label %20
 
-while.cond:                                       ; preds = %while.body, %if.end
-  %call8 = call i32 @ewah_iterator_next(ptr noundef %word, ptr noundef %it)
-  %tobool = icmp ne i32 %call8, 0
-  br i1 %tobool, label %while.body, label %while.end
+20:                                               ; preds = %17
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %47
 
-while.body:                                       ; preds = %while.cond
-  %21 = load i64, ptr %word, align 8
-  %22 = load ptr, ptr %self.addr, align 8
-  %words9 = getelementptr inbounds %struct.bitmap, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %words9, align 8
-  %24 = load i64, ptr %i, align 8
-  %inc = add i64 %24, 1
-  store i64 %inc, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %23, i64 %24
-  %25 = load i64, ptr %arrayidx, align 8
-  %or = or i64 %25, %21
-  store i64 %or, ptr %arrayidx, align 8
-  br label %while.cond, !llvm.loop !10
+21:                                               ; preds = %17
+  %22 = load i64, ptr %7, align 8, !tbaa !4
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.bitmap, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !11
+  %26 = load i64, ptr %8, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %28 = load i64, ptr %27, align 8, !tbaa !4
+  %29 = xor i64 %28, -1
+  %30 = and i64 %22, %29
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %33
 
-while.end:                                        ; preds = %while.cond
+32:                                               ; preds = %21
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %47
+
+33:                                               ; preds = %21
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load i64, ptr %8, align 8, !tbaa !4
+  %36 = add i64 %35, 1
+  store i64 %36, ptr %8, align 8, !tbaa !4
+  br label %11, !llvm.loop !23
+
+37:                                               ; preds = %11
+  br label %38
+
+38:                                               ; preds = %45, %37
+  %39 = call i32 @ewah_iterator_next(ptr noundef %7, ptr noundef %6)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %46
+
+41:                                               ; preds = %38
+  %42 = load i64, ptr %7, align 8, !tbaa !4
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %41
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %47
+
+45:                                               ; preds = %41
+  br label %38, !llvm.loop !24
+
+46:                                               ; preds = %38
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %47
+
+47:                                               ; preds = %46, %44, %32, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %6) #8
+  %48 = load i32, ptr %3, align 4
+  ret i32 %48
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @bitmap_or_ewah(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct.ewah_iterator, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.bitmap, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !14
+  store i64 %12, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %13 = load ptr, ptr %4, align 8, !tbaa !16
+  %14 = getelementptr inbounds nuw %struct.ewah_bitmap, ptr %13, i32 0, i32 3
+  %15 = load i64, ptr %14, align 8, !tbaa !25
+  %16 = udiv i64 %15, 64
+  %17 = add i64 %16, 1
+  store i64 %17, ptr %6, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  store i64 0, ptr %7, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 64, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.bitmap, ptr %18, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8, !tbaa !14
+  %21 = load i64, ptr %6, align 8, !tbaa !4
+  %22 = icmp ult i64 %20, %21
+  br i1 %22, label %23, label %48
+
+23:                                               ; preds = %2
+  %24 = load i64, ptr %6, align 8, !tbaa !4
+  %25 = load ptr, ptr %3, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.bitmap, ptr %25, i32 0, i32 1
+  store i64 %24, ptr %26, align 8, !tbaa !14
+  %27 = load ptr, ptr %3, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.bitmap, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !11
+  %30 = load ptr, ptr %3, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct.bitmap, ptr %30, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8, !tbaa !14
+  %33 = call i64 @st_mult(i64 noundef 8, i64 noundef %32)
+  %34 = call ptr @xrealloc(ptr noundef %29, i64 noundef %33)
+  %35 = load ptr, ptr %3, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %struct.bitmap, ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8, !tbaa !11
+  %37 = load ptr, ptr %3, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.bitmap, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !11
+  %40 = load i64, ptr %5, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
+  %42 = load ptr, ptr %3, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.bitmap, ptr %42, i32 0, i32 1
+  %44 = load i64, ptr %43, align 8, !tbaa !14
+  %45 = load i64, ptr %5, align 8, !tbaa !4
+  %46 = sub i64 %44, %45
+  %47 = mul i64 %46, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %47, i1 false)
+  br label %48
+
+48:                                               ; preds = %23, %2
+  %49 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @ewah_iterator_init(ptr noundef %8, ptr noundef %49)
+  br label %50
+
+50:                                               ; preds = %53, %48
+  %51 = call i32 @ewah_iterator_next(ptr noundef %9, ptr noundef %8)
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %63
+
+53:                                               ; preds = %50
+  %54 = load i64, ptr %9, align 8, !tbaa !4
+  %55 = load ptr, ptr %3, align 8, !tbaa !8
+  %56 = getelementptr inbounds nuw %struct.bitmap, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  %58 = load i64, ptr %7, align 8, !tbaa !4
+  %59 = add i64 %58, 1
+  store i64 %59, ptr %7, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %61 = load i64, ptr %60, align 8, !tbaa !4
+  %62 = or i64 %61, %54
+  store i64 %62, ptr %60, align 8, !tbaa !4
+  br label %50, !llvm.loop !27
+
+63:                                               ; preds = %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitmap_popcount(ptr noundef %self) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %count = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i64 0, ptr %count, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define dso_local i64 @bitmap_popcount(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  store i64 0, ptr %4, align 8, !tbaa !4
+  store i64 0, ptr %3, align 8, !tbaa !4
+  br label %5
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load ptr, ptr %self.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %word_alloc, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+5:                                                ; preds = %22, %1
+  %6 = load i64, ptr %3, align 8, !tbaa !4
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.bitmap, ptr %7, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !14
+  %10 = icmp ult i64 %6, %9
+  br i1 %10, label %11, label %25
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %self.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %words, align 8
-  %5 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %4, i64 %5
-  %6 = load i64, ptr %arrayidx, align 8
-  %call = call i32 @ewah_bit_popcount64(i64 noundef %6)
-  %conv = zext i32 %call to i64
-  %7 = load i64, ptr %count, align 8
-  %add = add i64 %7, %conv
-  store i64 %add, ptr %count, align 8
-  br label %for.inc
+11:                                               ; preds = %5
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.bitmap, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !11
+  %15 = load i64, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %17 = load i64, ptr %16, align 8, !tbaa !4
+  %18 = call i32 @ewah_bit_popcount64(i64 noundef %17)
+  %19 = zext i32 %18 to i64
+  %20 = load i64, ptr %4, align 8, !tbaa !4
+  %21 = add i64 %20, %19
+  store i64 %21, ptr %4, align 8, !tbaa !4
+  br label %22
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !11
+22:                                               ; preds = %11
+  %23 = load i64, ptr %3, align 8, !tbaa !4
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %3, align 8, !tbaa !4
+  br label %5, !llvm.loop !28
 
-for.end:                                          ; preds = %for.cond
-  %9 = load i64, ptr %count, align 8
-  ret i64 %9
+25:                                               ; preds = %5
+  %26 = load i64, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %26
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ewah_bit_popcount64(i64 noundef %0) #3 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !4
+  %3 = load i64, ptr %2, align 8, !tbaa !4
+  %4 = and i64 %3, 6148914691236517205
+  %5 = load i64, ptr %2, align 8, !tbaa !4
+  %6 = lshr i64 %5, 1
+  %7 = and i64 %6, 6148914691236517205
+  %8 = add i64 %4, %7
+  store i64 %8, ptr %2, align 8, !tbaa !4
+  %9 = load i64, ptr %2, align 8, !tbaa !4
+  %10 = and i64 %9, 3689348814741910323
+  %11 = load i64, ptr %2, align 8, !tbaa !4
+  %12 = lshr i64 %11, 2
+  %13 = and i64 %12, 3689348814741910323
+  %14 = add i64 %10, %13
+  store i64 %14, ptr %2, align 8, !tbaa !4
+  %15 = load i64, ptr %2, align 8, !tbaa !4
+  %16 = and i64 %15, 1085102592571150095
+  %17 = load i64, ptr %2, align 8, !tbaa !4
+  %18 = lshr i64 %17, 4
+  %19 = and i64 %18, 1085102592571150095
+  %20 = add i64 %16, %19
+  store i64 %20, ptr %2, align 8, !tbaa !4
+  %21 = load i64, ptr %2, align 8, !tbaa !4
+  %22 = mul i64 %21, 72340172838076673
+  %23 = lshr i64 %22, 56
+  %24 = trunc i64 %23 to i32
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ewah_bit_popcount64(i64 noundef %x) #0 {
-entry:
-  %x.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %and = and i64 %0, 6148914691236517205
-  %1 = load i64, ptr %x.addr, align 8
-  %shr = lshr i64 %1, 1
-  %and1 = and i64 %shr, 6148914691236517205
-  %add = add i64 %and, %and1
-  store i64 %add, ptr %x.addr, align 8
-  %2 = load i64, ptr %x.addr, align 8
-  %and2 = and i64 %2, 3689348814741910323
-  %3 = load i64, ptr %x.addr, align 8
-  %shr3 = lshr i64 %3, 2
-  %and4 = and i64 %shr3, 3689348814741910323
-  %add5 = add i64 %and2, %and4
-  store i64 %add5, ptr %x.addr, align 8
-  %4 = load i64, ptr %x.addr, align 8
-  %and6 = and i64 %4, 1085102592571150095
-  %5 = load i64, ptr %x.addr, align 8
-  %shr7 = lshr i64 %5, 4
-  %and8 = and i64 %shr7, 1085102592571150095
-  %add9 = add i64 %and6, %and8
-  store i64 %add9, ptr %x.addr, align 8
-  %6 = load i64, ptr %x.addr, align 8
-  %mul = mul i64 %6, 72340172838076673
-  %shr10 = lshr i64 %mul, 56
-  %conv = trunc i64 %shr10 to i32
-  ret i32 %conv
+define dso_local i64 @ewah_bitmap_popcount(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.ewah_iterator, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 64, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  store i64 0, ptr %5, align 8, !tbaa !4
+  %6 = load ptr, ptr %2, align 8, !tbaa !16
+  call void @ewah_iterator_init(ptr noundef %3, ptr noundef %6)
+  br label %7
+
+7:                                                ; preds = %10, %1
+  %8 = call i32 @ewah_iterator_next(ptr noundef %4, ptr noundef %3)
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %16
+
+10:                                               ; preds = %7
+  %11 = load i64, ptr %4, align 8, !tbaa !4
+  %12 = call i32 @ewah_bit_popcount64(i64 noundef %11)
+  %13 = zext i32 %12 to i64
+  %14 = load i64, ptr %5, align 8, !tbaa !4
+  %15 = add i64 %14, %13
+  store i64 %15, ptr %5, align 8, !tbaa !4
+  br label %7, !llvm.loop !29
+
+16:                                               ; preds = %7
+  %17 = load i64, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %3) #8
+  ret i64 %17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bitmap_is_empty(ptr noundef %self) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define dso_local i32 @bitmap_is_empty(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  store i64 0, ptr %4, align 8, !tbaa !4
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load ptr, ptr %self.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %word_alloc, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %22, %1
+  %7 = load i64, ptr %4, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.bitmap, ptr %8, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !14
+  %11 = icmp ult i64 %7, %10
+  br i1 %11, label %12, label %25
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %self.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %words, align 8
-  %5 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %4, i64 %5
-  %6 = load i64, ptr %arrayidx, align 8
-  %tobool = icmp ne i64 %6, 0
-  br i1 %tobool, label %if.then, label %if.end
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.bitmap, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !11
+  %16 = load i64, ptr %4, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
+  %18 = load i64, ptr %17, align 8, !tbaa !4
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %for.body
-  store i32 0, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %12
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %26
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+21:                                               ; preds = %12
+  br label %22
 
-for.inc:                                          ; preds = %if.end
-  %7 = load i64, ptr %i, align 8
-  %inc = add i64 %7, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !12
+22:                                               ; preds = %21
+  %23 = load i64, ptr %4, align 8, !tbaa !4
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %4, align 8, !tbaa !4
+  br label %6, !llvm.loop !30
 
-for.end:                                          ; preds = %for.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %6
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %26
 
-return:                                           ; preds = %for.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+26:                                               ; preds = %25, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %27 = load i32, ptr %2, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bitmap_equals(ptr noundef %self, ptr noundef %other) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %big = alloca ptr, align 8
-  %small = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %word_alloc, align 8
-  %2 = load ptr, ptr %other.addr, align 8
-  %word_alloc1 = getelementptr inbounds %struct.bitmap, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %word_alloc1, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local i32 @bitmap_equals(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.bitmap, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !14
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.bitmap, ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !14
+  %16 = icmp ult i64 %12, %15
+  br i1 %16, label %17, label %20
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %self.addr, align 8
-  store ptr %4, ptr %small, align 8
-  %5 = load ptr, ptr %other.addr, align 8
-  store ptr %5, ptr %big, align 8
-  br label %if.end
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %18, ptr %7, align 8, !tbaa !8
+  %19 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %19, ptr %6, align 8, !tbaa !8
+  br label %23
 
-if.else:                                          ; preds = %entry
-  %6 = load ptr, ptr %other.addr, align 8
-  store ptr %6, ptr %small, align 8
-  %7 = load ptr, ptr %self.addr, align 8
-  store ptr %7, ptr %big, align 8
-  br label %if.end
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %21, ptr %7, align 8, !tbaa !8
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %22, ptr %6, align 8, !tbaa !8
+  br label %23
 
-if.end:                                           ; preds = %if.else, %if.then
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+23:                                               ; preds = %20, %17
+  store i64 0, ptr %8, align 8, !tbaa !4
+  br label %24
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %8 = load i64, ptr %i, align 8
-  %9 = load ptr, ptr %small, align 8
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %9, i32 0, i32 1
-  %10 = load i64, ptr %word_alloc2, align 8
-  %cmp3 = icmp ult i64 %8, %10
-  br i1 %cmp3, label %for.body, label %for.end
+24:                                               ; preds = %46, %23
+  %25 = load i64, ptr %8, align 8, !tbaa !4
+  %26 = load ptr, ptr %7, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.bitmap, ptr %26, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8, !tbaa !14
+  %29 = icmp ult i64 %25, %28
+  br i1 %29, label %30, label %49
 
-for.body:                                         ; preds = %for.cond
-  %11 = load ptr, ptr %small, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %words, align 8
-  %13 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %12, i64 %13
-  %14 = load i64, ptr %arrayidx, align 8
-  %15 = load ptr, ptr %big, align 8
-  %words4 = getelementptr inbounds %struct.bitmap, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %words4, align 8
-  %17 = load i64, ptr %i, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %16, i64 %17
-  %18 = load i64, ptr %arrayidx5, align 8
-  %cmp6 = icmp ne i64 %14, %18
-  br i1 %cmp6, label %if.then7, label %if.end8
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.bitmap, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !11
+  %34 = load i64, ptr %8, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
+  %36 = load i64, ptr %35, align 8, !tbaa !4
+  %37 = load ptr, ptr %6, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.bitmap, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !11
+  %40 = load i64, ptr %8, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
+  %42 = load i64, ptr %41, align 8, !tbaa !4
+  %43 = icmp ne i64 %36, %42
+  br i1 %43, label %44, label %45
 
-if.then7:                                         ; preds = %for.body
-  store i32 0, ptr %retval, align 4
-  br label %return
+44:                                               ; preds = %30
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %70
 
-if.end8:                                          ; preds = %for.body
-  br label %for.inc
+45:                                               ; preds = %30
+  br label %46
 
-for.inc:                                          ; preds = %if.end8
-  %19 = load i64, ptr %i, align 8
-  %inc = add i64 %19, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !13
+46:                                               ; preds = %45
+  %47 = load i64, ptr %8, align 8, !tbaa !4
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %8, align 8, !tbaa !4
+  br label %24, !llvm.loop !31
 
-for.end:                                          ; preds = %for.cond
-  br label %for.cond9
+49:                                               ; preds = %24
+  br label %50
 
-for.cond9:                                        ; preds = %for.inc18, %for.end
-  %20 = load i64, ptr %i, align 8
-  %21 = load ptr, ptr %big, align 8
-  %word_alloc10 = getelementptr inbounds %struct.bitmap, ptr %21, i32 0, i32 1
-  %22 = load i64, ptr %word_alloc10, align 8
-  %cmp11 = icmp ult i64 %20, %22
-  br i1 %cmp11, label %for.body12, label %for.end20
+50:                                               ; preds = %66, %49
+  %51 = load i64, ptr %8, align 8, !tbaa !4
+  %52 = load ptr, ptr %6, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.bitmap, ptr %52, i32 0, i32 1
+  %54 = load i64, ptr %53, align 8, !tbaa !14
+  %55 = icmp ult i64 %51, %54
+  br i1 %55, label %56, label %69
 
-for.body12:                                       ; preds = %for.cond9
-  %23 = load ptr, ptr %big, align 8
-  %words13 = getelementptr inbounds %struct.bitmap, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %words13, align 8
-  %25 = load i64, ptr %i, align 8
-  %arrayidx14 = getelementptr inbounds i64, ptr %24, i64 %25
-  %26 = load i64, ptr %arrayidx14, align 8
-  %cmp15 = icmp ne i64 %26, 0
-  br i1 %cmp15, label %if.then16, label %if.end17
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %6, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.bitmap, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !11
+  %60 = load i64, ptr %8, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %60
+  %62 = load i64, ptr %61, align 8, !tbaa !4
+  %63 = icmp ne i64 %62, 0
+  br i1 %63, label %64, label %65
 
-if.then16:                                        ; preds = %for.body12
-  store i32 0, ptr %retval, align 4
-  br label %return
+64:                                               ; preds = %56
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %70
 
-if.end17:                                         ; preds = %for.body12
-  br label %for.inc18
+65:                                               ; preds = %56
+  br label %66
 
-for.inc18:                                        ; preds = %if.end17
-  %27 = load i64, ptr %i, align 8
-  %inc19 = add i64 %27, 1
-  store i64 %inc19, ptr %i, align 8
-  br label %for.cond9, !llvm.loop !14
+66:                                               ; preds = %65
+  %67 = load i64, ptr %8, align 8, !tbaa !4
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %8, align 8, !tbaa !4
+  br label %50, !llvm.loop !32
 
-for.end20:                                        ; preds = %for.cond9
-  store i32 1, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %50
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %70
 
-return:                                           ; preds = %for.end20, %if.then16, %if.then7
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+70:                                               ; preds = %69, %64, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %71 = load i32, ptr %3, align 4
+  ret i32 %71
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bitmap_is_subset(ptr noundef %self, ptr noundef %other) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %common_size = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %word_alloc, align 8
-  %2 = load ptr, ptr %other.addr, align 8
-  %word_alloc1 = getelementptr inbounds %struct.bitmap, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %word_alloc1, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local i32 @bitmap_equals_ewah(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.ewah_iterator, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 64, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  store i64 0, ptr %8, align 8, !tbaa !4
+  %10 = load ptr, ptr %5, align 8, !tbaa !16
+  call void @ewah_iterator_init(ptr noundef %6, ptr noundef %10)
+  br label %11
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %self.addr, align 8
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %word_alloc2, align 8
-  store i64 %5, ptr %common_size, align 8
-  br label %if.end7
+11:                                               ; preds = %34, %2
+  %12 = call i32 @ewah_iterator_next(ptr noundef %7, ptr noundef %6)
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %35
 
-if.else:                                          ; preds = %entry
-  %6 = load ptr, ptr %other.addr, align 8
-  %word_alloc3 = getelementptr inbounds %struct.bitmap, ptr %6, i32 0, i32 1
-  %7 = load i64, ptr %word_alloc3, align 8
-  store i64 %7, ptr %common_size, align 8
-  %8 = load i64, ptr %common_size, align 8
-  store i64 %8, ptr %i, align 8
-  br label %for.cond
+14:                                               ; preds = %11
+  %15 = load i64, ptr %7, align 8, !tbaa !4
+  %16 = load i64, ptr %8, align 8, !tbaa !4
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.bitmap, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8, !tbaa !14
+  %20 = icmp ult i64 %16, %19
+  br i1 %20, label %21, label %29
 
-for.cond:                                         ; preds = %for.inc, %if.else
-  %9 = load i64, ptr %i, align 8
-  %10 = load ptr, ptr %self.addr, align 8
-  %word_alloc4 = getelementptr inbounds %struct.bitmap, ptr %10, i32 0, i32 1
-  %11 = load i64, ptr %word_alloc4, align 8
-  %cmp5 = icmp ult i64 %9, %11
-  br i1 %cmp5, label %for.body, label %for.end
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.bitmap, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !11
+  %25 = load i64, ptr %8, align 8, !tbaa !4
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %8, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw i64, ptr %24, i64 %25
+  %28 = load i64, ptr %27, align 8, !tbaa !4
+  br label %30
 
-for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %self.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %words, align 8
-  %14 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %13, i64 %14
-  %15 = load i64, ptr %arrayidx, align 8
-  %tobool = icmp ne i64 %15, 0
-  br i1 %tobool, label %if.then6, label %if.end
+29:                                               ; preds = %14
+  br label %30
 
-if.then6:                                         ; preds = %for.body
-  store i32 1, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %29, %21
+  %31 = phi i64 [ %28, %21 ], [ 0, %29 ]
+  %32 = icmp ne i64 %15, %31
+  br i1 %32, label %33, label %34
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+33:                                               ; preds = %30
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %56
 
-for.inc:                                          ; preds = %if.end
-  %16 = load i64, ptr %i, align 8
-  %inc = add i64 %16, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !15
+34:                                               ; preds = %30
+  br label %11, !llvm.loop !33
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end7
+35:                                               ; preds = %11
+  br label %36
 
-if.end7:                                          ; preds = %for.end, %if.then
-  store i64 0, ptr %i, align 8
-  br label %for.cond8
+36:                                               ; preds = %52, %35
+  %37 = load i64, ptr %8, align 8, !tbaa !4
+  %38 = load ptr, ptr %4, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.bitmap, ptr %38, i32 0, i32 1
+  %40 = load i64, ptr %39, align 8, !tbaa !14
+  %41 = icmp ult i64 %37, %40
+  br i1 %41, label %42, label %55
 
-for.cond8:                                        ; preds = %for.inc18, %if.end7
-  %17 = load i64, ptr %i, align 8
-  %18 = load i64, ptr %common_size, align 8
-  %cmp9 = icmp ult i64 %17, %18
-  br i1 %cmp9, label %for.body10, label %for.end20
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %4, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw %struct.bitmap, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !11
+  %46 = load i64, ptr %8, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
+  %48 = load i64, ptr %47, align 8, !tbaa !4
+  %49 = icmp ne i64 %48, 0
+  br i1 %49, label %50, label %51
 
-for.body10:                                       ; preds = %for.cond8
-  %19 = load ptr, ptr %self.addr, align 8
-  %words11 = getelementptr inbounds %struct.bitmap, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %words11, align 8
-  %21 = load i64, ptr %i, align 8
-  %arrayidx12 = getelementptr inbounds i64, ptr %20, i64 %21
-  %22 = load i64, ptr %arrayidx12, align 8
-  %23 = load ptr, ptr %other.addr, align 8
-  %words13 = getelementptr inbounds %struct.bitmap, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %words13, align 8
-  %25 = load i64, ptr %i, align 8
-  %arrayidx14 = getelementptr inbounds i64, ptr %24, i64 %25
-  %26 = load i64, ptr %arrayidx14, align 8
-  %not = xor i64 %26, -1
-  %and = and i64 %22, %not
-  %tobool15 = icmp ne i64 %and, 0
-  br i1 %tobool15, label %if.then16, label %if.end17
+50:                                               ; preds = %42
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %56
 
-if.then16:                                        ; preds = %for.body10
-  store i32 1, ptr %retval, align 4
-  br label %return
+51:                                               ; preds = %42
+  br label %52
 
-if.end17:                                         ; preds = %for.body10
-  br label %for.inc18
+52:                                               ; preds = %51
+  %53 = load i64, ptr %8, align 8, !tbaa !4
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %8, align 8, !tbaa !4
+  br label %36, !llvm.loop !34
 
-for.inc18:                                        ; preds = %if.end17
-  %27 = load i64, ptr %i, align 8
-  %inc19 = add i64 %27, 1
-  store i64 %inc19, ptr %i, align 8
-  br label %for.cond8, !llvm.loop !16
+55:                                               ; preds = %36
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %56
 
-for.end20:                                        ; preds = %for.cond8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end20, %if.then16, %if.then6
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+56:                                               ; preds = %55, %50, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %6) #8
+  %57 = load i32, ptr %3, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_free(ptr noundef %bitmap) #0 {
-entry:
-  %bitmap.addr = alloca ptr, align 8
-  store ptr %bitmap, ptr %bitmap.addr, align 8
-  %0 = load ptr, ptr %bitmap.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local i32 @bitmap_is_subset(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.bitmap, ptr %9, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8, !tbaa !14
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.bitmap, ptr %12, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8, !tbaa !14
+  %15 = icmp ult i64 %11, %14
+  br i1 %15, label %16, label %20
 
-if.then:                                          ; preds = %entry
-  br label %return
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.bitmap, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8, !tbaa !14
+  store i64 %19, ptr %6, align 8, !tbaa !4
+  br label %45
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %bitmap.addr, align 8
-  %words = getelementptr inbounds %struct.bitmap, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %words, align 8
-  call void @free(ptr noundef %2) #7
-  %3 = load ptr, ptr %bitmap.addr, align 8
-  call void @free(ptr noundef %3) #7
-  br label %return
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %5, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.bitmap, ptr %21, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8, !tbaa !14
+  store i64 %23, ptr %6, align 8, !tbaa !4
+  %24 = load i64, ptr %6, align 8, !tbaa !4
+  store i64 %24, ptr %7, align 8, !tbaa !4
+  br label %25
 
-return:                                           ; preds = %if.end, %if.then
+25:                                               ; preds = %41, %20
+  %26 = load i64, ptr %7, align 8, !tbaa !4
+  %27 = load ptr, ptr %4, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.bitmap, ptr %27, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8, !tbaa !14
+  %30 = icmp ult i64 %26, %29
+  br i1 %30, label %31, label %44
+
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %4, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.bitmap, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !11
+  %35 = load i64, ptr %7, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %37 = load i64, ptr %36, align 8, !tbaa !4
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %31
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %72
+
+40:                                               ; preds = %31
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i64, ptr %7, align 8, !tbaa !4
+  %43 = add i64 %42, 1
+  store i64 %43, ptr %7, align 8, !tbaa !4
+  br label %25, !llvm.loop !35
+
+44:                                               ; preds = %25
+  br label %45
+
+45:                                               ; preds = %44, %16
+  store i64 0, ptr %7, align 8, !tbaa !4
+  br label %46
+
+46:                                               ; preds = %68, %45
+  %47 = load i64, ptr %7, align 8, !tbaa !4
+  %48 = load i64, ptr %6, align 8, !tbaa !4
+  %49 = icmp ult i64 %47, %48
+  br i1 %49, label %50, label %71
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %4, align 8, !tbaa !8
+  %52 = getelementptr inbounds nuw %struct.bitmap, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !11
+  %54 = load i64, ptr %7, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
+  %56 = load i64, ptr %55, align 8, !tbaa !4
+  %57 = load ptr, ptr %5, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.bitmap, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !11
+  %60 = load i64, ptr %7, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %60
+  %62 = load i64, ptr %61, align 8, !tbaa !4
+  %63 = xor i64 %62, -1
+  %64 = and i64 %56, %63
+  %65 = icmp ne i64 %64, 0
+  br i1 %65, label %66, label %67
+
+66:                                               ; preds = %50
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %72
+
+67:                                               ; preds = %50
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = load i64, ptr %7, align 8, !tbaa !4
+  %70 = add i64 %69, 1
+  store i64 %70, ptr %7, align 8, !tbaa !4
+  br label %46, !llvm.loop !36
+
+71:                                               ; preds = %46
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %72
+
+72:                                               ; preds = %71, %66, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %73 = load i32, ptr %3, align 4
+  ret i32 %73
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @bitmap_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %6, label %5
+
+5:                                                ; preds = %1
+  br label %11
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.bitmap, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @free(ptr noundef %9) #8
+  %10 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @free(ptr noundef %10) #8
+  br label %11
+
+11:                                               ; preds = %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #5
+declare void @die(ptr noundef, ...) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn }
-attributes #7 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS6bitmap", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"bitmap", !13, i64 0, !5, i64 8}
+!13 = !{!"p1 long", !10, i64 0}
+!14 = !{!12, !5, i64 8}
+!15 = !{!10, !10, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS11ewah_bitmap", !10, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = !{!26, !5, i64 24}
+!26 = !{!"ewah_bitmap", !13, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !13, i64 32}
+!27 = distinct !{!27, !19}
+!28 = distinct !{!28, !19}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19}
+!32 = distinct !{!32, !19}
+!33 = distinct !{!33, !19}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}
+!36 = distinct !{!36, !19}

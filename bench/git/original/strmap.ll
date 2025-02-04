@@ -1,772 +1,875 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.strmap = type { %struct.hashmap, ptr, i8 }
-%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
 %struct.strmap_entry = type { %struct.hashmap_entry, ptr, ptr }
 %struct.hashmap_entry = type { ptr, i32 }
+%struct.strmap = type { %struct.hashmap, ptr, i8 }
+%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
 %struct.strintmap = type { %struct.strmap, i32 }
 %struct.strset = type { %struct.strmap }
 
-@__const.strmap_init.blank = private unnamed_addr constant %struct.strmap { %struct.hashmap { ptr null, ptr @cmp_strmap_entry, ptr null, i32 0, i32 0, i32 0, i32 0, i8 1 }, ptr null, i8 1 }, align 8
+@__const.strmap_init.blank = private unnamed_addr constant { { ptr, ptr, ptr, i32, i32, i32, i32, i8, [7 x i8] }, ptr, i8, [7 x i8] } { { ptr, ptr, ptr, i32, i32, i32, i32, i8, [7 x i8] } { ptr null, ptr @cmp_strmap_entry, ptr null, i32 0, i32 0, i32 0, i32 0, i8 1, [7 x i8] zeroinitializer }, ptr null, i8 1, [7 x i8] zeroinitializer }, align 8
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu + %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmp_strmap_entry(ptr noundef %hashmap_cmp_fn_data, ptr noundef %entry1, ptr noundef %entry2, ptr noundef %keydata) #0 {
-entry:
-  %hashmap_cmp_fn_data.addr = alloca ptr, align 8
-  %entry1.addr = alloca ptr, align 8
-  %entry2.addr = alloca ptr, align 8
-  %keydata.addr = alloca ptr, align 8
-  %e1 = alloca ptr, align 8
-  %e2 = alloca ptr, align 8
-  store ptr %hashmap_cmp_fn_data, ptr %hashmap_cmp_fn_data.addr, align 8
-  store ptr %entry1, ptr %entry1.addr, align 8
-  store ptr %entry2, ptr %entry2.addr, align 8
-  store ptr %keydata, ptr %keydata.addr, align 8
-  %0 = load ptr, ptr %entry1.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 0
-  store ptr %add.ptr, ptr %e1, align 8
-  %1 = load ptr, ptr %entry2.addr, align 8
-  %add.ptr1 = getelementptr inbounds i8, ptr %1, i64 0
-  store ptr %add.ptr1, ptr %e2, align 8
-  %2 = load ptr, ptr %e1, align 8
-  %key = getelementptr inbounds %struct.strmap_entry, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %key, align 8
-  %4 = load ptr, ptr %e2, align 8
-  %key2 = getelementptr inbounds %struct.strmap_entry, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %key2, align 8
-  %call = call i32 @strcmp(ptr noundef %3, ptr noundef %5) #6
-  ret i32 %call
+define dso_local i32 @cmp_strmap_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = getelementptr inbounds i8, ptr %11, i64 0
+  store ptr %12, ptr %9, align 8, !tbaa !10
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = getelementptr inbounds i8, ptr %13, i64 0
+  store ptr %14, ptr %10, align 8, !tbaa !10
+  %15 = load ptr, ptr %9, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw %struct.strmap_entry, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = load ptr, ptr %10, align 8, !tbaa !10
+  %19 = getelementptr inbounds nuw %struct.strmap_entry, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !12
+  %21 = call i32 @strcmp(ptr noundef %17, ptr noundef %20) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret i32 %21
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #1
+declare i32 @strcmp(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strmap_init(ptr noundef %map) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %blank = alloca %struct.strmap, align 8
-  store ptr %map, ptr %map.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %blank, ptr align 8 @__const.strmap_init.blank, i64 64, i1 false)
-  %0 = load ptr, ptr %map.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %blank, i64 64, i1 false)
+define dso_local void @strmap_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.strmap, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 64, ptr %3) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 @__const.strmap_init.blank, i64 64, i1 false)
+  %4 = load ptr, ptr %2, align 8, !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %3, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(i64 64, ptr %3) #8
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strmap_init_with_options(ptr noundef %map, ptr noundef %pool, i32 noundef %strdup_strings) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %pool.addr = alloca ptr, align 8
-  %strdup_strings.addr = alloca i32, align 4
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %pool, ptr %pool.addr, align 8
-  store i32 %strdup_strings, ptr %strdup_strings.addr, align 4
-  %0 = load ptr, ptr %map.addr, align 8
-  %map1 = getelementptr inbounds %struct.strmap, ptr %0, i32 0, i32 0
-  call void @hashmap_init(ptr noundef %map1, ptr noundef @cmp_strmap_entry, ptr noundef null, i64 noundef 0)
-  %1 = load ptr, ptr %pool.addr, align 8
-  %2 = load ptr, ptr %map.addr, align 8
-  %pool2 = getelementptr inbounds %struct.strmap, ptr %2, i32 0, i32 1
-  store ptr %1, ptr %pool2, align 8
-  %3 = load i32, ptr %strdup_strings.addr, align 4
-  %4 = load ptr, ptr %map.addr, align 8
-  %strdup_strings3 = getelementptr inbounds %struct.strmap, ptr %4, i32 0, i32 2
-  %5 = trunc i32 %3 to i8
-  %bf.load = load i8, ptr %strdup_strings3, align 8
-  %bf.value = and i8 %5, 1
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, %bf.value
-  store i8 %bf.set, ptr %strdup_strings3, align 8
+define dso_local void @strmap_init_with_options(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  store i32 %2, ptr %6, align 4, !tbaa !21
+  %7 = load ptr, ptr %4, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw %struct.strmap, ptr %7, i32 0, i32 0
+  call void @hashmap_init(ptr noundef %8, ptr noundef @cmp_strmap_entry, ptr noundef null, i64 noundef 0)
+  %9 = load ptr, ptr %5, align 8, !tbaa !19
+  %10 = load ptr, ptr %4, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw %struct.strmap, ptr %10, i32 0, i32 1
+  store ptr %9, ptr %11, align 8, !tbaa !22
+  %12 = load i32, ptr %6, align 4, !tbaa !21
+  %13 = load ptr, ptr %4, align 8, !tbaa !17
+  %14 = getelementptr inbounds nuw %struct.strmap, ptr %13, i32 0, i32 2
+  %15 = trunc i32 %12 to i8
+  %16 = load i8, ptr %14, align 8
+  %17 = and i8 %15, 1
+  %18 = and i8 %16, -2
+  %19 = or i8 %18, %17
+  store i8 %19, ptr %14, align 8
   ret void
 }
 
-declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
+declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strmap_clear(ptr noundef %map, i32 noundef %free_values) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %free_values.addr = alloca i32, align 4
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %free_values, ptr %free_values.addr, align 4
-  %0 = load ptr, ptr %map.addr, align 8
-  %1 = load i32, ptr %free_values.addr, align 4
-  call void @strmap_free_entries_(ptr noundef %0, i32 noundef %1)
-  %2 = load ptr, ptr %map.addr, align 8
-  %map1 = getelementptr inbounds %struct.strmap, ptr %2, i32 0, i32 0
-  call void @hashmap_clear_(ptr noundef %map1, i64 noundef -1)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @strmap_free_entries_(ptr noundef %map, i32 noundef %free_values) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %free_values.addr = alloca i32, align 4
-  %iter = alloca %struct.hashmap_iter, align 8
-  %e = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %free_values, ptr %free_values.addr, align 4
-  %0 = load ptr, ptr %map.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %for.end
-
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %free_values.addr, align 4
-  %tobool1 = icmp ne i32 %1, 0
-  br i1 %tobool1, label %if.end4, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.end
-  %2 = load ptr, ptr %map.addr, align 8
-  %pool = getelementptr inbounds %struct.strmap, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %pool, align 8
-  %tobool2 = icmp ne ptr %3, null
-  br i1 %tobool2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %land.lhs.true
-  br label %for.end
-
-if.end4:                                          ; preds = %land.lhs.true, %if.end
-  store ptr null, ptr %e, align 8
-  %4 = load ptr, ptr %map.addr, align 8
-  %map5 = getelementptr inbounds %struct.strmap, ptr %4, i32 0, i32 0
-  %call = call ptr @hashmap_iter_first(ptr noundef %map5, ptr noundef %iter)
-  %call6 = call ptr @container_of_or_null_offset(ptr noundef %call, i64 noundef 0)
-  store ptr %call6, ptr %e, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end4
-  %5 = load ptr, ptr %e, align 8
-  %tobool7 = icmp ne ptr %5, null
-  br i1 %tobool7, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %6 = load i32, ptr %free_values.addr, align 4
-  %tobool8 = icmp ne i32 %6, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %for.body
-  %7 = load ptr, ptr %e, align 8
-  %value = getelementptr inbounds %struct.strmap_entry, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %value, align 8
-  call void @free(ptr noundef %8) #7
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then9, %for.body
-  %9 = load ptr, ptr %map.addr, align 8
-  %pool11 = getelementptr inbounds %struct.strmap, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %pool11, align 8
-  %tobool12 = icmp ne ptr %10, null
-  br i1 %tobool12, label %if.end14, label %if.then13
-
-if.then13:                                        ; preds = %if.end10
-  %11 = load ptr, ptr %e, align 8
-  call void @free(ptr noundef %11) #7
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then13, %if.end10
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end14
-  %call15 = call ptr @hashmap_iter_next(ptr noundef %iter)
-  %call16 = call ptr @container_of_or_null_offset(ptr noundef %call15, i64 noundef 0)
-  store ptr %call16, ptr %e, align 8
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond, %if.then3, %if.then
-  ret void
-}
-
-declare void @hashmap_clear_(ptr noundef, i64 noundef) #3
-
-; Function Attrs: nounwind uwtable
-define dso_local void @strmap_partial_clear(ptr noundef %map, i32 noundef %free_values) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %free_values.addr = alloca i32, align 4
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %free_values, ptr %free_values.addr, align 4
-  %0 = load ptr, ptr %map.addr, align 8
-  %1 = load i32, ptr %free_values.addr, align 4
-  call void @strmap_free_entries_(ptr noundef %0, i32 noundef %1)
-  %2 = load ptr, ptr %map.addr, align 8
-  %map1 = getelementptr inbounds %struct.strmap, ptr %2, i32 0, i32 0
-  call void @hashmap_partial_clear_(ptr noundef %map1, i64 noundef -1)
-  ret void
-}
-
-declare void @hashmap_partial_clear_(ptr noundef, i64 noundef) #3
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @strmap_put(ptr noundef %map, ptr noundef %str, ptr noundef %data) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %map.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %entry1 = alloca ptr, align 8
-  %old = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %1 = load ptr, ptr %str.addr, align 8
-  %call = call ptr @find_strmap_entry(ptr noundef %0, ptr noundef %1)
-  store ptr %call, ptr %entry1, align 8
-  %2 = load ptr, ptr %entry1, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %entry1, align 8
-  %value = getelementptr inbounds %struct.strmap_entry, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %value, align 8
-  store ptr %4, ptr %old, align 8
-  %5 = load ptr, ptr %data.addr, align 8
-  %6 = load ptr, ptr %entry1, align 8
-  %value2 = getelementptr inbounds %struct.strmap_entry, ptr %6, i32 0, i32 2
-  store ptr %5, ptr %value2, align 8
-  %7 = load ptr, ptr %old, align 8
-  store ptr %7, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %8 = load ptr, ptr %map.addr, align 8
-  %9 = load ptr, ptr %str.addr, align 8
-  %10 = load ptr, ptr %data.addr, align 8
-  %call3 = call ptr @create_entry(ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  store ptr %call3, ptr %entry1, align 8
-  %11 = load ptr, ptr %map.addr, align 8
-  %map4 = getelementptr inbounds %struct.strmap, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %entry1, align 8
-  %ent = getelementptr inbounds %struct.strmap_entry, ptr %12, i32 0, i32 0
-  call void @hashmap_add(ptr noundef %map4, ptr noundef %ent)
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %13 = load ptr, ptr %retval, align 8
-  ret ptr %13
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @find_strmap_entry(ptr noundef %map, ptr noundef %str) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  %entry1 = alloca %struct.strmap_entry, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  %ent = getelementptr inbounds %struct.strmap_entry, ptr %entry1, i32 0, i32 0
-  %0 = load ptr, ptr %str.addr, align 8
-  %call = call i32 @strhash(ptr noundef %0)
-  call void @hashmap_entry_init(ptr noundef %ent, i32 noundef %call)
-  %1 = load ptr, ptr %str.addr, align 8
-  %key = getelementptr inbounds %struct.strmap_entry, ptr %entry1, i32 0, i32 1
-  store ptr %1, ptr %key, align 8
-  %2 = load ptr, ptr %map.addr, align 8
-  %map2 = getelementptr inbounds %struct.strmap, ptr %2, i32 0, i32 0
-  %ent3 = getelementptr inbounds %struct.strmap_entry, ptr %entry1, i32 0, i32 0
-  %call4 = call ptr @hashmap_get(ptr noundef %map2, ptr noundef %ent3, ptr noundef null)
-  %call5 = call ptr @container_of_or_null_offset(ptr noundef %call4, i64 noundef 0)
-  ret ptr %call5
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @create_entry(ptr noundef %map, ptr noundef %str, ptr noundef %data) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %entry1 = alloca ptr, align 8
-  %flex_array_len_ = alloca i64, align 8
-  %len = alloca i64, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %strdup_strings = getelementptr inbounds %struct.strmap, ptr %0, i32 0, i32 2
-  %bf.load = load i8, ptr %strdup_strings, align 8
-  %bf.clear = and i8 %bf.load, 1
-  %bf.cast = zext i8 %bf.clear to i32
-  %tobool = icmp ne i32 %bf.cast, 0
-  br i1 %tobool, label %if.then, label %if.else16
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %map.addr, align 8
-  %pool = getelementptr inbounds %struct.strmap, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %pool, align 8
-  %tobool2 = icmp ne ptr %2, null
-  br i1 %tobool2, label %if.else, label %if.then3
-
-if.then3:                                         ; preds = %if.then
-  br label %do.body
-
-do.body:                                          ; preds = %if.then3
-  %3 = load ptr, ptr %str.addr, align 8
-  %call = call i64 @strlen(ptr noundef %3) #6
-  store i64 %call, ptr %flex_array_len_, align 8
-  %4 = load i64, ptr %flex_array_len_, align 8
-  %call4 = call i64 @st_add(i64 noundef 32, i64 noundef %4)
-  %call5 = call i64 @st_add(i64 noundef %call4, i64 noundef 1)
-  %call6 = call ptr @xcalloc(i64 noundef 1, i64 noundef %call5)
-  store ptr %call6, ptr %entry1, align 8
-  %5 = load ptr, ptr %entry1, align 8
-  %add.ptr = getelementptr inbounds %struct.strmap_entry, ptr %5, i64 1
-  %6 = load ptr, ptr %str.addr, align 8
-  %7 = load i64, ptr %flex_array_len_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr, ptr align 1 %6, i64 %7, i1 false)
-  %8 = load ptr, ptr %entry1, align 8
-  %add.ptr7 = getelementptr inbounds %struct.strmap_entry, ptr %8, i64 1
-  %9 = load ptr, ptr %entry1, align 8
-  %key = getelementptr inbounds %struct.strmap_entry, ptr %9, i32 0, i32 1
-  store ptr %add.ptr7, ptr %key, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %if.then
-  %10 = load ptr, ptr %str.addr, align 8
-  %call8 = call i64 @strlen(ptr noundef %10) #6
-  %call9 = call i64 @st_add(i64 noundef %call8, i64 noundef 1)
-  store i64 %call9, ptr %len, align 8
-  %11 = load ptr, ptr %map.addr, align 8
-  %pool10 = getelementptr inbounds %struct.strmap, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %pool10, align 8
-  %13 = load i64, ptr %len, align 8
-  %call11 = call i64 @st_add(i64 noundef 32, i64 noundef %13)
-  %call12 = call ptr @mem_pool_alloc(ptr noundef %12, i64 noundef %call11)
-  store ptr %call12, ptr %entry1, align 8
-  %14 = load ptr, ptr %entry1, align 8
-  %add.ptr13 = getelementptr inbounds %struct.strmap_entry, ptr %14, i64 1
-  %15 = load ptr, ptr %str.addr, align 8
-  %16 = load i64, ptr %len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr13, ptr align 1 %15, i64 %16, i1 false)
-  %17 = load ptr, ptr %entry1, align 8
-  %add.ptr14 = getelementptr inbounds %struct.strmap_entry, ptr %17, i64 1
-  %18 = load ptr, ptr %entry1, align 8
-  %key15 = getelementptr inbounds %struct.strmap_entry, ptr %18, i32 0, i32 1
-  store ptr %add.ptr14, ptr %key15, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %do.end
-  br label %if.end25
-
-if.else16:                                        ; preds = %entry
-  %19 = load ptr, ptr %map.addr, align 8
-  %pool17 = getelementptr inbounds %struct.strmap, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %pool17, align 8
-  %tobool18 = icmp ne ptr %20, null
-  br i1 %tobool18, label %if.else21, label %if.then19
-
-if.then19:                                        ; preds = %if.else16
-  %call20 = call ptr @xmalloc(i64 noundef 32)
-  store ptr %call20, ptr %entry1, align 8
-  br label %if.end24
-
-if.else21:                                        ; preds = %if.else16
-  %21 = load ptr, ptr %map.addr, align 8
-  %pool22 = getelementptr inbounds %struct.strmap, ptr %21, i32 0, i32 1
-  %22 = load ptr, ptr %pool22, align 8
-  %call23 = call ptr @mem_pool_alloc(ptr noundef %22, i64 noundef 32)
-  store ptr %call23, ptr %entry1, align 8
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.else21, %if.then19
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.end24, %if.end
-  %23 = load ptr, ptr %entry1, align 8
-  %ent = getelementptr inbounds %struct.strmap_entry, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %str.addr, align 8
-  %call26 = call i32 @strhash(ptr noundef %24)
-  call void @hashmap_entry_init(ptr noundef %ent, i32 noundef %call26)
-  %25 = load ptr, ptr %map.addr, align 8
-  %strdup_strings27 = getelementptr inbounds %struct.strmap, ptr %25, i32 0, i32 2
-  %bf.load28 = load i8, ptr %strdup_strings27, align 8
-  %bf.clear29 = and i8 %bf.load28, 1
-  %bf.cast30 = zext i8 %bf.clear29 to i32
-  %tobool31 = icmp ne i32 %bf.cast30, 0
-  br i1 %tobool31, label %if.end34, label %if.then32
-
-if.then32:                                        ; preds = %if.end25
-  %26 = load ptr, ptr %str.addr, align 8
-  %27 = load ptr, ptr %entry1, align 8
-  %key33 = getelementptr inbounds %struct.strmap_entry, ptr %27, i32 0, i32 1
-  store ptr %26, ptr %key33, align 8
-  br label %if.end34
-
-if.end34:                                         ; preds = %if.then32, %if.end25
-  %28 = load ptr, ptr %data.addr, align 8
-  %29 = load ptr, ptr %entry1, align 8
-  %value = getelementptr inbounds %struct.strmap_entry, ptr %29, i32 0, i32 2
-  store ptr %28, ptr %value, align 8
-  %30 = load ptr, ptr %entry1, align 8
-  ret ptr %30
-}
-
-declare void @hashmap_add(ptr noundef, ptr noundef) #3
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @strmap_get_entry(ptr noundef %map, ptr noundef %str) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %1 = load ptr, ptr %str.addr, align 8
-  %call = call ptr @find_strmap_entry(ptr noundef %0, ptr noundef %1)
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @strmap_get(ptr noundef %map, ptr noundef %str) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  %entry1 = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %1 = load ptr, ptr %str.addr, align 8
-  %call = call ptr @find_strmap_entry(ptr noundef %0, ptr noundef %1)
-  store ptr %call, ptr %entry1, align 8
-  %2 = load ptr, ptr %entry1, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %3 = load ptr, ptr %entry1, align 8
-  %value = getelementptr inbounds %struct.strmap_entry, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %value, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
-  ret ptr %cond
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @strmap_contains(ptr noundef %map, ptr noundef %str) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %1 = load ptr, ptr %str.addr, align 8
-  %call = call ptr @find_strmap_entry(ptr noundef %0, ptr noundef %1)
-  %cmp = icmp ne ptr %call, null
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @strmap_remove(ptr noundef %map, ptr noundef %str, i32 noundef %free_value) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  %free_value.addr = alloca i32, align 4
-  %entry1 = alloca %struct.strmap_entry, align 8
-  %ret = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  store i32 %free_value, ptr %free_value.addr, align 4
-  %ent = getelementptr inbounds %struct.strmap_entry, ptr %entry1, i32 0, i32 0
-  %0 = load ptr, ptr %str.addr, align 8
-  %call = call i32 @strhash(ptr noundef %0)
-  call void @hashmap_entry_init(ptr noundef %ent, i32 noundef %call)
-  %1 = load ptr, ptr %str.addr, align 8
-  %key = getelementptr inbounds %struct.strmap_entry, ptr %entry1, i32 0, i32 1
-  store ptr %1, ptr %key, align 8
-  %2 = load ptr, ptr %map.addr, align 8
-  %map2 = getelementptr inbounds %struct.strmap, ptr %2, i32 0, i32 0
-  %ent3 = getelementptr inbounds %struct.strmap_entry, ptr %entry1, i32 0, i32 0
-  %call4 = call ptr @hashmap_remove(ptr noundef %map2, ptr noundef %ent3, ptr noundef null)
-  %call5 = call ptr @container_of_or_null_offset(ptr noundef %call4, i64 noundef 0)
-  store ptr %call5, ptr %ret, align 8
-  %3 = load ptr, ptr %ret, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %if.end11
-
-if.end:                                           ; preds = %entry
-  %4 = load i32, ptr %free_value.addr, align 4
-  %tobool6 = icmp ne i32 %4, 0
-  br i1 %tobool6, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %if.end
-  %5 = load ptr, ptr %ret, align 8
-  %value = getelementptr inbounds %struct.strmap_entry, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %value, align 8
-  call void @free(ptr noundef %6) #7
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.then7, %if.end
-  %7 = load ptr, ptr %map.addr, align 8
-  %pool = getelementptr inbounds %struct.strmap, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %pool, align 8
-  %tobool9 = icmp ne ptr %8, null
-  br i1 %tobool9, label %if.end11, label %if.then10
-
-if.then10:                                        ; preds = %if.end8
-  %9 = load ptr, ptr %ret, align 8
-  call void @free(ptr noundef %9) #7
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then10, %if.end8, %if.then
+define dso_local void @strmap_clear(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store i32 %1, ptr %4, align 4, !tbaa !21
+  %5 = load ptr, ptr %3, align 8, !tbaa !17
+  %6 = load i32, ptr %4, align 4, !tbaa !21
+  call void @strmap_free_entries_(ptr noundef %5, i32 noundef %6)
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw %struct.strmap, ptr %7, i32 0, i32 0
+  call void @hashmap_clear_(ptr noundef %8, i64 noundef -1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @hashmap_entry_init(ptr noundef %e, i32 noundef %hash) #0 {
-entry:
-  %e.addr = alloca ptr, align 8
-  %hash.addr = alloca i32, align 4
-  store ptr %e, ptr %e.addr, align 8
-  store i32 %hash, ptr %hash.addr, align 4
-  %0 = load i32, ptr %hash.addr, align 4
-  %1 = load ptr, ptr %e.addr, align 8
-  %hash1 = getelementptr inbounds %struct.hashmap_entry, ptr %1, i32 0, i32 1
-  store i32 %0, ptr %hash1, align 8
-  %2 = load ptr, ptr %e.addr, align 8
-  %next = getelementptr inbounds %struct.hashmap_entry, ptr %2, i32 0, i32 0
-  store ptr null, ptr %next, align 8
+define internal void @strmap_free_entries_(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.hashmap_iter, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store i32 %1, ptr %4, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %3, align 8, !tbaa !17
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
+
+10:                                               ; preds = %2
+  store i32 1, ptr %7, align 4
+  br label %47
+
+11:                                               ; preds = %2
+  %12 = load i32, ptr %4, align 4, !tbaa !21
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %20, label %14
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %3, align 8, !tbaa !17
+  %16 = getelementptr inbounds nuw %struct.strmap, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %14
+  store i32 1, ptr %7, align 4
+  br label %47
+
+20:                                               ; preds = %14, %11
+  store ptr null, ptr %6, align 8, !tbaa !10
+  %21 = load ptr, ptr %3, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw %struct.strmap, ptr %21, i32 0, i32 0
+  %23 = call ptr @hashmap_iter_first(ptr noundef %22, ptr noundef %5)
+  %24 = call ptr @container_of_or_null_offset(ptr noundef %23, i64 noundef 0)
+  store ptr %24, ptr %6, align 8, !tbaa !10
+  br label %25
+
+25:                                               ; preds = %43, %20
+  %26 = load ptr, ptr %6, align 8, !tbaa !10
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %46
+
+28:                                               ; preds = %25
+  %29 = load i32, ptr %4, align 4, !tbaa !21
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %35
+
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %6, align 8, !tbaa !10
+  %33 = getelementptr inbounds nuw %struct.strmap_entry, ptr %32, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8, !tbaa !26
+  call void @free(ptr noundef %34) #8
+  br label %35
+
+35:                                               ; preds = %31, %28
+  %36 = load ptr, ptr %3, align 8, !tbaa !17
+  %37 = getelementptr inbounds nuw %struct.strmap, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !22
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %42, label %40
+
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @free(ptr noundef %41) #8
+  br label %42
+
+42:                                               ; preds = %40, %35
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = call ptr @hashmap_iter_next(ptr noundef %5)
+  %45 = call ptr @container_of_or_null_offset(ptr noundef %44, i64 noundef 0)
+  store ptr %45, ptr %6, align 8, !tbaa !10
+  br label %25, !llvm.loop !27
+
+46:                                               ; preds = %25
+  store i32 0, ptr %7, align 4
+  br label %47
+
+47:                                               ; preds = %46, %19, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #8
+  %48 = load i32, ptr %7, align 4
+  switch i32 %48, label %50 [
+    i32 0, label %49
+    i32 1, label %49
+  ]
+
+49:                                               ; preds = %47, %47
+  ret void
+
+50:                                               ; preds = %47
+  unreachable
+}
+
+declare void @hashmap_clear_(ptr noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define dso_local void @strmap_partial_clear(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store i32 %1, ptr %4, align 4, !tbaa !21
+  %5 = load ptr, ptr %3, align 8, !tbaa !17
+  %6 = load i32, ptr %4, align 4, !tbaa !21
+  call void @strmap_free_entries_(ptr noundef %5, i32 noundef %6)
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw %struct.strmap, ptr %7, i32 0, i32 0
+  call void @hashmap_partial_clear_(ptr noundef %8, i64 noundef -1)
   ret void
 }
 
-declare i32 @strhash(ptr noundef) #3
+declare void @hashmap_partial_clear_(ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @container_of_or_null_offset(ptr noundef %ptr, i64 noundef %offset) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define dso_local ptr @strmap_put(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store ptr %1, ptr %6, align 8, !tbaa !29
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !17
+  %12 = load ptr, ptr %6, align 8, !tbaa !29
+  %13 = call ptr @find_strmap_entry(ptr noundef %11, ptr noundef %12)
+  store ptr %13, ptr %8, align 8, !tbaa !10
+  %14 = load ptr, ptr %8, align 8, !tbaa !10
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %24
 
-cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %ptr.addr, align 8
-  %2 = load i64, ptr %offset.addr, align 8
-  %idx.neg = sub i64 0, %2
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.neg
-  br label %cond.end
+16:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %17 = load ptr, ptr %8, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw %struct.strmap_entry, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  store ptr %19, ptr %9, align 8, !tbaa !4
+  %20 = load ptr, ptr %7, align 8, !tbaa !4
+  %21 = load ptr, ptr %8, align 8, !tbaa !10
+  %22 = getelementptr inbounds nuw %struct.strmap_entry, ptr %21, i32 0, i32 2
+  store ptr %20, ptr %22, align 8, !tbaa !26
+  %23 = load ptr, ptr %9, align 8, !tbaa !4
+  store ptr %23, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %33
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %5, align 8, !tbaa !17
+  %26 = load ptr, ptr %6, align 8, !tbaa !29
+  %27 = load ptr, ptr %7, align 8, !tbaa !4
+  %28 = call ptr @create_entry(ptr noundef %25, ptr noundef %26, ptr noundef %27)
+  store ptr %28, ptr %8, align 8, !tbaa !10
+  %29 = load ptr, ptr %5, align 8, !tbaa !17
+  %30 = getelementptr inbounds nuw %struct.strmap, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %8, align 8, !tbaa !10
+  %32 = getelementptr inbounds nuw %struct.strmap_entry, ptr %31, i32 0, i32 0
+  call void @hashmap_add(ptr noundef %30, ptr noundef %32)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %33
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ null, %cond.false ]
-  ret ptr %cond
+33:                                               ; preds = %24, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %34 = load ptr, ptr %4, align 8
+  ret ptr %34
 }
 
-declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) #3
+; Function Attrs: nounwind uwtable
+define internal ptr @find_strmap_entry(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.strmap_entry, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #8
+  %6 = getelementptr inbounds nuw %struct.strmap_entry, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !29
+  %8 = call i32 @strhash(ptr noundef %7)
+  call void @hashmap_entry_init(ptr noundef %6, i32 noundef %8)
+  %9 = load ptr, ptr %4, align 8, !tbaa !29
+  %10 = getelementptr inbounds nuw %struct.strmap_entry, ptr %5, i32 0, i32 1
+  store ptr %9, ptr %10, align 8, !tbaa !12
+  %11 = load ptr, ptr %3, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw %struct.strmap, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.strmap_entry, ptr %5, i32 0, i32 0
+  %14 = call ptr @hashmap_get(ptr noundef %12, ptr noundef %13, ptr noundef null)
+  %15 = call ptr @container_of_or_null_offset(ptr noundef %14, i64 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #8
+  ret ptr %15
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @create_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  store ptr %2, ptr %6, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %10 = load ptr, ptr %4, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw %struct.strmap, ptr %10, i32 0, i32 2
+  %12 = load i8, ptr %11, align 8
+  %13 = and i8 %12, 1
+  %14 = zext i8 %13 to i32
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %58
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw %struct.strmap, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %39, label %21
+
+21:                                               ; preds = %16
+  br label %22
+
+22:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %23 = load ptr, ptr %5, align 8, !tbaa !29
+  %24 = call i64 @strlen(ptr noundef %23) #9
+  store i64 %24, ptr %8, align 8, !tbaa !30
+  %25 = load i64, ptr %8, align 8, !tbaa !30
+  %26 = call i64 @st_add(i64 noundef 32, i64 noundef %25)
+  %27 = call i64 @st_add(i64 noundef %26, i64 noundef 1)
+  %28 = call ptr @xcalloc(i64 noundef 1, i64 noundef %27)
+  store ptr %28, ptr %7, align 8, !tbaa !10
+  %29 = load ptr, ptr %7, align 8, !tbaa !10
+  %30 = getelementptr inbounds %struct.strmap_entry, ptr %29, i64 1
+  %31 = load ptr, ptr %5, align 8, !tbaa !29
+  %32 = load i64, ptr %8, align 8, !tbaa !30
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 1 %31, i64 %32, i1 false)
+  %33 = load ptr, ptr %7, align 8, !tbaa !10
+  %34 = getelementptr inbounds %struct.strmap_entry, ptr %33, i64 1
+  %35 = load ptr, ptr %7, align 8, !tbaa !10
+  %36 = getelementptr inbounds nuw %struct.strmap_entry, ptr %35, i32 0, i32 1
+  store ptr %34, ptr %36, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %37
+
+37:                                               ; preds = %22
+  br label %38
+
+38:                                               ; preds = %37
+  br label %57
+
+39:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %40 = load ptr, ptr %5, align 8, !tbaa !29
+  %41 = call i64 @strlen(ptr noundef %40) #9
+  %42 = call i64 @st_add(i64 noundef %41, i64 noundef 1)
+  store i64 %42, ptr %9, align 8, !tbaa !30
+  %43 = load ptr, ptr %4, align 8, !tbaa !17
+  %44 = getelementptr inbounds nuw %struct.strmap, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !22
+  %46 = load i64, ptr %9, align 8, !tbaa !30
+  %47 = call i64 @st_add(i64 noundef 32, i64 noundef %46)
+  %48 = call ptr @mem_pool_alloc(ptr noundef %45, i64 noundef %47)
+  store ptr %48, ptr %7, align 8, !tbaa !10
+  %49 = load ptr, ptr %7, align 8, !tbaa !10
+  %50 = getelementptr inbounds %struct.strmap_entry, ptr %49, i64 1
+  %51 = load ptr, ptr %5, align 8, !tbaa !29
+  %52 = load i64, ptr %9, align 8, !tbaa !30
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 1 %51, i64 %52, i1 false)
+  %53 = load ptr, ptr %7, align 8, !tbaa !10
+  %54 = getelementptr inbounds %struct.strmap_entry, ptr %53, i64 1
+  %55 = load ptr, ptr %7, align 8, !tbaa !10
+  %56 = getelementptr inbounds nuw %struct.strmap_entry, ptr %55, i32 0, i32 1
+  store ptr %54, ptr %56, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %57
+
+57:                                               ; preds = %39, %38
+  br label %71
+
+58:                                               ; preds = %3
+  %59 = load ptr, ptr %4, align 8, !tbaa !17
+  %60 = getelementptr inbounds nuw %struct.strmap, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8, !tbaa !22
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %65, label %63
+
+63:                                               ; preds = %58
+  %64 = call ptr @xmalloc(i64 noundef 32)
+  store ptr %64, ptr %7, align 8, !tbaa !10
+  br label %70
+
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %4, align 8, !tbaa !17
+  %67 = getelementptr inbounds nuw %struct.strmap, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8, !tbaa !22
+  %69 = call ptr @mem_pool_alloc(ptr noundef %68, i64 noundef 32)
+  store ptr %69, ptr %7, align 8, !tbaa !10
+  br label %70
+
+70:                                               ; preds = %65, %63
+  br label %71
+
+71:                                               ; preds = %70, %57
+  %72 = load ptr, ptr %7, align 8, !tbaa !10
+  %73 = getelementptr inbounds nuw %struct.strmap_entry, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %5, align 8, !tbaa !29
+  %75 = call i32 @strhash(ptr noundef %74)
+  call void @hashmap_entry_init(ptr noundef %73, i32 noundef %75)
+  %76 = load ptr, ptr %4, align 8, !tbaa !17
+  %77 = getelementptr inbounds nuw %struct.strmap, ptr %76, i32 0, i32 2
+  %78 = load i8, ptr %77, align 8
+  %79 = and i8 %78, 1
+  %80 = zext i8 %79 to i32
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %86, label %82
+
+82:                                               ; preds = %71
+  %83 = load ptr, ptr %5, align 8, !tbaa !29
+  %84 = load ptr, ptr %7, align 8, !tbaa !10
+  %85 = getelementptr inbounds nuw %struct.strmap_entry, ptr %84, i32 0, i32 1
+  store ptr %83, ptr %85, align 8, !tbaa !12
+  br label %86
+
+86:                                               ; preds = %82, %71
+  %87 = load ptr, ptr %6, align 8, !tbaa !4
+  %88 = load ptr, ptr %7, align 8, !tbaa !10
+  %89 = getelementptr inbounds nuw %struct.strmap_entry, ptr %88, i32 0, i32 2
+  store ptr %87, ptr %89, align 8, !tbaa !26
+  %90 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret ptr %90
+}
+
+declare void @hashmap_add(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @strmap_get_entry(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %3, align 8, !tbaa !17
+  %6 = load ptr, ptr %4, align 8, !tbaa !29
+  %7 = call ptr @find_strmap_entry(ptr noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @strmap_get(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !29
+  %8 = call ptr @find_strmap_entry(ptr noundef %6, ptr noundef %7)
+  store ptr %8, ptr %5, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !10
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !10
+  %13 = getelementptr inbounds nuw %struct.strmap_entry, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !26
+  br label %16
+
+15:                                               ; preds = %2
+  br label %16
+
+16:                                               ; preds = %15, %11
+  %17 = phi ptr [ %14, %11 ], [ null, %15 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret ptr %17
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @strmap_contains(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %3, align 8, !tbaa !17
+  %6 = load ptr, ptr %4, align 8, !tbaa !29
+  %7 = call ptr @find_strmap_entry(ptr noundef %5, ptr noundef %6)
+  %8 = icmp ne ptr %7, null
+  %9 = zext i1 %8 to i32
+  ret i32 %9
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @strmap_remove(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.strmap_entry, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  store i32 %2, ptr %6, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %10 = getelementptr inbounds nuw %struct.strmap_entry, ptr %7, i32 0, i32 0
+  %11 = load ptr, ptr %5, align 8, !tbaa !29
+  %12 = call i32 @strhash(ptr noundef %11)
+  call void @hashmap_entry_init(ptr noundef %10, i32 noundef %12)
+  %13 = load ptr, ptr %5, align 8, !tbaa !29
+  %14 = getelementptr inbounds nuw %struct.strmap_entry, ptr %7, i32 0, i32 1
+  store ptr %13, ptr %14, align 8, !tbaa !12
+  %15 = load ptr, ptr %4, align 8, !tbaa !17
+  %16 = getelementptr inbounds nuw %struct.strmap, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.strmap_entry, ptr %7, i32 0, i32 0
+  %18 = call ptr @hashmap_remove(ptr noundef %16, ptr noundef %17, ptr noundef null)
+  %19 = call ptr @container_of_or_null_offset(ptr noundef %18, i64 noundef 0)
+  store ptr %19, ptr %8, align 8, !tbaa !10
+  %20 = load ptr, ptr %8, align 8, !tbaa !10
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %3
+  store i32 1, ptr %9, align 4
+  br label %38
+
+23:                                               ; preds = %3
+  %24 = load i32, ptr %6, align 4, !tbaa !21
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %30
+
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %8, align 8, !tbaa !10
+  %28 = getelementptr inbounds nuw %struct.strmap_entry, ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8, !tbaa !26
+  call void @free(ptr noundef %29) #8
+  br label %30
+
+30:                                               ; preds = %26, %23
+  %31 = load ptr, ptr %4, align 8, !tbaa !17
+  %32 = getelementptr inbounds nuw %struct.strmap, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !22
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %37, label %35
+
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %8, align 8, !tbaa !10
+  call void @free(ptr noundef %36) #8
+  br label %37
+
+37:                                               ; preds = %35, %30
+  store i32 0, ptr %9, align 4
+  br label %38
+
+38:                                               ; preds = %37, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #8
+  %39 = load i32, ptr %9, align 4
+  switch i32 %39, label %41 [
+    i32 0, label %40
+    i32 1, label %40
+  ]
+
+40:                                               ; preds = %38, %38
+  ret void
+
+41:                                               ; preds = %38
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @hashmap_entry_init(ptr noundef %0, i32 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !21
+  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.hashmap_entry, ptr %6, i32 0, i32 1
+  store i32 %5, ptr %7, align 8, !tbaa !32
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.hashmap_entry, ptr %8, i32 0, i32 0
+  store ptr null, ptr %9, align 8, !tbaa !33
+  ret void
+}
+
+declare i32 @strhash(ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @container_of_or_null_offset(ptr noundef %0, i64 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %12
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load i64, ptr %4, align 8, !tbaa !30
+  %10 = sub i64 0, %9
+  %11 = getelementptr inbounds i8, ptr %8, i64 %10
+  br label %13
+
+12:                                               ; preds = %2
+  br label %13
+
+13:                                               ; preds = %12, %7
+  %14 = phi ptr [ %11, %7 ], [ null, %12 ]
+  ret ptr %14
+}
+
+declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strintmap_incr(ptr noundef %map, ptr noundef %str, i64 noundef %amt) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  %amt.addr = alloca i64, align 8
-  %entry1 = alloca ptr, align 8
-  %whence = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  store i64 %amt, ptr %amt.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %map2 = getelementptr inbounds %struct.strintmap, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %str.addr, align 8
-  %call = call ptr @find_strmap_entry(ptr noundef %map2, ptr noundef %1)
-  store ptr %call, ptr %entry1, align 8
-  %2 = load ptr, ptr %entry1, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.else
+define dso_local void @strintmap_incr(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  store i64 %2, ptr %6, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !34
+  %10 = getelementptr inbounds nuw %struct.strintmap, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %5, align 8, !tbaa !29
+  %12 = call ptr @find_strmap_entry(ptr noundef %10, ptr noundef %11)
+  store ptr %12, ptr %7, align 8, !tbaa !10
+  %13 = load ptr, ptr %7, align 8, !tbaa !10
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %22
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %entry1, align 8
-  %value = getelementptr inbounds %struct.strmap_entry, ptr %3, i32 0, i32 2
-  store ptr %value, ptr %whence, align 8
-  %4 = load i64, ptr %amt.addr, align 8
-  %5 = load ptr, ptr %whence, align 8
-  %6 = load i64, ptr %5, align 8
-  %add = add nsw i64 %6, %4
-  store i64 %add, ptr %5, align 8
-  br label %if.end
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %16 = load ptr, ptr %7, align 8, !tbaa !10
+  %17 = getelementptr inbounds nuw %struct.strmap_entry, ptr %16, i32 0, i32 2
+  store ptr %17, ptr %8, align 8, !tbaa !36
+  %18 = load i64, ptr %6, align 8, !tbaa !30
+  %19 = load ptr, ptr %8, align 8, !tbaa !36
+  %20 = load i64, ptr %19, align 8, !tbaa !30
+  %21 = add nsw i64 %20, %18
+  store i64 %21, ptr %19, align 8, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %31
 
-if.else:                                          ; preds = %entry
-  %7 = load ptr, ptr %map.addr, align 8
-  %8 = load ptr, ptr %str.addr, align 8
-  %9 = load ptr, ptr %map.addr, align 8
-  %default_value = getelementptr inbounds %struct.strintmap, ptr %9, i32 0, i32 1
-  %10 = load i32, ptr %default_value, align 8
-  %conv = sext i32 %10 to i64
-  %11 = load i64, ptr %amt.addr, align 8
-  %add3 = add nsw i64 %conv, %11
-  call void @strintmap_set(ptr noundef %7, ptr noundef %8, i64 noundef %add3)
-  br label %if.end
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %4, align 8, !tbaa !34
+  %24 = load ptr, ptr %5, align 8, !tbaa !29
+  %25 = load ptr, ptr %4, align 8, !tbaa !34
+  %26 = getelementptr inbounds nuw %struct.strintmap, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 8, !tbaa !38
+  %28 = sext i32 %27 to i64
+  %29 = load i64, ptr %6, align 8, !tbaa !30
+  %30 = add nsw i64 %28, %29
+  call void @strintmap_set(ptr noundef %23, ptr noundef %24, i64 noundef %30)
+  br label %31
 
-if.end:                                           ; preds = %if.else, %if.then
+31:                                               ; preds = %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @strintmap_set(ptr noundef %0, ptr noundef %1, i64 noundef %2) #5 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  store i64 %2, ptr %6, align 8, !tbaa !30
+  %7 = load ptr, ptr %4, align 8, !tbaa !34
+  %8 = getelementptr inbounds nuw %struct.strintmap, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !29
+  %10 = load i64, ptr %6, align 8, !tbaa !30
+  %11 = inttoptr i64 %10 to ptr
+  %12 = call ptr @strmap_put(ptr noundef %8, ptr noundef %9, ptr noundef %11)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @strintmap_set(ptr noundef %map, ptr noundef %str, i64 noundef %v) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  %v.addr = alloca i64, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  store i64 %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %map1 = getelementptr inbounds %struct.strintmap, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %str.addr, align 8
-  %2 = load i64, ptr %v.addr, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %call = call ptr @strmap_put(ptr noundef %map1, ptr noundef %1, ptr noundef %3)
-  ret void
+define dso_local i32 @strset_add(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !40
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !40
+  %9 = getelementptr inbounds nuw %struct.strset, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !29
+  %11 = call ptr @find_strmap_entry(ptr noundef %9, ptr noundef %10)
+  store ptr %11, ptr %6, align 8, !tbaa !10
+  %12 = load ptr, ptr %6, align 8, !tbaa !10
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %25
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !40
+  %17 = getelementptr inbounds nuw %struct.strset, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %5, align 8, !tbaa !29
+  %19 = call ptr @create_entry(ptr noundef %17, ptr noundef %18, ptr noundef null)
+  store ptr %19, ptr %6, align 8, !tbaa !10
+  %20 = load ptr, ptr %4, align 8, !tbaa !40
+  %21 = getelementptr inbounds nuw %struct.strset, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.strmap, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %6, align 8, !tbaa !10
+  %24 = getelementptr inbounds nuw %struct.strmap_entry, ptr %23, i32 0, i32 0
+  call void @hashmap_add(ptr noundef %22, ptr noundef %24)
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %25
+
+25:                                               ; preds = %15, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local i32 @strset_add(ptr noundef %set, ptr noundef %str) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %set.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  %entry1 = alloca ptr, align 8
-  store ptr %set, ptr %set.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  %0 = load ptr, ptr %set.addr, align 8
-  %map = getelementptr inbounds %struct.strset, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %str.addr, align 8
-  %call = call ptr @find_strmap_entry(ptr noundef %map, ptr noundef %1)
-  store ptr %call, ptr %entry1, align 8
-  %2 = load ptr, ptr %entry1, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %set.addr, align 8
-  %map2 = getelementptr inbounds %struct.strset, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %str.addr, align 8
-  %call3 = call ptr @create_entry(ptr noundef %map2, ptr noundef %4, ptr noundef null)
-  store ptr %call3, ptr %entry1, align 8
-  %5 = load ptr, ptr %set.addr, align 8
-  %map4 = getelementptr inbounds %struct.strset, ptr %5, i32 0, i32 0
-  %map5 = getelementptr inbounds %struct.strmap, ptr %map4, i32 0, i32 0
-  %6 = load ptr, ptr %entry1, align 8
-  %ent = getelementptr inbounds %struct.strmap_entry, ptr %6, i32 0, i32 0
-  call void @hashmap_add(ptr noundef %map5, ptr noundef %ent)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @hashmap_iter_first(ptr noundef %0, ptr noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %3, align 8, !tbaa !42
+  %6 = load ptr, ptr %4, align 8, !tbaa !44
+  call void @hashmap_iter_init(ptr noundef %5, ptr noundef %6)
+  %7 = load ptr, ptr %4, align 8, !tbaa !44
+  %8 = call ptr @hashmap_iter_next(ptr noundef %7)
+  ret ptr %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @hashmap_iter_first(ptr noundef %map, ptr noundef %iter) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %iter.addr = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store ptr %iter, ptr %iter.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %1 = load ptr, ptr %iter.addr, align 8
-  call void @hashmap_iter_init(ptr noundef %0, ptr noundef %1)
-  %2 = load ptr, ptr %iter.addr, align 8
-  %call = call ptr @hashmap_iter_next(ptr noundef %2)
-  ret ptr %call
-}
+declare ptr @hashmap_iter_next(ptr noundef) #4
 
-declare ptr @hashmap_iter_next(ptr noundef) #3
+declare void @hashmap_iter_init(ptr noundef, ptr noundef) #4
 
-declare void @hashmap_iter_init(ptr noundef, ptr noundef) #3
-
-declare ptr @hashmap_get(ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @hashmap_get(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #1
+declare i64 @strlen(ptr noundef) #2
 
-declare ptr @xcalloc(i64 noundef, i64 noundef) #3
+declare ptr @xcalloc(i64 noundef, i64 noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal i64 @st_add(i64 noundef %a, i64 noundef %b) #0 {
-entry:
-  %a.addr = alloca i64, align 8
-  %b.addr = alloca i64, align 8
-  store i64 %a, ptr %a.addr, align 8
-  store i64 %b, ptr %b.addr, align 8
-  %0 = load i64, ptr %b.addr, align 8
-  %1 = load i64, ptr %a.addr, align 8
-  %sub = sub i64 -1, %1
-  %cmp = icmp ugt i64 %0, %sub
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @st_add(i64 noundef %0, i64 noundef %1) #5 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !30
+  store i64 %1, ptr %4, align 8, !tbaa !30
+  %5 = load i64, ptr %4, align 8, !tbaa !30
+  %6 = load i64, ptr %3, align 8, !tbaa !30
+  %7 = sub i64 -1, %6
+  %8 = icmp ugt i64 %5, %7
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %a.addr, align 8
-  %3 = load i64, ptr %b.addr, align 8
-  call void (ptr, ...) @die(ptr noundef @.str, i64 noundef %2, i64 noundef %3) #8
+9:                                                ; preds = %2
+  %10 = load i64, ptr %3, align 8, !tbaa !30
+  %11 = load i64, ptr %4, align 8, !tbaa !30
+  call void (ptr, ...) @die(ptr noundef @.str, i64 noundef %10, i64 noundef %11) #10
   unreachable
 
-if.end:                                           ; preds = %entry
-  %4 = load i64, ptr %a.addr, align 8
-  %5 = load i64, ptr %b.addr, align 8
-  %add = add i64 %4, %5
-  ret i64 %add
+12:                                               ; preds = %2
+  %13 = load i64, ptr %3, align 8, !tbaa !30
+  %14 = load i64, ptr %4, align 8, !tbaa !30
+  %15 = add i64 %13, %14
+  ret i64 %15
 }
 
-declare ptr @mem_pool_alloc(ptr noundef, i64 noundef) #3
+declare ptr @mem_pool_alloc(ptr noundef, i64 noundef) #4
 
-declare ptr @xmalloc(i64 noundef) #3
+declare ptr @xmalloc(i64 noundef) #4
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #5
+declare void @die(ptr noundef, ...) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS13hashmap_entry", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS12strmap_entry", !5, i64 0}
+!12 = !{!13, !16, i64 16}
+!13 = !{!"strmap_entry", !14, i64 0, !16, i64 16, !5, i64 24}
+!14 = !{!"hashmap_entry", !9, i64 0, !15, i64 8}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!"p1 omnipotent char", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS6strmap", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS8mem_pool", !5, i64 0}
+!21 = !{!15, !15, i64 0}
+!22 = !{!23, !20, i64 48}
+!23 = !{!"strmap", !24, i64 0, !20, i64 48, !15, i64 56}
+!24 = !{!"hashmap", !25, i64 0, !5, i64 8, !5, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40}
+!25 = !{!"p2 _ZTS13hashmap_entry", !5, i64 0}
+!26 = !{!13, !5, i64 24}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!16, !16, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"long", !6, i64 0}
+!32 = !{!14, !15, i64 8}
+!33 = !{!14, !9, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS9strintmap", !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 long", !5, i64 0}
+!38 = !{!39, !15, i64 64}
+!39 = !{!"strintmap", !23, i64 0, !15, i64 64}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS6strset", !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS7hashmap", !5, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS12hashmap_iter", !5, i64 0}

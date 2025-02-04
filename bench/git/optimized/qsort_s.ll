@@ -1,114 +1,112 @@
 ; ModuleID = 'bench/git/original/qsort_s.ll'
 source_filename = "bench/git/original/qsort_s.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @git_qsort_s(ptr noundef %b, i64 noundef %n, i64 noundef %s, ptr noundef %cmp, ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %tobool.not.i = icmp eq i64 %n, 0
-  br i1 %tobool.not.i, label %return, label %land.lhs.true.i
+define dso_local range(i32 -1, 1) i32 @git_qsort_s(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %.not.i = icmp eq i64 %1, 0
+  br i1 %.not.i, label %st_mult.exit.thread, label %6
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mul6.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %n, i64 %s)
-  %mul.ov.i = extractvalue { i64, i1 } %mul6.i, 1
-  br i1 %mul.ov.i, label %if.then.i, label %if.end
+6:                                                ; preds = %5
+  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 %2)
+  %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
+  br i1 %mul.ov.i, label %7, label %8
 
-if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef %n, i64 noundef %s) #6
+7:                                                ; preds = %6
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef %1, i64 noundef %2) #6
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true.i
-  %tobool1 = icmp ne ptr %b, null
-  %tobool2 = icmp ne ptr %cmp, null
-  %or.cond = and i1 %tobool1, %tobool2
-  br i1 %or.cond, label %if.end4, label %return
+8:                                                ; preds = %6
+  %9 = icmp ne ptr %0, null
+  %10 = icmp ne ptr %3, null
+  %or.cond = and i1 %9, %10
+  br i1 %or.cond, label %11, label %st_mult.exit.thread
 
-if.end4:                                          ; preds = %if.end
-  %mul.i = mul i64 %s, %n
-  %call5 = tail call ptr @xmalloc(i64 noundef %mul.i) #7
-  tail call fastcc void @msort_with_tmp(ptr noundef %b, i64 noundef %n, i64 noundef %s, ptr noundef %cmp, ptr noundef %call5, ptr noundef %ctx)
-  tail call void @free(ptr noundef %call5) #7
-  br label %return
+11:                                               ; preds = %8
+  %12 = mul i64 %2, %1
+  %13 = tail call ptr @xmalloc(i64 noundef %12) #7
+  tail call fastcc void @msort_with_tmp(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %13, ptr noundef %4)
+  tail call void @free(ptr noundef %13) #7
+  br label %st_mult.exit.thread
 
-return:                                           ; preds = %entry, %if.end, %if.end4
-  %retval.0 = phi i32 [ 0, %if.end4 ], [ -1, %if.end ], [ 0, %entry ]
-  ret i32 %retval.0
+st_mult.exit.thread:                              ; preds = %5, %8, %11
+  %.0 = phi i32 [ 0, %11 ], [ -1, %8 ], [ 0, %5 ]
+  ret i32 %.0
 }
 
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @msort_with_tmp(ptr noundef nonnull %b, i64 noundef %n, i64 noundef %s, ptr noundef nonnull %cmp, ptr noundef %t, ptr noundef %ctx) unnamed_addr #0 {
-entry:
-  %cmp1 = icmp ult i64 %n, 2
-  br i1 %cmp1, label %return, label %if.end
+define internal fastcc void @msort_with_tmp(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+  %7 = icmp ult i64 %1, 2
+  br i1 %7, label %29, label %8
 
-if.end:                                           ; preds = %entry
-  %div43 = lshr i64 %n, 1
-  %sub = sub i64 %n, %div43
-  %mul = mul i64 %div43, %s
-  %add.ptr = getelementptr inbounds i8, ptr %b, i64 %mul
-  tail call fastcc void @msort_with_tmp(ptr noundef %b, i64 noundef %div43, i64 noundef %s, ptr noundef %cmp, ptr noundef %t, ptr noundef %ctx)
-  tail call fastcc void @msort_with_tmp(ptr noundef %add.ptr, i64 noundef %sub, i64 noundef %s, ptr noundef %cmp, ptr noundef %t, ptr noundef %ctx)
-  %cmp345.not = icmp eq i64 %sub, 0
-  br i1 %cmp345.not, label %if.then13, label %while.body
+8:                                                ; preds = %6
+  %9 = lshr i64 %1, 1
+  %10 = sub i64 %1, %9
+  %11 = mul i64 %9, %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
+  tail call fastcc void @msort_with_tmp(ptr noundef %0, i64 noundef %9, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  tail call fastcc void @msort_with_tmp(ptr noundef %12, i64 noundef %10, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
-while.body:                                       ; preds = %if.end, %if.end11
-  %n2.050 = phi i64 [ %n2.1, %if.end11 ], [ %sub, %if.end ]
-  %n1.049 = phi i64 [ %n1.1, %if.end11 ], [ %div43, %if.end ]
-  %b2.048 = phi ptr [ %b2.1, %if.end11 ], [ %add.ptr, %if.end ]
-  %b1.047 = phi ptr [ %b1.1, %if.end11 ], [ %b, %if.end ]
-  %tmp.046 = phi ptr [ %tmp.1, %if.end11 ], [ %t, %if.end ]
-  %call = tail call i32 %cmp(ptr noundef %b1.047, ptr noundef %b2.048, ptr noundef %ctx) #7
-  %cmp4 = icmp slt i32 %call, 1
-  br i1 %cmp4, label %if.then5, label %if.else
+.lr.ph:                                           ; preds = %8, %21
+  %.065 = phi i64 [ %.1, %21 ], [ %10, %8 ]
+  %.05264 = phi i64 [ %.153, %21 ], [ %9, %8 ]
+  %.05463 = phi ptr [ %.155, %21 ], [ %12, %8 ]
+  %.05662 = phi ptr [ %.157, %21 ], [ %0, %8 ]
+  %.05861 = phi ptr [ %.159, %21 ], [ %4, %8 ]
+  %13 = tail call i32 %3(ptr noundef %.05662, ptr noundef %.05463, ptr noundef %5) #7
+  %14 = icmp slt i32 %13, 1
+  br i1 %14, label %15, label %18
 
-if.then5:                                         ; preds = %while.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.046, ptr align 1 %b1.047, i64 %s, i1 false)
-  %add.ptr7 = getelementptr inbounds i8, ptr %b1.047, i64 %s
-  %dec = add nsw i64 %n1.049, -1
-  br label %if.end11
+15:                                               ; preds = %.lr.ph
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05861, ptr align 1 %.05662, i64 %2, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %.05662, i64 %2
+  %17 = add nsw i64 %.05264, -1
+  br label %21
 
-if.else:                                          ; preds = %while.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.046, ptr align 1 %b2.048, i64 %s, i1 false)
-  %add.ptr9 = getelementptr inbounds i8, ptr %b2.048, i64 %s
-  %dec10 = add i64 %n2.050, -1
-  br label %if.end11
+18:                                               ; preds = %.lr.ph
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05861, ptr align 1 %.05463, i64 %2, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %.05463, i64 %2
+  %20 = add i64 %.065, -1
+  br label %21
 
-if.end11:                                         ; preds = %if.else, %if.then5
-  %b1.1 = phi ptr [ %add.ptr7, %if.then5 ], [ %b1.047, %if.else ]
-  %b2.1 = phi ptr [ %b2.048, %if.then5 ], [ %add.ptr9, %if.else ]
-  %n1.1 = phi i64 [ %dec, %if.then5 ], [ %n1.049, %if.else ]
-  %n2.1 = phi i64 [ %n2.050, %if.then5 ], [ %dec10, %if.else ]
-  %tmp.1 = getelementptr inbounds i8, ptr %tmp.046, i64 %s
-  %cmp2 = icmp ne i64 %n1.1, 0
-  %cmp3 = icmp ne i64 %n2.1, 0
-  %0 = select i1 %cmp2, i1 %cmp3, i1 false
-  br i1 %0, label %while.body, label %while.end, !llvm.loop !5
+21:                                               ; preds = %18, %15
+  %.157 = phi ptr [ %16, %15 ], [ %.05662, %18 ]
+  %.155 = phi ptr [ %.05463, %15 ], [ %19, %18 ]
+  %.153 = phi i64 [ %17, %15 ], [ %.05264, %18 ]
+  %.1 = phi i64 [ %.065, %15 ], [ %20, %18 ]
+  %.159 = getelementptr inbounds nuw i8, ptr %.05861, i64 %2
+  %22 = icmp ne i64 %.153, 0
+  %23 = icmp ne i64 %.1, 0
+  %24 = select i1 %22, i1 %23, i1 false
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
-while.end:                                        ; preds = %if.end11
-  br i1 %cmp2, label %if.then13, label %if.end15
+._crit_edge:                                      ; preds = %21
+  br i1 %22, label %._crit_edge.thread, label %26
 
-if.then13:                                        ; preds = %if.end, %while.end
-  %n2.0.lcssa65 = phi i64 [ %n2.1, %while.end ], [ 0, %if.end ]
-  %n1.0.lcssa63 = phi i64 [ %n1.1, %while.end ], [ %div43, %if.end ]
-  %b1.0.lcssa62 = phi ptr [ %b1.1, %while.end ], [ %b, %if.end ]
-  %tmp.0.lcssa61 = phi ptr [ %tmp.1, %while.end ], [ %t, %if.end ]
-  %mul14 = mul i64 %n1.0.lcssa63, %s
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.0.lcssa61, ptr align 1 %b1.0.lcssa62, i64 %mul14, i1 false)
-  br label %if.end15
+._crit_edge.thread:                               ; preds = %8, %._crit_edge
+  %.0.lcssa80 = phi i64 [ %.1, %._crit_edge ], [ 0, %8 ]
+  %.052.lcssa78 = phi i64 [ %.153, %._crit_edge ], [ %9, %8 ]
+  %.056.lcssa77 = phi ptr [ %.157, %._crit_edge ], [ %0, %8 ]
+  %.058.lcssa76 = phi ptr [ %.159, %._crit_edge ], [ %4, %8 ]
+  %25 = mul i64 %.052.lcssa78, %2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.058.lcssa76, ptr align 1 %.056.lcssa77, i64 %25, i1 false)
+  br label %26
 
-if.end15:                                         ; preds = %if.then13, %while.end
-  %n2.0.lcssa64 = phi i64 [ %n2.0.lcssa65, %if.then13 ], [ %n2.1, %while.end ]
-  %sub16 = sub i64 %n, %n2.0.lcssa64
-  %mul17 = mul i64 %sub16, %s
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %b, ptr align 1 %t, i64 %mul17, i1 false)
-  br label %return
+26:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.0.lcssa79 = phi i64 [ %.0.lcssa80, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %27 = sub i64 %1, %.0.lcssa79
+  %28 = mul i64 %27, %2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %4, i64 %28, i1 false)
+  br label %29
 
-return:                                           ; preds = %entry, %if.end15
+29:                                               ; preds = %6, %26
   ret void
 }
 
@@ -124,21 +122,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { noreturn nounwind }
 attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

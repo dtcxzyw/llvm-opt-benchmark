@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/git/original/diffcore-rotate.ll'
 source_filename = "bench/git/original/diffcore-rotate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.diff_queue_struct = type { ptr, i32, i32 }
 
@@ -10,185 +10,229 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @diffcore_rotate(ptr noundef readonly captures(none) %opt) local_unnamed_addr #0 {
-entry:
-  %outq = alloca %struct.diff_queue_struct, align 8
-  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %return, label %for.cond.preheader
+define dso_local void @diffcore_rotate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.diff_queue_struct, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %45, label %.preheader41
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp28 = icmp sgt i32 %0, 0
-  br i1 %cmp28, label %for.body.lr.ph, label %for.cond.preheader.if.then13_crit_edge
+.preheader41:                                     ; preds = %1
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph, label %.preheader41.._crit_edge_crit_edge
 
-for.cond.preheader.if.then13_crit_edge:           ; preds = %for.cond.preheader
-  %rotate_to_strict14.phi.trans.insert = getelementptr inbounds nuw i8, ptr %opt, i64 20
-  %.pre = load i32, ptr %rotate_to_strict14.phi.trans.insert, align 4
-  br label %if.then13
+.preheader41.._crit_edge_crit_edge:               ; preds = %.preheader41
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !11
+  br label %._crit_edge
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %rotate_to3 = getelementptr inbounds nuw i8, ptr %opt, i64 8
-  %1 = load ptr, ptr %rotate_to3, align 8
-  %2 = load ptr, ptr @diff_queued_diff, align 8
-  %rotate_to_strict = getelementptr inbounds nuw i8, ptr %opt, i64 20
-  %wide.trip.count = zext nneg i32 %0 to i64
-  br label %for.body
+.lr.ph:                                           ; preds = %.preheader41
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %wide.trip.count = zext nneg i32 %3 to i64
+  br label %9
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv43 = phi i32 [ 0, %for.body.lr.ph ], [ %indvars.iv.next44, %for.inc ]
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %3 = load ptr, ptr %arrayidx, align 8
-  %two = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %4 = load ptr, ptr %two, align 8
-  %path = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %5 = load ptr, ptr %path, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #8
-  %tobool4.not = icmp eq i32 %call, 0
-  br i1 %tobool4.not, label %do.body, label %if.end6
+9:                                                ; preds = %.lr.ph, %21
+  %indvars.iv59 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next60, %21 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %15 = load ptr, ptr %14, align 8, !tbaa !33
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %15) #11
+  %.not34 = icmp eq i32 %16, 0
+  br i1 %.not34, label %select.unfold, label %17
 
-if.end6:                                          ; preds = %for.body
-  %6 = load i32, ptr %rotate_to_strict, align 4
-  %tobool7 = icmp eq i32 %6, 0
-  %cmp8 = icmp slt i32 %call, 0
-  %or.cond = and i1 %cmp8, %tobool7
-  br i1 %or.cond, label %do.body, label %for.inc
+17:                                               ; preds = %9
+  %18 = load i32, ptr %8, align 4, !tbaa !11
+  %19 = icmp eq i32 %18, 0
+  %20 = icmp slt i32 %16, 0
+  %or.cond = and i1 %20, %19
+  br i1 %or.cond, label %select.unfold, label %21
 
-for.inc:                                          ; preds = %if.end6
+21:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %indvars.iv.next44 = add nuw nsw i32 %indvars.iv43, 1
-  br i1 %exitcond.not, label %if.then13, label %for.body, !llvm.loop !5
+  %indvars.iv.next60 = add nuw nsw i32 %indvars.iv59, 1
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !37
 
-if.then13:                                        ; preds = %for.inc, %for.cond.preheader.if.then13_crit_edge
-  %7 = phi i32 [ %.pre, %for.cond.preheader.if.then13_crit_edge ], [ %6, %for.inc ]
-  %tobool15.not = icmp eq i32 %7, 0
-  br i1 %tobool15.not, label %return, label %if.then16
+select.unfold:                                    ; preds = %17, %9
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  %23 = icmp sgt i32 %3, %22
+  br i1 %23, label %.lr.ph45, label %.preheader
 
-if.then16:                                        ; preds = %if.then13
-  %call17 = tail call fastcc ptr @_()
-  %rotate_to18 = getelementptr inbounds nuw i8, ptr %opt, i64 8
-  %8 = load ptr, ptr %rotate_to18, align 8
-  tail call void (ptr, ...) @die(ptr noundef %call17, ptr noundef %8) #9
+._crit_edge:                                      ; preds = %21, %.preheader41.._crit_edge_crit_edge
+  %24 = phi i32 [ %.pre, %.preheader41.._crit_edge_crit_edge ], [ %18, %21 ]
+  %.not37 = icmp eq i32 %24, 0
+  br i1 %.not37, label %45, label %25
+
+25:                                               ; preds = %._crit_edge
+  %26 = tail call fastcc ptr @_()
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  tail call void (ptr, ...) @die(ptr noundef %26, ptr noundef %28) #12
   unreachable
 
-do.body:                                          ; preds = %if.end6, %for.body
-  %9 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp2530 = icmp sgt i32 %0, %9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq, i8 0, i64 16, i1 false)
-  br i1 %cmp2530, label %for.body26, label %for.cond33.preheader
+.preheader:                                       ; preds = %.lr.ph45, %select.unfold
+  %.not49 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not49, label %._crit_edge48, label %.lr.ph47
 
-for.cond33.preheader:                             ; preds = %for.body26, %do.body
-  %cmp3432.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp3432.not, label %for.end47, label %for.body35.lr.ph
+.lr.ph47:                                         ; preds = %.preheader
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %wide.trip.count62 = zext nneg i32 %indvars.iv59 to i64
+  br label %36
 
-for.body35.lr.ph:                                 ; preds = %for.cond33.preheader
-  %skip_instead_of_rotate = getelementptr inbounds nuw i8, ptr %opt, i64 16
-  %wide.trip.count46 = zext nneg i32 %indvars.iv43 to i64
-  br label %for.body35
+.lr.ph45:                                         ; preds = %select.unfold, %.lr.ph45
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.lr.ph45 ], [ %indvars.iv, %select.unfold ]
+  %30 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv53
+  %32 = load ptr, ptr %31, align 8, !tbaa !27
+  call void @diff_q(ptr noundef nonnull %2, ptr noundef %32) #10
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
+  %34 = trunc nuw i64 %indvars.iv.next54 to i32
+  %35 = icmp sgt i32 %33, %34
+  br i1 %35, label %.lr.ph45, label %.preheader, !llvm.loop !39
 
-for.body26:                                       ; preds = %do.body, %for.body26
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %for.body26 ], [ %indvars.iv, %do.body ]
-  %10 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx29 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv37
-  %11 = load ptr, ptr %arrayidx29, align 8
-  call void @diff_q(ptr noundef nonnull %outq, ptr noundef %11) #10
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
-  %13 = trunc nuw i64 %indvars.iv.next38 to i32
-  %cmp25 = icmp sgt i32 %12, %13
-  br i1 %cmp25, label %for.body26, label %for.cond33.preheader, !llvm.loop !7
+36:                                               ; preds = %.lr.ph47, %43
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next57, %43 ]
+  %37 = load i32, ptr %29, align 8, !tbaa !40
+  %.not36 = icmp eq i32 %37, 0
+  %38 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv56
+  %40 = load ptr, ptr %39, align 8, !tbaa !27
+  br i1 %.not36, label %42, label %41
 
-for.body35:                                       ; preds = %for.body35.lr.ph, %for.inc45
-  %indvars.iv40 = phi i64 [ 0, %for.body35.lr.ph ], [ %indvars.iv.next41, %for.inc45 ]
-  %14 = load i32, ptr %skip_instead_of_rotate, align 8
-  %tobool36.not = icmp eq i32 %14, 0
-  %15 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv40
-  %16 = load ptr, ptr %arrayidx43, align 8
-  br i1 %tobool36.not, label %if.else, label %if.then37
+41:                                               ; preds = %36
+  call void @diff_free_filepair(ptr noundef %40) #10
+  br label %43
 
-if.then37:                                        ; preds = %for.body35
-  call void @diff_free_filepair(ptr noundef %16) #10
-  br label %for.inc45
+42:                                               ; preds = %36
+  call void @diff_q(ptr noundef nonnull %2, ptr noundef %40) #10
+  br label %43
 
-if.else:                                          ; preds = %for.body35
-  call void @diff_q(ptr noundef nonnull %outq, ptr noundef %16) #10
-  br label %for.inc45
+43:                                               ; preds = %41, %42
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond63.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count62
+  br i1 %exitcond63.not, label %._crit_edge48, label %36, !llvm.loop !41
 
-for.inc45:                                        ; preds = %if.then37, %if.else
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count46
-  br i1 %exitcond47.not, label %for.end47, label %for.body35, !llvm.loop !8
+._crit_edge48:                                    ; preds = %43, %.preheader
+  %44 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
+  call void @free(ptr noundef %44) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !42
+  br label %45
 
-for.end47:                                        ; preds = %for.inc45, %for.cond33.preheader
-  %17 = load ptr, ptr @diff_queued_diff, align 8
-  call void @free(ptr noundef %17) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %outq, i64 16, i1 false)
-  br label %return
-
-return:                                           ; preds = %if.then13, %entry, %for.end47
+45:                                               ; preds = %._crit_edge, %1, %._crit_edge48
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #2
+declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_() unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not = icmp eq i32 %0, 0
-  br i1 %tobool1.not, label %return, label %if.end3
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc ptr @_() unnamed_addr #5 {
+  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %4, label %2
 
-if.end3:                                          ; preds = %entry
-  %call = tail call ptr @gettext(ptr noundef nonnull @.str) #10
-  br label %return
+2:                                                ; preds = %0
+  %3 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #10
+  br label %4
 
-return:                                           ; preds = %entry, %if.end3
-  %retval.0 = phi ptr [ %call, %if.end3 ], [ @.str, %entry ]
-  ret ptr %retval.0
+4:                                                ; preds = %0, %2
+  %.0 = phi ptr [ %3, %2 ], [ @.str, %0 ]
+  ret ptr %.0
 }
 
-declare void @diff_q(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @diff_q(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @diff_free_filepair(ptr noundef) local_unnamed_addr #3
+declare void @diff_free_filepair(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) local_unnamed_addr #6
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { noreturn nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !10, i64 12}
+!5 = !{!"diff_queue_struct", !6, i64 0, !10, i64 8, !10, i64 12}
+!6 = !{!"p2 _ZTS13diff_filepair", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!12, !10, i64 20}
+!12 = !{!"diff_options", !13, i64 0, !13, i64 8, !10, i64 16, !10, i64 20, !13, i64 24, !10, i64 32, !14, i64 40, !15, i64 48, !15, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !16, i64 96, !10, i64 236, !10, i64 240, !10, i64 244, !10, i64 248, !10, i64 252, !10, i64 256, !10, i64 260, !10, i64 264, !10, i64 268, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !10, i64 300, !10, i64 304, !10, i64 308, !10, i64 312, !10, i64 316, !10, i64 320, !13, i64 328, !10, i64 336, !13, i64 344, !10, i64 352, !10, i64 356, !17, i64 360, !15, i64 368, !15, i64 376, !10, i64 384, !10, i64 388, !10, i64 392, !10, i64 396, !13, i64 400, !10, i64 408, !10, i64 412, !18, i64 416, !10, i64 424, !10, i64 428, !7, i64 432, !19, i64 440, !10, i64 448, !8, i64 452, !20, i64 456, !7, i64 480, !7, i64 488, !7, i64 496, !7, i64 504, !7, i64 512, !7, i64 520, !7, i64 528, !7, i64 536, !10, i64 544, !22, i64 552, !10, i64 560, !10, i64 564, !23, i64 568, !24, i64 576, !10, i64 584}
+!13 = !{!"p1 omnipotent char", !7, i64 0}
+!14 = !{!"p2 _ZTS17re_pattern_buffer", !7, i64 0}
+!15 = !{!"long", !8, i64 0}
+!16 = !{!"diff_flags", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !10, i64 128, !10, i64 132, !10, i64 136}
+!17 = !{!"p2 omnipotent char", !7, i64 0}
+!18 = !{!"p1 _ZTS6oidset", !7, i64 0}
+!19 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!20 = !{!"pathspec", !10, i64 0, !10, i64 4, !10, i64 4, !10, i64 4, !10, i64 8, !10, i64 12, !21, i64 16}
+!21 = !{!"p1 _ZTS13pathspec_item", !7, i64 0}
+!22 = !{!"p1 _ZTS20emitted_diff_symbols", !7, i64 0}
+!23 = !{!"p1 _ZTS10repository", !7, i64 0}
+!24 = !{!"p1 _ZTS6strmap", !7, i64 0}
+!25 = !{!12, !13, i64 8}
+!26 = !{!5, !6, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS13diff_filepair", !7, i64 0}
+!29 = !{!30, !31, i64 8}
+!30 = !{!"diff_filepair", !31, i64 0, !31, i64 8, !32, i64 16, !8, i64 18, !10, i64 19, !10, i64 19, !10, i64 19, !10, i64 19, !10, i64 19}
+!31 = !{!"p1 _ZTS13diff_filespec", !7, i64 0}
+!32 = !{!"short", !8, i64 0}
+!33 = !{!34, !13, i64 40}
+!34 = !{!"diff_filespec", !35, i64 0, !13, i64 40, !7, i64 48, !7, i64 56, !15, i64 64, !10, i64 72, !10, i64 76, !32, i64 80, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !36, i64 88}
+!35 = !{!"object_id", !8, i64 0, !10, i64 32}
+!36 = !{!"p1 _ZTS15userdiff_driver", !7, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}
+!39 = distinct !{!39, !38}
+!40 = !{!12, !10, i64 16}
+!41 = distinct !{!41, !38}
+!42 = !{i64 0, i64 8, !43, i64 8, i64 4, !44, i64 12, i64 4, !44}
+!43 = !{!6, !6, i64 0}
+!44 = !{!10, !10, i64 0}

@@ -1,15 +1,17 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.chunkfile = type { ptr, ptr, i64, i64 }
 %struct.chunk_info = type { i32, i64, ptr, ptr }
-%struct.hashfile = type { i32, i32, i32, %union.git_hash_ctx, i64, ptr, ptr, i32, i32, i64, ptr, ptr, i32 }
+%struct.hashfile = type { i32, i32, i32, %union.git_hash_ctx, i64, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, i32 }
 %union.git_hash_ctx = type { %struct.SHA1_CTX }
 %struct.SHA1_CTX = type { i64, [5 x i32], [64 x i8], i32, i32, i32, i32, i32, ptr, [5 x i32], [5 x i32], [80 x i32], [80 x i32], [80 x [5 x i32]] }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
+%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.strmap, %struct.strmap, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i32, i8 }
+%struct.strmap = type { %struct.hashmap, ptr, i8 }
+%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
+%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64 }
 %struct.pair_chunk_data = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [15 x i8] c"chunk-format.c\00", align 1
@@ -29,1152 +31,1329 @@ target triple = "x86_64-unknown-linux-gnu"
 @hash_algos = external constant [3 x %struct.git_hash_algo], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @init_chunkfile(ptr noundef %f) #0 {
-entry:
-  %f.addr = alloca ptr, align 8
-  %cf = alloca ptr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  %call = call ptr @xcalloc(i64 noundef 1, i64 noundef 32)
-  store ptr %call, ptr %cf, align 8
-  %0 = load ptr, ptr %f.addr, align 8
-  %1 = load ptr, ptr %cf, align 8
-  %f1 = getelementptr inbounds %struct.chunkfile, ptr %1, i32 0, i32 0
-  store ptr %0, ptr %f1, align 8
-  %2 = load ptr, ptr %cf, align 8
-  ret ptr %2
+define dso_local ptr @init_chunkfile(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = call ptr @xcalloc(i64 noundef 1, i64 noundef 32)
+  store ptr %4, ptr %3, align 8, !tbaa !9
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = load ptr, ptr %3, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.chunkfile, ptr %6, i32 0, i32 0
+  store ptr %5, ptr %7, align 8, !tbaa !11
+  %8 = load ptr, ptr %3, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %8
 }
 
-declare ptr @xcalloc(i64 noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @xcalloc(i64 noundef, i64 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_chunkfile(ptr noundef %cf) #0 {
-entry:
-  %cf.addr = alloca ptr, align 8
-  store ptr %cf, ptr %cf.addr, align 8
-  %0 = load ptr, ptr %cf.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local void @free_chunkfile(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %cf.addr, align 8
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %chunks, align 8
-  call void @free(ptr noundef %2) #5
-  %3 = load ptr, ptr %cf.addr, align 8
-  call void @free(ptr noundef %3) #5
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !9
+  %8 = getelementptr inbounds nuw %struct.chunkfile, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !15
+  call void @free(ptr noundef %9) #7
+  %10 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @free(ptr noundef %10) #7
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
+11:                                               ; preds = %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_num_chunks(ptr noundef %cf) #0 {
-entry:
-  %cf.addr = alloca ptr, align 8
-  store ptr %cf, ptr %cf.addr, align 8
-  %0 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %chunks_nr, align 8
-  %conv = trunc i64 %1 to i32
-  ret i32 %conv
+define dso_local i32 @get_num_chunks(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.chunkfile, ptr %3, i32 0, i32 2
+  %5 = load i64, ptr %4, align 8, !tbaa !16
+  %6 = trunc i64 %5 to i32
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_chunk(ptr noundef %cf, i32 noundef %id, i64 noundef %size, ptr noundef %fn) #0 {
-entry:
-  %cf.addr = alloca ptr, align 8
-  %id.addr = alloca i32, align 4
-  %size.addr = alloca i64, align 8
-  %fn.addr = alloca ptr, align 8
-  store ptr %cf, ptr %cf.addr, align 8
-  store i32 %id, ptr %id.addr, align 4
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  br label %do.body
+define dso_local void @add_chunk(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store i64 %2, ptr %7, align 8, !tbaa !19
+  store ptr %3, ptr %8, align 8, !tbaa !20
+  br label %9
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %chunks_nr, align 8
-  %add = add i64 %1, 1
-  %2 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc = getelementptr inbounds %struct.chunkfile, ptr %2, i32 0, i32 3
-  %3 = load i64, ptr %chunks_alloc, align 8
-  %cmp = icmp ugt i64 %add, %3
-  br i1 %cmp, label %if.then, label %if.end18
+9:                                                ; preds = %4
+  %10 = load ptr, ptr %5, align 8, !tbaa !9
+  %11 = getelementptr inbounds nuw %struct.chunkfile, ptr %10, i32 0, i32 2
+  %12 = load i64, ptr %11, align 8, !tbaa !16
+  %13 = add i64 %12, 1
+  %14 = load ptr, ptr %5, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.chunkfile, ptr %14, i32 0, i32 3
+  %16 = load i64, ptr %15, align 8, !tbaa !21
+  %17 = icmp ugt i64 %13, %16
+  br i1 %17, label %18, label %57
 
-if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc1 = getelementptr inbounds %struct.chunkfile, ptr %4, i32 0, i32 3
-  %5 = load i64, ptr %chunks_alloc1, align 8
-  %add2 = add i64 %5, 16
-  %mul = mul i64 %add2, 3
-  %div = udiv i64 %mul, 2
-  %6 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr3 = getelementptr inbounds %struct.chunkfile, ptr %6, i32 0, i32 2
-  %7 = load i64, ptr %chunks_nr3, align 8
-  %add4 = add i64 %7, 1
-  %cmp5 = icmp ult i64 %div, %add4
-  br i1 %cmp5, label %if.then6, label %if.else
+18:                                               ; preds = %9
+  %19 = load ptr, ptr %5, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.chunkfile, ptr %19, i32 0, i32 3
+  %21 = load i64, ptr %20, align 8, !tbaa !21
+  %22 = add i64 %21, 16
+  %23 = mul i64 %22, 3
+  %24 = udiv i64 %23, 2
+  %25 = load ptr, ptr %5, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.chunkfile, ptr %25, i32 0, i32 2
+  %27 = load i64, ptr %26, align 8, !tbaa !16
+  %28 = add i64 %27, 1
+  %29 = icmp ult i64 %24, %28
+  br i1 %29, label %30, label %37
 
-if.then6:                                         ; preds = %if.then
-  %8 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr7 = getelementptr inbounds %struct.chunkfile, ptr %8, i32 0, i32 2
-  %9 = load i64, ptr %chunks_nr7, align 8
-  %add8 = add i64 %9, 1
-  %10 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc9 = getelementptr inbounds %struct.chunkfile, ptr %10, i32 0, i32 3
-  store i64 %add8, ptr %chunks_alloc9, align 8
-  br label %if.end
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %5, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.chunkfile, ptr %31, i32 0, i32 2
+  %33 = load i64, ptr %32, align 8, !tbaa !16
+  %34 = add i64 %33, 1
+  %35 = load ptr, ptr %5, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.chunkfile, ptr %35, i32 0, i32 3
+  store i64 %34, ptr %36, align 8, !tbaa !21
+  br label %46
 
-if.else:                                          ; preds = %if.then
-  %11 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc10 = getelementptr inbounds %struct.chunkfile, ptr %11, i32 0, i32 3
-  %12 = load i64, ptr %chunks_alloc10, align 8
-  %add11 = add i64 %12, 16
-  %mul12 = mul i64 %add11, 3
-  %div13 = udiv i64 %mul12, 2
-  %13 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc14 = getelementptr inbounds %struct.chunkfile, ptr %13, i32 0, i32 3
-  store i64 %div13, ptr %chunks_alloc14, align 8
-  br label %if.end
+37:                                               ; preds = %18
+  %38 = load ptr, ptr %5, align 8, !tbaa !9
+  %39 = getelementptr inbounds nuw %struct.chunkfile, ptr %38, i32 0, i32 3
+  %40 = load i64, ptr %39, align 8, !tbaa !21
+  %41 = add i64 %40, 16
+  %42 = mul i64 %41, 3
+  %43 = udiv i64 %42, 2
+  %44 = load ptr, ptr %5, align 8, !tbaa !9
+  %45 = getelementptr inbounds nuw %struct.chunkfile, ptr %44, i32 0, i32 3
+  store i64 %43, ptr %45, align 8, !tbaa !21
+  br label %46
 
-if.end:                                           ; preds = %if.else, %if.then6
-  %14 = load ptr, ptr %cf.addr, align 8
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %chunks, align 8
-  %16 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc15 = getelementptr inbounds %struct.chunkfile, ptr %16, i32 0, i32 3
-  %17 = load i64, ptr %chunks_alloc15, align 8
-  %call = call i64 @st_mult(i64 noundef 32, i64 noundef %17)
-  %call16 = call ptr @xrealloc(ptr noundef %15, i64 noundef %call)
-  %18 = load ptr, ptr %cf.addr, align 8
-  %chunks17 = getelementptr inbounds %struct.chunkfile, ptr %18, i32 0, i32 1
-  store ptr %call16, ptr %chunks17, align 8
-  br label %if.end18
+46:                                               ; preds = %37, %30
+  %47 = load ptr, ptr %5, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw %struct.chunkfile, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !15
+  %50 = load ptr, ptr %5, align 8, !tbaa !9
+  %51 = getelementptr inbounds nuw %struct.chunkfile, ptr %50, i32 0, i32 3
+  %52 = load i64, ptr %51, align 8, !tbaa !21
+  %53 = call i64 @st_mult(i64 noundef 32, i64 noundef %52)
+  %54 = call ptr @xrealloc(ptr noundef %49, i64 noundef %53)
+  %55 = load ptr, ptr %5, align 8, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.chunkfile, ptr %55, i32 0, i32 1
+  store ptr %54, ptr %56, align 8, !tbaa !15
+  br label %57
 
-if.end18:                                         ; preds = %if.end, %do.body
-  br label %do.end
+57:                                               ; preds = %46, %9
+  br label %58
 
-do.end:                                           ; preds = %if.end18
-  %19 = load i32, ptr %id.addr, align 4
-  %20 = load ptr, ptr %cf.addr, align 8
-  %chunks19 = getelementptr inbounds %struct.chunkfile, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %chunks19, align 8
-  %22 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr20 = getelementptr inbounds %struct.chunkfile, ptr %22, i32 0, i32 2
-  %23 = load i64, ptr %chunks_nr20, align 8
-  %arrayidx = getelementptr inbounds %struct.chunk_info, ptr %21, i64 %23
-  %id21 = getelementptr inbounds %struct.chunk_info, ptr %arrayidx, i32 0, i32 0
-  store i32 %19, ptr %id21, align 8
-  %24 = load ptr, ptr %fn.addr, align 8
-  %25 = load ptr, ptr %cf.addr, align 8
-  %chunks22 = getelementptr inbounds %struct.chunkfile, ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %chunks22, align 8
-  %27 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr23 = getelementptr inbounds %struct.chunkfile, ptr %27, i32 0, i32 2
-  %28 = load i64, ptr %chunks_nr23, align 8
-  %arrayidx24 = getelementptr inbounds %struct.chunk_info, ptr %26, i64 %28
-  %write_fn = getelementptr inbounds %struct.chunk_info, ptr %arrayidx24, i32 0, i32 2
-  store ptr %24, ptr %write_fn, align 8
-  %29 = load i64, ptr %size.addr, align 8
-  %30 = load ptr, ptr %cf.addr, align 8
-  %chunks25 = getelementptr inbounds %struct.chunkfile, ptr %30, i32 0, i32 1
-  %31 = load ptr, ptr %chunks25, align 8
-  %32 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr26 = getelementptr inbounds %struct.chunkfile, ptr %32, i32 0, i32 2
-  %33 = load i64, ptr %chunks_nr26, align 8
-  %arrayidx27 = getelementptr inbounds %struct.chunk_info, ptr %31, i64 %33
-  %size28 = getelementptr inbounds %struct.chunk_info, ptr %arrayidx27, i32 0, i32 1
-  store i64 %29, ptr %size28, align 8
-  %34 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr29 = getelementptr inbounds %struct.chunkfile, ptr %34, i32 0, i32 2
-  %35 = load i64, ptr %chunks_nr29, align 8
-  %inc = add i64 %35, 1
-  store i64 %inc, ptr %chunks_nr29, align 8
+58:                                               ; preds = %57
+  %59 = load i32, ptr %6, align 4, !tbaa !17
+  %60 = load ptr, ptr %5, align 8, !tbaa !9
+  %61 = getelementptr inbounds nuw %struct.chunkfile, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !15
+  %63 = load ptr, ptr %5, align 8, !tbaa !9
+  %64 = getelementptr inbounds nuw %struct.chunkfile, ptr %63, i32 0, i32 2
+  %65 = load i64, ptr %64, align 8, !tbaa !16
+  %66 = getelementptr inbounds nuw %struct.chunk_info, ptr %62, i64 %65
+  %67 = getelementptr inbounds nuw %struct.chunk_info, ptr %66, i32 0, i32 0
+  store i32 %59, ptr %67, align 8, !tbaa !22
+  %68 = load ptr, ptr %8, align 8, !tbaa !20
+  %69 = load ptr, ptr %5, align 8, !tbaa !9
+  %70 = getelementptr inbounds nuw %struct.chunkfile, ptr %69, i32 0, i32 1
+  %71 = load ptr, ptr %70, align 8, !tbaa !15
+  %72 = load ptr, ptr %5, align 8, !tbaa !9
+  %73 = getelementptr inbounds nuw %struct.chunkfile, ptr %72, i32 0, i32 2
+  %74 = load i64, ptr %73, align 8, !tbaa !16
+  %75 = getelementptr inbounds nuw %struct.chunk_info, ptr %71, i64 %74
+  %76 = getelementptr inbounds nuw %struct.chunk_info, ptr %75, i32 0, i32 2
+  store ptr %68, ptr %76, align 8, !tbaa !24
+  %77 = load i64, ptr %7, align 8, !tbaa !19
+  %78 = load ptr, ptr %5, align 8, !tbaa !9
+  %79 = getelementptr inbounds nuw %struct.chunkfile, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8, !tbaa !15
+  %81 = load ptr, ptr %5, align 8, !tbaa !9
+  %82 = getelementptr inbounds nuw %struct.chunkfile, ptr %81, i32 0, i32 2
+  %83 = load i64, ptr %82, align 8, !tbaa !16
+  %84 = getelementptr inbounds nuw %struct.chunk_info, ptr %80, i64 %83
+  %85 = getelementptr inbounds nuw %struct.chunk_info, ptr %84, i32 0, i32 1
+  store i64 %77, ptr %85, align 8, !tbaa !25
+  %86 = load ptr, ptr %5, align 8, !tbaa !9
+  %87 = getelementptr inbounds nuw %struct.chunkfile, ptr %86, i32 0, i32 2
+  %88 = load i64, ptr %87, align 8, !tbaa !16
+  %89 = add i64 %88, 1
+  store i64 %89, ptr %87, align 8, !tbaa !16
   ret void
 }
 
-declare ptr @xrealloc(ptr noundef, i64 noundef) #1
+declare ptr @xrealloc(ptr noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i64 @st_mult(i64 noundef %a, i64 noundef %b) #0 {
-entry:
-  %a.addr = alloca i64, align 8
-  %b.addr = alloca i64, align 8
-  store i64 %a, ptr %a.addr, align 8
-  store i64 %b, ptr %b.addr, align 8
-  %0 = load i64, ptr %a.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @st_mult(i64 noundef %0, i64 noundef %1) #4 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !19
+  store i64 %1, ptr %4, align 8, !tbaa !19
+  %5 = load i64, ptr %3, align 8, !tbaa !19
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %7, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %b.addr, align 8
-  %2 = load i64, ptr %a.addr, align 8
-  %div = udiv i64 -1, %2
-  %cmp = icmp ugt i64 %1, %div
-  br i1 %cmp, label %if.then, label %if.end
+7:                                                ; preds = %2
+  %8 = load i64, ptr %4, align 8, !tbaa !19
+  %9 = load i64, ptr %3, align 8, !tbaa !19
+  %10 = udiv i64 -1, %9
+  %11 = icmp ugt i64 %8, %10
+  br i1 %11, label %12, label %15
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load i64, ptr %a.addr, align 8
-  %4 = load i64, ptr %b.addr, align 8
-  call void (ptr, ...) @die(ptr noundef @.str.10, i64 noundef %3, i64 noundef %4) #6
+12:                                               ; preds = %7
+  %13 = load i64, ptr %3, align 8, !tbaa !19
+  %14 = load i64, ptr %4, align 8, !tbaa !19
+  call void (ptr, ...) @die(ptr noundef @.str.10, i64 noundef %13, i64 noundef %14) #8
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %5 = load i64, ptr %a.addr, align 8
-  %6 = load i64, ptr %b.addr, align 8
-  %mul = mul i64 %5, %6
-  ret i64 %mul
+15:                                               ; preds = %7, %2
+  %16 = load i64, ptr %3, align 8, !tbaa !19
+  %17 = load i64, ptr %4, align 8, !tbaa !19
+  %18 = mul i64 %16, %17
+  ret i64 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @write_chunkfile(ptr noundef %cf, ptr noundef %data) #0 {
-entry:
-  %cf.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %result = alloca i32, align 4
-  %cur_offset = alloca i64, align 8
-  %start_offset = alloca i64, align 8
-  store ptr %cf, ptr %cf.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 0, ptr %result, align 4
-  %0 = load ptr, ptr %cf.addr, align 8
-  %f = getelementptr inbounds %struct.chunkfile, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %f, align 8
-  %call = call i64 @hashfile_total(ptr noundef %1)
-  store i64 %call, ptr %cur_offset, align 8
-  %2 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef @.str, i32 noundef 67, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef %2)
-  %3 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %3, i32 0, i32 2
-  %4 = load i64, ptr %chunks_nr, align 8
-  %add = add i64 %4, 1
-  %mul = mul i64 %add, 12
-  %5 = load i64, ptr %cur_offset, align 8
-  %add1 = add i64 %5, %mul
-  store i64 %add1, ptr %cur_offset, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local i32 @write_chunkfile(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  store i32 0, ptr %7, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %11 = load ptr, ptr %4, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.chunkfile, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !11
+  %14 = call i64 @hashfile_total(ptr noundef %13)
+  store i64 %14, ptr %8, align 8, !tbaa !19
+  %15 = load ptr, ptr @the_repository, align 8, !tbaa !26
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef @.str, i32 noundef 70, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef %15)
+  %16 = load ptr, ptr %4, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.chunkfile, ptr %16, i32 0, i32 2
+  %18 = load i64, ptr %17, align 8, !tbaa !16
+  %19 = add i64 %18, 1
+  %20 = mul i64 %19, 12
+  %21 = load i64, ptr %8, align 8, !tbaa !19
+  %22 = add i64 %21, %20
+  store i64 %22, ptr %8, align 8, !tbaa !19
+  store i32 0, ptr %6, align 4, !tbaa !17
+  br label %23
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %6 = load i32, ptr %i, align 4
-  %conv = sext i32 %6 to i64
-  %7 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr2 = getelementptr inbounds %struct.chunkfile, ptr %7, i32 0, i32 2
-  %8 = load i64, ptr %chunks_nr2, align 8
-  %cmp = icmp ult i64 %conv, %8
-  br i1 %cmp, label %for.body, label %for.end
+23:                                               ; preds = %57, %2
+  %24 = load i32, ptr %6, align 4, !tbaa !17
+  %25 = sext i32 %24 to i64
+  %26 = load ptr, ptr %4, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw %struct.chunkfile, ptr %26, i32 0, i32 2
+  %28 = load i64, ptr %27, align 8, !tbaa !16
+  %29 = icmp ult i64 %25, %28
+  br i1 %29, label %30, label %60
 
-for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %cf.addr, align 8
-  %f4 = getelementptr inbounds %struct.chunkfile, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %f4, align 8
-  %11 = load ptr, ptr %cf.addr, align 8
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %chunks, align 8
-  %13 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds %struct.chunk_info, ptr %12, i64 %idxprom
-  %id = getelementptr inbounds %struct.chunk_info, ptr %arrayidx, i32 0, i32 0
-  %14 = load i32, ptr %id, align 8
-  call void @hashwrite_be32(ptr noundef %10, i32 noundef %14)
-  %15 = load ptr, ptr %cf.addr, align 8
-  %f5 = getelementptr inbounds %struct.chunkfile, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %f5, align 8
-  %17 = load i64, ptr %cur_offset, align 8
-  %call6 = call i64 @hashwrite_be64(ptr noundef %16, i64 noundef %17)
-  %18 = load ptr, ptr %cf.addr, align 8
-  %chunks7 = getelementptr inbounds %struct.chunkfile, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %chunks7, align 8
-  %20 = load i32, ptr %i, align 4
-  %idxprom8 = sext i32 %20 to i64
-  %arrayidx9 = getelementptr inbounds %struct.chunk_info, ptr %19, i64 %idxprom8
-  %size = getelementptr inbounds %struct.chunk_info, ptr %arrayidx9, i32 0, i32 1
-  %21 = load i64, ptr %size, align 8
-  %22 = load i64, ptr %cur_offset, align 8
-  %add10 = add i64 %22, %21
-  store i64 %add10, ptr %cur_offset, align 8
-  br label %for.inc
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %4, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.chunkfile, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !11
+  %34 = load ptr, ptr %4, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw %struct.chunkfile, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8, !tbaa !15
+  %37 = load i32, ptr %6, align 4, !tbaa !17
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds %struct.chunk_info, ptr %36, i64 %38
+  %40 = getelementptr inbounds nuw %struct.chunk_info, ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %40, align 8, !tbaa !22
+  call void @hashwrite_be32(ptr noundef %33, i32 noundef %41)
+  %42 = load ptr, ptr %4, align 8, !tbaa !9
+  %43 = getelementptr inbounds nuw %struct.chunkfile, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !11
+  %45 = load i64, ptr %8, align 8, !tbaa !19
+  %46 = call i64 @hashwrite_be64(ptr noundef %44, i64 noundef %45)
+  %47 = load ptr, ptr %4, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw %struct.chunkfile, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !15
+  %50 = load i32, ptr %6, align 4, !tbaa !17
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds %struct.chunk_info, ptr %49, i64 %51
+  %53 = getelementptr inbounds nuw %struct.chunk_info, ptr %52, i32 0, i32 1
+  %54 = load i64, ptr %53, align 8, !tbaa !25
+  %55 = load i64, ptr %8, align 8, !tbaa !19
+  %56 = add i64 %55, %54
+  store i64 %56, ptr %8, align 8, !tbaa !19
+  br label %57
 
-for.inc:                                          ; preds = %for.body
-  %23 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %23, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+57:                                               ; preds = %30
+  %58 = load i32, ptr %6, align 4, !tbaa !17
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %6, align 4, !tbaa !17
+  br label %23, !llvm.loop !28
 
-for.end:                                          ; preds = %for.cond
-  %24 = load ptr, ptr %cf.addr, align 8
-  %f11 = getelementptr inbounds %struct.chunkfile, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %f11, align 8
-  call void @hashwrite_be32(ptr noundef %25, i32 noundef 0)
-  %26 = load ptr, ptr %cf.addr, align 8
-  %f12 = getelementptr inbounds %struct.chunkfile, ptr %26, i32 0, i32 0
-  %27 = load ptr, ptr %f12, align 8
-  %28 = load i64, ptr %cur_offset, align 8
-  %call13 = call i64 @hashwrite_be64(ptr noundef %27, i64 noundef %28)
-  store i32 0, ptr %i, align 4
-  br label %for.cond14
+60:                                               ; preds = %23
+  %61 = load ptr, ptr %4, align 8, !tbaa !9
+  %62 = getelementptr inbounds nuw %struct.chunkfile, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8, !tbaa !11
+  call void @hashwrite_be32(ptr noundef %63, i32 noundef 0)
+  %64 = load ptr, ptr %4, align 8, !tbaa !9
+  %65 = getelementptr inbounds nuw %struct.chunkfile, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8, !tbaa !11
+  %67 = load i64, ptr %8, align 8, !tbaa !19
+  %68 = call i64 @hashwrite_be64(ptr noundef %66, i64 noundef %67)
+  store i32 0, ptr %6, align 4, !tbaa !17
+  br label %69
 
-for.cond14:                                       ; preds = %for.inc48, %for.end
-  %29 = load i32, ptr %i, align 4
-  %conv15 = sext i32 %29 to i64
-  %30 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr16 = getelementptr inbounds %struct.chunkfile, ptr %30, i32 0, i32 2
-  %31 = load i64, ptr %chunks_nr16, align 8
-  %cmp17 = icmp ult i64 %conv15, %31
-  br i1 %cmp17, label %for.body19, label %for.end50
+69:                                               ; preds = %140, %60
+  %70 = load i32, ptr %6, align 4, !tbaa !17
+  %71 = sext i32 %70 to i64
+  %72 = load ptr, ptr %4, align 8, !tbaa !9
+  %73 = getelementptr inbounds nuw %struct.chunkfile, ptr %72, i32 0, i32 2
+  %74 = load i64, ptr %73, align 8, !tbaa !16
+  %75 = icmp ult i64 %71, %74
+  br i1 %75, label %76, label %143
 
-for.body19:                                       ; preds = %for.cond14
-  %32 = load ptr, ptr %cf.addr, align 8
-  %f20 = getelementptr inbounds %struct.chunkfile, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %f20, align 8
-  %call21 = call i64 @hashfile_total(ptr noundef %33)
-  store i64 %call21, ptr %start_offset, align 8
-  %34 = load ptr, ptr %cf.addr, align 8
-  %chunks22 = getelementptr inbounds %struct.chunkfile, ptr %34, i32 0, i32 1
-  %35 = load ptr, ptr %chunks22, align 8
-  %36 = load i32, ptr %i, align 4
-  %idxprom23 = sext i32 %36 to i64
-  %arrayidx24 = getelementptr inbounds %struct.chunk_info, ptr %35, i64 %idxprom23
-  %write_fn = getelementptr inbounds %struct.chunk_info, ptr %arrayidx24, i32 0, i32 2
-  %37 = load ptr, ptr %write_fn, align 8
-  %38 = load ptr, ptr %cf.addr, align 8
-  %f25 = getelementptr inbounds %struct.chunkfile, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %f25, align 8
-  %40 = load ptr, ptr %data.addr, align 8
-  %call26 = call i32 %37(ptr noundef %39, ptr noundef %40)
-  store i32 %call26, ptr %result, align 4
-  %41 = load i32, ptr %result, align 4
-  %tobool = icmp ne i32 %41, 0
-  br i1 %tobool, label %if.then, label %if.end
+76:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %77 = load ptr, ptr %4, align 8, !tbaa !9
+  %78 = getelementptr inbounds nuw %struct.chunkfile, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8, !tbaa !11
+  %80 = call i64 @hashfile_total(ptr noundef %79)
+  store i64 %80, ptr %9, align 8, !tbaa !19
+  %81 = load ptr, ptr %4, align 8, !tbaa !9
+  %82 = getelementptr inbounds nuw %struct.chunkfile, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8, !tbaa !15
+  %84 = load i32, ptr %6, align 4, !tbaa !17
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds %struct.chunk_info, ptr %83, i64 %85
+  %87 = getelementptr inbounds nuw %struct.chunk_info, ptr %86, i32 0, i32 2
+  %88 = load ptr, ptr %87, align 8, !tbaa !24
+  %89 = load ptr, ptr %4, align 8, !tbaa !9
+  %90 = getelementptr inbounds nuw %struct.chunkfile, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8, !tbaa !11
+  %92 = load ptr, ptr %5, align 8, !tbaa !20
+  %93 = call i32 %88(ptr noundef %91, ptr noundef %92)
+  store i32 %93, ptr %7, align 4, !tbaa !17
+  %94 = load i32, ptr %7, align 4, !tbaa !17
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %97
 
-if.then:                                          ; preds = %for.body19
-  br label %cleanup
+96:                                               ; preds = %76
+  store i32 8, ptr %10, align 4
+  br label %137
 
-if.end:                                           ; preds = %for.body19
-  %42 = load ptr, ptr %cf.addr, align 8
-  %f27 = getelementptr inbounds %struct.chunkfile, ptr %42, i32 0, i32 0
-  %43 = load ptr, ptr %f27, align 8
-  %call28 = call i64 @hashfile_total(ptr noundef %43)
-  %44 = load i64, ptr %start_offset, align 8
-  %sub = sub nsw i64 %call28, %44
-  %45 = load ptr, ptr %cf.addr, align 8
-  %chunks29 = getelementptr inbounds %struct.chunkfile, ptr %45, i32 0, i32 1
-  %46 = load ptr, ptr %chunks29, align 8
-  %47 = load i32, ptr %i, align 4
-  %idxprom30 = sext i32 %47 to i64
-  %arrayidx31 = getelementptr inbounds %struct.chunk_info, ptr %46, i64 %idxprom30
-  %size32 = getelementptr inbounds %struct.chunk_info, ptr %arrayidx31, i32 0, i32 1
-  %48 = load i64, ptr %size32, align 8
-  %cmp33 = icmp ne i64 %sub, %48
-  br i1 %cmp33, label %if.then35, label %if.end47
+97:                                               ; preds = %76
+  %98 = load ptr, ptr %4, align 8, !tbaa !9
+  %99 = getelementptr inbounds nuw %struct.chunkfile, ptr %98, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8, !tbaa !11
+  %101 = call i64 @hashfile_total(ptr noundef %100)
+  %102 = load i64, ptr %9, align 8, !tbaa !19
+  %103 = sub nsw i64 %101, %102
+  %104 = load ptr, ptr %4, align 8, !tbaa !9
+  %105 = getelementptr inbounds nuw %struct.chunkfile, ptr %104, i32 0, i32 1
+  %106 = load ptr, ptr %105, align 8, !tbaa !15
+  %107 = load i32, ptr %6, align 4, !tbaa !17
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds %struct.chunk_info, ptr %106, i64 %108
+  %110 = getelementptr inbounds nuw %struct.chunk_info, ptr %109, i32 0, i32 1
+  %111 = load i64, ptr %110, align 8, !tbaa !25
+  %112 = icmp ne i64 %103, %111
+  br i1 %112, label %113, label %136
 
-if.then35:                                        ; preds = %if.end
-  %49 = load ptr, ptr %cf.addr, align 8
-  %chunks36 = getelementptr inbounds %struct.chunkfile, ptr %49, i32 0, i32 1
-  %50 = load ptr, ptr %chunks36, align 8
-  %51 = load i32, ptr %i, align 4
-  %idxprom37 = sext i32 %51 to i64
-  %arrayidx38 = getelementptr inbounds %struct.chunk_info, ptr %50, i64 %idxprom37
-  %size39 = getelementptr inbounds %struct.chunk_info, ptr %arrayidx38, i32 0, i32 1
-  %52 = load i64, ptr %size39, align 8
-  %53 = load ptr, ptr %cf.addr, align 8
-  %chunks40 = getelementptr inbounds %struct.chunkfile, ptr %53, i32 0, i32 1
-  %54 = load ptr, ptr %chunks40, align 8
-  %55 = load i32, ptr %i, align 4
-  %idxprom41 = sext i32 %55 to i64
-  %arrayidx42 = getelementptr inbounds %struct.chunk_info, ptr %54, i64 %idxprom41
-  %id43 = getelementptr inbounds %struct.chunk_info, ptr %arrayidx42, i32 0, i32 0
-  %56 = load i32, ptr %id43, align 8
-  %57 = load ptr, ptr %cf.addr, align 8
-  %f44 = getelementptr inbounds %struct.chunkfile, ptr %57, i32 0, i32 0
-  %58 = load ptr, ptr %f44, align 8
-  %call45 = call i64 @hashfile_total(ptr noundef %58)
-  %59 = load i64, ptr %start_offset, align 8
-  %sub46 = sub nsw i64 %call45, %59
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef @.str, i32 noundef 93, ptr noundef @.str.3, i64 noundef %52, i32 noundef %56, i64 noundef %sub46) #6
+113:                                              ; preds = %97
+  %114 = load ptr, ptr %4, align 8, !tbaa !9
+  %115 = getelementptr inbounds nuw %struct.chunkfile, ptr %114, i32 0, i32 1
+  %116 = load ptr, ptr %115, align 8, !tbaa !15
+  %117 = load i32, ptr %6, align 4, !tbaa !17
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds %struct.chunk_info, ptr %116, i64 %118
+  %120 = getelementptr inbounds nuw %struct.chunk_info, ptr %119, i32 0, i32 1
+  %121 = load i64, ptr %120, align 8, !tbaa !25
+  %122 = load ptr, ptr %4, align 8, !tbaa !9
+  %123 = getelementptr inbounds nuw %struct.chunkfile, ptr %122, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8, !tbaa !15
+  %125 = load i32, ptr %6, align 4, !tbaa !17
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds %struct.chunk_info, ptr %124, i64 %126
+  %128 = getelementptr inbounds nuw %struct.chunk_info, ptr %127, i32 0, i32 0
+  %129 = load i32, ptr %128, align 8, !tbaa !22
+  %130 = load ptr, ptr %4, align 8, !tbaa !9
+  %131 = getelementptr inbounds nuw %struct.chunkfile, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8, !tbaa !11
+  %133 = call i64 @hashfile_total(ptr noundef %132)
+  %134 = load i64, ptr %9, align 8, !tbaa !19
+  %135 = sub nsw i64 %133, %134
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef @.str, i32 noundef 96, ptr noundef @.str.3, i64 noundef %121, i32 noundef %129, i64 noundef %135) #8
   unreachable
 
-if.end47:                                         ; preds = %if.end
-  br label %for.inc48
+136:                                              ; preds = %97
+  store i32 0, ptr %10, align 4
+  br label %137
 
-for.inc48:                                        ; preds = %if.end47
-  %60 = load i32, ptr %i, align 4
-  %inc49 = add nsw i32 %60, 1
-  store i32 %inc49, ptr %i, align 4
-  br label %for.cond14, !llvm.loop !7
+137:                                              ; preds = %96, %136
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  %138 = load i32, ptr %10, align 4
+  switch i32 %138, label %147 [
+    i32 0, label %139
+    i32 8, label %144
+  ]
 
-for.end50:                                        ; preds = %for.cond14
-  br label %cleanup
+139:                                              ; preds = %137
+  br label %140
 
-cleanup:                                          ; preds = %for.end50, %if.then
-  %61 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef @.str, i32 noundef 97, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef %61)
-  %62 = load i32, ptr %result, align 4
-  ret i32 %62
+140:                                              ; preds = %139
+  %141 = load i32, ptr %6, align 4, !tbaa !17
+  %142 = add nsw i32 %141, 1
+  store i32 %142, ptr %6, align 4, !tbaa !17
+  br label %69, !llvm.loop !30
+
+143:                                              ; preds = %69
+  br label %144
+
+144:                                              ; preds = %143, %137
+  %145 = load ptr, ptr @the_repository, align 8, !tbaa !26
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef @.str, i32 noundef 100, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef %145)
+  %146 = load i32, ptr %7, align 4, !tbaa !17
+  store i32 %146, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %147
+
+147:                                              ; preds = %144, %137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  %148 = load i32, ptr %3, align 4
+  ret i32 %148
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @hashfile_total(ptr noundef %f) #0 {
-entry:
-  %f.addr = alloca ptr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  %0 = load ptr, ptr %f.addr, align 8
-  %total = getelementptr inbounds %struct.hashfile, ptr %0, i32 0, i32 4
-  %1 = load i64, ptr %total, align 8
-  %2 = load ptr, ptr %f.addr, align 8
-  %offset = getelementptr inbounds %struct.hashfile, ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %offset, align 8
-  %conv = zext i32 %3 to i64
-  %add = add nsw i64 %1, %conv
-  ret i64 %add
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @hashfile_total(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.hashfile, ptr %3, i32 0, i32 4
+  %5 = load i64, ptr %4, align 8, !tbaa !31
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.hashfile, ptr %6, i32 0, i32 2
+  %8 = load i32, ptr %7, align 8, !tbaa !36
+  %9 = zext i32 %8 to i64
+  %10 = add nsw i64 %5, %9
+  ret i64 %10
 }
 
-declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @hashwrite_be32(ptr noundef %f, i32 noundef %data) #0 {
-entry:
-  %f.addr = alloca ptr, align 8
-  %data.addr = alloca i32, align 4
-  store ptr %f, ptr %f.addr, align 8
-  store i32 %data, ptr %data.addr, align 4
-  %0 = load i32, ptr %data.addr, align 4
-  %call = call i32 @git_bswap32(i32 noundef %0)
-  store i32 %call, ptr %data.addr, align 4
-  %1 = load ptr, ptr %f.addr, align 8
-  call void @hashwrite(ptr noundef %1, ptr noundef %data.addr, i32 noundef 4)
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @hashwrite_be32(ptr noundef %0, i32 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !17
+  %5 = load i32, ptr %4, align 4, !tbaa !17
+  %6 = call i32 @git_bswap32(i32 noundef %5)
+  store i32 %6, ptr %4, align 4, !tbaa !17
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @hashwrite(ptr noundef %7, ptr noundef %4, i32 noundef 4)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @hashwrite_be64(ptr noundef %f, i64 noundef %data) #0 {
-entry:
-  %f.addr = alloca ptr, align 8
-  %data.addr = alloca i64, align 8
-  store ptr %f, ptr %f.addr, align 8
-  store i64 %data, ptr %data.addr, align 8
-  %0 = load i64, ptr %data.addr, align 8
-  %call = call i64 @git_bswap64(i64 noundef %0)
-  store i64 %call, ptr %data.addr, align 8
-  %1 = load ptr, ptr %f.addr, align 8
-  call void @hashwrite(ptr noundef %1, ptr noundef %data.addr, i32 noundef 8)
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @hashwrite_be64(ptr noundef %0, i64 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !19
+  %5 = load i64, ptr %4, align 8, !tbaa !19
+  %6 = call i64 @git_bswap64(i64 noundef %5)
+  store i64 %6, ptr %4, align 8, !tbaa !19
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @hashwrite(ptr noundef %7, ptr noundef %4, i32 noundef 8)
   ret i64 8
 }
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #3
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #5
 
-declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @read_table_of_contents(ptr noundef %cf, ptr noundef %mfile, i64 noundef %mfile_size, i64 noundef %toc_offset, i32 noundef %toc_length, i32 noundef %expected_alignment) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %cf.addr = alloca ptr, align 8
-  %mfile.addr = alloca ptr, align 8
-  %mfile_size.addr = alloca i64, align 8
-  %toc_offset.addr = alloca i64, align 8
-  %toc_length.addr = alloca i32, align 4
-  %expected_alignment.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %chunk_id = alloca i32, align 4
-  %table_of_contents = alloca ptr, align 8
-  %chunk_offset = alloca i64, align 8
-  %next_chunk_offset = alloca i64, align 8
-  store ptr %cf, ptr %cf.addr, align 8
-  store ptr %mfile, ptr %mfile.addr, align 8
-  store i64 %mfile_size, ptr %mfile_size.addr, align 8
-  store i64 %toc_offset, ptr %toc_offset.addr, align 8
-  store i32 %toc_length, ptr %toc_length.addr, align 4
-  store i32 %expected_alignment, ptr %expected_alignment.addr, align 4
-  %0 = load ptr, ptr %mfile.addr, align 8
-  %1 = load i64, ptr %toc_offset.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
-  store ptr %add.ptr, ptr %table_of_contents, align 8
-  br label %do.body
+define dso_local i32 @read_table_of_contents(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !9
+  store ptr %1, ptr %9, align 8, !tbaa !37
+  store i64 %2, ptr %10, align 8, !tbaa !19
+  store i64 %3, ptr %11, align 8, !tbaa !19
+  store i32 %4, ptr %12, align 4, !tbaa !17
+  store i32 %5, ptr %13, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %20 = load ptr, ptr %9, align 8, !tbaa !37
+  %21 = load i64, ptr %11, align 8, !tbaa !19
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  store ptr %22, ptr %16, align 8, !tbaa !37
+  br label %23
 
-do.body:                                          ; preds = %entry
-  %2 = load i32, ptr %toc_length.addr, align 4
-  %conv = sext i32 %2 to i64
-  %3 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc = getelementptr inbounds %struct.chunkfile, ptr %3, i32 0, i32 3
-  %4 = load i64, ptr %chunks_alloc, align 8
-  %cmp = icmp ugt i64 %conv, %4
-  br i1 %cmp, label %if.then, label %if.end17
+23:                                               ; preds = %6
+  %24 = load i32, ptr %12, align 4, !tbaa !17
+  %25 = sext i32 %24 to i64
+  %26 = load ptr, ptr %8, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw %struct.chunkfile, ptr %26, i32 0, i32 3
+  %28 = load i64, ptr %27, align 8, !tbaa !21
+  %29 = icmp ugt i64 %25, %28
+  br i1 %29, label %30, label %65
 
-if.then:                                          ; preds = %do.body
-  %5 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc2 = getelementptr inbounds %struct.chunkfile, ptr %5, i32 0, i32 3
-  %6 = load i64, ptr %chunks_alloc2, align 8
-  %add = add i64 %6, 16
-  %mul = mul i64 %add, 3
-  %div = udiv i64 %mul, 2
-  %7 = load i32, ptr %toc_length.addr, align 4
-  %conv3 = sext i32 %7 to i64
-  %cmp4 = icmp ult i64 %div, %conv3
-  br i1 %cmp4, label %if.then6, label %if.else
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %8, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.chunkfile, ptr %31, i32 0, i32 3
+  %33 = load i64, ptr %32, align 8, !tbaa !21
+  %34 = add i64 %33, 16
+  %35 = mul i64 %34, 3
+  %36 = udiv i64 %35, 2
+  %37 = load i32, ptr %12, align 4, !tbaa !17
+  %38 = sext i32 %37 to i64
+  %39 = icmp ult i64 %36, %38
+  br i1 %39, label %40, label %45
 
-if.then6:                                         ; preds = %if.then
-  %8 = load i32, ptr %toc_length.addr, align 4
-  %conv7 = sext i32 %8 to i64
-  %9 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc8 = getelementptr inbounds %struct.chunkfile, ptr %9, i32 0, i32 3
-  store i64 %conv7, ptr %chunks_alloc8, align 8
-  br label %if.end
+40:                                               ; preds = %30
+  %41 = load i32, ptr %12, align 4, !tbaa !17
+  %42 = sext i32 %41 to i64
+  %43 = load ptr, ptr %8, align 8, !tbaa !9
+  %44 = getelementptr inbounds nuw %struct.chunkfile, ptr %43, i32 0, i32 3
+  store i64 %42, ptr %44, align 8, !tbaa !21
+  br label %54
 
-if.else:                                          ; preds = %if.then
-  %10 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc9 = getelementptr inbounds %struct.chunkfile, ptr %10, i32 0, i32 3
-  %11 = load i64, ptr %chunks_alloc9, align 8
-  %add10 = add i64 %11, 16
-  %mul11 = mul i64 %add10, 3
-  %div12 = udiv i64 %mul11, 2
-  %12 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc13 = getelementptr inbounds %struct.chunkfile, ptr %12, i32 0, i32 3
-  store i64 %div12, ptr %chunks_alloc13, align 8
-  br label %if.end
+45:                                               ; preds = %30
+  %46 = load ptr, ptr %8, align 8, !tbaa !9
+  %47 = getelementptr inbounds nuw %struct.chunkfile, ptr %46, i32 0, i32 3
+  %48 = load i64, ptr %47, align 8, !tbaa !21
+  %49 = add i64 %48, 16
+  %50 = mul i64 %49, 3
+  %51 = udiv i64 %50, 2
+  %52 = load ptr, ptr %8, align 8, !tbaa !9
+  %53 = getelementptr inbounds nuw %struct.chunkfile, ptr %52, i32 0, i32 3
+  store i64 %51, ptr %53, align 8, !tbaa !21
+  br label %54
 
-if.end:                                           ; preds = %if.else, %if.then6
-  %13 = load ptr, ptr %cf.addr, align 8
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %chunks, align 8
-  %15 = load ptr, ptr %cf.addr, align 8
-  %chunks_alloc14 = getelementptr inbounds %struct.chunkfile, ptr %15, i32 0, i32 3
-  %16 = load i64, ptr %chunks_alloc14, align 8
-  %call = call i64 @st_mult(i64 noundef 32, i64 noundef %16)
-  %call15 = call ptr @xrealloc(ptr noundef %14, i64 noundef %call)
-  %17 = load ptr, ptr %cf.addr, align 8
-  %chunks16 = getelementptr inbounds %struct.chunkfile, ptr %17, i32 0, i32 1
-  store ptr %call15, ptr %chunks16, align 8
-  br label %if.end17
+54:                                               ; preds = %45, %40
+  %55 = load ptr, ptr %8, align 8, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.chunkfile, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8, !tbaa !15
+  %58 = load ptr, ptr %8, align 8, !tbaa !9
+  %59 = getelementptr inbounds nuw %struct.chunkfile, ptr %58, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !21
+  %61 = call i64 @st_mult(i64 noundef 32, i64 noundef %60)
+  %62 = call ptr @xrealloc(ptr noundef %57, i64 noundef %61)
+  %63 = load ptr, ptr %8, align 8, !tbaa !9
+  %64 = getelementptr inbounds nuw %struct.chunkfile, ptr %63, i32 0, i32 1
+  store ptr %62, ptr %64, align 8, !tbaa !15
+  br label %65
 
-if.end17:                                         ; preds = %if.end, %do.body
-  br label %do.end
+65:                                               ; preds = %54, %23
+  br label %66
 
-do.end:                                           ; preds = %if.end17
-  br label %while.cond
+66:                                               ; preds = %65
+  br label %67
 
-while.cond:                                       ; preds = %for.end, %do.end
-  %18 = load i32, ptr %toc_length.addr, align 4
-  %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %toc_length.addr, align 4
-  %tobool = icmp ne i32 %18, 0
-  br i1 %tobool, label %while.body, label %while.end
+67:                                               ; preds = %66
+  br label %68
 
-while.body:                                       ; preds = %while.cond
-  %19 = load ptr, ptr %table_of_contents, align 8
-  %call18 = call i32 @get_be32(ptr noundef %19)
-  store i32 %call18, ptr %chunk_id, align 4
-  %20 = load ptr, ptr %table_of_contents, align 8
-  %add.ptr19 = getelementptr inbounds i8, ptr %20, i64 4
-  %call20 = call i64 @get_be64(ptr noundef %add.ptr19)
-  store i64 %call20, ptr %chunk_offset, align 8
-  %21 = load i32, ptr %chunk_id, align 4
-  %tobool21 = icmp ne i32 %21, 0
-  br i1 %tobool21, label %if.end26, label %if.then22
+68:                                               ; preds = %187, %67
+  %69 = load i32, ptr %12, align 4, !tbaa !17
+  %70 = add nsw i32 %69, -1
+  store i32 %70, ptr %12, align 4, !tbaa !17
+  %71 = icmp ne i32 %69, 0
+  br i1 %71, label %72, label %188
 
-if.then22:                                        ; preds = %while.body
-  %call23 = call ptr @_(ptr noundef @.str.4)
-  %call24 = call i32 (ptr, ...) @error(ptr noundef %call23)
-  %call25 = call i32 @const_error()
-  store i32 1, ptr %retval, align 4
-  br label %return
+72:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %73 = load ptr, ptr %16, align 8, !tbaa !37
+  %74 = call i32 @get_be32(ptr noundef %73)
+  store i32 %74, ptr %15, align 4, !tbaa !17
+  %75 = load ptr, ptr %16, align 8, !tbaa !37
+  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %77 = call i64 @get_be64(ptr noundef %76)
+  store i64 %77, ptr %17, align 8, !tbaa !19
+  %78 = load i32, ptr %15, align 4, !tbaa !17
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %84, label %80
 
-if.end26:                                         ; preds = %while.body
-  %22 = load i64, ptr %chunk_offset, align 8
-  %23 = load i32, ptr %expected_alignment.addr, align 4
-  %conv27 = zext i32 %23 to i64
-  %rem = urem i64 %22, %conv27
-  %cmp28 = icmp ne i64 %rem, 0
-  br i1 %cmp28, label %if.then30, label %if.end34
+80:                                               ; preds = %72
+  %81 = call ptr @_(ptr noundef @.str.4)
+  %82 = call i32 (ptr, ...) @error(ptr noundef %81)
+  %83 = call i32 @const_error()
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %185
 
-if.then30:                                        ; preds = %if.end26
-  %call31 = call ptr @_(ptr noundef @.str.5)
-  %24 = load i32, ptr %chunk_id, align 4
-  %25 = load i32, ptr %expected_alignment.addr, align 4
-  %call32 = call i32 (ptr, ...) @error(ptr noundef %call31, i32 noundef %24, i32 noundef %25)
-  %call33 = call i32 @const_error()
-  store i32 1, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %72
+  %85 = load i64, ptr %17, align 8, !tbaa !19
+  %86 = load i32, ptr %13, align 4, !tbaa !17
+  %87 = zext i32 %86 to i64
+  %88 = urem i64 %85, %87
+  %89 = icmp ne i64 %88, 0
+  br i1 %89, label %90, label %96
 
-if.end34:                                         ; preds = %if.end26
-  %26 = load ptr, ptr %table_of_contents, align 8
-  %add.ptr35 = getelementptr inbounds i8, ptr %26, i64 12
-  store ptr %add.ptr35, ptr %table_of_contents, align 8
-  %27 = load ptr, ptr %table_of_contents, align 8
-  %add.ptr36 = getelementptr inbounds i8, ptr %27, i64 4
-  %call37 = call i64 @get_be64(ptr noundef %add.ptr36)
-  store i64 %call37, ptr %next_chunk_offset, align 8
-  %28 = load i64, ptr %next_chunk_offset, align 8
-  %29 = load i64, ptr %chunk_offset, align 8
-  %cmp38 = icmp ult i64 %28, %29
-  br i1 %cmp38, label %if.then42, label %lor.lhs.false
+90:                                               ; preds = %84
+  %91 = call ptr @_(ptr noundef @.str.5)
+  %92 = load i32, ptr %15, align 4, !tbaa !17
+  %93 = load i32, ptr %13, align 4, !tbaa !17
+  %94 = call i32 (ptr, ...) @error(ptr noundef %91, i32 noundef %92, i32 noundef %93)
+  %95 = call i32 @const_error()
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %185
 
-lor.lhs.false:                                    ; preds = %if.end34
-  %30 = load i64, ptr %next_chunk_offset, align 8
-  %31 = load i64, ptr %mfile_size.addr, align 8
-  %32 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %32, i32 0, i32 15
-  %33 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %33, i32 0, i32 2
-  %34 = load i64, ptr %rawsz, align 8
-  %sub = sub i64 %31, %34
-  %cmp40 = icmp ugt i64 %30, %sub
-  br i1 %cmp40, label %if.then42, label %if.end46
+96:                                               ; preds = %84
+  %97 = load ptr, ptr %16, align 8, !tbaa !37
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 12
+  store ptr %98, ptr %16, align 8, !tbaa !37
+  %99 = load ptr, ptr %16, align 8, !tbaa !37
+  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %101 = call i64 @get_be64(ptr noundef %100)
+  store i64 %101, ptr %18, align 8, !tbaa !19
+  %102 = load i64, ptr %18, align 8, !tbaa !19
+  %103 = load i64, ptr %17, align 8, !tbaa !19
+  %104 = icmp ult i64 %102, %103
+  br i1 %104, label %115, label %105
 
-if.then42:                                        ; preds = %lor.lhs.false, %if.end34
-  %call43 = call ptr @_(ptr noundef @.str.6)
-  %35 = load i64, ptr %chunk_offset, align 8
-  %36 = load i64, ptr %next_chunk_offset, align 8
-  %call44 = call i32 (ptr, ...) @error(ptr noundef %call43, i64 noundef %35, i64 noundef %36)
-  %call45 = call i32 @const_error()
-  store i32 -1, ptr %retval, align 4
-  br label %return
+105:                                              ; preds = %96
+  %106 = load i64, ptr %18, align 8, !tbaa !19
+  %107 = load i64, ptr %10, align 8, !tbaa !19
+  %108 = load ptr, ptr @the_repository, align 8, !tbaa !26
+  %109 = getelementptr inbounds nuw %struct.repository, ptr %108, i32 0, i32 17
+  %110 = load ptr, ptr %109, align 8, !tbaa !38
+  %111 = getelementptr inbounds nuw %struct.git_hash_algo, ptr %110, i32 0, i32 2
+  %112 = load i64, ptr %111, align 8, !tbaa !55
+  %113 = sub i64 %107, %112
+  %114 = icmp ugt i64 %106, %113
+  br i1 %114, label %115, label %121
 
-if.end46:                                         ; preds = %lor.lhs.false
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+115:                                              ; preds = %105, %96
+  %116 = call ptr @_(ptr noundef @.str.6)
+  %117 = load i64, ptr %17, align 8, !tbaa !19
+  %118 = load i64, ptr %18, align 8, !tbaa !19
+  %119 = call i32 (ptr, ...) @error(ptr noundef %116, i64 noundef %117, i64 noundef %118)
+  %120 = call i32 @const_error()
+  store i32 -1, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %185
 
-for.cond:                                         ; preds = %for.inc, %if.end46
-  %37 = load i32, ptr %i, align 4
-  %conv47 = sext i32 %37 to i64
-  %38 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %38, i32 0, i32 2
-  %39 = load i64, ptr %chunks_nr, align 8
-  %cmp48 = icmp ult i64 %conv47, %39
-  br i1 %cmp48, label %for.body, label %for.end
+121:                                              ; preds = %105
+  store i32 0, ptr %14, align 4, !tbaa !17
+  br label %122
 
-for.body:                                         ; preds = %for.cond
-  %40 = load ptr, ptr %cf.addr, align 8
-  %chunks50 = getelementptr inbounds %struct.chunkfile, ptr %40, i32 0, i32 1
-  %41 = load ptr, ptr %chunks50, align 8
-  %42 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %42 to i64
-  %arrayidx = getelementptr inbounds %struct.chunk_info, ptr %41, i64 %idxprom
-  %id = getelementptr inbounds %struct.chunk_info, ptr %arrayidx, i32 0, i32 0
-  %43 = load i32, ptr %id, align 8
-  %44 = load i32, ptr %chunk_id, align 4
-  %cmp51 = icmp eq i32 %43, %44
-  br i1 %cmp51, label %if.then53, label %if.end57
+122:                                              ; preds = %146, %121
+  %123 = load i32, ptr %14, align 4, !tbaa !17
+  %124 = sext i32 %123 to i64
+  %125 = load ptr, ptr %8, align 8, !tbaa !9
+  %126 = getelementptr inbounds nuw %struct.chunkfile, ptr %125, i32 0, i32 2
+  %127 = load i64, ptr %126, align 8, !tbaa !16
+  %128 = icmp ult i64 %124, %127
+  br i1 %128, label %129, label %149
 
-if.then53:                                        ; preds = %for.body
-  %call54 = call ptr @_(ptr noundef @.str.7)
-  %45 = load i32, ptr %chunk_id, align 4
-  %call55 = call i32 (ptr, ...) @error(ptr noundef %call54, i32 noundef %45)
-  %call56 = call i32 @const_error()
-  store i32 -1, ptr %retval, align 4
-  br label %return
+129:                                              ; preds = %122
+  %130 = load ptr, ptr %8, align 8, !tbaa !9
+  %131 = getelementptr inbounds nuw %struct.chunkfile, ptr %130, i32 0, i32 1
+  %132 = load ptr, ptr %131, align 8, !tbaa !15
+  %133 = load i32, ptr %14, align 4, !tbaa !17
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds %struct.chunk_info, ptr %132, i64 %134
+  %136 = getelementptr inbounds nuw %struct.chunk_info, ptr %135, i32 0, i32 0
+  %137 = load i32, ptr %136, align 8, !tbaa !22
+  %138 = load i32, ptr %15, align 4, !tbaa !17
+  %139 = icmp eq i32 %137, %138
+  br i1 %139, label %140, label %145
 
-if.end57:                                         ; preds = %for.body
-  br label %for.inc
+140:                                              ; preds = %129
+  %141 = call ptr @_(ptr noundef @.str.7)
+  %142 = load i32, ptr %15, align 4, !tbaa !17
+  %143 = call i32 (ptr, ...) @error(ptr noundef %141, i32 noundef %142)
+  %144 = call i32 @const_error()
+  store i32 -1, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %185
 
-for.inc:                                          ; preds = %if.end57
-  %46 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %46, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+145:                                              ; preds = %129
+  br label %146
 
-for.end:                                          ; preds = %for.cond
-  %47 = load i32, ptr %chunk_id, align 4
-  %48 = load ptr, ptr %cf.addr, align 8
-  %chunks58 = getelementptr inbounds %struct.chunkfile, ptr %48, i32 0, i32 1
-  %49 = load ptr, ptr %chunks58, align 8
-  %50 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr59 = getelementptr inbounds %struct.chunkfile, ptr %50, i32 0, i32 2
-  %51 = load i64, ptr %chunks_nr59, align 8
-  %arrayidx60 = getelementptr inbounds %struct.chunk_info, ptr %49, i64 %51
-  %id61 = getelementptr inbounds %struct.chunk_info, ptr %arrayidx60, i32 0, i32 0
-  store i32 %47, ptr %id61, align 8
-  %52 = load ptr, ptr %mfile.addr, align 8
-  %53 = load i64, ptr %chunk_offset, align 8
-  %add.ptr62 = getelementptr inbounds i8, ptr %52, i64 %53
-  %54 = load ptr, ptr %cf.addr, align 8
-  %chunks63 = getelementptr inbounds %struct.chunkfile, ptr %54, i32 0, i32 1
-  %55 = load ptr, ptr %chunks63, align 8
-  %56 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr64 = getelementptr inbounds %struct.chunkfile, ptr %56, i32 0, i32 2
-  %57 = load i64, ptr %chunks_nr64, align 8
-  %arrayidx65 = getelementptr inbounds %struct.chunk_info, ptr %55, i64 %57
-  %start = getelementptr inbounds %struct.chunk_info, ptr %arrayidx65, i32 0, i32 3
-  store ptr %add.ptr62, ptr %start, align 8
-  %58 = load i64, ptr %next_chunk_offset, align 8
-  %59 = load i64, ptr %chunk_offset, align 8
-  %sub66 = sub i64 %58, %59
-  %60 = load ptr, ptr %cf.addr, align 8
-  %chunks67 = getelementptr inbounds %struct.chunkfile, ptr %60, i32 0, i32 1
-  %61 = load ptr, ptr %chunks67, align 8
-  %62 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr68 = getelementptr inbounds %struct.chunkfile, ptr %62, i32 0, i32 2
-  %63 = load i64, ptr %chunks_nr68, align 8
-  %arrayidx69 = getelementptr inbounds %struct.chunk_info, ptr %61, i64 %63
-  %size = getelementptr inbounds %struct.chunk_info, ptr %arrayidx69, i32 0, i32 1
-  store i64 %sub66, ptr %size, align 8
-  %64 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr70 = getelementptr inbounds %struct.chunkfile, ptr %64, i32 0, i32 2
-  %65 = load i64, ptr %chunks_nr70, align 8
-  %inc71 = add i64 %65, 1
-  store i64 %inc71, ptr %chunks_nr70, align 8
-  br label %while.cond, !llvm.loop !9
+146:                                              ; preds = %145
+  %147 = load i32, ptr %14, align 4, !tbaa !17
+  %148 = add nsw i32 %147, 1
+  store i32 %148, ptr %14, align 4, !tbaa !17
+  br label %122, !llvm.loop !58
 
-while.end:                                        ; preds = %while.cond
-  %66 = load ptr, ptr %table_of_contents, align 8
-  %call72 = call i32 @get_be32(ptr noundef %66)
-  store i32 %call72, ptr %chunk_id, align 4
-  %67 = load i32, ptr %chunk_id, align 4
-  %tobool73 = icmp ne i32 %67, 0
-  br i1 %tobool73, label %if.then74, label %if.end78
+149:                                              ; preds = %122
+  %150 = load i32, ptr %15, align 4, !tbaa !17
+  %151 = load ptr, ptr %8, align 8, !tbaa !9
+  %152 = getelementptr inbounds nuw %struct.chunkfile, ptr %151, i32 0, i32 1
+  %153 = load ptr, ptr %152, align 8, !tbaa !15
+  %154 = load ptr, ptr %8, align 8, !tbaa !9
+  %155 = getelementptr inbounds nuw %struct.chunkfile, ptr %154, i32 0, i32 2
+  %156 = load i64, ptr %155, align 8, !tbaa !16
+  %157 = getelementptr inbounds nuw %struct.chunk_info, ptr %153, i64 %156
+  %158 = getelementptr inbounds nuw %struct.chunk_info, ptr %157, i32 0, i32 0
+  store i32 %150, ptr %158, align 8, !tbaa !22
+  %159 = load ptr, ptr %9, align 8, !tbaa !37
+  %160 = load i64, ptr %17, align 8, !tbaa !19
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 %160
+  %162 = load ptr, ptr %8, align 8, !tbaa !9
+  %163 = getelementptr inbounds nuw %struct.chunkfile, ptr %162, i32 0, i32 1
+  %164 = load ptr, ptr %163, align 8, !tbaa !15
+  %165 = load ptr, ptr %8, align 8, !tbaa !9
+  %166 = getelementptr inbounds nuw %struct.chunkfile, ptr %165, i32 0, i32 2
+  %167 = load i64, ptr %166, align 8, !tbaa !16
+  %168 = getelementptr inbounds nuw %struct.chunk_info, ptr %164, i64 %167
+  %169 = getelementptr inbounds nuw %struct.chunk_info, ptr %168, i32 0, i32 3
+  store ptr %161, ptr %169, align 8, !tbaa !59
+  %170 = load i64, ptr %18, align 8, !tbaa !19
+  %171 = load i64, ptr %17, align 8, !tbaa !19
+  %172 = sub i64 %170, %171
+  %173 = load ptr, ptr %8, align 8, !tbaa !9
+  %174 = getelementptr inbounds nuw %struct.chunkfile, ptr %173, i32 0, i32 1
+  %175 = load ptr, ptr %174, align 8, !tbaa !15
+  %176 = load ptr, ptr %8, align 8, !tbaa !9
+  %177 = getelementptr inbounds nuw %struct.chunkfile, ptr %176, i32 0, i32 2
+  %178 = load i64, ptr %177, align 8, !tbaa !16
+  %179 = getelementptr inbounds nuw %struct.chunk_info, ptr %175, i64 %178
+  %180 = getelementptr inbounds nuw %struct.chunk_info, ptr %179, i32 0, i32 1
+  store i64 %172, ptr %180, align 8, !tbaa !25
+  %181 = load ptr, ptr %8, align 8, !tbaa !9
+  %182 = getelementptr inbounds nuw %struct.chunkfile, ptr %181, i32 0, i32 2
+  %183 = load i64, ptr %182, align 8, !tbaa !16
+  %184 = add i64 %183, 1
+  store i64 %184, ptr %182, align 8, !tbaa !16
+  store i32 0, ptr %19, align 4
+  br label %185
 
-if.then74:                                        ; preds = %while.end
-  %call75 = call ptr @_(ptr noundef @.str.8)
-  %68 = load i32, ptr %chunk_id, align 4
-  %call76 = call i32 (ptr, ...) @error(ptr noundef %call75, i32 noundef %68)
-  %call77 = call i32 @const_error()
-  store i32 -1, ptr %retval, align 4
-  br label %return
+185:                                              ; preds = %149, %140, %115, %90, %80
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  %186 = load i32, ptr %19, align 4
+  switch i32 %186, label %199 [
+    i32 0, label %187
+  ]
 
-if.end78:                                         ; preds = %while.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+187:                                              ; preds = %185
+  br label %68, !llvm.loop !60
 
-return:                                           ; preds = %if.end78, %if.then74, %if.then53, %if.then42, %if.then30, %if.then22
-  %69 = load i32, ptr %retval, align 4
-  ret i32 %69
+188:                                              ; preds = %68
+  %189 = load ptr, ptr %16, align 8, !tbaa !37
+  %190 = call i32 @get_be32(ptr noundef %189)
+  store i32 %190, ptr %15, align 4, !tbaa !17
+  %191 = load i32, ptr %15, align 4, !tbaa !17
+  %192 = icmp ne i32 %191, 0
+  br i1 %192, label %193, label %198
+
+193:                                              ; preds = %188
+  %194 = call ptr @_(ptr noundef @.str.8)
+  %195 = load i32, ptr %15, align 4, !tbaa !17
+  %196 = call i32 (ptr, ...) @error(ptr noundef %194, i32 noundef %195)
+  %197 = call i32 @const_error()
+  store i32 -1, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %199
+
+198:                                              ; preds = %188
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %199
+
+199:                                              ; preds = %198, %193, %185
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  %200 = load i32, ptr %7, align 4
+  ret i32 %200
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @get_be32(ptr noundef %ptr) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  store ptr %0, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 0
-  %2 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %2 to i32
-  %shl = shl i32 %conv, 24
-  %3 = load ptr, ptr %p, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %3, i64 1
-  %4 = load i8, ptr %arrayidx1, align 1
-  %conv2 = zext i8 %4 to i32
-  %shl3 = shl i32 %conv2, 16
-  %or = or i32 %shl, %shl3
-  %5 = load ptr, ptr %p, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %5, i64 2
-  %6 = load i8, ptr %arrayidx4, align 1
-  %conv5 = zext i8 %6 to i32
-  %shl6 = shl i32 %conv5, 8
-  %or7 = or i32 %or, %shl6
-  %7 = load ptr, ptr %p, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %7, i64 3
-  %8 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %8 to i32
-  %shl10 = shl i32 %conv9, 0
-  %or11 = or i32 %or7, %shl10
-  ret i32 %or11
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @get_be32(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !20
+  store ptr %4, ptr %3, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8, !tbaa !37
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  %7 = load i8, ptr %6, align 1, !tbaa !61
+  %8 = zext i8 %7 to i32
+  %9 = shl i32 %8, 24
+  %10 = load ptr, ptr %3, align 8, !tbaa !37
+  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = load i8, ptr %11, align 1, !tbaa !61
+  %13 = zext i8 %12 to i32
+  %14 = shl i32 %13, 16
+  %15 = or i32 %9, %14
+  %16 = load ptr, ptr %3, align 8, !tbaa !37
+  %17 = getelementptr inbounds i8, ptr %16, i64 2
+  %18 = load i8, ptr %17, align 1, !tbaa !61
+  %19 = zext i8 %18 to i32
+  %20 = shl i32 %19, 8
+  %21 = or i32 %15, %20
+  %22 = load ptr, ptr %3, align 8, !tbaa !37
+  %23 = getelementptr inbounds i8, ptr %22, i64 3
+  %24 = load i8, ptr %23, align 1, !tbaa !61
+  %25 = zext i8 %24 to i32
+  %26 = shl i32 %25, 0
+  %27 = or i32 %21, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i32 %27
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @get_be64(ptr noundef %ptr) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  store ptr %0, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 0
-  %call = call i32 @get_be32(ptr noundef %arrayidx)
-  %conv = zext i32 %call to i64
-  %shl = shl i64 %conv, 32
-  %2 = load ptr, ptr %p, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %2, i64 4
-  %call2 = call i32 @get_be32(ptr noundef %arrayidx1)
-  %conv3 = zext i32 %call2 to i64
-  %shl4 = shl i64 %conv3, 0
-  %or = or i64 %shl, %shl4
-  ret i64 %or
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @get_be64(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !20
+  store ptr %4, ptr %3, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8, !tbaa !37
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  %7 = call i32 @get_be32(ptr noundef %6)
+  %8 = zext i32 %7 to i64
+  %9 = shl i64 %8, 32
+  %10 = load ptr, ptr %3, align 8, !tbaa !37
+  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = call i32 @get_be32(ptr noundef %11)
+  %13 = zext i32 %12 to i64
+  %14 = shl i64 %13, 0
+  %15 = or i64 %9, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %15
 }
 
-declare i32 @error(ptr noundef, ...) #1
+declare i32 @error(ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @_(ptr noundef %msgid) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %msgid.addr = alloca ptr, align 8
-  store ptr %msgid, ptr %msgid.addr, align 8
-  %0 = load ptr, ptr %msgid.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %if.end, label %if.then
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %5 = load i8, ptr %4, align 1, !tbaa !61
+  %6 = icmp ne i8 %5, 0
+  br i1 %6, label %8, label %7
 
-if.then:                                          ; preds = %entry
-  store ptr @.str.11, ptr %retval, align 8
-  br label %return
+7:                                                ; preds = %1
+  store ptr @.str.11, ptr %2, align 8
+  br label %16
 
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1 = icmp ne i32 %2, 0
-  br i1 %tobool1, label %if.end3, label %if.then2
+8:                                                ; preds = %1
+  %9 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !17
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %13, label %11
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %msgid.addr, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %3, align 8, !tbaa !37
+  store ptr %12, ptr %2, align 8
+  br label %16
 
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %msgid.addr, align 8
-  %call = call ptr @gettext(ptr noundef %4) #5
-  store ptr %call, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %3, align 8, !tbaa !37
+  %15 = call ptr @dcgettext(ptr noundef null, ptr noundef %14, i32 noundef 5) #7
+  store ptr %15, ptr %2, align 8
+  br label %16
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+16:                                               ; preds = %13, %11, %7
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @const_error() #0 {
-entry:
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @const_error() #4 {
   ret i32 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pair_chunk(ptr noundef %cf, i32 noundef %chunk_id, ptr noundef %p, ptr noundef %size) #0 {
-entry:
-  %cf.addr = alloca ptr, align 8
-  %chunk_id.addr = alloca i32, align 4
-  %p.addr = alloca ptr, align 8
-  %size.addr = alloca ptr, align 8
-  %pcd = alloca %struct.pair_chunk_data, align 8
-  store ptr %cf, ptr %cf.addr, align 8
-  store i32 %chunk_id, ptr %chunk_id.addr, align 4
-  store ptr %p, ptr %p.addr, align 8
-  store ptr %size, ptr %size.addr, align 8
-  %p1 = getelementptr inbounds %struct.pair_chunk_data, ptr %pcd, i32 0, i32 0
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %p1, align 8
-  %size2 = getelementptr inbounds %struct.pair_chunk_data, ptr %pcd, i32 0, i32 1
-  %1 = load ptr, ptr %size.addr, align 8
-  store ptr %1, ptr %size2, align 8
-  %2 = load ptr, ptr %cf.addr, align 8
-  %3 = load i32, ptr %chunk_id.addr, align 4
-  %call = call i32 @read_chunk(ptr noundef %2, i32 noundef %3, ptr noundef @pair_chunk_fn, ptr noundef %pcd)
-  ret i32 %call
+define dso_local i32 @pair_chunk(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %struct.pair_chunk_data, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !62
+  store ptr %3, ptr %8, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #7
+  %10 = getelementptr inbounds nuw %struct.pair_chunk_data, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %7, align 8, !tbaa !62
+  store ptr %11, ptr %10, align 8, !tbaa !66
+  %12 = getelementptr inbounds nuw %struct.pair_chunk_data, ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %8, align 8, !tbaa !64
+  store ptr %13, ptr %12, align 8, !tbaa !68
+  %14 = load ptr, ptr %5, align 8, !tbaa !9
+  %15 = load i32, ptr %6, align 4, !tbaa !17
+  %16 = call i32 @read_chunk(ptr noundef %14, i32 noundef %15, ptr noundef @pair_chunk_fn, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #7
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @read_chunk(ptr noundef %cf, i32 noundef %chunk_id, ptr noundef %fn, ptr noundef %data) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %cf.addr = alloca ptr, align 8
-  %chunk_id.addr = alloca i32, align 4
-  %fn.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %cf, ptr %cf.addr, align 8
-  store i32 %chunk_id, ptr %chunk_id.addr, align 4
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local i32 @read_chunk(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store i32 %1, ptr %7, align 4, !tbaa !17
+  store ptr %2, ptr %8, align 8, !tbaa !20
+  store ptr %3, ptr %9, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !tbaa !17
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %conv = sext i32 %0 to i64
-  %1 = load ptr, ptr %cf.addr, align 8
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %1, i32 0, i32 2
-  %2 = load i64, ptr %chunks_nr, align 8
-  %cmp = icmp ult i64 %conv, %2
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %51, %4
+  %13 = load i32, ptr %10, align 4, !tbaa !17
+  %14 = sext i32 %13 to i64
+  %15 = load ptr, ptr %6, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.chunkfile, ptr %15, i32 0, i32 2
+  %17 = load i64, ptr %16, align 8, !tbaa !16
+  %18 = icmp ult i64 %14, %17
+  br i1 %18, label %19, label %54
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %cf.addr, align 8
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %chunks, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.chunk_info, ptr %4, i64 %idxprom
-  %id = getelementptr inbounds %struct.chunk_info, ptr %arrayidx, i32 0, i32 0
-  %6 = load i32, ptr %id, align 8
-  %7 = load i32, ptr %chunk_id.addr, align 4
-  %cmp2 = icmp eq i32 %6, %7
-  br i1 %cmp2, label %if.then, label %if.end
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.chunkfile, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
+  %23 = load i32, ptr %10, align 4, !tbaa !17
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds %struct.chunk_info, ptr %22, i64 %24
+  %26 = getelementptr inbounds nuw %struct.chunk_info, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8, !tbaa !22
+  %28 = load i32, ptr %7, align 4, !tbaa !17
+  %29 = icmp eq i32 %27, %28
+  br i1 %29, label %30, label %50
 
-if.then:                                          ; preds = %for.body
-  %8 = load ptr, ptr %fn.addr, align 8
-  %9 = load ptr, ptr %cf.addr, align 8
-  %chunks4 = getelementptr inbounds %struct.chunkfile, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %chunks4, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %11 to i64
-  %arrayidx6 = getelementptr inbounds %struct.chunk_info, ptr %10, i64 %idxprom5
-  %start = getelementptr inbounds %struct.chunk_info, ptr %arrayidx6, i32 0, i32 3
-  %12 = load ptr, ptr %start, align 8
-  %13 = load ptr, ptr %cf.addr, align 8
-  %chunks7 = getelementptr inbounds %struct.chunkfile, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %chunks7, align 8
-  %15 = load i32, ptr %i, align 4
-  %idxprom8 = sext i32 %15 to i64
-  %arrayidx9 = getelementptr inbounds %struct.chunk_info, ptr %14, i64 %idxprom8
-  %size = getelementptr inbounds %struct.chunk_info, ptr %arrayidx9, i32 0, i32 1
-  %16 = load i64, ptr %size, align 8
-  %17 = load ptr, ptr %data.addr, align 8
-  %call = call i32 %8(ptr noundef %12, i64 noundef %16, ptr noundef %17)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %19
+  %31 = load ptr, ptr %8, align 8, !tbaa !20
+  %32 = load ptr, ptr %6, align 8, !tbaa !9
+  %33 = getelementptr inbounds nuw %struct.chunkfile, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !15
+  %35 = load i32, ptr %10, align 4, !tbaa !17
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %struct.chunk_info, ptr %34, i64 %36
+  %38 = getelementptr inbounds nuw %struct.chunk_info, ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8, !tbaa !59
+  %40 = load ptr, ptr %6, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw %struct.chunkfile, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !15
+  %43 = load i32, ptr %10, align 4, !tbaa !17
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds %struct.chunk_info, ptr %42, i64 %44
+  %46 = getelementptr inbounds nuw %struct.chunk_info, ptr %45, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8, !tbaa !25
+  %48 = load ptr, ptr %9, align 8, !tbaa !20
+  %49 = call i32 %31(ptr noundef %39, i64 noundef %47, ptr noundef %48)
+  store i32 %49, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %55
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+50:                                               ; preds = %19
+  br label %51
 
-for.inc:                                          ; preds = %if.end
-  %18 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %18, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
+51:                                               ; preds = %50
+  %52 = load i32, ptr %10, align 4, !tbaa !17
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %10, align 4, !tbaa !17
+  br label %12, !llvm.loop !69
 
-for.end:                                          ; preds = %for.cond
-  store i32 -2, ptr %retval, align 4
-  br label %return
+54:                                               ; preds = %12
+  store i32 -2, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %55
 
-return:                                           ; preds = %for.end, %if.then
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+55:                                               ; preds = %54, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  %56 = load i32, ptr %5, align 4
+  ret i32 %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pair_chunk_fn(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr noundef %data) #0 {
-entry:
-  %chunk_start.addr = alloca ptr, align 8
-  %chunk_size.addr = alloca i64, align 8
-  %data.addr = alloca ptr, align 8
-  %pcd = alloca ptr, align 8
-  store ptr %chunk_start, ptr %chunk_start.addr, align 8
-  store i64 %chunk_size, ptr %chunk_size.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %pcd, align 8
-  %1 = load ptr, ptr %chunk_start.addr, align 8
-  %2 = load ptr, ptr %pcd, align 8
-  %p = getelementptr inbounds %struct.pair_chunk_data, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %p, align 8
-  store ptr %1, ptr %3, align 8
-  %4 = load i64, ptr %chunk_size.addr, align 8
-  %5 = load ptr, ptr %pcd, align 8
-  %size = getelementptr inbounds %struct.pair_chunk_data, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %size, align 8
-  store i64 %4, ptr %6, align 8
+define internal i32 @pair_chunk_fn(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store i64 %1, ptr %5, align 8, !tbaa !19
+  store ptr %2, ptr %6, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %8 = load ptr, ptr %6, align 8, !tbaa !20
+  store ptr %8, ptr %7, align 8, !tbaa !70
+  %9 = load ptr, ptr %4, align 8, !tbaa !37
+  %10 = load ptr, ptr %7, align 8, !tbaa !70
+  %11 = getelementptr inbounds nuw %struct.pair_chunk_data, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  store ptr %9, ptr %12, align 8, !tbaa !37
+  %13 = load i64, ptr %5, align 8, !tbaa !19
+  %14 = load ptr, ptr %7, align 8, !tbaa !70
+  %15 = getelementptr inbounds nuw %struct.pair_chunk_data, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !68
+  store i64 %13, ptr %16, align 8, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i8 @oid_version(ptr noundef %algop) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %algop.addr = alloca ptr, align 8
-  store ptr %algop, ptr %algop.addr, align 8
-  %0 = load ptr, ptr %algop.addr, align 8
-  %call = call i32 @hash_algo_by_ptr(ptr noundef %0)
-  switch i32 %call, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb1
+define dso_local zeroext i8 @oid_version(ptr noundef %0) #0 {
+  %2 = alloca i8, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %5 = call i32 @hash_algo_by_ptr(ptr noundef %4)
+  switch i32 %5, label %8 [
+    i32 1, label %6
+    i32 2, label %7
   ]
 
-sw.bb:                                            ; preds = %entry
-  store i8 1, ptr %retval, align 1
-  br label %return
+6:                                                ; preds = %1
+  store i8 1, ptr %2, align 1
+  br label %10
 
-sw.bb1:                                           ; preds = %entry
-  store i8 2, ptr %retval, align 1
-  br label %return
+7:                                                ; preds = %1
+  store i8 2, ptr %2, align 1
+  br label %10
 
-sw.default:                                       ; preds = %entry
-  %call2 = call ptr @_(ptr noundef @.str.9)
-  call void (ptr, ...) @die(ptr noundef %call2) #6
+8:                                                ; preds = %1
+  %9 = call ptr @_(ptr noundef @.str.9)
+  call void (ptr, ...) @die(ptr noundef %9) #8
   unreachable
 
-return:                                           ; preds = %sw.bb1, %sw.bb
-  %1 = load i8, ptr %retval, align 1
-  ret i8 %1
+10:                                               ; preds = %7, %6
+  %11 = load i8, ptr %2, align 1
+  ret i8 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @hash_algo_by_ptr(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %1 = ptrtoint ptr @hash_algos to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
-  %conv = trunc i64 %sub.ptr.div to i32
-  ret i32 %conv
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @hash_algo_by_ptr(ptr noundef %0) #4 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  store i64 0, ptr %4, align 8, !tbaa !19
+  br label %7
+
+7:                                                ; preds = %23, %1
+  %8 = load i64, ptr %4, align 8, !tbaa !19
+  %9 = icmp ult i64 %8, 3
+  br i1 %9, label %10, label %26
+
+10:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %11 = load i64, ptr %4, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %11
+  store ptr %12, ptr %5, align 8, !tbaa !72
+  %13 = load ptr, ptr %3, align 8, !tbaa !72
+  %14 = load ptr, ptr %5, align 8, !tbaa !72
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %10
+  %17 = load i64, ptr %4, align 8, !tbaa !19
+  %18 = trunc i64 %17 to i32
+  store i32 %18, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %20
+
+19:                                               ; preds = %10
+  store i32 0, ptr %6, align 4
+  br label %20
+
+20:                                               ; preds = %19, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  %21 = load i32, ptr %6, align 4
+  switch i32 %21, label %27 [
+    i32 0, label %22
+  ]
+
+22:                                               ; preds = %20
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load i64, ptr %4, align 8, !tbaa !19
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %4, align 8, !tbaa !19
+  br label %7, !llvm.loop !73
+
+26:                                               ; preds = %7
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %27
+
+27:                                               ; preds = %26, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %28 = load i32, ptr %2, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #3
+declare void @die(ptr noundef, ...) #5
 
-; Function Attrs: nounwind uwtable
-define internal i32 @git_bswap32(i32 noundef %x) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  %result = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %1 = call i1 @llvm.is.constant.i32(i32 %0)
-  br i1 %1, label %if.then, label %if.else
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @git_bswap32(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load i32, ptr %2, align 4, !tbaa !17
+  %5 = call i1 @llvm.is.constant.i32(i32 %4)
+  br i1 %5, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %x.addr, align 4
-  %call = call i32 @default_swab32(i32 noundef %2)
-  store i32 %call, ptr %result, align 4
-  br label %if.end
+6:                                                ; preds = %1
+  %7 = load i32, ptr %2, align 4, !tbaa !17
+  %8 = call i32 @default_swab32(i32 noundef %7)
+  store i32 %8, ptr %3, align 4, !tbaa !17
+  br label %12
 
-if.else:                                          ; preds = %entry
-  %3 = load i32, ptr %x.addr, align 4
-  %4 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %3) #7, !srcloc !11
-  store i32 %4, ptr %result, align 4
-  br label %if.end
+9:                                                ; preds = %1
+  %10 = load i32, ptr %2, align 4, !tbaa !17
+  %11 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #9, !srcloc !74
+  store i32 %11, ptr %3, align 4, !tbaa !17
+  br label %12
 
-if.end:                                           ; preds = %if.else, %if.then
-  %5 = load i32, ptr %result, align 4
-  ret i32 %5
+12:                                               ; preds = %9, %6
+  %13 = load i32, ptr %3, align 4, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i32 %13
 }
 
-declare void @hashwrite(ptr noundef, ptr noundef, i32 noundef) #1
+declare void @hashwrite(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #4
+declare i1 @llvm.is.constant.i32(i32) #6
 
-; Function Attrs: nounwind uwtable
-define internal i32 @default_swab32(i32 noundef %val) #0 {
-entry:
-  %val.addr = alloca i32, align 4
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load i32, ptr %val.addr, align 4
-  %and = and i32 %0, -16777216
-  %shr = lshr i32 %and, 24
-  %1 = load i32, ptr %val.addr, align 4
-  %and1 = and i32 %1, 16711680
-  %shr2 = lshr i32 %and1, 8
-  %or = or i32 %shr, %shr2
-  %2 = load i32, ptr %val.addr, align 4
-  %and3 = and i32 %2, 65280
-  %shl = shl i32 %and3, 8
-  %or4 = or i32 %or, %shl
-  %3 = load i32, ptr %val.addr, align 4
-  %and5 = and i32 %3, 255
-  %shl6 = shl i32 %and5, 24
-  %or7 = or i32 %or4, %shl6
-  ret i32 %or7
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @default_swab32(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !17
+  %3 = load i32, ptr %2, align 4, !tbaa !17
+  %4 = and i32 %3, -16777216
+  %5 = lshr i32 %4, 24
+  %6 = load i32, ptr %2, align 4, !tbaa !17
+  %7 = and i32 %6, 16711680
+  %8 = lshr i32 %7, 8
+  %9 = or i32 %5, %8
+  %10 = load i32, ptr %2, align 4, !tbaa !17
+  %11 = and i32 %10, 65280
+  %12 = shl i32 %11, 8
+  %13 = or i32 %9, %12
+  %14 = load i32, ptr %2, align 4, !tbaa !17
+  %15 = and i32 %14, 255
+  %16 = shl i32 %15, 24
+  %17 = or i32 %13, %16
+  ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @git_bswap64(i64 noundef %x) #0 {
-entry:
-  %x.addr = alloca i64, align 8
-  %result = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %1 = call i1 @llvm.is.constant.i64(i64 %0)
-  br i1 %1, label %if.then, label %if.else
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @git_bswap64(i64 noundef %0) #4 {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load i64, ptr %2, align 8, !tbaa !19
+  %5 = call i1 @llvm.is.constant.i64(i64 %4)
+  br i1 %5, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %x.addr, align 8
-  %call = call i64 @default_bswap64(i64 noundef %2)
-  store i64 %call, ptr %result, align 8
-  br label %if.end
+6:                                                ; preds = %1
+  %7 = load i64, ptr %2, align 8, !tbaa !19
+  %8 = call i64 @default_bswap64(i64 noundef %7)
+  store i64 %8, ptr %3, align 8, !tbaa !19
+  br label %12
 
-if.else:                                          ; preds = %entry
-  %3 = load i64, ptr %x.addr, align 8
-  %4 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %3) #7, !srcloc !12
-  store i64 %4, ptr %result, align 8
-  br label %if.end
+9:                                                ; preds = %1
+  %10 = load i64, ptr %2, align 8, !tbaa !19
+  %11 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %10) #9, !srcloc !75
+  store i64 %11, ptr %3, align 8, !tbaa !19
+  br label %12
 
-if.end:                                           ; preds = %if.else, %if.then
-  %5 = load i64, ptr %result, align 8
-  ret i64 %5
+12:                                               ; preds = %9, %6
+  %13 = load i64, ptr %3, align 8, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %13
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #4
+declare i1 @llvm.is.constant.i64(i64) #6
 
-; Function Attrs: nounwind uwtable
-define internal i64 @default_bswap64(i64 noundef %val) #0 {
-entry:
-  %val.addr = alloca i64, align 8
-  store i64 %val, ptr %val.addr, align 8
-  %0 = load i64, ptr %val.addr, align 8
-  %and = and i64 %0, 255
-  %shl = shl i64 %and, 56
-  %1 = load i64, ptr %val.addr, align 8
-  %and1 = and i64 %1, 65280
-  %shl2 = shl i64 %and1, 40
-  %or = or i64 %shl, %shl2
-  %2 = load i64, ptr %val.addr, align 8
-  %and3 = and i64 %2, 16711680
-  %shl4 = shl i64 %and3, 24
-  %or5 = or i64 %or, %shl4
-  %3 = load i64, ptr %val.addr, align 8
-  %and6 = and i64 %3, 4278190080
-  %shl7 = shl i64 %and6, 8
-  %or8 = or i64 %or5, %shl7
-  %4 = load i64, ptr %val.addr, align 8
-  %and9 = and i64 %4, 1095216660480
-  %shr = lshr i64 %and9, 8
-  %or10 = or i64 %or8, %shr
-  %5 = load i64, ptr %val.addr, align 8
-  %and11 = and i64 %5, 280375465082880
-  %shr12 = lshr i64 %and11, 24
-  %or13 = or i64 %or10, %shr12
-  %6 = load i64, ptr %val.addr, align 8
-  %and14 = and i64 %6, 71776119061217280
-  %shr15 = lshr i64 %and14, 40
-  %or16 = or i64 %or13, %shr15
-  %7 = load i64, ptr %val.addr, align 8
-  %and17 = and i64 %7, -72057594037927936
-  %shr18 = lshr i64 %and17, 56
-  %or19 = or i64 %or16, %shr18
-  ret i64 %or19
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @default_bswap64(i64 noundef %0) #4 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !19
+  %3 = load i64, ptr %2, align 8, !tbaa !19
+  %4 = and i64 %3, 255
+  %5 = shl i64 %4, 56
+  %6 = load i64, ptr %2, align 8, !tbaa !19
+  %7 = and i64 %6, 65280
+  %8 = shl i64 %7, 40
+  %9 = or i64 %5, %8
+  %10 = load i64, ptr %2, align 8, !tbaa !19
+  %11 = and i64 %10, 16711680
+  %12 = shl i64 %11, 24
+  %13 = or i64 %9, %12
+  %14 = load i64, ptr %2, align 8, !tbaa !19
+  %15 = and i64 %14, 4278190080
+  %16 = shl i64 %15, 8
+  %17 = or i64 %13, %16
+  %18 = load i64, ptr %2, align 8, !tbaa !19
+  %19 = and i64 %18, 1095216660480
+  %20 = lshr i64 %19, 8
+  %21 = or i64 %17, %20
+  %22 = load i64, ptr %2, align 8, !tbaa !19
+  %23 = and i64 %22, 280375465082880
+  %24 = lshr i64 %23, 24
+  %25 = or i64 %21, %24
+  %26 = load i64, ptr %2, align 8, !tbaa !19
+  %27 = and i64 %26, 71776119061217280
+  %28 = lshr i64 %27, 40
+  %29 = or i64 %25, %28
+  %30 = load i64, ptr %2, align 8, !tbaa !19
+  %31 = and i64 %30, -72057594037927936
+  %32 = lshr i64 %31, 56
+  %33 = or i64 %29, %32
+  ret i64 %33
 }
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) #2
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
-attributes #7 = { nounwind memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { nounwind memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = !{i64 3405896}
-!12 = !{i64 3406150}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8hashfile", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS9chunkfile", !6, i64 0}
+!11 = !{!12, !5, i64 0}
+!12 = !{!"chunkfile", !5, i64 0, !13, i64 8, !14, i64 16, !14, i64 24}
+!13 = !{!"p1 _ZTS10chunk_info", !6, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!12, !13, i64 8}
+!16 = !{!12, !14, i64 16}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!14, !14, i64 0}
+!20 = !{!6, !6, i64 0}
+!21 = !{!12, !14, i64 24}
+!22 = !{!23, !18, i64 0}
+!23 = !{!"chunk_info", !18, i64 0, !14, i64 8, !6, i64 16, !6, i64 24}
+!24 = !{!23, !6, i64 16}
+!25 = !{!23, !14, i64 8}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS10repository", !6, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = distinct !{!30, !29}
+!31 = !{!32, !14, i64 2416}
+!32 = !{!"hashfile", !18, i64 0, !18, i64 4, !18, i64 8, !7, i64 16, !14, i64 2416, !33, i64 2424, !34, i64 2432, !18, i64 2440, !18, i64 2444, !14, i64 2448, !34, i64 2456, !34, i64 2464, !35, i64 2472, !18, i64 2480}
+!33 = !{!"p1 _ZTS8progress", !6, i64 0}
+!34 = !{!"p1 omnipotent char", !6, i64 0}
+!35 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
+!36 = !{!32, !18, i64 8}
+!37 = !{!34, !34, i64 0}
+!38 = !{!39, !35, i64 400}
+!39 = !{!"repository", !34, i64 0, !34, i64 8, !40, i64 16, !41, i64 24, !42, i64 32, !43, i64 40, !43, i64 104, !47, i64 168, !34, i64 224, !34, i64 232, !34, i64 240, !34, i64 248, !48, i64 256, !50, i64 368, !51, i64 376, !52, i64 384, !53, i64 392, !35, i64 400, !35, i64 408, !18, i64 416, !18, i64 420, !18, i64 424, !34, i64 432, !54, i64 440, !18, i64 448, !18, i64 452, !18, i64 456}
+!40 = !{!"p1 _ZTS16raw_object_store", !6, i64 0}
+!41 = !{!"p1 _ZTS18parsed_object_pool", !6, i64 0}
+!42 = !{!"p1 _ZTS9ref_store", !6, i64 0}
+!43 = !{!"strmap", !44, i64 0, !46, i64 48, !18, i64 56}
+!44 = !{!"hashmap", !45, i64 0, !6, i64 8, !6, i64 16, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !18, i64 40}
+!45 = !{!"p2 _ZTS13hashmap_entry", !6, i64 0}
+!46 = !{!"p1 _ZTS8mem_pool", !6, i64 0}
+!47 = !{!"repo_path_cache", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24, !34, i64 32, !34, i64 40, !34, i64 48}
+!48 = !{!"repo_settings", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !18, i64 40, !18, i64 44, !49, i64 48, !18, i64 56, !18, i64 60, !18, i64 64, !18, i64 68, !18, i64 72, !18, i64 76, !18, i64 80, !14, i64 88, !14, i64 96, !14, i64 104}
+!49 = !{!"p1 _ZTS18fsmonitor_settings", !6, i64 0}
+!50 = !{!"p1 _ZTS10config_set", !6, i64 0}
+!51 = !{!"p1 _ZTS15submodule_cache", !6, i64 0}
+!52 = !{!"p1 _ZTS11index_state", !6, i64 0}
+!53 = !{!"p1 _ZTS12remote_state", !6, i64 0}
+!54 = !{!"p1 _ZTS22promisor_remote_config", !6, i64 0}
+!55 = !{!56, !14, i64 16}
+!56 = !{!"git_hash_algo", !34, i64 0, !18, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !57, i64 80, !57, i64 88, !57, i64 96, !35, i64 104}
+!57 = !{!"p1 _ZTS9object_id", !6, i64 0}
+!58 = distinct !{!58, !29}
+!59 = !{!23, !6, i64 24}
+!60 = distinct !{!60, !29}
+!61 = !{!7, !7, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p2 omnipotent char", !6, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 long", !6, i64 0}
+!66 = !{!67, !63, i64 0}
+!67 = !{!"pair_chunk_data", !63, i64 0, !65, i64 8}
+!68 = !{!67, !65, i64 8}
+!69 = distinct !{!69, !29}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS15pair_chunk_data", !6, i64 0}
+!72 = !{!35, !35, i64 0}
+!73 = distinct !{!73, !29}
+!74 = !{i64 3460548}
+!75 = !{i64 3460802}

@@ -18,6 +18,7 @@ supported_project = [
     "darktable",
     "flac",
     "freetype",
+    "git",
 ]
 
 modify_only = [
@@ -34,7 +35,7 @@ def auto_upgrade(project, opt_exec):
 
     with open(f"bench/{project}/build.sh", "r") as f:
         content = f.read()
-        if "DUMP_PREFIX" not in content:
+        if "DUMP_PREFIX" not in content or '-fembed-bitcode=bitcode' in content or '-O0' in content:
             print("Please update build.sh")
             return
 

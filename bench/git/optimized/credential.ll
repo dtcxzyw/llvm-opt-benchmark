@@ -1,1830 +1,2673 @@
 ; ModuleID = 'bench/git/original/credential.ll'
 source_filename = "bench/git/original/credential.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.credential = type { %struct.string_list, %struct.strvec, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.strvec = type { ptr, i64, i64 }
+%struct.credential_capability = type { i8, [3 x i8] }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.string_list_item = type { ptr, ptr }
 %struct.urlmatch_config = type { %struct.string_list, %struct.url_info, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.url_info = type { ptr, ptr, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
+%struct.credential = type { %struct.string_list, %struct.strvec, %struct.strvec, %struct.strvec, i16, [2 x i8], %struct.credential_capability, %struct.credential_capability, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr }
 
 @empty_strvec = external global [0 x ptr], align 8
+@.str = private unnamed_addr constant [11 x i8] c"version 0\0A\00", align 1
+@.str.1 = private unnamed_addr constant [9 x i8] c"authtype\00", align 1
+@.str.2 = private unnamed_addr constant [6 x i8] c"state\00", align 1
 @strbuf_slopbuf = external global [0 x i8], align 1
-@.str = private unnamed_addr constant [28 x i8] c"invalid credential line: %s\00", align 1
-@.str.1 = private unnamed_addr constant [9 x i8] c"username\00", align 1
-@.str.2 = private unnamed_addr constant [9 x i8] c"password\00", align 1
-@.str.3 = private unnamed_addr constant [9 x i8] c"protocol\00", align 1
-@.str.4 = private unnamed_addr constant [5 x i8] c"host\00", align 1
-@.str.5 = private unnamed_addr constant [5 x i8] c"path\00", align 1
-@.str.6 = private unnamed_addr constant [10 x i8] c"wwwauth[]\00", align 1
-@.str.7 = private unnamed_addr constant [20 x i8] c"password_expiry_utc\00", align 1
-@.str.8 = private unnamed_addr constant [20 x i8] c"oauth_refresh_token\00", align 1
-@.str.9 = private unnamed_addr constant [4 x i8] c"url\00", align 1
-@.str.10 = private unnamed_addr constant [5 x i8] c"quit\00", align 1
-@.str.11 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
-@.str.12 = private unnamed_addr constant [4 x i8] c"get\00", align 1
-@.str.13 = private unnamed_addr constant [39 x i8] c"credential helper '%s' told us to quit\00", align 1
-@.str.14 = private unnamed_addr constant [33 x i8] c"unable to get password from user\00", align 1
-@.str.15 = private unnamed_addr constant [6 x i8] c"store\00", align 1
-@.str.16 = private unnamed_addr constant [6 x i8] c"erase\00", align 1
-@.str.17 = private unnamed_addr constant [36 x i8] c"credential url cannot be parsed: %s\00", align 1
-@.str.18 = private unnamed_addr constant [13 x i8] c"credential.c\00", align 1
-@.str.19 = private unnamed_addr constant [35 x i8] c"credential value for %s is missing\00", align 1
-@.str.20 = private unnamed_addr constant [41 x i8] c"credential value for %s contains newline\00", align 1
-@.str.21 = private unnamed_addr constant [7 x i8] c"%s=%s\0A\00", align 1
-@.str.22 = private unnamed_addr constant [52 x i8] c"refusing to work with credential missing host field\00", align 1
-@.str.23 = private unnamed_addr constant [56 x i8] c"refusing to work with credential missing protocol field\00", align 1
-@.str.24 = private unnamed_addr constant [11 x i8] c"credential\00", align 1
-@.str.25 = private unnamed_addr constant [12 x i8] c"credential.\00", align 1
-@.str.26 = private unnamed_addr constant [7 x i8] c"helper\00", align 1
-@.str.27 = private unnamed_addr constant [12 x i8] c"usehttppath\00", align 1
-@__const.match_partial_url.want = private unnamed_addr constant %struct.credential { %struct.string_list { ptr null, i64 0, i64 0, i8 1, ptr null }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i8 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 -1 }, align 8
-@.str.28 = private unnamed_addr constant [50 x i8] c"skipping credential lookup for key: credential.%s\00", align 1
-@.str.29 = private unnamed_addr constant [6 x i8] c"%s://\00", align 1
-@.str.30 = private unnamed_addr constant [6 x i8] c"https\00", align 1
-@.str.31 = private unnamed_addr constant [5 x i8] c"http\00", align 1
-@.str.32 = private unnamed_addr constant [18 x i8] c"git credential-%s\00", align 1
-@.str.33 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
-@__const.run_credential_helper.helper = private unnamed_addr constant { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i8, i8, ptr } { %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i32 0, i32 0, i64 0, ptr null, ptr null, i32 0, i32 0, i32 0, ptr null, i8 0, i8 0, ptr null }, align 8
-@.str.34 = private unnamed_addr constant [2 x i8] c"w\00", align 1
-@.str.35 = private unnamed_addr constant [2 x i8] c"r\00", align 1
-@.str.36 = private unnamed_addr constant [9 x i8] c"Username\00", align 1
-@.str.37 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
+@.str.3 = private unnamed_addr constant [28 x i8] c"invalid credential line: %s\00", align 1
+@.str.4 = private unnamed_addr constant [9 x i8] c"username\00", align 1
+@.str.5 = private unnamed_addr constant [9 x i8] c"password\00", align 1
+@.str.6 = private unnamed_addr constant [11 x i8] c"credential\00", align 1
+@.str.7 = private unnamed_addr constant [9 x i8] c"protocol\00", align 1
+@.str.8 = private unnamed_addr constant [5 x i8] c"host\00", align 1
+@.str.9 = private unnamed_addr constant [5 x i8] c"path\00", align 1
+@.str.10 = private unnamed_addr constant [10 x i8] c"ephemeral\00", align 1
+@.str.11 = private unnamed_addr constant [10 x i8] c"wwwauth[]\00", align 1
+@.str.12 = private unnamed_addr constant [8 x i8] c"state[]\00", align 1
+@.str.13 = private unnamed_addr constant [13 x i8] c"capability[]\00", align 1
+@.str.14 = private unnamed_addr constant [9 x i8] c"continue\00", align 1
+@.str.15 = private unnamed_addr constant [20 x i8] c"password_expiry_utc\00", align 1
+@.str.16 = private unnamed_addr constant [20 x i8] c"oauth_refresh_token\00", align 1
+@.str.17 = private unnamed_addr constant [4 x i8] c"url\00", align 1
+@.str.18 = private unnamed_addr constant [5 x i8] c"quit\00", align 1
+@.str.19 = private unnamed_addr constant [2 x i8] c"1\00", align 1
+@.str.20 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
+@.str.21 = private unnamed_addr constant [4 x i8] c"get\00", align 1
+@.str.22 = private unnamed_addr constant [39 x i8] c"credential helper '%s' told us to quit\00", align 1
+@.str.23 = private unnamed_addr constant [33 x i8] c"unable to get password from user\00", align 1
+@.str.24 = private unnamed_addr constant [6 x i8] c"store\00", align 1
+@.str.25 = private unnamed_addr constant [6 x i8] c"erase\00", align 1
+@.str.26 = private unnamed_addr constant [36 x i8] c"credential url cannot be parsed: %s\00", align 1
+@.str.27 = private unnamed_addr constant [15 x i8] c"capability %s\0A\00", align 1
+@.str.28 = private unnamed_addr constant [13 x i8] c"credential.c\00", align 1
+@.str.29 = private unnamed_addr constant [35 x i8] c"credential value for %s is missing\00", align 1
+@.str.30 = private unnamed_addr constant [41 x i8] c"credential value for %s contains newline\00", align 1
+@.str.31 = private unnamed_addr constant [109 x i8] c"credential value for %s contains carriage return\0AIf this is intended, set `credential.protectProtocol=false`\00", align 1
+@.str.32 = private unnamed_addr constant [7 x i8] c"%s=%s\0A\00", align 1
+@.str.33 = private unnamed_addr constant [52 x i8] c"refusing to work with credential missing host field\00", align 1
+@.str.34 = private unnamed_addr constant [56 x i8] c"refusing to work with credential missing protocol field\00", align 1
+@.str.35 = private unnamed_addr constant [12 x i8] c"credential.\00", align 1
+@.str.36 = private unnamed_addr constant [7 x i8] c"helper\00", align 1
+@.str.37 = private unnamed_addr constant [12 x i8] c"usehttppath\00", align 1
+@.str.38 = private unnamed_addr constant [15 x i8] c"sanitizeprompt\00", align 1
+@.str.39 = private unnamed_addr constant [16 x i8] c"protectprotocol\00", align 1
+@__const.match_partial_url.want = private unnamed_addr constant { { ptr, i64, i64, i8, [7 x i8], ptr }, %struct.strvec, %struct.strvec, %struct.strvec, i8, i8, [2 x i8], %struct.credential_capability, %struct.credential_capability, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr } { { ptr, i64, i64, i8, [7 x i8], ptr } { ptr null, i64 0, i64 0, i8 1, [7 x i8] zeroinitializer, ptr null }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i8 0, i8 3, [2 x i8] zeroinitializer, %struct.credential_capability zeroinitializer, %struct.credential_capability zeroinitializer, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 -1, ptr null }, align 8
+@.str.40 = private unnamed_addr constant [50 x i8] c"skipping credential lookup for key: credential.%s\00", align 1
+@.str.41 = private unnamed_addr constant [6 x i8] c"%s://\00", align 1
+@.str.42 = private unnamed_addr constant [6 x i8] c"https\00", align 1
+@.str.43 = private unnamed_addr constant [5 x i8] c"http\00", align 1
+@.str.44 = private unnamed_addr constant [18 x i8] c"git credential-%s\00", align 1
+@.str.45 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@__const.run_credential_helper.helper = private unnamed_addr constant { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, [4 x i8], ptr, i8, i8, [6 x i8], ptr } { %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i32 0, i32 0, i64 0, ptr null, ptr null, i32 0, i32 0, i32 0, [4 x i8] zeroinitializer, ptr null, i8 0, i8 0, [6 x i8] zeroinitializer, ptr null }, align 8
+@.str.46 = private unnamed_addr constant [2 x i8] c"w\00", align 1
+@.str.47 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+@.str.48 = private unnamed_addr constant [23 x i8] c"credential.interactive\00", align 1
+@.str.49 = private unnamed_addr constant [20 x i8] c"interactive/skipped\00", align 1
+@.str.50 = private unnamed_addr constant [6 x i8] c"never\00", align 1
+@.str.51 = private unnamed_addr constant [12 x i8] c"interactive\00", align 1
+@.str.52 = private unnamed_addr constant [9 x i8] c"Username\00", align 1
+@.str.53 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
 @__const.credential_ask_one.prompt = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@.str.38 = private unnamed_addr constant [14 x i8] c"%s for '%s': \00", align 1
-@.str.39 = private unnamed_addr constant [5 x i8] c"%s: \00", align 1
-@.str.40 = private unnamed_addr constant [4 x i8] c"%s@\00", align 1
-@.str.41 = private unnamed_addr constant [4 x i8] c"/%s\00", align 1
-@.str.42 = private unnamed_addr constant [4 x i8] c"://\00", align 1
-@.str.43 = private unnamed_addr constant [22 x i8] c"url has no scheme: %s\00", align 1
-@.str.44 = private unnamed_addr constant [4 x i8] c"/?#\00", align 1
-@.str.45 = private unnamed_addr constant [47 x i8] c"url contains a newline in its %s component: %s\00", align 1
-@.str.46 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.54 = private unnamed_addr constant [14 x i8] c"%s for '%s': \00", align 1
+@.str.55 = private unnamed_addr constant [5 x i8] c"%s: \00", align 1
+@.str.56 = private unnamed_addr constant [4 x i8] c"%s@\00", align 1
+@.str.57 = private unnamed_addr constant [4 x i8] c"/%s\00", align 1
+@.str.58 = private unnamed_addr constant [4 x i8] c"://\00", align 1
+@.str.59 = private unnamed_addr constant [22 x i8] c"url has no scheme: %s\00", align 1
+@.str.60 = private unnamed_addr constant [4 x i8] c"/?#\00", align 1
+@.str.61 = private unnamed_addr constant [47 x i8] c"url contains a newline in its %s component: %s\00", align 1
+@.str.62 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @credential_init(ptr noundef writeonly captures(none) initializes((0, 128)) %c) local_unnamed_addr #0 {
-entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %c, ptr noundef nonnull align 8 dereferenceable(128) @__const.match_partial_url.want, i64 128, i1 false)
+define dso_local void @credential_init(ptr noundef writeonly captures(none) initializes((0, 200)) %0) local_unnamed_addr #0 {
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) @__const.match_partial_url.want, i64 200, i1 false)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @credential_clear(ptr noundef %c) local_unnamed_addr #2 {
-entry:
-  %protocol = getelementptr inbounds nuw i8, ptr %c, i64 88
-  %0 = load ptr, ptr %protocol, align 8
-  tail call void @free(ptr noundef %0) #14
-  %host = getelementptr inbounds nuw i8, ptr %c, i64 96
-  %1 = load ptr, ptr %host, align 8
-  tail call void @free(ptr noundef %1) #14
-  %path = getelementptr inbounds nuw i8, ptr %c, i64 104
-  %2 = load ptr, ptr %path, align 8
-  tail call void @free(ptr noundef %2) #14
-  %username = getelementptr inbounds nuw i8, ptr %c, i64 72
-  %3 = load ptr, ptr %username, align 8
-  tail call void @free(ptr noundef %3) #14
-  %password = getelementptr inbounds nuw i8, ptr %c, i64 80
-  %4 = load ptr, ptr %password, align 8
-  tail call void @free(ptr noundef %4) #14
-  %oauth_refresh_token = getelementptr inbounds nuw i8, ptr %c, i64 112
-  %5 = load ptr, ptr %oauth_refresh_token, align 8
-  tail call void @free(ptr noundef %5) #14
-  tail call void @string_list_clear(ptr noundef %c, i32 noundef 0) #14
-  %wwwauth_headers = getelementptr inbounds nuw i8, ptr %c, i64 40
-  tail call void @strvec_clear(ptr noundef nonnull %wwwauth_headers) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %c, ptr noundef nonnull align 8 dereferenceable(128) @__const.match_partial_url.want, i64 128, i1 false)
+define dso_local void @credential_clear(ptr noundef %0) local_unnamed_addr #3 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  tail call void @free(ptr noundef %3) #19
+  store ptr null, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  tail call void @free(ptr noundef %5) #19
+  store ptr null, ptr %4, align 8, !tbaa !17
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %7 = load ptr, ptr %6, align 8, !tbaa !18
+  tail call void @free(ptr noundef %7) #19
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  tail call void @free(ptr noundef %9) #19
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  tail call void @free(ptr noundef %11) #19
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
+  tail call void @free(ptr noundef %13) #19
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  tail call void @free(ptr noundef %15) #19
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  tail call void @free(ptr noundef %17) #19
+  tail call void @string_list_clear(ptr noundef %0, i32 noundef 0) #19
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @strvec_clear(ptr noundef nonnull %18) #19
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @strvec_clear(ptr noundef nonnull %19) #19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @strvec_clear(ptr noundef nonnull %20) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) @__const.match_partial_url.want, i64 200, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind willreturn uwtable
+define dso_local void @credential_clear_secrets(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  tail call void @free(ptr noundef %3) #19
+  store ptr null, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  tail call void @free(ptr noundef %5) #19
+  store ptr null, ptr %4, align 8, !tbaa !17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @strvec_clear(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @credential_match(ptr noundef readonly captures(none) %want, ptr noundef readonly captures(none) %have, i32 noundef %match_password) local_unnamed_addr #5 {
-entry:
-  %protocol = getelementptr inbounds nuw i8, ptr %want, i64 88
-  %0 = load ptr, ptr %protocol, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %land.lhs.true6, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %protocol1 = getelementptr inbounds nuw i8, ptr %have, i64 88
-  %1 = load ptr, ptr %protocol1, align 8
-  %tobool2.not = icmp eq ptr %1, null
-  br i1 %tobool2.not, label %land.end47, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #15
-  %tobool5.not = icmp eq i32 %call, 0
-  br i1 %tobool5.not, label %land.lhs.true6, label %land.end47
-
-land.lhs.true6:                                   ; preds = %land.lhs.true, %entry
-  %host = getelementptr inbounds nuw i8, ptr %want, i64 96
-  %2 = load ptr, ptr %host, align 8
-  %tobool7.not = icmp eq ptr %2, null
-  br i1 %tobool7.not, label %land.lhs.true16, label %lor.lhs.false8
-
-lor.lhs.false8:                                   ; preds = %land.lhs.true6
-  %host9 = getelementptr inbounds nuw i8, ptr %have, i64 96
-  %3 = load ptr, ptr %host9, align 8
-  %tobool10.not = icmp eq ptr %3, null
-  br i1 %tobool10.not, label %land.end47, label %land.lhs.true11
-
-land.lhs.true11:                                  ; preds = %lor.lhs.false8
-  %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #15
-  %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %land.lhs.true16, label %land.end47
-
-land.lhs.true16:                                  ; preds = %land.lhs.true11, %land.lhs.true6
-  %path = getelementptr inbounds nuw i8, ptr %want, i64 104
-  %4 = load ptr, ptr %path, align 8
-  %tobool17.not = icmp eq ptr %4, null
-  br i1 %tobool17.not, label %land.lhs.true26, label %lor.lhs.false18
-
-lor.lhs.false18:                                  ; preds = %land.lhs.true16
-  %path19 = getelementptr inbounds nuw i8, ptr %have, i64 104
-  %5 = load ptr, ptr %path19, align 8
-  %tobool20.not = icmp eq ptr %5, null
-  br i1 %tobool20.not, label %land.end47, label %land.lhs.true21
-
-land.lhs.true21:                                  ; preds = %lor.lhs.false18
-  %call24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #15
-  %tobool25.not = icmp eq i32 %call24, 0
-  br i1 %tobool25.not, label %land.lhs.true26, label %land.end47
-
-land.lhs.true26:                                  ; preds = %land.lhs.true21, %land.lhs.true16
-  %username = getelementptr inbounds nuw i8, ptr %want, i64 72
-  %6 = load ptr, ptr %username, align 8
-  %tobool27.not = icmp eq ptr %6, null
-  br i1 %tobool27.not, label %land.rhs, label %lor.lhs.false28
-
-lor.lhs.false28:                                  ; preds = %land.lhs.true26
-  %username29 = getelementptr inbounds nuw i8, ptr %have, i64 72
-  %7 = load ptr, ptr %username29, align 8
-  %tobool30.not = icmp eq ptr %7, null
-  br i1 %tobool30.not, label %land.end47, label %land.lhs.true31
-
-land.lhs.true31:                                  ; preds = %lor.lhs.false28
-  %call34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %7) #15
-  %tobool35.not = icmp eq i32 %call34, 0
-  br i1 %tobool35.not, label %land.rhs, label %land.end47
-
-land.rhs:                                         ; preds = %land.lhs.true31, %land.lhs.true26
-  %tobool36.not = icmp eq i32 %match_password, 0
-  br i1 %tobool36.not, label %land.end47, label %lor.rhs
-
-lor.rhs:                                          ; preds = %land.rhs
-  %password = getelementptr inbounds nuw i8, ptr %want, i64 80
-  %8 = load ptr, ptr %password, align 8
-  %tobool37.not = icmp eq ptr %8, null
-  br i1 %tobool37.not, label %land.end47, label %lor.rhs38
-
-lor.rhs38:                                        ; preds = %lor.rhs
-  %password39 = getelementptr inbounds nuw i8, ptr %have, i64 80
-  %9 = load ptr, ptr %password39, align 8
-  %tobool40.not = icmp eq ptr %9, null
-  br i1 %tobool40.not, label %land.end47, label %land.rhs41
-
-land.rhs41:                                       ; preds = %lor.rhs38
-  %call44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %9) #15
-  %tobool45.not = icmp eq i32 %call44, 0
-  %10 = zext i1 %tobool45.not to i32
-  br label %land.end47
-
-land.end47:                                       ; preds = %land.rhs, %lor.rhs38, %land.rhs41, %lor.rhs, %land.lhs.true31, %lor.lhs.false28, %land.lhs.true21, %lor.lhs.false18, %land.lhs.true11, %lor.lhs.false8, %land.lhs.true, %lor.lhs.false
-  %land.ext = phi i32 [ 0, %land.lhs.true31 ], [ 0, %lor.lhs.false28 ], [ 0, %land.lhs.true21 ], [ 0, %lor.lhs.false18 ], [ 0, %land.lhs.true11 ], [ 0, %lor.lhs.false8 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false ], [ 1, %land.rhs ], [ 1, %lor.rhs ], [ 0, %lor.rhs38 ], [ %10, %land.rhs41 ]
-  ret i32 %land.ext
-}
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare void @strvec_clear(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @credential_read(ptr noundef %c, ptr noundef %fp) local_unnamed_addr #2 {
-entry:
-  %line = alloca %struct.strbuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %line, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
-  %call44 = call i32 @strbuf_getline(ptr noundef nonnull %line, ptr noundef %fp) #14
-  %cmp.not45 = icmp eq i32 %call44, -1
-  br i1 %cmp.not45, label %return, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
-  %buf = getelementptr inbounds nuw i8, ptr %line, i64 16
-  %len = getelementptr inbounds nuw i8, ptr %line, i64 8
-  %quit = getelementptr inbounds nuw i8, ptr %c, i64 64
-  %oauth_refresh_token = getelementptr inbounds nuw i8, ptr %c, i64 112
-  %password_expiry_utc = getelementptr inbounds nuw i8, ptr %c, i64 120
-  %wwwauth_headers = getelementptr inbounds nuw i8, ptr %c, i64 40
-  %path = getelementptr inbounds nuw i8, ptr %c, i64 104
-  %host = getelementptr inbounds nuw i8, ptr %c, i64 96
-  %protocol = getelementptr inbounds nuw i8, ptr %c, i64 88
-  %password = getelementptr inbounds nuw i8, ptr %c, i64 80
-  %username = getelementptr inbounds nuw i8, ptr %c, i64 72
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.lr.ph, %if.end80
-  %0 = load ptr, ptr %buf, align 8
-  %call1 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 61) #15
-  %1 = load i64, ptr %len, align 8
-  %tobool.not = icmp eq i64 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %while.body
-  %tobool2.not = icmp eq ptr %call1, null
-  br i1 %tobool2.not, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str, ptr noundef nonnull %0) #14
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call1, i64 1
-  store i8 0, ptr %call1, align 1
-  %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.1) #15
-  %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %if.then7, label %if.else
-
-if.then7:                                         ; preds = %if.end4
-  %2 = load ptr, ptr %username, align 8
-  call void @free(ptr noundef %2) #14
-  %call8 = call ptr @xstrdup(ptr noundef nonnull %incdec.ptr) #14
-  store ptr %call8, ptr %username, align 8
-  %bf.load = load i8, ptr %quit, align 8
-  %bf.set = or i8 %bf.load, 32
-  store i8 %bf.set, ptr %quit, align 8
-  br label %if.end80
-
-if.else:                                          ; preds = %if.end4
-  %call10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.2) #15
-  %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %if.then12, label %if.else15
-
-if.then12:                                        ; preds = %if.else
-  %3 = load ptr, ptr %password, align 8
-  call void @free(ptr noundef %3) #14
-  %call13 = call ptr @xstrdup(ptr noundef nonnull %incdec.ptr) #14
-  store ptr %call13, ptr %password, align 8
-  br label %if.end80
-
-if.else15:                                        ; preds = %if.else
-  %call16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.3) #15
-  %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %if.then18, label %if.else21
-
-if.then18:                                        ; preds = %if.else15
-  %4 = load ptr, ptr %protocol, align 8
-  call void @free(ptr noundef %4) #14
-  %call19 = call ptr @xstrdup(ptr noundef nonnull %incdec.ptr) #14
-  store ptr %call19, ptr %protocol, align 8
-  br label %if.end80
-
-if.else21:                                        ; preds = %if.else15
-  %call22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.4) #15
-  %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %if.then24, label %if.else27
-
-if.then24:                                        ; preds = %if.else21
-  %5 = load ptr, ptr %host, align 8
-  call void @free(ptr noundef %5) #14
-  %call25 = call ptr @xstrdup(ptr noundef nonnull %incdec.ptr) #14
-  store ptr %call25, ptr %host, align 8
-  br label %if.end80
-
-if.else27:                                        ; preds = %if.else21
-  %call28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.5) #15
-  %tobool29.not = icmp eq i32 %call28, 0
-  br i1 %tobool29.not, label %if.then30, label %if.else33
-
-if.then30:                                        ; preds = %if.else27
-  %6 = load ptr, ptr %path, align 8
-  call void @free(ptr noundef %6) #14
-  %call31 = call ptr @xstrdup(ptr noundef nonnull %incdec.ptr) #14
-  store ptr %call31, ptr %path, align 8
-  br label %if.end80
-
-if.else33:                                        ; preds = %if.else27
-  %call34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.6) #15
-  %tobool35.not = icmp eq i32 %call34, 0
-  br i1 %tobool35.not, label %if.then36, label %if.else38
-
-if.then36:                                        ; preds = %if.else33
-  %call37 = call ptr @strvec_push(ptr noundef nonnull %wwwauth_headers, ptr noundef nonnull %incdec.ptr) #14
-  br label %if.end80
-
-if.else38:                                        ; preds = %if.else33
-  %call39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.7) #15
-  %tobool40.not = icmp eq i32 %call39, 0
-  br i1 %tobool40.not, label %if.then41, label %if.else51
-
-if.then41:                                        ; preds = %if.else38
-  %call42 = tail call ptr @__errno_location() #16
-  store i32 0, ptr %call42, align 4
-  %call43 = call i64 @strtoumax(ptr noundef nonnull %incdec.ptr, ptr noundef null, i32 noundef 10) #14
-  store i64 %call43, ptr %password_expiry_utc, align 8
-  %cmp45 = icmp eq i64 %call43, 0
-  br i1 %cmp45, label %if.then48, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then41
-  %7 = load i32, ptr %call42, align 4
-  %cmp47 = icmp eq i32 %7, 34
-  br i1 %cmp47, label %if.then48, label %if.end80
-
-if.then48:                                        ; preds = %lor.lhs.false, %if.then41
-  store i64 -1, ptr %password_expiry_utc, align 8
-  br label %if.end80
-
-if.else51:                                        ; preds = %if.else38
-  %call52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.8) #15
-  %tobool53.not = icmp eq i32 %call52, 0
-  br i1 %tobool53.not, label %if.then54, label %if.else57
-
-if.then54:                                        ; preds = %if.else51
-  %8 = load ptr, ptr %oauth_refresh_token, align 8
-  call void @free(ptr noundef %8) #14
-  %call55 = call ptr @xstrdup(ptr noundef nonnull %incdec.ptr) #14
-  store ptr %call55, ptr %oauth_refresh_token, align 8
-  br label %if.end80
-
-if.else57:                                        ; preds = %if.else51
-  %call58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.9) #15
-  %tobool59.not = icmp eq i32 %call58, 0
-  br i1 %tobool59.not, label %if.then60, label %if.else61
-
-if.then60:                                        ; preds = %if.else57
-  %call.i.i = call fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef %c, ptr noundef nonnull %incdec.ptr, i32 noundef 0, i32 noundef 0)
-  %cmp.i = icmp slt i32 %call.i.i, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end80
-
-if.then.i:                                        ; preds = %if.then60
-  %call1.i = call fastcc ptr @_(ptr noundef nonnull @.str.17)
-  call void (ptr, ...) @die(ptr noundef %call1.i, ptr noundef nonnull %incdec.ptr) #17
-  unreachable
-
-if.else61:                                        ; preds = %if.else57
-  %call62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.10) #15
-  %tobool63.not = icmp eq i32 %call62, 0
-  br i1 %tobool63.not, label %if.then64, label %if.end80
-
-if.then64:                                        ; preds = %if.else61
-  %call65 = call i32 @git_config_bool(ptr noundef nonnull @.str.10, ptr noundef nonnull %incdec.ptr) #14
-  %tobool66.not = icmp eq i32 %call65, 0
-  %bf.load68 = load i8, ptr %quit, align 8
-  %bf.shl = select i1 %tobool66.not, i8 0, i8 8
-  %bf.clear69 = and i8 %bf.load68, -9
-  %bf.set70 = or disjoint i8 %bf.clear69, %bf.shl
-  store i8 %bf.set70, ptr %quit, align 8
-  br label %if.end80
-
-if.end80:                                         ; preds = %if.then60, %if.then12, %if.then24, %if.then36, %if.then54, %if.else61, %if.then64, %lor.lhs.false, %if.then48, %if.then30, %if.then18, %if.then7
-  %call = call i32 @strbuf_getline(ptr noundef nonnull %line, ptr noundef %fp) #14
-  %cmp.not = icmp eq i32 %call, -1
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !5
-
-return:                                           ; preds = %while.body, %if.end80, %entry, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ 0, %entry ], [ 0, %if.end80 ], [ 0, %while.body ]
-  call void @strbuf_release(ptr noundef nonnull %line) #14
-  ret i32 %retval.0
-}
-
-declare i32 @strbuf_getline(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
-
-declare void @warning(ptr noundef, ...) local_unnamed_addr #4
-
-declare void @strbuf_release(ptr noundef) local_unnamed_addr #4
-
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
-
-declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
-
-; Function Attrs: nounwind
-declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
-
-; Function Attrs: nounwind uwtable
-define dso_local void @credential_from_url(ptr noundef %c, ptr noundef %url) local_unnamed_addr #2 {
-entry:
-  %call.i = tail call fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef %c, ptr noundef %url, i32 noundef 0, i32 noundef 0)
-  %cmp = icmp slt i32 %call.i, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call1 = tail call fastcc ptr @_(ptr noundef nonnull @.str.17)
-  tail call void (ptr, ...) @die(ptr noundef %call1, ptr noundef %url) #17
-  unreachable
-
-if.end:                                           ; preds = %entry
+define dso_local void @credential_next_state(ptr noundef %0) local_unnamed_addr #3 {
+  %2 = alloca [24 x i8], align 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @strvec_clear(ptr noundef nonnull %3) #19
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(24) %4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %4, ptr noundef nonnull align 1 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 16 dereferenceable(24) %2, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 }
 
-declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @credential_set_all_capabilities(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+  %switch.tableidx = add i32 %1, -1
+  %3 = icmp ult i32 %switch.tableidx, 3
+  br i1 %3, label %switch.lookup, label %credential_set_capability.exit
 
-; Function Attrs: nounwind uwtable
-define dso_local void @credential_write(ptr noundef readonly captures(none) %c, ptr noundef captures(none) %fp) local_unnamed_addr #2 {
-entry:
-  %protocol = getelementptr inbounds nuw i8, ptr %c, i64 88
-  %0 = load ptr, ptr %protocol, align 8
-  %tobool.i = icmp eq ptr %0, null
-  br i1 %tobool.i, label %if.then.i, label %if.end4.i
+switch.lookup:                                    ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %switch.cast = trunc nuw i32 %switch.tableidx to i24
+  %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
+  %switch.downshift = lshr i24 262657, %switch.shiftamt
+  %switch.masked = trunc i24 %switch.downshift to i8
+  %5 = load i8, ptr %4, align 4
+  %6 = or i8 %5, %switch.masked
+  store i8 %6, ptr %4, align 4
+  br label %credential_set_capability.exit
 
-if.then.i:                                        ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.18, i32 noundef 275, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.3) #17
-  unreachable
+credential_set_capability.exit:                   ; preds = %2, %switch.lookup
+  %switch.tableidx7 = add i32 %1, -1
+  %7 = icmp ult i32 %switch.tableidx7, 3
+  br i1 %7, label %switch.lookup6, label %credential_set_capability.exit5
 
-if.end4.i:                                        ; preds = %entry
-  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 10) #15
-  %tobool5.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool5.not.i, label %credential_write_item.exit, label %if.then6.i
+switch.lookup6:                                   ; preds = %credential_set_capability.exit
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %switch.cast8 = trunc nuw i32 %switch.tableidx7 to i24
+  %switch.shiftamt9 = shl nuw nsw i24 %switch.cast8, 3
+  %switch.downshift10 = lshr i24 262657, %switch.shiftamt9
+  %switch.masked11 = trunc i24 %switch.downshift10 to i8
+  %9 = load i8, ptr %8, align 4
+  %10 = or i8 %9, %switch.masked11
+  store i8 %10, ptr %8, align 4
+  br label %credential_set_capability.exit5
 
-if.then6.i:                                       ; preds = %if.end4.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.3) #17
-  unreachable
-
-credential_write_item.exit:                       ; preds = %if.end4.i
-  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3, ptr noundef nonnull %0)
-  %host = getelementptr inbounds nuw i8, ptr %c, i64 96
-  %1 = load ptr, ptr %host, align 8
-  %tobool.i20 = icmp eq ptr %1, null
-  br i1 %tobool.i20, label %if.then.i28, label %if.end4.i22
-
-if.then.i28:                                      ; preds = %credential_write_item.exit
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.18, i32 noundef 275, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.4) #17
-  unreachable
-
-if.end4.i22:                                      ; preds = %credential_write_item.exit
-  %call.i23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #15
-  %tobool5.not.i24 = icmp eq ptr %call.i23, null
-  br i1 %tobool5.not.i24, label %credential_write_item.exit29, label %if.then6.i25
-
-if.then6.i25:                                     ; preds = %if.end4.i22
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.4) #17
-  unreachable
-
-credential_write_item.exit29:                     ; preds = %if.end4.i22
-  %call8.i27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.4, ptr noundef nonnull %1)
-  %path = getelementptr inbounds nuw i8, ptr %c, i64 104
-  %2 = load ptr, ptr %path, align 8
-  %tobool.i30 = icmp eq ptr %2, null
-  br i1 %tobool.i30, label %credential_write_item.exit39, label %if.end4.i32
-
-if.end4.i32:                                      ; preds = %credential_write_item.exit29
-  %call.i33 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 10) #15
-  %tobool5.not.i34 = icmp eq ptr %call.i33, null
-  br i1 %tobool5.not.i34, label %if.end7.i36, label %if.then6.i35
-
-if.then6.i35:                                     ; preds = %if.end4.i32
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.5) #17
-  unreachable
-
-if.end7.i36:                                      ; preds = %if.end4.i32
-  %call8.i37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.5, ptr noundef nonnull %2)
-  br label %credential_write_item.exit39
-
-credential_write_item.exit39:                     ; preds = %credential_write_item.exit29, %if.end7.i36
-  %username = getelementptr inbounds nuw i8, ptr %c, i64 72
-  %3 = load ptr, ptr %username, align 8
-  %tobool.i40 = icmp eq ptr %3, null
-  br i1 %tobool.i40, label %credential_write_item.exit49, label %if.end4.i42
-
-if.end4.i42:                                      ; preds = %credential_write_item.exit39
-  %call.i43 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 10) #15
-  %tobool5.not.i44 = icmp eq ptr %call.i43, null
-  br i1 %tobool5.not.i44, label %if.end7.i46, label %if.then6.i45
-
-if.then6.i45:                                     ; preds = %if.end4.i42
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1) #17
-  unreachable
-
-if.end7.i46:                                      ; preds = %if.end4.i42
-  %call8.i47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, ptr noundef nonnull %3)
-  br label %credential_write_item.exit49
-
-credential_write_item.exit49:                     ; preds = %credential_write_item.exit39, %if.end7.i46
-  %password = getelementptr inbounds nuw i8, ptr %c, i64 80
-  %4 = load ptr, ptr %password, align 8
-  %tobool.i50 = icmp eq ptr %4, null
-  br i1 %tobool.i50, label %credential_write_item.exit59, label %if.end4.i52
-
-if.end4.i52:                                      ; preds = %credential_write_item.exit49
-  %call.i53 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 10) #15
-  %tobool5.not.i54 = icmp eq ptr %call.i53, null
-  br i1 %tobool5.not.i54, label %if.end7.i56, label %if.then6.i55
-
-if.then6.i55:                                     ; preds = %if.end4.i52
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.2) #17
-  unreachable
-
-if.end7.i56:                                      ; preds = %if.end4.i52
-  %call8.i57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.2, ptr noundef nonnull %4)
-  br label %credential_write_item.exit59
-
-credential_write_item.exit59:                     ; preds = %credential_write_item.exit49, %if.end7.i56
-  %oauth_refresh_token = getelementptr inbounds nuw i8, ptr %c, i64 112
-  %5 = load ptr, ptr %oauth_refresh_token, align 8
-  %tobool.i60 = icmp eq ptr %5, null
-  br i1 %tobool.i60, label %credential_write_item.exit69, label %if.end4.i62
-
-if.end4.i62:                                      ; preds = %credential_write_item.exit59
-  %call.i63 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 10) #15
-  %tobool5.not.i64 = icmp eq ptr %call.i63, null
-  br i1 %tobool5.not.i64, label %if.end7.i66, label %if.then6.i65
-
-if.then6.i65:                                     ; preds = %if.end4.i62
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.8) #17
-  unreachable
-
-if.end7.i66:                                      ; preds = %if.end4.i62
-  %call8.i67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.8, ptr noundef nonnull %5)
-  br label %credential_write_item.exit69
-
-credential_write_item.exit69:                     ; preds = %credential_write_item.exit59, %if.end7.i66
-  %password_expiry_utc = getelementptr inbounds nuw i8, ptr %c, i64 120
-  %6 = load i64, ptr %password_expiry_utc, align 8
-  %cmp.not = icmp eq i64 %6, -1
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %credential_write_item.exit69
-  %call = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.11, i64 noundef %6) #14
-  %tobool.i70 = icmp eq ptr %call, null
-  br i1 %tobool.i70, label %credential_write_item.exit79, label %if.end4.i72
-
-if.end4.i72:                                      ; preds = %if.then
-  %call.i73 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 10) #15
-  %tobool5.not.i74 = icmp eq ptr %call.i73, null
-  br i1 %tobool5.not.i74, label %if.end7.i76, label %if.then6.i75
-
-if.then6.i75:                                     ; preds = %if.end4.i72
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.7) #17
-  unreachable
-
-if.end7.i76:                                      ; preds = %if.end4.i72
-  %call8.i77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.7, ptr noundef nonnull %call)
-  br label %credential_write_item.exit79
-
-credential_write_item.exit79:                     ; preds = %if.then, %if.end7.i76
-  tail call void @free(ptr noundef %call) #14
-  br label %if.end
-
-if.end:                                           ; preds = %credential_write_item.exit79, %credential_write_item.exit69
-  %nr = getelementptr inbounds nuw i8, ptr %c, i64 48
-  %7 = load i64, ptr %nr, align 8
-  %cmp290.not = icmp eq i64 %7, 0
-  br i1 %cmp290.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %if.end
-  %wwwauth_headers = getelementptr inbounds nuw i8, ptr %c, i64 40
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %credential_write_item.exit89
-  %8 = phi i64 [ %7, %for.body.lr.ph ], [ %11, %credential_write_item.exit89 ]
-  %i.091 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %credential_write_item.exit89 ]
-  %9 = load ptr, ptr %wwwauth_headers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %i.091
-  %10 = load ptr, ptr %arrayidx, align 8
-  %tobool.i80 = icmp eq ptr %10, null
-  br i1 %tobool.i80, label %credential_write_item.exit89, label %if.end4.i82
-
-if.end4.i82:                                      ; preds = %for.body
-  %call.i83 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 10) #15
-  %tobool5.not.i84 = icmp eq ptr %call.i83, null
-  br i1 %tobool5.not.i84, label %if.end7.i86, label %if.then6.i85
-
-if.then6.i85:                                     ; preds = %if.end4.i82
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6) #17
-  unreachable
-
-if.end7.i86:                                      ; preds = %if.end4.i82
-  %call8.i87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.6, ptr noundef nonnull %10)
-  %.pre = load i64, ptr %nr, align 8
-  br label %credential_write_item.exit89
-
-credential_write_item.exit89:                     ; preds = %for.body, %if.end7.i86
-  %11 = phi i64 [ %8, %for.body ], [ %.pre, %if.end7.i86 ]
-  %inc = add nuw i64 %i.091, 1
-  %cmp2 = icmp ult i64 %inc, %11
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !7
-
-for.end:                                          ; preds = %credential_write_item.exit89, %if.end
+credential_set_capability.exit5:                  ; preds = %credential_set_capability.exit, %switch.lookup6
   ret void
 }
 
-declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #4
+; Function Attrs: nofree nounwind uwtable
+define dso_local void @credential_announce_capabilities(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
+  %3 = tail call i64 @fwrite(ptr nonnull @.str, i64 10, i64 1, ptr %1)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %.val = load i8, ptr %4, align 4
+  %5 = and i8 %.val, 1
+  %.not.i = icmp eq i8 %5, 0
+  br i1 %.not.i, label %announce_one.exit, label %6
 
-; Function Attrs: nounwind uwtable
-define dso_local void @credential_fill(ptr noundef %c) local_unnamed_addr #2 {
-entry:
-  %tv.i = alloca %struct.timeval, align 8
-  %username = getelementptr inbounds nuw i8, ptr %c, i64 72
-  %0 = load ptr, ptr %username, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+6:                                                ; preds = %2
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1) #19
+  br label %announce_one.exit
 
-land.lhs.true:                                    ; preds = %entry
-  %password = getelementptr inbounds nuw i8, ptr %c, i64 80
-  %1 = load ptr, ptr %password, align 8
-  %tobool1.not = icmp eq ptr %1, null
-  br i1 %tobool1.not, label %if.end, label %if.end33
+announce_one.exit:                                ; preds = %2, %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %.val5 = load i8, ptr %8, align 4
+  %9 = and i8 %.val5, 1
+  %.not.i6 = icmp eq i8 %9, 0
+  br i1 %.not.i6, label %announce_one.exit7, label %10
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  tail call fastcc void @credential_apply_config(ptr noundef nonnull %c)
-  %nr = getelementptr inbounds nuw i8, ptr %c, i64 8
-  %2 = load i64, ptr %nr, align 8
-  %cmp23.not = icmp eq i64 %2, 0
-  br i1 %cmp23.not, label %if.end.for.end_crit_edge, label %for.body.lr.ph
+10:                                               ; preds = %announce_one.exit
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.2) #19
+  br label %announce_one.exit7
 
-if.end.for.end_crit_edge:                         ; preds = %if.end
-  %.pre = load ptr, ptr %username, align 8
-  br label %for.end
-
-for.body.lr.ph:                                   ; preds = %if.end
-  %password_expiry_utc = getelementptr inbounds nuw i8, ptr %c, i64 120
-  %password8 = getelementptr inbounds nuw i8, ptr %c, i64 80
-  %quit = getelementptr inbounds nuw i8, ptr %c, i64 64
-  br label %for.body
-
-for.cond:                                         ; preds = %if.end18
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = load i64, ptr %nr, align 8
-  %cmp = icmp ugt i64 %3, %indvars.iv.next
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %4 = load ptr, ptr %c, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.string_list_item, ptr %4, i64 %indvars.iv
-  %5 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @credential_do(ptr noundef nonnull %c, ptr noundef %5, ptr noundef nonnull @.str.12)
-  %6 = load i64, ptr %password_expiry_utc, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
-  %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #14
-  %7 = load i64, ptr %tv.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  %cmp5 = icmp ult i64 %6, %7
-  br i1 %cmp5, label %do.body, label %if.end11
-
-do.body:                                          ; preds = %for.body
-  %8 = load ptr, ptr %password8, align 8
-  tail call void @free(ptr noundef %8) #14
-  store ptr null, ptr %password8, align 8
-  store i64 -1, ptr %password_expiry_utc, align 8
-  br label %if.end11
-
-if.end11:                                         ; preds = %do.body, %for.body
-  %9 = load ptr, ptr %username, align 8
-  %tobool13.not = icmp eq ptr %9, null
-  br i1 %tobool13.not, label %if.end18, label %land.lhs.true14
-
-land.lhs.true14:                                  ; preds = %if.end11
-  %10 = load ptr, ptr %password8, align 8
-  %tobool16.not = icmp eq ptr %10, null
-  br i1 %tobool16.not, label %if.end18, label %if.end33
-
-if.end18:                                         ; preds = %land.lhs.true14, %if.end11
-  %bf.load = load i8, ptr %quit, align 8
-  %11 = and i8 %bf.load, 8
-  %tobool19.not = icmp eq i8 %11, 0
-  br i1 %tobool19.not, label %for.cond, label %if.then20
-
-if.then20:                                        ; preds = %if.end18
-  %12 = load ptr, ptr %c, align 8
-  %arrayidx24 = getelementptr inbounds nuw %struct.string_list_item, ptr %12, i64 %indvars.iv
-  %13 = load ptr, ptr %arrayidx24, align 8
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.13, ptr noundef %13) #17
-  unreachable
-
-for.end:                                          ; preds = %for.cond, %if.end.for.end_crit_edge
-  %14 = phi ptr [ %.pre, %if.end.for.end_crit_edge ], [ %9, %for.cond ]
-  %tobool.not.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %for.end
-  %call.i20 = tail call fastcc ptr @credential_ask_one(ptr noundef nonnull @.str.36, ptr noundef nonnull %c, i32 noundef 3)
-  store ptr %call.i20, ptr %username, align 8
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.then.i, %for.end
-  %password.i = getelementptr inbounds nuw i8, ptr %c, i64 80
-  %15 = load ptr, ptr %password.i, align 8
-  %tobool2.not.i = icmp eq ptr %15, null
-  br i1 %tobool2.not.i, label %credential_getpass.exit, label %if.end33
-
-credential_getpass.exit:                          ; preds = %if.end.i
-  %call4.i = tail call fastcc ptr @credential_ask_one(ptr noundef nonnull @.str.37, ptr noundef nonnull %c, i32 noundef 1)
-  store ptr %call4.i, ptr %password.i, align 8
-  %.pre29 = load ptr, ptr %username, align 8
-  %16 = icmp ne ptr %call4.i, null
-  %tobool28.not = icmp ne ptr %.pre29, null
-  %brmerge = select i1 %tobool28.not, i1 true, i1 %16
-  br i1 %brmerge, label %if.end33, label %if.then32
-
-if.then32:                                        ; preds = %credential_getpass.exit
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.14) #17
-  unreachable
-
-if.end33:                                         ; preds = %land.lhs.true14, %credential_getpass.exit, %if.end.i, %land.lhs.true
+announce_one.exit7:                               ; preds = %announce_one.exit, %10
   ret void
 }
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @credential_apply_config(ptr noundef %c) unnamed_addr #2 {
-entry:
-  %config = alloca %struct.urlmatch_config, align 8
-  %url = alloca %struct.strbuf, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %config, i8 0, i64 152, i1 false)
-  %0 = getelementptr inbounds nuw i8, ptr %config, i64 24
-  store i8 1, ptr %0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %url, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
-  %host = getelementptr inbounds nuw i8, ptr %c, i64 96
-  %1 = load ptr, ptr %host, align 8
-  %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call = tail call fastcc ptr @_(ptr noundef nonnull @.str.22)
-  tail call void (ptr, ...) @die(ptr noundef %call) #17
-  unreachable
-
-if.end:                                           ; preds = %entry
-  %protocol = getelementptr inbounds nuw i8, ptr %c, i64 88
-  %2 = load ptr, ptr %protocol, align 8
-  %tobool1.not = icmp eq ptr %2, null
-  br i1 %tobool1.not, label %if.then2, label %if.end4
-
-if.then2:                                         ; preds = %if.end
-  %call3 = tail call fastcc ptr @_(ptr noundef nonnull @.str.23)
-  tail call void (ptr, ...) @die(ptr noundef %call3) #17
-  unreachable
-
-if.end4:                                          ; preds = %if.end
-  %configured = getelementptr inbounds nuw i8, ptr %c, i64 64
-  %bf.load = load i8, ptr %configured, align 8
-  %3 = and i8 %bf.load, 4
-  %tobool5.not = icmp eq i8 %3, 0
-  br i1 %tobool5.not, label %if.end.i, label %if.end23
-
-if.end.i:                                         ; preds = %if.end4
-  %section = getelementptr inbounds nuw i8, ptr %config, i64 152
-  store ptr @.str.24, ptr %section, align 8
-  %key = getelementptr inbounds nuw i8, ptr %config, i64 160
-  store ptr null, ptr %key, align 8
-  %collect_fn = getelementptr inbounds nuw i8, ptr %config, i64 176
-  store ptr @credential_config_callback, ptr %collect_fn, align 8
-  %cascade_fn = getelementptr inbounds nuw i8, ptr %config, i64 184
-  store ptr null, ptr %cascade_fn, align 8
-  %select_fn = getelementptr inbounds nuw i8, ptr %config, i64 192
-  store ptr @select_all, ptr %select_fn, align 8
-  %fallback_match_fn = getelementptr inbounds nuw i8, ptr %config, i64 200
-  store ptr @match_partial_url, ptr %fallback_match_fn, align 8
-  %cb = getelementptr inbounds nuw i8, ptr %config, i64 168
-  store ptr %c, ptr %cb, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %url, ptr noundef nonnull @.str.29, ptr noundef nonnull %2) #14
-  %username.i = getelementptr inbounds nuw i8, ptr %c, i64 72
-  %4 = load ptr, ptr %username.i, align 8
-  %tobool2.not.i = icmp eq ptr %4, null
-  br i1 %tobool2.not.i, label %if.end7.i, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %if.end.i
-  %5 = load i8, ptr %4, align 1
-  %tobool4.not.i = icmp eq i8 %5, 0
-  br i1 %tobool4.not.i, label %if.end7.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void @strbuf_add_percentencode(ptr noundef nonnull %url, ptr noundef nonnull %4, i32 noundef 1) #14
-  %6 = load i64, ptr %url, align 8
-  %tobool.not.i.i.i = icmp eq i64 %6, 0
-  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
-
-strbuf_avail.exit.i.i:                            ; preds = %if.then5.i
-  %len.i.i.i = getelementptr inbounds nuw i8, ptr %url, i64 8
-  %7 = load i64, ptr %len.i.i.i, align 8
-  %.neg.i.i = add i64 %7, 1
-  %tobool.not.i.i = icmp eq i64 %6, %.neg.i.i
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
-
-if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then5.i
-  call void @strbuf_grow(ptr noundef nonnull %url, i64 noundef 1) #14
-  %len.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %url, i64 8
-  %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
-  %.pre8.i.i = add i64 %.pre.i.i, 1
-  br label %strbuf_addch.exit.i
-
-strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
-  %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
-  %8 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %7, %strbuf_avail.exit.i.i ]
-  %buf.i.i = getelementptr inbounds nuw i8, ptr %url, i64 16
-  %9 = load ptr, ptr %buf.i.i, align 8
-  %len.i.i = getelementptr inbounds nuw i8, ptr %url, i64 8
-  store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 %8
-  store i8 64, ptr %arrayidx.i.i, align 1
-  %10 = load ptr, ptr %buf.i.i, align 8
-  %11 = load i64, ptr %len.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %10, i64 %11
-  store i8 0, ptr %arrayidx3.i.i, align 1
-  br label %if.end7.i
-
-if.end7.i:                                        ; preds = %strbuf_addch.exit.i, %land.lhs.true.i, %if.end.i
-  %12 = load ptr, ptr %host, align 8
-  %tobool8.not.i = icmp eq ptr %12, null
-  br i1 %tobool8.not.i, label %if.end11.i, label %if.then9.i
-
-if.then9.i:                                       ; preds = %if.end7.i
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #15
-  call void @strbuf_add(ptr noundef nonnull %url, ptr noundef nonnull %12, i64 noundef %call.i.i) #14
-  br label %if.end11.i
-
-if.end11.i:                                       ; preds = %if.then9.i, %if.end7.i
-  %path.i = getelementptr inbounds nuw i8, ptr %c, i64 104
-  %13 = load ptr, ptr %path.i, align 8
-  %tobool12.not.i = icmp eq ptr %13, null
-  br i1 %tobool12.not.i, label %credential_format.exit, label %if.then13.i
-
-if.then13.i:                                      ; preds = %if.end11.i
-  %14 = load i64, ptr %url, align 8
-  %tobool.not.i.i16.i = icmp eq i64 %14, 0
-  br i1 %tobool.not.i.i16.i, label %if.then.i26.i, label %strbuf_avail.exit.i17.i
-
-strbuf_avail.exit.i17.i:                          ; preds = %if.then13.i
-  %len.i.i18.i = getelementptr inbounds nuw i8, ptr %url, i64 8
-  %15 = load i64, ptr %len.i.i18.i, align 8
-  %.neg.i19.i = add i64 %15, 1
-  %tobool.not.i20.i = icmp eq i64 %14, %.neg.i19.i
-  br i1 %tobool.not.i20.i, label %if.then.i26.i, label %strbuf_addch.exit30.i
-
-if.then.i26.i:                                    ; preds = %strbuf_avail.exit.i17.i, %if.then13.i
-  call void @strbuf_grow(ptr noundef nonnull %url, i64 noundef 1) #14
-  %len.phi.trans.insert.i27.i = getelementptr inbounds nuw i8, ptr %url, i64 8
-  %.pre.i28.i = load i64, ptr %len.phi.trans.insert.i27.i, align 8
-  %.pre8.i29.i = add i64 %.pre.i28.i, 1
-  br label %strbuf_addch.exit30.i
-
-strbuf_addch.exit30.i:                            ; preds = %if.then.i26.i, %strbuf_avail.exit.i17.i
-  %inc.pre-phi.i21.i = phi i64 [ %.pre8.i29.i, %if.then.i26.i ], [ %.neg.i19.i, %strbuf_avail.exit.i17.i ]
-  %16 = phi i64 [ %.pre.i28.i, %if.then.i26.i ], [ %15, %strbuf_avail.exit.i17.i ]
-  %buf.i22.i = getelementptr inbounds nuw i8, ptr %url, i64 16
-  %17 = load ptr, ptr %buf.i22.i, align 8
-  %len.i23.i = getelementptr inbounds nuw i8, ptr %url, i64 8
-  store i64 %inc.pre-phi.i21.i, ptr %len.i23.i, align 8
-  %arrayidx.i24.i = getelementptr inbounds i8, ptr %17, i64 %16
-  store i8 47, ptr %arrayidx.i24.i, align 1
-  %18 = load ptr, ptr %buf.i22.i, align 8
-  %19 = load i64, ptr %len.i23.i, align 8
-  %arrayidx3.i25.i = getelementptr inbounds i8, ptr %18, i64 %19
-  store i8 0, ptr %arrayidx3.i25.i, align 1
-  %20 = load ptr, ptr %path.i, align 8
-  call void @strbuf_add_percentencode(ptr noundef nonnull %url, ptr noundef %20, i32 noundef 0) #14
-  br label %credential_format.exit
-
-credential_format.exit:                           ; preds = %if.end11.i, %strbuf_addch.exit30.i
-  %buf = getelementptr inbounds nuw i8, ptr %url, i64 16
-  %21 = load ptr, ptr %buf, align 8
-  %url8 = getelementptr inbounds nuw i8, ptr %config, i64 40
-  %call9 = call ptr @url_normalize(ptr noundef %21, ptr noundef nonnull %url8) #14
-  call void @git_config(ptr noundef nonnull @urlmatch_config_entry, ptr noundef nonnull %config) #14
-  call void @string_list_clear(ptr noundef nonnull %config, i32 noundef 1) #14
-  call void @free(ptr noundef %call9) #14
-  call void @urlmatch_config_release(ptr noundef nonnull %config) #14
-  call void @strbuf_release(ptr noundef nonnull %url) #14
-  %bf.load11 = load i8, ptr %configured, align 8
-  %bf.set = or i8 %bf.load11, 4
-  store i8 %bf.set, ptr %configured, align 8
-  %22 = and i8 %bf.load11, 16
-  %tobool17.not = icmp eq i8 %22, 0
-  br i1 %tobool17.not, label %land.lhs.true, label %if.end23
-
-land.lhs.true:                                    ; preds = %credential_format.exit
-  %23 = load ptr, ptr %protocol, align 8
-  %tobool.not.i10 = icmp eq ptr %23, null
-  br i1 %tobool.not.i10, label %if.end23, label %if.end.i11
-
-if.end.i11:                                       ; preds = %land.lhs.true
-  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(6) @.str.30) #15
-  %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %do.body, label %proto_is_http.exit
-
-proto_is_http.exit:                               ; preds = %if.end.i11
-  %call2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(5) @.str.31) #15
-  %tobool3.not.i.not = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.not.i.not, label %do.body, label %if.end23
-
-do.body:                                          ; preds = %if.end.i11, %proto_is_http.exit
-  %24 = load ptr, ptr %path.i, align 8
-  call void @free(ptr noundef %24) #14
-  store ptr null, ptr %path.i, align 8
-  br label %if.end23
-
-if.end23:                                         ; preds = %land.lhs.true, %if.end4, %do.body, %proto_is_http.exit, %credential_format.exit
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @credential_do(ptr noundef %c, ptr noundef %helper, ptr noundef %operation) unnamed_addr #2 {
-entry:
-  %helper.i = alloca %struct.child_process, align 8
-  %cmd = alloca %struct.strbuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cmd, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
-  %0 = load i8, ptr %helper, align 1
-  switch i8 %0, label %if.else3 [
-    i8 33, label %if.then
-    i8 47, label %if.then2
-  ]
-
-if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds nuw i8, ptr %helper, i64 1
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #15
-  call void @strbuf_add(ptr noundef nonnull %cmd, ptr noundef nonnull %add.ptr, i64 noundef %call.i) #14
-  br label %if.end4
-
-if.then2:                                         ; preds = %entry
-  %call.i6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %helper) #15
-  call void @strbuf_add(ptr noundef nonnull %cmd, ptr noundef nonnull %helper, i64 noundef %call.i6) #14
-  br label %if.end4
-
-if.else3:                                         ; preds = %entry
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.32, ptr noundef nonnull %helper) #14
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.then2, %if.else3, %if.then
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.33, ptr noundef %operation) #14
-  %buf = getelementptr inbounds nuw i8, ptr %cmd, i64 16
-  %1 = load ptr, ptr %buf, align 8
-  %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %operation, ptr noundef nonnull dereferenceable(4) @.str.12) #15
-  %tobool6.not.not = icmp eq i32 %call5, 0
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %helper.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %helper.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_credential_helper.helper, i64 120, i1 false)
-  %call.i7 = call ptr @strvec_push(ptr noundef nonnull %helper.i, ptr noundef %1) #14
-  %use_shell.i = getelementptr inbounds nuw i8, ptr %helper.i, i64 104
-  %bf.load.i = load i16, ptr %use_shell.i, align 8
-  %bf.set.i = or i16 %bf.load.i, 32
-  store i16 %bf.set.i, ptr %use_shell.i, align 8
-  %in.i = getelementptr inbounds nuw i8, ptr %helper.i, i64 80
-  store i32 -1, ptr %in.i, align 8
-  br i1 %tobool6.not.not, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.end4
-  %out.i = getelementptr inbounds nuw i8, ptr %helper.i, i64 84
-  store i32 -1, ptr %out.i, align 4
-  br label %if.end.i
-
-if.else.i:                                        ; preds = %if.end4
-  %bf.set3.i = or i16 %bf.load.i, 34
-  store i16 %bf.set3.i, ptr %use_shell.i, align 8
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %call4.i = call i32 @start_command(ptr noundef nonnull %helper.i) #14
-  %cmp.i = icmp slt i32 %call4.i, 0
-  br i1 %cmp.i, label %run_credential_helper.exit, label %if.end6.i
-
-if.end6.i:                                        ; preds = %if.end.i
-  %2 = load i32, ptr %in.i, align 8
-  %call8.i = call ptr @xfdopen(i32 noundef %2, ptr noundef nonnull @.str.34) #14
-  %call9.i = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
-  call void @credential_write(ptr noundef %c, ptr noundef %call8.i)
-  %call10.i = call i32 @fclose(ptr noundef %call8.i)
-  %call11.i = call i32 @sigchain_pop(i32 noundef 13) #14
-  br i1 %tobool6.not.not, label %if.then13.i, label %run_credential_helper.exit.sink.split
-
-if.then13.i:                                      ; preds = %if.end6.i
-  %out14.i = getelementptr inbounds nuw i8, ptr %helper.i, i64 84
-  %3 = load i32, ptr %out14.i, align 4
-  %call15.i = call ptr @xfdopen(i32 noundef %3, ptr noundef nonnull @.str.35) #14
-  %call16.i = call i32 @credential_read(ptr noundef %c, ptr noundef %call15.i)
-  %call17.i = call i32 @fclose(ptr noundef %call15.i)
-  br label %run_credential_helper.exit.sink.split
-
-run_credential_helper.exit.sink.split:            ; preds = %if.then13.i, %if.end6.i
-  %call20.i = call i32 @finish_command(ptr noundef nonnull %helper.i) #14
-  br label %run_credential_helper.exit
-
-run_credential_helper.exit:                       ; preds = %run_credential_helper.exit.sink.split, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %helper.i)
-  call void @strbuf_release(ptr noundef nonnull %cmd) #14
-  ret void
-}
-
-; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #9
-
-; Function Attrs: nounwind uwtable
-define dso_local void @credential_approve(ptr noundef %c) local_unnamed_addr #2 {
-entry:
-  %tv.i = alloca %struct.timeval, align 8
-  %approved = getelementptr inbounds nuw i8, ptr %c, i64 64
-  %bf.load = load i8, ptr %approved, align 8
-  %0 = and i8 %bf.load, 2
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.end, label %return
-
-if.end:                                           ; preds = %entry
-  %username = getelementptr inbounds nuw i8, ptr %c, i64 72
-  %1 = load ptr, ptr %username, align 8
-  %tobool1.not = icmp eq ptr %1, null
-  br i1 %tobool1.not, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %password = getelementptr inbounds nuw i8, ptr %c, i64 80
-  %2 = load ptr, ptr %password, align 8
-  %tobool2.not = icmp eq ptr %2, null
-  br i1 %tobool2.not, label %return, label %lor.lhs.false3
-
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %password_expiry_utc = getelementptr inbounds nuw i8, ptr %c, i64 120
-  %3 = load i64, ptr %password_expiry_utc, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
-  %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #14
-  %4 = load i64, ptr %tv.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  %cmp = icmp ult i64 %3, %4
-  br i1 %cmp, label %return, label %if.end5
-
-if.end5:                                          ; preds = %lor.lhs.false3
-  tail call fastcc void @credential_apply_config(ptr noundef nonnull %c)
-  %nr = getelementptr inbounds nuw i8, ptr %c, i64 8
-  %5 = load i64, ptr %nr, align 8
-  %cmp611.not = icmp eq i64 %5, 0
-  br i1 %cmp611.not, label %for.end, label %for.body
-
-for.body:                                         ; preds = %if.end5, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end5 ]
-  %6 = load ptr, ptr %c, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.string_list_item, ptr %6, i64 %indvars.iv
-  %7 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @credential_do(ptr noundef nonnull %c, ptr noundef %7, ptr noundef nonnull @.str.15)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i64, ptr %nr, align 8
-  %cmp6 = icmp ugt i64 %8, %indvars.iv.next
-  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !9
-
-for.end:                                          ; preds = %for.body, %if.end5
-  %bf.load11 = load i8, ptr %approved, align 8
-  %bf.set = or i8 %bf.load11, 2
-  store i8 %bf.set, ptr %approved, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %lor.lhs.false, %lor.lhs.false3, %entry, %for.end
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @credential_reject(ptr noundef %c) local_unnamed_addr #2 {
-entry:
-  tail call fastcc void @credential_apply_config(ptr noundef %c)
-  %nr = getelementptr inbounds nuw i8, ptr %c, i64 8
-  %0 = load i64, ptr %nr, align 8
-  %cmp14.not = icmp eq i64 %0, 0
-  br i1 %cmp14.not, label %do.body, label %for.body
-
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %1 = load ptr, ptr %c, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.string_list_item, ptr %1, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @credential_do(ptr noundef nonnull %c, ptr noundef %2, ptr noundef nonnull @.str.16)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = load i64, ptr %nr, align 8
-  %cmp = icmp ugt i64 %3, %indvars.iv.next
-  br i1 %cmp, label %for.body, label %do.body, !llvm.loop !10
-
-do.body:                                          ; preds = %for.body, %entry
-  %username = getelementptr inbounds nuw i8, ptr %c, i64 72
-  %4 = load ptr, ptr %username, align 8
-  tail call void @free(ptr noundef %4) #14
-  store ptr null, ptr %username, align 8
-  %password = getelementptr inbounds nuw i8, ptr %c, i64 80
-  %5 = load ptr, ptr %password, align 8
-  tail call void @free(ptr noundef %5) #14
-  store ptr null, ptr %password, align 8
-  %oauth_refresh_token = getelementptr inbounds nuw i8, ptr %c, i64 112
-  %6 = load ptr, ptr %oauth_refresh_token, align 8
-  tail call void @free(ptr noundef %6) #14
-  store ptr null, ptr %oauth_refresh_token, align 8
-  %password_expiry_utc = getelementptr inbounds nuw i8, ptr %c, i64 120
-  store i64 -1, ptr %password_expiry_utc, align 8
-  %approved = getelementptr inbounds nuw i8, ptr %c, i64 64
-  %bf.load = load i8, ptr %approved, align 8
-  %bf.clear = and i8 %bf.load, -3
-  store i8 %bf.clear, ptr %approved, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @credential_from_url_gently(ptr noundef %c, ptr noundef %url, i32 noundef %quiet) local_unnamed_addr #2 {
-entry:
-  %call = tail call fastcc i32 @credential_from_url_1(ptr noundef %c, ptr noundef %url, i32 noundef 0, i32 noundef %quiet)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef %c, ptr noundef %url, i32 noundef range(i32 0, 2) %allow_partial_url, i32 noundef %quiet) unnamed_addr #2 {
-entry:
-  %protocol.i = getelementptr inbounds nuw i8, ptr %c, i64 88
-  %0 = load ptr, ptr %protocol.i, align 8
-  tail call void @free(ptr noundef %0) #14
-  %host.i = getelementptr inbounds nuw i8, ptr %c, i64 96
-  %1 = load ptr, ptr %host.i, align 8
-  tail call void @free(ptr noundef %1) #14
-  %path.i = getelementptr inbounds nuw i8, ptr %c, i64 104
-  %2 = load ptr, ptr %path.i, align 8
-  tail call void @free(ptr noundef %2) #14
-  %username.i = getelementptr inbounds nuw i8, ptr %c, i64 72
-  %3 = load ptr, ptr %username.i, align 8
-  tail call void @free(ptr noundef %3) #14
-  %password.i = getelementptr inbounds nuw i8, ptr %c, i64 80
-  %4 = load ptr, ptr %password.i, align 8
-  tail call void @free(ptr noundef %4) #14
-  %oauth_refresh_token.i = getelementptr inbounds nuw i8, ptr %c, i64 112
-  %5 = load ptr, ptr %oauth_refresh_token.i, align 8
-  tail call void @free(ptr noundef %5) #14
-  tail call void @string_list_clear(ptr noundef %c, i32 noundef 0) #14
-  %wwwauth_headers.i = getelementptr inbounds nuw i8, ptr %c, i64 40
-  tail call void @strvec_clear(ptr noundef nonnull %wwwauth_headers.i) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %c, ptr noundef nonnull align 8 dereferenceable(128) @__const.match_partial_url.want, i64 128, i1 false)
-  %call = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %url, ptr noundef nonnull dereferenceable(1) @.str.42) #15
-  %tobool.not = icmp eq i32 %allow_partial_url, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end5
-
-land.lhs.true:                                    ; preds = %entry
-  %tobool1.not = icmp eq ptr %call, null
-  %cmp = icmp eq ptr %call, %url
-  %or.cond = or i1 %tobool1.not, %cmp
-  br i1 %or.cond, label %if.then, label %if.end5
-
-if.then:                                          ; preds = %land.lhs.true
-  %tobool2.not = icmp eq i32 %quiet, 0
-  br i1 %tobool2.not, label %if.then3, label %return
-
-if.then3:                                         ; preds = %if.then
-  %6 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i = icmp eq i32 %6, 0
-  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
-
-if.end3.i:                                        ; preds = %if.then3
-  %call.i = tail call ptr @gettext(ptr noundef nonnull @.str.43) #14
-  br label %_.exit
-
-_.exit:                                           ; preds = %if.then3, %if.end3.i
-  %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.43, %if.then3 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i, ptr noundef nonnull %url) #14
-  br label %return
-
-if.end5:                                          ; preds = %land.lhs.true, %entry
-  %tobool6.not = icmp eq ptr %call, null
-  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 3
-  %cond = select i1 %tobool6.not, ptr %url, ptr %add.ptr
-  %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond, i32 noundef 64) #15
-  %call8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond, i32 noundef 58) #15
-  %call9 = tail call i64 @strcspn(ptr noundef nonnull %cond, ptr noundef nonnull @.str.44) #15
-  %add.ptr10 = getelementptr inbounds i8, ptr %cond, i64 %call9
-  %tobool11.not = icmp ne ptr %call7, null
-  %cmp13.not = icmp ugt ptr %add.ptr10, %call7
-  %or.cond72 = select i1 %tobool11.not, i1 %cmp13.not, i1 false
-  br i1 %or.cond72, label %if.else, label %if.end57
-
-if.else:                                          ; preds = %if.end5
-  %tobool15.not = icmp ne ptr %call8, null
-  %cmp17.not = icmp ugt ptr %call7, %call8
-  %or.cond73 = and i1 %tobool15.not, %cmp17.not
-  %sub.ptr.rhs.cast31 = ptrtoint ptr %cond to i64
-  br i1 %or.cond73, label %if.else29, label %if.then18
-
-if.then18:                                        ; preds = %if.else
-  %sub.ptr.lhs.cast = ptrtoint ptr %call7 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast31
-  %conv = trunc i64 %sub.ptr.sub to i32
-  %call19 = tail call ptr @url_decode_mem(ptr noundef nonnull %cond, i32 noundef %conv) #14
-  store ptr %call19, ptr %username.i, align 8
-  %tobool21.not = icmp eq ptr %call19, null
-  br i1 %tobool21.not, label %if.end27, label %land.lhs.true22
-
-land.lhs.true22:                                  ; preds = %if.then18
-  %7 = load i8, ptr %call19, align 1
-  %tobool25.not = icmp eq i8 %7, 0
-  br i1 %tobool25.not, label %if.end27, label %if.then26
-
-if.then26:                                        ; preds = %land.lhs.true22
-  %username_from_proto = getelementptr inbounds nuw i8, ptr %c, i64 64
-  %bf.load = load i8, ptr %username_from_proto, align 8
-  %bf.set = or i8 %bf.load, 32
-  store i8 %bf.set, ptr %username_from_proto, align 8
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.then26, %land.lhs.true22, %if.then18
-  %add.ptr28 = getelementptr inbounds nuw i8, ptr %call7, i64 1
-  br label %if.end57
-
-if.else29:                                        ; preds = %if.else
-  %sub.ptr.lhs.cast30 = ptrtoint ptr %call8 to i64
-  %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast31
-  %conv33 = trunc i64 %sub.ptr.sub32 to i32
-  %call34 = tail call ptr @url_decode_mem(ptr noundef nonnull %cond, i32 noundef %conv33) #14
-  store ptr %call34, ptr %username.i, align 8
-  %tobool37.not = icmp eq ptr %call34, null
-  br i1 %tobool37.not, label %if.end47, label %land.lhs.true38
-
-land.lhs.true38:                                  ; preds = %if.else29
-  %8 = load i8, ptr %call34, align 1
-  %tobool41.not = icmp eq i8 %8, 0
-  br i1 %tobool41.not, label %if.end47, label %if.then42
-
-if.then42:                                        ; preds = %land.lhs.true38
-  %username_from_proto43 = getelementptr inbounds nuw i8, ptr %c, i64 64
-  %bf.load44 = load i8, ptr %username_from_proto43, align 8
-  %bf.set46 = or i8 %bf.load44, 32
-  store i8 %bf.set46, ptr %username_from_proto43, align 8
-  br label %if.end47
-
-if.end47:                                         ; preds = %if.then42, %land.lhs.true38, %if.else29
-  %add.ptr48 = getelementptr inbounds nuw i8, ptr %call8, i64 1
-  %sub.ptr.lhs.cast50 = ptrtoint ptr %call7 to i64
-  %sub.ptr.rhs.cast51 = ptrtoint ptr %add.ptr48 to i64
-  %sub.ptr.sub52 = sub i64 %sub.ptr.lhs.cast50, %sub.ptr.rhs.cast51
-  %conv53 = trunc i64 %sub.ptr.sub52 to i32
-  %call54 = tail call ptr @url_decode_mem(ptr noundef nonnull %add.ptr48, i32 noundef %conv53) #14
-  store ptr %call54, ptr %password.i, align 8
-  %add.ptr55 = getelementptr inbounds nuw i8, ptr %call7, i64 1
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.end5, %if.end27, %if.end47
-  %host.0 = phi ptr [ %add.ptr28, %if.end27 ], [ %add.ptr55, %if.end47 ], [ %cond, %if.end5 ]
-  br i1 %tobool6.not, label %if.end70, label %land.lhs.true59
-
-land.lhs.true59:                                  ; preds = %if.end57
-  %sub.ptr.lhs.cast60 = ptrtoint ptr %call to i64
-  %sub.ptr.rhs.cast61 = ptrtoint ptr %url to i64
-  %sub.ptr.sub62 = sub i64 %sub.ptr.lhs.cast60, %sub.ptr.rhs.cast61
-  %cmp63 = icmp sgt i64 %sub.ptr.sub62, 0
-  br i1 %cmp63, label %if.then65, label %if.end70
-
-if.then65:                                        ; preds = %land.lhs.true59
-  %call69 = tail call ptr @xmemdupz(ptr noundef nonnull %url, i64 noundef %sub.ptr.sub62) #14
-  store ptr %call69, ptr %protocol.i, align 8
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.then65, %land.lhs.true59, %if.end57
-  %sub.ptr.lhs.cast73 = ptrtoint ptr %add.ptr10 to i64
-  %sub.ptr.rhs.cast74 = ptrtoint ptr %host.0 to i64
-  %sub.ptr.sub75 = sub i64 %sub.ptr.lhs.cast73, %sub.ptr.rhs.cast74
-  %cmp76 = icmp sgt i64 %sub.ptr.sub75, 0
-  %or.cond74 = select i1 %tobool.not, i1 true, i1 %cmp76
-  br i1 %or.cond74, label %if.then78, label %while.cond.preheader
-
-if.then78:                                        ; preds = %if.end70
-  %conv82 = trunc i64 %sub.ptr.sub75 to i32
-  %call83 = tail call ptr @url_decode_mem(ptr noundef nonnull %host.0, i32 noundef %conv82) #14
-  store ptr %call83, ptr %host.i, align 8
-  br label %while.cond.preheader
-
-while.cond.preheader:                             ; preds = %if.end70, %if.then78
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.cond.preheader, %while.body
-  %slash.0 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr10, %while.cond.preheader ]
-  %9 = load i8, ptr %slash.0, align 1
-  switch i8 %9, label %if.then90 [
-    i8 47, label %while.body
-    i8 0, label %if.end107
-  ]
-
-while.body:                                       ; preds = %while.cond
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %slash.0, i64 1
-  br label %while.cond, !llvm.loop !11
-
-if.then90:                                        ; preds = %while.cond
-  %call91 = tail call ptr @url_decode(ptr noundef nonnull %slash.0) #14
-  store ptr %call91, ptr %path.i, align 8
-  %call94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call91) #15
-  %add.ptr95 = getelementptr inbounds i8, ptr %call91, i64 %call94
-  %p.0147 = getelementptr inbounds i8, ptr %add.ptr95, i64 -1
-  %cmp99148 = icmp ugt ptr %p.0147, %call91
-  br i1 %cmp99148, label %land.rhs, label %if.end107
-
-land.rhs:                                         ; preds = %if.then90, %while.body104
-  %p.0149 = phi ptr [ %p.0, %while.body104 ], [ %p.0147, %if.then90 ]
-  %10 = load i8, ptr %p.0149, align 1
-  %cmp102 = icmp eq i8 %10, 47
-  br i1 %cmp102, label %while.body104, label %if.end107
-
-while.body104:                                    ; preds = %land.rhs
-  store i8 0, ptr %p.0149, align 1
-  %p.0 = getelementptr inbounds i8, ptr %p.0149, i64 -1
-  %11 = load ptr, ptr %path.i, align 8
-  %cmp99 = icmp ugt ptr %p.0, %11
-  br i1 %cmp99, label %land.rhs, label %if.end107, !llvm.loop !12
-
-if.end107:                                        ; preds = %while.cond, %while.body104, %land.rhs, %if.then90
-  %12 = load ptr, ptr %username.i, align 8
-  %tobool.not.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i, label %lor.lhs.false112, label %if.end.i
-
-if.end.i:                                         ; preds = %if.end107
-  %call.i75 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 10) #15
-  %tobool1.not.i76 = icmp eq ptr %call.i75, null
-  br i1 %tobool1.not.i76, label %lor.lhs.false112, label %if.end3.i77
-
-if.end3.i77:                                      ; preds = %if.end.i
-  %tobool4.not.i = icmp eq i32 %quiet, 0
-  br i1 %tobool4.not.i, label %if.then5.i, label %return
-
-if.then5.i:                                       ; preds = %if.end3.i77
-  %13 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i = icmp eq i32 %13, 0
-  br i1 %tobool1.not.i.i, label %_.exit.i, label %if.end3.i.i
-
-if.end3.i.i:                                      ; preds = %if.then5.i
-  %call.i.i = tail call ptr @gettext(ptr noundef nonnull @.str.45) #14
-  br label %_.exit.i
-
-_.exit.i:                                         ; preds = %if.end3.i.i, %if.then5.i
-  %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.45, %if.then5.i ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %url) #14
-  br label %return
-
-lor.lhs.false112:                                 ; preds = %if.end.i, %if.end107
-  %14 = load ptr, ptr %password.i, align 8
-  %tobool.not.i79 = icmp eq ptr %14, null
-  br i1 %tobool.not.i79, label %lor.lhs.false117, label %if.end.i80
-
-if.end.i80:                                       ; preds = %lor.lhs.false112
-  %call.i81 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %14, i32 noundef 10) #15
-  %tobool1.not.i82 = icmp eq ptr %call.i81, null
-  br i1 %tobool1.not.i82, label %lor.lhs.false117, label %if.end3.i83
-
-if.end3.i83:                                      ; preds = %if.end.i80
-  %tobool4.not.i84 = icmp eq i32 %quiet, 0
-  br i1 %tobool4.not.i84, label %if.then5.i86, label %return
-
-if.then5.i86:                                     ; preds = %if.end3.i83
-  %15 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i87 = icmp eq i32 %15, 0
-  br i1 %tobool1.not.i.i87, label %_.exit.i90, label %if.end3.i.i88
-
-if.end3.i.i88:                                    ; preds = %if.then5.i86
-  %call.i.i89 = tail call ptr @gettext(ptr noundef nonnull @.str.45) #14
-  br label %_.exit.i90
-
-_.exit.i90:                                       ; preds = %if.end3.i.i88, %if.then5.i86
-  %retval.0.i.i91 = phi ptr [ %call.i.i89, %if.end3.i.i88 ], [ @.str.45, %if.then5.i86 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i91, ptr noundef nonnull @.str.2, ptr noundef nonnull %url) #14
-  br label %return
-
-lor.lhs.false117:                                 ; preds = %if.end.i80, %lor.lhs.false112
-  %16 = load ptr, ptr %protocol.i, align 8
-  %tobool.not.i93 = icmp eq ptr %16, null
-  br i1 %tobool.not.i93, label %lor.lhs.false122, label %if.end.i94
-
-if.end.i94:                                       ; preds = %lor.lhs.false117
-  %call.i95 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %16, i32 noundef 10) #15
-  %tobool1.not.i96 = icmp eq ptr %call.i95, null
-  br i1 %tobool1.not.i96, label %lor.lhs.false122, label %if.end3.i97
-
-if.end3.i97:                                      ; preds = %if.end.i94
-  %tobool4.not.i98 = icmp eq i32 %quiet, 0
-  br i1 %tobool4.not.i98, label %if.then5.i100, label %return
-
-if.then5.i100:                                    ; preds = %if.end3.i97
-  %17 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i101 = icmp eq i32 %17, 0
-  br i1 %tobool1.not.i.i101, label %_.exit.i104, label %if.end3.i.i102
-
-if.end3.i.i102:                                   ; preds = %if.then5.i100
-  %call.i.i103 = tail call ptr @gettext(ptr noundef nonnull @.str.45) #14
-  br label %_.exit.i104
-
-_.exit.i104:                                      ; preds = %if.end3.i.i102, %if.then5.i100
-  %retval.0.i.i105 = phi ptr [ %call.i.i103, %if.end3.i.i102 ], [ @.str.45, %if.then5.i100 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i105, ptr noundef nonnull @.str.3, ptr noundef nonnull %url) #14
-  br label %return
-
-lor.lhs.false122:                                 ; preds = %if.end.i94, %lor.lhs.false117
-  %18 = load ptr, ptr %host.i, align 8
-  %tobool.not.i107 = icmp eq ptr %18, null
-  br i1 %tobool.not.i107, label %lor.lhs.false127, label %if.end.i108
-
-if.end.i108:                                      ; preds = %lor.lhs.false122
-  %call.i109 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %18, i32 noundef 10) #15
-  %tobool1.not.i110 = icmp eq ptr %call.i109, null
-  br i1 %tobool1.not.i110, label %lor.lhs.false127, label %if.end3.i111
-
-if.end3.i111:                                     ; preds = %if.end.i108
-  %tobool4.not.i112 = icmp eq i32 %quiet, 0
-  br i1 %tobool4.not.i112, label %if.then5.i114, label %return
-
-if.then5.i114:                                    ; preds = %if.end3.i111
-  %19 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i115 = icmp eq i32 %19, 0
-  br i1 %tobool1.not.i.i115, label %_.exit.i118, label %if.end3.i.i116
-
-if.end3.i.i116:                                   ; preds = %if.then5.i114
-  %call.i.i117 = tail call ptr @gettext(ptr noundef nonnull @.str.45) #14
-  br label %_.exit.i118
-
-_.exit.i118:                                      ; preds = %if.end3.i.i116, %if.then5.i114
-  %retval.0.i.i119 = phi ptr [ %call.i.i117, %if.end3.i.i116 ], [ @.str.45, %if.then5.i114 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i119, ptr noundef nonnull @.str.4, ptr noundef nonnull %url) #14
-  br label %return
-
-lor.lhs.false127:                                 ; preds = %if.end.i108, %lor.lhs.false122
-  %20 = load ptr, ptr %path.i, align 8
-  %tobool.not.i121 = icmp eq ptr %20, null
-  br i1 %tobool.not.i121, label %return, label %if.end.i122
-
-if.end.i122:                                      ; preds = %lor.lhs.false127
-  %call.i123 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %20, i32 noundef 10) #15
-  %tobool1.not.i124 = icmp eq ptr %call.i123, null
-  br i1 %tobool1.not.i124, label %return, label %if.end3.i125
-
-if.end3.i125:                                     ; preds = %if.end.i122
-  %tobool4.not.i126 = icmp eq i32 %quiet, 0
-  br i1 %tobool4.not.i126, label %if.then5.i128, label %return
-
-if.then5.i128:                                    ; preds = %if.end3.i125
-  %21 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i129 = icmp eq i32 %21, 0
-  br i1 %tobool1.not.i.i129, label %_.exit.i132, label %if.end3.i.i130
-
-if.end3.i.i130:                                   ; preds = %if.then5.i128
-  %call.i.i131 = tail call ptr @gettext(ptr noundef nonnull @.str.45) #14
-  br label %_.exit.i132
-
-_.exit.i132:                                      ; preds = %if.end3.i.i130, %if.then5.i128
-  %retval.0.i.i133 = phi ptr [ %call.i.i131, %if.end3.i.i130 ], [ @.str.45, %if.then5.i128 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i133, ptr noundef nonnull @.str.5, ptr noundef nonnull %url) #14
-  br label %return
-
-return:                                           ; preds = %if.end3.i111, %_.exit.i118, %if.end3.i97, %_.exit.i104, %if.end3.i83, %_.exit.i90, %if.end3.i77, %_.exit.i, %lor.lhs.false127, %if.end.i122, %_.exit.i132, %if.end3.i125, %if.then, %_.exit
-  %retval.0 = phi i32 [ -1, %_.exit ], [ -1, %if.then ], [ 0, %lor.lhs.false127 ], [ 0, %if.end.i122 ], [ -1, %_.exit.i132 ], [ -1, %if.end3.i125 ], [ -1, %_.exit.i ], [ -1, %if.end3.i77 ], [ -1, %_.exit.i90 ], [ -1, %if.end3.i83 ], [ -1, %_.exit.i104 ], [ -1, %if.end3.i97 ], [ -1, %_.exit.i118 ], [ -1, %if.end3.i111 ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_(ptr noundef %msgid) unnamed_addr #2 {
-entry:
-  %0 = load i8, ptr %msgid, align 1
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not = icmp eq i32 %1, 0
-  br i1 %tobool1.not, label %return, label %if.end3
-
-if.end3:                                          ; preds = %if.end
-  %call = tail call ptr @gettext(ptr noundef nonnull %msgid) #14
-  br label %return
-
-return:                                           ; preds = %if.end, %entry, %if.end3
-  %retval.0 = phi ptr [ %call, %if.end3 ], [ @.str.46, %entry ], [ %msgid, %if.end ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define dso_local range(i32 0, 2) i32 @credential_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %11, label %6
+
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %8 = load ptr, ptr %7, align 8, !tbaa !18
+  %.not36 = icmp eq ptr %8, null
+  br i1 %.not36, label %.critedge, label %9
+
+9:                                                ; preds = %6
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #20
+  %.not37 = icmp eq i32 %10, 0
+  br i1 %.not37, label %11, label %.critedge
+
+11:                                               ; preds = %9, %3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  %.not38 = icmp eq ptr %13, null
+  br i1 %.not38, label %19, label %14
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %16 = load ptr, ptr %15, align 8, !tbaa !19
+  %.not39 = icmp eq ptr %16, null
+  br i1 %.not39, label %.critedge, label %17
+
+17:                                               ; preds = %14
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %16) #20
+  %.not40 = icmp eq i32 %18, 0
+  br i1 %.not40, label %19, label %.critedge
+
+19:                                               ; preds = %17, %11
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %.not41 = icmp eq ptr %21, null
+  br i1 %.not41, label %27, label %22
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %24 = load ptr, ptr %23, align 8, !tbaa !20
+  %.not42 = icmp eq ptr %24, null
+  br i1 %.not42, label %.critedge, label %25
+
+25:                                               ; preds = %22
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %24) #20
+  %.not43 = icmp eq i32 %26, 0
+  br i1 %.not43, label %27, label %.critedge
+
+27:                                               ; preds = %25, %19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
+  %.not44 = icmp eq ptr %29, null
+  br i1 %.not44, label %35, label %30
+
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %32 = load ptr, ptr %31, align 8, !tbaa !21
+  %.not45 = icmp eq ptr %32, null
+  br i1 %.not45, label %.critedge, label %33
+
+33:                                               ; preds = %30
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %32) #20
+  %.not46 = icmp eq i32 %34, 0
+  br i1 %.not46, label %35, label %.critedge
+
+35:                                               ; preds = %33, %27
+  %.not47 = icmp eq i32 %2, 0
+  br i1 %.not47, label %.critedge, label %36
+
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %38 = load ptr, ptr %37, align 8, !tbaa !4
+  %.not48 = icmp eq ptr %38, null
+  br i1 %.not48, label %44, label %39
+
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %41 = load ptr, ptr %40, align 8, !tbaa !4
+  %.not49 = icmp eq ptr %41, null
+  br i1 %.not49, label %.critedge, label %42
+
+42:                                               ; preds = %39
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %41) #20
+  %.not50.not = icmp eq i32 %43, 0
+  br i1 %.not50.not, label %44, label %.critedge
+
+44:                                               ; preds = %36, %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %46 = load ptr, ptr %45, align 8, !tbaa !17
+  %.not51 = icmp eq ptr %46, null
+  br i1 %.not51, label %.critedge, label %47
+
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %49 = load ptr, ptr %48, align 8, !tbaa !17
+  %.not52 = icmp eq ptr %49, null
+  br i1 %.not52, label %.critedge, label %50
+
+50:                                               ; preds = %47
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %49) #20
+  %.not53 = icmp eq i32 %51, 0
+  %52 = zext i1 %.not53 to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %35, %42, %47, %50, %44, %39, %33, %30, %25, %22, %17, %14, %9, %6
+  %53 = phi i32 [ 0, %42 ], [ 0, %39 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 0, %22 ], [ 0, %17 ], [ 0, %14 ], [ 0, %9 ], [ 0, %6 ], [ 1, %44 ], [ 0, %47 ], [ %52, %50 ], [ 1, %35 ]
+  ret i32 %53
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local range(i32 0, 2) i32 @credential_has_capability(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
+  switch i32 %1, label %10 [
+    i32 2, label %3
+    i32 3, label %6
+  ]
+
+3:                                                ; preds = %2
+  %4 = load i8, ptr %0, align 4
+  %5 = and i8 %4, 1
+  br label %10
+
+6:                                                ; preds = %2
+  %7 = load i8, ptr %0, align 4
+  %8 = and i8 %7, 1
+  %.not = icmp eq i8 %8, 0
+  %9 = lshr i8 %7, 1
+  %.lobit = and i8 %9, 1
+  %narrow = select i1 %.not, i8 0, i8 %.lobit
+  br label %10
+
+10:                                               ; preds = %2, %6, %3
+  %.0.shrunk = phi i8 [ %narrow, %6 ], [ %5, %3 ], [ 0, %2 ]
+  %.0 = zext nneg i8 %.0.shrunk to i32
+  ret i32 %.0
+}
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %var, ptr noundef %value, ptr readnone captures(none) %ctx, ptr noundef %data) #2 {
-entry:
-  %scevgep.i = getelementptr i8, ptr %var, i64 11
-  br label %do.body.i
+define dso_local range(i32 -1, 1) i32 @credential_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+  %4 = alloca %struct.strbuf, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
+  %5 = call i32 @strbuf_getline(ptr noundef nonnull %4, ptr noundef %1) #19
+  %.not100 = icmp eq i32 %5, -1
+  br i1 %.not100, label %credential_set_capability.exit.thread98, label %.lr.ph
 
-do.body.i:                                        ; preds = %do.cond.i, %entry
-  %str.addr.0.i = phi ptr [ %var, %entry ], [ %incdec.ptr.i, %do.cond.i ]
-  %prefix.addr.0.idx.i = phi i64 [ 0, %entry ], [ %prefix.addr.0.add.i, %do.cond.i ]
-  %prefix.addr.0.ptr.i = getelementptr inbounds nuw i8, ptr @.str.25, i64 %prefix.addr.0.idx.i
-  %0 = load i8, ptr %prefix.addr.0.ptr.i, align 1
-  %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
+.lr.ph:                                           ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %switch.tableidx106 = add i32 %2, -1
+  %22 = icmp ult i32 %switch.tableidx106, 3
+  %switch.cast107 = trunc nuw i32 %switch.tableidx106 to i24
+  %switch.shiftamt108 = shl nuw nsw i24 %switch.cast107, 3
+  %switch.downshift109 = lshr i24 262657, %switch.shiftamt108
+  %switch.masked110 = trunc i24 %switch.downshift109 to i8
+  %switch.tableidx = add i32 %2, -1
+  %23 = icmp ult i32 %switch.tableidx, 3
+  %switch.cast = trunc nuw i32 %switch.tableidx to i24
+  %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
+  %switch.downshift = lshr i24 262657, %switch.shiftamt
+  %switch.masked = trunc i24 %switch.downshift to i8
+  br label %24
 
-do.cond.i:                                        ; preds = %do.body.i
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i, i64 1
-  %1 = load i8, ptr %str.addr.0.i, align 1
-  %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
-  %cmp.i = icmp eq i8 %1, %0
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !13
+24:                                               ; preds = %.lr.ph, %credential_set_capability.exit
+  %25 = load ptr, ptr %6, align 8, !tbaa !24
+  %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 61) #20
+  %27 = load i64, ptr %7, align 8, !tbaa !26
+  %.not71 = icmp eq i64 %27, 0
+  br i1 %.not71, label %credential_set_capability.exit.thread98, label %28
 
-skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
-  %tobool.not.i = icmp eq i8 %0, 0
-  br i1 %tobool.not.i, label %if.end, label %return
+28:                                               ; preds = %24
+  %.not72 = icmp eq ptr %26, null
+  br i1 %.not72, label %credential_set_capability.exit.thread, label %29
 
-if.end:                                           ; preds = %skip_prefix.exit
-  %tobool.not = icmp eq ptr %value, null
-  br i1 %tobool.not, label %if.then1, label %if.end4
+credential_set_capability.exit.thread:            ; preds = %28
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #19
+  br label %credential_set_capability.exit.thread98
 
-if.then1:                                         ; preds = %if.end
-  %call2 = tail call i32 @config_error_nonbool(ptr noundef %var) #14
-  br label %return
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  store i8 0, ptr %26, align 1, !tbaa !27
+  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(9) @.str.4) #20
+  %.not73 = icmp eq i32 %31, 0
+  br i1 %.not73, label %32, label %37
 
-if.end4:                                          ; preds = %if.end
-  %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(7) @.str.26) #15
-  %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %if.then7, label %if.else13
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %21, align 8, !tbaa !21
+  call void @free(ptr noundef %33) #19
+  %34 = call ptr @xstrdup(ptr noundef nonnull %30) #19
+  store ptr %34, ptr %21, align 8, !tbaa !21
+  %35 = load i16, ptr %8, align 8
+  %36 = or i16 %35, 128
+  store i16 %36, ptr %8, align 8
+  br label %credential_set_capability.exit
 
-if.then7:                                         ; preds = %if.end4
-  %2 = load i8, ptr %value, align 1
-  %tobool8.not = icmp eq i8 %2, 0
-  br i1 %tobool8.not, label %if.else, label %if.then9
+37:                                               ; preds = %29
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(9) @.str.5) #20
+  %.not74 = icmp eq i32 %38, 0
+  br i1 %.not74, label %39, label %42
 
-if.then9:                                         ; preds = %if.then7
-  %call10 = tail call ptr @string_list_append(ptr noundef %data, ptr noundef nonnull %value) #14
-  br label %return
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %20, align 8, !tbaa !4
+  call void @free(ptr noundef %40) #19
+  %41 = call ptr @xstrdup(ptr noundef nonnull %30) #19
+  store ptr %41, ptr %20, align 8, !tbaa !4
+  br label %credential_set_capability.exit
 
-if.else:                                          ; preds = %if.then7
-  tail call void @string_list_clear(ptr noundef %data, i32 noundef 0) #14
-  br label %return
+42:                                               ; preds = %37
+  %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(11) @.str.6) #20
+  %.not75 = icmp eq i32 %43, 0
+  br i1 %.not75, label %44, label %47
 
-if.else13:                                        ; preds = %if.end4
-  %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(9) @.str.1) #15
-  %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %if.then16, label %if.else22
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %19, align 8, !tbaa !17
+  call void @free(ptr noundef %45) #19
+  %46 = call ptr @xstrdup(ptr noundef nonnull %30) #19
+  store ptr %46, ptr %19, align 8, !tbaa !17
+  br label %credential_set_capability.exit
 
-if.then16:                                        ; preds = %if.else13
-  %username_from_proto = getelementptr inbounds nuw i8, ptr %data, i64 64
-  %bf.load = load i8, ptr %username_from_proto, align 8
-  %3 = and i8 %bf.load, 32
-  %tobool17.not = icmp eq i8 %3, 0
-  br i1 %tobool17.not, label %if.then18, label %return
+47:                                               ; preds = %42
+  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(9) @.str.7) #20
+  %.not76 = icmp eq i32 %48, 0
+  br i1 %.not76, label %49, label %52
 
-if.then18:                                        ; preds = %if.then16
-  %username = getelementptr inbounds nuw i8, ptr %data, i64 72
-  %4 = load ptr, ptr %username, align 8
-  tail call void @free(ptr noundef %4) #14
-  %call19 = tail call ptr @xstrdup(ptr noundef nonnull %value) #14
-  store ptr %call19, ptr %username, align 8
-  br label %return
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %18, align 8, !tbaa !18
+  call void @free(ptr noundef %50) #19
+  %51 = call ptr @xstrdup(ptr noundef nonnull %30) #19
+  store ptr %51, ptr %18, align 8, !tbaa !18
+  br label %credential_set_capability.exit
 
-if.else22:                                        ; preds = %if.else13
-  %call23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(12) @.str.27) #15
-  %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %if.then25, label %return
+52:                                               ; preds = %47
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.8) #20
+  %.not77 = icmp eq i32 %53, 0
+  br i1 %.not77, label %54, label %57
 
-if.then25:                                        ; preds = %if.else22
-  %call26 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef nonnull %value) #14
-  %use_http_path = getelementptr inbounds nuw i8, ptr %data, i64 64
-  %5 = trunc i32 %call26 to i8
-  %bf.load27 = load i8, ptr %use_http_path, align 8
-  %bf.value = shl i8 %5, 4
-  %bf.shl = and i8 %bf.value, 16
-  %bf.clear28 = and i8 %bf.load27, -17
-  %bf.set = or disjoint i8 %bf.shl, %bf.clear28
-  store i8 %bf.set, ptr %use_http_path, align 8
-  br label %return
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %17, align 8, !tbaa !19
+  call void @free(ptr noundef %55) #19
+  %56 = call ptr @xstrdup(ptr noundef nonnull %30) #19
+  store ptr %56, ptr %17, align 8, !tbaa !19
+  br label %credential_set_capability.exit
 
-return:                                           ; preds = %if.else, %if.then9, %if.else22, %if.then25, %if.then16, %if.then18, %skip_prefix.exit, %if.then1
-  %retval.0 = phi i32 [ -1, %if.then1 ], [ 0, %skip_prefix.exit ], [ 0, %if.then18 ], [ 0, %if.then16 ], [ 0, %if.then25 ], [ 0, %if.else22 ], [ 0, %if.then9 ], [ 0, %if.else ]
-  ret i32 %retval.0
+57:                                               ; preds = %52
+  %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.9) #20
+  %.not78 = icmp eq i32 %58, 0
+  br i1 %.not78, label %59, label %62
+
+59:                                               ; preds = %57
+  %60 = load ptr, ptr %16, align 8, !tbaa !20
+  call void @free(ptr noundef %60) #19
+  %61 = call ptr @xstrdup(ptr noundef nonnull %30) #19
+  store ptr %61, ptr %16, align 8, !tbaa !20
+  br label %credential_set_capability.exit
+
+62:                                               ; preds = %57
+  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(10) @.str.10) #20
+  %.not79 = icmp eq i32 %63, 0
+  br i1 %.not79, label %64, label %70
+
+64:                                               ; preds = %62
+  %65 = call i32 @git_config_bool(ptr noundef nonnull @.str.10, ptr noundef nonnull %30) #19
+  %.not80 = icmp eq i32 %65, 0
+  %66 = load i16, ptr %8, align 8
+  %67 = select i1 %.not80, i16 0, i16 4
+  %68 = and i16 %66, -5
+  %69 = or disjoint i16 %68, %67
+  store i16 %69, ptr %8, align 8
+  br label %credential_set_capability.exit
+
+70:                                               ; preds = %62
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(10) @.str.11) #20
+  %.not81 = icmp eq i32 %71, 0
+  br i1 %.not81, label %72, label %74
+
+72:                                               ; preds = %70
+  %73 = call ptr @strvec_push(ptr noundef nonnull %15, ptr noundef nonnull %30) #19
+  br label %credential_set_capability.exit
+
+74:                                               ; preds = %70
+  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(8) @.str.12) #20
+  %.not82 = icmp eq i32 %75, 0
+  br i1 %.not82, label %76, label %78
+
+76:                                               ; preds = %74
+  %77 = call ptr @strvec_push(ptr noundef nonnull %14, ptr noundef nonnull %30) #19
+  br label %credential_set_capability.exit
+
+78:                                               ; preds = %74
+  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(13) @.str.13) #20
+  %.not83 = icmp eq i32 %79, 0
+  br i1 %.not83, label %80, label %89
+
+80:                                               ; preds = %78
+  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(9) @.str.1) #20
+  %.not84 = icmp eq i32 %81, 0
+  br i1 %.not84, label %82, label %85
+
+82:                                               ; preds = %80
+  br i1 %23, label %switch.lookup, label %credential_set_capability.exit
+
+switch.lookup:                                    ; preds = %82
+  %83 = load i8, ptr %13, align 4
+  %84 = or i8 %83, %switch.masked
+  store i8 %84, ptr %13, align 4
+  br label %credential_set_capability.exit
+
+85:                                               ; preds = %80
+  %86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str.2) #20
+  %.not85 = icmp eq i32 %86, 0
+  %.not85.not = xor i1 %.not85, true
+  %.not113 = xor i1 %22, true
+  %brmerge = or i1 %.not85.not, %.not113
+  br i1 %brmerge, label %credential_set_capability.exit, label %switch.lookup105
+
+switch.lookup105:                                 ; preds = %85
+  %87 = load i8, ptr %12, align 4
+  %88 = or i8 %87, %switch.masked110
+  store i8 %88, ptr %12, align 4
+  br label %credential_set_capability.exit
+
+89:                                               ; preds = %78
+  %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(9) @.str.14) #20
+  %.not86 = icmp eq i32 %90, 0
+  br i1 %.not86, label %91, label %97
+
+91:                                               ; preds = %89
+  %92 = call i32 @git_config_bool(ptr noundef nonnull @.str.14, ptr noundef nonnull %30) #19
+  %.not87 = icmp eq i32 %92, 0
+  %93 = load i16, ptr %8, align 8
+  %94 = select i1 %.not87, i16 0, i16 16
+  %95 = and i16 %93, -17
+  %96 = or disjoint i16 %95, %94
+  store i16 %96, ptr %8, align 8
+  br label %credential_set_capability.exit
+
+97:                                               ; preds = %89
+  %98 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(20) @.str.15) #20
+  %.not88 = icmp eq i32 %98, 0
+  br i1 %.not88, label %99, label %107
+
+99:                                               ; preds = %97
+  %100 = tail call ptr @__errno_location() #21
+  store i32 0, ptr %100, align 4, !tbaa !28
+  %101 = call i64 @strtoumax(ptr noundef nonnull %30, ptr noundef null, i32 noundef 10) #19
+  store i64 %101, ptr %11, align 8, !tbaa !29
+  %102 = icmp eq i64 %101, 0
+  br i1 %102, label %106, label %103
+
+103:                                              ; preds = %99
+  %104 = load i32, ptr %100, align 4, !tbaa !28
+  %105 = icmp eq i32 %104, 34
+  br i1 %105, label %106, label %credential_set_capability.exit
+
+106:                                              ; preds = %103, %99
+  store i64 -1, ptr %11, align 8, !tbaa !29
+  br label %credential_set_capability.exit
+
+107:                                              ; preds = %97
+  %108 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(20) @.str.16) #20
+  %.not89 = icmp eq i32 %108, 0
+  br i1 %.not89, label %109, label %112
+
+109:                                              ; preds = %107
+  %110 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %110) #19
+  %111 = call ptr @xstrdup(ptr noundef nonnull %30) #19
+  store ptr %111, ptr %10, align 8, !tbaa !22
+  br label %credential_set_capability.exit
+
+112:                                              ; preds = %107
+  %113 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(9) @.str.1) #20
+  %.not90 = icmp eq i32 %113, 0
+  br i1 %.not90, label %114, label %117
+
+114:                                              ; preds = %112
+  %115 = load ptr, ptr %9, align 8, !tbaa !23
+  call void @free(ptr noundef %115) #19
+  %116 = call ptr @xstrdup(ptr noundef nonnull %30) #19
+  store ptr %116, ptr %9, align 8, !tbaa !23
+  br label %credential_set_capability.exit
+
+117:                                              ; preds = %112
+  %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(4) @.str.17) #20
+  %.not91 = icmp eq i32 %118, 0
+  br i1 %.not91, label %119, label %120
+
+119:                                              ; preds = %117
+  call void @credential_from_url(ptr noundef %0, ptr noundef nonnull %30)
+  br label %credential_set_capability.exit
+
+120:                                              ; preds = %117
+  %121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.18) #20
+  %.not92 = icmp eq i32 %121, 0
+  br i1 %.not92, label %122, label %credential_set_capability.exit
+
+122:                                              ; preds = %120
+  %123 = call i32 @git_config_bool(ptr noundef nonnull @.str.18, ptr noundef nonnull %30) #19
+  %.not93 = icmp eq i32 %123, 0
+  %124 = load i16, ptr %8, align 8
+  %125 = select i1 %.not93, i16 0, i16 32
+  %126 = and i16 %124, -33
+  %127 = or disjoint i16 %126, %125
+  store i16 %127, ptr %8, align 8
+  br label %credential_set_capability.exit
+
+credential_set_capability.exit:                   ; preds = %85, %82, %switch.lookup105, %switch.lookup, %32, %44, %54, %64, %76, %91, %109, %119, %122, %120, %114, %103, %106, %72, %59, %49, %39
+  %128 = call i32 @strbuf_getline(ptr noundef nonnull %4, ptr noundef %1) #19
+  %.not = icmp eq i32 %128, -1
+  br i1 %.not, label %credential_set_capability.exit.thread98, label %24
+
+credential_set_capability.exit.thread98:          ; preds = %24, %credential_set_capability.exit, %3, %credential_set_capability.exit.thread
+  %.2 = phi i32 [ -1, %credential_set_capability.exit.thread ], [ 0, %3 ], [ 0, %credential_set_capability.exit ], [ 0, %24 ]
+  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #19
+  ret i32 %.2
+}
+
+declare i32 @strbuf_getline(ptr noundef, ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
+
+declare void @warning(ptr noundef, ...) local_unnamed_addr #6
+
+declare void @strbuf_release(ptr noundef) local_unnamed_addr #6
+
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #6
+
+declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #6
+
+declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #12
+
+; Function Attrs: nounwind
+declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
+
+; Function Attrs: nounwind uwtable
+define dso_local void @credential_from_url(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+  %3 = tail call fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0)
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %2
+  %6 = tail call fastcc ptr @_(ptr noundef nonnull @.str.26)
+  tail call void (ptr, ...) @die(ptr noundef %6, ptr noundef %1) #22
+  unreachable
+
+7:                                                ; preds = %2
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @credential_write(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  switch i32 %2, label %credential_has_capability.exit.thread [
+    i32 2, label %5
+    i32 3, label %7
+  ]
+
+5:                                                ; preds = %3
+  %6 = load i8, ptr %4, align 4
+  br label %credential_has_capability.exit
+
+7:                                                ; preds = %3
+  %8 = load i8, ptr %4, align 4
+  %9 = and i8 %8, 1
+  %.not.i = icmp eq i8 %9, 0
+  %10 = lshr i8 %8, 1
+  br i1 %.not.i, label %credential_has_capability.exit.thread.thread, label %credential_has_capability.exit
+
+credential_has_capability.exit.thread.thread:     ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  br label %16
+
+credential_has_capability.exit:                   ; preds = %7, %5
+  %.0.shrunk.i.in = phi i8 [ %10, %7 ], [ %6, %5 ]
+  %.0.shrunk.i = and i8 %.0.shrunk.i.in, 1
+  %.not = icmp eq i8 %.0.shrunk.i, 0
+  br i1 %.not, label %credential_has_capability.exit.thread, label %credential_write_item.exit
+
+credential_write_item.exit:                       ; preds = %credential_has_capability.exit
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1) #19
+  br label %credential_has_capability.exit.thread
+
+credential_has_capability.exit.thread:            ; preds = %3, %credential_write_item.exit, %credential_has_capability.exit
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  switch i32 %2, label %credential_has_capability.exit84.thread [
+    i32 2, label %14
+    i32 3, label %16
+  ]
+
+14:                                               ; preds = %credential_has_capability.exit.thread
+  %15 = load i8, ptr %13, align 4
+  br label %credential_has_capability.exit74
+
+16:                                               ; preds = %credential_has_capability.exit.thread.thread, %credential_has_capability.exit.thread
+  %17 = phi ptr [ %11, %credential_has_capability.exit.thread.thread ], [ %13, %credential_has_capability.exit.thread ]
+  %18 = load i8, ptr %17, align 4
+  %19 = and i8 %18, 1
+  %.not.i69 = icmp eq i8 %19, 0
+  %20 = lshr i8 %18, 1
+  br i1 %.not.i69, label %credential_has_capability.exit74.thread.thread, label %credential_has_capability.exit74
+
+credential_has_capability.exit74:                 ; preds = %16, %14
+  %21 = phi ptr [ %17, %16 ], [ %13, %14 ]
+  %.0.shrunk.i72.in = phi i8 [ %20, %16 ], [ %15, %14 ]
+  %.0.shrunk.i72 = and i8 %.0.shrunk.i72.in, 1
+  %.not63 = icmp eq i8 %.0.shrunk.i72, 0
+  br i1 %.not63, label %credential_has_capability.exit74.thread, label %credential_write_item.exit78
+
+credential_write_item.exit78:                     ; preds = %credential_has_capability.exit74
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2) #19
+  br label %credential_has_capability.exit74.thread
+
+credential_has_capability.exit74.thread:          ; preds = %credential_write_item.exit78, %credential_has_capability.exit74
+  %switch = icmp eq i32 %2, 2
+  br i1 %switch, label %23, label %credential_has_capability.exit74.thread.thread
+
+23:                                               ; preds = %credential_has_capability.exit74.thread
+  %24 = load i8, ptr %4, align 4
+  br label %credential_has_capability.exit84
+
+credential_has_capability.exit74.thread.thread:   ; preds = %credential_has_capability.exit74.thread, %16
+  %25 = phi ptr [ %21, %credential_has_capability.exit74.thread ], [ %17, %16 ]
+  %26 = load i8, ptr %4, align 4
+  %27 = and i8 %26, 1
+  %.not.i79 = icmp eq i8 %27, 0
+  %28 = lshr i8 %26, 1
+  br i1 %.not.i79, label %credential_has_capability.exit84.thread, label %credential_has_capability.exit84
+
+credential_has_capability.exit84:                 ; preds = %credential_has_capability.exit74.thread.thread, %23
+  %29 = phi ptr [ %25, %credential_has_capability.exit74.thread.thread ], [ %21, %23 ]
+  %.0.shrunk.i82.in = phi i8 [ %28, %credential_has_capability.exit74.thread.thread ], [ %24, %23 ]
+  %.0.shrunk.i82 = and i8 %.0.shrunk.i82.in, 1
+  %.not64 = icmp eq i8 %.0.shrunk.i82, 0
+  br i1 %.not64, label %credential_has_capability.exit84.thread, label %30
+
+30:                                               ; preds = %credential_has_capability.exit84
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %32 = load ptr, ptr %31, align 8, !tbaa !23
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %credential_write_item.exit88, label %34
+
+34:                                               ; preds = %30
+  %35 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 10) #20
+  %.not12.i85 = icmp eq ptr %35, null
+  br i1 %.not12.i85, label %37, label %36
+
+36:                                               ; preds = %34
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1) #22
+  unreachable
+
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %39 = load i16, ptr %38, align 8
+  %40 = and i16 %39, 512
+  %.not13.i86 = icmp eq i16 %40, 0
+  br i1 %.not13.i86, label %44, label %41
+
+41:                                               ; preds = %37
+  %42 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 13) #20
+  %.not14.i87 = icmp eq ptr %42, null
+  br i1 %.not14.i87, label %44, label %43
+
+43:                                               ; preds = %41
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1) #22
+  unreachable
+
+44:                                               ; preds = %41, %37
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, ptr noundef nonnull %32) #19
+  br label %credential_write_item.exit88
+
+credential_write_item.exit88:                     ; preds = %30, %44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %47 = load ptr, ptr %46, align 8, !tbaa !17
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %credential_write_item.exit92, label %49
+
+49:                                               ; preds = %credential_write_item.exit88
+  %50 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %47, i32 noundef 10) #20
+  %.not12.i89 = icmp eq ptr %50, null
+  br i1 %.not12.i89, label %52, label %51
+
+51:                                               ; preds = %49
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.6) #22
+  unreachable
+
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %54 = load i16, ptr %53, align 8
+  %55 = and i16 %54, 512
+  %.not13.i90 = icmp eq i16 %55, 0
+  br i1 %.not13.i90, label %59, label %56
+
+56:                                               ; preds = %52
+  %57 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %47, i32 noundef 13) #20
+  %.not14.i91 = icmp eq ptr %57, null
+  br i1 %.not14.i91, label %59, label %58
+
+58:                                               ; preds = %56
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.6) #22
+  unreachable
+
+59:                                               ; preds = %56, %52
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.6, ptr noundef nonnull %47) #19
+  br label %credential_write_item.exit92
+
+credential_write_item.exit92:                     ; preds = %credential_write_item.exit88, %59
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %62 = load i16, ptr %61, align 8
+  %63 = and i16 %62, 4
+  %.not65 = icmp eq i16 %63, 0
+  br i1 %.not65, label %credential_has_capability.exit84.thread, label %credential_write_item.exit96
+
+credential_write_item.exit96:                     ; preds = %credential_write_item.exit92
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.19) #19
+  br label %credential_has_capability.exit84.thread
+
+credential_has_capability.exit84.thread:          ; preds = %credential_has_capability.exit74.thread.thread, %credential_has_capability.exit.thread, %credential_write_item.exit92, %credential_write_item.exit96, %credential_has_capability.exit84
+  %65 = phi ptr [ %13, %credential_has_capability.exit.thread ], [ %29, %credential_write_item.exit92 ], [ %29, %credential_write_item.exit96 ], [ %29, %credential_has_capability.exit84 ], [ %25, %credential_has_capability.exit74.thread.thread ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %67 = load ptr, ptr %66, align 8, !tbaa !18
+  tail call fastcc void @credential_write_item(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %67, i32 noundef 1)
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %69 = load ptr, ptr %68, align 8, !tbaa !19
+  tail call fastcc void @credential_write_item(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef %69, i32 noundef 1)
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %71 = load ptr, ptr %70, align 8, !tbaa !20
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %credential_write_item.exit100, label %73
+
+73:                                               ; preds = %credential_has_capability.exit84.thread
+  %74 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %71, i32 noundef 10) #20
+  %.not12.i97 = icmp eq ptr %74, null
+  br i1 %.not12.i97, label %76, label %75
+
+75:                                               ; preds = %73
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.9) #22
+  unreachable
+
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %78 = load i16, ptr %77, align 8
+  %79 = and i16 %78, 512
+  %.not13.i98 = icmp eq i16 %79, 0
+  br i1 %.not13.i98, label %83, label %80
+
+80:                                               ; preds = %76
+  %81 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %71, i32 noundef 13) #20
+  %.not14.i99 = icmp eq ptr %81, null
+  br i1 %.not14.i99, label %83, label %82
+
+82:                                               ; preds = %80
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.9) #22
+  unreachable
+
+83:                                               ; preds = %80, %76
+  %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.9, ptr noundef nonnull %71) #19
+  br label %credential_write_item.exit100
+
+credential_write_item.exit100:                    ; preds = %credential_has_capability.exit84.thread, %83
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %86 = load ptr, ptr %85, align 8, !tbaa !21
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %credential_write_item.exit104, label %88
+
+88:                                               ; preds = %credential_write_item.exit100
+  %89 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %86, i32 noundef 10) #20
+  %.not12.i101 = icmp eq ptr %89, null
+  br i1 %.not12.i101, label %91, label %90
+
+90:                                               ; preds = %88
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.4) #22
+  unreachable
+
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %93 = load i16, ptr %92, align 8
+  %94 = and i16 %93, 512
+  %.not13.i102 = icmp eq i16 %94, 0
+  br i1 %.not13.i102, label %98, label %95
+
+95:                                               ; preds = %91
+  %96 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %86, i32 noundef 13) #20
+  %.not14.i103 = icmp eq ptr %96, null
+  br i1 %.not14.i103, label %98, label %97
+
+97:                                               ; preds = %95
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.4) #22
+  unreachable
+
+98:                                               ; preds = %95, %91
+  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.4, ptr noundef nonnull %86) #19
+  br label %credential_write_item.exit104
+
+credential_write_item.exit104:                    ; preds = %credential_write_item.exit100, %98
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %101 = load ptr, ptr %100, align 8, !tbaa !4
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %credential_write_item.exit108, label %103
+
+103:                                              ; preds = %credential_write_item.exit104
+  %104 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %101, i32 noundef 10) #20
+  %.not12.i105 = icmp eq ptr %104, null
+  br i1 %.not12.i105, label %106, label %105
+
+105:                                              ; preds = %103
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.5) #22
+  unreachable
+
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %108 = load i16, ptr %107, align 8
+  %109 = and i16 %108, 512
+  %.not13.i106 = icmp eq i16 %109, 0
+  br i1 %.not13.i106, label %113, label %110
+
+110:                                              ; preds = %106
+  %111 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %101, i32 noundef 13) #20
+  %.not14.i107 = icmp eq ptr %111, null
+  br i1 %.not14.i107, label %113, label %112
+
+112:                                              ; preds = %110
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.5) #22
+  unreachable
+
+113:                                              ; preds = %110, %106
+  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.5, ptr noundef nonnull %101) #19
+  br label %credential_write_item.exit108
+
+credential_write_item.exit108:                    ; preds = %credential_write_item.exit104, %113
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %116 = load ptr, ptr %115, align 8, !tbaa !22
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %credential_write_item.exit112, label %118
+
+118:                                              ; preds = %credential_write_item.exit108
+  %119 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %116, i32 noundef 10) #20
+  %.not12.i109 = icmp eq ptr %119, null
+  br i1 %.not12.i109, label %121, label %120
+
+120:                                              ; preds = %118
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.16) #22
+  unreachable
+
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %123 = load i16, ptr %122, align 8
+  %124 = and i16 %123, 512
+  %.not13.i110 = icmp eq i16 %124, 0
+  br i1 %.not13.i110, label %128, label %125
+
+125:                                              ; preds = %121
+  %126 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %116, i32 noundef 13) #20
+  %.not14.i111 = icmp eq ptr %126, null
+  br i1 %.not14.i111, label %128, label %127
+
+127:                                              ; preds = %125
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.16) #22
+  unreachable
+
+128:                                              ; preds = %125, %121
+  %129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.16, ptr noundef nonnull %116) #19
+  br label %credential_write_item.exit112
+
+credential_write_item.exit112:                    ; preds = %credential_write_item.exit108, %128
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %131 = load i64, ptr %130, align 8, !tbaa !29
+  %.not66 = icmp eq i64 %131, -1
+  br i1 %.not66, label %147, label %132
+
+132:                                              ; preds = %credential_write_item.exit112
+  %133 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.20, i64 noundef %131) #19
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %credential_write_item.exit116, label %135
+
+135:                                              ; preds = %132
+  %136 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %133, i32 noundef 10) #20
+  %.not12.i113 = icmp eq ptr %136, null
+  br i1 %.not12.i113, label %138, label %137
+
+137:                                              ; preds = %135
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.15) #22
+  unreachable
+
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %140 = load i16, ptr %139, align 8
+  %141 = and i16 %140, 512
+  %.not13.i114 = icmp eq i16 %141, 0
+  br i1 %.not13.i114, label %145, label %142
+
+142:                                              ; preds = %138
+  %143 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %133, i32 noundef 13) #20
+  %.not14.i115 = icmp eq ptr %143, null
+  br i1 %.not14.i115, label %145, label %144
+
+144:                                              ; preds = %142
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.15) #22
+  unreachable
+
+145:                                              ; preds = %142, %138
+  %146 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.15, ptr noundef nonnull %133) #19
+  br label %credential_write_item.exit116
+
+credential_write_item.exit116:                    ; preds = %132, %145
+  tail call void @free(ptr noundef %133) #19
+  br label %147
+
+147:                                              ; preds = %credential_write_item.exit116, %credential_write_item.exit112
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %149 = load i64, ptr %148, align 8, !tbaa !30
+  %.not151 = icmp eq i64 %149, 0
+  br i1 %.not151, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %147
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  br label %158
+
+._crit_edge:                                      ; preds = %credential_write_item.exit126, %147
+  switch i32 %2, label %credential_has_capability.exit122.thread [
+    i32 2, label %152
+    i32 3, label %154
+  ]
+
+152:                                              ; preds = %._crit_edge
+  %153 = load i8, ptr %65, align 4
+  br label %credential_has_capability.exit122
+
+154:                                              ; preds = %._crit_edge
+  %155 = load i8, ptr %65, align 4
+  %156 = and i8 %155, 1
+  %.not.i117 = icmp eq i8 %156, 0
+  %157 = lshr i8 %155, 1
+  br i1 %.not.i117, label %credential_has_capability.exit122.thread, label %credential_has_capability.exit122
+
+credential_has_capability.exit122:                ; preds = %154, %152
+  %.0.shrunk.i120.in = phi i8 [ %157, %154 ], [ %153, %152 ]
+  %.0.shrunk.i120 = and i8 %.0.shrunk.i120.in, 1
+  %.not67 = icmp eq i8 %.0.shrunk.i120, 0
+  br i1 %.not67, label %credential_has_capability.exit122.thread, label %178
+
+158:                                              ; preds = %.lr.ph, %credential_write_item.exit126
+  %159 = phi i64 [ %149, %.lr.ph ], [ %175, %credential_write_item.exit126 ]
+  %.061147 = phi i64 [ 0, %.lr.ph ], [ %176, %credential_write_item.exit126 ]
+  %160 = load ptr, ptr %150, align 8, !tbaa !31
+  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %.061147
+  %162 = load ptr, ptr %161, align 8, !tbaa !32
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %credential_write_item.exit126, label %164
+
+164:                                              ; preds = %158
+  %165 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %162, i32 noundef 10) #20
+  %.not12.i123 = icmp eq ptr %165, null
+  br i1 %.not12.i123, label %167, label %166
+
+166:                                              ; preds = %164
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.11) #22
+  unreachable
+
+167:                                              ; preds = %164
+  %168 = load i16, ptr %151, align 8
+  %169 = and i16 %168, 512
+  %.not13.i124 = icmp eq i16 %169, 0
+  br i1 %.not13.i124, label %173, label %170
+
+170:                                              ; preds = %167
+  %171 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %162, i32 noundef 13) #20
+  %.not14.i125 = icmp eq ptr %171, null
+  br i1 %.not14.i125, label %173, label %172
+
+172:                                              ; preds = %170
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.11) #22
+  unreachable
+
+173:                                              ; preds = %170, %167
+  %174 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.11, ptr noundef nonnull %162) #19
+  %.pre = load i64, ptr %148, align 8, !tbaa !30
+  br label %credential_write_item.exit126
+
+credential_write_item.exit126:                    ; preds = %158, %173
+  %175 = phi i64 [ %159, %158 ], [ %.pre, %173 ]
+  %176 = add nuw i64 %.061147, 1
+  %177 = icmp ult i64 %176, %175
+  br i1 %177, label %158, label %._crit_edge, !llvm.loop !33
+
+178:                                              ; preds = %credential_has_capability.exit122
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %180 = load i16, ptr %179, align 8
+  %181 = and i16 %180, 16
+  %.not68 = icmp eq i16 %181, 0
+  br i1 %.not68, label %183, label %credential_write_item.exit130
+
+credential_write_item.exit130:                    ; preds = %178
+  %182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19) #19
+  br label %183
+
+183:                                              ; preds = %credential_write_item.exit130, %178
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %185 = load i64, ptr %184, align 8, !tbaa !35
+  %.not152 = icmp eq i64 %185, 0
+  br i1 %.not152, label %credential_has_capability.exit122.thread, label %.lr.ph150
+
+.lr.ph150:                                        ; preds = %183
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  br label %187
+
+187:                                              ; preds = %.lr.ph150, %credential_write_item.exit134
+  %188 = phi i64 [ %185, %.lr.ph150 ], [ %204, %credential_write_item.exit134 ]
+  %.0148 = phi i64 [ 0, %.lr.ph150 ], [ %205, %credential_write_item.exit134 ]
+  %189 = load ptr, ptr %186, align 8, !tbaa !36
+  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %.0148
+  %191 = load ptr, ptr %190, align 8, !tbaa !32
+  %192 = icmp eq ptr %191, null
+  br i1 %192, label %credential_write_item.exit134, label %193
+
+193:                                              ; preds = %187
+  %194 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %191, i32 noundef 10) #20
+  %.not12.i131 = icmp eq ptr %194, null
+  br i1 %.not12.i131, label %196, label %195
+
+195:                                              ; preds = %193
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.12) #22
+  unreachable
+
+196:                                              ; preds = %193
+  %197 = load i16, ptr %179, align 8
+  %198 = and i16 %197, 512
+  %.not13.i132 = icmp eq i16 %198, 0
+  br i1 %.not13.i132, label %202, label %199
+
+199:                                              ; preds = %196
+  %200 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %191, i32 noundef 13) #20
+  %.not14.i133 = icmp eq ptr %200, null
+  br i1 %.not14.i133, label %202, label %201
+
+201:                                              ; preds = %199
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.12) #22
+  unreachable
+
+202:                                              ; preds = %199, %196
+  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.12, ptr noundef nonnull %191) #19
+  %.pre153 = load i64, ptr %184, align 8, !tbaa !35
+  br label %credential_write_item.exit134
+
+credential_write_item.exit134:                    ; preds = %187, %202
+  %204 = phi i64 [ %188, %187 ], [ %.pre153, %202 ]
+  %205 = add nuw i64 %.0148, 1
+  %206 = icmp ult i64 %205, %204
+  br i1 %206, label %187, label %credential_has_capability.exit122.thread, !llvm.loop !37
+
+credential_has_capability.exit122.thread:         ; preds = %credential_write_item.exit134, %154, %183, %._crit_edge, %credential_has_capability.exit122
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @credential_write_item(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
+  %6 = icmp eq ptr %3, null
+  %7 = icmp ne i32 %4, 0
+  %or.cond = and i1 %6, %7
+  br i1 %or.cond, label %8, label %9
+
+8:                                                ; preds = %5
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.28, i32 noundef 397, ptr noundef nonnull @.str.29, ptr noundef %2) #22
+  unreachable
+
+9:                                                ; preds = %5
+  br i1 %6, label %22, label %10
+
+10:                                               ; preds = %9
+  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 10) #20
+  %.not12 = icmp eq ptr %11, null
+  br i1 %.not12, label %13, label %12
+
+12:                                               ; preds = %10
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30, ptr noundef %2) #22
+  unreachable
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %15 = load i16, ptr %14, align 8
+  %16 = and i16 %15, 512
+  %.not13 = icmp eq i16 %16, 0
+  br i1 %.not13, label %20, label %17
+
+17:                                               ; preds = %13
+  %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 13) #20
+  %.not14 = icmp eq ptr %18, null
+  br i1 %.not14, label %20, label %19
+
+19:                                               ; preds = %17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, ptr noundef %2) #22
+  unreachable
+
+20:                                               ; preds = %17, %13
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef %2, ptr noundef nonnull %3) #19
+  br label %22
+
+22:                                               ; preds = %9, %20
+  ret void
+}
+
+declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #6
+
+; Function Attrs: nounwind uwtable
+define dso_local void @credential_fill(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.timeval, align 8
+  %7 = alloca [24 x i8], align 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %13, label %10
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
+  %.not30 = icmp eq ptr %12, null
+  br i1 %.not30, label %13, label %87
+
+13:                                               ; preds = %10, %3
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  %.not31 = icmp eq ptr %15, null
+  br i1 %.not31, label %16, label %87
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  tail call void @strvec_clear(ptr noundef nonnull %17) #19
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(24) %18, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %18, ptr noundef nonnull align 1 dereferenceable(24) %17, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %17, ptr noundef nonnull align 16 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %20 = load i16, ptr %19, align 8
+  %21 = and i16 %20, -17
+  store i16 %21, ptr %19, align 8
+  tail call fastcc void @credential_apply_config(ptr noundef %0, ptr noundef nonnull %1)
+  %.not32 = icmp eq i32 %2, 0
+  br i1 %.not32, label %29, label %22
+
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %24 = load i8, ptr %23, align 4
+  %25 = or i8 %24, 1
+  store i8 %25, ptr %23, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %27 = load i8, ptr %26, align 4
+  %28 = or i8 %27, 1
+  store i8 %28, ptr %26, align 4
+  br label %29
+
+29:                                               ; preds = %22, %16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = load i64, ptr %30, align 8, !tbaa !38
+  %.not46 = icmp eq i64 %31, 0
+  br i1 %.not46, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  br label %37
+
+34:                                               ; preds = %56
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %35 = load i64, ptr %30, align 8, !tbaa !38
+  %36 = icmp ugt i64 %35, %indvars.iv.next
+  br i1 %36, label %37, label %._crit_edge, !llvm.loop !39
+
+37:                                               ; preds = %.lr.ph, %34
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
+  %38 = load ptr, ptr %1, align 8, !tbaa !40
+  %39 = getelementptr inbounds nuw %struct.string_list_item, ptr %38, i64 %indvars.iv
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
+  tail call fastcc void @credential_do(ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.21)
+  %41 = load i64, ptr %32, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  %42 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #19
+  %43 = load i64, ptr %6, align 8, !tbaa !43
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  %44 = icmp ult i64 %41, %43
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %33, align 8, !tbaa !4
+  tail call void @free(ptr noundef %46) #19
+  store ptr null, ptr %33, align 8, !tbaa !4
+  %47 = load ptr, ptr %14, align 8, !tbaa !17
+  tail call void @free(ptr noundef %47) #19
+  store ptr null, ptr %14, align 8, !tbaa !17
+  store i64 -1, ptr %32, align 8, !tbaa !29
+  br label %48
+
+48:                                               ; preds = %45, %37
+  %49 = load ptr, ptr %8, align 8, !tbaa !21
+  %.not37 = icmp eq ptr %49, null
+  br i1 %.not37, label %52, label %50
+
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %33, align 8, !tbaa !4
+  %.not38 = icmp eq ptr %51, null
+  br i1 %.not38, label %52, label %54
+
+52:                                               ; preds = %50, %48
+  %53 = load ptr, ptr %14, align 8, !tbaa !17
+  %.not39 = icmp eq ptr %53, null
+  br i1 %.not39, label %56, label %54
+
+54:                                               ; preds = %52, %50
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @strvec_clear(ptr noundef nonnull %55) #19
+  br label %87
+
+56:                                               ; preds = %52
+  %57 = load i16, ptr %19, align 8
+  %58 = and i16 %57, 32
+  %.not40 = icmp eq i16 %58, 0
+  br i1 %.not40, label %34, label %59
+
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %1, align 8, !tbaa !40
+  %61 = getelementptr inbounds nuw %struct.string_list_item, ptr %60, i64 %indvars.iv
+  %62 = load ptr, ptr %61, align 8, !tbaa !41
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.22, ptr noundef %62) #22
+  unreachable
+
+._crit_edge:                                      ; preds = %34, %29
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  %63 = call i32 @repo_config_get_maybe_bool(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef nonnull %4) #19
+  %64 = icmp ne i32 %63, 0
+  %65 = load i32, ptr %4, align 4
+  %66 = icmp ne i32 %65, 0
+  %or.cond.i = select i1 %64, i1 true, i1 %66
+  br i1 %or.cond.i, label %67, label %credential_getpass.exit.thread
+
+67:                                               ; preds = %._crit_edge
+  %68 = call i32 @repo_config_get_string(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef nonnull %5) #19
+  %.not.i = icmp eq i32 %68, 0
+  br i1 %.not.i, label %69, label %.critedge.i
+
+69:                                               ; preds = %67
+  %70 = load ptr, ptr %5, align 8, !tbaa !32
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(6) @.str.50) #20
+  %.not16.not.i = icmp eq i32 %71, 0
+  call void @free(ptr noundef %70) #19
+  br i1 %.not16.not.i, label %credential_getpass.exit.thread, label %.critedge.i
+
+.critedge.i:                                      ; preds = %69, %67
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.28, i32 noundef 284, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.51, ptr noundef %0) #19
+  %72 = load ptr, ptr %8, align 8, !tbaa !21
+  %.not17.i = icmp eq ptr %72, null
+  br i1 %.not17.i, label %73, label %75
+
+73:                                               ; preds = %.critedge.i
+  %74 = call fastcc ptr @credential_ask_one(ptr noundef nonnull @.str.52, ptr noundef nonnull %1, i32 noundef 3)
+  store ptr %74, ptr %8, align 8, !tbaa !21
+  br label %75
+
+75:                                               ; preds = %73, %.critedge.i
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %77 = load ptr, ptr %76, align 8, !tbaa !4
+  %.not18.i = icmp eq ptr %77, null
+  br i1 %.not18.i, label %78, label %80
+
+78:                                               ; preds = %75
+  %79 = call fastcc ptr @credential_ask_one(ptr noundef nonnull @.str.53, ptr noundef nonnull %1, i32 noundef 1)
+  store ptr %79, ptr %76, align 8, !tbaa !4
+  br label %80
+
+credential_getpass.exit.thread:                   ; preds = %69, %._crit_edge
+  %.sink = phi i32 [ 271, %._crit_edge ], [ 279, %69 ]
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.28, i32 noundef %.sink, ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.49, i64 noundef 1) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
+  br label %86
+
+80:                                               ; preds = %78, %75
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.28, i32 noundef 291, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.51, ptr noundef %0) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
+  %81 = load ptr, ptr %8, align 8, !tbaa !21
+  %.not34 = icmp eq ptr %81, null
+  br i1 %.not34, label %82, label %87
+
+82:                                               ; preds = %80
+  %83 = load ptr, ptr %76, align 8, !tbaa !4
+  %.not35 = icmp eq ptr %83, null
+  br i1 %.not35, label %84, label %87
+
+84:                                               ; preds = %82
+  %85 = load ptr, ptr %14, align 8, !tbaa !17
+  %.not36 = icmp eq ptr %85, null
+  br i1 %.not36, label %86, label %87
+
+86:                                               ; preds = %credential_getpass.exit.thread, %84
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.23) #22
+  unreachable
+
+87:                                               ; preds = %80, %82, %84, %10, %13, %54
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @credential_apply_config(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+  %3 = alloca %struct.urlmatch_config, align 8
+  %4 = alloca %struct.strbuf, align 8
+  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, i8 0, i64 152, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i8 1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %10
+
+8:                                                ; preds = %2
+  %9 = tail call fastcc ptr @_(ptr noundef nonnull @.str.33)
+  tail call void (ptr, ...) @die(ptr noundef %9) #22
+  unreachable
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  %.not12 = icmp eq ptr %12, null
+  br i1 %.not12, label %13, label %15
+
+13:                                               ; preds = %10
+  %14 = tail call fastcc ptr @_(ptr noundef nonnull @.str.34)
+  tail call void (ptr, ...) @die(ptr noundef %14) #22
+  unreachable
+
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %17 = load i16, ptr %16, align 8
+  %18 = and i16 %17, 8
+  %.not13 = icmp eq i16 %18, 0
+  br i1 %.not13, label %19, label %proto_is_http.exit.thread
+
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  store ptr @.str.6, ptr %20, align 8, !tbaa !45
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  store ptr null, ptr %21, align 8, !tbaa !48
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  store ptr @credential_config_callback, ptr %22, align 8, !tbaa !49
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  store ptr null, ptr %23, align 8, !tbaa !50
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  store ptr @select_all, ptr %24, align 8, !tbaa !51
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  store ptr @match_partial_url, ptr %25, align 8, !tbaa !52
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  store ptr %1, ptr %26, align 8, !tbaa !53
+  call fastcc void @credential_format(ptr noundef nonnull %1, ptr noundef %4)
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !24
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %30 = call ptr @url_normalize(ptr noundef %28, ptr noundef nonnull %29) #19
+  call void @repo_config(ptr noundef %0, ptr noundef nonnull @urlmatch_config_entry, ptr noundef nonnull %3) #19
+  call void @string_list_clear(ptr noundef nonnull %3, i32 noundef 1) #19
+  call void @free(ptr noundef %30) #19
+  call void @urlmatch_config_release(ptr noundef nonnull %3) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #19
+  %31 = load i16, ptr %16, align 8
+  %32 = or i16 %31, 8
+  store i16 %32, ptr %16, align 8
+  %33 = and i16 %31, 64
+  %.not14 = icmp eq i16 %33, 0
+  br i1 %.not14, label %34, label %proto_is_http.exit.thread
+
+34:                                               ; preds = %19
+  %35 = load ptr, ptr %11, align 8, !tbaa !18
+  %.not.i = icmp eq ptr %35, null
+  br i1 %.not.i, label %proto_is_http.exit.thread, label %36
+
+36:                                               ; preds = %34
+  %37 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(6) @.str.42) #20
+  %.not4.i = icmp eq i32 %37, 0
+  br i1 %.not4.i, label %proto_is_http.exit.thread18, label %proto_is_http.exit
+
+proto_is_http.exit:                               ; preds = %36
+  %38 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(5) @.str.43) #20
+  %.not5.i.not = icmp eq i32 %38, 0
+  br i1 %.not5.i.not, label %proto_is_http.exit.thread18, label %proto_is_http.exit.thread
+
+proto_is_http.exit.thread18:                      ; preds = %36, %proto_is_http.exit
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %40 = load ptr, ptr %39, align 8, !tbaa !20
+  call void @free(ptr noundef %40) #19
+  store ptr null, ptr %39, align 8, !tbaa !20
+  br label %proto_is_http.exit.thread
+
+proto_is_http.exit.thread:                        ; preds = %34, %19, %proto_is_http.exit, %proto_is_http.exit.thread18, %15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %3) #19
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @credential_do(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 {
+  %4 = alloca %struct.child_process, align 8
+  %5 = alloca %struct.strbuf, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
+  %6 = load i8, ptr %1, align 1, !tbaa !27
+  switch i8 %6, label %12 [
+    i8 33, label %7
+    i8 47, label %10
+  ]
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #20
+  call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %8, i64 noundef %9) #19
+  br label %13
+
+10:                                               ; preds = %3
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef %11) #19
+  br label %13
+
+12:                                               ; preds = %3
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.44, ptr noundef nonnull %1) #19
+  br label %13
+
+13:                                               ; preds = %10, %12, %7
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.45, ptr noundef %2) #19
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.21) #20
+  %.not8.not = icmp eq i32 %16, 0
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_credential_helper.helper, i64 120, i1 false)
+  %17 = call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef %15) #19
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %19 = load i16, ptr %18, align 8
+  %20 = or i16 %19, 32
+  store i16 %20, ptr %18, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i32 -1, ptr %21, align 8, !tbaa !54
+  br i1 %.not8.not, label %22, label %24
+
+22:                                               ; preds = %13
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  store i32 -1, ptr %23, align 4, !tbaa !56
+  br label %26
+
+24:                                               ; preds = %13
+  %25 = or i16 %19, 34
+  store i16 %25, ptr %18, align 8
+  br label %26
+
+26:                                               ; preds = %24, %22
+  %27 = call i32 @start_command(ptr noundef nonnull %4) #19
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %run_credential_helper.exit, label %29
+
+29:                                               ; preds = %26
+  %30 = load i32, ptr %21, align 8, !tbaa !54
+  %31 = call ptr @xfdopen(i32 noundef %30, ptr noundef nonnull @.str.46) #19
+  %32 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #19
+  %33 = select i1 %.not8.not, i32 2, i32 3
+  call void @credential_write(ptr noundef %0, ptr noundef %31, i32 noundef %33)
+  %34 = call i32 @fclose(ptr noundef %31)
+  %35 = call i32 @sigchain_pop(i32 noundef 13) #19
+  br i1 %.not8.not, label %36, label %run_credential_helper.exit.sink.split
+
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  %38 = load i32, ptr %37, align 4, !tbaa !56
+  %39 = call ptr @xfdopen(i32 noundef %38, ptr noundef nonnull @.str.47) #19
+  %40 = call i32 @credential_read(ptr noundef %0, ptr noundef %39, i32 noundef 2)
+  %41 = call i32 @fclose(ptr noundef %39)
+  br label %run_credential_helper.exit.sink.split
+
+run_credential_helper.exit.sink.split:            ; preds = %36, %29
+  %42 = call i32 @finish_command(ptr noundef nonnull %4) #19
+  br label %run_credential_helper.exit
+
+run_credential_helper.exit:                       ; preds = %run_credential_helper.exit.sink.split, %26
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #19
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @die(ptr noundef, ...) local_unnamed_addr #14
+
+; Function Attrs: nounwind uwtable
+define dso_local void @credential_approve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+  %3 = alloca [24 x i8], align 16
+  %4 = alloca %struct.timeval, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %6 = load i16, ptr %5, align 8
+  %7 = and i16 %6, 2
+  %.not = icmp eq i16 %7, 0
+  br i1 %.not, label %8, label %35
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %.not15 = icmp eq ptr %10, null
+  br i1 %.not15, label %14, label %11
+
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %13 = load ptr, ptr %12, align 8, !tbaa !4
+  %.not16 = icmp eq ptr %13, null
+  br i1 %.not16, label %14, label %17
+
+14:                                               ; preds = %11, %8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
+  %.not17 = icmp eq ptr %16, null
+  br i1 %.not17, label %35, label %17
+
+17:                                               ; preds = %14, %11
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %19 = load i64, ptr %18, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  %20 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #19
+  %21 = load i64, ptr %4, align 8, !tbaa !43
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  %22 = icmp ult i64 %19, %21
+  br i1 %22, label %35, label %23
+
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  tail call void @strvec_clear(ptr noundef nonnull %24) #19
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) %25, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %25, ptr noundef nonnull align 1 dereferenceable(24) %24, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %24, ptr noundef nonnull align 16 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  tail call fastcc void @credential_apply_config(ptr noundef %0, ptr noundef nonnull %1)
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !38
+  %.not19 = icmp eq i64 %27, 0
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %23, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %23 ]
+  %28 = load ptr, ptr %1, align 8, !tbaa !40
+  %29 = getelementptr inbounds nuw %struct.string_list_item, ptr %28, i64 %indvars.iv
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  tail call fastcc void @credential_do(ptr noundef nonnull %1, ptr noundef %30, ptr noundef nonnull @.str.24)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %31 = load i64, ptr %26, align 8, !tbaa !38
+  %32 = icmp ugt i64 %31, %indvars.iv.next
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+
+._crit_edge:                                      ; preds = %.lr.ph, %23
+  %33 = load i16, ptr %5, align 8
+  %34 = or i16 %33, 2
+  store i16 %34, ptr %5, align 8
+  br label %35
+
+35:                                               ; preds = %14, %17, %2, %._crit_edge
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @credential_reject(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+  %3 = alloca [24 x i8], align 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  tail call void @strvec_clear(ptr noundef nonnull %4) #19
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) %5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  tail call fastcc void @credential_apply_config(ptr noundef %0, ptr noundef %1)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !38
+  %.not = icmp eq i64 %7, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
+  %8 = load ptr, ptr %1, align 8, !tbaa !40
+  %9 = getelementptr inbounds nuw %struct.string_list_item, ptr %8, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  tail call fastcc void @credential_do(ptr noundef nonnull %1, ptr noundef %10, ptr noundef nonnull @.str.25)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %11 = load i64, ptr %6, align 8, !tbaa !38
+  %12 = icmp ugt i64 %11, %indvars.iv.next
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
+  tail call void @free(ptr noundef %14) #19
+  store ptr null, ptr %13, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
+  tail call void @free(ptr noundef %16) #19
+  store ptr null, ptr %15, align 8, !tbaa !17
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  tail call void @free(ptr noundef %18) #19
+  store ptr null, ptr %17, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  tail call void @free(ptr noundef %20) #19
+  store ptr null, ptr %19, align 8, !tbaa !22
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  store i64 -1, ptr %21, align 8, !tbaa !29
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %23 = load i16, ptr %22, align 8
+  %24 = and i16 %23, -3
+  store i16 %24, ptr %22, align 8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 -1, 1) i32 @credential_from_url_gently(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+  %4 = tail call fastcc i32 @credential_from_url_1(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %2)
+  ret i32 %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #3 {
+  tail call void @credential_clear(ptr noundef %0)
+  %5 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.58) #20
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %6, label %13
+
+6:                                                ; preds = %4
+  %.not91 = icmp eq ptr %5, null
+  %7 = icmp eq ptr %5, %1
+  %or.cond = or i1 %.not91, %7
+  br i1 %or.cond, label %8, label %13
+
+8:                                                ; preds = %6
+  %.not92 = icmp eq i32 %3, 0
+  br i1 %.not92, label %9, label %check_url_component.exit141
+
+9:                                                ; preds = %8
+  %10 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
+  %.not4.i = icmp eq i32 %10, 0
+  br i1 %.not4.i, label %_.exit, label %11
+
+11:                                               ; preds = %9
+  %12 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #19
+  br label %_.exit
+
+_.exit:                                           ; preds = %9, %11
+  %.0.i = phi ptr [ %12, %11 ], [ @.str.59, %9 ]
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef nonnull %1) #19
+  br label %check_url_component.exit141
+
+13:                                               ; preds = %6, %4
+  %.not93 = icmp eq ptr %5, null
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %15 = select i1 %.not93, ptr %1, ptr %14
+  %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 64) #20
+  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 58) #20
+  %18 = tail call i64 @strcspn(ptr noundef nonnull %15, ptr noundef nonnull @.str.60) #20
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
+  %.not94 = icmp ne ptr %16, null
+  %.not95 = icmp ugt ptr %19, %16
+  %or.cond103 = select i1 %.not94, i1 %.not95, i1 false
+  br i1 %or.cond103, label %20, label %56
+
+20:                                               ; preds = %13
+  %.not96 = icmp ne ptr %17, null
+  %.not97 = icmp ugt ptr %16, %17
+  %or.cond104 = and i1 %.not96, %.not97
+  %21 = ptrtoint ptr %15 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br i1 %or.cond104, label %36, label %23
+
+23:                                               ; preds = %20
+  %24 = ptrtoint ptr %16 to i64
+  %25 = sub i64 %24, %21
+  %26 = trunc i64 %25 to i32
+  %27 = tail call ptr @url_decode_mem(ptr noundef nonnull %15, i32 noundef %26) #19
+  store ptr %27, ptr %22, align 8, !tbaa !21
+  %.not100 = icmp eq ptr %27, null
+  br i1 %.not100, label %34, label %28
+
+28:                                               ; preds = %23
+  %29 = load i8, ptr %27, align 1, !tbaa !27
+  %.not101 = icmp eq i8 %29, 0
+  br i1 %.not101, label %34, label %30
+
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %32 = load i16, ptr %31, align 8
+  %33 = or i16 %32, 128
+  store i16 %33, ptr %31, align 8
+  br label %34
+
+34:                                               ; preds = %30, %28, %23
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  br label %56
+
+36:                                               ; preds = %20
+  %37 = ptrtoint ptr %17 to i64
+  %38 = sub i64 %37, %21
+  %39 = trunc i64 %38 to i32
+  %40 = tail call ptr @url_decode_mem(ptr noundef nonnull %15, i32 noundef %39) #19
+  store ptr %40, ptr %22, align 8, !tbaa !21
+  %.not98 = icmp eq ptr %40, null
+  br i1 %.not98, label %47, label %41
+
+41:                                               ; preds = %36
+  %42 = load i8, ptr %40, align 1, !tbaa !27
+  %.not99 = icmp eq i8 %42, 0
+  br i1 %.not99, label %47, label %43
+
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %45 = load i16, ptr %44, align 8
+  %46 = or i16 %45, 128
+  store i16 %46, ptr %44, align 8
+  br label %47
+
+47:                                               ; preds = %43, %41, %36
+  %48 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %49 = ptrtoint ptr %16 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = trunc i64 %51 to i32
+  %53 = tail call ptr @url_decode_mem(ptr noundef nonnull %48, i32 noundef %52) #19
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %53, ptr %54, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  br label %56
+
+56:                                               ; preds = %13, %34, %47
+  %.083 = phi ptr [ %35, %34 ], [ %55, %47 ], [ %15, %13 ]
+  br i1 %.not93, label %65, label %57
+
+57:                                               ; preds = %56
+  %58 = ptrtoint ptr %5 to i64
+  %59 = ptrtoint ptr %1 to i64
+  %60 = sub i64 %58, %59
+  %61 = icmp sgt i64 %60, 0
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %57
+  %63 = tail call ptr @xmemdupz(ptr noundef nonnull %1, i64 noundef %60) #19
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %63, ptr %64, align 8, !tbaa !18
+  br label %65
+
+65:                                               ; preds = %62, %57, %56
+  %66 = ptrtoint ptr %19 to i64
+  %67 = ptrtoint ptr %.083 to i64
+  %68 = sub i64 %66, %67
+  %69 = icmp sgt i64 %68, 0
+  %or.cond108 = select i1 %.not, i1 true, i1 %69
+  br i1 %or.cond108, label %70, label %.preheader
+
+70:                                               ; preds = %65
+  %71 = trunc i64 %68 to i32
+  %72 = tail call ptr @url_decode_mem(ptr noundef nonnull %.083, i32 noundef %71) #19
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %72, ptr %73, align 8, !tbaa !19
+  br label %.preheader
+
+.preheader:                                       ; preds = %65, %70
+  br label %74
+
+74:                                               ; preds = %.preheader, %76
+  %.084 = phi ptr [ %77, %76 ], [ %19, %.preheader ]
+  %75 = load i8, ptr %.084, align 1, !tbaa !27
+  switch i8 %75, label %78 [
+    i8 47, label %76
+    i8 0, label %.critedge
+  ]
+
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %.084, i64 1
+  br label %74, !llvm.loop !59
+
+78:                                               ; preds = %74
+  %79 = tail call ptr @url_decode(ptr noundef nonnull %.084) #19
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store ptr %79, ptr %80, align 8, !tbaa !20
+  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #20
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 %81
+  %.0149 = getelementptr inbounds i8, ptr %82, i64 -1
+  %83 = icmp ugt ptr %.0149, %79
+  br i1 %83, label %.lr.ph, label %.critedge
+
+.lr.ph:                                           ; preds = %78, %86
+  %.0150 = phi ptr [ %.0, %86 ], [ %.0149, %78 ]
+  %84 = load i8, ptr %.0150, align 1, !tbaa !27
+  %85 = icmp eq i8 %84, 47
+  br i1 %85, label %86, label %.critedge
+
+86:                                               ; preds = %.lr.ph
+  store i8 0, ptr %.0150, align 1, !tbaa !27
+  %.0 = getelementptr inbounds i8, ptr %.0150, i64 -1
+  %87 = load ptr, ptr %80, align 8, !tbaa !20
+  %88 = icmp ugt ptr %.0, %87
+  br i1 %88, label %.lr.ph, label %.critedge, !llvm.loop !60
+
+.critedge:                                        ; preds = %74, %86, %.lr.ph, %78
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %90 = load ptr, ptr %89, align 8, !tbaa !21
+  %.not.i = icmp eq ptr %90, null
+  br i1 %.not.i, label %check_url_component.exit, label %91
+
+91:                                               ; preds = %.critedge
+  %92 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %90, i32 noundef 10) #20
+  %.not6.i = icmp eq ptr %92, null
+  br i1 %.not6.i, label %check_url_component.exit, label %93
+
+93:                                               ; preds = %91
+  %.not7.i = icmp eq i32 %3, 0
+  br i1 %.not7.i, label %94, label %check_url_component.exit141
+
+94:                                               ; preds = %93
+  %95 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
+  %.not4.i.i = icmp eq i32 %95, 0
+  br i1 %.not4.i.i, label %_.exit.i, label %96
+
+96:                                               ; preds = %94
+  %97 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #19
+  br label %_.exit.i
+
+_.exit.i:                                         ; preds = %96, %94
+  %.0.i.i = phi ptr [ %97, %96 ], [ @.str.61, %94 ]
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #19
+  br label %check_url_component.exit141
+
+check_url_component.exit:                         ; preds = %91, %.critedge
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %99 = load ptr, ptr %98, align 8, !tbaa !4
+  %.not.i110 = icmp eq ptr %99, null
+  br i1 %.not.i110, label %check_url_component.exit117, label %100
+
+100:                                              ; preds = %check_url_component.exit
+  %101 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %99, i32 noundef 10) #20
+  %.not6.i111 = icmp eq ptr %101, null
+  br i1 %.not6.i111, label %check_url_component.exit117, label %102
+
+102:                                              ; preds = %100
+  %.not7.i112 = icmp eq i32 %3, 0
+  br i1 %.not7.i112, label %103, label %check_url_component.exit141
+
+103:                                              ; preds = %102
+  %104 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
+  %.not4.i.i114 = icmp eq i32 %104, 0
+  br i1 %.not4.i.i114, label %_.exit.i115, label %105
+
+105:                                              ; preds = %103
+  %106 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #19
+  br label %_.exit.i115
+
+_.exit.i115:                                      ; preds = %105, %103
+  %.0.i.i116 = phi ptr [ %106, %105 ], [ @.str.61, %103 ]
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i.i116, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #19
+  br label %check_url_component.exit141
+
+check_url_component.exit117:                      ; preds = %100, %check_url_component.exit
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %108 = load ptr, ptr %107, align 8, !tbaa !18
+  %.not.i118 = icmp eq ptr %108, null
+  br i1 %.not.i118, label %check_url_component.exit125, label %109
+
+109:                                              ; preds = %check_url_component.exit117
+  %110 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %108, i32 noundef 10) #20
+  %.not6.i119 = icmp eq ptr %110, null
+  br i1 %.not6.i119, label %check_url_component.exit125, label %111
+
+111:                                              ; preds = %109
+  %.not7.i120 = icmp eq i32 %3, 0
+  br i1 %.not7.i120, label %112, label %check_url_component.exit141
+
+112:                                              ; preds = %111
+  %113 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
+  %.not4.i.i122 = icmp eq i32 %113, 0
+  br i1 %.not4.i.i122, label %_.exit.i123, label %114
+
+114:                                              ; preds = %112
+  %115 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #19
+  br label %_.exit.i123
+
+_.exit.i123:                                      ; preds = %114, %112
+  %.0.i.i124 = phi ptr [ %115, %114 ], [ @.str.61, %112 ]
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i.i124, ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #19
+  br label %check_url_component.exit141
+
+check_url_component.exit125:                      ; preds = %109, %check_url_component.exit117
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %117 = load ptr, ptr %116, align 8, !tbaa !19
+  %.not.i126 = icmp eq ptr %117, null
+  br i1 %.not.i126, label %check_url_component.exit133, label %118
+
+118:                                              ; preds = %check_url_component.exit125
+  %119 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %117, i32 noundef 10) #20
+  %.not6.i127 = icmp eq ptr %119, null
+  br i1 %.not6.i127, label %check_url_component.exit133, label %120
+
+120:                                              ; preds = %118
+  %.not7.i128 = icmp eq i32 %3, 0
+  br i1 %.not7.i128, label %121, label %check_url_component.exit141
+
+121:                                              ; preds = %120
+  %122 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
+  %.not4.i.i130 = icmp eq i32 %122, 0
+  br i1 %.not4.i.i130, label %_.exit.i131, label %123
+
+123:                                              ; preds = %121
+  %124 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #19
+  br label %_.exit.i131
+
+_.exit.i131:                                      ; preds = %123, %121
+  %.0.i.i132 = phi ptr [ %124, %123 ], [ @.str.61, %121 ]
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i.i132, ptr noundef nonnull @.str.8, ptr noundef nonnull %1) #19
+  br label %check_url_component.exit141
+
+check_url_component.exit133:                      ; preds = %118, %check_url_component.exit125
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %126 = load ptr, ptr %125, align 8, !tbaa !20
+  %.not.i134 = icmp eq ptr %126, null
+  br i1 %.not.i134, label %check_url_component.exit141, label %127
+
+127:                                              ; preds = %check_url_component.exit133
+  %128 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %126, i32 noundef 10) #20
+  %.not6.i135 = icmp eq ptr %128, null
+  br i1 %.not6.i135, label %check_url_component.exit141, label %129
+
+129:                                              ; preds = %127
+  %.not7.i136 = icmp eq i32 %3, 0
+  br i1 %.not7.i136, label %130, label %check_url_component.exit141
+
+130:                                              ; preds = %129
+  %131 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
+  %.not4.i.i138 = icmp eq i32 %131, 0
+  br i1 %.not4.i.i138, label %_.exit.i139, label %132
+
+132:                                              ; preds = %130
+  %133 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #19
+  br label %_.exit.i139
+
+_.exit.i139:                                      ; preds = %132, %130
+  %.0.i.i140 = phi ptr [ %133, %132 ], [ @.str.61, %130 ]
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i.i140, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #19
+  br label %check_url_component.exit141
+
+check_url_component.exit141:                      ; preds = %120, %_.exit.i131, %111, %_.exit.i123, %102, %_.exit.i115, %93, %_.exit.i, %check_url_component.exit133, %127, %_.exit.i139, %129, %8, %_.exit
+  %.082 = phi i32 [ -1, %_.exit ], [ -1, %8 ], [ 0, %check_url_component.exit133 ], [ 0, %127 ], [ -1, %_.exit.i139 ], [ -1, %129 ], [ -1, %_.exit.i ], [ -1, %93 ], [ -1, %_.exit.i115 ], [ -1, %102 ], [ -1, %_.exit.i123 ], [ -1, %111 ], [ -1, %_.exit.i131 ], [ -1, %120 ]
+  ret i32 %.082
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #15 {
+  %2 = load i8, ptr %0, align 1, !tbaa !27
+  %.not = icmp eq i8 %2, 0
+  br i1 %.not, label %7, label %3
+
+3:                                                ; preds = %1
+  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
+  %.not4 = icmp eq i32 %4, 0
+  br i1 %.not4, label %7, label %5
+
+5:                                                ; preds = %3
+  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %0, i32 noundef 5) #19
+  br label %7
+
+7:                                                ; preds = %3, %1, %5
+  %.0 = phi ptr [ %6, %5 ], [ @.str.62, %1 ], [ %0, %3 ]
+  ret ptr %.0
+}
+
+; Function Attrs: noreturn
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #14
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+
+; Function Attrs: nounwind uwtable
+define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #3 {
+  %scevgep.i = getelementptr i8, ptr %0, i64 11
+  br label %5
+
+5:                                                ; preds = %7, %4
+  %.07.i = phi ptr [ %0, %4 ], [ %8, %7 ]
+  %.06.idx.i = phi i64 [ 0, %4 ], [ %.06.add.i, %7 ]
+  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.35, i64 %.06.idx.i
+  %6 = load i8, ptr %.06.ptr.i, align 1, !tbaa !27
+  %exitcond.i = icmp eq i64 %.06.idx.i, 11
+  br i1 %exitcond.i, label %skip_prefix.exit, label %7
+
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
+  %9 = load i8, ptr %.07.i, align 1, !tbaa !27
+  %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
+  %10 = icmp eq i8 %9, %6
+  br i1 %10, label %5, label %skip_prefix.exit, !llvm.loop !61
+
+skip_prefix.exit:                                 ; preds = %5, %7
+  %.not.i = icmp eq i8 %6, 0
+  br i1 %.not.i, label %11, label %64
+
+11:                                               ; preds = %skip_prefix.exit
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %12, label %14
+
+12:                                               ; preds = %11
+  %13 = tail call i32 @config_error_nonbool(ptr noundef %0) #19
+  br label %64
+
+14:                                               ; preds = %11
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(7) @.str.36) #20
+  %.not22 = icmp eq i32 %15, 0
+  br i1 %.not22, label %16, label %21
+
+16:                                               ; preds = %14
+  %17 = load i8, ptr %1, align 1, !tbaa !27
+  %.not23 = icmp eq i8 %17, 0
+  br i1 %.not23, label %20, label %18
+
+18:                                               ; preds = %16
+  %19 = tail call ptr @string_list_append(ptr noundef %3, ptr noundef nonnull %1) #19
+  br label %64
+
+20:                                               ; preds = %16
+  tail call void @string_list_clear(ptr noundef %3, i32 noundef 0) #19
+  br label %64
+
+21:                                               ; preds = %14
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(9) @.str.4) #20
+  %.not24 = icmp eq i32 %22, 0
+  br i1 %.not24, label %23, label %31
+
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %25 = load i16, ptr %24, align 8
+  %26 = and i16 %25, 128
+  %.not25 = icmp eq i16 %26, 0
+  br i1 %.not25, label %27, label %64
+
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
+  tail call void @free(ptr noundef %29) #19
+  %30 = tail call ptr @xstrdup(ptr noundef nonnull %1) #19
+  store ptr %30, ptr %28, align 8, !tbaa !21
+  br label %64
+
+31:                                               ; preds = %21
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(12) @.str.37) #20
+  %.not26 = icmp eq i32 %32, 0
+  br i1 %.not26, label %33, label %42
+
+33:                                               ; preds = %31
+  %34 = tail call i32 @git_config_bool(ptr noundef %0, ptr noundef nonnull %1) #19
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %36 = trunc i32 %34 to i16
+  %37 = load i16, ptr %35, align 8
+  %38 = shl i16 %36, 6
+  %39 = and i16 %38, 64
+  %40 = and i16 %37, -65
+  %41 = or disjoint i16 %39, %40
+  store i16 %41, ptr %35, align 8
+  br label %64
+
+42:                                               ; preds = %31
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(15) @.str.38) #20
+  %.not27 = icmp eq i32 %43, 0
+  br i1 %.not27, label %44, label %53
+
+44:                                               ; preds = %42
+  %45 = tail call i32 @git_config_bool(ptr noundef %0, ptr noundef nonnull %1) #19
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %47 = trunc i32 %45 to i16
+  %48 = load i16, ptr %46, align 8
+  %49 = shl i16 %47, 8
+  %50 = and i16 %49, 256
+  %51 = and i16 %48, -257
+  %52 = or disjoint i16 %50, %51
+  store i16 %52, ptr %46, align 8
+  br label %64
+
+53:                                               ; preds = %42
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(16) @.str.39) #20
+  %.not28 = icmp eq i32 %54, 0
+  br i1 %.not28, label %55, label %64
+
+55:                                               ; preds = %53
+  %56 = tail call i32 @git_config_bool(ptr noundef %0, ptr noundef nonnull %1) #19
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %58 = trunc i32 %56 to i16
+  %59 = load i16, ptr %57, align 8
+  %60 = shl i16 %58, 9
+  %61 = and i16 %60, 512
+  %62 = and i16 %59, -513
+  %63 = or disjoint i16 %61, %62
+  store i16 %63, ptr %57, align 8
+  br label %64
+
+64:                                               ; preds = %20, %18, %33, %53, %55, %44, %23, %27, %skip_prefix.exit, %12
+  %.0 = phi i32 [ -1, %12 ], [ 0, %skip_prefix.exit ], [ 0, %27 ], [ 0, %23 ], [ 0, %44 ], [ 0, %55 ], [ 0, %53 ], [ 0, %33 ], [ 0, %18 ], [ 0, %20 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @select_all(ptr readnone captures(none) %a, ptr readnone captures(none) %b) #12 {
-entry:
+define internal noundef i32 @select_all(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #17 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @match_partial_url(ptr noundef %url, ptr noundef readonly captures(none) %cb) #2 {
-entry:
-  %want = alloca %struct.credential, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %want, ptr noundef nonnull align 8 dereferenceable(128) @__const.match_partial_url.want, i64 128, i1 false)
-  %call.i = call fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef nonnull %want, ptr noundef %url, i32 noundef 1, i32 noundef 0)
-  %cmp = icmp slt i32 %call.i, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal range(i32 0, 2) i32 @match_partial_url(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 {
+  %3 = alloca %struct.credential, align 8
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull align 8 dereferenceable(200) @__const.match_partial_url.want, i64 200, i1 false)
+  %4 = call fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef nonnull %3, ptr noundef %0, i32 noundef 1, i32 noundef 0)
+  %5 = icmp slt i32 %4, 0
+  br i1 %5, label %6, label %10
 
-if.then:                                          ; preds = %entry
-  %0 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i = icmp eq i32 %0, 0
-  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
+6:                                                ; preds = %2
+  %7 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
+  %.not4.i = icmp eq i32 %7, 0
+  br i1 %.not4.i, label %_.exit, label %8
 
-if.end3.i:                                        ; preds = %if.then
-  %call.i2 = call ptr @gettext(ptr noundef nonnull @.str.28) #14
+8:                                                ; preds = %6
+  %9 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #19
   br label %_.exit
 
-_.exit:                                           ; preds = %if.then, %if.end3.i
-  %retval.0.i = phi ptr [ %call.i2, %if.end3.i ], [ @.str.28, %if.then ]
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i, ptr noundef %url) #14
-  br label %if.end
+_.exit:                                           ; preds = %6, %8
+  %.0.i = phi ptr [ %9, %8 ], [ @.str.40, %6 ]
+  call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %0) #19
+  br label %12
 
-if.else:                                          ; preds = %entry
-  %call2 = call i32 @credential_match(ptr noundef nonnull %want, ptr noundef %cb, i32 noundef 0)
-  br label %if.end
+10:                                               ; preds = %2
+  %11 = call i32 @credential_match(ptr noundef nonnull %3, ptr noundef %1, i32 noundef 0)
+  br label %12
 
-if.end:                                           ; preds = %if.else, %_.exit
-  %matches.0 = phi i32 [ 0, %_.exit ], [ %call2, %if.else ]
-  %protocol.i = getelementptr inbounds nuw i8, ptr %want, i64 88
-  %1 = load ptr, ptr %protocol.i, align 8
-  call void @free(ptr noundef %1) #14
-  %host.i = getelementptr inbounds nuw i8, ptr %want, i64 96
-  %2 = load ptr, ptr %host.i, align 8
-  call void @free(ptr noundef %2) #14
-  %path.i = getelementptr inbounds nuw i8, ptr %want, i64 104
-  %3 = load ptr, ptr %path.i, align 8
-  call void @free(ptr noundef %3) #14
-  %username.i = getelementptr inbounds nuw i8, ptr %want, i64 72
-  %4 = load ptr, ptr %username.i, align 8
-  call void @free(ptr noundef %4) #14
-  %password.i = getelementptr inbounds nuw i8, ptr %want, i64 80
-  %5 = load ptr, ptr %password.i, align 8
-  call void @free(ptr noundef %5) #14
-  %oauth_refresh_token.i = getelementptr inbounds nuw i8, ptr %want, i64 112
-  %6 = load ptr, ptr %oauth_refresh_token.i, align 8
-  call void @free(ptr noundef %6) #14
-  call void @string_list_clear(ptr noundef nonnull %want, i32 noundef 0) #14
-  %wwwauth_headers.i = getelementptr inbounds nuw i8, ptr %want, i64 40
-  call void @strvec_clear(ptr noundef nonnull %wwwauth_headers.i) #14
-  ret i32 %matches.0
+12:                                               ; preds = %10, %_.exit
+  %.0 = phi i32 [ 0, %_.exit ], [ %11, %10 ]
+  call void @credential_clear(ptr noundef nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #19
+  ret i32 %.0
 }
-
-declare ptr @url_normalize(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare i32 @urlmatch_config_entry(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
-
-declare void @urlmatch_config_release(ptr noundef) local_unnamed_addr #4
-
-declare i32 @config_error_nonbool(ptr noundef) local_unnamed_addr #4
-
-declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
-
-declare void @strbuf_add_percentencode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
-
-declare i32 @start_command(ptr noundef) local_unnamed_addr #4
-
-declare ptr @xfdopen(i32 noundef, ptr noundef) local_unnamed_addr #4
-
-declare i32 @sigchain_push(i32 noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
-
-declare i32 @sigchain_pop(i32 noundef) local_unnamed_addr #4
-
-declare i32 @finish_command(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @credential_ask_one(ptr noundef %what, ptr noundef readonly captures(none) %c, i32 noundef range(i32 1, 4) %flags) unnamed_addr #2 {
-entry:
-  %desc = alloca %struct.strbuf, align 8
-  %prompt = alloca %struct.strbuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %desc, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prompt, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
-  %protocol.i = getelementptr inbounds nuw i8, ptr %c, i64 88
-  %0 = load ptr, ptr %protocol.i, align 8
-  %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %credential_describe.exit, label %if.end.i
+define internal fastcc void @credential_format(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #3 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %42, label %5
 
-if.end.i:                                         ; preds = %entry
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %desc, ptr noundef nonnull @.str.29, ptr noundef nonnull %0) #14
-  %username.i = getelementptr inbounds nuw i8, ptr %c, i64 72
-  %1 = load ptr, ptr %username.i, align 8
-  %tobool2.not.i = icmp eq ptr %1, null
-  br i1 %tobool2.not.i, label %if.end7.i, label %land.lhs.true.i
+5:                                                ; preds = %2
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.41, ptr noundef nonnull %4) #19
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %.not17 = icmp eq ptr %7, null
+  br i1 %.not17, label %22, label %8
 
-land.lhs.true.i:                                  ; preds = %if.end.i
-  %2 = load i8, ptr %1, align 1
-  %tobool4.not.i = icmp eq i8 %2, 0
-  br i1 %tobool4.not.i, label %if.end7.i, label %if.then5.i
+8:                                                ; preds = %5
+  %9 = load i8, ptr %7, align 1, !tbaa !27
+  %.not18 = icmp eq i8 %9, 0
+  br i1 %.not18, label %22, label %10
 
-if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %desc, ptr noundef nonnull @.str.40, ptr noundef nonnull %1) #14
-  br label %if.end7.i
+10:                                               ; preds = %8
+  tail call void @strbuf_add_percentencode(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 1) #19
+  %11 = load i64, ptr %1, align 8, !tbaa !62
+  %.not.i.i = icmp eq i64 %11, 0
+  br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
-if.end7.i:                                        ; preds = %if.then5.i, %land.lhs.true.i, %if.end.i
-  %host.i = getelementptr inbounds nuw i8, ptr %c, i64 96
-  %3 = load ptr, ptr %host.i, align 8
-  %tobool8.not.i = icmp eq ptr %3, null
-  br i1 %tobool8.not.i, label %if.end11.i, label %if.then9.i
+strbuf_avail.exit.i:                              ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !26
+  %.neg.i = add i64 %13, 1
+  %.not.i = icmp eq i64 %11, %.neg.i
+  br i1 %.not.i, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
-if.then9.i:                                       ; preds = %if.end7.i
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15
-  call void @strbuf_add(ptr noundef nonnull %desc, ptr noundef nonnull %3, i64 noundef %call.i.i) #14
-  br label %if.end11.i
+strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %10
+  tail call void @strbuf_grow(ptr noundef nonnull %1, i64 noundef 1) #19
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !26
+  %.pre7.i = add i64 %.pre.i, 1
+  br label %strbuf_addch.exit
 
-if.end11.i:                                       ; preds = %if.then9.i, %if.end7.i
-  %path.i = getelementptr inbounds nuw i8, ptr %c, i64 104
-  %4 = load ptr, ptr %path.i, align 8
-  %tobool12.not.i = icmp eq ptr %4, null
-  br i1 %tobool12.not.i, label %credential_describe.exit, label %if.then13.i
+strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %strbuf_avail.exit.thread.i
+  %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %strbuf_avail.exit.i ]
+  %14 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %13, %strbuf_avail.exit.i ]
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.pre-phi.i, ptr %17, align 8, !tbaa !26
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %14
+  store i8 64, ptr %18, align 1, !tbaa !27
+  %19 = load ptr, ptr %15, align 8, !tbaa !24
+  %20 = load i64, ptr %17, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  store i8 0, ptr %21, align 1, !tbaa !27
+  br label %22
 
-if.then13.i:                                      ; preds = %if.end11.i
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %desc, ptr noundef nonnull @.str.41, ptr noundef nonnull %4) #14
-  br label %credential_describe.exit
+22:                                               ; preds = %strbuf_addch.exit, %8, %5
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %24 = load ptr, ptr %23, align 8, !tbaa !19
+  %.not19 = icmp eq ptr %24, null
+  br i1 %.not19, label %26, label %25
 
-credential_describe.exit:                         ; preds = %entry, %if.end11.i, %if.then13.i
-  %len = getelementptr inbounds nuw i8, ptr %desc, i64 8
-  %5 = load i64, ptr %len, align 8
-  %tobool.not = icmp eq i64 %5, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+25:                                               ; preds = %22
+  tail call void @strbuf_add_percentencode(ptr noundef nonnull %1, ptr noundef nonnull %24, i32 noundef 2) #19
+  br label %26
 
-if.then:                                          ; preds = %credential_describe.exit
-  %buf = getelementptr inbounds nuw i8, ptr %desc, i64 16
-  %6 = load ptr, ptr %buf, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %prompt, ptr noundef nonnull @.str.38, ptr noundef %what, ptr noundef %6) #14
-  br label %if.end
+26:                                               ; preds = %25, %22
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %28 = load ptr, ptr %27, align 8, !tbaa !20
+  %.not20 = icmp eq ptr %28, null
+  br i1 %.not20, label %42, label %29
 
-if.else:                                          ; preds = %credential_describe.exit
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %prompt, ptr noundef nonnull @.str.39, ptr noundef %what) #14
-  br label %if.end
+29:                                               ; preds = %26
+  %30 = load i64, ptr %1, align 8, !tbaa !62
+  %.not.i.i21 = icmp eq i64 %30, 0
+  br i1 %.not.i.i21, label %strbuf_avail.exit.thread.i26, label %strbuf_avail.exit.i22
 
-if.end:                                           ; preds = %if.else, %if.then
-  %buf1 = getelementptr inbounds nuw i8, ptr %prompt, i64 16
-  %7 = load ptr, ptr %buf1, align 8
-  %call = call ptr @git_prompt(ptr noundef %7, i32 noundef %flags) #14
-  call void @strbuf_release(ptr noundef nonnull %desc) #14
-  call void @strbuf_release(ptr noundef nonnull %prompt) #14
-  %call2 = call ptr @xstrdup(ptr noundef %call) #14
-  ret ptr %call2
+strbuf_avail.exit.i22:                            ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !26
+  %.neg.i23 = add i64 %32, 1
+  %.not.i24 = icmp eq i64 %30, %.neg.i23
+  br i1 %.not.i24, label %strbuf_avail.exit.thread.i26, label %strbuf_addch.exit30
+
+strbuf_avail.exit.thread.i26:                     ; preds = %strbuf_avail.exit.i22, %29
+  tail call void @strbuf_grow(ptr noundef nonnull %1, i64 noundef 1) #19
+  %.phi.trans.insert.i27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.pre.i28 = load i64, ptr %.phi.trans.insert.i27, align 8, !tbaa !26
+  %.pre7.i29 = add i64 %.pre.i28, 1
+  br label %strbuf_addch.exit30
+
+strbuf_addch.exit30:                              ; preds = %strbuf_avail.exit.i22, %strbuf_avail.exit.thread.i26
+  %.pre-phi.i25 = phi i64 [ %.pre7.i29, %strbuf_avail.exit.thread.i26 ], [ %.neg.i23, %strbuf_avail.exit.i22 ]
+  %33 = phi i64 [ %.pre.i28, %strbuf_avail.exit.thread.i26 ], [ %32, %strbuf_avail.exit.i22 ]
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.pre-phi.i25, ptr %36, align 8, !tbaa !26
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %33
+  store i8 47, ptr %37, align 1, !tbaa !27
+  %38 = load ptr, ptr %34, align 8, !tbaa !24
+  %39 = load i64, ptr %36, align 8, !tbaa !26
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
+  store i8 0, ptr %40, align 1, !tbaa !27
+  %41 = load ptr, ptr %27, align 8, !tbaa !20
+  tail call void @strbuf_add_percentencode(ptr noundef nonnull %1, ptr noundef %41, i32 noundef 0) #19
+  br label %42
+
+42:                                               ; preds = %2, %strbuf_addch.exit30, %26
+  ret void
 }
 
-declare ptr @git_prompt(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @url_normalize(ptr noundef, ptr noundef) local_unnamed_addr #6
+
+declare void @repo_config(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+
+declare i32 @urlmatch_config_entry(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+
+declare void @urlmatch_config_release(ptr noundef) local_unnamed_addr #6
+
+declare i32 @config_error_nonbool(ptr noundef) local_unnamed_addr #6
+
+declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #6
+
+declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+
+declare void @strbuf_add_percentencode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+
+declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #6
+
+declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+
+declare i32 @start_command(ptr noundef) local_unnamed_addr #6
+
+declare ptr @xfdopen(i32 noundef, ptr noundef) local_unnamed_addr #6
+
+declare i32 @sigchain_push(i32 noundef, ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
+
+declare i32 @sigchain_pop(i32 noundef) local_unnamed_addr #6
+
+declare i32 @finish_command(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+
+declare i32 @repo_config_get_maybe_bool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+
+declare void @trace2_data_intmax_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+
+declare i32 @repo_config_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+
+declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @credential_ask_one(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #3 {
+  %4 = alloca %struct.strbuf, align 8
+  %5 = alloca %struct.strbuf, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.credential_ask_one.prompt, i64 24, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %7 = load i16, ptr %6, align 8
+  %8 = and i16 %7, 256
+  %.not = icmp eq i16 %8, 0
+  br i1 %.not, label %10, label %9
+
+9:                                                ; preds = %3
+  call fastcc void @credential_format(ptr noundef nonnull %1, ptr noundef %4)
+  br label %credential_describe.exit
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %credential_describe.exit, label %13
+
+13:                                               ; preds = %10
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, ptr noundef nonnull %12) #19
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
+  %.not16.i = icmp eq ptr %15, null
+  br i1 %.not16.i, label %19, label %16
+
+16:                                               ; preds = %13
+  %17 = load i8, ptr %15, align 1, !tbaa !27
+  %.not17.i = icmp eq i8 %17, 0
+  br i1 %.not17.i, label %19, label %18
+
+18:                                               ; preds = %16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.56, ptr noundef nonnull %15) #19
+  br label %19
+
+19:                                               ; preds = %18, %16, %13
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %21 = load ptr, ptr %20, align 8, !tbaa !19
+  %.not18.i = icmp eq ptr %21, null
+  br i1 %.not18.i, label %24, label %22
+
+22:                                               ; preds = %19
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #20
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %21, i64 noundef %23) #19
+  br label %24
+
+24:                                               ; preds = %22, %19
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  %.not19.i = icmp eq ptr %26, null
+  br i1 %.not19.i, label %credential_describe.exit, label %27
+
+27:                                               ; preds = %24
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.57, ptr noundef nonnull %26) #19
+  br label %credential_describe.exit
+
+credential_describe.exit:                         ; preds = %27, %24, %10, %9
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = load i64, ptr %28, align 8, !tbaa !26
+  %.not6 = icmp eq i64 %29, 0
+  br i1 %.not6, label %33, label %30
+
+30:                                               ; preds = %credential_describe.exit
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.54, ptr noundef %0, ptr noundef %32) #19
+  br label %34
+
+33:                                               ; preds = %credential_describe.exit
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.55, ptr noundef %0) #19
+  br label %34
+
+34:                                               ; preds = %33, %30
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
+  %37 = call ptr @git_prompt(ptr noundef %36, i32 noundef %2) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #19
+  %38 = call ptr @xstrdup(ptr noundef %37) #19
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #19
+  ret ptr %38
+}
+
+declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+
+declare ptr @git_prompt(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
-declare ptr @url_decode_mem(ptr noundef, i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
-declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @url_decode_mem(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare ptr @url_decode(ptr noundef) local_unnamed_addr #4
+declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #6
+
+declare ptr @url_decode(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) local_unnamed_addr #8
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+; Function Attrs: nofree nounwind
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nounwind }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind willreturn memory(none) }
+attributes #22 = { noreturn nounwind }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { noreturn nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = !{!5, !16, i64 136}
+!5 = !{!"credential", !6, i64 0, !13, i64 40, !13, i64 64, !13, i64 88, !12, i64 112, !12, i64 112, !12, i64 112, !12, i64 112, !12, i64 112, !12, i64 112, !12, i64 112, !12, i64 112, !12, i64 113, !12, i64 113, !15, i64 116, !15, i64 120, !16, i64 128, !16, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !11, i64 184, !16, i64 192}
+!6 = !{!"string_list", !7, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !8, i64 32}
+!7 = !{!"p1 _ZTS16string_list_item", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"long", !9, i64 0}
+!12 = !{!"int", !9, i64 0}
+!13 = !{!"strvec", !14, i64 0, !11, i64 8, !11, i64 16}
+!14 = !{!"p2 omnipotent char", !8, i64 0}
+!15 = !{!"credential_capability", !12, i64 0, !12, i64 0, !12, i64 0}
+!16 = !{!"p1 omnipotent char", !8, i64 0}
+!17 = !{!5, !16, i64 144}
+!18 = !{!5, !16, i64 152}
+!19 = !{!5, !16, i64 160}
+!20 = !{!5, !16, i64 168}
+!21 = !{!5, !16, i64 128}
+!22 = !{!5, !16, i64 176}
+!23 = !{!5, !16, i64 192}
+!24 = !{!25, !16, i64 16}
+!25 = !{!"strbuf", !11, i64 0, !11, i64 8, !16, i64 16}
+!26 = !{!25, !11, i64 8}
+!27 = !{!9, !9, i64 0}
+!28 = !{!12, !12, i64 0}
+!29 = !{!5, !11, i64 184}
+!30 = !{!5, !11, i64 48}
+!31 = !{!5, !14, i64 40}
+!32 = !{!16, !16, i64 0}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{!5, !11, i64 96}
+!36 = !{!5, !14, i64 88}
+!37 = distinct !{!37, !34}
+!38 = !{!5, !11, i64 8}
+!39 = distinct !{!39, !34}
+!40 = !{!5, !7, i64 0}
+!41 = !{!42, !16, i64 0}
+!42 = !{!"string_list_item", !16, i64 0, !8, i64 8}
+!43 = !{!44, !11, i64 0}
+!44 = !{!"timeval", !11, i64 0, !11, i64 8}
+!45 = !{!46, !16, i64 152}
+!46 = !{!"urlmatch_config", !6, i64 0, !47, i64 40, !16, i64 152, !16, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !8, i64 200}
+!47 = !{!"url_info", !16, i64 0, !16, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
+!48 = !{!46, !16, i64 160}
+!49 = !{!46, !8, i64 176}
+!50 = !{!46, !8, i64 184}
+!51 = !{!46, !8, i64 192}
+!52 = !{!46, !8, i64 200}
+!53 = !{!46, !8, i64 168}
+!54 = !{!55, !12, i64 80}
+!55 = !{!"child_process", !13, i64 0, !13, i64 24, !12, i64 48, !12, i64 52, !11, i64 56, !16, i64 64, !16, i64 72, !12, i64 80, !12, i64 84, !12, i64 88, !16, i64 96, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 105, !12, i64 105, !8, i64 112}
+!56 = !{!55, !12, i64 84}
+!57 = distinct !{!57, !34}
+!58 = distinct !{!58, !34}
+!59 = distinct !{!59, !34}
+!60 = distinct !{!60, !34}
+!61 = distinct !{!61, !34}
+!62 = !{!25, !11, i64 0}

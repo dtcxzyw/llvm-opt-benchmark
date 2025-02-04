@@ -1,33 +1,34 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
+%struct.strvec = type { ptr, i64, i64 }
+%struct.object_id = type { [32 x i8], i32 }
+%struct.object_context = type { i16, %struct.strbuf, ptr }
+%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.strmap, %struct.strmap, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i32, i8 }
+%struct.strmap = type { %struct.hashmap, ptr, i8 }
+%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
+%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64 }
+%struct.startup_info = type { i32, ptr, ptr }
+%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ref_exclusions = type { %struct.string_list, %struct.strvec, i8 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.strvec = type { ptr, i64, i64 }
 %struct.index_state = type { ptr, i32, i32, i32, i32, ptr, ptr, ptr, %struct.cache_time, i8, i32, %struct.hashmap, %struct.hashmap, %struct.object_id, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.cache_time = type { i32, i32 }
-%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.object_context = type { i16, %struct.strbuf, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.startup_info = type { i32, ptr, ptr }
 %struct.split_index = type { %struct.object_id, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
+%struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
+%struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
 %struct.object = type { i32, %struct.object_id }
 %struct.commit_list = type { ptr, ptr }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @__const.cmd_rev_parse.buf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@the_repository = external global ptr, align 8
+@builtin_rev_parse_usage = internal constant [215 x i8] c"git rev-parse --parseopt [<options>] -- [<args>...]\0A   or: git rev-parse --sq-quote [<arg>...]\0A   or: git rev-parse [<options>] [<arg>...]\0A\0ARun \22git rev-parse --parseopt -h\22 for more information on the first usage.\00", align 16
 @.str = private unnamed_addr constant [11 x i8] c"--parseopt\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"--sq-quote\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c"-h\00", align 1
-@builtin_rev_parse_usage = internal constant [215 x i8] c"git rev-parse --parseopt [<options>] -- [<args>...]\0A   or: git rev-parse --sq-quote [<arg>...]\0A   or: git rev-parse [<options>] [<arg>...]\0A\0ARun \22git rev-parse --parseopt -h\22 for more information on the first usage.\00", align 16
 @.str.3 = private unnamed_addr constant [3 x i8] c"--\00", align 1
 @.str.4 = private unnamed_addr constant [17 x i8] c"--local-env-vars\00", align 1
 @local_repo_env = external constant [0 x ptr], align 8
@@ -35,6 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [18 x i8] c"--resolve-git-dir\00", align 1
 @.str.7 = private unnamed_addr constant [39 x i8] c"--resolve-git-dir requires an argument\00", align 1
 @.str.8 = private unnamed_addr constant [18 x i8] c"not a gitdir '%s'\00", align 1
+@the_repository = external global ptr, align 8
 @filter = internal global i32 -1, align 4
 @.str.9 = private unnamed_addr constant [11 x i8] c"--git-path\00", align 1
 @.str.10 = private unnamed_addr constant [32 x i8] c"--git-path requires an argument\00", align 1
@@ -59,4202 +61,4937 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [9 x i8] c"--verify\00", align 1
 @.str.28 = private unnamed_addr constant [8 x i8] c"--quiet\00", align 1
 @.str.29 = private unnamed_addr constant [3 x i8] c"-q\00", align 1
-@.str.30 = private unnamed_addr constant [8 x i8] c"--short\00", align 1
+@.str.30 = private unnamed_addr constant [23 x i8] c"--output-object-format\00", align 1
+@.str.31 = private unnamed_addr constant [27 x i8] c"no object format specified\00", align 1
+@.str.32 = private unnamed_addr constant [8 x i8] c"storage\00", align 1
+@.str.33 = private unnamed_addr constant [30 x i8] c"unsupported object format: %s\00", align 1
+@.str.34 = private unnamed_addr constant [8 x i8] c"--short\00", align 1
 @default_abbrev = external global i32, align 4
 @abbrev = internal global i32 0, align 4
 @minimum_abbrev = external global i32, align 4
-@.str.31 = private unnamed_addr constant [5 x i8] c"--sq\00", align 1
+@.str.35 = private unnamed_addr constant [5 x i8] c"--sq\00", align 1
 @output_sq = internal global i32 0, align 4
-@.str.32 = private unnamed_addr constant [6 x i8] c"--not\00", align 1
+@.str.36 = private unnamed_addr constant [6 x i8] c"--not\00", align 1
 @show_type = internal global i32 0, align 4
-@.str.33 = private unnamed_addr constant [11 x i8] c"--symbolic\00", align 1
+@.str.37 = private unnamed_addr constant [11 x i8] c"--symbolic\00", align 1
 @symbolic = internal global i32 0, align 4
-@.str.34 = private unnamed_addr constant [21 x i8] c"--symbolic-full-name\00", align 1
-@.str.35 = private unnamed_addr constant [13 x i8] c"--abbrev-ref\00", align 1
+@.str.38 = private unnamed_addr constant [21 x i8] c"--symbolic-full-name\00", align 1
+@.str.39 = private unnamed_addr constant [13 x i8] c"--abbrev-ref\00", align 1
 @abbrev_ref = internal global i32 0, align 4
-@warn_ambiguous_refs = external global i32, align 4
 @abbrev_ref_strict = internal global i32 0, align 4
-@.str.36 = private unnamed_addr constant [7 x i8] c"strict\00", align 1
-@.str.37 = private unnamed_addr constant [6 x i8] c"loose\00", align 1
-@.str.38 = private unnamed_addr constant [34 x i8] c"unknown mode for --abbrev-ref: %s\00", align 1
-@.str.39 = private unnamed_addr constant [6 x i8] c"--all\00", align 1
-@ref_excludes = internal global %struct.ref_exclusions { %struct.string_list { ptr null, i64 0, i64 0, i8 1, ptr null }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i8 0 }, align 8
-@.str.40 = private unnamed_addr constant [16 x i8] c"--disambiguate=\00", align 1
-@.str.41 = private unnamed_addr constant [9 x i8] c"--bisect\00", align 1
-@.str.42 = private unnamed_addr constant [16 x i8] c"refs/bisect/bad\00", align 1
-@.str.43 = private unnamed_addr constant [17 x i8] c"refs/bisect/good\00", align 1
-@.str.44 = private unnamed_addr constant [11 x i8] c"--branches\00", align 1
-@.str.45 = private unnamed_addr constant [46 x i8] c"options '%s' and '%s' cannot be used together\00", align 1
-@.str.46 = private unnamed_addr constant [17 x i8] c"--exclude-hidden\00", align 1
-@.str.47 = private unnamed_addr constant [12 x i8] c"refs/heads/\00", align 1
-@.str.48 = private unnamed_addr constant [7 x i8] c"--tags\00", align 1
-@.str.49 = private unnamed_addr constant [11 x i8] c"refs/tags/\00", align 1
-@.str.50 = private unnamed_addr constant [8 x i8] c"--glob=\00", align 1
-@.str.51 = private unnamed_addr constant [10 x i8] c"--remotes\00", align 1
-@.str.52 = private unnamed_addr constant [14 x i8] c"refs/remotes/\00", align 1
-@.str.53 = private unnamed_addr constant [11 x i8] c"--exclude=\00", align 1
-@.str.54 = private unnamed_addr constant [18 x i8] c"--exclude-hidden=\00", align 1
-@.str.55 = private unnamed_addr constant [16 x i8] c"--show-toplevel\00", align 1
-@.str.56 = private unnamed_addr constant [42 x i8] c"this operation must be run in a work tree\00", align 1
-@.str.57 = private unnamed_addr constant [33 x i8] c"--show-superproject-working-tree\00", align 1
+@.str.40 = private unnamed_addr constant [7 x i8] c"strict\00", align 1
+@.str.41 = private unnamed_addr constant [6 x i8] c"loose\00", align 1
+@.str.42 = private unnamed_addr constant [34 x i8] c"unknown mode for --abbrev-ref: %s\00", align 1
+@.str.43 = private unnamed_addr constant [6 x i8] c"--all\00", align 1
+@.str.44 = private unnamed_addr constant [16 x i8] c"--disambiguate=\00", align 1
+@.str.45 = private unnamed_addr constant [9 x i8] c"--bisect\00", align 1
+@.str.46 = private unnamed_addr constant [16 x i8] c"refs/bisect/bad\00", align 1
+@.str.47 = private unnamed_addr constant [17 x i8] c"refs/bisect/good\00", align 1
+@.str.48 = private unnamed_addr constant [11 x i8] c"--branches\00", align 1
+@.str.49 = private unnamed_addr constant [46 x i8] c"options '%s' and '%s' cannot be used together\00", align 1
+@.str.50 = private unnamed_addr constant [17 x i8] c"--exclude-hidden\00", align 1
+@.str.51 = private unnamed_addr constant [12 x i8] c"refs/heads/\00", align 1
+@.str.52 = private unnamed_addr constant [7 x i8] c"--tags\00", align 1
+@.str.53 = private unnamed_addr constant [11 x i8] c"refs/tags/\00", align 1
+@.str.54 = private unnamed_addr constant [8 x i8] c"--glob=\00", align 1
+@.str.55 = private unnamed_addr constant [10 x i8] c"--remotes\00", align 1
+@.str.56 = private unnamed_addr constant [14 x i8] c"refs/remotes/\00", align 1
+@.str.57 = private unnamed_addr constant [11 x i8] c"--exclude=\00", align 1
+@.str.58 = private unnamed_addr constant [18 x i8] c"--exclude-hidden=\00", align 1
+@.str.59 = private unnamed_addr constant [16 x i8] c"--show-toplevel\00", align 1
+@.str.60 = private unnamed_addr constant [42 x i8] c"this operation must be run in a work tree\00", align 1
+@.str.61 = private unnamed_addr constant [33 x i8] c"--show-superproject-working-tree\00", align 1
 @__const.cmd_rev_parse.superproject = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@.str.58 = private unnamed_addr constant [14 x i8] c"--show-prefix\00", align 1
-@.str.59 = private unnamed_addr constant [12 x i8] c"--show-cdup\00", align 1
-@.str.60 = private unnamed_addr constant [4 x i8] c"../\00", align 1
-@.str.61 = private unnamed_addr constant [10 x i8] c"--git-dir\00", align 1
-@.str.62 = private unnamed_addr constant [19 x i8] c"--absolute-git-dir\00", align 1
-@.str.63 = private unnamed_addr constant [8 x i8] c"GIT_DIR\00", align 1
-@.str.64 = private unnamed_addr constant [5 x i8] c".git\00", align 1
+@.str.62 = private unnamed_addr constant [14 x i8] c"--show-prefix\00", align 1
+@.str.63 = private unnamed_addr constant [12 x i8] c"--show-cdup\00", align 1
+@.str.64 = private unnamed_addr constant [4 x i8] c"../\00", align 1
+@.str.65 = private unnamed_addr constant [10 x i8] c"--git-dir\00", align 1
+@.str.66 = private unnamed_addr constant [19 x i8] c"--absolute-git-dir\00", align 1
+@.str.67 = private unnamed_addr constant [8 x i8] c"GIT_DIR\00", align 1
+@.str.68 = private unnamed_addr constant [5 x i8] c".git\00", align 1
 @__const.cmd_rev_parse.realpath = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@.str.65 = private unnamed_addr constant [9 x i8] c"%s%s.git\00", align 1
-@.str.66 = private unnamed_addr constant [2 x i8] c"/\00", align 1
-@.str.67 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.68 = private unnamed_addr constant [17 x i8] c"--git-common-dir\00", align 1
-@.str.69 = private unnamed_addr constant [20 x i8] c"--is-inside-git-dir\00", align 1
-@.str.70 = private unnamed_addr constant [5 x i8] c"true\00", align 1
-@.str.71 = private unnamed_addr constant [6 x i8] c"false\00", align 1
-@.str.72 = private unnamed_addr constant [22 x i8] c"--is-inside-work-tree\00", align 1
-@.str.73 = private unnamed_addr constant [21 x i8] c"--is-bare-repository\00", align 1
-@.str.74 = private unnamed_addr constant [24 x i8] c"--is-shallow-repository\00", align 1
-@.str.75 = private unnamed_addr constant [20 x i8] c"--shared-index-path\00", align 1
-@.str.76 = private unnamed_addr constant [25 x i8] c"Could not read the index\00", align 1
-@the_index = external global %struct.index_state, align 8
-@.str.77 = private unnamed_addr constant [15 x i8] c"sharedindex.%s\00", align 1
-@.str.78 = private unnamed_addr constant [9 x i8] c"--since=\00", align 1
-@.str.79 = private unnamed_addr constant [11 x i8] c"--max-age=\00", align 1
-@.str.80 = private unnamed_addr constant [9 x i8] c"--after=\00", align 1
-@.str.81 = private unnamed_addr constant [10 x i8] c"--before=\00", align 1
-@.str.82 = private unnamed_addr constant [11 x i8] c"--min-age=\00", align 1
-@.str.83 = private unnamed_addr constant [9 x i8] c"--until=\00", align 1
-@.str.84 = private unnamed_addr constant [21 x i8] c"--show-object-format\00", align 1
-@.str.85 = private unnamed_addr constant [8 x i8] c"storage\00", align 1
-@.str.86 = private unnamed_addr constant [6 x i8] c"input\00", align 1
-@.str.87 = private unnamed_addr constant [7 x i8] c"output\00", align 1
-@.str.88 = private unnamed_addr constant [42 x i8] c"unknown mode for --show-object-format: %s\00", align 1
-@.str.89 = private unnamed_addr constant [18 x i8] c"--show-ref-format\00", align 1
-@.str.90 = private unnamed_addr constant [17 x i8] c"--end-of-options\00", align 1
-@.str.91 = private unnamed_addr constant [18 x i8] c"bad revision '%s'\00", align 1
-@cmd_parseopt.keep_dashdash = internal global i32 0, align 4
-@cmd_parseopt.stop_at_non_option = internal global i32 0, align 4
-@cmd_parseopt.parseopt_usage = internal constant [2 x ptr] [ptr @.str.92, ptr null], align 16
-@.str.92 = private unnamed_addr constant [52 x i8] c"git rev-parse --parseopt [<options>] -- [<args>...]\00", align 1
-@cmd_parseopt.parseopt_opts = internal global [4 x %struct.option] [%struct.option { i32 9, i32 0, ptr @.str.93, ptr @cmd_parseopt.keep_dashdash, ptr null, ptr @.str.94, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option { i32 9, i32 0, ptr @.str.95, ptr @cmd_parseopt.stop_at_non_option, ptr null, ptr @.str.96, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option { i32 9, i32 0, ptr @.str.97, ptr @stuck_long, ptr null, ptr @.str.98, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option zeroinitializer], align 16
-@.str.93 = private unnamed_addr constant [14 x i8] c"keep-dashdash\00", align 1
-@.str.94 = private unnamed_addr constant [31 x i8] c"keep the `--` passed as an arg\00", align 1
-@.str.95 = private unnamed_addr constant [19 x i8] c"stop-at-non-option\00", align 1
-@.str.96 = private unnamed_addr constant [49 x i8] c"stop parsing after the first non-option argument\00", align 1
-@.str.97 = private unnamed_addr constant [11 x i8] c"stuck-long\00", align 1
+@.str.69 = private unnamed_addr constant [9 x i8] c"%s%s.git\00", align 1
+@.str.70 = private unnamed_addr constant [2 x i8] c"/\00", align 1
+@.str.71 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.72 = private unnamed_addr constant [17 x i8] c"--git-common-dir\00", align 1
+@.str.73 = private unnamed_addr constant [20 x i8] c"--is-inside-git-dir\00", align 1
+@.str.74 = private unnamed_addr constant [5 x i8] c"true\00", align 1
+@.str.75 = private unnamed_addr constant [6 x i8] c"false\00", align 1
+@.str.76 = private unnamed_addr constant [22 x i8] c"--is-inside-work-tree\00", align 1
+@.str.77 = private unnamed_addr constant [21 x i8] c"--is-bare-repository\00", align 1
+@.str.78 = private unnamed_addr constant [24 x i8] c"--is-shallow-repository\00", align 1
+@.str.79 = private unnamed_addr constant [20 x i8] c"--shared-index-path\00", align 1
+@.str.80 = private unnamed_addr constant [25 x i8] c"Could not read the index\00", align 1
+@.str.81 = private unnamed_addr constant [15 x i8] c"sharedindex.%s\00", align 1
+@.str.82 = private unnamed_addr constant [9 x i8] c"--since=\00", align 1
+@.str.83 = private unnamed_addr constant [11 x i8] c"--max-age=\00", align 1
+@.str.84 = private unnamed_addr constant [9 x i8] c"--after=\00", align 1
+@.str.85 = private unnamed_addr constant [10 x i8] c"--before=\00", align 1
+@.str.86 = private unnamed_addr constant [11 x i8] c"--min-age=\00", align 1
+@.str.87 = private unnamed_addr constant [9 x i8] c"--until=\00", align 1
+@.str.88 = private unnamed_addr constant [21 x i8] c"--show-object-format\00", align 1
+@.str.89 = private unnamed_addr constant [6 x i8] c"input\00", align 1
+@.str.90 = private unnamed_addr constant [7 x i8] c"output\00", align 1
+@.str.91 = private unnamed_addr constant [42 x i8] c"unknown mode for --show-object-format: %s\00", align 1
+@.str.92 = private unnamed_addr constant [18 x i8] c"--show-ref-format\00", align 1
+@.str.93 = private unnamed_addr constant [17 x i8] c"--end-of-options\00", align 1
+@.str.94 = private unnamed_addr constant [18 x i8] c"bad revision '%s'\00", align 1
+@.str.95 = private unnamed_addr constant [52 x i8] c"git rev-parse --parseopt [<options>] -- [<args>...]\00", align 1
+@__const.cmd_parseopt.parseopt_usage = private unnamed_addr constant [2 x ptr] [ptr @.str.95, ptr null], align 16
+@.str.96 = private unnamed_addr constant [14 x i8] c"keep-dashdash\00", align 1
+@.str.97 = private unnamed_addr constant [31 x i8] c"keep the `--` passed as an arg\00", align 1
+@.str.98 = private unnamed_addr constant [19 x i8] c"stop-at-non-option\00", align 1
+@.str.99 = private unnamed_addr constant [49 x i8] c"stop parsing after the first non-option argument\00", align 1
+@.str.100 = private unnamed_addr constant [11 x i8] c"stuck-long\00", align 1
 @stuck_long = internal global i32 0, align 4
-@.str.98 = private unnamed_addr constant [26 x i8] c"output in stuck long form\00", align 1
-@cmd_parseopt.flag_chars = internal constant ptr @.str.99, align 8
-@.str.99 = private unnamed_addr constant [5 x i8] c"*=?!\00", align 1
+@.str.101 = private unnamed_addr constant [26 x i8] c"output in stuck long form\00", align 1
 @__const.cmd_parseopt.sb = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @__const.cmd_parseopt.parsed = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@.str.100 = private unnamed_addr constant [7 x i8] c"set --\00", align 1
+@empty_strvec = external global [0 x ptr], align 8
+@__const.cmd_parseopt.longnames = private unnamed_addr constant %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, align 8
+@__const.cmd_parseopt.usage = private unnamed_addr constant %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, align 8
+@.str.102 = private unnamed_addr constant [7 x i8] c"set --\00", align 1
 @stdin = external global ptr, align 8
-@.str.101 = private unnamed_addr constant [23 x i8] c"premature end of input\00", align 1
-@.str.102 = private unnamed_addr constant [48 x i8] c"no usage string given before the `--' separator\00", align 1
-@.str.103 = private unnamed_addr constant [37 x i8] c"missing opt-spec before option flags\00", align 1
-@.str.104 = private unnamed_addr constant [4 x i8] c" --\00", align 1
-@.str.105 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
+@.str.103 = private unnamed_addr constant [23 x i8] c"premature end of input\00", align 1
+@.str.104 = private unnamed_addr constant [48 x i8] c"no usage string given before the `--' separator\00", align 1
+@.str.105 = private unnamed_addr constant [5 x i8] c"*=?!\00", align 1
+@.str.106 = private unnamed_addr constant [37 x i8] c"missing opt-spec before option flags\00", align 1
+@.str.107 = private unnamed_addr constant [5 x i8] c"%.*s\00", align 1
+@.str.108 = private unnamed_addr constant [4 x i8] c" --\00", align 1
+@.str.109 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 @sane_ctype = external constant [256 x i8], align 16
-@.str.106 = private unnamed_addr constant [9 x i8] c" --no-%s\00", align 1
-@.str.107 = private unnamed_addr constant [5 x i8] c" -%c\00", align 1
-@.str.108 = private unnamed_addr constant [6 x i8] c" --%s\00", align 1
+@.str.110 = private unnamed_addr constant [9 x i8] c" --no-%s\00", align 1
+@.str.111 = private unnamed_addr constant [5 x i8] c" -%c\00", align 1
+@.str.112 = private unnamed_addr constant [6 x i8] c" --%s\00", align 1
 @__const.cmd_sq_quote.buf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @git_gettext_enabled = external global i32, align 4
-@.str.109 = private unnamed_addr constant [11 x i8] c"./strbuf.h\00", align 1
-@.str.110 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
+@.str.113 = private unnamed_addr constant [11 x i8] c"./strbuf.h\00", align 1
+@.str.114 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 @__const.print_path.buf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @__const.print_path.realbuf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @__const.print_path.prefixbuf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@__const.print_path.buf.111 = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@__const.print_path.buf.112 = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@.str.113 = private unnamed_addr constant [4 x i8] c"'\\'\00", align 1
+@__const.print_path.buf.115 = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
+@__const.print_path.buf.116 = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
+@.str.117 = private unnamed_addr constant [4 x i8] c"'\\'\00", align 1
 @stdout = external global ptr, align 8
-@empty_strvec = external global [0 x ptr], align 8
-@.str.114 = private unnamed_addr constant [6 x i8] c"%s%lu\00", align 1
-@is_rev_argument.rev_args = internal global [29 x ptr] [ptr @.str.39, ptr @.str.41, ptr @.str.115, ptr @.str.116, ptr @.str.44, ptr @.str.117, ptr @.str.118, ptr @.str.79, ptr @.str.119, ptr @.str.82, ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123, ptr @.str.124, ptr @.str.125, ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.51, ptr @.str.50, ptr @.str.130, ptr @.str.131, ptr @.str.48, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr null], align 16
-@.str.115 = private unnamed_addr constant [8 x i8] c"--dense\00", align 1
-@.str.116 = private unnamed_addr constant [12 x i8] c"--branches=\00", align 1
-@.str.117 = private unnamed_addr constant [9 x i8] c"--header\00", align 1
-@.str.118 = private unnamed_addr constant [17 x i8] c"--ignore-missing\00", align 1
-@.str.119 = private unnamed_addr constant [13 x i8] c"--max-count=\00", align 1
-@.str.120 = private unnamed_addr constant [12 x i8] c"--no-merges\00", align 1
-@.str.121 = private unnamed_addr constant [15 x i8] c"--min-parents=\00", align 1
-@.str.122 = private unnamed_addr constant [17 x i8] c"--no-min-parents\00", align 1
-@.str.123 = private unnamed_addr constant [15 x i8] c"--max-parents=\00", align 1
-@.str.124 = private unnamed_addr constant [17 x i8] c"--no-max-parents\00", align 1
-@.str.125 = private unnamed_addr constant [10 x i8] c"--objects\00", align 1
-@.str.126 = private unnamed_addr constant [15 x i8] c"--objects-edge\00", align 1
-@.str.127 = private unnamed_addr constant [10 x i8] c"--parents\00", align 1
-@.str.128 = private unnamed_addr constant [9 x i8] c"--pretty\00", align 1
-@.str.129 = private unnamed_addr constant [11 x i8] c"--remotes=\00", align 1
-@.str.130 = private unnamed_addr constant [9 x i8] c"--sparse\00", align 1
-@.str.131 = private unnamed_addr constant [8 x i8] c"--tags=\00", align 1
-@.str.132 = private unnamed_addr constant [13 x i8] c"--topo-order\00", align 1
-@.str.133 = private unnamed_addr constant [13 x i8] c"--date-order\00", align 1
-@.str.134 = private unnamed_addr constant [11 x i8] c"--unpacked\00", align 1
-@.str.135 = private unnamed_addr constant [20 x i8] c"builtin/rev-parse.c\00", align 1
-@.str.136 = private unnamed_addr constant [25 x i8] c"Needed a single revision\00", align 1
+@ref_excludes = internal global { { ptr, i64, i64, i8, [7 x i8], ptr }, %struct.strvec, i8, [7 x i8] } { { ptr, i64, i64, i8, [7 x i8], ptr } { ptr null, i64 0, i64 0, i8 1, [7 x i8] zeroinitializer, ptr null }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i8 0, [7 x i8] zeroinitializer }, align 8
+@.str.119 = private unnamed_addr constant [6 x i8] c"%s%lu\00", align 1
+@is_rev_argument.rev_args = internal global [29 x ptr] [ptr @.str.43, ptr @.str.45, ptr @.str.120, ptr @.str.121, ptr @.str.48, ptr @.str.122, ptr @.str.123, ptr @.str.83, ptr @.str.124, ptr @.str.86, ptr @.str.125, ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.55, ptr @.str.54, ptr @.str.135, ptr @.str.136, ptr @.str.52, ptr @.str.137, ptr @.str.138, ptr @.str.139, ptr null], align 16
+@.str.120 = private unnamed_addr constant [8 x i8] c"--dense\00", align 1
+@.str.121 = private unnamed_addr constant [12 x i8] c"--branches=\00", align 1
+@.str.122 = private unnamed_addr constant [9 x i8] c"--header\00", align 1
+@.str.123 = private unnamed_addr constant [17 x i8] c"--ignore-missing\00", align 1
+@.str.124 = private unnamed_addr constant [13 x i8] c"--max-count=\00", align 1
+@.str.125 = private unnamed_addr constant [12 x i8] c"--no-merges\00", align 1
+@.str.126 = private unnamed_addr constant [15 x i8] c"--min-parents=\00", align 1
+@.str.127 = private unnamed_addr constant [17 x i8] c"--no-min-parents\00", align 1
+@.str.128 = private unnamed_addr constant [15 x i8] c"--max-parents=\00", align 1
+@.str.129 = private unnamed_addr constant [17 x i8] c"--no-max-parents\00", align 1
+@.str.130 = private unnamed_addr constant [10 x i8] c"--objects\00", align 1
+@.str.131 = private unnamed_addr constant [15 x i8] c"--objects-edge\00", align 1
+@.str.132 = private unnamed_addr constant [10 x i8] c"--parents\00", align 1
+@.str.133 = private unnamed_addr constant [9 x i8] c"--pretty\00", align 1
+@.str.134 = private unnamed_addr constant [11 x i8] c"--remotes=\00", align 1
+@.str.135 = private unnamed_addr constant [9 x i8] c"--sparse\00", align 1
+@.str.136 = private unnamed_addr constant [8 x i8] c"--tags=\00", align 1
+@.str.137 = private unnamed_addr constant [13 x i8] c"--topo-order\00", align 1
+@.str.138 = private unnamed_addr constant [13 x i8] c"--date-order\00", align 1
+@.str.139 = private unnamed_addr constant [11 x i8] c"--unpacked\00", align 1
+@.str.140 = private unnamed_addr constant [20 x i8] c"builtin/rev-parse.c\00", align 1
+@.str.141 = private unnamed_addr constant [25 x i8] c"Needed a single revision\00", align 1
 @try_difference.head_by_default = internal constant [5 x i8] c"HEAD\00", align 1
-@.str.137 = private unnamed_addr constant [3 x i8] c"..\00", align 1
-@.str.138 = private unnamed_addr constant [3 x i8] c"^!\00", align 1
-@.str.139 = private unnamed_addr constant [3 x i8] c"^@\00", align 1
-@.str.140 = private unnamed_addr constant [3 x i8] c"^-\00", align 1
-@.str.141 = private unnamed_addr constant [6 x i8] c"%s^%d\00", align 1
-@.str.142 = private unnamed_addr constant [26 x i8] c"refname '%s' is ambiguous\00", align 1
+@.str.142 = private unnamed_addr constant [3 x i8] c"..\00", align 1
+@.str.143 = private unnamed_addr constant [3 x i8] c"^!\00", align 1
+@.str.144 = private unnamed_addr constant [3 x i8] c"^@\00", align 1
+@.str.145 = private unnamed_addr constant [3 x i8] c"^-\00", align 1
+@.str.146 = private unnamed_addr constant [6 x i8] c"%s^%d\00", align 1
+@.str.147 = private unnamed_addr constant [26 x i8] c"refname '%s' is ambiguous\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_rev_parse(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %argc.addr = alloca i32, align 4
-  %argv.addr = alloca ptr, align 8
-  %prefix.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %as_is = alloca i32, align 4
-  %verify = alloca i32, align 4
-  %quiet = alloca i32, align 4
-  %revs_count = alloca i32, align 4
-  %type = alloca i32, align 4
-  %did_repo_setup = alloca i32, align 4
-  %has_dashdash = alloca i32, align 4
-  %output_prefix = alloca i32, align 4
-  %oid = alloca %struct.object_id, align 4
-  %flags = alloca i32, align 4
-  %name = alloca ptr, align 8
-  %unused = alloca %struct.object_context, align 8
-  %buf = alloca %struct.strbuf, align 8
-  %hexsz = alloca i32, align 4
-  %seen_end_of_options = alloca i32, align 4
-  %format = alloca i32, align 4
-  %arg = alloca ptr, align 8
-  %i56 = alloca i32, align 4
-  %gitdir = alloca ptr, align 8
-  %work_tree = alloca ptr, align 8
-  %superproject = alloca %struct.strbuf, align 8
-  %pfx = alloca ptr, align 8
-  %work_tree366 = alloca ptr, align 8
-  %gitdir387 = alloca ptr, align 8
-  %cwd = alloca ptr, align 8
-  %len = alloca i32, align 4
-  %wanted = alloca i32, align 4
-  %realpath = alloca %struct.strbuf, align 8
-  %oid473 = alloca ptr, align 8
-  %path = alloca ptr, align 8
-  %val = alloca ptr, align 8
-  store i32 %argc, ptr %argc.addr, align 4
-  store ptr %argv, ptr %argv.addr, align 8
-  store ptr %prefix, ptr %prefix.addr, align 8
-  store i32 0, ptr %as_is, align 4
-  store i32 0, ptr %verify, align 4
-  store i32 0, ptr %quiet, align 4
-  store i32 0, ptr %revs_count, align 4
-  store i32 0, ptr %type, align 4
-  store i32 0, ptr %did_repo_setup, align 4
-  store i32 0, ptr %has_dashdash, align 4
-  store i32 0, ptr %output_prefix, align 4
-  store i32 0, ptr %flags, align 4
-  store ptr null, ptr %name, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 @__const.cmd_rev_parse.buf, i64 24, i1 false)
-  %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i32 0, i32 15
-  %1 = load ptr, ptr %hash_algo, align 8
-  %hexsz1 = getelementptr inbounds %struct.git_hash_algo, ptr %1, i32 0, i32 3
-  %2 = load i64, ptr %hexsz1, align 8
-  %conv = trunc i64 %2 to i32
-  store i32 %conv, ptr %hexsz, align 4
-  store i32 0, ptr %seen_end_of_options, align 4
-  store i32 2, ptr %format, align 4
-  %3 = load i32, ptr %argc.addr, align 4
-  %cmp = icmp sgt i32 %3, 1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define dso_local i32 @cmd_rev_parse(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca %struct.object_id, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca ptr, align 8
+  %24 = alloca %struct.object_context, align 8
+  %25 = alloca %struct.strbuf, align 8
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca ptr, align 8
+  %30 = alloca i32, align 4
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca %struct.strbuf, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca i32, align 4
+  %39 = alloca i32, align 4
+  %40 = alloca %struct.strbuf, align 8
+  %41 = alloca ptr, align 8
+  %42 = alloca ptr, align 8
+  %43 = alloca ptr, align 8
+  store i32 %0, ptr %6, align 4, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !11
+  store ptr %3, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  store i32 0, ptr %11, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  store i32 0, ptr %12, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  store i32 0, ptr %13, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  store i32 0, ptr %14, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #11
+  store i32 0, ptr %15, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  store ptr null, ptr %16, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  store ptr null, ptr %17, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #11
+  store i32 0, ptr %18, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #11
+  store i32 0, ptr %19, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #11
+  store i32 0, ptr %20, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 36, ptr %21) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #11
+  store i32 0, ptr %22, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #11
+  store ptr null, ptr %23, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 40, ptr %24) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %25) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 @__const.cmd_rev_parse.buf, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #11
+  store i32 0, ptr %26, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #11
+  store i32 2, ptr %27, align 4, !tbaa !4
+  %44 = load i32, ptr %6, align 4, !tbaa !4
+  %45 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @show_usage_if_asked(i32 noundef %44, ptr noundef %45, ptr noundef @builtin_rev_parse_usage)
+  %46 = load i32, ptr %6, align 4, !tbaa !4
+  %47 = icmp sgt i32 %46, 1
+  br i1 %47, label %48, label %61
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load ptr, ptr %argv.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 1
-  %5 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 @strcmp(ptr noundef @.str, ptr noundef %5) #8
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+48:                                               ; preds = %4
+  %49 = load ptr, ptr %7, align 8, !tbaa !8
+  %50 = getelementptr inbounds ptr, ptr %49, i64 1
+  %51 = load ptr, ptr %50, align 8, !tbaa !11
+  %52 = call i32 @strcmp(ptr noundef @.str, ptr noundef %51) #12
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %61, label %54
 
-if.then:                                          ; preds = %land.lhs.true
-  %6 = load i32, ptr %argc.addr, align 4
-  %sub = sub nsw i32 %6, 1
-  %7 = load ptr, ptr %argv.addr, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %7, i64 1
-  %8 = load ptr, ptr %prefix.addr, align 8
-  %call3 = call i32 @cmd_parseopt(i32 noundef %sub, ptr noundef %add.ptr, ptr noundef %8)
-  store i32 %call3, ptr %retval, align 4
-  br label %return
+54:                                               ; preds = %48
+  %55 = load i32, ptr %6, align 4, !tbaa !4
+  %56 = sub nsw i32 %55, 1
+  %57 = load ptr, ptr %7, align 8, !tbaa !8
+  %58 = getelementptr inbounds ptr, ptr %57, i64 1
+  %59 = load ptr, ptr %8, align 8, !tbaa !11
+  %60 = call i32 @cmd_parseopt(i32 noundef %56, ptr noundef %58, ptr noundef %59)
+  store i32 %60, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %1008
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %9 = load i32, ptr %argc.addr, align 4
-  %cmp4 = icmp sgt i32 %9, 1
-  br i1 %cmp4, label %land.lhs.true6, label %if.end14
+61:                                               ; preds = %48, %4
+  %62 = load i32, ptr %6, align 4, !tbaa !4
+  %63 = icmp sgt i32 %62, 1
+  br i1 %63, label %64, label %76
 
-land.lhs.true6:                                   ; preds = %if.end
-  %10 = load ptr, ptr %argv.addr, align 8
-  %arrayidx7 = getelementptr inbounds ptr, ptr %10, i64 1
-  %11 = load ptr, ptr %arrayidx7, align 8
-  %call8 = call i32 @strcmp(ptr noundef @.str.1, ptr noundef %11) #8
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %if.end14, label %if.then10
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %7, align 8, !tbaa !8
+  %66 = getelementptr inbounds ptr, ptr %65, i64 1
+  %67 = load ptr, ptr %66, align 8, !tbaa !11
+  %68 = call i32 @strcmp(ptr noundef @.str.1, ptr noundef %67) #12
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %76, label %70
 
-if.then10:                                        ; preds = %land.lhs.true6
-  %12 = load i32, ptr %argc.addr, align 4
-  %sub11 = sub nsw i32 %12, 2
-  %13 = load ptr, ptr %argv.addr, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %13, i64 2
-  %call13 = call i32 @cmd_sq_quote(i32 noundef %sub11, ptr noundef %add.ptr12)
-  store i32 %call13, ptr %retval, align 4
-  br label %return
+70:                                               ; preds = %64
+  %71 = load i32, ptr %6, align 4, !tbaa !4
+  %72 = sub nsw i32 %71, 2
+  %73 = load ptr, ptr %7, align 8, !tbaa !8
+  %74 = getelementptr inbounds ptr, ptr %73, i64 2
+  %75 = call i32 @cmd_sq_quote(i32 noundef %72, ptr noundef %74)
+  store i32 %75, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %1008
 
-if.end14:                                         ; preds = %land.lhs.true6, %if.end
-  %14 = load i32, ptr %argc.addr, align 4
-  %cmp15 = icmp sgt i32 %14, 1
-  br i1 %cmp15, label %land.lhs.true17, label %if.end22
+76:                                               ; preds = %64, %61
+  %77 = load i32, ptr %6, align 4, !tbaa !4
+  %78 = icmp sgt i32 %77, 1
+  br i1 %78, label %79, label %86
 
-land.lhs.true17:                                  ; preds = %if.end14
-  %15 = load ptr, ptr %argv.addr, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %15, i64 1
-  %16 = load ptr, ptr %arrayidx18, align 8
-  %call19 = call i32 @strcmp(ptr noundef @.str.2, ptr noundef %16) #8
-  %tobool20 = icmp ne i32 %call19, 0
-  br i1 %tobool20, label %if.end22, label %if.then21
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %7, align 8, !tbaa !8
+  %81 = getelementptr inbounds ptr, ptr %80, i64 1
+  %82 = load ptr, ptr %81, align 8, !tbaa !11
+  %83 = call i32 @strcmp(ptr noundef @.str.2, ptr noundef %82) #12
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %86, label %85
 
-if.then21:                                        ; preds = %land.lhs.true17
-  call void @usage(ptr noundef @builtin_rev_parse_usage) #9
+85:                                               ; preds = %79
+  call void @usage(ptr noundef @builtin_rev_parse_usage) #13
   unreachable
 
-if.end22:                                         ; preds = %land.lhs.true17, %if.end14
-  store i32 1, ptr %i, align 4
-  br label %for.cond
+86:                                               ; preds = %79, %76
+  store i32 1, ptr %10, align 4, !tbaa !4
+  br label %87
 
-for.cond:                                         ; preds = %for.inc, %if.end22
-  %17 = load i32, ptr %i, align 4
-  %18 = load i32, ptr %argc.addr, align 4
-  %cmp23 = icmp slt i32 %17, %18
-  br i1 %cmp23, label %for.body, label %for.end
+87:                                               ; preds = %101, %86
+  %88 = load i32, ptr %10, align 4, !tbaa !4
+  %89 = load i32, ptr %6, align 4, !tbaa !4
+  %90 = icmp slt i32 %88, %89
+  br i1 %90, label %91, label %104
 
-for.body:                                         ; preds = %for.cond
-  %19 = load ptr, ptr %argv.addr, align 8
-  %20 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %20 to i64
-  %arrayidx25 = getelementptr inbounds ptr, ptr %19, i64 %idxprom
-  %21 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @strcmp(ptr noundef %21, ptr noundef @.str.3) #8
-  %tobool27 = icmp ne i32 %call26, 0
-  br i1 %tobool27, label %if.end29, label %if.then28
+91:                                               ; preds = %87
+  %92 = load ptr, ptr %7, align 8, !tbaa !8
+  %93 = load i32, ptr %10, align 4, !tbaa !4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds ptr, ptr %92, i64 %94
+  %96 = load ptr, ptr %95, align 8, !tbaa !11
+  %97 = call i32 @strcmp(ptr noundef %96, ptr noundef @.str.3) #12
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %100, label %99
 
-if.then28:                                        ; preds = %for.body
-  store i32 1, ptr %has_dashdash, align 4
-  br label %for.end
+99:                                               ; preds = %91
+  store i32 1, ptr %19, align 4, !tbaa !4
+  br label %104
 
-if.end29:                                         ; preds = %for.body
-  br label %for.inc
+100:                                              ; preds = %91
+  br label %101
 
-for.inc:                                          ; preds = %if.end29
-  %22 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %22, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+101:                                              ; preds = %100
+  %102 = load i32, ptr %10, align 4, !tbaa !4
+  %103 = add nsw i32 %102, 1
+  store i32 %103, ptr %10, align 4, !tbaa !4
+  br label %87, !llvm.loop !17
 
-for.end:                                          ; preds = %if.then28, %for.cond
-  %23 = load i32, ptr %argc.addr, align 4
-  %cmp30 = icmp eq i32 %23, 1
-  br i1 %cmp30, label %if.then32, label %if.end34
+104:                                              ; preds = %99, %87
+  %105 = load i32, ptr %6, align 4, !tbaa !4
+  %106 = icmp eq i32 %105, 1
+  br i1 %106, label %107, label %109
 
-if.then32:                                        ; preds = %for.end
-  %call33 = call ptr @setup_git_directory()
+107:                                              ; preds = %104
+  %108 = call ptr @setup_git_directory()
   call void @git_config(ptr noundef @git_default_config, ptr noundef null)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %1008
 
-if.end34:                                         ; preds = %for.end
-  store i32 1, ptr %i, align 4
-  br label %for.cond35
+109:                                              ; preds = %104
+  store i32 1, ptr %10, align 4, !tbaa !4
+  br label %110
 
-for.cond35:                                       ; preds = %for.inc566, %if.end34
-  %24 = load i32, ptr %i, align 4
-  %25 = load i32, ptr %argc.addr, align 4
-  %cmp36 = icmp slt i32 %24, %25
-  br i1 %cmp36, label %for.body38, label %for.end568
+110:                                              ; preds = %983, %109
+  %111 = load i32, ptr %10, align 4, !tbaa !4
+  %112 = load i32, ptr %6, align 4, !tbaa !4
+  %113 = icmp slt i32 %111, %112
+  br i1 %113, label %114, label %986
 
-for.body38:                                       ; preds = %for.cond35
-  %26 = load ptr, ptr %argv.addr, align 8
-  %27 = load i32, ptr %i, align 4
-  %idxprom39 = sext i32 %27 to i64
-  %arrayidx40 = getelementptr inbounds ptr, ptr %26, i64 %idxprom39
-  %28 = load ptr, ptr %arrayidx40, align 8
-  store ptr %28, ptr %arg, align 8
-  %29 = load i32, ptr %as_is, align 4
-  %tobool41 = icmp ne i32 %29, 0
-  br i1 %tobool41, label %if.then42, label %if.end50
+114:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #11
+  %115 = load ptr, ptr %7, align 8, !tbaa !8
+  %116 = load i32, ptr %10, align 4, !tbaa !4
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds ptr, ptr %115, i64 %117
+  %119 = load ptr, ptr %118, align 8, !tbaa !11
+  store ptr %119, ptr %29, align 8, !tbaa !11
+  %120 = load i32, ptr %11, align 4, !tbaa !4
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %134
 
-if.then42:                                        ; preds = %for.body38
-  %30 = load ptr, ptr %arg, align 8
-  %31 = load i32, ptr %output_prefix, align 4
-  %call43 = call i32 @show_file(ptr noundef %30, i32 noundef %31)
-  %tobool44 = icmp ne i32 %call43, 0
-  br i1 %tobool44, label %land.lhs.true45, label %if.end49
+122:                                              ; preds = %114
+  %123 = load ptr, ptr %29, align 8, !tbaa !11
+  %124 = load i32, ptr %20, align 4, !tbaa !4
+  %125 = call i32 @show_file(ptr noundef %123, i32 noundef %124)
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %127, label %133
 
-land.lhs.true45:                                  ; preds = %if.then42
-  %32 = load i32, ptr %as_is, align 4
-  %cmp46 = icmp slt i32 %32, 2
-  br i1 %cmp46, label %if.then48, label %if.end49
+127:                                              ; preds = %122
+  %128 = load i32, ptr %11, align 4, !tbaa !4
+  %129 = icmp slt i32 %128, 2
+  br i1 %129, label %130, label %133
 
-if.then48:                                        ; preds = %land.lhs.true45
-  %33 = load ptr, ptr %prefix.addr, align 8
-  %34 = load ptr, ptr %arg, align 8
-  call void @verify_filename(ptr noundef %33, ptr noundef %34, i32 noundef 0)
-  br label %if.end49
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %8, align 8, !tbaa !11
+  %132 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @verify_filename(ptr noundef %131, ptr noundef %132, i32 noundef 0)
+  br label %133
 
-if.end49:                                         ; preds = %if.then48, %land.lhs.true45, %if.then42
-  br label %for.inc566
+133:                                              ; preds = %130, %127, %122
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end50:                                         ; preds = %for.body38
-  %35 = load i32, ptr %seen_end_of_options, align 4
-  %tobool51 = icmp ne i32 %35, 0
-  br i1 %tobool51, label %if.end88, label %if.then52
+134:                                              ; preds = %114
+  %135 = load i32, ptr %26, align 4, !tbaa !4
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %189, label %137
 
-if.then52:                                        ; preds = %if.end50
-  %36 = load ptr, ptr %arg, align 8
-  %call53 = call i32 @strcmp(ptr noundef %36, ptr noundef @.str.4) #8
-  %tobool54 = icmp ne i32 %call53, 0
-  br i1 %tobool54, label %if.end68, label %if.then55
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %29, align 8, !tbaa !11
+  %139 = call i32 @strcmp(ptr noundef %138, ptr noundef @.str.4) #12
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %158, label %141
 
-if.then55:                                        ; preds = %if.then52
-  store i32 0, ptr %i56, align 4
-  br label %for.cond57
+141:                                              ; preds = %137
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #11
+  store i32 0, ptr %30, align 4, !tbaa !4
+  br label %142
 
-for.cond57:                                       ; preds = %for.inc65, %if.then55
-  %37 = load i32, ptr %i56, align 4
-  %idxprom58 = sext i32 %37 to i64
-  %arrayidx59 = getelementptr inbounds [0 x ptr], ptr @local_repo_env, i64 0, i64 %idxprom58
-  %38 = load ptr, ptr %arrayidx59, align 8
-  %tobool60 = icmp ne ptr %38, null
-  br i1 %tobool60, label %for.body61, label %for.end67
+142:                                              ; preds = %154, %141
+  %143 = load i32, ptr %30, align 4, !tbaa !4
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds [0 x ptr], ptr @local_repo_env, i64 0, i64 %144
+  %146 = load ptr, ptr %145, align 8, !tbaa !11
+  %147 = icmp ne ptr %146, null
+  br i1 %147, label %148, label %157
 
-for.body61:                                       ; preds = %for.cond57
-  %39 = load i32, ptr %i56, align 4
-  %idxprom62 = sext i32 %39 to i64
-  %arrayidx63 = getelementptr inbounds [0 x ptr], ptr @local_repo_env, i64 0, i64 %idxprom62
-  %40 = load ptr, ptr %arrayidx63, align 8
-  %call64 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %40)
-  br label %for.inc65
+148:                                              ; preds = %142
+  %149 = load i32, ptr %30, align 4, !tbaa !4
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds [0 x ptr], ptr @local_repo_env, i64 0, i64 %150
+  %152 = load ptr, ptr %151, align 8, !tbaa !11
+  %153 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %152)
+  br label %154
 
-for.inc65:                                        ; preds = %for.body61
-  %41 = load i32, ptr %i56, align 4
-  %inc66 = add nsw i32 %41, 1
-  store i32 %inc66, ptr %i56, align 4
-  br label %for.cond57, !llvm.loop !7
+154:                                              ; preds = %148
+  %155 = load i32, ptr %30, align 4, !tbaa !4
+  %156 = add nsw i32 %155, 1
+  store i32 %156, ptr %30, align 4, !tbaa !4
+  br label %142, !llvm.loop !19
 
-for.end67:                                        ; preds = %for.cond57
-  br label %for.inc566
+157:                                              ; preds = %142
+  store i32 7, ptr %28, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #11
+  br label %980
 
-if.end68:                                         ; preds = %if.then52
-  %42 = load ptr, ptr %arg, align 8
-  %call69 = call i32 @strcmp(ptr noundef %42, ptr noundef @.str.6) #8
-  %tobool70 = icmp ne i32 %call69, 0
-  br i1 %tobool70, label %if.end87, label %if.then71
+158:                                              ; preds = %137
+  %159 = load ptr, ptr %29, align 8, !tbaa !11
+  %160 = call i32 @strcmp(ptr noundef %159, ptr noundef @.str.6) #12
+  %161 = icmp ne i32 %160, 0
+  br i1 %161, label %188, label %162
 
-if.then71:                                        ; preds = %if.end68
-  %43 = load ptr, ptr %argv.addr, align 8
-  %44 = load i32, ptr %i, align 4
-  %inc72 = add nsw i32 %44, 1
-  store i32 %inc72, ptr %i, align 4
-  %idxprom73 = sext i32 %inc72 to i64
-  %arrayidx74 = getelementptr inbounds ptr, ptr %43, i64 %idxprom73
-  %45 = load ptr, ptr %arrayidx74, align 8
-  store ptr %45, ptr %gitdir, align 8
-  %46 = load ptr, ptr %gitdir, align 8
-  %tobool75 = icmp ne ptr %46, null
-  br i1 %tobool75, label %if.end78, label %if.then76
+162:                                              ; preds = %158
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #11
+  %163 = load ptr, ptr %7, align 8, !tbaa !8
+  %164 = load i32, ptr %10, align 4, !tbaa !4
+  %165 = add nsw i32 %164, 1
+  store i32 %165, ptr %10, align 4, !tbaa !4
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds ptr, ptr %163, i64 %166
+  %168 = load ptr, ptr %167, align 8, !tbaa !11
+  store ptr %168, ptr %31, align 8, !tbaa !11
+  %169 = load ptr, ptr %31, align 8, !tbaa !11
+  %170 = icmp ne ptr %169, null
+  br i1 %170, label %173, label %171
 
-if.then76:                                        ; preds = %if.then71
-  %call77 = call ptr @_(ptr noundef @.str.7)
-  call void (ptr, ...) @die(ptr noundef %call77) #9
+171:                                              ; preds = %162
+  %172 = call ptr @_(ptr noundef @.str.7)
+  call void (ptr, ...) @die(ptr noundef %172) #13
   unreachable
 
-if.end78:                                         ; preds = %if.then71
-  %47 = load ptr, ptr %gitdir, align 8
-  %call79 = call ptr @resolve_gitdir_gently(ptr noundef %47, ptr noundef null)
-  store ptr %call79, ptr %gitdir, align 8
-  %48 = load ptr, ptr %gitdir, align 8
-  %tobool80 = icmp ne ptr %48, null
-  br i1 %tobool80, label %if.end85, label %if.then81
+173:                                              ; preds = %162
+  %174 = load ptr, ptr %31, align 8, !tbaa !11
+  %175 = call ptr @resolve_gitdir_gently(ptr noundef %174, ptr noundef null)
+  store ptr %175, ptr %31, align 8, !tbaa !11
+  %176 = load ptr, ptr %31, align 8, !tbaa !11
+  %177 = icmp ne ptr %176, null
+  br i1 %177, label %185, label %178
 
-if.then81:                                        ; preds = %if.end78
-  %call82 = call ptr @_(ptr noundef @.str.8)
-  %49 = load ptr, ptr %argv.addr, align 8
-  %50 = load i32, ptr %i, align 4
-  %idxprom83 = sext i32 %50 to i64
-  %arrayidx84 = getelementptr inbounds ptr, ptr %49, i64 %idxprom83
-  %51 = load ptr, ptr %arrayidx84, align 8
-  call void (ptr, ...) @die(ptr noundef %call82, ptr noundef %51) #9
+178:                                              ; preds = %173
+  %179 = call ptr @_(ptr noundef @.str.8)
+  %180 = load ptr, ptr %7, align 8, !tbaa !8
+  %181 = load i32, ptr %10, align 4, !tbaa !4
+  %182 = sext i32 %181 to i64
+  %183 = getelementptr inbounds ptr, ptr %180, i64 %182
+  %184 = load ptr, ptr %183, align 8, !tbaa !11
+  call void (ptr, ...) @die(ptr noundef %179, ptr noundef %184) #13
   unreachable
 
-if.end85:                                         ; preds = %if.end78
-  %52 = load ptr, ptr %gitdir, align 8
-  %call86 = call i32 @puts(ptr noundef %52)
-  br label %for.inc566
+185:                                              ; preds = %173
+  %186 = load ptr, ptr %31, align 8, !tbaa !11
+  %187 = call i32 @puts(ptr noundef %186)
+  store i32 7, ptr %28, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #11
+  br label %980
 
-if.end87:                                         ; preds = %if.end68
-  br label %if.end88
+188:                                              ; preds = %158
+  br label %189
 
-if.end88:                                         ; preds = %if.end87, %if.end50
-  %53 = load i32, ptr %did_repo_setup, align 4
-  %tobool89 = icmp ne i32 %53, 0
-  br i1 %tobool89, label %if.end92, label %if.then90
+189:                                              ; preds = %188, %134
+  %190 = load i32, ptr %18, align 4, !tbaa !4
+  %191 = icmp ne i32 %190, 0
+  br i1 %191, label %201, label %192
 
-if.then90:                                        ; preds = %if.end88
-  %call91 = call ptr @setup_git_directory()
-  store ptr %call91, ptr %prefix.addr, align 8
+192:                                              ; preds = %189
+  %193 = call ptr @setup_git_directory()
+  store ptr %193, ptr %8, align 8, !tbaa !11
   call void @git_config(ptr noundef @git_default_config, ptr noundef null)
-  store i32 1, ptr %did_repo_setup, align 4
-  %54 = load ptr, ptr @the_repository, align 8
-  call void @prepare_repo_settings(ptr noundef %54)
-  %55 = load ptr, ptr @the_repository, align 8
-  %settings = getelementptr inbounds %struct.repository, ptr %55, i32 0, i32 10
-  %command_requires_full_index = getelementptr inbounds %struct.repo_settings, ptr %settings, i32 0, i32 6
-  store i32 0, ptr %command_requires_full_index, align 8
-  br label %if.end92
+  store i32 1, ptr %18, align 4, !tbaa !4
+  %194 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  call void @prepare_repo_settings(ptr noundef %194)
+  %195 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %196 = getelementptr inbounds nuw %struct.repository, ptr %195, i32 0, i32 12
+  %197 = getelementptr inbounds nuw %struct.repo_settings, ptr %196, i32 0, i32 6
+  store i32 0, ptr %197, align 8, !tbaa !20
+  %198 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %199 = getelementptr inbounds nuw %struct.repository, ptr %198, i32 0, i32 18
+  %200 = load ptr, ptr %199, align 8, !tbaa !38
+  store ptr %200, ptr %17, align 8, !tbaa !15
+  br label %201
 
-if.end92:                                         ; preds = %if.then90, %if.end88
-  %56 = load ptr, ptr %arg, align 8
-  %call93 = call i32 @strcmp(ptr noundef %56, ptr noundef @.str.3) #8
-  %tobool94 = icmp ne i32 %call93, 0
-  br i1 %tobool94, label %if.end100, label %if.then95
+201:                                              ; preds = %192, %189
+  %202 = load ptr, ptr %29, align 8, !tbaa !11
+  %203 = call i32 @strcmp(ptr noundef %202, ptr noundef @.str.3) #12
+  %204 = icmp ne i32 %203, 0
+  br i1 %204, label %213, label %205
 
-if.then95:                                        ; preds = %if.end92
-  store i32 2, ptr %as_is, align 4
-  %57 = load i32, ptr @filter, align 4
-  %and = and i32 %57, 5
-  %tobool96 = icmp ne i32 %and, 0
-  br i1 %tobool96, label %if.then97, label %if.end99
+205:                                              ; preds = %201
+  store i32 2, ptr %11, align 4, !tbaa !4
+  %206 = load i32, ptr @filter, align 4, !tbaa !4
+  %207 = and i32 %206, 5
+  %208 = icmp ne i32 %207, 0
+  br i1 %208, label %209, label %212
 
-if.then97:                                        ; preds = %if.then95
-  %58 = load ptr, ptr %arg, align 8
-  %call98 = call i32 @show_file(ptr noundef %58, i32 noundef 0)
-  br label %if.end99
+209:                                              ; preds = %205
+  %210 = load ptr, ptr %29, align 8, !tbaa !11
+  %211 = call i32 @show_file(ptr noundef %210, i32 noundef 0)
+  br label %212
 
-if.end99:                                         ; preds = %if.then97, %if.then95
-  br label %for.inc566
+212:                                              ; preds = %209, %205
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end100:                                        ; preds = %if.end92
-  %59 = load i32, ptr %seen_end_of_options, align 4
-  %tobool101 = icmp ne i32 %59, 0
-  br i1 %tobool101, label %if.end531, label %land.lhs.true102
+213:                                              ; preds = %201
+  %214 = load i32, ptr %26, align 4, !tbaa !4
+  %215 = icmp ne i32 %214, 0
+  br i1 %215, label %918, label %216
 
-land.lhs.true102:                                 ; preds = %if.end100
-  %60 = load ptr, ptr %arg, align 8
-  %61 = load i8, ptr %60, align 1
-  %conv103 = sext i8 %61 to i32
-  %cmp104 = icmp eq i32 %conv103, 45
-  br i1 %cmp104, label %if.then106, label %if.end531
+216:                                              ; preds = %213
+  %217 = load ptr, ptr %29, align 8, !tbaa !11
+  %218 = load i8, ptr %217, align 1, !tbaa !39
+  %219 = sext i8 %218 to i32
+  %220 = icmp eq i32 %219, 45
+  br i1 %220, label %221, label %918
 
-if.then106:                                       ; preds = %land.lhs.true102
-  %62 = load ptr, ptr %arg, align 8
-  %call107 = call i32 @strcmp(ptr noundef %62, ptr noundef @.str.9) #8
-  %tobool108 = icmp ne i32 %call107, 0
-  br i1 %tobool108, label %if.end121, label %if.then109
+221:                                              ; preds = %216
+  %222 = load ptr, ptr %29, align 8, !tbaa !11
+  %223 = call i32 @strcmp(ptr noundef %222, ptr noundef @.str.9) #12
+  %224 = icmp ne i32 %223, 0
+  br i1 %224, label %247, label %225
 
-if.then109:                                       ; preds = %if.then106
-  %63 = load ptr, ptr %argv.addr, align 8
-  %64 = load i32, ptr %i, align 4
-  %add = add nsw i32 %64, 1
-  %idxprom110 = sext i32 %add to i64
-  %arrayidx111 = getelementptr inbounds ptr, ptr %63, i64 %idxprom110
-  %65 = load ptr, ptr %arrayidx111, align 8
-  %tobool112 = icmp ne ptr %65, null
-  br i1 %tobool112, label %if.end115, label %if.then113
+225:                                              ; preds = %221
+  %226 = load ptr, ptr %7, align 8, !tbaa !8
+  %227 = load i32, ptr %10, align 4, !tbaa !4
+  %228 = add nsw i32 %227, 1
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds ptr, ptr %226, i64 %229
+  %231 = load ptr, ptr %230, align 8, !tbaa !11
+  %232 = icmp ne ptr %231, null
+  br i1 %232, label %235, label %233
 
-if.then113:                                       ; preds = %if.then109
-  %call114 = call ptr @_(ptr noundef @.str.10)
-  call void (ptr, ...) @die(ptr noundef %call114) #9
+233:                                              ; preds = %225
+  %234 = call ptr @_(ptr noundef @.str.10)
+  call void (ptr, ...) @die(ptr noundef %234) #13
   unreachable
 
-if.end115:                                        ; preds = %if.then109
-  call void @strbuf_setlen(ptr noundef %buf, i64 noundef 0)
-  %66 = load ptr, ptr %argv.addr, align 8
-  %67 = load i32, ptr %i, align 4
-  %add116 = add nsw i32 %67, 1
-  %idxprom117 = sext i32 %add116 to i64
-  %arrayidx118 = getelementptr inbounds ptr, ptr %66, i64 %idxprom117
-  %68 = load ptr, ptr %arrayidx118, align 8
-  %call119 = call ptr (ptr, ...) @git_path(ptr noundef @.str.11, ptr noundef %68)
-  %69 = load ptr, ptr %prefix.addr, align 8
-  %70 = load i32, ptr %format, align 4
-  call void @print_path(ptr noundef %call119, ptr noundef %69, i32 noundef %70, i32 noundef 1)
-  %71 = load i32, ptr %i, align 4
-  %inc120 = add nsw i32 %71, 1
-  store i32 %inc120, ptr %i, align 4
-  br label %for.inc566
+235:                                              ; preds = %225
+  call void @strbuf_setlen(ptr noundef %25, i64 noundef 0)
+  %236 = load ptr, ptr %7, align 8, !tbaa !8
+  %237 = load i32, ptr %10, align 4, !tbaa !4
+  %238 = add nsw i32 %237, 1
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds ptr, ptr %236, i64 %239
+  %241 = load ptr, ptr %240, align 8, !tbaa !11
+  %242 = call ptr (ptr, ...) @git_path(ptr noundef @.str.11, ptr noundef %241)
+  %243 = load ptr, ptr %8, align 8, !tbaa !11
+  %244 = load i32, ptr %27, align 4, !tbaa !4
+  call void @print_path(ptr noundef %242, ptr noundef %243, i32 noundef %244, i32 noundef 1)
+  %245 = load i32, ptr %10, align 4, !tbaa !4
+  %246 = add nsw i32 %245, 1
+  store i32 %246, ptr %10, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end121:                                        ; preds = %if.then106
-  %72 = load ptr, ptr %arg, align 8
-  %call122 = call i32 @strcmp(ptr noundef %72, ptr noundef @.str.12) #8
-  %tobool123 = icmp ne i32 %call122, 0
-  br i1 %tobool123, label %if.end140, label %if.then124
+247:                                              ; preds = %221
+  %248 = load ptr, ptr %29, align 8, !tbaa !11
+  %249 = call i32 @strcmp(ptr noundef %248, ptr noundef @.str.12) #12
+  %250 = icmp ne i32 %249, 0
+  br i1 %250, label %274, label %251
 
-if.then124:                                       ; preds = %if.end121
-  %73 = load i32, ptr %i, align 4
-  %inc125 = add nsw i32 %73, 1
-  store i32 %inc125, ptr %i, align 4
-  %74 = load i32, ptr %argc.addr, align 4
-  %cmp126 = icmp sge i32 %inc125, %74
-  br i1 %cmp126, label %if.then128, label %if.end130
+251:                                              ; preds = %247
+  %252 = load i32, ptr %10, align 4, !tbaa !4
+  %253 = add nsw i32 %252, 1
+  store i32 %253, ptr %10, align 4, !tbaa !4
+  %254 = load i32, ptr %6, align 4, !tbaa !4
+  %255 = icmp sge i32 %253, %254
+  br i1 %255, label %256, label %258
 
-if.then128:                                       ; preds = %if.then124
-  %call129 = call ptr @_(ptr noundef @.str.13)
-  call void (ptr, ...) @die(ptr noundef %call129) #9
+256:                                              ; preds = %251
+  %257 = call ptr @_(ptr noundef @.str.13)
+  call void (ptr, ...) @die(ptr noundef %257) #13
   unreachable
 
-if.end130:                                        ; preds = %if.then124
-  %75 = load i32, ptr @filter, align 4
-  %and131 = and i32 %75, 4
-  %tobool132 = icmp ne i32 %and131, 0
-  br i1 %tobool132, label %land.lhs.true133, label %if.end139
+258:                                              ; preds = %251
+  %259 = load i32, ptr @filter, align 4, !tbaa !4
+  %260 = and i32 %259, 4
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %262, label %273
 
-land.lhs.true133:                                 ; preds = %if.end130
-  %76 = load i32, ptr @filter, align 4
-  %and134 = and i32 %76, 1
-  %tobool135 = icmp ne i32 %and134, 0
-  br i1 %tobool135, label %if.then136, label %if.end139
+262:                                              ; preds = %258
+  %263 = load i32, ptr @filter, align 4, !tbaa !4
+  %264 = and i32 %263, 1
+  %265 = icmp ne i32 %264, 0
+  br i1 %265, label %266, label %273
 
-if.then136:                                       ; preds = %land.lhs.true133
-  %77 = load ptr, ptr %arg, align 8
-  call void @show(ptr noundef %77)
-  %78 = load ptr, ptr %argv.addr, align 8
-  %79 = load i32, ptr %i, align 4
-  %idxprom137 = sext i32 %79 to i64
-  %arrayidx138 = getelementptr inbounds ptr, ptr %78, i64 %idxprom137
-  %80 = load ptr, ptr %arrayidx138, align 8
-  call void @show(ptr noundef %80)
-  br label %if.end139
+266:                                              ; preds = %262
+  %267 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @show(ptr noundef %267)
+  %268 = load ptr, ptr %7, align 8, !tbaa !8
+  %269 = load i32, ptr %10, align 4, !tbaa !4
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr inbounds ptr, ptr %268, i64 %270
+  %272 = load ptr, ptr %271, align 8, !tbaa !11
+  call void @show(ptr noundef %272)
+  br label %273
 
-if.end139:                                        ; preds = %if.then136, %land.lhs.true133, %if.end130
-  br label %for.inc566
+273:                                              ; preds = %266, %262, %258
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end140:                                        ; preds = %if.end121
-  %81 = load ptr, ptr %arg, align 8
-  %call141 = call i32 @starts_with(ptr noundef %81, ptr noundef @.str.12)
-  %tobool142 = icmp ne i32 %call141, 0
-  br i1 %tobool142, label %if.then143, label %if.end151
+274:                                              ; preds = %247
+  %275 = load ptr, ptr %29, align 8, !tbaa !11
+  %276 = call i32 @starts_with(ptr noundef %275, ptr noundef @.str.12)
+  %277 = icmp ne i32 %276, 0
+  br i1 %277, label %278, label %289
 
-if.then143:                                       ; preds = %if.end140
-  %82 = load i32, ptr @filter, align 4
-  %and144 = and i32 %82, 4
-  %tobool145 = icmp ne i32 %and144, 0
-  br i1 %tobool145, label %land.lhs.true146, label %if.end150
+278:                                              ; preds = %274
+  %279 = load i32, ptr @filter, align 4, !tbaa !4
+  %280 = and i32 %279, 4
+  %281 = icmp ne i32 %280, 0
+  br i1 %281, label %282, label %288
 
-land.lhs.true146:                                 ; preds = %if.then143
-  %83 = load i32, ptr @filter, align 4
-  %and147 = and i32 %83, 1
-  %tobool148 = icmp ne i32 %and147, 0
-  br i1 %tobool148, label %if.then149, label %if.end150
+282:                                              ; preds = %278
+  %283 = load i32, ptr @filter, align 4, !tbaa !4
+  %284 = and i32 %283, 1
+  %285 = icmp ne i32 %284, 0
+  br i1 %285, label %286, label %288
 
-if.then149:                                       ; preds = %land.lhs.true146
-  %84 = load ptr, ptr %arg, align 8
-  call void @show(ptr noundef %84)
-  br label %if.end150
+286:                                              ; preds = %282
+  %287 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @show(ptr noundef %287)
+  br label %288
 
-if.end150:                                        ; preds = %if.then149, %land.lhs.true146, %if.then143
-  br label %for.inc566
+288:                                              ; preds = %286, %282, %278
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end151:                                        ; preds = %if.end140
-  %85 = load ptr, ptr %arg, align 8
-  %call152 = call i32 @opt_with_value(ptr noundef %85, ptr noundef @.str.14, ptr noundef %arg)
-  %tobool153 = icmp ne i32 %call152, 0
-  br i1 %tobool153, label %if.then154, label %if.end169
+289:                                              ; preds = %274
+  %290 = load ptr, ptr %29, align 8, !tbaa !11
+  %291 = call i32 @opt_with_value(ptr noundef %290, ptr noundef @.str.14, ptr noundef %29)
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %293, label %313
 
-if.then154:                                       ; preds = %if.end151
-  %86 = load ptr, ptr %arg, align 8
-  %tobool155 = icmp ne ptr %86, null
-  br i1 %tobool155, label %if.end158, label %if.then156
+293:                                              ; preds = %289
+  %294 = load ptr, ptr %29, align 8, !tbaa !11
+  %295 = icmp ne ptr %294, null
+  br i1 %295, label %298, label %296
 
-if.then156:                                       ; preds = %if.then154
-  %call157 = call ptr @_(ptr noundef @.str.15)
-  call void (ptr, ...) @die(ptr noundef %call157) #9
+296:                                              ; preds = %293
+  %297 = call ptr @_(ptr noundef @.str.15)
+  call void (ptr, ...) @die(ptr noundef %297) #13
   unreachable
 
-if.end158:                                        ; preds = %if.then154
-  %87 = load ptr, ptr %arg, align 8
-  %call159 = call i32 @strcmp(ptr noundef %87, ptr noundef @.str.16) #8
-  %tobool160 = icmp ne i32 %call159, 0
-  br i1 %tobool160, label %if.else, label %if.then161
+298:                                              ; preds = %293
+  %299 = load ptr, ptr %29, align 8, !tbaa !11
+  %300 = call i32 @strcmp(ptr noundef %299, ptr noundef @.str.16) #12
+  %301 = icmp ne i32 %300, 0
+  br i1 %301, label %303, label %302
 
-if.then161:                                       ; preds = %if.end158
-  store i32 1, ptr %format, align 4
-  br label %if.end168
+302:                                              ; preds = %298
+  store i32 1, ptr %27, align 4, !tbaa !4
+  br label %312
 
-if.else:                                          ; preds = %if.end158
-  %88 = load ptr, ptr %arg, align 8
-  %call162 = call i32 @strcmp(ptr noundef %88, ptr noundef @.str.17) #8
-  %tobool163 = icmp ne i32 %call162, 0
-  br i1 %tobool163, label %if.else165, label %if.then164
+303:                                              ; preds = %298
+  %304 = load ptr, ptr %29, align 8, !tbaa !11
+  %305 = call i32 @strcmp(ptr noundef %304, ptr noundef @.str.17) #12
+  %306 = icmp ne i32 %305, 0
+  br i1 %306, label %308, label %307
 
-if.then164:                                       ; preds = %if.else
-  store i32 0, ptr %format, align 4
-  br label %if.end167
+307:                                              ; preds = %303
+  store i32 0, ptr %27, align 4, !tbaa !4
+  br label %311
 
-if.else165:                                       ; preds = %if.else
-  %call166 = call ptr @_(ptr noundef @.str.18)
-  %89 = load ptr, ptr %arg, align 8
-  call void (ptr, ...) @die(ptr noundef %call166, ptr noundef %89) #9
+308:                                              ; preds = %303
+  %309 = call ptr @_(ptr noundef @.str.18)
+  %310 = load ptr, ptr %29, align 8, !tbaa !11
+  call void (ptr, ...) @die(ptr noundef %309, ptr noundef %310) #13
   unreachable
 
-if.end167:                                        ; preds = %if.then164
-  br label %if.end168
+311:                                              ; preds = %307
+  br label %312
 
-if.end168:                                        ; preds = %if.end167, %if.then161
-  br label %for.inc566
+312:                                              ; preds = %311, %302
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end169:                                        ; preds = %if.end151
-  %90 = load ptr, ptr %arg, align 8
-  %call170 = call i32 @strcmp(ptr noundef %90, ptr noundef @.str.19) #8
-  %tobool171 = icmp ne i32 %call170, 0
-  br i1 %tobool171, label %if.end180, label %if.then172
+313:                                              ; preds = %289
+  %314 = load ptr, ptr %29, align 8, !tbaa !11
+  %315 = call i32 @strcmp(ptr noundef %314, ptr noundef @.str.19) #12
+  %316 = icmp ne i32 %315, 0
+  br i1 %316, label %329, label %317
 
-if.then172:                                       ; preds = %if.end169
-  %91 = load ptr, ptr %argv.addr, align 8
-  %92 = load i32, ptr %i, align 4
-  %inc173 = add nsw i32 %92, 1
-  store i32 %inc173, ptr %i, align 4
-  %idxprom174 = sext i32 %inc173 to i64
-  %arrayidx175 = getelementptr inbounds ptr, ptr %91, i64 %idxprom174
-  %93 = load ptr, ptr %arrayidx175, align 8
-  store ptr %93, ptr @def, align 8
-  %94 = load ptr, ptr @def, align 8
-  %tobool176 = icmp ne ptr %94, null
-  br i1 %tobool176, label %if.end179, label %if.then177
+317:                                              ; preds = %313
+  %318 = load ptr, ptr %7, align 8, !tbaa !8
+  %319 = load i32, ptr %10, align 4, !tbaa !4
+  %320 = add nsw i32 %319, 1
+  store i32 %320, ptr %10, align 4, !tbaa !4
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr inbounds ptr, ptr %318, i64 %321
+  %323 = load ptr, ptr %322, align 8, !tbaa !11
+  store ptr %323, ptr @def, align 8, !tbaa !11
+  %324 = load ptr, ptr @def, align 8, !tbaa !11
+  %325 = icmp ne ptr %324, null
+  br i1 %325, label %328, label %326
 
-if.then177:                                       ; preds = %if.then172
-  %call178 = call ptr @_(ptr noundef @.str.20)
-  call void (ptr, ...) @die(ptr noundef %call178) #9
+326:                                              ; preds = %317
+  %327 = call ptr @_(ptr noundef @.str.20)
+  call void (ptr, ...) @die(ptr noundef %327) #13
   unreachable
 
-if.end179:                                        ; preds = %if.then172
-  br label %for.inc566
+328:                                              ; preds = %317
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end180:                                        ; preds = %if.end169
-  %95 = load ptr, ptr %arg, align 8
-  %call181 = call i32 @strcmp(ptr noundef %95, ptr noundef @.str.21) #8
-  %tobool182 = icmp ne i32 %call181, 0
-  br i1 %tobool182, label %if.end192, label %if.then183
+329:                                              ; preds = %313
+  %330 = load ptr, ptr %29, align 8, !tbaa !11
+  %331 = call i32 @strcmp(ptr noundef %330, ptr noundef @.str.21) #12
+  %332 = icmp ne i32 %331, 0
+  br i1 %332, label %348, label %333
 
-if.then183:                                       ; preds = %if.end180
-  %96 = load ptr, ptr %argv.addr, align 8
-  %97 = load i32, ptr %i, align 4
-  %inc184 = add nsw i32 %97, 1
-  store i32 %inc184, ptr %i, align 4
-  %idxprom185 = sext i32 %inc184 to i64
-  %arrayidx186 = getelementptr inbounds ptr, ptr %96, i64 %idxprom185
-  %98 = load ptr, ptr %arrayidx186, align 8
-  store ptr %98, ptr %prefix.addr, align 8
-  %99 = load ptr, ptr %prefix.addr, align 8
-  %tobool187 = icmp ne ptr %99, null
-  br i1 %tobool187, label %if.end190, label %if.then188
+333:                                              ; preds = %329
+  %334 = load ptr, ptr %7, align 8, !tbaa !8
+  %335 = load i32, ptr %10, align 4, !tbaa !4
+  %336 = add nsw i32 %335, 1
+  store i32 %336, ptr %10, align 4, !tbaa !4
+  %337 = sext i32 %336 to i64
+  %338 = getelementptr inbounds ptr, ptr %334, i64 %337
+  %339 = load ptr, ptr %338, align 8, !tbaa !11
+  store ptr %339, ptr %8, align 8, !tbaa !11
+  %340 = load ptr, ptr %8, align 8, !tbaa !11
+  %341 = icmp ne ptr %340, null
+  br i1 %341, label %344, label %342
 
-if.then188:                                       ; preds = %if.then183
-  %call189 = call ptr @_(ptr noundef @.str.22)
-  call void (ptr, ...) @die(ptr noundef %call189) #9
+342:                                              ; preds = %333
+  %343 = call ptr @_(ptr noundef @.str.22)
+  call void (ptr, ...) @die(ptr noundef %343) #13
   unreachable
 
-if.end190:                                        ; preds = %if.then183
-  %100 = load ptr, ptr %prefix.addr, align 8
-  %101 = load ptr, ptr @startup_info, align 8
-  %prefix191 = getelementptr inbounds %struct.startup_info, ptr %101, i32 0, i32 1
-  store ptr %100, ptr %prefix191, align 8
-  store i32 1, ptr %output_prefix, align 4
-  br label %for.inc566
+344:                                              ; preds = %333
+  %345 = load ptr, ptr %8, align 8, !tbaa !11
+  %346 = load ptr, ptr @startup_info, align 8, !tbaa !40
+  %347 = getelementptr inbounds nuw %struct.startup_info, ptr %346, i32 0, i32 1
+  store ptr %345, ptr %347, align 8, !tbaa !42
+  store i32 1, ptr %20, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end192:                                        ; preds = %if.end180
-  %102 = load ptr, ptr %arg, align 8
-  %call193 = call i32 @strcmp(ptr noundef %102, ptr noundef @.str.23) #8
-  %tobool194 = icmp ne i32 %call193, 0
-  br i1 %tobool194, label %if.end197, label %if.then195
+348:                                              ; preds = %329
+  %349 = load ptr, ptr %29, align 8, !tbaa !11
+  %350 = call i32 @strcmp(ptr noundef %349, ptr noundef @.str.23) #12
+  %351 = icmp ne i32 %350, 0
+  br i1 %351, label %355, label %352
 
-if.then195:                                       ; preds = %if.end192
-  %103 = load i32, ptr @filter, align 4
-  %and196 = and i32 %103, -3
-  store i32 %and196, ptr @filter, align 4
-  br label %for.inc566
+352:                                              ; preds = %348
+  %353 = load i32, ptr @filter, align 4, !tbaa !4
+  %354 = and i32 %353, -3
+  store i32 %354, ptr @filter, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end197:                                        ; preds = %if.end192
-  %104 = load ptr, ptr %arg, align 8
-  %call198 = call i32 @strcmp(ptr noundef %104, ptr noundef @.str.24) #8
-  %tobool199 = icmp ne i32 %call198, 0
-  br i1 %tobool199, label %if.end202, label %if.then200
+355:                                              ; preds = %348
+  %356 = load ptr, ptr %29, align 8, !tbaa !11
+  %357 = call i32 @strcmp(ptr noundef %356, ptr noundef @.str.24) #12
+  %358 = icmp ne i32 %357, 0
+  br i1 %358, label %362, label %359
 
-if.then200:                                       ; preds = %if.end197
-  %105 = load i32, ptr @filter, align 4
-  %and201 = and i32 %105, -2
-  store i32 %and201, ptr @filter, align 4
-  br label %for.inc566
+359:                                              ; preds = %355
+  %360 = load i32, ptr @filter, align 4, !tbaa !4
+  %361 = and i32 %360, -2
+  store i32 %361, ptr @filter, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end202:                                        ; preds = %if.end197
-  %106 = load ptr, ptr %arg, align 8
-  %call203 = call i32 @strcmp(ptr noundef %106, ptr noundef @.str.25) #8
-  %tobool204 = icmp ne i32 %call203, 0
-  br i1 %tobool204, label %if.end207, label %if.then205
+362:                                              ; preds = %355
+  %363 = load ptr, ptr %29, align 8, !tbaa !11
+  %364 = call i32 @strcmp(ptr noundef %363, ptr noundef @.str.25) #12
+  %365 = icmp ne i32 %364, 0
+  br i1 %365, label %369, label %366
 
-if.then205:                                       ; preds = %if.end202
-  %107 = load i32, ptr @filter, align 4
-  %and206 = and i32 %107, -9
-  store i32 %and206, ptr @filter, align 4
-  br label %for.inc566
+366:                                              ; preds = %362
+  %367 = load i32, ptr @filter, align 4, !tbaa !4
+  %368 = and i32 %367, -9
+  store i32 %368, ptr @filter, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end207:                                        ; preds = %if.end202
-  %108 = load ptr, ptr %arg, align 8
-  %call208 = call i32 @strcmp(ptr noundef %108, ptr noundef @.str.26) #8
-  %tobool209 = icmp ne i32 %call208, 0
-  br i1 %tobool209, label %if.end212, label %if.then210
+369:                                              ; preds = %362
+  %370 = load ptr, ptr %29, align 8, !tbaa !11
+  %371 = call i32 @strcmp(ptr noundef %370, ptr noundef @.str.26) #12
+  %372 = icmp ne i32 %371, 0
+  br i1 %372, label %376, label %373
 
-if.then210:                                       ; preds = %if.end207
-  %109 = load i32, ptr @filter, align 4
-  %and211 = and i32 %109, -5
-  store i32 %and211, ptr @filter, align 4
-  br label %for.inc566
+373:                                              ; preds = %369
+  %374 = load i32, ptr @filter, align 4, !tbaa !4
+  %375 = and i32 %374, -5
+  store i32 %375, ptr @filter, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end212:                                        ; preds = %if.end207
-  %110 = load ptr, ptr %arg, align 8
-  %call213 = call i32 @strcmp(ptr noundef %110, ptr noundef @.str.27) #8
-  %tobool214 = icmp ne i32 %call213, 0
-  br i1 %tobool214, label %if.end217, label %if.then215
+376:                                              ; preds = %369
+  %377 = load ptr, ptr %29, align 8, !tbaa !11
+  %378 = call i32 @strcmp(ptr noundef %377, ptr noundef @.str.27) #12
+  %379 = icmp ne i32 %378, 0
+  br i1 %379, label %383, label %380
 
-if.then215:                                       ; preds = %if.end212
-  %111 = load i32, ptr @filter, align 4
-  %and216 = and i32 %111, -7
-  store i32 %and216, ptr @filter, align 4
-  store i32 1, ptr %verify, align 4
-  br label %for.inc566
+380:                                              ; preds = %376
+  %381 = load i32, ptr @filter, align 4, !tbaa !4
+  %382 = and i32 %381, -7
+  store i32 %382, ptr @filter, align 4, !tbaa !4
+  store i32 1, ptr %12, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end217:                                        ; preds = %if.end212
-  %112 = load ptr, ptr %arg, align 8
-  %call218 = call i32 @strcmp(ptr noundef %112, ptr noundef @.str.28) #8
-  %tobool219 = icmp ne i32 %call218, 0
-  br i1 %tobool219, label %lor.lhs.false, label %if.then222
+383:                                              ; preds = %376
+  %384 = load ptr, ptr %29, align 8, !tbaa !11
+  %385 = call i32 @strcmp(ptr noundef %384, ptr noundef @.str.28) #12
+  %386 = icmp ne i32 %385, 0
+  br i1 %386, label %387, label %391
 
-lor.lhs.false:                                    ; preds = %if.end217
-  %113 = load ptr, ptr %arg, align 8
-  %call220 = call i32 @strcmp(ptr noundef %113, ptr noundef @.str.29) #8
-  %tobool221 = icmp ne i32 %call220, 0
-  br i1 %tobool221, label %if.end223, label %if.then222
+387:                                              ; preds = %383
+  %388 = load ptr, ptr %29, align 8, !tbaa !11
+  %389 = call i32 @strcmp(ptr noundef %388, ptr noundef @.str.29) #12
+  %390 = icmp ne i32 %389, 0
+  br i1 %390, label %394, label %391
 
-if.then222:                                       ; preds = %lor.lhs.false, %if.end217
-  store i32 1, ptr %quiet, align 4
-  %114 = load i32, ptr %flags, align 4
-  %or = or i32 %114, 1
-  store i32 %or, ptr %flags, align 4
-  br label %for.inc566
+391:                                              ; preds = %387, %383
+  store i32 1, ptr %13, align 4, !tbaa !4
+  %392 = load i32, ptr %22, align 4, !tbaa !4
+  %393 = or i32 %392, 1
+  store i32 %393, ptr %22, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end223:                                        ; preds = %lor.lhs.false
-  %115 = load ptr, ptr %arg, align 8
-  %call224 = call i32 @opt_with_value(ptr noundef %115, ptr noundef @.str.30, ptr noundef %arg)
-  %tobool225 = icmp ne i32 %call224, 0
-  br i1 %tobool225, label %if.then226, label %if.end242
+394:                                              ; preds = %387
+  %395 = load ptr, ptr %29, align 8, !tbaa !11
+  %396 = call i32 @opt_with_value(ptr noundef %395, ptr noundef @.str.30, ptr noundef %29)
+  %397 = icmp ne i32 %396, 0
+  br i1 %397, label %398, label %439
 
-if.then226:                                       ; preds = %if.end223
-  %116 = load i32, ptr @filter, align 4
-  %and227 = and i32 %116, -7
-  store i32 %and227, ptr @filter, align 4
-  store i32 1, ptr %verify, align 4
-  %117 = load i32, ptr @default_abbrev, align 4
-  store i32 %117, ptr @abbrev, align 4
-  %118 = load ptr, ptr %arg, align 8
-  %tobool228 = icmp ne ptr %118, null
-  br i1 %tobool228, label %if.end230, label %if.then229
+398:                                              ; preds = %394
+  %399 = load ptr, ptr %29, align 8, !tbaa !11
+  %400 = icmp ne ptr %399, null
+  br i1 %400, label %403, label %401
 
-if.then229:                                       ; preds = %if.then226
-  br label %for.inc566
-
-if.end230:                                        ; preds = %if.then226
-  %119 = load ptr, ptr %arg, align 8
-  %call231 = call i64 @strtoul(ptr noundef %119, ptr noundef null, i32 noundef 10) #10
-  %conv232 = trunc i64 %call231 to i32
-  store i32 %conv232, ptr @abbrev, align 4
-  %120 = load i32, ptr @abbrev, align 4
-  %121 = load i32, ptr @minimum_abbrev, align 4
-  %cmp233 = icmp slt i32 %120, %121
-  br i1 %cmp233, label %if.then235, label %if.else236
-
-if.then235:                                       ; preds = %if.end230
-  %122 = load i32, ptr @minimum_abbrev, align 4
-  store i32 %122, ptr @abbrev, align 4
-  br label %if.end241
-
-if.else236:                                       ; preds = %if.end230
-  %123 = load i32, ptr %hexsz, align 4
-  %124 = load i32, ptr @abbrev, align 4
-  %cmp237 = icmp sle i32 %123, %124
-  br i1 %cmp237, label %if.then239, label %if.end240
-
-if.then239:                                       ; preds = %if.else236
-  %125 = load i32, ptr %hexsz, align 4
-  store i32 %125, ptr @abbrev, align 4
-  br label %if.end240
-
-if.end240:                                        ; preds = %if.then239, %if.else236
-  br label %if.end241
-
-if.end241:                                        ; preds = %if.end240, %if.then235
-  br label %for.inc566
-
-if.end242:                                        ; preds = %if.end223
-  %126 = load ptr, ptr %arg, align 8
-  %call243 = call i32 @strcmp(ptr noundef %126, ptr noundef @.str.31) #8
-  %tobool244 = icmp ne i32 %call243, 0
-  br i1 %tobool244, label %if.end246, label %if.then245
-
-if.then245:                                       ; preds = %if.end242
-  store i32 1, ptr @output_sq, align 4
-  br label %for.inc566
-
-if.end246:                                        ; preds = %if.end242
-  %127 = load ptr, ptr %arg, align 8
-  %call247 = call i32 @strcmp(ptr noundef %127, ptr noundef @.str.32) #8
-  %tobool248 = icmp ne i32 %call247, 0
-  br i1 %tobool248, label %if.end250, label %if.then249
-
-if.then249:                                       ; preds = %if.end246
-  %128 = load i32, ptr @show_type, align 4
-  %xor = xor i32 %128, 1
-  store i32 %xor, ptr @show_type, align 4
-  br label %for.inc566
-
-if.end250:                                        ; preds = %if.end246
-  %129 = load ptr, ptr %arg, align 8
-  %call251 = call i32 @strcmp(ptr noundef %129, ptr noundef @.str.33) #8
-  %tobool252 = icmp ne i32 %call251, 0
-  br i1 %tobool252, label %if.end254, label %if.then253
-
-if.then253:                                       ; preds = %if.end250
-  store i32 1, ptr @symbolic, align 4
-  br label %for.inc566
-
-if.end254:                                        ; preds = %if.end250
-  %130 = load ptr, ptr %arg, align 8
-  %call255 = call i32 @strcmp(ptr noundef %130, ptr noundef @.str.34) #8
-  %tobool256 = icmp ne i32 %call255, 0
-  br i1 %tobool256, label %if.end258, label %if.then257
-
-if.then257:                                       ; preds = %if.end254
-  store i32 2, ptr @symbolic, align 4
-  br label %for.inc566
-
-if.end258:                                        ; preds = %if.end254
-  %131 = load ptr, ptr %arg, align 8
-  %call259 = call i32 @opt_with_value(ptr noundef %131, ptr noundef @.str.35, ptr noundef %arg)
-  %tobool260 = icmp ne i32 %call259, 0
-  br i1 %tobool260, label %if.then261, label %if.end276
-
-if.then261:                                       ; preds = %if.end258
-  store i32 1, ptr @abbrev_ref, align 4
-  %132 = load i32, ptr @warn_ambiguous_refs, align 4
-  store i32 %132, ptr @abbrev_ref_strict, align 4
-  %133 = load ptr, ptr %arg, align 8
-  %tobool262 = icmp ne ptr %133, null
-  br i1 %tobool262, label %if.then263, label %if.end275
-
-if.then263:                                       ; preds = %if.then261
-  %134 = load ptr, ptr %arg, align 8
-  %call264 = call i32 @strcmp(ptr noundef %134, ptr noundef @.str.36) #8
-  %tobool265 = icmp ne i32 %call264, 0
-  br i1 %tobool265, label %if.else267, label %if.then266
-
-if.then266:                                       ; preds = %if.then263
-  store i32 1, ptr @abbrev_ref_strict, align 4
-  br label %if.end274
-
-if.else267:                                       ; preds = %if.then263
-  %135 = load ptr, ptr %arg, align 8
-  %call268 = call i32 @strcmp(ptr noundef %135, ptr noundef @.str.37) #8
-  %tobool269 = icmp ne i32 %call268, 0
-  br i1 %tobool269, label %if.else271, label %if.then270
-
-if.then270:                                       ; preds = %if.else267
-  store i32 0, ptr @abbrev_ref_strict, align 4
-  br label %if.end273
-
-if.else271:                                       ; preds = %if.else267
-  %call272 = call ptr @_(ptr noundef @.str.38)
-  %136 = load ptr, ptr %arg, align 8
-  call void (ptr, ...) @die(ptr noundef %call272, ptr noundef %136) #9
+401:                                              ; preds = %398
+  %402 = call ptr @_(ptr noundef @.str.31)
+  call void (ptr, ...) @die(ptr noundef %402) #13
   unreachable
 
-if.end273:                                        ; preds = %if.then270
-  br label %if.end274
+403:                                              ; preds = %398
+  %404 = load ptr, ptr %29, align 8, !tbaa !11
+  %405 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %406 = getelementptr inbounds nuw %struct.repository, ptr %405, i32 0, i32 17
+  %407 = load ptr, ptr %406, align 8, !tbaa !44
+  %408 = getelementptr inbounds nuw %struct.git_hash_algo, ptr %407, i32 0, i32 0
+  %409 = load ptr, ptr %408, align 8, !tbaa !45
+  %410 = call i32 @strcmp(ptr noundef %404, ptr noundef %409) #12
+  %411 = icmp ne i32 %410, 0
+  br i1 %411, label %412, label %416
 
-if.end274:                                        ; preds = %if.end273, %if.then266
-  br label %if.end275
+412:                                              ; preds = %403
+  %413 = load ptr, ptr %29, align 8, !tbaa !11
+  %414 = call i32 @strcmp(ptr noundef %413, ptr noundef @.str.32) #12
+  %415 = icmp ne i32 %414, 0
+  br i1 %415, label %422, label %416
 
-if.end275:                                        ; preds = %if.end274, %if.then261
-  br label %for.inc566
+416:                                              ; preds = %412, %403
+  %417 = load i32, ptr %22, align 4, !tbaa !4
+  %418 = or i32 %417, 8192
+  store i32 %418, ptr %22, align 4, !tbaa !4
+  %419 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %420 = getelementptr inbounds nuw %struct.repository, ptr %419, i32 0, i32 17
+  %421 = load ptr, ptr %420, align 8, !tbaa !44
+  store ptr %421, ptr %16, align 8, !tbaa !15
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end276:                                        ; preds = %if.end258
-  %137 = load ptr, ptr %arg, align 8
-  %call277 = call i32 @strcmp(ptr noundef %137, ptr noundef @.str.39) #8
-  %tobool278 = icmp ne i32 %call277, 0
-  br i1 %tobool278, label %if.end281, label %if.then279
+422:                                              ; preds = %412
+  %423 = load ptr, ptr %17, align 8, !tbaa !15
+  %424 = icmp ne ptr %423, null
+  br i1 %424, label %425, label %436
 
-if.then279:                                       ; preds = %if.end276
-  %call280 = call i32 @for_each_ref(ptr noundef @show_reference, ptr noundef null)
+425:                                              ; preds = %422
+  %426 = load ptr, ptr %29, align 8, !tbaa !11
+  %427 = load ptr, ptr %17, align 8, !tbaa !15
+  %428 = getelementptr inbounds nuw %struct.git_hash_algo, ptr %427, i32 0, i32 0
+  %429 = load ptr, ptr %428, align 8, !tbaa !45
+  %430 = call i32 @strcmp(ptr noundef %426, ptr noundef %429) #12
+  %431 = icmp ne i32 %430, 0
+  br i1 %431, label %436, label %432
+
+432:                                              ; preds = %425
+  %433 = load i32, ptr %22, align 4, !tbaa !4
+  %434 = or i32 %433, 8192
+  store i32 %434, ptr %22, align 4, !tbaa !4
+  %435 = load ptr, ptr %17, align 8, !tbaa !15
+  store ptr %435, ptr %16, align 8, !tbaa !15
+  store i32 7, ptr %28, align 4
+  br label %980
+
+436:                                              ; preds = %425, %422
+  %437 = call ptr @_(ptr noundef @.str.33)
+  %438 = load ptr, ptr %29, align 8, !tbaa !11
+  call void (ptr, ...) @die(ptr noundef %437, ptr noundef %438) #13
+  unreachable
+
+439:                                              ; preds = %394
+  %440 = load ptr, ptr %29, align 8, !tbaa !11
+  %441 = call i32 @opt_with_value(ptr noundef %440, ptr noundef @.str.34, ptr noundef %29)
+  %442 = icmp ne i32 %441, 0
+  br i1 %442, label %443, label %477
+
+443:                                              ; preds = %439
+  %444 = load i32, ptr @filter, align 4, !tbaa !4
+  %445 = and i32 %444, -7
+  store i32 %445, ptr @filter, align 4, !tbaa !4
+  store i32 1, ptr %12, align 4, !tbaa !4
+  %446 = load i32, ptr @default_abbrev, align 4, !tbaa !4
+  store i32 %446, ptr @abbrev, align 4, !tbaa !4
+  %447 = load ptr, ptr %29, align 8, !tbaa !11
+  %448 = icmp ne ptr %447, null
+  br i1 %448, label %450, label %449
+
+449:                                              ; preds = %443
+  store i32 7, ptr %28, align 4
+  br label %980
+
+450:                                              ; preds = %443
+  %451 = load ptr, ptr %29, align 8, !tbaa !11
+  %452 = call i64 @strtoul(ptr noundef %451, ptr noundef null, i32 noundef 10) #11
+  %453 = trunc i64 %452 to i32
+  store i32 %453, ptr @abbrev, align 4, !tbaa !4
+  %454 = load i32, ptr @abbrev, align 4, !tbaa !4
+  %455 = load i32, ptr @minimum_abbrev, align 4, !tbaa !4
+  %456 = icmp slt i32 %454, %455
+  br i1 %456, label %457, label %459
+
+457:                                              ; preds = %450
+  %458 = load i32, ptr @minimum_abbrev, align 4, !tbaa !4
+  store i32 %458, ptr @abbrev, align 4, !tbaa !4
+  br label %476
+
+459:                                              ; preds = %450
+  %460 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %461 = getelementptr inbounds nuw %struct.repository, ptr %460, i32 0, i32 17
+  %462 = load ptr, ptr %461, align 8, !tbaa !44
+  %463 = getelementptr inbounds nuw %struct.git_hash_algo, ptr %462, i32 0, i32 3
+  %464 = load i64, ptr %463, align 8, !tbaa !48
+  %465 = trunc i64 %464 to i32
+  %466 = load i32, ptr @abbrev, align 4, !tbaa !4
+  %467 = icmp sle i32 %465, %466
+  br i1 %467, label %468, label %475
+
+468:                                              ; preds = %459
+  %469 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %470 = getelementptr inbounds nuw %struct.repository, ptr %469, i32 0, i32 17
+  %471 = load ptr, ptr %470, align 8, !tbaa !44
+  %472 = getelementptr inbounds nuw %struct.git_hash_algo, ptr %471, i32 0, i32 3
+  %473 = load i64, ptr %472, align 8, !tbaa !48
+  %474 = trunc i64 %473 to i32
+  store i32 %474, ptr @abbrev, align 4, !tbaa !4
+  br label %475
+
+475:                                              ; preds = %468, %459
+  br label %476
+
+476:                                              ; preds = %475, %457
+  store i32 7, ptr %28, align 4
+  br label %980
+
+477:                                              ; preds = %439
+  %478 = load ptr, ptr %29, align 8, !tbaa !11
+  %479 = call i32 @strcmp(ptr noundef %478, ptr noundef @.str.35) #12
+  %480 = icmp ne i32 %479, 0
+  br i1 %480, label %482, label %481
+
+481:                                              ; preds = %477
+  store i32 1, ptr @output_sq, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
+
+482:                                              ; preds = %477
+  %483 = load ptr, ptr %29, align 8, !tbaa !11
+  %484 = call i32 @strcmp(ptr noundef %483, ptr noundef @.str.36) #12
+  %485 = icmp ne i32 %484, 0
+  br i1 %485, label %489, label %486
+
+486:                                              ; preds = %482
+  %487 = load i32, ptr @show_type, align 4, !tbaa !4
+  %488 = xor i32 %487, 1
+  store i32 %488, ptr @show_type, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
+
+489:                                              ; preds = %482
+  %490 = load ptr, ptr %29, align 8, !tbaa !11
+  %491 = call i32 @strcmp(ptr noundef %490, ptr noundef @.str.37) #12
+  %492 = icmp ne i32 %491, 0
+  br i1 %492, label %494, label %493
+
+493:                                              ; preds = %489
+  store i32 1, ptr @symbolic, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
+
+494:                                              ; preds = %489
+  %495 = load ptr, ptr %29, align 8, !tbaa !11
+  %496 = call i32 @strcmp(ptr noundef %495, ptr noundef @.str.38) #12
+  %497 = icmp ne i32 %496, 0
+  br i1 %497, label %499, label %498
+
+498:                                              ; preds = %494
+  store i32 2, ptr @symbolic, align 4, !tbaa !4
+  store i32 7, ptr %28, align 4
+  br label %980
+
+499:                                              ; preds = %494
+  %500 = load ptr, ptr %29, align 8, !tbaa !11
+  %501 = call i32 @opt_with_value(ptr noundef %500, ptr noundef @.str.39, ptr noundef %29)
+  %502 = icmp ne i32 %501, 0
+  br i1 %502, label %503, label %524
+
+503:                                              ; preds = %499
+  store i32 1, ptr @abbrev_ref, align 4, !tbaa !4
+  %504 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %505 = call i32 @repo_settings_get_warn_ambiguous_refs(ptr noundef %504)
+  store i32 %505, ptr @abbrev_ref_strict, align 4, !tbaa !4
+  %506 = load ptr, ptr %29, align 8, !tbaa !11
+  %507 = icmp ne ptr %506, null
+  br i1 %507, label %508, label %523
+
+508:                                              ; preds = %503
+  %509 = load ptr, ptr %29, align 8, !tbaa !11
+  %510 = call i32 @strcmp(ptr noundef %509, ptr noundef @.str.40) #12
+  %511 = icmp ne i32 %510, 0
+  br i1 %511, label %513, label %512
+
+512:                                              ; preds = %508
+  store i32 1, ptr @abbrev_ref_strict, align 4, !tbaa !4
+  br label %522
+
+513:                                              ; preds = %508
+  %514 = load ptr, ptr %29, align 8, !tbaa !11
+  %515 = call i32 @strcmp(ptr noundef %514, ptr noundef @.str.41) #12
+  %516 = icmp ne i32 %515, 0
+  br i1 %516, label %518, label %517
+
+517:                                              ; preds = %513
+  store i32 0, ptr @abbrev_ref_strict, align 4, !tbaa !4
+  br label %521
+
+518:                                              ; preds = %513
+  %519 = call ptr @_(ptr noundef @.str.42)
+  %520 = load ptr, ptr %29, align 8, !tbaa !11
+  call void (ptr, ...) @die(ptr noundef %519, ptr noundef %520) #13
+  unreachable
+
+521:                                              ; preds = %517
+  br label %522
+
+522:                                              ; preds = %521, %512
+  br label %523
+
+523:                                              ; preds = %522, %503
+  store i32 7, ptr %28, align 4
+  br label %980
+
+524:                                              ; preds = %499
+  %525 = load ptr, ptr %29, align 8, !tbaa !11
+  %526 = call i32 @strcmp(ptr noundef %525, ptr noundef @.str.43) #12
+  %527 = icmp ne i32 %526, 0
+  br i1 %527, label %532, label %528
+
+528:                                              ; preds = %524
+  %529 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %530 = call ptr @get_main_ref_store(ptr noundef %529)
+  %531 = call i32 @refs_for_each_ref(ptr noundef %530, ptr noundef @show_reference, ptr noundef null)
   call void @clear_ref_exclusions(ptr noundef @ref_excludes)
-  br label %for.inc566
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end281:                                        ; preds = %if.end276
-  %138 = load ptr, ptr %arg, align 8
-  %call282 = call zeroext i1 @skip_prefix(ptr noundef %138, ptr noundef @.str.40, ptr noundef %arg)
-  br i1 %call282, label %if.then283, label %if.end285
+532:                                              ; preds = %524
+  %533 = load ptr, ptr %29, align 8, !tbaa !11
+  %534 = call zeroext i1 @skip_prefix(ptr noundef %533, ptr noundef @.str.44, ptr noundef %29)
+  br i1 %534, label %535, label %542
 
-if.then283:                                       ; preds = %if.end281
-  %139 = load ptr, ptr @the_repository, align 8
-  %140 = load ptr, ptr %arg, align 8
-  %call284 = call i32 @repo_for_each_abbrev(ptr noundef %139, ptr noundef %140, ptr noundef @show_abbrev, ptr noundef null)
-  br label %for.inc566
+535:                                              ; preds = %532
+  %536 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %537 = load ptr, ptr %29, align 8, !tbaa !11
+  %538 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %539 = getelementptr inbounds nuw %struct.repository, ptr %538, i32 0, i32 17
+  %540 = load ptr, ptr %539, align 8, !tbaa !44
+  %541 = call i32 @repo_for_each_abbrev(ptr noundef %536, ptr noundef %537, ptr noundef %540, ptr noundef @show_abbrev, ptr noundef null)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end285:                                        ; preds = %if.end281
-  %141 = load ptr, ptr %arg, align 8
-  %call286 = call i32 @strcmp(ptr noundef %141, ptr noundef @.str.41) #8
-  %tobool287 = icmp ne i32 %call286, 0
-  br i1 %tobool287, label %if.end291, label %if.then288
+542:                                              ; preds = %532
+  %543 = load ptr, ptr %29, align 8, !tbaa !11
+  %544 = call i32 @strcmp(ptr noundef %543, ptr noundef @.str.45) #12
+  %545 = icmp ne i32 %544, 0
+  br i1 %545, label %553, label %546
 
-if.then288:                                       ; preds = %if.end285
-  %call289 = call i32 @for_each_fullref_in(ptr noundef @.str.42, ptr noundef @show_reference, ptr noundef null)
-  %call290 = call i32 @for_each_fullref_in(ptr noundef @.str.43, ptr noundef @anti_reference, ptr noundef null)
-  br label %for.inc566
+546:                                              ; preds = %542
+  %547 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %548 = call ptr @get_main_ref_store(ptr noundef %547)
+  %549 = call i32 @refs_for_each_fullref_in(ptr noundef %548, ptr noundef @.str.46, ptr noundef null, ptr noundef @show_reference, ptr noundef null)
+  %550 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %551 = call ptr @get_main_ref_store(ptr noundef %550)
+  %552 = call i32 @refs_for_each_fullref_in(ptr noundef %551, ptr noundef @.str.47, ptr noundef null, ptr noundef @anti_reference, ptr noundef null)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end291:                                        ; preds = %if.end285
-  %142 = load ptr, ptr %arg, align 8
-  %call292 = call i32 @opt_with_value(ptr noundef %142, ptr noundef @.str.44, ptr noundef %arg)
-  %tobool293 = icmp ne i32 %call292, 0
-  br i1 %tobool293, label %if.then294, label %if.end301
+553:                                              ; preds = %542
+  %554 = load ptr, ptr %29, align 8, !tbaa !11
+  %555 = call i32 @opt_with_value(ptr noundef %554, ptr noundef @.str.48, ptr noundef %29)
+  %556 = icmp ne i32 %555, 0
+  br i1 %556, label %557, label %566
 
-if.then294:                                       ; preds = %if.end291
-  %143 = getelementptr inbounds %struct.ref_exclusions, ptr @ref_excludes, i32 0, i32 2
-  %144 = load i8, ptr %143, align 8
-  %tobool295 = icmp ne i8 %144, 0
-  br i1 %tobool295, label %if.then296, label %if.end300
+557:                                              ; preds = %553
+  %558 = load i8, ptr getelementptr inbounds nuw (%struct.ref_exclusions, ptr @ref_excludes, i32 0, i32 2), align 8, !tbaa !49
+  %559 = icmp ne i8 %558, 0
+  br i1 %559, label %560, label %564
 
-if.then296:                                       ; preds = %if.then294
-  %call297 = call ptr @_(ptr noundef @.str.45)
-  %call298 = call i32 (ptr, ...) @error(ptr noundef %call297, ptr noundef @.str.46, ptr noundef @.str.44)
-  %call299 = call i32 @const_error()
-  store i32 %call299, ptr %retval, align 4
-  br label %return
+560:                                              ; preds = %557
+  %561 = call ptr @_(ptr noundef @.str.49)
+  %562 = call i32 (ptr, ...) @error(ptr noundef %561, ptr noundef @.str.50, ptr noundef @.str.48)
+  %563 = call i32 @const_error()
+  store i32 %563, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %980
 
-if.end300:                                        ; preds = %if.then294
-  %145 = load ptr, ptr %arg, align 8
-  call void @handle_ref_opt(ptr noundef %145, ptr noundef @.str.47)
-  br label %for.inc566
+564:                                              ; preds = %557
+  %565 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @handle_ref_opt(ptr noundef %565, ptr noundef @.str.51)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end301:                                        ; preds = %if.end291
-  %146 = load ptr, ptr %arg, align 8
-  %call302 = call i32 @opt_with_value(ptr noundef %146, ptr noundef @.str.48, ptr noundef %arg)
-  %tobool303 = icmp ne i32 %call302, 0
-  br i1 %tobool303, label %if.then304, label %if.end311
+566:                                              ; preds = %553
+  %567 = load ptr, ptr %29, align 8, !tbaa !11
+  %568 = call i32 @opt_with_value(ptr noundef %567, ptr noundef @.str.52, ptr noundef %29)
+  %569 = icmp ne i32 %568, 0
+  br i1 %569, label %570, label %579
 
-if.then304:                                       ; preds = %if.end301
-  %147 = getelementptr inbounds %struct.ref_exclusions, ptr @ref_excludes, i32 0, i32 2
-  %148 = load i8, ptr %147, align 8
-  %tobool305 = icmp ne i8 %148, 0
-  br i1 %tobool305, label %if.then306, label %if.end310
+570:                                              ; preds = %566
+  %571 = load i8, ptr getelementptr inbounds nuw (%struct.ref_exclusions, ptr @ref_excludes, i32 0, i32 2), align 8, !tbaa !49
+  %572 = icmp ne i8 %571, 0
+  br i1 %572, label %573, label %577
 
-if.then306:                                       ; preds = %if.then304
-  %call307 = call ptr @_(ptr noundef @.str.45)
-  %call308 = call i32 (ptr, ...) @error(ptr noundef %call307, ptr noundef @.str.46, ptr noundef @.str.48)
-  %call309 = call i32 @const_error()
-  store i32 %call309, ptr %retval, align 4
-  br label %return
+573:                                              ; preds = %570
+  %574 = call ptr @_(ptr noundef @.str.49)
+  %575 = call i32 (ptr, ...) @error(ptr noundef %574, ptr noundef @.str.50, ptr noundef @.str.52)
+  %576 = call i32 @const_error()
+  store i32 %576, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %980
 
-if.end310:                                        ; preds = %if.then304
-  %149 = load ptr, ptr %arg, align 8
-  call void @handle_ref_opt(ptr noundef %149, ptr noundef @.str.49)
-  br label %for.inc566
+577:                                              ; preds = %570
+  %578 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @handle_ref_opt(ptr noundef %578, ptr noundef @.str.53)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end311:                                        ; preds = %if.end301
-  %150 = load ptr, ptr %arg, align 8
-  %call312 = call zeroext i1 @skip_prefix(ptr noundef %150, ptr noundef @.str.50, ptr noundef %arg)
-  br i1 %call312, label %if.then313, label %if.end314
+579:                                              ; preds = %566
+  %580 = load ptr, ptr %29, align 8, !tbaa !11
+  %581 = call zeroext i1 @skip_prefix(ptr noundef %580, ptr noundef @.str.54, ptr noundef %29)
+  br i1 %581, label %582, label %584
 
-if.then313:                                       ; preds = %if.end311
-  %151 = load ptr, ptr %arg, align 8
-  call void @handle_ref_opt(ptr noundef %151, ptr noundef null)
-  br label %for.inc566
+582:                                              ; preds = %579
+  %583 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @handle_ref_opt(ptr noundef %583, ptr noundef null)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end314:                                        ; preds = %if.end311
-  %152 = load ptr, ptr %arg, align 8
-  %call315 = call i32 @opt_with_value(ptr noundef %152, ptr noundef @.str.51, ptr noundef %arg)
-  %tobool316 = icmp ne i32 %call315, 0
-  br i1 %tobool316, label %if.then317, label %if.end324
+584:                                              ; preds = %579
+  %585 = load ptr, ptr %29, align 8, !tbaa !11
+  %586 = call i32 @opt_with_value(ptr noundef %585, ptr noundef @.str.55, ptr noundef %29)
+  %587 = icmp ne i32 %586, 0
+  br i1 %587, label %588, label %597
 
-if.then317:                                       ; preds = %if.end314
-  %153 = getelementptr inbounds %struct.ref_exclusions, ptr @ref_excludes, i32 0, i32 2
-  %154 = load i8, ptr %153, align 8
-  %tobool318 = icmp ne i8 %154, 0
-  br i1 %tobool318, label %if.then319, label %if.end323
+588:                                              ; preds = %584
+  %589 = load i8, ptr getelementptr inbounds nuw (%struct.ref_exclusions, ptr @ref_excludes, i32 0, i32 2), align 8, !tbaa !49
+  %590 = icmp ne i8 %589, 0
+  br i1 %590, label %591, label %595
 
-if.then319:                                       ; preds = %if.then317
-  %call320 = call ptr @_(ptr noundef @.str.45)
-  %call321 = call i32 (ptr, ...) @error(ptr noundef %call320, ptr noundef @.str.46, ptr noundef @.str.51)
-  %call322 = call i32 @const_error()
-  store i32 %call322, ptr %retval, align 4
-  br label %return
+591:                                              ; preds = %588
+  %592 = call ptr @_(ptr noundef @.str.49)
+  %593 = call i32 (ptr, ...) @error(ptr noundef %592, ptr noundef @.str.50, ptr noundef @.str.55)
+  %594 = call i32 @const_error()
+  store i32 %594, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %980
 
-if.end323:                                        ; preds = %if.then317
-  %155 = load ptr, ptr %arg, align 8
-  call void @handle_ref_opt(ptr noundef %155, ptr noundef @.str.52)
-  br label %for.inc566
+595:                                              ; preds = %588
+  %596 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @handle_ref_opt(ptr noundef %596, ptr noundef @.str.56)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end324:                                        ; preds = %if.end314
-  %156 = load ptr, ptr %arg, align 8
-  %call325 = call zeroext i1 @skip_prefix(ptr noundef %156, ptr noundef @.str.53, ptr noundef %arg)
-  br i1 %call325, label %if.then326, label %if.end327
+597:                                              ; preds = %584
+  %598 = load ptr, ptr %29, align 8, !tbaa !11
+  %599 = call zeroext i1 @skip_prefix(ptr noundef %598, ptr noundef @.str.57, ptr noundef %29)
+  br i1 %599, label %600, label %602
 
-if.then326:                                       ; preds = %if.end324
-  %157 = load ptr, ptr %arg, align 8
-  call void @add_ref_exclusion(ptr noundef @ref_excludes, ptr noundef %157)
-  br label %for.inc566
+600:                                              ; preds = %597
+  %601 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @add_ref_exclusion(ptr noundef @ref_excludes, ptr noundef %601)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end327:                                        ; preds = %if.end324
-  %158 = load ptr, ptr %arg, align 8
-  %call328 = call zeroext i1 @skip_prefix(ptr noundef %158, ptr noundef @.str.54, ptr noundef %arg)
-  br i1 %call328, label %if.then329, label %if.end330
+602:                                              ; preds = %597
+  %603 = load ptr, ptr %29, align 8, !tbaa !11
+  %604 = call zeroext i1 @skip_prefix(ptr noundef %603, ptr noundef @.str.58, ptr noundef %29)
+  br i1 %604, label %605, label %607
 
-if.then329:                                       ; preds = %if.end327
-  %159 = load ptr, ptr %arg, align 8
-  call void @exclude_hidden_refs(ptr noundef @ref_excludes, ptr noundef %159)
-  br label %for.inc566
+605:                                              ; preds = %602
+  %606 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @exclude_hidden_refs(ptr noundef @ref_excludes, ptr noundef %606)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end330:                                        ; preds = %if.end327
-  %160 = load ptr, ptr %arg, align 8
-  %call331 = call i32 @strcmp(ptr noundef %160, ptr noundef @.str.55) #8
-  %tobool332 = icmp ne i32 %call331, 0
-  br i1 %tobool332, label %if.end340, label %if.then333
+607:                                              ; preds = %602
+  %608 = load ptr, ptr %29, align 8, !tbaa !11
+  %609 = call i32 @strcmp(ptr noundef %608, ptr noundef @.str.59) #12
+  %610 = icmp ne i32 %609, 0
+  br i1 %610, label %623, label %611
 
-if.then333:                                       ; preds = %if.end330
-  %call334 = call ptr @get_git_work_tree()
-  store ptr %call334, ptr %work_tree, align 8
-  %161 = load ptr, ptr %work_tree, align 8
-  %tobool335 = icmp ne ptr %161, null
-  br i1 %tobool335, label %if.then336, label %if.else337
+611:                                              ; preds = %607
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #11
+  %612 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %613 = call ptr @repo_get_work_tree(ptr noundef %612)
+  store ptr %613, ptr %32, align 8, !tbaa !11
+  %614 = load ptr, ptr %32, align 8, !tbaa !11
+  %615 = icmp ne ptr %614, null
+  br i1 %615, label %616, label %620
 
-if.then336:                                       ; preds = %if.then333
-  %162 = load ptr, ptr %work_tree, align 8
-  %163 = load ptr, ptr %prefix.addr, align 8
-  %164 = load i32, ptr %format, align 4
-  call void @print_path(ptr noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef 3)
-  br label %if.end339
+616:                                              ; preds = %611
+  %617 = load ptr, ptr %32, align 8, !tbaa !11
+  %618 = load ptr, ptr %8, align 8, !tbaa !11
+  %619 = load i32, ptr %27, align 4, !tbaa !4
+  call void @print_path(ptr noundef %617, ptr noundef %618, i32 noundef %619, i32 noundef 3)
+  br label %622
 
-if.else337:                                       ; preds = %if.then333
-  %call338 = call ptr @_(ptr noundef @.str.56)
-  call void (ptr, ...) @die(ptr noundef %call338) #9
+620:                                              ; preds = %611
+  %621 = call ptr @_(ptr noundef @.str.60)
+  call void (ptr, ...) @die(ptr noundef %621) #13
   unreachable
 
-if.end339:                                        ; preds = %if.then336
-  br label %for.inc566
+622:                                              ; preds = %616
+  store i32 7, ptr %28, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #11
+  br label %980
 
-if.end340:                                        ; preds = %if.end330
-  %165 = load ptr, ptr %arg, align 8
-  %call341 = call i32 @strcmp(ptr noundef %165, ptr noundef @.str.57) #8
-  %tobool342 = icmp ne i32 %call341, 0
-  br i1 %tobool342, label %if.end349, label %if.then343
+623:                                              ; preds = %607
+  %624 = load ptr, ptr %29, align 8, !tbaa !11
+  %625 = call i32 @strcmp(ptr noundef %624, ptr noundef @.str.61) #12
+  %626 = icmp ne i32 %625, 0
+  br i1 %626, label %636, label %627
 
-if.then343:                                       ; preds = %if.end340
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %superproject, ptr align 8 @__const.cmd_rev_parse.superproject, i64 24, i1 false)
-  %call344 = call i32 @get_superproject_working_tree(ptr noundef %superproject)
-  %tobool345 = icmp ne i32 %call344, 0
-  br i1 %tobool345, label %if.then346, label %if.end348
+627:                                              ; preds = %623
+  call void @llvm.lifetime.start.p0(i64 24, ptr %33) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 @__const.cmd_rev_parse.superproject, i64 24, i1 false)
+  %628 = call i32 @get_superproject_working_tree(ptr noundef %33)
+  %629 = icmp ne i32 %628, 0
+  br i1 %629, label %630, label %635
 
-if.then346:                                       ; preds = %if.then343
-  %buf347 = getelementptr inbounds %struct.strbuf, ptr %superproject, i32 0, i32 2
-  %166 = load ptr, ptr %buf347, align 8
-  %167 = load ptr, ptr %prefix.addr, align 8
-  %168 = load i32, ptr %format, align 4
-  call void @print_path(ptr noundef %166, ptr noundef %167, i32 noundef %168, i32 noundef 3)
-  br label %if.end348
+630:                                              ; preds = %627
+  %631 = getelementptr inbounds nuw %struct.strbuf, ptr %33, i32 0, i32 2
+  %632 = load ptr, ptr %631, align 8, !tbaa !54
+  %633 = load ptr, ptr %8, align 8, !tbaa !11
+  %634 = load i32, ptr %27, align 4, !tbaa !4
+  call void @print_path(ptr noundef %632, ptr noundef %633, i32 noundef %634, i32 noundef 3)
+  br label %635
 
-if.end348:                                        ; preds = %if.then346, %if.then343
-  call void @strbuf_release(ptr noundef %superproject)
-  br label %for.inc566
+635:                                              ; preds = %630, %627
+  call void @strbuf_release(ptr noundef %33)
+  store i32 7, ptr %28, align 4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %33) #11
+  br label %980
 
-if.end349:                                        ; preds = %if.end340
-  %169 = load ptr, ptr %arg, align 8
-  %call350 = call i32 @strcmp(ptr noundef %169, ptr noundef @.str.58) #8
-  %tobool351 = icmp ne i32 %call350, 0
-  br i1 %tobool351, label %if.end359, label %if.then352
+636:                                              ; preds = %623
+  %637 = load ptr, ptr %29, align 8, !tbaa !11
+  %638 = call i32 @strcmp(ptr noundef %637, ptr noundef @.str.62) #12
+  %639 = icmp ne i32 %638, 0
+  br i1 %639, label %649, label %640
 
-if.then352:                                       ; preds = %if.end349
-  %170 = load ptr, ptr %prefix.addr, align 8
-  %tobool353 = icmp ne ptr %170, null
-  br i1 %tobool353, label %if.then354, label %if.else356
+640:                                              ; preds = %636
+  %641 = load ptr, ptr %8, align 8, !tbaa !11
+  %642 = icmp ne ptr %641, null
+  br i1 %642, label %643, label %646
 
-if.then354:                                       ; preds = %if.then352
-  %171 = load ptr, ptr %prefix.addr, align 8
-  %call355 = call i32 @puts(ptr noundef %171)
-  br label %if.end358
+643:                                              ; preds = %640
+  %644 = load ptr, ptr %8, align 8, !tbaa !11
+  %645 = call i32 @puts(ptr noundef %644)
+  br label %648
 
-if.else356:                                       ; preds = %if.then352
-  %call357 = call i32 @putchar(i32 noundef 10)
-  br label %if.end358
+646:                                              ; preds = %640
+  %647 = call i32 @putchar(i32 noundef 10)
+  br label %648
 
-if.end358:                                        ; preds = %if.else356, %if.then354
-  br label %for.inc566
+648:                                              ; preds = %646, %643
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end359:                                        ; preds = %if.end349
-  %172 = load ptr, ptr %arg, align 8
-  %call360 = call i32 @strcmp(ptr noundef %172, ptr noundef @.str.59) #8
-  %tobool361 = icmp ne i32 %call360, 0
-  br i1 %tobool361, label %if.end380, label %if.then362
+649:                                              ; preds = %636
+  %650 = load ptr, ptr %29, align 8, !tbaa !11
+  %651 = call i32 @strcmp(ptr noundef %650, ptr noundef @.str.63) #12
+  %652 = icmp ne i32 %651, 0
+  br i1 %652, label %683, label %653
 
-if.then362:                                       ; preds = %if.end359
-  %173 = load ptr, ptr %prefix.addr, align 8
-  store ptr %173, ptr %pfx, align 8
-  %call363 = call i32 @is_inside_work_tree()
-  %tobool364 = icmp ne i32 %call363, 0
-  br i1 %tobool364, label %if.end372, label %if.then365
+653:                                              ; preds = %649
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #11
+  %654 = load ptr, ptr %8, align 8, !tbaa !11
+  store ptr %654, ptr %34, align 8, !tbaa !11
+  %655 = call i32 @is_inside_work_tree()
+  %656 = icmp ne i32 %655, 0
+  br i1 %656, label %666, label %657
 
-if.then365:                                       ; preds = %if.then362
-  %call367 = call ptr @get_git_work_tree()
-  store ptr %call367, ptr %work_tree366, align 8
-  %174 = load ptr, ptr %work_tree366, align 8
-  %tobool368 = icmp ne ptr %174, null
-  br i1 %tobool368, label %if.then369, label %if.end371
+657:                                              ; preds = %653
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #11
+  %658 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %659 = call ptr @repo_get_work_tree(ptr noundef %658)
+  store ptr %659, ptr %35, align 8, !tbaa !11
+  %660 = load ptr, ptr %35, align 8, !tbaa !11
+  %661 = icmp ne ptr %660, null
+  br i1 %661, label %662, label %665
 
-if.then369:                                       ; preds = %if.then365
-  %175 = load ptr, ptr %work_tree366, align 8
-  %call370 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %175)
-  br label %if.end371
+662:                                              ; preds = %657
+  %663 = load ptr, ptr %35, align 8, !tbaa !11
+  %664 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %663)
+  br label %665
 
-if.end371:                                        ; preds = %if.then369, %if.then365
-  br label %for.inc566
+665:                                              ; preds = %662, %657
+  store i32 7, ptr %28, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #11
+  br label %682
 
-if.end372:                                        ; preds = %if.then362
-  br label %while.cond
+666:                                              ; preds = %653
+  br label %667
 
-while.cond:                                       ; preds = %if.end378, %if.end372
-  %176 = load ptr, ptr %pfx, align 8
-  %tobool373 = icmp ne ptr %176, null
-  br i1 %tobool373, label %while.body, label %while.end
+667:                                              ; preds = %679, %666
+  %668 = load ptr, ptr %34, align 8, !tbaa !11
+  %669 = icmp ne ptr %668, null
+  br i1 %669, label %670, label %680
 
-while.body:                                       ; preds = %while.cond
-  %177 = load ptr, ptr %pfx, align 8
-  %call374 = call ptr @strchr(ptr noundef %177, i32 noundef 47) #8
-  store ptr %call374, ptr %pfx, align 8
-  %178 = load ptr, ptr %pfx, align 8
-  %tobool375 = icmp ne ptr %178, null
-  br i1 %tobool375, label %if.then376, label %if.end378
+670:                                              ; preds = %667
+  %671 = load ptr, ptr %34, align 8, !tbaa !11
+  %672 = call ptr @strchr(ptr noundef %671, i32 noundef 47) #12
+  store ptr %672, ptr %34, align 8, !tbaa !11
+  %673 = load ptr, ptr %34, align 8, !tbaa !11
+  %674 = icmp ne ptr %673, null
+  br i1 %674, label %675, label %679
 
-if.then376:                                       ; preds = %while.body
-  %179 = load ptr, ptr %pfx, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %179, i32 1
-  store ptr %incdec.ptr, ptr %pfx, align 8
-  %call377 = call i32 (ptr, ...) @printf(ptr noundef @.str.60)
-  br label %if.end378
+675:                                              ; preds = %670
+  %676 = load ptr, ptr %34, align 8, !tbaa !11
+  %677 = getelementptr inbounds nuw i8, ptr %676, i32 1
+  store ptr %677, ptr %34, align 8, !tbaa !11
+  %678 = call i32 (ptr, ...) @printf(ptr noundef @.str.64)
+  br label %679
 
-if.end378:                                        ; preds = %if.then376, %while.body
-  br label %while.cond, !llvm.loop !8
+679:                                              ; preds = %675, %670
+  br label %667, !llvm.loop !56
 
-while.end:                                        ; preds = %while.cond
-  %call379 = call i32 @putchar(i32 noundef 10)
-  br label %for.inc566
+680:                                              ; preds = %667
+  %681 = call i32 @putchar(i32 noundef 10)
+  store i32 7, ptr %28, align 4
+  br label %682
 
-if.end380:                                        ; preds = %if.end359
-  %180 = load ptr, ptr %arg, align 8
-  %call381 = call i32 @strcmp(ptr noundef %180, ptr noundef @.str.61) #8
-  %tobool382 = icmp ne i32 %call381, 0
-  br i1 %tobool382, label %lor.lhs.false383, label %if.then386
+682:                                              ; preds = %680, %665
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #11
+  br label %980
 
-lor.lhs.false383:                                 ; preds = %if.end380
-  %181 = load ptr, ptr %arg, align 8
-  %call384 = call i32 @strcmp(ptr noundef %181, ptr noundef @.str.62) #8
-  %tobool385 = icmp ne i32 %call384, 0
-  br i1 %tobool385, label %if.end424, label %if.then386
+683:                                              ; preds = %649
+  %684 = load ptr, ptr %29, align 8, !tbaa !11
+  %685 = call i32 @strcmp(ptr noundef %684, ptr noundef @.str.65) #12
+  %686 = icmp ne i32 %685, 0
+  br i1 %686, label %687, label %691
 
-if.then386:                                       ; preds = %lor.lhs.false383, %if.end380
-  %call388 = call ptr @getenv(ptr noundef @.str.63) #10
-  store ptr %call388, ptr %gitdir387, align 8
-  %182 = load i32, ptr %format, align 4
-  store i32 %182, ptr %wanted, align 4
-  %183 = load ptr, ptr %arg, align 8
-  %arrayidx389 = getelementptr inbounds i8, ptr %183, i64 2
-  %184 = load i8, ptr %arrayidx389, align 1
-  %conv390 = sext i8 %184 to i32
-  %cmp391 = icmp eq i32 %conv390, 103
-  br i1 %cmp391, label %if.then393, label %if.else400
+687:                                              ; preds = %683
+  %688 = load ptr, ptr %29, align 8, !tbaa !11
+  %689 = call i32 @strcmp(ptr noundef %688, ptr noundef @.str.66) #12
+  %690 = icmp ne i32 %689, 0
+  br i1 %690, label %756, label %691
 
-if.then393:                                       ; preds = %if.then386
-  %185 = load ptr, ptr %gitdir387, align 8
-  %tobool394 = icmp ne ptr %185, null
-  br i1 %tobool394, label %if.then395, label %if.end396
+691:                                              ; preds = %687, %683
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #11
+  %692 = call ptr @getenv(ptr noundef @.str.67) #11
+  store ptr %692, ptr %36, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #11
+  %693 = load i32, ptr %27, align 4, !tbaa !4
+  store i32 %693, ptr %39, align 4, !tbaa !4
+  %694 = load ptr, ptr %29, align 8, !tbaa !11
+  %695 = getelementptr inbounds i8, ptr %694, i64 2
+  %696 = load i8, ptr %695, align 1, !tbaa !39
+  %697 = sext i8 %696 to i32
+  %698 = icmp eq i32 %697, 103
+  br i1 %698, label %699, label %713
 
-if.then395:                                       ; preds = %if.then393
-  %186 = load ptr, ptr %gitdir387, align 8
-  %187 = load ptr, ptr %prefix.addr, align 8
-  %188 = load i32, ptr %format, align 4
-  call void @print_path(ptr noundef %186, ptr noundef %187, i32 noundef %188, i32 noundef 3)
-  br label %for.inc566
+699:                                              ; preds = %691
+  %700 = load ptr, ptr %36, align 8, !tbaa !11
+  %701 = icmp ne ptr %700, null
+  br i1 %701, label %702, label %706
 
-if.end396:                                        ; preds = %if.then393
-  %189 = load ptr, ptr %prefix.addr, align 8
-  %tobool397 = icmp ne ptr %189, null
-  br i1 %tobool397, label %if.end399, label %if.then398
+702:                                              ; preds = %699
+  %703 = load ptr, ptr %36, align 8, !tbaa !11
+  %704 = load ptr, ptr %8, align 8, !tbaa !11
+  %705 = load i32, ptr %27, align 4, !tbaa !4
+  call void @print_path(ptr noundef %703, ptr noundef %704, i32 noundef %705, i32 noundef 3)
+  store i32 7, ptr %28, align 4
+  br label %755
 
-if.then398:                                       ; preds = %if.end396
-  %190 = load ptr, ptr %prefix.addr, align 8
-  %191 = load i32, ptr %format, align 4
-  call void @print_path(ptr noundef @.str.64, ptr noundef %190, i32 noundef %191, i32 noundef 3)
-  br label %for.inc566
+706:                                              ; preds = %699
+  %707 = load ptr, ptr %8, align 8, !tbaa !11
+  %708 = icmp ne ptr %707, null
+  br i1 %708, label %712, label %709
 
-if.end399:                                        ; preds = %if.end396
-  br label %if.end412
+709:                                              ; preds = %706
+  %710 = load ptr, ptr %8, align 8, !tbaa !11
+  %711 = load i32, ptr %27, align 4, !tbaa !4
+  call void @print_path(ptr noundef @.str.68, ptr noundef %710, i32 noundef %711, i32 noundef 3)
+  store i32 7, ptr %28, align 4
+  br label %755
 
-if.else400:                                       ; preds = %if.then386
-  store i32 1, ptr %wanted, align 4
-  %192 = load ptr, ptr %gitdir387, align 8
-  %tobool401 = icmp ne ptr %192, null
-  br i1 %tobool401, label %if.end405, label %land.lhs.true402
+712:                                              ; preds = %706
+  br label %730
 
-land.lhs.true402:                                 ; preds = %if.else400
-  %193 = load ptr, ptr %prefix.addr, align 8
-  %tobool403 = icmp ne ptr %193, null
-  br i1 %tobool403, label %if.end405, label %if.then404
+713:                                              ; preds = %691
+  store i32 1, ptr %39, align 4, !tbaa !4
+  %714 = load ptr, ptr %36, align 8, !tbaa !11
+  %715 = icmp ne ptr %714, null
+  br i1 %715, label %720, label %716
 
-if.then404:                                       ; preds = %land.lhs.true402
-  store ptr @.str.64, ptr %gitdir387, align 8
-  br label %if.end405
+716:                                              ; preds = %713
+  %717 = load ptr, ptr %8, align 8, !tbaa !11
+  %718 = icmp ne ptr %717, null
+  br i1 %718, label %720, label %719
 
-if.end405:                                        ; preds = %if.then404, %land.lhs.true402, %if.else400
-  %194 = load ptr, ptr %gitdir387, align 8
-  %tobool406 = icmp ne ptr %194, null
-  br i1 %tobool406, label %if.then407, label %if.end411
+719:                                              ; preds = %716
+  store ptr @.str.68, ptr %36, align 8, !tbaa !11
+  br label %720
 
-if.then407:                                       ; preds = %if.end405
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %realpath, ptr align 8 @__const.cmd_rev_parse.realpath, i64 24, i1 false)
-  %195 = load ptr, ptr %gitdir387, align 8
-  %call408 = call ptr @strbuf_realpath(ptr noundef %realpath, ptr noundef %195, i32 noundef 1)
-  %buf409 = getelementptr inbounds %struct.strbuf, ptr %realpath, i32 0, i32 2
-  %196 = load ptr, ptr %buf409, align 8
-  %call410 = call i32 @puts(ptr noundef %196)
-  call void @strbuf_release(ptr noundef %realpath)
-  br label %for.inc566
+720:                                              ; preds = %719, %716, %713
+  %721 = load ptr, ptr %36, align 8, !tbaa !11
+  %722 = icmp ne ptr %721, null
+  br i1 %722, label %723, label %729
 
-if.end411:                                        ; preds = %if.end405
-  br label %if.end412
+723:                                              ; preds = %720
+  call void @llvm.lifetime.start.p0(i64 24, ptr %40) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 @__const.cmd_rev_parse.realpath, i64 24, i1 false)
+  %724 = load ptr, ptr %36, align 8, !tbaa !11
+  %725 = call ptr @strbuf_realpath(ptr noundef %40, ptr noundef %724, i32 noundef 1)
+  %726 = getelementptr inbounds nuw %struct.strbuf, ptr %40, i32 0, i32 2
+  %727 = load ptr, ptr %726, align 8, !tbaa !54
+  %728 = call i32 @puts(ptr noundef %727)
+  call void @strbuf_release(ptr noundef %40)
+  store i32 7, ptr %28, align 4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %40) #11
+  br label %755
 
-if.end412:                                        ; preds = %if.end411, %if.end399
-  %call413 = call ptr @xgetcwd()
-  store ptr %call413, ptr %cwd, align 8
-  %197 = load ptr, ptr %cwd, align 8
-  %call414 = call i64 @strlen(ptr noundef %197) #8
-  %conv415 = trunc i64 %call414 to i32
-  store i32 %conv415, ptr %len, align 4
-  call void @strbuf_setlen(ptr noundef %buf, i64 noundef 0)
-  %198 = load ptr, ptr %cwd, align 8
-  %199 = load i32, ptr %len, align 4
-  %tobool416 = icmp ne i32 %199, 0
-  br i1 %tobool416, label %land.rhs, label %land.end
+729:                                              ; preds = %720
+  br label %730
 
-land.rhs:                                         ; preds = %if.end412
-  %200 = load ptr, ptr %cwd, align 8
-  %201 = load i32, ptr %len, align 4
-  %sub417 = sub nsw i32 %201, 1
-  %idxprom418 = sext i32 %sub417 to i64
-  %arrayidx419 = getelementptr inbounds i8, ptr %200, i64 %idxprom418
-  %202 = load i8, ptr %arrayidx419, align 1
-  %conv420 = sext i8 %202 to i32
-  %cmp421 = icmp ne i32 %conv420, 47
-  br label %land.end
+730:                                              ; preds = %729, %712
+  %731 = call ptr @xgetcwd()
+  store ptr %731, ptr %37, align 8, !tbaa !11
+  %732 = load ptr, ptr %37, align 8, !tbaa !11
+  %733 = call i64 @strlen(ptr noundef %732) #12
+  %734 = trunc i64 %733 to i32
+  store i32 %734, ptr %38, align 4, !tbaa !4
+  call void @strbuf_setlen(ptr noundef %25, i64 noundef 0)
+  %735 = load ptr, ptr %37, align 8, !tbaa !11
+  %736 = load i32, ptr %38, align 4, !tbaa !4
+  %737 = icmp ne i32 %736, 0
+  br i1 %737, label %738, label %747
 
-land.end:                                         ; preds = %land.rhs, %if.end412
-  %203 = phi i1 [ false, %if.end412 ], [ %cmp421, %land.rhs ]
-  %cond = select i1 %203, ptr @.str.66, ptr @.str.67
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %buf, ptr noundef @.str.65, ptr noundef %198, ptr noundef %cond)
-  %204 = load ptr, ptr %cwd, align 8
-  call void @free(ptr noundef %204) #10
-  %buf423 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
-  %205 = load ptr, ptr %buf423, align 8
-  %206 = load ptr, ptr %prefix.addr, align 8
-  %207 = load i32, ptr %wanted, align 4
-  call void @print_path(ptr noundef %205, ptr noundef %206, i32 noundef %207, i32 noundef 2)
-  br label %for.inc566
+738:                                              ; preds = %730
+  %739 = load ptr, ptr %37, align 8, !tbaa !11
+  %740 = load i32, ptr %38, align 4, !tbaa !4
+  %741 = sub nsw i32 %740, 1
+  %742 = sext i32 %741 to i64
+  %743 = getelementptr inbounds i8, ptr %739, i64 %742
+  %744 = load i8, ptr %743, align 1, !tbaa !39
+  %745 = sext i8 %744 to i32
+  %746 = icmp ne i32 %745, 47
+  br label %747
 
-if.end424:                                        ; preds = %lor.lhs.false383
-  %208 = load ptr, ptr %arg, align 8
-  %call425 = call i32 @strcmp(ptr noundef %208, ptr noundef @.str.68) #8
-  %tobool426 = icmp ne i32 %call425, 0
-  br i1 %tobool426, label %if.end429, label %if.then427
+747:                                              ; preds = %738, %730
+  %748 = phi i1 [ false, %730 ], [ %746, %738 ]
+  %749 = select i1 %748, ptr @.str.70, ptr @.str.71
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %25, ptr noundef @.str.69, ptr noundef %735, ptr noundef %749)
+  %750 = load ptr, ptr %37, align 8, !tbaa !11
+  call void @free(ptr noundef %750) #11
+  %751 = getelementptr inbounds nuw %struct.strbuf, ptr %25, i32 0, i32 2
+  %752 = load ptr, ptr %751, align 8, !tbaa !54
+  %753 = load ptr, ptr %8, align 8, !tbaa !11
+  %754 = load i32, ptr %39, align 4, !tbaa !4
+  call void @print_path(ptr noundef %752, ptr noundef %753, i32 noundef %754, i32 noundef 2)
+  store i32 7, ptr %28, align 4
+  br label %755
 
-if.then427:                                       ; preds = %if.end424
-  %call428 = call ptr @get_git_common_dir()
-  %209 = load ptr, ptr %prefix.addr, align 8
-  %210 = load i32, ptr %format, align 4
-  call void @print_path(ptr noundef %call428, ptr noundef %209, i32 noundef %210, i32 noundef 1)
-  br label %for.inc566
+755:                                              ; preds = %747, %723, %709, %702
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #11
+  br label %980
 
-if.end429:                                        ; preds = %if.end424
-  %211 = load ptr, ptr %arg, align 8
-  %call430 = call i32 @strcmp(ptr noundef %211, ptr noundef @.str.69) #8
-  %tobool431 = icmp ne i32 %call430, 0
-  br i1 %tobool431, label %if.end437, label %if.then432
+756:                                              ; preds = %687
+  %757 = load ptr, ptr %29, align 8, !tbaa !11
+  %758 = call i32 @strcmp(ptr noundef %757, ptr noundef @.str.72) #12
+  %759 = icmp ne i32 %758, 0
+  br i1 %759, label %765, label %760
 
-if.then432:                                       ; preds = %if.end429
-  %call433 = call i32 @is_inside_git_dir()
-  %tobool434 = icmp ne i32 %call433, 0
-  %cond435 = select i1 %tobool434, ptr @.str.70, ptr @.str.71
-  %call436 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %cond435)
-  br label %for.inc566
+760:                                              ; preds = %756
+  %761 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %762 = call ptr @repo_get_common_dir(ptr noundef %761)
+  %763 = load ptr, ptr %8, align 8, !tbaa !11
+  %764 = load i32, ptr %27, align 4, !tbaa !4
+  call void @print_path(ptr noundef %762, ptr noundef %763, i32 noundef %764, i32 noundef 1)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end437:                                        ; preds = %if.end429
-  %212 = load ptr, ptr %arg, align 8
-  %call438 = call i32 @strcmp(ptr noundef %212, ptr noundef @.str.72) #8
-  %tobool439 = icmp ne i32 %call438, 0
-  br i1 %tobool439, label %if.end445, label %if.then440
+765:                                              ; preds = %756
+  %766 = load ptr, ptr %29, align 8, !tbaa !11
+  %767 = call i32 @strcmp(ptr noundef %766, ptr noundef @.str.73) #12
+  %768 = icmp ne i32 %767, 0
+  br i1 %768, label %774, label %769
 
-if.then440:                                       ; preds = %if.end437
-  %call441 = call i32 @is_inside_work_tree()
-  %tobool442 = icmp ne i32 %call441, 0
-  %cond443 = select i1 %tobool442, ptr @.str.70, ptr @.str.71
-  %call444 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %cond443)
-  br label %for.inc566
+769:                                              ; preds = %765
+  %770 = call i32 @is_inside_git_dir()
+  %771 = icmp ne i32 %770, 0
+  %772 = select i1 %771, ptr @.str.74, ptr @.str.75
+  %773 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %772)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end445:                                        ; preds = %if.end437
-  %213 = load ptr, ptr %arg, align 8
-  %call446 = call i32 @strcmp(ptr noundef %213, ptr noundef @.str.73) #8
-  %tobool447 = icmp ne i32 %call446, 0
-  br i1 %tobool447, label %if.end453, label %if.then448
+774:                                              ; preds = %765
+  %775 = load ptr, ptr %29, align 8, !tbaa !11
+  %776 = call i32 @strcmp(ptr noundef %775, ptr noundef @.str.76) #12
+  %777 = icmp ne i32 %776, 0
+  br i1 %777, label %783, label %778
 
-if.then448:                                       ; preds = %if.end445
-  %call449 = call i32 @is_bare_repository()
-  %tobool450 = icmp ne i32 %call449, 0
-  %cond451 = select i1 %tobool450, ptr @.str.70, ptr @.str.71
-  %call452 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %cond451)
-  br label %for.inc566
+778:                                              ; preds = %774
+  %779 = call i32 @is_inside_work_tree()
+  %780 = icmp ne i32 %779, 0
+  %781 = select i1 %780, ptr @.str.74, ptr @.str.75
+  %782 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %781)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end453:                                        ; preds = %if.end445
-  %214 = load ptr, ptr %arg, align 8
-  %call454 = call i32 @strcmp(ptr noundef %214, ptr noundef @.str.74) #8
-  %tobool455 = icmp ne i32 %call454, 0
-  br i1 %tobool455, label %if.end461, label %if.then456
+783:                                              ; preds = %774
+  %784 = load ptr, ptr %29, align 8, !tbaa !11
+  %785 = call i32 @strcmp(ptr noundef %784, ptr noundef @.str.77) #12
+  %786 = icmp ne i32 %785, 0
+  br i1 %786, label %792, label %787
 
-if.then456:                                       ; preds = %if.end453
-  %215 = load ptr, ptr @the_repository, align 8
-  %call457 = call i32 @is_repository_shallow(ptr noundef %215)
-  %tobool458 = icmp ne i32 %call457, 0
-  %cond459 = select i1 %tobool458, ptr @.str.70, ptr @.str.71
-  %call460 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %cond459)
-  br label %for.inc566
+787:                                              ; preds = %783
+  %788 = call i32 @is_bare_repository()
+  %789 = icmp ne i32 %788, 0
+  %790 = select i1 %789, ptr @.str.74, ptr @.str.75
+  %791 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %790)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end461:                                        ; preds = %if.end453
-  %216 = load ptr, ptr %arg, align 8
-  %call462 = call i32 @strcmp(ptr noundef %216, ptr noundef @.str.75) #8
-  %tobool463 = icmp ne i32 %call462, 0
-  br i1 %tobool463, label %if.end477, label %if.then464
+792:                                              ; preds = %783
+  %793 = load ptr, ptr %29, align 8, !tbaa !11
+  %794 = call i32 @strcmp(ptr noundef %793, ptr noundef @.str.78) #12
+  %795 = icmp ne i32 %794, 0
+  br i1 %795, label %802, label %796
 
-if.then464:                                       ; preds = %if.end461
-  %217 = load ptr, ptr @the_repository, align 8
-  %call465 = call i32 @repo_read_index(ptr noundef %217)
-  %cmp466 = icmp slt i32 %call465, 0
-  br i1 %cmp466, label %if.then468, label %if.end470
+796:                                              ; preds = %792
+  %797 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %798 = call i32 @is_repository_shallow(ptr noundef %797)
+  %799 = icmp ne i32 %798, 0
+  %800 = select i1 %799, ptr @.str.74, ptr @.str.75
+  %801 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %800)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.then468:                                       ; preds = %if.then464
-  %call469 = call ptr @_(ptr noundef @.str.76)
-  call void (ptr, ...) @die(ptr noundef %call469) #9
+802:                                              ; preds = %792
+  %803 = load ptr, ptr %29, align 8, !tbaa !11
+  %804 = call i32 @strcmp(ptr noundef %803, ptr noundef @.str.79) #12
+  %805 = icmp ne i32 %804, 0
+  br i1 %805, label %833, label %806
+
+806:                                              ; preds = %802
+  %807 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %808 = call i32 @repo_read_index(ptr noundef %807)
+  %809 = icmp slt i32 %808, 0
+  br i1 %809, label %810, label %812
+
+810:                                              ; preds = %806
+  %811 = call ptr @_(ptr noundef @.str.80)
+  call void (ptr, ...) @die(ptr noundef %811) #13
   unreachable
 
-if.end470:                                        ; preds = %if.then464
-  %218 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 7
-  %219 = load ptr, ptr %218, align 8
-  %tobool471 = icmp ne ptr %219, null
-  br i1 %tobool471, label %if.then472, label %if.end476
+812:                                              ; preds = %806
+  %813 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %814 = getelementptr inbounds nuw %struct.repository, ptr %813, i32 0, i32 15
+  %815 = load ptr, ptr %814, align 8, !tbaa !57
+  %816 = getelementptr inbounds nuw %struct.index_state, ptr %815, i32 0, i32 7
+  %817 = load ptr, ptr %816, align 8, !tbaa !58
+  %818 = icmp ne ptr %817, null
+  br i1 %818, label %819, label %832
 
-if.then472:                                       ; preds = %if.end470
-  %220 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 7
-  %221 = load ptr, ptr %220, align 8
-  %base_oid = getelementptr inbounds %struct.split_index, ptr %221, i32 0, i32 0
-  store ptr %base_oid, ptr %oid473, align 8
-  %222 = load ptr, ptr %oid473, align 8
-  %call474 = call ptr @oid_to_hex(ptr noundef %222)
-  %call475 = call ptr (ptr, ...) @git_path(ptr noundef @.str.77, ptr noundef %call474)
-  store ptr %call475, ptr %path, align 8
-  %223 = load ptr, ptr %path, align 8
-  %224 = load ptr, ptr %prefix.addr, align 8
-  %225 = load i32, ptr %format, align 4
-  call void @print_path(ptr noundef %223, ptr noundef %224, i32 noundef %225, i32 noundef 0)
-  br label %if.end476
+819:                                              ; preds = %812
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #11
+  %820 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %821 = getelementptr inbounds nuw %struct.repository, ptr %820, i32 0, i32 15
+  %822 = load ptr, ptr %821, align 8, !tbaa !57
+  %823 = getelementptr inbounds nuw %struct.index_state, ptr %822, i32 0, i32 7
+  %824 = load ptr, ptr %823, align 8, !tbaa !58
+  %825 = getelementptr inbounds nuw %struct.split_index, ptr %824, i32 0, i32 0
+  store ptr %825, ptr %41, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #11
+  %826 = load ptr, ptr %41, align 8, !tbaa !70
+  %827 = call ptr @oid_to_hex(ptr noundef %826)
+  %828 = call ptr (ptr, ...) @git_path(ptr noundef @.str.81, ptr noundef %827)
+  store ptr %828, ptr %42, align 8, !tbaa !11
+  %829 = load ptr, ptr %42, align 8, !tbaa !11
+  %830 = load ptr, ptr %8, align 8, !tbaa !11
+  %831 = load i32, ptr %27, align 4, !tbaa !4
+  call void @print_path(ptr noundef %829, ptr noundef %830, i32 noundef %831, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #11
+  br label %832
 
-if.end476:                                        ; preds = %if.then472, %if.end470
-  br label %for.inc566
+832:                                              ; preds = %819, %812
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end477:                                        ; preds = %if.end461
-  %226 = load ptr, ptr %arg, align 8
-  %call478 = call zeroext i1 @skip_prefix(ptr noundef %226, ptr noundef @.str.78, ptr noundef %arg)
-  br i1 %call478, label %if.then479, label %if.end480
+833:                                              ; preds = %802
+  %834 = load ptr, ptr %29, align 8, !tbaa !11
+  %835 = call zeroext i1 @skip_prefix(ptr noundef %834, ptr noundef @.str.82, ptr noundef %29)
+  br i1 %835, label %836, label %838
 
-if.then479:                                       ; preds = %if.end477
-  %227 = load ptr, ptr %arg, align 8
-  call void @show_datestring(ptr noundef @.str.79, ptr noundef %227)
-  br label %for.inc566
+836:                                              ; preds = %833
+  %837 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @show_datestring(ptr noundef @.str.83, ptr noundef %837)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end480:                                        ; preds = %if.end477
-  %228 = load ptr, ptr %arg, align 8
-  %call481 = call zeroext i1 @skip_prefix(ptr noundef %228, ptr noundef @.str.80, ptr noundef %arg)
-  br i1 %call481, label %if.then482, label %if.end483
+838:                                              ; preds = %833
+  %839 = load ptr, ptr %29, align 8, !tbaa !11
+  %840 = call zeroext i1 @skip_prefix(ptr noundef %839, ptr noundef @.str.84, ptr noundef %29)
+  br i1 %840, label %841, label %843
 
-if.then482:                                       ; preds = %if.end480
-  %229 = load ptr, ptr %arg, align 8
-  call void @show_datestring(ptr noundef @.str.79, ptr noundef %229)
-  br label %for.inc566
+841:                                              ; preds = %838
+  %842 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @show_datestring(ptr noundef @.str.83, ptr noundef %842)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end483:                                        ; preds = %if.end480
-  %230 = load ptr, ptr %arg, align 8
-  %call484 = call zeroext i1 @skip_prefix(ptr noundef %230, ptr noundef @.str.81, ptr noundef %arg)
-  br i1 %call484, label %if.then485, label %if.end486
+843:                                              ; preds = %838
+  %844 = load ptr, ptr %29, align 8, !tbaa !11
+  %845 = call zeroext i1 @skip_prefix(ptr noundef %844, ptr noundef @.str.85, ptr noundef %29)
+  br i1 %845, label %846, label %848
 
-if.then485:                                       ; preds = %if.end483
-  %231 = load ptr, ptr %arg, align 8
-  call void @show_datestring(ptr noundef @.str.82, ptr noundef %231)
-  br label %for.inc566
+846:                                              ; preds = %843
+  %847 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @show_datestring(ptr noundef @.str.86, ptr noundef %847)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end486:                                        ; preds = %if.end483
-  %232 = load ptr, ptr %arg, align 8
-  %call487 = call zeroext i1 @skip_prefix(ptr noundef %232, ptr noundef @.str.83, ptr noundef %arg)
-  br i1 %call487, label %if.then488, label %if.end489
+848:                                              ; preds = %843
+  %849 = load ptr, ptr %29, align 8, !tbaa !11
+  %850 = call zeroext i1 @skip_prefix(ptr noundef %849, ptr noundef @.str.87, ptr noundef %29)
+  br i1 %850, label %851, label %853
 
-if.then488:                                       ; preds = %if.end486
-  %233 = load ptr, ptr %arg, align 8
-  call void @show_datestring(ptr noundef @.str.82, ptr noundef %233)
-  br label %for.inc566
+851:                                              ; preds = %848
+  %852 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @show_datestring(ptr noundef @.str.86, ptr noundef %852)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end489:                                        ; preds = %if.end486
-  %234 = load ptr, ptr %arg, align 8
-  %call490 = call i32 @opt_with_value(ptr noundef %234, ptr noundef @.str.84, ptr noundef %arg)
-  %tobool491 = icmp ne i32 %call490, 0
-  br i1 %tobool491, label %if.then492, label %if.end509
+853:                                              ; preds = %848
+  %854 = load ptr, ptr %29, align 8, !tbaa !11
+  %855 = call i32 @opt_with_value(ptr noundef %854, ptr noundef @.str.88, ptr noundef %29)
+  %856 = icmp ne i32 %855, 0
+  br i1 %856, label %857, label %886
 
-if.then492:                                       ; preds = %if.end489
-  %235 = load ptr, ptr %arg, align 8
-  %tobool493 = icmp ne ptr %235, null
-  br i1 %tobool493, label %cond.true, label %cond.false
+857:                                              ; preds = %853
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #11
+  %858 = load ptr, ptr %29, align 8, !tbaa !11
+  %859 = icmp ne ptr %858, null
+  br i1 %859, label %860, label %862
 
-cond.true:                                        ; preds = %if.then492
-  %236 = load ptr, ptr %arg, align 8
-  br label %cond.end
+860:                                              ; preds = %857
+  %861 = load ptr, ptr %29, align 8, !tbaa !11
+  br label %863
 
-cond.false:                                       ; preds = %if.then492
-  br label %cond.end
+862:                                              ; preds = %857
+  br label %863
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond494 = phi ptr [ %236, %cond.true ], [ @.str.85, %cond.false ]
-  store ptr %cond494, ptr %val, align 8
-  %237 = load ptr, ptr %val, align 8
-  %call495 = call i32 @strcmp(ptr noundef %237, ptr noundef @.str.85) #8
-  %tobool496 = icmp ne i32 %call495, 0
-  br i1 %tobool496, label %land.lhs.true497, label %if.end505
+863:                                              ; preds = %862, %860
+  %864 = phi ptr [ %861, %860 ], [ @.str.32, %862 ]
+  store ptr %864, ptr %43, align 8, !tbaa !11
+  %865 = load ptr, ptr %43, align 8, !tbaa !11
+  %866 = call i32 @strcmp(ptr noundef %865, ptr noundef @.str.32) #12
+  %867 = icmp ne i32 %866, 0
+  br i1 %867, label %868, label %879
 
-land.lhs.true497:                                 ; preds = %cond.end
-  %238 = load ptr, ptr %val, align 8
-  %call498 = call i32 @strcmp(ptr noundef %238, ptr noundef @.str.86) #8
-  %tobool499 = icmp ne i32 %call498, 0
-  br i1 %tobool499, label %land.lhs.true500, label %if.end505
+868:                                              ; preds = %863
+  %869 = load ptr, ptr %43, align 8, !tbaa !11
+  %870 = call i32 @strcmp(ptr noundef %869, ptr noundef @.str.89) #12
+  %871 = icmp ne i32 %870, 0
+  br i1 %871, label %872, label %879
 
-land.lhs.true500:                                 ; preds = %land.lhs.true497
-  %239 = load ptr, ptr %val, align 8
-  %call501 = call i32 @strcmp(ptr noundef %239, ptr noundef @.str.87) #8
-  %tobool502 = icmp ne i32 %call501, 0
-  br i1 %tobool502, label %if.then503, label %if.end505
+872:                                              ; preds = %868
+  %873 = load ptr, ptr %43, align 8, !tbaa !11
+  %874 = call i32 @strcmp(ptr noundef %873, ptr noundef @.str.90) #12
+  %875 = icmp ne i32 %874, 0
+  br i1 %875, label %876, label %879
 
-if.then503:                                       ; preds = %land.lhs.true500
-  %call504 = call ptr @_(ptr noundef @.str.88)
-  %240 = load ptr, ptr %arg, align 8
-  call void (ptr, ...) @die(ptr noundef %call504, ptr noundef %240) #9
+876:                                              ; preds = %872
+  %877 = call ptr @_(ptr noundef @.str.91)
+  %878 = load ptr, ptr %29, align 8, !tbaa !11
+  call void (ptr, ...) @die(ptr noundef %877, ptr noundef %878) #13
   unreachable
 
-if.end505:                                        ; preds = %land.lhs.true500, %land.lhs.true497, %cond.end
-  %241 = load ptr, ptr @the_repository, align 8
-  %hash_algo506 = getelementptr inbounds %struct.repository, ptr %241, i32 0, i32 15
-  %242 = load ptr, ptr %hash_algo506, align 8
-  %name507 = getelementptr inbounds %struct.git_hash_algo, ptr %242, i32 0, i32 0
-  %243 = load ptr, ptr %name507, align 8
-  %call508 = call i32 @puts(ptr noundef %243)
-  br label %for.inc566
+879:                                              ; preds = %872, %868, %863
+  %880 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %881 = getelementptr inbounds nuw %struct.repository, ptr %880, i32 0, i32 17
+  %882 = load ptr, ptr %881, align 8, !tbaa !44
+  %883 = getelementptr inbounds nuw %struct.git_hash_algo, ptr %882, i32 0, i32 0
+  %884 = load ptr, ptr %883, align 8, !tbaa !45
+  %885 = call i32 @puts(ptr noundef %884)
+  store i32 7, ptr %28, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #11
+  br label %980
 
-if.end509:                                        ; preds = %if.end489
-  %244 = load ptr, ptr %arg, align 8
-  %call510 = call i32 @strcmp(ptr noundef %244, ptr noundef @.str.89) #8
-  %tobool511 = icmp ne i32 %call510, 0
-  br i1 %tobool511, label %if.end515, label %if.then512
+886:                                              ; preds = %853
+  %887 = load ptr, ptr %29, align 8, !tbaa !11
+  %888 = call i32 @strcmp(ptr noundef %887, ptr noundef @.str.92) #12
+  %889 = icmp ne i32 %888, 0
+  br i1 %889, label %896, label %890
 
-if.then512:                                       ; preds = %if.end509
-  %245 = load ptr, ptr @the_repository, align 8
-  %ref_storage_format = getelementptr inbounds %struct.repository, ptr %245, i32 0, i32 16
-  %246 = load i32, ptr %ref_storage_format, align 8
-  %call513 = call ptr @ref_storage_format_to_name(i32 noundef %246)
-  %call514 = call i32 @puts(ptr noundef %call513)
-  br label %for.inc566
+890:                                              ; preds = %886
+  %891 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %892 = getelementptr inbounds nuw %struct.repository, ptr %891, i32 0, i32 19
+  %893 = load i32, ptr %892, align 8, !tbaa !71
+  %894 = call ptr @ref_storage_format_to_name(i32 noundef %893)
+  %895 = call i32 @puts(ptr noundef %894)
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end515:                                        ; preds = %if.end509
-  %247 = load ptr, ptr %arg, align 8
-  %call516 = call i32 @strcmp(ptr noundef %247, ptr noundef @.str.90) #8
-  %tobool517 = icmp ne i32 %call516, 0
-  br i1 %tobool517, label %if.end524, label %if.then518
+896:                                              ; preds = %886
+  %897 = load ptr, ptr %29, align 8, !tbaa !11
+  %898 = call i32 @strcmp(ptr noundef %897, ptr noundef @.str.93) #12
+  %899 = icmp ne i32 %898, 0
+  br i1 %899, label %908, label %900
 
-if.then518:                                       ; preds = %if.end515
-  store i32 1, ptr %seen_end_of_options, align 4
-  %248 = load i32, ptr @filter, align 4
-  %and519 = and i32 %248, 5
-  %tobool520 = icmp ne i32 %and519, 0
-  br i1 %tobool520, label %if.then521, label %if.end523
+900:                                              ; preds = %896
+  store i32 1, ptr %26, align 4, !tbaa !4
+  %901 = load i32, ptr @filter, align 4, !tbaa !4
+  %902 = and i32 %901, 5
+  %903 = icmp ne i32 %902, 0
+  br i1 %903, label %904, label %907
 
-if.then521:                                       ; preds = %if.then518
-  %249 = load ptr, ptr %arg, align 8
-  %call522 = call i32 @show_file(ptr noundef %249, i32 noundef 0)
-  br label %if.end523
+904:                                              ; preds = %900
+  %905 = load ptr, ptr %29, align 8, !tbaa !11
+  %906 = call i32 @show_file(ptr noundef %905, i32 noundef 0)
+  br label %907
 
-if.end523:                                        ; preds = %if.then521, %if.then518
-  br label %for.inc566
+907:                                              ; preds = %904, %900
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end524:                                        ; preds = %if.end515
-  %250 = load ptr, ptr %arg, align 8
-  %call525 = call i32 @show_flag(ptr noundef %250)
-  %tobool526 = icmp ne i32 %call525, 0
-  br i1 %tobool526, label %land.lhs.true527, label %if.end530
+908:                                              ; preds = %896
+  %909 = load ptr, ptr %29, align 8, !tbaa !11
+  %910 = call i32 @show_flag(ptr noundef %909)
+  %911 = icmp ne i32 %910, 0
+  br i1 %911, label %912, label %917
 
-land.lhs.true527:                                 ; preds = %if.end524
-  %251 = load i32, ptr %verify, align 4
-  %tobool528 = icmp ne i32 %251, 0
-  br i1 %tobool528, label %if.then529, label %if.end530
+912:                                              ; preds = %908
+  %913 = load i32, ptr %12, align 4, !tbaa !4
+  %914 = icmp ne i32 %913, 0
+  br i1 %914, label %915, label %917
 
-if.then529:                                       ; preds = %land.lhs.true527
-  %252 = load i32, ptr %quiet, align 4
-  call void @die_no_single_rev(i32 noundef %252)
-  br label %if.end530
+915:                                              ; preds = %912
+  %916 = load i32, ptr %13, align 4, !tbaa !4
+  call void @die_no_single_rev(i32 noundef %916)
+  br label %917
 
-if.end530:                                        ; preds = %if.then529, %land.lhs.true527, %if.end524
-  br label %for.inc566
+917:                                              ; preds = %915, %912, %908
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end531:                                        ; preds = %land.lhs.true102, %if.end100
-  %253 = load ptr, ptr %arg, align 8
-  %call532 = call i32 @try_difference(ptr noundef %253)
-  %tobool533 = icmp ne i32 %call532, 0
-  br i1 %tobool533, label %if.then534, label %if.end535
+918:                                              ; preds = %216, %213
+  %919 = load ptr, ptr %29, align 8, !tbaa !11
+  %920 = call i32 @try_difference(ptr noundef %919)
+  %921 = icmp ne i32 %920, 0
+  br i1 %921, label %922, label %923
 
-if.then534:                                       ; preds = %if.end531
-  br label %for.inc566
+922:                                              ; preds = %918
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end535:                                        ; preds = %if.end531
-  %254 = load ptr, ptr %arg, align 8
-  %call536 = call i32 @try_parent_shorthands(ptr noundef %254)
-  %tobool537 = icmp ne i32 %call536, 0
-  br i1 %tobool537, label %if.then538, label %if.end539
+923:                                              ; preds = %918
+  %924 = load ptr, ptr %29, align 8, !tbaa !11
+  %925 = call i32 @try_parent_shorthands(ptr noundef %924)
+  %926 = icmp ne i32 %925, 0
+  br i1 %926, label %927, label %928
 
-if.then538:                                       ; preds = %if.end535
-  br label %for.inc566
+927:                                              ; preds = %923
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end539:                                        ; preds = %if.end535
-  %255 = load ptr, ptr %arg, align 8
-  store ptr %255, ptr %name, align 8
-  store i32 0, ptr %type, align 4
-  %256 = load ptr, ptr %arg, align 8
-  %257 = load i8, ptr %256, align 1
-  %conv540 = sext i8 %257 to i32
-  %cmp541 = icmp eq i32 %conv540, 94
-  br i1 %cmp541, label %if.then543, label %if.end545
+928:                                              ; preds = %923
+  %929 = load ptr, ptr %29, align 8, !tbaa !11
+  store ptr %929, ptr %23, align 8, !tbaa !11
+  store i32 0, ptr %15, align 4, !tbaa !4
+  %930 = load ptr, ptr %29, align 8, !tbaa !11
+  %931 = load i8, ptr %930, align 1, !tbaa !39
+  %932 = sext i8 %931 to i32
+  %933 = icmp eq i32 %932, 94
+  br i1 %933, label %934, label %937
 
-if.then543:                                       ; preds = %if.end539
-  %258 = load ptr, ptr %name, align 8
-  %incdec.ptr544 = getelementptr inbounds i8, ptr %258, i32 1
-  store ptr %incdec.ptr544, ptr %name, align 8
-  store i32 1, ptr %type, align 4
-  br label %if.end545
+934:                                              ; preds = %928
+  %935 = load ptr, ptr %23, align 8, !tbaa !11
+  %936 = getelementptr inbounds nuw i8, ptr %935, i32 1
+  store ptr %936, ptr %23, align 8, !tbaa !11
+  store i32 1, ptr %15, align 4, !tbaa !4
+  br label %937
 
-if.end545:                                        ; preds = %if.then543, %if.end539
-  %259 = load ptr, ptr @the_repository, align 8
-  %260 = load ptr, ptr %name, align 8
-  %261 = load i32, ptr %flags, align 4
-  %call546 = call i32 @get_oid_with_context(ptr noundef %259, ptr noundef %260, i32 noundef %261, ptr noundef %oid, ptr noundef %unused)
-  %tobool547 = icmp ne i32 %call546, 0
-  br i1 %tobool547, label %if.end554, label %if.then548
+937:                                              ; preds = %934, %928
+  %938 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %939 = load ptr, ptr %23, align 8, !tbaa !11
+  %940 = load i32, ptr %22, align 4, !tbaa !4
+  %941 = call i32 @get_oid_with_context(ptr noundef %938, ptr noundef %939, i32 noundef %940, ptr noundef %21, ptr noundef %24)
+  %942 = icmp ne i32 %941, 0
+  br i1 %942, label %960, label %943
 
-if.then548:                                       ; preds = %if.end545
-  %262 = load i32, ptr %verify, align 4
-  %tobool549 = icmp ne i32 %262, 0
-  br i1 %tobool549, label %if.then550, label %if.else552
+943:                                              ; preds = %937
+  call void @object_context_release(ptr noundef %24)
+  %944 = load ptr, ptr %16, align 8, !tbaa !15
+  %945 = icmp ne ptr %944, null
+  br i1 %945, label %946, label %950
 
-if.then550:                                       ; preds = %if.then548
-  %263 = load i32, ptr %revs_count, align 4
-  %inc551 = add nsw i32 %263, 1
-  store i32 %inc551, ptr %revs_count, align 4
-  br label %if.end553
+946:                                              ; preds = %943
+  %947 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %948 = load ptr, ptr %16, align 8, !tbaa !15
+  %949 = call i32 @repo_oid_to_algop(ptr noundef %947, ptr noundef %21, ptr noundef %948, ptr noundef %21)
+  br label %950
 
-if.else552:                                       ; preds = %if.then548
-  %264 = load i32, ptr %type, align 4
-  %265 = load ptr, ptr %name, align 8
-  call void @show_rev(i32 noundef %264, ptr noundef %oid, ptr noundef %265)
-  br label %if.end553
+950:                                              ; preds = %946, %943
+  %951 = load i32, ptr %12, align 4, !tbaa !4
+  %952 = icmp ne i32 %951, 0
+  br i1 %952, label %953, label %956
 
-if.end553:                                        ; preds = %if.else552, %if.then550
-  br label %for.inc566
+953:                                              ; preds = %950
+  %954 = load i32, ptr %14, align 4, !tbaa !4
+  %955 = add nsw i32 %954, 1
+  store i32 %955, ptr %14, align 4, !tbaa !4
+  br label %959
 
-if.end554:                                        ; preds = %if.end545
-  %266 = load i32, ptr %verify, align 4
-  %tobool555 = icmp ne i32 %266, 0
-  br i1 %tobool555, label %if.then556, label %if.end557
+956:                                              ; preds = %950
+  %957 = load i32, ptr %15, align 4, !tbaa !4
+  %958 = load ptr, ptr %23, align 8, !tbaa !11
+  call void @show_rev(i32 noundef %957, ptr noundef %21, ptr noundef %958)
+  br label %959
 
-if.then556:                                       ; preds = %if.end554
-  %267 = load i32, ptr %quiet, align 4
-  call void @die_no_single_rev(i32 noundef %267)
-  br label %if.end557
+959:                                              ; preds = %956, %953
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end557:                                        ; preds = %if.then556, %if.end554
-  %268 = load i32, ptr %has_dashdash, align 4
-  %tobool558 = icmp ne i32 %268, 0
-  br i1 %tobool558, label %if.then559, label %if.end561
+960:                                              ; preds = %937
+  call void @object_context_release(ptr noundef %24)
+  %961 = load i32, ptr %12, align 4, !tbaa !4
+  %962 = icmp ne i32 %961, 0
+  br i1 %962, label %963, label %965
 
-if.then559:                                       ; preds = %if.end557
-  %call560 = call ptr @_(ptr noundef @.str.91)
-  %269 = load ptr, ptr %arg, align 8
-  call void (ptr, ...) @die(ptr noundef %call560, ptr noundef %269) #9
+963:                                              ; preds = %960
+  %964 = load i32, ptr %13, align 4, !tbaa !4
+  call void @die_no_single_rev(i32 noundef %964)
+  br label %965
+
+965:                                              ; preds = %963, %960
+  %966 = load i32, ptr %19, align 4, !tbaa !4
+  %967 = icmp ne i32 %966, 0
+  br i1 %967, label %968, label %971
+
+968:                                              ; preds = %965
+  %969 = call ptr @_(ptr noundef @.str.94)
+  %970 = load ptr, ptr %29, align 8, !tbaa !11
+  call void (ptr, ...) @die(ptr noundef %969, ptr noundef %970) #13
   unreachable
 
-if.end561:                                        ; preds = %if.end557
-  store i32 1, ptr %as_is, align 4
-  %270 = load ptr, ptr %arg, align 8
-  %271 = load i32, ptr %output_prefix, align 4
-  %call562 = call i32 @show_file(ptr noundef %270, i32 noundef %271)
-  %tobool563 = icmp ne i32 %call562, 0
-  br i1 %tobool563, label %if.end565, label %if.then564
+971:                                              ; preds = %965
+  store i32 1, ptr %11, align 4, !tbaa !4
+  %972 = load ptr, ptr %29, align 8, !tbaa !11
+  %973 = load i32, ptr %20, align 4, !tbaa !4
+  %974 = call i32 @show_file(ptr noundef %972, i32 noundef %973)
+  %975 = icmp ne i32 %974, 0
+  br i1 %975, label %977, label %976
 
-if.then564:                                       ; preds = %if.end561
-  br label %for.inc566
+976:                                              ; preds = %971
+  store i32 7, ptr %28, align 4
+  br label %980
 
-if.end565:                                        ; preds = %if.end561
-  %272 = load ptr, ptr %prefix.addr, align 8
-  %273 = load ptr, ptr %arg, align 8
-  call void @verify_filename(ptr noundef %272, ptr noundef %273, i32 noundef 1)
-  br label %for.inc566
+977:                                              ; preds = %971
+  %978 = load ptr, ptr %8, align 8, !tbaa !11
+  %979 = load ptr, ptr %29, align 8, !tbaa !11
+  call void @verify_filename(ptr noundef %978, ptr noundef %979, i32 noundef 1)
+  store i32 0, ptr %28, align 4
+  br label %980
 
-for.inc566:                                       ; preds = %if.end565, %if.then564, %if.end553, %if.then538, %if.then534, %if.end530, %if.end523, %if.then512, %if.end505, %if.then488, %if.then485, %if.then482, %if.then479, %if.end476, %if.then456, %if.then448, %if.then440, %if.then432, %if.then427, %land.end, %if.then407, %if.then398, %if.then395, %while.end, %if.end371, %if.end358, %if.end348, %if.end339, %if.then329, %if.then326, %if.end323, %if.then313, %if.end310, %if.end300, %if.then288, %if.then283, %if.then279, %if.end275, %if.then257, %if.then253, %if.then249, %if.then245, %if.end241, %if.then229, %if.then222, %if.then215, %if.then210, %if.then205, %if.then200, %if.then195, %if.end190, %if.end179, %if.end168, %if.end150, %if.end139, %if.end115, %if.end99, %if.end85, %for.end67, %if.end49
-  %274 = load i32, ptr %i, align 4
-  %inc567 = add nsw i32 %274, 1
-  store i32 %inc567, ptr %i, align 4
-  br label %for.cond35, !llvm.loop !9
-
-for.end568:                                       ; preds = %for.cond35
-  call void @strbuf_release(ptr noundef %buf)
-  %275 = load i32, ptr %verify, align 4
-  %tobool569 = icmp ne i32 %275, 0
-  br i1 %tobool569, label %if.then570, label %if.else583
-
-if.then570:                                       ; preds = %for.end568
-  %276 = load i32, ptr %revs_count, align 4
-  %cmp571 = icmp eq i32 %276, 1
-  br i1 %cmp571, label %if.then573, label %if.else574
-
-if.then573:                                       ; preds = %if.then570
-  %277 = load i32, ptr %type, align 4
-  %278 = load ptr, ptr %name, align 8
-  call void @show_rev(i32 noundef %277, ptr noundef %oid, ptr noundef %278)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.else574:                                       ; preds = %if.then570
-  %279 = load i32, ptr %revs_count, align 4
-  %cmp575 = icmp eq i32 %279, 0
-  br i1 %cmp575, label %land.lhs.true577, label %if.end581
-
-land.lhs.true577:                                 ; preds = %if.else574
-  %call578 = call i32 @show_default()
-  %tobool579 = icmp ne i32 %call578, 0
-  br i1 %tobool579, label %if.then580, label %if.end581
-
-if.then580:                                       ; preds = %land.lhs.true577
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end581:                                        ; preds = %land.lhs.true577, %if.else574
-  br label %if.end582
-
-if.end582:                                        ; preds = %if.end581
-  %280 = load i32, ptr %quiet, align 4
-  call void @die_no_single_rev(i32 noundef %280)
-  br label %if.end585
-
-if.else583:                                       ; preds = %for.end568
-  %call584 = call i32 @show_default()
-  br label %if.end585
-
-if.end585:                                        ; preds = %if.else583, %if.end582
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end585, %if.then580, %if.then573, %if.then319, %if.then306, %if.then296, %if.then32, %if.then10, %if.then
-  %281 = load i32, ptr %retval, align 4
-  ret i32 %281
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal i32 @cmd_parseopt(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) #0 {
-entry:
-  %argc.addr = alloca i32, align 4
-  %argv.addr = alloca ptr, align 8
-  %prefix.addr = alloca ptr, align 8
-  %sb = alloca %struct.strbuf, align 8
-  %parsed = alloca %struct.strbuf, align 8
-  %usage = alloca ptr, align 8
-  %opts = alloca ptr, align 8
-  %onb = alloca i32, align 4
-  %osz = alloca i32, align 4
-  %unb = alloca i32, align 4
-  %usz = alloca i32, align 4
-  %s = alloca ptr, align 8
-  %help = alloca ptr, align 8
-  %o = alloca ptr, align 8
-  store i32 %argc, ptr %argc.addr, align 4
-  store ptr %argv, ptr %argv.addr, align 8
-  store ptr %prefix, ptr %prefix.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %sb, ptr align 8 @__const.cmd_parseopt.sb, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %parsed, ptr align 8 @__const.cmd_parseopt.parsed, i64 24, i1 false)
-  store ptr null, ptr %usage, align 8
-  store ptr null, ptr %opts, align 8
-  store i32 0, ptr %onb, align 4
-  store i32 0, ptr %osz, align 4
-  store i32 0, ptr %unb, align 4
-  store i32 0, ptr %usz, align 4
-  call void @strbuf_addstr(ptr noundef %parsed, ptr noundef @.str.100)
-  %0 = load i32, ptr %argc.addr, align 4
-  %1 = load ptr, ptr %argv.addr, align 8
-  %2 = load ptr, ptr %prefix.addr, align 8
-  %call = call i32 @parse_options(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef @cmd_parseopt.parseopt_opts, ptr noundef @cmd_parseopt.parseopt_usage, i32 noundef 1)
-  store i32 %call, ptr %argc.addr, align 4
-  %3 = load i32, ptr %argc.addr, align 4
-  %cmp = icmp slt i32 %3, 1
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %argv.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 0
-  %5 = load ptr, ptr %arrayidx, align 8
-  %call1 = call i32 @strcmp(ptr noundef %5, ptr noundef @.str.3) #8
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  call void @usage_with_options(ptr noundef @cmd_parseopt.parseopt_usage, ptr noundef @cmd_parseopt.parseopt_opts) #9
-  unreachable
-
-if.end:                                           ; preds = %lor.lhs.false
-  br label %for.cond
-
-for.cond:                                         ; preds = %if.end30, %if.end
-  %6 = load ptr, ptr @stdin, align 8
-  %call2 = call i32 @strbuf_getline(ptr noundef %sb, ptr noundef %6)
-  %cmp3 = icmp eq i32 %call2, -1
-  br i1 %cmp3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %for.cond
-  %call5 = call ptr @_(ptr noundef @.str.101)
-  call void (ptr, ...) @die(ptr noundef %call5) #9
-  unreachable
-
-if.end6:                                          ; preds = %for.cond
-  br label %do.body
-
-do.body:                                          ; preds = %if.end6
-  %7 = load i32, ptr %unb, align 4
-  %add = add nsw i32 %7, 1
-  %8 = load i32, ptr %usz, align 4
-  %cmp7 = icmp sgt i32 %add, %8
-  br i1 %cmp7, label %if.then8, label %if.end20
-
-if.then8:                                         ; preds = %do.body
-  %9 = load i32, ptr %usz, align 4
-  %add9 = add nsw i32 %9, 16
-  %mul = mul nsw i32 %add9, 3
-  %div = sdiv i32 %mul, 2
-  %10 = load i32, ptr %unb, align 4
-  %add10 = add nsw i32 %10, 1
-  %cmp11 = icmp slt i32 %div, %add10
-  br i1 %cmp11, label %if.then12, label %if.else
-
-if.then12:                                        ; preds = %if.then8
-  %11 = load i32, ptr %unb, align 4
-  %add13 = add nsw i32 %11, 1
-  store i32 %add13, ptr %usz, align 4
-  br label %if.end17
-
-if.else:                                          ; preds = %if.then8
-  %12 = load i32, ptr %usz, align 4
-  %add14 = add nsw i32 %12, 16
-  %mul15 = mul nsw i32 %add14, 3
-  %div16 = sdiv i32 %mul15, 2
-  store i32 %div16, ptr %usz, align 4
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.else, %if.then12
-  %13 = load ptr, ptr %usage, align 8
-  %14 = load i32, ptr %usz, align 4
-  %conv = sext i32 %14 to i64
-  %call18 = call i64 @st_mult(i64 noundef 8, i64 noundef %conv)
-  %call19 = call ptr @xrealloc(ptr noundef %13, i64 noundef %call18)
-  store ptr %call19, ptr %usage, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.end17, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end20
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %15 = load ptr, ptr %buf, align 8
-  %call21 = call i32 @strcmp(ptr noundef @.str.3, ptr noundef %15) #8
-  %tobool22 = icmp ne i32 %call21, 0
-  br i1 %tobool22, label %if.end30, label %if.then23
-
-if.then23:                                        ; preds = %do.end
-  %16 = load i32, ptr %unb, align 4
-  %cmp24 = icmp slt i32 %16, 1
-  br i1 %cmp24, label %if.then26, label %if.end28
-
-if.then26:                                        ; preds = %if.then23
-  %call27 = call ptr @_(ptr noundef @.str.102)
-  call void (ptr, ...) @die(ptr noundef %call27) #9
-  unreachable
-
-if.end28:                                         ; preds = %if.then23
-  %17 = load ptr, ptr %usage, align 8
-  %18 = load i32, ptr %unb, align 4
-  %idxprom = sext i32 %18 to i64
-  %arrayidx29 = getelementptr inbounds ptr, ptr %17, i64 %idxprom
-  store ptr null, ptr %arrayidx29, align 8
-  br label %for.end
-
-if.end30:                                         ; preds = %do.end
-  %call31 = call ptr @strbuf_detach(ptr noundef %sb, ptr noundef null)
-  %19 = load ptr, ptr %usage, align 8
-  %20 = load i32, ptr %unb, align 4
-  %inc = add nsw i32 %20, 1
-  store i32 %inc, ptr %unb, align 4
-  %idxprom32 = sext i32 %20 to i64
-  %arrayidx33 = getelementptr inbounds ptr, ptr %19, i64 %idxprom32
-  store ptr %call31, ptr %arrayidx33, align 8
-  br label %for.cond
-
-for.end:                                          ; preds = %if.end28
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end152, %if.then73, %if.then38, %for.end
-  %21 = load ptr, ptr @stdin, align 8
-  %call34 = call i32 @strbuf_getline(ptr noundef %sb, ptr noundef %21)
-  %cmp35 = icmp ne i32 %call34, -1
-  br i1 %cmp35, label %while.body, label %while.end153
-
-while.body:                                       ; preds = %while.cond
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 1
-  %22 = load i64, ptr %len, align 8
-  %tobool37 = icmp ne i64 %22, 0
-  br i1 %tobool37, label %if.end39, label %if.then38
-
-if.then38:                                        ; preds = %while.body
-  br label %while.cond, !llvm.loop !10
-
-if.end39:                                         ; preds = %while.body
-  br label %do.body40
-
-do.body40:                                        ; preds = %if.end39
-  %23 = load i32, ptr %onb, align 4
-  %add41 = add nsw i32 %23, 1
-  %24 = load i32, ptr %osz, align 4
-  %cmp42 = icmp sgt i32 %add41, %24
-  br i1 %cmp42, label %if.then44, label %if.end61
-
-if.then44:                                        ; preds = %do.body40
-  %25 = load i32, ptr %osz, align 4
-  %add45 = add nsw i32 %25, 16
-  %mul46 = mul nsw i32 %add45, 3
-  %div47 = sdiv i32 %mul46, 2
-  %26 = load i32, ptr %onb, align 4
-  %add48 = add nsw i32 %26, 1
-  %cmp49 = icmp slt i32 %div47, %add48
-  br i1 %cmp49, label %if.then51, label %if.else53
-
-if.then51:                                        ; preds = %if.then44
-  %27 = load i32, ptr %onb, align 4
-  %add52 = add nsw i32 %27, 1
-  store i32 %add52, ptr %osz, align 4
-  br label %if.end57
-
-if.else53:                                        ; preds = %if.then44
-  %28 = load i32, ptr %osz, align 4
-  %add54 = add nsw i32 %28, 16
-  %mul55 = mul nsw i32 %add54, 3
-  %div56 = sdiv i32 %mul55, 2
-  store i32 %div56, ptr %osz, align 4
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.else53, %if.then51
-  %29 = load ptr, ptr %opts, align 8
-  %30 = load i32, ptr %osz, align 4
-  %conv58 = sext i32 %30 to i64
-  %call59 = call i64 @st_mult(i64 noundef 88, i64 noundef %conv58)
-  %call60 = call ptr @xrealloc(ptr noundef %29, i64 noundef %call59)
-  store ptr %call60, ptr %opts, align 8
-  br label %if.end61
-
-if.end61:                                         ; preds = %if.end57, %do.body40
-  br label %do.end62
-
-do.end62:                                         ; preds = %if.end61
-  %31 = load ptr, ptr %opts, align 8
-  %32 = load i32, ptr %onb, align 4
-  %idx.ext = sext i32 %32 to i64
-  %add.ptr = getelementptr inbounds %struct.option, ptr %31, i64 %idx.ext
-  call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 88, i1 false)
-  %33 = load ptr, ptr %opts, align 8
-  %34 = load i32, ptr %onb, align 4
-  %inc63 = add nsw i32 %34, 1
-  store i32 %inc63, ptr %onb, align 4
-  %idxprom64 = sext i32 %34 to i64
-  %arrayidx65 = getelementptr inbounds %struct.option, ptr %33, i64 %idxprom64
-  store ptr %arrayidx65, ptr %o, align 8
-  %buf66 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %35 = load ptr, ptr %buf66, align 8
-  %call67 = call ptr @findspace(ptr noundef %35)
-  store ptr %call67, ptr %help, align 8
-  %36 = load ptr, ptr %help, align 8
-  %tobool68 = icmp ne ptr %36, null
-  br i1 %tobool68, label %lor.lhs.false69, label %if.then73
-
-lor.lhs.false69:                                  ; preds = %do.end62
-  %buf70 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %37 = load ptr, ptr %buf70, align 8
-  %38 = load ptr, ptr %help, align 8
-  %cmp71 = icmp eq ptr %37, %38
-  br i1 %cmp71, label %if.then73, label %if.end78
-
-if.then73:                                        ; preds = %lor.lhs.false69, %do.end62
-  %39 = load ptr, ptr %o, align 8
-  %type = getelementptr inbounds %struct.option, ptr %39, i32 0, i32 0
-  store i32 1, ptr %type, align 8
-  %buf74 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %40 = load ptr, ptr %buf74, align 8
-  %call75 = call ptr @skipspaces(ptr noundef %40)
-  %call76 = call ptr @xstrdup(ptr noundef %call75)
-  %41 = load ptr, ptr %o, align 8
-  %help77 = getelementptr inbounds %struct.option, ptr %41, i32 0, i32 5
-  store ptr %call76, ptr %help77, align 8
-  br label %while.cond, !llvm.loop !10
-
-if.end78:                                         ; preds = %lor.lhs.false69
-  %42 = load ptr, ptr %help, align 8
-  store i8 0, ptr %42, align 1
-  %43 = load ptr, ptr %o, align 8
-  %type79 = getelementptr inbounds %struct.option, ptr %43, i32 0, i32 0
-  store i32 13, ptr %type79, align 8
-  %44 = load ptr, ptr %help, align 8
-  %add.ptr80 = getelementptr inbounds i8, ptr %44, i64 1
-  %call81 = call ptr @skipspaces(ptr noundef %add.ptr80)
-  %call82 = call ptr @xstrdup(ptr noundef %call81)
-  %45 = load ptr, ptr %o, align 8
-  %help83 = getelementptr inbounds %struct.option, ptr %45, i32 0, i32 5
-  store ptr %call82, ptr %help83, align 8
-  %46 = load ptr, ptr %o, align 8
-  %value = getelementptr inbounds %struct.option, ptr %46, i32 0, i32 3
-  store ptr %parsed, ptr %value, align 8
-  %47 = load ptr, ptr %o, align 8
-  %flags = getelementptr inbounds %struct.option, ptr %47, i32 0, i32 6
-  store i32 2, ptr %flags, align 8
-  %48 = load ptr, ptr %o, align 8
-  %callback = getelementptr inbounds %struct.option, ptr %48, i32 0, i32 7
-  store ptr @parseopt_dump, ptr %callback, align 8
-  %buf84 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %49 = load ptr, ptr %buf84, align 8
-  %call85 = call ptr @strpbrk(ptr noundef %49, ptr noundef @.str.99) #8
-  store ptr %call85, ptr %s, align 8
-  %50 = load ptr, ptr %s, align 8
-  %tobool86 = icmp ne ptr %50, null
-  br i1 %tobool86, label %if.end88, label %if.then87
-
-if.then87:                                        ; preds = %if.end78
-  %51 = load ptr, ptr %help, align 8
-  store ptr %51, ptr %s, align 8
-  br label %if.end88
-
-if.end88:                                         ; preds = %if.then87, %if.end78
-  %52 = load ptr, ptr %s, align 8
-  %buf89 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %53 = load ptr, ptr %buf89, align 8
-  %cmp90 = icmp eq ptr %52, %53
-  br i1 %cmp90, label %if.then92, label %if.end94
-
-if.then92:                                        ; preds = %if.end88
-  %call93 = call ptr @_(ptr noundef @.str.103)
-  call void (ptr, ...) @die(ptr noundef %call93) #9
-  unreachable
-
-if.end94:                                         ; preds = %if.end88
-  %54 = load ptr, ptr %s, align 8
-  %buf95 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %55 = load ptr, ptr %buf95, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %54 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %55 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp96 = icmp eq i64 %sub.ptr.sub, 1
-  br i1 %cmp96, label %if.then98, label %if.else101
-
-if.then98:                                        ; preds = %if.end94
-  %buf99 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %56 = load ptr, ptr %buf99, align 8
-  %57 = load i8, ptr %56, align 1
-  %conv100 = sext i8 %57 to i32
-  %58 = load ptr, ptr %o, align 8
-  %short_name = getelementptr inbounds %struct.option, ptr %58, i32 0, i32 1
-  store i32 %conv100, ptr %short_name, align 4
-  br label %if.end127
-
-if.else101:                                       ; preds = %if.end94
-  %buf102 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %59 = load ptr, ptr %buf102, align 8
-  %arrayidx103 = getelementptr inbounds i8, ptr %59, i64 1
-  %60 = load i8, ptr %arrayidx103, align 1
-  %conv104 = sext i8 %60 to i32
-  %cmp105 = icmp ne i32 %conv104, 44
-  br i1 %cmp105, label %if.then107, label %if.else114
-
-if.then107:                                       ; preds = %if.else101
-  %buf108 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %61 = load ptr, ptr %buf108, align 8
-  %62 = load ptr, ptr %s, align 8
-  %buf109 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %63 = load ptr, ptr %buf109, align 8
-  %sub.ptr.lhs.cast110 = ptrtoint ptr %62 to i64
-  %sub.ptr.rhs.cast111 = ptrtoint ptr %63 to i64
-  %sub.ptr.sub112 = sub i64 %sub.ptr.lhs.cast110, %sub.ptr.rhs.cast111
-  %call113 = call ptr @xmemdupz(ptr noundef %61, i64 noundef %sub.ptr.sub112)
-  %64 = load ptr, ptr %o, align 8
-  %long_name = getelementptr inbounds %struct.option, ptr %64, i32 0, i32 2
-  store ptr %call113, ptr %long_name, align 8
-  br label %if.end126
-
-if.else114:                                       ; preds = %if.else101
-  %buf115 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %65 = load ptr, ptr %buf115, align 8
-  %66 = load i8, ptr %65, align 1
-  %conv116 = sext i8 %66 to i32
-  %67 = load ptr, ptr %o, align 8
-  %short_name117 = getelementptr inbounds %struct.option, ptr %67, i32 0, i32 1
-  store i32 %conv116, ptr %short_name117, align 4
-  %buf118 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %68 = load ptr, ptr %buf118, align 8
-  %add.ptr119 = getelementptr inbounds i8, ptr %68, i64 2
-  %69 = load ptr, ptr %s, align 8
-  %buf120 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %70 = load ptr, ptr %buf120, align 8
-  %sub.ptr.lhs.cast121 = ptrtoint ptr %69 to i64
-  %sub.ptr.rhs.cast122 = ptrtoint ptr %70 to i64
-  %sub.ptr.sub123 = sub i64 %sub.ptr.lhs.cast121, %sub.ptr.rhs.cast122
-  %sub = sub nsw i64 %sub.ptr.sub123, 2
-  %call124 = call ptr @xmemdupz(ptr noundef %add.ptr119, i64 noundef %sub)
-  %71 = load ptr, ptr %o, align 8
-  %long_name125 = getelementptr inbounds %struct.option, ptr %71, i32 0, i32 2
-  store ptr %call124, ptr %long_name125, align 8
-  br label %if.end126
-
-if.end126:                                        ; preds = %if.else114, %if.then107
-  br label %if.end127
-
-if.end127:                                        ; preds = %if.end126, %if.then98
-  br label %while.cond128
-
-while.cond128:                                    ; preds = %sw.bb141, %sw.bb138, %sw.bb134, %sw.bb, %if.end127
-  %72 = load ptr, ptr %s, align 8
-  %73 = load ptr, ptr %help, align 8
-  %cmp129 = icmp ult ptr %72, %73
-  br i1 %cmp129, label %while.body131, label %while.end
-
-while.body131:                                    ; preds = %while.cond128
-  %74 = load ptr, ptr %s, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %74, i32 1
-  store ptr %incdec.ptr, ptr %s, align 8
-  %75 = load i8, ptr %74, align 1
-  %conv132 = sext i8 %75 to i32
-  switch i32 %conv132, label %sw.epilog [
-    i32 61, label %sw.bb
-    i32 63, label %sw.bb134
-    i32 33, label %sw.bb138
-    i32 42, label %sw.bb141
+980:                                              ; preds = %977, %976, %959, %927, %922, %917, %907, %890, %879, %851, %846, %841, %836, %832, %796, %787, %778, %769, %760, %755, %682, %648, %635, %622, %605, %600, %595, %591, %582, %577, %573, %564, %560, %546, %535, %528, %523, %498, %493, %486, %481, %476, %449, %432, %416, %391, %380, %373, %366, %359, %352, %344, %328, %312, %288, %273, %235, %212, %185, %157, %133
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #11
+  %981 = load i32, ptr %28, align 4
+  switch i32 %981, label %1008 [
+    i32 0, label %982
+    i32 7, label %983
   ]
 
-sw.bb:                                            ; preds = %while.body131
-  %76 = load ptr, ptr %o, align 8
-  %flags133 = getelementptr inbounds %struct.option, ptr %76, i32 0, i32 6
-  %77 = load i32, ptr %flags133, align 8
-  %and = and i32 %77, -3
-  store i32 %and, ptr %flags133, align 8
-  br label %while.cond128, !llvm.loop !11
+982:                                              ; preds = %980
+  br label %983
 
-sw.bb134:                                         ; preds = %while.body131
-  %78 = load ptr, ptr %o, align 8
-  %flags135 = getelementptr inbounds %struct.option, ptr %78, i32 0, i32 6
-  %79 = load i32, ptr %flags135, align 8
-  %and136 = and i32 %79, -3
-  store i32 %and136, ptr %flags135, align 8
-  %80 = load ptr, ptr %o, align 8
-  %flags137 = getelementptr inbounds %struct.option, ptr %80, i32 0, i32 6
-  %81 = load i32, ptr %flags137, align 8
-  %or = or i32 %81, 1
-  store i32 %or, ptr %flags137, align 8
-  br label %while.cond128, !llvm.loop !11
+983:                                              ; preds = %982, %980
+  %984 = load i32, ptr %10, align 4, !tbaa !4
+  %985 = add nsw i32 %984, 1
+  store i32 %985, ptr %10, align 4, !tbaa !4
+  br label %110, !llvm.loop !72
 
-sw.bb138:                                         ; preds = %while.body131
-  %82 = load ptr, ptr %o, align 8
-  %flags139 = getelementptr inbounds %struct.option, ptr %82, i32 0, i32 6
-  %83 = load i32, ptr %flags139, align 8
-  %or140 = or i32 %83, 4
-  store i32 %or140, ptr %flags139, align 8
-  br label %while.cond128, !llvm.loop !11
+986:                                              ; preds = %110
+  call void @strbuf_release(ptr noundef %25)
+  %987 = load i32, ptr %12, align 4, !tbaa !4
+  %988 = icmp ne i32 %987, 0
+  br i1 %988, label %989, label %1005
 
-sw.bb141:                                         ; preds = %while.body131
-  %84 = load ptr, ptr %o, align 8
-  %flags142 = getelementptr inbounds %struct.option, ptr %84, i32 0, i32 6
-  %85 = load i32, ptr %flags142, align 8
-  %or143 = or i32 %85, 8
-  store i32 %or143, ptr %flags142, align 8
-  br label %while.cond128, !llvm.loop !11
+989:                                              ; preds = %986
+  %990 = load i32, ptr %14, align 4, !tbaa !4
+  %991 = icmp eq i32 %990, 1
+  br i1 %991, label %992, label %995
 
-sw.epilog:                                        ; preds = %while.body131
-  %86 = load ptr, ptr %s, align 8
-  %incdec.ptr144 = getelementptr inbounds i8, ptr %86, i32 -1
-  store ptr %incdec.ptr144, ptr %s, align 8
-  br label %while.end
+992:                                              ; preds = %989
+  %993 = load i32, ptr %15, align 4, !tbaa !4
+  %994 = load ptr, ptr %23, align 8, !tbaa !11
+  call void @show_rev(i32 noundef %993, ptr noundef %21, ptr noundef %994)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %1008
 
-while.end:                                        ; preds = %sw.epilog, %while.cond128
-  %87 = load ptr, ptr %s, align 8
-  %88 = load ptr, ptr %help, align 8
-  %cmp145 = icmp ult ptr %87, %88
-  br i1 %cmp145, label %if.then147, label %if.end152
+995:                                              ; preds = %989
+  %996 = load i32, ptr %14, align 4, !tbaa !4
+  %997 = icmp eq i32 %996, 0
+  br i1 %997, label %998, label %1002
 
-if.then147:                                       ; preds = %while.end
-  %89 = load ptr, ptr %s, align 8
-  %90 = load ptr, ptr %help, align 8
-  %91 = load ptr, ptr %s, align 8
-  %sub.ptr.lhs.cast148 = ptrtoint ptr %90 to i64
-  %sub.ptr.rhs.cast149 = ptrtoint ptr %91 to i64
-  %sub.ptr.sub150 = sub i64 %sub.ptr.lhs.cast148, %sub.ptr.rhs.cast149
-  %call151 = call ptr @xmemdupz(ptr noundef %89, i64 noundef %sub.ptr.sub150)
-  %92 = load ptr, ptr %o, align 8
-  %argh = getelementptr inbounds %struct.option, ptr %92, i32 0, i32 4
-  store ptr %call151, ptr %argh, align 8
-  br label %if.end152
+998:                                              ; preds = %995
+  %999 = call i32 @show_default()
+  %1000 = icmp ne i32 %999, 0
+  br i1 %1000, label %1001, label %1002
 
-if.end152:                                        ; preds = %if.then147, %while.end
-  br label %while.cond, !llvm.loop !10
+1001:                                             ; preds = %998
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %1008
 
-while.end153:                                     ; preds = %while.cond
-  call void @strbuf_release(ptr noundef %sb)
-  br label %do.body154
+1002:                                             ; preds = %998, %995
+  br label %1003
 
-do.body154:                                       ; preds = %while.end153
-  %93 = load i32, ptr %onb, align 4
-  %add155 = add nsw i32 %93, 1
-  %94 = load i32, ptr %osz, align 4
-  %cmp156 = icmp sgt i32 %add155, %94
-  br i1 %cmp156, label %if.then158, label %if.end175
+1003:                                             ; preds = %1002
+  %1004 = load i32, ptr %13, align 4, !tbaa !4
+  call void @die_no_single_rev(i32 noundef %1004)
+  br label %1007
 
-if.then158:                                       ; preds = %do.body154
-  %95 = load i32, ptr %osz, align 4
-  %add159 = add nsw i32 %95, 16
-  %mul160 = mul nsw i32 %add159, 3
-  %div161 = sdiv i32 %mul160, 2
-  %96 = load i32, ptr %onb, align 4
-  %add162 = add nsw i32 %96, 1
-  %cmp163 = icmp slt i32 %div161, %add162
-  br i1 %cmp163, label %if.then165, label %if.else167
+1005:                                             ; preds = %986
+  %1006 = call i32 @show_default()
+  br label %1007
 
-if.then165:                                       ; preds = %if.then158
-  %97 = load i32, ptr %onb, align 4
-  %add166 = add nsw i32 %97, 1
-  store i32 %add166, ptr %osz, align 4
-  br label %if.end171
+1007:                                             ; preds = %1005, %1003
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %1008
 
-if.else167:                                       ; preds = %if.then158
-  %98 = load i32, ptr %osz, align 4
-  %add168 = add nsw i32 %98, 16
-  %mul169 = mul nsw i32 %add168, 3
-  %div170 = sdiv i32 %mul169, 2
-  store i32 %div170, ptr %osz, align 4
-  br label %if.end171
-
-if.end171:                                        ; preds = %if.else167, %if.then165
-  %99 = load ptr, ptr %opts, align 8
-  %100 = load i32, ptr %osz, align 4
-  %conv172 = sext i32 %100 to i64
-  %call173 = call i64 @st_mult(i64 noundef 88, i64 noundef %conv172)
-  %call174 = call ptr @xrealloc(ptr noundef %99, i64 noundef %call173)
-  store ptr %call174, ptr %opts, align 8
-  br label %if.end175
-
-if.end175:                                        ; preds = %if.end171, %do.body154
-  br label %do.end176
-
-do.end176:                                        ; preds = %if.end175
-  %101 = load ptr, ptr %opts, align 8
-  %102 = load i32, ptr %onb, align 4
-  %idx.ext177 = sext i32 %102 to i64
-  %add.ptr178 = getelementptr inbounds %struct.option, ptr %101, i64 %idx.ext177
-  call void @llvm.memset.p0.i64(ptr align 8 %add.ptr178, i8 0, i64 88, i1 false)
-  %103 = load i32, ptr %argc.addr, align 4
-  %104 = load ptr, ptr %argv.addr, align 8
-  %105 = load ptr, ptr %prefix.addr, align 8
-  %106 = load ptr, ptr %opts, align 8
-  %107 = load ptr, ptr %usage, align 8
-  %108 = load i32, ptr @cmd_parseopt.keep_dashdash, align 4
-  %tobool179 = icmp ne i32 %108, 0
-  %cond = select i1 %tobool179, i32 1, i32 0
-  %109 = load i32, ptr @cmd_parseopt.stop_at_non_option, align 4
-  %tobool180 = icmp ne i32 %109, 0
-  %cond181 = select i1 %tobool180, i32 2, i32 0
-  %or182 = or i32 %cond, %cond181
-  %or183 = or i32 %or182, 64
-  %call184 = call i32 @parse_options(i32 noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef %107, i32 noundef %or183)
-  store i32 %call184, ptr %argc.addr, align 4
-  call void @strbuf_addstr(ptr noundef %parsed, ptr noundef @.str.104)
-  %110 = load ptr, ptr %argv.addr, align 8
-  call void @sq_quote_argv(ptr noundef %parsed, ptr noundef %110)
-  %buf185 = getelementptr inbounds %struct.strbuf, ptr %parsed, i32 0, i32 2
-  %111 = load ptr, ptr %buf185, align 8
-  %call186 = call i32 @puts(ptr noundef %111)
-  call void @strbuf_release(ptr noundef %parsed)
-  ret i32 0
+1008:                                             ; preds = %1007, %1001, %992, %980, %107, %70, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %25) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %24) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #11
+  call void @llvm.lifetime.end.p0(i64 36, ptr %21) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  %1009 = load i32, ptr %5, align 4
+  ret i32 %1009
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @cmd_sq_quote(i32 noundef %argc, ptr noundef %argv) #0 {
-entry:
-  %argc.addr = alloca i32, align 4
-  %argv.addr = alloca ptr, align 8
-  %buf = alloca %struct.strbuf, align 8
-  store i32 %argc, ptr %argc.addr, align 4
-  store ptr %argv, ptr %argv.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 @__const.cmd_sq_quote.buf, i64 24, i1 false)
-  %0 = load i32, ptr %argc.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %argv.addr, align 8
-  call void @sq_quote_argv(ptr noundef %buf, ptr noundef %1)
-  br label %if.end
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-if.end:                                           ; preds = %if.then, %entry
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
-  %2 = load ptr, ptr %buf1, align 8
-  %call = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %2)
-  call void @strbuf_release(ptr noundef %buf)
-  ret i32 0
-}
+declare void @show_usage_if_asked(i32 noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: noreturn
-declare void @usage(ptr noundef) #3
-
-declare ptr @setup_git_directory() #4
-
-declare void @git_config(ptr noundef, ptr noundef) #4
-
-declare i32 @git_default_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @show_file(ptr noundef %arg, i32 noundef %output_prefix) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %arg.addr = alloca ptr, align 8
-  %output_prefix.addr = alloca i32, align 4
-  %prefix = alloca ptr, align 8
-  %fname = alloca ptr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store i32 %output_prefix, ptr %output_prefix.addr, align 4
-  %call = call i32 @show_default()
-  %0 = load i32, ptr @filter, align 4
-  %and = and i32 %0, 10
-  %cmp = icmp eq i32 %and, 10
-  br i1 %cmp, label %if.then, label %if.end4
+define internal i32 @cmd_parseopt(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca [2 x ptr], align 16
+  %10 = alloca [4 x %struct.option], align 16
+  %11 = alloca %struct.strbuf, align 8
+  %12 = alloca %struct.strbuf, align 8
+  %13 = alloca %struct.strvec, align 8
+  %14 = alloca %struct.strvec, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i64, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 0, ptr %7, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 0, ptr %8, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %9, ptr align 16 @__const.cmd_parseopt.parseopt_usage, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 352, ptr %10) #11
+  %23 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 0
+  store i32 9, ptr %23, align 8, !tbaa !73
+  %24 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 1
+  store i32 0, ptr %24, align 4, !tbaa !75
+  %25 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 2
+  store ptr @.str.96, ptr %25, align 8, !tbaa !76
+  %26 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 3
+  store ptr %7, ptr %26, align 8, !tbaa !77
+  %27 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 4
+  store ptr null, ptr %27, align 8, !tbaa !78
+  %28 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 5
+  store ptr @.str.97, ptr %28, align 8, !tbaa !79
+  %29 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 6
+  store i32 2, ptr %29, align 8, !tbaa !80
+  %30 = getelementptr i8, ptr %10, i64 44
+  call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 4, i1 false)
+  %31 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 7
+  store ptr null, ptr %31, align 8, !tbaa !81
+  %32 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 8
+  store i64 1, ptr %32, align 8, !tbaa !82
+  %33 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 9
+  store ptr null, ptr %33, align 8, !tbaa !83
+  %34 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 10
+  store i64 0, ptr %34, align 8, !tbaa !84
+  %35 = getelementptr inbounds nuw %struct.option, ptr %10, i32 0, i32 11
+  store ptr null, ptr %35, align 8, !tbaa !85
+  %36 = getelementptr inbounds %struct.option, ptr %10, i64 1
+  %37 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 0
+  store i32 9, ptr %37, align 8, !tbaa !73
+  %38 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 1
+  store i32 0, ptr %38, align 4, !tbaa !75
+  %39 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 2
+  store ptr @.str.98, ptr %39, align 8, !tbaa !76
+  %40 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 3
+  store ptr %8, ptr %40, align 8, !tbaa !77
+  %41 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 4
+  store ptr null, ptr %41, align 8, !tbaa !78
+  %42 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 5
+  store ptr @.str.99, ptr %42, align 8, !tbaa !79
+  %43 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 6
+  store i32 2, ptr %43, align 8, !tbaa !80
+  %44 = getelementptr i8, ptr %36, i64 44
+  call void @llvm.memset.p0.i64(ptr align 4 %44, i8 0, i64 4, i1 false)
+  %45 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 7
+  store ptr null, ptr %45, align 8, !tbaa !81
+  %46 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 8
+  store i64 1, ptr %46, align 8, !tbaa !82
+  %47 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 9
+  store ptr null, ptr %47, align 8, !tbaa !83
+  %48 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 10
+  store i64 0, ptr %48, align 8, !tbaa !84
+  %49 = getelementptr inbounds nuw %struct.option, ptr %36, i32 0, i32 11
+  store ptr null, ptr %49, align 8, !tbaa !85
+  %50 = getelementptr inbounds %struct.option, ptr %10, i64 2
+  %51 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 0
+  store i32 9, ptr %51, align 8, !tbaa !73
+  %52 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 1
+  store i32 0, ptr %52, align 4, !tbaa !75
+  %53 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 2
+  store ptr @.str.100, ptr %53, align 8, !tbaa !76
+  %54 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 3
+  store ptr @stuck_long, ptr %54, align 8, !tbaa !77
+  %55 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 4
+  store ptr null, ptr %55, align 8, !tbaa !78
+  %56 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 5
+  store ptr @.str.101, ptr %56, align 8, !tbaa !79
+  %57 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 6
+  store i32 2, ptr %57, align 8, !tbaa !80
+  %58 = getelementptr i8, ptr %50, i64 44
+  call void @llvm.memset.p0.i64(ptr align 4 %58, i8 0, i64 4, i1 false)
+  %59 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 7
+  store ptr null, ptr %59, align 8, !tbaa !81
+  %60 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 8
+  store i64 1, ptr %60, align 8, !tbaa !82
+  %61 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 9
+  store ptr null, ptr %61, align 8, !tbaa !83
+  %62 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 10
+  store i64 0, ptr %62, align 8, !tbaa !84
+  %63 = getelementptr inbounds nuw %struct.option, ptr %50, i32 0, i32 11
+  store ptr null, ptr %63, align 8, !tbaa !85
+  %64 = getelementptr inbounds %struct.option, ptr %10, i64 3
+  call void @llvm.memset.p0.i64(ptr align 8 %64, i8 0, i64 88, i1 false)
+  %65 = getelementptr inbounds nuw %struct.option, ptr %64, i32 0, i32 0
+  store i32 0, ptr %65, align 8, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 @__const.cmd_parseopt.sb, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %12) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 @__const.cmd_parseopt.parsed, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 @__const.cmd_parseopt.longnames, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 @__const.cmd_parseopt.usage, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  store ptr null, ptr %15, align 8, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  store i64 0, ptr %16, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  store i64 0, ptr %17, align 8, !tbaa !88
+  call void @strbuf_addstr(ptr noundef %12, ptr noundef @.str.102)
+  %66 = load i32, ptr %4, align 4, !tbaa !4
+  %67 = load ptr, ptr %5, align 8, !tbaa !8
+  %68 = load ptr, ptr %6, align 8, !tbaa !11
+  %69 = getelementptr inbounds [4 x %struct.option], ptr %10, i64 0, i64 0
+  %70 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 0
+  %71 = call i32 @parse_options(i32 noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef 1)
+  store i32 %71, ptr %4, align 4, !tbaa !4
+  %72 = load i32, ptr %4, align 4, !tbaa !4
+  %73 = icmp slt i32 %72, 1
+  br i1 %73, label %80, label %74
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %output_prefix.addr, align 4
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.then1, label %if.else
+74:                                               ; preds = %3
+  %75 = load ptr, ptr %5, align 8, !tbaa !8
+  %76 = getelementptr inbounds ptr, ptr %75, i64 0
+  %77 = load ptr, ptr %76, align 8, !tbaa !11
+  %78 = call i32 @strcmp(ptr noundef %77, ptr noundef @.str.3) #12
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %83
 
-if.then1:                                         ; preds = %if.then
-  %2 = load ptr, ptr @startup_info, align 8
-  %prefix2 = getelementptr inbounds %struct.startup_info, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %prefix2, align 8
-  store ptr %3, ptr %prefix, align 8
-  %4 = load ptr, ptr %prefix, align 8
-  %5 = load ptr, ptr %arg.addr, align 8
-  %call3 = call ptr @prefix_filename(ptr noundef %4, ptr noundef %5)
-  store ptr %call3, ptr %fname, align 8
-  %6 = load ptr, ptr %fname, align 8
-  call void @show(ptr noundef %6)
-  %7 = load ptr, ptr %fname, align 8
-  call void @free(ptr noundef %7) #10
-  br label %if.end
-
-if.else:                                          ; preds = %if.then
-  %8 = load ptr, ptr %arg.addr, align 8
-  call void @show(ptr noundef %8)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then1
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end4, %if.end
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
-}
-
-declare void @verify_filename(ptr noundef, ptr noundef, i32 noundef) #4
-
-declare i32 @printf(ptr noundef, ...) #4
-
-; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #3
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_(ptr noundef %msgid) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %msgid.addr = alloca ptr, align 8
-  store ptr %msgid, ptr %msgid.addr, align 8
-  %0 = load ptr, ptr %msgid.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store ptr @.str.67, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1 = icmp ne i32 %2, 0
-  br i1 %tobool1, label %if.end3, label %if.then2
-
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %msgid.addr, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
-
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %msgid.addr, align 8
-  %call = call ptr @gettext(ptr noundef %4) #10
-  store ptr %call, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
-}
-
-declare ptr @resolve_gitdir_gently(ptr noundef, ptr noundef) #4
-
-declare i32 @puts(ptr noundef) #4
-
-declare void @prepare_repo_settings(ptr noundef) #4
-
-; Function Attrs: nounwind uwtable
-define internal void @strbuf_setlen(ptr noundef %sb, i64 noundef %len) #0 {
-entry:
-  %sb.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load i64, ptr %len.addr, align 8
-  %1 = load ptr, ptr %sb.addr, align 8
-  %alloc = getelementptr inbounds %struct.strbuf, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %alloc, align 8
-  %tobool = icmp ne i64 %2, 0
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %3 = load ptr, ptr %sb.addr, align 8
-  %alloc1 = getelementptr inbounds %struct.strbuf, ptr %3, i32 0, i32 0
-  %4 = load i64, ptr %alloc1, align 8
-  %sub = sub i64 %4, 1
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub, %cond.true ], [ 0, %cond.false ]
-  %cmp = icmp ugt i64 %0, %cond
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %cond.end
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef @.str.109, i32 noundef 167, ptr noundef @.str.110) #9
+80:                                               ; preds = %74, %3
+  %81 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 0
+  %82 = getelementptr inbounds [4 x %struct.option], ptr %10, i64 0, i64 0
+  call void @usage_with_options(ptr noundef %81, ptr noundef %82) #13
   unreachable
 
-if.end:                                           ; preds = %cond.end
-  %5 = load i64, ptr %len.addr, align 8
-  %6 = load ptr, ptr %sb.addr, align 8
-  %len2 = getelementptr inbounds %struct.strbuf, ptr %6, i32 0, i32 1
-  store i64 %5, ptr %len2, align 8
-  %7 = load ptr, ptr %sb.addr, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %buf, align 8
-  %cmp3 = icmp ne ptr %8, @strbuf_slopbuf
-  br i1 %cmp3, label %if.then4, label %if.else
+83:                                               ; preds = %74
+  br label %84
 
-if.then4:                                         ; preds = %if.end
-  %9 = load ptr, ptr %sb.addr, align 8
-  %buf5 = getelementptr inbounds %struct.strbuf, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %buf5, align 8
-  %11 = load i64, ptr %len.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %10, i64 %11
-  store i8 0, ptr %arrayidx, align 1
-  br label %if.end6
+84:                                               ; preds = %102, %83
+  call void @strbuf_setlen(ptr noundef %11, i64 noundef 0)
+  %85 = load ptr, ptr @stdin, align 8, !tbaa !89
+  %86 = call i32 @strbuf_getline(ptr noundef %11, ptr noundef %85)
+  %87 = icmp eq i32 %86, -1
+  br i1 %87, label %88, label %90
 
-if.else:                                          ; preds = %if.end
-  br label %if.end6
+88:                                               ; preds = %84
+  %89 = call ptr @_(ptr noundef @.str.103)
+  call void (ptr, ...) @die(ptr noundef %89) #13
+  unreachable
 
-if.end6:                                          ; preds = %if.else, %if.then4
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8, !tbaa !54
+  %93 = call i32 @strcmp(ptr noundef @.str.3, ptr noundef %92) #12
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %102, label %95
+
+95:                                               ; preds = %90
+  %96 = getelementptr inbounds nuw %struct.strvec, ptr %14, i32 0, i32 1
+  %97 = load i64, ptr %96, align 8, !tbaa !91
+  %98 = icmp ne i64 %97, 0
+  br i1 %98, label %101, label %99
+
+99:                                               ; preds = %95
+  %100 = call ptr @_(ptr noundef @.str.104)
+  call void (ptr, ...) @die(ptr noundef %100) #13
+  unreachable
+
+101:                                              ; preds = %95
+  br label %106
+
+102:                                              ; preds = %90
+  %103 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %104 = load ptr, ptr %103, align 8, !tbaa !54
+  %105 = call ptr @strvec_push(ptr noundef %14, ptr noundef %104)
+  br label %84
+
+106:                                              ; preds = %101
+  br label %107
+
+107:                                              ; preds = %313, %311, %106
+  %108 = load ptr, ptr @stdin, align 8, !tbaa !89
+  %109 = call i32 @strbuf_getline(ptr noundef %11, ptr noundef %108)
+  %110 = icmp ne i32 %109, -1
+  br i1 %110, label %111, label %314
+
+111:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #11
+  %112 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 1
+  %113 = load i64, ptr %112, align 8, !tbaa !92
+  %114 = icmp ne i64 %113, 0
+  br i1 %114, label %116, label %115
+
+115:                                              ; preds = %111
+  store i32 4, ptr %21, align 4
+  br label %311, !llvm.loop !93
+
+116:                                              ; preds = %111
+  br label %117
+
+117:                                              ; preds = %116
+  %118 = load i64, ptr %16, align 8, !tbaa !88
+  %119 = add i64 %118, 1
+  %120 = load i64, ptr %17, align 8, !tbaa !88
+  %121 = icmp ugt i64 %119, %120
+  br i1 %121, label %122, label %143
+
+122:                                              ; preds = %117
+  %123 = load i64, ptr %17, align 8, !tbaa !88
+  %124 = add i64 %123, 16
+  %125 = mul i64 %124, 3
+  %126 = udiv i64 %125, 2
+  %127 = load i64, ptr %16, align 8, !tbaa !88
+  %128 = add i64 %127, 1
+  %129 = icmp ult i64 %126, %128
+  br i1 %129, label %130, label %133
+
+130:                                              ; preds = %122
+  %131 = load i64, ptr %16, align 8, !tbaa !88
+  %132 = add i64 %131, 1
+  store i64 %132, ptr %17, align 8, !tbaa !88
+  br label %138
+
+133:                                              ; preds = %122
+  %134 = load i64, ptr %17, align 8, !tbaa !88
+  %135 = add i64 %134, 16
+  %136 = mul i64 %135, 3
+  %137 = udiv i64 %136, 2
+  store i64 %137, ptr %17, align 8, !tbaa !88
+  br label %138
+
+138:                                              ; preds = %133, %130
+  %139 = load ptr, ptr %15, align 8, !tbaa !86
+  %140 = load i64, ptr %17, align 8, !tbaa !88
+  %141 = call i64 @st_mult(i64 noundef 88, i64 noundef %140)
+  %142 = call ptr @xrealloc(ptr noundef %139, i64 noundef %141)
+  store ptr %142, ptr %15, align 8, !tbaa !86
+  br label %143
+
+143:                                              ; preds = %138, %117
+  br label %144
+
+144:                                              ; preds = %143
+  br label %145
+
+145:                                              ; preds = %144
+  %146 = load ptr, ptr %15, align 8, !tbaa !86
+  %147 = load i64, ptr %16, align 8, !tbaa !88
+  %148 = getelementptr inbounds nuw %struct.option, ptr %146, i64 %147
+  call void @llvm.memset.p0.i64(ptr align 8 %148, i8 0, i64 88, i1 false)
+  %149 = load ptr, ptr %15, align 8, !tbaa !86
+  %150 = load i64, ptr %16, align 8, !tbaa !88
+  %151 = add i64 %150, 1
+  store i64 %151, ptr %16, align 8, !tbaa !88
+  %152 = getelementptr inbounds nuw %struct.option, ptr %149, i64 %150
+  store ptr %152, ptr %20, align 8, !tbaa !86
+  %153 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %154 = load ptr, ptr %153, align 8, !tbaa !54
+  %155 = call ptr @findspace(ptr noundef %154)
+  store ptr %155, ptr %19, align 8, !tbaa !11
+  %156 = load ptr, ptr %19, align 8, !tbaa !11
+  %157 = icmp ne ptr %156, null
+  br i1 %157, label %158, label %163
+
+158:                                              ; preds = %145
+  %159 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %160 = load ptr, ptr %159, align 8, !tbaa !54
+  %161 = load ptr, ptr %19, align 8, !tbaa !11
+  %162 = icmp eq ptr %160, %161
+  br i1 %162, label %163, label %172
+
+163:                                              ; preds = %158, %145
+  %164 = load ptr, ptr %20, align 8, !tbaa !86
+  %165 = getelementptr inbounds nuw %struct.option, ptr %164, i32 0, i32 0
+  store i32 1, ptr %165, align 8, !tbaa !73
+  %166 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %167 = load ptr, ptr %166, align 8, !tbaa !54
+  %168 = call ptr @skipspaces(ptr noundef %167)
+  %169 = call ptr @xstrdup(ptr noundef %168)
+  %170 = load ptr, ptr %20, align 8, !tbaa !86
+  %171 = getelementptr inbounds nuw %struct.option, ptr %170, i32 0, i32 5
+  store ptr %169, ptr %171, align 8, !tbaa !79
+  store i32 4, ptr %21, align 4
+  br label %311, !llvm.loop !93
+
+172:                                              ; preds = %158
+  %173 = load ptr, ptr %19, align 8, !tbaa !11
+  store i8 0, ptr %173, align 1, !tbaa !39
+  %174 = load ptr, ptr %20, align 8, !tbaa !86
+  %175 = getelementptr inbounds nuw %struct.option, ptr %174, i32 0, i32 0
+  store i32 13, ptr %175, align 8, !tbaa !73
+  %176 = load ptr, ptr %19, align 8, !tbaa !11
+  %177 = getelementptr inbounds i8, ptr %176, i64 1
+  %178 = call ptr @skipspaces(ptr noundef %177)
+  %179 = call ptr @xstrdup(ptr noundef %178)
+  %180 = load ptr, ptr %20, align 8, !tbaa !86
+  %181 = getelementptr inbounds nuw %struct.option, ptr %180, i32 0, i32 5
+  store ptr %179, ptr %181, align 8, !tbaa !79
+  %182 = load ptr, ptr %20, align 8, !tbaa !86
+  %183 = getelementptr inbounds nuw %struct.option, ptr %182, i32 0, i32 3
+  store ptr %12, ptr %183, align 8, !tbaa !77
+  %184 = load ptr, ptr %20, align 8, !tbaa !86
+  %185 = getelementptr inbounds nuw %struct.option, ptr %184, i32 0, i32 6
+  store i32 2, ptr %185, align 8, !tbaa !80
+  %186 = load ptr, ptr %20, align 8, !tbaa !86
+  %187 = getelementptr inbounds nuw %struct.option, ptr %186, i32 0, i32 7
+  store ptr @parseopt_dump, ptr %187, align 8, !tbaa !81
+  %188 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %189 = load ptr, ptr %188, align 8, !tbaa !54
+  %190 = call ptr @strpbrk(ptr noundef %189, ptr noundef @.str.105) #12
+  store ptr %190, ptr %18, align 8, !tbaa !11
+  %191 = load ptr, ptr %18, align 8, !tbaa !11
+  %192 = icmp ne ptr %191, null
+  br i1 %192, label %195, label %193
+
+193:                                              ; preds = %172
+  %194 = load ptr, ptr %19, align 8, !tbaa !11
+  store ptr %194, ptr %18, align 8, !tbaa !11
+  br label %195
+
+195:                                              ; preds = %193, %172
+  %196 = load ptr, ptr %18, align 8, !tbaa !11
+  %197 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %198 = load ptr, ptr %197, align 8, !tbaa !54
+  %199 = icmp eq ptr %196, %198
+  br i1 %199, label %200, label %202
+
+200:                                              ; preds = %195
+  %201 = call ptr @_(ptr noundef @.str.106)
+  call void (ptr, ...) @die(ptr noundef %201) #13
+  unreachable
+
+202:                                              ; preds = %195
+  %203 = load ptr, ptr %18, align 8, !tbaa !11
+  %204 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %205 = load ptr, ptr %204, align 8, !tbaa !54
+  %206 = ptrtoint ptr %203 to i64
+  %207 = ptrtoint ptr %205 to i64
+  %208 = sub i64 %206, %207
+  %209 = icmp eq i64 %208, 1
+  br i1 %209, label %210, label %217
+
+210:                                              ; preds = %202
+  %211 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %212 = load ptr, ptr %211, align 8, !tbaa !54
+  %213 = load i8, ptr %212, align 1, !tbaa !39
+  %214 = sext i8 %213 to i32
+  %215 = load ptr, ptr %20, align 8, !tbaa !86
+  %216 = getelementptr inbounds nuw %struct.option, ptr %215, i32 0, i32 1
+  store i32 %214, ptr %216, align 4, !tbaa !75
+  br label %259
+
+217:                                              ; preds = %202
+  %218 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %219 = load ptr, ptr %218, align 8, !tbaa !54
+  %220 = getelementptr inbounds i8, ptr %219, i64 1
+  %221 = load i8, ptr %220, align 1, !tbaa !39
+  %222 = sext i8 %221 to i32
+  %223 = icmp ne i32 %222, 44
+  br i1 %223, label %224, label %237
+
+224:                                              ; preds = %217
+  %225 = load ptr, ptr %18, align 8, !tbaa !11
+  %226 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %227 = load ptr, ptr %226, align 8, !tbaa !54
+  %228 = ptrtoint ptr %225 to i64
+  %229 = ptrtoint ptr %227 to i64
+  %230 = sub i64 %228, %229
+  %231 = trunc i64 %230 to i32
+  %232 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %233 = load ptr, ptr %232, align 8, !tbaa !54
+  %234 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %13, ptr noundef @.str.107, i32 noundef %231, ptr noundef %233)
+  %235 = load ptr, ptr %20, align 8, !tbaa !86
+  %236 = getelementptr inbounds nuw %struct.option, ptr %235, i32 0, i32 2
+  store ptr %234, ptr %236, align 8, !tbaa !76
+  br label %258
+
+237:                                              ; preds = %217
+  %238 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %239 = load ptr, ptr %238, align 8, !tbaa !54
+  %240 = load i8, ptr %239, align 1, !tbaa !39
+  %241 = sext i8 %240 to i32
+  %242 = load ptr, ptr %20, align 8, !tbaa !86
+  %243 = getelementptr inbounds nuw %struct.option, ptr %242, i32 0, i32 1
+  store i32 %241, ptr %243, align 4, !tbaa !75
+  %244 = load ptr, ptr %18, align 8, !tbaa !11
+  %245 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %246 = load ptr, ptr %245, align 8, !tbaa !54
+  %247 = ptrtoint ptr %244 to i64
+  %248 = ptrtoint ptr %246 to i64
+  %249 = sub i64 %247, %248
+  %250 = sub nsw i64 %249, 2
+  %251 = trunc i64 %250 to i32
+  %252 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %253 = load ptr, ptr %252, align 8, !tbaa !54
+  %254 = getelementptr inbounds i8, ptr %253, i64 2
+  %255 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %13, ptr noundef @.str.107, i32 noundef %251, ptr noundef %254)
+  %256 = load ptr, ptr %20, align 8, !tbaa !86
+  %257 = getelementptr inbounds nuw %struct.option, ptr %256, i32 0, i32 2
+  store ptr %255, ptr %257, align 8, !tbaa !76
+  br label %258
+
+258:                                              ; preds = %237, %224
+  br label %259
+
+259:                                              ; preds = %258, %210
+  br label %260
+
+260:                                              ; preds = %288, %283, %274, %269, %259
+  %261 = load ptr, ptr %18, align 8, !tbaa !11
+  %262 = load ptr, ptr %19, align 8, !tbaa !11
+  %263 = icmp ult ptr %261, %262
+  br i1 %263, label %264, label %296
+
+264:                                              ; preds = %260
+  %265 = load ptr, ptr %18, align 8, !tbaa !11
+  %266 = getelementptr inbounds nuw i8, ptr %265, i32 1
+  store ptr %266, ptr %18, align 8, !tbaa !11
+  %267 = load i8, ptr %265, align 1, !tbaa !39
+  %268 = sext i8 %267 to i32
+  switch i32 %268, label %293 [
+    i32 61, label %269
+    i32 63, label %274
+    i32 33, label %283
+    i32 42, label %288
+  ]
+
+269:                                              ; preds = %264
+  %270 = load ptr, ptr %20, align 8, !tbaa !86
+  %271 = getelementptr inbounds nuw %struct.option, ptr %270, i32 0, i32 6
+  %272 = load i32, ptr %271, align 8, !tbaa !80
+  %273 = and i32 %272, -3
+  store i32 %273, ptr %271, align 8, !tbaa !80
+  br label %260, !llvm.loop !94
+
+274:                                              ; preds = %264
+  %275 = load ptr, ptr %20, align 8, !tbaa !86
+  %276 = getelementptr inbounds nuw %struct.option, ptr %275, i32 0, i32 6
+  %277 = load i32, ptr %276, align 8, !tbaa !80
+  %278 = and i32 %277, -3
+  store i32 %278, ptr %276, align 8, !tbaa !80
+  %279 = load ptr, ptr %20, align 8, !tbaa !86
+  %280 = getelementptr inbounds nuw %struct.option, ptr %279, i32 0, i32 6
+  %281 = load i32, ptr %280, align 8, !tbaa !80
+  %282 = or i32 %281, 1
+  store i32 %282, ptr %280, align 8, !tbaa !80
+  br label %260, !llvm.loop !94
+
+283:                                              ; preds = %264
+  %284 = load ptr, ptr %20, align 8, !tbaa !86
+  %285 = getelementptr inbounds nuw %struct.option, ptr %284, i32 0, i32 6
+  %286 = load i32, ptr %285, align 8, !tbaa !80
+  %287 = or i32 %286, 4
+  store i32 %287, ptr %285, align 8, !tbaa !80
+  br label %260, !llvm.loop !94
+
+288:                                              ; preds = %264
+  %289 = load ptr, ptr %20, align 8, !tbaa !86
+  %290 = getelementptr inbounds nuw %struct.option, ptr %289, i32 0, i32 6
+  %291 = load i32, ptr %290, align 8, !tbaa !80
+  %292 = or i32 %291, 8
+  store i32 %292, ptr %290, align 8, !tbaa !80
+  br label %260, !llvm.loop !94
+
+293:                                              ; preds = %264
+  %294 = load ptr, ptr %18, align 8, !tbaa !11
+  %295 = getelementptr inbounds i8, ptr %294, i32 -1
+  store ptr %295, ptr %18, align 8, !tbaa !11
+  br label %296
+
+296:                                              ; preds = %293, %260
+  %297 = load ptr, ptr %18, align 8, !tbaa !11
+  %298 = load ptr, ptr %19, align 8, !tbaa !11
+  %299 = icmp ult ptr %297, %298
+  br i1 %299, label %300, label %310
+
+300:                                              ; preds = %296
+  %301 = load ptr, ptr %18, align 8, !tbaa !11
+  %302 = load ptr, ptr %19, align 8, !tbaa !11
+  %303 = load ptr, ptr %18, align 8, !tbaa !11
+  %304 = ptrtoint ptr %302 to i64
+  %305 = ptrtoint ptr %303 to i64
+  %306 = sub i64 %304, %305
+  %307 = call ptr @xmemdupz(ptr noundef %301, i64 noundef %306)
+  %308 = load ptr, ptr %20, align 8, !tbaa !86
+  %309 = getelementptr inbounds nuw %struct.option, ptr %308, i32 0, i32 4
+  store ptr %307, ptr %309, align 8, !tbaa !78
+  br label %310
+
+310:                                              ; preds = %300, %296
+  store i32 0, ptr %21, align 4
+  br label %311
+
+311:                                              ; preds = %310, %163, %115
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  %312 = load i32, ptr %21, align 4
+  switch i32 %312, label %387 [
+    i32 0, label %313
+    i32 4, label %107
+  ]
+
+313:                                              ; preds = %311
+  br label %107, !llvm.loop !93
+
+314:                                              ; preds = %107
+  call void @strbuf_release(ptr noundef %11)
+  br label %315
+
+315:                                              ; preds = %314
+  %316 = load i64, ptr %16, align 8, !tbaa !88
+  %317 = add i64 %316, 1
+  %318 = load i64, ptr %17, align 8, !tbaa !88
+  %319 = icmp ugt i64 %317, %318
+  br i1 %319, label %320, label %341
+
+320:                                              ; preds = %315
+  %321 = load i64, ptr %17, align 8, !tbaa !88
+  %322 = add i64 %321, 16
+  %323 = mul i64 %322, 3
+  %324 = udiv i64 %323, 2
+  %325 = load i64, ptr %16, align 8, !tbaa !88
+  %326 = add i64 %325, 1
+  %327 = icmp ult i64 %324, %326
+  br i1 %327, label %328, label %331
+
+328:                                              ; preds = %320
+  %329 = load i64, ptr %16, align 8, !tbaa !88
+  %330 = add i64 %329, 1
+  store i64 %330, ptr %17, align 8, !tbaa !88
+  br label %336
+
+331:                                              ; preds = %320
+  %332 = load i64, ptr %17, align 8, !tbaa !88
+  %333 = add i64 %332, 16
+  %334 = mul i64 %333, 3
+  %335 = udiv i64 %334, 2
+  store i64 %335, ptr %17, align 8, !tbaa !88
+  br label %336
+
+336:                                              ; preds = %331, %328
+  %337 = load ptr, ptr %15, align 8, !tbaa !86
+  %338 = load i64, ptr %17, align 8, !tbaa !88
+  %339 = call i64 @st_mult(i64 noundef 88, i64 noundef %338)
+  %340 = call ptr @xrealloc(ptr noundef %337, i64 noundef %339)
+  store ptr %340, ptr %15, align 8, !tbaa !86
+  br label %341
+
+341:                                              ; preds = %336, %315
+  br label %342
+
+342:                                              ; preds = %341
+  br label %343
+
+343:                                              ; preds = %342
+  %344 = load ptr, ptr %15, align 8, !tbaa !86
+  %345 = load i64, ptr %16, align 8, !tbaa !88
+  %346 = getelementptr inbounds nuw %struct.option, ptr %344, i64 %345
+  call void @llvm.memset.p0.i64(ptr align 8 %346, i8 0, i64 88, i1 false)
+  %347 = load i32, ptr %4, align 4, !tbaa !4
+  %348 = load ptr, ptr %5, align 8, !tbaa !8
+  %349 = load ptr, ptr %6, align 8, !tbaa !11
+  %350 = load ptr, ptr %15, align 8, !tbaa !86
+  %351 = getelementptr inbounds nuw %struct.strvec, ptr %14, i32 0, i32 0
+  %352 = load ptr, ptr %351, align 8, !tbaa !95
+  %353 = load i32, ptr %7, align 4, !tbaa !4
+  %354 = icmp ne i32 %353, 0
+  %355 = select i1 %354, i32 1, i32 0
+  %356 = load i32, ptr %8, align 4, !tbaa !4
+  %357 = icmp ne i32 %356, 0
+  %358 = select i1 %357, i32 2, i32 0
+  %359 = or i32 %355, %358
+  %360 = or i32 %359, 64
+  %361 = call i32 @parse_options(i32 noundef %347, ptr noundef %348, ptr noundef %349, ptr noundef %350, ptr noundef %352, i32 noundef %360)
+  store i32 %361, ptr %4, align 4, !tbaa !4
+  call void @strbuf_addstr(ptr noundef %12, ptr noundef @.str.108)
+  %362 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @sq_quote_argv(ptr noundef %12, ptr noundef %362)
+  %363 = getelementptr inbounds nuw %struct.strbuf, ptr %12, i32 0, i32 2
+  %364 = load ptr, ptr %363, align 8, !tbaa !54
+  %365 = call i32 @puts(ptr noundef %364)
+  call void @strbuf_release(ptr noundef %12)
+  call void @strbuf_release(ptr noundef %11)
+  call void @strvec_clear(ptr noundef %13)
+  call void @strvec_clear(ptr noundef %14)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #11
+  store i64 0, ptr %22, align 8, !tbaa !88
+  br label %366
+
+366:                                              ; preds = %382, %343
+  %367 = load i64, ptr %22, align 8, !tbaa !88
+  %368 = load i64, ptr %16, align 8, !tbaa !88
+  %369 = icmp ult i64 %367, %368
+  br i1 %369, label %371, label %370
+
+370:                                              ; preds = %366
+  store i32 13, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #11
+  br label %385
+
+371:                                              ; preds = %366
+  %372 = load ptr, ptr %15, align 8, !tbaa !86
+  %373 = load i64, ptr %22, align 8, !tbaa !88
+  %374 = getelementptr inbounds nuw %struct.option, ptr %372, i64 %373
+  %375 = getelementptr inbounds nuw %struct.option, ptr %374, i32 0, i32 5
+  %376 = load ptr, ptr %375, align 8, !tbaa !79
+  call void @free(ptr noundef %376) #11
+  %377 = load ptr, ptr %15, align 8, !tbaa !86
+  %378 = load i64, ptr %22, align 8, !tbaa !88
+  %379 = getelementptr inbounds nuw %struct.option, ptr %377, i64 %378
+  %380 = getelementptr inbounds nuw %struct.option, ptr %379, i32 0, i32 4
+  %381 = load ptr, ptr %380, align 8, !tbaa !78
+  call void @free(ptr noundef %381) #11
+  br label %382
+
+382:                                              ; preds = %371
+  %383 = load i64, ptr %22, align 8, !tbaa !88
+  %384 = add i64 %383, 1
+  store i64 %384, ptr %22, align 8, !tbaa !88
+  br label %366, !llvm.loop !96
+
+385:                                              ; preds = %370
+  %386 = load ptr, ptr %15, align 8, !tbaa !86
+  call void @free(ptr noundef %386) #11
+  store i32 1, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 352, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  ret i32 0
+
+387:                                              ; preds = %311
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @cmd_sq_quote(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.strbuf, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 @__const.cmd_sq_quote.buf, i64 24, i1 false)
+  %6 = load i32, ptr %3, align 4, !tbaa !4
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @sq_quote_argv(ptr noundef %5, ptr noundef %9)
+  br label %10
+
+10:                                               ; preds = %8, %2
+  %11 = getelementptr inbounds nuw %struct.strbuf, ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !54
+  %13 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %12)
+  call void @strbuf_release(ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #11
+  ret i32 0
+}
+
+; Function Attrs: noreturn
+declare void @usage(ptr noundef) #5
+
+declare ptr @setup_git_directory() #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @git_config(ptr noundef %0, ptr noundef %1) #6 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !97
+  store ptr %1, ptr %4, align 8, !tbaa !97
+  %5 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %6 = load ptr, ptr %3, align 8, !tbaa !97
+  %7 = load ptr, ptr %4, align 8, !tbaa !97
+  call void @repo_config(ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  ret void
+}
+
+declare i32 @git_default_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal i32 @show_file(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store i32 %1, ptr %5, align 4, !tbaa !4
+  %8 = call i32 @show_default()
+  %9 = load i32, ptr @filter, align 4, !tbaa !4
+  %10 = and i32 %9, 10
+  %11 = icmp eq i32 %10, 10
+  br i1 %11, label %12, label %27
+
+12:                                               ; preds = %2
+  %13 = load i32, ptr %5, align 4, !tbaa !4
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %24
+
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %16 = load ptr, ptr @startup_info, align 8, !tbaa !40
+  %17 = getelementptr inbounds nuw %struct.startup_info, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  store ptr %18, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %19 = load ptr, ptr %6, align 8, !tbaa !11
+  %20 = load ptr, ptr %4, align 8, !tbaa !11
+  %21 = call ptr @prefix_filename(ptr noundef %19, ptr noundef %20)
+  store ptr %21, ptr %7, align 8, !tbaa !11
+  %22 = load ptr, ptr %7, align 8, !tbaa !11
+  call void @show(ptr noundef %22)
+  %23 = load ptr, ptr %7, align 8, !tbaa !11
+  call void @free(ptr noundef %23) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %26
+
+24:                                               ; preds = %12
+  %25 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @show(ptr noundef %25)
+  br label %26
+
+26:                                               ; preds = %24, %15
+  store i32 1, ptr %3, align 4
+  br label %28
+
+27:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %28
+
+28:                                               ; preds = %27, %26
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
+}
+
+declare void @verify_filename(ptr noundef, ptr noundef, i32 noundef) #3
+
+declare i32 @printf(ptr noundef, ...) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: noreturn
+declare void @die(ptr noundef, ...) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_(ptr noundef %0) #6 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  %4 = load ptr, ptr %3, align 8, !tbaa !11
+  %5 = load i8, ptr %4, align 1, !tbaa !39
+  %6 = icmp ne i8 %5, 0
+  br i1 %6, label %8, label %7
+
+7:                                                ; preds = %1
+  store ptr @.str.71, ptr %2, align 8
+  br label %16
+
+8:                                                ; preds = %1
+  %9 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %13, label %11
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %3, align 8, !tbaa !11
+  store ptr %12, ptr %2, align 8
+  br label %16
+
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %3, align 8, !tbaa !11
+  %15 = call ptr @dcgettext(ptr noundef null, ptr noundef %14, i32 noundef 5) #11
+  store ptr %15, ptr %2, align 8
+  br label %16
+
+16:                                               ; preds = %13, %11, %7
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
+}
+
+declare ptr @resolve_gitdir_gently(ptr noundef, ptr noundef) #3
+
+declare i32 @puts(ptr noundef) #3
+
+declare void @prepare_repo_settings(ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @strbuf_setlen(ptr noundef %0, i64 noundef %1) #6 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store i64 %1, ptr %4, align 8, !tbaa !88
+  %5 = load i64, ptr %4, align 8, !tbaa !88
+  %6 = load ptr, ptr %3, align 8, !tbaa !98
+  %7 = getelementptr inbounds nuw %struct.strbuf, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !100
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !98
+  %12 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8, !tbaa !100
+  %14 = sub i64 %13, 1
+  br label %16
+
+15:                                               ; preds = %2
+  br label %16
+
+16:                                               ; preds = %15, %10
+  %17 = phi i64 [ %14, %10 ], [ 0, %15 ]
+  %18 = icmp ugt i64 %5, %17
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %16
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef @.str.113, i32 noundef 167, ptr noundef @.str.114) #13
+  unreachable
+
+20:                                               ; preds = %16
+  %21 = load i64, ptr %4, align 8, !tbaa !88
+  %22 = load ptr, ptr %3, align 8, !tbaa !98
+  %23 = getelementptr inbounds nuw %struct.strbuf, ptr %22, i32 0, i32 1
+  store i64 %21, ptr %23, align 8, !tbaa !92
+  %24 = load ptr, ptr %3, align 8, !tbaa !98
+  %25 = getelementptr inbounds nuw %struct.strbuf, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !54
+  %27 = icmp ne ptr %26, @strbuf_slopbuf
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %3, align 8, !tbaa !98
+  %30 = getelementptr inbounds nuw %struct.strbuf, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8, !tbaa !54
+  %32 = load i64, ptr %4, align 8, !tbaa !88
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
+  store i8 0, ptr %33, align 1, !tbaa !39
+  br label %35
+
+34:                                               ; preds = %20
+  br label %35
+
+35:                                               ; preds = %34, %28
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @print_path(ptr noundef %path, ptr noundef %prefix, i32 noundef %format, i32 noundef %def) #0 {
-entry:
-  %path.addr = alloca ptr, align 8
-  %prefix.addr = alloca ptr, align 8
-  %format.addr = alloca i32, align 4
-  %def.addr = alloca i32, align 4
-  %cwd = alloca ptr, align 8
-  %buf = alloca %struct.strbuf, align 8
-  %realbuf = alloca %struct.strbuf, align 8
-  %prefixbuf = alloca %struct.strbuf, align 8
-  %buf32 = alloca %struct.strbuf, align 8
-  %buf36 = alloca %struct.strbuf, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %prefix, ptr %prefix.addr, align 8
-  store i32 %format, ptr %format.addr, align 4
-  store i32 %def, ptr %def.addr, align 4
-  store ptr null, ptr %cwd, align 8
-  %0 = load ptr, ptr %prefix.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %land.lhs.true
+define internal void @print_path(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca %struct.strbuf, align 8
+  %11 = alloca %struct.strbuf, align 8
+  %12 = alloca %struct.strbuf, align 8
+  %13 = alloca %struct.strbuf, align 8
+  %14 = alloca %struct.strbuf, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store i32 %2, ptr %7, align 4, !tbaa !4
+  store i32 %3, ptr %8, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  store ptr null, ptr %9, align 8, !tbaa !11
+  %15 = load ptr, ptr %6, align 8, !tbaa !11
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %25, label %17
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %format.addr, align 4
-  %cmp = icmp ne i32 %1, 2
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+17:                                               ; preds = %4
+  %18 = load i32, ptr %7, align 4, !tbaa !4
+  %19 = icmp ne i32 %18, 2
+  br i1 %19, label %23, label %20
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %2 = load i32, ptr %def.addr, align 4
-  %cmp1 = icmp ne i32 %2, 1
-  br i1 %cmp1, label %if.then, label %if.end
+20:                                               ; preds = %17
+  %21 = load i32, ptr %8, align 4, !tbaa !4
+  %22 = icmp ne i32 %21, 1
+  br i1 %22, label %23, label %25
 
-if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
-  %call = call ptr @xgetcwd()
-  store ptr %call, ptr %cwd, align 8
-  store ptr %call, ptr %prefix.addr, align 8
-  br label %if.end
+23:                                               ; preds = %20, %17
+  %24 = call ptr @xgetcwd()
+  store ptr %24, ptr %9, align 8, !tbaa !11
+  store ptr %24, ptr %6, align 8, !tbaa !11
+  br label %25
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false, %entry
-  %3 = load i32, ptr %format.addr, align 4
-  %cmp2 = icmp eq i32 %3, 2
-  br i1 %cmp2, label %land.lhs.true3, label %if.else
+25:                                               ; preds = %23, %20, %4
+  %26 = load i32, ptr %7, align 4, !tbaa !4
+  %27 = icmp eq i32 %26, 2
+  br i1 %27, label %28, label %34
 
-land.lhs.true3:                                   ; preds = %if.end
-  %4 = load i32, ptr %def.addr, align 4
-  %cmp4 = icmp eq i32 %4, 3
-  br i1 %cmp4, label %if.then5, label %if.else
+28:                                               ; preds = %25
+  %29 = load i32, ptr %8, align 4, !tbaa !4
+  %30 = icmp eq i32 %29, 3
+  br i1 %30, label %31, label %34
 
-if.then5:                                         ; preds = %land.lhs.true3
-  %5 = load ptr, ptr %path.addr, align 8
-  %call6 = call i32 @puts(ptr noundef %5)
-  br label %if.end42
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %5, align 8, !tbaa !11
+  %33 = call i32 @puts(ptr noundef %32)
+  br label %85
 
-if.else:                                          ; preds = %land.lhs.true3, %if.end
-  %6 = load i32, ptr %format.addr, align 4
-  %cmp7 = icmp eq i32 %6, 0
-  br i1 %cmp7, label %if.then12, label %lor.lhs.false8
+34:                                               ; preds = %28, %25
+  %35 = load i32, ptr %7, align 4, !tbaa !4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %43, label %37
 
-lor.lhs.false8:                                   ; preds = %if.else
-  %7 = load i32, ptr %format.addr, align 4
-  %cmp9 = icmp eq i32 %7, 2
-  br i1 %cmp9, label %land.lhs.true10, label %if.else27
+37:                                               ; preds = %34
+  %38 = load i32, ptr %7, align 4, !tbaa !4
+  %39 = icmp eq i32 %38, 2
+  br i1 %39, label %40, label %66
 
-land.lhs.true10:                                  ; preds = %lor.lhs.false8
-  %8 = load i32, ptr %def.addr, align 4
-  %cmp11 = icmp eq i32 %8, 0
-  br i1 %cmp11, label %if.then12, label %if.else27
+40:                                               ; preds = %37
+  %41 = load i32, ptr %8, align 4, !tbaa !4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %66
 
-if.then12:                                        ; preds = %land.lhs.true10, %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 @__const.print_path.buf, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %realbuf, ptr align 8 @__const.print_path.realbuf, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %prefixbuf, ptr align 8 @__const.print_path.prefixbuf, i64 24, i1 false)
-  %9 = load ptr, ptr %path.addr, align 8
-  %call13 = call i32 @is_absolute_path(ptr noundef %9)
-  %tobool14 = icmp ne i32 %call13, 0
-  br i1 %tobool14, label %if.end18, label %if.then15
+43:                                               ; preds = %40, %34
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 @__const.print_path.buf, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 @__const.print_path.realbuf, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %12) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 @__const.print_path.prefixbuf, i64 24, i1 false)
+  %44 = load ptr, ptr %5, align 8, !tbaa !11
+  %45 = call i32 @is_absolute_path(ptr noundef %44)
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %52, label %47
 
-if.then15:                                        ; preds = %if.then12
-  %10 = load ptr, ptr %path.addr, align 8
-  %call16 = call ptr @strbuf_realpath_forgiving(ptr noundef %realbuf, ptr noundef %10, i32 noundef 1)
-  %buf17 = getelementptr inbounds %struct.strbuf, ptr %realbuf, i32 0, i32 2
-  %11 = load ptr, ptr %buf17, align 8
-  store ptr %11, ptr %path.addr, align 8
-  br label %if.end18
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %5, align 8, !tbaa !11
+  %49 = call ptr @strbuf_realpath_forgiving(ptr noundef %11, ptr noundef %48, i32 noundef 1)
+  %50 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8, !tbaa !54
+  store ptr %51, ptr %5, align 8, !tbaa !11
+  br label %52
 
-if.end18:                                         ; preds = %if.then15, %if.then12
-  %12 = load ptr, ptr %prefix.addr, align 8
-  %call19 = call i32 @is_absolute_path(ptr noundef %12)
-  %tobool20 = icmp ne i32 %call19, 0
-  br i1 %tobool20, label %if.end24, label %if.then21
+52:                                               ; preds = %47, %43
+  %53 = load ptr, ptr %6, align 8, !tbaa !11
+  %54 = call i32 @is_absolute_path(ptr noundef %53)
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %61, label %56
 
-if.then21:                                        ; preds = %if.end18
-  %13 = load ptr, ptr %prefix.addr, align 8
-  %call22 = call ptr @strbuf_realpath_forgiving(ptr noundef %prefixbuf, ptr noundef %13, i32 noundef 1)
-  %buf23 = getelementptr inbounds %struct.strbuf, ptr %prefixbuf, i32 0, i32 2
-  %14 = load ptr, ptr %buf23, align 8
-  store ptr %14, ptr %prefix.addr, align 8
-  br label %if.end24
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %6, align 8, !tbaa !11
+  %58 = call ptr @strbuf_realpath_forgiving(ptr noundef %12, ptr noundef %57, i32 noundef 1)
+  %59 = getelementptr inbounds nuw %struct.strbuf, ptr %12, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8, !tbaa !54
+  store ptr %60, ptr %6, align 8, !tbaa !11
+  br label %61
 
-if.end24:                                         ; preds = %if.then21, %if.end18
-  %15 = load ptr, ptr %path.addr, align 8
-  %16 = load ptr, ptr %prefix.addr, align 8
-  %call25 = call ptr @relative_path(ptr noundef %15, ptr noundef %16, ptr noundef %buf)
-  %call26 = call i32 @puts(ptr noundef %call25)
-  call void @strbuf_release(ptr noundef %buf)
-  call void @strbuf_release(ptr noundef %realbuf)
-  call void @strbuf_release(ptr noundef %prefixbuf)
-  br label %if.end41
+61:                                               ; preds = %56, %52
+  %62 = load ptr, ptr %5, align 8, !tbaa !11
+  %63 = load ptr, ptr %6, align 8, !tbaa !11
+  %64 = call ptr @relative_path(ptr noundef %62, ptr noundef %63, ptr noundef %10)
+  %65 = call i32 @puts(ptr noundef %64)
+  call void @strbuf_release(ptr noundef %10)
+  call void @strbuf_release(ptr noundef %11)
+  call void @strbuf_release(ptr noundef %12)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #11
+  br label %84
 
-if.else27:                                        ; preds = %land.lhs.true10, %lor.lhs.false8
-  %17 = load i32, ptr %format.addr, align 4
-  %cmp28 = icmp eq i32 %17, 2
-  br i1 %cmp28, label %land.lhs.true29, label %if.else35
+66:                                               ; preds = %40, %37
+  %67 = load i32, ptr %7, align 4, !tbaa !4
+  %68 = icmp eq i32 %67, 2
+  br i1 %68, label %69, label %77
 
-land.lhs.true29:                                  ; preds = %if.else27
-  %18 = load i32, ptr %def.addr, align 4
-  %cmp30 = icmp eq i32 %18, 1
-  br i1 %cmp30, label %if.then31, label %if.else35
+69:                                               ; preds = %66
+  %70 = load i32, ptr %8, align 4, !tbaa !4
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %72, label %77
 
-if.then31:                                        ; preds = %land.lhs.true29
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf32, ptr align 8 @__const.print_path.buf.111, i64 24, i1 false)
-  %19 = load ptr, ptr %path.addr, align 8
-  %20 = load ptr, ptr %prefix.addr, align 8
-  %call33 = call ptr @relative_path(ptr noundef %19, ptr noundef %20, ptr noundef %buf32)
-  %call34 = call i32 @puts(ptr noundef %call33)
-  call void @strbuf_release(ptr noundef %buf32)
-  br label %if.end40
+72:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 @__const.print_path.buf.115, i64 24, i1 false)
+  %73 = load ptr, ptr %5, align 8, !tbaa !11
+  %74 = load ptr, ptr %6, align 8, !tbaa !11
+  %75 = call ptr @relative_path(ptr noundef %73, ptr noundef %74, ptr noundef %13)
+  %76 = call i32 @puts(ptr noundef %75)
+  call void @strbuf_release(ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #11
+  br label %83
 
-if.else35:                                        ; preds = %land.lhs.true29, %if.else27
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf36, ptr align 8 @__const.print_path.buf.112, i64 24, i1 false)
-  %21 = load ptr, ptr %path.addr, align 8
-  %call37 = call ptr @strbuf_realpath_forgiving(ptr noundef %buf36, ptr noundef %21, i32 noundef 1)
-  %buf38 = getelementptr inbounds %struct.strbuf, ptr %buf36, i32 0, i32 2
-  %22 = load ptr, ptr %buf38, align 8
-  %call39 = call i32 @puts(ptr noundef %22)
-  call void @strbuf_release(ptr noundef %buf36)
-  br label %if.end40
+77:                                               ; preds = %69, %66
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 @__const.print_path.buf.116, i64 24, i1 false)
+  %78 = load ptr, ptr %5, align 8, !tbaa !11
+  %79 = call ptr @strbuf_realpath_forgiving(ptr noundef %14, ptr noundef %78, i32 noundef 1)
+  %80 = getelementptr inbounds nuw %struct.strbuf, ptr %14, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8, !tbaa !54
+  %82 = call i32 @puts(ptr noundef %81)
+  call void @strbuf_release(ptr noundef %14)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #11
+  br label %83
 
-if.end40:                                         ; preds = %if.else35, %if.then31
-  br label %if.end41
+83:                                               ; preds = %77, %72
+  br label %84
 
-if.end41:                                         ; preds = %if.end40, %if.end24
-  br label %if.end42
+84:                                               ; preds = %83, %61
+  br label %85
 
-if.end42:                                         ; preds = %if.end41, %if.then5
-  %23 = load ptr, ptr %cwd, align 8
-  call void @free(ptr noundef %23) #10
+85:                                               ; preds = %84, %31
+  %86 = load ptr, ptr %9, align 8, !tbaa !11
+  call void @free(ptr noundef %86) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   ret void
 }
 
-declare ptr @git_path(ptr noundef, ...) #4
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @git_path(ptr noundef %0, ...) #6 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca [1 x %struct.__va_list_tag], align 16
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %5 = call ptr @get_pathname()
+  store ptr %5, ptr %3, align 8, !tbaa !98
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #11
+  %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %6)
+  %7 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %8 = load ptr, ptr %3, align 8, !tbaa !98
+  %9 = load ptr, ptr %2, align 8, !tbaa !11
+  %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
+  call void @repo_git_pathv(ptr noundef %7, ptr noundef null, ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !98
+  %13 = getelementptr inbounds nuw %struct.strbuf, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !54
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret ptr %14
+}
 
 ; Function Attrs: nounwind uwtable
-define internal void @show(ptr noundef %arg) #0 {
-entry:
-  %arg.addr = alloca ptr, align 8
-  %sq = alloca i32, align 4
-  %ch = alloca i32, align 4
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load i32, ptr @output_sq, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.else
+define internal void @show(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %5 = load i32, ptr @output_sq, align 4, !tbaa !4
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %30
 
-if.then:                                          ; preds = %entry
-  store i32 39, ptr %sq, align 4
-  %1 = load i32, ptr %sq, align 4
-  %call = call i32 @putchar(i32 noundef %1)
-  br label %while.cond
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  store i32 39, ptr %3, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  %8 = load i32, ptr %3, align 4, !tbaa !4
+  %9 = call i32 @putchar(i32 noundef %8)
+  br label %10
 
-while.cond:                                       ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %arg.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %2, i32 1
-  store ptr %incdec.ptr, ptr %arg.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = sext i8 %3 to i32
-  store i32 %conv, ptr %ch, align 4
-  %tobool1 = icmp ne i32 %conv, 0
-  br i1 %tobool1, label %while.body, label %while.end
+10:                                               ; preds = %23, %7
+  %11 = load ptr, ptr %2, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw i8, ptr %11, i32 1
+  store ptr %12, ptr %2, align 8, !tbaa !11
+  %13 = load i8, ptr %11, align 1, !tbaa !39
+  %14 = sext i8 %13 to i32
+  store i32 %14, ptr %4, align 4, !tbaa !4
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %26
 
-while.body:                                       ; preds = %while.cond
-  %4 = load i32, ptr %ch, align 4
-  %5 = load i32, ptr %sq, align 4
-  %cmp = icmp eq i32 %4, %5
-  br i1 %cmp, label %if.then3, label %if.end
+16:                                               ; preds = %10
+  %17 = load i32, ptr %4, align 4, !tbaa !4
+  %18 = load i32, ptr %3, align 4, !tbaa !4
+  %19 = icmp eq i32 %17, %18
+  br i1 %19, label %20, label %23
 
-if.then3:                                         ; preds = %while.body
-  %6 = load ptr, ptr @stdout, align 8
-  %call4 = call i32 @fputs(ptr noundef @.str.113, ptr noundef %6)
-  br label %if.end
+20:                                               ; preds = %16
+  %21 = load ptr, ptr @stdout, align 8, !tbaa !89
+  %22 = call i32 @fputs(ptr noundef @.str.117, ptr noundef %21)
+  br label %23
 
-if.end:                                           ; preds = %if.then3, %while.body
-  %7 = load i32, ptr %ch, align 4
-  %call5 = call i32 @putchar(i32 noundef %7)
-  br label %while.cond, !llvm.loop !12
+23:                                               ; preds = %20, %16
+  %24 = load i32, ptr %4, align 4, !tbaa !4
+  %25 = call i32 @putchar(i32 noundef %24)
+  br label %10, !llvm.loop !101
 
-while.end:                                        ; preds = %while.cond
-  %8 = load i32, ptr %sq, align 4
-  %call6 = call i32 @putchar(i32 noundef %8)
-  %call7 = call i32 @putchar(i32 noundef 32)
-  br label %if.end9
+26:                                               ; preds = %10
+  %27 = load i32, ptr %3, align 4, !tbaa !4
+  %28 = call i32 @putchar(i32 noundef %27)
+  %29 = call i32 @putchar(i32 noundef 32)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  br label %33
 
-if.else:                                          ; preds = %entry
-  %9 = load ptr, ptr %arg.addr, align 8
-  %call8 = call i32 @puts(ptr noundef %9)
-  br label %if.end9
+30:                                               ; preds = %1
+  %31 = load ptr, ptr %2, align 8, !tbaa !11
+  %32 = call i32 @puts(ptr noundef %31)
+  br label %33
 
-if.end9:                                          ; preds = %if.else, %while.end
+33:                                               ; preds = %30, %26
   ret void
 }
 
-declare i32 @starts_with(ptr noundef, ptr noundef) #4
+declare i32 @starts_with(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @opt_with_value(ptr noundef %arg, ptr noundef %opt, ptr noundef %value) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %arg.addr = alloca ptr, align 8
-  %opt.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store ptr %opt, ptr %opt.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  %1 = load ptr, ptr %opt.addr, align 8
-  %call = call zeroext i1 @skip_prefix(ptr noundef %0, ptr noundef %1, ptr noundef %arg.addr)
-  br i1 %call, label %if.then, label %if.end5
+define internal i32 @opt_with_value(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = load ptr, ptr %6, align 8, !tbaa !11
+  %10 = call zeroext i1 @skip_prefix(ptr noundef %8, ptr noundef %9, ptr noundef %5)
+  br i1 %10, label %11, label %27
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %arg.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %tobool = icmp ne i8 %3, 0
-  br i1 %tobool, label %if.end, label %if.then1
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !11
+  %13 = load i8, ptr %12, align 1, !tbaa !39
+  %14 = icmp ne i8 %13, 0
+  br i1 %14, label %17, label %15
 
-if.then1:                                         ; preds = %if.then
-  %4 = load ptr, ptr %value.addr, align 8
-  store ptr null, ptr %4, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr null, ptr %16, align 8, !tbaa !11
+  store i32 1, ptr %4, align 4
+  br label %28
 
-if.end:                                           ; preds = %if.then
-  %5 = load ptr, ptr %arg.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %arg.addr, align 8
-  %6 = load i8, ptr %5, align 1
-  %conv = sext i8 %6 to i32
-  %cmp = icmp eq i32 %conv, 61
-  br i1 %cmp, label %if.then3, label %if.end4
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %5, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw i8, ptr %18, i32 1
+  store ptr %19, ptr %5, align 8, !tbaa !11
+  %20 = load i8, ptr %18, align 1, !tbaa !39
+  %21 = sext i8 %20 to i32
+  %22 = icmp eq i32 %21, 61
+  br i1 %22, label %23, label %26
 
-if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr %arg.addr, align 8
-  %8 = load ptr, ptr %value.addr, align 8
-  store ptr %7, ptr %8, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %5, align 8, !tbaa !11
+  %25 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %24, ptr %25, align 8, !tbaa !11
+  store i32 1, ptr %4, align 4
+  br label %28
 
-if.end4:                                          ; preds = %if.end
-  br label %if.end5
+26:                                               ; preds = %17
+  br label %27
 
-if.end5:                                          ; preds = %if.end4, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %26, %3
+  store i32 0, ptr %4, align 4
+  br label %28
 
-return:                                           ; preds = %if.end5, %if.then3, %if.then1
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+28:                                               ; preds = %27, %23, %15
+  %29 = load i32, ptr %4, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind
-declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #5
+declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #7
 
-declare i32 @for_each_ref(ptr noundef, ptr noundef) #4
+declare i32 @repo_settings_get_warn_ambiguous_refs(ptr noundef) #3
+
+declare i32 @refs_for_each_ref(ptr noundef, ptr noundef, ptr noundef) #3
+
+declare ptr @get_main_ref_store(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @show_reference(ptr noundef %refname, ptr noundef %oid, i32 noundef %flag, ptr noundef %cb_data) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %refname.addr = alloca ptr, align 8
-  %oid.addr = alloca ptr, align 8
-  %flag.addr = alloca i32, align 4
-  %cb_data.addr = alloca ptr, align 8
-  store ptr %refname, ptr %refname.addr, align 8
-  store ptr %oid, ptr %oid.addr, align 8
-  store i32 %flag, ptr %flag.addr, align 4
-  store ptr %cb_data, ptr %cb_data.addr, align 8
-  %0 = load ptr, ptr %refname.addr, align 8
-  %call = call i32 @ref_excluded(ptr noundef @ref_excludes, ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @show_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !11
+  store ptr %1, ptr %8, align 8, !tbaa !11
+  store ptr %2, ptr %9, align 8, !tbaa !70
+  store i32 %3, ptr %10, align 4, !tbaa !4
+  store ptr %4, ptr %11, align 8, !tbaa !97
+  %12 = load ptr, ptr %7, align 8, !tbaa !11
+  %13 = call i32 @ref_excluded(ptr noundef @ref_excludes, ptr noundef %12)
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %5
+  store i32 0, ptr %6, align 4
+  br label %19
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %oid.addr, align 8
-  %2 = load ptr, ptr %refname.addr, align 8
-  call void @show_rev(i32 noundef 0, ptr noundef %1, ptr noundef %2)
-  store i32 0, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %9, align 8, !tbaa !70
+  %18 = load ptr, ptr %7, align 8, !tbaa !11
+  call void @show_rev(i32 noundef 0, ptr noundef %17, ptr noundef %18)
+  store i32 0, ptr %6, align 4
+  br label %19
 
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+19:                                               ; preds = %16, %15
+  %20 = load i32, ptr %6, align 4
+  ret i32 %20
 }
 
-declare void @clear_ref_exclusions(ptr noundef) #4
+declare void @clear_ref_exclusions(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @skip_prefix(ptr noundef %str, ptr noundef %prefix, ptr noundef %out) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %str.addr = alloca ptr, align 8
-  %prefix.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  store ptr %prefix, ptr %prefix.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  br label %do.body
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @skip_prefix(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  br label %8
 
-do.body:                                          ; preds = %do.cond, %entry
-  %0 = load ptr, ptr %prefix.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %if.end, label %if.then
+8:                                                ; preds = %16, %3
+  %9 = load ptr, ptr %6, align 8, !tbaa !11
+  %10 = load i8, ptr %9, align 1, !tbaa !39
+  %11 = icmp ne i8 %10, 0
+  br i1 %11, label %15, label %12
 
-if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr %str.addr, align 8
-  %3 = load ptr, ptr %out.addr, align 8
-  store ptr %2, ptr %3, align 8
-  store i1 true, ptr %retval, align 1
-  br label %return
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %5, align 8, !tbaa !11
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %13, ptr %14, align 8, !tbaa !11
+  store i1 true, ptr %4, align 1
+  br label %27
 
-if.end:                                           ; preds = %do.body
-  br label %do.cond
+15:                                               ; preds = %8
+  br label %16
 
-do.cond:                                          ; preds = %if.end
-  %4 = load ptr, ptr %str.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %str.addr, align 8
-  %5 = load i8, ptr %4, align 1
-  %conv = sext i8 %5 to i32
-  %6 = load ptr, ptr %prefix.addr, align 8
-  %incdec.ptr1 = getelementptr inbounds i8, ptr %6, i32 1
-  store ptr %incdec.ptr1, ptr %prefix.addr, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv2 = sext i8 %7 to i32
-  %cmp = icmp eq i32 %conv, %conv2
-  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !13
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw i8, ptr %17, i32 1
+  store ptr %18, ptr %5, align 8, !tbaa !11
+  %19 = load i8, ptr %17, align 1, !tbaa !39
+  %20 = sext i8 %19 to i32
+  %21 = load ptr, ptr %6, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw i8, ptr %21, i32 1
+  store ptr %22, ptr %6, align 8, !tbaa !11
+  %23 = load i8, ptr %21, align 1, !tbaa !39
+  %24 = sext i8 %23 to i32
+  %25 = icmp eq i32 %20, %24
+  br i1 %25, label %8, label %26, !llvm.loop !102
 
-do.end:                                           ; preds = %do.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
+26:                                               ; preds = %16
+  store i1 false, ptr %4, align 1
+  br label %27
 
-return:                                           ; preds = %do.end, %if.then
-  %8 = load i1, ptr %retval, align 1
-  ret i1 %8
+27:                                               ; preds = %26, %12
+  %28 = load i1, ptr %4, align 1
+  ret i1 %28
 }
 
-declare i32 @repo_for_each_abbrev(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @repo_for_each_abbrev(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @show_abbrev(ptr noundef %oid, ptr noundef %cb_data) #0 {
-entry:
-  %oid.addr = alloca ptr, align 8
-  %cb_data.addr = alloca ptr, align 8
-  store ptr %oid, ptr %oid.addr, align 8
-  store ptr %cb_data, ptr %cb_data.addr, align 8
-  %0 = load ptr, ptr %oid.addr, align 8
-  call void @show_rev(i32 noundef 0, ptr noundef %0, ptr noundef null)
+define internal i32 @show_abbrev(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !70
+  store ptr %1, ptr %4, align 8, !tbaa !97
+  %5 = load ptr, ptr %3, align 8, !tbaa !70
+  call void @show_rev(i32 noundef 0, ptr noundef %5, ptr noundef null)
   ret i32 0
 }
 
-declare i32 @for_each_fullref_in(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @refs_for_each_fullref_in(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @anti_reference(ptr noundef %refname, ptr noundef %oid, i32 noundef %flag, ptr noundef %cb_data) #0 {
-entry:
-  %refname.addr = alloca ptr, align 8
-  %oid.addr = alloca ptr, align 8
-  %flag.addr = alloca i32, align 4
-  %cb_data.addr = alloca ptr, align 8
-  store ptr %refname, ptr %refname.addr, align 8
-  store ptr %oid, ptr %oid.addr, align 8
-  store i32 %flag, ptr %flag.addr, align 4
-  store ptr %cb_data, ptr %cb_data.addr, align 8
-  %0 = load ptr, ptr %oid.addr, align 8
-  %1 = load ptr, ptr %refname.addr, align 8
-  call void @show_rev(i32 noundef 1, ptr noundef %0, ptr noundef %1)
+define internal i32 @anti_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !11
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i32 %3, ptr %9, align 4, !tbaa !4
+  store ptr %4, ptr %10, align 8, !tbaa !97
+  %11 = load ptr, ptr %8, align 8, !tbaa !70
+  %12 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @show_rev(i32 noundef 1, ptr noundef %11, ptr noundef %12)
   ret i32 0
 }
 
-declare i32 @error(ptr noundef, ...) #4
+declare i32 @error(ptr noundef, ...) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @const_error() #0 {
-entry:
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @const_error() #6 {
   ret i32 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ref_opt(ptr noundef %pattern, ptr noundef %prefix) #0 {
-entry:
-  %pattern.addr = alloca ptr, align 8
-  %prefix.addr = alloca ptr, align 8
-  store ptr %pattern, ptr %pattern.addr, align 8
-  store ptr %prefix, ptr %prefix.addr, align 8
-  %0 = load ptr, ptr %pattern.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.else
+define internal void @handle_ref_opt(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %13
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %pattern.addr, align 8
-  %2 = load ptr, ptr %prefix.addr, align 8
-  %call = call i32 @for_each_glob_ref_in(ptr noundef @show_reference, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  br label %if.end
+7:                                                ; preds = %2
+  %8 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %9 = call ptr @get_main_ref_store(ptr noundef %8)
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = load ptr, ptr %4, align 8, !tbaa !11
+  %12 = call i32 @refs_for_each_glob_ref_in(ptr noundef %9, ptr noundef @show_reference, ptr noundef %10, ptr noundef %11, ptr noundef null)
+  br label %18
 
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %prefix.addr, align 8
-  %call1 = call i32 @for_each_ref_in(ptr noundef %3, ptr noundef @show_reference, ptr noundef null)
-  br label %if.end
+13:                                               ; preds = %2
+  %14 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %15 = call ptr @get_main_ref_store(ptr noundef %14)
+  %16 = load ptr, ptr %4, align 8, !tbaa !11
+  %17 = call i32 @refs_for_each_ref_in(ptr noundef %15, ptr noundef %16, ptr noundef @show_reference, ptr noundef null)
+  br label %18
 
-if.end:                                           ; preds = %if.else, %if.then
+18:                                               ; preds = %13, %7
   call void @clear_ref_exclusions(ptr noundef @ref_excludes)
   ret void
 }
 
-declare void @add_ref_exclusion(ptr noundef, ptr noundef) #4
+declare void @add_ref_exclusion(ptr noundef, ptr noundef) #3
 
-declare void @exclude_hidden_refs(ptr noundef, ptr noundef) #4
+declare void @exclude_hidden_refs(ptr noundef, ptr noundef) #3
 
-declare ptr @get_git_work_tree() #4
+declare ptr @repo_get_work_tree(ptr noundef) #3
 
-declare i32 @get_superproject_working_tree(ptr noundef) #4
+declare i32 @get_superproject_working_tree(ptr noundef) #3
 
-declare void @strbuf_release(ptr noundef) #4
+declare void @strbuf_release(ptr noundef) #3
 
-declare i32 @putchar(i32 noundef) #4
+; Function Attrs: inlinehint nounwind uwtable
+define available_externally i32 @putchar(i32 noundef %0) #6 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !4
+  %3 = load i32, ptr %2, align 4, !tbaa !4
+  %4 = load ptr, ptr @stdout, align 8, !tbaa !89
+  %5 = call i32 @putc(i32 noundef %3, ptr noundef %4)
+  ret i32 %5
+}
 
-declare i32 @is_inside_work_tree() #4
+declare i32 @is_inside_work_tree() #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #2
+declare ptr @strchr(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind
-declare ptr @getenv(ptr noundef) #5
+declare ptr @getenv(ptr noundef) #7
 
-declare ptr @strbuf_realpath(ptr noundef, ptr noundef, i32 noundef) #4
+declare ptr @strbuf_realpath(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @xgetcwd() #4
+declare ptr @xgetcwd() #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #4
 
-declare void @strbuf_addf(ptr noundef, ptr noundef, ...) #4
+declare void @strbuf_addf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #7
 
-declare ptr @get_git_common_dir() #4
+declare ptr @repo_get_common_dir(ptr noundef) #3
 
-declare i32 @is_inside_git_dir() #4
+declare i32 @is_inside_git_dir() #3
 
-declare i32 @is_bare_repository() #4
+declare i32 @is_bare_repository() #3
 
-declare i32 @is_repository_shallow(ptr noundef) #4
+declare i32 @is_repository_shallow(ptr noundef) #3
 
-declare i32 @repo_read_index(ptr noundef) #4
+declare i32 @repo_read_index(ptr noundef) #3
 
-declare ptr @oid_to_hex(ptr noundef) #4
-
-; Function Attrs: nounwind uwtable
-define internal void @show_datestring(ptr noundef %flag, ptr noundef %datestr) #0 {
-entry:
-  %flag.addr = alloca ptr, align 8
-  %datestr.addr = alloca ptr, align 8
-  %buffer = alloca ptr, align 8
-  store ptr %flag, ptr %flag.addr, align 8
-  store ptr %datestr, ptr %datestr.addr, align 8
-  %0 = load i32, ptr @filter, align 4
-  %and = and i32 %0, 5
-  %cmp = icmp ne i32 %and, 5
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %flag.addr, align 8
-  %2 = load ptr, ptr %datestr.addr, align 8
-  %call = call i64 @approxidate_careful(ptr noundef %2, ptr noundef null)
-  %call1 = call ptr (ptr, ...) @xstrfmt(ptr noundef @.str.114, ptr noundef %1, i64 noundef %call)
-  store ptr %call1, ptr %buffer, align 8
-  %3 = load ptr, ptr %buffer, align 8
-  call void @show(ptr noundef %3)
-  %4 = load ptr, ptr %buffer, align 8
-  call void @free(ptr noundef %4) #10
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  ret void
-}
-
-declare ptr @ref_storage_format_to_name(i32 noundef) #4
+declare ptr @oid_to_hex(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @show_flag(ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %arg.addr = alloca ptr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load i32, ptr @filter, align 4
-  %and = and i32 %0, 4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr @filter, align 4
-  %2 = load ptr, ptr %arg.addr, align 8
-  %call = call i32 @is_rev_argument(ptr noundef %2)
-  %tobool1 = icmp ne i32 %call, 0
-  %cond = select i1 %tobool1, i32 1, i32 2
-  %and2 = and i32 %1, %cond
-  %tobool3 = icmp ne i32 %and2, 0
-  br i1 %tobool3, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.end
-  %3 = load ptr, ptr %arg.addr, align 8
-  call void @show(ptr noundef %3)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end5:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @die_no_single_rev(i32 noundef %quiet) #0 {
-entry:
-  %quiet.addr = alloca i32, align 4
-  store i32 %quiet, ptr %quiet.addr, align 4
-  %0 = load i32, ptr %quiet.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %call = call i32 @common_exit(ptr noundef @.str.135, i32 noundef 566, i32 noundef 1)
-  call void @exit(i32 noundef %call) #11
-  unreachable
-
-if.else:                                          ; preds = %entry
-  %call1 = call ptr @_(ptr noundef @.str.136)
-  call void (ptr, ...) @die(ptr noundef %call1) #9
-  unreachable
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @try_difference(ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %arg.addr = alloca ptr, align 8
-  %dotdot = alloca ptr, align 8
-  %start_oid = alloca %struct.object_id, align 4
-  %end_oid = alloca %struct.object_id, align 4
-  %end = alloca ptr, align 8
-  %start = alloca ptr, align 8
-  %symmetric = alloca i32, align 4
-  %exclude = alloca ptr, align 8
-  %a = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  %commit = alloca ptr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  %call = call ptr @strstr(ptr noundef %0, ptr noundef @.str.137) #8
-  store ptr %call, ptr %dotdot, align 8
-  %tobool = icmp ne ptr %call, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %dotdot, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 2
-  store ptr %add.ptr, ptr %end, align 8
-  %2 = load ptr, ptr %arg.addr, align 8
-  store ptr %2, ptr %start, align 8
-  %3 = load ptr, ptr %end, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv = sext i8 %4 to i32
-  %cmp = icmp eq i32 %conv, 46
-  %conv1 = zext i1 %cmp to i32
-  store i32 %conv1, ptr %symmetric, align 4
-  %5 = load ptr, ptr %dotdot, align 8
-  store i8 0, ptr %5, align 1
-  %6 = load i32, ptr %symmetric, align 4
-  %7 = load ptr, ptr %end, align 8
-  %idx.ext = sext i32 %6 to i64
-  %add.ptr2 = getelementptr inbounds i8, ptr %7, i64 %idx.ext
-  store ptr %add.ptr2, ptr %end, align 8
-  %8 = load ptr, ptr %end, align 8
-  %9 = load i8, ptr %8, align 1
-  %tobool3 = icmp ne i8 %9, 0
-  br i1 %tobool3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %if.end
-  store ptr @try_difference.head_by_default, ptr %end, align 8
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.then4, %if.end
-  %10 = load ptr, ptr %dotdot, align 8
-  %11 = load ptr, ptr %arg.addr, align 8
-  %cmp6 = icmp eq ptr %10, %11
-  br i1 %cmp6, label %if.then8, label %if.end9
-
-if.then8:                                         ; preds = %if.end5
-  store ptr @try_difference.head_by_default, ptr %start, align 8
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.then8, %if.end5
-  %12 = load ptr, ptr %start, align 8
-  %cmp10 = icmp eq ptr %12, @try_difference.head_by_default
-  br i1 %cmp10, label %land.lhs.true, label %if.end17
-
-land.lhs.true:                                    ; preds = %if.end9
-  %13 = load ptr, ptr %end, align 8
-  %cmp12 = icmp eq ptr %13, @try_difference.head_by_default
-  br i1 %cmp12, label %land.lhs.true14, label %if.end17
-
-land.lhs.true14:                                  ; preds = %land.lhs.true
-  %14 = load i32, ptr %symmetric, align 4
-  %tobool15 = icmp ne i32 %14, 0
-  br i1 %tobool15, label %if.end17, label %if.then16
-
-if.then16:                                        ; preds = %land.lhs.true14
-  %15 = load ptr, ptr %dotdot, align 8
-  store i8 46, ptr %15, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end17:                                         ; preds = %land.lhs.true14, %land.lhs.true, %if.end9
-  %16 = load ptr, ptr @the_repository, align 8
-  %17 = load ptr, ptr %start, align 8
-  %call18 = call i32 @repo_get_oid_committish(ptr noundef %16, ptr noundef %17, ptr noundef %start_oid)
-  %tobool19 = icmp ne i32 %call18, 0
-  br i1 %tobool19, label %if.end37, label %land.lhs.true20
-
-land.lhs.true20:                                  ; preds = %if.end17
-  %18 = load ptr, ptr @the_repository, align 8
-  %19 = load ptr, ptr %end, align 8
-  %call21 = call i32 @repo_get_oid_committish(ptr noundef %18, ptr noundef %19, ptr noundef %end_oid)
-  %tobool22 = icmp ne i32 %call21, 0
-  br i1 %tobool22, label %if.end37, label %if.then23
-
-if.then23:                                        ; preds = %land.lhs.true20
-  %20 = load ptr, ptr %end, align 8
-  call void @show_rev(i32 noundef 0, ptr noundef %end_oid, ptr noundef %20)
-  %21 = load i32, ptr %symmetric, align 4
-  %tobool24 = icmp ne i32 %21, 0
-  %cond = select i1 %tobool24, i32 0, i32 1
-  %22 = load ptr, ptr %start, align 8
-  call void @show_rev(i32 noundef %cond, ptr noundef %start_oid, ptr noundef %22)
-  %23 = load i32, ptr %symmetric, align 4
-  %tobool25 = icmp ne i32 %23, 0
-  br i1 %tobool25, label %if.then26, label %if.end36
-
-if.then26:                                        ; preds = %if.then23
-  %24 = load ptr, ptr @the_repository, align 8
-  %call27 = call ptr @lookup_commit_reference(ptr noundef %24, ptr noundef %start_oid)
-  store ptr %call27, ptr %a, align 8
-  %25 = load ptr, ptr @the_repository, align 8
-  %call28 = call ptr @lookup_commit_reference(ptr noundef %25, ptr noundef %end_oid)
-  store ptr %call28, ptr %b, align 8
-  %26 = load ptr, ptr %a, align 8
-  %tobool29 = icmp ne ptr %26, null
-  br i1 %tobool29, label %lor.lhs.false, label %if.then31
-
-lor.lhs.false:                                    ; preds = %if.then26
-  %27 = load ptr, ptr %b, align 8
-  %tobool30 = icmp ne ptr %27, null
-  br i1 %tobool30, label %if.end32, label %if.then31
-
-if.then31:                                        ; preds = %lor.lhs.false, %if.then26
-  %28 = load ptr, ptr %dotdot, align 8
-  store i8 46, ptr %28, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end32:                                         ; preds = %lor.lhs.false
-  %29 = load ptr, ptr @the_repository, align 8
-  %30 = load ptr, ptr %a, align 8
-  %31 = load ptr, ptr %b, align 8
-  %call33 = call ptr @repo_get_merge_bases(ptr noundef %29, ptr noundef %30, ptr noundef %31)
-  store ptr %call33, ptr %exclude, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end32
-  %32 = load ptr, ptr %exclude, align 8
-  %tobool34 = icmp ne ptr %32, null
-  br i1 %tobool34, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %call35 = call ptr @pop_commit(ptr noundef %exclude)
-  store ptr %call35, ptr %commit, align 8
-  %33 = load ptr, ptr %commit, align 8
-  %object = getelementptr inbounds %struct.commit, ptr %33, i32 0, i32 0
-  %oid = getelementptr inbounds %struct.object, ptr %object, i32 0, i32 1
-  call void @show_rev(i32 noundef 1, ptr noundef %oid, ptr noundef null)
-  br label %while.cond, !llvm.loop !14
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end36
-
-if.end36:                                         ; preds = %while.end, %if.then23
-  %34 = load ptr, ptr %dotdot, align 8
-  store i8 46, ptr %34, align 1
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end37:                                         ; preds = %land.lhs.true20, %if.end17
-  %35 = load ptr, ptr %dotdot, align 8
-  store i8 46, ptr %35, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end37, %if.end36, %if.then31, %if.then16, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @try_parent_shorthands(ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %arg.addr = alloca ptr, align 8
-  %dotdot = alloca ptr, align 8
-  %oid = alloca %struct.object_id, align 4
-  %commit = alloca ptr, align 8
-  %parents = alloca ptr, align 8
-  %parent_number = alloca i32, align 4
-  %include_rev = alloca i32, align 4
-  %include_parents = alloca i32, align 4
-  %exclude_parent = alloca i32, align 4
-  %end = alloca ptr, align 8
-  %name = alloca ptr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store i32 0, ptr %include_rev, align 4
-  store i32 0, ptr %include_parents, align 4
-  store i32 0, ptr %exclude_parent, align 4
-  %0 = load ptr, ptr %arg.addr, align 8
-  %call = call ptr @strstr(ptr noundef %0, ptr noundef @.str.138) #8
-  store ptr %call, ptr %dotdot, align 8
-  %tobool = icmp ne ptr %call, null
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %include_rev, align 4
-  %1 = load ptr, ptr %dotdot, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 2
-  %2 = load i8, ptr %arrayidx, align 1
-  %tobool1 = icmp ne i8 %2, 0
-  br i1 %tobool1, label %if.then2, label %if.end
-
-if.then2:                                         ; preds = %if.then
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %if.end27
-
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %arg.addr, align 8
-  %call3 = call ptr @strstr(ptr noundef %3, ptr noundef @.str.139) #8
-  store ptr %call3, ptr %dotdot, align 8
-  %tobool4 = icmp ne ptr %call3, null
-  br i1 %tobool4, label %if.then5, label %if.else10
-
-if.then5:                                         ; preds = %if.else
-  store i32 1, ptr %include_parents, align 4
-  %4 = load ptr, ptr %dotdot, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %4, i64 2
-  %5 = load i8, ptr %arrayidx6, align 1
-  %tobool7 = icmp ne i8 %5, 0
-  br i1 %tobool7, label %if.then8, label %if.end9
-
-if.then8:                                         ; preds = %if.then5
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end9:                                          ; preds = %if.then5
-  br label %if.end26
-
-if.else10:                                        ; preds = %if.else
-  %6 = load ptr, ptr %arg.addr, align 8
-  %call11 = call ptr @strstr(ptr noundef %6, ptr noundef @.str.140) #8
-  store ptr %call11, ptr %dotdot, align 8
-  %tobool12 = icmp ne ptr %call11, null
-  br i1 %tobool12, label %if.then13, label %if.else24
-
-if.then13:                                        ; preds = %if.else10
-  store i32 1, ptr %include_rev, align 4
-  store i32 1, ptr %exclude_parent, align 4
-  %7 = load ptr, ptr %dotdot, align 8
-  %arrayidx14 = getelementptr inbounds i8, ptr %7, i64 2
-  %8 = load i8, ptr %arrayidx14, align 1
-  %tobool15 = icmp ne i8 %8, 0
-  br i1 %tobool15, label %if.then16, label %if.end23
-
-if.then16:                                        ; preds = %if.then13
-  %9 = load ptr, ptr %dotdot, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 2
-  %call17 = call i64 @strtoul(ptr noundef %add.ptr, ptr noundef %end, i32 noundef 10) #10
-  %conv = trunc i64 %call17 to i32
-  store i32 %conv, ptr %exclude_parent, align 4
-  %10 = load ptr, ptr %end, align 8
-  %11 = load i8, ptr %10, align 1
-  %conv18 = sext i8 %11 to i32
-  %cmp = icmp ne i32 %conv18, 0
-  br i1 %cmp, label %if.then21, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then16
-  %12 = load i32, ptr %exclude_parent, align 4
-  %tobool20 = icmp ne i32 %12, 0
-  br i1 %tobool20, label %if.end22, label %if.then21
-
-if.then21:                                        ; preds = %lor.lhs.false, %if.then16
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end22:                                         ; preds = %lor.lhs.false
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.end22, %if.then13
-  br label %if.end25
-
-if.else24:                                        ; preds = %if.else10
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end25:                                         ; preds = %if.end23
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end25, %if.end9
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.end26, %if.end
-  %13 = load ptr, ptr %dotdot, align 8
-  store i8 0, ptr %13, align 1
-  %14 = load ptr, ptr @the_repository, align 8
-  %15 = load ptr, ptr %arg.addr, align 8
-  %call28 = call i32 @repo_get_oid_committish(ptr noundef %14, ptr noundef %15, ptr noundef %oid)
-  %tobool29 = icmp ne i32 %call28, 0
-  br i1 %tobool29, label %if.then33, label %lor.lhs.false30
-
-lor.lhs.false30:                                  ; preds = %if.end27
-  %16 = load ptr, ptr @the_repository, align 8
-  %call31 = call ptr @lookup_commit_reference(ptr noundef %16, ptr noundef %oid)
-  store ptr %call31, ptr %commit, align 8
-  %tobool32 = icmp ne ptr %call31, null
-  br i1 %tobool32, label %if.end34, label %if.then33
-
-if.then33:                                        ; preds = %lor.lhs.false30, %if.end27
-  %17 = load ptr, ptr %dotdot, align 8
-  store i8 94, ptr %17, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end34:                                         ; preds = %lor.lhs.false30
-  %18 = load i32, ptr %exclude_parent, align 4
-  %tobool35 = icmp ne i32 %18, 0
-  br i1 %tobool35, label %land.lhs.true, label %if.end41
-
-land.lhs.true:                                    ; preds = %if.end34
-  %19 = load i32, ptr %exclude_parent, align 4
-  %20 = load ptr, ptr %commit, align 8
-  %parents36 = getelementptr inbounds %struct.commit, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %parents36, align 8
-  %call37 = call i32 @commit_list_count(ptr noundef %21)
-  %cmp38 = icmp ugt i32 %19, %call37
-  br i1 %cmp38, label %if.then40, label %if.end41
-
-if.then40:                                        ; preds = %land.lhs.true
-  %22 = load ptr, ptr %dotdot, align 8
-  store i8 94, ptr %22, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end41:                                         ; preds = %land.lhs.true, %if.end34
-  %23 = load i32, ptr %include_rev, align 4
-  %tobool42 = icmp ne i32 %23, 0
-  br i1 %tobool42, label %if.then43, label %if.end44
-
-if.then43:                                        ; preds = %if.end41
-  %24 = load ptr, ptr %arg.addr, align 8
-  call void @show_rev(i32 noundef 0, ptr noundef %oid, ptr noundef %24)
-  br label %if.end44
-
-if.end44:                                         ; preds = %if.then43, %if.end41
-  %25 = load ptr, ptr %commit, align 8
-  %parents45 = getelementptr inbounds %struct.commit, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %parents45, align 8
-  store ptr %26, ptr %parents, align 8
-  store i32 1, ptr %parent_number, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end44
-  %27 = load ptr, ptr %parents, align 8
-  %tobool46 = icmp ne ptr %27, null
-  br i1 %tobool46, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  store ptr null, ptr %name, align 8
-  %28 = load i32, ptr %exclude_parent, align 4
-  %tobool47 = icmp ne i32 %28, 0
-  br i1 %tobool47, label %land.lhs.true48, label %if.end52
-
-land.lhs.true48:                                  ; preds = %for.body
-  %29 = load i32, ptr %parent_number, align 4
-  %30 = load i32, ptr %exclude_parent, align 4
-  %cmp49 = icmp ne i32 %29, %30
-  br i1 %cmp49, label %if.then51, label %if.end52
-
-if.then51:                                        ; preds = %land.lhs.true48
-  br label %for.inc
-
-if.end52:                                         ; preds = %land.lhs.true48, %for.body
-  %31 = load i32, ptr @symbolic, align 4
-  %tobool53 = icmp ne i32 %31, 0
-  br i1 %tobool53, label %if.then54, label %if.end56
-
-if.then54:                                        ; preds = %if.end52
-  %32 = load ptr, ptr %arg.addr, align 8
-  %33 = load i32, ptr %parent_number, align 4
-  %call55 = call ptr (ptr, ...) @xstrfmt(ptr noundef @.str.141, ptr noundef %32, i32 noundef %33)
-  store ptr %call55, ptr %name, align 8
-  br label %if.end56
-
-if.end56:                                         ; preds = %if.then54, %if.end52
-  %34 = load i32, ptr %include_parents, align 4
-  %tobool57 = icmp ne i32 %34, 0
-  %cond = select i1 %tobool57, i32 0, i32 1
-  %35 = load ptr, ptr %parents, align 8
-  %item = getelementptr inbounds %struct.commit_list, ptr %35, i32 0, i32 0
-  %36 = load ptr, ptr %item, align 8
-  %object = getelementptr inbounds %struct.commit, ptr %36, i32 0, i32 0
-  %oid58 = getelementptr inbounds %struct.object, ptr %object, i32 0, i32 1
-  %37 = load ptr, ptr %name, align 8
-  call void @show_rev(i32 noundef %cond, ptr noundef %oid58, ptr noundef %37)
-  %38 = load ptr, ptr %name, align 8
-  call void @free(ptr noundef %38) #10
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end56, %if.then51
-  %39 = load ptr, ptr %parents, align 8
-  %next = getelementptr inbounds %struct.commit_list, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %next, align 8
-  store ptr %40, ptr %parents, align 8
-  %41 = load i32, ptr %parent_number, align 4
-  %inc = add nsw i32 %41, 1
-  store i32 %inc, ptr %parent_number, align 4
-  br label %for.cond, !llvm.loop !15
-
-for.end:                                          ; preds = %for.cond
-  %42 = load ptr, ptr %dotdot, align 8
-  store i8 94, ptr %42, align 1
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then40, %if.then33, %if.else24, %if.then21, %if.then8, %if.then2
-  %43 = load i32, ptr %retval, align 4
-  ret i32 %43
-}
-
-declare i32 @get_oid_with_context(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #4
-
-; Function Attrs: nounwind uwtable
-define internal void @show_rev(i32 noundef %type, ptr noundef %oid, ptr noundef %name) #0 {
-entry:
-  %type.addr = alloca i32, align 4
-  %oid.addr = alloca ptr, align 8
-  %name.addr = alloca ptr, align 8
-  %discard = alloca %struct.object_id, align 4
-  %full = alloca ptr, align 8
-  %old = alloca ptr, align 8
-  store i32 %type, ptr %type.addr, align 4
-  store ptr %oid, ptr %oid.addr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  %0 = load i32, ptr @filter, align 4
-  %and = and i32 %0, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %if.end24
-
-if.end:                                           ; preds = %entry
-  store ptr null, ptr @def, align 8
-  %1 = load i32, ptr @symbolic, align 4
-  %tobool1 = icmp ne i32 %1, 0
-  br i1 %tobool1, label %land.lhs.true, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %2 = load i32, ptr @abbrev_ref, align 4
-  %tobool2 = icmp ne i32 %2, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.else17
-
-land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end
-  %3 = load ptr, ptr %name.addr, align 8
-  %tobool3 = icmp ne ptr %3, null
-  br i1 %tobool3, label %if.then4, label %if.else17
-
-if.then4:                                         ; preds = %land.lhs.true
-  %4 = load i32, ptr @symbolic, align 4
-  %cmp = icmp eq i32 %4, 2
-  br i1 %cmp, label %if.then7, label %lor.lhs.false5
-
-lor.lhs.false5:                                   ; preds = %if.then4
-  %5 = load i32, ptr @abbrev_ref, align 4
-  %tobool6 = icmp ne i32 %5, 0
-  br i1 %tobool6, label %if.then7, label %if.else
-
-if.then7:                                         ; preds = %lor.lhs.false5, %if.then4
-  %6 = load ptr, ptr @the_repository, align 8
-  %7 = load ptr, ptr %name.addr, align 8
-  %8 = load ptr, ptr %name.addr, align 8
-  %call = call i64 @strlen(ptr noundef %8) #8
-  %conv = trunc i64 %call to i32
-  %call8 = call i32 @repo_dwim_ref(ptr noundef %6, ptr noundef %7, i32 noundef %conv, ptr noundef %discard, ptr noundef %full, i32 noundef 0)
-  switch i32 %call8, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb9
+define internal void @show_datestring(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %7 = load i32, ptr @filter, align 4, !tbaa !4
+  %8 = and i32 %7, 5
+  %9 = icmp ne i32 %8, 5
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i32 1, ptr %6, align 4
+  br label %18
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %3, align 8, !tbaa !11
+  %13 = load ptr, ptr %4, align 8, !tbaa !11
+  %14 = call i64 @approxidate_careful(ptr noundef %13, ptr noundef null)
+  %15 = call ptr (ptr, ...) @xstrfmt(ptr noundef @.str.119, ptr noundef %12, i64 noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !11
+  %16 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @show(ptr noundef %16)
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @free(ptr noundef %17) #11
+  store i32 0, ptr %6, align 4
+  br label %18
+
+18:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  %19 = load i32, ptr %6, align 4
+  switch i32 %19, label %21 [
+    i32 0, label %20
+    i32 1, label %20
   ]
 
-sw.bb:                                            ; preds = %if.then7
-  br label %sw.epilog
+20:                                               ; preds = %18, %18
+  ret void
 
-sw.bb9:                                           ; preds = %if.then7
-  %9 = load i32, ptr @abbrev_ref, align 4
-  %tobool10 = icmp ne i32 %9, 0
-  br i1 %tobool10, label %if.then11, label %if.end13
+21:                                               ; preds = %18
+  unreachable
+}
 
-if.then11:                                        ; preds = %sw.bb9
-  %10 = load ptr, ptr %full, align 8
-  store ptr %10, ptr %old, align 8
-  %11 = load ptr, ptr %full, align 8
-  %12 = load i32, ptr @abbrev_ref_strict, align 4
-  %call12 = call ptr @shorten_unambiguous_ref(ptr noundef %11, i32 noundef %12)
-  store ptr %call12, ptr %full, align 8
-  %13 = load ptr, ptr %old, align 8
-  call void @free(ptr noundef %13) #10
-  br label %if.end13
+declare ptr @ref_storage_format_to_name(i32 noundef) #3
 
-if.end13:                                         ; preds = %if.then11, %sw.bb9
-  %14 = load i32, ptr %type.addr, align 4
-  %15 = load ptr, ptr %full, align 8
-  call void @show_with_type(i32 noundef %14, ptr noundef %15)
-  br label %sw.epilog
+; Function Attrs: nounwind uwtable
+define internal i32 @show_flag(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  %4 = load i32, ptr @filter, align 4, !tbaa !4
+  %5 = and i32 %4, 4
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %8, label %7
 
-sw.default:                                       ; preds = %if.then7
-  %16 = load ptr, ptr %name.addr, align 8
-  %call14 = call i32 (ptr, ...) @error(ptr noundef @.str.142, ptr noundef %16)
-  %call15 = call i32 @const_error()
-  br label %sw.epilog
+7:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %19
 
-sw.epilog:                                        ; preds = %sw.default, %if.end13, %sw.bb
-  %17 = load ptr, ptr %full, align 8
-  call void @free(ptr noundef %17) #10
-  br label %if.end16
+8:                                                ; preds = %1
+  %9 = load i32, ptr @filter, align 4, !tbaa !4
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = call i32 @is_rev_argument(ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 2
+  %14 = and i32 %9, %13
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %18
 
-if.else:                                          ; preds = %lor.lhs.false5
-  %18 = load i32, ptr %type.addr, align 4
-  %19 = load ptr, ptr %name.addr, align 8
-  call void @show_with_type(i32 noundef %18, ptr noundef %19)
-  br label %if.end16
+16:                                               ; preds = %8
+  %17 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @show(ptr noundef %17)
+  store i32 1, ptr %2, align 4
+  br label %19
 
-if.end16:                                         ; preds = %if.else, %sw.epilog
-  br label %if.end24
+18:                                               ; preds = %8
+  store i32 0, ptr %2, align 4
+  br label %19
 
-if.else17:                                        ; preds = %land.lhs.true, %lor.lhs.false
-  %20 = load i32, ptr @abbrev, align 4
-  %tobool18 = icmp ne i32 %20, 0
-  br i1 %tobool18, label %if.then19, label %if.else21
+19:                                               ; preds = %18, %16, %7
+  %20 = load i32, ptr %2, align 4
+  ret i32 %20
+}
 
-if.then19:                                        ; preds = %if.else17
-  %21 = load i32, ptr %type.addr, align 4
-  %22 = load ptr, ptr @the_repository, align 8
-  %23 = load ptr, ptr %oid.addr, align 8
-  %24 = load i32, ptr @abbrev, align 4
-  %call20 = call ptr @repo_find_unique_abbrev(ptr noundef %22, ptr noundef %23, i32 noundef %24)
-  call void @show_with_type(i32 noundef %21, ptr noundef %call20)
-  br label %if.end23
+; Function Attrs: nounwind uwtable
+define internal void @die_no_single_rev(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !4
+  %3 = load i32, ptr %2, align 4, !tbaa !4
+  %4 = icmp ne i32 %3, 0
+  br i1 %4, label %5, label %7
 
-if.else21:                                        ; preds = %if.else17
-  %25 = load i32, ptr %type.addr, align 4
-  %26 = load ptr, ptr %oid.addr, align 8
-  %call22 = call ptr @oid_to_hex(ptr noundef %26)
-  call void @show_with_type(i32 noundef %25, ptr noundef %call22)
-  br label %if.end23
+5:                                                ; preds = %1
+  %6 = call i32 @common_exit(ptr noundef @.str.140, i32 noundef 585, i32 noundef 1)
+  call void @exit(i32 noundef %6) #14
+  unreachable
 
-if.end23:                                         ; preds = %if.else21, %if.then19
-  br label %if.end24
+7:                                                ; preds = %1
+  %8 = call ptr @_(ptr noundef @.str.141)
+  call void (ptr, ...) @die(ptr noundef %8) #13
+  unreachable
+}
 
-if.end24:                                         ; preds = %if.end23, %if.end16, %if.then
+; Function Attrs: nounwind uwtable
+define internal i32 @try_difference(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.object_id, align 4
+  %6 = alloca %struct.object_id, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 36, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 36, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %15 = load ptr, ptr %3, align 8, !tbaa !11
+  %16 = call ptr @strstr(ptr noundef %15, ptr noundef @.str.142) #12
+  store ptr %16, ptr %4, align 8, !tbaa !11
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %19, label %18
+
+18:                                               ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %108
+
+19:                                               ; preds = %1
+  %20 = load ptr, ptr %4, align 8, !tbaa !11
+  %21 = getelementptr inbounds i8, ptr %20, i64 2
+  store ptr %21, ptr %7, align 8, !tbaa !11
+  %22 = load ptr, ptr %3, align 8, !tbaa !11
+  store ptr %22, ptr %8, align 8, !tbaa !11
+  %23 = load ptr, ptr %7, align 8, !tbaa !11
+  %24 = load i8, ptr %23, align 1, !tbaa !39
+  %25 = sext i8 %24 to i32
+  %26 = icmp eq i32 %25, 46
+  %27 = zext i1 %26 to i32
+  store i32 %27, ptr %9, align 4, !tbaa !4
+  %28 = load ptr, ptr %4, align 8, !tbaa !11
+  store i8 0, ptr %28, align 1, !tbaa !39
+  %29 = load i32, ptr %9, align 4, !tbaa !4
+  %30 = load ptr, ptr %7, align 8, !tbaa !11
+  %31 = sext i32 %29 to i64
+  %32 = getelementptr inbounds i8, ptr %30, i64 %31
+  store ptr %32, ptr %7, align 8, !tbaa !11
+  %33 = load ptr, ptr %7, align 8, !tbaa !11
+  %34 = load i8, ptr %33, align 1, !tbaa !39
+  %35 = icmp ne i8 %34, 0
+  br i1 %35, label %37, label %36
+
+36:                                               ; preds = %19
+  store ptr @try_difference.head_by_default, ptr %7, align 8, !tbaa !11
+  br label %37
+
+37:                                               ; preds = %36, %19
+  %38 = load ptr, ptr %4, align 8, !tbaa !11
+  %39 = load ptr, ptr %3, align 8, !tbaa !11
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %37
+  store ptr @try_difference.head_by_default, ptr %8, align 8, !tbaa !11
+  br label %42
+
+42:                                               ; preds = %41, %37
+  %43 = load ptr, ptr %8, align 8, !tbaa !11
+  %44 = icmp eq ptr %43, @try_difference.head_by_default
+  br i1 %44, label %45, label %53
+
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %7, align 8, !tbaa !11
+  %47 = icmp eq ptr %46, @try_difference.head_by_default
+  br i1 %47, label %48, label %53
+
+48:                                               ; preds = %45
+  %49 = load i32, ptr %9, align 4, !tbaa !4
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %53, label %51
+
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %4, align 8, !tbaa !11
+  store i8 46, ptr %52, align 1, !tbaa !39
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %108
+
+53:                                               ; preds = %48, %45, %42
+  %54 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %55 = load ptr, ptr %8, align 8, !tbaa !11
+  %56 = call i32 @repo_get_oid_committish(ptr noundef %54, ptr noundef %55, ptr noundef %5)
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %106, label %58
+
+58:                                               ; preds = %53
+  %59 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %60 = load ptr, ptr %7, align 8, !tbaa !11
+  %61 = call i32 @repo_get_oid_committish(ptr noundef %59, ptr noundef %60, ptr noundef %6)
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %106, label %63
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %7, align 8, !tbaa !11
+  call void @show_rev(i32 noundef 0, ptr noundef %6, ptr noundef %64)
+  %65 = load i32, ptr %9, align 4, !tbaa !4
+  %66 = icmp ne i32 %65, 0
+  %67 = select i1 %66, i32 0, i32 1
+  %68 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @show_rev(i32 noundef %67, ptr noundef %5, ptr noundef %68)
+  %69 = load i32, ptr %9, align 4, !tbaa !4
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %104
+
+71:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  store ptr null, ptr %11, align 8, !tbaa !103
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %72 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %73 = call ptr @lookup_commit_reference(ptr noundef %72, ptr noundef %5)
+  store ptr %73, ptr %12, align 8, !tbaa !105
+  %74 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %75 = call ptr @lookup_commit_reference(ptr noundef %74, ptr noundef %6)
+  store ptr %75, ptr %13, align 8, !tbaa !105
+  %76 = load ptr, ptr %12, align 8, !tbaa !105
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %81
+
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %13, align 8, !tbaa !105
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %83, label %81
+
+81:                                               ; preds = %78, %71
+  %82 = load ptr, ptr %4, align 8, !tbaa !11
+  store i8 46, ptr %82, align 1, !tbaa !39
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %101
+
+83:                                               ; preds = %78
+  %84 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %85 = load ptr, ptr %12, align 8, !tbaa !105
+  %86 = load ptr, ptr %13, align 8, !tbaa !105
+  %87 = call i32 @repo_get_merge_bases(ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %11)
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %89, label %91
+
+89:                                               ; preds = %83
+  %90 = call i32 @common_exit(ptr noundef @.str.140, i32 noundef 317, i32 noundef 128)
+  call void @exit(i32 noundef %90) #14
+  unreachable
+
+91:                                               ; preds = %83
+  br label %92
+
+92:                                               ; preds = %95, %91
+  %93 = load ptr, ptr %11, align 8, !tbaa !103
+  %94 = icmp ne ptr %93, null
+  br i1 %94, label %95, label %100
+
+95:                                               ; preds = %92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %96 = call ptr @pop_commit(ptr noundef %11)
+  store ptr %96, ptr %14, align 8, !tbaa !105
+  %97 = load ptr, ptr %14, align 8, !tbaa !105
+  %98 = getelementptr inbounds nuw %struct.commit, ptr %97, i32 0, i32 0
+  %99 = getelementptr inbounds nuw %struct.object, ptr %98, i32 0, i32 1
+  call void @show_rev(i32 noundef 1, ptr noundef %99, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  br label %92, !llvm.loop !107
+
+100:                                              ; preds = %92
+  store i32 0, ptr %10, align 4
+  br label %101
+
+101:                                              ; preds = %100, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  %102 = load i32, ptr %10, align 4
+  switch i32 %102, label %108 [
+    i32 0, label %103
+  ]
+
+103:                                              ; preds = %101
+  br label %104
+
+104:                                              ; preds = %103, %63
+  %105 = load ptr, ptr %4, align 8, !tbaa !11
+  store i8 46, ptr %105, align 1, !tbaa !39
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %108
+
+106:                                              ; preds = %58, %53
+  %107 = load ptr, ptr %4, align 8, !tbaa !11
+  store i8 46, ptr %107, align 1, !tbaa !39
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %108
+
+108:                                              ; preds = %106, %104, %101, %51, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 36, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 36, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %109 = load i32, ptr %2, align 4
+  ret i32 %109
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @try_parent_shorthands(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.object_id, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 36, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  store i32 0, ptr %9, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 0, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  store i32 0, ptr %11, align 4, !tbaa !4
+  %15 = load ptr, ptr %3, align 8, !tbaa !11
+  %16 = call ptr @strstr(ptr noundef %15, ptr noundef @.str.143) #12
+  store ptr %16, ptr %4, align 8, !tbaa !11
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %25
+
+18:                                               ; preds = %1
+  store i32 1, ptr %9, align 4, !tbaa !4
+  %19 = load ptr, ptr %4, align 8, !tbaa !11
+  %20 = getelementptr inbounds i8, ptr %19, i64 2
+  %21 = load i8, ptr %20, align 1, !tbaa !39
+  %22 = icmp ne i8 %21, 0
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %18
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %12, align 4
+  br label %139
+
+24:                                               ; preds = %18
+  br label %66
+
+25:                                               ; preds = %1
+  %26 = load ptr, ptr %3, align 8, !tbaa !11
+  %27 = call ptr @strstr(ptr noundef %26, ptr noundef @.str.144) #12
+  store ptr %27, ptr %4, align 8, !tbaa !11
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %36
+
+29:                                               ; preds = %25
+  store i32 1, ptr %10, align 4, !tbaa !4
+  %30 = load ptr, ptr %4, align 8, !tbaa !11
+  %31 = getelementptr inbounds i8, ptr %30, i64 2
+  %32 = load i8, ptr %31, align 1, !tbaa !39
+  %33 = icmp ne i8 %32, 0
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %29
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %12, align 4
+  br label %139
+
+35:                                               ; preds = %29
+  br label %65
+
+36:                                               ; preds = %25
+  %37 = load ptr, ptr %3, align 8, !tbaa !11
+  %38 = call ptr @strstr(ptr noundef %37, ptr noundef @.str.145) #12
+  store ptr %38, ptr %4, align 8, !tbaa !11
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %63
+
+40:                                               ; preds = %36
+  store i32 1, ptr %9, align 4, !tbaa !4
+  store i32 1, ptr %11, align 4, !tbaa !4
+  %41 = load ptr, ptr %4, align 8, !tbaa !11
+  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  %43 = load i8, ptr %42, align 1, !tbaa !39
+  %44 = icmp ne i8 %43, 0
+  br i1 %44, label %45, label %62
+
+45:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %46 = load ptr, ptr %4, align 8, !tbaa !11
+  %47 = getelementptr inbounds i8, ptr %46, i64 2
+  %48 = call i64 @strtoul(ptr noundef %47, ptr noundef %13, i32 noundef 10) #11
+  %49 = trunc i64 %48 to i32
+  store i32 %49, ptr %11, align 4, !tbaa !4
+  %50 = load ptr, ptr %13, align 8, !tbaa !11
+  %51 = load i8, ptr %50, align 1, !tbaa !39
+  %52 = sext i8 %51 to i32
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %57, label %54
+
+54:                                               ; preds = %45
+  %55 = load i32, ptr %11, align 4, !tbaa !4
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %58, label %57
+
+57:                                               ; preds = %54, %45
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %12, align 4
+  br label %59
+
+58:                                               ; preds = %54
+  store i32 0, ptr %12, align 4
+  br label %59
+
+59:                                               ; preds = %58, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  %60 = load i32, ptr %12, align 4
+  switch i32 %60, label %139 [
+    i32 0, label %61
+  ]
+
+61:                                               ; preds = %59
+  br label %62
+
+62:                                               ; preds = %61, %40
+  br label %64
+
+63:                                               ; preds = %36
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %12, align 4
+  br label %139
+
+64:                                               ; preds = %62
+  br label %65
+
+65:                                               ; preds = %64, %35
+  br label %66
+
+66:                                               ; preds = %65, %24
+  %67 = load ptr, ptr %4, align 8, !tbaa !11
+  store i8 0, ptr %67, align 1, !tbaa !39
+  %68 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %69 = load ptr, ptr %3, align 8, !tbaa !11
+  %70 = call i32 @repo_get_oid_committish(ptr noundef %68, ptr noundef %69, ptr noundef %5)
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %76, label %72
+
+72:                                               ; preds = %66
+  %73 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %74 = call ptr @lookup_commit_reference(ptr noundef %73, ptr noundef %5)
+  store ptr %74, ptr %6, align 8, !tbaa !105
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %78, label %76
+
+76:                                               ; preds = %72, %66
+  %77 = load ptr, ptr %4, align 8, !tbaa !11
+  store i8 94, ptr %77, align 1, !tbaa !39
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %12, align 4
+  br label %139
+
+78:                                               ; preds = %72
+  %79 = load i32, ptr %11, align 4, !tbaa !4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %90
+
+81:                                               ; preds = %78
+  %82 = load i32, ptr %11, align 4, !tbaa !4
+  %83 = load ptr, ptr %6, align 8, !tbaa !105
+  %84 = getelementptr inbounds nuw %struct.commit, ptr %83, i32 0, i32 2
+  %85 = load ptr, ptr %84, align 8, !tbaa !108
+  %86 = call i32 @commit_list_count(ptr noundef %85)
+  %87 = icmp ugt i32 %82, %86
+  br i1 %87, label %88, label %90
+
+88:                                               ; preds = %81
+  %89 = load ptr, ptr %4, align 8, !tbaa !11
+  store i8 94, ptr %89, align 1, !tbaa !39
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %12, align 4
+  br label %139
+
+90:                                               ; preds = %81, %78
+  %91 = load i32, ptr %9, align 4, !tbaa !4
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %93, label %95
+
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @show_rev(i32 noundef 0, ptr noundef %5, ptr noundef %94)
+  br label %95
+
+95:                                               ; preds = %93, %90
+  %96 = load ptr, ptr %6, align 8, !tbaa !105
+  %97 = getelementptr inbounds nuw %struct.commit, ptr %96, i32 0, i32 2
+  %98 = load ptr, ptr %97, align 8, !tbaa !108
+  store ptr %98, ptr %7, align 8, !tbaa !103
+  store i32 1, ptr %8, align 4, !tbaa !4
+  br label %99
+
+99:                                               ; preds = %131, %95
+  %100 = load ptr, ptr %7, align 8, !tbaa !103
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %137
+
+102:                                              ; preds = %99
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  store ptr null, ptr %14, align 8, !tbaa !11
+  %103 = load i32, ptr %11, align 4, !tbaa !4
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %110
+
+105:                                              ; preds = %102
+  %106 = load i32, ptr %8, align 4, !tbaa !4
+  %107 = load i32, ptr %11, align 4, !tbaa !4
+  %108 = icmp ne i32 %106, %107
+  br i1 %108, label %109, label %110
+
+109:                                              ; preds = %105
+  store i32 4, ptr %12, align 4
+  br label %128
+
+110:                                              ; preds = %105, %102
+  %111 = load i32, ptr @symbolic, align 4, !tbaa !4
+  %112 = icmp ne i32 %111, 0
+  br i1 %112, label %113, label %117
+
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %3, align 8, !tbaa !11
+  %115 = load i32, ptr %8, align 4, !tbaa !4
+  %116 = call ptr (ptr, ...) @xstrfmt(ptr noundef @.str.146, ptr noundef %114, i32 noundef %115)
+  store ptr %116, ptr %14, align 8, !tbaa !11
+  br label %117
+
+117:                                              ; preds = %113, %110
+  %118 = load i32, ptr %10, align 4, !tbaa !4
+  %119 = icmp ne i32 %118, 0
+  %120 = select i1 %119, i32 0, i32 1
+  %121 = load ptr, ptr %7, align 8, !tbaa !103
+  %122 = getelementptr inbounds nuw %struct.commit_list, ptr %121, i32 0, i32 0
+  %123 = load ptr, ptr %122, align 8, !tbaa !112
+  %124 = getelementptr inbounds nuw %struct.commit, ptr %123, i32 0, i32 0
+  %125 = getelementptr inbounds nuw %struct.object, ptr %124, i32 0, i32 1
+  %126 = load ptr, ptr %14, align 8, !tbaa !11
+  call void @show_rev(i32 noundef %120, ptr noundef %125, ptr noundef %126)
+  %127 = load ptr, ptr %14, align 8, !tbaa !11
+  call void @free(ptr noundef %127) #11
+  store i32 0, ptr %12, align 4
+  br label %128
+
+128:                                              ; preds = %117, %109
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  %129 = load i32, ptr %12, align 4
+  switch i32 %129, label %141 [
+    i32 0, label %130
+    i32 4, label %131
+  ]
+
+130:                                              ; preds = %128
+  br label %131
+
+131:                                              ; preds = %130, %128
+  %132 = load ptr, ptr %7, align 8, !tbaa !103
+  %133 = getelementptr inbounds nuw %struct.commit_list, ptr %132, i32 0, i32 1
+  %134 = load ptr, ptr %133, align 8, !tbaa !114
+  store ptr %134, ptr %7, align 8, !tbaa !103
+  %135 = load i32, ptr %8, align 4, !tbaa !4
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %8, align 4, !tbaa !4
+  br label %99, !llvm.loop !115
+
+137:                                              ; preds = %99
+  %138 = load ptr, ptr %4, align 8, !tbaa !11
+  store i8 94, ptr %138, align 1, !tbaa !39
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %12, align 4
+  br label %139
+
+139:                                              ; preds = %137, %88, %76, %63, %59, %34, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 36, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %140 = load i32, ptr %2, align 4
+  ret i32 %140
+
+141:                                              ; preds = %128
+  unreachable
+}
+
+declare i32 @get_oid_with_context(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
+
+declare void @object_context_release(ptr noundef) #3
+
+declare i32 @repo_oid_to_algop(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @show_rev(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %struct.object_id, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !70
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  %10 = load i32, ptr @filter, align 4, !tbaa !4
+  %11 = and i32 %10, 1
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %3
+  br label %74
+
+14:                                               ; preds = %3
+  store ptr null, ptr @def, align 8, !tbaa !11
+  %15 = load i32, ptr @symbolic, align 4, !tbaa !4
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %20, label %17
+
+17:                                               ; preds = %14
+  %18 = load i32, ptr @abbrev_ref, align 4, !tbaa !4
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %60
+
+20:                                               ; preds = %17, %14
+  %21 = load ptr, ptr %6, align 8, !tbaa !11
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %60
+
+23:                                               ; preds = %20
+  %24 = load i32, ptr @symbolic, align 4, !tbaa !4
+  %25 = icmp eq i32 %24, 2
+  br i1 %25, label %29, label %26
+
+26:                                               ; preds = %23
+  %27 = load i32, ptr @abbrev_ref, align 4, !tbaa !4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %56
+
+29:                                               ; preds = %26, %23
+  call void @llvm.lifetime.start.p0(i64 36, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %30 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %31 = load ptr, ptr %6, align 8, !tbaa !11
+  %32 = load ptr, ptr %6, align 8, !tbaa !11
+  %33 = call i64 @strlen(ptr noundef %32) #12
+  %34 = trunc i64 %33 to i32
+  %35 = call i32 @repo_dwim_ref(ptr noundef %30, ptr noundef %31, i32 noundef %34, ptr noundef %7, ptr noundef %8, i32 noundef 0)
+  switch i32 %35, label %50 [
+    i32 0, label %54
+    i32 1, label %36
+  ]
+
+36:                                               ; preds = %29
+  %37 = load i32, ptr @abbrev_ref, align 4, !tbaa !4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %47
+
+39:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %40 = load ptr, ptr %8, align 8, !tbaa !11
+  store ptr %40, ptr %9, align 8, !tbaa !11
+  %41 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %42 = call ptr @get_main_ref_store(ptr noundef %41)
+  %43 = load ptr, ptr %8, align 8, !tbaa !11
+  %44 = load i32, ptr @abbrev_ref_strict, align 4, !tbaa !4
+  %45 = call ptr @refs_shorten_unambiguous_ref(ptr noundef %42, ptr noundef %43, i32 noundef %44)
+  store ptr %45, ptr %8, align 8, !tbaa !11
+  %46 = load ptr, ptr %9, align 8, !tbaa !11
+  call void @free(ptr noundef %46) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  br label %47
+
+47:                                               ; preds = %39, %36
+  %48 = load i32, ptr %4, align 4, !tbaa !4
+  %49 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @show_with_type(i32 noundef %48, ptr noundef %49)
+  br label %54
+
+50:                                               ; preds = %29
+  %51 = load ptr, ptr %6, align 8, !tbaa !11
+  %52 = call i32 (ptr, ...) @error(ptr noundef @.str.147, ptr noundef %51)
+  %53 = call i32 @const_error()
+  br label %54
+
+54:                                               ; preds = %50, %47, %29
+  %55 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @free(ptr noundef %55) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 36, ptr %7) #11
+  br label %59
+
+56:                                               ; preds = %26
+  %57 = load i32, ptr %4, align 4, !tbaa !4
+  %58 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @show_with_type(i32 noundef %57, ptr noundef %58)
+  br label %59
+
+59:                                               ; preds = %56, %54
+  br label %74
+
+60:                                               ; preds = %20, %17
+  %61 = load i32, ptr @abbrev, align 4, !tbaa !4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %69
+
+63:                                               ; preds = %60
+  %64 = load i32, ptr %4, align 4, !tbaa !4
+  %65 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %66 = load ptr, ptr %5, align 8, !tbaa !70
+  %67 = load i32, ptr @abbrev, align 4, !tbaa !4
+  %68 = call ptr @repo_find_unique_abbrev(ptr noundef %65, ptr noundef %66, i32 noundef %67)
+  call void @show_with_type(i32 noundef %64, ptr noundef %68)
+  br label %73
+
+69:                                               ; preds = %60
+  %70 = load i32, ptr %4, align 4, !tbaa !4
+  %71 = load ptr, ptr %5, align 8, !tbaa !70
+  %72 = call ptr @oid_to_hex(ptr noundef %71)
+  call void @show_with_type(i32 noundef %70, ptr noundef %72)
+  br label %73
+
+73:                                               ; preds = %69, %63
+  br label %74
+
+74:                                               ; preds = %13, %73, %59
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @show_default() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %s = alloca ptr, align 8
-  %oid = alloca %struct.object_id, align 4
-  %0 = load ptr, ptr @def, align 8
-  store ptr %0, ptr %s, align 8
-  %1 = load ptr, ptr %s, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end3
+  %1 = alloca i32, align 4
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.object_id, align 4
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %5 = load ptr, ptr @def, align 8, !tbaa !11
+  store ptr %5, ptr %2, align 8, !tbaa !11
+  %6 = load ptr, ptr %2, align 8, !tbaa !11
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %19
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr @def, align 8
-  %2 = load ptr, ptr @the_repository, align 8
-  %3 = load ptr, ptr %s, align 8
-  %call = call i32 @repo_get_oid(ptr noundef %2, ptr noundef %3, ptr noundef %oid)
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.end, label %if.then2
+8:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 36, ptr %3) #11
+  store ptr null, ptr @def, align 8, !tbaa !11
+  %9 = load ptr, ptr @the_repository, align 8, !tbaa !13
+  %10 = load ptr, ptr %2, align 8, !tbaa !11
+  %11 = call i32 @repo_get_oid(ptr noundef %9, ptr noundef %10, ptr noundef %3)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %15, label %13
 
-if.then2:                                         ; preds = %if.then
-  %4 = load ptr, ptr %s, align 8
-  call void @show_rev(i32 noundef 0, ptr noundef %oid, ptr noundef %4)
-  store i32 1, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %2, align 8, !tbaa !11
+  call void @show_rev(i32 noundef 0, ptr noundef %3, ptr noundef %14)
+  store i32 1, ptr %1, align 4
+  store i32 1, ptr %4, align 4
+  br label %16
 
-if.end:                                           ; preds = %if.then
-  br label %if.end3
+15:                                               ; preds = %8
+  store i32 0, ptr %4, align 4
+  br label %16
 
-if.end3:                                          ; preds = %if.end, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %15, %13
+  call void @llvm.lifetime.end.p0(i64 36, ptr %3) #11
+  %17 = load i32, ptr %4, align 4
+  switch i32 %17, label %20 [
+    i32 0, label %18
+  ]
 
-return:                                           ; preds = %if.end3, %if.then2
-  %5 = load i32, ptr %retval, align 4
+18:                                               ; preds = %16
+  br label %19
+
+19:                                               ; preds = %18, %0
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %4, align 4
+  br label %20
+
+20:                                               ; preds = %19, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  %21 = load i32, ptr %1, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @strbuf_addstr(ptr noundef %0, ptr noundef %1) #6 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !98
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !11
+  %8 = call i64 @strlen(ptr noundef %7) #12
+  call void @strbuf_add(ptr noundef %5, ptr noundef %6, i64 noundef %8)
+  ret void
+}
+
+declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
+
+; Function Attrs: noreturn
+declare void @usage_with_options(ptr noundef, ptr noundef) #5
+
+declare i32 @strbuf_getline(ptr noundef, ptr noundef) #3
+
+declare ptr @strvec_push(ptr noundef, ptr noundef) #3
+
+declare ptr @xrealloc(ptr noundef, i64 noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @st_mult(i64 noundef %0, i64 noundef %1) #6 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !88
+  store i64 %1, ptr %4, align 8, !tbaa !88
+  %5 = load i64, ptr %3, align 8, !tbaa !88
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %7, label %15
+
+7:                                                ; preds = %2
+  %8 = load i64, ptr %4, align 8, !tbaa !88
+  %9 = load i64, ptr %3, align 8, !tbaa !88
+  %10 = udiv i64 -1, %9
+  %11 = icmp ugt i64 %8, %10
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %7
+  %13 = load i64, ptr %3, align 8, !tbaa !88
+  %14 = load i64, ptr %4, align 8, !tbaa !88
+  call void (ptr, ...) @die(ptr noundef @.str.109, i64 noundef %13, i64 noundef %14) #13
+  unreachable
+
+15:                                               ; preds = %7, %2
+  %16 = load i64, ptr %3, align 8, !tbaa !88
+  %17 = load i64, ptr %4, align 8, !tbaa !88
+  %18 = mul i64 %16, %17
+  ret i64 %18
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @findspace(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  br label %4
+
+4:                                                ; preds = %20, %1
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = load i8, ptr %5, align 1, !tbaa !39
+  %7 = icmp ne i8 %6, 0
+  br i1 %7, label %8, label %23
+
+8:                                                ; preds = %4
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  %10 = load i8, ptr %9, align 1, !tbaa !39
+  %11 = zext i8 %10 to i64
+  %12 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !39
+  %14 = zext i8 %13 to i32
+  %15 = and i32 %14, 1
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %8
+  %18 = load ptr, ptr %3, align 8, !tbaa !11
+  store ptr %18, ptr %2, align 8
+  br label %24
+
+19:                                               ; preds = %8
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %3, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw i8, ptr %21, i32 1
+  store ptr %22, ptr %3, align 8, !tbaa !11
+  br label %4, !llvm.loop !116
+
+23:                                               ; preds = %4
+  store ptr null, ptr %2, align 8
+  br label %24
+
+24:                                               ; preds = %23, %17
+  %25 = load ptr, ptr %2, align 8
+  ret ptr %25
+}
+
+declare ptr @xstrdup(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @skipspaces(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  br label %3
+
+3:                                                ; preds = %12, %1
+  %4 = load ptr, ptr %2, align 8, !tbaa !11
+  %5 = load i8, ptr %4, align 1, !tbaa !39
+  %6 = zext i8 %5 to i64
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %6
+  %8 = load i8, ptr %7, align 1, !tbaa !39
+  %9 = zext i8 %8 to i32
+  %10 = and i32 %9, 1
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %2, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw i8, ptr %13, i32 1
+  store ptr %14, ptr %2, align 8, !tbaa !11
+  br label %3, !llvm.loop !117
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %2, align 8, !tbaa !11
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @parseopt_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !86
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store i32 %2, ptr %6, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %8 = load ptr, ptr %4, align 8, !tbaa !86
+  %9 = getelementptr inbounds nuw %struct.option, ptr %8, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8, !tbaa !77
+  store ptr %10, ptr %7, align 8, !tbaa !98
+  %11 = load i32, ptr %6, align 4, !tbaa !4
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %18
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %7, align 8, !tbaa !98
+  %15 = load ptr, ptr %4, align 8, !tbaa !86
+  %16 = getelementptr inbounds nuw %struct.option, ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !76
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %14, ptr noundef @.str.110, ptr noundef %17)
+  br label %42
+
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %4, align 8, !tbaa !86
+  %20 = getelementptr inbounds nuw %struct.option, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4, !tbaa !75
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %36
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %4, align 8, !tbaa !86
+  %25 = getelementptr inbounds nuw %struct.option, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !76
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %31, label %28
+
+28:                                               ; preds = %23
+  %29 = load i32, ptr @stuck_long, align 4, !tbaa !4
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %36, label %31
+
+31:                                               ; preds = %28, %23
+  %32 = load ptr, ptr %7, align 8, !tbaa !98
+  %33 = load ptr, ptr %4, align 8, !tbaa !86
+  %34 = getelementptr inbounds nuw %struct.option, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 4, !tbaa !75
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %32, ptr noundef @.str.111, i32 noundef %35)
+  br label %41
+
+36:                                               ; preds = %28, %18
+  %37 = load ptr, ptr %7, align 8, !tbaa !98
+  %38 = load ptr, ptr %4, align 8, !tbaa !86
+  %39 = getelementptr inbounds nuw %struct.option, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !76
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %37, ptr noundef @.str.112, ptr noundef %40)
+  br label %41
+
+41:                                               ; preds = %36, %31
+  br label %42
+
+42:                                               ; preds = %41, %13
+  %43 = load ptr, ptr %5, align 8, !tbaa !11
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %61
+
+45:                                               ; preds = %42
+  %46 = load i32, ptr @stuck_long, align 4, !tbaa !4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %50, label %48
+
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %7, align 8, !tbaa !98
+  call void @strbuf_addch(ptr noundef %49, i32 noundef 32)
+  br label %58
+
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %4, align 8, !tbaa !86
+  %52 = getelementptr inbounds nuw %struct.option, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8, !tbaa !76
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %57
+
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %7, align 8, !tbaa !98
+  call void @strbuf_addch(ptr noundef %56, i32 noundef 61)
+  br label %57
+
+57:                                               ; preds = %55, %50
+  br label %58
+
+58:                                               ; preds = %57, %48
+  %59 = load ptr, ptr %7, align 8, !tbaa !98
+  %60 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @sq_quote_buf(ptr noundef %59, ptr noundef %60)
+  br label %61
+
+61:                                               ; preds = %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret i32 0
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare ptr @strpbrk(ptr noundef, ptr noundef) #4
+
+declare ptr @strvec_pushf(ptr noundef, ptr noundef, ...) #3
+
+declare ptr @xmemdupz(ptr noundef, i64 noundef) #3
+
+declare void @sq_quote_argv(ptr noundef, ptr noundef) #3
+
+declare void @strvec_clear(ptr noundef) #3
+
+declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @strbuf_addch(ptr noundef %0, i32 noundef %1) #6 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store i32 %1, ptr %4, align 4, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !98
+  %6 = call i64 @strbuf_avail(ptr noundef %5)
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %10, label %8
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %3, align 8, !tbaa !98
+  call void @strbuf_grow(ptr noundef %9, i64 noundef 1)
+  br label %10
+
+10:                                               ; preds = %8, %2
+  %11 = load i32, ptr %4, align 4, !tbaa !4
+  %12 = trunc i32 %11 to i8
+  %13 = load ptr, ptr %3, align 8, !tbaa !98
+  %14 = getelementptr inbounds nuw %struct.strbuf, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %16 = load ptr, ptr %3, align 8, !tbaa !98
+  %17 = getelementptr inbounds nuw %struct.strbuf, ptr %16, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8, !tbaa !92
+  %19 = add i64 %18, 1
+  store i64 %19, ptr %17, align 8, !tbaa !92
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 %18
+  store i8 %12, ptr %20, align 1, !tbaa !39
+  %21 = load ptr, ptr %3, align 8, !tbaa !98
+  %22 = getelementptr inbounds nuw %struct.strbuf, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !54
+  %24 = load ptr, ptr %3, align 8, !tbaa !98
+  %25 = getelementptr inbounds nuw %struct.strbuf, ptr %24, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8, !tbaa !92
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
+  store i8 0, ptr %27, align 1, !tbaa !39
+  ret void
+}
+
+declare void @sq_quote_buf(ptr noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @strbuf_avail(ptr noundef %0) #6 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
+  %3 = load ptr, ptr %2, align 8, !tbaa !98
+  %4 = getelementptr inbounds nuw %struct.strbuf, ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !100
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %7, label %16
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !98
+  %9 = getelementptr inbounds nuw %struct.strbuf, ptr %8, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !100
+  %11 = load ptr, ptr %2, align 8, !tbaa !98
+  %12 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !92
+  %14 = sub i64 %10, %13
+  %15 = sub i64 %14, 1
+  br label %17
+
+16:                                               ; preds = %1
+  br label %17
+
+17:                                               ; preds = %16, %7
+  %18 = phi i64 [ %15, %7 ], [ 0, %16 ]
+  ret i64 %18
+}
+
+declare void @strbuf_grow(ptr noundef, i64 noundef) #3
+
+declare void @repo_config(ptr noundef, ptr noundef, ptr noundef) #3
+
+declare ptr @prefix_filename(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) #7
+
+; Function Attrs: noreturn
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @is_absolute_path(ptr noundef %0) #6 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = getelementptr inbounds i8, ptr %3, i64 0
+  %5 = load i8, ptr %4, align 1, !tbaa !39
+  %6 = sext i8 %5 to i32
+  %7 = call i32 @git_is_dir_sep(i32 noundef %6)
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %13, label %9
+
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !11
+  %11 = call i32 @git_has_dos_drive_prefix(ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br label %13
+
+13:                                               ; preds = %9, %1
+  %14 = phi i1 [ true, %1 ], [ %12, %9 ]
+  %15 = zext i1 %14 to i32
+  ret i32 %15
+}
+
+declare ptr @strbuf_realpath_forgiving(ptr noundef, ptr noundef, i32 noundef) #3
+
+declare ptr @relative_path(ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @git_is_dir_sep(i32 noundef %0) #6 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !4
+  %3 = load i32, ptr %2, align 4, !tbaa !4
+  %4 = icmp eq i32 %3, 47
+  %5 = zext i1 %4 to i32
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @strbuf_addstr(ptr noundef %sb, ptr noundef %s) #0 {
-entry:
-  %sb.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %sb.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %2 = load ptr, ptr %s.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #8
-  call void @strbuf_add(ptr noundef %0, ptr noundef %1, i64 noundef %call)
-  ret void
-}
-
-declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #4
-
-; Function Attrs: noreturn
-declare void @usage_with_options(ptr noundef, ptr noundef) #3
-
-declare i32 @strbuf_getline(ptr noundef, ptr noundef) #4
-
-declare ptr @xrealloc(ptr noundef, i64 noundef) #4
-
-; Function Attrs: nounwind uwtable
-define internal i64 @st_mult(i64 noundef %a, i64 noundef %b) #0 {
-entry:
-  %a.addr = alloca i64, align 8
-  %b.addr = alloca i64, align 8
-  store i64 %a, ptr %a.addr, align 8
-  store i64 %b, ptr %b.addr, align 8
-  %0 = load i64, ptr %a.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %b.addr, align 8
-  %2 = load i64, ptr %a.addr, align 8
-  %div = udiv i64 -1, %2
-  %cmp = icmp ugt i64 %1, %div
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load i64, ptr %a.addr, align 8
-  %4 = load i64, ptr %b.addr, align 8
-  call void (ptr, ...) @die(ptr noundef @.str.105, i64 noundef %3, i64 noundef %4) #9
-  unreachable
-
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %5 = load i64, ptr %a.addr, align 8
-  %6 = load i64, ptr %b.addr, align 8
-  %mul = mul i64 %5, %6
-  ret i64 %mul
-}
-
-declare ptr @strbuf_detach(ptr noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
-
-; Function Attrs: nounwind uwtable
-define internal ptr @findspace(ptr noundef %s) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %s.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %s.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %4 to i32
-  %and = and i32 %conv, 1
-  %cmp = icmp ne i32 %and, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %5 = load ptr, ptr %s.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %6 = load ptr, ptr %s.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %s.addr, align 8
-  br label %for.cond, !llvm.loop !16
-
-for.end:                                          ; preds = %for.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
-}
-
-declare ptr @xstrdup(ptr noundef) #4
-
-; Function Attrs: nounwind uwtable
-define internal ptr @skipspaces(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load ptr, ptr %s.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %2 to i32
-  %and = and i32 %conv, 1
-  %cmp = icmp ne i32 %and, 0
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %3 = load ptr, ptr %s.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %3, i32 1
-  store ptr %incdec.ptr, ptr %s.addr, align 8
-  br label %while.cond, !llvm.loop !17
-
-while.end:                                        ; preds = %while.cond
-  %4 = load ptr, ptr %s.addr, align 8
-  ret ptr %4
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @parseopt_dump(ptr noundef %o, ptr noundef %arg, i32 noundef %unset) #0 {
-entry:
-  %o.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %unset.addr = alloca i32, align 4
-  %parsed = alloca ptr, align 8
-  store ptr %o, ptr %o.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store i32 %unset, ptr %unset.addr, align 4
-  %0 = load ptr, ptr %o.addr, align 8
-  %value = getelementptr inbounds %struct.option, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %value, align 8
-  store ptr %1, ptr %parsed, align 8
-  %2 = load i32, ptr %unset.addr, align 4
-  %tobool = icmp ne i32 %2, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %parsed, align 8
-  %4 = load ptr, ptr %o.addr, align 8
-  %long_name = getelementptr inbounds %struct.option, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %long_name, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %3, ptr noundef @.str.106, ptr noundef %5)
-  br label %if.end8
-
-if.else:                                          ; preds = %entry
-  %6 = load ptr, ptr %o.addr, align 8
-  %short_name = getelementptr inbounds %struct.option, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %short_name, align 4
-  %tobool1 = icmp ne i32 %7, 0
-  br i1 %tobool1, label %land.lhs.true, label %if.else6
-
-land.lhs.true:                                    ; preds = %if.else
-  %8 = load ptr, ptr %o.addr, align 8
-  %long_name2 = getelementptr inbounds %struct.option, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %long_name2, align 8
-  %cmp = icmp eq ptr %9, null
-  br i1 %cmp, label %if.then4, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %10 = load i32, ptr @stuck_long, align 4
-  %tobool3 = icmp ne i32 %10, 0
-  br i1 %tobool3, label %if.else6, label %if.then4
-
-if.then4:                                         ; preds = %lor.lhs.false, %land.lhs.true
-  %11 = load ptr, ptr %parsed, align 8
-  %12 = load ptr, ptr %o.addr, align 8
-  %short_name5 = getelementptr inbounds %struct.option, ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %short_name5, align 4
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %11, ptr noundef @.str.107, i32 noundef %13)
-  br label %if.end
-
-if.else6:                                         ; preds = %lor.lhs.false, %if.else
-  %14 = load ptr, ptr %parsed, align 8
-  %15 = load ptr, ptr %o.addr, align 8
-  %long_name7 = getelementptr inbounds %struct.option, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %long_name7, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %14, ptr noundef @.str.108, ptr noundef %16)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else6, %if.then4
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.end, %if.then
-  %17 = load ptr, ptr %arg.addr, align 8
-  %tobool9 = icmp ne ptr %17, null
-  br i1 %tobool9, label %if.then10, label %if.end19
-
-if.then10:                                        ; preds = %if.end8
-  %18 = load i32, ptr @stuck_long, align 4
-  %tobool11 = icmp ne i32 %18, 0
-  br i1 %tobool11, label %if.else13, label %if.then12
-
-if.then12:                                        ; preds = %if.then10
-  %19 = load ptr, ptr %parsed, align 8
-  call void @strbuf_addch(ptr noundef %19, i32 noundef 32)
-  br label %if.end18
-
-if.else13:                                        ; preds = %if.then10
-  %20 = load ptr, ptr %o.addr, align 8
-  %long_name14 = getelementptr inbounds %struct.option, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %long_name14, align 8
-  %tobool15 = icmp ne ptr %21, null
-  br i1 %tobool15, label %if.then16, label %if.end17
-
-if.then16:                                        ; preds = %if.else13
-  %22 = load ptr, ptr %parsed, align 8
-  call void @strbuf_addch(ptr noundef %22, i32 noundef 61)
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then16, %if.else13
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.end17, %if.then12
-  %23 = load ptr, ptr %parsed, align 8
-  %24 = load ptr, ptr %arg.addr, align 8
-  call void @sq_quote_buf(ptr noundef %23, ptr noundef %24)
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.end18, %if.end8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @git_has_dos_drive_prefix(ptr noundef %0) #6 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
   ret i32 0
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strpbrk(ptr noundef, ptr noundef) #2
+declare ptr @get_pathname() #3
 
-declare ptr @xmemdupz(ptr noundef, i64 noundef) #4
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
 
-declare void @sq_quote_argv(ptr noundef, ptr noundef) #4
+declare void @repo_git_pathv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) #4
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
-; Function Attrs: nounwind uwtable
-define internal void @strbuf_addch(ptr noundef %sb, i32 noundef %c) #0 {
-entry:
-  %sb.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  store ptr %sb, ptr %sb.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr %sb.addr, align 8
-  %call = call i64 @strbuf_avail(ptr noundef %0)
-  %tobool = icmp ne i64 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+declare i32 @fputs(ptr noundef, ptr noundef) #3
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %sb.addr, align 8
-  call void @strbuf_grow(ptr noundef %1, i64 noundef 1)
-  br label %if.end
+declare i32 @ref_excluded(ptr noundef, ptr noundef) #3
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load i32, ptr %c.addr, align 4
-  %conv = trunc i32 %2 to i8
-  %3 = load ptr, ptr %sb.addr, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %buf, align 8
-  %5 = load ptr, ptr %sb.addr, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %len, align 8
-  %inc = add i64 %6, 1
-  store i64 %inc, ptr %len, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %6
-  store i8 %conv, ptr %arrayidx, align 1
-  %7 = load ptr, ptr %sb.addr, align 8
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %buf1, align 8
-  %9 = load ptr, ptr %sb.addr, align 8
-  %len2 = getelementptr inbounds %struct.strbuf, ptr %9, i32 0, i32 1
-  %10 = load i64, ptr %len2, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %8, i64 %10
-  store i8 0, ptr %arrayidx3, align 1
-  ret void
-}
+declare i32 @refs_for_each_glob_ref_in(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @sq_quote_buf(ptr noundef, ptr noundef) #4
+declare i32 @refs_for_each_ref_in(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+
+declare i32 @putc(i32 noundef, ptr noundef) #3
+
+declare ptr @xstrfmt(ptr noundef, ...) #3
+
+declare i64 @approxidate_careful(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strbuf_avail(ptr noundef %sb) #0 {
-entry:
-  %sb.addr = alloca ptr, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  %0 = load ptr, ptr %sb.addr, align 8
-  %alloc = getelementptr inbounds %struct.strbuf, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %alloc, align 8
-  %tobool = icmp ne i64 %1, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+define internal i32 @is_rev_argument(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  store ptr @is_rev_argument.rev_args, ptr %4, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !11
+  %9 = load i8, ptr %8, align 1, !tbaa !39
+  %10 = sext i8 %9 to i32
+  %11 = icmp eq i32 %10, 45
+  br i1 %11, label %12, label %23
 
-cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %sb.addr, align 8
-  %alloc1 = getelementptr inbounds %struct.strbuf, ptr %2, i32 0, i32 0
-  %3 = load i64, ptr %alloc1, align 8
-  %4 = load ptr, ptr %sb.addr, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %len, align 8
-  %sub = sub i64 %3, %5
-  %sub2 = sub i64 %sub, 1
-  br label %cond.end
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !11
+  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  %15 = load i8, ptr %14, align 1, !tbaa !39
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !39
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 2
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %23
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+22:                                               ; preds = %12
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %60
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub2, %cond.true ], [ 0, %cond.false ]
-  ret i64 %cond
-}
+23:                                               ; preds = %12, %1
+  br label %24
 
-declare void @strbuf_grow(ptr noundef, i64 noundef) #4
+24:                                               ; preds = %59, %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %25 = load ptr, ptr %4, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i32 1
+  store ptr %26, ptr %4, align 8, !tbaa !8
+  %27 = load ptr, ptr %25, align 8, !tbaa !11
+  store ptr %27, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %28 = load ptr, ptr %6, align 8, !tbaa !11
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %31, label %30
 
-declare ptr @prefix_filename(ptr noundef, ptr noundef) #4
+30:                                               ; preds = %24
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %57
 
-; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) #5
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %6, align 8, !tbaa !11
+  %33 = call i64 @strlen(ptr noundef %32) #12
+  %34 = trunc i64 %33 to i32
+  store i32 %34, ptr %7, align 4, !tbaa !4
+  %35 = load ptr, ptr %3, align 8, !tbaa !11
+  %36 = load ptr, ptr %6, align 8, !tbaa !11
+  %37 = call i32 @strcmp(ptr noundef %35, ptr noundef %36) #12
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %55
 
-; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #3
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %6, align 8, !tbaa !11
+  %41 = load i32, ptr %7, align 4, !tbaa !4
+  %42 = sub nsw i32 %41, 1
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %40, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !39
+  %46 = sext i8 %45 to i32
+  %47 = icmp eq i32 %46, 61
+  br i1 %47, label %48, label %56
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_absolute_path(ptr noundef %path) #0 {
-entry:
-  %path.addr = alloca ptr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 0
-  %1 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %1 to i32
-  %call = call i32 @git_is_dir_sep(i32 noundef %conv)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.end, label %lor.rhs
+48:                                               ; preds = %39
+  %49 = load ptr, ptr %3, align 8, !tbaa !11
+  %50 = load ptr, ptr %6, align 8, !tbaa !11
+  %51 = load i32, ptr %7, align 4, !tbaa !4
+  %52 = sext i32 %51 to i64
+  %53 = call i32 @strncmp(ptr noundef %49, ptr noundef %50, i64 noundef %52) #12
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %56, label %55
 
-lor.rhs:                                          ; preds = %entry
-  %2 = load ptr, ptr %path.addr, align 8
-  %call1 = call i32 @git_has_dos_drive_prefix(ptr noundef %2)
-  %tobool2 = icmp ne i32 %call1, 0
-  br label %lor.end
+55:                                               ; preds = %48, %31
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %57
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %3 = phi i1 [ true, %entry ], [ %tobool2, %lor.rhs ]
-  %lor.ext = zext i1 %3 to i32
-  ret i32 %lor.ext
-}
+56:                                               ; preds = %48, %39
+  store i32 0, ptr %5, align 4
+  br label %57
 
-declare ptr @strbuf_realpath_forgiving(ptr noundef, ptr noundef, i32 noundef) #4
+57:                                               ; preds = %56, %55, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %58 = load i32, ptr %5, align 4
+  switch i32 %58, label %60 [
+    i32 0, label %59
+  ]
 
-declare ptr @relative_path(ptr noundef, ptr noundef, ptr noundef) #4
+59:                                               ; preds = %57
+  br label %24
 
-; Function Attrs: nounwind uwtable
-define internal i32 @git_is_dir_sep(i32 noundef %c) #0 {
-entry:
-  %c.addr = alloca i32, align 4
-  store i32 %c, ptr %c.addr, align 4
-  %0 = load i32, ptr %c.addr, align 4
-  %cmp = icmp eq i32 %0, 47
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @git_has_dos_drive_prefix(ptr noundef %path) #0 {
-entry:
-  %path.addr = alloca ptr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  ret i32 0
-}
-
-declare i32 @fputs(ptr noundef, ptr noundef) #4
-
-declare i32 @ref_excluded(ptr noundef, ptr noundef) #4
-
-declare i32 @for_each_glob_ref_in(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
-
-declare i32 @for_each_ref_in(ptr noundef, ptr noundef, ptr noundef) #4
-
-declare ptr @xstrfmt(ptr noundef, ...) #4
-
-declare i64 @approxidate_careful(ptr noundef, ptr noundef) #4
-
-; Function Attrs: nounwind uwtable
-define internal i32 @is_rev_argument(ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %arg.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %str = alloca ptr, align 8
-  %len = alloca i32, align 4
-  store ptr %arg, ptr %arg.addr, align 8
-  store ptr @is_rev_argument.rev_args, ptr %p, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %conv = sext i8 %1 to i32
-  %cmp = icmp eq i32 %conv, 45
-  br i1 %cmp, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %arg.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 1
-  %3 = load i8, ptr %arrayidx, align 1
-  %idxprom = zext i8 %3 to i64
-  %arrayidx2 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
-  %4 = load i8, ptr %arrayidx2, align 1
-  %conv3 = zext i8 %4 to i32
-  %and = and i32 %conv3, 2
-  %cmp4 = icmp ne i32 %and, 0
-  br i1 %cmp4, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true, %entry
-  br label %for.cond
-
-for.cond:                                         ; preds = %if.end21, %if.end
-  %5 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %p, align 8
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %str, align 8
-  %7 = load ptr, ptr %str, align 8
-  %tobool = icmp ne ptr %7, null
-  br i1 %tobool, label %if.end7, label %if.then6
-
-if.then6:                                         ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end7:                                          ; preds = %for.cond
-  %8 = load ptr, ptr %str, align 8
-  %call = call i64 @strlen(ptr noundef %8) #8
-  %conv8 = trunc i64 %call to i32
-  store i32 %conv8, ptr %len, align 4
-  %9 = load ptr, ptr %arg.addr, align 8
-  %10 = load ptr, ptr %str, align 8
-  %call9 = call i32 @strcmp(ptr noundef %9, ptr noundef %10) #8
-  %tobool10 = icmp ne i32 %call9, 0
-  br i1 %tobool10, label %lor.lhs.false, label %if.then20
-
-lor.lhs.false:                                    ; preds = %if.end7
-  %11 = load ptr, ptr %str, align 8
-  %12 = load i32, ptr %len, align 4
-  %sub = sub nsw i32 %12, 1
-  %idxprom11 = sext i32 %sub to i64
-  %arrayidx12 = getelementptr inbounds i8, ptr %11, i64 %idxprom11
-  %13 = load i8, ptr %arrayidx12, align 1
-  %conv13 = sext i8 %13 to i32
-  %cmp14 = icmp eq i32 %conv13, 61
-  br i1 %cmp14, label %land.lhs.true16, label %if.end21
-
-land.lhs.true16:                                  ; preds = %lor.lhs.false
-  %14 = load ptr, ptr %arg.addr, align 8
-  %15 = load ptr, ptr %str, align 8
-  %16 = load i32, ptr %len, align 4
-  %conv17 = sext i32 %16 to i64
-  %call18 = call i32 @strncmp(ptr noundef %14, ptr noundef %15, i64 noundef %conv17) #8
-  %tobool19 = icmp ne i32 %call18, 0
-  br i1 %tobool19, label %if.end21, label %if.then20
-
-if.then20:                                        ; preds = %land.lhs.true16, %if.end7
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end21:                                         ; preds = %land.lhs.true16, %lor.lhs.false
-  br label %for.cond
-
-return:                                           ; preds = %if.then20, %if.then6, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+60:                                               ; preds = %57, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %61 = load i32, ptr %2, align 4
+  ret i32 %61
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #7
+declare void @exit(i32 noundef) #10
 
-declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) #4
+declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strstr(ptr noundef, ptr noundef) #2
+declare ptr @strstr(ptr noundef, ptr noundef) #4
 
-declare i32 @repo_get_oid_committish(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @repo_get_oid_committish(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @lookup_commit_reference(ptr noundef, ptr noundef) #4
+declare ptr @lookup_commit_reference(ptr noundef, ptr noundef) #3
 
-declare ptr @repo_get_merge_bases(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @repo_get_merge_bases(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @pop_commit(ptr noundef) #4
+declare ptr @pop_commit(ptr noundef) #3
 
-declare i32 @commit_list_count(ptr noundef) #4
+declare i32 @commit_list_count(ptr noundef) #3
 
-declare i32 @repo_dwim_ref(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #4
+declare i32 @repo_dwim_ref(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @shorten_unambiguous_ref(ptr noundef, i32 noundef) #4
+declare ptr @refs_shorten_unambiguous_ref(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_with_type(i32 noundef %type, ptr noundef %arg) #0 {
-entry:
-  %type.addr = alloca i32, align 4
-  %arg.addr = alloca ptr, align 8
-  store i32 %type, ptr %type.addr, align 4
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load i32, ptr %type.addr, align 4
-  %1 = load i32, ptr @show_type, align 4
-  %cmp = icmp ne i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @show_with_type(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load i32, ptr %3, align 4, !tbaa !4
+  %6 = load i32, ptr @show_type, align 4, !tbaa !4
+  %7 = icmp ne i32 %5, %6
+  br i1 %7, label %8, label %10
 
-if.then:                                          ; preds = %entry
-  %call = call i32 @putchar(i32 noundef 94)
-  br label %if.end
+8:                                                ; preds = %2
+  %9 = call i32 @putchar(i32 noundef 94)
+  br label %10
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %arg.addr, align 8
-  call void @show(ptr noundef %2)
+10:                                               ; preds = %8, %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @show(ptr noundef %11)
   ret void
 }
 
-declare ptr @repo_find_unique_abbrev(ptr noundef, ptr noundef, i32 noundef) #4
+declare ptr @repo_find_unique_abbrev(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @repo_get_oid(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @repo_get_oid(ptr noundef, ptr noundef, ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { noreturn }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
+attributes #10 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { noreturn }
+attributes #14 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p2 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !10, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS10repository", !10, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS13git_hash_algo", !10, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18}
+!20 = !{!21, !5, i64 280}
+!21 = !{!"repository", !12, i64 0, !12, i64 8, !22, i64 16, !23, i64 24, !24, i64 32, !25, i64 40, !25, i64 104, !29, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !30, i64 256, !33, i64 368, !34, i64 376, !35, i64 384, !36, i64 392, !16, i64 400, !16, i64 408, !5, i64 416, !5, i64 420, !5, i64 424, !12, i64 432, !37, i64 440, !5, i64 448, !5, i64 452, !5, i64 456}
+!22 = !{!"p1 _ZTS16raw_object_store", !10, i64 0}
+!23 = !{!"p1 _ZTS18parsed_object_pool", !10, i64 0}
+!24 = !{!"p1 _ZTS9ref_store", !10, i64 0}
+!25 = !{!"strmap", !26, i64 0, !28, i64 48, !5, i64 56}
+!26 = !{!"hashmap", !27, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40}
+!27 = !{!"p2 _ZTS13hashmap_entry", !10, i64 0}
+!28 = !{!"p1 _ZTS8mem_pool", !10, i64 0}
+!29 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
+!30 = !{!"repo_settings", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !31, i64 48, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !32, i64 88, !32, i64 96, !32, i64 104}
+!31 = !{!"p1 _ZTS18fsmonitor_settings", !10, i64 0}
+!32 = !{!"long", !6, i64 0}
+!33 = !{!"p1 _ZTS10config_set", !10, i64 0}
+!34 = !{!"p1 _ZTS15submodule_cache", !10, i64 0}
+!35 = !{!"p1 _ZTS11index_state", !10, i64 0}
+!36 = !{!"p1 _ZTS12remote_state", !10, i64 0}
+!37 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
+!38 = !{!21, !16, i64 408}
+!39 = !{!6, !6, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS12startup_info", !10, i64 0}
+!42 = !{!43, !12, i64 8}
+!43 = !{!"startup_info", !5, i64 0, !12, i64 8, !12, i64 16}
+!44 = !{!21, !16, i64 400}
+!45 = !{!46, !12, i64 0}
+!46 = !{!"git_hash_algo", !12, i64 0, !5, i64 8, !32, i64 16, !32, i64 24, !32, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !47, i64 80, !47, i64 88, !47, i64 96, !16, i64 104}
+!47 = !{!"p1 _ZTS9object_id", !10, i64 0}
+!48 = !{!46, !32, i64 24}
+!49 = !{!50, !6, i64 64}
+!50 = !{!"ref_exclusions", !51, i64 0, !53, i64 40, !6, i64 64}
+!51 = !{!"string_list", !52, i64 0, !32, i64 8, !32, i64 16, !5, i64 24, !10, i64 32}
+!52 = !{!"p1 _ZTS16string_list_item", !10, i64 0}
+!53 = !{!"strvec", !9, i64 0, !32, i64 8, !32, i64 16}
+!54 = !{!55, !12, i64 16}
+!55 = !{!"strbuf", !32, i64 0, !32, i64 8, !12, i64 16}
+!56 = distinct !{!56, !18}
+!57 = !{!21, !35, i64 384}
+!58 = !{!59, !63, i64 40}
+!59 = !{!"index_state", !60, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !61, i64 24, !62, i64 32, !63, i64 40, !64, i64 48, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 60, !26, i64 64, !26, i64 112, !65, i64 160, !66, i64 200, !12, i64 208, !67, i64 216, !28, i64 224, !68, i64 232, !14, i64 240, !69, i64 248}
+!60 = !{!"p2 _ZTS11cache_entry", !10, i64 0}
+!61 = !{!"p1 _ZTS11string_list", !10, i64 0}
+!62 = !{!"p1 _ZTS10cache_tree", !10, i64 0}
+!63 = !{!"p1 _ZTS11split_index", !10, i64 0}
+!64 = !{!"cache_time", !5, i64 0, !5, i64 4}
+!65 = !{!"object_id", !6, i64 0, !5, i64 32}
+!66 = !{!"p1 _ZTS15untracked_cache", !10, i64 0}
+!67 = !{!"p1 _ZTS11ewah_bitmap", !10, i64 0}
+!68 = !{!"p1 _ZTS8progress", !10, i64 0}
+!69 = !{!"p1 _ZTS12pattern_list", !10, i64 0}
+!70 = !{!47, !47, i64 0}
+!71 = !{!21, !5, i64 416}
+!72 = distinct !{!72, !18}
+!73 = !{!74, !5, i64 0}
+!74 = !{!"option", !5, i64 0, !5, i64 4, !12, i64 8, !10, i64 16, !12, i64 24, !12, i64 32, !5, i64 40, !10, i64 48, !32, i64 56, !10, i64 64, !32, i64 72, !10, i64 80}
+!75 = !{!74, !5, i64 4}
+!76 = !{!74, !12, i64 8}
+!77 = !{!74, !10, i64 16}
+!78 = !{!74, !12, i64 24}
+!79 = !{!74, !12, i64 32}
+!80 = !{!74, !5, i64 40}
+!81 = !{!74, !10, i64 48}
+!82 = !{!74, !32, i64 56}
+!83 = !{!74, !10, i64 64}
+!84 = !{!74, !32, i64 72}
+!85 = !{!74, !10, i64 80}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTS6option", !10, i64 0}
+!88 = !{!32, !32, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!91 = !{!53, !32, i64 8}
+!92 = !{!55, !32, i64 8}
+!93 = distinct !{!93, !18}
+!94 = distinct !{!94, !18}
+!95 = !{!53, !9, i64 0}
+!96 = distinct !{!96, !18}
+!97 = !{!10, !10, i64 0}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTS6strbuf", !10, i64 0}
+!100 = !{!55, !32, i64 0}
+!101 = distinct !{!101, !18}
+!102 = distinct !{!102, !18}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 _ZTS11commit_list", !10, i64 0}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTS6commit", !10, i64 0}
+!107 = distinct !{!107, !18}
+!108 = !{!109, !104, i64 48}
+!109 = !{!"commit", !110, i64 0, !32, i64 40, !104, i64 48, !111, i64 56, !5, i64 64}
+!110 = !{!"object", !5, i64 0, !5, i64 0, !5, i64 0, !65, i64 4}
+!111 = !{!"p1 _ZTS4tree", !10, i64 0}
+!112 = !{!113, !106, i64 0}
+!113 = !{!"commit_list", !106, i64 0, !104, i64 8}
+!114 = !{!113, !104, i64 8}
+!115 = distinct !{!115, !18}
+!116 = distinct !{!116, !18}
+!117 = distinct !{!117, !18}

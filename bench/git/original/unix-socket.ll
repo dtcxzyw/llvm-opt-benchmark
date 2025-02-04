@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.sockaddr_un = type { i16, [108 x i8] }
@@ -12,454 +12,531 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [45 x i8] c"unable to restore original working directory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @unix_stream_connect(ptr noundef %path, i32 noundef %disallow_chdir) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %path.addr = alloca ptr, align 8
-  %disallow_chdir.addr = alloca i32, align 4
-  %fd = alloca i32, align 4
-  %saved_errno = alloca i32, align 4
-  %sa = alloca %struct.sockaddr_un, align 2
-  %ctx = alloca %struct.unix_sockaddr_context, align 8
-  %agg.tmp = alloca %union.__CONST_SOCKADDR_ARG, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store i32 %disallow_chdir, ptr %disallow_chdir.addr, align 4
-  store i32 -1, ptr %fd, align 4
-  %0 = load ptr, ptr %path.addr, align 8
-  %1 = load i32, ptr %disallow_chdir.addr, align 4
-  %call = call i32 @unix_sockaddr_init(ptr noundef %sa, ptr noundef %0, ptr noundef %ctx, i32 noundef %1)
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @unix_stream_connect(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.sockaddr_un, align 2
+  %9 = alloca %struct.unix_sockaddr_context, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %union.__CONST_SOCKADDR_ARG, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 -1, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 110, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load i32, ptr %5, align 4, !tbaa !9
+  %14 = call i32 @unix_sockaddr_init(ptr noundef %8, ptr noundef %12, ptr noundef %9, i32 noundef %13)
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %42
 
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
-  store i32 %call1, ptr %fd, align 4
-  %2 = load i32, ptr %fd, align 4
-  %cmp2 = icmp slt i32 %2, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+17:                                               ; preds = %2
+  %18 = call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 %18, ptr %6, align 4, !tbaa !9
+  %19 = load i32, ptr %6, align 4, !tbaa !9
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %22
 
-if.then3:                                         ; preds = %if.end
-  br label %fail
+21:                                               ; preds = %17
+  br label %31
 
-if.end4:                                          ; preds = %if.end
-  %3 = load i32, ptr %fd, align 4
-  store ptr %sa, ptr %agg.tmp, align 8
-  %coerce.dive = getelementptr inbounds %union.__CONST_SOCKADDR_ARG, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call5 = call i32 @connect(i32 noundef %3, ptr %4, i32 noundef 110)
-  %cmp6 = icmp slt i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+22:                                               ; preds = %17
+  %23 = load i32, ptr %6, align 4, !tbaa !9
+  store ptr %8, ptr %11, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %union.__CONST_SOCKADDR_ARG, ptr %11, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = call i32 @connect(i32 noundef %23, ptr %25, i32 noundef 110)
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %29
 
-if.then7:                                         ; preds = %if.end4
-  br label %fail
+28:                                               ; preds = %22
+  br label %31
 
-if.end8:                                          ; preds = %if.end4
-  call void @unix_sockaddr_cleanup(ptr noundef %ctx)
-  %5 = load i32, ptr %fd, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %22
+  call void @unix_sockaddr_cleanup(ptr noundef %9)
+  %30 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %30, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %42
 
-fail:                                             ; preds = %if.then7, %if.then3
-  %call9 = call ptr @__errno_location() #9
-  %6 = load i32, ptr %call9, align 4
-  store i32 %6, ptr %saved_errno, align 4
-  %7 = load i32, ptr %fd, align 4
-  %cmp10 = icmp ne i32 %7, -1
-  br i1 %cmp10, label %if.then11, label %if.end13
+31:                                               ; preds = %28, %21
+  %32 = call ptr @__errno_location() #11
+  %33 = load i32, ptr %32, align 4, !tbaa !9
+  store i32 %33, ptr %7, align 4, !tbaa !9
+  %34 = load i32, ptr %6, align 4, !tbaa !9
+  %35 = icmp ne i32 %34, -1
+  br i1 %35, label %36, label %39
 
-if.then11:                                        ; preds = %fail
-  %8 = load i32, ptr %fd, align 4
-  %call12 = call i32 @close(i32 noundef %8)
-  br label %if.end13
+36:                                               ; preds = %31
+  %37 = load i32, ptr %6, align 4, !tbaa !9
+  %38 = call i32 @close(i32 noundef %37)
+  br label %39
 
-if.end13:                                         ; preds = %if.then11, %fail
-  call void @unix_sockaddr_cleanup(ptr noundef %ctx)
-  %9 = load i32, ptr %saved_errno, align 4
-  %call14 = call ptr @__errno_location() #9
-  store i32 %9, ptr %call14, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %36, %31
+  call void @unix_sockaddr_cleanup(ptr noundef %9)
+  %40 = load i32, ptr %7, align 4, !tbaa !9
+  %41 = call ptr @__errno_location() #11
+  store i32 %40, ptr %41, align 4, !tbaa !9
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %42
 
-return:                                           ; preds = %if.end13, %if.end8, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+42:                                               ; preds = %39, %29, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 110, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %43 = load i32, ptr %3, align 4
+  ret i32 %43
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define internal i32 @unix_sockaddr_init(ptr noundef %sa, ptr noundef %path, ptr noundef %ctx, i32 noundef %disallow_chdir) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sa.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %disallow_chdir.addr = alloca i32, align 4
-  %size = alloca i32, align 4
-  %slash = alloca ptr, align 8
-  %dir = alloca ptr, align 8
-  %cwd = alloca %struct.strbuf, align 8
-  store ptr %sa, ptr %sa.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store i32 %disallow_chdir, ptr %disallow_chdir.addr, align 4
-  %0 = load ptr, ptr %path.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #10
-  %add = add i64 %call, 1
-  %conv = trunc i64 %add to i32
-  store i32 %conv, ptr %size, align 4
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %orig_dir = getelementptr inbounds %struct.unix_sockaddr_context, ptr %1, i32 0, i32 0
-  store ptr null, ptr %orig_dir, align 8
-  %2 = load i32, ptr %size, align 4
-  %conv1 = sext i32 %2 to i64
-  %cmp = icmp ugt i64 %conv1, 108
-  br i1 %cmp, label %if.then, label %if.end31
+define internal i32 @unix_sockaddr_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct.strbuf, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !12
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !14
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %15 = load ptr, ptr %7, align 8, !tbaa !4
+  %16 = call i64 @strlen(ptr noundef %15) #12
+  %17 = add i64 %16, 1
+  %18 = trunc i64 %17 to i32
+  store i32 %18, ptr %10, align 4, !tbaa !9
+  %19 = load ptr, ptr %8, align 8, !tbaa !14
+  %20 = getelementptr inbounds nuw %struct.unix_sockaddr_context, ptr %19, i32 0, i32 0
+  store ptr null, ptr %20, align 8, !tbaa !16
+  %21 = load i32, ptr %10, align 4, !tbaa !9
+  %22 = sext i32 %21 to i64
+  %23 = icmp ugt i64 %22, 108
+  br i1 %23, label %24, label %71
 
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %cwd, ptr align 8 @__const.unix_sockaddr_init.cwd, i64 24, i1 false)
-  %3 = load i32, ptr %disallow_chdir.addr, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.then3, label %if.end
+24:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 @__const.unix_sockaddr_init.cwd, i64 24, i1 false)
+  %25 = load i32, ptr %9, align 4, !tbaa !9
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %29
 
-if.then3:                                         ; preds = %if.then
-  %call4 = call ptr @__errno_location() #9
-  store i32 36, ptr %call4, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %24
+  %28 = call ptr @__errno_location() #11
+  store i32 36, ptr %28, align 4, !tbaa !9
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %68
 
-if.end:                                           ; preds = %if.then
-  %4 = load ptr, ptr %path.addr, align 8
-  %call5 = call ptr @git_find_last_dir_sep(ptr noundef %4)
-  store ptr %call5, ptr %slash, align 8
-  %5 = load ptr, ptr %slash, align 8
-  %tobool6 = icmp ne ptr %5, null
-  br i1 %tobool6, label %if.end9, label %if.then7
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %7, align 8, !tbaa !4
+  %31 = call ptr @git_find_last_dir_sep(ptr noundef %30)
+  store ptr %31, ptr %11, align 8, !tbaa !4
+  %32 = load ptr, ptr %11, align 8, !tbaa !4
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %36, label %34
 
-if.then7:                                         ; preds = %if.end
-  %call8 = call ptr @__errno_location() #9
-  store i32 36, ptr %call8, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %29
+  %35 = call ptr @__errno_location() #11
+  store i32 36, ptr %35, align 4, !tbaa !9
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %68
 
-if.end9:                                          ; preds = %if.end
-  %6 = load ptr, ptr %path.addr, align 8
-  store ptr %6, ptr %dir, align 8
-  %7 = load ptr, ptr %slash, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 1
-  store ptr %add.ptr, ptr %path.addr, align 8
-  %8 = load ptr, ptr %path.addr, align 8
-  %call10 = call i64 @strlen(ptr noundef %8) #10
-  %add11 = add i64 %call10, 1
-  %conv12 = trunc i64 %add11 to i32
-  store i32 %conv12, ptr %size, align 4
-  %9 = load i32, ptr %size, align 4
-  %conv13 = sext i32 %9 to i64
-  %cmp14 = icmp ugt i64 %conv13, 108
-  br i1 %cmp14, label %if.then16, label %if.end18
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %37, ptr %12, align 8, !tbaa !4
+  %38 = load ptr, ptr %11, align 8, !tbaa !4
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store ptr %39, ptr %7, align 8, !tbaa !4
+  %40 = load ptr, ptr %7, align 8, !tbaa !4
+  %41 = call i64 @strlen(ptr noundef %40) #12
+  %42 = add i64 %41, 1
+  %43 = trunc i64 %42 to i32
+  store i32 %43, ptr %10, align 4, !tbaa !9
+  %44 = load i32, ptr %10, align 4, !tbaa !9
+  %45 = sext i32 %44 to i64
+  %46 = icmp ugt i64 %45, 108
+  br i1 %46, label %47, label %49
 
-if.then16:                                        ; preds = %if.end9
-  %call17 = call ptr @__errno_location() #9
-  store i32 36, ptr %call17, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+47:                                               ; preds = %36
+  %48 = call ptr @__errno_location() #11
+  store i32 36, ptr %48, align 4, !tbaa !9
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %68
 
-if.end18:                                         ; preds = %if.end9
-  %call19 = call i32 @strbuf_getcwd(ptr noundef %cwd)
-  %tobool20 = icmp ne i32 %call19, 0
-  br i1 %tobool20, label %if.then21, label %if.end22
+49:                                               ; preds = %36
+  %50 = call i32 @strbuf_getcwd(ptr noundef %13)
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %53
 
-if.then21:                                        ; preds = %if.end18
-  store i32 -1, ptr %retval, align 4
-  br label %return
+52:                                               ; preds = %49
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %68
 
-if.end22:                                         ; preds = %if.end18
-  %call23 = call ptr @strbuf_detach(ptr noundef %cwd, ptr noundef null)
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %orig_dir24 = getelementptr inbounds %struct.unix_sockaddr_context, ptr %10, i32 0, i32 0
-  store ptr %call23, ptr %orig_dir24, align 8
-  %11 = load ptr, ptr %dir, align 8
-  %12 = load ptr, ptr %slash, align 8
-  %13 = load ptr, ptr %dir, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv25 = trunc i64 %sub.ptr.sub to i32
-  %call26 = call i32 @chdir_len(ptr noundef %11, i32 noundef %conv25)
-  %cmp27 = icmp slt i32 %call26, 0
-  br i1 %cmp27, label %if.then29, label %if.end30
+53:                                               ; preds = %49
+  %54 = call ptr @strbuf_detach(ptr noundef %13, ptr noundef null)
+  %55 = load ptr, ptr %8, align 8, !tbaa !14
+  %56 = getelementptr inbounds nuw %struct.unix_sockaddr_context, ptr %55, i32 0, i32 0
+  store ptr %54, ptr %56, align 8, !tbaa !16
+  %57 = load ptr, ptr %12, align 8, !tbaa !4
+  %58 = load ptr, ptr %11, align 8, !tbaa !4
+  %59 = load ptr, ptr %12, align 8, !tbaa !4
+  %60 = ptrtoint ptr %58 to i64
+  %61 = ptrtoint ptr %59 to i64
+  %62 = sub i64 %60, %61
+  %63 = trunc i64 %62 to i32
+  %64 = call i32 @chdir_len(ptr noundef %57, i32 noundef %63)
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %66, label %67
 
-if.then29:                                        ; preds = %if.end22
-  store i32 -1, ptr %retval, align 4
-  br label %return
+66:                                               ; preds = %53
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %68
 
-if.end30:                                         ; preds = %if.end22
-  br label %if.end31
+67:                                               ; preds = %53
+  store i32 0, ptr %14, align 4
+  br label %68
 
-if.end31:                                         ; preds = %if.end30, %entry
-  %14 = load ptr, ptr %sa.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 2 %14, i8 0, i64 110, i1 false)
-  %15 = load ptr, ptr %sa.addr, align 8
-  %sun_family = getelementptr inbounds %struct.sockaddr_un, ptr %15, i32 0, i32 0
-  store i16 1, ptr %sun_family, align 2
-  %16 = load ptr, ptr %sa.addr, align 8
-  %sun_path = getelementptr inbounds %struct.sockaddr_un, ptr %16, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [108 x i8], ptr %sun_path, i64 0, i64 0
-  %17 = load ptr, ptr %path.addr, align 8
-  %18 = load i32, ptr %size, align 4
-  %conv32 = sext i32 %18 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arraydecay, ptr align 1 %17, i64 %conv32, i1 false)
-  store i32 0, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %67, %66, %52, %47, %34, %27
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  %69 = load i32, ptr %14, align 4
+  switch i32 %69, label %81 [
+    i32 0, label %70
+  ]
 
-return:                                           ; preds = %if.end31, %if.then29, %if.then21, %if.then16, %if.then7, %if.then3
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+70:                                               ; preds = %68
+  br label %71
+
+71:                                               ; preds = %70, %4
+  %72 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @llvm.memset.p0.i64(ptr align 2 %72, i8 0, i64 110, i1 false)
+  %73 = load ptr, ptr %6, align 8, !tbaa !12
+  %74 = getelementptr inbounds nuw %struct.sockaddr_un, ptr %73, i32 0, i32 0
+  store i16 1, ptr %74, align 2, !tbaa !18
+  %75 = load ptr, ptr %6, align 8, !tbaa !12
+  %76 = getelementptr inbounds nuw %struct.sockaddr_un, ptr %75, i32 0, i32 1
+  %77 = getelementptr inbounds [108 x i8], ptr %76, i64 0, i64 0
+  %78 = load ptr, ptr %7, align 8, !tbaa !4
+  %79 = load i32, ptr %10, align 4, !tbaa !9
+  %80 = sext i32 %79 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %77, ptr align 1 %78, i64 %80, i1 false)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %81
+
+81:                                               ; preds = %71, %68
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  %82 = load i32, ptr %5, align 4
+  ret i32 %82
 }
 
 ; Function Attrs: nounwind
-declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @connect(i32 noundef, ptr, i32 noundef) #2
+declare i32 @connect(i32 noundef, ptr, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @unix_sockaddr_cleanup(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %orig_dir = getelementptr inbounds %struct.unix_sockaddr_context, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %orig_dir, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal void @unix_sockaddr_cleanup(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %4 = getelementptr inbounds nuw %struct.unix_sockaddr_context, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %8, label %7
 
-if.then:                                          ; preds = %entry
-  br label %return
+7:                                                ; preds = %1
+  br label %19
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %orig_dir1 = getelementptr inbounds %struct.unix_sockaddr_context, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %orig_dir1, align 8
-  %call = call i32 @chdir(ptr noundef %3) #8
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then2, label %if.end3
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !14
+  %10 = getelementptr inbounds nuw %struct.unix_sockaddr_context, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !16
+  %12 = call i32 @chdir(ptr noundef %11) #10
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %14, label %15
 
-if.then2:                                         ; preds = %if.end
-  call void (ptr, ...) @die(ptr noundef @.str) #11
+14:                                               ; preds = %8
+  call void (ptr, ...) @die(ptr noundef @.str) #13
   unreachable
 
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %orig_dir4 = getelementptr inbounds %struct.unix_sockaddr_context, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %orig_dir4, align 8
-  call void @free(ptr noundef %5) #8
-  br label %return
+15:                                               ; preds = %8
+  %16 = load ptr, ptr %2, align 8, !tbaa !14
+  %17 = getelementptr inbounds nuw %struct.unix_sockaddr_context, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  call void @free(ptr noundef %18) #10
+  br label %19
 
-return:                                           ; preds = %if.end3, %if.then
+19:                                               ; preds = %15, %7
   ret void
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
+declare ptr @__errno_location() #4
 
-declare i32 @close(i32 noundef) #2
+declare i32 @close(i32 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @unix_stream_listen(ptr noundef %path, ptr noundef %opts) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %path.addr = alloca ptr, align 8
-  %opts.addr = alloca ptr, align 8
-  %fd = alloca i32, align 4
-  %saved_errno = alloca i32, align 4
-  %backlog = alloca i32, align 4
-  %sa = alloca %struct.sockaddr_un, align 2
-  %ctx = alloca %struct.unix_sockaddr_context, align 8
-  %agg.tmp = alloca %union.__CONST_SOCKADDR_ARG, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %opts, ptr %opts.addr, align 8
-  store i32 -1, ptr %fd, align 4
-  %0 = load ptr, ptr %path.addr, align 8
-  %call = call i32 @unlink(ptr noundef %0) #8
-  %1 = load ptr, ptr %path.addr, align 8
-  %2 = load ptr, ptr %opts.addr, align 8
-  %disallow_chdir = getelementptr inbounds %struct.unix_stream_listen_opts, ptr %2, i32 0, i32 1
-  %bf.load = load i8, ptr %disallow_chdir, align 4
-  %bf.clear = and i8 %bf.load, 1
-  %bf.cast = zext i8 %bf.clear to i32
-  %call1 = call i32 @unix_sockaddr_init(ptr noundef %sa, ptr noundef %1, ptr noundef %ctx, i32 noundef %bf.cast)
-  %cmp = icmp slt i32 %call1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @unix_stream_listen(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca %struct.sockaddr_un, align 2
+  %10 = alloca %struct.unix_sockaddr_context, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %union.__CONST_SOCKADDR_ARG, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 -1, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 110, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = call i32 @unlink(ptr noundef %13) #10
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  %16 = load ptr, ptr %5, align 8, !tbaa !21
+  %17 = getelementptr inbounds nuw %struct.unix_stream_listen_opts, ptr %16, i32 0, i32 1
+  %18 = load i8, ptr %17, align 4
+  %19 = and i8 %18, 1
+  %20 = zext i8 %19 to i32
+  %21 = call i32 @unix_sockaddr_init(ptr noundef %9, ptr noundef %15, ptr noundef %10, i32 noundef %20)
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %24
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %62
 
-if.end:                                           ; preds = %entry
-  %call2 = call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
-  store i32 %call2, ptr %fd, align 4
-  %3 = load i32, ptr %fd, align 4
-  %cmp3 = icmp slt i32 %3, 0
-  br i1 %cmp3, label %if.then4, label %if.end5
+24:                                               ; preds = %2
+  %25 = call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 %25, ptr %6, align 4, !tbaa !9
+  %26 = load i32, ptr %6, align 4, !tbaa !9
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %29
 
-if.then4:                                         ; preds = %if.end
-  br label %fail
+28:                                               ; preds = %24
+  br label %51
 
-if.end5:                                          ; preds = %if.end
-  %4 = load i32, ptr %fd, align 4
-  store ptr %sa, ptr %agg.tmp, align 8
-  %coerce.dive = getelementptr inbounds %union.__CONST_SOCKADDR_ARG, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive, align 8
-  %call6 = call i32 @bind(i32 noundef %4, ptr %5, i32 noundef 110) #8
-  %cmp7 = icmp slt i32 %call6, 0
-  br i1 %cmp7, label %if.then8, label %if.end9
+29:                                               ; preds = %24
+  %30 = load i32, ptr %6, align 4, !tbaa !9
+  store ptr %9, ptr %12, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw %union.__CONST_SOCKADDR_ARG, ptr %12, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 @bind(i32 noundef %30, ptr %32, i32 noundef 110) #10
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %35, label %36
 
-if.then8:                                         ; preds = %if.end5
-  br label %fail
+35:                                               ; preds = %29
+  br label %51
 
-if.end9:                                          ; preds = %if.end5
-  %6 = load ptr, ptr %opts.addr, align 8
-  %listen_backlog_size = getelementptr inbounds %struct.unix_stream_listen_opts, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %listen_backlog_size, align 4
-  store i32 %7, ptr %backlog, align 4
-  %8 = load i32, ptr %backlog, align 4
-  %cmp10 = icmp sle i32 %8, 0
-  br i1 %cmp10, label %if.then11, label %if.end12
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %5, align 8, !tbaa !21
+  %38 = getelementptr inbounds nuw %struct.unix_stream_listen_opts, ptr %37, i32 0, i32 0
+  %39 = load i32, ptr %38, align 4, !tbaa !23
+  store i32 %39, ptr %8, align 4, !tbaa !9
+  %40 = load i32, ptr %8, align 4, !tbaa !9
+  %41 = icmp sle i32 %40, 0
+  br i1 %41, label %42, label %43
 
-if.then11:                                        ; preds = %if.end9
-  store i32 5, ptr %backlog, align 4
-  br label %if.end12
+42:                                               ; preds = %36
+  store i32 5, ptr %8, align 4, !tbaa !9
+  br label %43
 
-if.end12:                                         ; preds = %if.then11, %if.end9
-  %9 = load i32, ptr %fd, align 4
-  %10 = load i32, ptr %backlog, align 4
-  %call13 = call i32 @listen(i32 noundef %9, i32 noundef %10) #8
-  %cmp14 = icmp slt i32 %call13, 0
-  br i1 %cmp14, label %if.then15, label %if.end16
+43:                                               ; preds = %42, %36
+  %44 = load i32, ptr %6, align 4, !tbaa !9
+  %45 = load i32, ptr %8, align 4, !tbaa !9
+  %46 = call i32 @listen(i32 noundef %44, i32 noundef %45) #10
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then15:                                        ; preds = %if.end12
-  br label %fail
+48:                                               ; preds = %43
+  br label %51
 
-if.end16:                                         ; preds = %if.end12
-  call void @unix_sockaddr_cleanup(ptr noundef %ctx)
-  %11 = load i32, ptr %fd, align 4
-  store i32 %11, ptr %retval, align 4
-  br label %return
+49:                                               ; preds = %43
+  call void @unix_sockaddr_cleanup(ptr noundef %10)
+  %50 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %50, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %62
 
-fail:                                             ; preds = %if.then15, %if.then8, %if.then4
-  %call17 = call ptr @__errno_location() #9
-  %12 = load i32, ptr %call17, align 4
-  store i32 %12, ptr %saved_errno, align 4
-  %13 = load i32, ptr %fd, align 4
-  %cmp18 = icmp ne i32 %13, -1
-  br i1 %cmp18, label %if.then19, label %if.end21
+51:                                               ; preds = %48, %35, %28
+  %52 = call ptr @__errno_location() #11
+  %53 = load i32, ptr %52, align 4, !tbaa !9
+  store i32 %53, ptr %7, align 4, !tbaa !9
+  %54 = load i32, ptr %6, align 4, !tbaa !9
+  %55 = icmp ne i32 %54, -1
+  br i1 %55, label %56, label %59
 
-if.then19:                                        ; preds = %fail
-  %14 = load i32, ptr %fd, align 4
-  %call20 = call i32 @close(i32 noundef %14)
-  br label %if.end21
+56:                                               ; preds = %51
+  %57 = load i32, ptr %6, align 4, !tbaa !9
+  %58 = call i32 @close(i32 noundef %57)
+  br label %59
 
-if.end21:                                         ; preds = %if.then19, %fail
-  call void @unix_sockaddr_cleanup(ptr noundef %ctx)
-  %15 = load i32, ptr %saved_errno, align 4
-  %call22 = call ptr @__errno_location() #9
-  store i32 %15, ptr %call22, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+59:                                               ; preds = %56, %51
+  call void @unix_sockaddr_cleanup(ptr noundef %10)
+  %60 = load i32, ptr %7, align 4, !tbaa !9
+  %61 = call ptr @__errno_location() #11
+  store i32 %60, ptr %61, align 4, !tbaa !9
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %62
 
-return:                                           ; preds = %if.end21, %if.end16, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+62:                                               ; preds = %59, %49, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 110, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %63 = load i32, ptr %3, align 4
+  ret i32 %63
 }
 
 ; Function Attrs: nounwind
-declare i32 @unlink(ptr noundef) #1
+declare i32 @unlink(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr, i32 noundef) #1
+declare i32 @bind(i32 noundef, ptr, i32 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @listen(i32 noundef, i32 noundef) #1
+declare i32 @listen(i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: nounwind uwtable
-define internal ptr @git_find_last_dir_sep(ptr noundef %path) #0 {
-entry:
-  %path.addr = alloca ptr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @strrchr(ptr noundef %0, i32 noundef 47) #10
-  ret ptr %call
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @git_find_last_dir_sep(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @strrchr(ptr noundef %3, i32 noundef 47) #12
+  ret ptr %4
 }
 
-declare i32 @strbuf_getcwd(ptr noundef) #2
+declare i32 @strbuf_getcwd(ptr noundef) #3
 
-declare ptr @strbuf_detach(ptr noundef, ptr noundef) #2
+declare ptr @strbuf_detach(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chdir_len(ptr noundef %orig, i32 noundef %len) #0 {
-entry:
-  %orig.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %path = alloca ptr, align 8
-  %r = alloca i32, align 4
-  store ptr %orig, ptr %orig.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %orig.addr, align 8
-  %1 = load i32, ptr %len.addr, align 4
-  %conv = sext i32 %1 to i64
-  %call = call ptr @xmemdupz(ptr noundef %0, i64 noundef %conv)
-  store ptr %call, ptr %path, align 8
-  %2 = load ptr, ptr %path, align 8
-  %call1 = call i32 @chdir(ptr noundef %2) #8
-  store i32 %call1, ptr %r, align 4
-  %3 = load ptr, ptr %path, align 8
-  call void @free(ptr noundef %3) #8
-  %4 = load i32, ptr %r, align 4
-  ret i32 %4
+define internal i32 @chdir_len(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = call ptr @xmemdupz(ptr noundef %7, i64 noundef %9)
+  store ptr %10, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = call i32 @chdir(ptr noundef %11) #10
+  store i32 %12, ptr %6, align 4, !tbaa !9
+  %13 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @free(ptr noundef %13) #10
+  %14 = load i32, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret i32 %14
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strrchr(ptr noundef, i32 noundef) #4
+declare ptr @strrchr(ptr noundef, i32 noundef) #5
 
-declare ptr @xmemdupz(ptr noundef, i64 noundef) #2
-
-; Function Attrs: nounwind
-declare i32 @chdir(ptr noundef) #1
+declare ptr @xmemdupz(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare i32 @chdir(ptr noundef) #2
+
+; Function Attrs: nounwind
+declare void @free(ptr noundef) #2
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #7
+declare void @die(ptr noundef, ...) #9
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { noreturn }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS11sockaddr_un", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS21unix_sockaddr_context", !6, i64 0}
+!16 = !{!17, !5, i64 0}
+!17 = !{!"unix_sockaddr_context", !5, i64 0}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"sockaddr_un", !20, i64 0, !7, i64 2}
+!20 = !{!"short", !7, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS23unix_stream_listen_opts", !6, i64 0}
+!23 = !{!24, !10, i64 0}
+!24 = !{!"unix_stream_listen_opts", !10, i64 0, !10, i64 4}

@@ -1,3288 +1,3351 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.blk_SHA256_CTX = type { [8 x i32], i64, i32, [64 x i8] }
 
 @blk_SHA256_Final.pad = internal constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @blk_SHA256_Init(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %offset = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %0, i32 0, i32 2
-  store i32 0, ptr %offset, align 8
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %size = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %1, i32 0, i32 1
-  store i64 0, ptr %size, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %state = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %2, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [8 x i32], ptr %state, i64 0, i64 0
-  store i32 1779033703, ptr %arrayidx, align 8
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %state1 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %3, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [8 x i32], ptr %state1, i64 0, i64 1
-  store i32 -1150833019, ptr %arrayidx2, align 4
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %state3 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %4, i32 0, i32 0
-  %arrayidx4 = getelementptr inbounds [8 x i32], ptr %state3, i64 0, i64 2
-  store i32 1013904242, ptr %arrayidx4, align 8
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %state5 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %5, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [8 x i32], ptr %state5, i64 0, i64 3
-  store i32 -1521486534, ptr %arrayidx6, align 4
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %state7 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %6, i32 0, i32 0
-  %arrayidx8 = getelementptr inbounds [8 x i32], ptr %state7, i64 0, i64 4
-  store i32 1359893119, ptr %arrayidx8, align 8
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %state9 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %7, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [8 x i32], ptr %state9, i64 0, i64 5
-  store i32 -1694144372, ptr %arrayidx10, align 4
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %state11 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %8, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [8 x i32], ptr %state11, i64 0, i64 6
-  store i32 528734635, ptr %arrayidx12, align 8
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %state13 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %9, i32 0, i32 0
-  %arrayidx14 = getelementptr inbounds [8 x i32], ptr %state13, i64 0, i64 7
-  store i32 1541459225, ptr %arrayidx14, align 4
+define dso_local void @blk_SHA256_Init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %3, i32 0, i32 2
+  store i32 0, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %5, i32 0, i32 1
+  store i64 0, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 0
+  store i32 1779033703, ptr %9, align 8, !tbaa !14
+  %10 = load ptr, ptr %2, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds [8 x i32], ptr %11, i64 0, i64 1
+  store i32 -1150833019, ptr %12, align 4, !tbaa !14
+  %13 = load ptr, ptr %2, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [8 x i32], ptr %14, i64 0, i64 2
+  store i32 1013904242, ptr %15, align 8, !tbaa !14
+  %16 = load ptr, ptr %2, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [8 x i32], ptr %17, i64 0, i64 3
+  store i32 -1521486534, ptr %18, align 4, !tbaa !14
+  %19 = load ptr, ptr %2, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds [8 x i32], ptr %20, i64 0, i64 4
+  store i32 1359893119, ptr %21, align 8, !tbaa !14
+  %22 = load ptr, ptr %2, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [8 x i32], ptr %23, i64 0, i64 5
+  store i32 -1694144372, ptr %24, align 4, !tbaa !14
+  %25 = load ptr, ptr %2, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds [8 x i32], ptr %26, i64 0, i64 6
+  store i32 528734635, ptr %27, align 8, !tbaa !14
+  %28 = load ptr, ptr %2, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds [8 x i32], ptr %29, i64 0, i64 7
+  store i32 1541459225, ptr %30, align 4, !tbaa !14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @blk_SHA256_Update(ptr noundef %ctx, ptr noundef %data, i64 noundef %len) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %len_buf = alloca i32, align 4
-  %left = alloca i32, align 4
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %size = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %size, align 8
-  %and = and i64 %1, 63
-  %conv = trunc i64 %and to i32
-  store i32 %conv, ptr %len_buf, align 4
-  %2 = load i64, ptr %len.addr, align 8
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %size1 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %size1, align 8
-  %add = add i64 %4, %2
-  store i64 %add, ptr %size1, align 8
-  %5 = load i32, ptr %len_buf, align 4
-  %tobool = icmp ne i32 %5, 0
-  br i1 %tobool, label %if.then, label %if.end18
+define dso_local void @blk_SHA256_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !15
+  store i64 %2, ptr %6, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !13
+  %13 = and i64 %12, 63
+  %14 = trunc i64 %13 to i32
+  store i32 %14, ptr %7, align 4, !tbaa !14
+  %15 = load i64, ptr %6, align 8, !tbaa !16
+  %16 = load ptr, ptr %4, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %16, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8, !tbaa !13
+  %19 = add i64 %18, %15
+  store i64 %19, ptr %17, align 8, !tbaa !13
+  %20 = load i32, ptr %7, align 4, !tbaa !14
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %65
 
-if.then:                                          ; preds = %entry
-  %6 = load i32, ptr %len_buf, align 4
-  %sub = sub i32 64, %6
-  store i32 %sub, ptr %left, align 4
-  %7 = load i64, ptr %len.addr, align 8
-  %8 = load i32, ptr %left, align 4
-  %conv2 = zext i32 %8 to i64
-  %cmp = icmp ult i64 %7, %conv2
-  br i1 %cmp, label %if.then4, label %if.end
+22:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  %23 = load i32, ptr %7, align 4, !tbaa !14
+  %24 = sub i32 64, %23
+  store i32 %24, ptr %8, align 4, !tbaa !14
+  %25 = load i64, ptr %6, align 8, !tbaa !16
+  %26 = load i32, ptr %8, align 4, !tbaa !14
+  %27 = zext i32 %26 to i64
+  %28 = icmp ult i64 %25, %27
+  br i1 %28, label %29, label %32
 
-if.then4:                                         ; preds = %if.then
-  %9 = load i64, ptr %len.addr, align 8
-  %conv5 = trunc i64 %9 to i32
-  store i32 %conv5, ptr %left, align 4
-  br label %if.end
+29:                                               ; preds = %22
+  %30 = load i64, ptr %6, align 8, !tbaa !16
+  %31 = trunc i64 %30 to i32
+  store i32 %31, ptr %8, align 4, !tbaa !14
+  br label %32
 
-if.end:                                           ; preds = %if.then4, %if.then
-  %10 = load i32, ptr %len_buf, align 4
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %buf = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %11, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 0
-  %idx.ext = zext i32 %10 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %idx.ext
-  %12 = load ptr, ptr %data.addr, align 8
-  %13 = load i32, ptr %left, align 4
-  %conv6 = zext i32 %13 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %12, i64 %conv6, i1 false)
-  %14 = load i32, ptr %len_buf, align 4
-  %15 = load i32, ptr %left, align 4
-  %add7 = add i32 %14, %15
-  %and8 = and i32 %add7, 63
-  store i32 %and8, ptr %len_buf, align 4
-  %16 = load i32, ptr %left, align 4
-  %conv9 = zext i32 %16 to i64
-  %17 = load i64, ptr %len.addr, align 8
-  %sub10 = sub i64 %17, %conv9
-  store i64 %sub10, ptr %len.addr, align 8
-  %18 = load ptr, ptr %data.addr, align 8
-  %19 = load i32, ptr %left, align 4
-  %idx.ext11 = zext i32 %19 to i64
-  %add.ptr12 = getelementptr inbounds i8, ptr %18, i64 %idx.ext11
-  store ptr %add.ptr12, ptr %data.addr, align 8
-  %20 = load i32, ptr %len_buf, align 4
-  %tobool13 = icmp ne i32 %20, 0
-  br i1 %tobool13, label %if.then14, label %if.end15
+32:                                               ; preds = %29, %22
+  %33 = load i32, ptr %7, align 4, !tbaa !14
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %34, i32 0, i32 3
+  %36 = getelementptr inbounds [64 x i8], ptr %35, i64 0, i64 0
+  %37 = zext i32 %33 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
+  %39 = load ptr, ptr %5, align 8, !tbaa !15
+  %40 = load i32, ptr %8, align 4, !tbaa !14
+  %41 = zext i32 %40 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %39, i64 %41, i1 false)
+  %42 = load i32, ptr %7, align 4, !tbaa !14
+  %43 = load i32, ptr %8, align 4, !tbaa !14
+  %44 = add i32 %42, %43
+  %45 = and i32 %44, 63
+  store i32 %45, ptr %7, align 4, !tbaa !14
+  %46 = load i32, ptr %8, align 4, !tbaa !14
+  %47 = zext i32 %46 to i64
+  %48 = load i64, ptr %6, align 8, !tbaa !16
+  %49 = sub i64 %48, %47
+  store i64 %49, ptr %6, align 8, !tbaa !16
+  %50 = load ptr, ptr %5, align 8, !tbaa !15
+  %51 = load i32, ptr %8, align 4, !tbaa !14
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %52
+  store ptr %53, ptr %5, align 8, !tbaa !15
+  %54 = load i32, ptr %7, align 4, !tbaa !14
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %57
 
-if.then14:                                        ; preds = %if.end
-  br label %if.end27
+56:                                               ; preds = %32
+  store i32 1, ptr %9, align 4
+  br label %62
 
-if.end15:                                         ; preds = %if.end
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %22 = load ptr, ptr %ctx.addr, align 8
-  %buf16 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %22, i32 0, i32 3
-  %arraydecay17 = getelementptr inbounds [64 x i8], ptr %buf16, i64 0, i64 0
-  call void @blk_SHA256_Transform(ptr noundef %21, ptr noundef %arraydecay17)
-  br label %if.end18
+57:                                               ; preds = %32
+  %58 = load ptr, ptr %4, align 8, !tbaa !4
+  %59 = load ptr, ptr %4, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %59, i32 0, i32 3
+  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 0, i64 0
+  call void @blk_SHA256_Transform(ptr noundef %58, ptr noundef %61)
+  store i32 0, ptr %9, align 4
+  br label %62
 
-if.end18:                                         ; preds = %if.end15, %entry
-  br label %while.cond
+62:                                               ; preds = %57, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %63 = load i32, ptr %9, align 4
+  switch i32 %63, label %86 [
+    i32 0, label %64
+  ]
 
-while.cond:                                       ; preds = %while.body, %if.end18
-  %23 = load i64, ptr %len.addr, align 8
-  %cmp19 = icmp uge i64 %23, 64
-  br i1 %cmp19, label %while.body, label %while.end
+64:                                               ; preds = %62
+  br label %65
 
-while.body:                                       ; preds = %while.cond
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %25 = load ptr, ptr %data.addr, align 8
-  call void @blk_SHA256_Transform(ptr noundef %24, ptr noundef %25)
-  %26 = load ptr, ptr %data.addr, align 8
-  %add.ptr21 = getelementptr inbounds i8, ptr %26, i64 64
-  store ptr %add.ptr21, ptr %data.addr, align 8
-  %27 = load i64, ptr %len.addr, align 8
-  %sub22 = sub i64 %27, 64
-  store i64 %sub22, ptr %len.addr, align 8
-  br label %while.cond, !llvm.loop !5
+65:                                               ; preds = %64, %3
+  br label %66
 
-while.end:                                        ; preds = %while.cond
-  %28 = load i64, ptr %len.addr, align 8
-  %tobool23 = icmp ne i64 %28, 0
-  br i1 %tobool23, label %if.then24, label %if.end27
+66:                                               ; preds = %69, %65
+  %67 = load i64, ptr %6, align 8, !tbaa !16
+  %68 = icmp uge i64 %67, 64
+  br i1 %68, label %69, label %76
 
-if.then24:                                        ; preds = %while.end
-  %29 = load ptr, ptr %ctx.addr, align 8
-  %buf25 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %29, i32 0, i32 3
-  %arraydecay26 = getelementptr inbounds [64 x i8], ptr %buf25, i64 0, i64 0
-  %30 = load ptr, ptr %data.addr, align 8
-  %31 = load i64, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay26, ptr align 1 %30, i64 %31, i1 false)
-  br label %if.end27
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %4, align 8, !tbaa !4
+  %71 = load ptr, ptr %5, align 8, !tbaa !15
+  call void @blk_SHA256_Transform(ptr noundef %70, ptr noundef %71)
+  %72 = load ptr, ptr %5, align 8, !tbaa !15
+  %73 = getelementptr inbounds i8, ptr %72, i64 64
+  store ptr %73, ptr %5, align 8, !tbaa !15
+  %74 = load i64, ptr %6, align 8, !tbaa !16
+  %75 = sub i64 %74, 64
+  store i64 %75, ptr %6, align 8, !tbaa !16
+  br label %66, !llvm.loop !17
 
-if.end27:                                         ; preds = %if.then24, %while.end, %if.then14
+76:                                               ; preds = %66
+  %77 = load i64, ptr %6, align 8, !tbaa !16
+  %78 = icmp ne i64 %77, 0
+  br i1 %78, label %79, label %85
+
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %4, align 8, !tbaa !4
+  %81 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %80, i32 0, i32 3
+  %82 = getelementptr inbounds [64 x i8], ptr %81, i64 0, i64 0
+  %83 = load ptr, ptr %5, align 8, !tbaa !15
+  %84 = load i64, ptr %6, align 8, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %82, ptr align 1 %83, i64 %84, i1 false)
+  br label %85
+
+85:                                               ; preds = %79, %76
+  store i32 0, ptr %9, align 4
+  br label %86
+
+86:                                               ; preds = %85, %62
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  %87 = load i32, ptr %9, align 4
+  switch i32 %87, label %89 [
+    i32 0, label %88
+    i32 1, label %88
+  ]
+
+88:                                               ; preds = %86, %86
   ret void
+
+89:                                               ; preds = %86
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @blk_SHA256_Transform(ptr noundef %ctx, ptr noundef %buf) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %S = alloca [8 x i32], align 16
-  %W = alloca [64 x i32], align 16
-  %t0 = alloca i32, align 4
-  %t1 = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @blk_SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [8 x i32], align 16
+  %6 = alloca [64 x i32], align 16
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 256, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  store i32 0, ptr %9, align 4, !tbaa !14
+  br label %10
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %23, %2
+  %11 = load i32, ptr %9, align 4, !tbaa !14
+  %12 = icmp slt i32 %11, 8
+  br i1 %12, label %13, label %26
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %state = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [8 x i32], ptr %state, i64 0, i64 %idxprom
-  %3 = load i32, ptr %arrayidx, align 4
-  %4 = load i32, ptr %i, align 4
-  %idxprom1 = sext i32 %4 to i64
-  %arrayidx2 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 %idxprom1
-  store i32 %3, ptr %arrayidx2, align 4
-  br label %for.inc
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %9, align 4, !tbaa !14
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [8 x i32], ptr %15, i64 0, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !14
+  %20 = load i32, ptr %9, align 4, !tbaa !14
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %21
+  store i32 %19, ptr %22, align 4, !tbaa !14
+  br label %23
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+23:                                               ; preds = %13
+  %24 = load i32, ptr %9, align 4, !tbaa !14
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %9, align 4, !tbaa !14
+  br label %10, !llvm.loop !21
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %i, align 4
-  br label %for.cond3
+26:                                               ; preds = %10
+  store i32 0, ptr %9, align 4, !tbaa !14
+  br label %27
 
-for.cond3:                                        ; preds = %for.inc8, %for.end
-  %6 = load i32, ptr %i, align 4
-  %cmp4 = icmp slt i32 %6, 16
-  br i1 %cmp4, label %for.body5, label %for.end10
+27:                                               ; preds = %36, %26
+  %28 = load i32, ptr %9, align 4, !tbaa !14
+  %29 = icmp slt i32 %28, 16
+  br i1 %29, label %30, label %41
 
-for.body5:                                        ; preds = %for.cond3
-  %7 = load ptr, ptr %buf.addr, align 8
-  %call = call i32 @get_be32(ptr noundef %7)
-  %8 = load i32, ptr %i, align 4
-  %idxprom6 = sext i32 %8 to i64
-  %arrayidx7 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %idxprom6
-  store i32 %call, ptr %arrayidx7, align 4
-  br label %for.inc8
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %4, align 8, !tbaa !19
+  %32 = call i32 @get_be32(ptr noundef %31)
+  %33 = load i32, ptr %9, align 4, !tbaa !14
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %34
+  store i32 %32, ptr %35, align 4, !tbaa !14
+  br label %36
 
-for.inc8:                                         ; preds = %for.body5
-  %9 = load i32, ptr %i, align 4
-  %inc9 = add nsw i32 %9, 1
-  store i32 %inc9, ptr %i, align 4
-  %10 = load ptr, ptr %buf.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %10, i64 4
-  store ptr %add.ptr, ptr %buf.addr, align 8
-  br label %for.cond3, !llvm.loop !8
+36:                                               ; preds = %30
+  %37 = load i32, ptr %9, align 4, !tbaa !14
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %9, align 4, !tbaa !14
+  %39 = load ptr, ptr %4, align 8, !tbaa !19
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store ptr %40, ptr %4, align 8, !tbaa !19
+  br label %27, !llvm.loop !22
 
-for.end10:                                        ; preds = %for.cond3
-  store i32 16, ptr %i, align 4
-  br label %for.cond11
+41:                                               ; preds = %27
+  store i32 16, ptr %9, align 4, !tbaa !14
+  br label %42
 
-for.cond11:                                       ; preds = %for.inc31, %for.end10
-  %11 = load i32, ptr %i, align 4
-  %cmp12 = icmp slt i32 %11, 64
-  br i1 %cmp12, label %for.body13, label %for.end33
+42:                                               ; preds = %74, %41
+  %43 = load i32, ptr %9, align 4, !tbaa !14
+  %44 = icmp slt i32 %43, 64
+  br i1 %44, label %45, label %77
 
-for.body13:                                       ; preds = %for.cond11
-  %12 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 %12, 2
-  %idxprom14 = sext i32 %sub to i64
-  %arrayidx15 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %idxprom14
-  %13 = load i32, ptr %arrayidx15, align 4
-  %call16 = call i32 @gamma1(i32 noundef %13)
-  %14 = load i32, ptr %i, align 4
-  %sub17 = sub nsw i32 %14, 7
-  %idxprom18 = sext i32 %sub17 to i64
-  %arrayidx19 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %idxprom18
-  %15 = load i32, ptr %arrayidx19, align 4
-  %add = add i32 %call16, %15
-  %16 = load i32, ptr %i, align 4
-  %sub20 = sub nsw i32 %16, 15
-  %idxprom21 = sext i32 %sub20 to i64
-  %arrayidx22 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %idxprom21
-  %17 = load i32, ptr %arrayidx22, align 4
-  %call23 = call i32 @gamma0(i32 noundef %17)
-  %add24 = add i32 %add, %call23
-  %18 = load i32, ptr %i, align 4
-  %sub25 = sub nsw i32 %18, 16
-  %idxprom26 = sext i32 %sub25 to i64
-  %arrayidx27 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %idxprom26
-  %19 = load i32, ptr %arrayidx27, align 4
-  %add28 = add i32 %add24, %19
-  %20 = load i32, ptr %i, align 4
-  %idxprom29 = sext i32 %20 to i64
-  %arrayidx30 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %idxprom29
-  store i32 %add28, ptr %arrayidx30, align 4
-  br label %for.inc31
+45:                                               ; preds = %42
+  %46 = load i32, ptr %9, align 4, !tbaa !14
+  %47 = sub nsw i32 %46, 2
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %48
+  %50 = load i32, ptr %49, align 4, !tbaa !14
+  %51 = call i32 @gamma1(i32 noundef %50)
+  %52 = load i32, ptr %9, align 4, !tbaa !14
+  %53 = sub nsw i32 %52, 7
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %54
+  %56 = load i32, ptr %55, align 4, !tbaa !14
+  %57 = add i32 %51, %56
+  %58 = load i32, ptr %9, align 4, !tbaa !14
+  %59 = sub nsw i32 %58, 15
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !14
+  %63 = call i32 @gamma0(i32 noundef %62)
+  %64 = add i32 %57, %63
+  %65 = load i32, ptr %9, align 4, !tbaa !14
+  %66 = sub nsw i32 %65, 16
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %67
+  %69 = load i32, ptr %68, align 4, !tbaa !14
+  %70 = add i32 %64, %69
+  %71 = load i32, ptr %9, align 4, !tbaa !14
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %72
+  store i32 %70, ptr %73, align 4, !tbaa !14
+  br label %74
 
-for.inc31:                                        ; preds = %for.body13
-  %21 = load i32, ptr %i, align 4
-  %inc32 = add nsw i32 %21, 1
-  store i32 %inc32, ptr %i, align 4
-  br label %for.cond11, !llvm.loop !9
+74:                                               ; preds = %45
+  %75 = load i32, ptr %9, align 4, !tbaa !14
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %9, align 4, !tbaa !14
+  br label %42, !llvm.loop !23
 
-for.end33:                                        ; preds = %for.cond11
-  %arrayidx34 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %22 = load i32, ptr %arrayidx34, align 4
-  %arrayidx35 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %23 = load i32, ptr %arrayidx35, align 16
-  %call36 = call i32 @sigma1(i32 noundef %23)
-  %add37 = add i32 %22, %call36
-  %arrayidx38 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %24 = load i32, ptr %arrayidx38, align 16
-  %arrayidx39 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %25 = load i32, ptr %arrayidx39, align 4
-  %arrayidx40 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %26 = load i32, ptr %arrayidx40, align 8
-  %call41 = call i32 @ch(i32 noundef %24, i32 noundef %25, i32 noundef %26)
-  %add42 = add i32 %add37, %call41
-  %add43 = add i32 %add42, 1116352408
-  %arrayidx44 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 0
-  %27 = load i32, ptr %arrayidx44, align 16
-  %add45 = add i32 %add43, %27
-  store i32 %add45, ptr %t0, align 4
-  %arrayidx46 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %28 = load i32, ptr %arrayidx46, align 16
-  %call47 = call i32 @sigma0(i32 noundef %28)
-  %arrayidx48 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %29 = load i32, ptr %arrayidx48, align 16
-  %arrayidx49 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %30 = load i32, ptr %arrayidx49, align 4
-  %arrayidx50 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %31 = load i32, ptr %arrayidx50, align 8
-  %call51 = call i32 @maj(i32 noundef %29, i32 noundef %30, i32 noundef %31)
-  %add52 = add i32 %call47, %call51
-  store i32 %add52, ptr %t1, align 4
-  %32 = load i32, ptr %t0, align 4
-  %arrayidx53 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %33 = load i32, ptr %arrayidx53, align 4
-  %add54 = add i32 %33, %32
-  store i32 %add54, ptr %arrayidx53, align 4
-  %34 = load i32, ptr %t0, align 4
-  %35 = load i32, ptr %t1, align 4
-  %add55 = add i32 %34, %35
-  %arrayidx56 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  store i32 %add55, ptr %arrayidx56, align 4
-  %arrayidx57 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %36 = load i32, ptr %arrayidx57, align 8
-  %arrayidx58 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %37 = load i32, ptr %arrayidx58, align 4
-  %call59 = call i32 @sigma1(i32 noundef %37)
-  %add60 = add i32 %36, %call59
-  %arrayidx61 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %38 = load i32, ptr %arrayidx61, align 4
-  %arrayidx62 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %39 = load i32, ptr %arrayidx62, align 16
-  %arrayidx63 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %40 = load i32, ptr %arrayidx63, align 4
-  %call64 = call i32 @ch(i32 noundef %38, i32 noundef %39, i32 noundef %40)
-  %add65 = add i32 %add60, %call64
-  %add66 = add i32 %add65, 1899447441
-  %arrayidx67 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 1
-  %41 = load i32, ptr %arrayidx67, align 4
-  %add68 = add i32 %add66, %41
-  store i32 %add68, ptr %t0, align 4
-  %arrayidx69 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %42 = load i32, ptr %arrayidx69, align 4
-  %call70 = call i32 @sigma0(i32 noundef %42)
-  %arrayidx71 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %43 = load i32, ptr %arrayidx71, align 4
-  %arrayidx72 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %44 = load i32, ptr %arrayidx72, align 16
-  %arrayidx73 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %45 = load i32, ptr %arrayidx73, align 4
-  %call74 = call i32 @maj(i32 noundef %43, i32 noundef %44, i32 noundef %45)
-  %add75 = add i32 %call70, %call74
-  store i32 %add75, ptr %t1, align 4
-  %46 = load i32, ptr %t0, align 4
-  %arrayidx76 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %47 = load i32, ptr %arrayidx76, align 8
-  %add77 = add i32 %47, %46
-  store i32 %add77, ptr %arrayidx76, align 8
-  %48 = load i32, ptr %t0, align 4
-  %49 = load i32, ptr %t1, align 4
-  %add78 = add i32 %48, %49
-  %arrayidx79 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  store i32 %add78, ptr %arrayidx79, align 8
-  %arrayidx80 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %50 = load i32, ptr %arrayidx80, align 4
-  %arrayidx81 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %51 = load i32, ptr %arrayidx81, align 8
-  %call82 = call i32 @sigma1(i32 noundef %51)
-  %add83 = add i32 %50, %call82
-  %arrayidx84 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %52 = load i32, ptr %arrayidx84, align 8
-  %arrayidx85 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %53 = load i32, ptr %arrayidx85, align 4
-  %arrayidx86 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %54 = load i32, ptr %arrayidx86, align 16
-  %call87 = call i32 @ch(i32 noundef %52, i32 noundef %53, i32 noundef %54)
-  %add88 = add i32 %add83, %call87
-  %add89 = add i32 %add88, -1245643825
-  %arrayidx90 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 2
-  %55 = load i32, ptr %arrayidx90, align 8
-  %add91 = add i32 %add89, %55
-  store i32 %add91, ptr %t0, align 4
-  %arrayidx92 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %56 = load i32, ptr %arrayidx92, align 8
-  %call93 = call i32 @sigma0(i32 noundef %56)
-  %arrayidx94 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %57 = load i32, ptr %arrayidx94, align 8
-  %arrayidx95 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %58 = load i32, ptr %arrayidx95, align 4
-  %arrayidx96 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %59 = load i32, ptr %arrayidx96, align 16
-  %call97 = call i32 @maj(i32 noundef %57, i32 noundef %58, i32 noundef %59)
-  %add98 = add i32 %call93, %call97
-  store i32 %add98, ptr %t1, align 4
-  %60 = load i32, ptr %t0, align 4
-  %arrayidx99 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %61 = load i32, ptr %arrayidx99, align 4
-  %add100 = add i32 %61, %60
-  store i32 %add100, ptr %arrayidx99, align 4
-  %62 = load i32, ptr %t0, align 4
-  %63 = load i32, ptr %t1, align 4
-  %add101 = add i32 %62, %63
-  %arrayidx102 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  store i32 %add101, ptr %arrayidx102, align 4
-  %arrayidx103 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %64 = load i32, ptr %arrayidx103, align 16
-  %arrayidx104 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %65 = load i32, ptr %arrayidx104, align 4
-  %call105 = call i32 @sigma1(i32 noundef %65)
-  %add106 = add i32 %64, %call105
-  %arrayidx107 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %66 = load i32, ptr %arrayidx107, align 4
-  %arrayidx108 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %67 = load i32, ptr %arrayidx108, align 8
-  %arrayidx109 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %68 = load i32, ptr %arrayidx109, align 4
-  %call110 = call i32 @ch(i32 noundef %66, i32 noundef %67, i32 noundef %68)
-  %add111 = add i32 %add106, %call110
-  %add112 = add i32 %add111, -373957723
-  %arrayidx113 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 3
-  %69 = load i32, ptr %arrayidx113, align 4
-  %add114 = add i32 %add112, %69
-  store i32 %add114, ptr %t0, align 4
-  %arrayidx115 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %70 = load i32, ptr %arrayidx115, align 4
-  %call116 = call i32 @sigma0(i32 noundef %70)
-  %arrayidx117 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %71 = load i32, ptr %arrayidx117, align 4
-  %arrayidx118 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %72 = load i32, ptr %arrayidx118, align 8
-  %arrayidx119 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %73 = load i32, ptr %arrayidx119, align 4
-  %call120 = call i32 @maj(i32 noundef %71, i32 noundef %72, i32 noundef %73)
-  %add121 = add i32 %call116, %call120
-  store i32 %add121, ptr %t1, align 4
-  %74 = load i32, ptr %t0, align 4
-  %arrayidx122 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %75 = load i32, ptr %arrayidx122, align 16
-  %add123 = add i32 %75, %74
-  store i32 %add123, ptr %arrayidx122, align 16
-  %76 = load i32, ptr %t0, align 4
-  %77 = load i32, ptr %t1, align 4
-  %add124 = add i32 %76, %77
-  %arrayidx125 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  store i32 %add124, ptr %arrayidx125, align 16
-  %arrayidx126 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %78 = load i32, ptr %arrayidx126, align 4
-  %arrayidx127 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %79 = load i32, ptr %arrayidx127, align 16
-  %call128 = call i32 @sigma1(i32 noundef %79)
-  %add129 = add i32 %78, %call128
-  %arrayidx130 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %80 = load i32, ptr %arrayidx130, align 16
-  %arrayidx131 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %81 = load i32, ptr %arrayidx131, align 4
-  %arrayidx132 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %82 = load i32, ptr %arrayidx132, align 8
-  %call133 = call i32 @ch(i32 noundef %80, i32 noundef %81, i32 noundef %82)
-  %add134 = add i32 %add129, %call133
-  %add135 = add i32 %add134, 961987163
-  %arrayidx136 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 4
-  %83 = load i32, ptr %arrayidx136, align 16
-  %add137 = add i32 %add135, %83
-  store i32 %add137, ptr %t0, align 4
-  %arrayidx138 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %84 = load i32, ptr %arrayidx138, align 16
-  %call139 = call i32 @sigma0(i32 noundef %84)
-  %arrayidx140 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %85 = load i32, ptr %arrayidx140, align 16
-  %arrayidx141 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %86 = load i32, ptr %arrayidx141, align 4
-  %arrayidx142 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %87 = load i32, ptr %arrayidx142, align 8
-  %call143 = call i32 @maj(i32 noundef %85, i32 noundef %86, i32 noundef %87)
-  %add144 = add i32 %call139, %call143
-  store i32 %add144, ptr %t1, align 4
-  %88 = load i32, ptr %t0, align 4
-  %arrayidx145 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %89 = load i32, ptr %arrayidx145, align 4
-  %add146 = add i32 %89, %88
-  store i32 %add146, ptr %arrayidx145, align 4
-  %90 = load i32, ptr %t0, align 4
-  %91 = load i32, ptr %t1, align 4
-  %add147 = add i32 %90, %91
-  %arrayidx148 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  store i32 %add147, ptr %arrayidx148, align 4
-  %arrayidx149 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %92 = load i32, ptr %arrayidx149, align 8
-  %arrayidx150 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %93 = load i32, ptr %arrayidx150, align 4
-  %call151 = call i32 @sigma1(i32 noundef %93)
-  %add152 = add i32 %92, %call151
-  %arrayidx153 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %94 = load i32, ptr %arrayidx153, align 4
-  %arrayidx154 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %95 = load i32, ptr %arrayidx154, align 16
-  %arrayidx155 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %96 = load i32, ptr %arrayidx155, align 4
-  %call156 = call i32 @ch(i32 noundef %94, i32 noundef %95, i32 noundef %96)
-  %add157 = add i32 %add152, %call156
-  %add158 = add i32 %add157, 1508970993
-  %arrayidx159 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 5
-  %97 = load i32, ptr %arrayidx159, align 4
-  %add160 = add i32 %add158, %97
-  store i32 %add160, ptr %t0, align 4
-  %arrayidx161 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %98 = load i32, ptr %arrayidx161, align 4
-  %call162 = call i32 @sigma0(i32 noundef %98)
-  %arrayidx163 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %99 = load i32, ptr %arrayidx163, align 4
-  %arrayidx164 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %100 = load i32, ptr %arrayidx164, align 16
-  %arrayidx165 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %101 = load i32, ptr %arrayidx165, align 4
-  %call166 = call i32 @maj(i32 noundef %99, i32 noundef %100, i32 noundef %101)
-  %add167 = add i32 %call162, %call166
-  store i32 %add167, ptr %t1, align 4
-  %102 = load i32, ptr %t0, align 4
-  %arrayidx168 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %103 = load i32, ptr %arrayidx168, align 8
-  %add169 = add i32 %103, %102
-  store i32 %add169, ptr %arrayidx168, align 8
-  %104 = load i32, ptr %t0, align 4
-  %105 = load i32, ptr %t1, align 4
-  %add170 = add i32 %104, %105
-  %arrayidx171 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  store i32 %add170, ptr %arrayidx171, align 8
-  %arrayidx172 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %106 = load i32, ptr %arrayidx172, align 4
-  %arrayidx173 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %107 = load i32, ptr %arrayidx173, align 8
-  %call174 = call i32 @sigma1(i32 noundef %107)
-  %add175 = add i32 %106, %call174
-  %arrayidx176 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %108 = load i32, ptr %arrayidx176, align 8
-  %arrayidx177 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %109 = load i32, ptr %arrayidx177, align 4
-  %arrayidx178 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %110 = load i32, ptr %arrayidx178, align 16
-  %call179 = call i32 @ch(i32 noundef %108, i32 noundef %109, i32 noundef %110)
-  %add180 = add i32 %add175, %call179
-  %add181 = add i32 %add180, -1841331548
-  %arrayidx182 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 6
-  %111 = load i32, ptr %arrayidx182, align 8
-  %add183 = add i32 %add181, %111
-  store i32 %add183, ptr %t0, align 4
-  %arrayidx184 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %112 = load i32, ptr %arrayidx184, align 8
-  %call185 = call i32 @sigma0(i32 noundef %112)
-  %arrayidx186 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %113 = load i32, ptr %arrayidx186, align 8
-  %arrayidx187 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %114 = load i32, ptr %arrayidx187, align 4
-  %arrayidx188 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %115 = load i32, ptr %arrayidx188, align 16
-  %call189 = call i32 @maj(i32 noundef %113, i32 noundef %114, i32 noundef %115)
-  %add190 = add i32 %call185, %call189
-  store i32 %add190, ptr %t1, align 4
-  %116 = load i32, ptr %t0, align 4
-  %arrayidx191 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %117 = load i32, ptr %arrayidx191, align 4
-  %add192 = add i32 %117, %116
-  store i32 %add192, ptr %arrayidx191, align 4
-  %118 = load i32, ptr %t0, align 4
-  %119 = load i32, ptr %t1, align 4
-  %add193 = add i32 %118, %119
-  %arrayidx194 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  store i32 %add193, ptr %arrayidx194, align 4
-  %arrayidx195 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %120 = load i32, ptr %arrayidx195, align 16
-  %arrayidx196 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %121 = load i32, ptr %arrayidx196, align 4
-  %call197 = call i32 @sigma1(i32 noundef %121)
-  %add198 = add i32 %120, %call197
-  %arrayidx199 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %122 = load i32, ptr %arrayidx199, align 4
-  %arrayidx200 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %123 = load i32, ptr %arrayidx200, align 8
-  %arrayidx201 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %124 = load i32, ptr %arrayidx201, align 4
-  %call202 = call i32 @ch(i32 noundef %122, i32 noundef %123, i32 noundef %124)
-  %add203 = add i32 %add198, %call202
-  %add204 = add i32 %add203, -1424204075
-  %arrayidx205 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 7
-  %125 = load i32, ptr %arrayidx205, align 4
-  %add206 = add i32 %add204, %125
-  store i32 %add206, ptr %t0, align 4
-  %arrayidx207 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %126 = load i32, ptr %arrayidx207, align 4
-  %call208 = call i32 @sigma0(i32 noundef %126)
-  %arrayidx209 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %127 = load i32, ptr %arrayidx209, align 4
-  %arrayidx210 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %128 = load i32, ptr %arrayidx210, align 8
-  %arrayidx211 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %129 = load i32, ptr %arrayidx211, align 4
-  %call212 = call i32 @maj(i32 noundef %127, i32 noundef %128, i32 noundef %129)
-  %add213 = add i32 %call208, %call212
-  store i32 %add213, ptr %t1, align 4
-  %130 = load i32, ptr %t0, align 4
-  %arrayidx214 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %131 = load i32, ptr %arrayidx214, align 16
-  %add215 = add i32 %131, %130
-  store i32 %add215, ptr %arrayidx214, align 16
-  %132 = load i32, ptr %t0, align 4
-  %133 = load i32, ptr %t1, align 4
-  %add216 = add i32 %132, %133
-  %arrayidx217 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  store i32 %add216, ptr %arrayidx217, align 16
-  %arrayidx218 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %134 = load i32, ptr %arrayidx218, align 4
-  %arrayidx219 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %135 = load i32, ptr %arrayidx219, align 16
-  %call220 = call i32 @sigma1(i32 noundef %135)
-  %add221 = add i32 %134, %call220
-  %arrayidx222 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %136 = load i32, ptr %arrayidx222, align 16
-  %arrayidx223 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %137 = load i32, ptr %arrayidx223, align 4
-  %arrayidx224 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %138 = load i32, ptr %arrayidx224, align 8
-  %call225 = call i32 @ch(i32 noundef %136, i32 noundef %137, i32 noundef %138)
-  %add226 = add i32 %add221, %call225
-  %add227 = add i32 %add226, -670586216
-  %arrayidx228 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 8
-  %139 = load i32, ptr %arrayidx228, align 16
-  %add229 = add i32 %add227, %139
-  store i32 %add229, ptr %t0, align 4
-  %arrayidx230 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %140 = load i32, ptr %arrayidx230, align 16
-  %call231 = call i32 @sigma0(i32 noundef %140)
-  %arrayidx232 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %141 = load i32, ptr %arrayidx232, align 16
-  %arrayidx233 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %142 = load i32, ptr %arrayidx233, align 4
-  %arrayidx234 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %143 = load i32, ptr %arrayidx234, align 8
-  %call235 = call i32 @maj(i32 noundef %141, i32 noundef %142, i32 noundef %143)
-  %add236 = add i32 %call231, %call235
-  store i32 %add236, ptr %t1, align 4
-  %144 = load i32, ptr %t0, align 4
-  %arrayidx237 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %145 = load i32, ptr %arrayidx237, align 4
-  %add238 = add i32 %145, %144
-  store i32 %add238, ptr %arrayidx237, align 4
-  %146 = load i32, ptr %t0, align 4
-  %147 = load i32, ptr %t1, align 4
-  %add239 = add i32 %146, %147
-  %arrayidx240 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  store i32 %add239, ptr %arrayidx240, align 4
-  %arrayidx241 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %148 = load i32, ptr %arrayidx241, align 8
-  %arrayidx242 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %149 = load i32, ptr %arrayidx242, align 4
-  %call243 = call i32 @sigma1(i32 noundef %149)
-  %add244 = add i32 %148, %call243
-  %arrayidx245 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %150 = load i32, ptr %arrayidx245, align 4
-  %arrayidx246 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %151 = load i32, ptr %arrayidx246, align 16
-  %arrayidx247 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %152 = load i32, ptr %arrayidx247, align 4
-  %call248 = call i32 @ch(i32 noundef %150, i32 noundef %151, i32 noundef %152)
-  %add249 = add i32 %add244, %call248
-  %add250 = add i32 %add249, 310598401
-  %arrayidx251 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 9
-  %153 = load i32, ptr %arrayidx251, align 4
-  %add252 = add i32 %add250, %153
-  store i32 %add252, ptr %t0, align 4
-  %arrayidx253 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %154 = load i32, ptr %arrayidx253, align 4
-  %call254 = call i32 @sigma0(i32 noundef %154)
-  %arrayidx255 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %155 = load i32, ptr %arrayidx255, align 4
-  %arrayidx256 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %156 = load i32, ptr %arrayidx256, align 16
-  %arrayidx257 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %157 = load i32, ptr %arrayidx257, align 4
-  %call258 = call i32 @maj(i32 noundef %155, i32 noundef %156, i32 noundef %157)
-  %add259 = add i32 %call254, %call258
-  store i32 %add259, ptr %t1, align 4
-  %158 = load i32, ptr %t0, align 4
-  %arrayidx260 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %159 = load i32, ptr %arrayidx260, align 8
-  %add261 = add i32 %159, %158
-  store i32 %add261, ptr %arrayidx260, align 8
-  %160 = load i32, ptr %t0, align 4
-  %161 = load i32, ptr %t1, align 4
-  %add262 = add i32 %160, %161
-  %arrayidx263 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  store i32 %add262, ptr %arrayidx263, align 8
-  %arrayidx264 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %162 = load i32, ptr %arrayidx264, align 4
-  %arrayidx265 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %163 = load i32, ptr %arrayidx265, align 8
-  %call266 = call i32 @sigma1(i32 noundef %163)
-  %add267 = add i32 %162, %call266
-  %arrayidx268 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %164 = load i32, ptr %arrayidx268, align 8
-  %arrayidx269 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %165 = load i32, ptr %arrayidx269, align 4
-  %arrayidx270 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %166 = load i32, ptr %arrayidx270, align 16
-  %call271 = call i32 @ch(i32 noundef %164, i32 noundef %165, i32 noundef %166)
-  %add272 = add i32 %add267, %call271
-  %add273 = add i32 %add272, 607225278
-  %arrayidx274 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 10
-  %167 = load i32, ptr %arrayidx274, align 8
-  %add275 = add i32 %add273, %167
-  store i32 %add275, ptr %t0, align 4
-  %arrayidx276 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %168 = load i32, ptr %arrayidx276, align 8
-  %call277 = call i32 @sigma0(i32 noundef %168)
-  %arrayidx278 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %169 = load i32, ptr %arrayidx278, align 8
-  %arrayidx279 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %170 = load i32, ptr %arrayidx279, align 4
-  %arrayidx280 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %171 = load i32, ptr %arrayidx280, align 16
-  %call281 = call i32 @maj(i32 noundef %169, i32 noundef %170, i32 noundef %171)
-  %add282 = add i32 %call277, %call281
-  store i32 %add282, ptr %t1, align 4
-  %172 = load i32, ptr %t0, align 4
-  %arrayidx283 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %173 = load i32, ptr %arrayidx283, align 4
-  %add284 = add i32 %173, %172
-  store i32 %add284, ptr %arrayidx283, align 4
-  %174 = load i32, ptr %t0, align 4
-  %175 = load i32, ptr %t1, align 4
-  %add285 = add i32 %174, %175
-  %arrayidx286 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  store i32 %add285, ptr %arrayidx286, align 4
-  %arrayidx287 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %176 = load i32, ptr %arrayidx287, align 16
-  %arrayidx288 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %177 = load i32, ptr %arrayidx288, align 4
-  %call289 = call i32 @sigma1(i32 noundef %177)
-  %add290 = add i32 %176, %call289
-  %arrayidx291 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %178 = load i32, ptr %arrayidx291, align 4
-  %arrayidx292 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %179 = load i32, ptr %arrayidx292, align 8
-  %arrayidx293 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %180 = load i32, ptr %arrayidx293, align 4
-  %call294 = call i32 @ch(i32 noundef %178, i32 noundef %179, i32 noundef %180)
-  %add295 = add i32 %add290, %call294
-  %add296 = add i32 %add295, 1426881987
-  %arrayidx297 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 11
-  %181 = load i32, ptr %arrayidx297, align 4
-  %add298 = add i32 %add296, %181
-  store i32 %add298, ptr %t0, align 4
-  %arrayidx299 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %182 = load i32, ptr %arrayidx299, align 4
-  %call300 = call i32 @sigma0(i32 noundef %182)
-  %arrayidx301 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %183 = load i32, ptr %arrayidx301, align 4
-  %arrayidx302 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %184 = load i32, ptr %arrayidx302, align 8
-  %arrayidx303 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %185 = load i32, ptr %arrayidx303, align 4
-  %call304 = call i32 @maj(i32 noundef %183, i32 noundef %184, i32 noundef %185)
-  %add305 = add i32 %call300, %call304
-  store i32 %add305, ptr %t1, align 4
-  %186 = load i32, ptr %t0, align 4
-  %arrayidx306 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %187 = load i32, ptr %arrayidx306, align 16
-  %add307 = add i32 %187, %186
-  store i32 %add307, ptr %arrayidx306, align 16
-  %188 = load i32, ptr %t0, align 4
-  %189 = load i32, ptr %t1, align 4
-  %add308 = add i32 %188, %189
-  %arrayidx309 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  store i32 %add308, ptr %arrayidx309, align 16
-  %arrayidx310 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %190 = load i32, ptr %arrayidx310, align 4
-  %arrayidx311 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %191 = load i32, ptr %arrayidx311, align 16
-  %call312 = call i32 @sigma1(i32 noundef %191)
-  %add313 = add i32 %190, %call312
-  %arrayidx314 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %192 = load i32, ptr %arrayidx314, align 16
-  %arrayidx315 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %193 = load i32, ptr %arrayidx315, align 4
-  %arrayidx316 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %194 = load i32, ptr %arrayidx316, align 8
-  %call317 = call i32 @ch(i32 noundef %192, i32 noundef %193, i32 noundef %194)
-  %add318 = add i32 %add313, %call317
-  %add319 = add i32 %add318, 1925078388
-  %arrayidx320 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 12
-  %195 = load i32, ptr %arrayidx320, align 16
-  %add321 = add i32 %add319, %195
-  store i32 %add321, ptr %t0, align 4
-  %arrayidx322 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %196 = load i32, ptr %arrayidx322, align 16
-  %call323 = call i32 @sigma0(i32 noundef %196)
-  %arrayidx324 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %197 = load i32, ptr %arrayidx324, align 16
-  %arrayidx325 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %198 = load i32, ptr %arrayidx325, align 4
-  %arrayidx326 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %199 = load i32, ptr %arrayidx326, align 8
-  %call327 = call i32 @maj(i32 noundef %197, i32 noundef %198, i32 noundef %199)
-  %add328 = add i32 %call323, %call327
-  store i32 %add328, ptr %t1, align 4
-  %200 = load i32, ptr %t0, align 4
-  %arrayidx329 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %201 = load i32, ptr %arrayidx329, align 4
-  %add330 = add i32 %201, %200
-  store i32 %add330, ptr %arrayidx329, align 4
-  %202 = load i32, ptr %t0, align 4
-  %203 = load i32, ptr %t1, align 4
-  %add331 = add i32 %202, %203
-  %arrayidx332 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  store i32 %add331, ptr %arrayidx332, align 4
-  %arrayidx333 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %204 = load i32, ptr %arrayidx333, align 8
-  %arrayidx334 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %205 = load i32, ptr %arrayidx334, align 4
-  %call335 = call i32 @sigma1(i32 noundef %205)
-  %add336 = add i32 %204, %call335
-  %arrayidx337 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %206 = load i32, ptr %arrayidx337, align 4
-  %arrayidx338 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %207 = load i32, ptr %arrayidx338, align 16
-  %arrayidx339 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %208 = load i32, ptr %arrayidx339, align 4
-  %call340 = call i32 @ch(i32 noundef %206, i32 noundef %207, i32 noundef %208)
-  %add341 = add i32 %add336, %call340
-  %add342 = add i32 %add341, -2132889090
-  %arrayidx343 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 13
-  %209 = load i32, ptr %arrayidx343, align 4
-  %add344 = add i32 %add342, %209
-  store i32 %add344, ptr %t0, align 4
-  %arrayidx345 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %210 = load i32, ptr %arrayidx345, align 4
-  %call346 = call i32 @sigma0(i32 noundef %210)
-  %arrayidx347 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %211 = load i32, ptr %arrayidx347, align 4
-  %arrayidx348 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %212 = load i32, ptr %arrayidx348, align 16
-  %arrayidx349 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %213 = load i32, ptr %arrayidx349, align 4
-  %call350 = call i32 @maj(i32 noundef %211, i32 noundef %212, i32 noundef %213)
-  %add351 = add i32 %call346, %call350
-  store i32 %add351, ptr %t1, align 4
-  %214 = load i32, ptr %t0, align 4
-  %arrayidx352 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %215 = load i32, ptr %arrayidx352, align 8
-  %add353 = add i32 %215, %214
-  store i32 %add353, ptr %arrayidx352, align 8
-  %216 = load i32, ptr %t0, align 4
-  %217 = load i32, ptr %t1, align 4
-  %add354 = add i32 %216, %217
-  %arrayidx355 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  store i32 %add354, ptr %arrayidx355, align 8
-  %arrayidx356 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %218 = load i32, ptr %arrayidx356, align 4
-  %arrayidx357 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %219 = load i32, ptr %arrayidx357, align 8
-  %call358 = call i32 @sigma1(i32 noundef %219)
-  %add359 = add i32 %218, %call358
-  %arrayidx360 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %220 = load i32, ptr %arrayidx360, align 8
-  %arrayidx361 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %221 = load i32, ptr %arrayidx361, align 4
-  %arrayidx362 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %222 = load i32, ptr %arrayidx362, align 16
-  %call363 = call i32 @ch(i32 noundef %220, i32 noundef %221, i32 noundef %222)
-  %add364 = add i32 %add359, %call363
-  %add365 = add i32 %add364, -1680079193
-  %arrayidx366 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 14
-  %223 = load i32, ptr %arrayidx366, align 8
-  %add367 = add i32 %add365, %223
-  store i32 %add367, ptr %t0, align 4
-  %arrayidx368 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %224 = load i32, ptr %arrayidx368, align 8
-  %call369 = call i32 @sigma0(i32 noundef %224)
-  %arrayidx370 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %225 = load i32, ptr %arrayidx370, align 8
-  %arrayidx371 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %226 = load i32, ptr %arrayidx371, align 4
-  %arrayidx372 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %227 = load i32, ptr %arrayidx372, align 16
-  %call373 = call i32 @maj(i32 noundef %225, i32 noundef %226, i32 noundef %227)
-  %add374 = add i32 %call369, %call373
-  store i32 %add374, ptr %t1, align 4
-  %228 = load i32, ptr %t0, align 4
-  %arrayidx375 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %229 = load i32, ptr %arrayidx375, align 4
-  %add376 = add i32 %229, %228
-  store i32 %add376, ptr %arrayidx375, align 4
-  %230 = load i32, ptr %t0, align 4
-  %231 = load i32, ptr %t1, align 4
-  %add377 = add i32 %230, %231
-  %arrayidx378 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  store i32 %add377, ptr %arrayidx378, align 4
-  %arrayidx379 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %232 = load i32, ptr %arrayidx379, align 16
-  %arrayidx380 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %233 = load i32, ptr %arrayidx380, align 4
-  %call381 = call i32 @sigma1(i32 noundef %233)
-  %add382 = add i32 %232, %call381
-  %arrayidx383 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %234 = load i32, ptr %arrayidx383, align 4
-  %arrayidx384 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %235 = load i32, ptr %arrayidx384, align 8
-  %arrayidx385 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %236 = load i32, ptr %arrayidx385, align 4
-  %call386 = call i32 @ch(i32 noundef %234, i32 noundef %235, i32 noundef %236)
-  %add387 = add i32 %add382, %call386
-  %add388 = add i32 %add387, -1046744716
-  %arrayidx389 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 15
-  %237 = load i32, ptr %arrayidx389, align 4
-  %add390 = add i32 %add388, %237
-  store i32 %add390, ptr %t0, align 4
-  %arrayidx391 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %238 = load i32, ptr %arrayidx391, align 4
-  %call392 = call i32 @sigma0(i32 noundef %238)
-  %arrayidx393 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %239 = load i32, ptr %arrayidx393, align 4
-  %arrayidx394 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %240 = load i32, ptr %arrayidx394, align 8
-  %arrayidx395 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %241 = load i32, ptr %arrayidx395, align 4
-  %call396 = call i32 @maj(i32 noundef %239, i32 noundef %240, i32 noundef %241)
-  %add397 = add i32 %call392, %call396
-  store i32 %add397, ptr %t1, align 4
-  %242 = load i32, ptr %t0, align 4
-  %arrayidx398 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %243 = load i32, ptr %arrayidx398, align 16
-  %add399 = add i32 %243, %242
-  store i32 %add399, ptr %arrayidx398, align 16
-  %244 = load i32, ptr %t0, align 4
-  %245 = load i32, ptr %t1, align 4
-  %add400 = add i32 %244, %245
-  %arrayidx401 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  store i32 %add400, ptr %arrayidx401, align 16
-  %arrayidx402 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %246 = load i32, ptr %arrayidx402, align 4
-  %arrayidx403 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %247 = load i32, ptr %arrayidx403, align 16
-  %call404 = call i32 @sigma1(i32 noundef %247)
-  %add405 = add i32 %246, %call404
-  %arrayidx406 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %248 = load i32, ptr %arrayidx406, align 16
-  %arrayidx407 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %249 = load i32, ptr %arrayidx407, align 4
-  %arrayidx408 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %250 = load i32, ptr %arrayidx408, align 8
-  %call409 = call i32 @ch(i32 noundef %248, i32 noundef %249, i32 noundef %250)
-  %add410 = add i32 %add405, %call409
-  %add411 = add i32 %add410, -459576895
-  %arrayidx412 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 16
-  %251 = load i32, ptr %arrayidx412, align 16
-  %add413 = add i32 %add411, %251
-  store i32 %add413, ptr %t0, align 4
-  %arrayidx414 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %252 = load i32, ptr %arrayidx414, align 16
-  %call415 = call i32 @sigma0(i32 noundef %252)
-  %arrayidx416 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %253 = load i32, ptr %arrayidx416, align 16
-  %arrayidx417 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %254 = load i32, ptr %arrayidx417, align 4
-  %arrayidx418 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %255 = load i32, ptr %arrayidx418, align 8
-  %call419 = call i32 @maj(i32 noundef %253, i32 noundef %254, i32 noundef %255)
-  %add420 = add i32 %call415, %call419
-  store i32 %add420, ptr %t1, align 4
-  %256 = load i32, ptr %t0, align 4
-  %arrayidx421 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %257 = load i32, ptr %arrayidx421, align 4
-  %add422 = add i32 %257, %256
-  store i32 %add422, ptr %arrayidx421, align 4
-  %258 = load i32, ptr %t0, align 4
-  %259 = load i32, ptr %t1, align 4
-  %add423 = add i32 %258, %259
-  %arrayidx424 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  store i32 %add423, ptr %arrayidx424, align 4
-  %arrayidx425 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %260 = load i32, ptr %arrayidx425, align 8
-  %arrayidx426 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %261 = load i32, ptr %arrayidx426, align 4
-  %call427 = call i32 @sigma1(i32 noundef %261)
-  %add428 = add i32 %260, %call427
-  %arrayidx429 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %262 = load i32, ptr %arrayidx429, align 4
-  %arrayidx430 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %263 = load i32, ptr %arrayidx430, align 16
-  %arrayidx431 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %264 = load i32, ptr %arrayidx431, align 4
-  %call432 = call i32 @ch(i32 noundef %262, i32 noundef %263, i32 noundef %264)
-  %add433 = add i32 %add428, %call432
-  %add434 = add i32 %add433, -272742522
-  %arrayidx435 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 17
-  %265 = load i32, ptr %arrayidx435, align 4
-  %add436 = add i32 %add434, %265
-  store i32 %add436, ptr %t0, align 4
-  %arrayidx437 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %266 = load i32, ptr %arrayidx437, align 4
-  %call438 = call i32 @sigma0(i32 noundef %266)
-  %arrayidx439 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %267 = load i32, ptr %arrayidx439, align 4
-  %arrayidx440 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %268 = load i32, ptr %arrayidx440, align 16
-  %arrayidx441 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %269 = load i32, ptr %arrayidx441, align 4
-  %call442 = call i32 @maj(i32 noundef %267, i32 noundef %268, i32 noundef %269)
-  %add443 = add i32 %call438, %call442
-  store i32 %add443, ptr %t1, align 4
-  %270 = load i32, ptr %t0, align 4
-  %arrayidx444 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %271 = load i32, ptr %arrayidx444, align 8
-  %add445 = add i32 %271, %270
-  store i32 %add445, ptr %arrayidx444, align 8
-  %272 = load i32, ptr %t0, align 4
-  %273 = load i32, ptr %t1, align 4
-  %add446 = add i32 %272, %273
-  %arrayidx447 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  store i32 %add446, ptr %arrayidx447, align 8
-  %arrayidx448 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %274 = load i32, ptr %arrayidx448, align 4
-  %arrayidx449 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %275 = load i32, ptr %arrayidx449, align 8
-  %call450 = call i32 @sigma1(i32 noundef %275)
-  %add451 = add i32 %274, %call450
-  %arrayidx452 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %276 = load i32, ptr %arrayidx452, align 8
-  %arrayidx453 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %277 = load i32, ptr %arrayidx453, align 4
-  %arrayidx454 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %278 = load i32, ptr %arrayidx454, align 16
-  %call455 = call i32 @ch(i32 noundef %276, i32 noundef %277, i32 noundef %278)
-  %add456 = add i32 %add451, %call455
-  %add457 = add i32 %add456, 264347078
-  %arrayidx458 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 18
-  %279 = load i32, ptr %arrayidx458, align 8
-  %add459 = add i32 %add457, %279
-  store i32 %add459, ptr %t0, align 4
-  %arrayidx460 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %280 = load i32, ptr %arrayidx460, align 8
-  %call461 = call i32 @sigma0(i32 noundef %280)
-  %arrayidx462 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %281 = load i32, ptr %arrayidx462, align 8
-  %arrayidx463 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %282 = load i32, ptr %arrayidx463, align 4
-  %arrayidx464 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %283 = load i32, ptr %arrayidx464, align 16
-  %call465 = call i32 @maj(i32 noundef %281, i32 noundef %282, i32 noundef %283)
-  %add466 = add i32 %call461, %call465
-  store i32 %add466, ptr %t1, align 4
-  %284 = load i32, ptr %t0, align 4
-  %arrayidx467 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %285 = load i32, ptr %arrayidx467, align 4
-  %add468 = add i32 %285, %284
-  store i32 %add468, ptr %arrayidx467, align 4
-  %286 = load i32, ptr %t0, align 4
-  %287 = load i32, ptr %t1, align 4
-  %add469 = add i32 %286, %287
-  %arrayidx470 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  store i32 %add469, ptr %arrayidx470, align 4
-  %arrayidx471 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %288 = load i32, ptr %arrayidx471, align 16
-  %arrayidx472 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %289 = load i32, ptr %arrayidx472, align 4
-  %call473 = call i32 @sigma1(i32 noundef %289)
-  %add474 = add i32 %288, %call473
-  %arrayidx475 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %290 = load i32, ptr %arrayidx475, align 4
-  %arrayidx476 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %291 = load i32, ptr %arrayidx476, align 8
-  %arrayidx477 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %292 = load i32, ptr %arrayidx477, align 4
-  %call478 = call i32 @ch(i32 noundef %290, i32 noundef %291, i32 noundef %292)
-  %add479 = add i32 %add474, %call478
-  %add480 = add i32 %add479, 604807628
-  %arrayidx481 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 19
-  %293 = load i32, ptr %arrayidx481, align 4
-  %add482 = add i32 %add480, %293
-  store i32 %add482, ptr %t0, align 4
-  %arrayidx483 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %294 = load i32, ptr %arrayidx483, align 4
-  %call484 = call i32 @sigma0(i32 noundef %294)
-  %arrayidx485 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %295 = load i32, ptr %arrayidx485, align 4
-  %arrayidx486 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %296 = load i32, ptr %arrayidx486, align 8
-  %arrayidx487 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %297 = load i32, ptr %arrayidx487, align 4
-  %call488 = call i32 @maj(i32 noundef %295, i32 noundef %296, i32 noundef %297)
-  %add489 = add i32 %call484, %call488
-  store i32 %add489, ptr %t1, align 4
-  %298 = load i32, ptr %t0, align 4
-  %arrayidx490 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %299 = load i32, ptr %arrayidx490, align 16
-  %add491 = add i32 %299, %298
-  store i32 %add491, ptr %arrayidx490, align 16
-  %300 = load i32, ptr %t0, align 4
-  %301 = load i32, ptr %t1, align 4
-  %add492 = add i32 %300, %301
-  %arrayidx493 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  store i32 %add492, ptr %arrayidx493, align 16
-  %arrayidx494 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %302 = load i32, ptr %arrayidx494, align 4
-  %arrayidx495 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %303 = load i32, ptr %arrayidx495, align 16
-  %call496 = call i32 @sigma1(i32 noundef %303)
-  %add497 = add i32 %302, %call496
-  %arrayidx498 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %304 = load i32, ptr %arrayidx498, align 16
-  %arrayidx499 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %305 = load i32, ptr %arrayidx499, align 4
-  %arrayidx500 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %306 = load i32, ptr %arrayidx500, align 8
-  %call501 = call i32 @ch(i32 noundef %304, i32 noundef %305, i32 noundef %306)
-  %add502 = add i32 %add497, %call501
-  %add503 = add i32 %add502, 770255983
-  %arrayidx504 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 20
-  %307 = load i32, ptr %arrayidx504, align 16
-  %add505 = add i32 %add503, %307
-  store i32 %add505, ptr %t0, align 4
-  %arrayidx506 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %308 = load i32, ptr %arrayidx506, align 16
-  %call507 = call i32 @sigma0(i32 noundef %308)
-  %arrayidx508 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %309 = load i32, ptr %arrayidx508, align 16
-  %arrayidx509 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %310 = load i32, ptr %arrayidx509, align 4
-  %arrayidx510 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %311 = load i32, ptr %arrayidx510, align 8
-  %call511 = call i32 @maj(i32 noundef %309, i32 noundef %310, i32 noundef %311)
-  %add512 = add i32 %call507, %call511
-  store i32 %add512, ptr %t1, align 4
-  %312 = load i32, ptr %t0, align 4
-  %arrayidx513 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %313 = load i32, ptr %arrayidx513, align 4
-  %add514 = add i32 %313, %312
-  store i32 %add514, ptr %arrayidx513, align 4
-  %314 = load i32, ptr %t0, align 4
-  %315 = load i32, ptr %t1, align 4
-  %add515 = add i32 %314, %315
-  %arrayidx516 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  store i32 %add515, ptr %arrayidx516, align 4
-  %arrayidx517 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %316 = load i32, ptr %arrayidx517, align 8
-  %arrayidx518 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %317 = load i32, ptr %arrayidx518, align 4
-  %call519 = call i32 @sigma1(i32 noundef %317)
-  %add520 = add i32 %316, %call519
-  %arrayidx521 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %318 = load i32, ptr %arrayidx521, align 4
-  %arrayidx522 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %319 = load i32, ptr %arrayidx522, align 16
-  %arrayidx523 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %320 = load i32, ptr %arrayidx523, align 4
-  %call524 = call i32 @ch(i32 noundef %318, i32 noundef %319, i32 noundef %320)
-  %add525 = add i32 %add520, %call524
-  %add526 = add i32 %add525, 1249150122
-  %arrayidx527 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 21
-  %321 = load i32, ptr %arrayidx527, align 4
-  %add528 = add i32 %add526, %321
-  store i32 %add528, ptr %t0, align 4
-  %arrayidx529 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %322 = load i32, ptr %arrayidx529, align 4
-  %call530 = call i32 @sigma0(i32 noundef %322)
-  %arrayidx531 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %323 = load i32, ptr %arrayidx531, align 4
-  %arrayidx532 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %324 = load i32, ptr %arrayidx532, align 16
-  %arrayidx533 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %325 = load i32, ptr %arrayidx533, align 4
-  %call534 = call i32 @maj(i32 noundef %323, i32 noundef %324, i32 noundef %325)
-  %add535 = add i32 %call530, %call534
-  store i32 %add535, ptr %t1, align 4
-  %326 = load i32, ptr %t0, align 4
-  %arrayidx536 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %327 = load i32, ptr %arrayidx536, align 8
-  %add537 = add i32 %327, %326
-  store i32 %add537, ptr %arrayidx536, align 8
-  %328 = load i32, ptr %t0, align 4
-  %329 = load i32, ptr %t1, align 4
-  %add538 = add i32 %328, %329
-  %arrayidx539 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  store i32 %add538, ptr %arrayidx539, align 8
-  %arrayidx540 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %330 = load i32, ptr %arrayidx540, align 4
-  %arrayidx541 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %331 = load i32, ptr %arrayidx541, align 8
-  %call542 = call i32 @sigma1(i32 noundef %331)
-  %add543 = add i32 %330, %call542
-  %arrayidx544 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %332 = load i32, ptr %arrayidx544, align 8
-  %arrayidx545 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %333 = load i32, ptr %arrayidx545, align 4
-  %arrayidx546 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %334 = load i32, ptr %arrayidx546, align 16
-  %call547 = call i32 @ch(i32 noundef %332, i32 noundef %333, i32 noundef %334)
-  %add548 = add i32 %add543, %call547
-  %add549 = add i32 %add548, 1555081692
-  %arrayidx550 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 22
-  %335 = load i32, ptr %arrayidx550, align 8
-  %add551 = add i32 %add549, %335
-  store i32 %add551, ptr %t0, align 4
-  %arrayidx552 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %336 = load i32, ptr %arrayidx552, align 8
-  %call553 = call i32 @sigma0(i32 noundef %336)
-  %arrayidx554 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %337 = load i32, ptr %arrayidx554, align 8
-  %arrayidx555 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %338 = load i32, ptr %arrayidx555, align 4
-  %arrayidx556 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %339 = load i32, ptr %arrayidx556, align 16
-  %call557 = call i32 @maj(i32 noundef %337, i32 noundef %338, i32 noundef %339)
-  %add558 = add i32 %call553, %call557
-  store i32 %add558, ptr %t1, align 4
-  %340 = load i32, ptr %t0, align 4
-  %arrayidx559 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %341 = load i32, ptr %arrayidx559, align 4
-  %add560 = add i32 %341, %340
-  store i32 %add560, ptr %arrayidx559, align 4
-  %342 = load i32, ptr %t0, align 4
-  %343 = load i32, ptr %t1, align 4
-  %add561 = add i32 %342, %343
-  %arrayidx562 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  store i32 %add561, ptr %arrayidx562, align 4
-  %arrayidx563 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %344 = load i32, ptr %arrayidx563, align 16
-  %arrayidx564 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %345 = load i32, ptr %arrayidx564, align 4
-  %call565 = call i32 @sigma1(i32 noundef %345)
-  %add566 = add i32 %344, %call565
-  %arrayidx567 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %346 = load i32, ptr %arrayidx567, align 4
-  %arrayidx568 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %347 = load i32, ptr %arrayidx568, align 8
-  %arrayidx569 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %348 = load i32, ptr %arrayidx569, align 4
-  %call570 = call i32 @ch(i32 noundef %346, i32 noundef %347, i32 noundef %348)
-  %add571 = add i32 %add566, %call570
-  %add572 = add i32 %add571, 1996064986
-  %arrayidx573 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 23
-  %349 = load i32, ptr %arrayidx573, align 4
-  %add574 = add i32 %add572, %349
-  store i32 %add574, ptr %t0, align 4
-  %arrayidx575 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %350 = load i32, ptr %arrayidx575, align 4
-  %call576 = call i32 @sigma0(i32 noundef %350)
-  %arrayidx577 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %351 = load i32, ptr %arrayidx577, align 4
-  %arrayidx578 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %352 = load i32, ptr %arrayidx578, align 8
-  %arrayidx579 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %353 = load i32, ptr %arrayidx579, align 4
-  %call580 = call i32 @maj(i32 noundef %351, i32 noundef %352, i32 noundef %353)
-  %add581 = add i32 %call576, %call580
-  store i32 %add581, ptr %t1, align 4
-  %354 = load i32, ptr %t0, align 4
-  %arrayidx582 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %355 = load i32, ptr %arrayidx582, align 16
-  %add583 = add i32 %355, %354
-  store i32 %add583, ptr %arrayidx582, align 16
-  %356 = load i32, ptr %t0, align 4
-  %357 = load i32, ptr %t1, align 4
-  %add584 = add i32 %356, %357
-  %arrayidx585 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  store i32 %add584, ptr %arrayidx585, align 16
-  %arrayidx586 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %358 = load i32, ptr %arrayidx586, align 4
-  %arrayidx587 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %359 = load i32, ptr %arrayidx587, align 16
-  %call588 = call i32 @sigma1(i32 noundef %359)
-  %add589 = add i32 %358, %call588
-  %arrayidx590 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %360 = load i32, ptr %arrayidx590, align 16
-  %arrayidx591 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %361 = load i32, ptr %arrayidx591, align 4
-  %arrayidx592 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %362 = load i32, ptr %arrayidx592, align 8
-  %call593 = call i32 @ch(i32 noundef %360, i32 noundef %361, i32 noundef %362)
-  %add594 = add i32 %add589, %call593
-  %add595 = add i32 %add594, -1740746414
-  %arrayidx596 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 24
-  %363 = load i32, ptr %arrayidx596, align 16
-  %add597 = add i32 %add595, %363
-  store i32 %add597, ptr %t0, align 4
-  %arrayidx598 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %364 = load i32, ptr %arrayidx598, align 16
-  %call599 = call i32 @sigma0(i32 noundef %364)
-  %arrayidx600 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %365 = load i32, ptr %arrayidx600, align 16
-  %arrayidx601 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %366 = load i32, ptr %arrayidx601, align 4
-  %arrayidx602 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %367 = load i32, ptr %arrayidx602, align 8
-  %call603 = call i32 @maj(i32 noundef %365, i32 noundef %366, i32 noundef %367)
-  %add604 = add i32 %call599, %call603
-  store i32 %add604, ptr %t1, align 4
-  %368 = load i32, ptr %t0, align 4
-  %arrayidx605 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %369 = load i32, ptr %arrayidx605, align 4
-  %add606 = add i32 %369, %368
-  store i32 %add606, ptr %arrayidx605, align 4
-  %370 = load i32, ptr %t0, align 4
-  %371 = load i32, ptr %t1, align 4
-  %add607 = add i32 %370, %371
-  %arrayidx608 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  store i32 %add607, ptr %arrayidx608, align 4
-  %arrayidx609 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %372 = load i32, ptr %arrayidx609, align 8
-  %arrayidx610 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %373 = load i32, ptr %arrayidx610, align 4
-  %call611 = call i32 @sigma1(i32 noundef %373)
-  %add612 = add i32 %372, %call611
-  %arrayidx613 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %374 = load i32, ptr %arrayidx613, align 4
-  %arrayidx614 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %375 = load i32, ptr %arrayidx614, align 16
-  %arrayidx615 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %376 = load i32, ptr %arrayidx615, align 4
-  %call616 = call i32 @ch(i32 noundef %374, i32 noundef %375, i32 noundef %376)
-  %add617 = add i32 %add612, %call616
-  %add618 = add i32 %add617, -1473132947
-  %arrayidx619 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 25
-  %377 = load i32, ptr %arrayidx619, align 4
-  %add620 = add i32 %add618, %377
-  store i32 %add620, ptr %t0, align 4
-  %arrayidx621 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %378 = load i32, ptr %arrayidx621, align 4
-  %call622 = call i32 @sigma0(i32 noundef %378)
-  %arrayidx623 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %379 = load i32, ptr %arrayidx623, align 4
-  %arrayidx624 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %380 = load i32, ptr %arrayidx624, align 16
-  %arrayidx625 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %381 = load i32, ptr %arrayidx625, align 4
-  %call626 = call i32 @maj(i32 noundef %379, i32 noundef %380, i32 noundef %381)
-  %add627 = add i32 %call622, %call626
-  store i32 %add627, ptr %t1, align 4
-  %382 = load i32, ptr %t0, align 4
-  %arrayidx628 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %383 = load i32, ptr %arrayidx628, align 8
-  %add629 = add i32 %383, %382
-  store i32 %add629, ptr %arrayidx628, align 8
-  %384 = load i32, ptr %t0, align 4
-  %385 = load i32, ptr %t1, align 4
-  %add630 = add i32 %384, %385
-  %arrayidx631 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  store i32 %add630, ptr %arrayidx631, align 8
-  %arrayidx632 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %386 = load i32, ptr %arrayidx632, align 4
-  %arrayidx633 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %387 = load i32, ptr %arrayidx633, align 8
-  %call634 = call i32 @sigma1(i32 noundef %387)
-  %add635 = add i32 %386, %call634
-  %arrayidx636 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %388 = load i32, ptr %arrayidx636, align 8
-  %arrayidx637 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %389 = load i32, ptr %arrayidx637, align 4
-  %arrayidx638 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %390 = load i32, ptr %arrayidx638, align 16
-  %call639 = call i32 @ch(i32 noundef %388, i32 noundef %389, i32 noundef %390)
-  %add640 = add i32 %add635, %call639
-  %add641 = add i32 %add640, -1341970488
-  %arrayidx642 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 26
-  %391 = load i32, ptr %arrayidx642, align 8
-  %add643 = add i32 %add641, %391
-  store i32 %add643, ptr %t0, align 4
-  %arrayidx644 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %392 = load i32, ptr %arrayidx644, align 8
-  %call645 = call i32 @sigma0(i32 noundef %392)
-  %arrayidx646 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %393 = load i32, ptr %arrayidx646, align 8
-  %arrayidx647 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %394 = load i32, ptr %arrayidx647, align 4
-  %arrayidx648 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %395 = load i32, ptr %arrayidx648, align 16
-  %call649 = call i32 @maj(i32 noundef %393, i32 noundef %394, i32 noundef %395)
-  %add650 = add i32 %call645, %call649
-  store i32 %add650, ptr %t1, align 4
-  %396 = load i32, ptr %t0, align 4
-  %arrayidx651 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %397 = load i32, ptr %arrayidx651, align 4
-  %add652 = add i32 %397, %396
-  store i32 %add652, ptr %arrayidx651, align 4
-  %398 = load i32, ptr %t0, align 4
-  %399 = load i32, ptr %t1, align 4
-  %add653 = add i32 %398, %399
-  %arrayidx654 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  store i32 %add653, ptr %arrayidx654, align 4
-  %arrayidx655 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %400 = load i32, ptr %arrayidx655, align 16
-  %arrayidx656 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %401 = load i32, ptr %arrayidx656, align 4
-  %call657 = call i32 @sigma1(i32 noundef %401)
-  %add658 = add i32 %400, %call657
-  %arrayidx659 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %402 = load i32, ptr %arrayidx659, align 4
-  %arrayidx660 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %403 = load i32, ptr %arrayidx660, align 8
-  %arrayidx661 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %404 = load i32, ptr %arrayidx661, align 4
-  %call662 = call i32 @ch(i32 noundef %402, i32 noundef %403, i32 noundef %404)
-  %add663 = add i32 %add658, %call662
-  %add664 = add i32 %add663, -1084653625
-  %arrayidx665 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 27
-  %405 = load i32, ptr %arrayidx665, align 4
-  %add666 = add i32 %add664, %405
-  store i32 %add666, ptr %t0, align 4
-  %arrayidx667 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %406 = load i32, ptr %arrayidx667, align 4
-  %call668 = call i32 @sigma0(i32 noundef %406)
-  %arrayidx669 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %407 = load i32, ptr %arrayidx669, align 4
-  %arrayidx670 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %408 = load i32, ptr %arrayidx670, align 8
-  %arrayidx671 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %409 = load i32, ptr %arrayidx671, align 4
-  %call672 = call i32 @maj(i32 noundef %407, i32 noundef %408, i32 noundef %409)
-  %add673 = add i32 %call668, %call672
-  store i32 %add673, ptr %t1, align 4
-  %410 = load i32, ptr %t0, align 4
-  %arrayidx674 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %411 = load i32, ptr %arrayidx674, align 16
-  %add675 = add i32 %411, %410
-  store i32 %add675, ptr %arrayidx674, align 16
-  %412 = load i32, ptr %t0, align 4
-  %413 = load i32, ptr %t1, align 4
-  %add676 = add i32 %412, %413
-  %arrayidx677 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  store i32 %add676, ptr %arrayidx677, align 16
-  %arrayidx678 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %414 = load i32, ptr %arrayidx678, align 4
-  %arrayidx679 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %415 = load i32, ptr %arrayidx679, align 16
-  %call680 = call i32 @sigma1(i32 noundef %415)
-  %add681 = add i32 %414, %call680
-  %arrayidx682 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %416 = load i32, ptr %arrayidx682, align 16
-  %arrayidx683 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %417 = load i32, ptr %arrayidx683, align 4
-  %arrayidx684 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %418 = load i32, ptr %arrayidx684, align 8
-  %call685 = call i32 @ch(i32 noundef %416, i32 noundef %417, i32 noundef %418)
-  %add686 = add i32 %add681, %call685
-  %add687 = add i32 %add686, -958395405
-  %arrayidx688 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 28
-  %419 = load i32, ptr %arrayidx688, align 16
-  %add689 = add i32 %add687, %419
-  store i32 %add689, ptr %t0, align 4
-  %arrayidx690 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %420 = load i32, ptr %arrayidx690, align 16
-  %call691 = call i32 @sigma0(i32 noundef %420)
-  %arrayidx692 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %421 = load i32, ptr %arrayidx692, align 16
-  %arrayidx693 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %422 = load i32, ptr %arrayidx693, align 4
-  %arrayidx694 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %423 = load i32, ptr %arrayidx694, align 8
-  %call695 = call i32 @maj(i32 noundef %421, i32 noundef %422, i32 noundef %423)
-  %add696 = add i32 %call691, %call695
-  store i32 %add696, ptr %t1, align 4
-  %424 = load i32, ptr %t0, align 4
-  %arrayidx697 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %425 = load i32, ptr %arrayidx697, align 4
-  %add698 = add i32 %425, %424
-  store i32 %add698, ptr %arrayidx697, align 4
-  %426 = load i32, ptr %t0, align 4
-  %427 = load i32, ptr %t1, align 4
-  %add699 = add i32 %426, %427
-  %arrayidx700 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  store i32 %add699, ptr %arrayidx700, align 4
-  %arrayidx701 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %428 = load i32, ptr %arrayidx701, align 8
-  %arrayidx702 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %429 = load i32, ptr %arrayidx702, align 4
-  %call703 = call i32 @sigma1(i32 noundef %429)
-  %add704 = add i32 %428, %call703
-  %arrayidx705 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %430 = load i32, ptr %arrayidx705, align 4
-  %arrayidx706 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %431 = load i32, ptr %arrayidx706, align 16
-  %arrayidx707 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %432 = load i32, ptr %arrayidx707, align 4
-  %call708 = call i32 @ch(i32 noundef %430, i32 noundef %431, i32 noundef %432)
-  %add709 = add i32 %add704, %call708
-  %add710 = add i32 %add709, -710438585
-  %arrayidx711 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 29
-  %433 = load i32, ptr %arrayidx711, align 4
-  %add712 = add i32 %add710, %433
-  store i32 %add712, ptr %t0, align 4
-  %arrayidx713 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %434 = load i32, ptr %arrayidx713, align 4
-  %call714 = call i32 @sigma0(i32 noundef %434)
-  %arrayidx715 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %435 = load i32, ptr %arrayidx715, align 4
-  %arrayidx716 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %436 = load i32, ptr %arrayidx716, align 16
-  %arrayidx717 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %437 = load i32, ptr %arrayidx717, align 4
-  %call718 = call i32 @maj(i32 noundef %435, i32 noundef %436, i32 noundef %437)
-  %add719 = add i32 %call714, %call718
-  store i32 %add719, ptr %t1, align 4
-  %438 = load i32, ptr %t0, align 4
-  %arrayidx720 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %439 = load i32, ptr %arrayidx720, align 8
-  %add721 = add i32 %439, %438
-  store i32 %add721, ptr %arrayidx720, align 8
-  %440 = load i32, ptr %t0, align 4
-  %441 = load i32, ptr %t1, align 4
-  %add722 = add i32 %440, %441
-  %arrayidx723 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  store i32 %add722, ptr %arrayidx723, align 8
-  %arrayidx724 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %442 = load i32, ptr %arrayidx724, align 4
-  %arrayidx725 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %443 = load i32, ptr %arrayidx725, align 8
-  %call726 = call i32 @sigma1(i32 noundef %443)
-  %add727 = add i32 %442, %call726
-  %arrayidx728 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %444 = load i32, ptr %arrayidx728, align 8
-  %arrayidx729 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %445 = load i32, ptr %arrayidx729, align 4
-  %arrayidx730 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %446 = load i32, ptr %arrayidx730, align 16
-  %call731 = call i32 @ch(i32 noundef %444, i32 noundef %445, i32 noundef %446)
-  %add732 = add i32 %add727, %call731
-  %add733 = add i32 %add732, 113926993
-  %arrayidx734 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 30
-  %447 = load i32, ptr %arrayidx734, align 8
-  %add735 = add i32 %add733, %447
-  store i32 %add735, ptr %t0, align 4
-  %arrayidx736 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %448 = load i32, ptr %arrayidx736, align 8
-  %call737 = call i32 @sigma0(i32 noundef %448)
-  %arrayidx738 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %449 = load i32, ptr %arrayidx738, align 8
-  %arrayidx739 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %450 = load i32, ptr %arrayidx739, align 4
-  %arrayidx740 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %451 = load i32, ptr %arrayidx740, align 16
-  %call741 = call i32 @maj(i32 noundef %449, i32 noundef %450, i32 noundef %451)
-  %add742 = add i32 %call737, %call741
-  store i32 %add742, ptr %t1, align 4
-  %452 = load i32, ptr %t0, align 4
-  %arrayidx743 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %453 = load i32, ptr %arrayidx743, align 4
-  %add744 = add i32 %453, %452
-  store i32 %add744, ptr %arrayidx743, align 4
-  %454 = load i32, ptr %t0, align 4
-  %455 = load i32, ptr %t1, align 4
-  %add745 = add i32 %454, %455
-  %arrayidx746 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  store i32 %add745, ptr %arrayidx746, align 4
-  %arrayidx747 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %456 = load i32, ptr %arrayidx747, align 16
-  %arrayidx748 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %457 = load i32, ptr %arrayidx748, align 4
-  %call749 = call i32 @sigma1(i32 noundef %457)
-  %add750 = add i32 %456, %call749
-  %arrayidx751 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %458 = load i32, ptr %arrayidx751, align 4
-  %arrayidx752 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %459 = load i32, ptr %arrayidx752, align 8
-  %arrayidx753 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %460 = load i32, ptr %arrayidx753, align 4
-  %call754 = call i32 @ch(i32 noundef %458, i32 noundef %459, i32 noundef %460)
-  %add755 = add i32 %add750, %call754
-  %add756 = add i32 %add755, 338241895
-  %arrayidx757 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 31
-  %461 = load i32, ptr %arrayidx757, align 4
-  %add758 = add i32 %add756, %461
-  store i32 %add758, ptr %t0, align 4
-  %arrayidx759 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %462 = load i32, ptr %arrayidx759, align 4
-  %call760 = call i32 @sigma0(i32 noundef %462)
-  %arrayidx761 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %463 = load i32, ptr %arrayidx761, align 4
-  %arrayidx762 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %464 = load i32, ptr %arrayidx762, align 8
-  %arrayidx763 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %465 = load i32, ptr %arrayidx763, align 4
-  %call764 = call i32 @maj(i32 noundef %463, i32 noundef %464, i32 noundef %465)
-  %add765 = add i32 %call760, %call764
-  store i32 %add765, ptr %t1, align 4
-  %466 = load i32, ptr %t0, align 4
-  %arrayidx766 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %467 = load i32, ptr %arrayidx766, align 16
-  %add767 = add i32 %467, %466
-  store i32 %add767, ptr %arrayidx766, align 16
-  %468 = load i32, ptr %t0, align 4
-  %469 = load i32, ptr %t1, align 4
-  %add768 = add i32 %468, %469
-  %arrayidx769 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  store i32 %add768, ptr %arrayidx769, align 16
-  %arrayidx770 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %470 = load i32, ptr %arrayidx770, align 4
-  %arrayidx771 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %471 = load i32, ptr %arrayidx771, align 16
-  %call772 = call i32 @sigma1(i32 noundef %471)
-  %add773 = add i32 %470, %call772
-  %arrayidx774 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %472 = load i32, ptr %arrayidx774, align 16
-  %arrayidx775 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %473 = load i32, ptr %arrayidx775, align 4
-  %arrayidx776 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %474 = load i32, ptr %arrayidx776, align 8
-  %call777 = call i32 @ch(i32 noundef %472, i32 noundef %473, i32 noundef %474)
-  %add778 = add i32 %add773, %call777
-  %add779 = add i32 %add778, 666307205
-  %arrayidx780 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 32
-  %475 = load i32, ptr %arrayidx780, align 16
-  %add781 = add i32 %add779, %475
-  store i32 %add781, ptr %t0, align 4
-  %arrayidx782 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %476 = load i32, ptr %arrayidx782, align 16
-  %call783 = call i32 @sigma0(i32 noundef %476)
-  %arrayidx784 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %477 = load i32, ptr %arrayidx784, align 16
-  %arrayidx785 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %478 = load i32, ptr %arrayidx785, align 4
-  %arrayidx786 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %479 = load i32, ptr %arrayidx786, align 8
-  %call787 = call i32 @maj(i32 noundef %477, i32 noundef %478, i32 noundef %479)
-  %add788 = add i32 %call783, %call787
-  store i32 %add788, ptr %t1, align 4
-  %480 = load i32, ptr %t0, align 4
-  %arrayidx789 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %481 = load i32, ptr %arrayidx789, align 4
-  %add790 = add i32 %481, %480
-  store i32 %add790, ptr %arrayidx789, align 4
-  %482 = load i32, ptr %t0, align 4
-  %483 = load i32, ptr %t1, align 4
-  %add791 = add i32 %482, %483
-  %arrayidx792 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  store i32 %add791, ptr %arrayidx792, align 4
-  %arrayidx793 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %484 = load i32, ptr %arrayidx793, align 8
-  %arrayidx794 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %485 = load i32, ptr %arrayidx794, align 4
-  %call795 = call i32 @sigma1(i32 noundef %485)
-  %add796 = add i32 %484, %call795
-  %arrayidx797 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %486 = load i32, ptr %arrayidx797, align 4
-  %arrayidx798 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %487 = load i32, ptr %arrayidx798, align 16
-  %arrayidx799 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %488 = load i32, ptr %arrayidx799, align 4
-  %call800 = call i32 @ch(i32 noundef %486, i32 noundef %487, i32 noundef %488)
-  %add801 = add i32 %add796, %call800
-  %add802 = add i32 %add801, 773529912
-  %arrayidx803 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 33
-  %489 = load i32, ptr %arrayidx803, align 4
-  %add804 = add i32 %add802, %489
-  store i32 %add804, ptr %t0, align 4
-  %arrayidx805 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %490 = load i32, ptr %arrayidx805, align 4
-  %call806 = call i32 @sigma0(i32 noundef %490)
-  %arrayidx807 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %491 = load i32, ptr %arrayidx807, align 4
-  %arrayidx808 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %492 = load i32, ptr %arrayidx808, align 16
-  %arrayidx809 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %493 = load i32, ptr %arrayidx809, align 4
-  %call810 = call i32 @maj(i32 noundef %491, i32 noundef %492, i32 noundef %493)
-  %add811 = add i32 %call806, %call810
-  store i32 %add811, ptr %t1, align 4
-  %494 = load i32, ptr %t0, align 4
-  %arrayidx812 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %495 = load i32, ptr %arrayidx812, align 8
-  %add813 = add i32 %495, %494
-  store i32 %add813, ptr %arrayidx812, align 8
-  %496 = load i32, ptr %t0, align 4
-  %497 = load i32, ptr %t1, align 4
-  %add814 = add i32 %496, %497
-  %arrayidx815 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  store i32 %add814, ptr %arrayidx815, align 8
-  %arrayidx816 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %498 = load i32, ptr %arrayidx816, align 4
-  %arrayidx817 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %499 = load i32, ptr %arrayidx817, align 8
-  %call818 = call i32 @sigma1(i32 noundef %499)
-  %add819 = add i32 %498, %call818
-  %arrayidx820 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %500 = load i32, ptr %arrayidx820, align 8
-  %arrayidx821 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %501 = load i32, ptr %arrayidx821, align 4
-  %arrayidx822 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %502 = load i32, ptr %arrayidx822, align 16
-  %call823 = call i32 @ch(i32 noundef %500, i32 noundef %501, i32 noundef %502)
-  %add824 = add i32 %add819, %call823
-  %add825 = add i32 %add824, 1294757372
-  %arrayidx826 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 34
-  %503 = load i32, ptr %arrayidx826, align 8
-  %add827 = add i32 %add825, %503
-  store i32 %add827, ptr %t0, align 4
-  %arrayidx828 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %504 = load i32, ptr %arrayidx828, align 8
-  %call829 = call i32 @sigma0(i32 noundef %504)
-  %arrayidx830 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %505 = load i32, ptr %arrayidx830, align 8
-  %arrayidx831 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %506 = load i32, ptr %arrayidx831, align 4
-  %arrayidx832 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %507 = load i32, ptr %arrayidx832, align 16
-  %call833 = call i32 @maj(i32 noundef %505, i32 noundef %506, i32 noundef %507)
-  %add834 = add i32 %call829, %call833
-  store i32 %add834, ptr %t1, align 4
-  %508 = load i32, ptr %t0, align 4
-  %arrayidx835 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %509 = load i32, ptr %arrayidx835, align 4
-  %add836 = add i32 %509, %508
-  store i32 %add836, ptr %arrayidx835, align 4
-  %510 = load i32, ptr %t0, align 4
-  %511 = load i32, ptr %t1, align 4
-  %add837 = add i32 %510, %511
-  %arrayidx838 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  store i32 %add837, ptr %arrayidx838, align 4
-  %arrayidx839 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %512 = load i32, ptr %arrayidx839, align 16
-  %arrayidx840 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %513 = load i32, ptr %arrayidx840, align 4
-  %call841 = call i32 @sigma1(i32 noundef %513)
-  %add842 = add i32 %512, %call841
-  %arrayidx843 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %514 = load i32, ptr %arrayidx843, align 4
-  %arrayidx844 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %515 = load i32, ptr %arrayidx844, align 8
-  %arrayidx845 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %516 = load i32, ptr %arrayidx845, align 4
-  %call846 = call i32 @ch(i32 noundef %514, i32 noundef %515, i32 noundef %516)
-  %add847 = add i32 %add842, %call846
-  %add848 = add i32 %add847, 1396182291
-  %arrayidx849 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 35
-  %517 = load i32, ptr %arrayidx849, align 4
-  %add850 = add i32 %add848, %517
-  store i32 %add850, ptr %t0, align 4
-  %arrayidx851 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %518 = load i32, ptr %arrayidx851, align 4
-  %call852 = call i32 @sigma0(i32 noundef %518)
-  %arrayidx853 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %519 = load i32, ptr %arrayidx853, align 4
-  %arrayidx854 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %520 = load i32, ptr %arrayidx854, align 8
-  %arrayidx855 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %521 = load i32, ptr %arrayidx855, align 4
-  %call856 = call i32 @maj(i32 noundef %519, i32 noundef %520, i32 noundef %521)
-  %add857 = add i32 %call852, %call856
-  store i32 %add857, ptr %t1, align 4
-  %522 = load i32, ptr %t0, align 4
-  %arrayidx858 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %523 = load i32, ptr %arrayidx858, align 16
-  %add859 = add i32 %523, %522
-  store i32 %add859, ptr %arrayidx858, align 16
-  %524 = load i32, ptr %t0, align 4
-  %525 = load i32, ptr %t1, align 4
-  %add860 = add i32 %524, %525
-  %arrayidx861 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  store i32 %add860, ptr %arrayidx861, align 16
-  %arrayidx862 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %526 = load i32, ptr %arrayidx862, align 4
-  %arrayidx863 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %527 = load i32, ptr %arrayidx863, align 16
-  %call864 = call i32 @sigma1(i32 noundef %527)
-  %add865 = add i32 %526, %call864
-  %arrayidx866 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %528 = load i32, ptr %arrayidx866, align 16
-  %arrayidx867 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %529 = load i32, ptr %arrayidx867, align 4
-  %arrayidx868 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %530 = load i32, ptr %arrayidx868, align 8
-  %call869 = call i32 @ch(i32 noundef %528, i32 noundef %529, i32 noundef %530)
-  %add870 = add i32 %add865, %call869
-  %add871 = add i32 %add870, 1695183700
-  %arrayidx872 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 36
-  %531 = load i32, ptr %arrayidx872, align 16
-  %add873 = add i32 %add871, %531
-  store i32 %add873, ptr %t0, align 4
-  %arrayidx874 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %532 = load i32, ptr %arrayidx874, align 16
-  %call875 = call i32 @sigma0(i32 noundef %532)
-  %arrayidx876 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %533 = load i32, ptr %arrayidx876, align 16
-  %arrayidx877 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %534 = load i32, ptr %arrayidx877, align 4
-  %arrayidx878 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %535 = load i32, ptr %arrayidx878, align 8
-  %call879 = call i32 @maj(i32 noundef %533, i32 noundef %534, i32 noundef %535)
-  %add880 = add i32 %call875, %call879
-  store i32 %add880, ptr %t1, align 4
-  %536 = load i32, ptr %t0, align 4
-  %arrayidx881 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %537 = load i32, ptr %arrayidx881, align 4
-  %add882 = add i32 %537, %536
-  store i32 %add882, ptr %arrayidx881, align 4
-  %538 = load i32, ptr %t0, align 4
-  %539 = load i32, ptr %t1, align 4
-  %add883 = add i32 %538, %539
-  %arrayidx884 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  store i32 %add883, ptr %arrayidx884, align 4
-  %arrayidx885 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %540 = load i32, ptr %arrayidx885, align 8
-  %arrayidx886 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %541 = load i32, ptr %arrayidx886, align 4
-  %call887 = call i32 @sigma1(i32 noundef %541)
-  %add888 = add i32 %540, %call887
-  %arrayidx889 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %542 = load i32, ptr %arrayidx889, align 4
-  %arrayidx890 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %543 = load i32, ptr %arrayidx890, align 16
-  %arrayidx891 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %544 = load i32, ptr %arrayidx891, align 4
-  %call892 = call i32 @ch(i32 noundef %542, i32 noundef %543, i32 noundef %544)
-  %add893 = add i32 %add888, %call892
-  %add894 = add i32 %add893, 1986661051
-  %arrayidx895 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 37
-  %545 = load i32, ptr %arrayidx895, align 4
-  %add896 = add i32 %add894, %545
-  store i32 %add896, ptr %t0, align 4
-  %arrayidx897 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %546 = load i32, ptr %arrayidx897, align 4
-  %call898 = call i32 @sigma0(i32 noundef %546)
-  %arrayidx899 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %547 = load i32, ptr %arrayidx899, align 4
-  %arrayidx900 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %548 = load i32, ptr %arrayidx900, align 16
-  %arrayidx901 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %549 = load i32, ptr %arrayidx901, align 4
-  %call902 = call i32 @maj(i32 noundef %547, i32 noundef %548, i32 noundef %549)
-  %add903 = add i32 %call898, %call902
-  store i32 %add903, ptr %t1, align 4
-  %550 = load i32, ptr %t0, align 4
-  %arrayidx904 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %551 = load i32, ptr %arrayidx904, align 8
-  %add905 = add i32 %551, %550
-  store i32 %add905, ptr %arrayidx904, align 8
-  %552 = load i32, ptr %t0, align 4
-  %553 = load i32, ptr %t1, align 4
-  %add906 = add i32 %552, %553
-  %arrayidx907 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  store i32 %add906, ptr %arrayidx907, align 8
-  %arrayidx908 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %554 = load i32, ptr %arrayidx908, align 4
-  %arrayidx909 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %555 = load i32, ptr %arrayidx909, align 8
-  %call910 = call i32 @sigma1(i32 noundef %555)
-  %add911 = add i32 %554, %call910
-  %arrayidx912 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %556 = load i32, ptr %arrayidx912, align 8
-  %arrayidx913 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %557 = load i32, ptr %arrayidx913, align 4
-  %arrayidx914 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %558 = load i32, ptr %arrayidx914, align 16
-  %call915 = call i32 @ch(i32 noundef %556, i32 noundef %557, i32 noundef %558)
-  %add916 = add i32 %add911, %call915
-  %add917 = add i32 %add916, -2117940946
-  %arrayidx918 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 38
-  %559 = load i32, ptr %arrayidx918, align 8
-  %add919 = add i32 %add917, %559
-  store i32 %add919, ptr %t0, align 4
-  %arrayidx920 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %560 = load i32, ptr %arrayidx920, align 8
-  %call921 = call i32 @sigma0(i32 noundef %560)
-  %arrayidx922 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %561 = load i32, ptr %arrayidx922, align 8
-  %arrayidx923 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %562 = load i32, ptr %arrayidx923, align 4
-  %arrayidx924 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %563 = load i32, ptr %arrayidx924, align 16
-  %call925 = call i32 @maj(i32 noundef %561, i32 noundef %562, i32 noundef %563)
-  %add926 = add i32 %call921, %call925
-  store i32 %add926, ptr %t1, align 4
-  %564 = load i32, ptr %t0, align 4
-  %arrayidx927 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %565 = load i32, ptr %arrayidx927, align 4
-  %add928 = add i32 %565, %564
-  store i32 %add928, ptr %arrayidx927, align 4
-  %566 = load i32, ptr %t0, align 4
-  %567 = load i32, ptr %t1, align 4
-  %add929 = add i32 %566, %567
-  %arrayidx930 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  store i32 %add929, ptr %arrayidx930, align 4
-  %arrayidx931 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %568 = load i32, ptr %arrayidx931, align 16
-  %arrayidx932 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %569 = load i32, ptr %arrayidx932, align 4
-  %call933 = call i32 @sigma1(i32 noundef %569)
-  %add934 = add i32 %568, %call933
-  %arrayidx935 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %570 = load i32, ptr %arrayidx935, align 4
-  %arrayidx936 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %571 = load i32, ptr %arrayidx936, align 8
-  %arrayidx937 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %572 = load i32, ptr %arrayidx937, align 4
-  %call938 = call i32 @ch(i32 noundef %570, i32 noundef %571, i32 noundef %572)
-  %add939 = add i32 %add934, %call938
-  %add940 = add i32 %add939, -1838011259
-  %arrayidx941 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 39
-  %573 = load i32, ptr %arrayidx941, align 4
-  %add942 = add i32 %add940, %573
-  store i32 %add942, ptr %t0, align 4
-  %arrayidx943 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %574 = load i32, ptr %arrayidx943, align 4
-  %call944 = call i32 @sigma0(i32 noundef %574)
-  %arrayidx945 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %575 = load i32, ptr %arrayidx945, align 4
-  %arrayidx946 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %576 = load i32, ptr %arrayidx946, align 8
-  %arrayidx947 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %577 = load i32, ptr %arrayidx947, align 4
-  %call948 = call i32 @maj(i32 noundef %575, i32 noundef %576, i32 noundef %577)
-  %add949 = add i32 %call944, %call948
-  store i32 %add949, ptr %t1, align 4
-  %578 = load i32, ptr %t0, align 4
-  %arrayidx950 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %579 = load i32, ptr %arrayidx950, align 16
-  %add951 = add i32 %579, %578
-  store i32 %add951, ptr %arrayidx950, align 16
-  %580 = load i32, ptr %t0, align 4
-  %581 = load i32, ptr %t1, align 4
-  %add952 = add i32 %580, %581
-  %arrayidx953 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  store i32 %add952, ptr %arrayidx953, align 16
-  %arrayidx954 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %582 = load i32, ptr %arrayidx954, align 4
-  %arrayidx955 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %583 = load i32, ptr %arrayidx955, align 16
-  %call956 = call i32 @sigma1(i32 noundef %583)
-  %add957 = add i32 %582, %call956
-  %arrayidx958 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %584 = load i32, ptr %arrayidx958, align 16
-  %arrayidx959 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %585 = load i32, ptr %arrayidx959, align 4
-  %arrayidx960 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %586 = load i32, ptr %arrayidx960, align 8
-  %call961 = call i32 @ch(i32 noundef %584, i32 noundef %585, i32 noundef %586)
-  %add962 = add i32 %add957, %call961
-  %add963 = add i32 %add962, -1564481375
-  %arrayidx964 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 40
-  %587 = load i32, ptr %arrayidx964, align 16
-  %add965 = add i32 %add963, %587
-  store i32 %add965, ptr %t0, align 4
-  %arrayidx966 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %588 = load i32, ptr %arrayidx966, align 16
-  %call967 = call i32 @sigma0(i32 noundef %588)
-  %arrayidx968 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %589 = load i32, ptr %arrayidx968, align 16
-  %arrayidx969 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %590 = load i32, ptr %arrayidx969, align 4
-  %arrayidx970 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %591 = load i32, ptr %arrayidx970, align 8
-  %call971 = call i32 @maj(i32 noundef %589, i32 noundef %590, i32 noundef %591)
-  %add972 = add i32 %call967, %call971
-  store i32 %add972, ptr %t1, align 4
-  %592 = load i32, ptr %t0, align 4
-  %arrayidx973 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %593 = load i32, ptr %arrayidx973, align 4
-  %add974 = add i32 %593, %592
-  store i32 %add974, ptr %arrayidx973, align 4
-  %594 = load i32, ptr %t0, align 4
-  %595 = load i32, ptr %t1, align 4
-  %add975 = add i32 %594, %595
-  %arrayidx976 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  store i32 %add975, ptr %arrayidx976, align 4
-  %arrayidx977 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %596 = load i32, ptr %arrayidx977, align 8
-  %arrayidx978 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %597 = load i32, ptr %arrayidx978, align 4
-  %call979 = call i32 @sigma1(i32 noundef %597)
-  %add980 = add i32 %596, %call979
-  %arrayidx981 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %598 = load i32, ptr %arrayidx981, align 4
-  %arrayidx982 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %599 = load i32, ptr %arrayidx982, align 16
-  %arrayidx983 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %600 = load i32, ptr %arrayidx983, align 4
-  %call984 = call i32 @ch(i32 noundef %598, i32 noundef %599, i32 noundef %600)
-  %add985 = add i32 %add980, %call984
-  %add986 = add i32 %add985, -1474664885
-  %arrayidx987 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 41
-  %601 = load i32, ptr %arrayidx987, align 4
-  %add988 = add i32 %add986, %601
-  store i32 %add988, ptr %t0, align 4
-  %arrayidx989 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %602 = load i32, ptr %arrayidx989, align 4
-  %call990 = call i32 @sigma0(i32 noundef %602)
-  %arrayidx991 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %603 = load i32, ptr %arrayidx991, align 4
-  %arrayidx992 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %604 = load i32, ptr %arrayidx992, align 16
-  %arrayidx993 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %605 = load i32, ptr %arrayidx993, align 4
-  %call994 = call i32 @maj(i32 noundef %603, i32 noundef %604, i32 noundef %605)
-  %add995 = add i32 %call990, %call994
-  store i32 %add995, ptr %t1, align 4
-  %606 = load i32, ptr %t0, align 4
-  %arrayidx996 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %607 = load i32, ptr %arrayidx996, align 8
-  %add997 = add i32 %607, %606
-  store i32 %add997, ptr %arrayidx996, align 8
-  %608 = load i32, ptr %t0, align 4
-  %609 = load i32, ptr %t1, align 4
-  %add998 = add i32 %608, %609
-  %arrayidx999 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  store i32 %add998, ptr %arrayidx999, align 8
-  %arrayidx1000 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %610 = load i32, ptr %arrayidx1000, align 4
-  %arrayidx1001 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %611 = load i32, ptr %arrayidx1001, align 8
-  %call1002 = call i32 @sigma1(i32 noundef %611)
-  %add1003 = add i32 %610, %call1002
-  %arrayidx1004 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %612 = load i32, ptr %arrayidx1004, align 8
-  %arrayidx1005 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %613 = load i32, ptr %arrayidx1005, align 4
-  %arrayidx1006 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %614 = load i32, ptr %arrayidx1006, align 16
-  %call1007 = call i32 @ch(i32 noundef %612, i32 noundef %613, i32 noundef %614)
-  %add1008 = add i32 %add1003, %call1007
-  %add1009 = add i32 %add1008, -1035236496
-  %arrayidx1010 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 42
-  %615 = load i32, ptr %arrayidx1010, align 8
-  %add1011 = add i32 %add1009, %615
-  store i32 %add1011, ptr %t0, align 4
-  %arrayidx1012 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %616 = load i32, ptr %arrayidx1012, align 8
-  %call1013 = call i32 @sigma0(i32 noundef %616)
-  %arrayidx1014 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %617 = load i32, ptr %arrayidx1014, align 8
-  %arrayidx1015 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %618 = load i32, ptr %arrayidx1015, align 4
-  %arrayidx1016 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %619 = load i32, ptr %arrayidx1016, align 16
-  %call1017 = call i32 @maj(i32 noundef %617, i32 noundef %618, i32 noundef %619)
-  %add1018 = add i32 %call1013, %call1017
-  store i32 %add1018, ptr %t1, align 4
-  %620 = load i32, ptr %t0, align 4
-  %arrayidx1019 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %621 = load i32, ptr %arrayidx1019, align 4
-  %add1020 = add i32 %621, %620
-  store i32 %add1020, ptr %arrayidx1019, align 4
-  %622 = load i32, ptr %t0, align 4
-  %623 = load i32, ptr %t1, align 4
-  %add1021 = add i32 %622, %623
-  %arrayidx1022 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  store i32 %add1021, ptr %arrayidx1022, align 4
-  %arrayidx1023 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %624 = load i32, ptr %arrayidx1023, align 16
-  %arrayidx1024 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %625 = load i32, ptr %arrayidx1024, align 4
-  %call1025 = call i32 @sigma1(i32 noundef %625)
-  %add1026 = add i32 %624, %call1025
-  %arrayidx1027 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %626 = load i32, ptr %arrayidx1027, align 4
-  %arrayidx1028 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %627 = load i32, ptr %arrayidx1028, align 8
-  %arrayidx1029 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %628 = load i32, ptr %arrayidx1029, align 4
-  %call1030 = call i32 @ch(i32 noundef %626, i32 noundef %627, i32 noundef %628)
-  %add1031 = add i32 %add1026, %call1030
-  %add1032 = add i32 %add1031, -949202525
-  %arrayidx1033 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 43
-  %629 = load i32, ptr %arrayidx1033, align 4
-  %add1034 = add i32 %add1032, %629
-  store i32 %add1034, ptr %t0, align 4
-  %arrayidx1035 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %630 = load i32, ptr %arrayidx1035, align 4
-  %call1036 = call i32 @sigma0(i32 noundef %630)
-  %arrayidx1037 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %631 = load i32, ptr %arrayidx1037, align 4
-  %arrayidx1038 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %632 = load i32, ptr %arrayidx1038, align 8
-  %arrayidx1039 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %633 = load i32, ptr %arrayidx1039, align 4
-  %call1040 = call i32 @maj(i32 noundef %631, i32 noundef %632, i32 noundef %633)
-  %add1041 = add i32 %call1036, %call1040
-  store i32 %add1041, ptr %t1, align 4
-  %634 = load i32, ptr %t0, align 4
-  %arrayidx1042 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %635 = load i32, ptr %arrayidx1042, align 16
-  %add1043 = add i32 %635, %634
-  store i32 %add1043, ptr %arrayidx1042, align 16
-  %636 = load i32, ptr %t0, align 4
-  %637 = load i32, ptr %t1, align 4
-  %add1044 = add i32 %636, %637
-  %arrayidx1045 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  store i32 %add1044, ptr %arrayidx1045, align 16
-  %arrayidx1046 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %638 = load i32, ptr %arrayidx1046, align 4
-  %arrayidx1047 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %639 = load i32, ptr %arrayidx1047, align 16
-  %call1048 = call i32 @sigma1(i32 noundef %639)
-  %add1049 = add i32 %638, %call1048
-  %arrayidx1050 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %640 = load i32, ptr %arrayidx1050, align 16
-  %arrayidx1051 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %641 = load i32, ptr %arrayidx1051, align 4
-  %arrayidx1052 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %642 = load i32, ptr %arrayidx1052, align 8
-  %call1053 = call i32 @ch(i32 noundef %640, i32 noundef %641, i32 noundef %642)
-  %add1054 = add i32 %add1049, %call1053
-  %add1055 = add i32 %add1054, -778901479
-  %arrayidx1056 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 44
-  %643 = load i32, ptr %arrayidx1056, align 16
-  %add1057 = add i32 %add1055, %643
-  store i32 %add1057, ptr %t0, align 4
-  %arrayidx1058 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %644 = load i32, ptr %arrayidx1058, align 16
-  %call1059 = call i32 @sigma0(i32 noundef %644)
-  %arrayidx1060 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %645 = load i32, ptr %arrayidx1060, align 16
-  %arrayidx1061 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %646 = load i32, ptr %arrayidx1061, align 4
-  %arrayidx1062 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %647 = load i32, ptr %arrayidx1062, align 8
-  %call1063 = call i32 @maj(i32 noundef %645, i32 noundef %646, i32 noundef %647)
-  %add1064 = add i32 %call1059, %call1063
-  store i32 %add1064, ptr %t1, align 4
-  %648 = load i32, ptr %t0, align 4
-  %arrayidx1065 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %649 = load i32, ptr %arrayidx1065, align 4
-  %add1066 = add i32 %649, %648
-  store i32 %add1066, ptr %arrayidx1065, align 4
-  %650 = load i32, ptr %t0, align 4
-  %651 = load i32, ptr %t1, align 4
-  %add1067 = add i32 %650, %651
-  %arrayidx1068 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  store i32 %add1067, ptr %arrayidx1068, align 4
-  %arrayidx1069 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %652 = load i32, ptr %arrayidx1069, align 8
-  %arrayidx1070 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %653 = load i32, ptr %arrayidx1070, align 4
-  %call1071 = call i32 @sigma1(i32 noundef %653)
-  %add1072 = add i32 %652, %call1071
-  %arrayidx1073 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %654 = load i32, ptr %arrayidx1073, align 4
-  %arrayidx1074 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %655 = load i32, ptr %arrayidx1074, align 16
-  %arrayidx1075 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %656 = load i32, ptr %arrayidx1075, align 4
-  %call1076 = call i32 @ch(i32 noundef %654, i32 noundef %655, i32 noundef %656)
-  %add1077 = add i32 %add1072, %call1076
-  %add1078 = add i32 %add1077, -694614492
-  %arrayidx1079 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 45
-  %657 = load i32, ptr %arrayidx1079, align 4
-  %add1080 = add i32 %add1078, %657
-  store i32 %add1080, ptr %t0, align 4
-  %arrayidx1081 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %658 = load i32, ptr %arrayidx1081, align 4
-  %call1082 = call i32 @sigma0(i32 noundef %658)
-  %arrayidx1083 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %659 = load i32, ptr %arrayidx1083, align 4
-  %arrayidx1084 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %660 = load i32, ptr %arrayidx1084, align 16
-  %arrayidx1085 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %661 = load i32, ptr %arrayidx1085, align 4
-  %call1086 = call i32 @maj(i32 noundef %659, i32 noundef %660, i32 noundef %661)
-  %add1087 = add i32 %call1082, %call1086
-  store i32 %add1087, ptr %t1, align 4
-  %662 = load i32, ptr %t0, align 4
-  %arrayidx1088 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %663 = load i32, ptr %arrayidx1088, align 8
-  %add1089 = add i32 %663, %662
-  store i32 %add1089, ptr %arrayidx1088, align 8
-  %664 = load i32, ptr %t0, align 4
-  %665 = load i32, ptr %t1, align 4
-  %add1090 = add i32 %664, %665
-  %arrayidx1091 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  store i32 %add1090, ptr %arrayidx1091, align 8
-  %arrayidx1092 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %666 = load i32, ptr %arrayidx1092, align 4
-  %arrayidx1093 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %667 = load i32, ptr %arrayidx1093, align 8
-  %call1094 = call i32 @sigma1(i32 noundef %667)
-  %add1095 = add i32 %666, %call1094
-  %arrayidx1096 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %668 = load i32, ptr %arrayidx1096, align 8
-  %arrayidx1097 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %669 = load i32, ptr %arrayidx1097, align 4
-  %arrayidx1098 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %670 = load i32, ptr %arrayidx1098, align 16
-  %call1099 = call i32 @ch(i32 noundef %668, i32 noundef %669, i32 noundef %670)
-  %add1100 = add i32 %add1095, %call1099
-  %add1101 = add i32 %add1100, -200395387
-  %arrayidx1102 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 46
-  %671 = load i32, ptr %arrayidx1102, align 8
-  %add1103 = add i32 %add1101, %671
-  store i32 %add1103, ptr %t0, align 4
-  %arrayidx1104 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %672 = load i32, ptr %arrayidx1104, align 8
-  %call1105 = call i32 @sigma0(i32 noundef %672)
-  %arrayidx1106 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %673 = load i32, ptr %arrayidx1106, align 8
-  %arrayidx1107 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %674 = load i32, ptr %arrayidx1107, align 4
-  %arrayidx1108 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %675 = load i32, ptr %arrayidx1108, align 16
-  %call1109 = call i32 @maj(i32 noundef %673, i32 noundef %674, i32 noundef %675)
-  %add1110 = add i32 %call1105, %call1109
-  store i32 %add1110, ptr %t1, align 4
-  %676 = load i32, ptr %t0, align 4
-  %arrayidx1111 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %677 = load i32, ptr %arrayidx1111, align 4
-  %add1112 = add i32 %677, %676
-  store i32 %add1112, ptr %arrayidx1111, align 4
-  %678 = load i32, ptr %t0, align 4
-  %679 = load i32, ptr %t1, align 4
-  %add1113 = add i32 %678, %679
-  %arrayidx1114 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  store i32 %add1113, ptr %arrayidx1114, align 4
-  %arrayidx1115 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %680 = load i32, ptr %arrayidx1115, align 16
-  %arrayidx1116 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %681 = load i32, ptr %arrayidx1116, align 4
-  %call1117 = call i32 @sigma1(i32 noundef %681)
-  %add1118 = add i32 %680, %call1117
-  %arrayidx1119 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %682 = load i32, ptr %arrayidx1119, align 4
-  %arrayidx1120 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %683 = load i32, ptr %arrayidx1120, align 8
-  %arrayidx1121 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %684 = load i32, ptr %arrayidx1121, align 4
-  %call1122 = call i32 @ch(i32 noundef %682, i32 noundef %683, i32 noundef %684)
-  %add1123 = add i32 %add1118, %call1122
-  %add1124 = add i32 %add1123, 275423344
-  %arrayidx1125 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 47
-  %685 = load i32, ptr %arrayidx1125, align 4
-  %add1126 = add i32 %add1124, %685
-  store i32 %add1126, ptr %t0, align 4
-  %arrayidx1127 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %686 = load i32, ptr %arrayidx1127, align 4
-  %call1128 = call i32 @sigma0(i32 noundef %686)
-  %arrayidx1129 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %687 = load i32, ptr %arrayidx1129, align 4
-  %arrayidx1130 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %688 = load i32, ptr %arrayidx1130, align 8
-  %arrayidx1131 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %689 = load i32, ptr %arrayidx1131, align 4
-  %call1132 = call i32 @maj(i32 noundef %687, i32 noundef %688, i32 noundef %689)
-  %add1133 = add i32 %call1128, %call1132
-  store i32 %add1133, ptr %t1, align 4
-  %690 = load i32, ptr %t0, align 4
-  %arrayidx1134 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %691 = load i32, ptr %arrayidx1134, align 16
-  %add1135 = add i32 %691, %690
-  store i32 %add1135, ptr %arrayidx1134, align 16
-  %692 = load i32, ptr %t0, align 4
-  %693 = load i32, ptr %t1, align 4
-  %add1136 = add i32 %692, %693
-  %arrayidx1137 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  store i32 %add1136, ptr %arrayidx1137, align 16
-  %arrayidx1138 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %694 = load i32, ptr %arrayidx1138, align 4
-  %arrayidx1139 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %695 = load i32, ptr %arrayidx1139, align 16
-  %call1140 = call i32 @sigma1(i32 noundef %695)
-  %add1141 = add i32 %694, %call1140
-  %arrayidx1142 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %696 = load i32, ptr %arrayidx1142, align 16
-  %arrayidx1143 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %697 = load i32, ptr %arrayidx1143, align 4
-  %arrayidx1144 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %698 = load i32, ptr %arrayidx1144, align 8
-  %call1145 = call i32 @ch(i32 noundef %696, i32 noundef %697, i32 noundef %698)
-  %add1146 = add i32 %add1141, %call1145
-  %add1147 = add i32 %add1146, 430227734
-  %arrayidx1148 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 48
-  %699 = load i32, ptr %arrayidx1148, align 16
-  %add1149 = add i32 %add1147, %699
-  store i32 %add1149, ptr %t0, align 4
-  %arrayidx1150 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %700 = load i32, ptr %arrayidx1150, align 16
-  %call1151 = call i32 @sigma0(i32 noundef %700)
-  %arrayidx1152 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %701 = load i32, ptr %arrayidx1152, align 16
-  %arrayidx1153 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %702 = load i32, ptr %arrayidx1153, align 4
-  %arrayidx1154 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %703 = load i32, ptr %arrayidx1154, align 8
-  %call1155 = call i32 @maj(i32 noundef %701, i32 noundef %702, i32 noundef %703)
-  %add1156 = add i32 %call1151, %call1155
-  store i32 %add1156, ptr %t1, align 4
-  %704 = load i32, ptr %t0, align 4
-  %arrayidx1157 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %705 = load i32, ptr %arrayidx1157, align 4
-  %add1158 = add i32 %705, %704
-  store i32 %add1158, ptr %arrayidx1157, align 4
-  %706 = load i32, ptr %t0, align 4
-  %707 = load i32, ptr %t1, align 4
-  %add1159 = add i32 %706, %707
-  %arrayidx1160 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  store i32 %add1159, ptr %arrayidx1160, align 4
-  %arrayidx1161 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %708 = load i32, ptr %arrayidx1161, align 8
-  %arrayidx1162 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %709 = load i32, ptr %arrayidx1162, align 4
-  %call1163 = call i32 @sigma1(i32 noundef %709)
-  %add1164 = add i32 %708, %call1163
-  %arrayidx1165 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %710 = load i32, ptr %arrayidx1165, align 4
-  %arrayidx1166 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %711 = load i32, ptr %arrayidx1166, align 16
-  %arrayidx1167 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %712 = load i32, ptr %arrayidx1167, align 4
-  %call1168 = call i32 @ch(i32 noundef %710, i32 noundef %711, i32 noundef %712)
-  %add1169 = add i32 %add1164, %call1168
-  %add1170 = add i32 %add1169, 506948616
-  %arrayidx1171 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 49
-  %713 = load i32, ptr %arrayidx1171, align 4
-  %add1172 = add i32 %add1170, %713
-  store i32 %add1172, ptr %t0, align 4
-  %arrayidx1173 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %714 = load i32, ptr %arrayidx1173, align 4
-  %call1174 = call i32 @sigma0(i32 noundef %714)
-  %arrayidx1175 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %715 = load i32, ptr %arrayidx1175, align 4
-  %arrayidx1176 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %716 = load i32, ptr %arrayidx1176, align 16
-  %arrayidx1177 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %717 = load i32, ptr %arrayidx1177, align 4
-  %call1178 = call i32 @maj(i32 noundef %715, i32 noundef %716, i32 noundef %717)
-  %add1179 = add i32 %call1174, %call1178
-  store i32 %add1179, ptr %t1, align 4
-  %718 = load i32, ptr %t0, align 4
-  %arrayidx1180 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %719 = load i32, ptr %arrayidx1180, align 8
-  %add1181 = add i32 %719, %718
-  store i32 %add1181, ptr %arrayidx1180, align 8
-  %720 = load i32, ptr %t0, align 4
-  %721 = load i32, ptr %t1, align 4
-  %add1182 = add i32 %720, %721
-  %arrayidx1183 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  store i32 %add1182, ptr %arrayidx1183, align 8
-  %arrayidx1184 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %722 = load i32, ptr %arrayidx1184, align 4
-  %arrayidx1185 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %723 = load i32, ptr %arrayidx1185, align 8
-  %call1186 = call i32 @sigma1(i32 noundef %723)
-  %add1187 = add i32 %722, %call1186
-  %arrayidx1188 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %724 = load i32, ptr %arrayidx1188, align 8
-  %arrayidx1189 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %725 = load i32, ptr %arrayidx1189, align 4
-  %arrayidx1190 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %726 = load i32, ptr %arrayidx1190, align 16
-  %call1191 = call i32 @ch(i32 noundef %724, i32 noundef %725, i32 noundef %726)
-  %add1192 = add i32 %add1187, %call1191
-  %add1193 = add i32 %add1192, 659060556
-  %arrayidx1194 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 50
-  %727 = load i32, ptr %arrayidx1194, align 8
-  %add1195 = add i32 %add1193, %727
-  store i32 %add1195, ptr %t0, align 4
-  %arrayidx1196 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %728 = load i32, ptr %arrayidx1196, align 8
-  %call1197 = call i32 @sigma0(i32 noundef %728)
-  %arrayidx1198 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %729 = load i32, ptr %arrayidx1198, align 8
-  %arrayidx1199 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %730 = load i32, ptr %arrayidx1199, align 4
-  %arrayidx1200 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %731 = load i32, ptr %arrayidx1200, align 16
-  %call1201 = call i32 @maj(i32 noundef %729, i32 noundef %730, i32 noundef %731)
-  %add1202 = add i32 %call1197, %call1201
-  store i32 %add1202, ptr %t1, align 4
-  %732 = load i32, ptr %t0, align 4
-  %arrayidx1203 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %733 = load i32, ptr %arrayidx1203, align 4
-  %add1204 = add i32 %733, %732
-  store i32 %add1204, ptr %arrayidx1203, align 4
-  %734 = load i32, ptr %t0, align 4
-  %735 = load i32, ptr %t1, align 4
-  %add1205 = add i32 %734, %735
-  %arrayidx1206 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  store i32 %add1205, ptr %arrayidx1206, align 4
-  %arrayidx1207 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %736 = load i32, ptr %arrayidx1207, align 16
-  %arrayidx1208 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %737 = load i32, ptr %arrayidx1208, align 4
-  %call1209 = call i32 @sigma1(i32 noundef %737)
-  %add1210 = add i32 %736, %call1209
-  %arrayidx1211 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %738 = load i32, ptr %arrayidx1211, align 4
-  %arrayidx1212 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %739 = load i32, ptr %arrayidx1212, align 8
-  %arrayidx1213 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %740 = load i32, ptr %arrayidx1213, align 4
-  %call1214 = call i32 @ch(i32 noundef %738, i32 noundef %739, i32 noundef %740)
-  %add1215 = add i32 %add1210, %call1214
-  %add1216 = add i32 %add1215, 883997877
-  %arrayidx1217 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 51
-  %741 = load i32, ptr %arrayidx1217, align 4
-  %add1218 = add i32 %add1216, %741
-  store i32 %add1218, ptr %t0, align 4
-  %arrayidx1219 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %742 = load i32, ptr %arrayidx1219, align 4
-  %call1220 = call i32 @sigma0(i32 noundef %742)
-  %arrayidx1221 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %743 = load i32, ptr %arrayidx1221, align 4
-  %arrayidx1222 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %744 = load i32, ptr %arrayidx1222, align 8
-  %arrayidx1223 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %745 = load i32, ptr %arrayidx1223, align 4
-  %call1224 = call i32 @maj(i32 noundef %743, i32 noundef %744, i32 noundef %745)
-  %add1225 = add i32 %call1220, %call1224
-  store i32 %add1225, ptr %t1, align 4
-  %746 = load i32, ptr %t0, align 4
-  %arrayidx1226 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %747 = load i32, ptr %arrayidx1226, align 16
-  %add1227 = add i32 %747, %746
-  store i32 %add1227, ptr %arrayidx1226, align 16
-  %748 = load i32, ptr %t0, align 4
-  %749 = load i32, ptr %t1, align 4
-  %add1228 = add i32 %748, %749
-  %arrayidx1229 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  store i32 %add1228, ptr %arrayidx1229, align 16
-  %arrayidx1230 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %750 = load i32, ptr %arrayidx1230, align 4
-  %arrayidx1231 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %751 = load i32, ptr %arrayidx1231, align 16
-  %call1232 = call i32 @sigma1(i32 noundef %751)
-  %add1233 = add i32 %750, %call1232
-  %arrayidx1234 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %752 = load i32, ptr %arrayidx1234, align 16
-  %arrayidx1235 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %753 = load i32, ptr %arrayidx1235, align 4
-  %arrayidx1236 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %754 = load i32, ptr %arrayidx1236, align 8
-  %call1237 = call i32 @ch(i32 noundef %752, i32 noundef %753, i32 noundef %754)
-  %add1238 = add i32 %add1233, %call1237
-  %add1239 = add i32 %add1238, 958139571
-  %arrayidx1240 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 52
-  %755 = load i32, ptr %arrayidx1240, align 16
-  %add1241 = add i32 %add1239, %755
-  store i32 %add1241, ptr %t0, align 4
-  %arrayidx1242 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %756 = load i32, ptr %arrayidx1242, align 16
-  %call1243 = call i32 @sigma0(i32 noundef %756)
-  %arrayidx1244 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %757 = load i32, ptr %arrayidx1244, align 16
-  %arrayidx1245 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %758 = load i32, ptr %arrayidx1245, align 4
-  %arrayidx1246 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %759 = load i32, ptr %arrayidx1246, align 8
-  %call1247 = call i32 @maj(i32 noundef %757, i32 noundef %758, i32 noundef %759)
-  %add1248 = add i32 %call1243, %call1247
-  store i32 %add1248, ptr %t1, align 4
-  %760 = load i32, ptr %t0, align 4
-  %arrayidx1249 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %761 = load i32, ptr %arrayidx1249, align 4
-  %add1250 = add i32 %761, %760
-  store i32 %add1250, ptr %arrayidx1249, align 4
-  %762 = load i32, ptr %t0, align 4
-  %763 = load i32, ptr %t1, align 4
-  %add1251 = add i32 %762, %763
-  %arrayidx1252 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  store i32 %add1251, ptr %arrayidx1252, align 4
-  %arrayidx1253 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %764 = load i32, ptr %arrayidx1253, align 8
-  %arrayidx1254 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %765 = load i32, ptr %arrayidx1254, align 4
-  %call1255 = call i32 @sigma1(i32 noundef %765)
-  %add1256 = add i32 %764, %call1255
-  %arrayidx1257 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %766 = load i32, ptr %arrayidx1257, align 4
-  %arrayidx1258 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %767 = load i32, ptr %arrayidx1258, align 16
-  %arrayidx1259 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %768 = load i32, ptr %arrayidx1259, align 4
-  %call1260 = call i32 @ch(i32 noundef %766, i32 noundef %767, i32 noundef %768)
-  %add1261 = add i32 %add1256, %call1260
-  %add1262 = add i32 %add1261, 1322822218
-  %arrayidx1263 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 53
-  %769 = load i32, ptr %arrayidx1263, align 4
-  %add1264 = add i32 %add1262, %769
-  store i32 %add1264, ptr %t0, align 4
-  %arrayidx1265 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %770 = load i32, ptr %arrayidx1265, align 4
-  %call1266 = call i32 @sigma0(i32 noundef %770)
-  %arrayidx1267 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %771 = load i32, ptr %arrayidx1267, align 4
-  %arrayidx1268 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %772 = load i32, ptr %arrayidx1268, align 16
-  %arrayidx1269 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %773 = load i32, ptr %arrayidx1269, align 4
-  %call1270 = call i32 @maj(i32 noundef %771, i32 noundef %772, i32 noundef %773)
-  %add1271 = add i32 %call1266, %call1270
-  store i32 %add1271, ptr %t1, align 4
-  %774 = load i32, ptr %t0, align 4
-  %arrayidx1272 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %775 = load i32, ptr %arrayidx1272, align 8
-  %add1273 = add i32 %775, %774
-  store i32 %add1273, ptr %arrayidx1272, align 8
-  %776 = load i32, ptr %t0, align 4
-  %777 = load i32, ptr %t1, align 4
-  %add1274 = add i32 %776, %777
-  %arrayidx1275 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  store i32 %add1274, ptr %arrayidx1275, align 8
-  %arrayidx1276 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %778 = load i32, ptr %arrayidx1276, align 4
-  %arrayidx1277 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %779 = load i32, ptr %arrayidx1277, align 8
-  %call1278 = call i32 @sigma1(i32 noundef %779)
-  %add1279 = add i32 %778, %call1278
-  %arrayidx1280 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %780 = load i32, ptr %arrayidx1280, align 8
-  %arrayidx1281 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %781 = load i32, ptr %arrayidx1281, align 4
-  %arrayidx1282 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %782 = load i32, ptr %arrayidx1282, align 16
-  %call1283 = call i32 @ch(i32 noundef %780, i32 noundef %781, i32 noundef %782)
-  %add1284 = add i32 %add1279, %call1283
-  %add1285 = add i32 %add1284, 1537002063
-  %arrayidx1286 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 54
-  %783 = load i32, ptr %arrayidx1286, align 8
-  %add1287 = add i32 %add1285, %783
-  store i32 %add1287, ptr %t0, align 4
-  %arrayidx1288 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %784 = load i32, ptr %arrayidx1288, align 8
-  %call1289 = call i32 @sigma0(i32 noundef %784)
-  %arrayidx1290 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %785 = load i32, ptr %arrayidx1290, align 8
-  %arrayidx1291 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %786 = load i32, ptr %arrayidx1291, align 4
-  %arrayidx1292 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %787 = load i32, ptr %arrayidx1292, align 16
-  %call1293 = call i32 @maj(i32 noundef %785, i32 noundef %786, i32 noundef %787)
-  %add1294 = add i32 %call1289, %call1293
-  store i32 %add1294, ptr %t1, align 4
-  %788 = load i32, ptr %t0, align 4
-  %arrayidx1295 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %789 = load i32, ptr %arrayidx1295, align 4
-  %add1296 = add i32 %789, %788
-  store i32 %add1296, ptr %arrayidx1295, align 4
-  %790 = load i32, ptr %t0, align 4
-  %791 = load i32, ptr %t1, align 4
-  %add1297 = add i32 %790, %791
-  %arrayidx1298 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  store i32 %add1297, ptr %arrayidx1298, align 4
-  %arrayidx1299 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %792 = load i32, ptr %arrayidx1299, align 16
-  %arrayidx1300 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %793 = load i32, ptr %arrayidx1300, align 4
-  %call1301 = call i32 @sigma1(i32 noundef %793)
-  %add1302 = add i32 %792, %call1301
-  %arrayidx1303 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %794 = load i32, ptr %arrayidx1303, align 4
-  %arrayidx1304 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %795 = load i32, ptr %arrayidx1304, align 8
-  %arrayidx1305 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %796 = load i32, ptr %arrayidx1305, align 4
-  %call1306 = call i32 @ch(i32 noundef %794, i32 noundef %795, i32 noundef %796)
-  %add1307 = add i32 %add1302, %call1306
-  %add1308 = add i32 %add1307, 1747873779
-  %arrayidx1309 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 55
-  %797 = load i32, ptr %arrayidx1309, align 4
-  %add1310 = add i32 %add1308, %797
-  store i32 %add1310, ptr %t0, align 4
-  %arrayidx1311 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %798 = load i32, ptr %arrayidx1311, align 4
-  %call1312 = call i32 @sigma0(i32 noundef %798)
-  %arrayidx1313 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %799 = load i32, ptr %arrayidx1313, align 4
-  %arrayidx1314 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %800 = load i32, ptr %arrayidx1314, align 8
-  %arrayidx1315 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %801 = load i32, ptr %arrayidx1315, align 4
-  %call1316 = call i32 @maj(i32 noundef %799, i32 noundef %800, i32 noundef %801)
-  %add1317 = add i32 %call1312, %call1316
-  store i32 %add1317, ptr %t1, align 4
-  %802 = load i32, ptr %t0, align 4
-  %arrayidx1318 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %803 = load i32, ptr %arrayidx1318, align 16
-  %add1319 = add i32 %803, %802
-  store i32 %add1319, ptr %arrayidx1318, align 16
-  %804 = load i32, ptr %t0, align 4
-  %805 = load i32, ptr %t1, align 4
-  %add1320 = add i32 %804, %805
-  %arrayidx1321 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  store i32 %add1320, ptr %arrayidx1321, align 16
-  %arrayidx1322 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %806 = load i32, ptr %arrayidx1322, align 4
-  %arrayidx1323 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %807 = load i32, ptr %arrayidx1323, align 16
-  %call1324 = call i32 @sigma1(i32 noundef %807)
-  %add1325 = add i32 %806, %call1324
-  %arrayidx1326 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %808 = load i32, ptr %arrayidx1326, align 16
-  %arrayidx1327 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %809 = load i32, ptr %arrayidx1327, align 4
-  %arrayidx1328 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %810 = load i32, ptr %arrayidx1328, align 8
-  %call1329 = call i32 @ch(i32 noundef %808, i32 noundef %809, i32 noundef %810)
-  %add1330 = add i32 %add1325, %call1329
-  %add1331 = add i32 %add1330, 1955562222
-  %arrayidx1332 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 56
-  %811 = load i32, ptr %arrayidx1332, align 16
-  %add1333 = add i32 %add1331, %811
-  store i32 %add1333, ptr %t0, align 4
-  %arrayidx1334 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %812 = load i32, ptr %arrayidx1334, align 16
-  %call1335 = call i32 @sigma0(i32 noundef %812)
-  %arrayidx1336 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %813 = load i32, ptr %arrayidx1336, align 16
-  %arrayidx1337 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %814 = load i32, ptr %arrayidx1337, align 4
-  %arrayidx1338 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %815 = load i32, ptr %arrayidx1338, align 8
-  %call1339 = call i32 @maj(i32 noundef %813, i32 noundef %814, i32 noundef %815)
-  %add1340 = add i32 %call1335, %call1339
-  store i32 %add1340, ptr %t1, align 4
-  %816 = load i32, ptr %t0, align 4
-  %arrayidx1341 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %817 = load i32, ptr %arrayidx1341, align 4
-  %add1342 = add i32 %817, %816
-  store i32 %add1342, ptr %arrayidx1341, align 4
-  %818 = load i32, ptr %t0, align 4
-  %819 = load i32, ptr %t1, align 4
-  %add1343 = add i32 %818, %819
-  %arrayidx1344 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  store i32 %add1343, ptr %arrayidx1344, align 4
-  %arrayidx1345 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %820 = load i32, ptr %arrayidx1345, align 8
-  %arrayidx1346 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %821 = load i32, ptr %arrayidx1346, align 4
-  %call1347 = call i32 @sigma1(i32 noundef %821)
-  %add1348 = add i32 %820, %call1347
-  %arrayidx1349 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %822 = load i32, ptr %arrayidx1349, align 4
-  %arrayidx1350 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %823 = load i32, ptr %arrayidx1350, align 16
-  %arrayidx1351 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %824 = load i32, ptr %arrayidx1351, align 4
-  %call1352 = call i32 @ch(i32 noundef %822, i32 noundef %823, i32 noundef %824)
-  %add1353 = add i32 %add1348, %call1352
-  %add1354 = add i32 %add1353, 2024104815
-  %arrayidx1355 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 57
-  %825 = load i32, ptr %arrayidx1355, align 4
-  %add1356 = add i32 %add1354, %825
-  store i32 %add1356, ptr %t0, align 4
-  %arrayidx1357 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %826 = load i32, ptr %arrayidx1357, align 4
-  %call1358 = call i32 @sigma0(i32 noundef %826)
-  %arrayidx1359 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %827 = load i32, ptr %arrayidx1359, align 4
-  %arrayidx1360 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %828 = load i32, ptr %arrayidx1360, align 16
-  %arrayidx1361 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %829 = load i32, ptr %arrayidx1361, align 4
-  %call1362 = call i32 @maj(i32 noundef %827, i32 noundef %828, i32 noundef %829)
-  %add1363 = add i32 %call1358, %call1362
-  store i32 %add1363, ptr %t1, align 4
-  %830 = load i32, ptr %t0, align 4
-  %arrayidx1364 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %831 = load i32, ptr %arrayidx1364, align 8
-  %add1365 = add i32 %831, %830
-  store i32 %add1365, ptr %arrayidx1364, align 8
-  %832 = load i32, ptr %t0, align 4
-  %833 = load i32, ptr %t1, align 4
-  %add1366 = add i32 %832, %833
-  %arrayidx1367 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  store i32 %add1366, ptr %arrayidx1367, align 8
-  %arrayidx1368 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %834 = load i32, ptr %arrayidx1368, align 4
-  %arrayidx1369 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %835 = load i32, ptr %arrayidx1369, align 8
-  %call1370 = call i32 @sigma1(i32 noundef %835)
-  %add1371 = add i32 %834, %call1370
-  %arrayidx1372 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %836 = load i32, ptr %arrayidx1372, align 8
-  %arrayidx1373 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %837 = load i32, ptr %arrayidx1373, align 4
-  %arrayidx1374 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %838 = load i32, ptr %arrayidx1374, align 16
-  %call1375 = call i32 @ch(i32 noundef %836, i32 noundef %837, i32 noundef %838)
-  %add1376 = add i32 %add1371, %call1375
-  %add1377 = add i32 %add1376, -2067236844
-  %arrayidx1378 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 58
-  %839 = load i32, ptr %arrayidx1378, align 8
-  %add1379 = add i32 %add1377, %839
-  store i32 %add1379, ptr %t0, align 4
-  %arrayidx1380 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %840 = load i32, ptr %arrayidx1380, align 8
-  %call1381 = call i32 @sigma0(i32 noundef %840)
-  %arrayidx1382 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %841 = load i32, ptr %arrayidx1382, align 8
-  %arrayidx1383 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %842 = load i32, ptr %arrayidx1383, align 4
-  %arrayidx1384 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %843 = load i32, ptr %arrayidx1384, align 16
-  %call1385 = call i32 @maj(i32 noundef %841, i32 noundef %842, i32 noundef %843)
-  %add1386 = add i32 %call1381, %call1385
-  store i32 %add1386, ptr %t1, align 4
-  %844 = load i32, ptr %t0, align 4
-  %arrayidx1387 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %845 = load i32, ptr %arrayidx1387, align 4
-  %add1388 = add i32 %845, %844
-  store i32 %add1388, ptr %arrayidx1387, align 4
-  %846 = load i32, ptr %t0, align 4
-  %847 = load i32, ptr %t1, align 4
-  %add1389 = add i32 %846, %847
-  %arrayidx1390 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  store i32 %add1389, ptr %arrayidx1390, align 4
-  %arrayidx1391 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %848 = load i32, ptr %arrayidx1391, align 16
-  %arrayidx1392 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %849 = load i32, ptr %arrayidx1392, align 4
-  %call1393 = call i32 @sigma1(i32 noundef %849)
-  %add1394 = add i32 %848, %call1393
-  %arrayidx1395 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %850 = load i32, ptr %arrayidx1395, align 4
-  %arrayidx1396 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %851 = load i32, ptr %arrayidx1396, align 8
-  %arrayidx1397 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %852 = load i32, ptr %arrayidx1397, align 4
-  %call1398 = call i32 @ch(i32 noundef %850, i32 noundef %851, i32 noundef %852)
-  %add1399 = add i32 %add1394, %call1398
-  %add1400 = add i32 %add1399, -1933114872
-  %arrayidx1401 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 59
-  %853 = load i32, ptr %arrayidx1401, align 4
-  %add1402 = add i32 %add1400, %853
-  store i32 %add1402, ptr %t0, align 4
-  %arrayidx1403 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %854 = load i32, ptr %arrayidx1403, align 4
-  %call1404 = call i32 @sigma0(i32 noundef %854)
-  %arrayidx1405 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %855 = load i32, ptr %arrayidx1405, align 4
-  %arrayidx1406 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %856 = load i32, ptr %arrayidx1406, align 8
-  %arrayidx1407 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %857 = load i32, ptr %arrayidx1407, align 4
-  %call1408 = call i32 @maj(i32 noundef %855, i32 noundef %856, i32 noundef %857)
-  %add1409 = add i32 %call1404, %call1408
-  store i32 %add1409, ptr %t1, align 4
-  %858 = load i32, ptr %t0, align 4
-  %arrayidx1410 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %859 = load i32, ptr %arrayidx1410, align 16
-  %add1411 = add i32 %859, %858
-  store i32 %add1411, ptr %arrayidx1410, align 16
-  %860 = load i32, ptr %t0, align 4
-  %861 = load i32, ptr %t1, align 4
-  %add1412 = add i32 %860, %861
-  %arrayidx1413 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  store i32 %add1412, ptr %arrayidx1413, align 16
-  %arrayidx1414 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %862 = load i32, ptr %arrayidx1414, align 4
-  %arrayidx1415 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %863 = load i32, ptr %arrayidx1415, align 16
-  %call1416 = call i32 @sigma1(i32 noundef %863)
-  %add1417 = add i32 %862, %call1416
-  %arrayidx1418 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %864 = load i32, ptr %arrayidx1418, align 16
-  %arrayidx1419 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %865 = load i32, ptr %arrayidx1419, align 4
-  %arrayidx1420 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %866 = load i32, ptr %arrayidx1420, align 8
-  %call1421 = call i32 @ch(i32 noundef %864, i32 noundef %865, i32 noundef %866)
-  %add1422 = add i32 %add1417, %call1421
-  %add1423 = add i32 %add1422, -1866530822
-  %arrayidx1424 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 60
-  %867 = load i32, ptr %arrayidx1424, align 16
-  %add1425 = add i32 %add1423, %867
-  store i32 %add1425, ptr %t0, align 4
-  %arrayidx1426 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %868 = load i32, ptr %arrayidx1426, align 16
-  %call1427 = call i32 @sigma0(i32 noundef %868)
-  %arrayidx1428 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %869 = load i32, ptr %arrayidx1428, align 16
-  %arrayidx1429 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %870 = load i32, ptr %arrayidx1429, align 4
-  %arrayidx1430 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %871 = load i32, ptr %arrayidx1430, align 8
-  %call1431 = call i32 @maj(i32 noundef %869, i32 noundef %870, i32 noundef %871)
-  %add1432 = add i32 %call1427, %call1431
-  store i32 %add1432, ptr %t1, align 4
-  %872 = load i32, ptr %t0, align 4
-  %arrayidx1433 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %873 = load i32, ptr %arrayidx1433, align 4
-  %add1434 = add i32 %873, %872
-  store i32 %add1434, ptr %arrayidx1433, align 4
-  %874 = load i32, ptr %t0, align 4
-  %875 = load i32, ptr %t1, align 4
-  %add1435 = add i32 %874, %875
-  %arrayidx1436 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  store i32 %add1435, ptr %arrayidx1436, align 4
-  %arrayidx1437 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %876 = load i32, ptr %arrayidx1437, align 8
-  %arrayidx1438 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %877 = load i32, ptr %arrayidx1438, align 4
-  %call1439 = call i32 @sigma1(i32 noundef %877)
-  %add1440 = add i32 %876, %call1439
-  %arrayidx1441 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %878 = load i32, ptr %arrayidx1441, align 4
-  %arrayidx1442 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %879 = load i32, ptr %arrayidx1442, align 16
-  %arrayidx1443 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %880 = load i32, ptr %arrayidx1443, align 4
-  %call1444 = call i32 @ch(i32 noundef %878, i32 noundef %879, i32 noundef %880)
-  %add1445 = add i32 %add1440, %call1444
-  %add1446 = add i32 %add1445, -1538233109
-  %arrayidx1447 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 61
-  %881 = load i32, ptr %arrayidx1447, align 4
-  %add1448 = add i32 %add1446, %881
-  store i32 %add1448, ptr %t0, align 4
-  %arrayidx1449 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %882 = load i32, ptr %arrayidx1449, align 4
-  %call1450 = call i32 @sigma0(i32 noundef %882)
-  %arrayidx1451 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %883 = load i32, ptr %arrayidx1451, align 4
-  %arrayidx1452 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %884 = load i32, ptr %arrayidx1452, align 16
-  %arrayidx1453 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %885 = load i32, ptr %arrayidx1453, align 4
-  %call1454 = call i32 @maj(i32 noundef %883, i32 noundef %884, i32 noundef %885)
-  %add1455 = add i32 %call1450, %call1454
-  store i32 %add1455, ptr %t1, align 4
-  %886 = load i32, ptr %t0, align 4
-  %arrayidx1456 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %887 = load i32, ptr %arrayidx1456, align 8
-  %add1457 = add i32 %887, %886
-  store i32 %add1457, ptr %arrayidx1456, align 8
-  %888 = load i32, ptr %t0, align 4
-  %889 = load i32, ptr %t1, align 4
-  %add1458 = add i32 %888, %889
-  %arrayidx1459 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  store i32 %add1458, ptr %arrayidx1459, align 8
-  %arrayidx1460 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %890 = load i32, ptr %arrayidx1460, align 4
-  %arrayidx1461 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %891 = load i32, ptr %arrayidx1461, align 8
-  %call1462 = call i32 @sigma1(i32 noundef %891)
-  %add1463 = add i32 %890, %call1462
-  %arrayidx1464 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %892 = load i32, ptr %arrayidx1464, align 8
-  %arrayidx1465 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %893 = load i32, ptr %arrayidx1465, align 4
-  %arrayidx1466 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %894 = load i32, ptr %arrayidx1466, align 16
-  %call1467 = call i32 @ch(i32 noundef %892, i32 noundef %893, i32 noundef %894)
-  %add1468 = add i32 %add1463, %call1467
-  %add1469 = add i32 %add1468, -1090935817
-  %arrayidx1470 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 62
-  %895 = load i32, ptr %arrayidx1470, align 8
-  %add1471 = add i32 %add1469, %895
-  store i32 %add1471, ptr %t0, align 4
-  %arrayidx1472 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %896 = load i32, ptr %arrayidx1472, align 8
-  %call1473 = call i32 @sigma0(i32 noundef %896)
-  %arrayidx1474 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %897 = load i32, ptr %arrayidx1474, align 8
-  %arrayidx1475 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %898 = load i32, ptr %arrayidx1475, align 4
-  %arrayidx1476 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %899 = load i32, ptr %arrayidx1476, align 16
-  %call1477 = call i32 @maj(i32 noundef %897, i32 noundef %898, i32 noundef %899)
-  %add1478 = add i32 %call1473, %call1477
-  store i32 %add1478, ptr %t1, align 4
-  %900 = load i32, ptr %t0, align 4
-  %arrayidx1479 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %901 = load i32, ptr %arrayidx1479, align 4
-  %add1480 = add i32 %901, %900
-  store i32 %add1480, ptr %arrayidx1479, align 4
-  %902 = load i32, ptr %t0, align 4
-  %903 = load i32, ptr %t1, align 4
-  %add1481 = add i32 %902, %903
-  %arrayidx1482 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  store i32 %add1481, ptr %arrayidx1482, align 4
-  %arrayidx1483 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  %904 = load i32, ptr %arrayidx1483, align 16
-  %arrayidx1484 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %905 = load i32, ptr %arrayidx1484, align 4
-  %call1485 = call i32 @sigma1(i32 noundef %905)
-  %add1486 = add i32 %904, %call1485
-  %arrayidx1487 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
-  %906 = load i32, ptr %arrayidx1487, align 4
-  %arrayidx1488 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
-  %907 = load i32, ptr %arrayidx1488, align 8
-  %arrayidx1489 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
-  %908 = load i32, ptr %arrayidx1489, align 4
-  %call1490 = call i32 @ch(i32 noundef %906, i32 noundef %907, i32 noundef %908)
-  %add1491 = add i32 %add1486, %call1490
-  %add1492 = add i32 %add1491, -965641998
-  %arrayidx1493 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 63
-  %909 = load i32, ptr %arrayidx1493, align 4
-  %add1494 = add i32 %add1492, %909
-  store i32 %add1494, ptr %t0, align 4
-  %arrayidx1495 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %910 = load i32, ptr %arrayidx1495, align 4
-  %call1496 = call i32 @sigma0(i32 noundef %910)
-  %arrayidx1497 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
-  %911 = load i32, ptr %arrayidx1497, align 4
-  %arrayidx1498 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
-  %912 = load i32, ptr %arrayidx1498, align 8
-  %arrayidx1499 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
-  %913 = load i32, ptr %arrayidx1499, align 4
-  %call1500 = call i32 @maj(i32 noundef %911, i32 noundef %912, i32 noundef %913)
-  %add1501 = add i32 %call1496, %call1500
-  store i32 %add1501, ptr %t1, align 4
-  %914 = load i32, ptr %t0, align 4
-  %arrayidx1502 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
-  %915 = load i32, ptr %arrayidx1502, align 16
-  %add1503 = add i32 %915, %914
-  store i32 %add1503, ptr %arrayidx1502, align 16
-  %916 = load i32, ptr %t0, align 4
-  %917 = load i32, ptr %t1, align 4
-  %add1504 = add i32 %916, %917
-  %arrayidx1505 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 0
-  store i32 %add1504, ptr %arrayidx1505, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond1506
+77:                                               ; preds = %42
+  %78 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %79 = load i32, ptr %78, align 4, !tbaa !14
+  %80 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %81 = load i32, ptr %80, align 16, !tbaa !14
+  %82 = call i32 @sigma1(i32 noundef %81)
+  %83 = add i32 %79, %82
+  %84 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %85 = load i32, ptr %84, align 16, !tbaa !14
+  %86 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %87 = load i32, ptr %86, align 4, !tbaa !14
+  %88 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %89 = load i32, ptr %88, align 8, !tbaa !14
+  %90 = call i32 @ch(i32 noundef %85, i32 noundef %87, i32 noundef %89)
+  %91 = add i32 %83, %90
+  %92 = add i32 %91, 1116352408
+  %93 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 0
+  %94 = load i32, ptr %93, align 16, !tbaa !14
+  %95 = add i32 %92, %94
+  store i32 %95, ptr %7, align 4, !tbaa !14
+  %96 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %97 = load i32, ptr %96, align 16, !tbaa !14
+  %98 = call i32 @sigma0(i32 noundef %97)
+  %99 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %100 = load i32, ptr %99, align 16, !tbaa !14
+  %101 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %102 = load i32, ptr %101, align 4, !tbaa !14
+  %103 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %104 = load i32, ptr %103, align 8, !tbaa !14
+  %105 = call i32 @maj(i32 noundef %100, i32 noundef %102, i32 noundef %104)
+  %106 = add i32 %98, %105
+  store i32 %106, ptr %8, align 4, !tbaa !14
+  %107 = load i32, ptr %7, align 4, !tbaa !14
+  %108 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %109 = load i32, ptr %108, align 4, !tbaa !14
+  %110 = add i32 %109, %107
+  store i32 %110, ptr %108, align 4, !tbaa !14
+  %111 = load i32, ptr %7, align 4, !tbaa !14
+  %112 = load i32, ptr %8, align 4, !tbaa !14
+  %113 = add i32 %111, %112
+  %114 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  store i32 %113, ptr %114, align 4, !tbaa !14
+  %115 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %116 = load i32, ptr %115, align 8, !tbaa !14
+  %117 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %118 = load i32, ptr %117, align 4, !tbaa !14
+  %119 = call i32 @sigma1(i32 noundef %118)
+  %120 = add i32 %116, %119
+  %121 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %122 = load i32, ptr %121, align 4, !tbaa !14
+  %123 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %124 = load i32, ptr %123, align 16, !tbaa !14
+  %125 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %126 = load i32, ptr %125, align 4, !tbaa !14
+  %127 = call i32 @ch(i32 noundef %122, i32 noundef %124, i32 noundef %126)
+  %128 = add i32 %120, %127
+  %129 = add i32 %128, 1899447441
+  %130 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 1
+  %131 = load i32, ptr %130, align 4, !tbaa !14
+  %132 = add i32 %129, %131
+  store i32 %132, ptr %7, align 4, !tbaa !14
+  %133 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %134 = load i32, ptr %133, align 4, !tbaa !14
+  %135 = call i32 @sigma0(i32 noundef %134)
+  %136 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %137 = load i32, ptr %136, align 4, !tbaa !14
+  %138 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %139 = load i32, ptr %138, align 16, !tbaa !14
+  %140 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %141 = load i32, ptr %140, align 4, !tbaa !14
+  %142 = call i32 @maj(i32 noundef %137, i32 noundef %139, i32 noundef %141)
+  %143 = add i32 %135, %142
+  store i32 %143, ptr %8, align 4, !tbaa !14
+  %144 = load i32, ptr %7, align 4, !tbaa !14
+  %145 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %146 = load i32, ptr %145, align 8, !tbaa !14
+  %147 = add i32 %146, %144
+  store i32 %147, ptr %145, align 8, !tbaa !14
+  %148 = load i32, ptr %7, align 4, !tbaa !14
+  %149 = load i32, ptr %8, align 4, !tbaa !14
+  %150 = add i32 %148, %149
+  %151 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  store i32 %150, ptr %151, align 8, !tbaa !14
+  %152 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %153 = load i32, ptr %152, align 4, !tbaa !14
+  %154 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %155 = load i32, ptr %154, align 8, !tbaa !14
+  %156 = call i32 @sigma1(i32 noundef %155)
+  %157 = add i32 %153, %156
+  %158 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %159 = load i32, ptr %158, align 8, !tbaa !14
+  %160 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %161 = load i32, ptr %160, align 4, !tbaa !14
+  %162 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %163 = load i32, ptr %162, align 16, !tbaa !14
+  %164 = call i32 @ch(i32 noundef %159, i32 noundef %161, i32 noundef %163)
+  %165 = add i32 %157, %164
+  %166 = add i32 %165, -1245643825
+  %167 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 2
+  %168 = load i32, ptr %167, align 8, !tbaa !14
+  %169 = add i32 %166, %168
+  store i32 %169, ptr %7, align 4, !tbaa !14
+  %170 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %171 = load i32, ptr %170, align 8, !tbaa !14
+  %172 = call i32 @sigma0(i32 noundef %171)
+  %173 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %174 = load i32, ptr %173, align 8, !tbaa !14
+  %175 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %176 = load i32, ptr %175, align 4, !tbaa !14
+  %177 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %178 = load i32, ptr %177, align 16, !tbaa !14
+  %179 = call i32 @maj(i32 noundef %174, i32 noundef %176, i32 noundef %178)
+  %180 = add i32 %172, %179
+  store i32 %180, ptr %8, align 4, !tbaa !14
+  %181 = load i32, ptr %7, align 4, !tbaa !14
+  %182 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %183 = load i32, ptr %182, align 4, !tbaa !14
+  %184 = add i32 %183, %181
+  store i32 %184, ptr %182, align 4, !tbaa !14
+  %185 = load i32, ptr %7, align 4, !tbaa !14
+  %186 = load i32, ptr %8, align 4, !tbaa !14
+  %187 = add i32 %185, %186
+  %188 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  store i32 %187, ptr %188, align 4, !tbaa !14
+  %189 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %190 = load i32, ptr %189, align 16, !tbaa !14
+  %191 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %192 = load i32, ptr %191, align 4, !tbaa !14
+  %193 = call i32 @sigma1(i32 noundef %192)
+  %194 = add i32 %190, %193
+  %195 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %196 = load i32, ptr %195, align 4, !tbaa !14
+  %197 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %198 = load i32, ptr %197, align 8, !tbaa !14
+  %199 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %200 = load i32, ptr %199, align 4, !tbaa !14
+  %201 = call i32 @ch(i32 noundef %196, i32 noundef %198, i32 noundef %200)
+  %202 = add i32 %194, %201
+  %203 = add i32 %202, -373957723
+  %204 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 3
+  %205 = load i32, ptr %204, align 4, !tbaa !14
+  %206 = add i32 %203, %205
+  store i32 %206, ptr %7, align 4, !tbaa !14
+  %207 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %208 = load i32, ptr %207, align 4, !tbaa !14
+  %209 = call i32 @sigma0(i32 noundef %208)
+  %210 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %211 = load i32, ptr %210, align 4, !tbaa !14
+  %212 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %213 = load i32, ptr %212, align 8, !tbaa !14
+  %214 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %215 = load i32, ptr %214, align 4, !tbaa !14
+  %216 = call i32 @maj(i32 noundef %211, i32 noundef %213, i32 noundef %215)
+  %217 = add i32 %209, %216
+  store i32 %217, ptr %8, align 4, !tbaa !14
+  %218 = load i32, ptr %7, align 4, !tbaa !14
+  %219 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %220 = load i32, ptr %219, align 16, !tbaa !14
+  %221 = add i32 %220, %218
+  store i32 %221, ptr %219, align 16, !tbaa !14
+  %222 = load i32, ptr %7, align 4, !tbaa !14
+  %223 = load i32, ptr %8, align 4, !tbaa !14
+  %224 = add i32 %222, %223
+  %225 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  store i32 %224, ptr %225, align 16, !tbaa !14
+  %226 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %227 = load i32, ptr %226, align 4, !tbaa !14
+  %228 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %229 = load i32, ptr %228, align 16, !tbaa !14
+  %230 = call i32 @sigma1(i32 noundef %229)
+  %231 = add i32 %227, %230
+  %232 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %233 = load i32, ptr %232, align 16, !tbaa !14
+  %234 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %235 = load i32, ptr %234, align 4, !tbaa !14
+  %236 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %237 = load i32, ptr %236, align 8, !tbaa !14
+  %238 = call i32 @ch(i32 noundef %233, i32 noundef %235, i32 noundef %237)
+  %239 = add i32 %231, %238
+  %240 = add i32 %239, 961987163
+  %241 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 4
+  %242 = load i32, ptr %241, align 16, !tbaa !14
+  %243 = add i32 %240, %242
+  store i32 %243, ptr %7, align 4, !tbaa !14
+  %244 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %245 = load i32, ptr %244, align 16, !tbaa !14
+  %246 = call i32 @sigma0(i32 noundef %245)
+  %247 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %248 = load i32, ptr %247, align 16, !tbaa !14
+  %249 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %250 = load i32, ptr %249, align 4, !tbaa !14
+  %251 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %252 = load i32, ptr %251, align 8, !tbaa !14
+  %253 = call i32 @maj(i32 noundef %248, i32 noundef %250, i32 noundef %252)
+  %254 = add i32 %246, %253
+  store i32 %254, ptr %8, align 4, !tbaa !14
+  %255 = load i32, ptr %7, align 4, !tbaa !14
+  %256 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %257 = load i32, ptr %256, align 4, !tbaa !14
+  %258 = add i32 %257, %255
+  store i32 %258, ptr %256, align 4, !tbaa !14
+  %259 = load i32, ptr %7, align 4, !tbaa !14
+  %260 = load i32, ptr %8, align 4, !tbaa !14
+  %261 = add i32 %259, %260
+  %262 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  store i32 %261, ptr %262, align 4, !tbaa !14
+  %263 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %264 = load i32, ptr %263, align 8, !tbaa !14
+  %265 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %266 = load i32, ptr %265, align 4, !tbaa !14
+  %267 = call i32 @sigma1(i32 noundef %266)
+  %268 = add i32 %264, %267
+  %269 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %270 = load i32, ptr %269, align 4, !tbaa !14
+  %271 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %272 = load i32, ptr %271, align 16, !tbaa !14
+  %273 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %274 = load i32, ptr %273, align 4, !tbaa !14
+  %275 = call i32 @ch(i32 noundef %270, i32 noundef %272, i32 noundef %274)
+  %276 = add i32 %268, %275
+  %277 = add i32 %276, 1508970993
+  %278 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 5
+  %279 = load i32, ptr %278, align 4, !tbaa !14
+  %280 = add i32 %277, %279
+  store i32 %280, ptr %7, align 4, !tbaa !14
+  %281 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %282 = load i32, ptr %281, align 4, !tbaa !14
+  %283 = call i32 @sigma0(i32 noundef %282)
+  %284 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %285 = load i32, ptr %284, align 4, !tbaa !14
+  %286 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %287 = load i32, ptr %286, align 16, !tbaa !14
+  %288 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %289 = load i32, ptr %288, align 4, !tbaa !14
+  %290 = call i32 @maj(i32 noundef %285, i32 noundef %287, i32 noundef %289)
+  %291 = add i32 %283, %290
+  store i32 %291, ptr %8, align 4, !tbaa !14
+  %292 = load i32, ptr %7, align 4, !tbaa !14
+  %293 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %294 = load i32, ptr %293, align 8, !tbaa !14
+  %295 = add i32 %294, %292
+  store i32 %295, ptr %293, align 8, !tbaa !14
+  %296 = load i32, ptr %7, align 4, !tbaa !14
+  %297 = load i32, ptr %8, align 4, !tbaa !14
+  %298 = add i32 %296, %297
+  %299 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  store i32 %298, ptr %299, align 8, !tbaa !14
+  %300 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %301 = load i32, ptr %300, align 4, !tbaa !14
+  %302 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %303 = load i32, ptr %302, align 8, !tbaa !14
+  %304 = call i32 @sigma1(i32 noundef %303)
+  %305 = add i32 %301, %304
+  %306 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %307 = load i32, ptr %306, align 8, !tbaa !14
+  %308 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %309 = load i32, ptr %308, align 4, !tbaa !14
+  %310 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %311 = load i32, ptr %310, align 16, !tbaa !14
+  %312 = call i32 @ch(i32 noundef %307, i32 noundef %309, i32 noundef %311)
+  %313 = add i32 %305, %312
+  %314 = add i32 %313, -1841331548
+  %315 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 6
+  %316 = load i32, ptr %315, align 8, !tbaa !14
+  %317 = add i32 %314, %316
+  store i32 %317, ptr %7, align 4, !tbaa !14
+  %318 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %319 = load i32, ptr %318, align 8, !tbaa !14
+  %320 = call i32 @sigma0(i32 noundef %319)
+  %321 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %322 = load i32, ptr %321, align 8, !tbaa !14
+  %323 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %324 = load i32, ptr %323, align 4, !tbaa !14
+  %325 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %326 = load i32, ptr %325, align 16, !tbaa !14
+  %327 = call i32 @maj(i32 noundef %322, i32 noundef %324, i32 noundef %326)
+  %328 = add i32 %320, %327
+  store i32 %328, ptr %8, align 4, !tbaa !14
+  %329 = load i32, ptr %7, align 4, !tbaa !14
+  %330 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %331 = load i32, ptr %330, align 4, !tbaa !14
+  %332 = add i32 %331, %329
+  store i32 %332, ptr %330, align 4, !tbaa !14
+  %333 = load i32, ptr %7, align 4, !tbaa !14
+  %334 = load i32, ptr %8, align 4, !tbaa !14
+  %335 = add i32 %333, %334
+  %336 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  store i32 %335, ptr %336, align 4, !tbaa !14
+  %337 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %338 = load i32, ptr %337, align 16, !tbaa !14
+  %339 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %340 = load i32, ptr %339, align 4, !tbaa !14
+  %341 = call i32 @sigma1(i32 noundef %340)
+  %342 = add i32 %338, %341
+  %343 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %344 = load i32, ptr %343, align 4, !tbaa !14
+  %345 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %346 = load i32, ptr %345, align 8, !tbaa !14
+  %347 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %348 = load i32, ptr %347, align 4, !tbaa !14
+  %349 = call i32 @ch(i32 noundef %344, i32 noundef %346, i32 noundef %348)
+  %350 = add i32 %342, %349
+  %351 = add i32 %350, -1424204075
+  %352 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 7
+  %353 = load i32, ptr %352, align 4, !tbaa !14
+  %354 = add i32 %351, %353
+  store i32 %354, ptr %7, align 4, !tbaa !14
+  %355 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %356 = load i32, ptr %355, align 4, !tbaa !14
+  %357 = call i32 @sigma0(i32 noundef %356)
+  %358 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %359 = load i32, ptr %358, align 4, !tbaa !14
+  %360 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %361 = load i32, ptr %360, align 8, !tbaa !14
+  %362 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %363 = load i32, ptr %362, align 4, !tbaa !14
+  %364 = call i32 @maj(i32 noundef %359, i32 noundef %361, i32 noundef %363)
+  %365 = add i32 %357, %364
+  store i32 %365, ptr %8, align 4, !tbaa !14
+  %366 = load i32, ptr %7, align 4, !tbaa !14
+  %367 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %368 = load i32, ptr %367, align 16, !tbaa !14
+  %369 = add i32 %368, %366
+  store i32 %369, ptr %367, align 16, !tbaa !14
+  %370 = load i32, ptr %7, align 4, !tbaa !14
+  %371 = load i32, ptr %8, align 4, !tbaa !14
+  %372 = add i32 %370, %371
+  %373 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  store i32 %372, ptr %373, align 16, !tbaa !14
+  %374 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %375 = load i32, ptr %374, align 4, !tbaa !14
+  %376 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %377 = load i32, ptr %376, align 16, !tbaa !14
+  %378 = call i32 @sigma1(i32 noundef %377)
+  %379 = add i32 %375, %378
+  %380 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %381 = load i32, ptr %380, align 16, !tbaa !14
+  %382 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %383 = load i32, ptr %382, align 4, !tbaa !14
+  %384 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %385 = load i32, ptr %384, align 8, !tbaa !14
+  %386 = call i32 @ch(i32 noundef %381, i32 noundef %383, i32 noundef %385)
+  %387 = add i32 %379, %386
+  %388 = add i32 %387, -670586216
+  %389 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 8
+  %390 = load i32, ptr %389, align 16, !tbaa !14
+  %391 = add i32 %388, %390
+  store i32 %391, ptr %7, align 4, !tbaa !14
+  %392 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %393 = load i32, ptr %392, align 16, !tbaa !14
+  %394 = call i32 @sigma0(i32 noundef %393)
+  %395 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %396 = load i32, ptr %395, align 16, !tbaa !14
+  %397 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %398 = load i32, ptr %397, align 4, !tbaa !14
+  %399 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %400 = load i32, ptr %399, align 8, !tbaa !14
+  %401 = call i32 @maj(i32 noundef %396, i32 noundef %398, i32 noundef %400)
+  %402 = add i32 %394, %401
+  store i32 %402, ptr %8, align 4, !tbaa !14
+  %403 = load i32, ptr %7, align 4, !tbaa !14
+  %404 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %405 = load i32, ptr %404, align 4, !tbaa !14
+  %406 = add i32 %405, %403
+  store i32 %406, ptr %404, align 4, !tbaa !14
+  %407 = load i32, ptr %7, align 4, !tbaa !14
+  %408 = load i32, ptr %8, align 4, !tbaa !14
+  %409 = add i32 %407, %408
+  %410 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  store i32 %409, ptr %410, align 4, !tbaa !14
+  %411 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %412 = load i32, ptr %411, align 8, !tbaa !14
+  %413 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %414 = load i32, ptr %413, align 4, !tbaa !14
+  %415 = call i32 @sigma1(i32 noundef %414)
+  %416 = add i32 %412, %415
+  %417 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %418 = load i32, ptr %417, align 4, !tbaa !14
+  %419 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %420 = load i32, ptr %419, align 16, !tbaa !14
+  %421 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %422 = load i32, ptr %421, align 4, !tbaa !14
+  %423 = call i32 @ch(i32 noundef %418, i32 noundef %420, i32 noundef %422)
+  %424 = add i32 %416, %423
+  %425 = add i32 %424, 310598401
+  %426 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 9
+  %427 = load i32, ptr %426, align 4, !tbaa !14
+  %428 = add i32 %425, %427
+  store i32 %428, ptr %7, align 4, !tbaa !14
+  %429 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %430 = load i32, ptr %429, align 4, !tbaa !14
+  %431 = call i32 @sigma0(i32 noundef %430)
+  %432 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %433 = load i32, ptr %432, align 4, !tbaa !14
+  %434 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %435 = load i32, ptr %434, align 16, !tbaa !14
+  %436 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %437 = load i32, ptr %436, align 4, !tbaa !14
+  %438 = call i32 @maj(i32 noundef %433, i32 noundef %435, i32 noundef %437)
+  %439 = add i32 %431, %438
+  store i32 %439, ptr %8, align 4, !tbaa !14
+  %440 = load i32, ptr %7, align 4, !tbaa !14
+  %441 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %442 = load i32, ptr %441, align 8, !tbaa !14
+  %443 = add i32 %442, %440
+  store i32 %443, ptr %441, align 8, !tbaa !14
+  %444 = load i32, ptr %7, align 4, !tbaa !14
+  %445 = load i32, ptr %8, align 4, !tbaa !14
+  %446 = add i32 %444, %445
+  %447 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  store i32 %446, ptr %447, align 8, !tbaa !14
+  %448 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %449 = load i32, ptr %448, align 4, !tbaa !14
+  %450 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %451 = load i32, ptr %450, align 8, !tbaa !14
+  %452 = call i32 @sigma1(i32 noundef %451)
+  %453 = add i32 %449, %452
+  %454 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %455 = load i32, ptr %454, align 8, !tbaa !14
+  %456 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %457 = load i32, ptr %456, align 4, !tbaa !14
+  %458 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %459 = load i32, ptr %458, align 16, !tbaa !14
+  %460 = call i32 @ch(i32 noundef %455, i32 noundef %457, i32 noundef %459)
+  %461 = add i32 %453, %460
+  %462 = add i32 %461, 607225278
+  %463 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 10
+  %464 = load i32, ptr %463, align 8, !tbaa !14
+  %465 = add i32 %462, %464
+  store i32 %465, ptr %7, align 4, !tbaa !14
+  %466 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %467 = load i32, ptr %466, align 8, !tbaa !14
+  %468 = call i32 @sigma0(i32 noundef %467)
+  %469 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %470 = load i32, ptr %469, align 8, !tbaa !14
+  %471 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %472 = load i32, ptr %471, align 4, !tbaa !14
+  %473 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %474 = load i32, ptr %473, align 16, !tbaa !14
+  %475 = call i32 @maj(i32 noundef %470, i32 noundef %472, i32 noundef %474)
+  %476 = add i32 %468, %475
+  store i32 %476, ptr %8, align 4, !tbaa !14
+  %477 = load i32, ptr %7, align 4, !tbaa !14
+  %478 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %479 = load i32, ptr %478, align 4, !tbaa !14
+  %480 = add i32 %479, %477
+  store i32 %480, ptr %478, align 4, !tbaa !14
+  %481 = load i32, ptr %7, align 4, !tbaa !14
+  %482 = load i32, ptr %8, align 4, !tbaa !14
+  %483 = add i32 %481, %482
+  %484 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  store i32 %483, ptr %484, align 4, !tbaa !14
+  %485 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %486 = load i32, ptr %485, align 16, !tbaa !14
+  %487 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %488 = load i32, ptr %487, align 4, !tbaa !14
+  %489 = call i32 @sigma1(i32 noundef %488)
+  %490 = add i32 %486, %489
+  %491 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %492 = load i32, ptr %491, align 4, !tbaa !14
+  %493 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %494 = load i32, ptr %493, align 8, !tbaa !14
+  %495 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %496 = load i32, ptr %495, align 4, !tbaa !14
+  %497 = call i32 @ch(i32 noundef %492, i32 noundef %494, i32 noundef %496)
+  %498 = add i32 %490, %497
+  %499 = add i32 %498, 1426881987
+  %500 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 11
+  %501 = load i32, ptr %500, align 4, !tbaa !14
+  %502 = add i32 %499, %501
+  store i32 %502, ptr %7, align 4, !tbaa !14
+  %503 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %504 = load i32, ptr %503, align 4, !tbaa !14
+  %505 = call i32 @sigma0(i32 noundef %504)
+  %506 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %507 = load i32, ptr %506, align 4, !tbaa !14
+  %508 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %509 = load i32, ptr %508, align 8, !tbaa !14
+  %510 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %511 = load i32, ptr %510, align 4, !tbaa !14
+  %512 = call i32 @maj(i32 noundef %507, i32 noundef %509, i32 noundef %511)
+  %513 = add i32 %505, %512
+  store i32 %513, ptr %8, align 4, !tbaa !14
+  %514 = load i32, ptr %7, align 4, !tbaa !14
+  %515 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %516 = load i32, ptr %515, align 16, !tbaa !14
+  %517 = add i32 %516, %514
+  store i32 %517, ptr %515, align 16, !tbaa !14
+  %518 = load i32, ptr %7, align 4, !tbaa !14
+  %519 = load i32, ptr %8, align 4, !tbaa !14
+  %520 = add i32 %518, %519
+  %521 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  store i32 %520, ptr %521, align 16, !tbaa !14
+  %522 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %523 = load i32, ptr %522, align 4, !tbaa !14
+  %524 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %525 = load i32, ptr %524, align 16, !tbaa !14
+  %526 = call i32 @sigma1(i32 noundef %525)
+  %527 = add i32 %523, %526
+  %528 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %529 = load i32, ptr %528, align 16, !tbaa !14
+  %530 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %531 = load i32, ptr %530, align 4, !tbaa !14
+  %532 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %533 = load i32, ptr %532, align 8, !tbaa !14
+  %534 = call i32 @ch(i32 noundef %529, i32 noundef %531, i32 noundef %533)
+  %535 = add i32 %527, %534
+  %536 = add i32 %535, 1925078388
+  %537 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 12
+  %538 = load i32, ptr %537, align 16, !tbaa !14
+  %539 = add i32 %536, %538
+  store i32 %539, ptr %7, align 4, !tbaa !14
+  %540 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %541 = load i32, ptr %540, align 16, !tbaa !14
+  %542 = call i32 @sigma0(i32 noundef %541)
+  %543 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %544 = load i32, ptr %543, align 16, !tbaa !14
+  %545 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %546 = load i32, ptr %545, align 4, !tbaa !14
+  %547 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %548 = load i32, ptr %547, align 8, !tbaa !14
+  %549 = call i32 @maj(i32 noundef %544, i32 noundef %546, i32 noundef %548)
+  %550 = add i32 %542, %549
+  store i32 %550, ptr %8, align 4, !tbaa !14
+  %551 = load i32, ptr %7, align 4, !tbaa !14
+  %552 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %553 = load i32, ptr %552, align 4, !tbaa !14
+  %554 = add i32 %553, %551
+  store i32 %554, ptr %552, align 4, !tbaa !14
+  %555 = load i32, ptr %7, align 4, !tbaa !14
+  %556 = load i32, ptr %8, align 4, !tbaa !14
+  %557 = add i32 %555, %556
+  %558 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  store i32 %557, ptr %558, align 4, !tbaa !14
+  %559 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %560 = load i32, ptr %559, align 8, !tbaa !14
+  %561 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %562 = load i32, ptr %561, align 4, !tbaa !14
+  %563 = call i32 @sigma1(i32 noundef %562)
+  %564 = add i32 %560, %563
+  %565 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %566 = load i32, ptr %565, align 4, !tbaa !14
+  %567 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %568 = load i32, ptr %567, align 16, !tbaa !14
+  %569 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %570 = load i32, ptr %569, align 4, !tbaa !14
+  %571 = call i32 @ch(i32 noundef %566, i32 noundef %568, i32 noundef %570)
+  %572 = add i32 %564, %571
+  %573 = add i32 %572, -2132889090
+  %574 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 13
+  %575 = load i32, ptr %574, align 4, !tbaa !14
+  %576 = add i32 %573, %575
+  store i32 %576, ptr %7, align 4, !tbaa !14
+  %577 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %578 = load i32, ptr %577, align 4, !tbaa !14
+  %579 = call i32 @sigma0(i32 noundef %578)
+  %580 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %581 = load i32, ptr %580, align 4, !tbaa !14
+  %582 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %583 = load i32, ptr %582, align 16, !tbaa !14
+  %584 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %585 = load i32, ptr %584, align 4, !tbaa !14
+  %586 = call i32 @maj(i32 noundef %581, i32 noundef %583, i32 noundef %585)
+  %587 = add i32 %579, %586
+  store i32 %587, ptr %8, align 4, !tbaa !14
+  %588 = load i32, ptr %7, align 4, !tbaa !14
+  %589 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %590 = load i32, ptr %589, align 8, !tbaa !14
+  %591 = add i32 %590, %588
+  store i32 %591, ptr %589, align 8, !tbaa !14
+  %592 = load i32, ptr %7, align 4, !tbaa !14
+  %593 = load i32, ptr %8, align 4, !tbaa !14
+  %594 = add i32 %592, %593
+  %595 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  store i32 %594, ptr %595, align 8, !tbaa !14
+  %596 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %597 = load i32, ptr %596, align 4, !tbaa !14
+  %598 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %599 = load i32, ptr %598, align 8, !tbaa !14
+  %600 = call i32 @sigma1(i32 noundef %599)
+  %601 = add i32 %597, %600
+  %602 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %603 = load i32, ptr %602, align 8, !tbaa !14
+  %604 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %605 = load i32, ptr %604, align 4, !tbaa !14
+  %606 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %607 = load i32, ptr %606, align 16, !tbaa !14
+  %608 = call i32 @ch(i32 noundef %603, i32 noundef %605, i32 noundef %607)
+  %609 = add i32 %601, %608
+  %610 = add i32 %609, -1680079193
+  %611 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 14
+  %612 = load i32, ptr %611, align 8, !tbaa !14
+  %613 = add i32 %610, %612
+  store i32 %613, ptr %7, align 4, !tbaa !14
+  %614 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %615 = load i32, ptr %614, align 8, !tbaa !14
+  %616 = call i32 @sigma0(i32 noundef %615)
+  %617 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %618 = load i32, ptr %617, align 8, !tbaa !14
+  %619 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %620 = load i32, ptr %619, align 4, !tbaa !14
+  %621 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %622 = load i32, ptr %621, align 16, !tbaa !14
+  %623 = call i32 @maj(i32 noundef %618, i32 noundef %620, i32 noundef %622)
+  %624 = add i32 %616, %623
+  store i32 %624, ptr %8, align 4, !tbaa !14
+  %625 = load i32, ptr %7, align 4, !tbaa !14
+  %626 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %627 = load i32, ptr %626, align 4, !tbaa !14
+  %628 = add i32 %627, %625
+  store i32 %628, ptr %626, align 4, !tbaa !14
+  %629 = load i32, ptr %7, align 4, !tbaa !14
+  %630 = load i32, ptr %8, align 4, !tbaa !14
+  %631 = add i32 %629, %630
+  %632 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  store i32 %631, ptr %632, align 4, !tbaa !14
+  %633 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %634 = load i32, ptr %633, align 16, !tbaa !14
+  %635 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %636 = load i32, ptr %635, align 4, !tbaa !14
+  %637 = call i32 @sigma1(i32 noundef %636)
+  %638 = add i32 %634, %637
+  %639 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %640 = load i32, ptr %639, align 4, !tbaa !14
+  %641 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %642 = load i32, ptr %641, align 8, !tbaa !14
+  %643 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %644 = load i32, ptr %643, align 4, !tbaa !14
+  %645 = call i32 @ch(i32 noundef %640, i32 noundef %642, i32 noundef %644)
+  %646 = add i32 %638, %645
+  %647 = add i32 %646, -1046744716
+  %648 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 15
+  %649 = load i32, ptr %648, align 4, !tbaa !14
+  %650 = add i32 %647, %649
+  store i32 %650, ptr %7, align 4, !tbaa !14
+  %651 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %652 = load i32, ptr %651, align 4, !tbaa !14
+  %653 = call i32 @sigma0(i32 noundef %652)
+  %654 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %655 = load i32, ptr %654, align 4, !tbaa !14
+  %656 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %657 = load i32, ptr %656, align 8, !tbaa !14
+  %658 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %659 = load i32, ptr %658, align 4, !tbaa !14
+  %660 = call i32 @maj(i32 noundef %655, i32 noundef %657, i32 noundef %659)
+  %661 = add i32 %653, %660
+  store i32 %661, ptr %8, align 4, !tbaa !14
+  %662 = load i32, ptr %7, align 4, !tbaa !14
+  %663 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %664 = load i32, ptr %663, align 16, !tbaa !14
+  %665 = add i32 %664, %662
+  store i32 %665, ptr %663, align 16, !tbaa !14
+  %666 = load i32, ptr %7, align 4, !tbaa !14
+  %667 = load i32, ptr %8, align 4, !tbaa !14
+  %668 = add i32 %666, %667
+  %669 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  store i32 %668, ptr %669, align 16, !tbaa !14
+  %670 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %671 = load i32, ptr %670, align 4, !tbaa !14
+  %672 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %673 = load i32, ptr %672, align 16, !tbaa !14
+  %674 = call i32 @sigma1(i32 noundef %673)
+  %675 = add i32 %671, %674
+  %676 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %677 = load i32, ptr %676, align 16, !tbaa !14
+  %678 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %679 = load i32, ptr %678, align 4, !tbaa !14
+  %680 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %681 = load i32, ptr %680, align 8, !tbaa !14
+  %682 = call i32 @ch(i32 noundef %677, i32 noundef %679, i32 noundef %681)
+  %683 = add i32 %675, %682
+  %684 = add i32 %683, -459576895
+  %685 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 16
+  %686 = load i32, ptr %685, align 16, !tbaa !14
+  %687 = add i32 %684, %686
+  store i32 %687, ptr %7, align 4, !tbaa !14
+  %688 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %689 = load i32, ptr %688, align 16, !tbaa !14
+  %690 = call i32 @sigma0(i32 noundef %689)
+  %691 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %692 = load i32, ptr %691, align 16, !tbaa !14
+  %693 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %694 = load i32, ptr %693, align 4, !tbaa !14
+  %695 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %696 = load i32, ptr %695, align 8, !tbaa !14
+  %697 = call i32 @maj(i32 noundef %692, i32 noundef %694, i32 noundef %696)
+  %698 = add i32 %690, %697
+  store i32 %698, ptr %8, align 4, !tbaa !14
+  %699 = load i32, ptr %7, align 4, !tbaa !14
+  %700 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %701 = load i32, ptr %700, align 4, !tbaa !14
+  %702 = add i32 %701, %699
+  store i32 %702, ptr %700, align 4, !tbaa !14
+  %703 = load i32, ptr %7, align 4, !tbaa !14
+  %704 = load i32, ptr %8, align 4, !tbaa !14
+  %705 = add i32 %703, %704
+  %706 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  store i32 %705, ptr %706, align 4, !tbaa !14
+  %707 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %708 = load i32, ptr %707, align 8, !tbaa !14
+  %709 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %710 = load i32, ptr %709, align 4, !tbaa !14
+  %711 = call i32 @sigma1(i32 noundef %710)
+  %712 = add i32 %708, %711
+  %713 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %714 = load i32, ptr %713, align 4, !tbaa !14
+  %715 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %716 = load i32, ptr %715, align 16, !tbaa !14
+  %717 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %718 = load i32, ptr %717, align 4, !tbaa !14
+  %719 = call i32 @ch(i32 noundef %714, i32 noundef %716, i32 noundef %718)
+  %720 = add i32 %712, %719
+  %721 = add i32 %720, -272742522
+  %722 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 17
+  %723 = load i32, ptr %722, align 4, !tbaa !14
+  %724 = add i32 %721, %723
+  store i32 %724, ptr %7, align 4, !tbaa !14
+  %725 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %726 = load i32, ptr %725, align 4, !tbaa !14
+  %727 = call i32 @sigma0(i32 noundef %726)
+  %728 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %729 = load i32, ptr %728, align 4, !tbaa !14
+  %730 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %731 = load i32, ptr %730, align 16, !tbaa !14
+  %732 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %733 = load i32, ptr %732, align 4, !tbaa !14
+  %734 = call i32 @maj(i32 noundef %729, i32 noundef %731, i32 noundef %733)
+  %735 = add i32 %727, %734
+  store i32 %735, ptr %8, align 4, !tbaa !14
+  %736 = load i32, ptr %7, align 4, !tbaa !14
+  %737 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %738 = load i32, ptr %737, align 8, !tbaa !14
+  %739 = add i32 %738, %736
+  store i32 %739, ptr %737, align 8, !tbaa !14
+  %740 = load i32, ptr %7, align 4, !tbaa !14
+  %741 = load i32, ptr %8, align 4, !tbaa !14
+  %742 = add i32 %740, %741
+  %743 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  store i32 %742, ptr %743, align 8, !tbaa !14
+  %744 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %745 = load i32, ptr %744, align 4, !tbaa !14
+  %746 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %747 = load i32, ptr %746, align 8, !tbaa !14
+  %748 = call i32 @sigma1(i32 noundef %747)
+  %749 = add i32 %745, %748
+  %750 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %751 = load i32, ptr %750, align 8, !tbaa !14
+  %752 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %753 = load i32, ptr %752, align 4, !tbaa !14
+  %754 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %755 = load i32, ptr %754, align 16, !tbaa !14
+  %756 = call i32 @ch(i32 noundef %751, i32 noundef %753, i32 noundef %755)
+  %757 = add i32 %749, %756
+  %758 = add i32 %757, 264347078
+  %759 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 18
+  %760 = load i32, ptr %759, align 8, !tbaa !14
+  %761 = add i32 %758, %760
+  store i32 %761, ptr %7, align 4, !tbaa !14
+  %762 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %763 = load i32, ptr %762, align 8, !tbaa !14
+  %764 = call i32 @sigma0(i32 noundef %763)
+  %765 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %766 = load i32, ptr %765, align 8, !tbaa !14
+  %767 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %768 = load i32, ptr %767, align 4, !tbaa !14
+  %769 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %770 = load i32, ptr %769, align 16, !tbaa !14
+  %771 = call i32 @maj(i32 noundef %766, i32 noundef %768, i32 noundef %770)
+  %772 = add i32 %764, %771
+  store i32 %772, ptr %8, align 4, !tbaa !14
+  %773 = load i32, ptr %7, align 4, !tbaa !14
+  %774 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %775 = load i32, ptr %774, align 4, !tbaa !14
+  %776 = add i32 %775, %773
+  store i32 %776, ptr %774, align 4, !tbaa !14
+  %777 = load i32, ptr %7, align 4, !tbaa !14
+  %778 = load i32, ptr %8, align 4, !tbaa !14
+  %779 = add i32 %777, %778
+  %780 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  store i32 %779, ptr %780, align 4, !tbaa !14
+  %781 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %782 = load i32, ptr %781, align 16, !tbaa !14
+  %783 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %784 = load i32, ptr %783, align 4, !tbaa !14
+  %785 = call i32 @sigma1(i32 noundef %784)
+  %786 = add i32 %782, %785
+  %787 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %788 = load i32, ptr %787, align 4, !tbaa !14
+  %789 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %790 = load i32, ptr %789, align 8, !tbaa !14
+  %791 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %792 = load i32, ptr %791, align 4, !tbaa !14
+  %793 = call i32 @ch(i32 noundef %788, i32 noundef %790, i32 noundef %792)
+  %794 = add i32 %786, %793
+  %795 = add i32 %794, 604807628
+  %796 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 19
+  %797 = load i32, ptr %796, align 4, !tbaa !14
+  %798 = add i32 %795, %797
+  store i32 %798, ptr %7, align 4, !tbaa !14
+  %799 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %800 = load i32, ptr %799, align 4, !tbaa !14
+  %801 = call i32 @sigma0(i32 noundef %800)
+  %802 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %803 = load i32, ptr %802, align 4, !tbaa !14
+  %804 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %805 = load i32, ptr %804, align 8, !tbaa !14
+  %806 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %807 = load i32, ptr %806, align 4, !tbaa !14
+  %808 = call i32 @maj(i32 noundef %803, i32 noundef %805, i32 noundef %807)
+  %809 = add i32 %801, %808
+  store i32 %809, ptr %8, align 4, !tbaa !14
+  %810 = load i32, ptr %7, align 4, !tbaa !14
+  %811 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %812 = load i32, ptr %811, align 16, !tbaa !14
+  %813 = add i32 %812, %810
+  store i32 %813, ptr %811, align 16, !tbaa !14
+  %814 = load i32, ptr %7, align 4, !tbaa !14
+  %815 = load i32, ptr %8, align 4, !tbaa !14
+  %816 = add i32 %814, %815
+  %817 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  store i32 %816, ptr %817, align 16, !tbaa !14
+  %818 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %819 = load i32, ptr %818, align 4, !tbaa !14
+  %820 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %821 = load i32, ptr %820, align 16, !tbaa !14
+  %822 = call i32 @sigma1(i32 noundef %821)
+  %823 = add i32 %819, %822
+  %824 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %825 = load i32, ptr %824, align 16, !tbaa !14
+  %826 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %827 = load i32, ptr %826, align 4, !tbaa !14
+  %828 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %829 = load i32, ptr %828, align 8, !tbaa !14
+  %830 = call i32 @ch(i32 noundef %825, i32 noundef %827, i32 noundef %829)
+  %831 = add i32 %823, %830
+  %832 = add i32 %831, 770255983
+  %833 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 20
+  %834 = load i32, ptr %833, align 16, !tbaa !14
+  %835 = add i32 %832, %834
+  store i32 %835, ptr %7, align 4, !tbaa !14
+  %836 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %837 = load i32, ptr %836, align 16, !tbaa !14
+  %838 = call i32 @sigma0(i32 noundef %837)
+  %839 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %840 = load i32, ptr %839, align 16, !tbaa !14
+  %841 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %842 = load i32, ptr %841, align 4, !tbaa !14
+  %843 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %844 = load i32, ptr %843, align 8, !tbaa !14
+  %845 = call i32 @maj(i32 noundef %840, i32 noundef %842, i32 noundef %844)
+  %846 = add i32 %838, %845
+  store i32 %846, ptr %8, align 4, !tbaa !14
+  %847 = load i32, ptr %7, align 4, !tbaa !14
+  %848 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %849 = load i32, ptr %848, align 4, !tbaa !14
+  %850 = add i32 %849, %847
+  store i32 %850, ptr %848, align 4, !tbaa !14
+  %851 = load i32, ptr %7, align 4, !tbaa !14
+  %852 = load i32, ptr %8, align 4, !tbaa !14
+  %853 = add i32 %851, %852
+  %854 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  store i32 %853, ptr %854, align 4, !tbaa !14
+  %855 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %856 = load i32, ptr %855, align 8, !tbaa !14
+  %857 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %858 = load i32, ptr %857, align 4, !tbaa !14
+  %859 = call i32 @sigma1(i32 noundef %858)
+  %860 = add i32 %856, %859
+  %861 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %862 = load i32, ptr %861, align 4, !tbaa !14
+  %863 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %864 = load i32, ptr %863, align 16, !tbaa !14
+  %865 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %866 = load i32, ptr %865, align 4, !tbaa !14
+  %867 = call i32 @ch(i32 noundef %862, i32 noundef %864, i32 noundef %866)
+  %868 = add i32 %860, %867
+  %869 = add i32 %868, 1249150122
+  %870 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 21
+  %871 = load i32, ptr %870, align 4, !tbaa !14
+  %872 = add i32 %869, %871
+  store i32 %872, ptr %7, align 4, !tbaa !14
+  %873 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %874 = load i32, ptr %873, align 4, !tbaa !14
+  %875 = call i32 @sigma0(i32 noundef %874)
+  %876 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %877 = load i32, ptr %876, align 4, !tbaa !14
+  %878 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %879 = load i32, ptr %878, align 16, !tbaa !14
+  %880 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %881 = load i32, ptr %880, align 4, !tbaa !14
+  %882 = call i32 @maj(i32 noundef %877, i32 noundef %879, i32 noundef %881)
+  %883 = add i32 %875, %882
+  store i32 %883, ptr %8, align 4, !tbaa !14
+  %884 = load i32, ptr %7, align 4, !tbaa !14
+  %885 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %886 = load i32, ptr %885, align 8, !tbaa !14
+  %887 = add i32 %886, %884
+  store i32 %887, ptr %885, align 8, !tbaa !14
+  %888 = load i32, ptr %7, align 4, !tbaa !14
+  %889 = load i32, ptr %8, align 4, !tbaa !14
+  %890 = add i32 %888, %889
+  %891 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  store i32 %890, ptr %891, align 8, !tbaa !14
+  %892 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %893 = load i32, ptr %892, align 4, !tbaa !14
+  %894 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %895 = load i32, ptr %894, align 8, !tbaa !14
+  %896 = call i32 @sigma1(i32 noundef %895)
+  %897 = add i32 %893, %896
+  %898 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %899 = load i32, ptr %898, align 8, !tbaa !14
+  %900 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %901 = load i32, ptr %900, align 4, !tbaa !14
+  %902 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %903 = load i32, ptr %902, align 16, !tbaa !14
+  %904 = call i32 @ch(i32 noundef %899, i32 noundef %901, i32 noundef %903)
+  %905 = add i32 %897, %904
+  %906 = add i32 %905, 1555081692
+  %907 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 22
+  %908 = load i32, ptr %907, align 8, !tbaa !14
+  %909 = add i32 %906, %908
+  store i32 %909, ptr %7, align 4, !tbaa !14
+  %910 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %911 = load i32, ptr %910, align 8, !tbaa !14
+  %912 = call i32 @sigma0(i32 noundef %911)
+  %913 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %914 = load i32, ptr %913, align 8, !tbaa !14
+  %915 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %916 = load i32, ptr %915, align 4, !tbaa !14
+  %917 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %918 = load i32, ptr %917, align 16, !tbaa !14
+  %919 = call i32 @maj(i32 noundef %914, i32 noundef %916, i32 noundef %918)
+  %920 = add i32 %912, %919
+  store i32 %920, ptr %8, align 4, !tbaa !14
+  %921 = load i32, ptr %7, align 4, !tbaa !14
+  %922 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %923 = load i32, ptr %922, align 4, !tbaa !14
+  %924 = add i32 %923, %921
+  store i32 %924, ptr %922, align 4, !tbaa !14
+  %925 = load i32, ptr %7, align 4, !tbaa !14
+  %926 = load i32, ptr %8, align 4, !tbaa !14
+  %927 = add i32 %925, %926
+  %928 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  store i32 %927, ptr %928, align 4, !tbaa !14
+  %929 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %930 = load i32, ptr %929, align 16, !tbaa !14
+  %931 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %932 = load i32, ptr %931, align 4, !tbaa !14
+  %933 = call i32 @sigma1(i32 noundef %932)
+  %934 = add i32 %930, %933
+  %935 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %936 = load i32, ptr %935, align 4, !tbaa !14
+  %937 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %938 = load i32, ptr %937, align 8, !tbaa !14
+  %939 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %940 = load i32, ptr %939, align 4, !tbaa !14
+  %941 = call i32 @ch(i32 noundef %936, i32 noundef %938, i32 noundef %940)
+  %942 = add i32 %934, %941
+  %943 = add i32 %942, 1996064986
+  %944 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 23
+  %945 = load i32, ptr %944, align 4, !tbaa !14
+  %946 = add i32 %943, %945
+  store i32 %946, ptr %7, align 4, !tbaa !14
+  %947 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %948 = load i32, ptr %947, align 4, !tbaa !14
+  %949 = call i32 @sigma0(i32 noundef %948)
+  %950 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %951 = load i32, ptr %950, align 4, !tbaa !14
+  %952 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %953 = load i32, ptr %952, align 8, !tbaa !14
+  %954 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %955 = load i32, ptr %954, align 4, !tbaa !14
+  %956 = call i32 @maj(i32 noundef %951, i32 noundef %953, i32 noundef %955)
+  %957 = add i32 %949, %956
+  store i32 %957, ptr %8, align 4, !tbaa !14
+  %958 = load i32, ptr %7, align 4, !tbaa !14
+  %959 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %960 = load i32, ptr %959, align 16, !tbaa !14
+  %961 = add i32 %960, %958
+  store i32 %961, ptr %959, align 16, !tbaa !14
+  %962 = load i32, ptr %7, align 4, !tbaa !14
+  %963 = load i32, ptr %8, align 4, !tbaa !14
+  %964 = add i32 %962, %963
+  %965 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  store i32 %964, ptr %965, align 16, !tbaa !14
+  %966 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %967 = load i32, ptr %966, align 4, !tbaa !14
+  %968 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %969 = load i32, ptr %968, align 16, !tbaa !14
+  %970 = call i32 @sigma1(i32 noundef %969)
+  %971 = add i32 %967, %970
+  %972 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %973 = load i32, ptr %972, align 16, !tbaa !14
+  %974 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %975 = load i32, ptr %974, align 4, !tbaa !14
+  %976 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %977 = load i32, ptr %976, align 8, !tbaa !14
+  %978 = call i32 @ch(i32 noundef %973, i32 noundef %975, i32 noundef %977)
+  %979 = add i32 %971, %978
+  %980 = add i32 %979, -1740746414
+  %981 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 24
+  %982 = load i32, ptr %981, align 16, !tbaa !14
+  %983 = add i32 %980, %982
+  store i32 %983, ptr %7, align 4, !tbaa !14
+  %984 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %985 = load i32, ptr %984, align 16, !tbaa !14
+  %986 = call i32 @sigma0(i32 noundef %985)
+  %987 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %988 = load i32, ptr %987, align 16, !tbaa !14
+  %989 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %990 = load i32, ptr %989, align 4, !tbaa !14
+  %991 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %992 = load i32, ptr %991, align 8, !tbaa !14
+  %993 = call i32 @maj(i32 noundef %988, i32 noundef %990, i32 noundef %992)
+  %994 = add i32 %986, %993
+  store i32 %994, ptr %8, align 4, !tbaa !14
+  %995 = load i32, ptr %7, align 4, !tbaa !14
+  %996 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %997 = load i32, ptr %996, align 4, !tbaa !14
+  %998 = add i32 %997, %995
+  store i32 %998, ptr %996, align 4, !tbaa !14
+  %999 = load i32, ptr %7, align 4, !tbaa !14
+  %1000 = load i32, ptr %8, align 4, !tbaa !14
+  %1001 = add i32 %999, %1000
+  %1002 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  store i32 %1001, ptr %1002, align 4, !tbaa !14
+  %1003 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1004 = load i32, ptr %1003, align 8, !tbaa !14
+  %1005 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1006 = load i32, ptr %1005, align 4, !tbaa !14
+  %1007 = call i32 @sigma1(i32 noundef %1006)
+  %1008 = add i32 %1004, %1007
+  %1009 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1010 = load i32, ptr %1009, align 4, !tbaa !14
+  %1011 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1012 = load i32, ptr %1011, align 16, !tbaa !14
+  %1013 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1014 = load i32, ptr %1013, align 4, !tbaa !14
+  %1015 = call i32 @ch(i32 noundef %1010, i32 noundef %1012, i32 noundef %1014)
+  %1016 = add i32 %1008, %1015
+  %1017 = add i32 %1016, -1473132947
+  %1018 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 25
+  %1019 = load i32, ptr %1018, align 4, !tbaa !14
+  %1020 = add i32 %1017, %1019
+  store i32 %1020, ptr %7, align 4, !tbaa !14
+  %1021 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1022 = load i32, ptr %1021, align 4, !tbaa !14
+  %1023 = call i32 @sigma0(i32 noundef %1022)
+  %1024 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1025 = load i32, ptr %1024, align 4, !tbaa !14
+  %1026 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1027 = load i32, ptr %1026, align 16, !tbaa !14
+  %1028 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1029 = load i32, ptr %1028, align 4, !tbaa !14
+  %1030 = call i32 @maj(i32 noundef %1025, i32 noundef %1027, i32 noundef %1029)
+  %1031 = add i32 %1023, %1030
+  store i32 %1031, ptr %8, align 4, !tbaa !14
+  %1032 = load i32, ptr %7, align 4, !tbaa !14
+  %1033 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1034 = load i32, ptr %1033, align 8, !tbaa !14
+  %1035 = add i32 %1034, %1032
+  store i32 %1035, ptr %1033, align 8, !tbaa !14
+  %1036 = load i32, ptr %7, align 4, !tbaa !14
+  %1037 = load i32, ptr %8, align 4, !tbaa !14
+  %1038 = add i32 %1036, %1037
+  %1039 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  store i32 %1038, ptr %1039, align 8, !tbaa !14
+  %1040 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1041 = load i32, ptr %1040, align 4, !tbaa !14
+  %1042 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1043 = load i32, ptr %1042, align 8, !tbaa !14
+  %1044 = call i32 @sigma1(i32 noundef %1043)
+  %1045 = add i32 %1041, %1044
+  %1046 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1047 = load i32, ptr %1046, align 8, !tbaa !14
+  %1048 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1049 = load i32, ptr %1048, align 4, !tbaa !14
+  %1050 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1051 = load i32, ptr %1050, align 16, !tbaa !14
+  %1052 = call i32 @ch(i32 noundef %1047, i32 noundef %1049, i32 noundef %1051)
+  %1053 = add i32 %1045, %1052
+  %1054 = add i32 %1053, -1341970488
+  %1055 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 26
+  %1056 = load i32, ptr %1055, align 8, !tbaa !14
+  %1057 = add i32 %1054, %1056
+  store i32 %1057, ptr %7, align 4, !tbaa !14
+  %1058 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1059 = load i32, ptr %1058, align 8, !tbaa !14
+  %1060 = call i32 @sigma0(i32 noundef %1059)
+  %1061 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1062 = load i32, ptr %1061, align 8, !tbaa !14
+  %1063 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1064 = load i32, ptr %1063, align 4, !tbaa !14
+  %1065 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1066 = load i32, ptr %1065, align 16, !tbaa !14
+  %1067 = call i32 @maj(i32 noundef %1062, i32 noundef %1064, i32 noundef %1066)
+  %1068 = add i32 %1060, %1067
+  store i32 %1068, ptr %8, align 4, !tbaa !14
+  %1069 = load i32, ptr %7, align 4, !tbaa !14
+  %1070 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1071 = load i32, ptr %1070, align 4, !tbaa !14
+  %1072 = add i32 %1071, %1069
+  store i32 %1072, ptr %1070, align 4, !tbaa !14
+  %1073 = load i32, ptr %7, align 4, !tbaa !14
+  %1074 = load i32, ptr %8, align 4, !tbaa !14
+  %1075 = add i32 %1073, %1074
+  %1076 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  store i32 %1075, ptr %1076, align 4, !tbaa !14
+  %1077 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1078 = load i32, ptr %1077, align 16, !tbaa !14
+  %1079 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1080 = load i32, ptr %1079, align 4, !tbaa !14
+  %1081 = call i32 @sigma1(i32 noundef %1080)
+  %1082 = add i32 %1078, %1081
+  %1083 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1084 = load i32, ptr %1083, align 4, !tbaa !14
+  %1085 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1086 = load i32, ptr %1085, align 8, !tbaa !14
+  %1087 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1088 = load i32, ptr %1087, align 4, !tbaa !14
+  %1089 = call i32 @ch(i32 noundef %1084, i32 noundef %1086, i32 noundef %1088)
+  %1090 = add i32 %1082, %1089
+  %1091 = add i32 %1090, -1084653625
+  %1092 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 27
+  %1093 = load i32, ptr %1092, align 4, !tbaa !14
+  %1094 = add i32 %1091, %1093
+  store i32 %1094, ptr %7, align 4, !tbaa !14
+  %1095 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1096 = load i32, ptr %1095, align 4, !tbaa !14
+  %1097 = call i32 @sigma0(i32 noundef %1096)
+  %1098 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1099 = load i32, ptr %1098, align 4, !tbaa !14
+  %1100 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1101 = load i32, ptr %1100, align 8, !tbaa !14
+  %1102 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1103 = load i32, ptr %1102, align 4, !tbaa !14
+  %1104 = call i32 @maj(i32 noundef %1099, i32 noundef %1101, i32 noundef %1103)
+  %1105 = add i32 %1097, %1104
+  store i32 %1105, ptr %8, align 4, !tbaa !14
+  %1106 = load i32, ptr %7, align 4, !tbaa !14
+  %1107 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1108 = load i32, ptr %1107, align 16, !tbaa !14
+  %1109 = add i32 %1108, %1106
+  store i32 %1109, ptr %1107, align 16, !tbaa !14
+  %1110 = load i32, ptr %7, align 4, !tbaa !14
+  %1111 = load i32, ptr %8, align 4, !tbaa !14
+  %1112 = add i32 %1110, %1111
+  %1113 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  store i32 %1112, ptr %1113, align 16, !tbaa !14
+  %1114 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1115 = load i32, ptr %1114, align 4, !tbaa !14
+  %1116 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1117 = load i32, ptr %1116, align 16, !tbaa !14
+  %1118 = call i32 @sigma1(i32 noundef %1117)
+  %1119 = add i32 %1115, %1118
+  %1120 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1121 = load i32, ptr %1120, align 16, !tbaa !14
+  %1122 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1123 = load i32, ptr %1122, align 4, !tbaa !14
+  %1124 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1125 = load i32, ptr %1124, align 8, !tbaa !14
+  %1126 = call i32 @ch(i32 noundef %1121, i32 noundef %1123, i32 noundef %1125)
+  %1127 = add i32 %1119, %1126
+  %1128 = add i32 %1127, -958395405
+  %1129 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 28
+  %1130 = load i32, ptr %1129, align 16, !tbaa !14
+  %1131 = add i32 %1128, %1130
+  store i32 %1131, ptr %7, align 4, !tbaa !14
+  %1132 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1133 = load i32, ptr %1132, align 16, !tbaa !14
+  %1134 = call i32 @sigma0(i32 noundef %1133)
+  %1135 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1136 = load i32, ptr %1135, align 16, !tbaa !14
+  %1137 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1138 = load i32, ptr %1137, align 4, !tbaa !14
+  %1139 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1140 = load i32, ptr %1139, align 8, !tbaa !14
+  %1141 = call i32 @maj(i32 noundef %1136, i32 noundef %1138, i32 noundef %1140)
+  %1142 = add i32 %1134, %1141
+  store i32 %1142, ptr %8, align 4, !tbaa !14
+  %1143 = load i32, ptr %7, align 4, !tbaa !14
+  %1144 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1145 = load i32, ptr %1144, align 4, !tbaa !14
+  %1146 = add i32 %1145, %1143
+  store i32 %1146, ptr %1144, align 4, !tbaa !14
+  %1147 = load i32, ptr %7, align 4, !tbaa !14
+  %1148 = load i32, ptr %8, align 4, !tbaa !14
+  %1149 = add i32 %1147, %1148
+  %1150 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  store i32 %1149, ptr %1150, align 4, !tbaa !14
+  %1151 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1152 = load i32, ptr %1151, align 8, !tbaa !14
+  %1153 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1154 = load i32, ptr %1153, align 4, !tbaa !14
+  %1155 = call i32 @sigma1(i32 noundef %1154)
+  %1156 = add i32 %1152, %1155
+  %1157 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1158 = load i32, ptr %1157, align 4, !tbaa !14
+  %1159 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1160 = load i32, ptr %1159, align 16, !tbaa !14
+  %1161 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1162 = load i32, ptr %1161, align 4, !tbaa !14
+  %1163 = call i32 @ch(i32 noundef %1158, i32 noundef %1160, i32 noundef %1162)
+  %1164 = add i32 %1156, %1163
+  %1165 = add i32 %1164, -710438585
+  %1166 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 29
+  %1167 = load i32, ptr %1166, align 4, !tbaa !14
+  %1168 = add i32 %1165, %1167
+  store i32 %1168, ptr %7, align 4, !tbaa !14
+  %1169 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1170 = load i32, ptr %1169, align 4, !tbaa !14
+  %1171 = call i32 @sigma0(i32 noundef %1170)
+  %1172 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1173 = load i32, ptr %1172, align 4, !tbaa !14
+  %1174 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1175 = load i32, ptr %1174, align 16, !tbaa !14
+  %1176 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1177 = load i32, ptr %1176, align 4, !tbaa !14
+  %1178 = call i32 @maj(i32 noundef %1173, i32 noundef %1175, i32 noundef %1177)
+  %1179 = add i32 %1171, %1178
+  store i32 %1179, ptr %8, align 4, !tbaa !14
+  %1180 = load i32, ptr %7, align 4, !tbaa !14
+  %1181 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1182 = load i32, ptr %1181, align 8, !tbaa !14
+  %1183 = add i32 %1182, %1180
+  store i32 %1183, ptr %1181, align 8, !tbaa !14
+  %1184 = load i32, ptr %7, align 4, !tbaa !14
+  %1185 = load i32, ptr %8, align 4, !tbaa !14
+  %1186 = add i32 %1184, %1185
+  %1187 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  store i32 %1186, ptr %1187, align 8, !tbaa !14
+  %1188 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1189 = load i32, ptr %1188, align 4, !tbaa !14
+  %1190 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1191 = load i32, ptr %1190, align 8, !tbaa !14
+  %1192 = call i32 @sigma1(i32 noundef %1191)
+  %1193 = add i32 %1189, %1192
+  %1194 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1195 = load i32, ptr %1194, align 8, !tbaa !14
+  %1196 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1197 = load i32, ptr %1196, align 4, !tbaa !14
+  %1198 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1199 = load i32, ptr %1198, align 16, !tbaa !14
+  %1200 = call i32 @ch(i32 noundef %1195, i32 noundef %1197, i32 noundef %1199)
+  %1201 = add i32 %1193, %1200
+  %1202 = add i32 %1201, 113926993
+  %1203 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 30
+  %1204 = load i32, ptr %1203, align 8, !tbaa !14
+  %1205 = add i32 %1202, %1204
+  store i32 %1205, ptr %7, align 4, !tbaa !14
+  %1206 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1207 = load i32, ptr %1206, align 8, !tbaa !14
+  %1208 = call i32 @sigma0(i32 noundef %1207)
+  %1209 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1210 = load i32, ptr %1209, align 8, !tbaa !14
+  %1211 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1212 = load i32, ptr %1211, align 4, !tbaa !14
+  %1213 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1214 = load i32, ptr %1213, align 16, !tbaa !14
+  %1215 = call i32 @maj(i32 noundef %1210, i32 noundef %1212, i32 noundef %1214)
+  %1216 = add i32 %1208, %1215
+  store i32 %1216, ptr %8, align 4, !tbaa !14
+  %1217 = load i32, ptr %7, align 4, !tbaa !14
+  %1218 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1219 = load i32, ptr %1218, align 4, !tbaa !14
+  %1220 = add i32 %1219, %1217
+  store i32 %1220, ptr %1218, align 4, !tbaa !14
+  %1221 = load i32, ptr %7, align 4, !tbaa !14
+  %1222 = load i32, ptr %8, align 4, !tbaa !14
+  %1223 = add i32 %1221, %1222
+  %1224 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  store i32 %1223, ptr %1224, align 4, !tbaa !14
+  %1225 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1226 = load i32, ptr %1225, align 16, !tbaa !14
+  %1227 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1228 = load i32, ptr %1227, align 4, !tbaa !14
+  %1229 = call i32 @sigma1(i32 noundef %1228)
+  %1230 = add i32 %1226, %1229
+  %1231 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1232 = load i32, ptr %1231, align 4, !tbaa !14
+  %1233 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1234 = load i32, ptr %1233, align 8, !tbaa !14
+  %1235 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1236 = load i32, ptr %1235, align 4, !tbaa !14
+  %1237 = call i32 @ch(i32 noundef %1232, i32 noundef %1234, i32 noundef %1236)
+  %1238 = add i32 %1230, %1237
+  %1239 = add i32 %1238, 338241895
+  %1240 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 31
+  %1241 = load i32, ptr %1240, align 4, !tbaa !14
+  %1242 = add i32 %1239, %1241
+  store i32 %1242, ptr %7, align 4, !tbaa !14
+  %1243 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1244 = load i32, ptr %1243, align 4, !tbaa !14
+  %1245 = call i32 @sigma0(i32 noundef %1244)
+  %1246 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1247 = load i32, ptr %1246, align 4, !tbaa !14
+  %1248 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1249 = load i32, ptr %1248, align 8, !tbaa !14
+  %1250 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1251 = load i32, ptr %1250, align 4, !tbaa !14
+  %1252 = call i32 @maj(i32 noundef %1247, i32 noundef %1249, i32 noundef %1251)
+  %1253 = add i32 %1245, %1252
+  store i32 %1253, ptr %8, align 4, !tbaa !14
+  %1254 = load i32, ptr %7, align 4, !tbaa !14
+  %1255 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1256 = load i32, ptr %1255, align 16, !tbaa !14
+  %1257 = add i32 %1256, %1254
+  store i32 %1257, ptr %1255, align 16, !tbaa !14
+  %1258 = load i32, ptr %7, align 4, !tbaa !14
+  %1259 = load i32, ptr %8, align 4, !tbaa !14
+  %1260 = add i32 %1258, %1259
+  %1261 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  store i32 %1260, ptr %1261, align 16, !tbaa !14
+  %1262 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1263 = load i32, ptr %1262, align 4, !tbaa !14
+  %1264 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1265 = load i32, ptr %1264, align 16, !tbaa !14
+  %1266 = call i32 @sigma1(i32 noundef %1265)
+  %1267 = add i32 %1263, %1266
+  %1268 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1269 = load i32, ptr %1268, align 16, !tbaa !14
+  %1270 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1271 = load i32, ptr %1270, align 4, !tbaa !14
+  %1272 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1273 = load i32, ptr %1272, align 8, !tbaa !14
+  %1274 = call i32 @ch(i32 noundef %1269, i32 noundef %1271, i32 noundef %1273)
+  %1275 = add i32 %1267, %1274
+  %1276 = add i32 %1275, 666307205
+  %1277 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 32
+  %1278 = load i32, ptr %1277, align 16, !tbaa !14
+  %1279 = add i32 %1276, %1278
+  store i32 %1279, ptr %7, align 4, !tbaa !14
+  %1280 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1281 = load i32, ptr %1280, align 16, !tbaa !14
+  %1282 = call i32 @sigma0(i32 noundef %1281)
+  %1283 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1284 = load i32, ptr %1283, align 16, !tbaa !14
+  %1285 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1286 = load i32, ptr %1285, align 4, !tbaa !14
+  %1287 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1288 = load i32, ptr %1287, align 8, !tbaa !14
+  %1289 = call i32 @maj(i32 noundef %1284, i32 noundef %1286, i32 noundef %1288)
+  %1290 = add i32 %1282, %1289
+  store i32 %1290, ptr %8, align 4, !tbaa !14
+  %1291 = load i32, ptr %7, align 4, !tbaa !14
+  %1292 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1293 = load i32, ptr %1292, align 4, !tbaa !14
+  %1294 = add i32 %1293, %1291
+  store i32 %1294, ptr %1292, align 4, !tbaa !14
+  %1295 = load i32, ptr %7, align 4, !tbaa !14
+  %1296 = load i32, ptr %8, align 4, !tbaa !14
+  %1297 = add i32 %1295, %1296
+  %1298 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  store i32 %1297, ptr %1298, align 4, !tbaa !14
+  %1299 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1300 = load i32, ptr %1299, align 8, !tbaa !14
+  %1301 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1302 = load i32, ptr %1301, align 4, !tbaa !14
+  %1303 = call i32 @sigma1(i32 noundef %1302)
+  %1304 = add i32 %1300, %1303
+  %1305 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1306 = load i32, ptr %1305, align 4, !tbaa !14
+  %1307 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1308 = load i32, ptr %1307, align 16, !tbaa !14
+  %1309 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1310 = load i32, ptr %1309, align 4, !tbaa !14
+  %1311 = call i32 @ch(i32 noundef %1306, i32 noundef %1308, i32 noundef %1310)
+  %1312 = add i32 %1304, %1311
+  %1313 = add i32 %1312, 773529912
+  %1314 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 33
+  %1315 = load i32, ptr %1314, align 4, !tbaa !14
+  %1316 = add i32 %1313, %1315
+  store i32 %1316, ptr %7, align 4, !tbaa !14
+  %1317 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1318 = load i32, ptr %1317, align 4, !tbaa !14
+  %1319 = call i32 @sigma0(i32 noundef %1318)
+  %1320 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1321 = load i32, ptr %1320, align 4, !tbaa !14
+  %1322 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1323 = load i32, ptr %1322, align 16, !tbaa !14
+  %1324 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1325 = load i32, ptr %1324, align 4, !tbaa !14
+  %1326 = call i32 @maj(i32 noundef %1321, i32 noundef %1323, i32 noundef %1325)
+  %1327 = add i32 %1319, %1326
+  store i32 %1327, ptr %8, align 4, !tbaa !14
+  %1328 = load i32, ptr %7, align 4, !tbaa !14
+  %1329 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1330 = load i32, ptr %1329, align 8, !tbaa !14
+  %1331 = add i32 %1330, %1328
+  store i32 %1331, ptr %1329, align 8, !tbaa !14
+  %1332 = load i32, ptr %7, align 4, !tbaa !14
+  %1333 = load i32, ptr %8, align 4, !tbaa !14
+  %1334 = add i32 %1332, %1333
+  %1335 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  store i32 %1334, ptr %1335, align 8, !tbaa !14
+  %1336 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1337 = load i32, ptr %1336, align 4, !tbaa !14
+  %1338 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1339 = load i32, ptr %1338, align 8, !tbaa !14
+  %1340 = call i32 @sigma1(i32 noundef %1339)
+  %1341 = add i32 %1337, %1340
+  %1342 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1343 = load i32, ptr %1342, align 8, !tbaa !14
+  %1344 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1345 = load i32, ptr %1344, align 4, !tbaa !14
+  %1346 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1347 = load i32, ptr %1346, align 16, !tbaa !14
+  %1348 = call i32 @ch(i32 noundef %1343, i32 noundef %1345, i32 noundef %1347)
+  %1349 = add i32 %1341, %1348
+  %1350 = add i32 %1349, 1294757372
+  %1351 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 34
+  %1352 = load i32, ptr %1351, align 8, !tbaa !14
+  %1353 = add i32 %1350, %1352
+  store i32 %1353, ptr %7, align 4, !tbaa !14
+  %1354 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1355 = load i32, ptr %1354, align 8, !tbaa !14
+  %1356 = call i32 @sigma0(i32 noundef %1355)
+  %1357 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1358 = load i32, ptr %1357, align 8, !tbaa !14
+  %1359 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1360 = load i32, ptr %1359, align 4, !tbaa !14
+  %1361 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1362 = load i32, ptr %1361, align 16, !tbaa !14
+  %1363 = call i32 @maj(i32 noundef %1358, i32 noundef %1360, i32 noundef %1362)
+  %1364 = add i32 %1356, %1363
+  store i32 %1364, ptr %8, align 4, !tbaa !14
+  %1365 = load i32, ptr %7, align 4, !tbaa !14
+  %1366 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1367 = load i32, ptr %1366, align 4, !tbaa !14
+  %1368 = add i32 %1367, %1365
+  store i32 %1368, ptr %1366, align 4, !tbaa !14
+  %1369 = load i32, ptr %7, align 4, !tbaa !14
+  %1370 = load i32, ptr %8, align 4, !tbaa !14
+  %1371 = add i32 %1369, %1370
+  %1372 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  store i32 %1371, ptr %1372, align 4, !tbaa !14
+  %1373 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1374 = load i32, ptr %1373, align 16, !tbaa !14
+  %1375 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1376 = load i32, ptr %1375, align 4, !tbaa !14
+  %1377 = call i32 @sigma1(i32 noundef %1376)
+  %1378 = add i32 %1374, %1377
+  %1379 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1380 = load i32, ptr %1379, align 4, !tbaa !14
+  %1381 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1382 = load i32, ptr %1381, align 8, !tbaa !14
+  %1383 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1384 = load i32, ptr %1383, align 4, !tbaa !14
+  %1385 = call i32 @ch(i32 noundef %1380, i32 noundef %1382, i32 noundef %1384)
+  %1386 = add i32 %1378, %1385
+  %1387 = add i32 %1386, 1396182291
+  %1388 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 35
+  %1389 = load i32, ptr %1388, align 4, !tbaa !14
+  %1390 = add i32 %1387, %1389
+  store i32 %1390, ptr %7, align 4, !tbaa !14
+  %1391 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1392 = load i32, ptr %1391, align 4, !tbaa !14
+  %1393 = call i32 @sigma0(i32 noundef %1392)
+  %1394 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1395 = load i32, ptr %1394, align 4, !tbaa !14
+  %1396 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1397 = load i32, ptr %1396, align 8, !tbaa !14
+  %1398 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1399 = load i32, ptr %1398, align 4, !tbaa !14
+  %1400 = call i32 @maj(i32 noundef %1395, i32 noundef %1397, i32 noundef %1399)
+  %1401 = add i32 %1393, %1400
+  store i32 %1401, ptr %8, align 4, !tbaa !14
+  %1402 = load i32, ptr %7, align 4, !tbaa !14
+  %1403 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1404 = load i32, ptr %1403, align 16, !tbaa !14
+  %1405 = add i32 %1404, %1402
+  store i32 %1405, ptr %1403, align 16, !tbaa !14
+  %1406 = load i32, ptr %7, align 4, !tbaa !14
+  %1407 = load i32, ptr %8, align 4, !tbaa !14
+  %1408 = add i32 %1406, %1407
+  %1409 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  store i32 %1408, ptr %1409, align 16, !tbaa !14
+  %1410 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1411 = load i32, ptr %1410, align 4, !tbaa !14
+  %1412 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1413 = load i32, ptr %1412, align 16, !tbaa !14
+  %1414 = call i32 @sigma1(i32 noundef %1413)
+  %1415 = add i32 %1411, %1414
+  %1416 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1417 = load i32, ptr %1416, align 16, !tbaa !14
+  %1418 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1419 = load i32, ptr %1418, align 4, !tbaa !14
+  %1420 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1421 = load i32, ptr %1420, align 8, !tbaa !14
+  %1422 = call i32 @ch(i32 noundef %1417, i32 noundef %1419, i32 noundef %1421)
+  %1423 = add i32 %1415, %1422
+  %1424 = add i32 %1423, 1695183700
+  %1425 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 36
+  %1426 = load i32, ptr %1425, align 16, !tbaa !14
+  %1427 = add i32 %1424, %1426
+  store i32 %1427, ptr %7, align 4, !tbaa !14
+  %1428 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1429 = load i32, ptr %1428, align 16, !tbaa !14
+  %1430 = call i32 @sigma0(i32 noundef %1429)
+  %1431 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1432 = load i32, ptr %1431, align 16, !tbaa !14
+  %1433 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1434 = load i32, ptr %1433, align 4, !tbaa !14
+  %1435 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1436 = load i32, ptr %1435, align 8, !tbaa !14
+  %1437 = call i32 @maj(i32 noundef %1432, i32 noundef %1434, i32 noundef %1436)
+  %1438 = add i32 %1430, %1437
+  store i32 %1438, ptr %8, align 4, !tbaa !14
+  %1439 = load i32, ptr %7, align 4, !tbaa !14
+  %1440 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1441 = load i32, ptr %1440, align 4, !tbaa !14
+  %1442 = add i32 %1441, %1439
+  store i32 %1442, ptr %1440, align 4, !tbaa !14
+  %1443 = load i32, ptr %7, align 4, !tbaa !14
+  %1444 = load i32, ptr %8, align 4, !tbaa !14
+  %1445 = add i32 %1443, %1444
+  %1446 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  store i32 %1445, ptr %1446, align 4, !tbaa !14
+  %1447 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1448 = load i32, ptr %1447, align 8, !tbaa !14
+  %1449 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1450 = load i32, ptr %1449, align 4, !tbaa !14
+  %1451 = call i32 @sigma1(i32 noundef %1450)
+  %1452 = add i32 %1448, %1451
+  %1453 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1454 = load i32, ptr %1453, align 4, !tbaa !14
+  %1455 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1456 = load i32, ptr %1455, align 16, !tbaa !14
+  %1457 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1458 = load i32, ptr %1457, align 4, !tbaa !14
+  %1459 = call i32 @ch(i32 noundef %1454, i32 noundef %1456, i32 noundef %1458)
+  %1460 = add i32 %1452, %1459
+  %1461 = add i32 %1460, 1986661051
+  %1462 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 37
+  %1463 = load i32, ptr %1462, align 4, !tbaa !14
+  %1464 = add i32 %1461, %1463
+  store i32 %1464, ptr %7, align 4, !tbaa !14
+  %1465 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1466 = load i32, ptr %1465, align 4, !tbaa !14
+  %1467 = call i32 @sigma0(i32 noundef %1466)
+  %1468 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1469 = load i32, ptr %1468, align 4, !tbaa !14
+  %1470 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1471 = load i32, ptr %1470, align 16, !tbaa !14
+  %1472 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1473 = load i32, ptr %1472, align 4, !tbaa !14
+  %1474 = call i32 @maj(i32 noundef %1469, i32 noundef %1471, i32 noundef %1473)
+  %1475 = add i32 %1467, %1474
+  store i32 %1475, ptr %8, align 4, !tbaa !14
+  %1476 = load i32, ptr %7, align 4, !tbaa !14
+  %1477 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1478 = load i32, ptr %1477, align 8, !tbaa !14
+  %1479 = add i32 %1478, %1476
+  store i32 %1479, ptr %1477, align 8, !tbaa !14
+  %1480 = load i32, ptr %7, align 4, !tbaa !14
+  %1481 = load i32, ptr %8, align 4, !tbaa !14
+  %1482 = add i32 %1480, %1481
+  %1483 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  store i32 %1482, ptr %1483, align 8, !tbaa !14
+  %1484 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1485 = load i32, ptr %1484, align 4, !tbaa !14
+  %1486 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1487 = load i32, ptr %1486, align 8, !tbaa !14
+  %1488 = call i32 @sigma1(i32 noundef %1487)
+  %1489 = add i32 %1485, %1488
+  %1490 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1491 = load i32, ptr %1490, align 8, !tbaa !14
+  %1492 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1493 = load i32, ptr %1492, align 4, !tbaa !14
+  %1494 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1495 = load i32, ptr %1494, align 16, !tbaa !14
+  %1496 = call i32 @ch(i32 noundef %1491, i32 noundef %1493, i32 noundef %1495)
+  %1497 = add i32 %1489, %1496
+  %1498 = add i32 %1497, -2117940946
+  %1499 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 38
+  %1500 = load i32, ptr %1499, align 8, !tbaa !14
+  %1501 = add i32 %1498, %1500
+  store i32 %1501, ptr %7, align 4, !tbaa !14
+  %1502 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1503 = load i32, ptr %1502, align 8, !tbaa !14
+  %1504 = call i32 @sigma0(i32 noundef %1503)
+  %1505 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1506 = load i32, ptr %1505, align 8, !tbaa !14
+  %1507 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1508 = load i32, ptr %1507, align 4, !tbaa !14
+  %1509 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1510 = load i32, ptr %1509, align 16, !tbaa !14
+  %1511 = call i32 @maj(i32 noundef %1506, i32 noundef %1508, i32 noundef %1510)
+  %1512 = add i32 %1504, %1511
+  store i32 %1512, ptr %8, align 4, !tbaa !14
+  %1513 = load i32, ptr %7, align 4, !tbaa !14
+  %1514 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1515 = load i32, ptr %1514, align 4, !tbaa !14
+  %1516 = add i32 %1515, %1513
+  store i32 %1516, ptr %1514, align 4, !tbaa !14
+  %1517 = load i32, ptr %7, align 4, !tbaa !14
+  %1518 = load i32, ptr %8, align 4, !tbaa !14
+  %1519 = add i32 %1517, %1518
+  %1520 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  store i32 %1519, ptr %1520, align 4, !tbaa !14
+  %1521 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1522 = load i32, ptr %1521, align 16, !tbaa !14
+  %1523 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1524 = load i32, ptr %1523, align 4, !tbaa !14
+  %1525 = call i32 @sigma1(i32 noundef %1524)
+  %1526 = add i32 %1522, %1525
+  %1527 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1528 = load i32, ptr %1527, align 4, !tbaa !14
+  %1529 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1530 = load i32, ptr %1529, align 8, !tbaa !14
+  %1531 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1532 = load i32, ptr %1531, align 4, !tbaa !14
+  %1533 = call i32 @ch(i32 noundef %1528, i32 noundef %1530, i32 noundef %1532)
+  %1534 = add i32 %1526, %1533
+  %1535 = add i32 %1534, -1838011259
+  %1536 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 39
+  %1537 = load i32, ptr %1536, align 4, !tbaa !14
+  %1538 = add i32 %1535, %1537
+  store i32 %1538, ptr %7, align 4, !tbaa !14
+  %1539 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1540 = load i32, ptr %1539, align 4, !tbaa !14
+  %1541 = call i32 @sigma0(i32 noundef %1540)
+  %1542 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1543 = load i32, ptr %1542, align 4, !tbaa !14
+  %1544 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1545 = load i32, ptr %1544, align 8, !tbaa !14
+  %1546 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1547 = load i32, ptr %1546, align 4, !tbaa !14
+  %1548 = call i32 @maj(i32 noundef %1543, i32 noundef %1545, i32 noundef %1547)
+  %1549 = add i32 %1541, %1548
+  store i32 %1549, ptr %8, align 4, !tbaa !14
+  %1550 = load i32, ptr %7, align 4, !tbaa !14
+  %1551 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1552 = load i32, ptr %1551, align 16, !tbaa !14
+  %1553 = add i32 %1552, %1550
+  store i32 %1553, ptr %1551, align 16, !tbaa !14
+  %1554 = load i32, ptr %7, align 4, !tbaa !14
+  %1555 = load i32, ptr %8, align 4, !tbaa !14
+  %1556 = add i32 %1554, %1555
+  %1557 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  store i32 %1556, ptr %1557, align 16, !tbaa !14
+  %1558 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1559 = load i32, ptr %1558, align 4, !tbaa !14
+  %1560 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1561 = load i32, ptr %1560, align 16, !tbaa !14
+  %1562 = call i32 @sigma1(i32 noundef %1561)
+  %1563 = add i32 %1559, %1562
+  %1564 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1565 = load i32, ptr %1564, align 16, !tbaa !14
+  %1566 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1567 = load i32, ptr %1566, align 4, !tbaa !14
+  %1568 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1569 = load i32, ptr %1568, align 8, !tbaa !14
+  %1570 = call i32 @ch(i32 noundef %1565, i32 noundef %1567, i32 noundef %1569)
+  %1571 = add i32 %1563, %1570
+  %1572 = add i32 %1571, -1564481375
+  %1573 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 40
+  %1574 = load i32, ptr %1573, align 16, !tbaa !14
+  %1575 = add i32 %1572, %1574
+  store i32 %1575, ptr %7, align 4, !tbaa !14
+  %1576 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1577 = load i32, ptr %1576, align 16, !tbaa !14
+  %1578 = call i32 @sigma0(i32 noundef %1577)
+  %1579 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1580 = load i32, ptr %1579, align 16, !tbaa !14
+  %1581 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1582 = load i32, ptr %1581, align 4, !tbaa !14
+  %1583 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1584 = load i32, ptr %1583, align 8, !tbaa !14
+  %1585 = call i32 @maj(i32 noundef %1580, i32 noundef %1582, i32 noundef %1584)
+  %1586 = add i32 %1578, %1585
+  store i32 %1586, ptr %8, align 4, !tbaa !14
+  %1587 = load i32, ptr %7, align 4, !tbaa !14
+  %1588 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1589 = load i32, ptr %1588, align 4, !tbaa !14
+  %1590 = add i32 %1589, %1587
+  store i32 %1590, ptr %1588, align 4, !tbaa !14
+  %1591 = load i32, ptr %7, align 4, !tbaa !14
+  %1592 = load i32, ptr %8, align 4, !tbaa !14
+  %1593 = add i32 %1591, %1592
+  %1594 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  store i32 %1593, ptr %1594, align 4, !tbaa !14
+  %1595 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1596 = load i32, ptr %1595, align 8, !tbaa !14
+  %1597 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1598 = load i32, ptr %1597, align 4, !tbaa !14
+  %1599 = call i32 @sigma1(i32 noundef %1598)
+  %1600 = add i32 %1596, %1599
+  %1601 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1602 = load i32, ptr %1601, align 4, !tbaa !14
+  %1603 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1604 = load i32, ptr %1603, align 16, !tbaa !14
+  %1605 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1606 = load i32, ptr %1605, align 4, !tbaa !14
+  %1607 = call i32 @ch(i32 noundef %1602, i32 noundef %1604, i32 noundef %1606)
+  %1608 = add i32 %1600, %1607
+  %1609 = add i32 %1608, -1474664885
+  %1610 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 41
+  %1611 = load i32, ptr %1610, align 4, !tbaa !14
+  %1612 = add i32 %1609, %1611
+  store i32 %1612, ptr %7, align 4, !tbaa !14
+  %1613 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1614 = load i32, ptr %1613, align 4, !tbaa !14
+  %1615 = call i32 @sigma0(i32 noundef %1614)
+  %1616 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1617 = load i32, ptr %1616, align 4, !tbaa !14
+  %1618 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1619 = load i32, ptr %1618, align 16, !tbaa !14
+  %1620 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1621 = load i32, ptr %1620, align 4, !tbaa !14
+  %1622 = call i32 @maj(i32 noundef %1617, i32 noundef %1619, i32 noundef %1621)
+  %1623 = add i32 %1615, %1622
+  store i32 %1623, ptr %8, align 4, !tbaa !14
+  %1624 = load i32, ptr %7, align 4, !tbaa !14
+  %1625 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1626 = load i32, ptr %1625, align 8, !tbaa !14
+  %1627 = add i32 %1626, %1624
+  store i32 %1627, ptr %1625, align 8, !tbaa !14
+  %1628 = load i32, ptr %7, align 4, !tbaa !14
+  %1629 = load i32, ptr %8, align 4, !tbaa !14
+  %1630 = add i32 %1628, %1629
+  %1631 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  store i32 %1630, ptr %1631, align 8, !tbaa !14
+  %1632 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1633 = load i32, ptr %1632, align 4, !tbaa !14
+  %1634 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1635 = load i32, ptr %1634, align 8, !tbaa !14
+  %1636 = call i32 @sigma1(i32 noundef %1635)
+  %1637 = add i32 %1633, %1636
+  %1638 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1639 = load i32, ptr %1638, align 8, !tbaa !14
+  %1640 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1641 = load i32, ptr %1640, align 4, !tbaa !14
+  %1642 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1643 = load i32, ptr %1642, align 16, !tbaa !14
+  %1644 = call i32 @ch(i32 noundef %1639, i32 noundef %1641, i32 noundef %1643)
+  %1645 = add i32 %1637, %1644
+  %1646 = add i32 %1645, -1035236496
+  %1647 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 42
+  %1648 = load i32, ptr %1647, align 8, !tbaa !14
+  %1649 = add i32 %1646, %1648
+  store i32 %1649, ptr %7, align 4, !tbaa !14
+  %1650 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1651 = load i32, ptr %1650, align 8, !tbaa !14
+  %1652 = call i32 @sigma0(i32 noundef %1651)
+  %1653 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1654 = load i32, ptr %1653, align 8, !tbaa !14
+  %1655 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1656 = load i32, ptr %1655, align 4, !tbaa !14
+  %1657 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1658 = load i32, ptr %1657, align 16, !tbaa !14
+  %1659 = call i32 @maj(i32 noundef %1654, i32 noundef %1656, i32 noundef %1658)
+  %1660 = add i32 %1652, %1659
+  store i32 %1660, ptr %8, align 4, !tbaa !14
+  %1661 = load i32, ptr %7, align 4, !tbaa !14
+  %1662 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1663 = load i32, ptr %1662, align 4, !tbaa !14
+  %1664 = add i32 %1663, %1661
+  store i32 %1664, ptr %1662, align 4, !tbaa !14
+  %1665 = load i32, ptr %7, align 4, !tbaa !14
+  %1666 = load i32, ptr %8, align 4, !tbaa !14
+  %1667 = add i32 %1665, %1666
+  %1668 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  store i32 %1667, ptr %1668, align 4, !tbaa !14
+  %1669 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1670 = load i32, ptr %1669, align 16, !tbaa !14
+  %1671 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1672 = load i32, ptr %1671, align 4, !tbaa !14
+  %1673 = call i32 @sigma1(i32 noundef %1672)
+  %1674 = add i32 %1670, %1673
+  %1675 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1676 = load i32, ptr %1675, align 4, !tbaa !14
+  %1677 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1678 = load i32, ptr %1677, align 8, !tbaa !14
+  %1679 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1680 = load i32, ptr %1679, align 4, !tbaa !14
+  %1681 = call i32 @ch(i32 noundef %1676, i32 noundef %1678, i32 noundef %1680)
+  %1682 = add i32 %1674, %1681
+  %1683 = add i32 %1682, -949202525
+  %1684 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 43
+  %1685 = load i32, ptr %1684, align 4, !tbaa !14
+  %1686 = add i32 %1683, %1685
+  store i32 %1686, ptr %7, align 4, !tbaa !14
+  %1687 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1688 = load i32, ptr %1687, align 4, !tbaa !14
+  %1689 = call i32 @sigma0(i32 noundef %1688)
+  %1690 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1691 = load i32, ptr %1690, align 4, !tbaa !14
+  %1692 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1693 = load i32, ptr %1692, align 8, !tbaa !14
+  %1694 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1695 = load i32, ptr %1694, align 4, !tbaa !14
+  %1696 = call i32 @maj(i32 noundef %1691, i32 noundef %1693, i32 noundef %1695)
+  %1697 = add i32 %1689, %1696
+  store i32 %1697, ptr %8, align 4, !tbaa !14
+  %1698 = load i32, ptr %7, align 4, !tbaa !14
+  %1699 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1700 = load i32, ptr %1699, align 16, !tbaa !14
+  %1701 = add i32 %1700, %1698
+  store i32 %1701, ptr %1699, align 16, !tbaa !14
+  %1702 = load i32, ptr %7, align 4, !tbaa !14
+  %1703 = load i32, ptr %8, align 4, !tbaa !14
+  %1704 = add i32 %1702, %1703
+  %1705 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  store i32 %1704, ptr %1705, align 16, !tbaa !14
+  %1706 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1707 = load i32, ptr %1706, align 4, !tbaa !14
+  %1708 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1709 = load i32, ptr %1708, align 16, !tbaa !14
+  %1710 = call i32 @sigma1(i32 noundef %1709)
+  %1711 = add i32 %1707, %1710
+  %1712 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1713 = load i32, ptr %1712, align 16, !tbaa !14
+  %1714 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1715 = load i32, ptr %1714, align 4, !tbaa !14
+  %1716 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1717 = load i32, ptr %1716, align 8, !tbaa !14
+  %1718 = call i32 @ch(i32 noundef %1713, i32 noundef %1715, i32 noundef %1717)
+  %1719 = add i32 %1711, %1718
+  %1720 = add i32 %1719, -778901479
+  %1721 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 44
+  %1722 = load i32, ptr %1721, align 16, !tbaa !14
+  %1723 = add i32 %1720, %1722
+  store i32 %1723, ptr %7, align 4, !tbaa !14
+  %1724 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1725 = load i32, ptr %1724, align 16, !tbaa !14
+  %1726 = call i32 @sigma0(i32 noundef %1725)
+  %1727 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1728 = load i32, ptr %1727, align 16, !tbaa !14
+  %1729 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1730 = load i32, ptr %1729, align 4, !tbaa !14
+  %1731 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1732 = load i32, ptr %1731, align 8, !tbaa !14
+  %1733 = call i32 @maj(i32 noundef %1728, i32 noundef %1730, i32 noundef %1732)
+  %1734 = add i32 %1726, %1733
+  store i32 %1734, ptr %8, align 4, !tbaa !14
+  %1735 = load i32, ptr %7, align 4, !tbaa !14
+  %1736 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1737 = load i32, ptr %1736, align 4, !tbaa !14
+  %1738 = add i32 %1737, %1735
+  store i32 %1738, ptr %1736, align 4, !tbaa !14
+  %1739 = load i32, ptr %7, align 4, !tbaa !14
+  %1740 = load i32, ptr %8, align 4, !tbaa !14
+  %1741 = add i32 %1739, %1740
+  %1742 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  store i32 %1741, ptr %1742, align 4, !tbaa !14
+  %1743 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1744 = load i32, ptr %1743, align 8, !tbaa !14
+  %1745 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1746 = load i32, ptr %1745, align 4, !tbaa !14
+  %1747 = call i32 @sigma1(i32 noundef %1746)
+  %1748 = add i32 %1744, %1747
+  %1749 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1750 = load i32, ptr %1749, align 4, !tbaa !14
+  %1751 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1752 = load i32, ptr %1751, align 16, !tbaa !14
+  %1753 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1754 = load i32, ptr %1753, align 4, !tbaa !14
+  %1755 = call i32 @ch(i32 noundef %1750, i32 noundef %1752, i32 noundef %1754)
+  %1756 = add i32 %1748, %1755
+  %1757 = add i32 %1756, -694614492
+  %1758 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 45
+  %1759 = load i32, ptr %1758, align 4, !tbaa !14
+  %1760 = add i32 %1757, %1759
+  store i32 %1760, ptr %7, align 4, !tbaa !14
+  %1761 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1762 = load i32, ptr %1761, align 4, !tbaa !14
+  %1763 = call i32 @sigma0(i32 noundef %1762)
+  %1764 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1765 = load i32, ptr %1764, align 4, !tbaa !14
+  %1766 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1767 = load i32, ptr %1766, align 16, !tbaa !14
+  %1768 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1769 = load i32, ptr %1768, align 4, !tbaa !14
+  %1770 = call i32 @maj(i32 noundef %1765, i32 noundef %1767, i32 noundef %1769)
+  %1771 = add i32 %1763, %1770
+  store i32 %1771, ptr %8, align 4, !tbaa !14
+  %1772 = load i32, ptr %7, align 4, !tbaa !14
+  %1773 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1774 = load i32, ptr %1773, align 8, !tbaa !14
+  %1775 = add i32 %1774, %1772
+  store i32 %1775, ptr %1773, align 8, !tbaa !14
+  %1776 = load i32, ptr %7, align 4, !tbaa !14
+  %1777 = load i32, ptr %8, align 4, !tbaa !14
+  %1778 = add i32 %1776, %1777
+  %1779 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  store i32 %1778, ptr %1779, align 8, !tbaa !14
+  %1780 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1781 = load i32, ptr %1780, align 4, !tbaa !14
+  %1782 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1783 = load i32, ptr %1782, align 8, !tbaa !14
+  %1784 = call i32 @sigma1(i32 noundef %1783)
+  %1785 = add i32 %1781, %1784
+  %1786 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1787 = load i32, ptr %1786, align 8, !tbaa !14
+  %1788 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1789 = load i32, ptr %1788, align 4, !tbaa !14
+  %1790 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1791 = load i32, ptr %1790, align 16, !tbaa !14
+  %1792 = call i32 @ch(i32 noundef %1787, i32 noundef %1789, i32 noundef %1791)
+  %1793 = add i32 %1785, %1792
+  %1794 = add i32 %1793, -200395387
+  %1795 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 46
+  %1796 = load i32, ptr %1795, align 8, !tbaa !14
+  %1797 = add i32 %1794, %1796
+  store i32 %1797, ptr %7, align 4, !tbaa !14
+  %1798 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1799 = load i32, ptr %1798, align 8, !tbaa !14
+  %1800 = call i32 @sigma0(i32 noundef %1799)
+  %1801 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1802 = load i32, ptr %1801, align 8, !tbaa !14
+  %1803 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1804 = load i32, ptr %1803, align 4, !tbaa !14
+  %1805 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1806 = load i32, ptr %1805, align 16, !tbaa !14
+  %1807 = call i32 @maj(i32 noundef %1802, i32 noundef %1804, i32 noundef %1806)
+  %1808 = add i32 %1800, %1807
+  store i32 %1808, ptr %8, align 4, !tbaa !14
+  %1809 = load i32, ptr %7, align 4, !tbaa !14
+  %1810 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1811 = load i32, ptr %1810, align 4, !tbaa !14
+  %1812 = add i32 %1811, %1809
+  store i32 %1812, ptr %1810, align 4, !tbaa !14
+  %1813 = load i32, ptr %7, align 4, !tbaa !14
+  %1814 = load i32, ptr %8, align 4, !tbaa !14
+  %1815 = add i32 %1813, %1814
+  %1816 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  store i32 %1815, ptr %1816, align 4, !tbaa !14
+  %1817 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1818 = load i32, ptr %1817, align 16, !tbaa !14
+  %1819 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1820 = load i32, ptr %1819, align 4, !tbaa !14
+  %1821 = call i32 @sigma1(i32 noundef %1820)
+  %1822 = add i32 %1818, %1821
+  %1823 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1824 = load i32, ptr %1823, align 4, !tbaa !14
+  %1825 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1826 = load i32, ptr %1825, align 8, !tbaa !14
+  %1827 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1828 = load i32, ptr %1827, align 4, !tbaa !14
+  %1829 = call i32 @ch(i32 noundef %1824, i32 noundef %1826, i32 noundef %1828)
+  %1830 = add i32 %1822, %1829
+  %1831 = add i32 %1830, 275423344
+  %1832 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 47
+  %1833 = load i32, ptr %1832, align 4, !tbaa !14
+  %1834 = add i32 %1831, %1833
+  store i32 %1834, ptr %7, align 4, !tbaa !14
+  %1835 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1836 = load i32, ptr %1835, align 4, !tbaa !14
+  %1837 = call i32 @sigma0(i32 noundef %1836)
+  %1838 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1839 = load i32, ptr %1838, align 4, !tbaa !14
+  %1840 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1841 = load i32, ptr %1840, align 8, !tbaa !14
+  %1842 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1843 = load i32, ptr %1842, align 4, !tbaa !14
+  %1844 = call i32 @maj(i32 noundef %1839, i32 noundef %1841, i32 noundef %1843)
+  %1845 = add i32 %1837, %1844
+  store i32 %1845, ptr %8, align 4, !tbaa !14
+  %1846 = load i32, ptr %7, align 4, !tbaa !14
+  %1847 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1848 = load i32, ptr %1847, align 16, !tbaa !14
+  %1849 = add i32 %1848, %1846
+  store i32 %1849, ptr %1847, align 16, !tbaa !14
+  %1850 = load i32, ptr %7, align 4, !tbaa !14
+  %1851 = load i32, ptr %8, align 4, !tbaa !14
+  %1852 = add i32 %1850, %1851
+  %1853 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  store i32 %1852, ptr %1853, align 16, !tbaa !14
+  %1854 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1855 = load i32, ptr %1854, align 4, !tbaa !14
+  %1856 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1857 = load i32, ptr %1856, align 16, !tbaa !14
+  %1858 = call i32 @sigma1(i32 noundef %1857)
+  %1859 = add i32 %1855, %1858
+  %1860 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1861 = load i32, ptr %1860, align 16, !tbaa !14
+  %1862 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1863 = load i32, ptr %1862, align 4, !tbaa !14
+  %1864 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1865 = load i32, ptr %1864, align 8, !tbaa !14
+  %1866 = call i32 @ch(i32 noundef %1861, i32 noundef %1863, i32 noundef %1865)
+  %1867 = add i32 %1859, %1866
+  %1868 = add i32 %1867, 430227734
+  %1869 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 48
+  %1870 = load i32, ptr %1869, align 16, !tbaa !14
+  %1871 = add i32 %1868, %1870
+  store i32 %1871, ptr %7, align 4, !tbaa !14
+  %1872 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1873 = load i32, ptr %1872, align 16, !tbaa !14
+  %1874 = call i32 @sigma0(i32 noundef %1873)
+  %1875 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1876 = load i32, ptr %1875, align 16, !tbaa !14
+  %1877 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1878 = load i32, ptr %1877, align 4, !tbaa !14
+  %1879 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1880 = load i32, ptr %1879, align 8, !tbaa !14
+  %1881 = call i32 @maj(i32 noundef %1876, i32 noundef %1878, i32 noundef %1880)
+  %1882 = add i32 %1874, %1881
+  store i32 %1882, ptr %8, align 4, !tbaa !14
+  %1883 = load i32, ptr %7, align 4, !tbaa !14
+  %1884 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1885 = load i32, ptr %1884, align 4, !tbaa !14
+  %1886 = add i32 %1885, %1883
+  store i32 %1886, ptr %1884, align 4, !tbaa !14
+  %1887 = load i32, ptr %7, align 4, !tbaa !14
+  %1888 = load i32, ptr %8, align 4, !tbaa !14
+  %1889 = add i32 %1887, %1888
+  %1890 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  store i32 %1889, ptr %1890, align 4, !tbaa !14
+  %1891 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1892 = load i32, ptr %1891, align 8, !tbaa !14
+  %1893 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1894 = load i32, ptr %1893, align 4, !tbaa !14
+  %1895 = call i32 @sigma1(i32 noundef %1894)
+  %1896 = add i32 %1892, %1895
+  %1897 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1898 = load i32, ptr %1897, align 4, !tbaa !14
+  %1899 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1900 = load i32, ptr %1899, align 16, !tbaa !14
+  %1901 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1902 = load i32, ptr %1901, align 4, !tbaa !14
+  %1903 = call i32 @ch(i32 noundef %1898, i32 noundef %1900, i32 noundef %1902)
+  %1904 = add i32 %1896, %1903
+  %1905 = add i32 %1904, 506948616
+  %1906 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 49
+  %1907 = load i32, ptr %1906, align 4, !tbaa !14
+  %1908 = add i32 %1905, %1907
+  store i32 %1908, ptr %7, align 4, !tbaa !14
+  %1909 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1910 = load i32, ptr %1909, align 4, !tbaa !14
+  %1911 = call i32 @sigma0(i32 noundef %1910)
+  %1912 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1913 = load i32, ptr %1912, align 4, !tbaa !14
+  %1914 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1915 = load i32, ptr %1914, align 16, !tbaa !14
+  %1916 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1917 = load i32, ptr %1916, align 4, !tbaa !14
+  %1918 = call i32 @maj(i32 noundef %1913, i32 noundef %1915, i32 noundef %1917)
+  %1919 = add i32 %1911, %1918
+  store i32 %1919, ptr %8, align 4, !tbaa !14
+  %1920 = load i32, ptr %7, align 4, !tbaa !14
+  %1921 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1922 = load i32, ptr %1921, align 8, !tbaa !14
+  %1923 = add i32 %1922, %1920
+  store i32 %1923, ptr %1921, align 8, !tbaa !14
+  %1924 = load i32, ptr %7, align 4, !tbaa !14
+  %1925 = load i32, ptr %8, align 4, !tbaa !14
+  %1926 = add i32 %1924, %1925
+  %1927 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  store i32 %1926, ptr %1927, align 8, !tbaa !14
+  %1928 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1929 = load i32, ptr %1928, align 4, !tbaa !14
+  %1930 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1931 = load i32, ptr %1930, align 8, !tbaa !14
+  %1932 = call i32 @sigma1(i32 noundef %1931)
+  %1933 = add i32 %1929, %1932
+  %1934 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1935 = load i32, ptr %1934, align 8, !tbaa !14
+  %1936 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1937 = load i32, ptr %1936, align 4, !tbaa !14
+  %1938 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1939 = load i32, ptr %1938, align 16, !tbaa !14
+  %1940 = call i32 @ch(i32 noundef %1935, i32 noundef %1937, i32 noundef %1939)
+  %1941 = add i32 %1933, %1940
+  %1942 = add i32 %1941, 659060556
+  %1943 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 50
+  %1944 = load i32, ptr %1943, align 8, !tbaa !14
+  %1945 = add i32 %1942, %1944
+  store i32 %1945, ptr %7, align 4, !tbaa !14
+  %1946 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1947 = load i32, ptr %1946, align 8, !tbaa !14
+  %1948 = call i32 @sigma0(i32 noundef %1947)
+  %1949 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1950 = load i32, ptr %1949, align 8, !tbaa !14
+  %1951 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1952 = load i32, ptr %1951, align 4, !tbaa !14
+  %1953 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1954 = load i32, ptr %1953, align 16, !tbaa !14
+  %1955 = call i32 @maj(i32 noundef %1950, i32 noundef %1952, i32 noundef %1954)
+  %1956 = add i32 %1948, %1955
+  store i32 %1956, ptr %8, align 4, !tbaa !14
+  %1957 = load i32, ptr %7, align 4, !tbaa !14
+  %1958 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1959 = load i32, ptr %1958, align 4, !tbaa !14
+  %1960 = add i32 %1959, %1957
+  store i32 %1960, ptr %1958, align 4, !tbaa !14
+  %1961 = load i32, ptr %7, align 4, !tbaa !14
+  %1962 = load i32, ptr %8, align 4, !tbaa !14
+  %1963 = add i32 %1961, %1962
+  %1964 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  store i32 %1963, ptr %1964, align 4, !tbaa !14
+  %1965 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %1966 = load i32, ptr %1965, align 16, !tbaa !14
+  %1967 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1968 = load i32, ptr %1967, align 4, !tbaa !14
+  %1969 = call i32 @sigma1(i32 noundef %1968)
+  %1970 = add i32 %1966, %1969
+  %1971 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %1972 = load i32, ptr %1971, align 4, !tbaa !14
+  %1973 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %1974 = load i32, ptr %1973, align 8, !tbaa !14
+  %1975 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %1976 = load i32, ptr %1975, align 4, !tbaa !14
+  %1977 = call i32 @ch(i32 noundef %1972, i32 noundef %1974, i32 noundef %1976)
+  %1978 = add i32 %1970, %1977
+  %1979 = add i32 %1978, 883997877
+  %1980 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 51
+  %1981 = load i32, ptr %1980, align 4, !tbaa !14
+  %1982 = add i32 %1979, %1981
+  store i32 %1982, ptr %7, align 4, !tbaa !14
+  %1983 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1984 = load i32, ptr %1983, align 4, !tbaa !14
+  %1985 = call i32 @sigma0(i32 noundef %1984)
+  %1986 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %1987 = load i32, ptr %1986, align 4, !tbaa !14
+  %1988 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %1989 = load i32, ptr %1988, align 8, !tbaa !14
+  %1990 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %1991 = load i32, ptr %1990, align 4, !tbaa !14
+  %1992 = call i32 @maj(i32 noundef %1987, i32 noundef %1989, i32 noundef %1991)
+  %1993 = add i32 %1985, %1992
+  store i32 %1993, ptr %8, align 4, !tbaa !14
+  %1994 = load i32, ptr %7, align 4, !tbaa !14
+  %1995 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %1996 = load i32, ptr %1995, align 16, !tbaa !14
+  %1997 = add i32 %1996, %1994
+  store i32 %1997, ptr %1995, align 16, !tbaa !14
+  %1998 = load i32, ptr %7, align 4, !tbaa !14
+  %1999 = load i32, ptr %8, align 4, !tbaa !14
+  %2000 = add i32 %1998, %1999
+  %2001 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  store i32 %2000, ptr %2001, align 16, !tbaa !14
+  %2002 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2003 = load i32, ptr %2002, align 4, !tbaa !14
+  %2004 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2005 = load i32, ptr %2004, align 16, !tbaa !14
+  %2006 = call i32 @sigma1(i32 noundef %2005)
+  %2007 = add i32 %2003, %2006
+  %2008 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2009 = load i32, ptr %2008, align 16, !tbaa !14
+  %2010 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2011 = load i32, ptr %2010, align 4, !tbaa !14
+  %2012 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2013 = load i32, ptr %2012, align 8, !tbaa !14
+  %2014 = call i32 @ch(i32 noundef %2009, i32 noundef %2011, i32 noundef %2013)
+  %2015 = add i32 %2007, %2014
+  %2016 = add i32 %2015, 958139571
+  %2017 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 52
+  %2018 = load i32, ptr %2017, align 16, !tbaa !14
+  %2019 = add i32 %2016, %2018
+  store i32 %2019, ptr %7, align 4, !tbaa !14
+  %2020 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2021 = load i32, ptr %2020, align 16, !tbaa !14
+  %2022 = call i32 @sigma0(i32 noundef %2021)
+  %2023 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2024 = load i32, ptr %2023, align 16, !tbaa !14
+  %2025 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2026 = load i32, ptr %2025, align 4, !tbaa !14
+  %2027 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2028 = load i32, ptr %2027, align 8, !tbaa !14
+  %2029 = call i32 @maj(i32 noundef %2024, i32 noundef %2026, i32 noundef %2028)
+  %2030 = add i32 %2022, %2029
+  store i32 %2030, ptr %8, align 4, !tbaa !14
+  %2031 = load i32, ptr %7, align 4, !tbaa !14
+  %2032 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2033 = load i32, ptr %2032, align 4, !tbaa !14
+  %2034 = add i32 %2033, %2031
+  store i32 %2034, ptr %2032, align 4, !tbaa !14
+  %2035 = load i32, ptr %7, align 4, !tbaa !14
+  %2036 = load i32, ptr %8, align 4, !tbaa !14
+  %2037 = add i32 %2035, %2036
+  %2038 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  store i32 %2037, ptr %2038, align 4, !tbaa !14
+  %2039 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2040 = load i32, ptr %2039, align 8, !tbaa !14
+  %2041 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2042 = load i32, ptr %2041, align 4, !tbaa !14
+  %2043 = call i32 @sigma1(i32 noundef %2042)
+  %2044 = add i32 %2040, %2043
+  %2045 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2046 = load i32, ptr %2045, align 4, !tbaa !14
+  %2047 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2048 = load i32, ptr %2047, align 16, !tbaa !14
+  %2049 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2050 = load i32, ptr %2049, align 4, !tbaa !14
+  %2051 = call i32 @ch(i32 noundef %2046, i32 noundef %2048, i32 noundef %2050)
+  %2052 = add i32 %2044, %2051
+  %2053 = add i32 %2052, 1322822218
+  %2054 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 53
+  %2055 = load i32, ptr %2054, align 4, !tbaa !14
+  %2056 = add i32 %2053, %2055
+  store i32 %2056, ptr %7, align 4, !tbaa !14
+  %2057 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2058 = load i32, ptr %2057, align 4, !tbaa !14
+  %2059 = call i32 @sigma0(i32 noundef %2058)
+  %2060 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2061 = load i32, ptr %2060, align 4, !tbaa !14
+  %2062 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2063 = load i32, ptr %2062, align 16, !tbaa !14
+  %2064 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2065 = load i32, ptr %2064, align 4, !tbaa !14
+  %2066 = call i32 @maj(i32 noundef %2061, i32 noundef %2063, i32 noundef %2065)
+  %2067 = add i32 %2059, %2066
+  store i32 %2067, ptr %8, align 4, !tbaa !14
+  %2068 = load i32, ptr %7, align 4, !tbaa !14
+  %2069 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2070 = load i32, ptr %2069, align 8, !tbaa !14
+  %2071 = add i32 %2070, %2068
+  store i32 %2071, ptr %2069, align 8, !tbaa !14
+  %2072 = load i32, ptr %7, align 4, !tbaa !14
+  %2073 = load i32, ptr %8, align 4, !tbaa !14
+  %2074 = add i32 %2072, %2073
+  %2075 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  store i32 %2074, ptr %2075, align 8, !tbaa !14
+  %2076 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2077 = load i32, ptr %2076, align 4, !tbaa !14
+  %2078 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2079 = load i32, ptr %2078, align 8, !tbaa !14
+  %2080 = call i32 @sigma1(i32 noundef %2079)
+  %2081 = add i32 %2077, %2080
+  %2082 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2083 = load i32, ptr %2082, align 8, !tbaa !14
+  %2084 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2085 = load i32, ptr %2084, align 4, !tbaa !14
+  %2086 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2087 = load i32, ptr %2086, align 16, !tbaa !14
+  %2088 = call i32 @ch(i32 noundef %2083, i32 noundef %2085, i32 noundef %2087)
+  %2089 = add i32 %2081, %2088
+  %2090 = add i32 %2089, 1537002063
+  %2091 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 54
+  %2092 = load i32, ptr %2091, align 8, !tbaa !14
+  %2093 = add i32 %2090, %2092
+  store i32 %2093, ptr %7, align 4, !tbaa !14
+  %2094 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2095 = load i32, ptr %2094, align 8, !tbaa !14
+  %2096 = call i32 @sigma0(i32 noundef %2095)
+  %2097 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2098 = load i32, ptr %2097, align 8, !tbaa !14
+  %2099 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2100 = load i32, ptr %2099, align 4, !tbaa !14
+  %2101 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2102 = load i32, ptr %2101, align 16, !tbaa !14
+  %2103 = call i32 @maj(i32 noundef %2098, i32 noundef %2100, i32 noundef %2102)
+  %2104 = add i32 %2096, %2103
+  store i32 %2104, ptr %8, align 4, !tbaa !14
+  %2105 = load i32, ptr %7, align 4, !tbaa !14
+  %2106 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2107 = load i32, ptr %2106, align 4, !tbaa !14
+  %2108 = add i32 %2107, %2105
+  store i32 %2108, ptr %2106, align 4, !tbaa !14
+  %2109 = load i32, ptr %7, align 4, !tbaa !14
+  %2110 = load i32, ptr %8, align 4, !tbaa !14
+  %2111 = add i32 %2109, %2110
+  %2112 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  store i32 %2111, ptr %2112, align 4, !tbaa !14
+  %2113 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2114 = load i32, ptr %2113, align 16, !tbaa !14
+  %2115 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2116 = load i32, ptr %2115, align 4, !tbaa !14
+  %2117 = call i32 @sigma1(i32 noundef %2116)
+  %2118 = add i32 %2114, %2117
+  %2119 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2120 = load i32, ptr %2119, align 4, !tbaa !14
+  %2121 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2122 = load i32, ptr %2121, align 8, !tbaa !14
+  %2123 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2124 = load i32, ptr %2123, align 4, !tbaa !14
+  %2125 = call i32 @ch(i32 noundef %2120, i32 noundef %2122, i32 noundef %2124)
+  %2126 = add i32 %2118, %2125
+  %2127 = add i32 %2126, 1747873779
+  %2128 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 55
+  %2129 = load i32, ptr %2128, align 4, !tbaa !14
+  %2130 = add i32 %2127, %2129
+  store i32 %2130, ptr %7, align 4, !tbaa !14
+  %2131 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2132 = load i32, ptr %2131, align 4, !tbaa !14
+  %2133 = call i32 @sigma0(i32 noundef %2132)
+  %2134 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2135 = load i32, ptr %2134, align 4, !tbaa !14
+  %2136 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2137 = load i32, ptr %2136, align 8, !tbaa !14
+  %2138 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2139 = load i32, ptr %2138, align 4, !tbaa !14
+  %2140 = call i32 @maj(i32 noundef %2135, i32 noundef %2137, i32 noundef %2139)
+  %2141 = add i32 %2133, %2140
+  store i32 %2141, ptr %8, align 4, !tbaa !14
+  %2142 = load i32, ptr %7, align 4, !tbaa !14
+  %2143 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2144 = load i32, ptr %2143, align 16, !tbaa !14
+  %2145 = add i32 %2144, %2142
+  store i32 %2145, ptr %2143, align 16, !tbaa !14
+  %2146 = load i32, ptr %7, align 4, !tbaa !14
+  %2147 = load i32, ptr %8, align 4, !tbaa !14
+  %2148 = add i32 %2146, %2147
+  %2149 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  store i32 %2148, ptr %2149, align 16, !tbaa !14
+  %2150 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2151 = load i32, ptr %2150, align 4, !tbaa !14
+  %2152 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2153 = load i32, ptr %2152, align 16, !tbaa !14
+  %2154 = call i32 @sigma1(i32 noundef %2153)
+  %2155 = add i32 %2151, %2154
+  %2156 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2157 = load i32, ptr %2156, align 16, !tbaa !14
+  %2158 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2159 = load i32, ptr %2158, align 4, !tbaa !14
+  %2160 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2161 = load i32, ptr %2160, align 8, !tbaa !14
+  %2162 = call i32 @ch(i32 noundef %2157, i32 noundef %2159, i32 noundef %2161)
+  %2163 = add i32 %2155, %2162
+  %2164 = add i32 %2163, 1955562222
+  %2165 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 56
+  %2166 = load i32, ptr %2165, align 16, !tbaa !14
+  %2167 = add i32 %2164, %2166
+  store i32 %2167, ptr %7, align 4, !tbaa !14
+  %2168 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2169 = load i32, ptr %2168, align 16, !tbaa !14
+  %2170 = call i32 @sigma0(i32 noundef %2169)
+  %2171 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2172 = load i32, ptr %2171, align 16, !tbaa !14
+  %2173 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2174 = load i32, ptr %2173, align 4, !tbaa !14
+  %2175 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2176 = load i32, ptr %2175, align 8, !tbaa !14
+  %2177 = call i32 @maj(i32 noundef %2172, i32 noundef %2174, i32 noundef %2176)
+  %2178 = add i32 %2170, %2177
+  store i32 %2178, ptr %8, align 4, !tbaa !14
+  %2179 = load i32, ptr %7, align 4, !tbaa !14
+  %2180 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2181 = load i32, ptr %2180, align 4, !tbaa !14
+  %2182 = add i32 %2181, %2179
+  store i32 %2182, ptr %2180, align 4, !tbaa !14
+  %2183 = load i32, ptr %7, align 4, !tbaa !14
+  %2184 = load i32, ptr %8, align 4, !tbaa !14
+  %2185 = add i32 %2183, %2184
+  %2186 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  store i32 %2185, ptr %2186, align 4, !tbaa !14
+  %2187 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2188 = load i32, ptr %2187, align 8, !tbaa !14
+  %2189 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2190 = load i32, ptr %2189, align 4, !tbaa !14
+  %2191 = call i32 @sigma1(i32 noundef %2190)
+  %2192 = add i32 %2188, %2191
+  %2193 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2194 = load i32, ptr %2193, align 4, !tbaa !14
+  %2195 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2196 = load i32, ptr %2195, align 16, !tbaa !14
+  %2197 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2198 = load i32, ptr %2197, align 4, !tbaa !14
+  %2199 = call i32 @ch(i32 noundef %2194, i32 noundef %2196, i32 noundef %2198)
+  %2200 = add i32 %2192, %2199
+  %2201 = add i32 %2200, 2024104815
+  %2202 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 57
+  %2203 = load i32, ptr %2202, align 4, !tbaa !14
+  %2204 = add i32 %2201, %2203
+  store i32 %2204, ptr %7, align 4, !tbaa !14
+  %2205 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2206 = load i32, ptr %2205, align 4, !tbaa !14
+  %2207 = call i32 @sigma0(i32 noundef %2206)
+  %2208 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2209 = load i32, ptr %2208, align 4, !tbaa !14
+  %2210 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2211 = load i32, ptr %2210, align 16, !tbaa !14
+  %2212 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2213 = load i32, ptr %2212, align 4, !tbaa !14
+  %2214 = call i32 @maj(i32 noundef %2209, i32 noundef %2211, i32 noundef %2213)
+  %2215 = add i32 %2207, %2214
+  store i32 %2215, ptr %8, align 4, !tbaa !14
+  %2216 = load i32, ptr %7, align 4, !tbaa !14
+  %2217 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2218 = load i32, ptr %2217, align 8, !tbaa !14
+  %2219 = add i32 %2218, %2216
+  store i32 %2219, ptr %2217, align 8, !tbaa !14
+  %2220 = load i32, ptr %7, align 4, !tbaa !14
+  %2221 = load i32, ptr %8, align 4, !tbaa !14
+  %2222 = add i32 %2220, %2221
+  %2223 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  store i32 %2222, ptr %2223, align 8, !tbaa !14
+  %2224 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2225 = load i32, ptr %2224, align 4, !tbaa !14
+  %2226 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2227 = load i32, ptr %2226, align 8, !tbaa !14
+  %2228 = call i32 @sigma1(i32 noundef %2227)
+  %2229 = add i32 %2225, %2228
+  %2230 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2231 = load i32, ptr %2230, align 8, !tbaa !14
+  %2232 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2233 = load i32, ptr %2232, align 4, !tbaa !14
+  %2234 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2235 = load i32, ptr %2234, align 16, !tbaa !14
+  %2236 = call i32 @ch(i32 noundef %2231, i32 noundef %2233, i32 noundef %2235)
+  %2237 = add i32 %2229, %2236
+  %2238 = add i32 %2237, -2067236844
+  %2239 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 58
+  %2240 = load i32, ptr %2239, align 8, !tbaa !14
+  %2241 = add i32 %2238, %2240
+  store i32 %2241, ptr %7, align 4, !tbaa !14
+  %2242 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2243 = load i32, ptr %2242, align 8, !tbaa !14
+  %2244 = call i32 @sigma0(i32 noundef %2243)
+  %2245 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2246 = load i32, ptr %2245, align 8, !tbaa !14
+  %2247 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2248 = load i32, ptr %2247, align 4, !tbaa !14
+  %2249 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2250 = load i32, ptr %2249, align 16, !tbaa !14
+  %2251 = call i32 @maj(i32 noundef %2246, i32 noundef %2248, i32 noundef %2250)
+  %2252 = add i32 %2244, %2251
+  store i32 %2252, ptr %8, align 4, !tbaa !14
+  %2253 = load i32, ptr %7, align 4, !tbaa !14
+  %2254 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2255 = load i32, ptr %2254, align 4, !tbaa !14
+  %2256 = add i32 %2255, %2253
+  store i32 %2256, ptr %2254, align 4, !tbaa !14
+  %2257 = load i32, ptr %7, align 4, !tbaa !14
+  %2258 = load i32, ptr %8, align 4, !tbaa !14
+  %2259 = add i32 %2257, %2258
+  %2260 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  store i32 %2259, ptr %2260, align 4, !tbaa !14
+  %2261 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2262 = load i32, ptr %2261, align 16, !tbaa !14
+  %2263 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2264 = load i32, ptr %2263, align 4, !tbaa !14
+  %2265 = call i32 @sigma1(i32 noundef %2264)
+  %2266 = add i32 %2262, %2265
+  %2267 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2268 = load i32, ptr %2267, align 4, !tbaa !14
+  %2269 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2270 = load i32, ptr %2269, align 8, !tbaa !14
+  %2271 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2272 = load i32, ptr %2271, align 4, !tbaa !14
+  %2273 = call i32 @ch(i32 noundef %2268, i32 noundef %2270, i32 noundef %2272)
+  %2274 = add i32 %2266, %2273
+  %2275 = add i32 %2274, -1933114872
+  %2276 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 59
+  %2277 = load i32, ptr %2276, align 4, !tbaa !14
+  %2278 = add i32 %2275, %2277
+  store i32 %2278, ptr %7, align 4, !tbaa !14
+  %2279 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2280 = load i32, ptr %2279, align 4, !tbaa !14
+  %2281 = call i32 @sigma0(i32 noundef %2280)
+  %2282 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2283 = load i32, ptr %2282, align 4, !tbaa !14
+  %2284 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2285 = load i32, ptr %2284, align 8, !tbaa !14
+  %2286 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2287 = load i32, ptr %2286, align 4, !tbaa !14
+  %2288 = call i32 @maj(i32 noundef %2283, i32 noundef %2285, i32 noundef %2287)
+  %2289 = add i32 %2281, %2288
+  store i32 %2289, ptr %8, align 4, !tbaa !14
+  %2290 = load i32, ptr %7, align 4, !tbaa !14
+  %2291 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2292 = load i32, ptr %2291, align 16, !tbaa !14
+  %2293 = add i32 %2292, %2290
+  store i32 %2293, ptr %2291, align 16, !tbaa !14
+  %2294 = load i32, ptr %7, align 4, !tbaa !14
+  %2295 = load i32, ptr %8, align 4, !tbaa !14
+  %2296 = add i32 %2294, %2295
+  %2297 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  store i32 %2296, ptr %2297, align 16, !tbaa !14
+  %2298 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2299 = load i32, ptr %2298, align 4, !tbaa !14
+  %2300 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2301 = load i32, ptr %2300, align 16, !tbaa !14
+  %2302 = call i32 @sigma1(i32 noundef %2301)
+  %2303 = add i32 %2299, %2302
+  %2304 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2305 = load i32, ptr %2304, align 16, !tbaa !14
+  %2306 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2307 = load i32, ptr %2306, align 4, !tbaa !14
+  %2308 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2309 = load i32, ptr %2308, align 8, !tbaa !14
+  %2310 = call i32 @ch(i32 noundef %2305, i32 noundef %2307, i32 noundef %2309)
+  %2311 = add i32 %2303, %2310
+  %2312 = add i32 %2311, -1866530822
+  %2313 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 60
+  %2314 = load i32, ptr %2313, align 16, !tbaa !14
+  %2315 = add i32 %2312, %2314
+  store i32 %2315, ptr %7, align 4, !tbaa !14
+  %2316 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2317 = load i32, ptr %2316, align 16, !tbaa !14
+  %2318 = call i32 @sigma0(i32 noundef %2317)
+  %2319 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2320 = load i32, ptr %2319, align 16, !tbaa !14
+  %2321 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2322 = load i32, ptr %2321, align 4, !tbaa !14
+  %2323 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2324 = load i32, ptr %2323, align 8, !tbaa !14
+  %2325 = call i32 @maj(i32 noundef %2320, i32 noundef %2322, i32 noundef %2324)
+  %2326 = add i32 %2318, %2325
+  store i32 %2326, ptr %8, align 4, !tbaa !14
+  %2327 = load i32, ptr %7, align 4, !tbaa !14
+  %2328 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2329 = load i32, ptr %2328, align 4, !tbaa !14
+  %2330 = add i32 %2329, %2327
+  store i32 %2330, ptr %2328, align 4, !tbaa !14
+  %2331 = load i32, ptr %7, align 4, !tbaa !14
+  %2332 = load i32, ptr %8, align 4, !tbaa !14
+  %2333 = add i32 %2331, %2332
+  %2334 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  store i32 %2333, ptr %2334, align 4, !tbaa !14
+  %2335 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2336 = load i32, ptr %2335, align 8, !tbaa !14
+  %2337 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2338 = load i32, ptr %2337, align 4, !tbaa !14
+  %2339 = call i32 @sigma1(i32 noundef %2338)
+  %2340 = add i32 %2336, %2339
+  %2341 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2342 = load i32, ptr %2341, align 4, !tbaa !14
+  %2343 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2344 = load i32, ptr %2343, align 16, !tbaa !14
+  %2345 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2346 = load i32, ptr %2345, align 4, !tbaa !14
+  %2347 = call i32 @ch(i32 noundef %2342, i32 noundef %2344, i32 noundef %2346)
+  %2348 = add i32 %2340, %2347
+  %2349 = add i32 %2348, -1538233109
+  %2350 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 61
+  %2351 = load i32, ptr %2350, align 4, !tbaa !14
+  %2352 = add i32 %2349, %2351
+  store i32 %2352, ptr %7, align 4, !tbaa !14
+  %2353 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2354 = load i32, ptr %2353, align 4, !tbaa !14
+  %2355 = call i32 @sigma0(i32 noundef %2354)
+  %2356 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2357 = load i32, ptr %2356, align 4, !tbaa !14
+  %2358 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2359 = load i32, ptr %2358, align 16, !tbaa !14
+  %2360 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2361 = load i32, ptr %2360, align 4, !tbaa !14
+  %2362 = call i32 @maj(i32 noundef %2357, i32 noundef %2359, i32 noundef %2361)
+  %2363 = add i32 %2355, %2362
+  store i32 %2363, ptr %8, align 4, !tbaa !14
+  %2364 = load i32, ptr %7, align 4, !tbaa !14
+  %2365 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2366 = load i32, ptr %2365, align 8, !tbaa !14
+  %2367 = add i32 %2366, %2364
+  store i32 %2367, ptr %2365, align 8, !tbaa !14
+  %2368 = load i32, ptr %7, align 4, !tbaa !14
+  %2369 = load i32, ptr %8, align 4, !tbaa !14
+  %2370 = add i32 %2368, %2369
+  %2371 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  store i32 %2370, ptr %2371, align 8, !tbaa !14
+  %2372 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2373 = load i32, ptr %2372, align 4, !tbaa !14
+  %2374 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2375 = load i32, ptr %2374, align 8, !tbaa !14
+  %2376 = call i32 @sigma1(i32 noundef %2375)
+  %2377 = add i32 %2373, %2376
+  %2378 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2379 = load i32, ptr %2378, align 8, !tbaa !14
+  %2380 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2381 = load i32, ptr %2380, align 4, !tbaa !14
+  %2382 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2383 = load i32, ptr %2382, align 16, !tbaa !14
+  %2384 = call i32 @ch(i32 noundef %2379, i32 noundef %2381, i32 noundef %2383)
+  %2385 = add i32 %2377, %2384
+  %2386 = add i32 %2385, -1090935817
+  %2387 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 62
+  %2388 = load i32, ptr %2387, align 8, !tbaa !14
+  %2389 = add i32 %2386, %2388
+  store i32 %2389, ptr %7, align 4, !tbaa !14
+  %2390 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2391 = load i32, ptr %2390, align 8, !tbaa !14
+  %2392 = call i32 @sigma0(i32 noundef %2391)
+  %2393 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2394 = load i32, ptr %2393, align 8, !tbaa !14
+  %2395 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2396 = load i32, ptr %2395, align 4, !tbaa !14
+  %2397 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2398 = load i32, ptr %2397, align 16, !tbaa !14
+  %2399 = call i32 @maj(i32 noundef %2394, i32 noundef %2396, i32 noundef %2398)
+  %2400 = add i32 %2392, %2399
+  store i32 %2400, ptr %8, align 4, !tbaa !14
+  %2401 = load i32, ptr %7, align 4, !tbaa !14
+  %2402 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2403 = load i32, ptr %2402, align 4, !tbaa !14
+  %2404 = add i32 %2403, %2401
+  store i32 %2404, ptr %2402, align 4, !tbaa !14
+  %2405 = load i32, ptr %7, align 4, !tbaa !14
+  %2406 = load i32, ptr %8, align 4, !tbaa !14
+  %2407 = add i32 %2405, %2406
+  %2408 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  store i32 %2407, ptr %2408, align 4, !tbaa !14
+  %2409 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  %2410 = load i32, ptr %2409, align 16, !tbaa !14
+  %2411 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2412 = load i32, ptr %2411, align 4, !tbaa !14
+  %2413 = call i32 @sigma1(i32 noundef %2412)
+  %2414 = add i32 %2410, %2413
+  %2415 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 5
+  %2416 = load i32, ptr %2415, align 4, !tbaa !14
+  %2417 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 6
+  %2418 = load i32, ptr %2417, align 8, !tbaa !14
+  %2419 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 7
+  %2420 = load i32, ptr %2419, align 4, !tbaa !14
+  %2421 = call i32 @ch(i32 noundef %2416, i32 noundef %2418, i32 noundef %2420)
+  %2422 = add i32 %2414, %2421
+  %2423 = add i32 %2422, -965641998
+  %2424 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 63
+  %2425 = load i32, ptr %2424, align 4, !tbaa !14
+  %2426 = add i32 %2423, %2425
+  store i32 %2426, ptr %7, align 4, !tbaa !14
+  %2427 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2428 = load i32, ptr %2427, align 4, !tbaa !14
+  %2429 = call i32 @sigma0(i32 noundef %2428)
+  %2430 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 1
+  %2431 = load i32, ptr %2430, align 4, !tbaa !14
+  %2432 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 2
+  %2433 = load i32, ptr %2432, align 8, !tbaa !14
+  %2434 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 3
+  %2435 = load i32, ptr %2434, align 4, !tbaa !14
+  %2436 = call i32 @maj(i32 noundef %2431, i32 noundef %2433, i32 noundef %2435)
+  %2437 = add i32 %2429, %2436
+  store i32 %2437, ptr %8, align 4, !tbaa !14
+  %2438 = load i32, ptr %7, align 4, !tbaa !14
+  %2439 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 4
+  %2440 = load i32, ptr %2439, align 16, !tbaa !14
+  %2441 = add i32 %2440, %2438
+  store i32 %2441, ptr %2439, align 16, !tbaa !14
+  %2442 = load i32, ptr %7, align 4, !tbaa !14
+  %2443 = load i32, ptr %8, align 4, !tbaa !14
+  %2444 = add i32 %2442, %2443
+  %2445 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 0
+  store i32 %2444, ptr %2445, align 16, !tbaa !14
+  store i32 0, ptr %9, align 4, !tbaa !14
+  br label %2446
 
-for.cond1506:                                     ; preds = %for.inc1515, %for.end33
-  %918 = load i32, ptr %i, align 4
-  %cmp1507 = icmp slt i32 %918, 8
-  br i1 %cmp1507, label %for.body1508, label %for.end1517
+2446:                                             ; preds = %2461, %77
+  %2447 = load i32, ptr %9, align 4, !tbaa !14
+  %2448 = icmp slt i32 %2447, 8
+  br i1 %2448, label %2449, label %2464
 
-for.body1508:                                     ; preds = %for.cond1506
-  %919 = load i32, ptr %i, align 4
-  %idxprom1509 = sext i32 %919 to i64
-  %arrayidx1510 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 %idxprom1509
-  %920 = load i32, ptr %arrayidx1510, align 4
-  %921 = load ptr, ptr %ctx.addr, align 8
-  %state1511 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %921, i32 0, i32 0
-  %922 = load i32, ptr %i, align 4
-  %idxprom1512 = sext i32 %922 to i64
-  %arrayidx1513 = getelementptr inbounds [8 x i32], ptr %state1511, i64 0, i64 %idxprom1512
-  %923 = load i32, ptr %arrayidx1513, align 4
-  %add1514 = add i32 %923, %920
-  store i32 %add1514, ptr %arrayidx1513, align 4
-  br label %for.inc1515
+2449:                                             ; preds = %2446
+  %2450 = load i32, ptr %9, align 4, !tbaa !14
+  %2451 = sext i32 %2450 to i64
+  %2452 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %2451
+  %2453 = load i32, ptr %2452, align 4, !tbaa !14
+  %2454 = load ptr, ptr %3, align 8, !tbaa !4
+  %2455 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %2454, i32 0, i32 0
+  %2456 = load i32, ptr %9, align 4, !tbaa !14
+  %2457 = sext i32 %2456 to i64
+  %2458 = getelementptr inbounds [8 x i32], ptr %2455, i64 0, i64 %2457
+  %2459 = load i32, ptr %2458, align 4, !tbaa !14
+  %2460 = add i32 %2459, %2453
+  store i32 %2460, ptr %2458, align 4, !tbaa !14
+  br label %2461
 
-for.inc1515:                                      ; preds = %for.body1508
-  %924 = load i32, ptr %i, align 4
-  %inc1516 = add nsw i32 %924, 1
-  store i32 %inc1516, ptr %i, align 4
-  br label %for.cond1506, !llvm.loop !10
+2461:                                             ; preds = %2449
+  %2462 = load i32, ptr %9, align 4, !tbaa !14
+  %2463 = add nsw i32 %2462, 1
+  store i32 %2463, ptr %9, align 4, !tbaa !14
+  br label %2446, !llvm.loop !24
 
-for.end1517:                                      ; preds = %for.cond1506
+2464:                                             ; preds = %2446
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 256, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define dso_local void @blk_SHA256_Final(ptr noundef %digest, ptr noundef %ctx) #0 {
-entry:
-  %digest.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %padlen = alloca [2 x i32], align 4
-  %i = alloca i32, align 4
-  store ptr %digest, ptr %digest.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %size = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %size, align 8
-  %shr = lshr i64 %1, 29
-  %conv = trunc i64 %shr to i32
-  %call = call i32 @git_bswap32(i32 noundef %conv)
-  %arrayidx = getelementptr inbounds [2 x i32], ptr %padlen, i64 0, i64 0
-  store i32 %call, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %size1 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %size1, align 8
-  %shl = shl i64 %3, 3
-  %conv2 = trunc i64 %shl to i32
-  %call3 = call i32 @git_bswap32(i32 noundef %conv2)
-  %arrayidx4 = getelementptr inbounds [2 x i32], ptr %padlen, i64 0, i64 1
-  store i32 %call3, ptr %arrayidx4, align 4
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %size5 = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %size5, align 8
-  %and = and i64 %5, 63
-  %conv6 = trunc i64 %and to i32
-  store i32 %conv6, ptr %i, align 4
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %7 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 55, %7
-  %and7 = and i32 63, %sub
-  %add = add nsw i32 1, %and7
-  %conv8 = sext i32 %add to i64
-  call void @blk_SHA256_Update(ptr noundef %6, ptr noundef @blk_SHA256_Final.pad, i64 noundef %conv8)
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %arraydecay = getelementptr inbounds [2 x i32], ptr %padlen, i64 0, i64 0
-  call void @blk_SHA256_Update(ptr noundef %8, ptr noundef %arraydecay, i64 noundef 8)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @blk_SHA256_Final(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [2 x i32], align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %7, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !13
+  %10 = lshr i64 %9, 29
+  %11 = trunc i64 %10 to i32
+  %12 = call i32 @git_bswap32(i32 noundef %11)
+  %13 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 0
+  store i32 %12, ptr %13, align 4, !tbaa !14
+  %14 = load ptr, ptr %4, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !13
+  %17 = shl i64 %16, 3
+  %18 = trunc i64 %17 to i32
+  %19 = call i32 @git_bswap32(i32 noundef %18)
+  %20 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 1
+  store i32 %19, ptr %20, align 4, !tbaa !14
+  %21 = load ptr, ptr %4, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %21, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8, !tbaa !13
+  %24 = and i64 %23, 63
+  %25 = trunc i64 %24 to i32
+  store i32 %25, ptr %6, align 4, !tbaa !14
+  %26 = load ptr, ptr %4, align 8, !tbaa !4
+  %27 = load i32, ptr %6, align 4, !tbaa !14
+  %28 = sub nsw i32 55, %27
+  %29 = and i32 63, %28
+  %30 = add nsw i32 1, %29
+  %31 = sext i32 %30 to i64
+  call void @blk_SHA256_Update(ptr noundef %26, ptr noundef @blk_SHA256_Final.pad, i64 noundef %31)
+  %32 = load ptr, ptr %4, align 8, !tbaa !4
+  %33 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 0
+  call void @blk_SHA256_Update(ptr noundef %32, ptr noundef %33, i64 noundef 8)
+  store i32 0, ptr %6, align 4, !tbaa !14
+  br label %34
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %9 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %9, 8
-  br i1 %cmp, label %for.body, label %for.end
+34:                                               ; preds = %45, %2
+  %35 = load i32, ptr %6, align 4, !tbaa !14
+  %36 = icmp slt i32 %35, 8
+  br i1 %36, label %37, label %50
 
-for.body:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %digest.addr, align 8
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %state = getelementptr inbounds %struct.blk_SHA256_CTX, ptr %11, i32 0, i32 0
-  %12 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %12 to i64
-  %arrayidx10 = getelementptr inbounds [8 x i32], ptr %state, i64 0, i64 %idxprom
-  %13 = load i32, ptr %arrayidx10, align 4
-  call void @put_be32(ptr noundef %10, i32 noundef %13)
-  br label %for.inc
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %3, align 8, !tbaa !19
+  %39 = load ptr, ptr %4, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.blk_SHA256_CTX, ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %6, align 4, !tbaa !14
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds [8 x i32], ptr %40, i64 0, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !14
+  call void @put_be32(ptr noundef %38, i32 noundef %44)
+  br label %45
 
-for.inc:                                          ; preds = %for.body
-  %14 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %i, align 4
-  %15 = load ptr, ptr %digest.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %15, i64 4
-  store ptr %add.ptr, ptr %digest.addr, align 8
-  br label %for.cond, !llvm.loop !11
+45:                                               ; preds = %37
+  %46 = load i32, ptr %6, align 4, !tbaa !14
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %6, align 4, !tbaa !14
+  %48 = load ptr, ptr %3, align 8, !tbaa !19
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store ptr %49, ptr %3, align 8, !tbaa !19
+  br label %34, !llvm.loop !25
 
-for.end:                                          ; preds = %for.cond
+50:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @git_bswap32(i32 noundef %x) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  %result = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %1 = call i1 @llvm.is.constant.i32(i32 %0)
-  br i1 %1, label %if.then, label %if.else
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @git_bswap32(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  %4 = load i32, ptr %2, align 4, !tbaa !14
+  %5 = call i1 @llvm.is.constant.i32(i32 %4)
+  br i1 %5, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %x.addr, align 4
-  %call = call i32 @default_swab32(i32 noundef %2)
-  store i32 %call, ptr %result, align 4
-  br label %if.end
+6:                                                ; preds = %1
+  %7 = load i32, ptr %2, align 4, !tbaa !14
+  %8 = call i32 @default_swab32(i32 noundef %7)
+  store i32 %8, ptr %3, align 4, !tbaa !14
+  br label %12
 
-if.else:                                          ; preds = %entry
-  %3 = load i32, ptr %x.addr, align 4
-  %4 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %3) #3, !srcloc !12
-  store i32 %4, ptr %result, align 4
-  br label %if.end
+9:                                                ; preds = %1
+  %10 = load i32, ptr %2, align 4, !tbaa !14
+  %11 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #6, !srcloc !26
+  store i32 %11, ptr %3, align 4, !tbaa !14
+  br label %12
 
-if.end:                                           ; preds = %if.else, %if.then
-  %5 = load i32, ptr %result, align 4
-  ret i32 %5
+12:                                               ; preds = %9, %6
+  %13 = load i32, ptr %3, align 4, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
+  ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @put_be32(ptr noundef %ptr, i32 noundef %value) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %value.addr = alloca i32, align 4
-  %p = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i32 %value, ptr %value.addr, align 4
-  %0 = load ptr, ptr %ptr.addr, align 8
-  store ptr %0, ptr %p, align 8
-  %1 = load i32, ptr %value.addr, align 4
-  %shr = lshr i32 %1, 24
-  %conv = trunc i32 %shr to i8
-  %2 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 0
-  store i8 %conv, ptr %arrayidx, align 1
-  %3 = load i32, ptr %value.addr, align 4
-  %shr1 = lshr i32 %3, 16
-  %conv2 = trunc i32 %shr1 to i8
-  %4 = load ptr, ptr %p, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %4, i64 1
-  store i8 %conv2, ptr %arrayidx3, align 1
-  %5 = load i32, ptr %value.addr, align 4
-  %shr4 = lshr i32 %5, 8
-  %conv5 = trunc i32 %shr4 to i8
-  %6 = load ptr, ptr %p, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %6, i64 2
-  store i8 %conv5, ptr %arrayidx6, align 1
-  %7 = load i32, ptr %value.addr, align 4
-  %shr7 = lshr i32 %7, 0
-  %conv8 = trunc i32 %shr7 to i8
-  %8 = load ptr, ptr %p, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %8, i64 3
-  store i8 %conv8, ptr %arrayidx9, align 1
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @put_be32(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %6 = load ptr, ptr %3, align 8, !tbaa !15
+  store ptr %6, ptr %5, align 8, !tbaa !19
+  %7 = load i32, ptr %4, align 4, !tbaa !14
+  %8 = lshr i32 %7, 24
+  %9 = and i32 %8, 255
+  %10 = trunc i32 %9 to i8
+  %11 = load ptr, ptr %5, align 8, !tbaa !19
+  %12 = getelementptr inbounds i8, ptr %11, i64 0
+  store i8 %10, ptr %12, align 1, !tbaa !27
+  %13 = load i32, ptr %4, align 4, !tbaa !14
+  %14 = lshr i32 %13, 16
+  %15 = and i32 %14, 255
+  %16 = trunc i32 %15 to i8
+  %17 = load ptr, ptr %5, align 8, !tbaa !19
+  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  store i8 %16, ptr %18, align 1, !tbaa !27
+  %19 = load i32, ptr %4, align 4, !tbaa !14
+  %20 = lshr i32 %19, 8
+  %21 = and i32 %20, 255
+  %22 = trunc i32 %21 to i8
+  %23 = load ptr, ptr %5, align 8, !tbaa !19
+  %24 = getelementptr inbounds i8, ptr %23, i64 2
+  store i8 %22, ptr %24, align 1, !tbaa !27
+  %25 = load i32, ptr %4, align 4, !tbaa !14
+  %26 = lshr i32 %25, 0
+  %27 = and i32 %26, 255
+  %28 = trunc i32 %27 to i8
+  %29 = load ptr, ptr %5, align 8, !tbaa !19
+  %30 = getelementptr inbounds i8, ptr %29, i64 3
+  store i8 %28, ptr %30, align 1, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @get_be32(ptr noundef %ptr) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  store ptr %0, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 0
-  %2 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %2 to i32
-  %shl = shl i32 %conv, 24
-  %3 = load ptr, ptr %p, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %3, i64 1
-  %4 = load i8, ptr %arrayidx1, align 1
-  %conv2 = zext i8 %4 to i32
-  %shl3 = shl i32 %conv2, 16
-  %or = or i32 %shl, %shl3
-  %5 = load ptr, ptr %p, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %5, i64 2
-  %6 = load i8, ptr %arrayidx4, align 1
-  %conv5 = zext i8 %6 to i32
-  %shl6 = shl i32 %conv5, 8
-  %or7 = or i32 %or, %shl6
-  %7 = load ptr, ptr %p, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %7, i64 3
-  %8 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %8 to i32
-  %shl10 = shl i32 %conv9, 0
-  %or11 = or i32 %or7, %shl10
-  ret i32 %or11
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @get_be32(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !15
+  store ptr %4, ptr %3, align 8, !tbaa !19
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  %7 = load i8, ptr %6, align 1, !tbaa !27
+  %8 = zext i8 %7 to i32
+  %9 = shl i32 %8, 24
+  %10 = load ptr, ptr %3, align 8, !tbaa !19
+  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = load i8, ptr %11, align 1, !tbaa !27
+  %13 = zext i8 %12 to i32
+  %14 = shl i32 %13, 16
+  %15 = or i32 %9, %14
+  %16 = load ptr, ptr %3, align 8, !tbaa !19
+  %17 = getelementptr inbounds i8, ptr %16, i64 2
+  %18 = load i8, ptr %17, align 1, !tbaa !27
+  %19 = zext i8 %18 to i32
+  %20 = shl i32 %19, 8
+  %21 = or i32 %15, %20
+  %22 = load ptr, ptr %3, align 8, !tbaa !19
+  %23 = getelementptr inbounds i8, ptr %22, i64 3
+  %24 = load i8, ptr %23, align 1, !tbaa !27
+  %25 = zext i8 %24 to i32
+  %26 = shl i32 %25, 0
+  %27 = or i32 %21, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i32 %27
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @gamma1(i32 noundef %x) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %call = call i32 @ror(i32 noundef %0, i32 noundef 17)
-  %1 = load i32, ptr %x.addr, align 4
-  %call1 = call i32 @ror(i32 noundef %1, i32 noundef 19)
-  %xor = xor i32 %call, %call1
-  %2 = load i32, ptr %x.addr, align 4
-  %shr = lshr i32 %2, 10
-  %xor2 = xor i32 %xor, %shr
-  ret i32 %xor2
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @gamma1(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  %3 = load i32, ptr %2, align 4, !tbaa !14
+  %4 = call i32 @ror(i32 noundef %3, i32 noundef 17)
+  %5 = load i32, ptr %2, align 4, !tbaa !14
+  %6 = call i32 @ror(i32 noundef %5, i32 noundef 19)
+  %7 = xor i32 %4, %6
+  %8 = load i32, ptr %2, align 4, !tbaa !14
+  %9 = lshr i32 %8, 10
+  %10 = xor i32 %7, %9
+  ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @gamma0(i32 noundef %x) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %call = call i32 @ror(i32 noundef %0, i32 noundef 7)
-  %1 = load i32, ptr %x.addr, align 4
-  %call1 = call i32 @ror(i32 noundef %1, i32 noundef 18)
-  %xor = xor i32 %call, %call1
-  %2 = load i32, ptr %x.addr, align 4
-  %shr = lshr i32 %2, 3
-  %xor2 = xor i32 %xor, %shr
-  ret i32 %xor2
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @gamma0(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  %3 = load i32, ptr %2, align 4, !tbaa !14
+  %4 = call i32 @ror(i32 noundef %3, i32 noundef 7)
+  %5 = load i32, ptr %2, align 4, !tbaa !14
+  %6 = call i32 @ror(i32 noundef %5, i32 noundef 18)
+  %7 = xor i32 %4, %6
+  %8 = load i32, ptr %2, align 4, !tbaa !14
+  %9 = lshr i32 %8, 3
+  %10 = xor i32 %7, %9
+  ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @sigma1(i32 noundef %x) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %call = call i32 @ror(i32 noundef %0, i32 noundef 6)
-  %1 = load i32, ptr %x.addr, align 4
-  %call1 = call i32 @ror(i32 noundef %1, i32 noundef 11)
-  %xor = xor i32 %call, %call1
-  %2 = load i32, ptr %x.addr, align 4
-  %call2 = call i32 @ror(i32 noundef %2, i32 noundef 25)
-  %xor3 = xor i32 %xor, %call2
-  ret i32 %xor3
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @sigma1(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  %3 = load i32, ptr %2, align 4, !tbaa !14
+  %4 = call i32 @ror(i32 noundef %3, i32 noundef 6)
+  %5 = load i32, ptr %2, align 4, !tbaa !14
+  %6 = call i32 @ror(i32 noundef %5, i32 noundef 11)
+  %7 = xor i32 %4, %6
+  %8 = load i32, ptr %2, align 4, !tbaa !14
+  %9 = call i32 @ror(i32 noundef %8, i32 noundef 25)
+  %10 = xor i32 %7, %9
+  ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @ch(i32 noundef %x, i32 noundef %y, i32 noundef %z) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  %y.addr = alloca i32, align 4
-  %z.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  store i32 %y, ptr %y.addr, align 4
-  store i32 %z, ptr %z.addr, align 4
-  %0 = load i32, ptr %z.addr, align 4
-  %1 = load i32, ptr %x.addr, align 4
-  %2 = load i32, ptr %y.addr, align 4
-  %3 = load i32, ptr %z.addr, align 4
-  %xor = xor i32 %2, %3
-  %and = and i32 %1, %xor
-  %xor1 = xor i32 %0, %and
-  ret i32 %xor1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ch(i32 noundef %0, i32 noundef %1, i32 noundef %2) #3 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !14
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store i32 %2, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %8 = load i32, ptr %4, align 4, !tbaa !14
+  %9 = load i32, ptr %5, align 4, !tbaa !14
+  %10 = load i32, ptr %6, align 4, !tbaa !14
+  %11 = xor i32 %9, %10
+  %12 = and i32 %8, %11
+  %13 = xor i32 %7, %12
+  ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @sigma0(i32 noundef %x) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %call = call i32 @ror(i32 noundef %0, i32 noundef 2)
-  %1 = load i32, ptr %x.addr, align 4
-  %call1 = call i32 @ror(i32 noundef %1, i32 noundef 13)
-  %xor = xor i32 %call, %call1
-  %2 = load i32, ptr %x.addr, align 4
-  %call2 = call i32 @ror(i32 noundef %2, i32 noundef 22)
-  %xor3 = xor i32 %xor, %call2
-  ret i32 %xor3
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @sigma0(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  %3 = load i32, ptr %2, align 4, !tbaa !14
+  %4 = call i32 @ror(i32 noundef %3, i32 noundef 2)
+  %5 = load i32, ptr %2, align 4, !tbaa !14
+  %6 = call i32 @ror(i32 noundef %5, i32 noundef 13)
+  %7 = xor i32 %4, %6
+  %8 = load i32, ptr %2, align 4, !tbaa !14
+  %9 = call i32 @ror(i32 noundef %8, i32 noundef 22)
+  %10 = xor i32 %7, %9
+  ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @maj(i32 noundef %x, i32 noundef %y, i32 noundef %z) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  %y.addr = alloca i32, align 4
-  %z.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  store i32 %y, ptr %y.addr, align 4
-  store i32 %z, ptr %z.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %1 = load i32, ptr %y.addr, align 4
-  %or = or i32 %0, %1
-  %2 = load i32, ptr %z.addr, align 4
-  %and = and i32 %or, %2
-  %3 = load i32, ptr %x.addr, align 4
-  %4 = load i32, ptr %y.addr, align 4
-  %and1 = and i32 %3, %4
-  %or2 = or i32 %and, %and1
-  ret i32 %or2
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @maj(i32 noundef %0, i32 noundef %1, i32 noundef %2) #3 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !14
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store i32 %2, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %4, align 4, !tbaa !14
+  %8 = load i32, ptr %5, align 4, !tbaa !14
+  %9 = or i32 %7, %8
+  %10 = load i32, ptr %6, align 4, !tbaa !14
+  %11 = and i32 %9, %10
+  %12 = load i32, ptr %4, align 4, !tbaa !14
+  %13 = load i32, ptr %5, align 4, !tbaa !14
+  %14 = and i32 %12, %13
+  %15 = or i32 %11, %14
+  ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @ror(i32 noundef %x, i32 noundef %n) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  %n.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  store i32 %n, ptr %n.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %1 = load i32, ptr %n.addr, align 4
-  %shr = lshr i32 %0, %1
-  %2 = load i32, ptr %x.addr, align 4
-  %3 = load i32, ptr %n.addr, align 4
-  %sub = sub i32 32, %3
-  %shl = shl i32 %2, %sub
-  %or = or i32 %shr, %shl
-  ret i32 %or
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ror(i32 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load i32, ptr %3, align 4, !tbaa !14
+  %6 = load i32, ptr %4, align 4, !tbaa !14
+  %7 = lshr i32 %5, %6
+  %8 = load i32, ptr %3, align 4, !tbaa !14
+  %9 = load i32, ptr %4, align 4, !tbaa !14
+  %10 = sub i32 32, %9
+  %11 = shl i32 %8, %10
+  %12 = or i32 %7, %11
+  ret i32 %12
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #2
+declare i1 @llvm.is.constant.i32(i32) #4
 
-; Function Attrs: nounwind uwtable
-define internal i32 @default_swab32(i32 noundef %val) #0 {
-entry:
-  %val.addr = alloca i32, align 4
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load i32, ptr %val.addr, align 4
-  %and = and i32 %0, -16777216
-  %shr = lshr i32 %and, 24
-  %1 = load i32, ptr %val.addr, align 4
-  %and1 = and i32 %1, 16711680
-  %shr2 = lshr i32 %and1, 8
-  %or = or i32 %shr, %shr2
-  %2 = load i32, ptr %val.addr, align 4
-  %and3 = and i32 %2, 65280
-  %shl = shl i32 %and3, 8
-  %or4 = or i32 %or, %shl
-  %3 = load i32, ptr %val.addr, align 4
-  %and5 = and i32 %3, 255
-  %shl6 = shl i32 %and5, 24
-  %or7 = or i32 %or4, %shl6
-  ret i32 %or7
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @default_swab32(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  %3 = load i32, ptr %2, align 4, !tbaa !14
+  %4 = and i32 %3, -16777216
+  %5 = lshr i32 %4, 24
+  %6 = load i32, ptr %2, align 4, !tbaa !14
+  %7 = and i32 %6, 16711680
+  %8 = lshr i32 %7, 8
+  %9 = or i32 %5, %8
+  %10 = load i32, ptr %2, align 4, !tbaa !14
+  %11 = and i32 %10, 65280
+  %12 = shl i32 %11, 8
+  %13 = or i32 %9, %12
+  %14 = load i32, ptr %2, align 4, !tbaa !14
+  %15 = and i32 %14, 255
+  %16 = shl i32 %15, 24
+  %17 = or i32 %13, %16
+  ret i32 %17
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #3 = { nounwind memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = !{i64 3407927}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS14blk_SHA256_CTX", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !12, i64 40}
+!10 = !{!"blk_SHA256_CTX", !7, i64 0, !11, i64 32, !12, i64 40, !7, i64 44}
+!11 = !{!"long", !7, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!10, !11, i64 32}
+!14 = !{!12, !12, i64 0}
+!15 = !{!6, !6, i64 0}
+!16 = !{!11, !11, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 omnipotent char", !6, i64 0}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = !{i64 3462302}
+!27 = !{!7, !7, i64 0}

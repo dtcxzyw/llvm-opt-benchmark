@@ -1,19 +1,19 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.strvec = type { ptr, i64, i64 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, i64, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
+%struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
 %struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
-%struct.git_graph = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i16 }
-%struct.rev_info = type { ptr, %struct.object_array, ptr, %struct.object_array, %struct.rev_cmdline_info, %struct.list_objects_filter_options, %struct.ref_exclusions, ptr, ptr, %struct.pathspec, i32, i32, i32, i32, i64, i32, i24, %struct.date_mode, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, %struct.ident_split, ptr, i32, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.grep_opt, ptr, i32, i32, i64, i64, i64, i32, i32, ptr, ptr, ptr, %struct.diff_options, %struct.diff_options, ptr, %struct.decoration, %struct.decoration, %struct.decoration, %struct.display_notes_opt, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, %struct.decoration, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.oidset }
+%struct.git_graph = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i16, %struct.strbuf }
+%struct.rev_info = type { ptr, %struct.object_array, ptr, %struct.object_array, %struct.rev_cmdline_info, %struct.list_objects_filter_options, %struct.ref_exclusions, ptr, ptr, ptr, %struct.pathspec, i32, i32, i32, i32, i64, i32, i32, %struct.date_mode, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, %struct.ident_split, ptr, i32, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.grep_opt, ptr, i32, i32, i64, i64, i64, i32, i32, ptr, ptr, ptr, %struct.diff_options, %struct.diff_options, ptr, %struct.decoration, %struct.decoration, %struct.decoration, %struct.display_notes_opt, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, %struct.decoration, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.oidset }
 %struct.object_array = type { i32, i32, ptr }
 %struct.rev_cmdline_info = type { i32, i32, ptr }
 %struct.list_objects_filter_options = type { %struct.strbuf, i32, i8, ptr, i64, i64, i32, i64, i64, ptr }
 %struct.ref_exclusions = type { %struct.string_list, %struct.strvec, i8 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.date_mode = type { i32, ptr, i32 }
+%struct.date_mode = type { i32, i32, ptr }
 %struct.ident_split = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.grep_opt = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [9 x [75 x i8]], i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.display_notes_opt = type { i32, %struct.string_list }
@@ -40,7 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.graph_show_oneline.msgbuf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @__const.graph_show_padding.msgbuf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @__const.graph_show_remainder.msgbuf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@diff_output_prefix_callback.msgbuf = internal global %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @.str.1 = private unnamed_addr constant [48 x i8] c"ignored invalid color '%.*s' in log.graphColors\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"\1B[m\00", align 1
 @.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -52,4022 +51,4455 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @graph_set_column_colors(ptr noundef %colors, i16 noundef zeroext %colors_max) #0 {
-entry:
-  %colors.addr = alloca ptr, align 8
-  %colors_max.addr = alloca i16, align 2
-  store ptr %colors, ptr %colors.addr, align 8
-  store i16 %colors_max, ptr %colors_max.addr, align 2
-  %0 = load ptr, ptr %colors.addr, align 8
-  store ptr %0, ptr @column_colors, align 8
-  %1 = load i16, ptr %colors_max.addr, align 2
-  store i16 %1, ptr @column_colors_max, align 2
+define dso_local void @graph_set_column_colors(ptr noundef %0, i16 noundef zeroext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i16, align 2
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i16 %1, ptr %4, align 2, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  store ptr %5, ptr @column_colors, align 8, !tbaa !4
+  %6 = load i16, ptr %4, align 2, !tbaa !9
+  store i16 %6, ptr @column_colors_max, align 2, !tbaa !9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @graph_setup_line_prefix(ptr noundef %diffopt) #0 {
-entry:
-  %diffopt.addr = alloca ptr, align 8
-  store ptr %diffopt, ptr %diffopt.addr, align 8
-  %0 = load ptr, ptr %diffopt.addr, align 8
-  store ptr %0, ptr @default_diffopt, align 8
-  %1 = load ptr, ptr %diffopt.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %land.lhs.true, label %if.end
+define dso_local void @graph_setup_line_prefix(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  store ptr %3, ptr @default_diffopt, align 8, !tbaa !11
+  %4 = load ptr, ptr %2, align 8, !tbaa !11
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %14
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %diffopt.addr, align 8
-  %output_prefix = getelementptr inbounds %struct.diff_options, ptr %2, i32 0, i32 66
-  %3 = load ptr, ptr %output_prefix, align 8
-  %tobool1 = icmp ne ptr %3, null
-  br i1 %tobool1, label %if.end, label %if.then
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.diff_options, ptr %7, i32 0, i32 65
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %14, label %11
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %diffopt.addr, align 8
-  %output_prefix2 = getelementptr inbounds %struct.diff_options, ptr %4, i32 0, i32 66
-  store ptr @diff_output_prefix_callback, ptr %output_prefix2, align 8
-  br label %if.end
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.diff_options, ptr %12, i32 0, i32 65
+  store ptr @diff_output_prefix_callback, ptr %13, align 8, !tbaa !13
+  br label %14
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+14:                                               ; preds = %11, %6, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @diff_output_prefix_callback(ptr noundef %opt, ptr noundef %data) #0 {
-entry:
-  %opt.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %graph = alloca ptr, align 8
-  store ptr %opt, ptr %opt.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %graph, align 8
-  call void @strbuf_setlen(ptr noundef @diff_output_prefix_callback.msgbuf, i64 noundef 0)
-  %1 = load ptr, ptr %opt.addr, align 8
-  %line_prefix = getelementptr inbounds %struct.diff_options, ptr %1, i32 0, i32 12
-  %2 = load ptr, ptr %line_prefix, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+define internal ptr @diff_output_prefix_callback(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %5, align 8, !tbaa !27
+  store ptr %8, ptr %6, align 8, !tbaa !28
+  %9 = load ptr, ptr %6, align 8, !tbaa !28
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %15, label %11
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %opt.addr, align 8
-  %line_prefix1 = getelementptr inbounds %struct.diff_options, ptr %3, i32 0, i32 12
-  %4 = load ptr, ptr %line_prefix1, align 8
-  %5 = load ptr, ptr %opt.addr, align 8
-  %line_prefix_length = getelementptr inbounds %struct.diff_options, ptr %5, i32 0, i32 13
-  %6 = load i64, ptr %line_prefix_length, align 8
-  call void @strbuf_add(ptr noundef @diff_output_prefix_callback.msgbuf, ptr noundef %4, i64 noundef %6)
-  br label %if.end
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.diff_options, ptr %12, i32 0, i32 12
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  store ptr %14, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %36
 
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %graph, align 8
-  %tobool2 = icmp ne ptr %7, null
-  br i1 %tobool2, label %if.then3, label %if.end4
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %6, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw %struct.git_graph, ptr %16, i32 0, i32 21
+  call void @strbuf_setlen(ptr noundef %17, i64 noundef 0)
+  %18 = load ptr, ptr %4, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.diff_options, ptr %18, i32 0, i32 12
+  %20 = load ptr, ptr %19, align 8, !tbaa !30
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %28
 
-if.then3:                                         ; preds = %if.end
-  %8 = load ptr, ptr %graph, align 8
-  call void @graph_padding_line(ptr noundef %8, ptr noundef @diff_output_prefix_callback.msgbuf)
-  br label %if.end4
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %6, align 8, !tbaa !28
+  %24 = getelementptr inbounds nuw %struct.git_graph, ptr %23, i32 0, i32 21
+  %25 = load ptr, ptr %4, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.diff_options, ptr %25, i32 0, i32 12
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
+  call void @strbuf_addstr(ptr noundef %24, ptr noundef %27)
+  br label %28
 
-if.end4:                                          ; preds = %if.then3, %if.end
-  ret ptr @diff_output_prefix_callback.msgbuf
+28:                                               ; preds = %22, %15
+  %29 = load ptr, ptr %6, align 8, !tbaa !28
+  %30 = load ptr, ptr %6, align 8, !tbaa !28
+  %31 = getelementptr inbounds nuw %struct.git_graph, ptr %30, i32 0, i32 21
+  call void @graph_padding_line(ptr noundef %29, ptr noundef %31)
+  %32 = load ptr, ptr %6, align 8, !tbaa !28
+  %33 = getelementptr inbounds nuw %struct.git_graph, ptr %32, i32 0, i32 21
+  %34 = getelementptr inbounds nuw %struct.strbuf, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !31
+  store ptr %35, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %36
+
+36:                                               ; preds = %28, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %37 = load ptr, ptr %3, align 8
+  ret ptr %37
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @graph_init(ptr noundef %opt) #0 {
-entry:
-  %opt.addr = alloca ptr, align 8
-  %graph = alloca ptr, align 8
-  %string = alloca ptr, align 8
-  store ptr %opt, ptr %opt.addr, align 8
-  %call = call ptr @xmalloc(i64 noundef 112)
-  store ptr %call, ptr %graph, align 8
-  %0 = load ptr, ptr @column_colors, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end5, label %if.then
+define dso_local ptr @graph_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %5 = call ptr @xmalloc(i64 noundef 136)
+  store ptr %5, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr @column_colors, align 8, !tbaa !4
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %25, label %8
 
-if.then:                                          ; preds = %entry
-  %call1 = call i32 @git_config_get_string(ptr noundef @.str, ptr noundef %string)
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %if.then3, label %if.else
+8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %2, align 8, !tbaa !38
+  %10 = getelementptr inbounds nuw %struct.rev_info, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
+  %12 = call i32 @repo_config_get_string(ptr noundef %11, ptr noundef @.str, ptr noundef %4)
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %17
 
-if.then3:                                         ; preds = %if.then
-  %1 = load i32, ptr @column_colors_ansi_max, align 4
-  %conv = trunc i32 %1 to i16
-  call void @graph_set_column_colors(ptr noundef @column_colors_ansi, i16 noundef zeroext %conv)
-  br label %if.end
+14:                                               ; preds = %8
+  %15 = load i32, ptr @column_colors_ansi_max, align 4, !tbaa !73
+  %16 = trunc i32 %15 to i16
+  call void @graph_set_column_colors(ptr noundef @column_colors_ansi, i16 noundef zeroext %16)
+  br label %24
 
-if.else:                                          ; preds = %if.then
+17:                                               ; preds = %8
   call void @strvec_clear(ptr noundef @graph_init.custom_colors)
-  %2 = load ptr, ptr %string, align 8
-  call void @parse_graph_colors_config(ptr noundef @graph_init.custom_colors, ptr noundef %2)
-  %3 = load ptr, ptr %string, align 8
-  call void @free(ptr noundef %3) #6
-  %4 = load ptr, ptr @graph_init.custom_colors, align 8
-  %5 = getelementptr inbounds %struct.strvec, ptr @graph_init.custom_colors, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  %sub = sub i64 %6, 1
-  %conv4 = trunc i64 %sub to i16
-  call void @graph_set_column_colors(ptr noundef %4, i16 noundef zeroext %conv4)
-  br label %if.end
+  %18 = load ptr, ptr %4, align 8, !tbaa !74
+  call void @parse_graph_colors_config(ptr noundef @graph_init.custom_colors, ptr noundef %18)
+  %19 = load ptr, ptr %4, align 8, !tbaa !74
+  call void @free(ptr noundef %19) #8
+  %20 = load ptr, ptr @graph_init.custom_colors, align 8, !tbaa !75
+  %21 = load i64, ptr getelementptr inbounds nuw (%struct.strvec, ptr @graph_init.custom_colors, i32 0, i32 1), align 8, !tbaa !76
+  %22 = sub i64 %21, 1
+  %23 = trunc i64 %22 to i16
+  call void @graph_set_column_colors(ptr noundef %20, i16 noundef zeroext %23)
+  br label %24
 
-if.end:                                           ; preds = %if.else, %if.then3
-  br label %if.end5
+24:                                               ; preds = %17, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %25
 
-if.end5:                                          ; preds = %if.end, %entry
-  %7 = load ptr, ptr %graph, align 8
-  %commit = getelementptr inbounds %struct.git_graph, ptr %7, i32 0, i32 0
-  store ptr null, ptr %commit, align 8
-  %8 = load ptr, ptr %opt.addr, align 8
-  %9 = load ptr, ptr %graph, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %9, i32 0, i32 1
-  store ptr %8, ptr %revs, align 8
-  %10 = load ptr, ptr %graph, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %10, i32 0, i32 2
-  store i32 0, ptr %num_parents, align 8
-  %11 = load ptr, ptr %graph, align 8
-  %expansion_row = getelementptr inbounds %struct.git_graph, ptr %11, i32 0, i32 4
-  store i32 0, ptr %expansion_row, align 8
-  %12 = load ptr, ptr %graph, align 8
-  %state = getelementptr inbounds %struct.git_graph, ptr %12, i32 0, i32 5
-  store i32 0, ptr %state, align 4
-  %13 = load ptr, ptr %graph, align 8
-  %prev_state = getelementptr inbounds %struct.git_graph, ptr %13, i32 0, i32 6
-  store i32 0, ptr %prev_state, align 8
-  %14 = load ptr, ptr %graph, align 8
-  %commit_index = getelementptr inbounds %struct.git_graph, ptr %14, i32 0, i32 7
-  store i32 0, ptr %commit_index, align 4
-  %15 = load ptr, ptr %graph, align 8
-  %prev_commit_index = getelementptr inbounds %struct.git_graph, ptr %15, i32 0, i32 8
-  store i32 0, ptr %prev_commit_index, align 8
-  %16 = load ptr, ptr %graph, align 8
-  %merge_layout = getelementptr inbounds %struct.git_graph, ptr %16, i32 0, i32 9
-  store i32 0, ptr %merge_layout, align 4
-  %17 = load ptr, ptr %graph, align 8
-  %edges_added = getelementptr inbounds %struct.git_graph, ptr %17, i32 0, i32 10
-  store i32 0, ptr %edges_added, align 8
-  %18 = load ptr, ptr %graph, align 8
-  %prev_edges_added = getelementptr inbounds %struct.git_graph, ptr %18, i32 0, i32 11
-  store i32 0, ptr %prev_edges_added, align 4
-  %19 = load ptr, ptr %graph, align 8
-  %num_columns = getelementptr inbounds %struct.git_graph, ptr %19, i32 0, i32 13
-  store i32 0, ptr %num_columns, align 4
-  %20 = load ptr, ptr %graph, align 8
-  %num_new_columns = getelementptr inbounds %struct.git_graph, ptr %20, i32 0, i32 14
-  store i32 0, ptr %num_new_columns, align 8
-  %21 = load ptr, ptr %graph, align 8
-  %mapping_size = getelementptr inbounds %struct.git_graph, ptr %21, i32 0, i32 15
-  store i32 0, ptr %mapping_size, align 4
-  %22 = load i16, ptr @column_colors_max, align 2
-  %conv6 = zext i16 %22 to i32
-  %sub7 = sub nsw i32 %conv6, 1
-  %conv8 = trunc i32 %sub7 to i16
-  %23 = load ptr, ptr %graph, align 8
-  %default_column_color = getelementptr inbounds %struct.git_graph, ptr %23, i32 0, i32 20
-  store i16 %conv8, ptr %default_column_color, align 8
-  %24 = load ptr, ptr %graph, align 8
-  %column_capacity = getelementptr inbounds %struct.git_graph, ptr %24, i32 0, i32 12
-  store i32 30, ptr %column_capacity, align 8
-  %25 = load ptr, ptr %graph, align 8
-  %column_capacity9 = getelementptr inbounds %struct.git_graph, ptr %25, i32 0, i32 12
-  %26 = load i32, ptr %column_capacity9, align 8
-  %conv10 = sext i32 %26 to i64
-  %call11 = call i64 @st_mult(i64 noundef 16, i64 noundef %conv10)
-  %call12 = call ptr @xmalloc(i64 noundef %call11)
-  %27 = load ptr, ptr %graph, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %27, i32 0, i32 16
-  store ptr %call12, ptr %columns, align 8
-  %28 = load ptr, ptr %graph, align 8
-  %column_capacity13 = getelementptr inbounds %struct.git_graph, ptr %28, i32 0, i32 12
-  %29 = load i32, ptr %column_capacity13, align 8
-  %conv14 = sext i32 %29 to i64
-  %call15 = call i64 @st_mult(i64 noundef 16, i64 noundef %conv14)
-  %call16 = call ptr @xmalloc(i64 noundef %call15)
-  %30 = load ptr, ptr %graph, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %30, i32 0, i32 17
-  store ptr %call16, ptr %new_columns, align 8
-  %31 = load ptr, ptr %graph, align 8
-  %column_capacity17 = getelementptr inbounds %struct.git_graph, ptr %31, i32 0, i32 12
-  %32 = load i32, ptr %column_capacity17, align 8
-  %mul = mul nsw i32 2, %32
-  %conv18 = sext i32 %mul to i64
-  %call19 = call i64 @st_mult(i64 noundef 4, i64 noundef %conv18)
-  %call20 = call ptr @xmalloc(i64 noundef %call19)
-  %33 = load ptr, ptr %graph, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %33, i32 0, i32 18
-  store ptr %call20, ptr %mapping, align 8
-  %34 = load ptr, ptr %graph, align 8
-  %column_capacity21 = getelementptr inbounds %struct.git_graph, ptr %34, i32 0, i32 12
-  %35 = load i32, ptr %column_capacity21, align 8
-  %mul22 = mul nsw i32 2, %35
-  %conv23 = sext i32 %mul22 to i64
-  %call24 = call i64 @st_mult(i64 noundef 4, i64 noundef %conv23)
-  %call25 = call ptr @xmalloc(i64 noundef %call24)
-  %36 = load ptr, ptr %graph, align 8
-  %old_mapping = getelementptr inbounds %struct.git_graph, ptr %36, i32 0, i32 19
-  store ptr %call25, ptr %old_mapping, align 8
-  %37 = load ptr, ptr %opt.addr, align 8
-  %diffopt = getelementptr inbounds %struct.rev_info, ptr %37, i32 0, i32 52
-  %output_prefix = getelementptr inbounds %struct.diff_options, ptr %diffopt, i32 0, i32 66
-  store ptr @diff_output_prefix_callback, ptr %output_prefix, align 8
-  %38 = load ptr, ptr %graph, align 8
-  %39 = load ptr, ptr %opt.addr, align 8
-  %diffopt26 = getelementptr inbounds %struct.rev_info, ptr %39, i32 0, i32 52
-  %output_prefix_data = getelementptr inbounds %struct.diff_options, ptr %diffopt26, i32 0, i32 67
-  store ptr %38, ptr %output_prefix_data, align 8
-  %40 = load ptr, ptr %graph, align 8
-  ret ptr %40
+25:                                               ; preds = %24, %1
+  %26 = load ptr, ptr %3, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw %struct.git_graph, ptr %26, i32 0, i32 0
+  store ptr null, ptr %27, align 8, !tbaa !77
+  %28 = load ptr, ptr %2, align 8, !tbaa !38
+  %29 = load ptr, ptr %3, align 8, !tbaa !28
+  %30 = getelementptr inbounds nuw %struct.git_graph, ptr %29, i32 0, i32 1
+  store ptr %28, ptr %30, align 8, !tbaa !78
+  %31 = load ptr, ptr %3, align 8, !tbaa !28
+  %32 = getelementptr inbounds nuw %struct.git_graph, ptr %31, i32 0, i32 2
+  store i32 0, ptr %32, align 8, !tbaa !79
+  %33 = load ptr, ptr %3, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw %struct.git_graph, ptr %33, i32 0, i32 4
+  store i32 0, ptr %34, align 8, !tbaa !80
+  %35 = load ptr, ptr %3, align 8, !tbaa !28
+  %36 = getelementptr inbounds nuw %struct.git_graph, ptr %35, i32 0, i32 5
+  store i32 0, ptr %36, align 4, !tbaa !81
+  %37 = load ptr, ptr %3, align 8, !tbaa !28
+  %38 = getelementptr inbounds nuw %struct.git_graph, ptr %37, i32 0, i32 6
+  store i32 0, ptr %38, align 8, !tbaa !82
+  %39 = load ptr, ptr %3, align 8, !tbaa !28
+  %40 = getelementptr inbounds nuw %struct.git_graph, ptr %39, i32 0, i32 7
+  store i32 0, ptr %40, align 4, !tbaa !83
+  %41 = load ptr, ptr %3, align 8, !tbaa !28
+  %42 = getelementptr inbounds nuw %struct.git_graph, ptr %41, i32 0, i32 8
+  store i32 0, ptr %42, align 8, !tbaa !84
+  %43 = load ptr, ptr %3, align 8, !tbaa !28
+  %44 = getelementptr inbounds nuw %struct.git_graph, ptr %43, i32 0, i32 9
+  store i32 0, ptr %44, align 4, !tbaa !85
+  %45 = load ptr, ptr %3, align 8, !tbaa !28
+  %46 = getelementptr inbounds nuw %struct.git_graph, ptr %45, i32 0, i32 10
+  store i32 0, ptr %46, align 8, !tbaa !86
+  %47 = load ptr, ptr %3, align 8, !tbaa !28
+  %48 = getelementptr inbounds nuw %struct.git_graph, ptr %47, i32 0, i32 11
+  store i32 0, ptr %48, align 4, !tbaa !87
+  %49 = load ptr, ptr %3, align 8, !tbaa !28
+  %50 = getelementptr inbounds nuw %struct.git_graph, ptr %49, i32 0, i32 13
+  store i32 0, ptr %50, align 4, !tbaa !88
+  %51 = load ptr, ptr %3, align 8, !tbaa !28
+  %52 = getelementptr inbounds nuw %struct.git_graph, ptr %51, i32 0, i32 14
+  store i32 0, ptr %52, align 8, !tbaa !89
+  %53 = load ptr, ptr %3, align 8, !tbaa !28
+  %54 = getelementptr inbounds nuw %struct.git_graph, ptr %53, i32 0, i32 15
+  store i32 0, ptr %54, align 4, !tbaa !90
+  %55 = load i16, ptr @column_colors_max, align 2, !tbaa !9
+  %56 = zext i16 %55 to i32
+  %57 = sub nsw i32 %56, 1
+  %58 = trunc i32 %57 to i16
+  %59 = load ptr, ptr %3, align 8, !tbaa !28
+  %60 = getelementptr inbounds nuw %struct.git_graph, ptr %59, i32 0, i32 20
+  store i16 %58, ptr %60, align 8, !tbaa !91
+  %61 = load ptr, ptr %3, align 8, !tbaa !28
+  %62 = getelementptr inbounds nuw %struct.git_graph, ptr %61, i32 0, i32 12
+  store i32 30, ptr %62, align 8, !tbaa !92
+  %63 = load ptr, ptr %3, align 8, !tbaa !28
+  %64 = getelementptr inbounds nuw %struct.git_graph, ptr %63, i32 0, i32 12
+  %65 = load i32, ptr %64, align 8, !tbaa !92
+  %66 = sext i32 %65 to i64
+  %67 = call i64 @st_mult(i64 noundef 16, i64 noundef %66)
+  %68 = call ptr @xmalloc(i64 noundef %67)
+  %69 = load ptr, ptr %3, align 8, !tbaa !28
+  %70 = getelementptr inbounds nuw %struct.git_graph, ptr %69, i32 0, i32 16
+  store ptr %68, ptr %70, align 8, !tbaa !93
+  %71 = load ptr, ptr %3, align 8, !tbaa !28
+  %72 = getelementptr inbounds nuw %struct.git_graph, ptr %71, i32 0, i32 12
+  %73 = load i32, ptr %72, align 8, !tbaa !92
+  %74 = sext i32 %73 to i64
+  %75 = call i64 @st_mult(i64 noundef 16, i64 noundef %74)
+  %76 = call ptr @xmalloc(i64 noundef %75)
+  %77 = load ptr, ptr %3, align 8, !tbaa !28
+  %78 = getelementptr inbounds nuw %struct.git_graph, ptr %77, i32 0, i32 17
+  store ptr %76, ptr %78, align 8, !tbaa !94
+  %79 = load ptr, ptr %3, align 8, !tbaa !28
+  %80 = getelementptr inbounds nuw %struct.git_graph, ptr %79, i32 0, i32 12
+  %81 = load i32, ptr %80, align 8, !tbaa !92
+  %82 = mul nsw i32 2, %81
+  %83 = sext i32 %82 to i64
+  %84 = call i64 @st_mult(i64 noundef 4, i64 noundef %83)
+  %85 = call ptr @xmalloc(i64 noundef %84)
+  %86 = load ptr, ptr %3, align 8, !tbaa !28
+  %87 = getelementptr inbounds nuw %struct.git_graph, ptr %86, i32 0, i32 18
+  store ptr %85, ptr %87, align 8, !tbaa !95
+  %88 = load ptr, ptr %3, align 8, !tbaa !28
+  %89 = getelementptr inbounds nuw %struct.git_graph, ptr %88, i32 0, i32 12
+  %90 = load i32, ptr %89, align 8, !tbaa !92
+  %91 = mul nsw i32 2, %90
+  %92 = sext i32 %91 to i64
+  %93 = call i64 @st_mult(i64 noundef 4, i64 noundef %92)
+  %94 = call ptr @xmalloc(i64 noundef %93)
+  %95 = load ptr, ptr %3, align 8, !tbaa !28
+  %96 = getelementptr inbounds nuw %struct.git_graph, ptr %95, i32 0, i32 19
+  store ptr %94, ptr %96, align 8, !tbaa !96
+  %97 = load ptr, ptr %3, align 8, !tbaa !28
+  %98 = getelementptr inbounds nuw %struct.git_graph, ptr %97, i32 0, i32 21
+  call void @strbuf_init(ptr noundef %98, i64 noundef 0)
+  %99 = load ptr, ptr %2, align 8, !tbaa !38
+  %100 = getelementptr inbounds nuw %struct.rev_info, ptr %99, i32 0, i32 53
+  %101 = getelementptr inbounds nuw %struct.diff_options, ptr %100, i32 0, i32 65
+  store ptr @diff_output_prefix_callback, ptr %101, align 8, !tbaa !97
+  %102 = load ptr, ptr %3, align 8, !tbaa !28
+  %103 = load ptr, ptr %2, align 8, !tbaa !38
+  %104 = getelementptr inbounds nuw %struct.rev_info, ptr %103, i32 0, i32 53
+  %105 = getelementptr inbounds nuw %struct.diff_options, ptr %104, i32 0, i32 66
+  store ptr %102, ptr %105, align 8, !tbaa !98
+  %106 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %106
 }
 
-declare ptr @xmalloc(i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @git_config_get_string(ptr noundef, ptr noundef) #1
+declare ptr @xmalloc(i64 noundef) #2
 
-declare void @strvec_clear(ptr noundef) #1
+declare i32 @repo_config_get_string(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare void @strvec_clear(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_graph_colors_config(ptr noundef %colors, ptr noundef %string) #0 {
-entry:
-  %colors.addr = alloca ptr, align 8
-  %string.addr = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  %start = alloca ptr, align 8
-  %comma = alloca ptr, align 8
-  %color = alloca [75 x i8], align 16
-  store ptr %colors, ptr %colors.addr, align 8
-  store ptr %string, ptr %string.addr, align 8
-  %0 = load ptr, ptr %string.addr, align 8
-  store ptr %0, ptr %start, align 8
-  %1 = load ptr, ptr %string.addr, align 8
-  %2 = load ptr, ptr %string.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #7
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %call
-  store ptr %add.ptr, ptr %end, align 8
-  br label %while.cond
+define internal void @parse_graph_colors_config(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca [75 x i8], align 16
+  store ptr %0, ptr %3, align 8, !tbaa !99
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !74
+  store ptr %9, ptr %6, align 8, !tbaa !74
+  %10 = load ptr, ptr %4, align 8, !tbaa !74
+  %11 = load ptr, ptr %4, align 8, !tbaa !74
+  %12 = call i64 @strlen(ptr noundef %11) #9
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
+  store ptr %13, ptr %5, align 8, !tbaa !74
+  br label %14
 
-while.cond:                                       ; preds = %if.end, %entry
-  %3 = load ptr, ptr %start, align 8
-  %4 = load ptr, ptr %end, align 8
-  %cmp = icmp ult ptr %3, %4
-  br i1 %cmp, label %while.body, label %while.end
+14:                                               ; preds = %44, %2
+  %15 = load ptr, ptr %6, align 8, !tbaa !74
+  %16 = load ptr, ptr %5, align 8, !tbaa !74
+  %17 = icmp ult ptr %15, %16
+  br i1 %17, label %18, label %47
 
-while.body:                                       ; preds = %while.cond
-  %5 = load ptr, ptr %start, align 8
-  %call1 = call ptr @strchrnul(ptr noundef %5, i32 noundef 44) #7
-  store ptr %call1, ptr %comma, align 8
-  %6 = load ptr, ptr %start, align 8
-  %7 = load ptr, ptr %comma, align 8
-  %8 = load ptr, ptr %start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv = trunc i64 %sub.ptr.sub to i32
-  %arraydecay = getelementptr inbounds [75 x i8], ptr %color, i64 0, i64 0
-  %call2 = call i32 @color_parse_mem(ptr noundef %6, i32 noundef %conv, ptr noundef %arraydecay)
-  %tobool = icmp ne i32 %call2, 0
-  br i1 %tobool, label %if.else, label %if.then
+18:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %19 = load ptr, ptr %6, align 8, !tbaa !74
+  %20 = call ptr @strchrnul(ptr noundef %19, i32 noundef 44) #9
+  store ptr %20, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 75, ptr %8) #8
+  %21 = load ptr, ptr %6, align 8, !tbaa !74
+  %22 = load ptr, ptr %7, align 8, !tbaa !74
+  %23 = load ptr, ptr %6, align 8, !tbaa !74
+  %24 = ptrtoint ptr %22 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = trunc i64 %26 to i32
+  %28 = getelementptr inbounds [75 x i8], ptr %8, i64 0, i64 0
+  %29 = call i32 @color_parse_mem(ptr noundef %21, i32 noundef %27, ptr noundef %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %35, label %31
 
-if.then:                                          ; preds = %while.body
-  %9 = load ptr, ptr %colors.addr, align 8
-  %arraydecay3 = getelementptr inbounds [75 x i8], ptr %color, i64 0, i64 0
-  %call4 = call ptr @strvec_push(ptr noundef %9, ptr noundef %arraydecay3)
-  br label %if.end
+31:                                               ; preds = %18
+  %32 = load ptr, ptr %3, align 8, !tbaa !99
+  %33 = getelementptr inbounds [75 x i8], ptr %8, i64 0, i64 0
+  %34 = call ptr @strvec_push(ptr noundef %32, ptr noundef %33)
+  br label %44
 
-if.else:                                          ; preds = %while.body
-  %call5 = call ptr @_(ptr noundef @.str.1)
-  %10 = load ptr, ptr %comma, align 8
-  %11 = load ptr, ptr %start, align 8
-  %sub.ptr.lhs.cast6 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast7 = ptrtoint ptr %11 to i64
-  %sub.ptr.sub8 = sub i64 %sub.ptr.lhs.cast6, %sub.ptr.rhs.cast7
-  %conv9 = trunc i64 %sub.ptr.sub8 to i32
-  %12 = load ptr, ptr %start, align 8
-  call void (ptr, ...) @warning(ptr noundef %call5, i32 noundef %conv9, ptr noundef %12)
-  br label %if.end
+35:                                               ; preds = %18
+  %36 = call ptr @_(ptr noundef @.str.1)
+  %37 = load ptr, ptr %7, align 8, !tbaa !74
+  %38 = load ptr, ptr %6, align 8, !tbaa !74
+  %39 = ptrtoint ptr %37 to i64
+  %40 = ptrtoint ptr %38 to i64
+  %41 = sub i64 %39, %40
+  %42 = trunc i64 %41 to i32
+  %43 = load ptr, ptr %6, align 8, !tbaa !74
+  call void (ptr, ...) @warning(ptr noundef %36, i32 noundef %42, ptr noundef %43)
+  br label %44
 
-if.end:                                           ; preds = %if.else, %if.then
-  %13 = load ptr, ptr %comma, align 8
-  %add.ptr10 = getelementptr inbounds i8, ptr %13, i64 1
-  store ptr %add.ptr10, ptr %start, align 8
-  br label %while.cond, !llvm.loop !5
+44:                                               ; preds = %35, %31
+  %45 = load ptr, ptr %7, align 8, !tbaa !74
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store ptr %46, ptr %6, align 8, !tbaa !74
+  call void @llvm.lifetime.end.p0(i64 75, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  br label %14, !llvm.loop !101
 
-while.end:                                        ; preds = %while.cond
-  %14 = load ptr, ptr %colors.addr, align 8
-  %call11 = call ptr @strvec_push(ptr noundef %14, ptr noundef @.str.2)
+47:                                               ; preds = %14
+  %48 = load ptr, ptr %3, align 8, !tbaa !99
+  %49 = call ptr @strvec_push(ptr noundef %48, ptr noundef @.str.2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @st_mult(i64 noundef %a, i64 noundef %b) #0 {
-entry:
-  %a.addr = alloca i64, align 8
-  %b.addr = alloca i64, align 8
-  store i64 %a, ptr %a.addr, align 8
-  store i64 %b, ptr %b.addr, align 8
-  %0 = load i64, ptr %a.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %b.addr, align 8
-  %2 = load i64, ptr %a.addr, align 8
-  %div = udiv i64 -1, %2
-  %cmp = icmp ugt i64 %1, %div
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @st_mult(i64 noundef %0, i64 noundef %1) #4 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !103
+  store i64 %1, ptr %4, align 8, !tbaa !103
+  %5 = load i64, ptr %3, align 8, !tbaa !103
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %7, label %15
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load i64, ptr %a.addr, align 8
-  %4 = load i64, ptr %b.addr, align 8
-  call void (ptr, ...) @die(ptr noundef @.str.4, i64 noundef %3, i64 noundef %4) #8
+7:                                                ; preds = %2
+  %8 = load i64, ptr %4, align 8, !tbaa !103
+  %9 = load i64, ptr %3, align 8, !tbaa !103
+  %10 = udiv i64 -1, %9
+  %11 = icmp ugt i64 %8, %10
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %7
+  %13 = load i64, ptr %3, align 8, !tbaa !103
+  %14 = load i64, ptr %4, align 8, !tbaa !103
+  call void (ptr, ...) @die(ptr noundef @.str.4, i64 noundef %13, i64 noundef %14) #10
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %5 = load i64, ptr %a.addr, align 8
-  %6 = load i64, ptr %b.addr, align 8
-  %mul = mul i64 %5, %6
-  ret i64 %mul
+15:                                               ; preds = %7, %2
+  %16 = load i64, ptr %3, align 8, !tbaa !103
+  %17 = load i64, ptr %4, align 8, !tbaa !103
+  %18 = mul i64 %16, %17
+  ret i64 %18
 }
 
+declare void @strbuf_init(ptr noundef, i64 noundef) #2
+
 ; Function Attrs: nounwind uwtable
-define dso_local void @graph_clear(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local void @graph_clear(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %22
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %graph.addr, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 16
-  %2 = load ptr, ptr %columns, align 8
-  call void @free(ptr noundef %2) #6
-  %3 = load ptr, ptr %graph.addr, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 17
-  %4 = load ptr, ptr %new_columns, align 8
-  call void @free(ptr noundef %4) #6
-  %5 = load ptr, ptr %graph.addr, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %5, i32 0, i32 18
-  %6 = load ptr, ptr %mapping, align 8
-  call void @free(ptr noundef %6) #6
-  %7 = load ptr, ptr %graph.addr, align 8
-  %old_mapping = getelementptr inbounds %struct.git_graph, ptr %7, i32 0, i32 19
-  %8 = load ptr, ptr %old_mapping, align 8
-  call void @free(ptr noundef %8) #6
-  %9 = load ptr, ptr %graph.addr, align 8
-  call void @free(ptr noundef %9) #6
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !28
+  %8 = getelementptr inbounds nuw %struct.git_graph, ptr %7, i32 0, i32 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !93
+  call void @free(ptr noundef %9) #8
+  %10 = load ptr, ptr %2, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %struct.git_graph, ptr %10, i32 0, i32 17
+  %12 = load ptr, ptr %11, align 8, !tbaa !94
+  call void @free(ptr noundef %12) #8
+  %13 = load ptr, ptr %2, align 8, !tbaa !28
+  %14 = getelementptr inbounds nuw %struct.git_graph, ptr %13, i32 0, i32 18
+  %15 = load ptr, ptr %14, align 8, !tbaa !95
+  call void @free(ptr noundef %15) #8
+  %16 = load ptr, ptr %2, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw %struct.git_graph, ptr %16, i32 0, i32 19
+  %18 = load ptr, ptr %17, align 8, !tbaa !96
+  call void @free(ptr noundef %18) #8
+  %19 = load ptr, ptr %2, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw %struct.git_graph, ptr %19, i32 0, i32 21
+  call void @strbuf_release(ptr noundef %20)
+  %21 = load ptr, ptr %2, align 8, !tbaa !28
+  call void @free(ptr noundef %21) #8
+  br label %22
 
-return:                                           ; preds = %if.end, %if.then
+22:                                               ; preds = %6, %5
+  ret void
+}
+
+declare void @strbuf_release(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @graph_update(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %4, align 8, !tbaa !104
+  %7 = load ptr, ptr %3, align 8, !tbaa !28
+  %8 = getelementptr inbounds nuw %struct.git_graph, ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !77
+  %9 = load ptr, ptr %3, align 8, !tbaa !28
+  %10 = getelementptr inbounds nuw %struct.git_graph, ptr %9, i32 0, i32 2
+  store i32 0, ptr %10, align 8, !tbaa !79
+  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %12 = call ptr @first_interesting_parent(ptr noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !105
+  br label %13
+
+13:                                               ; preds = %21, %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !105
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %25
+
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %3, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw %struct.git_graph, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 8, !tbaa !79
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %18, align 8, !tbaa !79
+  br label %21
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !28
+  %23 = load ptr, ptr %5, align 8, !tbaa !105
+  %24 = call ptr @next_interesting_parent(ptr noundef %22, ptr noundef %23)
+  store ptr %24, ptr %5, align 8, !tbaa !105
+  br label %13, !llvm.loop !106
+
+25:                                               ; preds = %13
+  %26 = load ptr, ptr %3, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw %struct.git_graph, ptr %26, i32 0, i32 7
+  %28 = load i32, ptr %27, align 4, !tbaa !83
+  %29 = load ptr, ptr %3, align 8, !tbaa !28
+  %30 = getelementptr inbounds nuw %struct.git_graph, ptr %29, i32 0, i32 8
+  store i32 %28, ptr %30, align 8, !tbaa !84
+  %31 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_columns(ptr noundef %31)
+  %32 = load ptr, ptr %3, align 8, !tbaa !28
+  %33 = getelementptr inbounds nuw %struct.git_graph, ptr %32, i32 0, i32 4
+  store i32 0, ptr %33, align 8, !tbaa !80
+  %34 = load ptr, ptr %3, align 8, !tbaa !28
+  %35 = getelementptr inbounds nuw %struct.git_graph, ptr %34, i32 0, i32 5
+  %36 = load i32, ptr %35, align 4, !tbaa !81
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %25
+  %39 = load ptr, ptr %3, align 8, !tbaa !28
+  %40 = getelementptr inbounds nuw %struct.git_graph, ptr %39, i32 0, i32 5
+  store i32 1, ptr %40, align 4, !tbaa !81
+  br label %52
+
+41:                                               ; preds = %25
+  %42 = load ptr, ptr %3, align 8, !tbaa !28
+  %43 = call i32 @graph_needs_pre_commit_line(ptr noundef %42)
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %3, align 8, !tbaa !28
+  %47 = getelementptr inbounds nuw %struct.git_graph, ptr %46, i32 0, i32 5
+  store i32 2, ptr %47, align 4, !tbaa !81
+  br label %51
+
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %3, align 8, !tbaa !28
+  %50 = getelementptr inbounds nuw %struct.git_graph, ptr %49, i32 0, i32 5
+  store i32 3, ptr %50, align 4, !tbaa !81
+  br label %51
+
+51:                                               ; preds = %48, %45
+  br label %52
+
+52:                                               ; preds = %51, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @graph_update(ptr noundef %graph, ptr noundef %commit) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %commit.addr = alloca ptr, align 8
-  %parent = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %commit, ptr %commit.addr, align 8
-  %0 = load ptr, ptr %commit.addr, align 8
-  %1 = load ptr, ptr %graph.addr, align 8
-  %commit1 = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 0
-  store ptr %0, ptr %commit1, align 8
-  %2 = load ptr, ptr %graph.addr, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %2, i32 0, i32 2
-  store i32 0, ptr %num_parents, align 8
-  %3 = load ptr, ptr %graph.addr, align 8
-  %call = call ptr @first_interesting_parent(ptr noundef %3)
-  store ptr %call, ptr %parent, align 8
-  br label %for.cond
+define internal ptr @first_interesting_parent(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %7 = getelementptr inbounds nuw %struct.git_graph, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !77
+  %9 = getelementptr inbounds nuw %struct.commit, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !107
+  store ptr %10, ptr %4, align 8, !tbaa !105
+  %11 = load ptr, ptr %4, align 8, !tbaa !105
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %14, label %13
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %4 = load ptr, ptr %parent, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %for.body, label %for.end
+13:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %27
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %graph.addr, align 8
-  %num_parents2 = getelementptr inbounds %struct.git_graph, ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %num_parents2, align 8
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %num_parents2, align 8
-  br label %for.inc
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !28
+  %16 = load ptr, ptr %4, align 8, !tbaa !105
+  %17 = getelementptr inbounds nuw %struct.commit_list, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !112
+  %19 = call i32 @graph_is_interesting(ptr noundef %15, ptr noundef %18)
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %23
 
-for.inc:                                          ; preds = %for.body
-  %7 = load ptr, ptr %graph.addr, align 8
-  %8 = load ptr, ptr %parent, align 8
-  %call3 = call ptr @next_interesting_parent(ptr noundef %7, ptr noundef %8)
-  store ptr %call3, ptr %parent, align 8
-  br label %for.cond, !llvm.loop !7
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %4, align 8, !tbaa !105
+  store ptr %22, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %27
 
-for.end:                                          ; preds = %for.cond
-  %9 = load ptr, ptr %graph.addr, align 8
-  %commit_index = getelementptr inbounds %struct.git_graph, ptr %9, i32 0, i32 7
-  %10 = load i32, ptr %commit_index, align 4
-  %11 = load ptr, ptr %graph.addr, align 8
-  %prev_commit_index = getelementptr inbounds %struct.git_graph, ptr %11, i32 0, i32 8
-  store i32 %10, ptr %prev_commit_index, align 8
-  %12 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_columns(ptr noundef %12)
-  %13 = load ptr, ptr %graph.addr, align 8
-  %expansion_row = getelementptr inbounds %struct.git_graph, ptr %13, i32 0, i32 4
-  store i32 0, ptr %expansion_row, align 8
-  %14 = load ptr, ptr %graph.addr, align 8
-  %state = getelementptr inbounds %struct.git_graph, ptr %14, i32 0, i32 5
-  %15 = load i32, ptr %state, align 4
-  %cmp = icmp ne i32 %15, 0
-  br i1 %cmp, label %if.then, label %if.else
+23:                                               ; preds = %14
+  %24 = load ptr, ptr %3, align 8, !tbaa !28
+  %25 = load ptr, ptr %4, align 8, !tbaa !105
+  %26 = call ptr @next_interesting_parent(ptr noundef %24, ptr noundef %25)
+  store ptr %26, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %27
 
-if.then:                                          ; preds = %for.end
-  %16 = load ptr, ptr %graph.addr, align 8
-  %state4 = getelementptr inbounds %struct.git_graph, ptr %16, i32 0, i32 5
-  store i32 1, ptr %state4, align 4
-  br label %if.end11
-
-if.else:                                          ; preds = %for.end
-  %17 = load ptr, ptr %graph.addr, align 8
-  %call5 = call i32 @graph_needs_pre_commit_line(ptr noundef %17)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.then7, label %if.else9
-
-if.then7:                                         ; preds = %if.else
-  %18 = load ptr, ptr %graph.addr, align 8
-  %state8 = getelementptr inbounds %struct.git_graph, ptr %18, i32 0, i32 5
-  store i32 2, ptr %state8, align 4
-  br label %if.end
-
-if.else9:                                         ; preds = %if.else
-  %19 = load ptr, ptr %graph.addr, align 8
-  %state10 = getelementptr inbounds %struct.git_graph, ptr %19, i32 0, i32 5
-  store i32 3, ptr %state10, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else9, %if.then7
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end, %if.then
-  ret void
+27:                                               ; preds = %23, %21, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %28 = load ptr, ptr %2, align 8
+  ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @first_interesting_parent(ptr noundef %graph) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %graph.addr = alloca ptr, align 8
-  %parents = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %commit = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %commit, align 8
-  %parents1 = getelementptr inbounds %struct.commit, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %parents1, align 8
-  store ptr %2, ptr %parents, align 8
-  %3 = load ptr, ptr %parents, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @next_interesting_parent(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !105
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %struct.git_graph, ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
+  %11 = getelementptr inbounds nuw %struct.rev_info, ptr %10, i32 0, i32 15
+  %12 = load i64, ptr %11, align 8
+  %13 = lshr i64 %12, 38
+  %14 = and i64 %13, 1
+  %15 = trunc i64 %14 to i32
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %40
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %graph.addr, align 8
-  %5 = load ptr, ptr %parents, align 8
-  %item = getelementptr inbounds %struct.commit_list, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %item, align 8
-  %call = call i32 @graph_is_interesting(ptr noundef %4, ptr noundef %6)
-  %tobool2 = icmp ne i32 %call, 0
-  br i1 %tobool2, label %if.then3, label %if.end4
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %5, align 8, !tbaa !105
+  %20 = getelementptr inbounds nuw %struct.commit_list, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !114
+  store ptr %21, ptr %6, align 8, !tbaa !105
+  br label %22
 
-if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr %parents, align 8
-  store ptr %7, ptr %retval, align 8
-  br label %return
+22:                                               ; preds = %35, %18
+  %23 = load ptr, ptr %6, align 8, !tbaa !105
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %39
 
-if.end4:                                          ; preds = %if.end
-  %8 = load ptr, ptr %graph.addr, align 8
-  %9 = load ptr, ptr %parents, align 8
-  %call5 = call ptr @next_interesting_parent(ptr noundef %8, ptr noundef %9)
-  store ptr %call5, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %4, align 8, !tbaa !28
+  %27 = load ptr, ptr %6, align 8, !tbaa !105
+  %28 = getelementptr inbounds nuw %struct.commit_list, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !112
+  %30 = call i32 @graph_is_interesting(ptr noundef %26, ptr noundef %29)
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %34
 
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %10 = load ptr, ptr %retval, align 8
-  ret ptr %10
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %6, align 8, !tbaa !105
+  store ptr %33, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %40
+
+34:                                               ; preds = %25
+  br label %35
+
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %6, align 8, !tbaa !105
+  %37 = getelementptr inbounds nuw %struct.commit_list, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !114
+  store ptr %38, ptr %6, align 8, !tbaa !105
+  br label %22, !llvm.loop !115
+
+39:                                               ; preds = %22
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %40
+
+40:                                               ; preds = %39, %32, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %41 = load ptr, ptr %3, align 8
+  ret ptr %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @next_interesting_parent(ptr noundef %graph, ptr noundef %orig) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %graph.addr = alloca ptr, align 8
-  %orig.addr = alloca ptr, align 8
-  %list = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %orig, ptr %orig.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %revs, align 8
-  %first_parent_only = getelementptr inbounds %struct.rev_info, ptr %1, i32 0, i32 14
-  %bf.load = load i64, ptr %first_parent_only, align 8
-  %bf.lshr = lshr i64 %bf.load, 38
-  %bf.clear = and i64 %bf.lshr, 1
-  %bf.cast = trunc i64 %bf.clear to i32
-  %tobool = icmp ne i32 %bf.cast, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal void @graph_update_columns(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca [8 x i8], align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  br label %13
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %14 = load ptr, ptr %2, align 8, !tbaa !28
+  %15 = getelementptr inbounds nuw %struct.git_graph, ptr %14, i32 0, i32 16
+  store ptr %15, ptr %8, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %16 = load ptr, ptr %2, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw %struct.git_graph, ptr %16, i32 0, i32 17
+  store ptr %17, ptr %9, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %18 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 0
+  %19 = load ptr, ptr %8, align 8, !tbaa !27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %19, i64 8, i1 false)
+  %20 = load ptr, ptr %8, align 8, !tbaa !27
+  %21 = load ptr, ptr %9, align 8, !tbaa !27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %21, i64 8, i1 false)
+  %22 = load ptr, ptr %9, align 8, !tbaa !27
+  %23 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %23, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %24
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %orig.addr, align 8
-  %next = getelementptr inbounds %struct.commit_list, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %next, align 8
-  store ptr %3, ptr %list, align 8
-  br label %for.cond
+24:                                               ; preds = %13
+  br label %25
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %4 = load ptr, ptr %list, align 8
-  %tobool1 = icmp ne ptr %4, null
-  br i1 %tobool1, label %for.body, label %for.end
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %2, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw %struct.git_graph, ptr %26, i32 0, i32 14
+  %28 = load i32, ptr %27, align 8, !tbaa !89
+  %29 = load ptr, ptr %2, align 8, !tbaa !28
+  %30 = getelementptr inbounds nuw %struct.git_graph, ptr %29, i32 0, i32 13
+  store i32 %28, ptr %30, align 4, !tbaa !88
+  %31 = load ptr, ptr %2, align 8, !tbaa !28
+  %32 = getelementptr inbounds nuw %struct.git_graph, ptr %31, i32 0, i32 14
+  store i32 0, ptr %32, align 8, !tbaa !89
+  %33 = load ptr, ptr %2, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw %struct.git_graph, ptr %33, i32 0, i32 13
+  %35 = load i32, ptr %34, align 4, !tbaa !88
+  %36 = load ptr, ptr %2, align 8, !tbaa !28
+  %37 = getelementptr inbounds nuw %struct.git_graph, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 8, !tbaa !79
+  %39 = add nsw i32 %35, %38
+  store i32 %39, ptr %4, align 4, !tbaa !73
+  %40 = load ptr, ptr %2, align 8, !tbaa !28
+  %41 = load i32, ptr %4, align 4, !tbaa !73
+  call void @graph_ensure_capacity(ptr noundef %40, i32 noundef %41)
+  %42 = load i32, ptr %4, align 4, !tbaa !73
+  %43 = mul nsw i32 2, %42
+  %44 = load ptr, ptr %2, align 8, !tbaa !28
+  %45 = getelementptr inbounds nuw %struct.git_graph, ptr %44, i32 0, i32 15
+  store i32 %43, ptr %45, align 4, !tbaa !90
+  store i32 0, ptr %5, align 4, !tbaa !73
+  br label %46
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %graph.addr, align 8
-  %6 = load ptr, ptr %list, align 8
-  %item = getelementptr inbounds %struct.commit_list, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %item, align 8
-  %call = call i32 @graph_is_interesting(ptr noundef %5, ptr noundef %7)
-  %tobool2 = icmp ne i32 %call, 0
-  br i1 %tobool2, label %if.then3, label %if.end4
+46:                                               ; preds = %59, %25
+  %47 = load i32, ptr %5, align 4, !tbaa !73
+  %48 = load ptr, ptr %2, align 8, !tbaa !28
+  %49 = getelementptr inbounds nuw %struct.git_graph, ptr %48, i32 0, i32 15
+  %50 = load i32, ptr %49, align 4, !tbaa !90
+  %51 = icmp slt i32 %47, %50
+  br i1 %51, label %52, label %62
 
-if.then3:                                         ; preds = %for.body
-  %8 = load ptr, ptr %list, align 8
-  store ptr %8, ptr %retval, align 8
-  br label %return
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %2, align 8, !tbaa !28
+  %54 = getelementptr inbounds nuw %struct.git_graph, ptr %53, i32 0, i32 18
+  %55 = load ptr, ptr %54, align 8, !tbaa !95
+  %56 = load i32, ptr %5, align 4, !tbaa !73
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i32, ptr %55, i64 %57
+  store i32 -1, ptr %58, align 4, !tbaa !73
+  br label %59
 
-if.end4:                                          ; preds = %for.body
-  br label %for.inc
+59:                                               ; preds = %52
+  %60 = load i32, ptr %5, align 4, !tbaa !73
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %5, align 4, !tbaa !73
+  br label %46, !llvm.loop !116
 
-for.inc:                                          ; preds = %if.end4
-  %9 = load ptr, ptr %list, align 8
-  %next5 = getelementptr inbounds %struct.commit_list, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %next5, align 8
-  store ptr %10, ptr %list, align 8
-  br label %for.cond, !llvm.loop !8
+62:                                               ; preds = %46
+  %63 = load ptr, ptr %2, align 8, !tbaa !28
+  %64 = getelementptr inbounds nuw %struct.git_graph, ptr %63, i32 0, i32 3
+  store i32 0, ptr %64, align 4, !tbaa !117
+  %65 = load ptr, ptr %2, align 8, !tbaa !28
+  %66 = getelementptr inbounds nuw %struct.git_graph, ptr %65, i32 0, i32 10
+  %67 = load i32, ptr %66, align 8, !tbaa !86
+  %68 = load ptr, ptr %2, align 8, !tbaa !28
+  %69 = getelementptr inbounds nuw %struct.git_graph, ptr %68, i32 0, i32 11
+  store i32 %67, ptr %69, align 4, !tbaa !87
+  %70 = load ptr, ptr %2, align 8, !tbaa !28
+  %71 = getelementptr inbounds nuw %struct.git_graph, ptr %70, i32 0, i32 10
+  store i32 0, ptr %71, align 8, !tbaa !86
+  store i32 0, ptr %6, align 4, !tbaa !73
+  store i32 1, ptr %7, align 4, !tbaa !73
+  store i32 0, ptr %5, align 4, !tbaa !73
+  br label %72
 
-for.end:                                          ; preds = %for.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
+72:                                               ; preds = %156, %62
+  %73 = load i32, ptr %5, align 4, !tbaa !73
+  %74 = load ptr, ptr %2, align 8, !tbaa !28
+  %75 = getelementptr inbounds nuw %struct.git_graph, ptr %74, i32 0, i32 13
+  %76 = load i32, ptr %75, align 4, !tbaa !88
+  %77 = icmp sle i32 %73, %76
+  br i1 %77, label %78, label %159
 
-return:                                           ; preds = %for.end, %if.then3, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
-}
+78:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %79 = load i32, ptr %5, align 4, !tbaa !73
+  %80 = load ptr, ptr %2, align 8, !tbaa !28
+  %81 = getelementptr inbounds nuw %struct.git_graph, ptr %80, i32 0, i32 13
+  %82 = load i32, ptr %81, align 4, !tbaa !88
+  %83 = icmp eq i32 %79, %82
+  br i1 %83, label %84, label %92
 
-; Function Attrs: nounwind uwtable
-define internal void @graph_update_columns(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %parent = alloca ptr, align 8
-  %max_new_columns = alloca i32, align 4
-  %i = alloca i32, align 4
-  %seen_this = alloca i32, align 4
-  %is_commit_in_columns = alloca i32, align 4
-  %_swap_a_ptr = alloca ptr, align 8
-  %_swap_b_ptr = alloca ptr, align 8
-  %_swap_buffer = alloca [8 x i8], align 1
-  %col_commit = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  br label %do.body
+84:                                               ; preds = %78
+  %85 = load i32, ptr %6, align 4, !tbaa !73
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %88
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %graph.addr, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 16
-  store ptr %columns, ptr %_swap_a_ptr, align 8
-  %1 = load ptr, ptr %graph.addr, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 17
-  store ptr %new_columns, ptr %_swap_b_ptr, align 8
-  %arraydecay = getelementptr inbounds [8 x i8], ptr %_swap_buffer, i64 0, i64 0
-  %2 = load ptr, ptr %_swap_a_ptr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arraydecay, ptr align 1 %2, i64 8, i1 false)
-  %3 = load ptr, ptr %_swap_a_ptr, align 8
-  %4 = load ptr, ptr %_swap_b_ptr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %4, i64 8, i1 false)
-  %5 = load ptr, ptr %_swap_b_ptr, align 8
-  %arraydecay1 = getelementptr inbounds [8 x i8], ptr %_swap_buffer, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %arraydecay1, i64 8, i1 false)
-  br label %do.end
+87:                                               ; preds = %84
+  store i32 7, ptr %12, align 4
+  br label %153
 
-do.end:                                           ; preds = %do.body
-  %6 = load ptr, ptr %graph.addr, align 8
-  %num_new_columns = getelementptr inbounds %struct.git_graph, ptr %6, i32 0, i32 14
-  %7 = load i32, ptr %num_new_columns, align 8
-  %8 = load ptr, ptr %graph.addr, align 8
-  %num_columns = getelementptr inbounds %struct.git_graph, ptr %8, i32 0, i32 13
-  store i32 %7, ptr %num_columns, align 4
-  %9 = load ptr, ptr %graph.addr, align 8
-  %num_new_columns2 = getelementptr inbounds %struct.git_graph, ptr %9, i32 0, i32 14
-  store i32 0, ptr %num_new_columns2, align 8
-  %10 = load ptr, ptr %graph.addr, align 8
-  %num_columns3 = getelementptr inbounds %struct.git_graph, ptr %10, i32 0, i32 13
-  %11 = load i32, ptr %num_columns3, align 4
-  %12 = load ptr, ptr %graph.addr, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %12, i32 0, i32 2
-  %13 = load i32, ptr %num_parents, align 8
-  %add = add nsw i32 %11, %13
-  store i32 %add, ptr %max_new_columns, align 4
-  %14 = load ptr, ptr %graph.addr, align 8
-  %15 = load i32, ptr %max_new_columns, align 4
-  call void @graph_ensure_capacity(ptr noundef %14, i32 noundef %15)
-  %16 = load i32, ptr %max_new_columns, align 4
-  %mul = mul nsw i32 2, %16
-  %17 = load ptr, ptr %graph.addr, align 8
-  %mapping_size = getelementptr inbounds %struct.git_graph, ptr %17, i32 0, i32 15
-  store i32 %mul, ptr %mapping_size, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+88:                                               ; preds = %84
+  store i32 0, ptr %7, align 4, !tbaa !73
+  %89 = load ptr, ptr %2, align 8, !tbaa !28
+  %90 = getelementptr inbounds nuw %struct.git_graph, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8, !tbaa !77
+  store ptr %91, ptr %11, align 8, !tbaa !104
+  br label %101
 
-for.cond:                                         ; preds = %for.inc, %do.end
-  %18 = load i32, ptr %i, align 4
-  %19 = load ptr, ptr %graph.addr, align 8
-  %mapping_size4 = getelementptr inbounds %struct.git_graph, ptr %19, i32 0, i32 15
-  %20 = load i32, ptr %mapping_size4, align 4
-  %cmp = icmp slt i32 %18, %20
-  br i1 %cmp, label %for.body, label %for.end
+92:                                               ; preds = %78
+  %93 = load ptr, ptr %2, align 8, !tbaa !28
+  %94 = getelementptr inbounds nuw %struct.git_graph, ptr %93, i32 0, i32 16
+  %95 = load ptr, ptr %94, align 8, !tbaa !93
+  %96 = load i32, ptr %5, align 4, !tbaa !73
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds %struct.column, ptr %95, i64 %97
+  %99 = getelementptr inbounds nuw %struct.column, ptr %98, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8, !tbaa !118
+  store ptr %100, ptr %11, align 8, !tbaa !104
+  br label %101
 
-for.body:                                         ; preds = %for.cond
-  %21 = load ptr, ptr %graph.addr, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %21, i32 0, i32 18
-  %22 = load ptr, ptr %mapping, align 8
-  %23 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %23 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %22, i64 %idxprom
-  store i32 -1, ptr %arrayidx, align 4
-  br label %for.inc
+101:                                              ; preds = %92, %88
+  %102 = load ptr, ptr %11, align 8, !tbaa !104
+  %103 = load ptr, ptr %2, align 8, !tbaa !28
+  %104 = getelementptr inbounds nuw %struct.git_graph, ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8, !tbaa !77
+  %106 = icmp eq ptr %102, %105
+  br i1 %106, label %107, label %149
 
-for.inc:                                          ; preds = %for.body
-  %24 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %24, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+107:                                              ; preds = %101
+  store i32 1, ptr %6, align 4, !tbaa !73
+  %108 = load i32, ptr %5, align 4, !tbaa !73
+  %109 = load ptr, ptr %2, align 8, !tbaa !28
+  %110 = getelementptr inbounds nuw %struct.git_graph, ptr %109, i32 0, i32 7
+  store i32 %108, ptr %110, align 4, !tbaa !83
+  %111 = load ptr, ptr %2, align 8, !tbaa !28
+  %112 = getelementptr inbounds nuw %struct.git_graph, ptr %111, i32 0, i32 9
+  store i32 -1, ptr %112, align 4, !tbaa !85
+  %113 = load ptr, ptr %2, align 8, !tbaa !28
+  %114 = call ptr @first_interesting_parent(ptr noundef %113)
+  store ptr %114, ptr %3, align 8, !tbaa !105
+  br label %115
 
-for.end:                                          ; preds = %for.cond
-  %25 = load ptr, ptr %graph.addr, align 8
-  %width = getelementptr inbounds %struct.git_graph, ptr %25, i32 0, i32 3
-  store i32 0, ptr %width, align 4
-  %26 = load ptr, ptr %graph.addr, align 8
-  %edges_added = getelementptr inbounds %struct.git_graph, ptr %26, i32 0, i32 10
-  %27 = load i32, ptr %edges_added, align 8
-  %28 = load ptr, ptr %graph.addr, align 8
-  %prev_edges_added = getelementptr inbounds %struct.git_graph, ptr %28, i32 0, i32 11
-  store i32 %27, ptr %prev_edges_added, align 4
-  %29 = load ptr, ptr %graph.addr, align 8
-  %edges_added5 = getelementptr inbounds %struct.git_graph, ptr %29, i32 0, i32 10
-  store i32 0, ptr %edges_added5, align 8
-  store i32 0, ptr %seen_this, align 4
-  store i32 1, ptr %is_commit_in_columns, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond6
+115:                                              ; preds = %134, %107
+  %116 = load ptr, ptr %3, align 8, !tbaa !105
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %138
 
-for.cond6:                                        ; preds = %for.inc40, %for.end
-  %30 = load i32, ptr %i, align 4
-  %31 = load ptr, ptr %graph.addr, align 8
-  %num_columns7 = getelementptr inbounds %struct.git_graph, ptr %31, i32 0, i32 13
-  %32 = load i32, ptr %num_columns7, align 4
-  %cmp8 = icmp sle i32 %30, %32
-  br i1 %cmp8, label %for.body9, label %for.end42
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %2, align 8, !tbaa !28
+  %120 = getelementptr inbounds nuw %struct.git_graph, ptr %119, i32 0, i32 2
+  %121 = load i32, ptr %120, align 8, !tbaa !79
+  %122 = icmp sgt i32 %121, 1
+  br i1 %122, label %126, label %123
 
-for.body9:                                        ; preds = %for.cond6
-  %33 = load i32, ptr %i, align 4
-  %34 = load ptr, ptr %graph.addr, align 8
-  %num_columns10 = getelementptr inbounds %struct.git_graph, ptr %34, i32 0, i32 13
-  %35 = load i32, ptr %num_columns10, align 4
-  %cmp11 = icmp eq i32 %33, %35
-  br i1 %cmp11, label %if.then, label %if.else
+123:                                              ; preds = %118
+  %124 = load i32, ptr %7, align 4, !tbaa !73
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %128, label %126
 
-if.then:                                          ; preds = %for.body9
-  %36 = load i32, ptr %seen_this, align 4
-  %tobool = icmp ne i32 %36, 0
-  br i1 %tobool, label %if.then12, label %if.end
+126:                                              ; preds = %123, %118
+  %127 = load ptr, ptr %2, align 8, !tbaa !28
+  call void @graph_increment_column_color(ptr noundef %127)
+  br label %128
 
-if.then12:                                        ; preds = %if.then
-  br label %for.end42
+128:                                              ; preds = %126, %123
+  %129 = load ptr, ptr %2, align 8, !tbaa !28
+  %130 = load ptr, ptr %3, align 8, !tbaa !105
+  %131 = getelementptr inbounds nuw %struct.commit_list, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8, !tbaa !112
+  %133 = load i32, ptr %5, align 4, !tbaa !73
+  call void @graph_insert_into_new_columns(ptr noundef %129, ptr noundef %132, i32 noundef %133)
+  br label %134
 
-if.end:                                           ; preds = %if.then
-  store i32 0, ptr %is_commit_in_columns, align 4
-  %37 = load ptr, ptr %graph.addr, align 8
-  %commit = getelementptr inbounds %struct.git_graph, ptr %37, i32 0, i32 0
-  %38 = load ptr, ptr %commit, align 8
-  store ptr %38, ptr %col_commit, align 8
-  br label %if.end17
+134:                                              ; preds = %128
+  %135 = load ptr, ptr %2, align 8, !tbaa !28
+  %136 = load ptr, ptr %3, align 8, !tbaa !105
+  %137 = call ptr @next_interesting_parent(ptr noundef %135, ptr noundef %136)
+  store ptr %137, ptr %3, align 8, !tbaa !105
+  br label %115, !llvm.loop !120
 
-if.else:                                          ; preds = %for.body9
-  %39 = load ptr, ptr %graph.addr, align 8
-  %columns13 = getelementptr inbounds %struct.git_graph, ptr %39, i32 0, i32 16
-  %40 = load ptr, ptr %columns13, align 8
-  %41 = load i32, ptr %i, align 4
-  %idxprom14 = sext i32 %41 to i64
-  %arrayidx15 = getelementptr inbounds %struct.column, ptr %40, i64 %idxprom14
-  %commit16 = getelementptr inbounds %struct.column, ptr %arrayidx15, i32 0, i32 0
-  %42 = load ptr, ptr %commit16, align 8
-  store ptr %42, ptr %col_commit, align 8
-  br label %if.end17
+138:                                              ; preds = %115
+  %139 = load ptr, ptr %2, align 8, !tbaa !28
+  %140 = getelementptr inbounds nuw %struct.git_graph, ptr %139, i32 0, i32 2
+  %141 = load i32, ptr %140, align 8, !tbaa !79
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %143, label %148
 
-if.end17:                                         ; preds = %if.else, %if.end
-  %43 = load ptr, ptr %col_commit, align 8
-  %44 = load ptr, ptr %graph.addr, align 8
-  %commit18 = getelementptr inbounds %struct.git_graph, ptr %44, i32 0, i32 0
-  %45 = load ptr, ptr %commit18, align 8
-  %cmp19 = icmp eq ptr %43, %45
-  br i1 %cmp19, label %if.then20, label %if.else38
+143:                                              ; preds = %138
+  %144 = load ptr, ptr %2, align 8, !tbaa !28
+  %145 = getelementptr inbounds nuw %struct.git_graph, ptr %144, i32 0, i32 3
+  %146 = load i32, ptr %145, align 4, !tbaa !117
+  %147 = add nsw i32 %146, 2
+  store i32 %147, ptr %145, align 4, !tbaa !117
+  br label %148
 
-if.then20:                                        ; preds = %if.end17
-  store i32 1, ptr %seen_this, align 4
-  %46 = load i32, ptr %i, align 4
-  %47 = load ptr, ptr %graph.addr, align 8
-  %commit_index = getelementptr inbounds %struct.git_graph, ptr %47, i32 0, i32 7
-  store i32 %46, ptr %commit_index, align 4
-  %48 = load ptr, ptr %graph.addr, align 8
-  %merge_layout = getelementptr inbounds %struct.git_graph, ptr %48, i32 0, i32 9
-  store i32 -1, ptr %merge_layout, align 4
-  %49 = load ptr, ptr %graph.addr, align 8
-  %call = call ptr @first_interesting_parent(ptr noundef %49)
-  store ptr %call, ptr %parent, align 8
-  br label %for.cond21
+148:                                              ; preds = %143, %138
+  br label %152
 
-for.cond21:                                       ; preds = %for.inc29, %if.then20
-  %50 = load ptr, ptr %parent, align 8
-  %tobool22 = icmp ne ptr %50, null
-  br i1 %tobool22, label %for.body23, label %for.end31
+149:                                              ; preds = %101
+  %150 = load ptr, ptr %2, align 8, !tbaa !28
+  %151 = load ptr, ptr %11, align 8, !tbaa !104
+  call void @graph_insert_into_new_columns(ptr noundef %150, ptr noundef %151, i32 noundef -1)
+  br label %152
 
-for.body23:                                       ; preds = %for.cond21
-  %51 = load ptr, ptr %graph.addr, align 8
-  %num_parents24 = getelementptr inbounds %struct.git_graph, ptr %51, i32 0, i32 2
-  %52 = load i32, ptr %num_parents24, align 8
-  %cmp25 = icmp sgt i32 %52, 1
-  br i1 %cmp25, label %if.then27, label %lor.lhs.false
+152:                                              ; preds = %149, %148
+  store i32 0, ptr %12, align 4
+  br label %153
 
-lor.lhs.false:                                    ; preds = %for.body23
-  %53 = load i32, ptr %is_commit_in_columns, align 4
-  %tobool26 = icmp ne i32 %53, 0
-  br i1 %tobool26, label %if.end28, label %if.then27
-
-if.then27:                                        ; preds = %lor.lhs.false, %for.body23
-  %54 = load ptr, ptr %graph.addr, align 8
-  call void @graph_increment_column_color(ptr noundef %54)
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then27, %lor.lhs.false
-  %55 = load ptr, ptr %graph.addr, align 8
-  %56 = load ptr, ptr %parent, align 8
-  %item = getelementptr inbounds %struct.commit_list, ptr %56, i32 0, i32 0
-  %57 = load ptr, ptr %item, align 8
-  %58 = load i32, ptr %i, align 4
-  call void @graph_insert_into_new_columns(ptr noundef %55, ptr noundef %57, i32 noundef %58)
-  br label %for.inc29
-
-for.inc29:                                        ; preds = %if.end28
-  %59 = load ptr, ptr %graph.addr, align 8
-  %60 = load ptr, ptr %parent, align 8
-  %call30 = call ptr @next_interesting_parent(ptr noundef %59, ptr noundef %60)
-  store ptr %call30, ptr %parent, align 8
-  br label %for.cond21, !llvm.loop !10
-
-for.end31:                                        ; preds = %for.cond21
-  %61 = load ptr, ptr %graph.addr, align 8
-  %num_parents32 = getelementptr inbounds %struct.git_graph, ptr %61, i32 0, i32 2
-  %62 = load i32, ptr %num_parents32, align 8
-  %cmp33 = icmp eq i32 %62, 0
-  br i1 %cmp33, label %if.then34, label %if.end37
-
-if.then34:                                        ; preds = %for.end31
-  %63 = load ptr, ptr %graph.addr, align 8
-  %width35 = getelementptr inbounds %struct.git_graph, ptr %63, i32 0, i32 3
-  %64 = load i32, ptr %width35, align 4
-  %add36 = add nsw i32 %64, 2
-  store i32 %add36, ptr %width35, align 4
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then34, %for.end31
-  br label %if.end39
-
-if.else38:                                        ; preds = %if.end17
-  %65 = load ptr, ptr %graph.addr, align 8
-  %66 = load ptr, ptr %col_commit, align 8
-  call void @graph_insert_into_new_columns(ptr noundef %65, ptr noundef %66, i32 noundef -1)
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.else38, %if.end37
-  br label %for.inc40
-
-for.inc40:                                        ; preds = %if.end39
-  %67 = load i32, ptr %i, align 4
-  %inc41 = add nsw i32 %67, 1
-  store i32 %inc41, ptr %i, align 4
-  br label %for.cond6, !llvm.loop !11
-
-for.end42:                                        ; preds = %if.then12, %for.cond6
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %for.end42
-  %68 = load ptr, ptr %graph.addr, align 8
-  %mapping_size43 = getelementptr inbounds %struct.git_graph, ptr %68, i32 0, i32 15
-  %69 = load i32, ptr %mapping_size43, align 4
-  %cmp44 = icmp sgt i32 %69, 1
-  br i1 %cmp44, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %70 = load ptr, ptr %graph.addr, align 8
-  %mapping45 = getelementptr inbounds %struct.git_graph, ptr %70, i32 0, i32 18
-  %71 = load ptr, ptr %mapping45, align 8
-  %72 = load ptr, ptr %graph.addr, align 8
-  %mapping_size46 = getelementptr inbounds %struct.git_graph, ptr %72, i32 0, i32 15
-  %73 = load i32, ptr %mapping_size46, align 4
-  %sub = sub nsw i32 %73, 1
-  %idxprom47 = sext i32 %sub to i64
-  %arrayidx48 = getelementptr inbounds i32, ptr %71, i64 %idxprom47
-  %74 = load i32, ptr %arrayidx48, align 4
-  %cmp49 = icmp slt i32 %74, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %75 = phi i1 [ false, %while.cond ], [ %cmp49, %land.rhs ]
-  br i1 %75, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %76 = load ptr, ptr %graph.addr, align 8
-  %mapping_size50 = getelementptr inbounds %struct.git_graph, ptr %76, i32 0, i32 15
-  %77 = load i32, ptr %mapping_size50, align 4
-  %dec = add nsw i32 %77, -1
-  store i32 %dec, ptr %mapping_size50, align 4
-  br label %while.cond, !llvm.loop !12
-
-while.end:                                        ; preds = %land.end
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @graph_needs_pre_commit_line(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %num_parents, align 8
-  %cmp = icmp sge i32 %1, 3
-  br i1 %cmp, label %land.lhs.true, label %land.end
-
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %graph.addr, align 8
-  %commit_index = getelementptr inbounds %struct.git_graph, ptr %2, i32 0, i32 7
-  %3 = load i32, ptr %commit_index, align 4
-  %4 = load ptr, ptr %graph.addr, align 8
-  %num_columns = getelementptr inbounds %struct.git_graph, ptr %4, i32 0, i32 13
-  %5 = load i32, ptr %num_columns, align 4
-  %sub = sub nsw i32 %5, 1
-  %cmp1 = icmp slt i32 %3, %sub
-  br i1 %cmp1, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %land.lhs.true
-  %6 = load ptr, ptr %graph.addr, align 8
-  %expansion_row = getelementptr inbounds %struct.git_graph, ptr %6, i32 0, i32 4
-  %7 = load i32, ptr %expansion_row, align 8
-  %8 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_num_expansion_rows(ptr noundef %8)
-  %cmp2 = icmp slt i32 %7, %call
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %9 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp2, %land.rhs ]
-  %land.ext = zext i1 %9 to i32
-  ret i32 %land.ext
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @graph_width(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %width = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 3
-  %1 = load i32, ptr %width, align 4
-  ret i32 %1
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @graph_next_line(ptr noundef %graph, ptr noundef %sb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %graph.addr = alloca ptr, align 8
-  %sb.addr = alloca ptr, align 8
-  %shown_commit_line = alloca i32, align 4
-  %line = alloca %struct.graph_line, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  store i32 0, ptr %shown_commit_line, align 4
-  %buf = getelementptr inbounds %struct.graph_line, ptr %line, i32 0, i32 0
-  %0 = load ptr, ptr %sb.addr, align 8
-  store ptr %0, ptr %buf, align 8
-  %width = getelementptr inbounds %struct.graph_line, ptr %line, i32 0, i32 1
-  store i64 0, ptr %width, align 8
-  %1 = load ptr, ptr %graph.addr, align 8
-  %commit = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %commit, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %graph.addr, align 8
-  %state = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 5
-  %4 = load i32, ptr %state, align 4
-  switch i32 %4, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb2
-    i32 3, label %sw.bb3
-    i32 4, label %sw.bb4
-    i32 5, label %sw.bb5
+153:                                              ; preds = %152, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  %154 = load i32, ptr %12, align 4
+  switch i32 %154, label %185 [
+    i32 0, label %155
+    i32 7, label %159
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %5 = load ptr, ptr %graph.addr, align 8
-  call void @graph_output_padding_line(ptr noundef %5, ptr noundef %line)
-  br label %sw.epilog
+155:                                              ; preds = %153
+  br label %156
 
-sw.bb1:                                           ; preds = %if.end
-  %6 = load ptr, ptr %graph.addr, align 8
-  call void @graph_output_skip_line(ptr noundef %6, ptr noundef %line)
-  br label %sw.epilog
+156:                                              ; preds = %155
+  %157 = load i32, ptr %5, align 4, !tbaa !73
+  %158 = add nsw i32 %157, 1
+  store i32 %158, ptr %5, align 4, !tbaa !73
+  br label %72, !llvm.loop !121
 
-sw.bb2:                                           ; preds = %if.end
-  %7 = load ptr, ptr %graph.addr, align 8
-  call void @graph_output_pre_commit_line(ptr noundef %7, ptr noundef %line)
-  br label %sw.epilog
+159:                                              ; preds = %153, %72
+  br label %160
 
-sw.bb3:                                           ; preds = %if.end
-  %8 = load ptr, ptr %graph.addr, align 8
-  call void @graph_output_commit_line(ptr noundef %8, ptr noundef %line)
-  store i32 1, ptr %shown_commit_line, align 4
-  br label %sw.epilog
+160:                                              ; preds = %179, %159
+  %161 = load ptr, ptr %2, align 8, !tbaa !28
+  %162 = getelementptr inbounds nuw %struct.git_graph, ptr %161, i32 0, i32 15
+  %163 = load i32, ptr %162, align 4, !tbaa !90
+  %164 = icmp sgt i32 %163, 1
+  br i1 %164, label %165, label %177
 
-sw.bb4:                                           ; preds = %if.end
-  %9 = load ptr, ptr %graph.addr, align 8
-  call void @graph_output_post_merge_line(ptr noundef %9, ptr noundef %line)
-  br label %sw.epilog
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %2, align 8, !tbaa !28
+  %167 = getelementptr inbounds nuw %struct.git_graph, ptr %166, i32 0, i32 18
+  %168 = load ptr, ptr %167, align 8, !tbaa !95
+  %169 = load ptr, ptr %2, align 8, !tbaa !28
+  %170 = getelementptr inbounds nuw %struct.git_graph, ptr %169, i32 0, i32 15
+  %171 = load i32, ptr %170, align 4, !tbaa !90
+  %172 = sub nsw i32 %171, 1
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds i32, ptr %168, i64 %173
+  %175 = load i32, ptr %174, align 4, !tbaa !73
+  %176 = icmp slt i32 %175, 0
+  br label %177
 
-sw.bb5:                                           ; preds = %if.end
-  %10 = load ptr, ptr %graph.addr, align 8
-  call void @graph_output_collapsing_line(ptr noundef %10, ptr noundef %line)
-  br label %sw.epilog
+177:                                              ; preds = %165, %160
+  %178 = phi i1 [ false, %160 ], [ %176, %165 ]
+  br i1 %178, label %179, label %184
 
-sw.epilog:                                        ; preds = %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb, %if.end
-  %11 = load ptr, ptr %graph.addr, align 8
-  call void @graph_pad_horizontally(ptr noundef %11, ptr noundef %line)
-  %12 = load i32, ptr %shown_commit_line, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+179:                                              ; preds = %177
+  %180 = load ptr, ptr %2, align 8, !tbaa !28
+  %181 = getelementptr inbounds nuw %struct.git_graph, ptr %180, i32 0, i32 15
+  %182 = load i32, ptr %181, align 4, !tbaa !90
+  %183 = add nsw i32 %182, -1
+  store i32 %183, ptr %181, align 4, !tbaa !90
+  br label %160, !llvm.loop !122
 
-return:                                           ; preds = %sw.epilog, %if.then
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+184:                                              ; preds = %177
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret void
+
+185:                                              ; preds = %153
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_output_padding_line(ptr noundef %graph, ptr noundef %line) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %line.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal i32 @graph_needs_pre_commit_line(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %4 = getelementptr inbounds nuw %struct.git_graph, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !79
+  %6 = icmp sge i32 %5, 3
+  br i1 %6, label %7, label %23
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %graph.addr, align 8
-  %num_new_columns = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 14
-  %2 = load i32, ptr %num_new_columns, align 8
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %struct.git_graph, ptr %8, i32 0, i32 7
+  %10 = load i32, ptr %9, align 4, !tbaa !83
+  %11 = load ptr, ptr %2, align 8, !tbaa !28
+  %12 = getelementptr inbounds nuw %struct.git_graph, ptr %11, i32 0, i32 13
+  %13 = load i32, ptr %12, align 4, !tbaa !88
+  %14 = sub nsw i32 %13, 1
+  %15 = icmp slt i32 %10, %14
+  br i1 %15, label %16, label %23
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %line.addr, align 8
-  %4 = load ptr, ptr %graph.addr, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %4, i32 0, i32 17
-  %5 = load ptr, ptr %new_columns, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds %struct.column, ptr %5, i64 %idxprom
-  call void @graph_line_write_column(ptr noundef %3, ptr noundef %arrayidx, i8 noundef signext 124)
-  %7 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addch(ptr noundef %7, i32 noundef 32)
-  br label %for.inc
+16:                                               ; preds = %7
+  %17 = load ptr, ptr %2, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw %struct.git_graph, ptr %17, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8, !tbaa !80
+  %20 = load ptr, ptr %2, align 8, !tbaa !28
+  %21 = call i32 @graph_num_expansion_rows(ptr noundef %20)
+  %22 = icmp slt i32 %19, %21
+  br label %23
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !13
+23:                                               ; preds = %16, %7, %1
+  %24 = phi i1 [ false, %7 ], [ false, %1 ], [ %22, %16 ]
+  %25 = zext i1 %24 to i32
+  ret i32 %25
+}
 
-for.end:                                          ; preds = %for.cond
+; Function Attrs: nounwind uwtable
+define dso_local i32 @graph_width(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %4 = getelementptr inbounds nuw %struct.git_graph, ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 4, !tbaa !117
+  ret i32 %5
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @graph_next_line(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.graph_line, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  store i32 0, ptr %6, align 4, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #8
+  %9 = getelementptr inbounds nuw %struct.graph_line, ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !123
+  store ptr %10, ptr %9, align 8, !tbaa !125
+  %11 = getelementptr inbounds nuw %struct.graph_line, ptr %7, i32 0, i32 1
+  store i64 0, ptr %11, align 8, !tbaa !127
+  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %13 = getelementptr inbounds nuw %struct.git_graph, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !77
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %36
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw %struct.git_graph, ptr %18, i32 0, i32 5
+  %20 = load i32, ptr %19, align 4, !tbaa !81
+  switch i32 %20, label %33 [
+    i32 0, label %21
+    i32 1, label %23
+    i32 2, label %25
+    i32 3, label %27
+    i32 4, label %29
+    i32 5, label %31
+  ]
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @graph_output_padding_line(ptr noundef %22, ptr noundef %7)
+  br label %33
+
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @graph_output_skip_line(ptr noundef %24, ptr noundef %7)
+  br label %33
+
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @graph_output_pre_commit_line(ptr noundef %26, ptr noundef %7)
+  br label %33
+
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @graph_output_commit_line(ptr noundef %28, ptr noundef %7)
+  store i32 1, ptr %6, align 4, !tbaa !73
+  br label %33
+
+29:                                               ; preds = %17
+  %30 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @graph_output_post_merge_line(ptr noundef %30, ptr noundef %7)
+  br label %33
+
+31:                                               ; preds = %17
+  %32 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @graph_output_collapsing_line(ptr noundef %32, ptr noundef %7)
+  br label %33
+
+33:                                               ; preds = %17, %31, %29, %27, %25, %23, %21
+  %34 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @graph_pad_horizontally(ptr noundef %34, ptr noundef %7)
+  %35 = load i32, ptr %6, align 4, !tbaa !73
+  store i32 %35, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %36
+
+36:                                               ; preds = %33, %16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %37 = load i32, ptr %3, align 4
+  ret i32 %37
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @graph_output_padding_line(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 0, ptr %5, align 4, !tbaa !73
+  br label %6
+
+6:                                                ; preds = %21, %2
+  %7 = load i32, ptr %5, align 4, !tbaa !73
+  %8 = load ptr, ptr %3, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %struct.git_graph, ptr %8, i32 0, i32 14
+  %10 = load i32, ptr %9, align 8, !tbaa !89
+  %11 = icmp slt i32 %7, %10
+  br i1 %11, label %12, label %24
+
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %4, align 8, !tbaa !128
+  %14 = load ptr, ptr %3, align 8, !tbaa !28
+  %15 = getelementptr inbounds nuw %struct.git_graph, ptr %14, i32 0, i32 17
+  %16 = load ptr, ptr %15, align 8, !tbaa !94
+  %17 = load i32, ptr %5, align 4, !tbaa !73
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds %struct.column, ptr %16, i64 %18
+  call void @graph_line_write_column(ptr noundef %13, ptr noundef %19, i8 noundef signext 124)
+  %20 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addch(ptr noundef %20, i32 noundef 32)
+  br label %21
+
+21:                                               ; preds = %12
+  %22 = load i32, ptr %5, align 4, !tbaa !73
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %5, align 4, !tbaa !73
+  br label %6, !llvm.loop !130
+
+24:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_output_skip_line(ptr noundef %graph, ptr noundef %line) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %line.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  %0 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addstr(ptr noundef %0, ptr noundef @.str.5)
-  %1 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_needs_pre_commit_line(ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.else
+define internal void @graph_output_skip_line(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !128
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addstr(ptr noundef %5, ptr noundef @.str.5)
+  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %7 = call i32 @graph_needs_pre_commit_line(ptr noundef %6)
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %11
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_state(ptr noundef %2, i32 noundef 2)
-  br label %if.end
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_state(ptr noundef %10, i32 noundef 2)
+  br label %13
 
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_state(ptr noundef %3, i32 noundef 3)
-  br label %if.end
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_state(ptr noundef %12, i32 noundef 3)
+  br label %13
 
-if.end:                                           ; preds = %if.else, %if.then
+13:                                               ; preds = %11, %9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_output_pre_commit_line(ptr noundef %graph, ptr noundef %line) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %line.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %seen_this = alloca i32, align 4
-  %col = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  store i32 0, ptr %seen_this, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @graph_output_pre_commit_line(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  store i32 0, ptr %6, align 4, !tbaa !73
+  store i32 0, ptr %5, align 4, !tbaa !73
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %graph.addr, align 8
-  %num_columns = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 13
-  %2 = load i32, ptr %num_columns, align 4
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+8:                                                ; preds = %80, %2
+  %9 = load i32, ptr %5, align 4, !tbaa !73
+  %10 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %struct.git_graph, ptr %10, i32 0, i32 13
+  %12 = load i32, ptr %11, align 4, !tbaa !88
+  %13 = icmp slt i32 %9, %12
+  br i1 %13, label %14, label %83
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %graph.addr, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 16
-  %4 = load ptr, ptr %columns, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.column, ptr %4, i64 %idxprom
-  store ptr %arrayidx, ptr %col, align 8
-  %6 = load ptr, ptr %col, align 8
-  %commit = getelementptr inbounds %struct.column, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %commit, align 8
-  %8 = load ptr, ptr %graph.addr, align 8
-  %commit1 = getelementptr inbounds %struct.git_graph, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %commit1, align 8
-  %cmp2 = icmp eq ptr %7, %9
-  br i1 %cmp2, label %if.then, label %if.else
+14:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %15 = load ptr, ptr %3, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %struct.git_graph, ptr %15, i32 0, i32 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !93
+  %18 = load i32, ptr %5, align 4, !tbaa !73
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds %struct.column, ptr %17, i64 %19
+  store ptr %20, ptr %7, align 8, !tbaa !131
+  %21 = load ptr, ptr %7, align 8, !tbaa !131
+  %22 = getelementptr inbounds nuw %struct.column, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !118
+  %24 = load ptr, ptr %3, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw %struct.git_graph, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !77
+  %27 = icmp eq ptr %23, %26
+  br i1 %27, label %28, label %36
 
-if.then:                                          ; preds = %for.body
-  store i32 1, ptr %seen_this, align 4
-  %10 = load ptr, ptr %line.addr, align 8
-  %11 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %10, ptr noundef %11, i8 noundef signext 124)
-  %12 = load ptr, ptr %line.addr, align 8
-  %13 = load ptr, ptr %graph.addr, align 8
-  %expansion_row = getelementptr inbounds %struct.git_graph, ptr %13, i32 0, i32 4
-  %14 = load i32, ptr %expansion_row, align 8
-  %conv = sext i32 %14 to i64
-  call void @graph_line_addchars(ptr noundef %12, i32 noundef 32, i64 noundef %conv)
-  br label %if.end24
+28:                                               ; preds = %14
+  store i32 1, ptr %6, align 4, !tbaa !73
+  %29 = load ptr, ptr %4, align 8, !tbaa !128
+  %30 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %29, ptr noundef %30, i8 noundef signext 124)
+  %31 = load ptr, ptr %4, align 8, !tbaa !128
+  %32 = load ptr, ptr %3, align 8, !tbaa !28
+  %33 = getelementptr inbounds nuw %struct.git_graph, ptr %32, i32 0, i32 4
+  %34 = load i32, ptr %33, align 8, !tbaa !80
+  %35 = sext i32 %34 to i64
+  call void @graph_line_addchars(ptr noundef %31, i32 noundef 32, i64 noundef %35)
+  br label %78
 
-if.else:                                          ; preds = %for.body
-  %15 = load i32, ptr %seen_this, align 4
-  %tobool = icmp ne i32 %15, 0
-  br i1 %tobool, label %land.lhs.true, label %if.else14
+36:                                               ; preds = %14
+  %37 = load i32, ptr %6, align 4, !tbaa !73
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %62
 
-land.lhs.true:                                    ; preds = %if.else
-  %16 = load ptr, ptr %graph.addr, align 8
-  %expansion_row3 = getelementptr inbounds %struct.git_graph, ptr %16, i32 0, i32 4
-  %17 = load i32, ptr %expansion_row3, align 8
-  %cmp4 = icmp eq i32 %17, 0
-  br i1 %cmp4, label %if.then6, label %if.else14
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %3, align 8, !tbaa !28
+  %41 = getelementptr inbounds nuw %struct.git_graph, ptr %40, i32 0, i32 4
+  %42 = load i32, ptr %41, align 8, !tbaa !80
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %62
 
-if.then6:                                         ; preds = %land.lhs.true
-  %18 = load ptr, ptr %graph.addr, align 8
-  %prev_state = getelementptr inbounds %struct.git_graph, ptr %18, i32 0, i32 6
-  %19 = load i32, ptr %prev_state, align 8
-  %cmp7 = icmp eq i32 %19, 4
-  br i1 %cmp7, label %land.lhs.true9, label %if.else13
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %3, align 8, !tbaa !28
+  %46 = getelementptr inbounds nuw %struct.git_graph, ptr %45, i32 0, i32 6
+  %47 = load i32, ptr %46, align 8, !tbaa !82
+  %48 = icmp eq i32 %47, 4
+  br i1 %48, label %49, label %58
 
-land.lhs.true9:                                   ; preds = %if.then6
-  %20 = load ptr, ptr %graph.addr, align 8
-  %prev_commit_index = getelementptr inbounds %struct.git_graph, ptr %20, i32 0, i32 8
-  %21 = load i32, ptr %prev_commit_index, align 8
-  %22 = load i32, ptr %i, align 4
-  %cmp10 = icmp slt i32 %21, %22
-  br i1 %cmp10, label %if.then12, label %if.else13
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %3, align 8, !tbaa !28
+  %51 = getelementptr inbounds nuw %struct.git_graph, ptr %50, i32 0, i32 8
+  %52 = load i32, ptr %51, align 8, !tbaa !84
+  %53 = load i32, ptr %5, align 4, !tbaa !73
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %58
 
-if.then12:                                        ; preds = %land.lhs.true9
-  %23 = load ptr, ptr %line.addr, align 8
-  %24 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %23, ptr noundef %24, i8 noundef signext 92)
-  br label %if.end
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %4, align 8, !tbaa !128
+  %57 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %56, ptr noundef %57, i8 noundef signext 92)
+  br label %61
 
-if.else13:                                        ; preds = %land.lhs.true9, %if.then6
-  %25 = load ptr, ptr %line.addr, align 8
-  %26 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %25, ptr noundef %26, i8 noundef signext 124)
-  br label %if.end
+58:                                               ; preds = %49, %44
+  %59 = load ptr, ptr %4, align 8, !tbaa !128
+  %60 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %59, ptr noundef %60, i8 noundef signext 124)
+  br label %61
 
-if.end:                                           ; preds = %if.else13, %if.then12
-  br label %if.end23
+61:                                               ; preds = %58, %55
+  br label %77
 
-if.else14:                                        ; preds = %land.lhs.true, %if.else
-  %27 = load i32, ptr %seen_this, align 4
-  %tobool15 = icmp ne i32 %27, 0
-  br i1 %tobool15, label %land.lhs.true16, label %if.else21
+62:                                               ; preds = %39, %36
+  %63 = load i32, ptr %6, align 4, !tbaa !73
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %73
 
-land.lhs.true16:                                  ; preds = %if.else14
-  %28 = load ptr, ptr %graph.addr, align 8
-  %expansion_row17 = getelementptr inbounds %struct.git_graph, ptr %28, i32 0, i32 4
-  %29 = load i32, ptr %expansion_row17, align 8
-  %cmp18 = icmp sgt i32 %29, 0
-  br i1 %cmp18, label %if.then20, label %if.else21
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %3, align 8, !tbaa !28
+  %67 = getelementptr inbounds nuw %struct.git_graph, ptr %66, i32 0, i32 4
+  %68 = load i32, ptr %67, align 8, !tbaa !80
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %70, label %73
 
-if.then20:                                        ; preds = %land.lhs.true16
-  %30 = load ptr, ptr %line.addr, align 8
-  %31 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %30, ptr noundef %31, i8 noundef signext 92)
-  br label %if.end22
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %4, align 8, !tbaa !128
+  %72 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %71, ptr noundef %72, i8 noundef signext 92)
+  br label %76
 
-if.else21:                                        ; preds = %land.lhs.true16, %if.else14
-  %32 = load ptr, ptr %line.addr, align 8
-  %33 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %32, ptr noundef %33, i8 noundef signext 124)
-  br label %if.end22
+73:                                               ; preds = %65, %62
+  %74 = load ptr, ptr %4, align 8, !tbaa !128
+  %75 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %74, ptr noundef %75, i8 noundef signext 124)
+  br label %76
 
-if.end22:                                         ; preds = %if.else21, %if.then20
-  br label %if.end23
+76:                                               ; preds = %73, %70
+  br label %77
 
-if.end23:                                         ; preds = %if.end22, %if.end
-  br label %if.end24
+77:                                               ; preds = %76, %61
+  br label %78
 
-if.end24:                                         ; preds = %if.end23, %if.then
-  %34 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addch(ptr noundef %34, i32 noundef 32)
-  br label %for.inc
+78:                                               ; preds = %77, %28
+  %79 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addch(ptr noundef %79, i32 noundef 32)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  br label %80
 
-for.inc:                                          ; preds = %if.end24
-  %35 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %35, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !14
+80:                                               ; preds = %78
+  %81 = load i32, ptr %5, align 4, !tbaa !73
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %5, align 4, !tbaa !73
+  br label %8, !llvm.loop !132
 
-for.end:                                          ; preds = %for.cond
-  %36 = load ptr, ptr %graph.addr, align 8
-  %expansion_row25 = getelementptr inbounds %struct.git_graph, ptr %36, i32 0, i32 4
-  %37 = load i32, ptr %expansion_row25, align 8
-  %inc26 = add nsw i32 %37, 1
-  store i32 %inc26, ptr %expansion_row25, align 8
-  %38 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_needs_pre_commit_line(ptr noundef %38)
-  %tobool27 = icmp ne i32 %call, 0
-  br i1 %tobool27, label %if.end29, label %if.then28
+83:                                               ; preds = %8
+  %84 = load ptr, ptr %3, align 8, !tbaa !28
+  %85 = getelementptr inbounds nuw %struct.git_graph, ptr %84, i32 0, i32 4
+  %86 = load i32, ptr %85, align 8, !tbaa !80
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %85, align 8, !tbaa !80
+  %88 = load ptr, ptr %3, align 8, !tbaa !28
+  %89 = call i32 @graph_needs_pre_commit_line(ptr noundef %88)
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %93, label %91
 
-if.then28:                                        ; preds = %for.end
-  %39 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_state(ptr noundef %39, i32 noundef 3)
-  br label %if.end29
+91:                                               ; preds = %83
+  %92 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_state(ptr noundef %92, i32 noundef 3)
+  br label %93
 
-if.end29:                                         ; preds = %if.then28, %for.end
+93:                                               ; preds = %91, %83
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_output_commit_line(ptr noundef %graph, ptr noundef %line) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %line.addr = alloca ptr, align 8
-  %seen_this = alloca i32, align 4
-  %i = alloca i32, align 4
-  %col = alloca ptr, align 8
-  %col_commit = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  store i32 0, ptr %seen_this, align 4
-  store i32 0, ptr %seen_this, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @graph_output_commit_line(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 0, ptr %5, align 4, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  store i32 0, ptr %5, align 4, !tbaa !73
+  store i32 0, ptr %6, align 4, !tbaa !73
+  br label %10
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %graph.addr, align 8
-  %num_columns = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 13
-  %2 = load i32, ptr %num_columns, align 4
-  %cmp = icmp sle i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %146, %2
+  %11 = load i32, ptr %6, align 4, !tbaa !73
+  %12 = load ptr, ptr %3, align 8, !tbaa !28
+  %13 = getelementptr inbounds nuw %struct.git_graph, ptr %12, i32 0, i32 13
+  %14 = load i32, ptr %13, align 4, !tbaa !88
+  %15 = icmp sle i32 %11, %14
+  br i1 %15, label %16, label %149
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %graph.addr, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 16
-  %4 = load ptr, ptr %columns, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.column, ptr %4, i64 %idxprom
-  store ptr %arrayidx, ptr %col, align 8
-  %6 = load i32, ptr %i, align 4
-  %7 = load ptr, ptr %graph.addr, align 8
-  %num_columns1 = getelementptr inbounds %struct.git_graph, ptr %7, i32 0, i32 13
-  %8 = load i32, ptr %num_columns1, align 4
-  %cmp2 = icmp eq i32 %6, %8
-  br i1 %cmp2, label %if.then, label %if.else
+16:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %17 = load ptr, ptr %3, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw %struct.git_graph, ptr %17, i32 0, i32 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !93
+  %20 = load i32, ptr %6, align 4, !tbaa !73
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %struct.column, ptr %19, i64 %21
+  store ptr %22, ptr %7, align 8, !tbaa !131
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %23 = load i32, ptr %6, align 4, !tbaa !73
+  %24 = load ptr, ptr %3, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw %struct.git_graph, ptr %24, i32 0, i32 13
+  %26 = load i32, ptr %25, align 4, !tbaa !88
+  %27 = icmp eq i32 %23, %26
+  br i1 %27, label %28, label %36
 
-if.then:                                          ; preds = %for.body
-  %9 = load i32, ptr %seen_this, align 4
-  %tobool = icmp ne i32 %9, 0
-  br i1 %tobool, label %if.then3, label %if.end
+28:                                               ; preds = %16
+  %29 = load i32, ptr %5, align 4, !tbaa !73
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %32
 
-if.then3:                                         ; preds = %if.then
-  br label %for.end
+31:                                               ; preds = %28
+  store i32 2, ptr %9, align 4
+  br label %143
 
-if.end:                                           ; preds = %if.then
-  %10 = load ptr, ptr %graph.addr, align 8
-  %commit = getelementptr inbounds %struct.git_graph, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %commit, align 8
-  store ptr %11, ptr %col_commit, align 8
-  br label %if.end8
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %3, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw %struct.git_graph, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !77
+  store ptr %35, ptr %8, align 8, !tbaa !104
+  br label %45
 
-if.else:                                          ; preds = %for.body
-  %12 = load ptr, ptr %graph.addr, align 8
-  %columns4 = getelementptr inbounds %struct.git_graph, ptr %12, i32 0, i32 16
-  %13 = load ptr, ptr %columns4, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %14 to i64
-  %arrayidx6 = getelementptr inbounds %struct.column, ptr %13, i64 %idxprom5
-  %commit7 = getelementptr inbounds %struct.column, ptr %arrayidx6, i32 0, i32 0
-  %15 = load ptr, ptr %commit7, align 8
-  store ptr %15, ptr %col_commit, align 8
-  br label %if.end8
+36:                                               ; preds = %16
+  %37 = load ptr, ptr %3, align 8, !tbaa !28
+  %38 = getelementptr inbounds nuw %struct.git_graph, ptr %37, i32 0, i32 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !93
+  %40 = load i32, ptr %6, align 4, !tbaa !73
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds %struct.column, ptr %39, i64 %41
+  %43 = getelementptr inbounds nuw %struct.column, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !118
+  store ptr %44, ptr %8, align 8, !tbaa !104
+  br label %45
 
-if.end8:                                          ; preds = %if.else, %if.end
-  %16 = load ptr, ptr %col_commit, align 8
-  %17 = load ptr, ptr %graph.addr, align 8
-  %commit9 = getelementptr inbounds %struct.git_graph, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %commit9, align 8
-  %cmp10 = icmp eq ptr %16, %18
-  br i1 %cmp10, label %if.then11, label %if.else15
+45:                                               ; preds = %36, %32
+  %46 = load ptr, ptr %8, align 8, !tbaa !104
+  %47 = load ptr, ptr %3, align 8, !tbaa !28
+  %48 = getelementptr inbounds nuw %struct.git_graph, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !77
+  %50 = icmp eq ptr %46, %49
+  br i1 %50, label %51, label %62
 
-if.then11:                                        ; preds = %if.end8
-  store i32 1, ptr %seen_this, align 4
-  %19 = load ptr, ptr %graph.addr, align 8
-  %20 = load ptr, ptr %line.addr, align 8
-  call void @graph_output_commit_char(ptr noundef %19, ptr noundef %20)
-  %21 = load ptr, ptr %graph.addr, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %21, i32 0, i32 2
-  %22 = load i32, ptr %num_parents, align 8
-  %cmp12 = icmp sgt i32 %22, 2
-  br i1 %cmp12, label %if.then13, label %if.end14
+51:                                               ; preds = %45
+  store i32 1, ptr %5, align 4, !tbaa !73
+  %52 = load ptr, ptr %3, align 8, !tbaa !28
+  %53 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_output_commit_char(ptr noundef %52, ptr noundef %53)
+  %54 = load ptr, ptr %3, align 8, !tbaa !28
+  %55 = getelementptr inbounds nuw %struct.git_graph, ptr %54, i32 0, i32 2
+  %56 = load i32, ptr %55, align 8, !tbaa !79
+  %57 = icmp sgt i32 %56, 2
+  br i1 %57, label %58, label %61
 
-if.then13:                                        ; preds = %if.then11
-  %23 = load ptr, ptr %graph.addr, align 8
-  %24 = load ptr, ptr %line.addr, align 8
-  call void @graph_draw_octopus_merge(ptr noundef %23, ptr noundef %24)
-  br label %if.end14
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %3, align 8, !tbaa !28
+  %60 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_draw_octopus_merge(ptr noundef %59, ptr noundef %60)
+  br label %61
 
-if.end14:                                         ; preds = %if.then13, %if.then11
-  br label %if.end50
+61:                                               ; preds = %58, %51
+  br label %141
 
-if.else15:                                        ; preds = %if.end8
-  %25 = load i32, ptr %seen_this, align 4
-  %tobool16 = icmp ne i32 %25, 0
-  br i1 %tobool16, label %land.lhs.true, label %if.else19
+62:                                               ; preds = %45
+  %63 = load i32, ptr %5, align 4, !tbaa !73
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %73
 
-land.lhs.true:                                    ; preds = %if.else15
-  %26 = load ptr, ptr %graph.addr, align 8
-  %edges_added = getelementptr inbounds %struct.git_graph, ptr %26, i32 0, i32 10
-  %27 = load i32, ptr %edges_added, align 8
-  %cmp17 = icmp sgt i32 %27, 1
-  br i1 %cmp17, label %if.then18, label %if.else19
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %3, align 8, !tbaa !28
+  %67 = getelementptr inbounds nuw %struct.git_graph, ptr %66, i32 0, i32 10
+  %68 = load i32, ptr %67, align 8, !tbaa !86
+  %69 = icmp sgt i32 %68, 1
+  br i1 %69, label %70, label %73
 
-if.then18:                                        ; preds = %land.lhs.true
-  %28 = load ptr, ptr %line.addr, align 8
-  %29 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %28, ptr noundef %29, i8 noundef signext 92)
-  br label %if.end49
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %4, align 8, !tbaa !128
+  %72 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %71, ptr noundef %72, i8 noundef signext 92)
+  br label %140
 
-if.else19:                                        ; preds = %land.lhs.true, %if.else15
-  %30 = load i32, ptr %seen_this, align 4
-  %tobool20 = icmp ne i32 %30, 0
-  br i1 %tobool20, label %land.lhs.true21, label %if.else33
+73:                                               ; preds = %65, %62
+  %74 = load i32, ptr %5, align 4, !tbaa !73
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %104
 
-land.lhs.true21:                                  ; preds = %if.else19
-  %31 = load ptr, ptr %graph.addr, align 8
-  %edges_added22 = getelementptr inbounds %struct.git_graph, ptr %31, i32 0, i32 10
-  %32 = load i32, ptr %edges_added22, align 8
-  %cmp23 = icmp eq i32 %32, 1
-  br i1 %cmp23, label %if.then24, label %if.else33
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %3, align 8, !tbaa !28
+  %78 = getelementptr inbounds nuw %struct.git_graph, ptr %77, i32 0, i32 10
+  %79 = load i32, ptr %78, align 8, !tbaa !86
+  %80 = icmp eq i32 %79, 1
+  br i1 %80, label %81, label %104
 
-if.then24:                                        ; preds = %land.lhs.true21
-  %33 = load ptr, ptr %graph.addr, align 8
-  %prev_state = getelementptr inbounds %struct.git_graph, ptr %33, i32 0, i32 6
-  %34 = load i32, ptr %prev_state, align 8
-  %cmp25 = icmp eq i32 %34, 4
-  br i1 %cmp25, label %land.lhs.true26, label %if.else31
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %3, align 8, !tbaa !28
+  %83 = getelementptr inbounds nuw %struct.git_graph, ptr %82, i32 0, i32 6
+  %84 = load i32, ptr %83, align 8, !tbaa !82
+  %85 = icmp eq i32 %84, 4
+  br i1 %85, label %86, label %100
 
-land.lhs.true26:                                  ; preds = %if.then24
-  %35 = load ptr, ptr %graph.addr, align 8
-  %prev_edges_added = getelementptr inbounds %struct.git_graph, ptr %35, i32 0, i32 11
-  %36 = load i32, ptr %prev_edges_added, align 4
-  %cmp27 = icmp sgt i32 %36, 0
-  br i1 %cmp27, label %land.lhs.true28, label %if.else31
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %3, align 8, !tbaa !28
+  %88 = getelementptr inbounds nuw %struct.git_graph, ptr %87, i32 0, i32 11
+  %89 = load i32, ptr %88, align 4, !tbaa !87
+  %90 = icmp sgt i32 %89, 0
+  br i1 %90, label %91, label %100
 
-land.lhs.true28:                                  ; preds = %land.lhs.true26
-  %37 = load ptr, ptr %graph.addr, align 8
-  %prev_commit_index = getelementptr inbounds %struct.git_graph, ptr %37, i32 0, i32 8
-  %38 = load i32, ptr %prev_commit_index, align 8
-  %39 = load i32, ptr %i, align 4
-  %cmp29 = icmp slt i32 %38, %39
-  br i1 %cmp29, label %if.then30, label %if.else31
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %3, align 8, !tbaa !28
+  %93 = getelementptr inbounds nuw %struct.git_graph, ptr %92, i32 0, i32 8
+  %94 = load i32, ptr %93, align 8, !tbaa !84
+  %95 = load i32, ptr %6, align 4, !tbaa !73
+  %96 = icmp slt i32 %94, %95
+  br i1 %96, label %97, label %100
 
-if.then30:                                        ; preds = %land.lhs.true28
-  %40 = load ptr, ptr %line.addr, align 8
-  %41 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %40, ptr noundef %41, i8 noundef signext 92)
-  br label %if.end32
+97:                                               ; preds = %91
+  %98 = load ptr, ptr %4, align 8, !tbaa !128
+  %99 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %98, ptr noundef %99, i8 noundef signext 92)
+  br label %103
 
-if.else31:                                        ; preds = %land.lhs.true28, %land.lhs.true26, %if.then24
-  %42 = load ptr, ptr %line.addr, align 8
-  %43 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %42, ptr noundef %43, i8 noundef signext 124)
-  br label %if.end32
+100:                                              ; preds = %91, %86, %81
+  %101 = load ptr, ptr %4, align 8, !tbaa !128
+  %102 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %101, ptr noundef %102, i8 noundef signext 124)
+  br label %103
 
-if.end32:                                         ; preds = %if.else31, %if.then30
-  br label %if.end48
+103:                                              ; preds = %100, %97
+  br label %139
 
-if.else33:                                        ; preds = %land.lhs.true21, %if.else19
-  %44 = load ptr, ptr %graph.addr, align 8
-  %prev_state34 = getelementptr inbounds %struct.git_graph, ptr %44, i32 0, i32 6
-  %45 = load i32, ptr %prev_state34, align 8
-  %cmp35 = icmp eq i32 %45, 5
-  br i1 %cmp35, label %land.lhs.true36, label %if.else46
+104:                                              ; preds = %76, %73
+  %105 = load ptr, ptr %3, align 8, !tbaa !28
+  %106 = getelementptr inbounds nuw %struct.git_graph, ptr %105, i32 0, i32 6
+  %107 = load i32, ptr %106, align 8, !tbaa !82
+  %108 = icmp eq i32 %107, 5
+  br i1 %108, label %109, label %135
 
-land.lhs.true36:                                  ; preds = %if.else33
-  %46 = load ptr, ptr %graph.addr, align 8
-  %old_mapping = getelementptr inbounds %struct.git_graph, ptr %46, i32 0, i32 19
-  %47 = load ptr, ptr %old_mapping, align 8
-  %48 = load i32, ptr %i, align 4
-  %mul = mul nsw i32 2, %48
-  %add = add nsw i32 %mul, 1
-  %idxprom37 = sext i32 %add to i64
-  %arrayidx38 = getelementptr inbounds i32, ptr %47, i64 %idxprom37
-  %49 = load i32, ptr %arrayidx38, align 4
-  %50 = load i32, ptr %i, align 4
-  %cmp39 = icmp eq i32 %49, %50
-  br i1 %cmp39, label %land.lhs.true40, label %if.else46
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %3, align 8, !tbaa !28
+  %111 = getelementptr inbounds nuw %struct.git_graph, ptr %110, i32 0, i32 19
+  %112 = load ptr, ptr %111, align 8, !tbaa !96
+  %113 = load i32, ptr %6, align 4, !tbaa !73
+  %114 = mul nsw i32 2, %113
+  %115 = add nsw i32 %114, 1
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i32, ptr %112, i64 %116
+  %118 = load i32, ptr %117, align 4, !tbaa !73
+  %119 = load i32, ptr %6, align 4, !tbaa !73
+  %120 = icmp eq i32 %118, %119
+  br i1 %120, label %121, label %135
 
-land.lhs.true40:                                  ; preds = %land.lhs.true36
-  %51 = load ptr, ptr %graph.addr, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %51, i32 0, i32 18
-  %52 = load ptr, ptr %mapping, align 8
-  %53 = load i32, ptr %i, align 4
-  %mul41 = mul nsw i32 2, %53
-  %idxprom42 = sext i32 %mul41 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %52, i64 %idxprom42
-  %54 = load i32, ptr %arrayidx43, align 4
-  %55 = load i32, ptr %i, align 4
-  %cmp44 = icmp slt i32 %54, %55
-  br i1 %cmp44, label %if.then45, label %if.else46
+121:                                              ; preds = %109
+  %122 = load ptr, ptr %3, align 8, !tbaa !28
+  %123 = getelementptr inbounds nuw %struct.git_graph, ptr %122, i32 0, i32 18
+  %124 = load ptr, ptr %123, align 8, !tbaa !95
+  %125 = load i32, ptr %6, align 4, !tbaa !73
+  %126 = mul nsw i32 2, %125
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i32, ptr %124, i64 %127
+  %129 = load i32, ptr %128, align 4, !tbaa !73
+  %130 = load i32, ptr %6, align 4, !tbaa !73
+  %131 = icmp slt i32 %129, %130
+  br i1 %131, label %132, label %135
 
-if.then45:                                        ; preds = %land.lhs.true40
-  %56 = load ptr, ptr %line.addr, align 8
-  %57 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %56, ptr noundef %57, i8 noundef signext 47)
-  br label %if.end47
+132:                                              ; preds = %121
+  %133 = load ptr, ptr %4, align 8, !tbaa !128
+  %134 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %133, ptr noundef %134, i8 noundef signext 47)
+  br label %138
 
-if.else46:                                        ; preds = %land.lhs.true40, %land.lhs.true36, %if.else33
-  %58 = load ptr, ptr %line.addr, align 8
-  %59 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %58, ptr noundef %59, i8 noundef signext 124)
-  br label %if.end47
+135:                                              ; preds = %121, %109, %104
+  %136 = load ptr, ptr %4, align 8, !tbaa !128
+  %137 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %136, ptr noundef %137, i8 noundef signext 124)
+  br label %138
 
-if.end47:                                         ; preds = %if.else46, %if.then45
-  br label %if.end48
+138:                                              ; preds = %135, %132
+  br label %139
 
-if.end48:                                         ; preds = %if.end47, %if.end32
-  br label %if.end49
+139:                                              ; preds = %138, %103
+  br label %140
 
-if.end49:                                         ; preds = %if.end48, %if.then18
-  br label %if.end50
+140:                                              ; preds = %139, %70
+  br label %141
 
-if.end50:                                         ; preds = %if.end49, %if.end14
-  %60 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addch(ptr noundef %60, i32 noundef 32)
-  br label %for.inc
+141:                                              ; preds = %140, %61
+  %142 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addch(ptr noundef %142, i32 noundef 32)
+  store i32 0, ptr %9, align 4
+  br label %143
 
-for.inc:                                          ; preds = %if.end50
-  %61 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %61, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !15
+143:                                              ; preds = %141, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %144 = load i32, ptr %9, align 4
+  switch i32 %144, label %166 [
+    i32 0, label %145
+    i32 2, label %149
+  ]
 
-for.end:                                          ; preds = %if.then3, %for.cond
-  %62 = load ptr, ptr %graph.addr, align 8
-  %num_parents51 = getelementptr inbounds %struct.git_graph, ptr %62, i32 0, i32 2
-  %63 = load i32, ptr %num_parents51, align 8
-  %cmp52 = icmp sgt i32 %63, 1
-  br i1 %cmp52, label %if.then53, label %if.else54
+145:                                              ; preds = %143
+  br label %146
 
-if.then53:                                        ; preds = %for.end
-  %64 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_state(ptr noundef %64, i32 noundef 4)
-  br label %if.end59
+146:                                              ; preds = %145
+  %147 = load i32, ptr %6, align 4, !tbaa !73
+  %148 = add nsw i32 %147, 1
+  store i32 %148, ptr %6, align 4, !tbaa !73
+  br label %10, !llvm.loop !133
 
-if.else54:                                        ; preds = %for.end
-  %65 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_is_mapping_correct(ptr noundef %65)
-  %tobool55 = icmp ne i32 %call, 0
-  br i1 %tobool55, label %if.then56, label %if.else57
+149:                                              ; preds = %143, %10
+  %150 = load ptr, ptr %3, align 8, !tbaa !28
+  %151 = getelementptr inbounds nuw %struct.git_graph, ptr %150, i32 0, i32 2
+  %152 = load i32, ptr %151, align 8, !tbaa !79
+  %153 = icmp sgt i32 %152, 1
+  br i1 %153, label %154, label %156
 
-if.then56:                                        ; preds = %if.else54
-  %66 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_state(ptr noundef %66, i32 noundef 0)
-  br label %if.end58
+154:                                              ; preds = %149
+  %155 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_state(ptr noundef %155, i32 noundef 4)
+  br label %165
 
-if.else57:                                        ; preds = %if.else54
-  %67 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_state(ptr noundef %67, i32 noundef 5)
-  br label %if.end58
+156:                                              ; preds = %149
+  %157 = load ptr, ptr %3, align 8, !tbaa !28
+  %158 = call i32 @graph_is_mapping_correct(ptr noundef %157)
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %160, label %162
 
-if.end58:                                         ; preds = %if.else57, %if.then56
-  br label %if.end59
+160:                                              ; preds = %156
+  %161 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_state(ptr noundef %161, i32 noundef 0)
+  br label %164
 
-if.end59:                                         ; preds = %if.end58, %if.then53
+162:                                              ; preds = %156
+  %163 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_state(ptr noundef %163, i32 noundef 5)
+  br label %164
+
+164:                                              ; preds = %162, %160
+  br label %165
+
+165:                                              ; preds = %164, %154
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret void
+
+166:                                              ; preds = %143
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @graph_output_post_merge_line(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 0, ptr %5, align 4, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %17 = load ptr, ptr %3, align 8, !tbaa !28
+  %18 = call ptr @first_interesting_parent(ptr noundef %17)
+  store ptr %18, ptr %8, align 8, !tbaa !105
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  store ptr null, ptr %9, align 8, !tbaa !131
+  store i32 0, ptr %6, align 4, !tbaa !73
+  br label %19
+
+19:                                               ; preds = %172, %2
+  %20 = load i32, ptr %6, align 4, !tbaa !73
+  %21 = load ptr, ptr %3, align 8, !tbaa !28
+  %22 = getelementptr inbounds nuw %struct.git_graph, ptr %21, i32 0, i32 13
+  %23 = load i32, ptr %22, align 4, !tbaa !88
+  %24 = icmp sle i32 %20, %23
+  br i1 %24, label %25, label %175
+
+25:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %26 = load ptr, ptr %3, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw %struct.git_graph, ptr %26, i32 0, i32 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !93
+  %29 = load i32, ptr %6, align 4, !tbaa !73
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds %struct.column, ptr %28, i64 %30
+  store ptr %31, ptr %10, align 8, !tbaa !131
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %32 = load i32, ptr %6, align 4, !tbaa !73
+  %33 = load ptr, ptr %3, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw %struct.git_graph, ptr %33, i32 0, i32 13
+  %35 = load i32, ptr %34, align 4, !tbaa !88
+  %36 = icmp eq i32 %32, %35
+  br i1 %36, label %37, label %45
+
+37:                                               ; preds = %25
+  %38 = load i32, ptr %5, align 4, !tbaa !73
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %37
+  store i32 2, ptr %12, align 4
+  br label %169
+
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %3, align 8, !tbaa !28
+  %43 = getelementptr inbounds nuw %struct.git_graph, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !77
+  store ptr %44, ptr %11, align 8, !tbaa !104
+  br label %49
+
+45:                                               ; preds = %25
+  %46 = load ptr, ptr %10, align 8, !tbaa !131
+  %47 = getelementptr inbounds nuw %struct.column, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8, !tbaa !118
+  store ptr %48, ptr %11, align 8, !tbaa !104
+  br label %49
+
+49:                                               ; preds = %45, %41
+  %50 = load ptr, ptr %11, align 8, !tbaa !104
+  %51 = load ptr, ptr %3, align 8, !tbaa !28
+  %52 = getelementptr inbounds nuw %struct.git_graph, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !77
+  %54 = icmp eq ptr %50, %53
+  br i1 %54, label %55, label %119
+
+55:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %56 = load ptr, ptr %8, align 8, !tbaa !105
+  store ptr %56, ptr %13, align 8, !tbaa !105
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %57 = load ptr, ptr %3, align 8, !tbaa !28
+  %58 = getelementptr inbounds nuw %struct.git_graph, ptr %57, i32 0, i32 9
+  %59 = load i32, ptr %58, align 4, !tbaa !85
+  store i32 %59, ptr %15, align 4, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #8
+  store i32 1, ptr %5, align 4, !tbaa !73
+  store i32 0, ptr %7, align 4, !tbaa !73
+  br label %60
+
+60:                                               ; preds = %108, %55
+  %61 = load i32, ptr %7, align 4, !tbaa !73
+  %62 = load ptr, ptr %3, align 8, !tbaa !28
+  %63 = getelementptr inbounds nuw %struct.git_graph, ptr %62, i32 0, i32 2
+  %64 = load i32, ptr %63, align 8, !tbaa !79
+  %65 = icmp slt i32 %61, %64
+  br i1 %65, label %66, label %111
+
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %3, align 8, !tbaa !28
+  %68 = load ptr, ptr %13, align 8, !tbaa !105
+  %69 = getelementptr inbounds nuw %struct.commit_list, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !112
+  %71 = call i32 @graph_find_new_column_by_commit(ptr noundef %67, ptr noundef %70)
+  store i32 %71, ptr %14, align 4, !tbaa !73
+  %72 = load i32, ptr %15, align 4, !tbaa !73
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [3 x i8], ptr @merge_chars, i64 0, i64 %73
+  %75 = load i8, ptr %74, align 1, !tbaa !134
+  store i8 %75, ptr %16, align 1, !tbaa !134
+  %76 = load ptr, ptr %4, align 8, !tbaa !128
+  %77 = load ptr, ptr %3, align 8, !tbaa !28
+  %78 = getelementptr inbounds nuw %struct.git_graph, ptr %77, i32 0, i32 17
+  %79 = load ptr, ptr %78, align 8, !tbaa !94
+  %80 = load i32, ptr %14, align 4, !tbaa !73
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds %struct.column, ptr %79, i64 %81
+  %83 = load i8, ptr %16, align 1, !tbaa !134
+  call void @graph_line_write_column(ptr noundef %76, ptr noundef %82, i8 noundef signext %83)
+  %84 = load i32, ptr %15, align 4, !tbaa !73
+  %85 = icmp eq i32 %84, 2
+  br i1 %85, label %86, label %101
+
+86:                                               ; preds = %66
+  %87 = load ptr, ptr %3, align 8, !tbaa !28
+  %88 = getelementptr inbounds nuw %struct.git_graph, ptr %87, i32 0, i32 10
+  %89 = load i32, ptr %88, align 8, !tbaa !86
+  %90 = icmp sgt i32 %89, 0
+  br i1 %90, label %98, label %91
+
+91:                                               ; preds = %86
+  %92 = load i32, ptr %7, align 4, !tbaa !73
+  %93 = load ptr, ptr %3, align 8, !tbaa !28
+  %94 = getelementptr inbounds nuw %struct.git_graph, ptr %93, i32 0, i32 2
+  %95 = load i32, ptr %94, align 8, !tbaa !79
+  %96 = sub nsw i32 %95, 1
+  %97 = icmp slt i32 %92, %96
+  br i1 %97, label %98, label %100
+
+98:                                               ; preds = %91, %86
+  %99 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addch(ptr noundef %99, i32 noundef 32)
+  br label %100
+
+100:                                              ; preds = %98, %91
+  br label %104
+
+101:                                              ; preds = %66
+  %102 = load i32, ptr %15, align 4, !tbaa !73
+  %103 = add nsw i32 %102, 1
+  store i32 %103, ptr %15, align 4, !tbaa !73
+  br label %104
+
+104:                                              ; preds = %101, %100
+  %105 = load ptr, ptr %3, align 8, !tbaa !28
+  %106 = load ptr, ptr %13, align 8, !tbaa !105
+  %107 = call ptr @next_interesting_parent(ptr noundef %105, ptr noundef %106)
+  store ptr %107, ptr %13, align 8, !tbaa !105
+  br label %108
+
+108:                                              ; preds = %104
+  %109 = load i32, ptr %7, align 4, !tbaa !73
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %7, align 4, !tbaa !73
+  br label %60, !llvm.loop !135
+
+111:                                              ; preds = %60
+  %112 = load ptr, ptr %3, align 8, !tbaa !28
+  %113 = getelementptr inbounds nuw %struct.git_graph, ptr %112, i32 0, i32 10
+  %114 = load i32, ptr %113, align 8, !tbaa !86
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %118
+
+116:                                              ; preds = %111
+  %117 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addch(ptr noundef %117, i32 noundef 32)
+  br label %118
+
+118:                                              ; preds = %116, %111
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  br label %160
+
+119:                                              ; preds = %49
+  %120 = load i32, ptr %5, align 4, !tbaa !73
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %135
+
+122:                                              ; preds = %119
+  %123 = load ptr, ptr %3, align 8, !tbaa !28
+  %124 = getelementptr inbounds nuw %struct.git_graph, ptr %123, i32 0, i32 10
+  %125 = load i32, ptr %124, align 8, !tbaa !86
+  %126 = icmp sgt i32 %125, 0
+  br i1 %126, label %127, label %130
+
+127:                                              ; preds = %122
+  %128 = load ptr, ptr %4, align 8, !tbaa !128
+  %129 = load ptr, ptr %10, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %128, ptr noundef %129, i8 noundef signext 92)
+  br label %133
+
+130:                                              ; preds = %122
+  %131 = load ptr, ptr %4, align 8, !tbaa !128
+  %132 = load ptr, ptr %10, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %131, ptr noundef %132, i8 noundef signext 124)
+  br label %133
+
+133:                                              ; preds = %130, %127
+  %134 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addch(ptr noundef %134, i32 noundef 32)
+  br label %159
+
+135:                                              ; preds = %119
+  %136 = load ptr, ptr %4, align 8, !tbaa !128
+  %137 = load ptr, ptr %10, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %136, ptr noundef %137, i8 noundef signext 124)
+  %138 = load ptr, ptr %3, align 8, !tbaa !28
+  %139 = getelementptr inbounds nuw %struct.git_graph, ptr %138, i32 0, i32 9
+  %140 = load i32, ptr %139, align 4, !tbaa !85
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %149, label %142
+
+142:                                              ; preds = %135
+  %143 = load i32, ptr %6, align 4, !tbaa !73
+  %144 = load ptr, ptr %3, align 8, !tbaa !28
+  %145 = getelementptr inbounds nuw %struct.git_graph, ptr %144, i32 0, i32 7
+  %146 = load i32, ptr %145, align 4, !tbaa !83
+  %147 = sub nsw i32 %146, 1
+  %148 = icmp ne i32 %143, %147
+  br i1 %148, label %149, label %158
+
+149:                                              ; preds = %142, %135
+  %150 = load ptr, ptr %9, align 8, !tbaa !131
+  %151 = icmp ne ptr %150, null
+  br i1 %151, label %152, label %155
+
+152:                                              ; preds = %149
+  %153 = load ptr, ptr %4, align 8, !tbaa !128
+  %154 = load ptr, ptr %9, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %153, ptr noundef %154, i8 noundef signext 95)
+  br label %157
+
+155:                                              ; preds = %149
+  %156 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addch(ptr noundef %156, i32 noundef 32)
+  br label %157
+
+157:                                              ; preds = %155, %152
+  br label %158
+
+158:                                              ; preds = %157, %142
+  br label %159
+
+159:                                              ; preds = %158, %133
+  br label %160
+
+160:                                              ; preds = %159, %118
+  %161 = load ptr, ptr %11, align 8, !tbaa !104
+  %162 = load ptr, ptr %8, align 8, !tbaa !105
+  %163 = getelementptr inbounds nuw %struct.commit_list, ptr %162, i32 0, i32 0
+  %164 = load ptr, ptr %163, align 8, !tbaa !112
+  %165 = icmp eq ptr %161, %164
+  br i1 %165, label %166, label %168
+
+166:                                              ; preds = %160
+  %167 = load ptr, ptr %10, align 8, !tbaa !131
+  store ptr %167, ptr %9, align 8, !tbaa !131
+  br label %168
+
+168:                                              ; preds = %166, %160
+  store i32 0, ptr %12, align 4
+  br label %169
+
+169:                                              ; preds = %168, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %170 = load i32, ptr %12, align 4
+  switch i32 %170, label %184 [
+    i32 0, label %171
+    i32 2, label %175
+  ]
+
+171:                                              ; preds = %169
+  br label %172
+
+172:                                              ; preds = %171
+  %173 = load i32, ptr %6, align 4, !tbaa !73
+  %174 = add nsw i32 %173, 1
+  store i32 %174, ptr %6, align 4, !tbaa !73
+  br label %19, !llvm.loop !136
+
+175:                                              ; preds = %169, %19
+  %176 = load ptr, ptr %3, align 8, !tbaa !28
+  %177 = call i32 @graph_is_mapping_correct(ptr noundef %176)
+  %178 = icmp ne i32 %177, 0
+  br i1 %178, label %179, label %181
+
+179:                                              ; preds = %175
+  %180 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_state(ptr noundef %180, i32 noundef 0)
+  br label %183
+
+181:                                              ; preds = %175
+  %182 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_state(ptr noundef %182, i32 noundef 5)
+  br label %183
+
+183:                                              ; preds = %181, %179
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret void
+
+184:                                              ; preds = %169
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @graph_output_collapsing_line(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i16, align 2
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca [8 x i8], align 1
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #8
+  store i16 0, ptr %6, align 2, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 -1, ptr %7, align 4, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 -1, ptr %8, align 4, !tbaa !73
+  br label %17
+
+17:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %18 = load ptr, ptr %3, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw %struct.git_graph, ptr %18, i32 0, i32 18
+  store ptr %19, ptr %9, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %20 = load ptr, ptr %3, align 8, !tbaa !28
+  %21 = getelementptr inbounds nuw %struct.git_graph, ptr %20, i32 0, i32 19
+  store ptr %21, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %22 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 0
+  %23 = load ptr, ptr %9, align 8, !tbaa !27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %23, i64 8, i1 false)
+  %24 = load ptr, ptr %9, align 8, !tbaa !27
+  %25 = load ptr, ptr %10, align 8, !tbaa !27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %25, i64 8, i1 false)
+  %26 = load ptr, ptr %10, align 8, !tbaa !27
+  %27 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %27, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %28
+
+28:                                               ; preds = %17
+  br label %29
+
+29:                                               ; preds = %28
+  store i32 0, ptr %5, align 4, !tbaa !73
+  br label %30
+
+30:                                               ; preds = %43, %29
+  %31 = load i32, ptr %5, align 4, !tbaa !73
+  %32 = load ptr, ptr %3, align 8, !tbaa !28
+  %33 = getelementptr inbounds nuw %struct.git_graph, ptr %32, i32 0, i32 15
+  %34 = load i32, ptr %33, align 4, !tbaa !90
+  %35 = icmp slt i32 %31, %34
+  br i1 %35, label %36, label %46
+
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %3, align 8, !tbaa !28
+  %38 = getelementptr inbounds nuw %struct.git_graph, ptr %37, i32 0, i32 18
+  %39 = load ptr, ptr %38, align 8, !tbaa !95
+  %40 = load i32, ptr %5, align 4, !tbaa !73
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i32, ptr %39, i64 %41
+  store i32 -1, ptr %42, align 4, !tbaa !73
+  br label %43
+
+43:                                               ; preds = %36
+  %44 = load i32, ptr %5, align 4, !tbaa !73
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %5, align 4, !tbaa !73
+  br label %30, !llvm.loop !137
+
+46:                                               ; preds = %30
+  store i32 0, ptr %5, align 4, !tbaa !73
+  br label %47
+
+47:                                               ; preds = %176, %46
+  %48 = load i32, ptr %5, align 4, !tbaa !73
+  %49 = load ptr, ptr %3, align 8, !tbaa !28
+  %50 = getelementptr inbounds nuw %struct.git_graph, ptr %49, i32 0, i32 15
+  %51 = load i32, ptr %50, align 4, !tbaa !90
+  %52 = icmp slt i32 %48, %51
+  br i1 %52, label %53, label %179
+
+53:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %54 = load ptr, ptr %3, align 8, !tbaa !28
+  %55 = getelementptr inbounds nuw %struct.git_graph, ptr %54, i32 0, i32 19
+  %56 = load ptr, ptr %55, align 8, !tbaa !96
+  %57 = load i32, ptr %5, align 4, !tbaa !73
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i32, ptr %56, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !73
+  store i32 %60, ptr %12, align 4, !tbaa !73
+  %61 = load i32, ptr %12, align 4, !tbaa !73
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %64
+
+63:                                               ; preds = %53
+  store i32 9, ptr %13, align 4
+  br label %173
+
+64:                                               ; preds = %53
+  %65 = load i32, ptr %12, align 4, !tbaa !73
+  %66 = mul nsw i32 %65, 2
+  %67 = load i32, ptr %5, align 4, !tbaa !73
+  %68 = icmp eq i32 %66, %67
+  br i1 %68, label %69, label %77
+
+69:                                               ; preds = %64
+  %70 = load i32, ptr %12, align 4, !tbaa !73
+  %71 = load ptr, ptr %3, align 8, !tbaa !28
+  %72 = getelementptr inbounds nuw %struct.git_graph, ptr %71, i32 0, i32 18
+  %73 = load ptr, ptr %72, align 8, !tbaa !95
+  %74 = load i32, ptr %5, align 4, !tbaa !73
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i32, ptr %73, i64 %75
+  store i32 %70, ptr %76, align 4, !tbaa !73
+  br label %172
+
+77:                                               ; preds = %64
+  %78 = load ptr, ptr %3, align 8, !tbaa !28
+  %79 = getelementptr inbounds nuw %struct.git_graph, ptr %78, i32 0, i32 18
+  %80 = load ptr, ptr %79, align 8, !tbaa !95
+  %81 = load i32, ptr %5, align 4, !tbaa !73
+  %82 = sub nsw i32 %81, 1
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i32, ptr %80, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !73
+  %86 = icmp slt i32 %85, 0
+  br i1 %86, label %87, label %122
+
+87:                                               ; preds = %77
+  %88 = load i32, ptr %12, align 4, !tbaa !73
+  %89 = load ptr, ptr %3, align 8, !tbaa !28
+  %90 = getelementptr inbounds nuw %struct.git_graph, ptr %89, i32 0, i32 18
+  %91 = load ptr, ptr %90, align 8, !tbaa !95
+  %92 = load i32, ptr %5, align 4, !tbaa !73
+  %93 = sub nsw i32 %92, 1
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds i32, ptr %91, i64 %94
+  store i32 %88, ptr %95, align 4, !tbaa !73
+  %96 = load i32, ptr %7, align 4, !tbaa !73
+  %97 = icmp eq i32 %96, -1
+  br i1 %97, label %98, label %121
+
+98:                                               ; preds = %87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %99 = load i32, ptr %5, align 4, !tbaa !73
+  store i32 %99, ptr %7, align 4, !tbaa !73
+  %100 = load i32, ptr %12, align 4, !tbaa !73
+  store i32 %100, ptr %8, align 4, !tbaa !73
+  %101 = load i32, ptr %12, align 4, !tbaa !73
+  %102 = mul nsw i32 %101, 2
+  %103 = add nsw i32 %102, 3
+  store i32 %103, ptr %14, align 4, !tbaa !73
+  br label %104
+
+104:                                              ; preds = %117, %98
+  %105 = load i32, ptr %14, align 4, !tbaa !73
+  %106 = load i32, ptr %5, align 4, !tbaa !73
+  %107 = sub nsw i32 %106, 2
+  %108 = icmp slt i32 %105, %107
+  br i1 %108, label %109, label %120
+
+109:                                              ; preds = %104
+  %110 = load i32, ptr %12, align 4, !tbaa !73
+  %111 = load ptr, ptr %3, align 8, !tbaa !28
+  %112 = getelementptr inbounds nuw %struct.git_graph, ptr %111, i32 0, i32 18
+  %113 = load ptr, ptr %112, align 8, !tbaa !95
+  %114 = load i32, ptr %14, align 4, !tbaa !73
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i32, ptr %113, i64 %115
+  store i32 %110, ptr %116, align 4, !tbaa !73
+  br label %117
+
+117:                                              ; preds = %109
+  %118 = load i32, ptr %14, align 4, !tbaa !73
+  %119 = add nsw i32 %118, 2
+  store i32 %119, ptr %14, align 4, !tbaa !73
+  br label %104, !llvm.loop !138
+
+120:                                              ; preds = %104
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  br label %121
+
+121:                                              ; preds = %120, %87
+  br label %171
+
+122:                                              ; preds = %77
+  %123 = load ptr, ptr %3, align 8, !tbaa !28
+  %124 = getelementptr inbounds nuw %struct.git_graph, ptr %123, i32 0, i32 18
+  %125 = load ptr, ptr %124, align 8, !tbaa !95
+  %126 = load i32, ptr %5, align 4, !tbaa !73
+  %127 = sub nsw i32 %126, 1
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds i32, ptr %125, i64 %128
+  %130 = load i32, ptr %129, align 4, !tbaa !73
+  %131 = load i32, ptr %12, align 4, !tbaa !73
+  %132 = icmp eq i32 %130, %131
+  br i1 %132, label %133, label %134
+
+133:                                              ; preds = %122
+  br label %170
+
+134:                                              ; preds = %122
+  %135 = load i32, ptr %12, align 4, !tbaa !73
+  %136 = load ptr, ptr %3, align 8, !tbaa !28
+  %137 = getelementptr inbounds nuw %struct.git_graph, ptr %136, i32 0, i32 18
+  %138 = load ptr, ptr %137, align 8, !tbaa !95
+  %139 = load i32, ptr %5, align 4, !tbaa !73
+  %140 = sub nsw i32 %139, 2
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds i32, ptr %138, i64 %141
+  store i32 %135, ptr %142, align 4, !tbaa !73
+  %143 = load i32, ptr %7, align 4, !tbaa !73
+  %144 = icmp eq i32 %143, -1
+  br i1 %144, label %145, label %169
+
+145:                                              ; preds = %134
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %146 = load i32, ptr %12, align 4, !tbaa !73
+  store i32 %146, ptr %8, align 4, !tbaa !73
+  %147 = load i32, ptr %5, align 4, !tbaa !73
+  %148 = sub nsw i32 %147, 1
+  store i32 %148, ptr %7, align 4, !tbaa !73
+  %149 = load i32, ptr %12, align 4, !tbaa !73
+  %150 = mul nsw i32 %149, 2
+  %151 = add nsw i32 %150, 3
+  store i32 %151, ptr %15, align 4, !tbaa !73
+  br label %152
+
+152:                                              ; preds = %165, %145
+  %153 = load i32, ptr %15, align 4, !tbaa !73
+  %154 = load i32, ptr %5, align 4, !tbaa !73
+  %155 = sub nsw i32 %154, 2
+  %156 = icmp slt i32 %153, %155
+  br i1 %156, label %157, label %168
+
+157:                                              ; preds = %152
+  %158 = load i32, ptr %12, align 4, !tbaa !73
+  %159 = load ptr, ptr %3, align 8, !tbaa !28
+  %160 = getelementptr inbounds nuw %struct.git_graph, ptr %159, i32 0, i32 18
+  %161 = load ptr, ptr %160, align 8, !tbaa !95
+  %162 = load i32, ptr %15, align 4, !tbaa !73
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds i32, ptr %161, i64 %163
+  store i32 %158, ptr %164, align 4, !tbaa !73
+  br label %165
+
+165:                                              ; preds = %157
+  %166 = load i32, ptr %15, align 4, !tbaa !73
+  %167 = add nsw i32 %166, 2
+  store i32 %167, ptr %15, align 4, !tbaa !73
+  br label %152, !llvm.loop !139
+
+168:                                              ; preds = %152
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  br label %169
+
+169:                                              ; preds = %168, %134
+  br label %170
+
+170:                                              ; preds = %169, %133
+  br label %171
+
+171:                                              ; preds = %170, %121
+  br label %172
+
+172:                                              ; preds = %171, %69
+  store i32 0, ptr %13, align 4
+  br label %173
+
+173:                                              ; preds = %172, %63
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  %174 = load i32, ptr %13, align 4
+  switch i32 %174, label %304 [
+    i32 0, label %175
+    i32 9, label %176
+  ]
+
+175:                                              ; preds = %173
+  br label %176
+
+176:                                              ; preds = %175, %173
+  %177 = load i32, ptr %5, align 4, !tbaa !73
+  %178 = add nsw i32 %177, 1
+  store i32 %178, ptr %5, align 4, !tbaa !73
+  br label %47, !llvm.loop !140
+
+179:                                              ; preds = %47
+  %180 = load ptr, ptr %3, align 8, !tbaa !28
+  %181 = getelementptr inbounds nuw %struct.git_graph, ptr %180, i32 0, i32 19
+  %182 = load ptr, ptr %181, align 8, !tbaa !96
+  %183 = load ptr, ptr %3, align 8, !tbaa !28
+  %184 = getelementptr inbounds nuw %struct.git_graph, ptr %183, i32 0, i32 18
+  %185 = load ptr, ptr %184, align 8, !tbaa !95
+  %186 = load ptr, ptr %3, align 8, !tbaa !28
+  %187 = getelementptr inbounds nuw %struct.git_graph, ptr %186, i32 0, i32 15
+  %188 = load i32, ptr %187, align 4, !tbaa !90
+  %189 = sext i32 %188 to i64
+  call void @copy_array(ptr noundef %182, ptr noundef %185, i64 noundef %189, i64 noundef 4)
+  %190 = load ptr, ptr %3, align 8, !tbaa !28
+  %191 = getelementptr inbounds nuw %struct.git_graph, ptr %190, i32 0, i32 18
+  %192 = load ptr, ptr %191, align 8, !tbaa !95
+  %193 = load ptr, ptr %3, align 8, !tbaa !28
+  %194 = getelementptr inbounds nuw %struct.git_graph, ptr %193, i32 0, i32 15
+  %195 = load i32, ptr %194, align 4, !tbaa !90
+  %196 = sub nsw i32 %195, 1
+  %197 = sext i32 %196 to i64
+  %198 = getelementptr inbounds i32, ptr %192, i64 %197
+  %199 = load i32, ptr %198, align 4, !tbaa !73
+  %200 = icmp slt i32 %199, 0
+  br i1 %200, label %201, label %206
+
+201:                                              ; preds = %179
+  %202 = load ptr, ptr %3, align 8, !tbaa !28
+  %203 = getelementptr inbounds nuw %struct.git_graph, ptr %202, i32 0, i32 15
+  %204 = load i32, ptr %203, align 4, !tbaa !90
+  %205 = add nsw i32 %204, -1
+  store i32 %205, ptr %203, align 4, !tbaa !90
+  br label %206
+
+206:                                              ; preds = %201, %179
+  store i32 0, ptr %5, align 4, !tbaa !73
+  br label %207
+
+207:                                              ; preds = %294, %206
+  %208 = load i32, ptr %5, align 4, !tbaa !73
+  %209 = load ptr, ptr %3, align 8, !tbaa !28
+  %210 = getelementptr inbounds nuw %struct.git_graph, ptr %209, i32 0, i32 15
+  %211 = load i32, ptr %210, align 4, !tbaa !90
+  %212 = icmp slt i32 %208, %211
+  br i1 %212, label %213, label %297
+
+213:                                              ; preds = %207
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %214 = load ptr, ptr %3, align 8, !tbaa !28
+  %215 = getelementptr inbounds nuw %struct.git_graph, ptr %214, i32 0, i32 18
+  %216 = load ptr, ptr %215, align 8, !tbaa !95
+  %217 = load i32, ptr %5, align 4, !tbaa !73
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr inbounds i32, ptr %216, i64 %218
+  %220 = load i32, ptr %219, align 4, !tbaa !73
+  store i32 %220, ptr %16, align 4, !tbaa !73
+  %221 = load i32, ptr %16, align 4, !tbaa !73
+  %222 = icmp slt i32 %221, 0
+  br i1 %222, label %223, label %225
+
+223:                                              ; preds = %213
+  %224 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addch(ptr noundef %224, i32 noundef 32)
+  br label %293
+
+225:                                              ; preds = %213
+  %226 = load i32, ptr %16, align 4, !tbaa !73
+  %227 = mul nsw i32 %226, 2
+  %228 = load i32, ptr %5, align 4, !tbaa !73
+  %229 = icmp eq i32 %227, %228
+  br i1 %229, label %230, label %238
+
+230:                                              ; preds = %225
+  %231 = load ptr, ptr %4, align 8, !tbaa !128
+  %232 = load ptr, ptr %3, align 8, !tbaa !28
+  %233 = getelementptr inbounds nuw %struct.git_graph, ptr %232, i32 0, i32 17
+  %234 = load ptr, ptr %233, align 8, !tbaa !94
+  %235 = load i32, ptr %16, align 4, !tbaa !73
+  %236 = sext i32 %235 to i64
+  %237 = getelementptr inbounds %struct.column, ptr %234, i64 %236
+  call void @graph_line_write_column(ptr noundef %231, ptr noundef %237, i8 noundef signext 124)
+  br label %292
+
+238:                                              ; preds = %225
+  %239 = load i32, ptr %16, align 4, !tbaa !73
+  %240 = load i32, ptr %8, align 4, !tbaa !73
+  %241 = icmp eq i32 %239, %240
+  br i1 %241, label %242, label %268
+
+242:                                              ; preds = %238
+  %243 = load i32, ptr %5, align 4, !tbaa !73
+  %244 = load i32, ptr %7, align 4, !tbaa !73
+  %245 = sub nsw i32 %244, 1
+  %246 = icmp ne i32 %243, %245
+  br i1 %246, label %247, label %268
+
+247:                                              ; preds = %242
+  %248 = load i32, ptr %5, align 4, !tbaa !73
+  %249 = load i32, ptr %16, align 4, !tbaa !73
+  %250 = mul nsw i32 %249, 2
+  %251 = add nsw i32 %250, 3
+  %252 = icmp ne i32 %248, %251
+  br i1 %252, label %253, label %260
+
+253:                                              ; preds = %247
+  %254 = load ptr, ptr %3, align 8, !tbaa !28
+  %255 = getelementptr inbounds nuw %struct.git_graph, ptr %254, i32 0, i32 18
+  %256 = load ptr, ptr %255, align 8, !tbaa !95
+  %257 = load i32, ptr %5, align 4, !tbaa !73
+  %258 = sext i32 %257 to i64
+  %259 = getelementptr inbounds i32, ptr %256, i64 %258
+  store i32 -1, ptr %259, align 4, !tbaa !73
+  br label %260
+
+260:                                              ; preds = %253, %247
+  store i16 1, ptr %6, align 2, !tbaa !9
+  %261 = load ptr, ptr %4, align 8, !tbaa !128
+  %262 = load ptr, ptr %3, align 8, !tbaa !28
+  %263 = getelementptr inbounds nuw %struct.git_graph, ptr %262, i32 0, i32 17
+  %264 = load ptr, ptr %263, align 8, !tbaa !94
+  %265 = load i32, ptr %16, align 4, !tbaa !73
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds %struct.column, ptr %264, i64 %266
+  call void @graph_line_write_column(ptr noundef %261, ptr noundef %267, i8 noundef signext 95)
+  br label %291
+
+268:                                              ; preds = %242, %238
+  %269 = load i16, ptr %6, align 2, !tbaa !9
+  %270 = sext i16 %269 to i32
+  %271 = icmp ne i32 %270, 0
+  br i1 %271, label %272, label %283
+
+272:                                              ; preds = %268
+  %273 = load i32, ptr %5, align 4, !tbaa !73
+  %274 = load i32, ptr %7, align 4, !tbaa !73
+  %275 = icmp slt i32 %273, %274
+  br i1 %275, label %276, label %283
+
+276:                                              ; preds = %272
+  %277 = load ptr, ptr %3, align 8, !tbaa !28
+  %278 = getelementptr inbounds nuw %struct.git_graph, ptr %277, i32 0, i32 18
+  %279 = load ptr, ptr %278, align 8, !tbaa !95
+  %280 = load i32, ptr %5, align 4, !tbaa !73
+  %281 = sext i32 %280 to i64
+  %282 = getelementptr inbounds i32, ptr %279, i64 %281
+  store i32 -1, ptr %282, align 4, !tbaa !73
+  br label %283
+
+283:                                              ; preds = %276, %272, %268
+  %284 = load ptr, ptr %4, align 8, !tbaa !128
+  %285 = load ptr, ptr %3, align 8, !tbaa !28
+  %286 = getelementptr inbounds nuw %struct.git_graph, ptr %285, i32 0, i32 17
+  %287 = load ptr, ptr %286, align 8, !tbaa !94
+  %288 = load i32, ptr %16, align 4, !tbaa !73
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds %struct.column, ptr %287, i64 %289
+  call void @graph_line_write_column(ptr noundef %284, ptr noundef %290, i8 noundef signext 47)
+  br label %291
+
+291:                                              ; preds = %283, %260
+  br label %292
+
+292:                                              ; preds = %291, %230
+  br label %293
+
+293:                                              ; preds = %292, %223
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  br label %294
+
+294:                                              ; preds = %293
+  %295 = load i32, ptr %5, align 4, !tbaa !73
+  %296 = add nsw i32 %295, 1
+  store i32 %296, ptr %5, align 4, !tbaa !73
+  br label %207, !llvm.loop !141
+
+297:                                              ; preds = %207
+  %298 = load ptr, ptr %3, align 8, !tbaa !28
+  %299 = call i32 @graph_is_mapping_correct(ptr noundef %298)
+  %300 = icmp ne i32 %299, 0
+  br i1 %300, label %301, label %303
+
+301:                                              ; preds = %297
+  %302 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_update_state(ptr noundef %302, i32 noundef 0)
+  br label %303
+
+303:                                              ; preds = %301, %297
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret void
+
+304:                                              ; preds = %173
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @graph_pad_horizontally(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !128
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
+  %6 = getelementptr inbounds nuw %struct.graph_line, ptr %5, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8, !tbaa !127
+  %8 = load ptr, ptr %3, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %struct.git_graph, ptr %8, i32 0, i32 3
+  %10 = load i32, ptr %9, align 4, !tbaa !117
+  %11 = sext i32 %10 to i64
+  %12 = icmp ult i64 %7, %11
+  br i1 %12, label %13, label %23
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !128
+  %15 = load ptr, ptr %3, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %struct.git_graph, ptr %15, i32 0, i32 3
+  %17 = load i32, ptr %16, align 4, !tbaa !117
+  %18 = sext i32 %17 to i64
+  %19 = load ptr, ptr %4, align 8, !tbaa !128
+  %20 = getelementptr inbounds nuw %struct.graph_line, ptr %19, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !127
+  %22 = sub i64 %18, %21
+  call void @graph_line_addchars(ptr noundef %14, i32 noundef 32, i64 noundef %22)
+  br label %23
+
+23:                                               ; preds = %13, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_output_post_merge_line(ptr noundef %graph, ptr noundef %line) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %line.addr = alloca ptr, align 8
-  %seen_this = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %first_parent = alloca ptr, align 8
-  %parent_col = alloca ptr, align 8
-  %col = alloca ptr, align 8
-  %col_commit = alloca ptr, align 8
-  %parents = alloca ptr, align 8
-  %par_column = alloca i32, align 4
-  %idx = alloca i32, align 4
-  %c = alloca i8, align 1
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  store i32 0, ptr %seen_this, align 4
-  %0 = load ptr, ptr %graph.addr, align 8
-  %call = call ptr @first_interesting_parent(ptr noundef %0)
-  store ptr %call, ptr %first_parent, align 8
-  store ptr null, ptr %parent_col, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc58, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load ptr, ptr %graph.addr, align 8
-  %num_columns = getelementptr inbounds %struct.git_graph, ptr %2, i32 0, i32 13
-  %3 = load i32, ptr %num_columns, align 4
-  %cmp = icmp sle i32 %1, %3
-  br i1 %cmp, label %for.body, label %for.end60
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %graph.addr, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %4, i32 0, i32 16
-  %5 = load ptr, ptr %columns, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds %struct.column, ptr %5, i64 %idxprom
-  store ptr %arrayidx, ptr %col, align 8
-  %7 = load i32, ptr %i, align 4
-  %8 = load ptr, ptr %graph.addr, align 8
-  %num_columns1 = getelementptr inbounds %struct.git_graph, ptr %8, i32 0, i32 13
-  %9 = load i32, ptr %num_columns1, align 4
-  %cmp2 = icmp eq i32 %7, %9
-  br i1 %cmp2, label %if.then, label %if.else
-
-if.then:                                          ; preds = %for.body
-  %10 = load i32, ptr %seen_this, align 4
-  %tobool = icmp ne i32 %10, 0
-  br i1 %tobool, label %if.then3, label %if.end
-
-if.then3:                                         ; preds = %if.then
-  br label %for.end60
-
-if.end:                                           ; preds = %if.then
-  %11 = load ptr, ptr %graph.addr, align 8
-  %commit = getelementptr inbounds %struct.git_graph, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %commit, align 8
-  store ptr %12, ptr %col_commit, align 8
-  br label %if.end5
-
-if.else:                                          ; preds = %for.body
-  %13 = load ptr, ptr %col, align 8
-  %commit4 = getelementptr inbounds %struct.column, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %commit4, align 8
-  store ptr %14, ptr %col_commit, align 8
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.else, %if.end
-  %15 = load ptr, ptr %col_commit, align 8
-  %16 = load ptr, ptr %graph.addr, align 8
-  %commit6 = getelementptr inbounds %struct.git_graph, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %commit6, align 8
-  %cmp7 = icmp eq ptr %15, %17
-  br i1 %cmp7, label %if.then8, label %if.else32
-
-if.then8:                                         ; preds = %if.end5
-  %18 = load ptr, ptr %first_parent, align 8
-  store ptr %18, ptr %parents, align 8
-  %19 = load ptr, ptr %graph.addr, align 8
-  %merge_layout = getelementptr inbounds %struct.git_graph, ptr %19, i32 0, i32 9
-  %20 = load i32, ptr %merge_layout, align 4
-  store i32 %20, ptr %idx, align 4
-  store i32 1, ptr %seen_this, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond9
-
-for.cond9:                                        ; preds = %for.inc, %if.then8
-  %21 = load i32, ptr %j, align 4
-  %22 = load ptr, ptr %graph.addr, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %22, i32 0, i32 2
-  %23 = load i32, ptr %num_parents, align 8
-  %cmp10 = icmp slt i32 %21, %23
-  br i1 %cmp10, label %for.body11, label %for.end
-
-for.body11:                                       ; preds = %for.cond9
-  %24 = load ptr, ptr %graph.addr, align 8
-  %25 = load ptr, ptr %parents, align 8
-  %item = getelementptr inbounds %struct.commit_list, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %item, align 8
-  %call12 = call i32 @graph_find_new_column_by_commit(ptr noundef %24, ptr noundef %26)
-  store i32 %call12, ptr %par_column, align 4
-  %27 = load i32, ptr %idx, align 4
-  %idxprom13 = sext i32 %27 to i64
-  %arrayidx14 = getelementptr inbounds [3 x i8], ptr @merge_chars, i64 0, i64 %idxprom13
-  %28 = load i8, ptr %arrayidx14, align 1
-  store i8 %28, ptr %c, align 1
-  %29 = load ptr, ptr %line.addr, align 8
-  %30 = load ptr, ptr %graph.addr, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %30, i32 0, i32 17
-  %31 = load ptr, ptr %new_columns, align 8
-  %32 = load i32, ptr %par_column, align 4
-  %idxprom15 = sext i32 %32 to i64
-  %arrayidx16 = getelementptr inbounds %struct.column, ptr %31, i64 %idxprom15
-  %33 = load i8, ptr %c, align 1
-  call void @graph_line_write_column(ptr noundef %29, ptr noundef %arrayidx16, i8 noundef signext %33)
-  %34 = load i32, ptr %idx, align 4
-  %cmp17 = icmp eq i32 %34, 2
-  br i1 %cmp17, label %if.then18, label %if.else24
-
-if.then18:                                        ; preds = %for.body11
-  %35 = load ptr, ptr %graph.addr, align 8
-  %edges_added = getelementptr inbounds %struct.git_graph, ptr %35, i32 0, i32 10
-  %36 = load i32, ptr %edges_added, align 8
-  %cmp19 = icmp sgt i32 %36, 0
-  br i1 %cmp19, label %if.then22, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then18
-  %37 = load i32, ptr %j, align 4
-  %38 = load ptr, ptr %graph.addr, align 8
-  %num_parents20 = getelementptr inbounds %struct.git_graph, ptr %38, i32 0, i32 2
-  %39 = load i32, ptr %num_parents20, align 8
-  %sub = sub nsw i32 %39, 1
-  %cmp21 = icmp slt i32 %37, %sub
-  br i1 %cmp21, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %lor.lhs.false, %if.then18
-  %40 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addch(ptr noundef %40, i32 noundef 32)
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.then22, %lor.lhs.false
-  br label %if.end25
-
-if.else24:                                        ; preds = %for.body11
-  %41 = load i32, ptr %idx, align 4
-  %inc = add nsw i32 %41, 1
-  store i32 %inc, ptr %idx, align 4
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.else24, %if.end23
-  %42 = load ptr, ptr %graph.addr, align 8
-  %43 = load ptr, ptr %parents, align 8
-  %call26 = call ptr @next_interesting_parent(ptr noundef %42, ptr noundef %43)
-  store ptr %call26, ptr %parents, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end25
-  %44 = load i32, ptr %j, align 4
-  %inc27 = add nsw i32 %44, 1
-  store i32 %inc27, ptr %j, align 4
-  br label %for.cond9, !llvm.loop !16
-
-for.end:                                          ; preds = %for.cond9
-  %45 = load ptr, ptr %graph.addr, align 8
-  %edges_added28 = getelementptr inbounds %struct.git_graph, ptr %45, i32 0, i32 10
-  %46 = load i32, ptr %edges_added28, align 8
-  %cmp29 = icmp eq i32 %46, 0
-  br i1 %cmp29, label %if.then30, label %if.end31
-
-if.then30:                                        ; preds = %for.end
-  %47 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addch(ptr noundef %47, i32 noundef 32)
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.then30, %for.end
-  br label %if.end53
-
-if.else32:                                        ; preds = %if.end5
-  %48 = load i32, ptr %seen_this, align 4
-  %tobool33 = icmp ne i32 %48, 0
-  br i1 %tobool33, label %if.then34, label %if.else40
-
-if.then34:                                        ; preds = %if.else32
-  %49 = load ptr, ptr %graph.addr, align 8
-  %edges_added35 = getelementptr inbounds %struct.git_graph, ptr %49, i32 0, i32 10
-  %50 = load i32, ptr %edges_added35, align 8
-  %cmp36 = icmp sgt i32 %50, 0
-  br i1 %cmp36, label %if.then37, label %if.else38
-
-if.then37:                                        ; preds = %if.then34
-  %51 = load ptr, ptr %line.addr, align 8
-  %52 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %51, ptr noundef %52, i8 noundef signext 92)
-  br label %if.end39
-
-if.else38:                                        ; preds = %if.then34
-  %53 = load ptr, ptr %line.addr, align 8
-  %54 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %53, ptr noundef %54, i8 noundef signext 124)
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.else38, %if.then37
-  %55 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addch(ptr noundef %55, i32 noundef 32)
-  br label %if.end52
-
-if.else40:                                        ; preds = %if.else32
-  %56 = load ptr, ptr %line.addr, align 8
-  %57 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %56, ptr noundef %57, i8 noundef signext 124)
-  %58 = load ptr, ptr %graph.addr, align 8
-  %merge_layout41 = getelementptr inbounds %struct.git_graph, ptr %58, i32 0, i32 9
-  %59 = load i32, ptr %merge_layout41, align 4
-  %cmp42 = icmp ne i32 %59, 0
-  br i1 %cmp42, label %if.then46, label %lor.lhs.false43
-
-lor.lhs.false43:                                  ; preds = %if.else40
-  %60 = load i32, ptr %i, align 4
-  %61 = load ptr, ptr %graph.addr, align 8
-  %commit_index = getelementptr inbounds %struct.git_graph, ptr %61, i32 0, i32 7
-  %62 = load i32, ptr %commit_index, align 4
-  %sub44 = sub nsw i32 %62, 1
-  %cmp45 = icmp ne i32 %60, %sub44
-  br i1 %cmp45, label %if.then46, label %if.end51
-
-if.then46:                                        ; preds = %lor.lhs.false43, %if.else40
-  %63 = load ptr, ptr %parent_col, align 8
-  %tobool47 = icmp ne ptr %63, null
-  br i1 %tobool47, label %if.then48, label %if.else49
-
-if.then48:                                        ; preds = %if.then46
-  %64 = load ptr, ptr %line.addr, align 8
-  %65 = load ptr, ptr %parent_col, align 8
-  call void @graph_line_write_column(ptr noundef %64, ptr noundef %65, i8 noundef signext 95)
-  br label %if.end50
-
-if.else49:                                        ; preds = %if.then46
-  %66 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addch(ptr noundef %66, i32 noundef 32)
-  br label %if.end50
-
-if.end50:                                         ; preds = %if.else49, %if.then48
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.end50, %lor.lhs.false43
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.end51, %if.end39
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.end52, %if.end31
-  %67 = load ptr, ptr %col_commit, align 8
-  %68 = load ptr, ptr %first_parent, align 8
-  %item54 = getelementptr inbounds %struct.commit_list, ptr %68, i32 0, i32 0
-  %69 = load ptr, ptr %item54, align 8
-  %cmp55 = icmp eq ptr %67, %69
-  br i1 %cmp55, label %if.then56, label %if.end57
-
-if.then56:                                        ; preds = %if.end53
-  %70 = load ptr, ptr %col, align 8
-  store ptr %70, ptr %parent_col, align 8
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.then56, %if.end53
-  br label %for.inc58
-
-for.inc58:                                        ; preds = %if.end57
-  %71 = load i32, ptr %i, align 4
-  %inc59 = add nsw i32 %71, 1
-  store i32 %inc59, ptr %i, align 4
-  br label %for.cond, !llvm.loop !17
-
-for.end60:                                        ; preds = %if.then3, %for.cond
-  %72 = load ptr, ptr %graph.addr, align 8
-  %call61 = call i32 @graph_is_mapping_correct(ptr noundef %72)
-  %tobool62 = icmp ne i32 %call61, 0
-  br i1 %tobool62, label %if.then63, label %if.else64
-
-if.then63:                                        ; preds = %for.end60
-  %73 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_state(ptr noundef %73, i32 noundef 0)
-  br label %if.end65
-
-if.else64:                                        ; preds = %for.end60
-  %74 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_state(ptr noundef %74, i32 noundef 5)
-  br label %if.end65
-
-if.end65:                                         ; preds = %if.else64, %if.then63
-  ret void
+define dso_local i32 @graph_is_commit_finished(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %4 = getelementptr inbounds nuw %struct.git_graph, ptr %3, i32 0, i32 5
+  %5 = load i32, ptr %4, align 4, !tbaa !81
+  %6 = icmp eq i32 %5, 0
+  %7 = zext i1 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_output_collapsing_line(ptr noundef %graph, ptr noundef %line) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %line.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %used_horizontal = alloca i16, align 2
-  %horizontal_edge = alloca i32, align 4
-  %horizontal_edge_target = alloca i32, align 4
-  %_swap_a_ptr = alloca ptr, align 8
-  %_swap_b_ptr = alloca ptr, align 8
-  %_swap_buffer = alloca [8 x i8], align 1
-  %target = alloca i32, align 4
-  %j = alloca i32, align 4
-  %j53 = alloca i32, align 4
-  %target92 = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  store i16 0, ptr %used_horizontal, align 2
-  store i32 -1, ptr %horizontal_edge, align 4
-  store i32 -1, ptr %horizontal_edge_target, align 4
-  br label %do.body
+define dso_local void @graph_show_commit(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.strbuf, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 @__const.graph_show_commit.msgbuf, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  store i32 0, ptr %4, align 4, !tbaa !73
+  %6 = load ptr, ptr @default_diffopt, align 8, !tbaa !11
+  call void @graph_show_line_prefix(ptr noundef %6)
+  %7 = load ptr, ptr %2, align 8, !tbaa !28
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %10, label %9
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %graph.addr, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 18
-  store ptr %mapping, ptr %_swap_a_ptr, align 8
-  %1 = load ptr, ptr %graph.addr, align 8
-  %old_mapping = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 19
-  store ptr %old_mapping, ptr %_swap_b_ptr, align 8
-  %arraydecay = getelementptr inbounds [8 x i8], ptr %_swap_buffer, i64 0, i64 0
-  %2 = load ptr, ptr %_swap_a_ptr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arraydecay, ptr align 1 %2, i64 8, i1 false)
-  %3 = load ptr, ptr %_swap_a_ptr, align 8
-  %4 = load ptr, ptr %_swap_b_ptr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %4, i64 8, i1 false)
-  %5 = load ptr, ptr %_swap_b_ptr, align 8
-  %arraydecay1 = getelementptr inbounds [8 x i8], ptr %_swap_buffer, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %arraydecay1, i64 8, i1 false)
-  br label %do.end
+9:                                                ; preds = %1
+  store i32 1, ptr %5, align 4
+  br label %57
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8, !tbaa !28
+  %12 = call i32 @graph_is_commit_finished(ptr noundef %11)
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %16
 
-for.cond:                                         ; preds = %for.inc, %do.end
-  %6 = load i32, ptr %i, align 4
-  %7 = load ptr, ptr %graph.addr, align 8
-  %mapping_size = getelementptr inbounds %struct.git_graph, ptr %7, i32 0, i32 15
-  %8 = load i32, ptr %mapping_size, align 4
-  %cmp = icmp slt i32 %6, %8
-  br i1 %cmp, label %for.body, label %for.end
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %2, align 8, !tbaa !28
+  call void @graph_show_padding(ptr noundef %15)
+  store i32 1, ptr %4, align 4, !tbaa !73
+  br label %16
 
-for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %graph.addr, align 8
-  %mapping2 = getelementptr inbounds %struct.git_graph, ptr %9, i32 0, i32 18
-  %10 = load ptr, ptr %mapping2, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %10, i64 %idxprom
-  store i32 -1, ptr %arrayidx, align 4
-  br label %for.inc
+16:                                               ; preds = %14, %10
+  br label %17
 
-for.inc:                                          ; preds = %for.body
-  %12 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !18
+17:                                               ; preds = %55, %16
+  %18 = load i32, ptr %4, align 4, !tbaa !73
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %25, label %20
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %i, align 4
-  br label %for.cond3
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %2, align 8, !tbaa !28
+  %22 = call i32 @graph_is_commit_finished(ptr noundef %21)
+  %23 = icmp ne i32 %22, 0
+  %24 = xor i1 %23, true
+  br label %25
 
-for.cond3:                                        ; preds = %for.inc71, %for.end
-  %13 = load i32, ptr %i, align 4
-  %14 = load ptr, ptr %graph.addr, align 8
-  %mapping_size4 = getelementptr inbounds %struct.git_graph, ptr %14, i32 0, i32 15
-  %15 = load i32, ptr %mapping_size4, align 4
-  %cmp5 = icmp slt i32 %13, %15
-  br i1 %cmp5, label %for.body6, label %for.end73
+25:                                               ; preds = %20, %17
+  %26 = phi i1 [ false, %17 ], [ %24, %20 ]
+  br i1 %26, label %27, label %56
 
-for.body6:                                        ; preds = %for.cond3
-  %16 = load ptr, ptr %graph.addr, align 8
-  %old_mapping7 = getelementptr inbounds %struct.git_graph, ptr %16, i32 0, i32 19
-  %17 = load ptr, ptr %old_mapping7, align 8
-  %18 = load i32, ptr %i, align 4
-  %idxprom8 = sext i32 %18 to i64
-  %arrayidx9 = getelementptr inbounds i32, ptr %17, i64 %idxprom8
-  %19 = load i32, ptr %arrayidx9, align 4
-  store i32 %19, ptr %target, align 4
-  %20 = load i32, ptr %target, align 4
-  %cmp10 = icmp slt i32 %20, 0
-  br i1 %cmp10, label %if.then, label %if.end
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %2, align 8, !tbaa !28
+  %29 = call i32 @graph_next_line(ptr noundef %28, ptr noundef %3)
+  store i32 %29, ptr %4, align 4, !tbaa !73
+  %30 = getelementptr inbounds nuw %struct.strbuf, ptr %3, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8, !tbaa !142
+  %32 = getelementptr inbounds nuw %struct.strbuf, ptr %3, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8, !tbaa !143
+  %34 = load ptr, ptr %2, align 8, !tbaa !28
+  %35 = getelementptr inbounds nuw %struct.git_graph, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8, !tbaa !78
+  %37 = getelementptr inbounds nuw %struct.rev_info, ptr %36, i32 0, i32 53
+  %38 = getelementptr inbounds nuw %struct.diff_options, ptr %37, i32 0, i32 55
+  %39 = load ptr, ptr %38, align 8, !tbaa !144
+  %40 = call i64 @fwrite(ptr noundef %31, i64 noundef 1, i64 noundef %33, ptr noundef %39)
+  %41 = load i32, ptr %4, align 4, !tbaa !73
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %55, label %43
 
-if.then:                                          ; preds = %for.body6
-  br label %for.inc71
+43:                                               ; preds = %27
+  %44 = load ptr, ptr %2, align 8, !tbaa !28
+  %45 = getelementptr inbounds nuw %struct.git_graph, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !78
+  %47 = getelementptr inbounds nuw %struct.rev_info, ptr %46, i32 0, i32 53
+  %48 = getelementptr inbounds nuw %struct.diff_options, ptr %47, i32 0, i32 55
+  %49 = load ptr, ptr %48, align 8, !tbaa !144
+  %50 = call i32 @putc(i32 noundef 10, ptr noundef %49)
+  %51 = load ptr, ptr %2, align 8, !tbaa !28
+  %52 = getelementptr inbounds nuw %struct.git_graph, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8, !tbaa !78
+  %54 = getelementptr inbounds nuw %struct.rev_info, ptr %53, i32 0, i32 53
+  call void @graph_show_line_prefix(ptr noundef %54)
+  br label %55
 
-if.end:                                           ; preds = %for.body6
-  %21 = load i32, ptr %target, align 4
-  %mul = mul nsw i32 %21, 2
-  %22 = load i32, ptr %i, align 4
-  %cmp11 = icmp eq i32 %mul, %22
-  br i1 %cmp11, label %if.then12, label %if.else
+55:                                               ; preds = %43, %27
+  call void @strbuf_setlen(ptr noundef %3, i64 noundef 0)
+  br label %17, !llvm.loop !145
 
-if.then12:                                        ; preds = %if.end
-  %23 = load i32, ptr %target, align 4
-  %24 = load ptr, ptr %graph.addr, align 8
-  %mapping13 = getelementptr inbounds %struct.git_graph, ptr %24, i32 0, i32 18
-  %25 = load ptr, ptr %mapping13, align 8
-  %26 = load i32, ptr %i, align 4
-  %idxprom14 = sext i32 %26 to i64
-  %arrayidx15 = getelementptr inbounds i32, ptr %25, i64 %idxprom14
-  store i32 %23, ptr %arrayidx15, align 4
-  br label %if.end70
+56:                                               ; preds = %25
+  call void @strbuf_release(ptr noundef %3)
+  store i32 0, ptr %5, align 4
+  br label %57
 
-if.else:                                          ; preds = %if.end
-  %27 = load ptr, ptr %graph.addr, align 8
-  %mapping16 = getelementptr inbounds %struct.git_graph, ptr %27, i32 0, i32 18
-  %28 = load ptr, ptr %mapping16, align 8
-  %29 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 %29, 1
-  %idxprom17 = sext i32 %sub to i64
-  %arrayidx18 = getelementptr inbounds i32, ptr %28, i64 %idxprom17
-  %30 = load i32, ptr %arrayidx18, align 4
-  %cmp19 = icmp slt i32 %30, 0
-  br i1 %cmp19, label %if.then20, label %if.else39
+57:                                               ; preds = %56, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #8
+  %58 = load i32, ptr %5, align 4
+  switch i32 %58, label %60 [
+    i32 0, label %59
+    i32 1, label %59
+  ]
 
-if.then20:                                        ; preds = %if.else
-  %31 = load i32, ptr %target, align 4
-  %32 = load ptr, ptr %graph.addr, align 8
-  %mapping21 = getelementptr inbounds %struct.git_graph, ptr %32, i32 0, i32 18
-  %33 = load ptr, ptr %mapping21, align 8
-  %34 = load i32, ptr %i, align 4
-  %sub22 = sub nsw i32 %34, 1
-  %idxprom23 = sext i32 %sub22 to i64
-  %arrayidx24 = getelementptr inbounds i32, ptr %33, i64 %idxprom23
-  store i32 %31, ptr %arrayidx24, align 4
-  %35 = load i32, ptr %horizontal_edge, align 4
-  %cmp25 = icmp eq i32 %35, -1
-  br i1 %cmp25, label %if.then26, label %if.end38
-
-if.then26:                                        ; preds = %if.then20
-  %36 = load i32, ptr %i, align 4
-  store i32 %36, ptr %horizontal_edge, align 4
-  %37 = load i32, ptr %target, align 4
-  store i32 %37, ptr %horizontal_edge_target, align 4
-  %38 = load i32, ptr %target, align 4
-  %mul27 = mul nsw i32 %38, 2
-  %add = add nsw i32 %mul27, 3
-  store i32 %add, ptr %j, align 4
-  br label %for.cond28
-
-for.cond28:                                       ; preds = %for.inc35, %if.then26
-  %39 = load i32, ptr %j, align 4
-  %40 = load i32, ptr %i, align 4
-  %sub29 = sub nsw i32 %40, 2
-  %cmp30 = icmp slt i32 %39, %sub29
-  br i1 %cmp30, label %for.body31, label %for.end37
-
-for.body31:                                       ; preds = %for.cond28
-  %41 = load i32, ptr %target, align 4
-  %42 = load ptr, ptr %graph.addr, align 8
-  %mapping32 = getelementptr inbounds %struct.git_graph, ptr %42, i32 0, i32 18
-  %43 = load ptr, ptr %mapping32, align 8
-  %44 = load i32, ptr %j, align 4
-  %idxprom33 = sext i32 %44 to i64
-  %arrayidx34 = getelementptr inbounds i32, ptr %43, i64 %idxprom33
-  store i32 %41, ptr %arrayidx34, align 4
-  br label %for.inc35
-
-for.inc35:                                        ; preds = %for.body31
-  %45 = load i32, ptr %j, align 4
-  %add36 = add nsw i32 %45, 2
-  store i32 %add36, ptr %j, align 4
-  br label %for.cond28, !llvm.loop !19
-
-for.end37:                                        ; preds = %for.cond28
-  br label %if.end38
-
-if.end38:                                         ; preds = %for.end37, %if.then20
-  br label %if.end69
-
-if.else39:                                        ; preds = %if.else
-  %46 = load ptr, ptr %graph.addr, align 8
-  %mapping40 = getelementptr inbounds %struct.git_graph, ptr %46, i32 0, i32 18
-  %47 = load ptr, ptr %mapping40, align 8
-  %48 = load i32, ptr %i, align 4
-  %sub41 = sub nsw i32 %48, 1
-  %idxprom42 = sext i32 %sub41 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %47, i64 %idxprom42
-  %49 = load i32, ptr %arrayidx43, align 4
-  %50 = load i32, ptr %target, align 4
-  %cmp44 = icmp eq i32 %49, %50
-  br i1 %cmp44, label %if.then45, label %if.else46
-
-if.then45:                                        ; preds = %if.else39
-  br label %if.end68
-
-if.else46:                                        ; preds = %if.else39
-  %51 = load i32, ptr %target, align 4
-  %52 = load ptr, ptr %graph.addr, align 8
-  %mapping47 = getelementptr inbounds %struct.git_graph, ptr %52, i32 0, i32 18
-  %53 = load ptr, ptr %mapping47, align 8
-  %54 = load i32, ptr %i, align 4
-  %sub48 = sub nsw i32 %54, 2
-  %idxprom49 = sext i32 %sub48 to i64
-  %arrayidx50 = getelementptr inbounds i32, ptr %53, i64 %idxprom49
-  store i32 %51, ptr %arrayidx50, align 4
-  %55 = load i32, ptr %horizontal_edge, align 4
-  %cmp51 = icmp eq i32 %55, -1
-  br i1 %cmp51, label %if.then52, label %if.end67
-
-if.then52:                                        ; preds = %if.else46
-  %56 = load i32, ptr %target, align 4
-  store i32 %56, ptr %horizontal_edge_target, align 4
-  %57 = load i32, ptr %i, align 4
-  %sub54 = sub nsw i32 %57, 1
-  store i32 %sub54, ptr %horizontal_edge, align 4
-  %58 = load i32, ptr %target, align 4
-  %mul55 = mul nsw i32 %58, 2
-  %add56 = add nsw i32 %mul55, 3
-  store i32 %add56, ptr %j53, align 4
-  br label %for.cond57
-
-for.cond57:                                       ; preds = %for.inc64, %if.then52
-  %59 = load i32, ptr %j53, align 4
-  %60 = load i32, ptr %i, align 4
-  %sub58 = sub nsw i32 %60, 2
-  %cmp59 = icmp slt i32 %59, %sub58
-  br i1 %cmp59, label %for.body60, label %for.end66
-
-for.body60:                                       ; preds = %for.cond57
-  %61 = load i32, ptr %target, align 4
-  %62 = load ptr, ptr %graph.addr, align 8
-  %mapping61 = getelementptr inbounds %struct.git_graph, ptr %62, i32 0, i32 18
-  %63 = load ptr, ptr %mapping61, align 8
-  %64 = load i32, ptr %j53, align 4
-  %idxprom62 = sext i32 %64 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %63, i64 %idxprom62
-  store i32 %61, ptr %arrayidx63, align 4
-  br label %for.inc64
-
-for.inc64:                                        ; preds = %for.body60
-  %65 = load i32, ptr %j53, align 4
-  %add65 = add nsw i32 %65, 2
-  store i32 %add65, ptr %j53, align 4
-  br label %for.cond57, !llvm.loop !20
-
-for.end66:                                        ; preds = %for.cond57
-  br label %if.end67
-
-if.end67:                                         ; preds = %for.end66, %if.else46
-  br label %if.end68
-
-if.end68:                                         ; preds = %if.end67, %if.then45
-  br label %if.end69
-
-if.end69:                                         ; preds = %if.end68, %if.end38
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.end69, %if.then12
-  br label %for.inc71
-
-for.inc71:                                        ; preds = %if.end70, %if.then
-  %66 = load i32, ptr %i, align 4
-  %inc72 = add nsw i32 %66, 1
-  store i32 %inc72, ptr %i, align 4
-  br label %for.cond3, !llvm.loop !21
-
-for.end73:                                        ; preds = %for.cond3
-  %67 = load ptr, ptr %graph.addr, align 8
-  %old_mapping74 = getelementptr inbounds %struct.git_graph, ptr %67, i32 0, i32 19
-  %68 = load ptr, ptr %old_mapping74, align 8
-  %69 = load ptr, ptr %graph.addr, align 8
-  %mapping75 = getelementptr inbounds %struct.git_graph, ptr %69, i32 0, i32 18
-  %70 = load ptr, ptr %mapping75, align 8
-  %71 = load ptr, ptr %graph.addr, align 8
-  %mapping_size76 = getelementptr inbounds %struct.git_graph, ptr %71, i32 0, i32 15
-  %72 = load i32, ptr %mapping_size76, align 4
-  %conv = sext i32 %72 to i64
-  call void @copy_array(ptr noundef %68, ptr noundef %70, i64 noundef %conv, i64 noundef 4)
-  %73 = load ptr, ptr %graph.addr, align 8
-  %mapping77 = getelementptr inbounds %struct.git_graph, ptr %73, i32 0, i32 18
-  %74 = load ptr, ptr %mapping77, align 8
-  %75 = load ptr, ptr %graph.addr, align 8
-  %mapping_size78 = getelementptr inbounds %struct.git_graph, ptr %75, i32 0, i32 15
-  %76 = load i32, ptr %mapping_size78, align 4
-  %sub79 = sub nsw i32 %76, 1
-  %idxprom80 = sext i32 %sub79 to i64
-  %arrayidx81 = getelementptr inbounds i32, ptr %74, i64 %idxprom80
-  %77 = load i32, ptr %arrayidx81, align 4
-  %cmp82 = icmp slt i32 %77, 0
-  br i1 %cmp82, label %if.then84, label %if.end86
-
-if.then84:                                        ; preds = %for.end73
-  %78 = load ptr, ptr %graph.addr, align 8
-  %mapping_size85 = getelementptr inbounds %struct.git_graph, ptr %78, i32 0, i32 15
-  %79 = load i32, ptr %mapping_size85, align 4
-  %dec = add nsw i32 %79, -1
-  store i32 %dec, ptr %mapping_size85, align 4
-  br label %if.end86
-
-if.end86:                                         ; preds = %if.then84, %for.end73
-  store i32 0, ptr %i, align 4
-  br label %for.cond87
-
-for.cond87:                                       ; preds = %for.inc141, %if.end86
-  %80 = load i32, ptr %i, align 4
-  %81 = load ptr, ptr %graph.addr, align 8
-  %mapping_size88 = getelementptr inbounds %struct.git_graph, ptr %81, i32 0, i32 15
-  %82 = load i32, ptr %mapping_size88, align 4
-  %cmp89 = icmp slt i32 %80, %82
-  br i1 %cmp89, label %for.body91, label %for.end143
-
-for.body91:                                       ; preds = %for.cond87
-  %83 = load ptr, ptr %graph.addr, align 8
-  %mapping93 = getelementptr inbounds %struct.git_graph, ptr %83, i32 0, i32 18
-  %84 = load ptr, ptr %mapping93, align 8
-  %85 = load i32, ptr %i, align 4
-  %idxprom94 = sext i32 %85 to i64
-  %arrayidx95 = getelementptr inbounds i32, ptr %84, i64 %idxprom94
-  %86 = load i32, ptr %arrayidx95, align 4
-  store i32 %86, ptr %target92, align 4
-  %87 = load i32, ptr %target92, align 4
-  %cmp96 = icmp slt i32 %87, 0
-  br i1 %cmp96, label %if.then98, label %if.else99
-
-if.then98:                                        ; preds = %for.body91
-  %88 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addch(ptr noundef %88, i32 noundef 32)
-  br label %if.end140
-
-if.else99:                                        ; preds = %for.body91
-  %89 = load i32, ptr %target92, align 4
-  %mul100 = mul nsw i32 %89, 2
-  %90 = load i32, ptr %i, align 4
-  %cmp101 = icmp eq i32 %mul100, %90
-  br i1 %cmp101, label %if.then103, label %if.else106
-
-if.then103:                                       ; preds = %if.else99
-  %91 = load ptr, ptr %line.addr, align 8
-  %92 = load ptr, ptr %graph.addr, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %92, i32 0, i32 17
-  %93 = load ptr, ptr %new_columns, align 8
-  %94 = load i32, ptr %target92, align 4
-  %idxprom104 = sext i32 %94 to i64
-  %arrayidx105 = getelementptr inbounds %struct.column, ptr %93, i64 %idxprom104
-  call void @graph_line_write_column(ptr noundef %91, ptr noundef %arrayidx105, i8 noundef signext 124)
-  br label %if.end139
-
-if.else106:                                       ; preds = %if.else99
-  %95 = load i32, ptr %target92, align 4
-  %96 = load i32, ptr %horizontal_edge_target, align 4
-  %cmp107 = icmp eq i32 %95, %96
-  br i1 %cmp107, label %land.lhs.true, label %if.else125
-
-land.lhs.true:                                    ; preds = %if.else106
-  %97 = load i32, ptr %i, align 4
-  %98 = load i32, ptr %horizontal_edge, align 4
-  %sub109 = sub nsw i32 %98, 1
-  %cmp110 = icmp ne i32 %97, %sub109
-  br i1 %cmp110, label %if.then112, label %if.else125
-
-if.then112:                                       ; preds = %land.lhs.true
-  %99 = load i32, ptr %i, align 4
-  %100 = load i32, ptr %target92, align 4
-  %mul113 = mul nsw i32 %100, 2
-  %add114 = add nsw i32 %mul113, 3
-  %cmp115 = icmp ne i32 %99, %add114
-  br i1 %cmp115, label %if.then117, label %if.end121
-
-if.then117:                                       ; preds = %if.then112
-  %101 = load ptr, ptr %graph.addr, align 8
-  %mapping118 = getelementptr inbounds %struct.git_graph, ptr %101, i32 0, i32 18
-  %102 = load ptr, ptr %mapping118, align 8
-  %103 = load i32, ptr %i, align 4
-  %idxprom119 = sext i32 %103 to i64
-  %arrayidx120 = getelementptr inbounds i32, ptr %102, i64 %idxprom119
-  store i32 -1, ptr %arrayidx120, align 4
-  br label %if.end121
-
-if.end121:                                        ; preds = %if.then117, %if.then112
-  store i16 1, ptr %used_horizontal, align 2
-  %104 = load ptr, ptr %line.addr, align 8
-  %105 = load ptr, ptr %graph.addr, align 8
-  %new_columns122 = getelementptr inbounds %struct.git_graph, ptr %105, i32 0, i32 17
-  %106 = load ptr, ptr %new_columns122, align 8
-  %107 = load i32, ptr %target92, align 4
-  %idxprom123 = sext i32 %107 to i64
-  %arrayidx124 = getelementptr inbounds %struct.column, ptr %106, i64 %idxprom123
-  call void @graph_line_write_column(ptr noundef %104, ptr noundef %arrayidx124, i8 noundef signext 95)
-  br label %if.end138
-
-if.else125:                                       ; preds = %land.lhs.true, %if.else106
-  %108 = load i16, ptr %used_horizontal, align 2
-  %conv126 = sext i16 %108 to i32
-  %tobool = icmp ne i32 %conv126, 0
-  br i1 %tobool, label %land.lhs.true127, label %if.end134
-
-land.lhs.true127:                                 ; preds = %if.else125
-  %109 = load i32, ptr %i, align 4
-  %110 = load i32, ptr %horizontal_edge, align 4
-  %cmp128 = icmp slt i32 %109, %110
-  br i1 %cmp128, label %if.then130, label %if.end134
-
-if.then130:                                       ; preds = %land.lhs.true127
-  %111 = load ptr, ptr %graph.addr, align 8
-  %mapping131 = getelementptr inbounds %struct.git_graph, ptr %111, i32 0, i32 18
-  %112 = load ptr, ptr %mapping131, align 8
-  %113 = load i32, ptr %i, align 4
-  %idxprom132 = sext i32 %113 to i64
-  %arrayidx133 = getelementptr inbounds i32, ptr %112, i64 %idxprom132
-  store i32 -1, ptr %arrayidx133, align 4
-  br label %if.end134
-
-if.end134:                                        ; preds = %if.then130, %land.lhs.true127, %if.else125
-  %114 = load ptr, ptr %line.addr, align 8
-  %115 = load ptr, ptr %graph.addr, align 8
-  %new_columns135 = getelementptr inbounds %struct.git_graph, ptr %115, i32 0, i32 17
-  %116 = load ptr, ptr %new_columns135, align 8
-  %117 = load i32, ptr %target92, align 4
-  %idxprom136 = sext i32 %117 to i64
-  %arrayidx137 = getelementptr inbounds %struct.column, ptr %116, i64 %idxprom136
-  call void @graph_line_write_column(ptr noundef %114, ptr noundef %arrayidx137, i8 noundef signext 47)
-  br label %if.end138
-
-if.end138:                                        ; preds = %if.end134, %if.end121
-  br label %if.end139
-
-if.end139:                                        ; preds = %if.end138, %if.then103
-  br label %if.end140
-
-if.end140:                                        ; preds = %if.end139, %if.then98
-  br label %for.inc141
-
-for.inc141:                                       ; preds = %if.end140
-  %118 = load i32, ptr %i, align 4
-  %inc142 = add nsw i32 %118, 1
-  store i32 %inc142, ptr %i, align 4
-  br label %for.cond87, !llvm.loop !22
-
-for.end143:                                       ; preds = %for.cond87
-  %119 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_is_mapping_correct(ptr noundef %119)
-  %tobool144 = icmp ne i32 %call, 0
-  br i1 %tobool144, label %if.then145, label %if.end146
-
-if.then145:                                       ; preds = %for.end143
-  %120 = load ptr, ptr %graph.addr, align 8
-  call void @graph_update_state(ptr noundef %120, i32 noundef 0)
-  br label %if.end146
-
-if.end146:                                        ; preds = %if.then145, %for.end143
+59:                                               ; preds = %57, %57
   ret void
-}
 
-; Function Attrs: nounwind uwtable
-define internal void @graph_pad_horizontally(ptr noundef %graph, ptr noundef %line) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %line.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  %0 = load ptr, ptr %line.addr, align 8
-  %width = getelementptr inbounds %struct.graph_line, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %width, align 8
-  %2 = load ptr, ptr %graph.addr, align 8
-  %width1 = getelementptr inbounds %struct.git_graph, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %width1, align 4
-  %conv = sext i32 %3 to i64
-  %cmp = icmp ult i64 %1, %conv
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %line.addr, align 8
-  %5 = load ptr, ptr %graph.addr, align 8
-  %width3 = getelementptr inbounds %struct.git_graph, ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %width3, align 4
-  %conv4 = sext i32 %6 to i64
-  %7 = load ptr, ptr %line.addr, align 8
-  %width5 = getelementptr inbounds %struct.graph_line, ptr %7, i32 0, i32 1
-  %8 = load i64, ptr %width5, align 8
-  %sub = sub i64 %conv4, %8
-  call void @graph_line_addchars(ptr noundef %4, i32 noundef 32, i64 noundef %sub)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @graph_is_commit_finished(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %state = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 5
-  %1 = load i32, ptr %state, align 4
-  %cmp = icmp eq i32 %1, 0
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @graph_show_commit(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %msgbuf = alloca %struct.strbuf, align 8
-  %shown_commit_line = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %msgbuf, ptr align 8 @__const.graph_show_commit.msgbuf, i64 24, i1 false)
-  store i32 0, ptr %shown_commit_line, align 4
-  %0 = load ptr, ptr @default_diffopt, align 8
-  call void @graph_show_line_prefix(ptr noundef %0)
-  %1 = load ptr, ptr %graph.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_is_commit_finished(ptr noundef %2)
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %graph.addr, align 8
-  call void @graph_show_padding(ptr noundef %3)
-  store i32 1, ptr %shown_commit_line, align 4
-  br label %if.end3
-
-if.end3:                                          ; preds = %if.then2, %if.end
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end17, %if.end3
-  %4 = load i32, ptr %shown_commit_line, align 4
-  %tobool4 = icmp ne i32 %4, 0
-  br i1 %tobool4, label %land.end, label %land.rhs
-
-land.rhs:                                         ; preds = %while.cond
-  %5 = load ptr, ptr %graph.addr, align 8
-  %call5 = call i32 @graph_is_commit_finished(ptr noundef %5)
-  %tobool6 = icmp ne i32 %call5, 0
-  %lnot = xor i1 %tobool6, true
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %6 = phi i1 [ false, %while.cond ], [ %lnot, %land.rhs ]
-  br i1 %6, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %7 = load ptr, ptr %graph.addr, align 8
-  %call7 = call i32 @graph_next_line(ptr noundef %7, ptr noundef %msgbuf)
-  store i32 %call7, ptr %shown_commit_line, align 4
-  %buf = getelementptr inbounds %struct.strbuf, ptr %msgbuf, i32 0, i32 2
-  %8 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %msgbuf, i32 0, i32 1
-  %9 = load i64, ptr %len, align 8
-  %10 = load ptr, ptr %graph.addr, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %revs, align 8
-  %diffopt = getelementptr inbounds %struct.rev_info, ptr %11, i32 0, i32 52
-  %file = getelementptr inbounds %struct.diff_options, ptr %diffopt, i32 0, i32 56
-  %12 = load ptr, ptr %file, align 8
-  %call8 = call i64 @fwrite(ptr noundef %8, i64 noundef 1, i64 noundef %9, ptr noundef %12)
-  %13 = load i32, ptr %shown_commit_line, align 4
-  %tobool9 = icmp ne i32 %13, 0
-  br i1 %tobool9, label %if.end17, label %if.then10
-
-if.then10:                                        ; preds = %while.body
-  %14 = load ptr, ptr %graph.addr, align 8
-  %revs11 = getelementptr inbounds %struct.git_graph, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %revs11, align 8
-  %diffopt12 = getelementptr inbounds %struct.rev_info, ptr %15, i32 0, i32 52
-  %file13 = getelementptr inbounds %struct.diff_options, ptr %diffopt12, i32 0, i32 56
-  %16 = load ptr, ptr %file13, align 8
-  %call14 = call i32 @putc(i32 noundef 10, ptr noundef %16)
-  %17 = load ptr, ptr %graph.addr, align 8
-  %revs15 = getelementptr inbounds %struct.git_graph, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %revs15, align 8
-  %diffopt16 = getelementptr inbounds %struct.rev_info, ptr %18, i32 0, i32 52
-  call void @graph_show_line_prefix(ptr noundef %diffopt16)
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then10, %while.body
-  call void @strbuf_setlen(ptr noundef %msgbuf, i64 noundef 0)
-  br label %while.cond, !llvm.loop !23
-
-while.end:                                        ; preds = %land.end
-  call void @strbuf_release(ptr noundef %msgbuf)
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then
-  ret void
+60:                                               ; preds = %57
+  unreachable
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_show_line_prefix(ptr noundef %diffopt) #0 {
-entry:
-  %diffopt.addr = alloca ptr, align 8
-  store ptr %diffopt, ptr %diffopt.addr, align 8
-  %0 = load ptr, ptr %diffopt.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+define internal void @graph_show_line_prefix(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %10
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %diffopt.addr, align 8
-  %line_prefix = getelementptr inbounds %struct.diff_options, ptr %1, i32 0, i32 12
-  %2 = load ptr, ptr %line_prefix, align 8
-  %tobool1 = icmp ne ptr %2, null
-  br i1 %tobool1, label %if.end, label %if.then
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw %struct.diff_options, ptr %6, i32 0, i32 12
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %return
+10:                                               ; preds = %5, %1
+  br label %19
 
-if.end:                                           ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %diffopt.addr, align 8
-  %line_prefix2 = getelementptr inbounds %struct.diff_options, ptr %3, i32 0, i32 12
-  %4 = load ptr, ptr %line_prefix2, align 8
-  %5 = load ptr, ptr %diffopt.addr, align 8
-  %line_prefix_length = getelementptr inbounds %struct.diff_options, ptr %5, i32 0, i32 13
-  %6 = load i64, ptr %line_prefix_length, align 8
-  %7 = load ptr, ptr %diffopt.addr, align 8
-  %file = getelementptr inbounds %struct.diff_options, ptr %7, i32 0, i32 56
-  %8 = load ptr, ptr %file, align 8
-  %call = call i64 @fwrite(ptr noundef %4, i64 noundef 1, i64 noundef %6, ptr noundef %8)
-  br label %return
+11:                                               ; preds = %5
+  %12 = load ptr, ptr %2, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.diff_options, ptr %12, i32 0, i32 12
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %15 = load ptr, ptr %2, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.diff_options, ptr %15, i32 0, i32 55
+  %17 = load ptr, ptr %16, align 8, !tbaa !146
+  %18 = call i32 @fputs(ptr noundef %14, ptr noundef %17)
+  br label %19
 
-return:                                           ; preds = %if.end, %if.then
+19:                                               ; preds = %11, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @graph_show_padding(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %msgbuf = alloca %struct.strbuf, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %msgbuf, ptr align 8 @__const.graph_show_padding.msgbuf, i64 24, i1 false)
-  %0 = load ptr, ptr @default_diffopt, align 8
-  call void @graph_show_line_prefix(ptr noundef %0)
-  %1 = load ptr, ptr %graph.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local void @graph_show_padding(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.strbuf, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 @__const.graph_show_padding.msgbuf, i64 24, i1 false)
+  %5 = load ptr, ptr @default_diffopt, align 8, !tbaa !11
+  call void @graph_show_line_prefix(ptr noundef %5)
+  %6 = load ptr, ptr %2, align 8, !tbaa !28
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %9, label %8
 
-if.then:                                          ; preds = %entry
-  br label %return
+8:                                                ; preds = %1
+  store i32 1, ptr %4, align 4
+  br label %22
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %graph.addr, align 8
-  call void @graph_padding_line(ptr noundef %2, ptr noundef %msgbuf)
-  %buf = getelementptr inbounds %struct.strbuf, ptr %msgbuf, i32 0, i32 2
-  %3 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %msgbuf, i32 0, i32 1
-  %4 = load i64, ptr %len, align 8
-  %5 = load ptr, ptr %graph.addr, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %revs, align 8
-  %diffopt = getelementptr inbounds %struct.rev_info, ptr %6, i32 0, i32 52
-  %file = getelementptr inbounds %struct.diff_options, ptr %diffopt, i32 0, i32 56
-  %7 = load ptr, ptr %file, align 8
-  %call = call i64 @fwrite(ptr noundef %3, i64 noundef 1, i64 noundef %4, ptr noundef %7)
-  call void @strbuf_release(ptr noundef %msgbuf)
-  br label %return
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !28
+  call void @graph_padding_line(ptr noundef %10, ptr noundef %3)
+  %11 = getelementptr inbounds nuw %struct.strbuf, ptr %3, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !142
+  %13 = getelementptr inbounds nuw %struct.strbuf, ptr %3, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8, !tbaa !143
+  %15 = load ptr, ptr %2, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %struct.git_graph, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !78
+  %18 = getelementptr inbounds nuw %struct.rev_info, ptr %17, i32 0, i32 53
+  %19 = getelementptr inbounds nuw %struct.diff_options, ptr %18, i32 0, i32 55
+  %20 = load ptr, ptr %19, align 8, !tbaa !144
+  %21 = call i64 @fwrite(ptr noundef %12, i64 noundef 1, i64 noundef %14, ptr noundef %20)
+  call void @strbuf_release(ptr noundef %3)
+  store i32 0, ptr %4, align 4
+  br label %22
 
-return:                                           ; preds = %if.end, %if.then
+22:                                               ; preds = %9, %8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #8
+  %23 = load i32, ptr %4, align 4
+  switch i32 %23, label %25 [
+    i32 0, label %24
+    i32 1, label %24
+  ]
+
+24:                                               ; preds = %22, %22
   ret void
+
+25:                                               ; preds = %22
+  unreachable
 }
 
-declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
-declare i32 @putc(i32 noundef, ptr noundef) #1
+declare i32 @putc(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @strbuf_setlen(ptr noundef %sb, i64 noundef %len) #0 {
-entry:
-  %sb.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load i64, ptr %len.addr, align 8
-  %1 = load ptr, ptr %sb.addr, align 8
-  %alloc = getelementptr inbounds %struct.strbuf, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %alloc, align 8
-  %tobool = icmp ne i64 %2, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @strbuf_setlen(ptr noundef %0, i64 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store i64 %1, ptr %4, align 8, !tbaa !103
+  %5 = load i64, ptr %4, align 8, !tbaa !103
+  %6 = load ptr, ptr %3, align 8, !tbaa !123
+  %7 = getelementptr inbounds nuw %struct.strbuf, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !147
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %15
 
-cond.true:                                        ; preds = %entry
-  %3 = load ptr, ptr %sb.addr, align 8
-  %alloc1 = getelementptr inbounds %struct.strbuf, ptr %3, i32 0, i32 0
-  %4 = load i64, ptr %alloc1, align 8
-  %sub = sub i64 %4, 1
-  br label %cond.end
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !123
+  %12 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8, !tbaa !147
+  %14 = sub i64 %13, 1
+  br label %16
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+15:                                               ; preds = %2
+  br label %16
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub, %cond.true ], [ 0, %cond.false ]
-  %cmp = icmp ugt i64 %0, %cond
-  br i1 %cmp, label %if.then, label %if.end
+16:                                               ; preds = %15, %10
+  %17 = phi i64 [ %14, %10 ], [ 0, %15 ]
+  %18 = icmp ugt i64 %5, %17
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %cond.end
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef @.str.6, i32 noundef 167, ptr noundef @.str.7) #8
+19:                                               ; preds = %16
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef @.str.6, i32 noundef 167, ptr noundef @.str.7) #10
   unreachable
 
-if.end:                                           ; preds = %cond.end
-  %5 = load i64, ptr %len.addr, align 8
-  %6 = load ptr, ptr %sb.addr, align 8
-  %len2 = getelementptr inbounds %struct.strbuf, ptr %6, i32 0, i32 1
-  store i64 %5, ptr %len2, align 8
-  %7 = load ptr, ptr %sb.addr, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %buf, align 8
-  %cmp3 = icmp ne ptr %8, @strbuf_slopbuf
-  br i1 %cmp3, label %if.then4, label %if.else
+20:                                               ; preds = %16
+  %21 = load i64, ptr %4, align 8, !tbaa !103
+  %22 = load ptr, ptr %3, align 8, !tbaa !123
+  %23 = getelementptr inbounds nuw %struct.strbuf, ptr %22, i32 0, i32 1
+  store i64 %21, ptr %23, align 8, !tbaa !143
+  %24 = load ptr, ptr %3, align 8, !tbaa !123
+  %25 = getelementptr inbounds nuw %struct.strbuf, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !142
+  %27 = icmp ne ptr %26, @strbuf_slopbuf
+  br i1 %27, label %28, label %34
 
-if.then4:                                         ; preds = %if.end
-  %9 = load ptr, ptr %sb.addr, align 8
-  %buf5 = getelementptr inbounds %struct.strbuf, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %buf5, align 8
-  %11 = load i64, ptr %len.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %10, i64 %11
-  store i8 0, ptr %arrayidx, align 1
-  br label %if.end6
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %3, align 8, !tbaa !123
+  %30 = getelementptr inbounds nuw %struct.strbuf, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8, !tbaa !142
+  %32 = load i64, ptr %4, align 8, !tbaa !103
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
+  store i8 0, ptr %33, align 1, !tbaa !134
+  br label %35
 
-if.else:                                          ; preds = %if.end
-  br label %if.end6
+34:                                               ; preds = %20
+  br label %35
 
-if.end6:                                          ; preds = %if.else, %if.then4
-  ret void
-}
-
-declare void @strbuf_release(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local void @graph_show_oneline(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %msgbuf = alloca %struct.strbuf, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %msgbuf, ptr align 8 @__const.graph_show_oneline.msgbuf, i64 24, i1 false)
-  %0 = load ptr, ptr @default_diffopt, align 8
-  call void @graph_show_line_prefix(ptr noundef %0)
-  %1 = load ptr, ptr %graph.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_next_line(ptr noundef %2, ptr noundef %msgbuf)
-  %buf = getelementptr inbounds %struct.strbuf, ptr %msgbuf, i32 0, i32 2
-  %3 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %msgbuf, i32 0, i32 1
-  %4 = load i64, ptr %len, align 8
-  %5 = load ptr, ptr %graph.addr, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %revs, align 8
-  %diffopt = getelementptr inbounds %struct.rev_info, ptr %6, i32 0, i32 52
-  %file = getelementptr inbounds %struct.diff_options, ptr %diffopt, i32 0, i32 56
-  %7 = load ptr, ptr %file, align 8
-  %call1 = call i64 @fwrite(ptr noundef %3, i64 noundef 1, i64 noundef %4, ptr noundef %7)
-  call void @strbuf_release(ptr noundef %msgbuf)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
+35:                                               ; preds = %34, %28
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_padding_line(ptr noundef %graph, ptr noundef %sb) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %sb.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %line = alloca %struct.graph_line, align 8
-  %col = alloca ptr, align 8
-  %len = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  %buf = getelementptr inbounds %struct.graph_line, ptr %line, i32 0, i32 0
-  %0 = load ptr, ptr %sb.addr, align 8
-  store ptr %0, ptr %buf, align 8
-  %width = getelementptr inbounds %struct.graph_line, ptr %line, i32 0, i32 1
-  store i64 0, ptr %width, align 8
-  %1 = load ptr, ptr %graph.addr, align 8
-  %state = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 5
-  %2 = load i32, ptr %state, align 4
-  %cmp = icmp ne i32 %2, 3
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @graph_show_oneline(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.strbuf, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 @__const.graph_show_oneline.msgbuf, i64 24, i1 false)
+  %5 = load ptr, ptr @default_diffopt, align 8, !tbaa !11
+  call void @graph_show_line_prefix(ptr noundef %5)
+  %6 = load ptr, ptr %2, align 8, !tbaa !28
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %9, label %8
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %graph.addr, align 8
-  %4 = load ptr, ptr %sb.addr, align 8
-  %call = call i32 @graph_next_line(ptr noundef %3, ptr noundef %4)
-  br label %return
+8:                                                ; preds = %1
+  store i32 1, ptr %4, align 4
+  br label %23
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !28
+  %11 = call i32 @graph_next_line(ptr noundef %10, ptr noundef %3)
+  %12 = getelementptr inbounds nuw %struct.strbuf, ptr %3, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !142
+  %14 = getelementptr inbounds nuw %struct.strbuf, ptr %3, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !143
+  %16 = load ptr, ptr %2, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw %struct.git_graph, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !78
+  %19 = getelementptr inbounds nuw %struct.rev_info, ptr %18, i32 0, i32 53
+  %20 = getelementptr inbounds nuw %struct.diff_options, ptr %19, i32 0, i32 55
+  %21 = load ptr, ptr %20, align 8, !tbaa !144
+  %22 = call i64 @fwrite(ptr noundef %13, i64 noundef 1, i64 noundef %15, ptr noundef %21)
+  call void @strbuf_release(ptr noundef %3)
+  store i32 0, ptr %4, align 4
+  br label %23
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %5 = load i32, ptr %i, align 4
-  %6 = load ptr, ptr %graph.addr, align 8
-  %num_columns = getelementptr inbounds %struct.git_graph, ptr %6, i32 0, i32 13
-  %7 = load i32, ptr %num_columns, align 4
-  %cmp1 = icmp slt i32 %5, %7
-  br i1 %cmp1, label %for.body, label %for.end
+23:                                               ; preds = %9, %8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #8
+  %24 = load i32, ptr %4, align 4
+  switch i32 %24, label %26 [
+    i32 0, label %25
+    i32 1, label %25
+  ]
 
-for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr %graph.addr, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %8, i32 0, i32 16
-  %9 = load ptr, ptr %columns, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds %struct.column, ptr %9, i64 %idxprom
-  store ptr %arrayidx, ptr %col, align 8
-  %11 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %line, ptr noundef %11, i8 noundef signext 124)
-  %12 = load ptr, ptr %col, align 8
-  %commit = getelementptr inbounds %struct.column, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %commit, align 8
-  %14 = load ptr, ptr %graph.addr, align 8
-  %commit2 = getelementptr inbounds %struct.git_graph, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %commit2, align 8
-  %cmp3 = icmp eq ptr %13, %15
-  br i1 %cmp3, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %for.body
-  %16 = load ptr, ptr %graph.addr, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %16, i32 0, i32 2
-  %17 = load i32, ptr %num_parents, align 8
-  %cmp4 = icmp sgt i32 %17, 2
-  br i1 %cmp4, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %land.lhs.true
-  %18 = load ptr, ptr %graph.addr, align 8
-  %num_parents6 = getelementptr inbounds %struct.git_graph, ptr %18, i32 0, i32 2
-  %19 = load i32, ptr %num_parents6, align 8
-  %sub = sub nsw i32 %19, 2
-  %mul = mul nsw i32 %sub, 2
-  store i32 %mul, ptr %len, align 4
-  %20 = load i32, ptr %len, align 4
-  %conv = sext i32 %20 to i64
-  call void @graph_line_addchars(ptr noundef %line, i32 noundef 32, i64 noundef %conv)
-  br label %if.end7
-
-if.else:                                          ; preds = %land.lhs.true, %for.body
-  call void @graph_line_addch(ptr noundef %line, i32 noundef 32)
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.else, %if.then5
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end7
-  %21 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %21, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !24
-
-for.end:                                          ; preds = %for.cond
-  %22 = load ptr, ptr %graph.addr, align 8
-  call void @graph_pad_horizontally(ptr noundef %22, ptr noundef %line)
-  %23 = load ptr, ptr %graph.addr, align 8
-  %prev_state = getelementptr inbounds %struct.git_graph, ptr %23, i32 0, i32 6
-  store i32 0, ptr %prev_state, align 8
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
+25:                                               ; preds = %23, %23
   ret void
+
+26:                                               ; preds = %23
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @graph_show_remainder(ptr noundef %graph) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %graph.addr = alloca ptr, align 8
-  %msgbuf = alloca %struct.strbuf, align 8
-  %shown = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %msgbuf, ptr align 8 @__const.graph_show_remainder.msgbuf, i64 24, i1 false)
-  store i32 0, ptr %shown, align 4
-  %0 = load ptr, ptr @default_diffopt, align 8
-  call void @graph_show_line_prefix(ptr noundef %0)
-  %1 = load ptr, ptr %graph.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal void @graph_padding_line(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %struct.graph_line, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #8
+  %10 = getelementptr inbounds nuw %struct.graph_line, ptr %6, i32 0, i32 0
+  %11 = load ptr, ptr %4, align 8, !tbaa !123
+  store ptr %11, ptr %10, align 8, !tbaa !125
+  %12 = getelementptr inbounds nuw %struct.graph_line, ptr %6, i32 0, i32 1
+  store i64 0, ptr %12, align 8, !tbaa !127
+  %13 = load ptr, ptr %3, align 8, !tbaa !28
+  %14 = getelementptr inbounds nuw %struct.git_graph, ptr %13, i32 0, i32 5
+  %15 = load i32, ptr %14, align 4, !tbaa !81
+  %16 = icmp ne i32 %15, 3
+  br i1 %16, label %17, label %21
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %3, align 8, !tbaa !28
+  %19 = load ptr, ptr %4, align 8, !tbaa !123
+  %20 = call i32 @graph_next_line(ptr noundef %18, ptr noundef %19)
+  store i32 1, ptr %7, align 4
+  br label %65
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_is_commit_finished(ptr noundef %2)
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.then2, label %if.end3
+21:                                               ; preds = %2
+  store i32 0, ptr %5, align 4, !tbaa !73
+  br label %22
 
-if.then2:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %58, %21
+  %23 = load i32, ptr %5, align 4, !tbaa !73
+  %24 = load ptr, ptr %3, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw %struct.git_graph, ptr %24, i32 0, i32 13
+  %26 = load i32, ptr %25, align 4, !tbaa !88
+  %27 = icmp slt i32 %23, %26
+  br i1 %27, label %28, label %61
 
-if.end3:                                          ; preds = %if.end
-  br label %for.cond
+28:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %29 = load ptr, ptr %3, align 8, !tbaa !28
+  %30 = getelementptr inbounds nuw %struct.git_graph, ptr %29, i32 0, i32 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !93
+  %32 = load i32, ptr %5, align 4, !tbaa !73
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds %struct.column, ptr %31, i64 %33
+  store ptr %34, ptr %8, align 8, !tbaa !131
+  %35 = load ptr, ptr %8, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %6, ptr noundef %35, i8 noundef signext 124)
+  %36 = load ptr, ptr %8, align 8, !tbaa !131
+  %37 = getelementptr inbounds nuw %struct.column, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !118
+  %39 = load ptr, ptr %3, align 8, !tbaa !28
+  %40 = getelementptr inbounds nuw %struct.git_graph, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !77
+  %42 = icmp eq ptr %38, %41
+  br i1 %42, label %43, label %56
 
-for.cond:                                         ; preds = %if.end15, %if.end3
-  %3 = load ptr, ptr %graph.addr, align 8
-  %call4 = call i32 @graph_next_line(ptr noundef %3, ptr noundef %msgbuf)
-  %buf = getelementptr inbounds %struct.strbuf, ptr %msgbuf, i32 0, i32 2
-  %4 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %msgbuf, i32 0, i32 1
-  %5 = load i64, ptr %len, align 8
-  %6 = load ptr, ptr %graph.addr, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %revs, align 8
-  %diffopt = getelementptr inbounds %struct.rev_info, ptr %7, i32 0, i32 52
-  %file = getelementptr inbounds %struct.diff_options, ptr %diffopt, i32 0, i32 56
-  %8 = load ptr, ptr %file, align 8
-  %call5 = call i64 @fwrite(ptr noundef %4, i64 noundef 1, i64 noundef %5, ptr noundef %8)
-  call void @strbuf_setlen(ptr noundef %msgbuf, i64 noundef 0)
-  store i32 1, ptr %shown, align 4
-  %9 = load ptr, ptr %graph.addr, align 8
-  %call6 = call i32 @graph_is_commit_finished(ptr noundef %9)
-  %tobool7 = icmp ne i32 %call6, 0
-  br i1 %tobool7, label %if.else, label %if.then8
+43:                                               ; preds = %28
+  %44 = load ptr, ptr %3, align 8, !tbaa !28
+  %45 = getelementptr inbounds nuw %struct.git_graph, ptr %44, i32 0, i32 2
+  %46 = load i32, ptr %45, align 8, !tbaa !79
+  %47 = icmp sgt i32 %46, 2
+  br i1 %47, label %48, label %56
 
-if.then8:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %graph.addr, align 8
-  %revs9 = getelementptr inbounds %struct.git_graph, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %revs9, align 8
-  %diffopt10 = getelementptr inbounds %struct.rev_info, ptr %11, i32 0, i32 52
-  %file11 = getelementptr inbounds %struct.diff_options, ptr %diffopt10, i32 0, i32 56
-  %12 = load ptr, ptr %file11, align 8
-  %call12 = call i32 @putc(i32 noundef 10, ptr noundef %12)
-  %13 = load ptr, ptr %graph.addr, align 8
-  %revs13 = getelementptr inbounds %struct.git_graph, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %revs13, align 8
-  %diffopt14 = getelementptr inbounds %struct.rev_info, ptr %14, i32 0, i32 52
-  call void @graph_show_line_prefix(ptr noundef %diffopt14)
-  br label %if.end15
+48:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %49 = load ptr, ptr %3, align 8, !tbaa !28
+  %50 = getelementptr inbounds nuw %struct.git_graph, ptr %49, i32 0, i32 2
+  %51 = load i32, ptr %50, align 8, !tbaa !79
+  %52 = sub nsw i32 %51, 2
+  %53 = mul nsw i32 %52, 2
+  store i32 %53, ptr %9, align 4, !tbaa !73
+  %54 = load i32, ptr %9, align 4, !tbaa !73
+  %55 = sext i32 %54 to i64
+  call void @graph_line_addchars(ptr noundef %6, i32 noundef 32, i64 noundef %55)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %57
 
-if.else:                                          ; preds = %for.cond
-  br label %for.end
+56:                                               ; preds = %43, %28
+  call void @graph_line_addch(ptr noundef %6, i32 noundef 32)
+  br label %57
 
-if.end15:                                         ; preds = %if.then8
-  br label %for.cond
+57:                                               ; preds = %56, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %58
 
-for.end:                                          ; preds = %if.else
-  call void @strbuf_release(ptr noundef %msgbuf)
-  %15 = load i32, ptr %shown, align 4
-  store i32 %15, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %57
+  %59 = load i32, ptr %5, align 4, !tbaa !73
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %5, align 4, !tbaa !73
+  br label %22, !llvm.loop !148
 
-return:                                           ; preds = %for.end, %if.then2, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+61:                                               ; preds = %22
+  %62 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @graph_pad_horizontally(ptr noundef %62, ptr noundef %6)
+  %63 = load ptr, ptr %3, align 8, !tbaa !28
+  %64 = getelementptr inbounds nuw %struct.git_graph, ptr %63, i32 0, i32 6
+  store i32 0, ptr %64, align 8, !tbaa !82
+  store i32 0, ptr %7, align 4
+  br label %65
+
+65:                                               ; preds = %61, %17
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  %66 = load i32, ptr %7, align 4
+  switch i32 %66, label %68 [
+    i32 0, label %67
+    i32 1, label %67
+  ]
+
+67:                                               ; preds = %65, %65
+  ret void
+
+68:                                               ; preds = %65
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @graph_show_commit_msg(ptr noundef %graph, ptr noundef %file, ptr noundef %sb) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %file.addr = alloca ptr, align 8
-  %sb.addr = alloca ptr, align 8
-  %newline_terminated = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %file, ptr %file.addr, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %1 = load ptr, ptr %file.addr, align 8
-  %2 = load ptr, ptr %sb.addr, align 8
-  call void @graph_show_strbuf(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %3 = load ptr, ptr %graph.addr, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local i32 @graph_show_remainder(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.strbuf, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 @__const.graph_show_remainder.msgbuf, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 0, ptr %5, align 4, !tbaa !73
+  %7 = load ptr, ptr @default_diffopt, align 8, !tbaa !11
+  call void @graph_show_line_prefix(ptr noundef %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !28
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
-if.then:                                          ; preds = %entry
-  br label %if.end15
+10:                                               ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %50
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %sb.addr, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %len, align 8
-  %tobool1 = icmp ne i64 %5, 0
-  br i1 %tobool1, label %land.rhs, label %land.end
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8, !tbaa !28
+  %13 = call i32 @graph_is_commit_finished(ptr noundef %12)
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
 
-land.rhs:                                         ; preds = %if.end
-  %6 = load ptr, ptr %sb.addr, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %buf, align 8
-  %8 = load ptr, ptr %sb.addr, align 8
-  %len2 = getelementptr inbounds %struct.strbuf, ptr %8, i32 0, i32 1
-  %9 = load i64, ptr %len2, align 8
-  %sub = sub i64 %9, 1
-  %arrayidx = getelementptr inbounds i8, ptr %7, i64 %sub
-  %10 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %10 to i32
-  %cmp = icmp eq i32 %conv, 10
-  br label %land.end
+15:                                               ; preds = %11
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %50
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %11 = phi i1 [ false, %if.end ], [ %cmp, %land.rhs ]
-  %land.ext = zext i1 %11 to i32
-  store i32 %land.ext, ptr %newline_terminated, align 4
-  %12 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_is_commit_finished(ptr noundef %12)
-  %tobool4 = icmp ne i32 %call, 0
-  br i1 %tobool4, label %if.end15, label %if.then5
+16:                                               ; preds = %11
+  br label %17
 
-if.then5:                                         ; preds = %land.end
-  %13 = load i32, ptr %newline_terminated, align 4
-  %tobool6 = icmp ne i32 %13, 0
-  br i1 %tobool6, label %if.end9, label %if.then7
+17:                                               ; preds = %47, %16
+  %18 = load ptr, ptr %3, align 8, !tbaa !28
+  %19 = call i32 @graph_next_line(ptr noundef %18, ptr noundef %4)
+  %20 = getelementptr inbounds nuw %struct.strbuf, ptr %4, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !142
+  %22 = getelementptr inbounds nuw %struct.strbuf, ptr %4, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8, !tbaa !143
+  %24 = load ptr, ptr %3, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw %struct.git_graph, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !78
+  %27 = getelementptr inbounds nuw %struct.rev_info, ptr %26, i32 0, i32 53
+  %28 = getelementptr inbounds nuw %struct.diff_options, ptr %27, i32 0, i32 55
+  %29 = load ptr, ptr %28, align 8, !tbaa !144
+  %30 = call i64 @fwrite(ptr noundef %21, i64 noundef 1, i64 noundef %23, ptr noundef %29)
+  call void @strbuf_setlen(ptr noundef %4, i64 noundef 0)
+  store i32 1, ptr %5, align 4, !tbaa !73
+  %31 = load ptr, ptr %3, align 8, !tbaa !28
+  %32 = call i32 @graph_is_commit_finished(ptr noundef %31)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %46, label %34
 
-if.then7:                                         ; preds = %if.then5
-  %14 = load ptr, ptr %file.addr, align 8
-  %call8 = call i32 @putc(i32 noundef 10, ptr noundef %14)
-  br label %if.end9
+34:                                               ; preds = %17
+  %35 = load ptr, ptr %3, align 8, !tbaa !28
+  %36 = getelementptr inbounds nuw %struct.git_graph, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !78
+  %38 = getelementptr inbounds nuw %struct.rev_info, ptr %37, i32 0, i32 53
+  %39 = getelementptr inbounds nuw %struct.diff_options, ptr %38, i32 0, i32 55
+  %40 = load ptr, ptr %39, align 8, !tbaa !144
+  %41 = call i32 @putc(i32 noundef 10, ptr noundef %40)
+  %42 = load ptr, ptr %3, align 8, !tbaa !28
+  %43 = getelementptr inbounds nuw %struct.git_graph, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !78
+  %45 = getelementptr inbounds nuw %struct.rev_info, ptr %44, i32 0, i32 53
+  call void @graph_show_line_prefix(ptr noundef %45)
+  br label %47
 
-if.end9:                                          ; preds = %if.then7, %if.then5
-  %15 = load ptr, ptr %graph.addr, align 8
-  %call10 = call i32 @graph_show_remainder(ptr noundef %15)
-  %16 = load i32, ptr %newline_terminated, align 4
-  %tobool11 = icmp ne i32 %16, 0
-  br i1 %tobool11, label %if.then12, label %if.end14
+46:                                               ; preds = %17
+  br label %48
 
-if.then12:                                        ; preds = %if.end9
-  %17 = load ptr, ptr %file.addr, align 8
-  %call13 = call i32 @putc(i32 noundef 10, ptr noundef %17)
-  br label %if.end14
+47:                                               ; preds = %34
+  br label %17
 
-if.end14:                                         ; preds = %if.then12, %if.end9
-  br label %if.end15
+48:                                               ; preds = %46
+  call void @strbuf_release(ptr noundef %4)
+  %49 = load i32, ptr %5, align 4, !tbaa !73
+  store i32 %49, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %50
 
-if.end15:                                         ; preds = %if.end14, %land.end, %if.then
-  ret void
+50:                                               ; preds = %48, %15, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #8
+  %51 = load i32, ptr %2, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_show_strbuf(ptr noundef %graph, ptr noundef %file, ptr noundef %sb) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %file.addr = alloca ptr, align 8
-  %sb.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %next_p = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %file, ptr %file.addr, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  %0 = load ptr, ptr %sb.addr, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %buf, align 8
-  store ptr %1, ptr %p, align 8
-  br label %while.cond
+define dso_local void @graph_show_commit_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !149
+  store ptr %2, ptr %6, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !28
+  %10 = load ptr, ptr %5, align 8, !tbaa !149
+  %11 = load ptr, ptr %6, align 8, !tbaa !123
+  call void @graph_show_strbuf(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %15, label %14
 
-while.cond:                                       ; preds = %if.end11, %entry
-  %2 = load ptr, ptr %p, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %while.body, label %while.end
+14:                                               ; preds = %3
+  store i32 1, ptr %8, align 4
+  br label %54
 
-while.body:                                       ; preds = %while.cond
-  %3 = load ptr, ptr %p, align 8
-  %call = call ptr @strchr(ptr noundef %3, i32 noundef 10) #7
-  store ptr %call, ptr %next_p, align 8
-  %4 = load ptr, ptr %next_p, align 8
-  %tobool1 = icmp ne ptr %4, null
-  br i1 %tobool1, label %if.then, label %if.else
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !123
+  %17 = getelementptr inbounds nuw %struct.strbuf, ptr %16, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8, !tbaa !143
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %32
 
-if.then:                                          ; preds = %while.body
-  %5 = load ptr, ptr %next_p, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %next_p, align 8
-  %6 = load ptr, ptr %next_p, align 8
-  %7 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %len, align 8
-  br label %if.end
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %6, align 8, !tbaa !123
+  %22 = getelementptr inbounds nuw %struct.strbuf, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !142
+  %24 = load ptr, ptr %6, align 8, !tbaa !123
+  %25 = getelementptr inbounds nuw %struct.strbuf, ptr %24, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8, !tbaa !143
+  %27 = sub i64 %26, 1
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !134
+  %30 = sext i8 %29 to i32
+  %31 = icmp eq i32 %30, 10
+  br label %32
 
-if.else:                                          ; preds = %while.body
-  %8 = load ptr, ptr %sb.addr, align 8
-  %buf2 = getelementptr inbounds %struct.strbuf, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %buf2, align 8
-  %10 = load ptr, ptr %sb.addr, align 8
-  %len3 = getelementptr inbounds %struct.strbuf, ptr %10, i32 0, i32 1
-  %11 = load i64, ptr %len3, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %11
-  %12 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast4 = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast5 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast4, %sub.ptr.rhs.cast5
-  store i64 %sub.ptr.sub6, ptr %len, align 8
-  br label %if.end
+32:                                               ; preds = %20, %15
+  %33 = phi i1 [ false, %15 ], [ %31, %20 ]
+  %34 = zext i1 %33 to i32
+  store i32 %34, ptr %7, align 4, !tbaa !73
+  %35 = load ptr, ptr %4, align 8, !tbaa !28
+  %36 = call i32 @graph_is_commit_finished(ptr noundef %35)
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %53, label %38
 
-if.end:                                           ; preds = %if.else, %if.then
-  %13 = load ptr, ptr %p, align 8
-  %14 = load i64, ptr %len, align 8
-  %15 = load ptr, ptr %file.addr, align 8
-  %call7 = call i64 @fwrite(ptr noundef %13, i64 noundef 1, i64 noundef %14, ptr noundef %15)
-  %16 = load ptr, ptr %next_p, align 8
-  %tobool8 = icmp ne ptr %16, null
-  br i1 %tobool8, label %land.lhs.true, label %if.end11
+38:                                               ; preds = %32
+  %39 = load i32, ptr %7, align 4, !tbaa !73
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %44, label %41
 
-land.lhs.true:                                    ; preds = %if.end
-  %17 = load ptr, ptr %next_p, align 8
-  %18 = load i8, ptr %17, align 1
-  %conv = sext i8 %18 to i32
-  %cmp = icmp ne i32 %conv, 0
-  br i1 %cmp, label %if.then10, label %if.end11
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %5, align 8, !tbaa !149
+  %43 = call i32 @putc(i32 noundef 10, ptr noundef %42)
+  br label %44
 
-if.then10:                                        ; preds = %land.lhs.true
-  %19 = load ptr, ptr %graph.addr, align 8
-  call void @graph_show_oneline(ptr noundef %19)
-  br label %if.end11
+44:                                               ; preds = %41, %38
+  %45 = load ptr, ptr %4, align 8, !tbaa !28
+  %46 = call i32 @graph_show_remainder(ptr noundef %45)
+  %47 = load i32, ptr %7, align 4, !tbaa !73
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %52
 
-if.end11:                                         ; preds = %if.then10, %land.lhs.true, %if.end
-  %20 = load ptr, ptr %next_p, align 8
-  store ptr %20, ptr %p, align 8
-  br label %while.cond, !llvm.loop !25
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %5, align 8, !tbaa !149
+  %51 = call i32 @putc(i32 noundef 10, ptr noundef %50)
+  br label %52
 
-while.end:                                        ; preds = %while.cond
+52:                                               ; preds = %49, %44
+  br label %53
+
+53:                                               ; preds = %52, %32
+  store i32 0, ptr %8, align 4
+  br label %54
+
+54:                                               ; preds = %53, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  %55 = load i32, ptr %8, align 4
+  switch i32 %55, label %57 [
+    i32 0, label %56
+    i32 1, label %56
+  ]
+
+56:                                               ; preds = %54, %54
+  ret void
+
+57:                                               ; preds = %54
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @graph_show_strbuf(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !149
+  store ptr %2, ptr %6, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %10 = load ptr, ptr %6, align 8, !tbaa !123
+  %11 = getelementptr inbounds nuw %struct.strbuf, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !142
+  store ptr %12, ptr %7, align 8, !tbaa !74
+  br label %13
+
+13:                                               ; preds = %55, %3
+  %14 = load ptr, ptr %7, align 8, !tbaa !74
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %57
+
+16:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %17 = load ptr, ptr %7, align 8, !tbaa !74
+  %18 = call ptr @strchr(ptr noundef %17, i32 noundef 10) #9
+  store ptr %18, ptr %9, align 8, !tbaa !74
+  %19 = load ptr, ptr %9, align 8, !tbaa !74
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %29
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !74
+  %23 = getelementptr inbounds nuw i8, ptr %22, i32 1
+  store ptr %23, ptr %9, align 8, !tbaa !74
+  %24 = load ptr, ptr %9, align 8, !tbaa !74
+  %25 = load ptr, ptr %7, align 8, !tbaa !74
+  %26 = ptrtoint ptr %24 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  store i64 %28, ptr %8, align 8, !tbaa !103
+  br label %41
+
+29:                                               ; preds = %16
+  %30 = load ptr, ptr %6, align 8, !tbaa !123
+  %31 = getelementptr inbounds nuw %struct.strbuf, ptr %30, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8, !tbaa !142
+  %33 = load ptr, ptr %6, align 8, !tbaa !123
+  %34 = getelementptr inbounds nuw %struct.strbuf, ptr %33, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8, !tbaa !143
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
+  %37 = load ptr, ptr %7, align 8, !tbaa !74
+  %38 = ptrtoint ptr %36 to i64
+  %39 = ptrtoint ptr %37 to i64
+  %40 = sub i64 %38, %39
+  store i64 %40, ptr %8, align 8, !tbaa !103
+  br label %41
+
+41:                                               ; preds = %29, %21
+  %42 = load ptr, ptr %7, align 8, !tbaa !74
+  %43 = load i64, ptr %8, align 8, !tbaa !103
+  %44 = load ptr, ptr %5, align 8, !tbaa !149
+  %45 = call i64 @fwrite(ptr noundef %42, i64 noundef 1, i64 noundef %43, ptr noundef %44)
+  %46 = load ptr, ptr %9, align 8, !tbaa !74
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %55
+
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %9, align 8, !tbaa !74
+  %50 = load i8, ptr %49, align 1, !tbaa !134
+  %51 = sext i8 %50 to i32
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %55
+
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @graph_show_oneline(ptr noundef %54)
+  br label %55
+
+55:                                               ; preds = %53, %48, %41
+  %56 = load ptr, ptr %9, align 8, !tbaa !74
+  store ptr %56, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %13, !llvm.loop !150
+
+57:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret void
 }
 
-declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @strbuf_addstr(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8, !tbaa !123
+  %6 = load ptr, ptr %4, align 8, !tbaa !74
+  %7 = load ptr, ptr %4, align 8, !tbaa !74
+  %8 = call i64 @strlen(ptr noundef %7) #9
+  call void @strbuf_add(ptr noundef %5, ptr noundef %6, i64 noundef %8)
+  ret void
+}
+
+declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #6
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchrnul(ptr noundef, i32 noundef) #4
+declare ptr @strchrnul(ptr noundef, i32 noundef) #6
 
-declare i32 @color_parse_mem(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @color_parse_mem(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @strvec_push(ptr noundef, ptr noundef) #1
+declare ptr @strvec_push(ptr noundef, ptr noundef) #2
 
-declare void @warning(ptr noundef, ...) #1
+declare void @warning(ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @_(ptr noundef %msgid) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %msgid.addr = alloca ptr, align 8
-  store ptr %msgid, ptr %msgid.addr, align 8
-  %0 = load ptr, ptr %msgid.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %if.end, label %if.then
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = load i8, ptr %4, align 1, !tbaa !134
+  %6 = icmp ne i8 %5, 0
+  br i1 %6, label %8, label %7
 
-if.then:                                          ; preds = %entry
-  store ptr @.str.3, ptr %retval, align 8
-  br label %return
+7:                                                ; preds = %1
+  store ptr @.str.3, ptr %2, align 8
+  br label %16
 
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1 = icmp ne i32 %2, 0
-  br i1 %tobool1, label %if.end3, label %if.then2
+8:                                                ; preds = %1
+  %9 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !73
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %13, label %11
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %msgid.addr, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %3, align 8, !tbaa !74
+  store ptr %12, ptr %2, align 8
+  br label %16
 
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %msgid.addr, align 8
-  %call = call ptr @gettext(ptr noundef %4) #6
-  store ptr %call, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %3, align 8, !tbaa !74
+  %15 = call ptr @dcgettext(ptr noundef null, ptr noundef %14, i32 noundef 5) #8
+  store ptr %15, ptr %2, align 8
+  br label %16
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+16:                                               ; preds = %13, %11, %7
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) #2
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #5
+declare void @die(ptr noundef, ...) #7
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @graph_is_interesting(ptr noundef %graph, ptr noundef %commit) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %graph.addr = alloca ptr, align 8
-  %commit.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %commit, ptr %commit.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %revs, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %land.lhs.true, label %if.end7
+define internal i32 @graph_is_interesting(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !104
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = getelementptr inbounds nuw %struct.git_graph, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !78
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %29
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %graph.addr, align 8
-  %revs1 = getelementptr inbounds %struct.git_graph, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %revs1, align 8
-  %boundary = getelementptr inbounds %struct.rev_info, ptr %3, i32 0, i32 14
-  %bf.load = load i64, ptr %boundary, align 8
-  %bf.lshr = lshr i64 %bf.load, 22
-  %bf.clear = and i64 %bf.lshr, 3
-  %bf.cast = trunc i64 %bf.clear to i32
-  %tobool2 = icmp ne i32 %bf.cast, 0
-  br i1 %tobool2, label %if.then, label %if.end7
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = getelementptr inbounds nuw %struct.git_graph, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !78
+  %14 = getelementptr inbounds nuw %struct.rev_info, ptr %13, i32 0, i32 15
+  %15 = load i64, ptr %14, align 8
+  %16 = lshr i64 %15, 22
+  %17 = and i64 %16, 3
+  %18 = trunc i64 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %29
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %commit.addr, align 8
-  %object = getelementptr inbounds %struct.commit, ptr %4, i32 0, i32 0
-  %bf.load3 = load i32, ptr %object, align 8
-  %bf.lshr4 = lshr i32 %bf.load3, 4
-  %and = and i32 %bf.lshr4, 64
-  %tobool5 = icmp ne i32 %and, 0
-  br i1 %tobool5, label %if.then6, label %if.end
+20:                                               ; preds = %10
+  %21 = load ptr, ptr %5, align 8, !tbaa !104
+  %22 = getelementptr inbounds nuw %struct.commit, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8
+  %24 = lshr i32 %23, 4
+  %25 = and i32 %24, 64
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %28
 
-if.then6:                                         ; preds = %if.then
-  store i32 1, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %20
+  store i32 1, ptr %3, align 4
+  br label %37
 
-if.end:                                           ; preds = %if.then
-  br label %if.end7
+28:                                               ; preds = %20
+  br label %29
 
-if.end7:                                          ; preds = %if.end, %land.lhs.true, %entry
-  %5 = load ptr, ptr %graph.addr, align 8
-  %revs8 = getelementptr inbounds %struct.git_graph, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %revs8, align 8
-  %7 = load ptr, ptr %commit.addr, align 8
-  %call = call i32 @get_commit_action(ptr noundef %6, ptr noundef %7)
-  %cmp = icmp eq i32 %call, 1
-  %conv = zext i1 %cmp to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %28, %10, %2
+  %30 = load ptr, ptr %4, align 8, !tbaa !28
+  %31 = getelementptr inbounds nuw %struct.git_graph, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !78
+  %33 = load ptr, ptr %5, align 8, !tbaa !104
+  %34 = call i32 @get_commit_action(ptr noundef %32, ptr noundef %33)
+  %35 = icmp eq i32 %34, 1
+  %36 = zext i1 %35 to i32
+  store i32 %36, ptr %3, align 4
+  br label %37
 
-return:                                           ; preds = %if.end7, %if.then6
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+37:                                               ; preds = %29, %27
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
-declare i32 @get_commit_action(ptr noundef, ptr noundef) #1
+declare i32 @get_commit_action(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_ensure_capacity(ptr noundef %graph, i32 noundef %num_columns) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %num_columns.addr = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store i32 %num_columns, ptr %num_columns.addr, align 4
-  %0 = load ptr, ptr %graph.addr, align 8
-  %column_capacity = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 12
-  %1 = load i32, ptr %column_capacity, align 8
-  %2 = load i32, ptr %num_columns.addr, align 4
-  %cmp = icmp sge i32 %1, %2
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @graph_ensure_capacity(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i32 %1, ptr %4, align 4, !tbaa !73
+  %5 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = getelementptr inbounds nuw %struct.git_graph, ptr %5, i32 0, i32 12
+  %7 = load i32, ptr %6, align 8, !tbaa !92
+  %8 = load i32, ptr %4, align 4, !tbaa !73
+  %9 = icmp sge i32 %7, %8
+  br i1 %9, label %10, label %11
 
-if.then:                                          ; preds = %entry
-  br label %return
+10:                                               ; preds = %2
+  br label %70
 
-if.end:                                           ; preds = %entry
-  br label %do.body
+11:                                               ; preds = %2
+  br label %12
 
-do.body:                                          ; preds = %do.cond, %if.end
-  %3 = load ptr, ptr %graph.addr, align 8
-  %column_capacity1 = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 12
-  %4 = load i32, ptr %column_capacity1, align 8
-  %mul = mul nsw i32 %4, 2
-  store i32 %mul, ptr %column_capacity1, align 8
-  br label %do.cond
+12:                                               ; preds = %17, %11
+  %13 = load ptr, ptr %3, align 8, !tbaa !28
+  %14 = getelementptr inbounds nuw %struct.git_graph, ptr %13, i32 0, i32 12
+  %15 = load i32, ptr %14, align 8, !tbaa !92
+  %16 = mul nsw i32 %15, 2
+  store i32 %16, ptr %14, align 8, !tbaa !92
+  br label %17
 
-do.cond:                                          ; preds = %do.body
-  %5 = load ptr, ptr %graph.addr, align 8
-  %column_capacity2 = getelementptr inbounds %struct.git_graph, ptr %5, i32 0, i32 12
-  %6 = load i32, ptr %column_capacity2, align 8
-  %7 = load i32, ptr %num_columns.addr, align 4
-  %cmp3 = icmp slt i32 %6, %7
-  br i1 %cmp3, label %do.body, label %do.end, !llvm.loop !26
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw %struct.git_graph, ptr %18, i32 0, i32 12
+  %20 = load i32, ptr %19, align 8, !tbaa !92
+  %21 = load i32, ptr %4, align 4, !tbaa !73
+  %22 = icmp slt i32 %20, %21
+  br i1 %22, label %12, label %23, !llvm.loop !151
 
-do.end:                                           ; preds = %do.cond
-  %8 = load ptr, ptr %graph.addr, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %8, i32 0, i32 16
-  %9 = load ptr, ptr %columns, align 8
-  %10 = load ptr, ptr %graph.addr, align 8
-  %column_capacity4 = getelementptr inbounds %struct.git_graph, ptr %10, i32 0, i32 12
-  %11 = load i32, ptr %column_capacity4, align 8
-  %conv = sext i32 %11 to i64
-  %call = call i64 @st_mult(i64 noundef 16, i64 noundef %conv)
-  %call5 = call ptr @xrealloc(ptr noundef %9, i64 noundef %call)
-  %12 = load ptr, ptr %graph.addr, align 8
-  %columns6 = getelementptr inbounds %struct.git_graph, ptr %12, i32 0, i32 16
-  store ptr %call5, ptr %columns6, align 8
-  %13 = load ptr, ptr %graph.addr, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %13, i32 0, i32 17
-  %14 = load ptr, ptr %new_columns, align 8
-  %15 = load ptr, ptr %graph.addr, align 8
-  %column_capacity7 = getelementptr inbounds %struct.git_graph, ptr %15, i32 0, i32 12
-  %16 = load i32, ptr %column_capacity7, align 8
-  %conv8 = sext i32 %16 to i64
-  %call9 = call i64 @st_mult(i64 noundef 16, i64 noundef %conv8)
-  %call10 = call ptr @xrealloc(ptr noundef %14, i64 noundef %call9)
-  %17 = load ptr, ptr %graph.addr, align 8
-  %new_columns11 = getelementptr inbounds %struct.git_graph, ptr %17, i32 0, i32 17
-  store ptr %call10, ptr %new_columns11, align 8
-  %18 = load ptr, ptr %graph.addr, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %18, i32 0, i32 18
-  %19 = load ptr, ptr %mapping, align 8
-  %20 = load ptr, ptr %graph.addr, align 8
-  %column_capacity12 = getelementptr inbounds %struct.git_graph, ptr %20, i32 0, i32 12
-  %21 = load i32, ptr %column_capacity12, align 8
-  %mul13 = mul nsw i32 %21, 2
-  %conv14 = sext i32 %mul13 to i64
-  %call15 = call i64 @st_mult(i64 noundef 4, i64 noundef %conv14)
-  %call16 = call ptr @xrealloc(ptr noundef %19, i64 noundef %call15)
-  %22 = load ptr, ptr %graph.addr, align 8
-  %mapping17 = getelementptr inbounds %struct.git_graph, ptr %22, i32 0, i32 18
-  store ptr %call16, ptr %mapping17, align 8
-  %23 = load ptr, ptr %graph.addr, align 8
-  %old_mapping = getelementptr inbounds %struct.git_graph, ptr %23, i32 0, i32 19
-  %24 = load ptr, ptr %old_mapping, align 8
-  %25 = load ptr, ptr %graph.addr, align 8
-  %column_capacity18 = getelementptr inbounds %struct.git_graph, ptr %25, i32 0, i32 12
-  %26 = load i32, ptr %column_capacity18, align 8
-  %mul19 = mul nsw i32 %26, 2
-  %conv20 = sext i32 %mul19 to i64
-  %call21 = call i64 @st_mult(i64 noundef 4, i64 noundef %conv20)
-  %call22 = call ptr @xrealloc(ptr noundef %24, i64 noundef %call21)
-  %27 = load ptr, ptr %graph.addr, align 8
-  %old_mapping23 = getelementptr inbounds %struct.git_graph, ptr %27, i32 0, i32 19
-  store ptr %call22, ptr %old_mapping23, align 8
-  br label %return
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %3, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw %struct.git_graph, ptr %24, i32 0, i32 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !93
+  %27 = load ptr, ptr %3, align 8, !tbaa !28
+  %28 = getelementptr inbounds nuw %struct.git_graph, ptr %27, i32 0, i32 12
+  %29 = load i32, ptr %28, align 8, !tbaa !92
+  %30 = sext i32 %29 to i64
+  %31 = call i64 @st_mult(i64 noundef 16, i64 noundef %30)
+  %32 = call ptr @xrealloc(ptr noundef %26, i64 noundef %31)
+  %33 = load ptr, ptr %3, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw %struct.git_graph, ptr %33, i32 0, i32 16
+  store ptr %32, ptr %34, align 8, !tbaa !93
+  %35 = load ptr, ptr %3, align 8, !tbaa !28
+  %36 = getelementptr inbounds nuw %struct.git_graph, ptr %35, i32 0, i32 17
+  %37 = load ptr, ptr %36, align 8, !tbaa !94
+  %38 = load ptr, ptr %3, align 8, !tbaa !28
+  %39 = getelementptr inbounds nuw %struct.git_graph, ptr %38, i32 0, i32 12
+  %40 = load i32, ptr %39, align 8, !tbaa !92
+  %41 = sext i32 %40 to i64
+  %42 = call i64 @st_mult(i64 noundef 16, i64 noundef %41)
+  %43 = call ptr @xrealloc(ptr noundef %37, i64 noundef %42)
+  %44 = load ptr, ptr %3, align 8, !tbaa !28
+  %45 = getelementptr inbounds nuw %struct.git_graph, ptr %44, i32 0, i32 17
+  store ptr %43, ptr %45, align 8, !tbaa !94
+  %46 = load ptr, ptr %3, align 8, !tbaa !28
+  %47 = getelementptr inbounds nuw %struct.git_graph, ptr %46, i32 0, i32 18
+  %48 = load ptr, ptr %47, align 8, !tbaa !95
+  %49 = load ptr, ptr %3, align 8, !tbaa !28
+  %50 = getelementptr inbounds nuw %struct.git_graph, ptr %49, i32 0, i32 12
+  %51 = load i32, ptr %50, align 8, !tbaa !92
+  %52 = mul nsw i32 %51, 2
+  %53 = sext i32 %52 to i64
+  %54 = call i64 @st_mult(i64 noundef 4, i64 noundef %53)
+  %55 = call ptr @xrealloc(ptr noundef %48, i64 noundef %54)
+  %56 = load ptr, ptr %3, align 8, !tbaa !28
+  %57 = getelementptr inbounds nuw %struct.git_graph, ptr %56, i32 0, i32 18
+  store ptr %55, ptr %57, align 8, !tbaa !95
+  %58 = load ptr, ptr %3, align 8, !tbaa !28
+  %59 = getelementptr inbounds nuw %struct.git_graph, ptr %58, i32 0, i32 19
+  %60 = load ptr, ptr %59, align 8, !tbaa !96
+  %61 = load ptr, ptr %3, align 8, !tbaa !28
+  %62 = getelementptr inbounds nuw %struct.git_graph, ptr %61, i32 0, i32 12
+  %63 = load i32, ptr %62, align 8, !tbaa !92
+  %64 = mul nsw i32 %63, 2
+  %65 = sext i32 %64 to i64
+  %66 = call i64 @st_mult(i64 noundef 4, i64 noundef %65)
+  %67 = call ptr @xrealloc(ptr noundef %60, i64 noundef %66)
+  %68 = load ptr, ptr %3, align 8, !tbaa !28
+  %69 = getelementptr inbounds nuw %struct.git_graph, ptr %68, i32 0, i32 19
+  store ptr %67, ptr %69, align 8, !tbaa !96
+  br label %70
 
-return:                                           ; preds = %do.end, %if.then
+70:                                               ; preds = %23, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_increment_column_color(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %default_column_color = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 20
-  %1 = load i16, ptr %default_column_color, align 8
-  %conv = zext i16 %1 to i32
-  %add = add nsw i32 %conv, 1
-  %2 = load i16, ptr @column_colors_max, align 2
-  %conv1 = zext i16 %2 to i32
-  %rem = srem i32 %add, %conv1
-  %conv2 = trunc i32 %rem to i16
-  %3 = load ptr, ptr %graph.addr, align 8
-  %default_column_color3 = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 20
-  store i16 %conv2, ptr %default_column_color3, align 8
+define internal void @graph_increment_column_color(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %4 = getelementptr inbounds nuw %struct.git_graph, ptr %3, i32 0, i32 20
+  %5 = load i16, ptr %4, align 8, !tbaa !91
+  %6 = zext i16 %5 to i32
+  %7 = add nsw i32 %6, 1
+  %8 = load i16, ptr @column_colors_max, align 2, !tbaa !9
+  %9 = zext i16 %8 to i32
+  %10 = srem i32 %7, %9
+  %11 = trunc i32 %10 to i16
+  %12 = load ptr, ptr %2, align 8, !tbaa !28
+  %13 = getelementptr inbounds nuw %struct.git_graph, ptr %12, i32 0, i32 20
+  store i16 %11, ptr %13, align 8, !tbaa !91
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_insert_into_new_columns(ptr noundef %graph, ptr noundef %commit, i32 noundef %idx) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %commit.addr = alloca ptr, align 8
-  %idx.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %mapping_idx = alloca i32, align 4
-  %dist = alloca i32, align 4
-  %shift = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %commit, ptr %commit.addr, align 8
-  store i32 %idx, ptr %idx.addr, align 4
-  %0 = load ptr, ptr %graph.addr, align 8
-  %1 = load ptr, ptr %commit.addr, align 8
-  %call = call i32 @graph_find_new_column_by_commit(ptr noundef %0, ptr noundef %1)
-  store i32 %call, ptr %i, align 4
-  %2 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @graph_insert_into_new_columns(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !104
+  store i32 %2, ptr %6, align 4, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %11 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %5, align 8, !tbaa !104
+  %13 = call i32 @graph_find_new_column_by_commit(ptr noundef %11, ptr noundef %12)
+  store i32 %13, ptr %7, align 4, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %14 = load i32, ptr %7, align 4, !tbaa !73
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %39
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %graph.addr, align 8
-  %num_new_columns = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 14
-  %4 = load i32, ptr %num_new_columns, align 8
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %num_new_columns, align 8
-  store i32 %4, ptr %i, align 4
-  %5 = load ptr, ptr %commit.addr, align 8
-  %6 = load ptr, ptr %graph.addr, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %6, i32 0, i32 17
-  %7 = load ptr, ptr %new_columns, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx = getelementptr inbounds %struct.column, ptr %7, i64 %idxprom
-  %commit1 = getelementptr inbounds %struct.column, ptr %arrayidx, i32 0, i32 0
-  store ptr %5, ptr %commit1, align 8
-  %9 = load ptr, ptr %graph.addr, align 8
-  %10 = load ptr, ptr %commit.addr, align 8
-  %call2 = call zeroext i16 @graph_find_commit_color(ptr noundef %9, ptr noundef %10)
-  %11 = load ptr, ptr %graph.addr, align 8
-  %new_columns3 = getelementptr inbounds %struct.git_graph, ptr %11, i32 0, i32 17
-  %12 = load ptr, ptr %new_columns3, align 8
-  %13 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %13 to i64
-  %arrayidx5 = getelementptr inbounds %struct.column, ptr %12, i64 %idxprom4
-  %color = getelementptr inbounds %struct.column, ptr %arrayidx5, i32 0, i32 1
-  store i16 %call2, ptr %color, align 8
-  br label %if.end
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw %struct.git_graph, ptr %17, i32 0, i32 14
+  %19 = load i32, ptr %18, align 8, !tbaa !89
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %18, align 8, !tbaa !89
+  store i32 %19, ptr %7, align 4, !tbaa !73
+  %21 = load ptr, ptr %5, align 8, !tbaa !104
+  %22 = load ptr, ptr %4, align 8, !tbaa !28
+  %23 = getelementptr inbounds nuw %struct.git_graph, ptr %22, i32 0, i32 17
+  %24 = load ptr, ptr %23, align 8, !tbaa !94
+  %25 = load i32, ptr %7, align 4, !tbaa !73
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds %struct.column, ptr %24, i64 %26
+  %28 = getelementptr inbounds nuw %struct.column, ptr %27, i32 0, i32 0
+  store ptr %21, ptr %28, align 8, !tbaa !118
+  %29 = load ptr, ptr %4, align 8, !tbaa !28
+  %30 = load ptr, ptr %5, align 8, !tbaa !104
+  %31 = call zeroext i16 @graph_find_commit_color(ptr noundef %29, ptr noundef %30)
+  %32 = load ptr, ptr %4, align 8, !tbaa !28
+  %33 = getelementptr inbounds nuw %struct.git_graph, ptr %32, i32 0, i32 17
+  %34 = load ptr, ptr %33, align 8, !tbaa !94
+  %35 = load i32, ptr %7, align 4, !tbaa !73
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %struct.column, ptr %34, i64 %36
+  %38 = getelementptr inbounds nuw %struct.column, ptr %37, i32 0, i32 1
+  store i16 %31, ptr %38, align 8, !tbaa !152
+  br label %39
 
-if.end:                                           ; preds = %if.then, %entry
-  %14 = load ptr, ptr %graph.addr, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %14, i32 0, i32 2
-  %15 = load i32, ptr %num_parents, align 8
-  %cmp6 = icmp sgt i32 %15, 1
-  br i1 %cmp6, label %land.lhs.true, label %if.else
+39:                                               ; preds = %16, %3
+  %40 = load ptr, ptr %4, align 8, !tbaa !28
+  %41 = getelementptr inbounds nuw %struct.git_graph, ptr %40, i32 0, i32 2
+  %42 = load i32, ptr %41, align 8, !tbaa !79
+  %43 = icmp sgt i32 %42, 1
+  br i1 %43, label %44, label %98
 
-land.lhs.true:                                    ; preds = %if.end
-  %16 = load i32, ptr %idx.addr, align 4
-  %cmp7 = icmp sgt i32 %16, -1
-  br i1 %cmp7, label %land.lhs.true8, label %if.else
+44:                                               ; preds = %39
+  %45 = load i32, ptr %6, align 4, !tbaa !73
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %47, label %98
 
-land.lhs.true8:                                   ; preds = %land.lhs.true
-  %17 = load ptr, ptr %graph.addr, align 8
-  %merge_layout = getelementptr inbounds %struct.git_graph, ptr %17, i32 0, i32 9
-  %18 = load i32, ptr %merge_layout, align 4
-  %cmp9 = icmp eq i32 %18, -1
-  br i1 %cmp9, label %if.then10, label %if.else
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %4, align 8, !tbaa !28
+  %49 = getelementptr inbounds nuw %struct.git_graph, ptr %48, i32 0, i32 9
+  %50 = load i32, ptr %49, align 4, !tbaa !85
+  %51 = icmp eq i32 %50, -1
+  br i1 %51, label %52, label %98
 
-if.then10:                                        ; preds = %land.lhs.true8
-  %19 = load i32, ptr %idx.addr, align 4
-  %20 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 %19, %20
-  store i32 %sub, ptr %dist, align 4
-  %21 = load i32, ptr %dist, align 4
-  %cmp11 = icmp sgt i32 %21, 1
-  br i1 %cmp11, label %cond.true, label %cond.false
+52:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %53 = load i32, ptr %6, align 4, !tbaa !73
+  %54 = load i32, ptr %7, align 4, !tbaa !73
+  %55 = sub nsw i32 %53, %54
+  store i32 %55, ptr %9, align 4, !tbaa !73
+  %56 = load i32, ptr %9, align 4, !tbaa !73
+  %57 = icmp sgt i32 %56, 1
+  br i1 %57, label %58, label %62
 
-cond.true:                                        ; preds = %if.then10
-  %22 = load i32, ptr %dist, align 4
-  %mul = mul nsw i32 2, %22
-  %sub12 = sub nsw i32 %mul, 3
-  br label %cond.end
+58:                                               ; preds = %52
+  %59 = load i32, ptr %9, align 4, !tbaa !73
+  %60 = mul nsw i32 2, %59
+  %61 = sub nsw i32 %60, 3
+  br label %63
 
-cond.false:                                       ; preds = %if.then10
-  br label %cond.end
+62:                                               ; preds = %52
+  br label %63
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %sub12, %cond.true ], [ 1, %cond.false ]
-  store i32 %cond, ptr %shift, align 4
-  %23 = load i32, ptr %dist, align 4
-  %cmp13 = icmp sgt i32 %23, 0
-  %cond14 = select i1 %cmp13, i32 0, i32 1
-  %24 = load ptr, ptr %graph.addr, align 8
-  %merge_layout15 = getelementptr inbounds %struct.git_graph, ptr %24, i32 0, i32 9
-  store i32 %cond14, ptr %merge_layout15, align 4
-  %25 = load ptr, ptr %graph.addr, align 8
-  %num_parents16 = getelementptr inbounds %struct.git_graph, ptr %25, i32 0, i32 2
-  %26 = load i32, ptr %num_parents16, align 8
-  %27 = load ptr, ptr %graph.addr, align 8
-  %merge_layout17 = getelementptr inbounds %struct.git_graph, ptr %27, i32 0, i32 9
-  %28 = load i32, ptr %merge_layout17, align 4
-  %add = add nsw i32 %26, %28
-  %sub18 = sub nsw i32 %add, 2
-  %29 = load ptr, ptr %graph.addr, align 8
-  %edges_added = getelementptr inbounds %struct.git_graph, ptr %29, i32 0, i32 10
-  store i32 %sub18, ptr %edges_added, align 8
-  %30 = load ptr, ptr %graph.addr, align 8
-  %width = getelementptr inbounds %struct.git_graph, ptr %30, i32 0, i32 3
-  %31 = load i32, ptr %width, align 4
-  %32 = load ptr, ptr %graph.addr, align 8
-  %merge_layout19 = getelementptr inbounds %struct.git_graph, ptr %32, i32 0, i32 9
-  %33 = load i32, ptr %merge_layout19, align 4
-  %sub20 = sub nsw i32 %33, 1
-  %34 = load i32, ptr %shift, align 4
-  %mul21 = mul nsw i32 %sub20, %34
-  %add22 = add nsw i32 %31, %mul21
-  store i32 %add22, ptr %mapping_idx, align 4
-  %35 = load ptr, ptr %graph.addr, align 8
-  %merge_layout23 = getelementptr inbounds %struct.git_graph, ptr %35, i32 0, i32 9
-  %36 = load i32, ptr %merge_layout23, align 4
-  %mul24 = mul nsw i32 2, %36
-  %37 = load ptr, ptr %graph.addr, align 8
-  %width25 = getelementptr inbounds %struct.git_graph, ptr %37, i32 0, i32 3
-  %38 = load i32, ptr %width25, align 4
-  %add26 = add nsw i32 %38, %mul24
-  store i32 %add26, ptr %width25, align 4
-  br label %if.end44
+63:                                               ; preds = %62, %58
+  %64 = phi i32 [ %61, %58 ], [ 1, %62 ]
+  store i32 %64, ptr %10, align 4, !tbaa !73
+  %65 = load i32, ptr %9, align 4, !tbaa !73
+  %66 = icmp sgt i32 %65, 0
+  %67 = select i1 %66, i32 0, i32 1
+  %68 = load ptr, ptr %4, align 8, !tbaa !28
+  %69 = getelementptr inbounds nuw %struct.git_graph, ptr %68, i32 0, i32 9
+  store i32 %67, ptr %69, align 4, !tbaa !85
+  %70 = load ptr, ptr %4, align 8, !tbaa !28
+  %71 = getelementptr inbounds nuw %struct.git_graph, ptr %70, i32 0, i32 2
+  %72 = load i32, ptr %71, align 8, !tbaa !79
+  %73 = load ptr, ptr %4, align 8, !tbaa !28
+  %74 = getelementptr inbounds nuw %struct.git_graph, ptr %73, i32 0, i32 9
+  %75 = load i32, ptr %74, align 4, !tbaa !85
+  %76 = add nsw i32 %72, %75
+  %77 = sub nsw i32 %76, 2
+  %78 = load ptr, ptr %4, align 8, !tbaa !28
+  %79 = getelementptr inbounds nuw %struct.git_graph, ptr %78, i32 0, i32 10
+  store i32 %77, ptr %79, align 8, !tbaa !86
+  %80 = load ptr, ptr %4, align 8, !tbaa !28
+  %81 = getelementptr inbounds nuw %struct.git_graph, ptr %80, i32 0, i32 3
+  %82 = load i32, ptr %81, align 4, !tbaa !117
+  %83 = load ptr, ptr %4, align 8, !tbaa !28
+  %84 = getelementptr inbounds nuw %struct.git_graph, ptr %83, i32 0, i32 9
+  %85 = load i32, ptr %84, align 4, !tbaa !85
+  %86 = sub nsw i32 %85, 1
+  %87 = load i32, ptr %10, align 4, !tbaa !73
+  %88 = mul nsw i32 %86, %87
+  %89 = add nsw i32 %82, %88
+  store i32 %89, ptr %8, align 4, !tbaa !73
+  %90 = load ptr, ptr %4, align 8, !tbaa !28
+  %91 = getelementptr inbounds nuw %struct.git_graph, ptr %90, i32 0, i32 9
+  %92 = load i32, ptr %91, align 4, !tbaa !85
+  %93 = mul nsw i32 2, %92
+  %94 = load ptr, ptr %4, align 8, !tbaa !28
+  %95 = getelementptr inbounds nuw %struct.git_graph, ptr %94, i32 0, i32 3
+  %96 = load i32, ptr %95, align 4, !tbaa !117
+  %97 = add nsw i32 %96, %93
+  store i32 %97, ptr %95, align 4, !tbaa !117
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %132
 
-if.else:                                          ; preds = %land.lhs.true8, %land.lhs.true, %if.end
-  %39 = load ptr, ptr %graph.addr, align 8
-  %edges_added27 = getelementptr inbounds %struct.git_graph, ptr %39, i32 0, i32 10
-  %40 = load i32, ptr %edges_added27, align 8
-  %cmp28 = icmp sgt i32 %40, 0
-  br i1 %cmp28, label %land.lhs.true29, label %if.else39
+98:                                               ; preds = %47, %44, %39
+  %99 = load ptr, ptr %4, align 8, !tbaa !28
+  %100 = getelementptr inbounds nuw %struct.git_graph, ptr %99, i32 0, i32 10
+  %101 = load i32, ptr %100, align 8, !tbaa !86
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %103, label %123
 
-land.lhs.true29:                                  ; preds = %if.else
-  %41 = load i32, ptr %i, align 4
-  %42 = load ptr, ptr %graph.addr, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %42, i32 0, i32 18
-  %43 = load ptr, ptr %mapping, align 8
-  %44 = load ptr, ptr %graph.addr, align 8
-  %width30 = getelementptr inbounds %struct.git_graph, ptr %44, i32 0, i32 3
-  %45 = load i32, ptr %width30, align 4
-  %sub31 = sub nsw i32 %45, 2
-  %idxprom32 = sext i32 %sub31 to i64
-  %arrayidx33 = getelementptr inbounds i32, ptr %43, i64 %idxprom32
-  %46 = load i32, ptr %arrayidx33, align 4
-  %cmp34 = icmp eq i32 %41, %46
-  br i1 %cmp34, label %if.then35, label %if.else39
+103:                                              ; preds = %98
+  %104 = load i32, ptr %7, align 4, !tbaa !73
+  %105 = load ptr, ptr %4, align 8, !tbaa !28
+  %106 = getelementptr inbounds nuw %struct.git_graph, ptr %105, i32 0, i32 18
+  %107 = load ptr, ptr %106, align 8, !tbaa !95
+  %108 = load ptr, ptr %4, align 8, !tbaa !28
+  %109 = getelementptr inbounds nuw %struct.git_graph, ptr %108, i32 0, i32 3
+  %110 = load i32, ptr %109, align 4, !tbaa !117
+  %111 = sub nsw i32 %110, 2
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %107, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !73
+  %115 = icmp eq i32 %104, %114
+  br i1 %115, label %116, label %123
 
-if.then35:                                        ; preds = %land.lhs.true29
-  %47 = load ptr, ptr %graph.addr, align 8
-  %width36 = getelementptr inbounds %struct.git_graph, ptr %47, i32 0, i32 3
-  %48 = load i32, ptr %width36, align 4
-  %sub37 = sub nsw i32 %48, 2
-  store i32 %sub37, ptr %mapping_idx, align 4
-  %49 = load ptr, ptr %graph.addr, align 8
-  %edges_added38 = getelementptr inbounds %struct.git_graph, ptr %49, i32 0, i32 10
-  store i32 -1, ptr %edges_added38, align 8
-  br label %if.end43
+116:                                              ; preds = %103
+  %117 = load ptr, ptr %4, align 8, !tbaa !28
+  %118 = getelementptr inbounds nuw %struct.git_graph, ptr %117, i32 0, i32 3
+  %119 = load i32, ptr %118, align 4, !tbaa !117
+  %120 = sub nsw i32 %119, 2
+  store i32 %120, ptr %8, align 4, !tbaa !73
+  %121 = load ptr, ptr %4, align 8, !tbaa !28
+  %122 = getelementptr inbounds nuw %struct.git_graph, ptr %121, i32 0, i32 10
+  store i32 -1, ptr %122, align 8, !tbaa !86
+  br label %131
 
-if.else39:                                        ; preds = %land.lhs.true29, %if.else
-  %50 = load ptr, ptr %graph.addr, align 8
-  %width40 = getelementptr inbounds %struct.git_graph, ptr %50, i32 0, i32 3
-  %51 = load i32, ptr %width40, align 4
-  store i32 %51, ptr %mapping_idx, align 4
-  %52 = load ptr, ptr %graph.addr, align 8
-  %width41 = getelementptr inbounds %struct.git_graph, ptr %52, i32 0, i32 3
-  %53 = load i32, ptr %width41, align 4
-  %add42 = add nsw i32 %53, 2
-  store i32 %add42, ptr %width41, align 4
-  br label %if.end43
+123:                                              ; preds = %103, %98
+  %124 = load ptr, ptr %4, align 8, !tbaa !28
+  %125 = getelementptr inbounds nuw %struct.git_graph, ptr %124, i32 0, i32 3
+  %126 = load i32, ptr %125, align 4, !tbaa !117
+  store i32 %126, ptr %8, align 4, !tbaa !73
+  %127 = load ptr, ptr %4, align 8, !tbaa !28
+  %128 = getelementptr inbounds nuw %struct.git_graph, ptr %127, i32 0, i32 3
+  %129 = load i32, ptr %128, align 4, !tbaa !117
+  %130 = add nsw i32 %129, 2
+  store i32 %130, ptr %128, align 4, !tbaa !117
+  br label %131
 
-if.end43:                                         ; preds = %if.else39, %if.then35
-  br label %if.end44
+131:                                              ; preds = %123, %116
+  br label %132
 
-if.end44:                                         ; preds = %if.end43, %cond.end
-  %54 = load i32, ptr %i, align 4
-  %55 = load ptr, ptr %graph.addr, align 8
-  %mapping45 = getelementptr inbounds %struct.git_graph, ptr %55, i32 0, i32 18
-  %56 = load ptr, ptr %mapping45, align 8
-  %57 = load i32, ptr %mapping_idx, align 4
-  %idxprom46 = sext i32 %57 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %56, i64 %idxprom46
-  store i32 %54, ptr %arrayidx47, align 4
+132:                                              ; preds = %131, %63
+  %133 = load i32, ptr %7, align 4, !tbaa !73
+  %134 = load ptr, ptr %4, align 8, !tbaa !28
+  %135 = getelementptr inbounds nuw %struct.git_graph, ptr %134, i32 0, i32 18
+  %136 = load ptr, ptr %135, align 8, !tbaa !95
+  %137 = load i32, ptr %8, align 4, !tbaa !73
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i32, ptr %136, i64 %138
+  store i32 %133, ptr %139, align 4, !tbaa !73
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
   ret void
 }
 
-declare ptr @xrealloc(ptr noundef, i64 noundef) #1
+declare ptr @xrealloc(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @graph_find_new_column_by_commit(ptr noundef %graph, ptr noundef %commit) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %graph.addr = alloca ptr, align 8
-  %commit.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %commit, ptr %commit.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal i32 @graph_find_new_column_by_commit(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !104
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  store i32 0, ptr %6, align 4, !tbaa !73
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %graph.addr, align 8
-  %num_new_columns = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 14
-  %2 = load i32, ptr %num_new_columns, align 8
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+8:                                                ; preds = %28, %2
+  %9 = load i32, ptr %6, align 4, !tbaa !73
+  %10 = load ptr, ptr %4, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %struct.git_graph, ptr %10, i32 0, i32 14
+  %12 = load i32, ptr %11, align 8, !tbaa !89
+  %13 = icmp slt i32 %9, %12
+  br i1 %13, label %14, label %31
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %graph.addr, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 17
-  %4 = load ptr, ptr %new_columns, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.column, ptr %4, i64 %idxprom
-  %commit1 = getelementptr inbounds %struct.column, ptr %arrayidx, i32 0, i32 0
-  %6 = load ptr, ptr %commit1, align 8
-  %7 = load ptr, ptr %commit.addr, align 8
-  %cmp2 = icmp eq ptr %6, %7
-  br i1 %cmp2, label %if.then, label %if.end
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %4, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %struct.git_graph, ptr %15, i32 0, i32 17
+  %17 = load ptr, ptr %16, align 8, !tbaa !94
+  %18 = load i32, ptr %6, align 4, !tbaa !73
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds %struct.column, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %struct.column, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !118
+  %23 = load ptr, ptr %5, align 8, !tbaa !104
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %25, label %27
 
-if.then:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %14
+  %26 = load i32, ptr %6, align 4, !tbaa !73
+  store i32 %26, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %32
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+27:                                               ; preds = %14
+  br label %28
 
-for.inc:                                          ; preds = %if.end
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !27
+28:                                               ; preds = %27
+  %29 = load i32, ptr %6, align 4, !tbaa !73
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %6, align 4, !tbaa !73
+  br label %8, !llvm.loop !153
 
-for.end:                                          ; preds = %for.cond
-  store i32 -1, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %8
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %32
 
-return:                                           ; preds = %for.end, %if.then
-  %10 = load i32, ptr %retval, align 4
+32:                                               ; preds = %31, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %33 = load i32, ptr %3, align 4
+  ret i32 %33
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i16 @graph_find_commit_color(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i16, align 2
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !104
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  store i32 0, ptr %6, align 4, !tbaa !73
+  br label %8
+
+8:                                                ; preds = %35, %2
+  %9 = load i32, ptr %6, align 4, !tbaa !73
+  %10 = load ptr, ptr %4, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %struct.git_graph, ptr %10, i32 0, i32 13
+  %12 = load i32, ptr %11, align 4, !tbaa !88
+  %13 = icmp slt i32 %9, %12
+  br i1 %13, label %14, label %38
+
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %4, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %struct.git_graph, ptr %15, i32 0, i32 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !93
+  %18 = load i32, ptr %6, align 4, !tbaa !73
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds %struct.column, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %struct.column, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !118
+  %23 = load ptr, ptr %5, align 8, !tbaa !104
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %25, label %34
+
+25:                                               ; preds = %14
+  %26 = load ptr, ptr %4, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw %struct.git_graph, ptr %26, i32 0, i32 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !93
+  %29 = load i32, ptr %6, align 4, !tbaa !73
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds %struct.column, ptr %28, i64 %30
+  %32 = getelementptr inbounds nuw %struct.column, ptr %31, i32 0, i32 1
+  %33 = load i16, ptr %32, align 8, !tbaa !152
+  store i16 %33, ptr %3, align 2
+  store i32 1, ptr %7, align 4
+  br label %41
+
+34:                                               ; preds = %14
+  br label %35
+
+35:                                               ; preds = %34
+  %36 = load i32, ptr %6, align 4, !tbaa !73
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %6, align 4, !tbaa !73
+  br label %8, !llvm.loop !154
+
+38:                                               ; preds = %8
+  %39 = load ptr, ptr %4, align 8, !tbaa !28
+  %40 = call zeroext i16 @graph_get_current_column_color(ptr noundef %39)
+  store i16 %40, ptr %3, align 2
+  store i32 1, ptr %7, align 4
+  br label %41
+
+41:                                               ; preds = %38, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %42 = load i16, ptr %3, align 2
+  ret i16 %42
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i16 @graph_get_current_column_color(ptr noundef %0) #0 {
+  %2 = alloca i16, align 2
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = getelementptr inbounds nuw %struct.git_graph, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !78
+  %7 = getelementptr inbounds nuw %struct.rev_info, ptr %6, i32 0, i32 53
+  %8 = getelementptr inbounds nuw %struct.diff_options, ptr %7, i32 0, i32 16
+  %9 = load i32, ptr %8, align 4, !tbaa !155
+  %10 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %9)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %14, label %12
+
+12:                                               ; preds = %1
+  %13 = load i16, ptr @column_colors_max, align 2, !tbaa !9
+  store i16 %13, ptr %2, align 2
+  br label %18
+
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %struct.git_graph, ptr %15, i32 0, i32 20
+  %17 = load i16, ptr %16, align 8, !tbaa !91
+  store i16 %17, ptr %2, align 2
+  br label %18
+
+18:                                               ; preds = %14, %12
+  %19 = load i16, ptr %2, align 2
+  ret i16 %19
+}
+
+declare i32 @want_color_fd(i32 noundef, i32 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal i32 @graph_num_expansion_rows(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %4 = call i32 @graph_num_dashed_parents(ptr noundef %3)
+  %5 = mul nsw i32 %4, 2
+  ret i32 %5
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @graph_num_dashed_parents(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %4 = getelementptr inbounds nuw %struct.git_graph, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !79
+  %6 = load ptr, ptr %2, align 8, !tbaa !28
+  %7 = getelementptr inbounds nuw %struct.git_graph, ptr %6, i32 0, i32 9
+  %8 = load i32, ptr %7, align 4, !tbaa !85
+  %9 = add nsw i32 %5, %8
+  %10 = sub nsw i32 %9, 3
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i16 @graph_find_commit_color(ptr noundef %graph, ptr noundef %commit) #0 {
-entry:
-  %retval = alloca i16, align 2
-  %graph.addr = alloca ptr, align 8
-  %commit.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %commit, ptr %commit.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @graph_line_write_column(ptr noundef %0, ptr noundef %1, i8 noundef signext %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !128
+  store ptr %1, ptr %5, align 8, !tbaa !131
+  store i8 %2, ptr %6, align 1, !tbaa !134
+  %7 = load ptr, ptr %5, align 8, !tbaa !131
+  %8 = getelementptr inbounds nuw %struct.column, ptr %7, i32 0, i32 1
+  %9 = load i16, ptr %8, align 8, !tbaa !152
+  %10 = zext i16 %9 to i32
+  %11 = load i16, ptr @column_colors_max, align 2, !tbaa !9
+  %12 = zext i16 %11 to i32
+  %13 = icmp slt i32 %10, %12
+  br i1 %13, label %14, label %19
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %graph.addr, align 8
-  %num_columns = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 13
-  %2 = load i32, ptr %num_columns, align 4
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %4, align 8, !tbaa !128
+  %16 = load ptr, ptr %5, align 8, !tbaa !131
+  %17 = getelementptr inbounds nuw %struct.column, ptr %16, i32 0, i32 1
+  %18 = load i16, ptr %17, align 8, !tbaa !152
+  call void @graph_line_addcolor(ptr noundef %15, i16 noundef zeroext %18)
+  br label %19
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %graph.addr, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 16
-  %4 = load ptr, ptr %columns, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.column, ptr %4, i64 %idxprom
-  %commit1 = getelementptr inbounds %struct.column, ptr %arrayidx, i32 0, i32 0
-  %6 = load ptr, ptr %commit1, align 8
-  %7 = load ptr, ptr %commit.addr, align 8
-  %cmp2 = icmp eq ptr %6, %7
-  br i1 %cmp2, label %if.then, label %if.end
+19:                                               ; preds = %14, %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !128
+  %21 = load i8, ptr %6, align 1, !tbaa !134
+  %22 = sext i8 %21 to i32
+  call void @graph_line_addch(ptr noundef %20, i32 noundef %22)
+  %23 = load ptr, ptr %5, align 8, !tbaa !131
+  %24 = getelementptr inbounds nuw %struct.column, ptr %23, i32 0, i32 1
+  %25 = load i16, ptr %24, align 8, !tbaa !152
+  %26 = zext i16 %25 to i32
+  %27 = load i16, ptr @column_colors_max, align 2, !tbaa !9
+  %28 = zext i16 %27 to i32
+  %29 = icmp slt i32 %26, %28
+  br i1 %29, label %30, label %33
 
-if.then:                                          ; preds = %for.body
-  %8 = load ptr, ptr %graph.addr, align 8
-  %columns3 = getelementptr inbounds %struct.git_graph, ptr %8, i32 0, i32 16
-  %9 = load ptr, ptr %columns3, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %10 to i64
-  %arrayidx5 = getelementptr inbounds %struct.column, ptr %9, i64 %idxprom4
-  %color = getelementptr inbounds %struct.column, ptr %arrayidx5, i32 0, i32 1
-  %11 = load i16, ptr %color, align 8
-  store i16 %11, ptr %retval, align 2
-  br label %return
+30:                                               ; preds = %19
+  %31 = load ptr, ptr %4, align 8, !tbaa !128
+  %32 = load i16, ptr @column_colors_max, align 2, !tbaa !9
+  call void @graph_line_addcolor(ptr noundef %31, i16 noundef zeroext %32)
+  br label %33
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %12 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !28
-
-for.end:                                          ; preds = %for.cond
-  %13 = load ptr, ptr %graph.addr, align 8
-  %call = call zeroext i16 @graph_get_current_column_color(ptr noundef %13)
-  store i16 %call, ptr %retval, align 2
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %14 = load i16, ptr %retval, align 2
-  ret i16 %14
+33:                                               ; preds = %30, %19
+  ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @graph_get_current_column_color(ptr noundef %graph) #0 {
-entry:
-  %retval = alloca i16, align 2
-  %graph.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %revs, align 8
-  %diffopt = getelementptr inbounds %struct.rev_info, ptr %1, i32 0, i32 52
-  %use_color = getelementptr inbounds %struct.diff_options, ptr %diffopt, i32 0, i32 17
-  %2 = load i32, ptr %use_color, align 4
-  %call = call i32 @want_color_fd(i32 noundef 1, i32 noundef %2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %3 = load i16, ptr @column_colors_max, align 2
-  store i16 %3, ptr %retval, align 2
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %graph.addr, align 8
-  %default_column_color = getelementptr inbounds %struct.git_graph, ptr %4, i32 0, i32 20
-  %5 = load i16, ptr %default_column_color, align 8
-  store i16 %5, ptr %retval, align 2
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i16, ptr %retval, align 2
-  ret i16 %6
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @graph_line_addch(ptr noundef %0, i32 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !128
+  store i32 %1, ptr %4, align 4, !tbaa !73
+  %5 = load ptr, ptr %3, align 8, !tbaa !128
+  %6 = getelementptr inbounds nuw %struct.graph_line, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !125
+  %8 = load i32, ptr %4, align 4, !tbaa !73
+  call void @strbuf_addch(ptr noundef %7, i32 noundef %8)
+  %9 = load ptr, ptr %3, align 8, !tbaa !128
+  %10 = getelementptr inbounds nuw %struct.graph_line, ptr %9, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8, !tbaa !127
+  %12 = add i64 %11, 1
+  store i64 %12, ptr %10, align 8, !tbaa !127
+  ret void
 }
 
-declare i32 @want_color_fd(i32 noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @graph_num_expansion_rows(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_num_dashed_parents(ptr noundef %0)
-  %mul = mul nsw i32 %call, 2
-  ret i32 %mul
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @graph_num_dashed_parents(ptr noundef %graph) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %num_parents, align 8
-  %2 = load ptr, ptr %graph.addr, align 8
-  %merge_layout = getelementptr inbounds %struct.git_graph, ptr %2, i32 0, i32 9
-  %3 = load i32, ptr %merge_layout, align 4
-  %add = add nsw i32 %1, %3
-  %sub = sub nsw i32 %add, 3
-  ret i32 %sub
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @graph_line_write_column(ptr noundef %line, ptr noundef %c, i8 noundef signext %col_char) #0 {
-entry:
-  %line.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  %col_char.addr = alloca i8, align 1
-  store ptr %line, ptr %line.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  store i8 %col_char, ptr %col_char.addr, align 1
-  %0 = load ptr, ptr %c.addr, align 8
-  %color = getelementptr inbounds %struct.column, ptr %0, i32 0, i32 1
-  %1 = load i16, ptr %color, align 8
-  %conv = zext i16 %1 to i32
-  %2 = load i16, ptr @column_colors_max, align 2
-  %conv1 = zext i16 %2 to i32
-  %cmp = icmp slt i32 %conv, %conv1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %line.addr, align 8
-  %4 = load ptr, ptr %c.addr, align 8
-  %color3 = getelementptr inbounds %struct.column, ptr %4, i32 0, i32 1
-  %5 = load i16, ptr %color3, align 8
-  call void @graph_line_addcolor(ptr noundef %3, i16 noundef zeroext %5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %line.addr, align 8
-  %7 = load i8, ptr %col_char.addr, align 1
-  %conv4 = sext i8 %7 to i32
-  call void @graph_line_addch(ptr noundef %6, i32 noundef %conv4)
-  %8 = load ptr, ptr %c.addr, align 8
-  %color5 = getelementptr inbounds %struct.column, ptr %8, i32 0, i32 1
-  %9 = load i16, ptr %color5, align 8
-  %conv6 = zext i16 %9 to i32
-  %10 = load i16, ptr @column_colors_max, align 2
-  %conv7 = zext i16 %10 to i32
-  %cmp8 = icmp slt i32 %conv6, %conv7
-  br i1 %cmp8, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %if.end
-  %11 = load ptr, ptr %line.addr, align 8
-  %12 = load i16, ptr @column_colors_max, align 2
-  call void @graph_line_addcolor(ptr noundef %11, i16 noundef zeroext %12)
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then10, %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @graph_line_addcolor(ptr noundef %0, i16 noundef zeroext %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i16, align 2
+  store ptr %0, ptr %3, align 8, !tbaa !128
+  store i16 %1, ptr %4, align 2, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !128
+  %6 = getelementptr inbounds nuw %struct.graph_line, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !125
+  %8 = load i16, ptr %4, align 2, !tbaa !9
+  %9 = call ptr @column_get_color_code(i16 noundef zeroext %8)
+  call void @strbuf_addstr(ptr noundef %7, ptr noundef %9)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_line_addch(ptr noundef %line, i32 noundef %c) #0 {
-entry:
-  %line.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  store ptr %line, ptr %line.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr %line.addr, align 8
-  %buf = getelementptr inbounds %struct.graph_line, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %buf, align 8
-  %2 = load i32, ptr %c.addr, align 4
-  call void @strbuf_addch(ptr noundef %1, i32 noundef %2)
-  %3 = load ptr, ptr %line.addr, align 8
-  %width = getelementptr inbounds %struct.graph_line, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %width, align 8
-  %inc = add i64 %4, 1
-  store i64 %inc, ptr %width, align 8
+define internal ptr @column_get_color_code(i16 noundef zeroext %0) #0 {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !9
+  %3 = load ptr, ptr @column_colors, align 8, !tbaa !4
+  %4 = load i16, ptr %2, align 2, !tbaa !9
+  %5 = zext i16 %4 to i64
+  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @strbuf_addch(ptr noundef %0, i32 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store i32 %1, ptr %4, align 4, !tbaa !73
+  %5 = load ptr, ptr %3, align 8, !tbaa !123
+  %6 = call i64 @strbuf_avail(ptr noundef %5)
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %10, label %8
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %3, align 8, !tbaa !123
+  call void @strbuf_grow(ptr noundef %9, i64 noundef 1)
+  br label %10
+
+10:                                               ; preds = %8, %2
+  %11 = load i32, ptr %4, align 4, !tbaa !73
+  %12 = trunc i32 %11 to i8
+  %13 = load ptr, ptr %3, align 8, !tbaa !123
+  %14 = getelementptr inbounds nuw %struct.strbuf, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !142
+  %16 = load ptr, ptr %3, align 8, !tbaa !123
+  %17 = getelementptr inbounds nuw %struct.strbuf, ptr %16, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8, !tbaa !143
+  %19 = add i64 %18, 1
+  store i64 %19, ptr %17, align 8, !tbaa !143
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 %18
+  store i8 %12, ptr %20, align 1, !tbaa !134
+  %21 = load ptr, ptr %3, align 8, !tbaa !123
+  %22 = getelementptr inbounds nuw %struct.strbuf, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !142
+  %24 = load ptr, ptr %3, align 8, !tbaa !123
+  %25 = getelementptr inbounds nuw %struct.strbuf, ptr %24, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8, !tbaa !143
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
+  store i8 0, ptr %27, align 1, !tbaa !134
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @strbuf_avail(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !123
+  %3 = load ptr, ptr %2, align 8, !tbaa !123
+  %4 = getelementptr inbounds nuw %struct.strbuf, ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !147
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %7, label %16
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !123
+  %9 = getelementptr inbounds nuw %struct.strbuf, ptr %8, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !147
+  %11 = load ptr, ptr %2, align 8, !tbaa !123
+  %12 = getelementptr inbounds nuw %struct.strbuf, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !143
+  %14 = sub i64 %10, %13
+  %15 = sub i64 %14, 1
+  br label %17
+
+16:                                               ; preds = %1
+  br label %17
+
+17:                                               ; preds = %16, %7
+  %18 = phi i64 [ %15, %7 ], [ 0, %16 ]
+  ret i64 %18
+}
+
+declare void @strbuf_grow(ptr noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @graph_line_addstr(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !128
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8, !tbaa !128
+  %6 = getelementptr inbounds nuw %struct.graph_line, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !125
+  %8 = load ptr, ptr %4, align 8, !tbaa !74
+  call void @strbuf_addstr(ptr noundef %7, ptr noundef %8)
+  %9 = load ptr, ptr %4, align 8, !tbaa !74
+  %10 = call i64 @strlen(ptr noundef %9) #9
+  %11 = load ptr, ptr %3, align 8, !tbaa !128
+  %12 = getelementptr inbounds nuw %struct.graph_line, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !127
+  %14 = add i64 %13, %10
+  store i64 %14, ptr %12, align 8, !tbaa !127
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @graph_line_addcolor(ptr noundef %line, i16 noundef zeroext %color) #0 {
-entry:
-  %line.addr = alloca ptr, align 8
-  %color.addr = alloca i16, align 2
-  store ptr %line, ptr %line.addr, align 8
-  store i16 %color, ptr %color.addr, align 2
-  %0 = load ptr, ptr %line.addr, align 8
-  %buf = getelementptr inbounds %struct.graph_line, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %buf, align 8
-  %2 = load i16, ptr %color.addr, align 2
-  %call = call ptr @column_get_color_code(i16 noundef zeroext %2)
-  call void @strbuf_addstr(ptr noundef %1, ptr noundef %call)
+define internal void @graph_update_state(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i32 %1, ptr %4, align 4, !tbaa !73
+  %5 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = getelementptr inbounds nuw %struct.git_graph, ptr %5, i32 0, i32 5
+  %7 = load i32, ptr %6, align 4, !tbaa !81
+  %8 = load ptr, ptr %3, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %struct.git_graph, ptr %8, i32 0, i32 6
+  store i32 %7, ptr %9, align 8, !tbaa !82
+  %10 = load i32, ptr %4, align 4, !tbaa !73
+  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %12 = getelementptr inbounds nuw %struct.git_graph, ptr %11, i32 0, i32 5
+  store i32 %10, ptr %12, align 4, !tbaa !81
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @graph_line_addchars(ptr noundef %0, i32 noundef %1, i64 noundef %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !128
+  store i32 %1, ptr %5, align 4, !tbaa !73
+  store i64 %2, ptr %6, align 8, !tbaa !103
+  %7 = load ptr, ptr %4, align 8, !tbaa !128
+  %8 = getelementptr inbounds nuw %struct.graph_line, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !125
+  %10 = load i32, ptr %5, align 4, !tbaa !73
+  %11 = load i64, ptr %6, align 8, !tbaa !103
+  call void @strbuf_addchars(ptr noundef %9, i32 noundef %10, i64 noundef %11)
+  %12 = load i64, ptr %6, align 8, !tbaa !103
+  %13 = load ptr, ptr %4, align 8, !tbaa !128
+  %14 = getelementptr inbounds nuw %struct.graph_line, ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !127
+  %16 = add i64 %15, %12
+  store i64 %16, ptr %14, align 8, !tbaa !127
+  ret void
+}
+
+declare void @strbuf_addchars(ptr noundef, i32 noundef, i64 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @graph_output_commit_char(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !128
+  %5 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = getelementptr inbounds nuw %struct.git_graph, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !77
+  %8 = getelementptr inbounds nuw %struct.commit, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8
+  %10 = lshr i32 %9, 4
+  %11 = and i32 %10, 32
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !128
+  call void @graph_line_addch(ptr noundef %14, i32 noundef 111)
+  br label %24
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !128
+  %17 = load ptr, ptr %3, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw %struct.git_graph, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !78
+  %20 = load ptr, ptr %3, align 8, !tbaa !28
+  %21 = getelementptr inbounds nuw %struct.git_graph, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !77
+  %23 = call ptr @get_revision_mark(ptr noundef %19, ptr noundef %22)
+  call void @graph_line_addstr(ptr noundef %16, ptr noundef %23)
+  br label %24
+
+24:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @strbuf_addstr(ptr noundef %sb, ptr noundef %s) #0 {
-entry:
-  %sb.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %sb.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %2 = load ptr, ptr %s.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #7
-  call void @strbuf_add(ptr noundef %0, ptr noundef %1, i64 noundef %call)
+define internal void @graph_draw_octopus_merge(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !28
+  %10 = call i32 @graph_num_dashed_parents(ptr noundef %9)
+  store i32 %10, ptr %8, align 4, !tbaa !73
+  store i32 0, ptr %5, align 4, !tbaa !73
+  br label %11
+
+11:                                               ; preds = %45, %2
+  %12 = load i32, ptr %5, align 4, !tbaa !73
+  %13 = load i32, ptr %8, align 4, !tbaa !73
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %48
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %3, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw %struct.git_graph, ptr %16, i32 0, i32 18
+  %18 = load ptr, ptr %17, align 8, !tbaa !95
+  %19 = load ptr, ptr %3, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw %struct.git_graph, ptr %19, i32 0, i32 7
+  %21 = load i32, ptr %20, align 4, !tbaa !83
+  %22 = load i32, ptr %5, align 4, !tbaa !73
+  %23 = add nsw i32 %21, %22
+  %24 = add nsw i32 %23, 2
+  %25 = mul nsw i32 %24, 2
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i32, ptr %18, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !73
+  store i32 %28, ptr %6, align 4, !tbaa !73
+  %29 = load ptr, ptr %3, align 8, !tbaa !28
+  %30 = getelementptr inbounds nuw %struct.git_graph, ptr %29, i32 0, i32 17
+  %31 = load ptr, ptr %30, align 8, !tbaa !94
+  %32 = load i32, ptr %6, align 4, !tbaa !73
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds %struct.column, ptr %31, i64 %33
+  store ptr %34, ptr %7, align 8, !tbaa !131
+  %35 = load ptr, ptr %4, align 8, !tbaa !128
+  %36 = load ptr, ptr %7, align 8, !tbaa !131
+  call void @graph_line_write_column(ptr noundef %35, ptr noundef %36, i8 noundef signext 45)
+  %37 = load ptr, ptr %4, align 8, !tbaa !128
+  %38 = load ptr, ptr %7, align 8, !tbaa !131
+  %39 = load i32, ptr %5, align 4, !tbaa !73
+  %40 = load i32, ptr %8, align 4, !tbaa !73
+  %41 = sub nsw i32 %40, 1
+  %42 = icmp eq i32 %39, %41
+  %43 = select i1 %42, i32 46, i32 45
+  %44 = trunc i32 %43 to i8
+  call void @graph_line_write_column(ptr noundef %37, ptr noundef %38, i8 noundef signext %44)
+  br label %45
+
+45:                                               ; preds = %15
+  %46 = load i32, ptr %5, align 4, !tbaa !73
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %5, align 4, !tbaa !73
+  br label %11, !llvm.loop !156
+
+48:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @column_get_color_code(i16 noundef zeroext %color) #0 {
-entry:
-  %color.addr = alloca i16, align 2
-  store i16 %color, ptr %color.addr, align 2
-  %0 = load ptr, ptr @column_colors, align 8
-  %1 = load i16, ptr %color.addr, align 2
-  %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
+define internal i32 @graph_is_mapping_correct(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  store i32 0, ptr %4, align 4, !tbaa !73
+  br label %7
+
+7:                                                ; preds = %33, %1
+  %8 = load i32, ptr %4, align 4, !tbaa !73
+  %9 = load ptr, ptr %3, align 8, !tbaa !28
+  %10 = getelementptr inbounds nuw %struct.git_graph, ptr %9, i32 0, i32 15
+  %11 = load i32, ptr %10, align 4, !tbaa !90
+  %12 = icmp slt i32 %8, %11
+  br i1 %12, label %13, label %36
+
+13:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %14 = load ptr, ptr %3, align 8, !tbaa !28
+  %15 = getelementptr inbounds nuw %struct.git_graph, ptr %14, i32 0, i32 18
+  %16 = load ptr, ptr %15, align 8, !tbaa !95
+  %17 = load i32, ptr %4, align 4, !tbaa !73
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !73
+  store i32 %20, ptr %5, align 4, !tbaa !73
+  %21 = load i32, ptr %5, align 4, !tbaa !73
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %13
+  store i32 4, ptr %6, align 4
+  br label %31
+
+24:                                               ; preds = %13
+  %25 = load i32, ptr %5, align 4, !tbaa !73
+  %26 = load i32, ptr %4, align 4, !tbaa !73
+  %27 = sdiv i32 %26, 2
+  %28 = icmp eq i32 %25, %27
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %24
+  store i32 4, ptr %6, align 4
+  br label %31
+
+30:                                               ; preds = %24
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %31
+
+31:                                               ; preds = %30, %29, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  %32 = load i32, ptr %6, align 4
+  switch i32 %32, label %37 [
+    i32 4, label %33
+  ]
+
+33:                                               ; preds = %31
+  %34 = load i32, ptr %4, align 4, !tbaa !73
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %4, align 4, !tbaa !73
+  br label %7, !llvm.loop !157
+
+36:                                               ; preds = %7
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %37
+
+37:                                               ; preds = %36, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  %38 = load i32, ptr %2, align 4
+  ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @strbuf_addch(ptr noundef %sb, i32 noundef %c) #0 {
-entry:
-  %sb.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  store ptr %sb, ptr %sb.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr %sb.addr, align 8
-  %call = call i64 @strbuf_avail(ptr noundef %0)
-  %tobool = icmp ne i64 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+declare ptr @get_revision_mark(ptr noundef, ptr noundef) #2
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %sb.addr, align 8
-  call void @strbuf_grow(ptr noundef %1, i64 noundef 1)
-  br label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @copy_array(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #4 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !27
+  store ptr %1, ptr %6, align 8, !tbaa !27
+  store i64 %2, ptr %7, align 8, !tbaa !103
+  store i64 %3, ptr %8, align 8, !tbaa !103
+  %9 = load i64, ptr %7, align 8, !tbaa !103
+  %10 = icmp ne i64 %9, 0
+  br i1 %10, label %11, label %17
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load i32, ptr %c.addr, align 4
-  %conv = trunc i32 %2 to i8
-  %3 = load ptr, ptr %sb.addr, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %buf, align 8
-  %5 = load ptr, ptr %sb.addr, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %len, align 8
-  %inc = add i64 %6, 1
-  store i64 %inc, ptr %len, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %6
-  store i8 %conv, ptr %arrayidx, align 1
-  %7 = load ptr, ptr %sb.addr, align 8
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %buf1, align 8
-  %9 = load ptr, ptr %sb.addr, align 8
-  %len2 = getelementptr inbounds %struct.strbuf, ptr %9, i32 0, i32 1
-  %10 = load i64, ptr %len2, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %8, i64 %10
-  store i8 0, ptr %arrayidx3, align 1
+11:                                               ; preds = %4
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
+  %13 = load ptr, ptr %6, align 8, !tbaa !27
+  %14 = load i64, ptr %8, align 8, !tbaa !103
+  %15 = load i64, ptr %7, align 8, !tbaa !103
+  %16 = call i64 @st_mult(i64 noundef %14, i64 noundef %15)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %13, i64 %16, i1 false)
+  br label %17
+
+17:                                               ; preds = %11, %4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @strbuf_avail(ptr noundef %sb) #0 {
-entry:
-  %sb.addr = alloca ptr, align 8
-  store ptr %sb, ptr %sb.addr, align 8
-  %0 = load ptr, ptr %sb.addr, align 8
-  %alloc = getelementptr inbounds %struct.strbuf, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %alloc, align 8
-  %tobool = icmp ne i64 %1, 0
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %sb.addr, align 8
-  %alloc1 = getelementptr inbounds %struct.strbuf, ptr %2, i32 0, i32 0
-  %3 = load i64, ptr %alloc1, align 8
-  %4 = load ptr, ptr %sb.addr, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %len, align 8
-  %sub = sub i64 %3, %5
-  %sub2 = sub i64 %sub, 1
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub2, %cond.true ], [ 0, %cond.false ]
-  ret i64 %cond
-}
-
-declare void @strbuf_grow(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @graph_line_addstr(ptr noundef %line, ptr noundef %s) #0 {
-entry:
-  %line.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %line.addr, align 8
-  %buf = getelementptr inbounds %struct.graph_line, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %buf, align 8
-  %2 = load ptr, ptr %s.addr, align 8
-  call void @strbuf_addstr(ptr noundef %1, ptr noundef %2)
-  %3 = load ptr, ptr %s.addr, align 8
-  %call = call i64 @strlen(ptr noundef %3) #7
-  %4 = load ptr, ptr %line.addr, align 8
-  %width = getelementptr inbounds %struct.graph_line, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %width, align 8
-  %add = add i64 %5, %call
-  store i64 %add, ptr %width, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @graph_update_state(ptr noundef %graph, i32 noundef %s) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %s.addr = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store i32 %s, ptr %s.addr, align 4
-  %0 = load ptr, ptr %graph.addr, align 8
-  %state = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 5
-  %1 = load i32, ptr %state, align 4
-  %2 = load ptr, ptr %graph.addr, align 8
-  %prev_state = getelementptr inbounds %struct.git_graph, ptr %2, i32 0, i32 6
-  store i32 %1, ptr %prev_state, align 8
-  %3 = load i32, ptr %s.addr, align 4
-  %4 = load ptr, ptr %graph.addr, align 8
-  %state1 = getelementptr inbounds %struct.git_graph, ptr %4, i32 0, i32 5
-  store i32 %3, ptr %state1, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @graph_line_addchars(ptr noundef %line, i32 noundef %c, i64 noundef %n) #0 {
-entry:
-  %line.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %n.addr = alloca i64, align 8
-  store ptr %line, ptr %line.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %line.addr, align 8
-  %buf = getelementptr inbounds %struct.graph_line, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %buf, align 8
-  %2 = load i32, ptr %c.addr, align 4
-  %3 = load i64, ptr %n.addr, align 8
-  call void @strbuf_addchars(ptr noundef %1, i32 noundef %2, i64 noundef %3)
-  %4 = load i64, ptr %n.addr, align 8
-  %5 = load ptr, ptr %line.addr, align 8
-  %width = getelementptr inbounds %struct.graph_line, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %width, align 8
-  %add = add i64 %6, %4
-  store i64 %add, ptr %width, align 8
-  ret void
-}
-
-declare void @strbuf_addchars(ptr noundef, i32 noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @graph_output_commit_char(ptr noundef %graph, ptr noundef %line) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %line.addr = alloca ptr, align 8
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %commit = getelementptr inbounds %struct.git_graph, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %commit, align 8
-  %object = getelementptr inbounds %struct.commit, ptr %1, i32 0, i32 0
-  %bf.load = load i32, ptr %object, align 8
-  %bf.lshr = lshr i32 %bf.load, 4
-  %and = and i32 %bf.lshr, 32
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %line.addr, align 8
-  call void @graph_line_addch(ptr noundef %2, i32 noundef 111)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %line.addr, align 8
-  %4 = load ptr, ptr %graph.addr, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %revs, align 8
-  %6 = load ptr, ptr %graph.addr, align 8
-  %commit1 = getelementptr inbounds %struct.git_graph, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %commit1, align 8
-  %call = call ptr @get_revision_mark(ptr noundef %5, ptr noundef %7)
-  call void @graph_line_addstr(ptr noundef %3, ptr noundef %call)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @graph_draw_octopus_merge(ptr noundef %graph, ptr noundef %line) #0 {
-entry:
-  %graph.addr = alloca ptr, align 8
-  %line.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %col = alloca ptr, align 8
-  %dashed_parents = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store ptr %line, ptr %line.addr, align 8
-  %0 = load ptr, ptr %graph.addr, align 8
-  %call = call i32 @graph_num_dashed_parents(ptr noundef %0)
-  store i32 %call, ptr %dashed_parents, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %dashed_parents, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %graph.addr, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 18
-  %4 = load ptr, ptr %mapping, align 8
-  %5 = load ptr, ptr %graph.addr, align 8
-  %commit_index = getelementptr inbounds %struct.git_graph, ptr %5, i32 0, i32 7
-  %6 = load i32, ptr %commit_index, align 4
-  %7 = load i32, ptr %i, align 4
-  %add = add nsw i32 %6, %7
-  %add1 = add nsw i32 %add, 2
-  %mul = mul nsw i32 %add1, 2
-  %idxprom = sext i32 %mul to i64
-  %arrayidx = getelementptr inbounds i32, ptr %4, i64 %idxprom
-  %8 = load i32, ptr %arrayidx, align 4
-  store i32 %8, ptr %j, align 4
-  %9 = load ptr, ptr %graph.addr, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %9, i32 0, i32 17
-  %10 = load ptr, ptr %new_columns, align 8
-  %11 = load i32, ptr %j, align 4
-  %idxprom2 = sext i32 %11 to i64
-  %arrayidx3 = getelementptr inbounds %struct.column, ptr %10, i64 %idxprom2
-  store ptr %arrayidx3, ptr %col, align 8
-  %12 = load ptr, ptr %line.addr, align 8
-  %13 = load ptr, ptr %col, align 8
-  call void @graph_line_write_column(ptr noundef %12, ptr noundef %13, i8 noundef signext 45)
-  %14 = load ptr, ptr %line.addr, align 8
-  %15 = load ptr, ptr %col, align 8
-  %16 = load i32, ptr %i, align 4
-  %17 = load i32, ptr %dashed_parents, align 4
-  %sub = sub nsw i32 %17, 1
-  %cmp4 = icmp eq i32 %16, %sub
-  %cond = select i1 %cmp4, i32 46, i32 45
-  %conv = trunc i32 %cond to i8
-  call void @graph_line_write_column(ptr noundef %14, ptr noundef %15, i8 noundef signext %conv)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %18 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %18, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !29
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @graph_is_mapping_correct(ptr noundef %graph) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %graph.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %target = alloca i32, align 4
-  store ptr %graph, ptr %graph.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %graph.addr, align 8
-  %mapping_size = getelementptr inbounds %struct.git_graph, ptr %1, i32 0, i32 15
-  %2 = load i32, ptr %mapping_size, align 4
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %graph.addr, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %3, i32 0, i32 18
-  %4 = load ptr, ptr %mapping, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %4, i64 %idxprom
-  %6 = load i32, ptr %arrayidx, align 4
-  store i32 %6, ptr %target, align 4
-  %7 = load i32, ptr %target, align 4
-  %cmp1 = icmp slt i32 %7, 0
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  br label %for.inc
-
-if.end:                                           ; preds = %for.body
-  %8 = load i32, ptr %target, align 4
-  %9 = load i32, ptr %i, align 4
-  %div = sdiv i32 %9, 2
-  %cmp2 = icmp eq i32 %8, %div
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  br label %for.inc
-
-if.end4:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-for.inc:                                          ; preds = %if.then3, %if.then
-  %10 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %10, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !30
-
-for.end:                                          ; preds = %for.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %if.end4
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
-}
-
-declare ptr @get_revision_mark(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @copy_array(ptr noundef %dst, ptr noundef %src, i64 noundef %n, i64 noundef %size) #0 {
-entry:
-  %dst.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %n.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %dst.addr, align 8
-  %2 = load ptr, ptr %src.addr, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %4 = load i64, ptr %n.addr, align 8
-  %call = call i64 @st_mult(i64 noundef %3, i64 noundef %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %2, i64 %call, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
+declare i32 @fputs(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #5
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #7
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #4
+declare ptr @strchr(ptr noundef, i32 noundef) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { noreturn }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p2 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"short", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS12diff_options", !6, i64 0}
+!13 = !{!14, !6, i64 528}
+!14 = !{!"diff_options", !15, i64 0, !15, i64 8, !16, i64 16, !16, i64 20, !15, i64 24, !16, i64 32, !17, i64 40, !18, i64 48, !18, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !19, i64 96, !16, i64 236, !16, i64 240, !16, i64 244, !16, i64 248, !16, i64 252, !16, i64 256, !16, i64 260, !16, i64 264, !16, i64 268, !16, i64 272, !16, i64 276, !16, i64 280, !16, i64 284, !16, i64 288, !16, i64 292, !16, i64 296, !16, i64 300, !16, i64 304, !16, i64 308, !16, i64 312, !16, i64 316, !16, i64 320, !15, i64 328, !16, i64 336, !15, i64 344, !16, i64 352, !16, i64 356, !5, i64 360, !18, i64 368, !18, i64 376, !16, i64 384, !16, i64 388, !16, i64 392, !16, i64 396, !15, i64 400, !16, i64 408, !16, i64 412, !20, i64 416, !16, i64 424, !16, i64 428, !6, i64 432, !21, i64 440, !16, i64 448, !7, i64 452, !22, i64 456, !6, i64 480, !6, i64 488, !6, i64 496, !6, i64 504, !6, i64 512, !6, i64 520, !6, i64 528, !6, i64 536, !16, i64 544, !24, i64 552, !16, i64 560, !16, i64 564, !25, i64 568, !26, i64 576, !16, i64 584}
+!15 = !{!"p1 omnipotent char", !6, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = !{!"p2 _ZTS17re_pattern_buffer", !6, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = !{!"diff_flags", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !16, i64 68, !16, i64 72, !16, i64 76, !16, i64 80, !16, i64 84, !16, i64 88, !16, i64 92, !16, i64 96, !16, i64 100, !16, i64 104, !16, i64 108, !16, i64 112, !16, i64 116, !16, i64 120, !16, i64 124, !16, i64 128, !16, i64 132, !16, i64 136}
+!20 = !{!"p1 _ZTS6oidset", !6, i64 0}
+!21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!22 = !{!"pathspec", !16, i64 0, !16, i64 4, !16, i64 4, !16, i64 4, !16, i64 8, !16, i64 12, !23, i64 16}
+!23 = !{!"p1 _ZTS13pathspec_item", !6, i64 0}
+!24 = !{!"p1 _ZTS20emitted_diff_symbols", !6, i64 0}
+!25 = !{!"p1 _ZTS10repository", !6, i64 0}
+!26 = !{!"p1 _ZTS6strmap", !6, i64 0}
+!27 = !{!6, !6, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS9git_graph", !6, i64 0}
+!30 = !{!14, !15, i64 88}
+!31 = !{!32, !15, i64 128}
+!32 = !{!"git_graph", !33, i64 0, !34, i64 8, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !16, i64 68, !35, i64 72, !35, i64 80, !36, i64 88, !36, i64 96, !10, i64 104, !37, i64 112}
+!33 = !{!"p1 _ZTS6commit", !6, i64 0}
+!34 = !{!"p1 _ZTS8rev_info", !6, i64 0}
+!35 = !{!"p1 _ZTS6column", !6, i64 0}
+!36 = !{!"p1 int", !6, i64 0}
+!37 = !{!"strbuf", !18, i64 0, !18, i64 8, !15, i64 16}
+!38 = !{!34, !34, i64 0}
+!39 = !{!40, !25, i64 24}
+!40 = !{!"rev_info", !41, i64 0, !42, i64 8, !25, i64 24, !42, i64 32, !44, i64 48, !46, i64 64, !48, i64 152, !15, i64 224, !15, i64 232, !15, i64 240, !22, i64 248, !16, i64 272, !16, i64 276, !16, i64 280, !16, i64 284, !16, i64 288, !16, i64 288, !16, i64 288, !16, i64 288, !16, i64 288, !16, i64 288, !16, i64 288, !16, i64 288, !16, i64 289, !16, i64 289, !16, i64 289, !16, i64 289, !16, i64 289, !16, i64 289, !16, i64 289, !16, i64 289, !16, i64 290, !16, i64 290, !16, i64 290, !16, i64 290, !16, i64 290, !16, i64 290, !16, i64 290, !16, i64 291, !16, i64 291, !16, i64 291, !16, i64 291, !16, i64 291, !16, i64 291, !16, i64 291, !16, i64 291, !16, i64 292, !16, i64 292, !16, i64 292, !16, i64 292, !16, i64 292, !16, i64 292, !16, i64 292, !16, i64 292, !16, i64 293, !16, i64 293, !16, i64 293, !16, i64 293, !16, i64 293, !16, i64 293, !16, i64 293, !16, i64 293, !16, i64 294, !16, i64 294, !16, i64 294, !16, i64 294, !16, i64 294, !16, i64 294, !16, i64 294, !16, i64 294, !16, i64 295, !16, i64 295, !16, i64 295, !16, i64 295, !16, i64 296, !16, i64 300, !16, i64 300, !16, i64 300, !16, i64 300, !16, i64 300, !16, i64 300, !16, i64 300, !16, i64 300, !16, i64 301, !16, i64 301, !16, i64 301, !16, i64 301, !16, i64 301, !16, i64 301, !16, i64 301, !16, i64 301, !16, i64 302, !16, i64 302, !16, i64 302, !16, i64 302, !16, i64 302, !52, i64 304, !16, i64 320, !16, i64 324, !16, i64 328, !16, i64 332, !53, i64 336, !16, i64 344, !16, i64 348, !15, i64 352, !15, i64 360, !16, i64 368, !15, i64 376, !15, i64 384, !54, i64 392, !55, i64 456, !16, i64 464, !15, i64 472, !15, i64 480, !15, i64 488, !16, i64 496, !16, i64 500, !16, i64 504, !55, i64 512, !56, i64 520, !29, i64 1400, !16, i64 1408, !16, i64 1412, !18, i64 1416, !18, i64 1424, !18, i64 1432, !16, i64 1440, !16, i64 1444, !6, i64 1448, !6, i64 1456, !6, i64 1464, !14, i64 1472, !14, i64 2064, !60, i64 2656, !61, i64 2664, !61, i64 2688, !61, i64 2712, !63, i64 2736, !64, i64 2784, !64, i64 2792, !15, i64 2800, !15, i64 2808, !15, i64 2816, !16, i64 2824, !15, i64 2832, !16, i64 2840, !16, i64 2844, !16, i64 2848, !61, i64 2856, !65, i64 2880, !41, i64 2888, !41, i64 2896, !15, i64 2904, !66, i64 2912, !67, i64 2920, !68, i64 2928, !16, i64 2936, !69, i64 2944, !16, i64 2952, !70, i64 2960, !71, i64 2968}
+!41 = !{!"p1 _ZTS11commit_list", !6, i64 0}
+!42 = !{!"object_array", !16, i64 0, !16, i64 4, !43, i64 8}
+!43 = !{!"p1 _ZTS18object_array_entry", !6, i64 0}
+!44 = !{!"rev_cmdline_info", !16, i64 0, !16, i64 4, !45, i64 8}
+!45 = !{!"p1 _ZTS17rev_cmdline_entry", !6, i64 0}
+!46 = !{!"list_objects_filter_options", !37, i64 0, !16, i64 24, !16, i64 28, !15, i64 32, !18, i64 40, !18, i64 48, !16, i64 56, !18, i64 64, !18, i64 72, !47, i64 80}
+!47 = !{!"p1 _ZTS27list_objects_filter_options", !6, i64 0}
+!48 = !{!"ref_exclusions", !49, i64 0, !51, i64 40, !7, i64 64}
+!49 = !{!"string_list", !50, i64 0, !18, i64 8, !18, i64 16, !16, i64 24, !6, i64 32}
+!50 = !{!"p1 _ZTS16string_list_item", !6, i64 0}
+!51 = !{!"strvec", !5, i64 0, !18, i64 8, !18, i64 16}
+!52 = !{!"date_mode", !16, i64 0, !16, i64 4, !15, i64 8}
+!53 = !{!"p1 _ZTS8log_info", !6, i64 0}
+!54 = !{!"ident_split", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56}
+!55 = !{!"p1 _ZTS11string_list", !6, i64 0}
+!56 = !{!"grep_opt", !57, i64 0, !58, i64 8, !57, i64 16, !58, i64 24, !59, i64 32, !25, i64 40, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !16, i64 68, !16, i64 72, !16, i64 76, !16, i64 80, !16, i64 84, !16, i64 88, !16, i64 92, !16, i64 96, !16, i64 100, !16, i64 104, !16, i64 108, !16, i64 112, !16, i64 116, !16, i64 120, !16, i64 124, !16, i64 128, !16, i64 132, !16, i64 136, !16, i64 140, !16, i64 144, !16, i64 148, !7, i64 152, !16, i64 828, !16, i64 832, !16, i64 836, !16, i64 840, !16, i64 844, !16, i64 848, !16, i64 852, !6, i64 856, !6, i64 864, !6, i64 872}
+!57 = !{!"p1 _ZTS8grep_pat", !6, i64 0}
+!58 = !{!"p2 _ZTS8grep_pat", !6, i64 0}
+!59 = !{!"p1 _ZTS9grep_expr", !6, i64 0}
+!60 = !{!"p1 _ZTS16reflog_walk_info", !6, i64 0}
+!61 = !{!"decoration", !15, i64 0, !16, i64 8, !16, i64 12, !62, i64 16}
+!62 = !{!"p1 _ZTS16decoration_entry", !6, i64 0}
+!63 = !{!"display_notes_opt", !16, i64 0, !49, i64 8}
+!64 = !{!"p1 _ZTS9object_id", !6, i64 0}
+!65 = !{!"p1 _ZTS13saved_parents", !6, i64 0}
+!66 = !{!"p1 _ZTS16revision_sources", !6, i64 0}
+!67 = !{!"p1 _ZTS14topo_walk_info", !6, i64 0}
+!68 = !{!"p1 _ZTS9bloom_key", !6, i64 0}
+!69 = !{!"p1 _ZTS21bloom_filter_settings", !6, i64 0}
+!70 = !{!"p1 _ZTS10tmp_objdir", !6, i64 0}
+!71 = !{!"oidset", !72, i64 0}
+!72 = !{!"kh_oid_set", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !36, i64 16, !64, i64 24, !36, i64 32}
+!73 = !{!16, !16, i64 0}
+!74 = !{!15, !15, i64 0}
+!75 = !{!51, !5, i64 0}
+!76 = !{!51, !18, i64 8}
+!77 = !{!32, !33, i64 0}
+!78 = !{!32, !34, i64 8}
+!79 = !{!32, !16, i64 16}
+!80 = !{!32, !16, i64 24}
+!81 = !{!32, !16, i64 28}
+!82 = !{!32, !16, i64 32}
+!83 = !{!32, !16, i64 36}
+!84 = !{!32, !16, i64 40}
+!85 = !{!32, !16, i64 44}
+!86 = !{!32, !16, i64 48}
+!87 = !{!32, !16, i64 52}
+!88 = !{!32, !16, i64 60}
+!89 = !{!32, !16, i64 64}
+!90 = !{!32, !16, i64 68}
+!91 = !{!32, !10, i64 104}
+!92 = !{!32, !16, i64 56}
+!93 = !{!32, !35, i64 72}
+!94 = !{!32, !35, i64 80}
+!95 = !{!32, !36, i64 88}
+!96 = !{!32, !36, i64 96}
+!97 = !{!40, !6, i64 2000}
+!98 = !{!40, !6, i64 2008}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTS6strvec", !6, i64 0}
+!101 = distinct !{!101, !102}
+!102 = !{!"llvm.loop.mustprogress"}
+!103 = !{!18, !18, i64 0}
+!104 = !{!33, !33, i64 0}
+!105 = !{!41, !41, i64 0}
+!106 = distinct !{!106, !102}
+!107 = !{!108, !41, i64 48}
+!108 = !{!"commit", !109, i64 0, !18, i64 40, !41, i64 48, !111, i64 56, !16, i64 64}
+!109 = !{!"object", !16, i64 0, !16, i64 0, !16, i64 0, !110, i64 4}
+!110 = !{!"object_id", !7, i64 0, !16, i64 32}
+!111 = !{!"p1 _ZTS4tree", !6, i64 0}
+!112 = !{!113, !33, i64 0}
+!113 = !{!"commit_list", !33, i64 0, !41, i64 8}
+!114 = !{!113, !41, i64 8}
+!115 = distinct !{!115, !102}
+!116 = distinct !{!116, !102}
+!117 = !{!32, !16, i64 20}
+!118 = !{!119, !33, i64 0}
+!119 = !{!"column", !33, i64 0, !10, i64 8}
+!120 = distinct !{!120, !102}
+!121 = distinct !{!121, !102}
+!122 = distinct !{!122, !102}
+!123 = !{!124, !124, i64 0}
+!124 = !{!"p1 _ZTS6strbuf", !6, i64 0}
+!125 = !{!126, !124, i64 0}
+!126 = !{!"graph_line", !124, i64 0, !18, i64 8}
+!127 = !{!126, !18, i64 8}
+!128 = !{!129, !129, i64 0}
+!129 = !{!"p1 _ZTS10graph_line", !6, i64 0}
+!130 = distinct !{!130, !102}
+!131 = !{!35, !35, i64 0}
+!132 = distinct !{!132, !102}
+!133 = distinct !{!133, !102}
+!134 = !{!7, !7, i64 0}
+!135 = distinct !{!135, !102}
+!136 = distinct !{!136, !102}
+!137 = distinct !{!137, !102}
+!138 = distinct !{!138, !102}
+!139 = distinct !{!139, !102}
+!140 = distinct !{!140, !102}
+!141 = distinct !{!141, !102}
+!142 = !{!37, !15, i64 16}
+!143 = !{!37, !18, i64 8}
+!144 = !{!40, !21, i64 1912}
+!145 = distinct !{!145, !102}
+!146 = !{!14, !21, i64 440}
+!147 = !{!37, !18, i64 0}
+!148 = distinct !{!148, !102}
+!149 = !{!21, !21, i64 0}
+!150 = distinct !{!150, !102}
+!151 = distinct !{!151, !102}
+!152 = !{!119, !10, i64 8}
+!153 = distinct !{!153, !102}
+!154 = distinct !{!154, !102}
+!155 = !{!40, !16, i64 1716}
+!156 = distinct !{!156, !102}
+!157 = distinct !{!157, !102}

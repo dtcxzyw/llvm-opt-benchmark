@@ -1,1063 +1,1122 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.diff_queue_struct = type { ptr, i32, i32 }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.diff_filepair = type { ptr, ptr, i16, i8, i8 }
 %struct.diff_filespec = type { %struct.object_id, ptr, ptr, ptr, i64, i32, i32, i16, i16, ptr }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.diff_populate_filespec_options = type { i8, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @diff_queued_diff = external global %struct.diff_queue_struct, align 8
 @the_repository = external global ptr, align 8
-@hash_algos = external constant [3 x %struct.git_hash_algo], align 16
 @.str = private unnamed_addr constant [27 x i8] c"internal error in merge #1\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"internal error in merge #2\00", align 1
 @.str.2 = private unnamed_addr constant [27 x i8] c"internal error in merge #3\00", align 1
 @.str.3 = private unnamed_addr constant [27 x i8] c"internal error in merge #4\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @diffcore_break(ptr noundef %r, i32 noundef %break_score) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %break_score.addr = alloca i32, align 4
-  %q = alloca ptr, align 8
-  %outq = alloca %struct.diff_queue_struct, align 8
-  %merge_score = alloca i32, align 4
-  %i = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %score = alloca i32, align 4
-  %null_one = alloca ptr, align 8
-  %null_two = alloca ptr, align 8
-  %dp = alloca ptr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store i32 %break_score, ptr %break_score.addr, align 4
-  store ptr @diff_queued_diff, ptr %q, align 8
-  %0 = load i32, ptr %break_score.addr, align 4
-  %shr = ashr i32 %0, 16
-  %and = and i32 %shr, 65535
-  store i32 %and, ptr %merge_score, align 4
-  %1 = load i32, ptr %break_score.addr, align 4
-  %and1 = and i32 %1, 65535
-  store i32 %and1, ptr %break_score.addr, align 4
-  %2 = load i32, ptr %break_score.addr, align 4
-  %tobool = icmp ne i32 %2, 0
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.diff_queue_struct, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  store ptr @diff_queued_diff, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #9
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %15 = load i32, ptr %4, align 4, !tbaa !9
+  %16 = ashr i32 %15, 16
+  %17 = and i32 %16, 65535
+  store i32 %17, ptr %7, align 4, !tbaa !9
+  %18 = load i32, ptr %4, align 4, !tbaa !9
+  %19 = and i32 %18, 65535
+  store i32 %19, ptr %4, align 4, !tbaa !9
+  %20 = load i32, ptr %4, align 4, !tbaa !9
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %23, label %22
 
-if.then:                                          ; preds = %entry
-  store i32 30000, ptr %break_score.addr, align 4
-  br label %if.end
+22:                                               ; preds = %2
+  store i32 30000, ptr %4, align 4, !tbaa !9
+  br label %23
 
-if.end:                                           ; preds = %if.then, %entry
-  %3 = load i32, ptr %merge_score, align 4
-  %tobool2 = icmp ne i32 %3, 0
-  br i1 %tobool2, label %if.end4, label %if.then3
+23:                                               ; preds = %22, %2
+  %24 = load i32, ptr %7, align 4, !tbaa !9
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %27, label %26
 
-if.then3:                                         ; preds = %if.end
-  store i32 36000, ptr %merge_score, align 4
-  br label %if.end4
+26:                                               ; preds = %23
+  store i32 36000, ptr %7, align 4, !tbaa !9
+  br label %27
 
-if.end4:                                          ; preds = %if.then3, %if.end
-  br label %do.body
+27:                                               ; preds = %26, %23
+  store i32 0, ptr %8, align 4, !tbaa !9
+  br label %28
 
-do.body:                                          ; preds = %if.end4
-  %queue = getelementptr inbounds %struct.diff_queue_struct, ptr %outq, i32 0, i32 0
-  store ptr null, ptr %queue, align 8
-  %alloc = getelementptr inbounds %struct.diff_queue_struct, ptr %outq, i32 0, i32 1
-  store i32 0, ptr %alloc, align 8
-  %nr = getelementptr inbounds %struct.diff_queue_struct, ptr %outq, i32 0, i32 2
-  store i32 0, ptr %nr, align 4
-  br label %do.end
+28:                                               ; preds = %164, %27
+  %29 = load i32, ptr %8, align 4, !tbaa !9
+  %30 = load ptr, ptr %5, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %30, i32 0, i32 2
+  %32 = load i32, ptr %31, align 4, !tbaa !13
+  %33 = icmp slt i32 %29, %32
+  br i1 %33, label %34, label %167
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+34:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %35 = load ptr, ptr %5, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !16
+  %38 = load i32, ptr %8, align 4, !tbaa !9
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !17
+  store ptr %41, ptr %9, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %42 = load ptr, ptr %9, align 8, !tbaa !17
+  %43 = getelementptr inbounds nuw %struct.diff_filepair, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !19
+  %45 = getelementptr inbounds nuw %struct.diff_filespec, ptr %44, i32 0, i32 7
+  %46 = load i16, ptr %45, align 8, !tbaa !23
+  %47 = zext i16 %46 to i32
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %153
 
-for.cond:                                         ; preds = %for.inc, %do.end
-  %4 = load i32, ptr %i, align 4
-  %5 = load ptr, ptr %q, align 8
-  %nr5 = getelementptr inbounds %struct.diff_queue_struct, ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %nr5, align 4
-  %cmp = icmp slt i32 %4, %6
-  br i1 %cmp, label %for.body, label %for.end
+49:                                               ; preds = %34
+  %50 = load ptr, ptr %9, align 8, !tbaa !17
+  %51 = getelementptr inbounds nuw %struct.diff_filepair, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8, !tbaa !29
+  %53 = getelementptr inbounds nuw %struct.diff_filespec, ptr %52, i32 0, i32 7
+  %54 = load i16, ptr %53, align 8, !tbaa !23
+  %55 = zext i16 %54 to i32
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %153
 
-for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr %q, align 8
-  %queue6 = getelementptr inbounds %struct.diff_queue_struct, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %queue6, align 8
-  %9 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx, align 8
-  store ptr %10, ptr %p, align 8
-  %11 = load ptr, ptr %p, align 8
-  %one = getelementptr inbounds %struct.diff_filepair, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %one, align 8
-  %mode = getelementptr inbounds %struct.diff_filespec, ptr %12, i32 0, i32 7
-  %13 = load i16, ptr %mode, align 8
-  %conv = zext i16 %13 to i32
-  %cmp7 = icmp ne i32 %conv, 0
-  br i1 %cmp7, label %land.lhs.true, label %if.end63
+57:                                               ; preds = %49
+  %58 = load ptr, ptr %9, align 8, !tbaa !17
+  %59 = getelementptr inbounds nuw %struct.diff_filepair, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !19
+  %61 = getelementptr inbounds nuw %struct.diff_filespec, ptr %60, i32 0, i32 7
+  %62 = load i16, ptr %61, align 8, !tbaa !23
+  %63 = zext i16 %62 to i32
+  %64 = call i32 @object_type(i32 noundef %63)
+  %65 = icmp eq i32 %64, 3
+  br i1 %65, label %66, label %153
 
-land.lhs.true:                                    ; preds = %for.body
-  %14 = load ptr, ptr %p, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %two, align 8
-  %mode9 = getelementptr inbounds %struct.diff_filespec, ptr %15, i32 0, i32 7
-  %16 = load i16, ptr %mode9, align 8
-  %conv10 = zext i16 %16 to i32
-  %cmp11 = icmp ne i32 %conv10, 0
-  br i1 %cmp11, label %land.lhs.true13, label %if.end63
+66:                                               ; preds = %57
+  %67 = load ptr, ptr %9, align 8, !tbaa !17
+  %68 = getelementptr inbounds nuw %struct.diff_filepair, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8, !tbaa !29
+  %70 = getelementptr inbounds nuw %struct.diff_filespec, ptr %69, i32 0, i32 7
+  %71 = load i16, ptr %70, align 8, !tbaa !23
+  %72 = zext i16 %71 to i32
+  %73 = call i32 @object_type(i32 noundef %72)
+  %74 = icmp eq i32 %73, 3
+  br i1 %74, label %75, label %153
 
-land.lhs.true13:                                  ; preds = %land.lhs.true
-  %17 = load ptr, ptr %p, align 8
-  %one14 = getelementptr inbounds %struct.diff_filepair, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %one14, align 8
-  %mode15 = getelementptr inbounds %struct.diff_filespec, ptr %18, i32 0, i32 7
-  %19 = load i16, ptr %mode15, align 8
-  %conv16 = zext i16 %19 to i32
-  %call = call i32 @object_type(i32 noundef %conv16)
-  %cmp17 = icmp eq i32 %call, 3
-  br i1 %cmp17, label %land.lhs.true19, label %if.end63
+75:                                               ; preds = %66
+  %76 = load ptr, ptr %9, align 8, !tbaa !17
+  %77 = getelementptr inbounds nuw %struct.diff_filepair, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !19
+  %79 = getelementptr inbounds nuw %struct.diff_filespec, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8, !tbaa !30
+  %81 = load ptr, ptr %9, align 8, !tbaa !17
+  %82 = getelementptr inbounds nuw %struct.diff_filepair, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8, !tbaa !29
+  %84 = getelementptr inbounds nuw %struct.diff_filespec, ptr %83, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8, !tbaa !30
+  %86 = call i32 @strcmp(ptr noundef %80, ptr noundef %85) #10
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %153, label %88
 
-land.lhs.true19:                                  ; preds = %land.lhs.true13
-  %20 = load ptr, ptr %p, align 8
-  %two20 = getelementptr inbounds %struct.diff_filepair, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %two20, align 8
-  %mode21 = getelementptr inbounds %struct.diff_filespec, ptr %21, i32 0, i32 7
-  %22 = load i16, ptr %mode21, align 8
-  %conv22 = zext i16 %22 to i32
-  %call23 = call i32 @object_type(i32 noundef %conv22)
-  %cmp24 = icmp eq i32 %call23, 3
-  br i1 %cmp24, label %land.lhs.true26, label %if.end63
+88:                                               ; preds = %75
+  %89 = load ptr, ptr %3, align 8, !tbaa !4
+  %90 = load ptr, ptr %9, align 8, !tbaa !17
+  %91 = getelementptr inbounds nuw %struct.diff_filepair, ptr %90, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8, !tbaa !19
+  %93 = load ptr, ptr %9, align 8, !tbaa !17
+  %94 = getelementptr inbounds nuw %struct.diff_filepair, ptr %93, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8, !tbaa !29
+  %96 = load i32, ptr %4, align 4, !tbaa !9
+  %97 = call i32 @should_break(ptr noundef %89, ptr noundef %92, ptr noundef %95, i32 noundef %96, ptr noundef %10)
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %152
 
-land.lhs.true26:                                  ; preds = %land.lhs.true19
-  %23 = load ptr, ptr %p, align 8
-  %one27 = getelementptr inbounds %struct.diff_filepair, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %one27, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %path, align 8
-  %26 = load ptr, ptr %p, align 8
-  %two28 = getelementptr inbounds %struct.diff_filepair, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %two28, align 8
-  %path29 = getelementptr inbounds %struct.diff_filespec, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %path29, align 8
-  %call30 = call i32 @strcmp(ptr noundef %25, ptr noundef %28) #7
-  %tobool31 = icmp ne i32 %call30, 0
-  br i1 %tobool31, label %if.end63, label %if.then32
+99:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  %100 = load i32, ptr %10, align 4, !tbaa !9
+  %101 = load i32, ptr %7, align 4, !tbaa !9
+  %102 = icmp slt i32 %100, %101
+  br i1 %102, label %103, label %104
 
-if.then32:                                        ; preds = %land.lhs.true26
-  %29 = load ptr, ptr %r.addr, align 8
-  %30 = load ptr, ptr %p, align 8
-  %one33 = getelementptr inbounds %struct.diff_filepair, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %one33, align 8
-  %32 = load ptr, ptr %p, align 8
-  %two34 = getelementptr inbounds %struct.diff_filepair, ptr %32, i32 0, i32 1
-  %33 = load ptr, ptr %two34, align 8
-  %34 = load i32, ptr %break_score.addr, align 4
-  %call35 = call i32 @should_break(ptr noundef %29, ptr noundef %31, ptr noundef %33, i32 noundef %34, ptr noundef %score)
-  %tobool36 = icmp ne i32 %call35, 0
-  br i1 %tobool36, label %if.then37, label %if.end62
+103:                                              ; preds = %99
+  store i32 0, ptr %10, align 4, !tbaa !9
+  br label %104
 
-if.then37:                                        ; preds = %if.then32
-  %35 = load i32, ptr %score, align 4
-  %36 = load i32, ptr %merge_score, align 4
-  %cmp38 = icmp slt i32 %35, %36
-  br i1 %cmp38, label %if.then40, label %if.end41
+104:                                              ; preds = %103, %99
+  %105 = load ptr, ptr %9, align 8, !tbaa !17
+  %106 = getelementptr inbounds nuw %struct.diff_filepair, ptr %105, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8, !tbaa !19
+  %108 = getelementptr inbounds nuw %struct.diff_filespec, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8, !tbaa !30
+  %110 = call ptr @alloc_filespec(ptr noundef %109)
+  store ptr %110, ptr %11, align 8, !tbaa !31
+  %111 = load ptr, ptr %9, align 8, !tbaa !17
+  %112 = getelementptr inbounds nuw %struct.diff_filepair, ptr %111, i32 0, i32 0
+  %113 = load ptr, ptr %112, align 8, !tbaa !19
+  %114 = load ptr, ptr %11, align 8, !tbaa !31
+  %115 = call ptr @diff_queue(ptr noundef %6, ptr noundef %113, ptr noundef %114)
+  store ptr %115, ptr %13, align 8, !tbaa !17
+  %116 = load i32, ptr %10, align 4, !tbaa !9
+  %117 = trunc i32 %116 to i16
+  %118 = load ptr, ptr %13, align 8, !tbaa !17
+  %119 = getelementptr inbounds nuw %struct.diff_filepair, ptr %118, i32 0, i32 2
+  store i16 %117, ptr %119, align 8, !tbaa !32
+  %120 = load ptr, ptr %13, align 8, !tbaa !17
+  %121 = getelementptr inbounds nuw %struct.diff_filepair, ptr %120, i32 0, i32 4
+  %122 = load i8, ptr %121, align 1
+  %123 = and i8 %122, -2
+  %124 = or i8 %123, 1
+  store i8 %124, ptr %121, align 1
+  %125 = load ptr, ptr %9, align 8, !tbaa !17
+  %126 = getelementptr inbounds nuw %struct.diff_filepair, ptr %125, i32 0, i32 1
+  %127 = load ptr, ptr %126, align 8, !tbaa !29
+  %128 = getelementptr inbounds nuw %struct.diff_filespec, ptr %127, i32 0, i32 1
+  %129 = load ptr, ptr %128, align 8, !tbaa !30
+  %130 = call ptr @alloc_filespec(ptr noundef %129)
+  store ptr %130, ptr %12, align 8, !tbaa !31
+  %131 = load ptr, ptr %12, align 8, !tbaa !31
+  %132 = load ptr, ptr %9, align 8, !tbaa !17
+  %133 = getelementptr inbounds nuw %struct.diff_filepair, ptr %132, i32 0, i32 1
+  %134 = load ptr, ptr %133, align 8, !tbaa !29
+  %135 = call ptr @diff_queue(ptr noundef %6, ptr noundef %131, ptr noundef %134)
+  store ptr %135, ptr %13, align 8, !tbaa !17
+  %136 = load i32, ptr %10, align 4, !tbaa !9
+  %137 = trunc i32 %136 to i16
+  %138 = load ptr, ptr %13, align 8, !tbaa !17
+  %139 = getelementptr inbounds nuw %struct.diff_filepair, ptr %138, i32 0, i32 2
+  store i16 %137, ptr %139, align 8, !tbaa !32
+  %140 = load ptr, ptr %13, align 8, !tbaa !17
+  %141 = getelementptr inbounds nuw %struct.diff_filepair, ptr %140, i32 0, i32 4
+  %142 = load i8, ptr %141, align 1
+  %143 = and i8 %142, -2
+  %144 = or i8 %143, 1
+  store i8 %144, ptr %141, align 1
+  %145 = load ptr, ptr %9, align 8, !tbaa !17
+  %146 = getelementptr inbounds nuw %struct.diff_filepair, ptr %145, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8, !tbaa !19
+  call void @diff_free_filespec_blob(ptr noundef %147)
+  %148 = load ptr, ptr %9, align 8, !tbaa !17
+  %149 = getelementptr inbounds nuw %struct.diff_filepair, ptr %148, i32 0, i32 1
+  %150 = load ptr, ptr %149, align 8, !tbaa !29
+  call void @diff_free_filespec_blob(ptr noundef %150)
+  %151 = load ptr, ptr %9, align 8, !tbaa !17
+  call void @free(ptr noundef %151) #9
+  store i32 4, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  br label %161
 
-if.then40:                                        ; preds = %if.then37
-  store i32 0, ptr %score, align 4
-  br label %if.end41
+152:                                              ; preds = %88
+  br label %153
 
-if.end41:                                         ; preds = %if.then40, %if.then37
-  %37 = load ptr, ptr %p, align 8
-  %one42 = getelementptr inbounds %struct.diff_filepair, ptr %37, i32 0, i32 0
-  %38 = load ptr, ptr %one42, align 8
-  %path43 = getelementptr inbounds %struct.diff_filespec, ptr %38, i32 0, i32 1
-  %39 = load ptr, ptr %path43, align 8
-  %call44 = call ptr @alloc_filespec(ptr noundef %39)
-  store ptr %call44, ptr %null_one, align 8
-  %40 = load ptr, ptr %p, align 8
-  %one45 = getelementptr inbounds %struct.diff_filepair, ptr %40, i32 0, i32 0
-  %41 = load ptr, ptr %one45, align 8
-  %42 = load ptr, ptr %null_one, align 8
-  %call46 = call ptr @diff_queue(ptr noundef %outq, ptr noundef %41, ptr noundef %42)
-  store ptr %call46, ptr %dp, align 8
-  %43 = load i32, ptr %score, align 4
-  %conv47 = trunc i32 %43 to i16
-  %44 = load ptr, ptr %dp, align 8
-  %score48 = getelementptr inbounds %struct.diff_filepair, ptr %44, i32 0, i32 2
-  store i16 %conv47, ptr %score48, align 8
-  %45 = load ptr, ptr %dp, align 8
-  %broken_pair = getelementptr inbounds %struct.diff_filepair, ptr %45, i32 0, i32 4
-  %bf.load = load i8, ptr %broken_pair, align 1
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, 1
-  store i8 %bf.set, ptr %broken_pair, align 1
-  %46 = load ptr, ptr %p, align 8
-  %two49 = getelementptr inbounds %struct.diff_filepair, ptr %46, i32 0, i32 1
-  %47 = load ptr, ptr %two49, align 8
-  %path50 = getelementptr inbounds %struct.diff_filespec, ptr %47, i32 0, i32 1
-  %48 = load ptr, ptr %path50, align 8
-  %call51 = call ptr @alloc_filespec(ptr noundef %48)
-  store ptr %call51, ptr %null_two, align 8
-  %49 = load ptr, ptr %null_two, align 8
-  %50 = load ptr, ptr %p, align 8
-  %two52 = getelementptr inbounds %struct.diff_filepair, ptr %50, i32 0, i32 1
-  %51 = load ptr, ptr %two52, align 8
-  %call53 = call ptr @diff_queue(ptr noundef %outq, ptr noundef %49, ptr noundef %51)
-  store ptr %call53, ptr %dp, align 8
-  %52 = load i32, ptr %score, align 4
-  %conv54 = trunc i32 %52 to i16
-  %53 = load ptr, ptr %dp, align 8
-  %score55 = getelementptr inbounds %struct.diff_filepair, ptr %53, i32 0, i32 2
-  store i16 %conv54, ptr %score55, align 8
-  %54 = load ptr, ptr %dp, align 8
-  %broken_pair56 = getelementptr inbounds %struct.diff_filepair, ptr %54, i32 0, i32 4
-  %bf.load57 = load i8, ptr %broken_pair56, align 1
-  %bf.clear58 = and i8 %bf.load57, -2
-  %bf.set59 = or i8 %bf.clear58, 1
-  store i8 %bf.set59, ptr %broken_pair56, align 1
-  %55 = load ptr, ptr %p, align 8
-  %one60 = getelementptr inbounds %struct.diff_filepair, ptr %55, i32 0, i32 0
-  %56 = load ptr, ptr %one60, align 8
-  call void @diff_free_filespec_blob(ptr noundef %56)
-  %57 = load ptr, ptr %p, align 8
-  %two61 = getelementptr inbounds %struct.diff_filepair, ptr %57, i32 0, i32 1
-  %58 = load ptr, ptr %two61, align 8
-  call void @diff_free_filespec_blob(ptr noundef %58)
-  %59 = load ptr, ptr %p, align 8
-  call void @free(ptr noundef %59) #8
-  br label %for.inc
+153:                                              ; preds = %152, %75, %66, %57, %49, %34
+  %154 = load ptr, ptr %9, align 8, !tbaa !17
+  %155 = getelementptr inbounds nuw %struct.diff_filepair, ptr %154, i32 0, i32 0
+  %156 = load ptr, ptr %155, align 8, !tbaa !19
+  call void @diff_free_filespec_data(ptr noundef %156)
+  %157 = load ptr, ptr %9, align 8, !tbaa !17
+  %158 = getelementptr inbounds nuw %struct.diff_filepair, ptr %157, i32 0, i32 1
+  %159 = load ptr, ptr %158, align 8, !tbaa !29
+  call void @diff_free_filespec_data(ptr noundef %159)
+  %160 = load ptr, ptr %9, align 8, !tbaa !17
+  call void @diff_q(ptr noundef %6, ptr noundef %160)
+  store i32 0, ptr %14, align 4
+  br label %161
 
-if.end62:                                         ; preds = %if.then32
-  br label %if.end63
+161:                                              ; preds = %153, %104
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  %162 = load i32, ptr %14, align 4
+  switch i32 %162, label %172 [
+    i32 0, label %163
+    i32 4, label %164
+  ]
 
-if.end63:                                         ; preds = %if.end62, %land.lhs.true26, %land.lhs.true19, %land.lhs.true13, %land.lhs.true, %for.body
-  %60 = load ptr, ptr %p, align 8
-  %one64 = getelementptr inbounds %struct.diff_filepair, ptr %60, i32 0, i32 0
-  %61 = load ptr, ptr %one64, align 8
-  call void @diff_free_filespec_data(ptr noundef %61)
-  %62 = load ptr, ptr %p, align 8
-  %two65 = getelementptr inbounds %struct.diff_filepair, ptr %62, i32 0, i32 1
-  %63 = load ptr, ptr %two65, align 8
-  call void @diff_free_filespec_data(ptr noundef %63)
-  %64 = load ptr, ptr %p, align 8
-  call void @diff_q(ptr noundef %outq, ptr noundef %64)
-  br label %for.inc
+163:                                              ; preds = %161
+  br label %164
 
-for.inc:                                          ; preds = %if.end63, %if.end41
-  %65 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %65, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+164:                                              ; preds = %163, %161
+  %165 = load i32, ptr %8, align 4, !tbaa !9
+  %166 = add nsw i32 %165, 1
+  store i32 %166, ptr %8, align 4, !tbaa !9
+  br label %28, !llvm.loop !33
 
-for.end:                                          ; preds = %for.cond
-  %66 = load ptr, ptr %q, align 8
-  %queue66 = getelementptr inbounds %struct.diff_queue_struct, ptr %66, i32 0, i32 0
-  %67 = load ptr, ptr %queue66, align 8
-  call void @free(ptr noundef %67) #8
-  %68 = load ptr, ptr %q, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 8 %outq, i64 16, i1 false)
+167:                                              ; preds = %28
+  %168 = load ptr, ptr %5, align 8, !tbaa !11
+  %169 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %168, i32 0, i32 0
+  %170 = load ptr, ptr %169, align 8, !tbaa !16
+  call void @free(ptr noundef %170) #9
+  %171 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %171, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !35
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret void
+
+172:                                              ; preds = %161
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @object_type(i32 noundef %mode) #0 {
-entry:
-  %mode.addr = alloca i32, align 4
-  store i32 %mode, ptr %mode.addr, align 4
-  %0 = load i32, ptr %mode.addr, align 4
-  %and = and i32 %0, 61440
-  %cmp = icmp eq i32 %and, 16384
-  br i1 %cmp, label %cond.true, label %cond.false
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-cond.false:                                       ; preds = %entry
-  %1 = load i32, ptr %mode.addr, align 4
-  %and1 = and i32 %1, 61440
-  %cmp2 = icmp eq i32 %and1, 57344
-  %cond = select i1 %cmp2, i32 1, i32 3
-  br label %cond.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @object_type(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !9
+  %3 = load i32, ptr %2, align 4, !tbaa !9
+  %4 = and i32 %3, 61440
+  %5 = icmp eq i32 %4, 16384
+  br i1 %5, label %6, label %7
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond3 = phi i32 [ 2, %cond.true ], [ %cond, %cond.false ]
-  ret i32 %cond3
+6:                                                ; preds = %1
+  br label %12
+
+7:                                                ; preds = %1
+  %8 = load i32, ptr %2, align 4, !tbaa !9
+  %9 = and i32 %8, 61440
+  %10 = icmp eq i32 %9, 57344
+  %11 = select i1 %10, i32 1, i32 3
+  br label %12
+
+12:                                               ; preds = %7, %6
+  %13 = phi i32 [ 2, %6 ], [ %11, %7 ]
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #1
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @should_break(ptr noundef %r, ptr noundef %src, ptr noundef %dst, i32 noundef %break_score, ptr noundef %merge_score_p) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %r.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  %break_score.addr = alloca i32, align 4
-  %merge_score_p.addr = alloca ptr, align 8
-  %delta_size = alloca i64, align 8
-  %max_size = alloca i64, align 8
-  %src_copied = alloca i64, align 8
-  %literal_added = alloca i64, align 8
-  %src_removed = alloca i64, align 8
-  %options = alloca %struct.diff_populate_filespec_options, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store i32 %break_score, ptr %break_score.addr, align 4
-  store ptr %merge_score_p, ptr %merge_score_p.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %options, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %merge_score_p.addr, align 8
-  store i32 0, ptr %0, align 4
-  %1 = load ptr, ptr %src.addr, align 8
-  %mode = getelementptr inbounds %struct.diff_filespec, ptr %1, i32 0, i32 7
-  %2 = load i16, ptr %mode, align 8
-  %conv = zext i16 %2 to i32
-  %and = and i32 %conv, 61440
-  %cmp = icmp eq i32 %and, 32768
-  %conv1 = zext i1 %cmp to i32
-  %3 = load ptr, ptr %dst.addr, align 8
-  %mode2 = getelementptr inbounds %struct.diff_filespec, ptr %3, i32 0, i32 7
-  %4 = load i16, ptr %mode2, align 8
-  %conv3 = zext i16 %4 to i32
-  %and4 = and i32 %conv3, 61440
-  %cmp5 = icmp eq i32 %and4, 32768
-  %conv6 = zext i1 %cmp5 to i32
-  %cmp7 = icmp ne i32 %conv1, %conv6
-  br i1 %cmp7, label %if.then, label %if.end
+define internal i32 @should_break(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca %struct.diff_populate_filespec_options, align 8
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !4
+  store ptr %1, ptr %8, align 8, !tbaa !31
+  store ptr %2, ptr %9, align 8, !tbaa !31
+  store i32 %3, ptr %10, align 4, !tbaa !9
+  store ptr %4, ptr %11, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr %17) #9
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 24, i1 false)
+  %19 = load ptr, ptr %11, align 8, !tbaa !37
+  store i32 0, ptr %19, align 4, !tbaa !9
+  %20 = load ptr, ptr %8, align 8, !tbaa !31
+  %21 = getelementptr inbounds nuw %struct.diff_filespec, ptr %20, i32 0, i32 7
+  %22 = load i16, ptr %21, align 8, !tbaa !23
+  %23 = zext i16 %22 to i32
+  %24 = and i32 %23, 61440
+  %25 = icmp eq i32 %24, 32768
+  %26 = zext i1 %25 to i32
+  %27 = load ptr, ptr %9, align 8, !tbaa !31
+  %28 = getelementptr inbounds nuw %struct.diff_filespec, ptr %27, i32 0, i32 7
+  %29 = load i16, ptr %28, align 8, !tbaa !23
+  %30 = zext i16 %29 to i32
+  %31 = and i32 %30, 61440
+  %32 = icmp eq i32 %31, 32768
+  %33 = zext i1 %32 to i32
+  %34 = icmp ne i32 %26, %33
+  br i1 %34, label %35, label %37
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %merge_score_p.addr, align 8
-  store i32 60000, ptr %5, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %5
+  %36 = load ptr, ptr %11, align 8, !tbaa !37
+  store i32 60000, ptr %36, align 4, !tbaa !9
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %src.addr, align 8
-  %oid_valid = getelementptr inbounds %struct.diff_filespec, ptr %6, i32 0, i32 8
-  %bf.load = load i16, ptr %oid_valid, align 2
-  %bf.clear = and i16 %bf.load, 1
-  %bf.cast = zext i16 %bf.clear to i32
-  %tobool = icmp ne i32 %bf.cast, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end18
+37:                                               ; preds = %5
+  %38 = load ptr, ptr %8, align 8, !tbaa !31
+  %39 = getelementptr inbounds nuw %struct.diff_filespec, ptr %38, i32 0, i32 8
+  %40 = load i16, ptr %39, align 2
+  %41 = and i16 %40, 1
+  %42 = zext i16 %41 to i32
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %59
 
-land.lhs.true:                                    ; preds = %if.end
-  %7 = load ptr, ptr %dst.addr, align 8
-  %oid_valid9 = getelementptr inbounds %struct.diff_filespec, ptr %7, i32 0, i32 8
-  %bf.load10 = load i16, ptr %oid_valid9, align 2
-  %bf.clear11 = and i16 %bf.load10, 1
-  %bf.cast12 = zext i16 %bf.clear11 to i32
-  %tobool13 = icmp ne i32 %bf.cast12, 0
-  br i1 %tobool13, label %land.lhs.true14, label %if.end18
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %9, align 8, !tbaa !31
+  %46 = getelementptr inbounds nuw %struct.diff_filespec, ptr %45, i32 0, i32 8
+  %47 = load i16, ptr %46, align 2
+  %48 = and i16 %47, 1
+  %49 = zext i16 %48 to i32
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %59
 
-land.lhs.true14:                                  ; preds = %land.lhs.true
-  %8 = load ptr, ptr %src.addr, align 8
-  %oid = getelementptr inbounds %struct.diff_filespec, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %dst.addr, align 8
-  %oid15 = getelementptr inbounds %struct.diff_filespec, ptr %9, i32 0, i32 0
-  %call = call i32 @oideq(ptr noundef %oid, ptr noundef %oid15)
-  %tobool16 = icmp ne i32 %call, 0
-  br i1 %tobool16, label %if.then17, label %if.end18
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %8, align 8, !tbaa !31
+  %53 = getelementptr inbounds nuw %struct.diff_filespec, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %9, align 8, !tbaa !31
+  %55 = getelementptr inbounds nuw %struct.diff_filespec, ptr %54, i32 0, i32 0
+  %56 = call i32 @oideq(ptr noundef %53, ptr noundef %55)
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %59
 
-if.then17:                                        ; preds = %land.lhs.true14
-  store i32 0, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %51
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-if.end18:                                         ; preds = %land.lhs.true14, %land.lhs.true, %if.end
-  %10 = load ptr, ptr %r.addr, align 8
-  %11 = load ptr, ptr @the_repository, align 8
-  %cmp19 = icmp eq ptr %10, %11
-  br i1 %cmp19, label %land.lhs.true21, label %if.end25
+59:                                               ; preds = %51, %44, %37
+  %60 = load ptr, ptr %7, align 8, !tbaa !4
+  %61 = load ptr, ptr @the_repository, align 8, !tbaa !4
+  %62 = icmp eq ptr %60, %61
+  br i1 %62, label %63, label %71
 
-land.lhs.true21:                                  ; preds = %if.end18
-  %12 = load ptr, ptr @the_repository, align 8
-  %call22 = call i32 @repo_has_promisor_remote(ptr noundef %12)
-  %tobool23 = icmp ne i32 %call22, 0
-  br i1 %tobool23, label %if.then24, label %if.end25
+63:                                               ; preds = %59
+  %64 = load ptr, ptr @the_repository, align 8, !tbaa !4
+  %65 = call i32 @repo_has_promisor_remote(ptr noundef %64)
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %71
 
-if.then24:                                        ; preds = %land.lhs.true21
-  %missing_object_cb = getelementptr inbounds %struct.diff_populate_filespec_options, ptr %options, i32 0, i32 1
-  store ptr @diff_queued_diff_prefetch, ptr %missing_object_cb, align 8
-  %13 = load ptr, ptr %r.addr, align 8
-  %missing_object_data = getelementptr inbounds %struct.diff_populate_filespec_options, ptr %options, i32 0, i32 2
-  store ptr %13, ptr %missing_object_data, align 8
-  br label %if.end25
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw %struct.diff_populate_filespec_options, ptr %17, i32 0, i32 1
+  store ptr @diff_queued_diff_prefetch, ptr %68, align 8, !tbaa !39
+  %69 = load ptr, ptr %7, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw %struct.diff_populate_filespec_options, ptr %17, i32 0, i32 2
+  store ptr %69, ptr %70, align 8, !tbaa !41
+  br label %71
 
-if.end25:                                         ; preds = %if.then24, %land.lhs.true21, %if.end18
-  %14 = load ptr, ptr %r.addr, align 8
-  %15 = load ptr, ptr %src.addr, align 8
-  %call26 = call i32 @diff_populate_filespec(ptr noundef %14, ptr noundef %15, ptr noundef %options)
-  %tobool27 = icmp ne i32 %call26, 0
-  br i1 %tobool27, label %if.then30, label %lor.lhs.false
+71:                                               ; preds = %67, %63, %59
+  %72 = load ptr, ptr %7, align 8, !tbaa !4
+  %73 = load ptr, ptr %8, align 8, !tbaa !31
+  %74 = call i32 @diff_populate_filespec(ptr noundef %72, ptr noundef %73, ptr noundef %17)
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %81, label %76
 
-lor.lhs.false:                                    ; preds = %if.end25
-  %16 = load ptr, ptr %r.addr, align 8
-  %17 = load ptr, ptr %dst.addr, align 8
-  %call28 = call i32 @diff_populate_filespec(ptr noundef %16, ptr noundef %17, ptr noundef %options)
-  %tobool29 = icmp ne i32 %call28, 0
-  br i1 %tobool29, label %if.then30, label %if.end31
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %7, align 8, !tbaa !4
+  %78 = load ptr, ptr %9, align 8, !tbaa !31
+  %79 = call i32 @diff_populate_filespec(ptr noundef %77, ptr noundef %78, ptr noundef %17)
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %82
 
-if.then30:                                        ; preds = %lor.lhs.false, %if.end25
-  store i32 0, ptr %retval, align 4
-  br label %return
+81:                                               ; preds = %76, %71
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-if.end31:                                         ; preds = %lor.lhs.false
-  %18 = load ptr, ptr %src.addr, align 8
-  %size = getelementptr inbounds %struct.diff_filespec, ptr %18, i32 0, i32 4
-  %19 = load i64, ptr %size, align 8
-  %20 = load ptr, ptr %dst.addr, align 8
-  %size32 = getelementptr inbounds %struct.diff_filespec, ptr %20, i32 0, i32 4
-  %21 = load i64, ptr %size32, align 8
-  %cmp33 = icmp ugt i64 %19, %21
-  br i1 %cmp33, label %cond.true, label %cond.false
+82:                                               ; preds = %76
+  %83 = load ptr, ptr %8, align 8, !tbaa !31
+  %84 = getelementptr inbounds nuw %struct.diff_filespec, ptr %83, i32 0, i32 4
+  %85 = load i64, ptr %84, align 8, !tbaa !42
+  %86 = load ptr, ptr %9, align 8, !tbaa !31
+  %87 = getelementptr inbounds nuw %struct.diff_filespec, ptr %86, i32 0, i32 4
+  %88 = load i64, ptr %87, align 8, !tbaa !42
+  %89 = icmp ugt i64 %85, %88
+  br i1 %89, label %90, label %94
 
-cond.true:                                        ; preds = %if.end31
-  %22 = load ptr, ptr %src.addr, align 8
-  %size35 = getelementptr inbounds %struct.diff_filespec, ptr %22, i32 0, i32 4
-  %23 = load i64, ptr %size35, align 8
-  br label %cond.end
+90:                                               ; preds = %82
+  %91 = load ptr, ptr %8, align 8, !tbaa !31
+  %92 = getelementptr inbounds nuw %struct.diff_filespec, ptr %91, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !42
+  br label %98
 
-cond.false:                                       ; preds = %if.end31
-  %24 = load ptr, ptr %dst.addr, align 8
-  %size36 = getelementptr inbounds %struct.diff_filespec, ptr %24, i32 0, i32 4
-  %25 = load i64, ptr %size36, align 8
-  br label %cond.end
+94:                                               ; preds = %82
+  %95 = load ptr, ptr %9, align 8, !tbaa !31
+  %96 = getelementptr inbounds nuw %struct.diff_filespec, ptr %95, i32 0, i32 4
+  %97 = load i64, ptr %96, align 8, !tbaa !42
+  br label %98
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %23, %cond.true ], [ %25, %cond.false ]
-  store i64 %cond, ptr %max_size, align 8
-  %26 = load i64, ptr %max_size, align 8
-  %cmp37 = icmp ult i64 %26, 400
-  br i1 %cmp37, label %if.then39, label %if.end40
+98:                                               ; preds = %94, %90
+  %99 = phi i64 [ %93, %90 ], [ %97, %94 ]
+  store i64 %99, ptr %13, align 8, !tbaa !43
+  %100 = load i64, ptr %13, align 8, !tbaa !43
+  %101 = icmp ult i64 %100, 400
+  br i1 %101, label %102, label %103
 
-if.then39:                                        ; preds = %cond.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+102:                                              ; preds = %98
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-if.end40:                                         ; preds = %cond.end
-  %27 = load ptr, ptr %src.addr, align 8
-  %size41 = getelementptr inbounds %struct.diff_filespec, ptr %27, i32 0, i32 4
-  %28 = load i64, ptr %size41, align 8
-  %tobool42 = icmp ne i64 %28, 0
-  br i1 %tobool42, label %if.end44, label %if.then43
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %8, align 8, !tbaa !31
+  %105 = getelementptr inbounds nuw %struct.diff_filespec, ptr %104, i32 0, i32 4
+  %106 = load i64, ptr %105, align 8, !tbaa !42
+  %107 = icmp ne i64 %106, 0
+  br i1 %107, label %109, label %108
 
-if.then43:                                        ; preds = %if.end40
-  store i32 0, ptr %retval, align 4
-  br label %return
+108:                                              ; preds = %103
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-if.end44:                                         ; preds = %if.end40
-  %29 = load ptr, ptr %r.addr, align 8
-  %30 = load ptr, ptr %src.addr, align 8
-  %31 = load ptr, ptr %dst.addr, align 8
-  %32 = load ptr, ptr %src.addr, align 8
-  %cnt_data = getelementptr inbounds %struct.diff_filespec, ptr %32, i32 0, i32 3
-  %33 = load ptr, ptr %dst.addr, align 8
-  %cnt_data45 = getelementptr inbounds %struct.diff_filespec, ptr %33, i32 0, i32 3
-  %call46 = call i32 @diffcore_count_changes(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %cnt_data, ptr noundef %cnt_data45, ptr noundef %src_copied, ptr noundef %literal_added)
-  %tobool47 = icmp ne i32 %call46, 0
-  br i1 %tobool47, label %if.then48, label %if.end49
+109:                                              ; preds = %103
+  %110 = load ptr, ptr %7, align 8, !tbaa !4
+  %111 = load ptr, ptr %8, align 8, !tbaa !31
+  %112 = load ptr, ptr %9, align 8, !tbaa !31
+  %113 = load ptr, ptr %8, align 8, !tbaa !31
+  %114 = getelementptr inbounds nuw %struct.diff_filespec, ptr %113, i32 0, i32 3
+  %115 = load ptr, ptr %9, align 8, !tbaa !31
+  %116 = getelementptr inbounds nuw %struct.diff_filespec, ptr %115, i32 0, i32 3
+  %117 = call i32 @diffcore_count_changes(ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %114, ptr noundef %116, ptr noundef %14, ptr noundef %15)
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %120
 
-if.then48:                                        ; preds = %if.end44
-  store i32 0, ptr %retval, align 4
-  br label %return
+119:                                              ; preds = %109
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-if.end49:                                         ; preds = %if.end44
-  %34 = load ptr, ptr %src.addr, align 8
-  %size50 = getelementptr inbounds %struct.diff_filespec, ptr %34, i32 0, i32 4
-  %35 = load i64, ptr %size50, align 8
-  %36 = load i64, ptr %src_copied, align 8
-  %cmp51 = icmp ult i64 %35, %36
-  br i1 %cmp51, label %if.then53, label %if.end55
+120:                                              ; preds = %109
+  %121 = load ptr, ptr %8, align 8, !tbaa !31
+  %122 = getelementptr inbounds nuw %struct.diff_filespec, ptr %121, i32 0, i32 4
+  %123 = load i64, ptr %122, align 8, !tbaa !42
+  %124 = load i64, ptr %14, align 8, !tbaa !43
+  %125 = icmp ult i64 %123, %124
+  br i1 %125, label %126, label %130
 
-if.then53:                                        ; preds = %if.end49
-  %37 = load ptr, ptr %src.addr, align 8
-  %size54 = getelementptr inbounds %struct.diff_filespec, ptr %37, i32 0, i32 4
-  %38 = load i64, ptr %size54, align 8
-  store i64 %38, ptr %src_copied, align 8
-  br label %if.end55
+126:                                              ; preds = %120
+  %127 = load ptr, ptr %8, align 8, !tbaa !31
+  %128 = getelementptr inbounds nuw %struct.diff_filespec, ptr %127, i32 0, i32 4
+  %129 = load i64, ptr %128, align 8, !tbaa !42
+  store i64 %129, ptr %14, align 8, !tbaa !43
+  br label %130
 
-if.end55:                                         ; preds = %if.then53, %if.end49
-  %39 = load ptr, ptr %dst.addr, align 8
-  %size56 = getelementptr inbounds %struct.diff_filespec, ptr %39, i32 0, i32 4
-  %40 = load i64, ptr %size56, align 8
-  %41 = load i64, ptr %literal_added, align 8
-  %42 = load i64, ptr %src_copied, align 8
-  %add = add i64 %41, %42
-  %cmp57 = icmp ult i64 %40, %add
-  br i1 %cmp57, label %if.then59, label %if.end66
+130:                                              ; preds = %126, %120
+  %131 = load ptr, ptr %9, align 8, !tbaa !31
+  %132 = getelementptr inbounds nuw %struct.diff_filespec, ptr %131, i32 0, i32 4
+  %133 = load i64, ptr %132, align 8, !tbaa !42
+  %134 = load i64, ptr %15, align 8, !tbaa !43
+  %135 = load i64, ptr %14, align 8, !tbaa !43
+  %136 = add i64 %134, %135
+  %137 = icmp ult i64 %133, %136
+  br i1 %137, label %138, label %152
 
-if.then59:                                        ; preds = %if.end55
-  %43 = load i64, ptr %src_copied, align 8
-  %44 = load ptr, ptr %dst.addr, align 8
-  %size60 = getelementptr inbounds %struct.diff_filespec, ptr %44, i32 0, i32 4
-  %45 = load i64, ptr %size60, align 8
-  %cmp61 = icmp ult i64 %43, %45
-  br i1 %cmp61, label %if.then63, label %if.else
+138:                                              ; preds = %130
+  %139 = load i64, ptr %14, align 8, !tbaa !43
+  %140 = load ptr, ptr %9, align 8, !tbaa !31
+  %141 = getelementptr inbounds nuw %struct.diff_filespec, ptr %140, i32 0, i32 4
+  %142 = load i64, ptr %141, align 8, !tbaa !42
+  %143 = icmp ult i64 %139, %142
+  br i1 %143, label %144, label %150
 
-if.then63:                                        ; preds = %if.then59
-  %46 = load ptr, ptr %dst.addr, align 8
-  %size64 = getelementptr inbounds %struct.diff_filespec, ptr %46, i32 0, i32 4
-  %47 = load i64, ptr %size64, align 8
-  %48 = load i64, ptr %src_copied, align 8
-  %sub = sub i64 %47, %48
-  store i64 %sub, ptr %literal_added, align 8
-  br label %if.end65
+144:                                              ; preds = %138
+  %145 = load ptr, ptr %9, align 8, !tbaa !31
+  %146 = getelementptr inbounds nuw %struct.diff_filespec, ptr %145, i32 0, i32 4
+  %147 = load i64, ptr %146, align 8, !tbaa !42
+  %148 = load i64, ptr %14, align 8, !tbaa !43
+  %149 = sub i64 %147, %148
+  store i64 %149, ptr %15, align 8, !tbaa !43
+  br label %151
 
-if.else:                                          ; preds = %if.then59
-  store i64 0, ptr %literal_added, align 8
-  br label %if.end65
+150:                                              ; preds = %138
+  store i64 0, ptr %15, align 8, !tbaa !43
+  br label %151
 
-if.end65:                                         ; preds = %if.else, %if.then63
-  br label %if.end66
+151:                                              ; preds = %150, %144
+  br label %152
 
-if.end66:                                         ; preds = %if.end65, %if.end55
-  %49 = load ptr, ptr %src.addr, align 8
-  %size67 = getelementptr inbounds %struct.diff_filespec, ptr %49, i32 0, i32 4
-  %50 = load i64, ptr %size67, align 8
-  %51 = load i64, ptr %src_copied, align 8
-  %sub68 = sub i64 %50, %51
-  store i64 %sub68, ptr %src_removed, align 8
-  %52 = load i64, ptr %src_removed, align 8
-  %conv69 = uitofp i64 %52 to double
-  %mul = fmul double %conv69, 6.000000e+04
-  %53 = load ptr, ptr %src.addr, align 8
-  %size70 = getelementptr inbounds %struct.diff_filespec, ptr %53, i32 0, i32 4
-  %54 = load i64, ptr %size70, align 8
-  %conv71 = uitofp i64 %54 to double
-  %div = fdiv double %mul, %conv71
-  %conv72 = fptosi double %div to i32
-  %55 = load ptr, ptr %merge_score_p.addr, align 8
-  store i32 %conv72, ptr %55, align 4
-  %56 = load ptr, ptr %merge_score_p.addr, align 8
-  %57 = load i32, ptr %56, align 4
-  %58 = load i32, ptr %break_score.addr, align 4
-  %cmp73 = icmp sgt i32 %57, %58
-  br i1 %cmp73, label %if.then75, label %if.end76
+152:                                              ; preds = %151, %130
+  %153 = load ptr, ptr %8, align 8, !tbaa !31
+  %154 = getelementptr inbounds nuw %struct.diff_filespec, ptr %153, i32 0, i32 4
+  %155 = load i64, ptr %154, align 8, !tbaa !42
+  %156 = load i64, ptr %14, align 8, !tbaa !43
+  %157 = sub i64 %155, %156
+  store i64 %157, ptr %16, align 8, !tbaa !43
+  %158 = load i64, ptr %16, align 8, !tbaa !43
+  %159 = uitofp i64 %158 to double
+  %160 = fmul double %159, 6.000000e+04
+  %161 = load ptr, ptr %8, align 8, !tbaa !31
+  %162 = getelementptr inbounds nuw %struct.diff_filespec, ptr %161, i32 0, i32 4
+  %163 = load i64, ptr %162, align 8, !tbaa !42
+  %164 = uitofp i64 %163 to double
+  %165 = fdiv double %160, %164
+  %166 = fptosi double %165 to i32
+  %167 = load ptr, ptr %11, align 8, !tbaa !37
+  store i32 %166, ptr %167, align 4, !tbaa !9
+  %168 = load ptr, ptr %11, align 8, !tbaa !37
+  %169 = load i32, ptr %168, align 4, !tbaa !9
+  %170 = load i32, ptr %10, align 4, !tbaa !9
+  %171 = icmp sgt i32 %169, %170
+  br i1 %171, label %172, label %173
 
-if.then75:                                        ; preds = %if.end66
-  store i32 1, ptr %retval, align 4
-  br label %return
+172:                                              ; preds = %152
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-if.end76:                                         ; preds = %if.end66
-  %59 = load i64, ptr %src_removed, align 8
-  %60 = load i64, ptr %literal_added, align 8
-  %add77 = add i64 %59, %60
-  store i64 %add77, ptr %delta_size, align 8
-  %61 = load i64, ptr %delta_size, align 8
-  %conv78 = uitofp i64 %61 to double
-  %mul79 = fmul double %conv78, 6.000000e+04
-  %62 = load i64, ptr %max_size, align 8
-  %conv80 = uitofp i64 %62 to double
-  %div81 = fdiv double %mul79, %conv80
-  %63 = load i32, ptr %break_score.addr, align 4
-  %conv82 = sitofp i32 %63 to double
-  %cmp83 = fcmp olt double %div81, %conv82
-  br i1 %cmp83, label %if.then85, label %if.end86
+173:                                              ; preds = %152
+  %174 = load i64, ptr %16, align 8, !tbaa !43
+  %175 = load i64, ptr %15, align 8, !tbaa !43
+  %176 = add i64 %174, %175
+  store i64 %176, ptr %12, align 8, !tbaa !43
+  %177 = load i64, ptr %12, align 8, !tbaa !43
+  %178 = uitofp i64 %177 to double
+  %179 = fmul double %178, 6.000000e+04
+  %180 = load i64, ptr %13, align 8, !tbaa !43
+  %181 = uitofp i64 %180 to double
+  %182 = fdiv double %179, %181
+  %183 = load i32, ptr %10, align 4, !tbaa !9
+  %184 = sitofp i32 %183 to double
+  %185 = fcmp olt double %182, %184
+  br i1 %185, label %186, label %187
 
-if.then85:                                        ; preds = %if.end76
-  store i32 0, ptr %retval, align 4
-  br label %return
+186:                                              ; preds = %173
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-if.end86:                                         ; preds = %if.end76
-  %64 = load ptr, ptr %src.addr, align 8
-  %size87 = getelementptr inbounds %struct.diff_filespec, ptr %64, i32 0, i32 4
-  %65 = load i64, ptr %size87, align 8
-  %66 = load i32, ptr %break_score.addr, align 4
-  %conv88 = sext i32 %66 to i64
-  %mul89 = mul i64 %65, %conv88
-  %conv90 = uitofp i64 %mul89 to double
-  %67 = load i64, ptr %src_removed, align 8
-  %conv91 = uitofp i64 %67 to double
-  %mul92 = fmul double %conv91, 6.000000e+04
-  %cmp93 = fcmp olt double %conv90, %mul92
-  br i1 %cmp93, label %land.lhs.true95, label %if.end104
+187:                                              ; preds = %173
+  %188 = load ptr, ptr %8, align 8, !tbaa !31
+  %189 = getelementptr inbounds nuw %struct.diff_filespec, ptr %188, i32 0, i32 4
+  %190 = load i64, ptr %189, align 8, !tbaa !42
+  %191 = load i32, ptr %10, align 4, !tbaa !9
+  %192 = sext i32 %191 to i64
+  %193 = mul i64 %190, %192
+  %194 = uitofp i64 %193 to double
+  %195 = load i64, ptr %16, align 8, !tbaa !43
+  %196 = uitofp i64 %195 to double
+  %197 = fmul double %196, 6.000000e+04
+  %198 = fcmp olt double %194, %197
+  br i1 %198, label %199, label %210
 
-land.lhs.true95:                                  ; preds = %if.end86
-  %68 = load i64, ptr %literal_added, align 8
-  %mul96 = mul i64 %68, 20
-  %69 = load i64, ptr %src_removed, align 8
-  %cmp97 = icmp ult i64 %mul96, %69
-  br i1 %cmp97, label %land.lhs.true99, label %if.end104
+199:                                              ; preds = %187
+  %200 = load i64, ptr %15, align 8, !tbaa !43
+  %201 = mul i64 %200, 20
+  %202 = load i64, ptr %16, align 8, !tbaa !43
+  %203 = icmp ult i64 %201, %202
+  br i1 %203, label %204, label %210
 
-land.lhs.true99:                                  ; preds = %land.lhs.true95
-  %70 = load i64, ptr %literal_added, align 8
-  %mul100 = mul i64 %70, 20
-  %71 = load i64, ptr %src_copied, align 8
-  %cmp101 = icmp ult i64 %mul100, %71
-  br i1 %cmp101, label %if.then103, label %if.end104
+204:                                              ; preds = %199
+  %205 = load i64, ptr %15, align 8, !tbaa !43
+  %206 = mul i64 %205, 20
+  %207 = load i64, ptr %14, align 8, !tbaa !43
+  %208 = icmp ult i64 %206, %207
+  br i1 %208, label %209, label %210
 
-if.then103:                                       ; preds = %land.lhs.true99
-  store i32 0, ptr %retval, align 4
-  br label %return
+209:                                              ; preds = %204
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-if.end104:                                        ; preds = %land.lhs.true99, %land.lhs.true95, %if.end86
-  store i32 1, ptr %retval, align 4
-  br label %return
+210:                                              ; preds = %204, %199, %187
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %211
 
-return:                                           ; preds = %if.end104, %if.then103, %if.then85, %if.then75, %if.then48, %if.then43, %if.then39, %if.then30, %if.then17, %if.then
-  %72 = load i32, ptr %retval, align 4
-  ret i32 %72
+211:                                              ; preds = %210, %209, %186, %172, %119, %108, %102, %81, %58, %35
+  call void @llvm.lifetime.end.p0(i64 24, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  %212 = load i32, ptr %6, align 4
+  ret i32 %212
 }
 
-declare ptr @alloc_filespec(ptr noundef) #2
+declare ptr @alloc_filespec(ptr noundef) #5
 
-declare ptr @diff_queue(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @diff_queue(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @diff_free_filespec_blob(ptr noundef) #2
+declare void @diff_free_filespec_blob(ptr noundef) #5
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #6
 
-declare void @diff_free_filespec_data(ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @diff_q(ptr noundef, ptr noundef) #2
+declare void @diff_free_filespec_data(ptr noundef) #5
+
+declare void @diff_q(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @diffcore_merge_broken() #0 {
-entry:
-  %q = alloca ptr, align 8
-  %outq = alloca %struct.diff_queue_struct, align 8
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %pp = alloca ptr, align 8
-  store ptr @diff_queued_diff, ptr %q, align 8
-  br label %do.body
+  %1 = alloca ptr, align 8
+  %2 = alloca %struct.diff_queue_struct, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #9
+  store ptr @diff_queued_diff, ptr %1, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %2) #9
+  call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #9
+  store i32 0, ptr %3, align 4, !tbaa !9
+  br label %8
 
-do.body:                                          ; preds = %entry
-  %queue = getelementptr inbounds %struct.diff_queue_struct, ptr %outq, i32 0, i32 0
-  store ptr null, ptr %queue, align 8
-  %alloc = getelementptr inbounds %struct.diff_queue_struct, ptr %outq, i32 0, i32 1
-  store i32 0, ptr %alloc, align 8
-  %nr = getelementptr inbounds %struct.diff_queue_struct, ptr %outq, i32 0, i32 2
-  store i32 0, ptr %nr, align 4
-  br label %do.end
+8:                                                ; preds = %120, %0
+  %9 = load i32, ptr %3, align 4, !tbaa !9
+  %10 = load ptr, ptr %1, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %10, i32 0, i32 2
+  %12 = load i32, ptr %11, align 4, !tbaa !13
+  %13 = icmp slt i32 %9, %12
+  br i1 %13, label %14, label %123
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+14:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %15 = load ptr, ptr %1, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %18 = load i32, ptr %3, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  store ptr %21, ptr %5, align 8, !tbaa !17
+  %22 = load ptr, ptr %5, align 8, !tbaa !17
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %25, label %24
 
-for.cond:                                         ; preds = %for.inc40, %do.end
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %q, align 8
-  %nr1 = getelementptr inbounds %struct.diff_queue_struct, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %nr1, align 4
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end42
+24:                                               ; preds = %14
+  store i32 4, ptr %6, align 4
+  br label %117
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %q, align 8
-  %queue2 = getelementptr inbounds %struct.diff_queue_struct, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %queue2, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  store ptr %6, ptr %p, align 8
-  %7 = load ptr, ptr %p, align 8
-  %tobool = icmp ne ptr %7, null
-  br i1 %tobool, label %if.else, label %if.then
+25:                                               ; preds = %14
+  %26 = load ptr, ptr %5, align 8, !tbaa !17
+  %27 = getelementptr inbounds nuw %struct.diff_filepair, ptr %26, i32 0, i32 4
+  %28 = load i8, ptr %27, align 1
+  %29 = and i8 %28, 1
+  %30 = zext i8 %29 to i32
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %112
 
-if.then:                                          ; preds = %for.body
-  br label %for.inc40
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %5, align 8, !tbaa !17
+  %34 = getelementptr inbounds nuw %struct.diff_filepair, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !19
+  %36 = getelementptr inbounds nuw %struct.diff_filespec, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !30
+  %38 = load ptr, ptr %5, align 8, !tbaa !17
+  %39 = getelementptr inbounds nuw %struct.diff_filepair, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !29
+  %41 = getelementptr inbounds nuw %struct.diff_filespec, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !30
+  %43 = call i32 @strcmp(ptr noundef %37, ptr noundef %42) #10
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %112, label %45
 
-if.else:                                          ; preds = %for.body
-  %8 = load ptr, ptr %p, align 8
-  %broken_pair = getelementptr inbounds %struct.diff_filepair, ptr %8, i32 0, i32 4
-  %bf.load = load i8, ptr %broken_pair, align 1
-  %bf.clear = and i8 %bf.load, 1
-  %bf.cast = zext i8 %bf.clear to i32
-  %tobool3 = icmp ne i32 %bf.cast, 0
-  br i1 %tobool3, label %land.lhs.true, label %if.else37
+45:                                               ; preds = %32
+  %46 = load i32, ptr %3, align 4, !tbaa !9
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %4, align 4, !tbaa !9
+  br label %48
 
-land.lhs.true:                                    ; preds = %if.else
-  %9 = load ptr, ptr %p, align 8
-  %one = getelementptr inbounds %struct.diff_filepair, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %one, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %path, align 8
-  %12 = load ptr, ptr %p, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %two, align 8
-  %path4 = getelementptr inbounds %struct.diff_filespec, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %path4, align 8
-  %call = call i32 @strcmp(ptr noundef %11, ptr noundef %14) #7
-  %tobool5 = icmp ne i32 %call, 0
-  br i1 %tobool5, label %if.else37, label %if.then6
+48:                                               ; preds = %107, %45
+  %49 = load i32, ptr %4, align 4, !tbaa !9
+  %50 = load ptr, ptr %1, align 8, !tbaa !11
+  %51 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %50, i32 0, i32 2
+  %52 = load i32, ptr %51, align 4, !tbaa !13
+  %53 = icmp slt i32 %49, %52
+  br i1 %53, label %54, label %110
 
-if.then6:                                         ; preds = %land.lhs.true
-  %15 = load i32, ptr %i, align 4
-  %add = add nsw i32 %15, 1
-  store i32 %add, ptr %j, align 4
-  br label %for.cond7
+54:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %55 = load ptr, ptr %1, align 8, !tbaa !11
+  %56 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !16
+  %58 = load i32, ptr %4, align 4, !tbaa !9
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !17
+  store ptr %61, ptr %7, align 8, !tbaa !17
+  %62 = load ptr, ptr %7, align 8, !tbaa !17
+  %63 = getelementptr inbounds nuw %struct.diff_filepair, ptr %62, i32 0, i32 4
+  %64 = load i8, ptr %63, align 1
+  %65 = and i8 %64, 1
+  %66 = zext i8 %65 to i32
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %103
 
-for.cond7:                                        ; preds = %for.inc, %if.then6
-  %16 = load i32, ptr %j, align 4
-  %17 = load ptr, ptr %q, align 8
-  %nr8 = getelementptr inbounds %struct.diff_queue_struct, ptr %17, i32 0, i32 2
-  %18 = load i32, ptr %nr8, align 4
-  %cmp9 = icmp slt i32 %16, %18
-  br i1 %cmp9, label %for.body10, label %for.end
+68:                                               ; preds = %54
+  %69 = load ptr, ptr %7, align 8, !tbaa !17
+  %70 = getelementptr inbounds nuw %struct.diff_filepair, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !19
+  %72 = getelementptr inbounds nuw %struct.diff_filespec, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8, !tbaa !30
+  %74 = load ptr, ptr %7, align 8, !tbaa !17
+  %75 = getelementptr inbounds nuw %struct.diff_filepair, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8, !tbaa !29
+  %77 = getelementptr inbounds nuw %struct.diff_filespec, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8, !tbaa !30
+  %79 = call i32 @strcmp(ptr noundef %73, ptr noundef %78) #10
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %103, label %81
 
-for.body10:                                       ; preds = %for.cond7
-  %19 = load ptr, ptr %q, align 8
-  %queue11 = getelementptr inbounds %struct.diff_queue_struct, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %queue11, align 8
-  %21 = load i32, ptr %j, align 4
-  %idxprom12 = sext i32 %21 to i64
-  %arrayidx13 = getelementptr inbounds ptr, ptr %20, i64 %idxprom12
-  %22 = load ptr, ptr %arrayidx13, align 8
-  store ptr %22, ptr %pp, align 8
-  %23 = load ptr, ptr %pp, align 8
-  %broken_pair14 = getelementptr inbounds %struct.diff_filepair, ptr %23, i32 0, i32 4
-  %bf.load15 = load i8, ptr %broken_pair14, align 1
-  %bf.clear16 = and i8 %bf.load15, 1
-  %bf.cast17 = zext i8 %bf.clear16 to i32
-  %tobool18 = icmp ne i32 %bf.cast17, 0
-  br i1 %tobool18, label %land.lhs.true19, label %if.end
+81:                                               ; preds = %68
+  %82 = load ptr, ptr %5, align 8, !tbaa !17
+  %83 = getelementptr inbounds nuw %struct.diff_filepair, ptr %82, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8, !tbaa !19
+  %85 = getelementptr inbounds nuw %struct.diff_filespec, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8, !tbaa !30
+  %87 = load ptr, ptr %7, align 8, !tbaa !17
+  %88 = getelementptr inbounds nuw %struct.diff_filepair, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !29
+  %90 = getelementptr inbounds nuw %struct.diff_filespec, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8, !tbaa !30
+  %92 = call i32 @strcmp(ptr noundef %86, ptr noundef %91) #10
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %103, label %94
 
-land.lhs.true19:                                  ; preds = %for.body10
-  %24 = load ptr, ptr %pp, align 8
-  %one20 = getelementptr inbounds %struct.diff_filepair, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %one20, align 8
-  %path21 = getelementptr inbounds %struct.diff_filespec, ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %path21, align 8
-  %27 = load ptr, ptr %pp, align 8
-  %two22 = getelementptr inbounds %struct.diff_filepair, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %two22, align 8
-  %path23 = getelementptr inbounds %struct.diff_filespec, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %path23, align 8
-  %call24 = call i32 @strcmp(ptr noundef %26, ptr noundef %29) #7
-  %tobool25 = icmp ne i32 %call24, 0
-  br i1 %tobool25, label %if.end, label %land.lhs.true26
+94:                                               ; preds = %81
+  %95 = load ptr, ptr %5, align 8, !tbaa !17
+  %96 = load ptr, ptr %7, align 8, !tbaa !17
+  call void @merge_broken(ptr noundef %95, ptr noundef %96, ptr noundef %2)
+  %97 = load ptr, ptr %1, align 8, !tbaa !11
+  %98 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8, !tbaa !16
+  %100 = load i32, ptr %4, align 4, !tbaa !9
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds ptr, ptr %99, i64 %101
+  store ptr null, ptr %102, align 8, !tbaa !17
+  store i32 8, ptr %6, align 4
+  br label %104
 
-land.lhs.true26:                                  ; preds = %land.lhs.true19
-  %30 = load ptr, ptr %p, align 8
-  %one27 = getelementptr inbounds %struct.diff_filepair, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %one27, align 8
-  %path28 = getelementptr inbounds %struct.diff_filespec, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %path28, align 8
-  %33 = load ptr, ptr %pp, align 8
-  %two29 = getelementptr inbounds %struct.diff_filepair, ptr %33, i32 0, i32 1
-  %34 = load ptr, ptr %two29, align 8
-  %path30 = getelementptr inbounds %struct.diff_filespec, ptr %34, i32 0, i32 1
-  %35 = load ptr, ptr %path30, align 8
-  %call31 = call i32 @strcmp(ptr noundef %32, ptr noundef %35) #7
-  %tobool32 = icmp ne i32 %call31, 0
-  br i1 %tobool32, label %if.end, label %if.then33
+103:                                              ; preds = %81, %68, %54
+  store i32 0, ptr %6, align 4
+  br label %104
 
-if.then33:                                        ; preds = %land.lhs.true26
-  %36 = load ptr, ptr %p, align 8
-  %37 = load ptr, ptr %pp, align 8
-  call void @merge_broken(ptr noundef %36, ptr noundef %37, ptr noundef %outq)
-  %38 = load ptr, ptr %q, align 8
-  %queue34 = getelementptr inbounds %struct.diff_queue_struct, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %queue34, align 8
-  %40 = load i32, ptr %j, align 4
-  %idxprom35 = sext i32 %40 to i64
-  %arrayidx36 = getelementptr inbounds ptr, ptr %39, i64 %idxprom35
-  store ptr null, ptr %arrayidx36, align 8
-  br label %next
+104:                                              ; preds = %94, %103
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  %105 = load i32, ptr %6, align 4
+  switch i32 %105, label %117 [
+    i32 0, label %106
+    i32 8, label %116
+  ]
 
-if.end:                                           ; preds = %land.lhs.true26, %land.lhs.true19, %for.body10
-  br label %for.inc
+106:                                              ; preds = %104
+  br label %107
 
-for.inc:                                          ; preds = %if.end
-  %41 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %41, 1
-  store i32 %inc, ptr %j, align 4
-  br label %for.cond7, !llvm.loop !7
+107:                                              ; preds = %106
+  %108 = load i32, ptr %4, align 4, !tbaa !9
+  %109 = add nsw i32 %108, 1
+  store i32 %109, ptr %4, align 4, !tbaa !9
+  br label %48, !llvm.loop !44
 
-for.end:                                          ; preds = %for.cond7
-  %42 = load ptr, ptr %p, align 8
-  call void @diff_q(ptr noundef %outq, ptr noundef %42)
-  br label %if.end38
+110:                                              ; preds = %48
+  %111 = load ptr, ptr %5, align 8, !tbaa !17
+  call void @diff_q(ptr noundef %2, ptr noundef %111)
+  br label %114
 
-if.else37:                                        ; preds = %land.lhs.true, %if.else
-  %43 = load ptr, ptr %p, align 8
-  call void @diff_q(ptr noundef %outq, ptr noundef %43)
-  br label %if.end38
+112:                                              ; preds = %32, %25
+  %113 = load ptr, ptr %5, align 8, !tbaa !17
+  call void @diff_q(ptr noundef %2, ptr noundef %113)
+  br label %114
 
-if.end38:                                         ; preds = %if.else37, %for.end
-  br label %if.end39
+114:                                              ; preds = %112, %110
+  br label %115
 
-if.end39:                                         ; preds = %if.end38
-  br label %next
+115:                                              ; preds = %114
+  br label %116
 
-next:                                             ; preds = %if.end39, %if.then33
-  br label %for.inc40
+116:                                              ; preds = %115, %104
+  store i32 0, ptr %6, align 4
+  br label %117
 
-for.inc40:                                        ; preds = %next, %if.then
-  %44 = load i32, ptr %i, align 4
-  %inc41 = add nsw i32 %44, 1
-  store i32 %inc41, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+117:                                              ; preds = %116, %104, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  %118 = load i32, ptr %6, align 4
+  switch i32 %118, label %128 [
+    i32 0, label %119
+    i32 4, label %120
+  ]
 
-for.end42:                                        ; preds = %for.cond
-  %45 = load ptr, ptr %q, align 8
-  %queue43 = getelementptr inbounds %struct.diff_queue_struct, ptr %45, i32 0, i32 0
-  %46 = load ptr, ptr %queue43, align 8
-  call void @free(ptr noundef %46) #8
-  %47 = load ptr, ptr %q, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %outq, i64 16, i1 false)
+119:                                              ; preds = %117
+  br label %120
+
+120:                                              ; preds = %119, %117
+  %121 = load i32, ptr %3, align 4, !tbaa !9
+  %122 = add nsw i32 %121, 1
+  store i32 %122, ptr %3, align 4, !tbaa !9
+  br label %8, !llvm.loop !45
+
+123:                                              ; preds = %8
+  %124 = load ptr, ptr %1, align 8, !tbaa !11
+  %125 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8, !tbaa !16
+  call void @free(ptr noundef %126) #9
+  %127 = load ptr, ptr %1, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %127, ptr align 8 %2, i64 16, i1 false), !tbaa.struct !35
+  store i32 1, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %2) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #9
+  ret void
+
+128:                                              ; preds = %117
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @merge_broken(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %10 = load ptr, ptr %4, align 8, !tbaa !17
+  store ptr %10, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %11 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %11, ptr %8, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %12 = load ptr, ptr %4, align 8, !tbaa !17
+  %13 = getelementptr inbounds nuw %struct.diff_filepair, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw %struct.diff_filespec, ptr %14, i32 0, i32 7
+  %16 = load i16, ptr %15, align 8, !tbaa !23
+  %17 = zext i16 %16 to i32
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !17
+  store ptr %20, ptr %8, align 8, !tbaa !17
+  %21 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %21, ptr %7, align 8, !tbaa !17
+  br label %22
+
+22:                                               ; preds = %19, %3
+  %23 = load ptr, ptr %8, align 8, !tbaa !17
+  %24 = getelementptr inbounds nuw %struct.diff_filepair, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.diff_filespec, ptr %25, i32 0, i32 7
+  %27 = load i16, ptr %26, align 8, !tbaa !23
+  %28 = zext i16 %27 to i32
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %31, label %30
+
+30:                                               ; preds = %22
+  call void (ptr, ...) @die(ptr noundef @.str) #11
+  unreachable
+
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %8, align 8, !tbaa !17
+  %33 = getelementptr inbounds nuw %struct.diff_filepair, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !29
+  %35 = getelementptr inbounds nuw %struct.diff_filespec, ptr %34, i32 0, i32 7
+  %36 = load i16, ptr %35, align 8, !tbaa !23
+  %37 = zext i16 %36 to i32
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %31
+  call void (ptr, ...) @die(ptr noundef @.str.1) #11
+  unreachable
+
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %7, align 8, !tbaa !17
+  %42 = getelementptr inbounds nuw %struct.diff_filepair, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8, !tbaa !19
+  %44 = getelementptr inbounds nuw %struct.diff_filespec, ptr %43, i32 0, i32 7
+  %45 = load i16, ptr %44, align 8, !tbaa !23
+  %46 = zext i16 %45 to i32
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
+
+48:                                               ; preds = %40
+  call void (ptr, ...) @die(ptr noundef @.str.2) #11
+  unreachable
+
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %7, align 8, !tbaa !17
+  %51 = getelementptr inbounds nuw %struct.diff_filepair, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8, !tbaa !29
+  %53 = getelementptr inbounds nuw %struct.diff_filespec, ptr %52, i32 0, i32 7
+  %54 = load i16, ptr %53, align 8, !tbaa !23
+  %55 = zext i16 %54 to i32
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %58, label %57
+
+57:                                               ; preds = %49
+  call void (ptr, ...) @die(ptr noundef @.str.3) #11
+  unreachable
+
+58:                                               ; preds = %49
+  %59 = load ptr, ptr %6, align 8, !tbaa !11
+  %60 = load ptr, ptr %8, align 8, !tbaa !17
+  %61 = getelementptr inbounds nuw %struct.diff_filepair, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !19
+  %63 = load ptr, ptr %7, align 8, !tbaa !17
+  %64 = getelementptr inbounds nuw %struct.diff_filepair, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8, !tbaa !29
+  %66 = call ptr @diff_queue(ptr noundef %59, ptr noundef %62, ptr noundef %65)
+  store ptr %66, ptr %9, align 8, !tbaa !17
+  %67 = load ptr, ptr %4, align 8, !tbaa !17
+  %68 = getelementptr inbounds nuw %struct.diff_filepair, ptr %67, i32 0, i32 2
+  %69 = load i16, ptr %68, align 8, !tbaa !32
+  %70 = load ptr, ptr %9, align 8, !tbaa !17
+  %71 = getelementptr inbounds nuw %struct.diff_filepair, ptr %70, i32 0, i32 2
+  store i16 %69, ptr %71, align 8, !tbaa !32
+  %72 = load ptr, ptr %8, align 8, !tbaa !17
+  %73 = getelementptr inbounds nuw %struct.diff_filepair, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8, !tbaa !19
+  %75 = getelementptr inbounds nuw %struct.diff_filespec, ptr %74, i32 0, i32 6
+  %76 = load i32, ptr %75, align 4, !tbaa !46
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %75, align 4, !tbaa !46
+  %78 = load ptr, ptr %8, align 8, !tbaa !17
+  %79 = getelementptr inbounds nuw %struct.diff_filepair, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8, !tbaa !29
+  call void @free_filespec(ptr noundef %80)
+  %81 = load ptr, ptr %7, align 8, !tbaa !17
+  %82 = getelementptr inbounds nuw %struct.diff_filepair, ptr %81, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8, !tbaa !19
+  call void @free_filespec(ptr noundef %83)
+  %84 = load ptr, ptr %8, align 8, !tbaa !17
+  call void @free(ptr noundef %84) #9
+  %85 = load ptr, ptr %7, align 8, !tbaa !17
+  call void @free(ptr noundef %85) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @merge_broken(ptr noundef %p, ptr noundef %pp, ptr noundef %outq) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %pp.addr = alloca ptr, align 8
-  %outq.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %d = alloca ptr, align 8
-  %dp = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store ptr %pp, ptr %pp.addr, align 8
-  store ptr %outq, ptr %outq.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %c, align 8
-  %1 = load ptr, ptr %pp.addr, align 8
-  store ptr %1, ptr %d, align 8
-  %2 = load ptr, ptr %p.addr, align 8
-  %one = getelementptr inbounds %struct.diff_filepair, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %one, align 8
-  %mode = getelementptr inbounds %struct.diff_filespec, ptr %3, i32 0, i32 7
-  %4 = load i16, ptr %mode, align 8
-  %conv = zext i16 %4 to i32
-  %cmp = icmp ne i32 %conv, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %p.addr, align 8
-  store ptr %5, ptr %d, align 8
-  %6 = load ptr, ptr %pp.addr, align 8
-  store ptr %6, ptr %c, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %d, align 8
-  %one2 = getelementptr inbounds %struct.diff_filepair, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %one2, align 8
-  %mode3 = getelementptr inbounds %struct.diff_filespec, ptr %8, i32 0, i32 7
-  %9 = load i16, ptr %mode3, align 8
-  %conv4 = zext i16 %9 to i32
-  %cmp5 = icmp ne i32 %conv4, 0
-  br i1 %cmp5, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %if.end
-  call void (ptr, ...) @die(ptr noundef @.str) #9
-  unreachable
-
-if.end8:                                          ; preds = %if.end
-  %10 = load ptr, ptr %d, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %two, align 8
-  %mode9 = getelementptr inbounds %struct.diff_filespec, ptr %11, i32 0, i32 7
-  %12 = load i16, ptr %mode9, align 8
-  %conv10 = zext i16 %12 to i32
-  %cmp11 = icmp ne i32 %conv10, 0
-  br i1 %cmp11, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %if.end8
-  call void (ptr, ...) @die(ptr noundef @.str.1) #9
-  unreachable
-
-if.end14:                                         ; preds = %if.end8
-  %13 = load ptr, ptr %c, align 8
-  %one15 = getelementptr inbounds %struct.diff_filepair, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %one15, align 8
-  %mode16 = getelementptr inbounds %struct.diff_filespec, ptr %14, i32 0, i32 7
-  %15 = load i16, ptr %mode16, align 8
-  %conv17 = zext i16 %15 to i32
-  %cmp18 = icmp ne i32 %conv17, 0
-  br i1 %cmp18, label %if.then20, label %if.end21
-
-if.then20:                                        ; preds = %if.end14
-  call void (ptr, ...) @die(ptr noundef @.str.2) #9
-  unreachable
-
-if.end21:                                         ; preds = %if.end14
-  %16 = load ptr, ptr %c, align 8
-  %two22 = getelementptr inbounds %struct.diff_filepair, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %two22, align 8
-  %mode23 = getelementptr inbounds %struct.diff_filespec, ptr %17, i32 0, i32 7
-  %18 = load i16, ptr %mode23, align 8
-  %conv24 = zext i16 %18 to i32
-  %cmp25 = icmp ne i32 %conv24, 0
-  br i1 %cmp25, label %if.end28, label %if.then27
-
-if.then27:                                        ; preds = %if.end21
-  call void (ptr, ...) @die(ptr noundef @.str.3) #9
-  unreachable
-
-if.end28:                                         ; preds = %if.end21
-  %19 = load ptr, ptr %outq.addr, align 8
-  %20 = load ptr, ptr %d, align 8
-  %one29 = getelementptr inbounds %struct.diff_filepair, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %one29, align 8
-  %22 = load ptr, ptr %c, align 8
-  %two30 = getelementptr inbounds %struct.diff_filepair, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %two30, align 8
-  %call = call ptr @diff_queue(ptr noundef %19, ptr noundef %21, ptr noundef %23)
-  store ptr %call, ptr %dp, align 8
-  %24 = load ptr, ptr %p.addr, align 8
-  %score = getelementptr inbounds %struct.diff_filepair, ptr %24, i32 0, i32 2
-  %25 = load i16, ptr %score, align 8
-  %26 = load ptr, ptr %dp, align 8
-  %score31 = getelementptr inbounds %struct.diff_filepair, ptr %26, i32 0, i32 2
-  store i16 %25, ptr %score31, align 8
-  %27 = load ptr, ptr %d, align 8
-  %one32 = getelementptr inbounds %struct.diff_filepair, ptr %27, i32 0, i32 0
-  %28 = load ptr, ptr %one32, align 8
-  %rename_used = getelementptr inbounds %struct.diff_filespec, ptr %28, i32 0, i32 6
-  %29 = load i32, ptr %rename_used, align 4
-  %inc = add nsw i32 %29, 1
-  store i32 %inc, ptr %rename_used, align 4
-  %30 = load ptr, ptr %d, align 8
-  %two33 = getelementptr inbounds %struct.diff_filepair, ptr %30, i32 0, i32 1
-  %31 = load ptr, ptr %two33, align 8
-  call void @diff_free_filespec_data(ptr noundef %31)
-  %32 = load ptr, ptr %c, align 8
-  %one34 = getelementptr inbounds %struct.diff_filepair, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %one34, align 8
-  call void @diff_free_filespec_data(ptr noundef %33)
-  %34 = load ptr, ptr %d, align 8
-  call void @free(ptr noundef %34) #8
-  %35 = load ptr, ptr %c, align 8
-  call void @free(ptr noundef %35) #8
-  ret void
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @oideq(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !47
+  %6 = getelementptr inbounds nuw %struct.object_id, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !47
+  %9 = getelementptr inbounds nuw %struct.object_id, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %11 = call i32 @memcmp(ptr noundef %7, ptr noundef %10, i64 noundef 32) #10
+  %12 = icmp ne i32 %11, 0
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  ret i32 %14
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare i32 @repo_has_promisor_remote(ptr noundef) #5
 
-; Function Attrs: nounwind uwtable
-define internal i32 @oideq(ptr noundef %oid1, ptr noundef %oid2) #0 {
-entry:
-  %oid1.addr = alloca ptr, align 8
-  %oid2.addr = alloca ptr, align 8
-  %algop = alloca ptr, align 8
-  store ptr %oid1, ptr %oid1.addr, align 8
-  store ptr %oid2, ptr %oid2.addr, align 8
-  %0 = load ptr, ptr %oid1.addr, align 8
-  %algo = getelementptr inbounds %struct.object_id, ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %algo, align 4
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.else, label %if.then
+declare void @diff_queued_diff_prefetch(ptr noundef) #5
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %2, i32 0, i32 15
-  %3 = load ptr, ptr %hash_algo, align 8
-  store ptr %3, ptr %algop, align 8
-  br label %if.end
+declare i32 @diff_populate_filespec(ptr noundef, ptr noundef, ptr noundef) #5
 
-if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr %oid1.addr, align 8
-  %algo1 = getelementptr inbounds %struct.object_id, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %algo1, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
-  store ptr %arrayidx, ptr %algop, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %6 = load ptr, ptr %oid1.addr, align 8
-  %hash = getelementptr inbounds %struct.object_id, ptr %6, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %hash, i64 0, i64 0
-  %7 = load ptr, ptr %oid2.addr, align 8
-  %hash2 = getelementptr inbounds %struct.object_id, ptr %7, i32 0, i32 0
-  %arraydecay3 = getelementptr inbounds [32 x i8], ptr %hash2, i64 0, i64 0
-  %8 = load ptr, ptr %algop, align 8
-  %call = call i32 @hasheq_algop(ptr noundef %arraydecay, ptr noundef %arraydecay3, ptr noundef %8)
-  ret i32 %call
-}
-
-declare i32 @repo_has_promisor_remote(ptr noundef) #2
-
-declare void @diff_queued_diff_prefetch(ptr noundef) #2
-
-declare i32 @diff_populate_filespec(ptr noundef, ptr noundef, ptr noundef) #2
-
-declare i32 @diffcore_count_changes(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal i32 @hasheq_algop(ptr noundef %sha1, ptr noundef %sha2, ptr noundef %algop) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha1.addr = alloca ptr, align 8
-  %sha2.addr = alloca ptr, align 8
-  %algop.addr = alloca ptr, align 8
-  store ptr %sha1, ptr %sha1.addr, align 8
-  store ptr %sha2, ptr %sha2.addr, align 8
-  store ptr %algop, ptr %algop.addr, align 8
-  %0 = load ptr, ptr %algop.addr, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %rawsz, align 8
-  %cmp = icmp eq i64 %1, 32
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %sha1.addr, align 8
-  %3 = load ptr, ptr %sha2.addr, align 8
-  %call = call i32 @memcmp(ptr noundef %2, ptr noundef %3, i64 noundef 32) #7
-  %tobool = icmp ne i32 %call, 0
-  %lnot = xor i1 %tobool, true
-  %lnot.ext = zext i1 %lnot to i32
-  store i32 %lnot.ext, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %sha1.addr, align 8
-  %5 = load ptr, ptr %sha2.addr, align 8
-  %call1 = call i32 @memcmp(ptr noundef %4, ptr noundef %5, i64 noundef 20) #7
-  %tobool2 = icmp ne i32 %call1, 0
-  %lnot3 = xor i1 %tobool2, true
-  %lnot.ext4 = zext i1 %lnot3 to i32
-  store i32 %lnot.ext4, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
-}
+declare i32 @diffcore_count_changes(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #6
+declare void @die(ptr noundef, ...) #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
+declare void @free_filespec(ptr noundef) #5
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS10repository", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS17diff_queue_struct", !6, i64 0}
+!13 = !{!14, !10, i64 12}
+!14 = !{!"diff_queue_struct", !15, i64 0, !10, i64 8, !10, i64 12}
+!15 = !{!"p2 _ZTS13diff_filepair", !6, i64 0}
+!16 = !{!14, !15, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS13diff_filepair", !6, i64 0}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"diff_filepair", !21, i64 0, !21, i64 8, !22, i64 16, !7, i64 18, !10, i64 19, !10, i64 19, !10, i64 19, !10, i64 19, !10, i64 19}
+!21 = !{!"p1 _ZTS13diff_filespec", !6, i64 0}
+!22 = !{!"short", !7, i64 0}
+!23 = !{!24, !22, i64 80}
+!24 = !{!"diff_filespec", !25, i64 0, !26, i64 40, !6, i64 48, !6, i64 56, !27, i64 64, !10, i64 72, !10, i64 76, !22, i64 80, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !28, i64 88}
+!25 = !{!"object_id", !7, i64 0, !10, i64 32}
+!26 = !{!"p1 omnipotent char", !6, i64 0}
+!27 = !{!"long", !7, i64 0}
+!28 = !{!"p1 _ZTS15userdiff_driver", !6, i64 0}
+!29 = !{!20, !21, i64 8}
+!30 = !{!24, !26, i64 40}
+!31 = !{!21, !21, i64 0}
+!32 = !{!20, !22, i64 16}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{i64 0, i64 8, !36, i64 8, i64 4, !9, i64 12, i64 4, !9}
+!36 = !{!15, !15, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 int", !6, i64 0}
+!39 = !{!40, !6, i64 8}
+!40 = !{!"diff_populate_filespec_options", !10, i64 0, !10, i64 0, !6, i64 8, !6, i64 16}
+!41 = !{!40, !6, i64 16}
+!42 = !{!24, !27, i64 64}
+!43 = !{!27, !27, i64 0}
+!44 = distinct !{!44, !34}
+!45 = distinct !{!45, !34}
+!46 = !{!24, !10, i64 76}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS9object_id", !6, i64 0}

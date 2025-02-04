@@ -1,16 +1,16 @@
 ; ModuleID = 'bench/git/original/csum-file.ll'
 source_filename = "bench/git/original/csum-file.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %union.git_hash_ctx = type { %struct.SHA1_CTX }
 %struct.SHA1_CTX = type { i64, [5 x i32], [64 x i8], i32, i32, i32, i32, i32, ptr, [5 x i32], [5 x i32], [80 x i32], [80 x i32], [80 x [5 x i32]] }
 
-@the_repository = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [29 x i8] c"%s: sha1 file error on close\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"%s: error when reading the tail of sha1 file\00", align 1
 @.str.2 = private unnamed_addr constant [35 x i8] c"%s: sha1 file has trailing garbage\00", align 1
 @.str.3 = private unnamed_addr constant [10 x i8] c"/dev/null\00", align 1
+@the_repository = external local_unnamed_addr global ptr, align 8
 @.str.4 = private unnamed_addr constant [45 x i8] c"sha1 file '%s' write error. Out of diskspace\00", align 1
 @.str.5 = private unnamed_addr constant [27 x i8] c"sha1 file '%s' write error\00", align 1
 @.str.6 = private unnamed_addr constant [25 x i8] c"%s: sha1 file read error\00", align 1
@@ -18,742 +18,842 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [32 x i8] c"sha1 file '%s' validation error\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashflush(ptr noundef %f) local_unnamed_addr #0 {
-entry:
-  %offset1 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %0 = load i32, ptr %offset1, align 8
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %if.end6, label %if.then
+define dso_local void @hashflush(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8, !tbaa !4
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %19, label %4
 
-if.then:                                          ; preds = %entry
-  %skip_hash = getelementptr inbounds nuw i8, ptr %f, i64 2472
-  %1 = load i32, ptr %skip_hash, align 8
-  %tobool2.not = icmp eq i32 %1, 0
-  br i1 %tobool2.not, label %if.then3, label %if.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %6 = load i32, ptr %5, align 8, !tbaa !14
+  %.not10 = icmp eq i32 %6, 0
+  br i1 %.not10, label %7, label %16
 
-if.then3:                                         ; preds = %if.then
-  %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %3 = load ptr, ptr %hash_algo, align 8
-  %update_fn = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %4 = load ptr, ptr %update_fn, align 8
-  %ctx = getelementptr inbounds nuw i8, ptr %f, i64 16
-  %buffer = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %5 = load ptr, ptr %buffer, align 8
-  %conv = zext i32 %0 to i64
-  tail call void %4(ptr noundef nonnull %ctx, ptr noundef %5, i64 noundef %conv) #11
-  br label %if.end
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %9 = load ptr, ptr %8, align 8, !tbaa !15
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %11 = load ptr, ptr %10, align 8, !tbaa !16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %14 = load ptr, ptr %13, align 8, !tbaa !19
+  %15 = zext i32 %3 to i64
+  tail call void %11(ptr noundef nonnull %12, ptr noundef %14, i64 noundef %15) #13
+  br label %16
 
-if.end:                                           ; preds = %if.then3, %if.then
-  %buffer4 = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %6 = load ptr, ptr %buffer4, align 8
-  tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %6, i32 noundef %0)
-  store i32 0, ptr %offset1, align 8
-  br label %if.end6
+16:                                               ; preds = %7, %4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
+  tail call fastcc void @flush(ptr noundef nonnull %0, ptr noundef %18, i32 noundef %3)
+  store i32 0, ptr %2, align 8, !tbaa !4
+  br label %19
 
-if.end6:                                          ; preds = %if.end, %entry
+19:                                               ; preds = %16, %1
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @flush(ptr noundef captures(none) %f, ptr noundef %buf, i32 noundef %count) unnamed_addr #0 {
-entry:
-  %check_fd = getelementptr inbounds nuw i8, ptr %f, i64 4
-  %0 = load i32, ptr %check_fd, align 4
-  %cmp = icmp sgt i32 %0, -1
-  %tobool = icmp ne i32 %count, 0
-  %or.cond = and i1 %tobool, %cmp
-  br i1 %or.cond, label %if.then, label %entry.if.end_crit_edge
+define internal fastcc void @flush(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !20
+  %6 = icmp sgt i32 %5, -1
+  %7 = icmp ne i32 %2, 0
+  %or.cond = and i1 %7, %6
+  br i1 %or.cond, label %8, label %.verify_buffer_or_die.exit_crit_edge
 
-entry.if.end_crit_edge:                           ; preds = %entry
-  %.pre = zext i32 %count to i64
-  br label %if.end
+.verify_buffer_or_die.exit_crit_edge:             ; preds = %3
+  %.pre = zext i32 %2 to i64
+  br label %verify_buffer_or_die.exit
 
-if.then:                                          ; preds = %entry
-  %check_buffer.i = getelementptr inbounds nuw i8, ptr %f, i64 2464
-  %1 = load ptr, ptr %check_buffer.i, align 8
-  %conv.i = zext i32 %count to i64
-  %call.i = tail call i64 @read_in_full(i32 noundef %0, ptr noundef %1, i64 noundef %conv.i) #11
-  %cmp.i = icmp slt i64 %call.i, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2464
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %11 = zext i32 %2 to i64
+  %12 = tail call i64 @read_in_full(i32 noundef %5, ptr noundef %10, i64 noundef %11) #13
+  %13 = icmp slt i64 %12, 0
+  br i1 %13, label %14, label %17
 
-if.then.i:                                        ; preds = %if.then
-  %name.i = getelementptr inbounds nuw i8, ptr %f, i64 2432
-  %2 = load ptr, ptr %name.i, align 8
-  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.6, ptr noundef %2) #12
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.6, ptr noundef %16) #14
   unreachable
 
-if.end.i:                                         ; preds = %if.then
-  %cmp3.not.i = icmp eq i64 %call.i, %conv.i
-  br i1 %cmp3.not.i, label %if.end7.i, label %if.then5.i
+17:                                               ; preds = %8
+  %.not.i = icmp eq i64 %12, %11
+  br i1 %.not.i, label %21, label %18
 
-if.then5.i:                                       ; preds = %if.end.i
-  %name6.i = getelementptr inbounds nuw i8, ptr %f, i64 2432
-  %3 = load ptr, ptr %name6.i, align 8
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef %3) #12
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef %20) #14
   unreachable
 
-if.end7.i:                                        ; preds = %if.end.i
-  %4 = load ptr, ptr %check_buffer.i, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) %4, i64 %conv.i)
-  %tobool.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %tobool.not.i, label %if.end, label %if.then11.i
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %9, align 8, !tbaa !21
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %22, i64 %11)
+  %.not12.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not12.i, label %verify_buffer_or_die.exit, label %23
 
-if.then11.i:                                      ; preds = %if.end7.i
-  %name12.i = getelementptr inbounds nuw i8, ptr %f, i64 2432
-  %5 = load ptr, ptr %name12.i, align 8
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.8, ptr noundef %5) #12
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.8, ptr noundef %25) #14
   unreachable
 
-if.end:                                           ; preds = %entry.if.end_crit_edge, %if.end7.i
-  %conv.pre-phi = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %conv.i, %if.end7.i ]
-  %6 = load i32, ptr %f, align 8
-  %call = tail call i64 @write_in_full(i32 noundef %6, ptr noundef %buf, i64 noundef %conv.pre-phi) #11
-  %cmp1 = icmp slt i64 %call, 0
-  br i1 %cmp1, label %if.then3, label %if.end10
+verify_buffer_or_die.exit:                        ; preds = %.verify_buffer_or_die.exit_crit_edge, %21
+  %.pre-phi = phi i64 [ %.pre, %.verify_buffer_or_die.exit_crit_edge ], [ %11, %21 ]
+  %26 = load i32, ptr %0, align 8, !tbaa !23
+  %27 = tail call i64 @write_in_full(i32 noundef %26, ptr noundef %1, i64 noundef %.pre-phi) #13
+  %28 = icmp slt i64 %27, 0
+  br i1 %28, label %29, label %37
 
-if.then3:                                         ; preds = %if.end
-  %call4 = tail call ptr @__errno_location() #13
-  %7 = load i32, ptr %call4, align 4
-  %cmp5 = icmp eq i32 %7, 28
-  %name = getelementptr inbounds nuw i8, ptr %f, i64 2432
-  %8 = load ptr, ptr %name, align 8
-  br i1 %cmp5, label %if.then7, label %if.end8
+29:                                               ; preds = %verify_buffer_or_die.exit
+  %30 = tail call ptr @__errno_location() #15
+  %31 = load i32, ptr %30, align 4, !tbaa !24
+  %32 = icmp eq i32 %31, 28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
+  br i1 %32, label %35, label %36
 
-if.then7:                                         ; preds = %if.then3
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, ptr noundef %8) #12
+35:                                               ; preds = %29
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, ptr noundef %34) #14
   unreachable
 
-if.end8:                                          ; preds = %if.then3
-  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.5, ptr noundef %8) #12
+36:                                               ; preds = %29
+  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.5, ptr noundef %34) #14
   unreachable
 
-if.end10:                                         ; preds = %if.end
-  %total = getelementptr inbounds nuw i8, ptr %f, i64 2416
-  %9 = load i64, ptr %total, align 8
-  %add = add nsw i64 %9, %conv.pre-phi
-  store i64 %add, ptr %total, align 8
-  %tp = getelementptr inbounds nuw i8, ptr %f, i64 2424
-  %10 = load ptr, ptr %tp, align 8
-  tail call void @display_throughput(ptr noundef %10, i64 noundef %add) #11
+37:                                               ; preds = %verify_buffer_or_die.exit
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2416
+  %39 = load i64, ptr %38, align 8, !tbaa !25
+  %40 = add nsw i64 %39, %.pre-phi
+  store i64 %40, ptr %38, align 8, !tbaa !25
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2424
+  %42 = load ptr, ptr %41, align 8, !tbaa !26
+  tail call void @display_throughput(ptr noundef %42, i64 noundef %40) #13
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind willreturn uwtable
+define dso_local void @free_hashfile(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  tail call void @free(ptr noundef %3) #13
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2464
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  tail call void @free(ptr noundef %5) #13
+  tail call void @free(ptr noundef %0) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @finalize_hashfile(ptr noundef %f, ptr noundef writeonly %result, i32 noundef %component, i32 noundef %flags) local_unnamed_addr #0 {
-entry:
-  %discard = alloca i8, align 1
-  %offset1.i = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %0 = load i32, ptr %offset1.i, align 8
-  %tobool.not.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i, label %hashflush.exit, label %if.then.i
+define dso_local i32 @finalize_hashfile(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = alloca i8, align 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !4
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %hashflush.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %skip_hash.i = getelementptr inbounds nuw i8, ptr %f, i64 2472
-  %1 = load i32, ptr %skip_hash.i, align 8
-  %tobool2.not.i = icmp eq i32 %1, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %10 = load i32, ptr %9, align 8, !tbaa !14
+  %.not10.i = icmp eq i32 %10, 0
+  br i1 %.not10.i, label %11, label %20
 
-if.then3.i:                                       ; preds = %if.then.i
-  %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %3 = load ptr, ptr %hash_algo.i, align 8
-  %update_fn.i = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %4 = load ptr, ptr %update_fn.i, align 8
-  %ctx.i = getelementptr inbounds nuw i8, ptr %f, i64 16
-  %buffer.i = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %5 = load ptr, ptr %buffer.i, align 8
-  %conv.i = zext i32 %0 to i64
-  tail call void %4(ptr noundef nonnull %ctx.i, ptr noundef %5, i64 noundef %conv.i) #11
-  br label %if.end.i
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
+  %19 = zext i32 %7 to i64
+  tail call void %15(ptr noundef nonnull %16, ptr noundef %18, i64 noundef %19) #13
+  br label %20
 
-if.end.i:                                         ; preds = %if.then3.i, %if.then.i
-  %buffer4.i = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %6 = load ptr, ptr %buffer4.i, align 8
-  tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %6, i32 noundef %0)
-  store i32 0, ptr %offset1.i, align 8
+20:                                               ; preds = %11, %8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %22 = load ptr, ptr %21, align 8, !tbaa !19
+  tail call fastcc void @flush(ptr noundef nonnull %0, ptr noundef %22, i32 noundef %7)
+  store i32 0, ptr %6, align 8, !tbaa !4
   br label %hashflush.exit
 
-hashflush.exit:                                   ; preds = %entry, %if.end.i
-  %skip_hash = getelementptr inbounds nuw i8, ptr %f, i64 2472
-  %7 = load i32, ptr %skip_hash, align 8
-  %tobool.not = icmp eq i32 %7, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+hashflush.exit:                                   ; preds = %4, %20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %24 = load i32, ptr %23, align 8, !tbaa !14
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %31, label %25
 
-if.then:                                          ; preds = %hashflush.exit
-  %buffer = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %8 = load ptr, ptr %buffer, align 8
-  %9 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i24 = getelementptr inbounds nuw i8, ptr %9, i64 256
-  %10 = load ptr, ptr %hash_algo.i24, align 8
-  %rawsz.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %11 = load i64, ptr %rawsz.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %11, i1 false)
-  br label %if.end
+25:                                               ; preds = %hashflush.exit
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %27 = load ptr, ptr %26, align 8, !tbaa !19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %29 = load ptr, ptr %28, align 8, !tbaa !15
+  %30 = getelementptr i8, ptr %29, i64 16
+  %.val = load i64, ptr %30, align 8, !tbaa !27
+  tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %.val, i1 false)
+  br label %39
 
-if.else:                                          ; preds = %hashflush.exit
-  %12 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds nuw i8, ptr %12, i64 256
-  %13 = load ptr, ptr %hash_algo, align 8
-  %final_fn = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %14 = load ptr, ptr %final_fn, align 8
-  %buffer1 = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %15 = load ptr, ptr %buffer1, align 8
-  %ctx = getelementptr inbounds nuw i8, ptr %f, i64 16
-  tail call void %14(ptr noundef %15, ptr noundef nonnull %ctx) #11
-  br label %if.end
+31:                                               ; preds = %hashflush.exit
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %33 = load ptr, ptr %32, align 8, !tbaa !15
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %35 = load ptr, ptr %34, align 8, !tbaa !28
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %37 = load ptr, ptr %36, align 8, !tbaa !19
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void %35(ptr noundef %37, ptr noundef nonnull %38) #13
+  br label %39
 
-if.end:                                           ; preds = %if.else, %if.then
-  %tobool2.not = icmp eq ptr %result, null
-  br i1 %tobool2.not, label %if.end5, label %if.then3
+39:                                               ; preds = %31, %25
+  %.not34 = icmp eq ptr %1, null
+  br i1 %.not34, label %46, label %40
 
-if.then3:                                         ; preds = %if.end
-  %buffer4 = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %16 = load ptr, ptr %buffer4, align 8
-  %17 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i25 = getelementptr inbounds nuw i8, ptr %17, i64 256
-  %18 = load ptr, ptr %hash_algo.i25, align 8
-  %rawsz.i26 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %19 = load i64, ptr %rawsz.i26, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %result, ptr readonly align 1 %16, i64 %19, i1 false)
-  br label %if.end5
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %42 = load ptr, ptr %41, align 8, !tbaa !19
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %44 = load ptr, ptr %43, align 8, !tbaa !15
+  %45 = getelementptr i8, ptr %44, i64 16
+  %.val41 = load i64, ptr %45, align 8, !tbaa !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr readonly align 1 %42, i64 %.val41, i1 false)
+  br label %46
 
-if.end5:                                          ; preds = %if.then3, %if.end
-  %and = and i32 %flags, 4
-  %tobool6.not = icmp eq i32 %and, 0
-  br i1 %tobool6.not, label %if.end10, label %if.then7
+46:                                               ; preds = %40, %39
+  %47 = and i32 %3, 4
+  %.not35 = icmp eq i32 %47, 0
+  br i1 %.not35, label %56, label %48
 
-if.then7:                                         ; preds = %if.end5
-  %buffer8 = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %20 = load ptr, ptr %buffer8, align 8
-  %21 = load ptr, ptr @the_repository, align 8
-  %hash_algo9 = getelementptr inbounds nuw i8, ptr %21, i64 256
-  %22 = load ptr, ptr %hash_algo9, align 8
-  %rawsz = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %23 = load i64, ptr %rawsz, align 8
-  %conv = trunc i64 %23 to i32
-  tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %20, i32 noundef %conv)
-  br label %if.end10
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %50 = load ptr, ptr %49, align 8, !tbaa !19
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %52 = load ptr, ptr %51, align 8, !tbaa !15
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load i64, ptr %53, align 8, !tbaa !27
+  %55 = trunc i64 %54 to i32
+  tail call fastcc void @flush(ptr noundef nonnull %0, ptr noundef %50, i32 noundef %55)
+  br label %56
 
-if.end10:                                         ; preds = %if.then7, %if.end5
-  %and11 = and i32 %flags, 2
-  %tobool12.not = icmp eq i32 %and11, 0
-  br i1 %tobool12.not, label %if.end15, label %if.then13
+56:                                               ; preds = %48, %46
+  %57 = and i32 %3, 2
+  %.not36 = icmp eq i32 %57, 0
+  br i1 %.not36, label %62, label %58
 
-if.then13:                                        ; preds = %if.end10
-  %24 = load i32, ptr %f, align 8
-  %name = getelementptr inbounds nuw i8, ptr %f, i64 2432
-  %25 = load ptr, ptr %name, align 8
-  tail call void @fsync_component_or_die(i32 noundef %component, i32 noundef %24, ptr noundef %25) #11
-  br label %if.end15
+58:                                               ; preds = %56
+  %59 = load i32, ptr %0, align 8, !tbaa !23
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %61 = load ptr, ptr %60, align 8, !tbaa !22
+  tail call void @fsync_component_or_die(i32 noundef %2, i32 noundef %59, ptr noundef %61) #13
+  br label %62
 
-if.end15:                                         ; preds = %if.then13, %if.end10
-  %and16 = and i32 %flags, 1
-  %tobool17.not = icmp eq i32 %and16, 0
-  %26 = load i32, ptr %f, align 8
-  br i1 %tobool17.not, label %if.end26, label %if.then18
+62:                                               ; preds = %58, %56
+  %63 = and i32 %3, 1
+  %.not37 = icmp eq i32 %63, 0
+  %64 = load i32, ptr %0, align 8, !tbaa !23
+  br i1 %.not37, label %70, label %65
 
-if.then18:                                        ; preds = %if.end15
-  %call = tail call i32 @close(i32 noundef %26) #11
-  %tobool20.not = icmp eq i32 %call, 0
-  br i1 %tobool20.not, label %if.end26, label %if.then21
+65:                                               ; preds = %62
+  %66 = tail call i32 @close(i32 noundef %64) #13
+  %.not38 = icmp eq i32 %66, 0
+  br i1 %.not38, label %70, label %67
 
-if.then21:                                        ; preds = %if.then18
-  %name22 = getelementptr inbounds nuw i8, ptr %f, i64 2432
-  %27 = load ptr, ptr %name22, align 8
-  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str, ptr noundef %27) #12
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %69 = load ptr, ptr %68, align 8, !tbaa !22
+  tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str, ptr noundef %69) #14
   unreachable
 
-if.end26:                                         ; preds = %if.end15, %if.then18
-  %fd.0 = phi i32 [ 0, %if.then18 ], [ %26, %if.end15 ]
-  %check_fd = getelementptr inbounds nuw i8, ptr %f, i64 4
-  %28 = load i32, ptr %check_fd, align 4
-  %cmp = icmp sgt i32 %28, -1
-  br i1 %cmp, label %if.then28, label %if.end47
+70:                                               ; preds = %62, %65
+  %.0 = phi i32 [ 0, %65 ], [ %64, %62 ]
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %72 = load i32, ptr %71, align 4, !tbaa !20
+  %73 = icmp sgt i32 %72, -1
+  br i1 %73, label %74, label %92
 
-if.then28:                                        ; preds = %if.end26
-  %call30 = call i64 @read_in_full(i32 noundef %28, ptr noundef nonnull %discard, i64 noundef 1) #11
-  %conv31 = trunc i64 %call30 to i32
-  %cmp32 = icmp slt i32 %conv31, 0
-  br i1 %cmp32, label %if.then34, label %if.end36
+74:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
+  %75 = call i64 @read_in_full(i32 noundef %72, ptr noundef nonnull %5, i64 noundef 1) #13
+  %76 = trunc i64 %75 to i32
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %78, label %81
 
-if.then34:                                        ; preds = %if.then28
-  %name35 = getelementptr inbounds nuw i8, ptr %f, i64 2432
-  %29 = load ptr, ptr %name35, align 8
-  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.1, ptr noundef %29) #12
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %80 = load ptr, ptr %79, align 8, !tbaa !22
+  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.1, ptr noundef %80) #14
   unreachable
 
-if.end36:                                         ; preds = %if.then28
-  %tobool37.not = icmp eq i32 %conv31, 0
-  br i1 %tobool37.not, label %if.end40, label %if.then38
+81:                                               ; preds = %74
+  %.not39 = icmp eq i32 %76, 0
+  br i1 %.not39, label %85, label %82
 
-if.then38:                                        ; preds = %if.end36
-  %name39 = getelementptr inbounds nuw i8, ptr %f, i64 2432
-  %30 = load ptr, ptr %name39, align 8
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef %30) #12
+82:                                               ; preds = %81
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %84 = load ptr, ptr %83, align 8, !tbaa !22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef %84) #14
   unreachable
 
-if.end40:                                         ; preds = %if.end36
-  %31 = load i32, ptr %check_fd, align 4
-  %call42 = call i32 @close(i32 noundef %31) #11
-  %tobool43.not = icmp eq i32 %call42, 0
-  br i1 %tobool43.not, label %if.end47, label %if.then44
+85:                                               ; preds = %81
+  %86 = load i32, ptr %71, align 4, !tbaa !20
+  %87 = call i32 @close(i32 noundef %86) #13
+  %.not40 = icmp eq i32 %87, 0
+  br i1 %.not40, label %91, label %88
 
-if.then44:                                        ; preds = %if.end40
-  %name45 = getelementptr inbounds nuw i8, ptr %f, i64 2432
-  %32 = load ptr, ptr %name45, align 8
-  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str, ptr noundef %32) #12
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %90 = load ptr, ptr %89, align 8, !tbaa !22
+  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str, ptr noundef %90) #14
   unreachable
 
-if.end47:                                         ; preds = %if.end40, %if.end26
-  %buffer.i27 = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %33 = load ptr, ptr %buffer.i27, align 8
-  call void @free(ptr noundef %33) #11
-  %check_buffer.i = getelementptr inbounds nuw i8, ptr %f, i64 2464
-  %34 = load ptr, ptr %check_buffer.i, align 8
-  call void @free(ptr noundef %34) #11
-  call void @free(ptr noundef nonnull %f) #11
-  ret i32 %fd.0
+91:                                               ; preds = %85
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
+  br label %92
+
+92:                                               ; preds = %91, %70
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %94 = load ptr, ptr %93, align 8, !tbaa !19
+  call void @free(ptr noundef %94) #13
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 2464
+  %96 = load ptr, ptr %95, align 8, !tbaa !21
+  call void @free(ptr noundef %96) #13
+  call void @free(ptr noundef nonnull %0) #13
+  ret i32 %.0
 }
 
-declare void @fsync_component_or_die(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @fsync_component_or_die(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @close(i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: noreturn
-declare void @die_errno(ptr noundef, ...) local_unnamed_addr #2
-
-declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @close(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #2
+declare void @die_errno(ptr noundef, ...) local_unnamed_addr #5
+
+declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: noreturn
+declare void @die(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashwrite(ptr noundef %f, ptr noundef %buf, i32 noundef %count) local_unnamed_addr #0 {
-entry:
-  %tobool.not31 = icmp eq i32 %count, 0
-  br i1 %tobool.not31, label %while.end, label %while.body.lr.ph
+define dso_local void @discard_hashfile(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %4 = icmp sgt i32 %3, -1
+  br i1 %4, label %5, label %7
 
-while.body.lr.ph:                                 ; preds = %entry
-  %buffer_len = getelementptr inbounds nuw i8, ptr %f, i64 2448
-  %offset = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %do_crc = getelementptr inbounds nuw i8, ptr %f, i64 2440
-  %crc32 = getelementptr inbounds nuw i8, ptr %f, i64 2444
-  %buffer = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %skip_hash.i = getelementptr inbounds nuw i8, ptr %f, i64 2472
-  %ctx.i = getelementptr inbounds nuw i8, ptr %f, i64 16
-  br label %while.body
+5:                                                ; preds = %1
+  %6 = tail call i32 @close(i32 noundef %3) #13
+  br label %7
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end23
-  %buf.addr.033 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr26, %if.end23 ]
-  %count.addr.032 = phi i32 [ %count, %while.body.lr.ph ], [ %sub24, %if.end23 ]
-  %0 = load i64, ptr %buffer_len, align 8
-  %1 = load i32, ptr %offset, align 8
-  %2 = trunc i64 %0 to i32
-  %conv1 = sub i32 %2, %1
-  %cond = tail call i32 @llvm.umin.i32(i32 %count.addr.032, i32 %conv1)
-  %3 = load i32, ptr %do_crc, align 8
-  %tobool3.not = icmp eq i32 %3, 0
-  br i1 %tobool3.not, label %if.end, label %if.then
+7:                                                ; preds = %5, %1
+  %8 = load i32, ptr %0, align 8, !tbaa !23
+  %9 = icmp sgt i32 %8, -1
+  br i1 %9, label %10, label %12
 
-if.then:                                          ; preds = %while.body
-  %4 = load i32, ptr %crc32, align 4
-  %conv4 = zext i32 %4 to i64
-  %call = tail call i64 @crc32(i64 noundef %conv4, ptr noundef %buf.addr.033, i32 noundef %cond) #11
-  %conv5 = trunc i64 %call to i32
-  store i32 %conv5, ptr %crc32, align 4
-  %.pre = load i64, ptr %buffer_len, align 8
-  br label %if.end
+10:                                               ; preds = %7
+  %11 = tail call i32 @close(i32 noundef %8) #13
+  br label %12
 
-if.end:                                           ; preds = %if.then, %while.body
-  %5 = phi i64 [ %.pre, %if.then ], [ %0, %while.body ]
-  %conv7 = zext i32 %cond to i64
-  %cmp9 = icmp eq i64 %5, %conv7
-  br i1 %cmp9, label %if.then11, label %if.else
-
-if.then11:                                        ; preds = %if.end
-  %6 = load i32, ptr %skip_hash.i, align 8
-  %tobool12.not = icmp eq i32 %6, 0
-  br i1 %tobool12.not, label %if.then13, label %if.end15
-
-if.then13:                                        ; preds = %if.then11
-  %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds nuw i8, ptr %7, i64 256
-  %8 = load ptr, ptr %hash_algo, align 8
-  %update_fn = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %9 = load ptr, ptr %update_fn, align 8
-  tail call void %9(ptr noundef nonnull %ctx.i, ptr noundef %buf.addr.033, i64 noundef %5) #11
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then13, %if.then11
-  tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %buf.addr.033, i32 noundef %cond)
-  br label %if.end23
-
-if.else:                                          ; preds = %if.end
-  %10 = load ptr, ptr %buffer, align 8
-  %11 = load i32, ptr %offset, align 8
-  %idx.ext = zext i32 %11 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %idx.ext
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %buf.addr.033, i64 %conv7, i1 false)
-  %12 = load i32, ptr %offset, align 8
-  %add = add i32 %12, %cond
-  store i32 %add, ptr %offset, align 8
-  %tobool20.not.not = icmp ugt i32 %conv1, %count.addr.032
-  %tobool.not.i = icmp eq i32 %add, 0
-  %or.cond = select i1 %tobool20.not.not, i1 true, i1 %tobool.not.i
-  br i1 %or.cond, label %if.end23, label %if.then.i
-
-if.then.i:                                        ; preds = %if.else
-  %13 = load i32, ptr %skip_hash.i, align 8
-  %tobool2.not.i = icmp eq i32 %13, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i
-
-if.then3.i:                                       ; preds = %if.then.i
-  %14 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds nuw i8, ptr %14, i64 256
-  %15 = load ptr, ptr %hash_algo.i, align 8
-  %update_fn.i = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %16 = load ptr, ptr %update_fn.i, align 8
-  %17 = load ptr, ptr %buffer, align 8
-  %conv.i = zext i32 %add to i64
-  tail call void %16(ptr noundef nonnull %ctx.i, ptr noundef %17, i64 noundef %conv.i) #11
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.then3.i, %if.then.i
-  %18 = load ptr, ptr %buffer, align 8
-  tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %18, i32 noundef %add)
-  store i32 0, ptr %offset, align 8
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.end.i, %if.else, %if.end15
-  %sub24 = sub i32 %count.addr.032, %cond
-  %add.ptr26 = getelementptr inbounds nuw i8, ptr %buf.addr.033, i64 %conv7
-  %tobool.not = icmp eq i32 %sub24, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5
-
-while.end:                                        ; preds = %if.end23, %entry
+12:                                               ; preds = %10, %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %14 = load ptr, ptr %13, align 8, !tbaa !19
+  tail call void @free(ptr noundef %14) #13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2464
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
+  tail call void @free(ptr noundef %16) #13
+  tail call void @free(ptr noundef nonnull %0) #13
   ret void
 }
 
-declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: nounwind uwtable
+define dso_local void @hashwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %.not40 = icmp eq i32 %2, 0
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2440
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2444
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %12
+
+12:                                               ; preds = %.lr.ph, %hashflush.exit
+  %.042 = phi ptr [ %1, %.lr.ph ], [ %53, %hashflush.exit ]
+  %.03541 = phi i32 [ %2, %.lr.ph ], [ %52, %hashflush.exit ]
+  %13 = load i64, ptr %4, align 8, !tbaa !29
+  %14 = load i32, ptr %5, align 8, !tbaa !4
+  %15 = trunc i64 %13 to i32
+  %16 = sub i32 %15, %14
+  %17 = tail call i32 @llvm.umin.i32(i32 %.03541, i32 %16)
+  %18 = load i32, ptr %6, align 8, !tbaa !30
+  %.not37 = icmp eq i32 %18, 0
+  br i1 %.not37, label %24, label %19
+
+19:                                               ; preds = %12
+  %20 = load i32, ptr %7, align 4, !tbaa !31
+  %21 = zext i32 %20 to i64
+  %22 = tail call i64 @crc32(i64 noundef %21, ptr noundef %.042, i32 noundef %17) #13
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %7, align 4, !tbaa !31
+  %.pre = load i64, ptr %4, align 8, !tbaa !29
+  br label %24
+
+24:                                               ; preds = %19, %12
+  %25 = phi i64 [ %.pre, %19 ], [ %13, %12 ]
+  %26 = zext i32 %17 to i64
+  %27 = icmp eq i64 %25, %26
+  br i1 %27, label %28, label %35
+
+28:                                               ; preds = %24
+  %29 = load i32, ptr %9, align 8, !tbaa !14
+  %.not39 = icmp eq i32 %29, 0
+  br i1 %.not39, label %30, label %34
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %10, align 8, !tbaa !15
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  tail call void %33(ptr noundef nonnull %11, ptr noundef %.042, i64 noundef %25) #13
+  br label %34
+
+34:                                               ; preds = %30, %28
+  tail call fastcc void @flush(ptr noundef nonnull %0, ptr noundef %.042, i32 noundef %17)
+  br label %hashflush.exit
+
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %8, align 8, !tbaa !19
+  %37 = load i32, ptr %5, align 8, !tbaa !4
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %.042, i64 %26, i1 false)
+  %40 = load i32, ptr %5, align 8, !tbaa !4
+  %41 = add i32 %40, %17
+  store i32 %41, ptr %5, align 8, !tbaa !4
+  %.not38.not = icmp ugt i32 %16, %.03541
+  %.not.i = icmp eq i32 %41, 0
+  %or.cond = select i1 %.not38.not, i1 true, i1 %.not.i
+  br i1 %or.cond, label %hashflush.exit, label %42
+
+42:                                               ; preds = %35
+  %43 = load i32, ptr %9, align 8, !tbaa !14
+  %.not10.i = icmp eq i32 %43, 0
+  br i1 %.not10.i, label %44, label %50
+
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %10, align 8, !tbaa !15
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
+  %47 = load ptr, ptr %46, align 8, !tbaa !16
+  %48 = load ptr, ptr %8, align 8, !tbaa !19
+  %49 = zext i32 %41 to i64
+  tail call void %47(ptr noundef nonnull %11, ptr noundef %48, i64 noundef %49) #13
+  br label %50
+
+50:                                               ; preds = %44, %42
+  %51 = load ptr, ptr %8, align 8, !tbaa !19
+  tail call fastcc void @flush(ptr noundef nonnull %0, ptr noundef %51, i32 noundef %41)
+  store i32 0, ptr %5, align 8, !tbaa !4
+  br label %hashflush.exit
+
+hashflush.exit:                                   ; preds = %50, %35, %34
+  %52 = sub i32 %.03541, %17
+  %53 = getelementptr inbounds nuw i8, ptr %.042, i64 %26
+  %.not = icmp eq i32 %52, 0
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !32
+
+._crit_edge:                                      ; preds = %hashflush.exit, %3
+  ret void
+}
+
+declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @hashfd_check(ptr noundef %name) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 (ptr, i32, ...) @xopen(ptr noundef nonnull @.str.3, i32 noundef 1) #11
-  %call1 = tail call i32 (ptr, i32, ...) @xopen(ptr noundef %name, i32 noundef 0) #11
-  %call.i.i = tail call ptr @xmalloc(i64 noundef 2480) #11
-  store i32 %call, ptr %call.i.i, align 8
-  %check_fd.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
-  store i32 -1, ptr %check_fd.i.i, align 4
-  %offset.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store i32 0, ptr %offset.i.i, align 8
-  %total.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 2416
-  %name3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 2432
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total.i.i, i8 0, i64 16, i1 false)
-  store ptr %name, ptr %name3.i.i, align 8
-  %do_crc.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 2440
-  store i32 0, ptr %do_crc.i.i, align 8
-  %skip_hash.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 2472
-  store i32 0, ptr %skip_hash.i.i, align 8
-  %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %1 = load ptr, ptr %hash_algo.i.i, align 8
-  %init_fn.i.i = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %2 = load ptr, ptr %init_fn.i.i, align 8
-  %ctx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  tail call void %2(ptr noundef nonnull %ctx.i.i) #11
-  %buffer_len4.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 2448
-  store i64 131072, ptr %buffer_len4.i.i, align 8
-  %call5.i.i = tail call ptr @xmalloc(i64 noundef 131072) #11
-  %buffer.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 2456
-  store ptr %call5.i.i, ptr %buffer.i.i, align 8
-  %check_buffer.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 2464
-  store ptr null, ptr %check_buffer.i.i, align 8
-  store i32 %call1, ptr %check_fd.i.i, align 4
-  %3 = load i64, ptr %buffer_len4.i.i, align 8
-  %call3 = tail call ptr @xmalloc(i64 noundef %3) #11
-  store ptr %call3, ptr %check_buffer.i.i, align 8
-  ret ptr %call.i.i
+define dso_local noundef ptr @hashfd_check(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 (ptr, i32, ...) @xopen(ptr noundef nonnull @.str.3, i32 noundef 1) #13
+  %3 = tail call i32 (ptr, i32, ...) @xopen(ptr noundef %0, i32 noundef 0) #13
+  %4 = tail call ptr @xmalloc(i64 noundef 2488) #13
+  store i32 %2, ptr %4, align 8, !tbaa !23
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 -1, ptr %5, align 4, !tbaa !20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %6, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2416
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 2432
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  store ptr %0, ptr %8, align 8, !tbaa !22
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2440
+  store i32 0, ptr %9, align 8, !tbaa !30
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 2480
+  store i32 0, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr @the_repository, align 8, !tbaa !34
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 400
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
+  %14 = tail call ptr @unsafe_hash_algo(ptr noundef %13) #13
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2472
+  store ptr %14, ptr %15, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %17 = load ptr, ptr %16, align 8, !tbaa !53
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void %17(ptr noundef nonnull %18) #13
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 2448
+  store i64 131072, ptr %19, align 8, !tbaa !29
+  %20 = tail call ptr @xmalloc(i64 noundef 131072) #13
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 2456
+  store ptr %20, ptr %21, align 8, !tbaa !19
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 2464
+  store ptr null, ptr %22, align 8, !tbaa !21
+  store i32 %3, ptr %5, align 4, !tbaa !20
+  %23 = load i64, ptr %19, align 8, !tbaa !29
+  %24 = tail call ptr @xmalloc(i64 noundef %23) #13
+  store ptr %24, ptr %22, align 8, !tbaa !21
+  ret ptr %4
 }
 
-declare i32 @xopen(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
+declare i32 @xopen(ptr noundef, i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @hashfd(i32 noundef %fd, ptr noundef %name) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @xmalloc(i64 noundef 2480) #11
-  store i32 %fd, ptr %call.i, align 8
-  %check_fd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
-  store i32 -1, ptr %check_fd.i, align 4
-  %offset.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 0, ptr %offset.i, align 8
-  %total.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2416
-  %name3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2432
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total.i, i8 0, i64 16, i1 false)
-  store ptr %name, ptr %name3.i, align 8
-  %do_crc.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2440
-  store i32 0, ptr %do_crc.i, align 8
-  %skip_hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2472
-  store i32 0, ptr %skip_hash.i, align 8
-  %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %1 = load ptr, ptr %hash_algo.i, align 8
-  %init_fn.i = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %2 = load ptr, ptr %init_fn.i, align 8
-  %ctx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  tail call void %2(ptr noundef nonnull %ctx.i) #11
-  %buffer_len4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2448
-  store i64 131072, ptr %buffer_len4.i, align 8
-  %call5.i = tail call ptr @xmalloc(i64 noundef 131072) #11
-  %buffer.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2456
-  store ptr %call5.i, ptr %buffer.i, align 8
-  %check_buffer.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2464
-  store ptr null, ptr %check_buffer.i, align 8
-  ret ptr %call.i
+define dso_local noundef ptr @hashfd(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call ptr @xmalloc(i64 noundef 2488) #13
+  store i32 %0, ptr %3, align 8, !tbaa !23
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 -1, ptr %4, align 4, !tbaa !20
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %5, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2416
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 2432
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  store ptr %1, ptr %7, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 2440
+  store i32 0, ptr %8, align 8, !tbaa !30
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2480
+  store i32 0, ptr %9, align 8, !tbaa !14
+  %10 = load ptr, ptr @the_repository, align 8, !tbaa !34
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 400
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %13 = tail call ptr @unsafe_hash_algo(ptr noundef %12) #13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2472
+  store ptr %13, ptr %14, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %16 = load ptr, ptr %15, align 8, !tbaa !53
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  tail call void %16(ptr noundef nonnull %17) #13
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 2448
+  store i64 131072, ptr %18, align 8, !tbaa !29
+  %19 = tail call ptr @xmalloc(i64 noundef 131072) #13
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2456
+  store ptr %19, ptr %20, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 2464
+  store ptr null, ptr %21, align 8, !tbaa !21
+  ret ptr %3
 }
 
-declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
+declare ptr @xmalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @hashfd_throughput(i32 noundef %fd, ptr noundef %name, ptr noundef %tp) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @xmalloc(i64 noundef 2480) #11
-  store i32 %fd, ptr %call.i, align 8
-  %check_fd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
-  store i32 -1, ptr %check_fd.i, align 4
-  %offset.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 0, ptr %offset.i, align 8
-  %total.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2416
-  store i64 0, ptr %total.i, align 8
-  %tp2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2424
-  store ptr %tp, ptr %tp2.i, align 8
-  %name3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2432
-  store ptr %name, ptr %name3.i, align 8
-  %do_crc.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2440
-  store i32 0, ptr %do_crc.i, align 8
-  %skip_hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2472
-  store i32 0, ptr %skip_hash.i, align 8
-  %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %1 = load ptr, ptr %hash_algo.i, align 8
-  %init_fn.i = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %2 = load ptr, ptr %init_fn.i, align 8
-  %ctx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  tail call void %2(ptr noundef nonnull %ctx.i) #11
-  %buffer_len4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2448
-  store i64 8192, ptr %buffer_len4.i, align 8
-  %call5.i = tail call ptr @xmalloc(i64 noundef 8192) #11
-  %buffer.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2456
-  store ptr %call5.i, ptr %buffer.i, align 8
-  %check_buffer.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2464
-  store ptr null, ptr %check_buffer.i, align 8
-  ret ptr %call.i
+define dso_local noundef ptr @hashfd_throughput(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @xmalloc(i64 noundef 2488) #13
+  store i32 %0, ptr %4, align 8, !tbaa !23
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 -1, ptr %5, align 4, !tbaa !20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %6, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2416
+  store i64 0, ptr %7, align 8, !tbaa !25
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 2424
+  store ptr %2, ptr %8, align 8, !tbaa !26
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2432
+  store ptr %1, ptr %9, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 2440
+  store i32 0, ptr %10, align 8, !tbaa !30
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 2480
+  store i32 0, ptr %11, align 8, !tbaa !14
+  %12 = load ptr, ptr @the_repository, align 8, !tbaa !34
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 400
+  %14 = load ptr, ptr %13, align 8, !tbaa !36
+  %15 = tail call ptr @unsafe_hash_algo(ptr noundef %14) #13
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2472
+  store ptr %15, ptr %16, align 8, !tbaa !15
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %18 = load ptr, ptr %17, align 8, !tbaa !53
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void %18(ptr noundef nonnull %19) #13
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 2448
+  store i64 8192, ptr %20, align 8, !tbaa !29
+  %21 = tail call ptr @xmalloc(i64 noundef 8192) #13
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 2456
+  store ptr %21, ptr %22, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 2464
+  store ptr null, ptr %23, align 8, !tbaa !21
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashfile_checkpoint(ptr noundef %f, ptr noundef initializes((0, 8)) %checkpoint) local_unnamed_addr #0 {
-entry:
-  %offset1.i = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %0 = load i32, ptr %offset1.i, align 8
-  %tobool.not.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i, label %hashflush.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %skip_hash.i = getelementptr inbounds nuw i8, ptr %f, i64 2472
-  %1 = load i32, ptr %skip_hash.i, align 8
-  %tobool2.not.i = icmp eq i32 %1, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i
-
-if.then3.i:                                       ; preds = %if.then.i
-  %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %3 = load ptr, ptr %hash_algo.i, align 8
-  %update_fn.i = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %4 = load ptr, ptr %update_fn.i, align 8
-  %ctx.i = getelementptr inbounds nuw i8, ptr %f, i64 16
-  %buffer.i = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %5 = load ptr, ptr %buffer.i, align 8
-  %conv.i = zext i32 %0 to i64
-  tail call void %4(ptr noundef nonnull %ctx.i, ptr noundef %5, i64 noundef %conv.i) #11
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.then3.i, %if.then.i
-  %buffer4.i = getelementptr inbounds nuw i8, ptr %f, i64 2456
-  %6 = load ptr, ptr %buffer4.i, align 8
-  tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %6, i32 noundef %0)
-  store i32 0, ptr %offset1.i, align 8
-  br label %hashflush.exit
-
-hashflush.exit:                                   ; preds = %entry, %if.end.i
-  %total = getelementptr inbounds nuw i8, ptr %f, i64 2416
-  %7 = load i64, ptr %total, align 8
-  store i64 %7, ptr %checkpoint, align 8
-  %8 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds nuw i8, ptr %8, i64 256
-  %9 = load ptr, ptr %hash_algo, align 8
-  %clone_fn = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %10 = load ptr, ptr %clone_fn, align 8
-  %ctx = getelementptr inbounds nuw i8, ptr %checkpoint, i64 8
-  %ctx1 = getelementptr inbounds nuw i8, ptr %f, i64 16
-  tail call void %10(ptr noundef nonnull %ctx, ptr noundef nonnull %ctx1) #11
+define dso_local void @hashfile_checkpoint_init(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 2408)) %1) local_unnamed_addr #0 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2408) %1, i8 0, i64 2408, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %6 = load ptr, ptr %5, align 8, !tbaa !53
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void %6(ptr noundef nonnull %7) #13
   ret void
 }
-
-; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @hashfile_truncate(ptr noundef %f, ptr noundef %checkpoint) local_unnamed_addr #0 {
-entry:
-  %0 = load i64, ptr %checkpoint, align 8
-  %1 = load i32, ptr %f, align 8
-  %call = tail call i32 @ftruncate64(i32 noundef %1, i64 noundef %0) #11
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %return
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %f, align 8
-  %call3 = tail call i64 @lseek64(i32 noundef %2, i64 noundef %0, i32 noundef 0) #11
-  %cmp.not = icmp eq i64 %call3, %0
-  br i1 %cmp.not, label %if.end, label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %total = getelementptr inbounds nuw i8, ptr %f, i64 2416
-  store i64 %0, ptr %total, align 8
-  %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds nuw i8, ptr %3, i64 256
-  %4 = load ptr, ptr %hash_algo, align 8
-  %clone_fn = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %5 = load ptr, ptr %clone_fn, align 8
-  %ctx = getelementptr inbounds nuw i8, ptr %f, i64 16
-  %ctx4 = getelementptr inbounds nuw i8, ptr %checkpoint, i64 8
-  tail call void %5(ptr noundef nonnull %ctx, ptr noundef nonnull %ctx4) #11
-  %offset5 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  store i32 0, ptr %offset5, align 8
-  br label %return
-
-return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ -1, %lor.lhs.false ], [ -1, %entry ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind
-declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind uwtable
-define dso_local void @crc32_begin(ptr noundef writeonly captures(none) initializes((2440, 2448)) %f) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #11
-  %conv = trunc i64 %call to i32
-  %crc32 = getelementptr inbounds nuw i8, ptr %f, i64 2444
-  store i32 %conv, ptr %crc32, align 4
-  %do_crc = getelementptr inbounds nuw i8, ptr %f, i64 2440
-  store i32 1, ptr %do_crc, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @crc32_end(ptr noundef captures(none) initializes((2440, 2444)) %f) local_unnamed_addr #5 {
-entry:
-  %do_crc = getelementptr inbounds nuw i8, ptr %f, i64 2440
-  store i32 0, ptr %do_crc, align 8
-  %crc32 = getelementptr inbounds nuw i8, ptr %f, i64 2444
-  %0 = load i32, ptr %crc32, align 4
-  ret i32 %0
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hashfile_checksum_valid(ptr noundef %data, i64 noundef %total_len) local_unnamed_addr #0 {
-entry:
-  %got = alloca [32 x i8], align 16
-  %ctx = alloca %union.git_hash_ctx, align 8
-  %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %1 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2 = load i64, ptr %rawsz, align 8
-  %cmp = icmp ult i64 %total_len, %2
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
-  %sub = sub nuw i64 %total_len, %2
-  %init_fn = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %3 = load ptr, ptr %init_fn, align 8
-  call void %3(ptr noundef nonnull %ctx) #11
-  %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo4 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  %5 = load ptr, ptr %hash_algo4, align 8
-  %update_fn = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %6 = load ptr, ptr %update_fn, align 8
-  call void %6(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %sub) #11
-  %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo5 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  %8 = load ptr, ptr %hash_algo5, align 8
-  %final_fn = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %9 = load ptr, ptr %final_fn, align 8
-  call void %9(ptr noundef nonnull %got, ptr noundef nonnull %ctx) #11
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %sub
-  %10 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds nuw i8, ptr %10, i64 256
-  %11 = load ptr, ptr %hash_algo.i, align 8
-  %12 = getelementptr i8, ptr %11, i64 16
-  %.val.i = load i64, ptr %12, align 8
-  %cmp.i.i = icmp eq i64 %.val.i, 32
-  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %got, ptr noundef nonnull readonly dereferenceable(20) %add.ptr, i64 %..i.i)
-  %retval.0.in.i.i = icmp eq i32 %bcmp.i.i, 0
-  %retval.0.i.i = zext i1 %retval.0.in.i.i to i32
-  br label %return
-
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ %retval.0.i.i, %if.end ], [ 0, %entry ]
-  ret i32 %retval.0
-}
-
-declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
-
-declare void @display_throughput(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+; Function Attrs: nounwind uwtable
+define dso_local void @hashfile_checkpoint(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8, !tbaa !4
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %hashflush.exit, label %5
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %7 = load i32, ptr %6, align 8, !tbaa !14
+  %.not10.i = icmp eq i32 %7, 0
+  br i1 %.not10.i, label %8, label %17
+
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %16 = zext i32 %4 to i64
+  tail call void %12(ptr noundef nonnull %13, ptr noundef %15, i64 noundef %16) #13
+  br label %17
+
+17:                                               ; preds = %8, %5
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  tail call fastcc void @flush(ptr noundef nonnull %0, ptr noundef %19, i32 noundef %4)
+  store i32 0, ptr %3, align 8, !tbaa !4
+  br label %hashflush.exit
+
+hashflush.exit:                                   ; preds = %2, %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2416
+  %21 = load i64, ptr %20, align 8, !tbaa !25
+  store i64 %21, ptr %1, align 8, !tbaa !54
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %23 = load ptr, ptr %22, align 8, !tbaa !15
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  %25 = load ptr, ptr %24, align 8, !tbaa !56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void %25(ptr noundef nonnull %26, ptr noundef nonnull %27) #13
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 -1, 1) i32 @hashfile_truncate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = load i64, ptr %1, align 8, !tbaa !54
+  %4 = load i32, ptr %0, align 8, !tbaa !23
+  %5 = tail call i32 @ftruncate64(i32 noundef %4, i64 noundef %3) #13
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %6, label %18
+
+6:                                                ; preds = %2
+  %7 = load i32, ptr %0, align 8, !tbaa !23
+  %8 = tail call i64 @lseek64(i32 noundef %7, i64 noundef %3, i32 noundef 0) #13
+  %.not13 = icmp eq i64 %8, %3
+  br i1 %.not13, label %9, label %18
+
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2416
+  store i64 %3, ptr %10, align 8, !tbaa !25
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %12 = load ptr, ptr %11, align 8, !tbaa !15
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %14 = load ptr, ptr %13, align 8, !tbaa !56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void %14(ptr noundef nonnull %15, ptr noundef nonnull %16) #13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %17, align 8, !tbaa !4
+  br label %18
+
+18:                                               ; preds = %2, %6, %9
+  %.0 = phi i32 [ 0, %9 ], [ -1, %6 ], [ -1, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind
+declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #8
+
+; Function Attrs: nounwind
+declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
+
+; Function Attrs: nounwind uwtable
+define dso_local void @crc32_begin(ptr noundef writeonly captures(none) initializes((2440, 2448)) %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #13
+  %3 = trunc i64 %2 to i32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2444
+  store i32 %3, ptr %4, align 4, !tbaa !31
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2440
+  store i32 1, ptr %5, align 8, !tbaa !30
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local i32 @crc32_end(ptr noundef captures(none) initializes((2440, 2444)) %0) local_unnamed_addr #9 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2440
+  store i32 0, ptr %2, align 8, !tbaa !30
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2444
+  %4 = load i32, ptr %3, align 4, !tbaa !31
+  ret i32 %4
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 0, 2) i32 @hashfile_checksum_valid(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca [32 x i8], align 16
+  %4 = alloca %union.git_hash_ctx, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 2400, ptr nonnull %4) #13
+  %5 = load ptr, ptr @the_repository, align 8, !tbaa !34
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 400
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %8 = tail call ptr @unsafe_hash_algo(ptr noundef %7) #13
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load i64, ptr %9, align 8, !tbaa !27
+  %11 = icmp ult i64 %1, %10
+  br i1 %11, label %22, label %12
+
+12:                                               ; preds = %2
+  %13 = sub nuw i64 %1, %10
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
+  call void %15(ptr noundef nonnull %4) #13
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  call void %17(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %13) #13
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
+  call void %19(ptr noundef nonnull %3, ptr noundef nonnull %4) #13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %13
+  %.val = load i64, ptr %9, align 8, !tbaa !27
+  %21 = icmp eq i64 %.val, 32
+  %..i = select i1 %21, i64 32, i64 20
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %3, ptr noundef nonnull readonly dereferenceable(20) %20, i64 %..i)
+  %.0.in.i = icmp eq i32 %bcmp.i, 0
+  %.0.i = zext i1 %.0.in.i to i32
+  br label %22
+
+22:                                               ; preds = %2, %12
+  %.0 = phi i32 [ %.0.i, %12 ], [ 0, %2 ]
+  call void @llvm.lifetime.end.p0(i64 2400, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  ret i32 %.0
+}
+
+declare ptr @unsafe_hash_algo(ptr noundef) local_unnamed_addr #4
+
+declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #10
+
+declare void @display_throughput(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !6, i64 8}
+!5 = !{!"hashfile", !6, i64 0, !6, i64 4, !6, i64 8, !7, i64 16, !9, i64 2416, !10, i64 2424, !12, i64 2432, !6, i64 2440, !6, i64 2444, !9, i64 2448, !12, i64 2456, !12, i64 2464, !13, i64 2472, !6, i64 2480}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"long", !7, i64 0}
+!10 = !{!"p1 _ZTS8progress", !11, i64 0}
+!11 = !{!"any pointer", !7, i64 0}
+!12 = !{!"p1 omnipotent char", !11, i64 0}
+!13 = !{!"p1 _ZTS13git_hash_algo", !11, i64 0}
+!14 = !{!5, !6, i64 2480}
+!15 = !{!5, !13, i64 2472}
+!16 = !{!17, !11, i64 56}
+!17 = !{!"git_hash_algo", !12, i64 0, !6, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !18, i64 80, !18, i64 88, !18, i64 96, !13, i64 104}
+!18 = !{!"p1 _ZTS9object_id", !11, i64 0}
+!19 = !{!5, !12, i64 2456}
+!20 = !{!5, !6, i64 4}
+!21 = !{!5, !12, i64 2464}
+!22 = !{!5, !12, i64 2432}
+!23 = !{!5, !6, i64 0}
+!24 = !{!6, !6, i64 0}
+!25 = !{!5, !9, i64 2416}
+!26 = !{!5, !10, i64 2424}
+!27 = !{!17, !9, i64 16}
+!28 = !{!17, !11, i64 64}
+!29 = !{!5, !9, i64 2448}
+!30 = !{!5, !6, i64 2440}
+!31 = !{!5, !6, i64 2444}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.mustprogress"}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS10repository", !11, i64 0}
+!36 = !{!37, !13, i64 400}
+!37 = !{!"repository", !12, i64 0, !12, i64 8, !38, i64 16, !39, i64 24, !40, i64 32, !41, i64 40, !41, i64 104, !45, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !46, i64 256, !48, i64 368, !49, i64 376, !50, i64 384, !51, i64 392, !13, i64 400, !13, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !12, i64 432, !52, i64 440, !6, i64 448, !6, i64 452, !6, i64 456}
+!38 = !{!"p1 _ZTS16raw_object_store", !11, i64 0}
+!39 = !{!"p1 _ZTS18parsed_object_pool", !11, i64 0}
+!40 = !{!"p1 _ZTS9ref_store", !11, i64 0}
+!41 = !{!"strmap", !42, i64 0, !44, i64 48, !6, i64 56}
+!42 = !{!"hashmap", !43, i64 0, !11, i64 8, !11, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
+!43 = !{!"p2 _ZTS13hashmap_entry", !11, i64 0}
+!44 = !{!"p1 _ZTS8mem_pool", !11, i64 0}
+!45 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
+!46 = !{!"repo_settings", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !47, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !9, i64 88, !9, i64 96, !9, i64 104}
+!47 = !{!"p1 _ZTS18fsmonitor_settings", !11, i64 0}
+!48 = !{!"p1 _ZTS10config_set", !11, i64 0}
+!49 = !{!"p1 _ZTS15submodule_cache", !11, i64 0}
+!50 = !{!"p1 _ZTS11index_state", !11, i64 0}
+!51 = !{!"p1 _ZTS12remote_state", !11, i64 0}
+!52 = !{!"p1 _ZTS22promisor_remote_config", !11, i64 0}
+!53 = !{!17, !11, i64 40}
+!54 = !{!55, !9, i64 0}
+!55 = !{!"hashfile_checkpoint", !9, i64 0, !7, i64 8}
+!56 = !{!17, !11, i64 48}

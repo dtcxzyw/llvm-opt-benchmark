@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/git/original/tempfile.ll'
 source_filename = "bench/git/original/tempfile.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.volatile_list_head = type { ptr, ptr }
@@ -30,968 +30,999 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @create_tempfile_mode(ptr noundef %path, i32 noundef %mode) local_unnamed_addr #0 {
-entry:
-  %tempfile = alloca ptr, align 8
-  %call.i = tail call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store volatile ptr %call.i, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  tail call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
-  store ptr null, ptr %directory.i, align 8
-  store ptr %call.i, ptr %tempfile, align 8
-  tail call void @strbuf_add_absolute_path(ptr noundef nonnull %filename.i, ptr noundef %path) #14
-  %buf = getelementptr inbounds nuw i8, ptr %call.i, i64 56
-  %0 = load ptr, ptr %buf, align 8
-  %call2 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 524482, i32 noundef %mode) #14
-  store volatile i32 %call2, ptr %fd.i, align 8
-  %1 = load volatile i32, ptr %fd.i, align 8
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define dso_local ptr @create_tempfile_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  %4 = tail call ptr @xmalloc(i64 noundef 72) #14
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store volatile i32 -1, ptr %5, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store volatile ptr null, ptr %6, align 8, !tbaa !16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store volatile i32 0, ptr %7, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store volatile ptr %4, ptr %8, align 8, !tbaa !18
+  store volatile ptr %4, ptr %4, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  tail call void @strbuf_init(ptr noundef nonnull %9, i64 noundef 0) #14
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store ptr null, ptr %10, align 8, !tbaa !20
+  store ptr %4, ptr %3, align 8, !tbaa !21
+  tail call void @strbuf_add_absolute_path(ptr noundef nonnull %9, ptr noundef %0) #14
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %13 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %12, i32 noundef 524482, i32 noundef %1) #14
+  store volatile i32 %13, ptr %5, align 8, !tbaa !4
+  %14 = load volatile i32, ptr %5, align 8, !tbaa !4
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %23
 
-land.lhs.true:                                    ; preds = %entry
-  %call4 = tail call ptr @__errno_location() #15
-  %2 = load i32, ptr %call4, align 4
-  %cmp5 = icmp eq i32 %2, 22
-  br i1 %cmp5, label %if.then, label %if.end
+16:                                               ; preds = %2
+  %17 = tail call ptr @__errno_location() #15
+  %18 = load i32, ptr %17, align 4, !tbaa !24
+  %19 = icmp eq i32 %18, 22
+  br i1 %19, label %20, label %23
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr %buf, align 8
-  %call8 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %3, i32 noundef 194, i32 noundef %mode) #14
-  store volatile i32 %call8, ptr %fd.i, align 8
-  br label %if.end
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %11, align 8, !tbaa !23
+  %22 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %21, i32 noundef 194, i32 noundef %1) #14
+  store volatile i32 %22, ptr %5, align 8, !tbaa !4
+  br label %23
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %4 = load volatile i32, ptr %fd.i, align 8
-  %cmp11 = icmp slt i32 %4, 0
-  br i1 %cmp11, label %if.then12, label %if.end13
+23:                                               ; preds = %20, %16, %2
+  %24 = load volatile i32, ptr %5, align 8, !tbaa !4
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %31
 
-if.then12:                                        ; preds = %if.end
-  %5 = load volatile ptr, ptr %prev.i, align 8
-  %6 = load volatile ptr, ptr %call.i, align 8
-  %prev1.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store volatile ptr %5, ptr %prev1.i.i.i, align 8
-  store volatile ptr %6, ptr %5, align 8
-  tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
-  %7 = load ptr, ptr %directory.i, align 8
-  tail call void @free(ptr noundef %7) #14
-  tail call void @free(ptr noundef nonnull %call.i) #14
-  br label %return
+26:                                               ; preds = %23
+  %27 = load volatile ptr, ptr %8, align 8, !tbaa !25
+  %28 = load volatile ptr, ptr %4, align 8, !tbaa !26
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store volatile ptr %27, ptr %29, align 8, !tbaa !25
+  store volatile ptr %28, ptr %27, align 8, !tbaa !26
+  tail call void @strbuf_release(ptr noundef nonnull %9) #14
+  %30 = load ptr, ptr %10, align 8, !tbaa !20
+  tail call void @free(ptr noundef %30) #14
+  tail call void @free(ptr noundef nonnull %4) #14
+  br label %46
 
-if.end13:                                         ; preds = %if.end
+31:                                               ; preds = %23
   %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
-  br i1 %.b.i, label %activate_tempfile.exit, label %if.then.i
+  br i1 %.b.i, label %activate_tempfile.exit, label %32
 
-if.then.i:                                        ; preds = %if.end13
+32:                                               ; preds = %31
   tail call void @sigchain_push_common(ptr noundef nonnull @remove_tempfiles_on_signal) #14
-  %call.i4 = tail call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
+  %33 = tail call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
   store i1 true, ptr @activate_tempfile.initialized, align 4
   br label %activate_tempfile.exit
 
-activate_tempfile.exit:                           ; preds = %if.end13, %if.then.i
-  %8 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i5 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store volatile ptr %call.i, ptr %prev.i.i5, align 8
-  %9 = load volatile ptr, ptr @tempfile_list, align 8
-  store volatile ptr %9, ptr %call.i, align 8
-  store volatile ptr @tempfile_list, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr @tempfile_list, align 8
-  %call1.i = tail call i32 @getpid() #14
-  store volatile i32 %call1.i, ptr %owner.i, align 8
-  %10 = load ptr, ptr %buf, align 8
-  %call16 = tail call i32 @adjust_shared_perm(ptr noundef %10) #14
-  %tobool.not = icmp eq i32 %call16, 0
-  br i1 %tobool.not, label %return, label %if.then17
+activate_tempfile.exit:                           ; preds = %31, %32
+  %34 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store volatile ptr %4, ptr %35, align 8, !tbaa !25
+  %36 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  store volatile ptr %36, ptr %4, align 8, !tbaa !26
+  store volatile ptr @tempfile_list, ptr %8, align 8, !tbaa !25
+  store volatile ptr %4, ptr @tempfile_list, align 8, !tbaa !26
+  %37 = tail call i32 @getpid() #14
+  store volatile i32 %37, ptr %7, align 8, !tbaa !17
+  %38 = load ptr, ptr %11, align 8, !tbaa !23
+  %39 = tail call i32 @adjust_shared_perm(ptr noundef %38) #14
+  %.not = icmp eq i32 %39, 0
+  br i1 %.not, label %46, label %40
 
-if.then17:                                        ; preds = %activate_tempfile.exit
-  %call18 = tail call ptr @__errno_location() #15
-  %11 = load i32, ptr %call18, align 4
-  %12 = load ptr, ptr %buf, align 8
-  %call21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %12) #14
-  call void @delete_tempfile(ptr noundef nonnull %tempfile)
-  store i32 %11, ptr %call18, align 4
-  br label %return
+40:                                               ; preds = %activate_tempfile.exit
+  %41 = tail call ptr @__errno_location() #15
+  %42 = load i32, ptr %41, align 4, !tbaa !24
+  %43 = load ptr, ptr %11, align 8, !tbaa !23
+  %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %43) #14
+  %45 = call i32 @delete_tempfile(ptr noundef nonnull %3)
+  store i32 %42, ptr %41, align 4, !tbaa !24
+  br label %46
 
-return:                                           ; preds = %activate_tempfile.exit, %if.then17, %if.then12
-  %retval.0 = phi ptr [ null, %if.then12 ], [ null, %if.then17 ], [ %call.i, %activate_tempfile.exit ]
-  ret ptr %retval.0
+46:                                               ; preds = %activate_tempfile.exit, %40, %26
+  %.0 = phi ptr [ null, %26 ], [ null, %40 ], [ %4, %activate_tempfile.exit ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  ret ptr %.0
 }
 
-declare void @strbuf_add_absolute_path(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @strbuf_add_absolute_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #2
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #4
 
-declare i32 @adjust_shared_perm(ptr noundef) local_unnamed_addr #1
+declare i32 @adjust_shared_perm(ptr noundef) local_unnamed_addr #2
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @delete_tempfile(ptr noundef captures(none) %tempfile_p) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %tempfile_p, align 8
-  %tobool.i.not = icmp eq ptr %0, null
-  br i1 %tobool.i.not, label %return, label %lor.lhs.false.i
+define dso_local range(i32 -1, 1) i32 @delete_tempfile(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !21
+  %.not13 = icmp eq ptr %2, null
+  br i1 %.not13, label %36, label %3
 
-lor.lhs.false.i:                                  ; preds = %entry
-  %fd1.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load volatile i32, ptr %fd1.i, align 8
-  %cmp.i = icmp slt i32 %1, 0
-  br i1 %cmp.i, label %close_tempfile_gently.exit, label %if.end.i
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = load volatile i32, ptr %4, align 8, !tbaa !4
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %close_tempfile_gently.exit, label %7
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
-  %2 = load volatile i32, ptr %fd1.i, align 8
-  %fp3.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load volatile ptr, ptr %fp3.i, align 8
-  store volatile i32 -1, ptr %fd1.i, align 8
-  %tobool5.not.i = icmp eq ptr %3, null
-  br i1 %tobool5.not.i, label %if.else18.i, label %if.then6.i
+7:                                                ; preds = %3
+  %8 = load volatile i32, ptr %4, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %10 = load volatile ptr, ptr %9, align 8, !tbaa !16
+  store volatile i32 -1, ptr %4, align 8, !tbaa !4
+  %.not14.i = icmp eq ptr %10, null
+  br i1 %.not14.i, label %17, label %11
 
-if.then6.i:                                       ; preds = %if.end.i
-  store volatile ptr null, ptr %fp3.i, align 8
-  %call8.i = tail call i32 @ferror(ptr noundef nonnull %3) #14
-  %tobool9.not.i = icmp ne i32 %call8.i, 0
-  %call16.i = tail call i32 @fclose(ptr noundef nonnull %3)
-  %tobool12.not.i = icmp eq i32 %call16.i, 0
-  %or.cond = and i1 %tobool9.not.i, %tobool12.not.i
-  br i1 %or.cond, label %if.then13.i, label %close_tempfile_gently.exit
+11:                                               ; preds = %7
+  store volatile ptr null, ptr %9, align 8, !tbaa !16
+  %12 = tail call i32 @ferror(ptr noundef nonnull %10) #14
+  %.not15.i = icmp eq i32 %12, 0
+  %13 = tail call i32 @fclose(ptr noundef nonnull %10)
+  br i1 %.not15.i, label %19, label %14
 
-if.then13.i:                                      ; preds = %if.then6.i
-  %call14.i = tail call ptr @__errno_location() #15
-  store i32 5, ptr %call14.i, align 4
+14:                                               ; preds = %11
+  %.not16.i = icmp eq i32 %13, 0
+  br i1 %.not16.i, label %15, label %19
+
+15:                                               ; preds = %14
+  %16 = tail call ptr @__errno_location() #15
+  store i32 5, ptr %16, align 4, !tbaa !24
+  br label %19
+
+17:                                               ; preds = %7
+  %18 = tail call i32 @close(i32 noundef %8) #14
+  br label %19
+
+19:                                               ; preds = %17, %15, %14, %11
+  %.0.i = phi i32 [ -1, %14 ], [ -1, %15 ], [ %18, %17 ], [ %13, %11 ]
+  %.not17.i = icmp ne i32 %.0.i, 0
+  %20 = sext i1 %.not17.i to i32
   br label %close_tempfile_gently.exit
 
-if.else18.i:                                      ; preds = %if.end.i
-  %call19.i = tail call i32 @close(i32 noundef %2) #14
-  br label %close_tempfile_gently.exit
+close_tempfile_gently.exit:                       ; preds = %3, %19
+  %.012.i = phi i32 [ %20, %19 ], [ 0, %3 ]
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %23 = tail call i32 @unlink_or_warn(ptr noundef %22) #14
+  %24 = or i32 %23, %.012.i
+  %25 = getelementptr i8, ptr %2, i64 64
+  %.val = load ptr, ptr %25, align 8, !tbaa !20
+  %.not.i = icmp eq ptr %.val, null
+  br i1 %.not.i, label %remove_template_directory.exit, label %26
 
-close_tempfile_gently.exit:                       ; preds = %if.then6.i, %if.then13.i, %if.else18.i, %lor.lhs.false.i
-  %buf = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %buf, align 8
-  %call2 = tail call i32 @unlink_or_warn(ptr noundef %4) #14
-  %5 = getelementptr i8, ptr %0, i64 64
-  %.val = load ptr, ptr %5, align 8
-  %tobool.not.i = icmp eq ptr %.val, null
-  br i1 %tobool.not.i, label %remove_template_directory.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %close_tempfile_gently.exit
-  %call5.i = tail call i32 @rmdir_or_warn(ptr noundef nonnull %.val) #14
+26:                                               ; preds = %close_tempfile_gently.exit
+  %27 = tail call i32 @rmdir_or_warn(ptr noundef nonnull %.val) #14
   br label %remove_template_directory.exit
 
-remove_template_directory.exit:                   ; preds = %close_tempfile_gently.exit, %if.then.i
-  %prev.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load volatile ptr, ptr %prev.i.i, align 8
-  %7 = load volatile ptr, ptr %0, align 8
-  %prev1.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store volatile ptr %6, ptr %prev1.i.i.i, align 8
-  store volatile ptr %7, ptr %6, align 8
-  %filename.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
-  %8 = load ptr, ptr %5, align 8
-  tail call void @free(ptr noundef %8) #14
-  tail call void @free(ptr noundef nonnull %0) #14
-  store ptr null, ptr %tempfile_p, align 8
-  br label %return
+remove_template_directory.exit:                   ; preds = %close_tempfile_gently.exit, %26
+  %.0.i12 = phi i32 [ %27, %26 ], [ 0, %close_tempfile_gently.exit ]
+  %28 = or i32 %24, %.0.i12
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %30 = load volatile ptr, ptr %29, align 8, !tbaa !25
+  %31 = load volatile ptr, ptr %2, align 8, !tbaa !26
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store volatile ptr %30, ptr %32, align 8, !tbaa !25
+  store volatile ptr %31, ptr %30, align 8, !tbaa !26
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  tail call void @strbuf_release(ptr noundef nonnull %33) #14
+  %34 = load ptr, ptr %25, align 8, !tbaa !20
+  tail call void @free(ptr noundef %34) #14
+  tail call void @free(ptr noundef nonnull %2) #14
+  store ptr null, ptr %0, align 8, !tbaa !21
+  %.not11 = icmp ne i32 %28, 0
+  %35 = sext i1 %.not11 to i32
+  br label %36
 
-return:                                           ; preds = %entry, %remove_template_directory.exit
-  ret void
+36:                                               ; preds = %1, %remove_template_directory.exit
+  %.0 = phi i32 [ %35, %remove_template_directory.exit ], [ 0, %1 ]
+  ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local ptr @register_tempfile(ptr noundef %path) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store volatile ptr %call.i, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  tail call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
-  store ptr null, ptr %directory.i, align 8
-  tail call void @strbuf_add_absolute_path(ptr noundef nonnull %filename.i, ptr noundef %path) #14
-  %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
-  br i1 %.b.i, label %activate_tempfile.exit, label %if.then.i
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-if.then.i:                                        ; preds = %entry
+; Function Attrs: nounwind uwtable
+define dso_local ptr @register_tempfile(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @xmalloc(i64 noundef 72) #14
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store volatile i32 -1, ptr %3, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store volatile ptr null, ptr %4, align 8, !tbaa !16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store volatile i32 0, ptr %5, align 8, !tbaa !17
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store volatile ptr %2, ptr %6, align 8, !tbaa !18
+  store volatile ptr %2, ptr %2, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  tail call void @strbuf_init(ptr noundef nonnull %7, i64 noundef 0) #14
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store ptr null, ptr %8, align 8, !tbaa !20
+  tail call void @strbuf_add_absolute_path(ptr noundef nonnull %7, ptr noundef %0) #14
+  %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
+  br i1 %.b.i, label %activate_tempfile.exit, label %9
+
+9:                                                ; preds = %1
   tail call void @sigchain_push_common(ptr noundef nonnull @remove_tempfiles_on_signal) #14
-  %call.i3 = tail call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
+  %10 = tail call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
   store i1 true, ptr @activate_tempfile.initialized, align 4
   br label %activate_tempfile.exit
 
-activate_tempfile.exit:                           ; preds = %entry, %if.then.i
-  %0 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store volatile ptr %call.i, ptr %prev.i.i, align 8
-  %1 = load volatile ptr, ptr @tempfile_list, align 8
-  store volatile ptr %1, ptr %call.i, align 8
-  store volatile ptr @tempfile_list, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr @tempfile_list, align 8
-  %call1.i = tail call i32 @getpid() #14
-  store volatile i32 %call1.i, ptr %owner.i, align 8
-  ret ptr %call.i
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @mks_tempfile_sm(ptr noundef %filename_template, i32 noundef %suffixlen, i32 noundef %mode) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store volatile ptr %call.i, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  tail call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
-  store ptr null, ptr %directory.i, align 8
-  tail call void @strbuf_add_absolute_path(ptr noundef nonnull %filename.i, ptr noundef %filename_template) #14
-  %buf = getelementptr inbounds nuw i8, ptr %call.i, i64 56
-  %0 = load ptr, ptr %buf, align 8
-  %call2 = tail call i32 @git_mkstemps_mode(ptr noundef %0, i32 noundef %suffixlen, i32 noundef %mode) #14
-  store volatile i32 %call2, ptr %fd.i, align 8
-  %1 = load volatile i32, ptr %fd.i, align 8
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load volatile ptr, ptr %prev.i, align 8
-  %3 = load volatile ptr, ptr %call.i, align 8
-  %prev1.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store volatile ptr %2, ptr %prev1.i.i.i, align 8
-  store volatile ptr %3, ptr %2, align 8
-  tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
-  %4 = load ptr, ptr %directory.i, align 8
-  tail call void @free(ptr noundef %4) #14
-  tail call void @free(ptr noundef nonnull %call.i) #14
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
-  br i1 %.b.i, label %activate_tempfile.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %if.end
-  tail call void @sigchain_push_common(ptr noundef nonnull @remove_tempfiles_on_signal) #14
-  %call.i9 = tail call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
-  store i1 true, ptr @activate_tempfile.initialized, align 4
-  br label %activate_tempfile.exit
-
-activate_tempfile.exit:                           ; preds = %if.end, %if.then.i
-  %5 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store volatile ptr %call.i, ptr %prev.i.i10, align 8
-  %6 = load volatile ptr, ptr @tempfile_list, align 8
-  store volatile ptr %6, ptr %call.i, align 8
-  store volatile ptr @tempfile_list, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr @tempfile_list, align 8
-  %call1.i = tail call i32 @getpid() #14
-  store volatile i32 %call1.i, ptr %owner.i, align 8
-  br label %return
-
-return:                                           ; preds = %activate_tempfile.exit, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %call.i, %activate_tempfile.exit ]
-  ret ptr %retval.0
-}
-
-declare i32 @git_mkstemps_mode(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @mks_tempfile_tsm(ptr noundef %filename_template, i32 noundef %suffixlen, i32 noundef %mode) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store volatile ptr %call.i, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  tail call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
-  store ptr null, ptr %directory.i, align 8
-  %call1 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
-  %tobool.not = icmp eq ptr %call1, null
-  %spec.store.select = select i1 %tobool.not, ptr @.str.2, ptr %call1
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %filename.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select, ptr noundef %filename_template) #14
-  %buf = getelementptr inbounds nuw i8, ptr %call.i, i64 56
-  %0 = load ptr, ptr %buf, align 8
-  %call3 = tail call i32 @git_mkstemps_mode(ptr noundef %0, i32 noundef %suffixlen, i32 noundef %mode) #14
-  store volatile i32 %call3, ptr %fd.i, align 8
-  %1 = load volatile i32, ptr %fd.i, align 8
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %entry
-  %2 = load volatile ptr, ptr %prev.i, align 8
-  %3 = load volatile ptr, ptr %call.i, align 8
-  %prev1.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store volatile ptr %2, ptr %prev1.i.i.i, align 8
-  store volatile ptr %3, ptr %2, align 8
-  tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
-  %4 = load ptr, ptr %directory.i, align 8
-  tail call void @free(ptr noundef %4) #14
-  tail call void @free(ptr noundef nonnull %call.i) #14
-  br label %return
-
-if.end6:                                          ; preds = %entry
-  %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
-  br i1 %.b.i, label %activate_tempfile.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %if.end6
-  tail call void @sigchain_push_common(ptr noundef nonnull @remove_tempfiles_on_signal) #14
-  %call.i10 = tail call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
-  store i1 true, ptr @activate_tempfile.initialized, align 4
-  br label %activate_tempfile.exit
-
-activate_tempfile.exit:                           ; preds = %if.end6, %if.then.i
-  %5 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store volatile ptr %call.i, ptr %prev.i.i11, align 8
-  %6 = load volatile ptr, ptr @tempfile_list, align 8
-  store volatile ptr %6, ptr %call.i, align 8
-  store volatile ptr @tempfile_list, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr @tempfile_list, align 8
-  %call1.i = tail call i32 @getpid() #14
-  store volatile i32 %call1.i, ptr %owner.i, align 8
-  br label %return
-
-return:                                           ; preds = %activate_tempfile.exit, %if.then5
-  %retval.0 = phi ptr [ null, %if.then5 ], [ %call.i, %activate_tempfile.exit ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
-
-declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @mks_tempfile_dt(ptr noundef %directory_template, ptr noundef %filename) local_unnamed_addr #0 {
-entry:
-  %_swap_buffer.i = alloca [24 x i8], align 16
-  %sb = alloca %struct.strbuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.xmks_tempfile_m.full_template, i64 24, i1 false)
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %directory_template) #16
-  %cmp.i.i.i = icmp ult i64 %call.i.i, 6
-  br i1 %cmp.i.i.i, label %if.then, label %ends_with.exit
-
-ends_with.exit:                                   ; preds = %entry
-  %0 = getelementptr i8, ptr %directory_template, i64 %call.i.i
-  %add.ptr.i.i.i = getelementptr i8, ptr %0, i64 -6
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
-  %tobool.not.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %tobool.not.i.i.i.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry, %ends_with.exit
-  %call1 = tail call ptr @__errno_location() #15
-  store i32 22, ptr %call1, align 4
-  br label %return
-
-if.end:                                           ; preds = %ends_with.exit
-  %call2 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
-  %tobool3.not = icmp eq ptr %call2, null
-  %spec.store.select = select i1 %tobool3.not, ptr @.str.2, ptr %call2
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %directory_template) #14
-  %len = getelementptr inbounds nuw i8, ptr %sb, i64 8
-  %1 = load i64, ptr %len, align 8
-  %buf = getelementptr inbounds nuw i8, ptr %sb, i64 16
-  %2 = load ptr, ptr %buf, align 8
-  %call6 = call ptr @mkdtemp(ptr noundef %2) #14
-  %tobool7.not = icmp eq ptr %call6, null
-  br i1 %tobool7.not, label %if.then8, label %if.end11
-
-if.then8:                                         ; preds = %if.end
-  %call9 = tail call ptr @__errno_location() #15
-  %3 = load i32, ptr %call9, align 4
-  call void @strbuf_release(ptr noundef nonnull %sb) #14
-  store i32 %3, ptr %call9, align 4
-  br label %return
-
-if.end11:                                         ; preds = %if.end
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.5, ptr noundef %filename) #14
-  %4 = load ptr, ptr %buf, align 8
-  %call13 = call i32 (ptr, i32, ...) @open64(ptr noundef %4, i32 noundef 194, i32 noundef 384) #14
-  %cmp = icmp slt i32 %call13, 0
-  br i1 %cmp, label %if.then14, label %if.end20
-
-if.then14:                                        ; preds = %if.end11
-  %call16 = tail call ptr @__errno_location() #15
-  %5 = load i32, ptr %call16, align 4
-  %6 = load i64, ptr %sb, align 8
-  %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
-  %cmp.i = icmp ugt i64 %1, %spec.select.i
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then14
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.16, i32 noundef 167, ptr noundef nonnull @.str.17) #17
-  unreachable
-
-if.end.i:                                         ; preds = %if.then14
-  store i64 %1, ptr %len, align 8
-  %7 = load ptr, ptr %buf, align 8
-  %cmp3.not.i = icmp eq ptr %7, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
-
-if.then4.i:                                       ; preds = %if.end.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 %1
-  store i8 0, ptr %arrayidx.i, align 1
-  %.pre = load ptr, ptr %buf, align 8
-  br label %strbuf_setlen.exit
-
-strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
-  %8 = phi ptr [ @strbuf_slopbuf, %if.end.i ], [ %.pre, %if.then4.i ]
-  %call18 = call i32 @lstat_cache_aware_rmdir(ptr noundef %8) #14
-  call void @strbuf_release(ptr noundef nonnull %sb) #14
-  store i32 %5, ptr %call16, align 4
-  br label %return
-
-if.end20:                                         ; preds = %if.end11
-  %call.i = call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store volatile ptr %call.i, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
-  store ptr null, ptr %directory.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %_swap_buffer.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %_swap_buffer.i, ptr noundef nonnull align 1 dereferenceable(24) %filename.i, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %filename.i, ptr noundef nonnull align 8 dereferenceable(24) %sb, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 16 dereferenceable(24) %_swap_buffer.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %_swap_buffer.i)
-  %buf24 = getelementptr inbounds nuw i8, ptr %call.i, i64 56
-  %9 = load ptr, ptr %buf24, align 8
-  %call25 = call ptr @xmemdupz(ptr noundef %9, i64 noundef %1) #14
-  store ptr %call25, ptr %directory.i, align 8
-  store volatile i32 %call13, ptr %fd.i, align 8
-  %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
-  br i1 %.b.i, label %activate_tempfile.exit, label %if.then.i10
-
-if.then.i10:                                      ; preds = %if.end20
-  call void @sigchain_push_common(ptr noundef nonnull @remove_tempfiles_on_signal) #14
-  %call.i11 = call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
-  store i1 true, ptr @activate_tempfile.initialized, align 4
-  br label %activate_tempfile.exit
-
-activate_tempfile.exit:                           ; preds = %if.end20, %if.then.i10
-  %10 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store volatile ptr %call.i, ptr %prev.i.i, align 8
-  %11 = load volatile ptr, ptr @tempfile_list, align 8
-  store volatile ptr %11, ptr %call.i, align 8
-  store volatile ptr @tempfile_list, ptr %prev.i, align 8
-  store volatile ptr %call.i, ptr @tempfile_list, align 8
-  %call1.i = call i32 @getpid() #14
-  store volatile i32 %call1.i, ptr %owner.i, align 8
-  br label %return
-
-return:                                           ; preds = %activate_tempfile.exit, %strbuf_setlen.exit, %if.then8, %if.then
-  %retval.0 = phi ptr [ null, %strbuf_setlen.exit ], [ %call.i, %activate_tempfile.exit ], [ null, %if.then8 ], [ null, %if.then ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
-
-; Function Attrs: nounwind
-declare ptr @mkdtemp(ptr noundef) local_unnamed_addr #6
-
-declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
-
-declare i32 @lstat_cache_aware_rmdir(ptr noundef) local_unnamed_addr #1
-
-declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @xmks_tempfile_m(ptr noundef %filename_template, i32 noundef %mode) local_unnamed_addr #0 {
-entry:
-  %full_template = alloca %struct.strbuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %full_template, ptr noundef nonnull align 8 dereferenceable(24) @__const.xmks_tempfile_m.full_template, i64 24, i1 false)
-  call void @strbuf_add_absolute_path(ptr noundef nonnull %full_template, ptr noundef %filename_template) #14
-  %buf = getelementptr inbounds nuw i8, ptr %full_template, i64 16
-  %0 = load ptr, ptr %buf, align 8
-  %call.i = call ptr @mks_tempfile_sm(ptr noundef %0, i32 noundef 0, i32 noundef %mode)
-  %tobool.not = icmp eq ptr %call.i, null
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %buf, align 8
-  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.6, ptr noundef %1) #17
-  unreachable
-
-if.end:                                           ; preds = %entry
-  call void @strbuf_release(ptr noundef nonnull %full_template) #14
-  ret ptr %call.i
-}
-
-; Function Attrs: noreturn
-declare void @die_errno(ptr noundef, ...) local_unnamed_addr #7
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @fdopen_tempfile(ptr noundef %tempfile, ptr noundef readonly captures(none) %mode) local_unnamed_addr #0 {
-entry:
-  %tobool.i.not = icmp eq ptr %tempfile, null
-  br i1 %tobool.i.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 265, ptr noundef nonnull @.str.8) #17
-  unreachable
-
-if.end:                                           ; preds = %entry
-  %fp = getelementptr inbounds nuw i8, ptr %tempfile, i64 24
-  %0 = load volatile ptr, ptr %fp, align 8
-  %tobool1.not = icmp eq ptr %0, null
-  br i1 %tobool1.not, label %if.end3, label %if.then2
-
-if.then2:                                         ; preds = %if.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 267, ptr noundef nonnull @.str.9) #17
-  unreachable
-
-if.end3:                                          ; preds = %if.end
-  %fd = getelementptr inbounds nuw i8, ptr %tempfile, i64 16
-  %1 = load volatile i32, ptr %fd, align 8
-  %call4 = tail call noalias ptr @fdopen(i32 noundef %1, ptr noundef %mode) #14
-  store volatile ptr %call4, ptr %fp, align 8
-  %2 = load volatile ptr, ptr %fp, align 8
+activate_tempfile.exit:                           ; preds = %1, %9
+  %11 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store volatile ptr %2, ptr %12, align 8, !tbaa !25
+  %13 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  store volatile ptr %13, ptr %2, align 8, !tbaa !26
+  store volatile ptr @tempfile_list, ptr %6, align 8, !tbaa !25
+  store volatile ptr %2, ptr @tempfile_list, align 8, !tbaa !26
+  %14 = tail call i32 @getpid() #14
+  store volatile i32 %14, ptr %5, align 8, !tbaa !17
   ret ptr %2
 }
 
-; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
-
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #8
-
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_tempfile_path(ptr noundef readonly %tempfile) local_unnamed_addr #0 {
-entry:
-  %tobool.i.not = icmp eq ptr %tempfile, null
-  br i1 %tobool.i.not, label %if.then, label %if.end
+define dso_local ptr @mks_tempfile_sm(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @xmalloc(i64 noundef 72) #14
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store volatile i32 -1, ptr %5, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store volatile ptr null, ptr %6, align 8, !tbaa !16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store volatile i32 0, ptr %7, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store volatile ptr %4, ptr %8, align 8, !tbaa !18
+  store volatile ptr %4, ptr %4, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  tail call void @strbuf_init(ptr noundef nonnull %9, i64 noundef 0) #14
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store ptr null, ptr %10, align 8, !tbaa !20
+  tail call void @strbuf_add_absolute_path(ptr noundef nonnull %9, ptr noundef %0) #14
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %13 = tail call i32 @git_mkstemps_mode(ptr noundef %12, i32 noundef %1, i32 noundef %2) #14
+  store volatile i32 %13, ptr %5, align 8, !tbaa !4
+  %14 = load volatile i32, ptr %5, align 8, !tbaa !4
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %21
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 276, ptr noundef nonnull @.str.10) #17
-  unreachable
+16:                                               ; preds = %3
+  %17 = load volatile ptr, ptr %8, align 8, !tbaa !25
+  %18 = load volatile ptr, ptr %4, align 8, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store volatile ptr %17, ptr %19, align 8, !tbaa !25
+  store volatile ptr %18, ptr %17, align 8, !tbaa !26
+  tail call void @strbuf_release(ptr noundef nonnull %9) #14
+  %20 = load ptr, ptr %10, align 8, !tbaa !20
+  tail call void @free(ptr noundef %20) #14
+  tail call void @free(ptr noundef nonnull %4) #14
+  br label %28
 
-if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds nuw i8, ptr %tempfile, i64 56
-  %0 = load ptr, ptr %buf, align 8
-  ret ptr %0
+21:                                               ; preds = %3
+  %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
+  br i1 %.b.i, label %activate_tempfile.exit, label %22
+
+22:                                               ; preds = %21
+  tail call void @sigchain_push_common(ptr noundef nonnull @remove_tempfiles_on_signal) #14
+  %23 = tail call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
+  store i1 true, ptr @activate_tempfile.initialized, align 4
+  br label %activate_tempfile.exit
+
+activate_tempfile.exit:                           ; preds = %21, %22
+  %24 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store volatile ptr %4, ptr %25, align 8, !tbaa !25
+  %26 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  store volatile ptr %26, ptr %4, align 8, !tbaa !26
+  store volatile ptr @tempfile_list, ptr %8, align 8, !tbaa !25
+  store volatile ptr %4, ptr @tempfile_list, align 8, !tbaa !26
+  %27 = tail call i32 @getpid() #14
+  store volatile i32 %27, ptr %7, align 8, !tbaa !17
+  br label %28
+
+28:                                               ; preds = %activate_tempfile.exit, %16
+  %.0 = phi ptr [ null, %16 ], [ %4, %activate_tempfile.exit ]
+  ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local i32 @get_tempfile_fd(ptr noundef %tempfile) local_unnamed_addr #0 {
-entry:
-  %tobool.i.not = icmp eq ptr %tempfile, null
-  br i1 %tobool.i.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 283, ptr noundef nonnull @.str.11) #17
-  unreachable
-
-if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds nuw i8, ptr %tempfile, i64 16
-  %0 = load volatile i32, ptr %fd, align 8
-  ret i32 %0
-}
+declare i32 @git_mkstemps_mode(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_tempfile_fp(ptr noundef %tempfile) local_unnamed_addr #0 {
-entry:
-  %tobool.i.not = icmp eq ptr %tempfile, null
-  br i1 %tobool.i.not, label %if.then, label %if.end
+define dso_local ptr @mks_tempfile_tsm(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @xmalloc(i64 noundef 72) #14
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store volatile i32 -1, ptr %5, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store volatile ptr null, ptr %6, align 8, !tbaa !16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store volatile i32 0, ptr %7, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store volatile ptr %4, ptr %8, align 8, !tbaa !18
+  store volatile ptr %4, ptr %4, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  tail call void @strbuf_init(ptr noundef nonnull %9, i64 noundef 0) #14
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store ptr null, ptr %10, align 8, !tbaa !20
+  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
+  %.not = icmp eq ptr %11, null
+  %spec.store.select = select i1 %.not, ptr @.str.2, ptr %11
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select, ptr noundef %0) #14
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %14 = tail call i32 @git_mkstemps_mode(ptr noundef %13, i32 noundef %1, i32 noundef %2) #14
+  store volatile i32 %14, ptr %5, align 8, !tbaa !4
+  %15 = load volatile i32, ptr %5, align 8, !tbaa !4
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %22
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 290, ptr noundef nonnull @.str.12) #17
-  unreachable
+17:                                               ; preds = %3
+  %18 = load volatile ptr, ptr %8, align 8, !tbaa !25
+  %19 = load volatile ptr, ptr %4, align 8, !tbaa !26
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store volatile ptr %18, ptr %20, align 8, !tbaa !25
+  store volatile ptr %19, ptr %18, align 8, !tbaa !26
+  tail call void @strbuf_release(ptr noundef nonnull %9) #14
+  %21 = load ptr, ptr %10, align 8, !tbaa !20
+  tail call void @free(ptr noundef %21) #14
+  tail call void @free(ptr noundef nonnull %4) #14
+  br label %29
 
-if.end:                                           ; preds = %entry
-  %fp = getelementptr inbounds nuw i8, ptr %tempfile, i64 24
-  %0 = load volatile ptr, ptr %fp, align 8
-  ret ptr %0
-}
+22:                                               ; preds = %3
+  %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
+  br i1 %.b.i, label %activate_tempfile.exit, label %23
 
-; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @close_tempfile_gently(ptr noundef %tempfile) local_unnamed_addr #0 {
-entry:
-  %tobool.i.not = icmp eq ptr %tempfile, null
-  br i1 %tobool.i.not, label %return, label %lor.lhs.false
+23:                                               ; preds = %22
+  tail call void @sigchain_push_common(ptr noundef nonnull @remove_tempfiles_on_signal) #14
+  %24 = tail call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
+  store i1 true, ptr @activate_tempfile.initialized, align 4
+  br label %activate_tempfile.exit
 
-lor.lhs.false:                                    ; preds = %entry
-  %fd1 = getelementptr inbounds nuw i8, ptr %tempfile, i64 16
-  %0 = load volatile i32, ptr %fd1, align 8
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %return, label %if.end
+activate_tempfile.exit:                           ; preds = %22, %23
+  %25 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store volatile ptr %4, ptr %26, align 8, !tbaa !25
+  %27 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  store volatile ptr %27, ptr %4, align 8, !tbaa !26
+  store volatile ptr @tempfile_list, ptr %8, align 8, !tbaa !25
+  store volatile ptr %4, ptr @tempfile_list, align 8, !tbaa !26
+  %28 = tail call i32 @getpid() #14
+  store volatile i32 %28, ptr %7, align 8, !tbaa !17
+  br label %29
 
-if.end:                                           ; preds = %lor.lhs.false
-  %1 = load volatile i32, ptr %fd1, align 8
-  %fp3 = getelementptr inbounds nuw i8, ptr %tempfile, i64 24
-  %2 = load volatile ptr, ptr %fp3, align 8
-  store volatile i32 -1, ptr %fd1, align 8
-  %tobool5.not = icmp eq ptr %2, null
-  br i1 %tobool5.not, label %if.else18, label %if.then6
-
-if.then6:                                         ; preds = %if.end
-  store volatile ptr null, ptr %fp3, align 8
-  %call8 = tail call i32 @ferror(ptr noundef nonnull %2) #14
-  %tobool9.not = icmp eq i32 %call8, 0
-  %call16 = tail call i32 @fclose(ptr noundef nonnull %2)
-  br i1 %tobool9.not, label %if.end20, label %if.then10
-
-if.then10:                                        ; preds = %if.then6
-  %tobool12.not = icmp eq i32 %call16, 0
-  br i1 %tobool12.not, label %if.then13, label %if.end20
-
-if.then13:                                        ; preds = %if.then10
-  %call14 = tail call ptr @__errno_location() #15
-  store i32 5, ptr %call14, align 4
-  br label %if.end20
-
-if.else18:                                        ; preds = %if.end
-  %call19 = tail call i32 @close(i32 noundef %1) #14
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.then6, %if.then13, %if.then10, %if.else18
-  %err.0 = phi i32 [ -1, %if.then10 ], [ -1, %if.then13 ], [ %call19, %if.else18 ], [ %call16, %if.then6 ]
-  %tobool21.not = icmp ne i32 %err.0, 0
-  %cond = sext i1 %tobool21.not to i32
-  br label %return
-
-return:                                           ; preds = %entry, %lor.lhs.false, %if.end20
-  %retval.0 = phi i32 [ %cond, %if.end20 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  ret i32 %retval.0
+29:                                               ; preds = %activate_tempfile.exit, %17
+  %.0 = phi ptr [ null, %17 ], [ %4, %activate_tempfile.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
-
-declare i32 @close(i32 noundef) local_unnamed_addr #1
+declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reopen_tempfile(ptr noundef %tempfile) local_unnamed_addr #0 {
-entry:
-  %tobool.i.not = icmp eq ptr %tempfile, null
-  br i1 %tobool.i.not, label %if.then, label %if.end
+define dso_local ptr @mks_tempfile_dt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca [24 x i8], align 16
+  %4 = alloca %struct.strbuf, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.xmks_tempfile_m.full_template, i64 24, i1 false)
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
+  %6 = icmp ult i64 %5, 6
+  br i1 %6, label %ends_with.exit.thread, label %ends_with.exit
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 325, ptr noundef nonnull @.str.13) #17
+ends_with.exit:                                   ; preds = %2
+  %7 = getelementptr i8, ptr %0, i64 %5
+  %8 = getelementptr i8, ptr %7, i64 -6
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %8, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
+  %.not.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %.not.i.i.i.not, label %10, label %ends_with.exit.thread
+
+ends_with.exit.thread:                            ; preds = %2, %ends_with.exit
+  %9 = tail call ptr @__errno_location() #15
+  store i32 22, ptr %9, align 4, !tbaa !24
+  br label %53
+
+10:                                               ; preds = %ends_with.exit
+  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
+  %.not18 = icmp eq ptr %11, null
+  %spec.store.select = select i1 %.not18, ptr @.str.2, ptr %11
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %0) #14
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !27
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %16 = call ptr @mkdtemp(ptr noundef %15) #14
+  %.not19 = icmp eq ptr %16, null
+  br i1 %.not19, label %17, label %20
+
+17:                                               ; preds = %10
+  %18 = tail call ptr @__errno_location() #15
+  %19 = load i32, ptr %18, align 4, !tbaa !24
+  call void @strbuf_release(ptr noundef nonnull %4) #14
+  store i32 %19, ptr %18, align 4, !tbaa !24
+  br label %53
+
+20:                                               ; preds = %10
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, ptr noundef %1) #14
+  %21 = load ptr, ptr %14, align 8, !tbaa !28
+  %22 = call i32 (ptr, i32, ...) @open64(ptr noundef %21, i32 noundef 194, i32 noundef 384) #14
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %36
+
+24:                                               ; preds = %20
+  %25 = tail call ptr @__errno_location() #15
+  %26 = load i32, ptr %25, align 4, !tbaa !24
+  %27 = load i64, ptr %4, align 8, !tbaa !29
+  %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %27, i64 1)
+  %28 = icmp ugt i64 %13, %spec.select.i
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %24
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.16, i32 noundef 167, ptr noundef nonnull @.str.17) #17
   unreachable
 
-if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds nuw i8, ptr %tempfile, i64 16
-  %0 = load volatile i32, ptr %fd, align 8
-  %cmp = icmp sgt i32 %0, -1
-  br i1 %cmp, label %if.then1, label %if.end2
+30:                                               ; preds = %24
+  store i64 %13, ptr %12, align 8, !tbaa !27
+  %31 = load ptr, ptr %14, align 8, !tbaa !28
+  %.not9.i = icmp eq ptr %31, @strbuf_slopbuf
+  br i1 %.not9.i, label %strbuf_setlen.exit, label %32
 
-if.then1:                                         ; preds = %if.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 327, ptr noundef nonnull @.str.14) #17
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %13
+  store i8 0, ptr %33, align 1, !tbaa !30
+  %.pre = load ptr, ptr %14, align 8, !tbaa !28
+  br label %strbuf_setlen.exit
+
+strbuf_setlen.exit:                               ; preds = %30, %32
+  %34 = phi ptr [ @strbuf_slopbuf, %30 ], [ %.pre, %32 ]
+  %35 = call i32 @lstat_cache_aware_rmdir(ptr noundef %34) #14
+  call void @strbuf_release(ptr noundef nonnull %4) #14
+  store i32 %26, ptr %25, align 4, !tbaa !24
+  br label %53
+
+36:                                               ; preds = %20
+  %37 = call ptr @xmalloc(i64 noundef 72) #14
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store volatile i32 -1, ptr %38, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store volatile ptr null, ptr %39, align 8, !tbaa !16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  store volatile i32 0, ptr %40, align 8, !tbaa !17
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store volatile ptr %37, ptr %41, align 8, !tbaa !18
+  store volatile ptr %37, ptr %37, align 8, !tbaa !19
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  call void @strbuf_init(ptr noundef nonnull %42, i64 noundef 0) #14
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  store ptr null, ptr %43, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) %42, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 56
+  %45 = load ptr, ptr %44, align 8, !tbaa !23
+  %46 = call ptr @xmemdupz(ptr noundef %45, i64 noundef %13) #14
+  store ptr %46, ptr %43, align 8, !tbaa !20
+  store volatile i32 %22, ptr %38, align 8, !tbaa !4
+  %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
+  br i1 %.b.i, label %activate_tempfile.exit, label %47
+
+47:                                               ; preds = %36
+  call void @sigchain_push_common(ptr noundef nonnull @remove_tempfiles_on_signal) #14
+  %48 = call i32 @atexit(ptr noundef nonnull @remove_tempfiles_on_exit) #14
+  store i1 true, ptr @activate_tempfile.initialized, align 4
+  br label %activate_tempfile.exit
+
+activate_tempfile.exit:                           ; preds = %36, %47
+  %49 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store volatile ptr %37, ptr %50, align 8, !tbaa !25
+  %51 = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  store volatile ptr %51, ptr %37, align 8, !tbaa !26
+  store volatile ptr @tempfile_list, ptr %41, align 8, !tbaa !25
+  store volatile ptr %37, ptr @tempfile_list, align 8, !tbaa !26
+  %52 = call i32 @getpid() #14
+  store volatile i32 %52, ptr %40, align 8, !tbaa !17
+  br label %53
+
+53:                                               ; preds = %activate_tempfile.exit, %strbuf_setlen.exit, %17, %ends_with.exit.thread
+  %.0 = phi ptr [ null, %strbuf_setlen.exit ], [ %37, %activate_tempfile.exit ], [ null, %17 ], [ null, %ends_with.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #14
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: nounwind
+declare ptr @mkdtemp(ptr noundef) local_unnamed_addr #7
+
+declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
+
+declare i32 @lstat_cache_aware_rmdir(ptr noundef) local_unnamed_addr #2
+
+declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define dso_local nonnull ptr @xmks_tempfile_m(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca %struct.strbuf, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.xmks_tempfile_m.full_template, i64 24, i1 false)
+  call void @strbuf_add_absolute_path(ptr noundef nonnull %3, ptr noundef %0) #14
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
+  %6 = call ptr @mks_tempfile_sm(ptr noundef %5, i32 noundef 0, i32 noundef %1)
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %7, label %9
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.6, ptr noundef %8) #17
   unreachable
 
-if.end2:                                          ; preds = %if.end
-  %buf = getelementptr inbounds nuw i8, ptr %tempfile, i64 56
-  %1 = load ptr, ptr %buf, align 8
-  %call3 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %1, i32 noundef 513) #14
-  store volatile i32 %call3, ptr %fd, align 8
-  %2 = load volatile i32, ptr %fd, align 8
-  ret i32 %2
+9:                                                ; preds = %2
+  call void @strbuf_release(ptr noundef nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
+  ret ptr %6
+}
+
+; Function Attrs: noreturn
+declare void @die_errno(ptr noundef, ...) local_unnamed_addr #8
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @fdopen_tempfile(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  %.not7 = icmp eq ptr %0, null
+  br i1 %.not7, label %3, label %4
+
+3:                                                ; preds = %2
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 267, ptr noundef nonnull @.str.8) #17
+  unreachable
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load volatile ptr, ptr %5, align 8, !tbaa !16
+  %.not6 = icmp eq ptr %6, null
+  br i1 %.not6, label %8, label %7
+
+7:                                                ; preds = %4
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 269, ptr noundef nonnull @.str.9) #17
+  unreachable
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load volatile i32, ptr %9, align 8, !tbaa !4
+  %11 = tail call noalias ptr @fdopen(i32 noundef %10, ptr noundef %1) #14
+  store volatile ptr %11, ptr %5, align 8, !tbaa !16
+  %12 = load volatile ptr, ptr %5, align 8, !tbaa !16
+  ret ptr %12
+}
+
+; Function Attrs: noreturn
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #8
+
+; Function Attrs: nofree nounwind
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #9
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @get_tempfile_path(ptr noundef readonly %0) local_unnamed_addr #0 {
+  %.not2 = icmp eq ptr %0, null
+  br i1 %.not2, label %2, label %3
+
+2:                                                ; preds = %1
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 278, ptr noundef nonnull @.str.10) #17
+  unreachable
+
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rename_tempfile(ptr noundef captures(none) %tempfile_p, ptr noundef readonly captures(none) %path) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %tempfile_p, align 8
-  %tobool.i.not = icmp eq ptr %0, null
-  br i1 %tobool.i.not, label %if.then, label %lor.lhs.false.i
+define dso_local i32 @get_tempfile_fd(ptr noundef %0) local_unnamed_addr #0 {
+  %.not2 = icmp eq ptr %0, null
+  br i1 %.not2, label %2, label %3
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 337, ptr noundef nonnull @.str.15) #17
+2:                                                ; preds = %1
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 285, ptr noundef nonnull @.str.11) #17
   unreachable
 
-lor.lhs.false.i:                                  ; preds = %entry
-  %fd1.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load volatile i32, ptr %fd1.i, align 8
-  %cmp.i = icmp slt i32 %1, 0
-  br i1 %cmp.i, label %if.end4, label %if.end.i
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load volatile i32, ptr %4, align 8, !tbaa !4
+  ret i32 %5
+}
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
-  %2 = load volatile i32, ptr %fd1.i, align 8
-  %fp3.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load volatile ptr, ptr %fp3.i, align 8
-  store volatile i32 -1, ptr %fd1.i, align 8
-  %tobool5.not.i = icmp eq ptr %3, null
-  br i1 %tobool5.not.i, label %if.else18.i, label %if.then6.i
+; Function Attrs: nounwind uwtable
+define dso_local ptr @get_tempfile_fp(ptr noundef %0) local_unnamed_addr #0 {
+  %.not2 = icmp eq ptr %0, null
+  br i1 %.not2, label %2, label %3
 
-if.then6.i:                                       ; preds = %if.end.i
-  store volatile ptr null, ptr %fp3.i, align 8
-  %call8.i = tail call i32 @ferror(ptr noundef nonnull %3) #14
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  %call16.i = tail call i32 @fclose(ptr noundef nonnull %3)
-  br i1 %tobool9.not.i, label %close_tempfile_gently.exit, label %if.then10.i
+2:                                                ; preds = %1
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 292, ptr noundef nonnull @.str.12) #17
+  unreachable
 
-if.then10.i:                                      ; preds = %if.then6.i
-  %tobool12.not.i = icmp eq i32 %call16.i, 0
-  br i1 %tobool12.not.i, label %if.then13.i, label %if.then3
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load volatile ptr, ptr %4, align 8, !tbaa !16
+  ret ptr %5
+}
 
-if.then13.i:                                      ; preds = %if.then10.i
-  %call14.i = tail call ptr @__errno_location() #15
-  store i32 5, ptr %call14.i, align 4
-  br label %if.then3
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 -1, 1) i32 @close_tempfile_gently(ptr noundef %0) local_unnamed_addr #0 {
+  %.not18 = icmp eq ptr %0, null
+  br i1 %.not18, label %20, label %2
 
-if.else18.i:                                      ; preds = %if.end.i
-  %call19.i = tail call i32 @close(i32 noundef %2) #14
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load volatile i32, ptr %3, align 8, !tbaa !4
+  %5 = icmp slt i32 %4, 0
+  br i1 %5, label %20, label %6
+
+6:                                                ; preds = %2
+  %7 = load volatile i32, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load volatile ptr, ptr %8, align 8, !tbaa !16
+  store volatile i32 -1, ptr %3, align 8, !tbaa !4
+  %.not14 = icmp eq ptr %9, null
+  br i1 %.not14, label %16, label %10
+
+10:                                               ; preds = %6
+  store volatile ptr null, ptr %8, align 8, !tbaa !16
+  %11 = tail call i32 @ferror(ptr noundef nonnull %9) #14
+  %.not15 = icmp eq i32 %11, 0
+  %12 = tail call i32 @fclose(ptr noundef nonnull %9)
+  br i1 %.not15, label %18, label %13
+
+13:                                               ; preds = %10
+  %.not16 = icmp eq i32 %12, 0
+  br i1 %.not16, label %14, label %18
+
+14:                                               ; preds = %13
+  %15 = tail call ptr @__errno_location() #15
+  store i32 5, ptr %15, align 4, !tbaa !24
+  br label %18
+
+16:                                               ; preds = %6
+  %17 = tail call i32 @close(i32 noundef %7) #14
+  br label %18
+
+18:                                               ; preds = %10, %14, %13, %16
+  %.0 = phi i32 [ -1, %13 ], [ -1, %14 ], [ %17, %16 ], [ %12, %10 ]
+  %.not17 = icmp ne i32 %.0, 0
+  %19 = sext i1 %.not17 to i32
+  br label %20
+
+20:                                               ; preds = %1, %2, %18
+  %.012 = phi i32 [ %19, %18 ], [ 0, %2 ], [ 0, %1 ]
+  ret i32 %.012
+}
+
+; Function Attrs: nofree nounwind memory(read)
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #5
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
+
+declare i32 @close(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @reopen_tempfile(ptr noundef %0) local_unnamed_addr #0 {
+  %.not5 = icmp eq ptr %0, null
+  br i1 %.not5, label %2, label %3
+
+2:                                                ; preds = %1
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 327, ptr noundef nonnull @.str.13) #17
+  unreachable
+
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load volatile i32, ptr %4, align 8, !tbaa !4
+  %6 = icmp sgt i32 %5, -1
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %3
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 329, ptr noundef nonnull @.str.14) #17
+  unreachable
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  %11 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %10, i32 noundef 513) #14
+  store volatile i32 %11, ptr %4, align 8, !tbaa !4
+  %12 = load volatile i32, ptr %4, align 8, !tbaa !4
+  ret i32 %12
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 -1, 1) i32 @rename_tempfile(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !21
+  %.not19 = icmp eq ptr %3, null
+  br i1 %.not19, label %4, label %5
+
+4:                                                ; preds = %2
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.7, i32 noundef 339, ptr noundef nonnull @.str.15) #17
+  unreachable
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %7 = load volatile i32, ptr %6, align 8, !tbaa !4
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %close_tempfile_gently.exit.thread, label %9
+
+9:                                                ; preds = %5
+  %10 = load volatile i32, ptr %6, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %12 = load volatile ptr, ptr %11, align 8, !tbaa !16
+  store volatile i32 -1, ptr %6, align 8, !tbaa !4
+  %.not14.i = icmp eq ptr %12, null
+  br i1 %.not14.i, label %19, label %13
+
+13:                                               ; preds = %9
+  store volatile ptr null, ptr %11, align 8, !tbaa !16
+  %14 = tail call i32 @ferror(ptr noundef nonnull %12) #14
+  %.not15.i = icmp eq i32 %14, 0
+  %15 = tail call i32 @fclose(ptr noundef nonnull %12)
+  br i1 %.not15.i, label %close_tempfile_gently.exit, label %16
+
+16:                                               ; preds = %13
+  %.not16.i = icmp eq i32 %15, 0
+  br i1 %.not16.i, label %17, label %close_tempfile_gently.exit.thread15
+
+17:                                               ; preds = %16
+  %18 = tail call ptr @__errno_location() #15
+  store i32 5, ptr %18, align 4, !tbaa !24
+  br label %close_tempfile_gently.exit.thread15
+
+19:                                               ; preds = %9
+  %20 = tail call i32 @close(i32 noundef %10) #14
   br label %close_tempfile_gently.exit
 
-close_tempfile_gently.exit:                       ; preds = %if.then6.i, %if.else18.i
-  %err.0.i = phi i32 [ %call19.i, %if.else18.i ], [ %call16.i, %if.then6.i ]
-  %tobool21.not.i.not = icmp eq i32 %err.0.i, 0
-  br i1 %tobool21.not.i.not, label %if.end4, label %if.then3
+close_tempfile_gently.exit:                       ; preds = %13, %19
+  %.0.i = phi i32 [ %20, %19 ], [ %15, %13 ]
+  %.not17.i.not = icmp eq i32 %.0.i, 0
+  br i1 %.not17.i.not, label %close_tempfile_gently.exit.thread, label %close_tempfile_gently.exit.thread15
 
-if.then3:                                         ; preds = %if.then13.i, %if.then10.i, %close_tempfile_gently.exit
-  tail call void @delete_tempfile(ptr noundef nonnull %tempfile_p)
-  br label %return
+close_tempfile_gently.exit.thread15:              ; preds = %17, %16, %close_tempfile_gently.exit
+  %21 = tail call i32 @delete_tempfile(ptr noundef nonnull %0)
+  br label %37
 
-if.end4:                                          ; preds = %lor.lhs.false.i, %close_tempfile_gently.exit
-  %buf = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %buf, align 8
-  %call5 = tail call i32 @rename(ptr noundef %4, ptr noundef %path) #14
-  %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %if.end10, label %if.then7
+close_tempfile_gently.exit.thread:                ; preds = %5, %close_tempfile_gently.exit
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %23 = load ptr, ptr %22, align 8, !tbaa !23
+  %24 = tail call i32 @rename(ptr noundef %23, ptr noundef %1) #14
+  %.not11 = icmp eq i32 %24, 0
+  br i1 %.not11, label %29, label %25
 
-if.then7:                                         ; preds = %if.end4
-  %call8 = tail call ptr @__errno_location() #15
-  %5 = load i32, ptr %call8, align 4
-  tail call void @delete_tempfile(ptr noundef nonnull %tempfile_p)
-  store i32 %5, ptr %call8, align 4
-  br label %return
+25:                                               ; preds = %close_tempfile_gently.exit.thread
+  %26 = tail call ptr @__errno_location() #15
+  %27 = load i32, ptr %26, align 4, !tbaa !24
+  %28 = tail call i32 @delete_tempfile(ptr noundef nonnull %0)
+  store i32 %27, ptr %26, align 4, !tbaa !24
+  br label %37
 
-if.end10:                                         ; preds = %if.end4
-  %prev.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load volatile ptr, ptr %prev.i.i, align 8
-  %7 = load volatile ptr, ptr %0, align 8
-  %prev1.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store volatile ptr %6, ptr %prev1.i.i.i, align 8
-  store volatile ptr %7, ptr %6, align 8
-  %filename.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
-  %directory.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %directory.i, align 8
-  tail call void @free(ptr noundef %8) #14
-  tail call void @free(ptr noundef nonnull %0) #14
-  store ptr null, ptr %tempfile_p, align 8
-  br label %return
+29:                                               ; preds = %close_tempfile_gently.exit.thread
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = load volatile ptr, ptr %30, align 8, !tbaa !25
+  %32 = load volatile ptr, ptr %3, align 8, !tbaa !26
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store volatile ptr %31, ptr %33, align 8, !tbaa !25
+  store volatile ptr %32, ptr %31, align 8, !tbaa !26
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  tail call void @strbuf_release(ptr noundef nonnull %34) #14
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %36 = load ptr, ptr %35, align 8, !tbaa !20
+  tail call void @free(ptr noundef %36) #14
+  tail call void @free(ptr noundef nonnull %3) #14
+  store ptr null, ptr %0, align 8, !tbaa !21
+  br label %37
 
-return:                                           ; preds = %if.end10, %if.then7, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ -1, %if.then7 ], [ 0, %if.end10 ]
-  ret i32 %retval.0
+37:                                               ; preds = %29, %25, %close_tempfile_gently.exit.thread15
+  %.0 = phi i32 [ -1, %close_tempfile_gently.exit.thread15 ], [ -1, %25 ], [ 0, %29 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
-declare i32 @unlink_or_warn(ptr noundef) local_unnamed_addr #1
+declare i32 @unlink_or_warn(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
+declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 
-declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
-declare void @sigchain_push_common(ptr noundef) local_unnamed_addr #1
+declare void @sigchain_push_common(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @remove_tempfiles_on_signal(i32 noundef %signo) #0 {
-entry:
-  %call.i = tail call i32 @getpid() #14
-  %pos.014.i = load volatile ptr, ptr @tempfile_list, align 8
-  %cmp.not15.i = icmp eq ptr %pos.014.i, @tempfile_list
-  br i1 %cmp.not15.i, label %remove_tempfiles.exit, label %for.body.i
+define internal void @remove_tempfiles_on_signal(i32 noundef %0) #0 {
+  %2 = tail call i32 @getpid() #14
+  %.023.i = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  %.not24.i = icmp eq ptr %.023.i, @tempfile_list
+  br i1 %.not24.i, label %remove_tempfiles.exit, label %.lr.ph.split.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %pos.016.i = phi ptr [ %pos.0.i, %for.inc.i ], [ %pos.014.i, %entry ]
-  %tobool.i.not.i = icmp eq ptr %pos.016.i, null
-  br i1 %tobool.i.not.i, label %for.inc.i, label %lor.lhs.false.i
+.lr.ph.split.i:                                   ; preds = %1, %remove_template_directory.exit.i
+  %.025.i = phi ptr [ %.0.i, %remove_template_directory.exit.i ], [ %.023.i, %1 ]
+  %.not22.i = icmp eq ptr %.025.i, null
+  br i1 %.not22.i, label %remove_template_directory.exit.i, label %3
 
-lor.lhs.false.i:                                  ; preds = %for.body.i
-  %owner.i = getelementptr inbounds nuw i8, ptr %pos.016.i, i64 32
-  %0 = load volatile i32, ptr %owner.i, align 8
-  %cmp2.not.i = icmp eq i32 %0, %call.i
-  br i1 %cmp2.not.i, label %if.end.i, label %for.inc.i
+3:                                                ; preds = %.lr.ph.split.i
+  %4 = getelementptr inbounds nuw i8, ptr %.025.i, i64 32
+  %5 = load volatile i32, ptr %4, align 8, !tbaa !17
+  %.not16.i = icmp eq i32 %5, %2
+  br i1 %.not16.i, label %6, label %remove_template_directory.exit.i
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
-  %fd.i = getelementptr inbounds nuw i8, ptr %pos.016.i, i64 16
-  %1 = load volatile i32, ptr %fd.i, align 8
-  %cmp3.i = icmp sgt i32 %1, -1
-  br i1 %cmp3.i, label %if.then4.i, label %if.end7.i
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
+  %8 = load volatile i32, ptr %7, align 8, !tbaa !4
+  %9 = icmp sgt i32 %8, -1
+  br i1 %9, label %10, label %.split.i
 
-if.then4.i:                                       ; preds = %if.end.i
-  %2 = load volatile i32, ptr %fd.i, align 8
-  %call6.i = tail call i32 @close(i32 noundef %2) #14
-  br label %if.end7.i
+10:                                               ; preds = %6
+  %11 = load volatile i32, ptr %7, align 8, !tbaa !4
+  %12 = tail call i32 @close(i32 noundef %11) #14
+  br label %.split.i
 
-if.end7.i:                                        ; preds = %if.then4.i, %if.end.i
-  %buf.i = getelementptr inbounds nuw i8, ptr %pos.016.i, i64 56
-  %3 = load ptr, ptr %buf.i, align 8
-  %call10.i = tail call i32 @unlink(ptr noundef %3) #14
-  %4 = getelementptr i8, ptr %pos.016.i, i64 64
-  %pos.0.val10.i = load ptr, ptr %4, align 8
-  %tobool.not.i.i = icmp eq ptr %pos.0.val10.i, null
-  br i1 %tobool.not.i.i, label %for.inc.i, label %if.then.i.i
+.split.i:                                         ; preds = %10, %6
+  %13 = getelementptr inbounds nuw i8, ptr %.025.i, i64 56
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %15 = tail call i32 @unlink(ptr noundef %14) #14
+  %16 = getelementptr i8, ptr %.025.i, i64 64
+  %.0.val18.i = load ptr, ptr %16, align 8, !tbaa !20
+  %.not.i.i = icmp eq ptr %.0.val18.i, null
+  br i1 %.not.i.i, label %remove_template_directory.exit.i, label %17
 
-if.then.i.i:                                      ; preds = %if.end7.i
-  %call.i.i = tail call i32 @lstat_cache_aware_rmdir(ptr noundef nonnull %pos.0.val10.i) #14
-  br label %for.inc.i
+17:                                               ; preds = %.split.i
+  %18 = tail call i32 @lstat_cache_aware_rmdir(ptr noundef nonnull %.0.val18.i) #14
+  br label %remove_template_directory.exit.i
 
-for.inc.i:                                        ; preds = %if.then.i.i, %if.end7.i, %lor.lhs.false.i, %for.body.i
-  %pos.0.i = load volatile ptr, ptr %pos.016.i, align 8
-  %cmp.not.i = icmp eq ptr %pos.0.i, @tempfile_list
-  br i1 %cmp.not.i, label %remove_tempfiles.exit, label %for.body.i, !llvm.loop !5
+remove_template_directory.exit.i:                 ; preds = %17, %.split.i, %3, %.lr.ph.split.i
+  %.0.i = load volatile ptr, ptr %.025.i, align 8, !tbaa !26
+  %.not.i = icmp eq ptr %.0.i, @tempfile_list
+  br i1 %.not.i, label %remove_tempfiles.exit, label %.lr.ph.split.i, !llvm.loop !31
 
-remove_tempfiles.exit:                            ; preds = %for.inc.i, %entry
-  %call = tail call i32 @sigchain_pop(i32 noundef %signo) #14
-  %call1 = tail call i32 @raise(i32 noundef %signo) #14
+remove_tempfiles.exit:                            ; preds = %remove_template_directory.exit.i, %1
+  %19 = tail call i32 @sigchain_pop(i32 noundef %0) #14
+  %20 = tail call i32 @raise(i32 noundef %0) #14
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #8
+declare i32 @atexit(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @remove_tempfiles_on_exit() #0 {
-entry:
-  %call.i = tail call i32 @getpid() #14
-  %pos.014.i = load volatile ptr, ptr @tempfile_list, align 8
-  %cmp.not15.i = icmp eq ptr %pos.014.i, @tempfile_list
-  br i1 %cmp.not15.i, label %remove_tempfiles.exit, label %for.body.us.i
+  %1 = tail call i32 @getpid() #14
+  %.023.i = load volatile ptr, ptr @tempfile_list, align 8, !tbaa !26
+  %.not24.i = icmp eq ptr %.023.i, @tempfile_list
+  br i1 %.not24.i, label %remove_tempfiles.exit, label %.lr.ph.split.us.i
 
-for.body.us.i:                                    ; preds = %entry, %for.inc.us.i
-  %pos.016.us.i = phi ptr [ %pos.0.us.i, %for.inc.us.i ], [ %pos.014.i, %entry ]
-  %tobool.i.not.us.i = icmp eq ptr %pos.016.us.i, null
-  br i1 %tobool.i.not.us.i, label %for.inc.us.i, label %lor.lhs.false.us.i
+.lr.ph.split.us.i:                                ; preds = %0, %remove_template_directory.exit.us.i
+  %.025.us.i = phi ptr [ %.0.us.i, %remove_template_directory.exit.us.i ], [ %.023.i, %0 ]
+  %.not22.us.i = icmp eq ptr %.025.us.i, null
+  br i1 %.not22.us.i, label %remove_template_directory.exit.us.i, label %2
 
-lor.lhs.false.us.i:                               ; preds = %for.body.us.i
-  %owner.us.i = getelementptr inbounds nuw i8, ptr %pos.016.us.i, i64 32
-  %0 = load volatile i32, ptr %owner.us.i, align 8
-  %cmp2.not.us.i = icmp eq i32 %0, %call.i
-  br i1 %cmp2.not.us.i, label %if.end.us.i, label %for.inc.us.i
+2:                                                ; preds = %.lr.ph.split.us.i
+  %3 = getelementptr inbounds nuw i8, ptr %.025.us.i, i64 32
+  %4 = load volatile i32, ptr %3, align 8, !tbaa !17
+  %.not16.us.i = icmp eq i32 %4, %1
+  br i1 %.not16.us.i, label %5, label %remove_template_directory.exit.us.i
 
-if.end.us.i:                                      ; preds = %lor.lhs.false.us.i
-  %fd.us.i = getelementptr inbounds nuw i8, ptr %pos.016.us.i, i64 16
-  %1 = load volatile i32, ptr %fd.us.i, align 8
-  %cmp3.us.i = icmp sgt i32 %1, -1
-  br i1 %cmp3.us.i, label %if.then4.us.i, label %if.end7.us.i
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %.025.us.i, i64 16
+  %7 = load volatile i32, ptr %6, align 8, !tbaa !4
+  %8 = icmp sgt i32 %7, -1
+  br i1 %8, label %9, label %.split13.us.i
 
-if.then4.us.i:                                    ; preds = %if.end.us.i
-  %2 = load volatile i32, ptr %fd.us.i, align 8
-  %call6.us.i = tail call i32 @close(i32 noundef %2) #14
-  br label %if.end7.us.i
+9:                                                ; preds = %5
+  %10 = load volatile i32, ptr %6, align 8, !tbaa !4
+  %11 = tail call i32 @close(i32 noundef %10) #14
+  br label %.split13.us.i
 
-if.end7.us.i:                                     ; preds = %if.then4.us.i, %if.end.us.i
-  %buf12.us.i = getelementptr inbounds nuw i8, ptr %pos.016.us.i, i64 56
-  %3 = load ptr, ptr %buf12.us.i, align 8
-  %call13.us.i = tail call i32 @unlink_or_warn(ptr noundef %3) #14
-  %4 = getelementptr i8, ptr %pos.016.us.i, i64 64
-  %pos.0.val.us.i = load ptr, ptr %4, align 8
-  %tobool.not.i11.us.i = icmp eq ptr %pos.0.val.us.i, null
-  br i1 %tobool.not.i11.us.i, label %for.inc.us.i, label %if.then.i12.us.i
+.split13.us.i:                                    ; preds = %9, %5
+  %12 = getelementptr inbounds nuw i8, ptr %.025.us.i, i64 56
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %14 = tail call i32 @unlink_or_warn(ptr noundef %13) #14
+  %15 = getelementptr i8, ptr %.025.us.i, i64 64
+  %.0.val.us.i = load ptr, ptr %15, align 8, !tbaa !20
+  %.not.i19.us.i = icmp eq ptr %.0.val.us.i, null
+  br i1 %.not.i19.us.i, label %remove_template_directory.exit.us.i, label %16
 
-if.then.i12.us.i:                                 ; preds = %if.end7.us.i
-  %call5.i.us.i = tail call i32 @rmdir_or_warn(ptr noundef nonnull %pos.0.val.us.i) #14
-  br label %for.inc.us.i
+16:                                               ; preds = %.split13.us.i
+  %17 = tail call i32 @rmdir_or_warn(ptr noundef nonnull %.0.val.us.i) #14
+  br label %remove_template_directory.exit.us.i
 
-for.inc.us.i:                                     ; preds = %if.then.i12.us.i, %if.end7.us.i, %lor.lhs.false.us.i, %for.body.us.i
-  %pos.0.us.i = load volatile ptr, ptr %pos.016.us.i, align 8
-  %cmp.not.us.i = icmp eq ptr %pos.0.us.i, @tempfile_list
-  br i1 %cmp.not.us.i, label %remove_tempfiles.exit, label %for.body.us.i, !llvm.loop !5
+remove_template_directory.exit.us.i:              ; preds = %16, %.split13.us.i, %2, %.lr.ph.split.us.i
+  %.0.us.i = load volatile ptr, ptr %.025.us.i, align 8, !tbaa !26
+  %.not.us.i = icmp eq ptr %.0.us.i, @tempfile_list
+  br i1 %.not.us.i, label %remove_tempfiles.exit, label %.lr.ph.split.us.i, !llvm.loop !31
 
-remove_tempfiles.exit:                            ; preds = %for.inc.us.i, %entry
+remove_tempfiles.exit:                            ; preds = %remove_template_directory.exit.us.i, %0
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #6
+declare i32 @getpid() local_unnamed_addr #7
 
-declare i32 @sigchain_pop(i32 noundef) local_unnamed_addr #1
+declare i32 @sigchain_pop(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @raise(i32 noundef) local_unnamed_addr #6
+declare i32 @raise(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
-declare i32 @rmdir_or_warn(ptr noundef) local_unnamed_addr #1
+declare i32 @rmdir_or_warn(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #12
+declare i64 @llvm.usub.sat.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(none) }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !11, i64 16}
+!5 = !{!"tempfile", !6, i64 0, !11, i64 16, !12, i64 24, !11, i64 32, !13, i64 40, !15, i64 64}
+!6 = !{!"volatile_list_head", !7, i64 0, !7, i64 8}
+!7 = !{!"p1 _ZTS18volatile_list_head", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"int", !9, i64 0}
+!12 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!13 = !{!"strbuf", !14, i64 0, !14, i64 8, !15, i64 16}
+!14 = !{!"long", !9, i64 0}
+!15 = !{!"p1 omnipotent char", !8, i64 0}
+!16 = !{!5, !12, i64 24}
+!17 = !{!5, !11, i64 32}
+!18 = !{!5, !7, i64 8}
+!19 = !{!5, !7, i64 0}
+!20 = !{!5, !15, i64 64}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS8tempfile", !8, i64 0}
+!23 = !{!5, !15, i64 56}
+!24 = !{!11, !11, i64 0}
+!25 = !{!6, !7, i64 8}
+!26 = !{!6, !7, i64 0}
+!27 = !{!13, !14, i64 8}
+!28 = !{!13, !15, i64 16}
+!29 = !{!13, !14, i64 0}
+!30 = !{!9, !9, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}

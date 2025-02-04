@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/git/original/fsmonitor.ll'
 source_filename = "bench/git/original/fsmonitor.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.trace_key = type { ptr, i32, i8 }
 %struct.strvec = type { ptr, i64, i64 }
@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 
 @.str = private unnamed_addr constant [20 x i8] c"GIT_TRACE_FSMONITOR\00", align 1
-@trace_fsmonitor = dso_local global %struct.trace_key { ptr @.str, i32 0, i8 0 }, align 8
+@trace_fsmonitor = dso_local global { ptr, i32, i8, [3 x i8] } { ptr @.str, i32 0, i8 0, [3 x i8] zeroinitializer }, align 8
 @strbuf_slopbuf = external global [0 x i8], align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"corrupt fsmonitor extension (too short)\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
@@ -42,1323 +42,1719 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [59 x i8] c"fsmonitor_dirty has more entries than the index (%lu > %u)\00", align 1
 @.str.28 = private unnamed_addr constant [26 x i8] c"core.fsmonitorhookversion\00", align 1
 @.str.29 = private unnamed_addr constant [72 x i8] c"Invalid hook version '%i' in core.fsmonitorhookversion. Must be 1 or 2.\00", align 1
+@the_repository = external local_unnamed_addr global ptr, align 8
 @empty_strvec = external global [0 x ptr], align 8
-@__const.query_fsmonitor_hook.cp = private unnamed_addr constant { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i8, i8, ptr } { %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i32 0, i32 0, i64 0, ptr null, ptr null, i32 0, i32 0, i32 0, ptr null, i8 0, i8 0, ptr null }, align 8
+@__const.query_fsmonitor_hook.cp = private unnamed_addr constant { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, [4 x i8], ptr, i8, i8, [6 x i8], ptr } { %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i32 0, i32 0, i64 0, ptr null, ptr null, i32 0, i32 0, i32 0, [4 x i8] zeroinitializer, ptr null, i8 0, i8 0, [6 x i8] zeroinitializer, ptr null }, align 8
 @.str.30 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 @.str.31 = private unnamed_addr constant [6 x i8] c"query\00", align 1
 @.str.32 = private unnamed_addr constant [13 x i8] c"query/failed\00", align 1
 @.str.33 = private unnamed_addr constant [22 x i8] c"query/response-length\00", align 1
 @.str.34 = private unnamed_addr constant [41 x i8] c"fsmonitor_refresh_callback '%s' (pos %d)\00", align 1
+@ignore_case = external local_unnamed_addr global i32, align 4
+@.str.35 = private unnamed_addr constant [35 x i8] c"fsmonitor_refresh_callback CNT: %d\00", align 1
+@.str.36 = private unnamed_addr constant [37 x i8] c"fsmonitor_refresh_callback INV: '%s'\00", align 1
+@.str.37 = private unnamed_addr constant [42 x i8] c"fsmonitor_refresh_callback MAP: '%s' '%s'\00", align 1
+@.str.38 = private unnamed_addr constant [57 x i8] c"handle_using_dir_name_hash_icase(%s) did not exact match\00", align 1
 @__const.initialize_fsmonitor_last_update.last_update = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @read_fsmonitor_extension(ptr noundef captures(none) %istate, ptr noundef %data, i64 noundef %sz) local_unnamed_addr #0 {
-entry:
-  %last_update = alloca %struct.strbuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_update, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
-  %cmp = icmp ult i64 %sz, 9
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local range(i32 -1, 1) i32 @read_fsmonitor_extension(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.strbuf, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
+  %5 = icmp ult i64 %2, 9
+  br i1 %5, label %6, label %8
 
-if.then:                                          ; preds = %entry
-  %call = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #7
-  br label %return
+6:                                                ; preds = %3
+  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #8
+  br label %116
 
-if.end:                                           ; preds = %entry
-  %0 = load i8, ptr %data, align 1
-  %conv.i = zext i8 %0 to i32
-  %shl.i = shl nuw i32 %conv.i, 24
-  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %data, i64 1
-  %1 = load i8, ptr %arrayidx1.i, align 1
-  %conv2.i = zext i8 %1 to i32
-  %shl3.i = shl nuw nsw i32 %conv2.i, 16
-  %or.i = or disjoint i32 %shl3.i, %shl.i
-  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %data, i64 2
-  %2 = load i8, ptr %arrayidx4.i, align 1
-  %conv5.i = zext i8 %2 to i32
-  %shl6.i = shl nuw nsw i32 %conv5.i, 8
-  %or7.i = or disjoint i32 %or.i, %shl6.i
-  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %data, i64 3
-  %3 = load i8, ptr %arrayidx8.i, align 1
-  %conv9.i = zext i8 %3 to i32
-  %or11.i = or disjoint i32 %or7.i, %conv9.i
-  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 4
-  switch i32 %or11.i, label %if.else10 [
-    i32 1, label %if.then4
-    i32 2, label %if.then8
+8:                                                ; preds = %3
+  %9 = load i8, ptr %1, align 1, !tbaa !4
+  %10 = zext i8 %9 to i32
+  %11 = shl nuw i32 %10, 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %13 = load i8, ptr %12, align 1, !tbaa !4
+  %14 = zext i8 %13 to i32
+  %15 = shl nuw nsw i32 %14, 16
+  %16 = or disjoint i32 %15, %11
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %18 = load i8, ptr %17, align 1, !tbaa !4
+  %19 = zext i8 %18 to i32
+  %20 = shl nuw nsw i32 %19, 8
+  %21 = or disjoint i32 %16, %20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %23 = load i8, ptr %22, align 1, !tbaa !4
+  %24 = zext i8 %23 to i32
+  %25 = or disjoint i32 %21, %24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  switch i32 %25, label %72 [
+    i32 1, label %27
+    i32 2, label %66
   ]
 
-if.then4:                                         ; preds = %if.end
-  %4 = load i8, ptr %add.ptr, align 1
-  %conv.i.i = zext i8 %4 to i64
-  %shl.i.i = shl nuw nsw i64 %conv.i.i, 24
-  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %data, i64 5
-  %5 = load i8, ptr %arrayidx1.i.i, align 1
-  %conv2.i.i = zext i8 %5 to i64
-  %shl3.i.i = shl nuw nsw i64 %conv2.i.i, 16
-  %or.i.i = or disjoint i64 %shl3.i.i, %shl.i.i
-  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %data, i64 6
-  %6 = load i8, ptr %arrayidx4.i.i, align 1
-  %conv5.i.i = zext i8 %6 to i64
-  %shl6.i.i = shl nuw nsw i64 %conv5.i.i, 8
-  %or7.i.i = or disjoint i64 %or.i.i, %shl6.i.i
-  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %data, i64 7
-  %7 = load i8, ptr %arrayidx8.i.i, align 1
-  %conv9.i.i = zext i8 %7 to i64
-  %or11.i.i = or disjoint i64 %or7.i.i, %conv9.i.i
-  %shl.i21 = shl nuw i64 %or11.i.i, 32
-  %arrayidx1.i22 = getelementptr inbounds nuw i8, ptr %data, i64 8
-  %8 = load i8, ptr %arrayidx1.i22, align 1
-  %conv.i2.i = zext i8 %8 to i64
-  %shl.i3.i = shl nuw nsw i64 %conv.i2.i, 24
-  %arrayidx1.i4.i = getelementptr inbounds nuw i8, ptr %data, i64 9
-  %9 = load i8, ptr %arrayidx1.i4.i, align 1
-  %conv2.i5.i = zext i8 %9 to i64
-  %shl3.i6.i = shl nuw nsw i64 %conv2.i5.i, 16
-  %or.i7.i = or disjoint i64 %shl3.i6.i, %shl.i3.i
-  %arrayidx4.i8.i = getelementptr inbounds nuw i8, ptr %data, i64 10
-  %10 = load i8, ptr %arrayidx4.i8.i, align 1
-  %conv5.i9.i = zext i8 %10 to i64
-  %shl6.i10.i = shl nuw nsw i64 %conv5.i9.i, 8
-  %arrayidx8.i12.i = getelementptr inbounds nuw i8, ptr %data, i64 11
-  %11 = load i8, ptr %arrayidx8.i12.i, align 1
-  %conv9.i13.i = zext i8 %11 to i64
-  %or7.i11.i = or disjoint i64 %or.i7.i, %shl.i21
-  %or11.i14.i = or disjoint i64 %or7.i11.i, %shl6.i10.i
-  %or.i23 = or disjoint i64 %or11.i14.i, %conv9.i13.i
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %last_update, ptr noundef nonnull @.str.2, i64 noundef %or.i23) #7
-  %add.ptr6 = getelementptr inbounds nuw i8, ptr %data, i64 12
-  br label %if.end14
+27:                                               ; preds = %8
+  %28 = load i8, ptr %26, align 1, !tbaa !4
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %32 = load i8, ptr %31, align 1, !tbaa !4
+  %33 = zext i8 %32 to i64
+  %34 = shl nuw nsw i64 %33, 16
+  %35 = or disjoint i64 %34, %30
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %37 = load i8, ptr %36, align 1, !tbaa !4
+  %38 = zext i8 %37 to i64
+  %39 = shl nuw nsw i64 %38, 8
+  %40 = or disjoint i64 %35, %39
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %42 = load i8, ptr %41, align 1, !tbaa !4
+  %43 = zext i8 %42 to i64
+  %44 = or disjoint i64 %40, %43
+  %45 = shl nuw i64 %44, 32
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %47 = load i8, ptr %46, align 1, !tbaa !4
+  %48 = zext i8 %47 to i64
+  %49 = shl nuw nsw i64 %48, 24
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %51 = load i8, ptr %50, align 1, !tbaa !4
+  %52 = zext i8 %51 to i64
+  %53 = shl nuw nsw i64 %52, 16
+  %54 = or disjoint i64 %53, %49
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %56 = load i8, ptr %55, align 1, !tbaa !4
+  %57 = zext i8 %56 to i64
+  %58 = shl nuw nsw i64 %57, 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 11
+  %60 = load i8, ptr %59, align 1, !tbaa !4
+  %61 = zext i8 %60 to i64
+  %62 = or disjoint i64 %54, %45
+  %63 = or disjoint i64 %62, %58
+  %64 = or disjoint i64 %63, %61
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef %64) #8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br label %74
 
-if.then8:                                         ; preds = %if.end
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #8
-  call void @strbuf_add(ptr noundef nonnull %last_update, ptr noundef nonnull %add.ptr, i64 noundef %call.i) #7
-  %len = getelementptr inbounds nuw i8, ptr %last_update, i64 8
-  %12 = load i64, ptr %len, align 8
-  %13 = getelementptr i8, ptr %add.ptr, i64 %12
-  %add.ptr9 = getelementptr i8, ptr %13, i64 1
-  br label %if.end14
+66:                                               ; preds = %8
+  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #9
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %26, i64 noundef %67) #8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !7
+  %70 = getelementptr i8, ptr %26, i64 %69
+  %71 = getelementptr i8, ptr %70, i64 1
+  br label %74
 
-if.else10:                                        ; preds = %if.end
-  %call11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, i32 noundef %or11.i) #7
-  br label %return
+72:                                               ; preds = %8
+  %73 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, i32 noundef %25) #8
+  br label %116
 
-if.end14:                                         ; preds = %if.then8, %if.then4
-  %index.0 = phi ptr [ %add.ptr6, %if.then4 ], [ %add.ptr9, %if.then8 ]
-  %call15 = call ptr @strbuf_detach(ptr noundef nonnull %last_update, ptr noundef null) #7
-  %fsmonitor_last_update = getelementptr inbounds nuw i8, ptr %istate, i64 208
-  store ptr %call15, ptr %fsmonitor_last_update, align 8
-  %14 = load i8, ptr %index.0, align 1
-  %conv.i24 = zext i8 %14 to i32
-  %shl.i25 = shl nuw i32 %conv.i24, 24
-  %arrayidx1.i26 = getelementptr inbounds nuw i8, ptr %index.0, i64 1
-  %15 = load i8, ptr %arrayidx1.i26, align 1
-  %conv2.i27 = zext i8 %15 to i32
-  %shl3.i28 = shl nuw nsw i32 %conv2.i27, 16
-  %or.i29 = or disjoint i32 %shl3.i28, %shl.i25
-  %arrayidx4.i30 = getelementptr inbounds nuw i8, ptr %index.0, i64 2
-  %16 = load i8, ptr %arrayidx4.i30, align 1
-  %conv5.i31 = zext i8 %16 to i32
-  %shl6.i32 = shl nuw nsw i32 %conv5.i31, 8
-  %or7.i33 = or disjoint i32 %or.i29, %shl6.i32
-  %arrayidx8.i34 = getelementptr inbounds nuw i8, ptr %index.0, i64 3
-  %17 = load i8, ptr %arrayidx8.i34, align 1
-  %conv9.i35 = zext i8 %17 to i32
-  %or11.i36 = or disjoint i32 %or7.i33, %conv9.i35
-  %add.ptr17 = getelementptr inbounds nuw i8, ptr %index.0, i64 4
-  %call18 = call ptr @ewah_new() #7
-  %conv = zext i32 %or11.i36 to i64
-  %call19 = call i64 @ewah_read_mmap(ptr noundef %call18, ptr noundef nonnull %add.ptr17, i64 noundef %conv) #7
-  %conv20 = trunc i64 %call19 to i32
-  %cmp21.not = icmp eq i32 %or11.i36, %conv20
-  br i1 %cmp21.not, label %if.end26, label %if.then23
+74:                                               ; preds = %66, %27
+  %.028 = phi ptr [ %65, %27 ], [ %71, %66 ]
+  %75 = call ptr @strbuf_detach(ptr noundef nonnull %4, ptr noundef null) #8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store ptr %75, ptr %76, align 8, !tbaa !12
+  %77 = load i8, ptr %.028, align 1, !tbaa !4
+  %78 = zext i8 %77 to i32
+  %79 = shl nuw i32 %78, 24
+  %80 = getelementptr inbounds nuw i8, ptr %.028, i64 1
+  %81 = load i8, ptr %80, align 1, !tbaa !4
+  %82 = zext i8 %81 to i32
+  %83 = shl nuw nsw i32 %82, 16
+  %84 = or disjoint i32 %83, %79
+  %85 = getelementptr inbounds nuw i8, ptr %.028, i64 2
+  %86 = load i8, ptr %85, align 1, !tbaa !4
+  %87 = zext i8 %86 to i32
+  %88 = shl nuw nsw i32 %87, 8
+  %89 = or disjoint i32 %84, %88
+  %90 = getelementptr inbounds nuw i8, ptr %.028, i64 3
+  %91 = load i8, ptr %90, align 1, !tbaa !4
+  %92 = zext i8 %91 to i32
+  %93 = or disjoint i32 %89, %92
+  %94 = getelementptr inbounds nuw i8, ptr %.028, i64 4
+  %95 = call ptr @ewah_new() #8
+  %96 = zext i32 %93 to i64
+  %97 = call i64 @ewah_read_mmap(ptr noundef %95, ptr noundef nonnull %94, i64 noundef %96) #8
+  %98 = trunc i64 %97 to i32
+  %.not = icmp eq i32 %93, %98
+  br i1 %.not, label %101, label %99
 
-if.then23:                                        ; preds = %if.end14
-  call void @ewah_free(ptr noundef %call18) #7
-  %call24 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4) #7
-  br label %return
+99:                                               ; preds = %74
+  call void @ewah_free(ptr noundef %95) #8
+  %100 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4) #8
+  br label %116
 
-if.end26:                                         ; preds = %if.end14
-  %fsmonitor_dirty27 = getelementptr inbounds nuw i8, ptr %istate, i64 216
-  store ptr %call18, ptr %fsmonitor_dirty27, align 8
-  %split_index = getelementptr inbounds nuw i8, ptr %istate, i64 40
-  %18 = load ptr, ptr %split_index, align 8
-  %tobool.not = icmp eq ptr %18, null
-  br i1 %tobool.not, label %if.then28, label %if.end30
+101:                                              ; preds = %74
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store ptr %95, ptr %102, align 8, !tbaa !29
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %104 = load ptr, ptr %103, align 8, !tbaa !30
+  %.not30 = icmp eq ptr %104, null
+  br i1 %.not30, label %105, label %assert_index_minimum.exit
 
-if.then28:                                        ; preds = %if.end26
-  %bit_size = getelementptr inbounds nuw i8, ptr %call18, i64 24
-  %19 = load i64, ptr %bit_size, align 8
-  %20 = getelementptr i8, ptr %istate, i64 12
-  %istate.val = load i32, ptr %20, align 4
-  %conv.i37 = zext i32 %istate.val to i64
-  %cmp.i = icmp ugt i64 %19, %conv.i37
-  br i1 %cmp.i, label %if.then.i, label %if.end30
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 24
+  %107 = load i64, ptr %106, align 8, !tbaa !31
+  %108 = getelementptr i8, ptr %0, i64 12
+  %.val = load i32, ptr %108, align 4, !tbaa !34
+  %109 = zext i32 %.val to i64
+  %110 = icmp ugt i64 %107, %109
+  br i1 %110, label %111, label %assert_index_minimum.exit
 
-if.then.i:                                        ; preds = %if.then28
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 23, ptr noundef nonnull @.str.27, i64 noundef %19, i32 noundef %istate.val) #9
+111:                                              ; preds = %105
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 28, ptr noundef nonnull @.str.27, i64 noundef %107, i32 noundef %.val) #10
   unreachable
 
-if.end30:                                         ; preds = %if.then28, %if.end26
-  %21 = load ptr, ptr %fsmonitor_last_update, align 8
-  call void @trace2_data_string_fl(ptr noundef nonnull @.str.5, i32 noundef 97, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %21) #7
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %tobool.not.i = icmp eq i32 %trace_fsmonitor.val, 0
-  %bf.clear.i = and i8 %trace_fsmonitor.val20, 1
-  %tobool33.not38 = icmp ne i8 %bf.clear.i, 0
-  %tobool33.not = select i1 %tobool.not.i, i1 %tobool33.not38, i1 false
-  br i1 %tobool33.not, label %return, label %if.then34
+assert_index_minimum.exit:                        ; preds = %105, %101
+  %112 = load ptr, ptr %76, align 8, !tbaa !12
+  call void @trace2_data_string_fl(ptr noundef nonnull @.str.5, i32 noundef 102, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %112) #8
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i = icmp eq i32 %trace_fsmonitor.val, 0
+  %113 = and i8 %trace_fsmonitor.val32, 1
+  %.not3133 = icmp ne i8 %113, 0
+  %.not31 = select i1 %.not.i, i1 %.not3133, i1 false
+  br i1 %.not31, label %116, label %114
 
-if.then34:                                        ; preds = %if.end30
-  %22 = load ptr, ptr %fsmonitor_last_update, align 8
-  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 100, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.8, ptr noundef %22) #7
-  br label %return
+114:                                              ; preds = %assert_index_minimum.exit
+  %115 = load ptr, ptr %76, align 8, !tbaa !12
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 105, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.8, ptr noundef %115) #8
+  br label %116
 
-return:                                           ; preds = %if.then34, %if.end30, %if.then23, %if.else10, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then23 ], [ -1, %if.else10 ], [ 0, %if.end30 ], [ 0, %if.then34 ]
-  ret i32 %retval.0
+116:                                              ; preds = %assert_index_minimum.exit, %114, %99, %72, %6
+  %.0 = phi i32 [ -1, %6 ], [ -1, %99 ], [ -1, %72 ], [ 0, %114 ], [ 0, %assert_index_minimum.exit ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @ewah_new() local_unnamed_addr #2
+declare ptr @ewah_new() local_unnamed_addr #3
 
-declare i64 @ewah_read_mmap(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @ewah_read_mmap(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @ewah_free(ptr noundef) local_unnamed_addr #2
+declare void @ewah_free(ptr noundef) local_unnamed_addr #3
 
-declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fill_fsmonitor_bitmap(ptr noundef captures(none) initializes((216, 224)) %istate) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ewah_new() #7
-  %fsmonitor_dirty = getelementptr inbounds nuw i8, ptr %istate, i64 216
-  store ptr %call, ptr %fsmonitor_dirty, align 8
-  %cache_nr = getelementptr inbounds nuw i8, ptr %istate, i64 12
-  %0 = load i32, ptr %cache_nr, align 4
-  %cmp10.not = icmp eq i32 %0, 0
-  br i1 %cmp10.not, label %for.end, label %for.body
+define dso_local void @fill_fsmonitor_bitmap(ptr noundef captures(none) initializes((216, 224)) %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @ewah_new() #8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store ptr %2, ptr %3, align 8, !tbaa !29
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = load i32, ptr %4, align 4, !tbaa !34
+  %.not15 = icmp eq i32 %5, 0
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %entry, %for.inc
-  %1 = phi i32 [ %7, %for.inc ], [ %0, %entry ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %skipped.012 = phi i32 [ %skipped.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %istate, align 8
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %3 = load ptr, ptr %arrayidx, align 8
-  %ce_flags = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %4 = load i32, ptr %ce_flags, align 8
-  %and = and i32 %4, 131072
-  %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+.lr.ph:                                           ; preds = %1, %22
+  %6 = phi i32 [ %23, %22 ], [ %5, %1 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %1 ]
+  %.014 = phi i32 [ %.1, %22 ], [ 0, %1 ]
+  %7 = load ptr, ptr %0, align 8, !tbaa !37
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %11 = load i32, ptr %10, align 8, !tbaa !40
+  %12 = and i32 %11, 131072
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %15, label %13
 
-if.then:                                          ; preds = %for.body
-  %inc = add i32 %skipped.012, 1
-  br label %for.inc
+13:                                               ; preds = %.lr.ph
+  %14 = add i32 %.014, 1
+  br label %22
 
-if.else:                                          ; preds = %for.body
-  %and5 = and i32 %4, 2097152
-  %tobool6.not = icmp eq i32 %and5, 0
-  br i1 %tobool6.not, label %if.then7, label %for.inc
+15:                                               ; preds = %.lr.ph
+  %16 = and i32 %11, 2097152
+  %.not12 = icmp eq i32 %16, 0
+  br i1 %.not12, label %17, label %22
 
-if.then7:                                         ; preds = %if.else
-  %5 = load ptr, ptr %fsmonitor_dirty, align 8
-  %6 = trunc nuw i64 %indvars.iv to i32
-  %sub = sub i32 %6, %skipped.012
-  %conv = zext i32 %sub to i64
-  tail call void @ewah_set(ptr noundef %5, i64 noundef %conv) #7
-  %.pre = load i32, ptr %cache_nr, align 4
-  br label %for.inc
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %3, align 8, !tbaa !29
+  %19 = trunc nuw i64 %indvars.iv to i32
+  %20 = sub i32 %19, %.014
+  %21 = zext i32 %20 to i64
+  tail call void @ewah_set(ptr noundef %18, i64 noundef %21) #8
+  %.pre = load i32, ptr %4, align 4, !tbaa !34
+  br label %22
 
-for.inc:                                          ; preds = %if.then, %if.then7, %if.else
-  %7 = phi i32 [ %1, %if.then ], [ %1, %if.else ], [ %.pre, %if.then7 ]
-  %skipped.1 = phi i32 [ %inc, %if.then ], [ %skipped.012, %if.else ], [ %skipped.012, %if.then7 ]
+22:                                               ; preds = %13, %17, %15
+  %23 = phi i32 [ %6, %13 ], [ %6, %15 ], [ %.pre, %17 ]
+  %.1 = phi i32 [ %14, %13 ], [ %.014, %15 ], [ %.014, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = zext i32 %7 to i64
-  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
+  %24 = zext i32 %23 to i64
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
-for.end:                                          ; preds = %for.inc, %entry
+._crit_edge:                                      ; preds = %22, %1
   ret void
 }
 
-declare void @ewah_set(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ewah_set(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @write_fsmonitor_extension(ptr noundef %sb, ptr noundef captures(none) %istate) local_unnamed_addr #0 {
-entry:
-  %hdr_version = alloca i32, align 4
-  %ewah_size = alloca i32, align 4
-  store i32 0, ptr %ewah_size, align 4
-  %split_index = getelementptr inbounds nuw i8, ptr %istate, i64 40
-  %0 = load ptr, ptr %split_index, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %if.end
+define dso_local void @write_fsmonitor_extension(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  store i32 0, ptr %4, align 4, !tbaa !40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %7, label %assert_index_minimum.exit
 
-if.then:                                          ; preds = %entry
-  %fsmonitor_dirty = getelementptr inbounds nuw i8, ptr %istate, i64 216
-  %1 = load ptr, ptr %fsmonitor_dirty, align 8
-  %bit_size = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %2 = load i64, ptr %bit_size, align 8
-  %3 = getelementptr i8, ptr %istate, i64 12
-  %istate.val = load i32, ptr %3, align 4
-  %conv.i = zext i32 %istate.val to i64
-  %cmp.i = icmp ugt i64 %2, %conv.i
-  br i1 %cmp.i, label %if.then.i, label %if.end
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %11 = load i64, ptr %10, align 8, !tbaa !31
+  %12 = getelementptr i8, ptr %1, i64 12
+  %.val = load i32, ptr %12, align 4, !tbaa !34
+  %13 = zext i32 %.val to i64
+  %14 = icmp ugt i64 %11, %13
+  br i1 %14, label %15, label %assert_index_minimum.exit
 
-if.then.i:                                        ; preds = %if.then
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 23, ptr noundef nonnull @.str.27, i64 noundef %2, i32 noundef %istate.val) #9
+15:                                               ; preds = %7
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 28, ptr noundef nonnull @.str.27, i64 noundef %11, i32 noundef %.val) #10
   unreachable
 
-if.end:                                           ; preds = %if.then, %entry
-  store i8 0, ptr %hdr_version, align 4
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %hdr_version, i64 1
-  store i8 0, ptr %arrayidx3.i, align 1
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %hdr_version, i64 2
-  store i8 0, ptr %arrayidx6.i, align 2
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %hdr_version, i64 3
-  store i8 2, ptr %arrayidx9.i, align 1
-  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %hdr_version, i64 noundef 4) #7
-  %fsmonitor_last_update = getelementptr inbounds nuw i8, ptr %istate, i64 208
-  %4 = load ptr, ptr %fsmonitor_last_update, align 8
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
-  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %4, i64 noundef %call.i) #7
-  %5 = load i64, ptr %sb, align 8
-  %tobool.not.i.i = icmp eq i64 %5, 0
-  br i1 %tobool.not.i.i, label %if.then.i19, label %strbuf_avail.exit.i
+assert_index_minimum.exit:                        ; preds = %7, %2
+  store i8 0, ptr %3, align 4, !tbaa !4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 0, ptr %16, align 1, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 0, ptr %17, align 2, !tbaa !4
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  store i8 2, ptr %18, align 1, !tbaa !4
+  call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 4) #8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %20 = load ptr, ptr %19, align 8, !tbaa !12
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #9
+  call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %21) #8
+  %22 = load i64, ptr %0, align 8, !tbaa !43
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
-strbuf_avail.exit.i:                              ; preds = %if.end
-  %len.i.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
-  %6 = load i64, ptr %len.i.i, align 8
-  %.neg.i = add i64 %6, 1
-  %tobool.not.i = icmp eq i64 %5, %.neg.i
-  br i1 %tobool.not.i, label %if.then.i19, label %strbuf_addch.exit
+strbuf_avail.exit.i:                              ; preds = %assert_index_minimum.exit
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load i64, ptr %23, align 8, !tbaa !7
+  %.neg.i = add i64 %24, 1
+  %.not.i = icmp eq i64 %22, %.neg.i
+  br i1 %.not.i, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
-if.then.i19:                                      ; preds = %strbuf_avail.exit.i, %if.end
-  call void @strbuf_grow(ptr noundef nonnull %sb, i64 noundef 1) #7
-  %len.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
-  %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
-  %.pre8.i = add i64 %.pre.i, 1
+strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %assert_index_minimum.exit
+  call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !7
+  %.pre7.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
-strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i19
-  %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i19 ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %7 = phi i64 [ %.pre.i, %if.then.i19 ], [ %6, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds nuw i8, ptr %sb, i64 16
-  %8 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
-  store i64 %inc.pre-phi.i, ptr %len.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 %7
-  store i8 0, ptr %arrayidx.i, align 1
-  %9 = load ptr, ptr %buf.i, align 8
-  %10 = load i64, ptr %len.i, align 8
-  %arrayidx3.i18 = getelementptr inbounds i8, ptr %9, i64 %10
-  store i8 0, ptr %arrayidx3.i18, align 1
-  %11 = load i64, ptr %len.i, align 8
-  call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %ewah_size, i64 noundef 4) #7
-  %12 = load i64, ptr %len.i, align 8
-  %fsmonitor_dirty3 = getelementptr inbounds nuw i8, ptr %istate, i64 216
-  %13 = load ptr, ptr %fsmonitor_dirty3, align 8
-  %call = call i32 @ewah_serialize_strbuf(ptr noundef %13, ptr noundef nonnull %sb) #7
-  %14 = load ptr, ptr %fsmonitor_dirty3, align 8
-  call void @ewah_free(ptr noundef %14) #7
-  store ptr null, ptr %fsmonitor_dirty3, align 8
-  %15 = load i64, ptr %len.i, align 8
-  %sub = sub i64 %15, %12
-  %shr.i25 = lshr i64 %sub, 24
-  %conv.i20 = trunc i64 %shr.i25 to i8
-  store i8 %conv.i20, ptr %ewah_size, align 4
-  %shr1.i26 = lshr i64 %sub, 16
-  %conv2.i = trunc i64 %shr1.i26 to i8
-  %arrayidx3.i21 = getelementptr inbounds nuw i8, ptr %ewah_size, i64 1
-  store i8 %conv2.i, ptr %arrayidx3.i21, align 1
-  %shr4.i27 = lshr i64 %sub, 8
-  %conv5.i = trunc i64 %shr4.i27 to i8
-  %arrayidx6.i22 = getelementptr inbounds nuw i8, ptr %ewah_size, i64 2
-  store i8 %conv5.i, ptr %arrayidx6.i22, align 2
-  %conv8.i = trunc i64 %sub to i8
-  %arrayidx9.i23 = getelementptr inbounds nuw i8, ptr %ewah_size, i64 3
-  store i8 %conv8.i, ptr %arrayidx9.i23, align 1
-  %16 = load ptr, ptr %buf.i, align 8
-  %sext = shl i64 %11, 32
-  %idx.ext = ashr exact i64 %sext, 32
-  %add.ptr = getelementptr inbounds i8, ptr %16, i64 %idx.ext
-  %17 = load i32, ptr %ewah_size, align 4
-  store i32 %17, ptr %add.ptr, align 1
-  %18 = load ptr, ptr %fsmonitor_last_update, align 8
-  call void @trace2_data_string_fl(ptr noundef nonnull @.str.5, i32 noundef 145, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %18) #7
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %tobool.not.i24 = icmp eq i32 %trace_fsmonitor.val, 0
-  %bf.clear.i = and i8 %trace_fsmonitor.val17, 1
-  %tobool11.not28 = icmp ne i8 %bf.clear.i, 0
-  %tobool11.not = select i1 %tobool.not.i24, i1 %tobool11.not28, i1 false
-  br i1 %tobool11.not, label %do.end, label %if.then12
+strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %strbuf_avail.exit.thread.i
+  %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %strbuf_avail.exit.i ]
+  %25 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %24, %strbuf_avail.exit.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.pre-phi.i, ptr %28, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %25
+  store i8 0, ptr %29, align 1, !tbaa !4
+  %30 = load ptr, ptr %26, align 8, !tbaa !44
+  %31 = load i64, ptr %28, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  store i8 0, ptr %32, align 1, !tbaa !4
+  %33 = load i64, ptr %28, align 8, !tbaa !7
+  call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 4) #8
+  %34 = load i64, ptr %28, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
+  %37 = call i32 @ewah_serialize_strbuf(ptr noundef %36, ptr noundef nonnull %0) #8
+  %38 = load ptr, ptr %35, align 8, !tbaa !29
+  call void @ewah_free(ptr noundef %38) #8
+  store ptr null, ptr %35, align 8, !tbaa !29
+  %39 = load i64, ptr %28, align 8, !tbaa !7
+  %40 = sub i64 %39, %34
+  %41 = lshr i64 %40, 24
+  %42 = trunc i64 %41 to i8
+  store i8 %42, ptr %4, align 4, !tbaa !4
+  %43 = lshr i64 %40, 16
+  %44 = trunc i64 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 %44, ptr %45, align 1, !tbaa !4
+  %46 = lshr i64 %40, 8
+  %47 = trunc i64 %46 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store i8 %47, ptr %48, align 2, !tbaa !4
+  %49 = trunc i64 %40 to i8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store i8 %49, ptr %50, align 1, !tbaa !4
+  %51 = load ptr, ptr %26, align 8, !tbaa !44
+  %sext = shl i64 %33, 32
+  %52 = ashr exact i64 %sext, 32
+  %53 = getelementptr inbounds i8, ptr %51, i64 %52
+  %54 = load i32, ptr %4, align 4
+  store i32 %54, ptr %53, align 1
+  %55 = load ptr, ptr %19, align 8, !tbaa !12
+  call void @trace2_data_string_fl(ptr noundef nonnull @.str.5, i32 noundef 150, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %55) #8
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i21 = icmp eq i32 %trace_fsmonitor.val, 0
+  %56 = and i8 %trace_fsmonitor.val20, 1
+  %.not1922 = icmp ne i8 %56, 0
+  %.not19 = select i1 %.not.i21, i1 %.not1922, i1 false
+  br i1 %.not19, label %59, label %57
 
-if.then12:                                        ; preds = %strbuf_addch.exit
-  %19 = load ptr, ptr %fsmonitor_last_update, align 8
-  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 148, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.10, ptr noundef %19) #7
-  br label %do.end
+57:                                               ; preds = %strbuf_addch.exit
+  %58 = load ptr, ptr %19, align 8, !tbaa !12
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 153, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.10, ptr noundef %58) #8
+  br label %59
 
-do.end:                                           ; preds = %strbuf_addch.exit, %if.then12
+59:                                               ; preds = %57, %strbuf_addch.exit
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
   ret void
 }
 
-declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @ewah_serialize_strbuf(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ewah_serialize_strbuf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @refresh_fsmonitor(ptr noundef %istate) local_unnamed_addr #0 {
-entry:
-  %hook_version.i = alloca i32, align 4
-  %query_result = alloca %struct.strbuf, align 8
-  %last_update_token = alloca %struct.strbuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %query_result, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_update_token, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
-  %repo = getelementptr inbounds nuw i8, ptr %istate, i64 240
-  %0 = load ptr, ptr %repo, align 8
-  %call = tail call i32 @fsm_settings__get_mode(ptr noundef %0) #7
-  %call1 = tail call i32 @fsm_settings__get_reason(ptr noundef %0) #7
+define dso_local void @refresh_fsmonitor(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca %struct.strbuf, align 8
+  %4 = alloca %struct.strbuf, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
+  %7 = tail call i32 @fsm_settings__get_mode(ptr noundef %6) #8
+  %8 = tail call i32 @fsm_settings__get_reason(ptr noundef %6) #8
   %.b = load i1, ptr @refresh_fsmonitor.warn_once, align 4
-  %cmp = icmp ult i32 %call1, 2
-  %or.cond.not = select i1 %.b, i1 true, i1 %cmp
-  br i1 %or.cond.not, label %if.end, label %if.then
+  %9 = icmp ult i32 %8, 2
+  %or.cond.not = select i1 %.b, i1 true, i1 %9
+  br i1 %or.cond.not, label %12, label %10
 
-if.then:                                          ; preds = %entry
-  %call2 = tail call ptr @fsm_settings__get_incompatible_msg(ptr noundef %0, i32 noundef %call1) #7
+10:                                               ; preds = %1
+  %11 = tail call ptr @fsm_settings__get_incompatible_msg(ptr noundef %6, i32 noundef %8) #8
   store i1 true, ptr @refresh_fsmonitor.warn_once, align 4
-  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.11, ptr noundef %call2) #7
-  tail call void @free(ptr noundef %call2) #7
-  br label %if.end
+  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.11, ptr noundef %11) #8
+  tail call void @free(ptr noundef %11) #8
+  br label %12
 
-if.end:                                           ; preds = %if.then, %entry
-  %cmp3 = icmp slt i32 %call, 1
-  br i1 %cmp3, label %return, label %lor.lhs.false
+12:                                               ; preds = %10, %1
+  %13 = icmp slt i32 %7, 1
+  br i1 %13, label %176, label %14
 
-lor.lhs.false:                                    ; preds = %if.end
-  %fsmonitor_has_run_once = getelementptr inbounds nuw i8, ptr %istate, i64 56
-  %bf.load = load i8, ptr %fsmonitor_has_run_once, align 8
-  %1 = and i8 %bf.load, 32
-  %tobool4.not = icmp eq i8 %1, 0
-  br i1 %tobool4.not, label %if.end6, label %return
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = load i8, ptr %15, align 8
+  %17 = and i8 %16, 32
+  %.not = icmp eq i8 %17, 0
+  br i1 %.not, label %18, label %176
 
-if.end6:                                          ; preds = %lor.lhs.false
-  %bf.set = or disjoint i8 %bf.load, 32
-  store i8 %bf.set, ptr %fsmonitor_has_run_once, align 8
-  %trace_fsmonitor.val75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val76 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %tobool.not.i = icmp eq i32 %trace_fsmonitor.val75, 0
-  %bf.clear.i = and i8 %trace_fsmonitor.val76, 1
-  %tobool11.not100 = icmp ne i8 %bf.clear.i, 0
-  %tobool11.not = select i1 %tobool.not.i, i1 %tobool11.not100, i1 false
-  br i1 %tobool11.not, label %do.end, label %if.then12
+18:                                               ; preds = %14
+  %19 = or disjoint i8 %16, 32
+  store i8 %19, ptr %15, align 8
+  %trace_fsmonitor.val127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val128 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i = icmp eq i32 %trace_fsmonitor.val127, 0
+  %20 = and i8 %trace_fsmonitor.val128, 1
+  %.not108141 = icmp ne i8 %20, 0
+  %.not108 = select i1 %.not.i, i1 %.not108141, i1 false
+  br i1 %.not108, label %22, label %21
 
-if.then12:                                        ; preds = %if.end6
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 326, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.12) #7
-  br label %do.end
+21:                                               ; preds = %18
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 534, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.12) #8
+  br label %22
 
-do.end:                                           ; preds = %if.end6, %if.then12
-  %cmp14 = icmp eq i32 %call, 2
-  br i1 %cmp14, label %if.then15, label %if.end30
+22:                                               ; preds = %21, %18
+  %23 = icmp eq i32 %7, 2
+  br i1 %23, label %24, label %41
 
-if.then15:                                        ; preds = %do.end
-  %fsmonitor_last_update = getelementptr inbounds nuw i8, ptr %istate, i64 208
-  %2 = load ptr, ptr %fsmonitor_last_update, align 8
-  %tobool16.not = icmp eq ptr %2, null
-  %spec.select = select i1 %tobool16.not, ptr @.str.13, ptr %2
-  %call18 = call i32 @fsmonitor_ipc__send_query(ptr noundef nonnull %spec.select, ptr noundef nonnull %query_result) #7
-  %tobool19.not = icmp eq i32 %call18, 0
-  br i1 %tobool19.not, label %if.then21, label %if.else
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %26 = load ptr, ptr %25, align 8, !tbaa !12
+  %.not117 = icmp eq ptr %26, null
+  %spec.select = select i1 %.not117, ptr @.str.13, ptr %26
+  %27 = call i32 @fsmonitor_ipc__send_query(ptr noundef nonnull %spec.select, ptr noundef nonnull %3) #8
+  %.not118 = icmp eq i32 %27, 0
+  br i1 %.not118, label %28, label %40
 
-if.then21:                                        ; preds = %if.then15
-  %buf22 = getelementptr inbounds nuw i8, ptr %query_result, i64 16
-  %3 = load ptr, ptr %buf22, align 8
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
-  call void @strbuf_add(ptr noundef nonnull %last_update_token, ptr noundef nonnull %3, i64 noundef %call.i) #7
-  %len = getelementptr inbounds nuw i8, ptr %last_update_token, i64 8
-  %4 = load i64, ptr %len, align 8
-  %add = add i64 %4, 1
-  %5 = load ptr, ptr %buf22, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %5, i64 %add
-  %6 = load i8, ptr %arrayidx, align 1
-  %cmp24 = icmp eq i8 %6, 47
-  br i1 %cmp24, label %if.then27, label %apply_results
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !44
+  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #9
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %30, i64 noundef %31) #8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !7
+  %34 = add i64 %33, 1
+  %35 = load ptr, ptr %29, align 8, !tbaa !44
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
+  %37 = load i8, ptr %36, align 1, !tbaa !4
+  %38 = icmp eq i8 %37, 47
+  br i1 %38, label %39, label %102
 
-if.then27:                                        ; preds = %if.then21
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 349, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef nonnull @.str.15, i64 noundef 1) #7
-  br label %apply_results
+39:                                               ; preds = %28
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 557, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef nonnull @.str.15, i64 noundef 1) #8
+  br label %102
 
-if.else:                                          ; preds = %if.then15
-  call void @strbuf_add(ptr noundef nonnull %last_update_token, ptr noundef nonnull @.str.13, i64 noundef 12) #7
-  br label %apply_results
+40:                                               ; preds = %24
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.13, i64 noundef 12) #8
+  br label %102
 
-if.end30:                                         ; preds = %do.end
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hook_version.i)
-  %call.i78 = call i32 @git_config_get_int(ptr noundef nonnull @.str.28, ptr noundef nonnull %hook_version.i) #7
-  %tobool.not.i79 = icmp eq i32 %call.i78, 0
-  br i1 %tobool.not.i79, label %if.end.i, label %fsmonitor_hook_version.exit.thread
+41:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
+  %42 = load ptr, ptr @the_repository, align 8, !tbaa !46
+  %43 = call i32 @repo_config_get_int(ptr noundef %42, ptr noundef nonnull @.str.28, ptr noundef nonnull %2) #8
+  %.not.i129 = icmp eq i32 %43, 0
+  br i1 %.not.i129, label %44, label %fsmonitor_hook_version.exit.thread
 
-if.end.i:                                         ; preds = %if.end30
-  %7 = load i32, ptr %hook_version.i, align 4
-  %8 = add i32 %7, -1
-  %or.cond.i = icmp ult i32 %8, 2
-  br i1 %or.cond.i, label %fsmonitor_hook_version.exit, label %if.end3.i
+44:                                               ; preds = %41
+  %45 = load i32, ptr %2, align 4, !tbaa !40
+  %46 = add i32 %45, -1
+  %or.cond.i = icmp ult i32 %46, 2
+  br i1 %or.cond.i, label %fsmonitor_hook_version.exit, label %47
 
-if.end3.i:                                        ; preds = %if.end.i
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.29, i32 noundef %7) #7
+47:                                               ; preds = %44
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.29, i32 noundef %45) #8
   br label %fsmonitor_hook_version.exit.thread
 
-fsmonitor_hook_version.exit.thread:               ; preds = %if.end3.i, %if.end30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hook_version.i)
-  %call3288 = call i64 @getnanotime() #7
-  br label %if.end36
+fsmonitor_hook_version.exit.thread:               ; preds = %47, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  %48 = call i64 @getnanotime() #8
+  br label %52
 
-fsmonitor_hook_version.exit:                      ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hook_version.i)
-  %call32 = call i64 @getnanotime() #7
-  %cmp33 = icmp eq i32 %7, 1
-  br i1 %cmp33, label %if.then35, label %if.end36
+fsmonitor_hook_version.exit:                      ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  %49 = call i64 @getnanotime() #8
+  %50 = icmp eq i32 %45, 1
+  br i1 %50, label %51, label %52
 
-if.then35:                                        ; preds = %fsmonitor_hook_version.exit
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %last_update_token, ptr noundef nonnull @.str.2, i64 noundef %call32) #7
-  br label %if.end36
+51:                                               ; preds = %fsmonitor_hook_version.exit
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef %49) #8
+  br label %52
 
-if.end36:                                         ; preds = %fsmonitor_hook_version.exit.thread, %if.then35, %fsmonitor_hook_version.exit
-  %call3291 = phi i64 [ %call3288, %fsmonitor_hook_version.exit.thread ], [ %call32, %if.then35 ], [ %call32, %fsmonitor_hook_version.exit ]
-  %cmp71 = phi i1 [ true, %fsmonitor_hook_version.exit.thread ], [ false, %if.then35 ], [ false, %fsmonitor_hook_version.exit ]
-  %retval.0.i90 = phi i32 [ -1, %fsmonitor_hook_version.exit.thread ], [ 1, %if.then35 ], [ 2, %fsmonitor_hook_version.exit ]
-  %fsmonitor_last_update37 = getelementptr inbounds nuw i8, ptr %istate, i64 208
-  %9 = load ptr, ptr %fsmonitor_last_update37, align 8
-  %tobool38.not = icmp eq ptr %9, null
-  br i1 %tobool38.not, label %apply_results, label %if.then39
+52:                                               ; preds = %fsmonitor_hook_version.exit.thread, %51, %fsmonitor_hook_version.exit
+  %53 = phi i64 [ %48, %fsmonitor_hook_version.exit.thread ], [ %49, %51 ], [ %49, %fsmonitor_hook_version.exit ]
+  %54 = phi i1 [ true, %fsmonitor_hook_version.exit.thread ], [ false, %51 ], [ false, %fsmonitor_hook_version.exit ]
+  %.0.i133 = phi i32 [ -1, %fsmonitor_hook_version.exit.thread ], [ 1, %51 ], [ 2, %fsmonitor_hook_version.exit ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %56 = load ptr, ptr %55, align 8, !tbaa !12
+  %.not109 = icmp eq ptr %56, null
+  br i1 %.not109, label %102, label %57
 
-if.then39:                                        ; preds = %if.end36
-  switch i32 %retval.0.i90, label %if.end80 [
-    i32 -1, label %if.then45
-    i32 2, label %if.then45
+57:                                               ; preds = %52
+  switch i32 %.0.i133, label %79 [
+    i32 -1, label %58
+    i32 2, label %58
   ]
 
-if.then45:                                        ; preds = %if.then39, %if.then39
-  %call47 = call fastcc i32 @query_fsmonitor_hook(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %9, ptr noundef %query_result)
-  %tobool48.not = icmp eq i32 %call47, 0
-  br i1 %tobool48.not, label %if.then52, label %if.else70
+58:                                               ; preds = %57, %57
+  %59 = call fastcc i32 @query_fsmonitor_hook(ptr noundef %6, i32 noundef 2, ptr noundef nonnull %56, ptr noundef %3)
+  %.not110 = icmp eq i32 %59, 0
+  br i1 %.not110, label %60, label %74
 
-if.then52:                                        ; preds = %if.then45
-  %spec.store.select = select i1 %cmp71, i32 2, i32 %retval.0.i90
-  %buf57 = getelementptr inbounds nuw i8, ptr %query_result, i64 16
-  %10 = load ptr, ptr %buf57, align 8
-  %call.i80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
-  call void @strbuf_add(ptr noundef nonnull %last_update_token, ptr noundef nonnull %10, i64 noundef %call.i80) #7
-  %len58 = getelementptr inbounds nuw i8, ptr %last_update_token, i64 8
-  %11 = load i64, ptr %len58, align 8
-  %tobool59.not = icmp eq i64 %11, 0
-  br i1 %tobool59.not, label %if.then60, label %if.else61
+60:                                               ; preds = %58
+  %spec.store.select = select i1 %54, i32 2, i32 %.0.i133
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %62 = load ptr, ptr %61, align 8, !tbaa !44
+  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #9
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %62, i64 noundef %63) #8
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %65 = load i64, ptr %64, align 8, !tbaa !7
+  %.not112 = icmp eq i64 %65, 0
+  br i1 %.not112, label %66, label %67
 
-if.then60:                                        ; preds = %if.then52
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.16) #7
-  br label %if.end80
+66:                                               ; preds = %60
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.16) #8
+  br label %79
 
-if.else61:                                        ; preds = %if.then52
-  %add63 = add i64 %11, 1
-  %12 = load ptr, ptr %buf57, align 8
-  %arrayidx65 = getelementptr inbounds i8, ptr %12, i64 %add63
-  %13 = load i8, ptr %arrayidx65, align 1
-  %cmp67 = icmp eq i8 %13, 47
-  %conv68 = zext i1 %cmp67 to i32
-  br label %if.end80
+67:                                               ; preds = %60
+  %68 = add i64 %65, 1
+  %69 = load ptr, ptr %61, align 8, !tbaa !44
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %68
+  %71 = load i8, ptr %70, align 1, !tbaa !4
+  %72 = icmp eq i8 %71, 47
+  %73 = zext i1 %72 to i32
+  br label %79
 
-if.else70:                                        ; preds = %if.then45
-  br i1 %cmp71, label %if.then73, label %if.end80
+74:                                               ; preds = %58
+  br i1 %54, label %75, label %79
 
-if.then73:                                        ; preds = %if.else70
-  %len74 = getelementptr inbounds nuw i8, ptr %last_update_token, i64 8
-  %14 = load i64, ptr %len74, align 8
-  %tobool75.not = icmp eq i64 %14, 0
-  br i1 %tobool75.not, label %if.then76, label %if.then83
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %77 = load i64, ptr %76, align 8, !tbaa !7
+  %.not111 = icmp eq i64 %77, 0
+  br i1 %.not111, label %78, label %.thread
 
-if.then76:                                        ; preds = %if.then73
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %last_update_token, ptr noundef nonnull @.str.2, i64 noundef %call3291) #7
-  br label %if.then83
+78:                                               ; preds = %75
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef %53) #8
+  br label %.thread
 
-if.end80:                                         ; preds = %if.then39, %if.else61, %if.then60, %if.else70
-  %is_trivial.1 = phi i32 [ %conv68, %if.else61 ], [ 0, %if.then60 ], [ 0, %if.else70 ], [ 0, %if.then39 ]
-  %bol.1 = phi i64 [ %add63, %if.else61 ], [ 0, %if.then60 ], [ 0, %if.else70 ], [ 0, %if.then39 ]
-  %hook_version.0 = phi i32 [ %spec.store.select, %if.else61 ], [ %spec.store.select, %if.then60 ], [ %retval.0.i90, %if.else70 ], [ %retval.0.i90, %if.then39 ]
-  %query_success.1.shrunk = phi i1 [ true, %if.else61 ], [ false, %if.then60 ], [ false, %if.else70 ], [ false, %if.then39 ]
-  %cmp81 = icmp eq i32 %hook_version.0, 1
-  br i1 %cmp81, label %if.then83, label %if.end97
+79:                                               ; preds = %57, %67, %66, %74
+  %.193 = phi i32 [ %73, %67 ], [ 0, %66 ], [ 0, %74 ], [ 0, %57 ]
+  %.190 = phi i64 [ %68, %67 ], [ 0, %66 ], [ 0, %74 ], [ 0, %57 ]
+  %.088 = phi i32 [ %spec.store.select, %67 ], [ %spec.store.select, %66 ], [ %.0.i133, %74 ], [ %.0.i133, %57 ]
+  %.186.shrunk = phi i1 [ true, %67 ], [ false, %66 ], [ false, %74 ], [ false, %57 ]
+  %80 = icmp eq i32 %.088, 1
+  br i1 %80, label %.thread, label %89
 
-if.then83:                                        ; preds = %if.then76, %if.then73, %if.end80
-  %bol.199 = phi i64 [ %bol.1, %if.end80 ], [ 0, %if.then73 ], [ 0, %if.then76 ]
-  %is_trivial.197 = phi i32 [ %is_trivial.1, %if.end80 ], [ 0, %if.then73 ], [ 0, %if.then76 ]
-  %15 = load ptr, ptr %fsmonitor_last_update37, align 8
-  %call85 = call fastcc i32 @query_fsmonitor_hook(ptr noundef %0, i32 noundef 1, ptr noundef %15, ptr noundef %query_result)
-  %tobool86.not = icmp eq i32 %call85, 0
-  br i1 %tobool86.not, label %if.then90, label %if.end97
+.thread:                                          ; preds = %78, %75, %79
+  %.190140 = phi i64 [ %.190, %79 ], [ 0, %75 ], [ 0, %78 ]
+  %.193138 = phi i32 [ %.193, %79 ], [ 0, %75 ], [ 0, %78 ]
+  %81 = load ptr, ptr %55, align 8, !tbaa !12
+  %82 = call fastcc i32 @query_fsmonitor_hook(ptr noundef %6, i32 noundef 1, ptr noundef %81, ptr noundef %3)
+  %.not113 = icmp eq i32 %82, 0
+  br i1 %.not113, label %83, label %89
 
-if.then90:                                        ; preds = %if.then83
-  %buf91 = getelementptr inbounds nuw i8, ptr %query_result, i64 16
-  %16 = load ptr, ptr %buf91, align 8
-  %17 = load i8, ptr %16, align 1
-  %cmp94 = icmp eq i8 %17, 47
-  %conv95 = zext i1 %cmp94 to i32
-  br label %if.end97
+83:                                               ; preds = %.thread
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !44
+  %86 = load i8, ptr %85, align 1, !tbaa !4
+  %87 = icmp eq i8 %86, 47
+  %88 = zext i1 %87 to i32
+  br label %89
 
-if.end97:                                         ; preds = %if.then83, %if.then90, %if.end80
-  %bol.198 = phi i64 [ %bol.199, %if.then90 ], [ %bol.199, %if.then83 ], [ %bol.1, %if.end80 ]
-  %is_trivial.2 = phi i32 [ %conv95, %if.then90 ], [ %is_trivial.197, %if.then83 ], [ %is_trivial.1, %if.end80 ]
-  %query_success.2.in = phi i1 [ true, %if.then90 ], [ false, %if.then83 ], [ %query_success.1.shrunk, %if.end80 ]
-  %tobool98.not = icmp eq i32 %is_trivial.2, 0
-  br i1 %tobool98.not, label %do.body101, label %if.then99
+89:                                               ; preds = %.thread, %83, %79
+  %.190139 = phi i64 [ %.190140, %83 ], [ %.190140, %.thread ], [ %.190, %79 ]
+  %.294 = phi i32 [ %88, %83 ], [ %.193138, %.thread ], [ %.193, %79 ]
+  %.287.in = phi i1 [ true, %83 ], [ false, %.thread ], [ %.186.shrunk, %79 ]
+  %.not114 = icmp eq i32 %.294, 0
+  br i1 %.not114, label %91, label %90
 
-if.then99:                                        ; preds = %if.end97
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 426, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @.str.15, i64 noundef 1) #7
-  br label %do.body101
+90:                                               ; preds = %89
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 634, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @.str.15, i64 noundef 1) #8
+  br label %91
 
-do.body101:                                       ; preds = %if.end97, %if.then99
-  %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8
-  %trace_perf_key.val74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
-  %tobool.not.i81 = icmp eq i32 %trace_perf_key.val, 0
-  %bf.clear.i82 = and i8 %trace_perf_key.val74, 1
-  %tobool103.not101 = icmp ne i8 %bf.clear.i82, 0
-  %tobool103.not = select i1 %tobool.not.i81, i1 %tobool103.not101, i1 false
-  br i1 %tobool103.not, label %do.body109, label %if.then104
+91:                                               ; preds = %89, %90
+  %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8, !tbaa !35
+  %trace_perf_key.val126 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
+  %.not.i130 = icmp eq i32 %trace_perf_key.val, 0
+  %92 = and i8 %trace_perf_key.val126, 1
+  %.not115142 = icmp ne i8 %92, 0
+  %.not115 = select i1 %.not.i130, i1 %.not115142, i1 false
+  br i1 %.not115, label %97, label %93
 
-if.then104:                                       ; preds = %do.body101
-  %call105 = call i64 @getnanotime() #7
-  %sub = sub i64 %call105, %call3291
-  %call106 = call ptr @fsm_settings__get_hook_path(ptr noundef %0) #7
-  call void (ptr, i32, i64, ptr, ...) @trace_performance_fl(ptr noundef nonnull @.str.5, i32 noundef 429, i64 noundef %sub, ptr noundef nonnull @.str.18, ptr noundef %call106) #7
-  br label %do.body109
+93:                                               ; preds = %91
+  %94 = call i64 @getnanotime() #8
+  %95 = sub i64 %94, %53
+  %96 = call ptr @fsm_settings__get_hook_path(ptr noundef %6) #8
+  call void (ptr, i32, i64, ptr, ...) @trace_performance_fl(ptr noundef nonnull @.str.5, i32 noundef 637, i64 noundef %95, ptr noundef nonnull @.str.18, ptr noundef %96) #8
+  br label %97
 
-do.body109:                                       ; preds = %if.then104, %do.body101
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %tobool.not.i84 = icmp eq i32 %trace_fsmonitor.val, 0
-  %bf.clear.i85 = and i8 %trace_fsmonitor.val73, 1
-  %tobool111.not102 = icmp ne i8 %bf.clear.i85, 0
-  %tobool111.not = select i1 %tobool.not.i84, i1 %tobool111.not102, i1 false
-  br i1 %tobool111.not, label %apply_results, label %if.then112
+97:                                               ; preds = %91, %93
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val125 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i131 = icmp eq i32 %trace_fsmonitor.val, 0
+  %98 = and i8 %trace_fsmonitor.val125, 1
+  %.not116143 = icmp ne i8 %98, 0
+  %.not116 = select i1 %.not.i131, i1 %.not116143, i1 false
+  br i1 %.not116, label %102, label %99
 
-if.then112:                                       ; preds = %do.body109
-  %call113 = call ptr @fsm_settings__get_hook_path(ptr noundef %0) #7
-  %cond115 = select i1 %query_success.2.in, ptr @.str.20, ptr @.str.21
-  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 433, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.19, ptr noundef %call113, ptr noundef nonnull %cond115) #7
-  br label %apply_results
+99:                                               ; preds = %97
+  %100 = call ptr @fsm_settings__get_hook_path(ptr noundef %6) #8
+  %101 = select i1 %.287.in, ptr @.str.20, ptr @.str.21
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 641, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.19, ptr noundef %100, ptr noundef nonnull %101) #8
+  br label %102
 
-apply_results:                                    ; preds = %if.end36, %do.body109, %if.then112, %if.else, %if.then27, %if.then21
-  %is_trivial.0 = phi i32 [ 1, %if.then27 ], [ 0, %if.then21 ], [ 0, %if.else ], [ %is_trivial.2, %if.then112 ], [ %is_trivial.2, %do.body109 ], [ 0, %if.end36 ]
-  %bol.0 = phi i64 [ %add, %if.then27 ], [ %add, %if.then21 ], [ 0, %if.else ], [ %bol.198, %if.then112 ], [ %bol.198, %do.body109 ], [ 0, %if.end36 ]
-  %query_success.0.shrunk = phi i1 [ true, %if.then27 ], [ true, %if.then21 ], [ false, %if.else ], [ %query_success.2.in, %if.then112 ], [ %query_success.2.in, %do.body109 ], [ false, %if.end36 ]
-  %18 = load ptr, ptr %repo, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.5, i32 noundef 450, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %18) #7
-  %tobool122 = icmp eq i32 %is_trivial.0, 0
-  %or.cond2.not = and i1 %tobool122, %query_success.0.shrunk
-  br i1 %or.cond2.not, label %if.then123, label %for.cond160.preheader
+102:                                              ; preds = %52, %99, %97, %40, %39, %28
+  %.092 = phi i32 [ 1, %39 ], [ 0, %28 ], [ 0, %40 ], [ %.294, %99 ], [ %.294, %97 ], [ 0, %52 ]
+  %.089 = phi i64 [ %34, %39 ], [ %34, %28 ], [ 0, %40 ], [ %.190139, %99 ], [ %.190139, %97 ], [ 0, %52 ]
+  %.085.shrunk = phi i1 [ true, %39 ], [ true, %28 ], [ false, %40 ], [ %.287.in, %99 ], [ %.287.in, %97 ], [ false, %52 ]
+  %103 = load ptr, ptr %5, align 8, !tbaa !45
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.5, i32 noundef 658, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %103) #8
+  %104 = icmp eq i32 %.092, 0
+  %or.cond5.not = and i1 %104, %.085.shrunk
+  br i1 %or.cond5.not, label %110, label %.preheader
 
-for.cond160.preheader:                            ; preds = %apply_results
-  %cache_nr = getelementptr inbounds nuw i8, ptr %istate, i64 12
-  %19 = load i32, ptr %cache_nr, align 4
-  %cmp161103.not = icmp eq i32 %19, 0
-  br i1 %cmp161103.not, label %if.end181, label %for.body163.outer
+.preheader:                                       ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %106 = load i32, ptr %105, align 4, !tbaa !34
+  %.not155 = icmp eq i32 %106, 0
+  br i1 %.not155, label %._crit_edge.thread, label %.lr.ph
 
-for.body163.outer:                                ; preds = %for.cond160.preheader, %for.inc174.thread
-  %.ph = phi i32 [ %.pre, %for.inc174.thread ], [ %19, %for.cond160.preheader ]
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next122, %for.inc174.thread ], [ 0, %for.cond160.preheader ]
-  %20 = phi i1 [ false, %for.inc174.thread ], [ true, %for.cond160.preheader ]
-  %21 = load ptr, ptr %istate, align 8
-  %22 = zext i32 %.ph to i64
-  br label %for.body163
+.lr.ph:                                           ; preds = %.preheader
+  %107 = load ptr, ptr %0, align 8, !tbaa !37
+  br label %.outer
 
-if.then123:                                       ; preds = %apply_results
-  %buf124 = getelementptr inbounds nuw i8, ptr %query_result, i64 16
-  %23 = load ptr, ptr %buf124, align 8
-  %len127 = getelementptr inbounds nuw i8, ptr %query_result, i64 8
-  %conv126106 = and i64 %bol.0, 4294967295
-  %24 = load i64, ptr %len127, align 8
-  %cmp128107 = icmp ugt i64 %24, %conv126106
-  br i1 %cmp128107, label %for.body.preheader, label %for.end
+.outer:                                           ; preds = %.thread163, %.lr.ph
+  %.ph = phi i32 [ %.pre, %.thread163 ], [ %106, %.lr.ph ]
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next165, %.thread163 ], [ 0, %.lr.ph ]
+  %108 = phi i1 [ false, %.thread163 ], [ true, %.lr.ph ]
+  %109 = zext i32 %.ph to i64
+  br label %150
 
-for.body.preheader:                               ; preds = %if.then123
-  %conv125 = trunc i64 %bol.0 to i32
-  br label %for.body
+110:                                              ; preds = %102
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %112 = load ptr, ptr %111, align 8, !tbaa !44
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %114 = and i64 %.089, 4294967295
+  %115 = load i64, ptr %113, align 8, !tbaa !7
+  %116 = icmp ugt i64 %115, %114
+  br i1 %116, label %.lr.ph150.preheader, label %._crit_edge151
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %25 = phi i64 [ %27, %for.inc ], [ %24, %for.body.preheader ]
-  %conv126111 = phi i64 [ %conv126.pre-phi, %for.inc ], [ %conv126106, %for.body.preheader ]
-  %count.0110 = phi i32 [ %count.1, %for.inc ], [ 0, %for.body.preheader ]
-  %bol.2109 = phi i64 [ %bol.3, %for.inc ], [ %bol.0, %for.body.preheader ]
-  %i.0108 = phi i32 [ %inc138.pre-phi, %for.inc ], [ %conv125, %for.body.preheader ]
-  %arrayidx130 = getelementptr inbounds nuw i8, ptr %23, i64 %conv126111
-  %26 = load i8, ptr %arrayidx130, align 1
-  %cmp132.not = icmp eq i8 %26, 0
-  br i1 %cmp132.not, label %if.end135, label %for.body.for.inc_crit_edge
+.lr.ph150.preheader:                              ; preds = %110
+  %117 = trunc i64 %.089 to i32
+  br label %.lr.ph150
 
-for.body.for.inc_crit_edge:                       ; preds = %for.body
-  %.pre118 = add i32 %i.0108, 1
-  %.pre119 = zext i32 %.pre118 to i64
-  br label %for.inc
+.lr.ph150:                                        ; preds = %.lr.ph150.preheader, %127
+  %118 = phi i64 [ %128, %127 ], [ %115, %.lr.ph150.preheader ]
+  %119 = phi i64 [ %.pre-phi161, %127 ], [ %114, %.lr.ph150.preheader ]
+  %.083148 = phi i32 [ %.184, %127 ], [ 0, %.lr.ph150.preheader ]
+  %.291147 = phi i64 [ %.3, %127 ], [ %.089, %.lr.ph150.preheader ]
+  %.095146 = phi i32 [ %.pre-phi, %127 ], [ %117, %.lr.ph150.preheader ]
+  %120 = getelementptr inbounds nuw i8, ptr %112, i64 %119
+  %121 = load i8, ptr %120, align 1, !tbaa !4
+  %.not121 = icmp eq i8 %121, 0
+  br i1 %.not121, label %122, label %.lr.ph150._crit_edge
 
-if.end135:                                        ; preds = %for.body
-  %add.ptr = getelementptr inbounds i8, ptr %23, i64 %bol.2109
-  call fastcc void @fsmonitor_refresh_callback(ptr noundef %istate, ptr noundef %add.ptr)
-  %add136 = add i32 %i.0108, 1
-  %conv137 = zext i32 %add136 to i64
-  %inc = add nsw i32 %count.0110, 1
-  %.pre117 = load i64, ptr %len127, align 8
-  br label %for.inc
+.lr.ph150._crit_edge:                             ; preds = %.lr.ph150
+  %.pre159 = add i32 %.095146, 1
+  %.pre160 = zext i32 %.pre159 to i64
+  br label %127
 
-for.inc:                                          ; preds = %for.body.for.inc_crit_edge, %if.end135
-  %conv126.pre-phi = phi i64 [ %.pre119, %for.body.for.inc_crit_edge ], [ %conv137, %if.end135 ]
-  %inc138.pre-phi = phi i32 [ %.pre118, %for.body.for.inc_crit_edge ], [ %add136, %if.end135 ]
-  %27 = phi i64 [ %25, %for.body.for.inc_crit_edge ], [ %.pre117, %if.end135 ]
-  %bol.3 = phi i64 [ %bol.2109, %for.body.for.inc_crit_edge ], [ %conv137, %if.end135 ]
-  %count.1 = phi i32 [ %count.0110, %for.body.for.inc_crit_edge ], [ %inc, %if.end135 ]
-  %cmp128 = icmp ugt i64 %27, %conv126.pre-phi
-  br i1 %cmp128, label %for.body, label %for.end, !llvm.loop !7
+122:                                              ; preds = %.lr.ph150
+  %123 = getelementptr inbounds nuw i8, ptr %112, i64 %.291147
+  call fastcc void @fsmonitor_refresh_callback(ptr noundef %0, ptr noundef %123)
+  %124 = add i32 %.095146, 1
+  %125 = zext i32 %124 to i64
+  %126 = add nsw i32 %.083148, 1
+  %.pre158 = load i64, ptr %113, align 8, !tbaa !7
+  br label %127
 
-for.end:                                          ; preds = %for.inc, %if.then123
-  %bol.2.lcssa = phi i64 [ %bol.0, %if.then123 ], [ %bol.3, %for.inc ]
-  %count.0.lcssa = phi i32 [ 0, %if.then123 ], [ %count.1, %for.inc ]
-  %.lcssa = phi i64 [ %24, %if.then123 ], [ %27, %for.inc ]
-  %cmp140 = icmp ult i64 %bol.2.lcssa, %.lcssa
-  br i1 %cmp140, label %if.then142, label %if.end145
+127:                                              ; preds = %.lr.ph150._crit_edge, %122
+  %.pre-phi161 = phi i64 [ %.pre160, %.lr.ph150._crit_edge ], [ %125, %122 ]
+  %.pre-phi = phi i32 [ %.pre159, %.lr.ph150._crit_edge ], [ %124, %122 ]
+  %128 = phi i64 [ %118, %.lr.ph150._crit_edge ], [ %.pre158, %122 ]
+  %.3 = phi i64 [ %.291147, %.lr.ph150._crit_edge ], [ %125, %122 ]
+  %.184 = phi i32 [ %.083148, %.lr.ph150._crit_edge ], [ %126, %122 ]
+  %129 = icmp ugt i64 %128, %.pre-phi161
+  br i1 %129, label %.lr.ph150, label %._crit_edge151, !llvm.loop !47
 
-if.then142:                                       ; preds = %for.end
-  %add.ptr143 = getelementptr inbounds nuw i8, ptr %23, i64 %bol.2.lcssa
-  call fastcc void @fsmonitor_refresh_callback(ptr noundef %istate, ptr noundef %add.ptr143)
-  %inc144 = add nsw i32 %count.0.lcssa, 1
-  br label %if.end145
+._crit_edge151:                                   ; preds = %127, %110
+  %.291.lcssa = phi i64 [ %.089, %110 ], [ %.3, %127 ]
+  %.083.lcssa = phi i32 [ 0, %110 ], [ %.184, %127 ]
+  %.lcssa = phi i64 [ %115, %110 ], [ %128, %127 ]
+  %130 = icmp ult i64 %.291.lcssa, %.lcssa
+  br i1 %130, label %131, label %134
 
-if.end145:                                        ; preds = %if.then142, %for.end
-  %count.2 = phi i32 [ %inc144, %if.then142 ], [ %count.0.lcssa, %for.end ]
-  %untracked = getelementptr inbounds nuw i8, ptr %istate, i64 200
-  %28 = load ptr, ptr %untracked, align 8
-  %tobool146.not = icmp eq ptr %28, null
-  br i1 %tobool146.not, label %if.end152, label %if.then147
+131:                                              ; preds = %._crit_edge151
+  %132 = getelementptr inbounds nuw i8, ptr %112, i64 %.291.lcssa
+  call fastcc void @fsmonitor_refresh_callback(ptr noundef %0, ptr noundef %132)
+  %133 = add nsw i32 %.083.lcssa, 1
+  br label %134
 
-if.then147:                                       ; preds = %if.end145
-  %use_fsmonitor = getelementptr inbounds nuw i8, ptr %28, i64 224
-  %bf.load149 = load i8, ptr %use_fsmonitor, align 8
-  %bf.set151 = or i8 %bf.load149, 1
-  store i8 %bf.set151, ptr %use_fsmonitor, align 8
-  br label %if.end152
+134:                                              ; preds = %131, %._crit_edge151
+  %.2 = phi i32 [ %133, %131 ], [ %.083.lcssa, %._crit_edge151 ]
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %136 = load ptr, ptr %135, align 8, !tbaa !48
+  %.not120 = icmp eq ptr %136, null
+  br i1 %.not120, label %141, label %137
 
-if.end152:                                        ; preds = %if.then147, %if.end145
-  %cmp153 = icmp sgt i32 %count.2, 100
-  br i1 %cmp153, label %if.then155, label %if.end156
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 224
+  %139 = load i8, ptr %138, align 8
+  %140 = or i8 %139, 1
+  store i8 %140, ptr %138, align 8
+  br label %141
 
-if.then155:                                       ; preds = %if.end152
-  %cache_changed = getelementptr inbounds nuw i8, ptr %istate, i64 20
-  %29 = load i32, ptr %cache_changed, align 4
-  %or = or i32 %29, 256
-  store i32 %or, ptr %cache_changed, align 4
-  br label %if.end156
+141:                                              ; preds = %137, %134
+  %142 = icmp sgt i32 %.2, 100
+  br i1 %142, label %143, label %147
 
-if.end156:                                        ; preds = %if.then155, %if.end152
-  %30 = load ptr, ptr %repo, align 8
-  %conv158 = sext i32 %count.2 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 481, ptr noundef nonnull @.str.22, ptr noundef %30, ptr noundef nonnull @.str.24, i64 noundef %conv158) #7
-  br label %if.end191
+143:                                              ; preds = %141
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %145 = load i32, ptr %144, align 4, !tbaa !49
+  %146 = or i32 %145, 256
+  store i32 %146, ptr %144, align 4, !tbaa !49
+  br label %147
 
-for.body163:                                      ; preds = %for.body163.outer, %for.inc174
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc174 ], [ %indvars.iv.ph, %for.body163.outer ]
-  %arrayidx165 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
-  %31 = load ptr, ptr %arrayidx165, align 8
-  %ce_flags = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %32 = load i32, ptr %ce_flags, align 8
-  %and = and i32 %32, 2097152
-  %tobool166.not = icmp eq i32 %and, 0
-  br i1 %tobool166.not, label %for.inc174, label %for.inc174.thread
+147:                                              ; preds = %143, %141
+  %148 = load ptr, ptr %5, align 8, !tbaa !45
+  %149 = sext i32 %.2 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 689, ptr noundef nonnull @.str.22, ptr noundef %148, ptr noundef nonnull @.str.24, i64 noundef %149) #8
+  br label %171
 
-for.inc174:                                       ; preds = %for.body163
+150:                                              ; preds = %.outer, %156
+  %indvars.iv = phi i64 [ %indvars.iv.next, %156 ], [ %indvars.iv.ph, %.outer ]
+  %151 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv
+  %152 = load ptr, ptr %151, align 8, !tbaa !38
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 56
+  %154 = load i32, ptr %153, align 8, !tbaa !40
+  %155 = and i32 %154, 2097152
+  %.not124 = icmp eq i32 %155, 0
+  br i1 %.not124, label %156, label %.thread163
+
+156:                                              ; preds = %150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp161 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %cmp161, label %for.body163, label %for.end176, !llvm.loop !8
+  %157 = icmp samesign ult i64 %indvars.iv.next, %109
+  br i1 %157, label %150, label %._crit_edge, !llvm.loop !50
 
-for.inc174.thread:                                ; preds = %for.body163
-  %ce_flags.le = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %and172 = and i32 %32, -2097153
-  store i32 %and172, ptr %ce_flags.le, align 8
-  %.pre = load i32, ptr %cache_nr, align 4
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv, 1
-  %33 = zext i32 %.pre to i64
-  %cmp161123 = icmp samesign ult i64 %indvars.iv.next122, %33
-  br i1 %cmp161123, label %for.body163.outer, label %if.then178, !llvm.loop !8
+.thread163:                                       ; preds = %150
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 56
+  %159 = and i32 %154, -2097153
+  store i32 %159, ptr %158, align 8, !tbaa !40
+  %.pre = load i32, ptr %105, align 4, !tbaa !34
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv, 1
+  %160 = zext i32 %.pre to i64
+  %161 = icmp samesign ult i64 %indvars.iv.next165, %160
+  br i1 %161, label %.outer, label %._crit_edge.thread167, !llvm.loop !50
 
-for.end176:                                       ; preds = %for.inc174
-  br i1 %20, label %if.end181, label %if.then178
+._crit_edge:                                      ; preds = %156
+  br i1 %108, label %._crit_edge.thread, label %._crit_edge.thread167
 
-if.then178:                                       ; preds = %for.inc174.thread, %for.end176
-  %cache_changed179 = getelementptr inbounds nuw i8, ptr %istate, i64 20
-  %34 = load i32, ptr %cache_changed179, align 4
-  %or180 = or i32 %34, 256
-  store i32 %or180, ptr %cache_changed179, align 4
-  br label %if.end181
+._crit_edge.thread167:                            ; preds = %.thread163, %._crit_edge
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %163 = load i32, ptr %162, align 4, !tbaa !49
+  %164 = or i32 %163, 256
+  store i32 %164, ptr %162, align 4, !tbaa !49
+  br label %._crit_edge.thread
 
-if.end181:                                        ; preds = %for.cond160.preheader, %if.then178, %for.end176
-  %untracked182 = getelementptr inbounds nuw i8, ptr %istate, i64 200
-  %35 = load ptr, ptr %untracked182, align 8
-  %tobool183.not = icmp eq ptr %35, null
-  br i1 %tobool183.not, label %if.end191, label %if.then184
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge.thread167, %._crit_edge
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %166 = load ptr, ptr %165, align 8, !tbaa !48
+  %.not123 = icmp eq ptr %166, null
+  br i1 %.not123, label %171, label %167
 
-if.then184:                                       ; preds = %if.end181
-  %use_fsmonitor186 = getelementptr inbounds nuw i8, ptr %35, i64 224
-  %bf.load187 = load i8, ptr %use_fsmonitor186, align 8
-  %bf.clear188 = and i8 %bf.load187, -2
-  store i8 %bf.clear188, ptr %use_fsmonitor186, align 8
-  br label %if.end191
+167:                                              ; preds = %._crit_edge.thread
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 224
+  %169 = load i8, ptr %168, align 8
+  %170 = and i8 %169, -2
+  store i8 %170, ptr %168, align 8
+  br label %171
 
-if.end191:                                        ; preds = %if.end181, %if.then184, %if.end156
-  %36 = load ptr, ptr %repo, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.5, i32 noundef 511, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %36) #7
-  call void @strbuf_release(ptr noundef nonnull %query_result) #7
-  %fsmonitor_last_update194 = getelementptr inbounds nuw i8, ptr %istate, i64 208
-  %37 = load ptr, ptr %fsmonitor_last_update194, align 8
-  call void @free(ptr noundef %37) #7
-  store ptr null, ptr %fsmonitor_last_update194, align 8
-  %call197 = call ptr @strbuf_detach(ptr noundef nonnull %last_update_token, ptr noundef null) #7
-  store ptr %call197, ptr %fsmonitor_last_update194, align 8
-  br label %return
+171:                                              ; preds = %._crit_edge.thread, %167, %147
+  %172 = load ptr, ptr %5, align 8, !tbaa !45
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.5, i32 noundef 719, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %172) #8
+  call void @strbuf_release(ptr noundef nonnull %3) #8
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %174 = load ptr, ptr %173, align 8, !tbaa !12
+  call void @free(ptr noundef %174) #8
+  store ptr null, ptr %173, align 8, !tbaa !12
+  %175 = call ptr @strbuf_detach(ptr noundef nonnull %4, ptr noundef null) #8
+  store ptr %175, ptr %173, align 8, !tbaa !12
+  br label %176
 
-return:                                           ; preds = %if.end, %lor.lhs.false, %if.end191
+176:                                              ; preds = %12, %14, %171
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
   ret void
 }
 
-declare i32 @fsm_settings__get_mode(ptr noundef) local_unnamed_addr #2
+declare i32 @fsm_settings__get_mode(ptr noundef) local_unnamed_addr #3
 
-declare i32 @fsm_settings__get_reason(ptr noundef) local_unnamed_addr #2
+declare i32 @fsm_settings__get_reason(ptr noundef) local_unnamed_addr #3
 
-declare ptr @fsm_settings__get_incompatible_msg(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @fsm_settings__get_incompatible_msg(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @warning(ptr noundef, ...) local_unnamed_addr #2
+declare void @warning(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @fsmonitor_ipc__send_query(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @fsmonitor_ipc__send_query(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @trace2_data_intmax_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @trace2_data_intmax_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @getnanotime() local_unnamed_addr #2
+declare i64 @getnanotime() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @query_fsmonitor_hook(ptr noundef %r, i32 noundef range(i32 1, 3) %version, ptr noundef %last_update, ptr noundef nonnull %query_result) unnamed_addr #0 {
-entry:
-  %cp = alloca %struct.child_process, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp, ptr noundef nonnull align 8 dereferenceable(120) @__const.query_fsmonitor_hook.cp, i64 120, i1 false)
-  %call = tail call i32 @fsm_settings__get_mode(ptr noundef %r) #7
-  %cmp.not = icmp eq i32 %call, 1
-  br i1 %cmp.not, label %if.end, label %return
+define internal fastcc i32 @query_fsmonitor_hook(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+  %5 = alloca %struct.child_process, align 8
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) @__const.query_fsmonitor_hook.cp, i64 120, i1 false)
+  %6 = tail call i32 @fsm_settings__get_mode(ptr noundef %0) #8
+  %.not = icmp eq i32 %6, 1
+  br i1 %.not, label %7, label %25
 
-if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @fsm_settings__get_hook_path(ptr noundef %r) #7
-  %call2 = call ptr @strvec_push(ptr noundef nonnull %cp, ptr noundef %call1) #7
-  %call4 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cp, ptr noundef nonnull @.str.30, i32 noundef %version) #7
-  %call6 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cp, ptr noundef nonnull @.str.11, ptr noundef %last_update) #7
-  %use_shell = getelementptr inbounds nuw i8, ptr %cp, i64 104
-  %bf.load = load i16, ptr %use_shell, align 8
-  %bf.set = or i16 %bf.load, 32
-  store i16 %bf.set, ptr %use_shell, align 8
-  %call7 = call ptr @get_git_work_tree() #7
-  %dir = getelementptr inbounds nuw i8, ptr %cp, i64 96
-  store ptr %call7, ptr %dir, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.5, i32 noundef 171, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.31, ptr noundef null) #7
-  %call.i = call i32 @pipe_command(ptr noundef nonnull %cp, ptr noundef null, i64 noundef 0, ptr noundef nonnull %query_result, i64 noundef 1024, ptr noundef null, i64 noundef 0) #7
-  %tobool.not = icmp eq i32 %call.i, 0
-  br i1 %tobool.not, label %if.else, label %if.then9
+7:                                                ; preds = %4
+  %8 = tail call ptr @fsm_settings__get_hook_path(ptr noundef %0) #8
+  %9 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef %8) #8
+  %10 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %5, ptr noundef nonnull @.str.30, i32 noundef %1) #8
+  %11 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %5, ptr noundef nonnull @.str.11, ptr noundef %2) #8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %13 = load i16, ptr %12, align 8
+  %14 = or i16 %13, 32
+  store i16 %14, ptr %12, align 8
+  %15 = load ptr, ptr @the_repository, align 8, !tbaa !46
+  %16 = call ptr @repo_get_work_tree(ptr noundef %15) #8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  store ptr %16, ptr %17, align 8, !tbaa !51
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.5, i32 noundef 176, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.31, ptr noundef null) #8
+  %18 = call i32 @pipe_command(ptr noundef nonnull %5, ptr noundef null, i64 noundef 0, ptr noundef nonnull %3, i64 noundef 1024, ptr noundef null, i64 noundef 0) #8
+  %.not10 = icmp eq i32 %18, 0
+  br i1 %.not10, label %21, label %19
 
-if.then9:                                         ; preds = %if.end
-  %conv = sext i32 %call.i to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 176, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @.str.32, i64 noundef %conv) #7
-  br label %if.end10
+19:                                               ; preds = %7
+  %20 = sext i32 %18 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 181, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @.str.32, i64 noundef %20) #8
+  br label %24
 
-if.else:                                          ; preds = %if.end
-  %len = getelementptr inbounds nuw i8, ptr %query_result, i64 8
-  %0 = load i64, ptr %len, align 8
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 179, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @.str.33, i64 noundef %0) #7
-  br label %if.end10
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %23 = load i64, ptr %22, align 8, !tbaa !7
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 184, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @.str.33, i64 noundef %23) #8
+  br label %24
 
-if.end10:                                         ; preds = %if.else, %if.then9
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.5, i32 noundef 181, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.31, ptr noundef null) #7
-  br label %return
+24:                                               ; preds = %21, %19
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.5, i32 noundef 186, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.31, ptr noundef null) #8
+  br label %25
 
-return:                                           ; preds = %entry, %if.end10
-  %retval.0 = phi i32 [ %call.i, %if.end10 ], [ -1, %entry ]
-  ret i32 %retval.0
+25:                                               ; preds = %4, %24
+  %.0 = phi i32 [ %18, %24 ], [ -1, %4 ]
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #8
+  ret i32 %.0
 }
 
-declare void @trace_performance_fl(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @trace_performance_fl(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @fsm_settings__get_hook_path(ptr noundef) local_unnamed_addr #2
+declare ptr @fsm_settings__get_hook_path(ptr noundef) local_unnamed_addr #3
 
-declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @fsmonitor_refresh_callback(ptr noundef %istate, ptr noundef %name) unnamed_addr #0 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #8
-  %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @index_name_pos(ptr noundef %istate, ptr noundef nonnull %name, i32 noundef %conv) #7
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %tobool.not.i = icmp eq i32 %trace_fsmonitor.val, 0
-  %bf.clear.i = and i8 %trace_fsmonitor.val39, 1
-  %tobool.not40 = icmp ne i8 %bf.clear.i, 0
-  %tobool.not = select i1 %tobool.not.i, i1 %tobool.not40, i1 false
-  br i1 %tobool.not, label %do.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 193, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.34, ptr noundef nonnull %name, i32 noundef %call1) #7
-  br label %do.end
-
-do.end:                                           ; preds = %entry, %if.then
-  %sub = shl i64 %call, 32
-  %sext = add i64 %sub, -4294967296
-  %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr inbounds i8, ptr %name, i64 %idxprom
-  %0 = load i8, ptr %arrayidx, align 1
-  %cmp = icmp eq i8 %0, 47
-  br i1 %cmp, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %do.end
-  %call1.lobit = ashr i32 %call1, 31
-  %spec.select = xor i32 %call1.lobit, %call1
-  %cache_nr = getelementptr inbounds nuw i8, ptr %istate, i64 12
-  %1 = load i32, ptr %cache_nr, align 4
-  %cmp1243 = icmp ult i32 %spec.select, %1
-  br i1 %cmp1243, label %for.body.preheader, label %for.end
-
-for.body.preheader:                               ; preds = %if.then5
-  %2 = zext i32 %spec.select to i64
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %if.end20
-  %indvars.iv46 = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next47, %if.end20 ]
-  %3 = load ptr, ptr %istate, align 8
-  %arrayidx15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv46
-  %4 = load ptr, ptr %arrayidx15, align 8
-  %name16 = getelementptr inbounds nuw i8, ptr %4, i64 108
-  %call17 = tail call i32 @starts_with(ptr noundef nonnull %name16, ptr noundef nonnull %name) #7
-  %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %for.end, label %if.end20
-
-if.end20:                                         ; preds = %for.body
-  %5 = load ptr, ptr %istate, align 8
-  %arrayidx23 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv46
-  %6 = load ptr, ptr %arrayidx23, align 8
-  %ce_flags = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %7 = load i32, ptr %ce_flags, align 8
-  %and = and i32 %7, -2097153
-  store i32 %and, ptr %ce_flags, align 8
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %8 = load i32, ptr %cache_nr, align 4
-  %9 = zext i32 %8 to i64
-  %cmp12 = icmp samesign ult i64 %indvars.iv.next47, %9
-  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !9
-
-for.end:                                          ; preds = %if.end20, %for.body, %if.then5
-  store i8 0, ptr %arrayidx, align 1
-  br label %if.end83
-
-if.else:                                          ; preds = %do.end
-  %cmp27 = icmp sgt i32 %call1, -1
-  br i1 %cmp27, label %if.then29, label %if.else35
-
-if.then29:                                        ; preds = %if.else
-  %10 = load ptr, ptr %istate, align 8
-  %idxprom31 = zext nneg i32 %call1 to i64
-  %arrayidx32 = getelementptr inbounds nuw ptr, ptr %10, i64 %idxprom31
-  %11 = load ptr, ptr %arrayidx32, align 8
-  %ce_flags33 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %12 = load i32, ptr %ce_flags33, align 8
-  %and34 = and i32 %12, -2097153
-  store i32 %and34, ptr %ce_flags33, align 8
-  br label %if.end83
-
-if.else35:                                        ; preds = %if.else
-  %sub37 = xor i32 %call1, -1
-  %cache_nr39 = getelementptr inbounds nuw i8, ptr %istate, i64 12
-  %13 = load i32, ptr %cache_nr39, align 4
-  %cmp4041 = icmp ugt i32 %13, %sub37
-  br i1 %cmp4041, label %for.body42.lr.ph, label %if.end83
-
-for.body42.lr.ph:                                 ; preds = %if.else35
-  %idxprom56 = ashr exact i64 %sub, 32
-  %14 = zext nneg i32 %sub37 to i64
-  br label %for.body42
-
-for.body42:                                       ; preds = %for.body42.lr.ph, %for.inc79
-  %indvars.iv = phi i64 [ %14, %for.body42.lr.ph ], [ %indvars.iv.next, %for.inc79 ]
-  %15 = load ptr, ptr %istate, align 8
-  %arrayidx45 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %16 = load ptr, ptr %arrayidx45, align 8
-  %name46 = getelementptr inbounds nuw i8, ptr %16, i64 108
-  %call48 = tail call i32 @starts_with(ptr noundef nonnull %name46, ptr noundef nonnull %name) #7
-  %tobool49.not = icmp eq i32 %call48, 0
-  br i1 %tobool49.not, label %if.end83, label %if.end51
-
-if.end51:                                         ; preds = %for.body42
-  %17 = load ptr, ptr %istate, align 8
-  %arrayidx54 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
-  %18 = load ptr, ptr %arrayidx54, align 8
-  %name55 = getelementptr inbounds nuw i8, ptr %18, i64 108
-  %arrayidx57 = getelementptr inbounds [0 x i8], ptr %name55, i64 0, i64 %idxprom56
-  %19 = load i8, ptr %arrayidx57, align 1
-  %cmp59 = icmp ugt i8 %19, 47
-  br i1 %cmp59, label %if.end83, label %if.end62
-
-if.end62:                                         ; preds = %if.end51
-  %cmp70 = icmp eq i8 %19, 47
-  br i1 %cmp70, label %if.then72, label %for.inc79
-
-if.then72:                                        ; preds = %if.end62
-  %ce_flags76 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %20 = load i32, ptr %ce_flags76, align 8
-  %and77 = and i32 %20, -2097153
-  store i32 %and77, ptr %ce_flags76, align 8
-  br label %for.inc79
-
-for.inc79:                                        ; preds = %if.end62, %if.then72
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = load i32, ptr %cache_nr39, align 4
-  %22 = zext i32 %21 to i64
-  %cmp40 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %cmp40, label %for.body42, label %if.end83, !llvm.loop !10
-
-if.end83:                                         ; preds = %for.inc79, %for.body42, %if.end51, %if.else35, %if.then29, %for.end
-  tail call void @untracked_cache_invalidate_path(ptr noundef nonnull %istate, ptr noundef nonnull %name, i32 noundef 0) #7
-  ret void
-}
-
-declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
+declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_fsmonitor(ptr noundef %istate) local_unnamed_addr #0 {
-entry:
-  %last_update.i = alloca %struct.strbuf, align 8
-  %fsmonitor_last_update = getelementptr inbounds nuw i8, ptr %istate, i64 208
-  %0 = load ptr, ptr %fsmonitor_last_update, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %do.body, label %if.end7
+define internal fastcc void @fsmonitor_refresh_callback(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = alloca %struct.strbuf, align 8
+  %4 = alloca %struct.strbuf, align 8
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %6 = trunc i64 %5 to i32
+  %7 = tail call i32 @index_name_pos(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %6) #8
+  %trace_fsmonitor.val27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i = icmp eq i32 %trace_fsmonitor.val27, 0
+  %8 = and i8 %trace_fsmonitor.val28, 1
+  %.not85 = icmp ne i8 %8, 0
+  %.not = select i1 %.not.i, i1 %.not85, i1 false
+  br i1 %.not, label %10, label %9
 
-do.body:                                          ; preds = %entry
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %tobool.not.i = icmp eq i32 %trace_fsmonitor.val, 0
-  %bf.clear.i = and i8 %trace_fsmonitor.val11, 1
-  %tobool1.not12 = icmp ne i8 %bf.clear.i, 0
-  %tobool1.not = select i1 %tobool.not.i, i1 %tobool1.not12, i1 false
-  br i1 %tobool1.not, label %do.end, label %if.then2
+9:                                                ; preds = %2
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 443, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.34, ptr noundef nonnull %1, i32 noundef %7) #8
+  br label %10
 
-if.then2:                                         ; preds = %do.body
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 556, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.25) #7
-  br label %do.end
+10:                                               ; preds = %9, %2
+  %11 = shl i64 %5, 32
+  %sext = add i64 %11, -4294967296
+  %12 = ashr exact i64 %sext, 32
+  %13 = getelementptr inbounds i8, ptr %1, i64 %12
+  %14 = load i8, ptr %13, align 1, !tbaa !4
+  %15 = icmp eq i8 %14, 47
+  tail call void @untracked_cache_invalidate_trimmed_path(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0) #8
+  br i1 %15, label %16, label %44
 
-do.end:                                           ; preds = %do.body, %if.then2
-  %cache_changed = getelementptr inbounds nuw i8, ptr %istate, i64 20
-  %1 = load i32, ptr %cache_changed, align 4
-  %or = or i32 %1, 256
-  store i32 %or, ptr %cache_changed, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %last_update.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_update.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
-  %call.i = tail call i64 @getnanotime() #7
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %last_update.i, ptr noundef nonnull @.str.2, i64 noundef %call.i) #7
-  %call1.i = call ptr @strbuf_detach(ptr noundef nonnull %last_update.i, ptr noundef null) #7
-  store ptr %call1.i, ptr %fsmonitor_last_update, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %last_update.i)
-  %cache_nr = getelementptr inbounds nuw i8, ptr %istate, i64 12
-  %2 = load i32, ptr %cache_nr, align 4
-  %cmp13.not = icmp eq i32 %2, 0
-  br i1 %cmp13.not, label %for.end, label %for.body
+16:                                               ; preds = %10
+  %.lobit.i = ashr i32 %7, 31
+  %spec.select.i = xor i32 %.lobit.i, %7
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %18 = load i32, ptr %17, align 4, !tbaa !34
+  %19 = icmp ult i32 %spec.select.i, %18
+  br i1 %19, label %.lr.ph.preheader.i, label %handle_path_with_trailing_slash.exit
 
-for.body:                                         ; preds = %do.end, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %do.end ]
-  %3 = load ptr, ptr %istate, align 8
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %4 = load ptr, ptr %arrayidx, align 8
-  %ce_flags = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %5 = load i32, ptr %ce_flags, align 8
-  %and = and i32 %5, -2097153
-  store i32 %and, ptr %ce_flags, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = load i32, ptr %cache_nr, align 4
-  %7 = zext i32 %6 to i64
-  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+.lr.ph.preheader.i:                               ; preds = %16
+  %20 = zext i32 %spec.select.i to i64
+  br label %.lr.ph.i
 
-for.end:                                          ; preds = %for.body, %do.end
-  %untracked = getelementptr inbounds nuw i8, ptr %istate, i64 200
-  %8 = load ptr, ptr %untracked, align 8
-  %tobool3.not = icmp eq ptr %8, null
-  br i1 %tobool3.not, label %if.end6, label %if.then4
+.lr.ph.i:                                         ; preds = %invalidate_ce_fsm.exit.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ %20, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %invalidate_ce_fsm.exit.i ]
+  %.018.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %40, %invalidate_ce_fsm.exit.i ]
+  %21 = load ptr, ptr %0, align 8, !tbaa !37
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %23 = load ptr, ptr %22, align 8, !tbaa !38
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 108
+  %25 = tail call i32 @starts_with(ptr noundef nonnull %24, ptr noundef nonnull %1) #8
+  %.not.i29 = icmp eq i32 %25, 0
+  br i1 %.not.i29, label %handle_path_with_trailing_slash.exit, label %26
 
-if.then4:                                         ; preds = %for.end
-  call void @add_untracked_cache(ptr noundef nonnull %istate) #7
-  %9 = load ptr, ptr %untracked, align 8
-  %use_fsmonitor = getelementptr inbounds nuw i8, ptr %9, i64 224
-  %bf.load = load i8, ptr %use_fsmonitor, align 8
-  %bf.set = or i8 %bf.load, 1
-  store i8 %bf.set, ptr %use_fsmonitor, align 8
-  br label %if.end6
+26:                                               ; preds = %.lr.ph.i
+  %27 = load ptr, ptr %0, align 8, !tbaa !37
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %29 = load ptr, ptr %28, align 8, !tbaa !38
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %31 = load i32, ptr %30, align 8, !tbaa !40
+  %32 = and i32 %31, 2097152
+  %.not.i.i = icmp eq i32 %32, 0
+  br i1 %.not.i.i, label %invalidate_ce_fsm.exit.i, label %33
 
-if.end6:                                          ; preds = %if.then4, %for.end
-  call void @refresh_fsmonitor(ptr noundef nonnull %istate)
-  br label %if.end7
+33:                                               ; preds = %26
+  %trace_fsmonitor.val.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val4.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i.i.i = icmp eq i32 %trace_fsmonitor.val.i.i, 0
+  %34 = and i8 %trace_fsmonitor.val4.i.i, 1
+  %.not35.i.i = icmp ne i8 %34, 0
+  %.not3.i.i = select i1 %.not.i.i.i, i1 %.not35.i.i, i1 false
+  br i1 %.not3.i.i, label %37, label %35
 
-if.end7:                                          ; preds = %if.end6, %entry
-  ret void
-}
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 108
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 202, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.36, ptr noundef nonnull %36) #8
+  %.pre.i.i = load i32, ptr %30, align 8, !tbaa !40
+  br label %37
 
-declare void @add_untracked_cache(ptr noundef) local_unnamed_addr #2
+37:                                               ; preds = %35, %33
+  %38 = phi i32 [ %31, %33 ], [ %.pre.i.i, %35 ]
+  %39 = and i32 %38, -2097153
+  store i32 %39, ptr %30, align 8, !tbaa !40
+  br label %invalidate_ce_fsm.exit.i
 
-; Function Attrs: nounwind uwtable
-define dso_local void @remove_fsmonitor(ptr noundef captures(none) %istate) local_unnamed_addr #0 {
-entry:
-  %fsmonitor_last_update = getelementptr inbounds nuw i8, ptr %istate, i64 208
-  %0 = load ptr, ptr %fsmonitor_last_update, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end7, label %do.body
+invalidate_ce_fsm.exit.i:                         ; preds = %37, %26
+  %40 = add nuw nsw i64 %.018.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %41 = load i32, ptr %17, align 4, !tbaa !34
+  %42 = zext i32 %41 to i64
+  %43 = icmp samesign ult i64 %indvars.iv.next.i, %42
+  br i1 %43, label %.lr.ph.i, label %.thread, !llvm.loop !55
 
-do.body:                                          ; preds = %entry
-  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %tobool.not.i = icmp eq i32 %trace_fsmonitor.val, 0
-  %bf.clear.i = and i8 %trace_fsmonitor.val4, 1
-  %tobool1.not5 = icmp ne i8 %bf.clear.i, 0
-  %tobool1.not = select i1 %tobool.not.i, i1 %tobool1.not5, i1 false
-  br i1 %tobool1.not, label %do.end, label %if.then2
+44:                                               ; preds = %10
+  %45 = icmp sgt i32 %7, -1
+  br i1 %45, label %46, label %61
 
-if.then2:                                         ; preds = %do.body
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 578, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.26) #7
-  %.pre = load ptr, ptr %fsmonitor_last_update, align 8
-  br label %do.end
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %0, align 8, !tbaa !37
+  %48 = zext nneg i32 %7 to i64
+  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %50 = load ptr, ptr %49, align 8, !tbaa !38
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  %52 = load i32, ptr %51, align 8, !tbaa !40
+  %53 = and i32 %52, 2097152
+  %.not.i.i31 = icmp eq i32 %53, 0
+  br i1 %.not.i.i31, label %.thread, label %54
 
-do.end:                                           ; preds = %do.body, %if.then2
-  %1 = phi ptr [ %0, %do.body ], [ %.pre, %if.then2 ]
-  %cache_changed = getelementptr inbounds nuw i8, ptr %istate, i64 20
-  %2 = load i32, ptr %cache_changed, align 4
-  %or = or i32 %2, 256
-  store i32 %or, ptr %cache_changed, align 4
-  tail call void @free(ptr noundef %1) #7
-  store ptr null, ptr %fsmonitor_last_update, align 8
-  br label %if.end7
+54:                                               ; preds = %46
+  %trace_fsmonitor.val.i.i32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val4.i.i33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i.i.i34 = icmp eq i32 %trace_fsmonitor.val.i.i32, 0
+  %55 = and i8 %trace_fsmonitor.val4.i.i33, 1
+  %.not35.i.i35 = icmp ne i8 %55, 0
+  %.not3.i.i36 = select i1 %.not.i.i.i34, i1 %.not35.i.i35, i1 false
+  br i1 %.not3.i.i36, label %58, label %56
 
-if.end7:                                          ; preds = %do.end, %entry
-  ret void
-}
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 108
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 202, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.36, ptr noundef nonnull %57) #8
+  %.pre.i.i37 = load i32, ptr %51, align 8, !tbaa !40
+  br label %58
 
-; Function Attrs: nounwind uwtable
-define dso_local void @tweak_fsmonitor(ptr noundef %istate) local_unnamed_addr #0 {
-entry:
-  %repo = getelementptr inbounds nuw i8, ptr %istate, i64 240
-  %0 = load ptr, ptr %repo, align 8
-  %call = tail call i32 @fsm_settings__get_mode(ptr noundef %0) #7
-  %cmp = icmp sgt i32 %call, 0
-  %fsmonitor_dirty = getelementptr inbounds nuw i8, ptr %istate, i64 216
-  %1 = load ptr, ptr %fsmonitor_dirty, align 8
-  %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %if.end16, label %if.then
+58:                                               ; preds = %56, %54
+  %59 = phi i32 [ %52, %54 ], [ %.pre.i.i37, %56 ]
+  %60 = and i32 %59, -2097153
+  store i32 %60, ptr %51, align 8, !tbaa !40
+  br label %.thread
 
-if.then:                                          ; preds = %entry
-  br i1 %cmp, label %for.cond.preheader, label %if.end13
+61:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %62) #8
+  %63 = load i64, ptr %4, align 8, !tbaa !43
+  %.not.i.i12.i = icmp eq i64 %63, 0
+  br i1 %.not.i.i12.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_avail.exit.i.i
 
-for.cond.preheader:                               ; preds = %if.then
-  %cache_nr = getelementptr inbounds nuw i8, ptr %istate, i64 12
-  %2 = load i32, ptr %cache_nr, align 4
-  %cmp318.not = icmp eq i32 %2, 0
-  br i1 %cmp318.not, label %for.end, label %for.body
+strbuf_avail.exit.i.i:                            ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %65 = load i64, ptr %64, align 8, !tbaa !7
+  %.neg.i.i = add i64 %65, 1
+  %.not.i13.i = icmp eq i64 %63, %.neg.i.i
+  br i1 %.not.i13.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_addch.exit.i
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %3 = phi i32 [ %8, %for.inc ], [ %2, %for.cond.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %4 = load ptr, ptr %istate, align 8
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %5 = load ptr, ptr %arrayidx, align 8
-  %ce_mode = getelementptr inbounds nuw i8, ptr %5, i64 52
-  %6 = load i32, ptr %ce_mode, align 4
-  %and = and i32 %6, 61440
-  %cmp5 = icmp eq i32 %and, 57344
-  br i1 %cmp5, label %for.inc, label %if.end
+strbuf_avail.exit.thread.i.i:                     ; preds = %strbuf_avail.exit.i.i, %61
+  call void @strbuf_grow(ptr noundef nonnull %4, i64 noundef 1) #8
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.pre.i14.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !7
+  %.pre7.i.i = add i64 %.pre.i14.i, 1
+  br label %strbuf_addch.exit.i
 
-if.end:                                           ; preds = %for.body
-  %ce_flags = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %7 = load i32, ptr %ce_flags, align 8
-  %or = or i32 %7, 2097152
-  store i32 %or, ptr %ce_flags, align 8
-  %.pre = load i32, ptr %cache_nr, align 4
-  br label %for.inc
+strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.thread.i.i, %strbuf_avail.exit.i.i
+  %.pre-phi.i.i = phi i64 [ %.pre7.i.i, %strbuf_avail.exit.thread.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
+  %66 = phi i64 [ %.pre.i14.i, %strbuf_avail.exit.thread.i.i ], [ %65, %strbuf_avail.exit.i.i ]
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %68 = load ptr, ptr %67, align 8, !tbaa !44
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %.pre-phi.i.i, ptr %69, align 8, !tbaa !7
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %66
+  store i8 47, ptr %70, align 1, !tbaa !4
+  %71 = load ptr, ptr %67, align 8, !tbaa !44
+  %72 = load i64, ptr %69, align 8, !tbaa !7
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 %72
+  store i8 0, ptr %73, align 1, !tbaa !4
+  %74 = load ptr, ptr %67, align 8, !tbaa !44
+  %75 = load i64, ptr %69, align 8, !tbaa !7
+  %76 = trunc i64 %75 to i32
+  %77 = call i32 @index_name_pos(ptr noundef %0, ptr noundef %74, i32 noundef %76) #8
+  %78 = load ptr, ptr %67, align 8, !tbaa !44
+  call void @untracked_cache_invalidate_trimmed_path(ptr noundef %0, ptr noundef %78, i32 noundef 0) #8
+  %.lobit.i.i = ashr i32 %77, 31
+  %spec.select.i.i = xor i32 %.lobit.i.i, %77
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %80 = load i32, ptr %79, align 4, !tbaa !34
+  %81 = icmp ult i32 %spec.select.i.i, %80
+  br i1 %81, label %.lr.ph.preheader.i.i, label %handle_path_with_trailing_slash.exit.i
 
-for.inc:                                          ; preds = %for.body, %if.end
-  %8 = phi i32 [ %3, %for.body ], [ %.pre, %if.end ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = zext i32 %8 to i64
-  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %cmp3, label %for.body, label %for.end.loopexit, !llvm.loop !12
+.lr.ph.preheader.i.i:                             ; preds = %strbuf_addch.exit.i
+  %82 = zext i32 %spec.select.i.i to i64
+  br label %.lr.ph.i.i
 
-for.end.loopexit:                                 ; preds = %for.inc
-  %.pre22 = load ptr, ptr %fsmonitor_dirty, align 8
-  br label %for.end
+.lr.ph.i.i:                                       ; preds = %invalidate_ce_fsm.exit.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %82, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %invalidate_ce_fsm.exit.i.i ]
+  %.018.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %102, %invalidate_ce_fsm.exit.i.i ]
+  %83 = load ptr, ptr %0, align 8, !tbaa !37
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.i.i
+  %85 = load ptr, ptr %84, align 8, !tbaa !38
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 108
+  %87 = call i32 @starts_with(ptr noundef nonnull %86, ptr noundef %78) #8
+  %.not.i15.i = icmp eq i32 %87, 0
+  br i1 %.not.i15.i, label %handle_path_with_trailing_slash.exit.i, label %88
 
-for.end:                                          ; preds = %for.cond.preheader, %for.end.loopexit
-  %10 = phi ptr [ %.pre22, %for.end.loopexit ], [ %1, %for.cond.preheader ]
-  %.lcssa = phi i32 [ %8, %for.end.loopexit ], [ 0, %for.cond.preheader ]
-  %bit_size = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %11 = load i64, ptr %bit_size, align 8
-  %conv.i = zext i32 %.lcssa to i64
-  %cmp.i = icmp ugt i64 %11, %conv.i
-  br i1 %cmp.i, label %if.then.i, label %assert_index_minimum.exit
+88:                                               ; preds = %.lr.ph.i.i
+  %89 = load ptr, ptr %0, align 8, !tbaa !37
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.i.i
+  %91 = load ptr, ptr %90, align 8, !tbaa !38
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
+  %93 = load i32, ptr %92, align 8, !tbaa !40
+  %94 = and i32 %93, 2097152
+  %.not.i.i16.i = icmp eq i32 %94, 0
+  br i1 %.not.i.i16.i, label %invalidate_ce_fsm.exit.i.i, label %95
 
-if.then.i:                                        ; preds = %for.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 23, ptr noundef nonnull @.str.27, i64 noundef %11, i32 noundef %.lcssa) #9
+95:                                               ; preds = %88
+  %trace_fsmonitor.val.i.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val4.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i.i.i.i = icmp eq i32 %trace_fsmonitor.val.i.i.i, 0
+  %96 = and i8 %trace_fsmonitor.val4.i.i.i, 1
+  %.not35.i.i.i = icmp ne i8 %96, 0
+  %.not3.i.i.i = select i1 %.not.i.i.i.i, i1 %.not35.i.i.i, i1 false
+  br i1 %.not3.i.i.i, label %99, label %97
+
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %91, i64 108
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 202, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.36, ptr noundef nonnull %98) #8
+  %.pre.i.i.i = load i32, ptr %92, align 8, !tbaa !40
+  br label %99
+
+99:                                               ; preds = %97, %95
+  %100 = phi i32 [ %93, %95 ], [ %.pre.i.i.i, %97 ]
+  %101 = and i32 %100, -2097153
+  store i32 %101, ptr %92, align 8, !tbaa !40
+  br label %invalidate_ce_fsm.exit.i.i
+
+invalidate_ce_fsm.exit.i.i:                       ; preds = %99, %88
+  %102 = add nuw nsw i64 %.018.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %103 = load i32, ptr %79, align 4, !tbaa !34
+  %104 = zext i32 %103 to i64
+  %105 = icmp samesign ult i64 %indvars.iv.next.i.i, %104
+  br i1 %105, label %.lr.ph.i.i, label %handle_path_with_trailing_slash.exit.i, !llvm.loop !55
+
+handle_path_with_trailing_slash.exit.i:           ; preds = %invalidate_ce_fsm.exit.i.i, %.lr.ph.i.i, %strbuf_addch.exit.i
+  %.0.lcssa.i.i = phi i64 [ 0, %strbuf_addch.exit.i ], [ %.018.i.i, %.lr.ph.i.i ], [ %102, %invalidate_ce_fsm.exit.i.i ]
+  call void @strbuf_release(ptr noundef nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  br label %handle_path_with_trailing_slash.exit
+
+handle_path_with_trailing_slash.exit:             ; preds = %.lr.ph.i, %handle_path_with_trailing_slash.exit.i, %16
+  %.0 = phi i64 [ 0, %16 ], [ %.0.lcssa.i.i, %handle_path_with_trailing_slash.exit.i ], [ %.018.i, %.lr.ph.i ]
+  %106 = icmp eq i64 %.0, 0
+  %107 = load i32, ptr @ignore_case, align 4
+  %108 = icmp ne i32 %107, 0
+  %or.cond = select i1 %106, i1 %108, i1 false
+  br i1 %or.cond, label %109, label %186
+
+109:                                              ; preds = %handle_path_with_trailing_slash.exit
+  %110 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %111 = trunc i64 %110 to i32
+  %112 = call ptr @index_file_exists(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %111, i32 noundef 1) #8
+  %.not.i38 = icmp eq ptr %112, null
+  br i1 %.not.i38, label %handle_using_name_hash_icase.exit, label %113
+
+113:                                              ; preds = %109
+  %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val11.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i.i39 = icmp eq i32 %trace_fsmonitor.val.i, 0
+  %114 = and i8 %trace_fsmonitor.val11.i, 1
+  %.not1013.i = icmp ne i8 %114, 0
+  %.not10.i = select i1 %.not.i.i39, i1 %.not1013.i, i1 false
+  br i1 %.not10.i, label %117, label %115
+
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 108
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 243, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.37, ptr noundef nonnull %1, ptr noundef nonnull %116) #8
+  br label %117
+
+117:                                              ; preds = %115, %113
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 108
+  call void @untracked_cache_invalidate_trimmed_path(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 0) #8
+  %119 = getelementptr inbounds nuw i8, ptr %112, i64 56
+  %120 = load i32, ptr %119, align 8, !tbaa !40
+  %121 = and i32 %120, 2097152
+  %.not.i12.i = icmp eq i32 %121, 0
+  br i1 %.not.i12.i, label %.thread, label %122
+
+122:                                              ; preds = %117
+  %trace_fsmonitor.val.i.i40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val4.i.i41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i.i.i42 = icmp eq i32 %trace_fsmonitor.val.i.i40, 0
+  %123 = and i8 %trace_fsmonitor.val4.i.i41, 1
+  %.not35.i.i43 = icmp ne i8 %123, 0
+  %.not3.i.i44 = select i1 %.not.i.i.i42, i1 %.not35.i.i43, i1 false
+  br i1 %.not3.i.i44, label %125, label %124
+
+124:                                              ; preds = %122
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 202, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.36, ptr noundef nonnull %118) #8
+  %.pre.i.i45 = load i32, ptr %119, align 8, !tbaa !40
+  br label %125
+
+125:                                              ; preds = %124, %122
+  %126 = phi i32 [ %120, %122 ], [ %.pre.i.i45, %124 ]
+  %127 = and i32 %126, -2097153
+  store i32 %127, ptr %119, align 8, !tbaa !40
+  br label %.thread
+
+handle_using_name_hash_icase.exit:                ; preds = %109
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
+  %128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %129 = getelementptr i8, ptr %1, i64 %128
+  %130 = getelementptr i8, ptr %129, i64 -1
+  %131 = load i8, ptr %130, align 1, !tbaa !4
+  %132 = icmp eq i8 %131, 47
+  %133 = sext i1 %132 to i64
+  %spec.select.i48 = add i64 %128, %133
+  %134 = trunc i64 %spec.select.i48 to i32
+  %135 = call i32 @index_dir_find(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %134, ptr noundef nonnull %3) #8
+  %.not.i49 = icmp eq i32 %135, 0
+  br i1 %.not.i49, label %handle_using_dir_name_hash_icase.exit, label %136
+
+136:                                              ; preds = %handle_using_name_hash_icase.exit
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %138 = load ptr, ptr %137, align 8, !tbaa !44
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %140 = load i64, ptr %139, align 8, !tbaa !7
+  %bcmp.i = call i32 @bcmp(ptr nonnull %1, ptr %138, i64 %140)
+  %.not15.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not15.i, label %141, label %142
+
+141:                                              ; preds = %136
+  call void @strbuf_release(ptr noundef nonnull %3) #8
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 295, ptr noundef nonnull @.str.38, ptr noundef nonnull %1) #10
   unreachable
 
-assert_index_minimum.exit:                        ; preds = %for.end
-  tail call void @ewah_each_bit(ptr noundef nonnull %10, ptr noundef nonnull @fsmonitor_ewah_callback, ptr noundef nonnull %istate) #7
-  tail call void @refresh_fsmonitor(ptr noundef nonnull %istate)
-  %.pre23 = load ptr, ptr %fsmonitor_dirty, align 8
-  br label %if.end13
+142:                                              ; preds = %136
+  %trace_fsmonitor.val.i50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val17.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i.i51 = icmp eq i32 %trace_fsmonitor.val.i50, 0
+  %143 = and i8 %trace_fsmonitor.val17.i, 1
+  %.not1621.i = icmp ne i8 %143, 0
+  %.not16.i = select i1 %.not.i.i51, i1 %.not1621.i, i1 false
+  br i1 %.not16.i, label %145, label %144
 
-if.end13:                                         ; preds = %assert_index_minimum.exit, %if.then
-  %12 = phi ptr [ %.pre23, %assert_index_minimum.exit ], [ %1, %if.then ]
-  tail call void @ewah_free(ptr noundef %12) #7
-  store ptr null, ptr %fsmonitor_dirty, align 8
-  br label %if.end16
+144:                                              ; preds = %142
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 300, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.37, ptr noundef nonnull %1, ptr noundef %138) #8
+  br label %145
 
-if.end16:                                         ; preds = %if.end13, %entry
-  br i1 %cmp, label %if.then18, label %if.else
+145:                                              ; preds = %144, %142
+  %146 = load i64, ptr %3, align 8, !tbaa !43
+  %.not.i.i.i52 = icmp eq i64 %146, 0
+  br i1 %.not.i.i.i52, label %strbuf_avail.exit.thread.i.i74, label %strbuf_avail.exit.i.i53
 
-if.then18:                                        ; preds = %if.end16
-  tail call void @add_fsmonitor(ptr noundef nonnull %istate)
-  br label %if.end19
+strbuf_avail.exit.i.i53:                          ; preds = %145
+  %147 = load i64, ptr %139, align 8, !tbaa !7
+  %.neg.i.i54 = add i64 %147, 1
+  %.not.i18.i = icmp eq i64 %146, %.neg.i.i54
+  br i1 %.not.i18.i, label %strbuf_avail.exit.thread.i.i74, label %strbuf_addch.exit.i55
 
-if.else:                                          ; preds = %if.end16
-  %fsmonitor_last_update.i = getelementptr inbounds nuw i8, ptr %istate, i64 208
-  %13 = load ptr, ptr %fsmonitor_last_update.i, align 8
-  %tobool.not.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i, label %if.end19, label %do.body.i
+strbuf_avail.exit.thread.i.i74:                   ; preds = %strbuf_avail.exit.i.i53, %145
+  call void @strbuf_grow(ptr noundef nonnull %3, i64 noundef 1) #8
+  %.pre.i.i75 = load i64, ptr %139, align 8, !tbaa !7
+  %.pre7.i.i76 = add i64 %.pre.i.i75, 1
+  br label %strbuf_addch.exit.i55
 
-do.body.i:                                        ; preds = %if.else
-  %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val4.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %tobool.not.i.i = icmp eq i32 %trace_fsmonitor.val.i, 0
-  %bf.clear.i.i = and i8 %trace_fsmonitor.val4.i, 1
-  %tobool1.not5.i = icmp ne i8 %bf.clear.i.i, 0
-  %tobool1.not.i = select i1 %tobool.not.i.i, i1 %tobool1.not5.i, i1 false
-  br i1 %tobool1.not.i, label %do.end.i, label %if.then2.i
+strbuf_addch.exit.i55:                            ; preds = %strbuf_avail.exit.thread.i.i74, %strbuf_avail.exit.i.i53
+  %.pre-phi.i.i56 = phi i64 [ %.pre7.i.i76, %strbuf_avail.exit.thread.i.i74 ], [ %.neg.i.i54, %strbuf_avail.exit.i.i53 ]
+  %148 = phi i64 [ %.pre.i.i75, %strbuf_avail.exit.thread.i.i74 ], [ %147, %strbuf_avail.exit.i.i53 ]
+  %149 = load ptr, ptr %137, align 8, !tbaa !44
+  store i64 %.pre-phi.i.i56, ptr %139, align 8, !tbaa !7
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %148
+  store i8 47, ptr %150, align 1, !tbaa !4
+  %151 = load ptr, ptr %137, align 8, !tbaa !44
+  %152 = load i64, ptr %139, align 8, !tbaa !7
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 %152
+  store i8 0, ptr %153, align 1, !tbaa !4
+  %154 = load ptr, ptr %137, align 8, !tbaa !44
+  %155 = load i64, ptr %139, align 8, !tbaa !7
+  %156 = trunc i64 %155 to i32
+  %157 = call i32 @index_name_pos(ptr noundef nonnull %0, ptr noundef %154, i32 noundef %156) #8
+  %158 = load ptr, ptr %137, align 8, !tbaa !44
+  call void @untracked_cache_invalidate_trimmed_path(ptr noundef nonnull %0, ptr noundef %158, i32 noundef 0) #8
+  %.lobit.i.i57 = ashr i32 %157, 31
+  %spec.select.i.i58 = xor i32 %.lobit.i.i57, %157
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %160 = load i32, ptr %159, align 4, !tbaa !34
+  %161 = icmp ult i32 %spec.select.i.i58, %160
+  br i1 %161, label %.lr.ph.preheader.i.i62, label %handle_path_with_trailing_slash.exit.i59
 
-if.then2.i:                                       ; preds = %do.body.i
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 578, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.26) #7
-  %.pre.i = load ptr, ptr %fsmonitor_last_update.i, align 8
-  br label %do.end.i
+.lr.ph.preheader.i.i62:                           ; preds = %strbuf_addch.exit.i55
+  %162 = zext i32 %spec.select.i.i58 to i64
+  br label %.lr.ph.i.i63
 
-do.end.i:                                         ; preds = %if.then2.i, %do.body.i
-  %14 = phi ptr [ %13, %do.body.i ], [ %.pre.i, %if.then2.i ]
-  %cache_changed.i = getelementptr inbounds nuw i8, ptr %istate, i64 20
-  %15 = load i32, ptr %cache_changed.i, align 4
-  %or.i = or i32 %15, 256
-  store i32 %or.i, ptr %cache_changed.i, align 4
-  tail call void @free(ptr noundef %14) #7
-  store ptr null, ptr %fsmonitor_last_update.i, align 8
-  br label %if.end19
+.lr.ph.i.i63:                                     ; preds = %invalidate_ce_fsm.exit.i.i72, %.lr.ph.preheader.i.i62
+  %indvars.iv.i.i64 = phi i64 [ %162, %.lr.ph.preheader.i.i62 ], [ %indvars.iv.next.i.i73, %invalidate_ce_fsm.exit.i.i72 ]
+  %.018.i.i65 = phi i64 [ 0, %.lr.ph.preheader.i.i62 ], [ %182, %invalidate_ce_fsm.exit.i.i72 ]
+  %163 = load ptr, ptr %0, align 8, !tbaa !37
+  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv.i.i64
+  %165 = load ptr, ptr %164, align 8, !tbaa !38
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 108
+  %167 = call i32 @starts_with(ptr noundef nonnull %166, ptr noundef %158) #8
+  %.not.i19.i = icmp eq i32 %167, 0
+  br i1 %.not.i19.i, label %handle_path_with_trailing_slash.exit.i59, label %168
 
-if.end19:                                         ; preds = %do.end.i, %if.else, %if.then18
+168:                                              ; preds = %.lr.ph.i.i63
+  %169 = load ptr, ptr %0, align 8, !tbaa !37
+  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv.i.i64
+  %171 = load ptr, ptr %170, align 8, !tbaa !38
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 56
+  %173 = load i32, ptr %172, align 8, !tbaa !40
+  %174 = and i32 %173, 2097152
+  %.not.i.i20.i = icmp eq i32 %174, 0
+  br i1 %.not.i.i20.i, label %invalidate_ce_fsm.exit.i.i72, label %175
+
+175:                                              ; preds = %168
+  %trace_fsmonitor.val.i.i.i66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val4.i.i.i67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i.i.i.i68 = icmp eq i32 %trace_fsmonitor.val.i.i.i66, 0
+  %176 = and i8 %trace_fsmonitor.val4.i.i.i67, 1
+  %.not35.i.i.i69 = icmp ne i8 %176, 0
+  %.not3.i.i.i70 = select i1 %.not.i.i.i.i68, i1 %.not35.i.i.i69, i1 false
+  br i1 %.not3.i.i.i70, label %179, label %177
+
+177:                                              ; preds = %175
+  %178 = getelementptr inbounds nuw i8, ptr %171, i64 108
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 202, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.36, ptr noundef nonnull %178) #8
+  %.pre.i.i.i71 = load i32, ptr %172, align 8, !tbaa !40
+  br label %179
+
+179:                                              ; preds = %177, %175
+  %180 = phi i32 [ %173, %175 ], [ %.pre.i.i.i71, %177 ]
+  %181 = and i32 %180, -2097153
+  store i32 %181, ptr %172, align 8, !tbaa !40
+  br label %invalidate_ce_fsm.exit.i.i72
+
+invalidate_ce_fsm.exit.i.i72:                     ; preds = %179, %168
+  %182 = add nuw nsw i64 %.018.i.i65, 1
+  %indvars.iv.next.i.i73 = add nuw nsw i64 %indvars.iv.i.i64, 1
+  %183 = load i32, ptr %159, align 4, !tbaa !34
+  %184 = zext i32 %183 to i64
+  %185 = icmp samesign ult i64 %indvars.iv.next.i.i73, %184
+  br i1 %185, label %.lr.ph.i.i63, label %handle_path_with_trailing_slash.exit.i59, !llvm.loop !55
+
+handle_path_with_trailing_slash.exit.i59:         ; preds = %invalidate_ce_fsm.exit.i.i72, %.lr.ph.i.i63, %strbuf_addch.exit.i55
+  %.0.lcssa.i.i60 = phi i64 [ 0, %strbuf_addch.exit.i55 ], [ %.018.i.i65, %.lr.ph.i.i63 ], [ %182, %invalidate_ce_fsm.exit.i.i72 ]
+  call void @strbuf_release(ptr noundef nonnull %3) #8
+  br label %handle_using_dir_name_hash_icase.exit
+
+handle_using_dir_name_hash_icase.exit:            ; preds = %handle_using_name_hash_icase.exit, %handle_path_with_trailing_slash.exit.i59
+  %.0.i61 = phi i64 [ %.0.lcssa.i.i60, %handle_path_with_trailing_slash.exit.i59 ], [ 0, %handle_using_name_hash_icase.exit ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  br label %186
+
+186:                                              ; preds = %handle_using_dir_name_hash_icase.exit, %handle_path_with_trailing_slash.exit
+  %.1 = phi i64 [ %.0.i61, %handle_using_dir_name_hash_icase.exit ], [ %.0, %handle_path_with_trailing_slash.exit ]
+  %.not24 = icmp eq i64 %.1, 0
+  br i1 %.not24, label %190, label %.thread
+
+.thread:                                          ; preds = %invalidate_ce_fsm.exit.i, %125, %117, %58, %46, %186
+  %.184 = phi i64 [ %.1, %186 ], [ 1, %58 ], [ 1, %46 ], [ 1, %117 ], [ 1, %125 ], [ %40, %invalidate_ce_fsm.exit.i ]
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i77 = icmp eq i32 %trace_fsmonitor.val, 0
+  %187 = and i8 %trace_fsmonitor.val26, 1
+  %.not2586 = icmp ne i8 %187, 0
+  %.not25 = select i1 %.not.i77, i1 %.not2586, i1 false
+  br i1 %.not25, label %190, label %188
+
+188:                                              ; preds = %.thread
+  %189 = trunc i64 %.184 to i32
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 466, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.35, i32 noundef %189) #8
+  br label %190
+
+190:                                              ; preds = %.thread, %188, %186
   ret void
 }
 
-declare void @ewah_each_bit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+
+declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @fsmonitor_ewah_callback(i64 noundef %pos, ptr noundef readonly captures(none) %is) #0 {
-entry:
-  %add = add i64 %pos, 1
-  %0 = getelementptr i8, ptr %is, i64 12
-  %is.val = load i32, ptr %0, align 4
-  %conv.i = zext i32 %is.val to i64
-  %cmp.i = icmp ugt i64 %add, %conv.i
-  br i1 %cmp.i, label %if.then.i, label %assert_index_minimum.exit
+define dso_local void @add_fsmonitor(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.strbuf, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %4 = load ptr, ptr %3, align 8, !tbaa !12
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %34
 
-if.then.i:                                        ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 23, ptr noundef nonnull @.str.27, i64 noundef %add, i32 noundef %is.val) #9
+5:                                                ; preds = %1
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i = icmp eq i32 %trace_fsmonitor.val, 0
+  %6 = and i8 %trace_fsmonitor.val13, 1
+  %.not1114 = icmp ne i8 %6, 0
+  %.not11 = select i1 %.not.i, i1 %.not1114, i1 false
+  br i1 %.not11, label %8, label %7
+
+7:                                                ; preds = %5
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 764, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.25) #8
+  br label %8
+
+8:                                                ; preds = %7, %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %10 = load i32, ptr %9, align 4, !tbaa !49
+  %11 = or i32 %10, 256
+  store i32 %11, ptr %9, align 4, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
+  %12 = tail call i64 @getnanotime() #8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %2, ptr noundef nonnull @.str.2, i64 noundef %12) #8
+  %13 = call ptr @strbuf_detach(ptr noundef nonnull %2, ptr noundef null) #8
+  store ptr %13, ptr %3, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %15 = load i32, ptr %14, align 4, !tbaa !34
+  %.not16 = icmp eq i32 %15, 0
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %8
+  %16 = load ptr, ptr %0, align 8, !tbaa !37
+  br label %17
+
+17:                                               ; preds = %.lr.ph, %17
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %21 = load i32, ptr %20, align 8, !tbaa !40
+  %22 = and i32 %21, -2097153
+  store i32 %22, ptr %20, align 8, !tbaa !40
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %23 = load i32, ptr %14, align 4, !tbaa !34
+  %24 = zext i32 %23 to i64
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
+  br i1 %25, label %17, label %._crit_edge, !llvm.loop !56
+
+._crit_edge:                                      ; preds = %17, %8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %27 = load ptr, ptr %26, align 8, !tbaa !48
+  %.not12 = icmp eq ptr %27, null
+  br i1 %.not12, label %33, label %28
+
+28:                                               ; preds = %._crit_edge
+  call void @add_untracked_cache(ptr noundef nonnull %0) #8
+  %29 = load ptr, ptr %26, align 8, !tbaa !48
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 224
+  %31 = load i8, ptr %30, align 8
+  %32 = or i8 %31, 1
+  store i8 %32, ptr %30, align 8
+  br label %33
+
+33:                                               ; preds = %28, %._crit_edge
+  call void @refresh_fsmonitor(ptr noundef nonnull %0)
+  br label %34
+
+34:                                               ; preds = %33, %1
+  ret void
+}
+
+declare void @add_untracked_cache(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define dso_local void @remove_fsmonitor(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %12, label %4
+
+4:                                                ; preds = %1
+  %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i = icmp eq i32 %trace_fsmonitor.val, 0
+  %5 = and i8 %trace_fsmonitor.val5, 1
+  %.not46 = icmp ne i8 %5, 0
+  %.not4 = select i1 %.not.i, i1 %.not46, i1 false
+  br i1 %.not4, label %7, label %6
+
+6:                                                ; preds = %4
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 786, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.26) #8
+  %.pre = load ptr, ptr %2, align 8, !tbaa !12
+  br label %7
+
+7:                                                ; preds = %4, %6
+  %8 = phi ptr [ %3, %4 ], [ %.pre, %6 ]
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %10 = load i32, ptr %9, align 4, !tbaa !49
+  %11 = or i32 %10, 256
+  store i32 %11, ptr %9, align 4, !tbaa !49
+  tail call void @free(ptr noundef %8) #8
+  store ptr null, ptr %2, align 8, !tbaa !12
+  br label %12
+
+12:                                               ; preds = %7, %1
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @tweak_fsmonitor(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %4 = tail call i32 @fsm_settings__get_mode(ptr noundef %3) #8
+  %5 = icmp sgt i32 %4, 0
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %35, label %8
+
+8:                                                ; preds = %1
+  br i1 %5, label %.preheader, label %33
+
+.preheader:                                       ; preds = %8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %10 = load i32, ptr %9, align 4, !tbaa !34
+  %.not20 = icmp eq i32 %10, 0
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
+  %11 = load ptr, ptr %0, align 8, !tbaa !37
+  br label %12
+
+12:                                               ; preds = %.lr.ph, %24
+  %13 = phi i32 [ %10, %.lr.ph ], [ %25, %24 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8, !tbaa !38
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 52
+  %17 = load i32, ptr %16, align 4, !tbaa !40
+  %18 = and i32 %17, 61440
+  %19 = icmp eq i32 %18, 57344
+  br i1 %19, label %24, label %20
+
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %22 = load i32, ptr %21, align 8, !tbaa !40
+  %23 = or i32 %22, 2097152
+  store i32 %23, ptr %21, align 8, !tbaa !40
+  %.pre = load i32, ptr %9, align 4, !tbaa !34
+  br label %24
+
+24:                                               ; preds = %12, %20
+  %25 = phi i32 [ %13, %12 ], [ %.pre, %20 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %26 = zext i32 %25 to i64
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
+  br i1 %27, label %12, label %._crit_edge, !llvm.loop !57
+
+._crit_edge:                                      ; preds = %24, %.preheader
+  %.lcssa = phi i32 [ 0, %.preheader ], [ %25, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %29 = load i64, ptr %28, align 8, !tbaa !31
+  %30 = zext i32 %.lcssa to i64
+  %31 = icmp ugt i64 %29, %30
+  br i1 %31, label %32, label %assert_index_minimum.exit
+
+32:                                               ; preds = %._crit_edge
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 28, ptr noundef nonnull @.str.27, i64 noundef %29, i32 noundef %.lcssa) #10
   unreachable
 
-assert_index_minimum.exit:                        ; preds = %entry
-  %1 = load ptr, ptr %is, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %pos
-  %2 = load ptr, ptr %arrayidx, align 8
-  %ce_flags = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %3 = load i32, ptr %ce_flags, align 8
-  %and = and i32 %3, -2097153
-  store i32 %and, ptr %ce_flags, align 8
+assert_index_minimum.exit:                        ; preds = %._crit_edge
+  tail call void @ewah_each_bit(ptr noundef nonnull %7, ptr noundef nonnull @fsmonitor_ewah_callback, ptr noundef nonnull %0) #8
+  tail call void @refresh_fsmonitor(ptr noundef nonnull %0)
+  %.pre23 = load ptr, ptr %6, align 8, !tbaa !29
+  br label %33
+
+33:                                               ; preds = %assert_index_minimum.exit, %8
+  %34 = phi ptr [ %.pre23, %assert_index_minimum.exit ], [ %7, %8 ]
+  tail call void @ewah_free(ptr noundef %34) #8
+  store ptr null, ptr %6, align 8, !tbaa !29
+  br label %35
+
+35:                                               ; preds = %33, %1
+  br i1 %5, label %36, label %37
+
+36:                                               ; preds = %35
+  tail call void @add_fsmonitor(ptr noundef nonnull %0)
+  br label %remove_fsmonitor.exit
+
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %39 = load ptr, ptr %38, align 8, !tbaa !12
+  %.not.i = icmp eq ptr %39, null
+  br i1 %.not.i, label %remove_fsmonitor.exit, label %40
+
+40:                                               ; preds = %37
+  %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
+  %trace_fsmonitor.val5.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %.not.i.i = icmp eq i32 %trace_fsmonitor.val.i, 0
+  %41 = and i8 %trace_fsmonitor.val5.i, 1
+  %.not46.i = icmp ne i8 %41, 0
+  %.not4.i = select i1 %.not.i.i, i1 %.not46.i, i1 false
+  br i1 %.not4.i, label %43, label %42
+
+42:                                               ; preds = %40
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 786, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.26) #8
+  %.pre.i = load ptr, ptr %38, align 8, !tbaa !12
+  br label %43
+
+43:                                               ; preds = %42, %40
+  %44 = phi ptr [ %39, %40 ], [ %.pre.i, %42 ]
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %46 = load i32, ptr %45, align 4, !tbaa !49
+  %47 = or i32 %46, 256
+  store i32 %47, ptr %45, align 4, !tbaa !49
+  tail call void @free(ptr noundef %44) #8
+  store ptr null, ptr %38, align 8, !tbaa !12
+  br label %remove_fsmonitor.exit
+
+remove_fsmonitor.exit:                            ; preds = %43, %37, %36
+  ret void
+}
+
+declare void @ewah_each_bit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define internal void @fsmonitor_ewah_callback(i64 noundef %0, ptr noundef readonly captures(none) %1) #0 {
+  %3 = add i64 %0, 1
+  %4 = getelementptr i8, ptr %1, i64 12
+  %.val = load i32, ptr %4, align 4, !tbaa !34
+  %5 = zext i32 %.val to i64
+  %6 = icmp ugt i64 %3, %5
+  br i1 %6, label %7, label %assert_index_minimum.exit
+
+7:                                                ; preds = %2
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 28, ptr noundef nonnull @.str.27, i64 noundef %3, i32 noundef %.val) #10
+  unreachable
+
+assert_index_minimum.exit:                        ; preds = %2
+  %8 = load ptr, ptr %1, align 8, !tbaa !37
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %0
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %12 = load i32, ptr %11, align 8, !tbaa !40
+  %13 = and i32 %12, -2097153
+  store i32 %13, ptr %11, align 8, !tbaa !40
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
-declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @git_config_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @repo_config_get_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @strvec_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @strvec_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @get_git_work_tree() local_unnamed_addr #2
+declare ptr @repo_get_work_tree(ptr noundef) local_unnamed_addr #3
 
-declare i32 @pipe_command(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @pipe_command(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @index_name_pos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @index_name_pos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @untracked_cache_invalidate_trimmed_path(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @untracked_cache_invalidate_path(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare ptr @index_file_exists(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare i32 @index_dir_find(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { noreturn nounwind }
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !9, i64 8}
+!8 = !{!"strbuf", !9, i64 0, !9, i64 8, !10, i64 16}
+!9 = !{!"long", !5, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!13, !10, i64 208}
+!13 = !{!"index_state", !14, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !16, i64 24, !17, i64 32, !18, i64 40, !19, i64 48, !15, i64 56, !15, i64 56, !15, i64 56, !15, i64 56, !15, i64 56, !15, i64 56, !15, i64 60, !20, i64 64, !20, i64 112, !22, i64 160, !23, i64 200, !10, i64 208, !24, i64 216, !25, i64 224, !26, i64 232, !27, i64 240, !28, i64 248}
+!14 = !{!"p2 _ZTS11cache_entry", !11, i64 0}
+!15 = !{!"int", !5, i64 0}
+!16 = !{!"p1 _ZTS11string_list", !11, i64 0}
+!17 = !{!"p1 _ZTS10cache_tree", !11, i64 0}
+!18 = !{!"p1 _ZTS11split_index", !11, i64 0}
+!19 = !{!"cache_time", !15, i64 0, !15, i64 4}
+!20 = !{!"hashmap", !21, i64 0, !11, i64 8, !11, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40}
+!21 = !{!"p2 _ZTS13hashmap_entry", !11, i64 0}
+!22 = !{!"object_id", !5, i64 0, !15, i64 32}
+!23 = !{!"p1 _ZTS15untracked_cache", !11, i64 0}
+!24 = !{!"p1 _ZTS11ewah_bitmap", !11, i64 0}
+!25 = !{!"p1 _ZTS8mem_pool", !11, i64 0}
+!26 = !{!"p1 _ZTS8progress", !11, i64 0}
+!27 = !{!"p1 _ZTS10repository", !11, i64 0}
+!28 = !{!"p1 _ZTS12pattern_list", !11, i64 0}
+!29 = !{!13, !24, i64 216}
+!30 = !{!13, !18, i64 40}
+!31 = !{!32, !9, i64 24}
+!32 = !{!"ewah_bitmap", !33, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !33, i64 32}
+!33 = !{!"p1 long", !11, i64 0}
+!34 = !{!13, !15, i64 12}
+!35 = !{!36, !15, i64 8}
+!36 = !{!"trace_key", !10, i64 0, !15, i64 8, !15, i64 12, !15, i64 12}
+!37 = !{!13, !14, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS11cache_entry", !11, i64 0}
+!40 = !{!15, !15, i64 0}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = !{!8, !9, i64 0}
+!44 = !{!8, !10, i64 16}
+!45 = !{!13, !27, i64 240}
+!46 = !{!27, !27, i64 0}
+!47 = distinct !{!47, !42}
+!48 = !{!13, !23, i64 200}
+!49 = !{!13, !15, i64 20}
+!50 = distinct !{!50, !42}
+!51 = !{!52, !10, i64 96}
+!52 = !{!"child_process", !53, i64 0, !53, i64 24, !15, i64 48, !15, i64 52, !9, i64 56, !10, i64 64, !10, i64 72, !15, i64 80, !15, i64 84, !15, i64 88, !10, i64 96, !15, i64 104, !15, i64 104, !15, i64 104, !15, i64 104, !15, i64 104, !15, i64 104, !15, i64 104, !15, i64 104, !15, i64 105, !15, i64 105, !11, i64 112}
+!53 = !{!"strvec", !54, i64 0, !9, i64 8, !9, i64 16}
+!54 = !{!"p2 omnipotent char", !11, i64 0}
+!55 = distinct !{!55, !42}
+!56 = distinct !{!56, !42}
+!57 = distinct !{!57, !42}

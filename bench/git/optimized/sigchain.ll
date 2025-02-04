@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/git/original/sigchain.ll'
 source_filename = "bench/git/original/sigchain.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.sigchain_signal = type { ptr, i32, i32 }
 
@@ -11,67 +11,66 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @sigchain_push(i32 noundef %sig, ptr noundef %f) local_unnamed_addr #0 {
-entry:
-  %idx.ext = sext i32 %sig to i64
-  %add.ptr = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext
-  %0 = add i32 %sig, -32
-  %or.cond.i = icmp ult i32 %0, -31
-  br i1 %or.cond.i, label %if.then.i, label %check_signum.exit
+define dso_local range(i32 -1, 1) i32 @sigchain_push(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = sext i32 %0 to i64
+  %4 = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %3
+  %5 = add i32 %0, -32
+  %or.cond.i = icmp ult i32 %5, -31
+  br i1 %or.cond.i, label %6, label %check_signum.exit
 
-if.then.i:                                        ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %sig) #4
+6:                                                ; preds = %2
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %0) #4
   unreachable
 
-check_signum.exit:                                ; preds = %entry
-  %n = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
-  %1 = load i32, ptr %n, align 8
-  %alloc = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
-  %2 = load i32, ptr %alloc, align 4
-  %cmp.not = icmp slt i32 %1, %2
-  br i1 %cmp.not, label %do.end, label %if.then
+check_signum.exit:                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %10 = load i32, ptr %9, align 4, !tbaa !10
+  %.not = icmp slt i32 %8, %10
+  br i1 %.not, label %22, label %11
 
-if.then:                                          ; preds = %check_signum.exit
-  %add = add nsw i32 %1, 1
-  %3 = mul i32 %2, 3
-  %mul = add i32 %3, 48
-  %div = sdiv i32 %mul, 2
-  %cmp5.not = icmp sgt i32 %div, %1
-  %div.add = select i1 %cmp5.not, i32 %div, i32 %add
-  store i32 %div.add, ptr %alloc, align 4
-  %conv = sext i32 %div.add to i64
-  %cmp.i = icmp slt i32 %div.add, 0
-  br i1 %cmp.i, label %if.then.i18, label %st_mult.exit
+11:                                               ; preds = %check_signum.exit
+  %12 = add nsw i32 %8, 1
+  %13 = mul i32 %10, 3
+  %14 = add i32 %13, 48
+  %15 = sdiv i32 %14, 2
+  %.not23 = icmp sgt i32 %15, %8
+  %. = select i1 %.not23, i32 %15, i32 %12
+  store i32 %., ptr %9, align 4, !tbaa !10
+  %16 = sext i32 %. to i64
+  %17 = icmp slt i32 %., 0
+  br i1 %17, label %18, label %st_mult.exit
 
-if.then.i18:                                      ; preds = %if.then
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv) #4
+18:                                               ; preds = %11
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %16) #4
   unreachable
 
-st_mult.exit:                                     ; preds = %if.then
-  %4 = load ptr, ptr %add.ptr, align 16
-  %mul.i = shl nuw nsw i64 %conv, 3
-  %call16 = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %mul.i) #5
-  store ptr %call16, ptr %add.ptr, align 16
-  br label %do.end
+st_mult.exit:                                     ; preds = %11
+  %19 = load ptr, ptr %4, align 16, !tbaa !11
+  %20 = shl nuw nsw i64 %16, 3
+  %21 = tail call ptr @xrealloc(ptr noundef %19, i64 noundef %20) #5
+  store ptr %21, ptr %4, align 16, !tbaa !11
+  br label %22
 
-do.end:                                           ; preds = %check_signum.exit, %st_mult.exit
-  %call19 = tail call ptr @signal(i32 noundef %sig, ptr noundef %f) #5
-  %5 = load ptr, ptr %add.ptr, align 16
-  %6 = load i32, ptr %n, align 8
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
-  store ptr %call19, ptr %arrayidx, align 8
-  %cmp26 = icmp eq ptr %call19, inttoptr (i64 -1 to ptr)
-  br i1 %cmp26, label %return, label %if.end29
+22:                                               ; preds = %st_mult.exit, %check_signum.exit
+  %23 = tail call ptr @signal(i32 noundef %0, ptr noundef %1) #5
+  %24 = load ptr, ptr %4, align 16, !tbaa !11
+  %25 = load i32, ptr %7, align 8, !tbaa !4
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
+  store ptr %23, ptr %27, align 8, !tbaa !12
+  %28 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
+  br i1 %28, label %31, label %29
 
-if.end29:                                         ; preds = %do.end
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %n, align 8
-  br label %return
+29:                                               ; preds = %22
+  %30 = add nsw i32 %25, 1
+  store i32 %30, ptr %7, align 8, !tbaa !4
+  br label %31
 
-return:                                           ; preds = %do.end, %if.end29
-  %retval.0 = phi i32 [ 0, %if.end29 ], [ -1, %do.end ]
-  ret i32 %retval.0
+31:                                               ; preds = %22, %29
+  %.0 = phi i32 [ 0, %29 ], [ -1, %22 ]
+  ret i32 %.0
 }
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -80,379 +79,376 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @sigchain_pop(i32 noundef %sig) local_unnamed_addr #0 {
-entry:
-  %idx.ext = sext i32 %sig to i64
-  %add.ptr = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext
-  %0 = add i32 %sig, -32
-  %or.cond.i = icmp ult i32 %0, -31
-  br i1 %or.cond.i, label %if.then.i, label %check_signum.exit
+define dso_local range(i32 -1, 1) i32 @sigchain_pop(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = sext i32 %0 to i64
+  %3 = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %2
+  %4 = add i32 %0, -32
+  %or.cond.i = icmp ult i32 %4, -31
+  br i1 %or.cond.i, label %5, label %check_signum.exit
 
-if.then.i:                                        ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %sig) #4
+5:                                                ; preds = %1
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %0) #4
   unreachable
 
-check_signum.exit:                                ; preds = %entry
-  %n = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
-  %1 = load i32, ptr %n, align 8
-  %cmp = icmp slt i32 %1, 1
-  br i1 %cmp, label %return, label %if.end
+check_signum.exit:                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !4
+  %8 = icmp slt i32 %7, 1
+  br i1 %8, label %20, label %9
 
-if.end:                                           ; preds = %check_signum.exit
-  %2 = load ptr, ptr %add.ptr, align 16
-  %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr ptr, ptr %2, i64 %3
-  %arrayidx = getelementptr i8, ptr %4, i64 -8
-  %5 = load ptr, ptr %arrayidx, align 8
-  %call = tail call ptr @signal(i32 noundef %sig, ptr noundef %5) #5
-  %cmp2 = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
-  br i1 %cmp2, label %return, label %if.end4
+9:                                                ; preds = %check_signum.exit
+  %10 = load ptr, ptr %3, align 16, !tbaa !11
+  %11 = zext nneg i32 %7 to i64
+  %12 = getelementptr ptr, ptr %10, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -8
+  %14 = load ptr, ptr %13, align 8, !tbaa !12
+  %15 = tail call ptr @signal(i32 noundef %0, ptr noundef %14) #5
+  %16 = icmp eq ptr %15, inttoptr (i64 -1 to ptr)
+  br i1 %16, label %20, label %17
 
-if.end4:                                          ; preds = %if.end
-  %6 = load i32, ptr %n, align 8
-  %dec = add nsw i32 %6, -1
-  store i32 %dec, ptr %n, align 8
-  br label %return
+17:                                               ; preds = %9
+  %18 = load i32, ptr %6, align 8, !tbaa !4
+  %19 = add nsw i32 %18, -1
+  store i32 %19, ptr %6, align 8, !tbaa !4
+  br label %20
 
-return:                                           ; preds = %if.end, %check_signum.exit, %if.end4
-  %retval.0 = phi i32 [ 0, %if.end4 ], [ 0, %check_signum.exit ], [ -1, %if.end ]
-  ret i32 %retval.0
+20:                                               ; preds = %9, %check_signum.exit, %17
+  %.0 = phi i32 [ 0, %17 ], [ 0, %check_signum.exit ], [ -1, %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sigchain_push_common(ptr noundef %f) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 44), align 4
-  %cmp.not.i = icmp slt i32 %0, %1
-  br i1 %cmp.not.i, label %do.end.i, label %if.then.i
+define dso_local void @sigchain_push_common(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8, !tbaa !4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 44), align 4, !tbaa !10
+  %.not.i = icmp slt i32 %2, %3
+  br i1 %.not.i, label %15, label %4
 
-if.then.i:                                        ; preds = %entry
-  %add.i = add nsw i32 %0, 1
-  %2 = mul i32 %1, 3
-  %mul.i = add i32 %2, 48
-  %div.i = sdiv i32 %mul.i, 2
-  %cmp5.not.i = icmp sgt i32 %div.i, %0
-  %div.add.i = select i1 %cmp5.not.i, i32 %div.i, i32 %add.i
-  store i32 %div.add.i, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 44), align 4
-  %conv.i = sext i32 %div.add.i to i64
-  %cmp.i.i = icmp slt i32 %div.add.i, 0
-  br i1 %cmp.i.i, label %if.then.i18.i, label %st_mult.exit.i
+4:                                                ; preds = %1
+  %5 = add nsw i32 %2, 1
+  %6 = mul i32 %3, 3
+  %7 = add i32 %6, 48
+  %8 = sdiv i32 %7, 2
+  %.not23.i = icmp sgt i32 %8, %2
+  %..i = select i1 %.not23.i, i32 %8, i32 %5
+  store i32 %..i, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 44), align 4, !tbaa !10
+  %9 = sext i32 %..i to i64
+  %10 = icmp slt i32 %..i, 0
+  br i1 %10, label %11, label %st_mult.exit.i
 
-if.then.i18.i:                                    ; preds = %if.then.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #4
+11:                                               ; preds = %4
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %9) #4
   unreachable
 
-st_mult.exit.i:                                   ; preds = %if.then.i
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16
-  %mul.i.i = shl nuw nsw i64 %conv.i, 3
-  %call16.i = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %mul.i.i) #5
-  store ptr %call16.i, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16
-  br label %do.end.i
+st_mult.exit.i:                                   ; preds = %4
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16, !tbaa !11
+  %13 = shl nuw nsw i64 %9, 3
+  %14 = tail call ptr @xrealloc(ptr noundef %12, i64 noundef %13) #5
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16, !tbaa !11
+  br label %15
 
-do.end.i:                                         ; preds = %st_mult.exit.i, %entry
-  %call19.i = tail call ptr @signal(i32 noundef 2, ptr noundef %f) #5
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8
-  %idxprom.i = sext i32 %5 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i
-  store ptr %call19.i, ptr %arrayidx.i, align 8
-  %cmp26.i = icmp eq ptr %call19.i, inttoptr (i64 -1 to ptr)
-  br i1 %cmp26.i, label %sigchain_push.exit, label %if.end29.i
+15:                                               ; preds = %st_mult.exit.i, %1
+  %16 = tail call ptr @signal(i32 noundef 2, ptr noundef %0) #5
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16, !tbaa !11
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8, !tbaa !4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  store ptr %16, ptr %20, align 8, !tbaa !12
+  %21 = icmp eq ptr %16, inttoptr (i64 -1 to ptr)
+  br i1 %21, label %sigchain_push.exit, label %22
 
-if.end29.i:                                       ; preds = %do.end.i
-  %inc.i = add nsw i32 %5, 1
-  store i32 %inc.i, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8
+22:                                               ; preds = %15
+  %23 = add nsw i32 %18, 1
+  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8, !tbaa !4
   br label %sigchain_push.exit
 
-sigchain_push.exit:                               ; preds = %do.end.i, %if.end29.i
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 28), align 4
-  %cmp.not.i5 = icmp slt i32 %6, %7
-  br i1 %cmp.not.i5, label %do.end.i17, label %if.then.i6
+sigchain_push.exit:                               ; preds = %15, %22
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8, !tbaa !4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 28), align 4, !tbaa !10
+  %.not.i5 = icmp slt i32 %24, %25
+  br i1 %.not.i5, label %37, label %26
 
-if.then.i6:                                       ; preds = %sigchain_push.exit
-  %add.i7 = add nsw i32 %6, 1
-  %8 = mul i32 %7, 3
-  %mul.i8 = add i32 %8, 48
-  %div.i9 = sdiv i32 %mul.i8, 2
-  %cmp5.not.i10 = icmp sgt i32 %div.i9, %6
-  %div.add.i11 = select i1 %cmp5.not.i10, i32 %div.i9, i32 %add.i7
-  store i32 %div.add.i11, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 28), align 4
-  %conv.i12 = sext i32 %div.add.i11 to i64
-  %cmp.i.i13 = icmp slt i32 %div.add.i11, 0
-  br i1 %cmp.i.i13, label %if.then.i18.i25, label %st_mult.exit.i14
+26:                                               ; preds = %sigchain_push.exit
+  %27 = add nsw i32 %24, 1
+  %28 = mul i32 %25, 3
+  %29 = add i32 %28, 48
+  %30 = sdiv i32 %29, 2
+  %.not23.i6 = icmp sgt i32 %30, %24
+  %..i7 = select i1 %.not23.i6, i32 %30, i32 %27
+  store i32 %..i7, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 28), align 4, !tbaa !10
+  %31 = sext i32 %..i7 to i64
+  %32 = icmp slt i32 %..i7, 0
+  br i1 %32, label %33, label %st_mult.exit.i8
 
-if.then.i18.i25:                                  ; preds = %if.then.i6
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv.i12) #4
+33:                                               ; preds = %26
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %31) #4
   unreachable
 
-st_mult.exit.i14:                                 ; preds = %if.then.i6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16
-  %mul.i.i15 = shl nuw nsw i64 %conv.i12, 3
-  %call16.i16 = tail call ptr @xrealloc(ptr noundef %9, i64 noundef %mul.i.i15) #5
-  store ptr %call16.i16, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16
-  br label %do.end.i17
+st_mult.exit.i8:                                  ; preds = %26
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16, !tbaa !11
+  %35 = shl nuw nsw i64 %31, 3
+  %36 = tail call ptr @xrealloc(ptr noundef %34, i64 noundef %35) #5
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16, !tbaa !11
+  br label %37
 
-do.end.i17:                                       ; preds = %st_mult.exit.i14, %sigchain_push.exit
-  %call19.i18 = tail call ptr @signal(i32 noundef 1, ptr noundef %f) #5
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8
-  %idxprom.i19 = sext i32 %11 to i64
-  %arrayidx.i20 = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i19
-  store ptr %call19.i18, ptr %arrayidx.i20, align 8
-  %cmp26.i21 = icmp eq ptr %call19.i18, inttoptr (i64 -1 to ptr)
-  br i1 %cmp26.i21, label %sigchain_push.exit26, label %if.end29.i22
+37:                                               ; preds = %st_mult.exit.i8, %sigchain_push.exit
+  %38 = tail call ptr @signal(i32 noundef 1, ptr noundef %0) #5
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16, !tbaa !11
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8, !tbaa !4
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  store ptr %38, ptr %42, align 8, !tbaa !12
+  %43 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
+  br i1 %43, label %sigchain_push.exit10, label %44
 
-if.end29.i22:                                     ; preds = %do.end.i17
-  %inc.i23 = add nsw i32 %11, 1
-  store i32 %inc.i23, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8
-  br label %sigchain_push.exit26
+44:                                               ; preds = %37
+  %45 = add nsw i32 %40, 1
+  store i32 %45, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8, !tbaa !4
+  br label %sigchain_push.exit10
 
-sigchain_push.exit26:                             ; preds = %do.end.i17, %if.end29.i22
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 252), align 4
-  %cmp.not.i27 = icmp slt i32 %12, %13
-  br i1 %cmp.not.i27, label %do.end.i39, label %if.then.i28
+sigchain_push.exit10:                             ; preds = %37, %44
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8, !tbaa !4
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 252), align 4, !tbaa !10
+  %.not.i11 = icmp slt i32 %46, %47
+  br i1 %.not.i11, label %59, label %48
 
-if.then.i28:                                      ; preds = %sigchain_push.exit26
-  %add.i29 = add nsw i32 %12, 1
-  %14 = mul i32 %13, 3
-  %mul.i30 = add i32 %14, 48
-  %div.i31 = sdiv i32 %mul.i30, 2
-  %cmp5.not.i32 = icmp sgt i32 %div.i31, %12
-  %div.add.i33 = select i1 %cmp5.not.i32, i32 %div.i31, i32 %add.i29
-  store i32 %div.add.i33, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 252), align 4
-  %conv.i34 = sext i32 %div.add.i33 to i64
-  %cmp.i.i35 = icmp slt i32 %div.add.i33, 0
-  br i1 %cmp.i.i35, label %if.then.i18.i47, label %st_mult.exit.i36
+48:                                               ; preds = %sigchain_push.exit10
+  %49 = add nsw i32 %46, 1
+  %50 = mul i32 %47, 3
+  %51 = add i32 %50, 48
+  %52 = sdiv i32 %51, 2
+  %.not23.i12 = icmp sgt i32 %52, %46
+  %..i13 = select i1 %.not23.i12, i32 %52, i32 %49
+  store i32 %..i13, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 252), align 4, !tbaa !10
+  %53 = sext i32 %..i13 to i64
+  %54 = icmp slt i32 %..i13, 0
+  br i1 %54, label %55, label %st_mult.exit.i14
 
-if.then.i18.i47:                                  ; preds = %if.then.i28
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv.i34) #4
+55:                                               ; preds = %48
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %53) #4
   unreachable
 
-st_mult.exit.i36:                                 ; preds = %if.then.i28
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16
-  %mul.i.i37 = shl nuw nsw i64 %conv.i34, 3
-  %call16.i38 = tail call ptr @xrealloc(ptr noundef %15, i64 noundef %mul.i.i37) #5
-  store ptr %call16.i38, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16
-  br label %do.end.i39
+st_mult.exit.i14:                                 ; preds = %48
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16, !tbaa !11
+  %57 = shl nuw nsw i64 %53, 3
+  %58 = tail call ptr @xrealloc(ptr noundef %56, i64 noundef %57) #5
+  store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16, !tbaa !11
+  br label %59
 
-do.end.i39:                                       ; preds = %st_mult.exit.i36, %sigchain_push.exit26
-  %call19.i40 = tail call ptr @signal(i32 noundef 15, ptr noundef %f) #5
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16
-  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8
-  %idxprom.i41 = sext i32 %17 to i64
-  %arrayidx.i42 = getelementptr inbounds ptr, ptr %16, i64 %idxprom.i41
-  store ptr %call19.i40, ptr %arrayidx.i42, align 8
-  %cmp26.i43 = icmp eq ptr %call19.i40, inttoptr (i64 -1 to ptr)
-  br i1 %cmp26.i43, label %sigchain_push.exit48, label %if.end29.i44
+59:                                               ; preds = %st_mult.exit.i14, %sigchain_push.exit10
+  %60 = tail call ptr @signal(i32 noundef 15, ptr noundef %0) #5
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16, !tbaa !11
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8, !tbaa !4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
+  store ptr %60, ptr %64, align 8, !tbaa !12
+  %65 = icmp eq ptr %60, inttoptr (i64 -1 to ptr)
+  br i1 %65, label %sigchain_push.exit16, label %66
 
-if.end29.i44:                                     ; preds = %do.end.i39
-  %inc.i45 = add nsw i32 %17, 1
-  store i32 %inc.i45, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8
-  br label %sigchain_push.exit48
+66:                                               ; preds = %59
+  %67 = add nsw i32 %62, 1
+  store i32 %67, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8, !tbaa !4
+  br label %sigchain_push.exit16
 
-sigchain_push.exit48:                             ; preds = %do.end.i39, %if.end29.i44
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8
-  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 60), align 4
-  %cmp.not.i49 = icmp slt i32 %18, %19
-  br i1 %cmp.not.i49, label %do.end.i61, label %if.then.i50
+sigchain_push.exit16:                             ; preds = %59, %66
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8, !tbaa !4
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 60), align 4, !tbaa !10
+  %.not.i17 = icmp slt i32 %68, %69
+  br i1 %.not.i17, label %81, label %70
 
-if.then.i50:                                      ; preds = %sigchain_push.exit48
-  %add.i51 = add nsw i32 %18, 1
-  %20 = mul i32 %19, 3
-  %mul.i52 = add i32 %20, 48
-  %div.i53 = sdiv i32 %mul.i52, 2
-  %cmp5.not.i54 = icmp sgt i32 %div.i53, %18
-  %div.add.i55 = select i1 %cmp5.not.i54, i32 %div.i53, i32 %add.i51
-  store i32 %div.add.i55, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 60), align 4
-  %conv.i56 = sext i32 %div.add.i55 to i64
-  %cmp.i.i57 = icmp slt i32 %div.add.i55, 0
-  br i1 %cmp.i.i57, label %if.then.i18.i69, label %st_mult.exit.i58
+70:                                               ; preds = %sigchain_push.exit16
+  %71 = add nsw i32 %68, 1
+  %72 = mul i32 %69, 3
+  %73 = add i32 %72, 48
+  %74 = sdiv i32 %73, 2
+  %.not23.i18 = icmp sgt i32 %74, %68
+  %..i19 = select i1 %.not23.i18, i32 %74, i32 %71
+  store i32 %..i19, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 60), align 4, !tbaa !10
+  %75 = sext i32 %..i19 to i64
+  %76 = icmp slt i32 %..i19, 0
+  br i1 %76, label %77, label %st_mult.exit.i20
 
-if.then.i18.i69:                                  ; preds = %if.then.i50
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv.i56) #4
+77:                                               ; preds = %70
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %75) #4
   unreachable
 
-st_mult.exit.i58:                                 ; preds = %if.then.i50
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16
-  %mul.i.i59 = shl nuw nsw i64 %conv.i56, 3
-  %call16.i60 = tail call ptr @xrealloc(ptr noundef %21, i64 noundef %mul.i.i59) #5
-  store ptr %call16.i60, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16
-  br label %do.end.i61
+st_mult.exit.i20:                                 ; preds = %70
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16, !tbaa !11
+  %79 = shl nuw nsw i64 %75, 3
+  %80 = tail call ptr @xrealloc(ptr noundef %78, i64 noundef %79) #5
+  store ptr %80, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16, !tbaa !11
+  br label %81
 
-do.end.i61:                                       ; preds = %st_mult.exit.i58, %sigchain_push.exit48
-  %call19.i62 = tail call ptr @signal(i32 noundef 3, ptr noundef %f) #5
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16
-  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8
-  %idxprom.i63 = sext i32 %23 to i64
-  %arrayidx.i64 = getelementptr inbounds ptr, ptr %22, i64 %idxprom.i63
-  store ptr %call19.i62, ptr %arrayidx.i64, align 8
-  %cmp26.i65 = icmp eq ptr %call19.i62, inttoptr (i64 -1 to ptr)
-  br i1 %cmp26.i65, label %sigchain_push.exit70, label %if.end29.i66
+81:                                               ; preds = %st_mult.exit.i20, %sigchain_push.exit16
+  %82 = tail call ptr @signal(i32 noundef 3, ptr noundef %0) #5
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16, !tbaa !11
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8, !tbaa !4
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds ptr, ptr %83, i64 %85
+  store ptr %82, ptr %86, align 8, !tbaa !12
+  %87 = icmp eq ptr %82, inttoptr (i64 -1 to ptr)
+  br i1 %87, label %sigchain_push.exit22, label %88
 
-if.end29.i66:                                     ; preds = %do.end.i61
-  %inc.i67 = add nsw i32 %23, 1
-  store i32 %inc.i67, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8
-  br label %sigchain_push.exit70
+88:                                               ; preds = %81
+  %89 = add nsw i32 %84, 1
+  store i32 %89, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8, !tbaa !4
+  br label %sigchain_push.exit22
 
-sigchain_push.exit70:                             ; preds = %do.end.i61, %if.end29.i66
-  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 220), align 4
-  %cmp.not.i71 = icmp slt i32 %24, %25
-  br i1 %cmp.not.i71, label %do.end.i83, label %if.then.i72
+sigchain_push.exit22:                             ; preds = %81, %88
+  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8, !tbaa !4
+  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 220), align 4, !tbaa !10
+  %.not.i23 = icmp slt i32 %90, %91
+  br i1 %.not.i23, label %103, label %92
 
-if.then.i72:                                      ; preds = %sigchain_push.exit70
-  %add.i73 = add nsw i32 %24, 1
-  %26 = mul i32 %25, 3
-  %mul.i74 = add i32 %26, 48
-  %div.i75 = sdiv i32 %mul.i74, 2
-  %cmp5.not.i76 = icmp sgt i32 %div.i75, %24
-  %div.add.i77 = select i1 %cmp5.not.i76, i32 %div.i75, i32 %add.i73
-  store i32 %div.add.i77, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 220), align 4
-  %conv.i78 = sext i32 %div.add.i77 to i64
-  %cmp.i.i79 = icmp slt i32 %div.add.i77, 0
-  br i1 %cmp.i.i79, label %if.then.i18.i91, label %st_mult.exit.i80
+92:                                               ; preds = %sigchain_push.exit22
+  %93 = add nsw i32 %90, 1
+  %94 = mul i32 %91, 3
+  %95 = add i32 %94, 48
+  %96 = sdiv i32 %95, 2
+  %.not23.i24 = icmp sgt i32 %96, %90
+  %..i25 = select i1 %.not23.i24, i32 %96, i32 %93
+  store i32 %..i25, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 220), align 4, !tbaa !10
+  %97 = sext i32 %..i25 to i64
+  %98 = icmp slt i32 %..i25, 0
+  br i1 %98, label %99, label %st_mult.exit.i26
 
-if.then.i18.i91:                                  ; preds = %if.then.i72
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv.i78) #4
+99:                                               ; preds = %92
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %97) #4
   unreachable
 
-st_mult.exit.i80:                                 ; preds = %if.then.i72
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16
-  %mul.i.i81 = shl nuw nsw i64 %conv.i78, 3
-  %call16.i82 = tail call ptr @xrealloc(ptr noundef %27, i64 noundef %mul.i.i81) #5
-  store ptr %call16.i82, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16
-  br label %do.end.i83
+st_mult.exit.i26:                                 ; preds = %92
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16, !tbaa !11
+  %101 = shl nuw nsw i64 %97, 3
+  %102 = tail call ptr @xrealloc(ptr noundef %100, i64 noundef %101) #5
+  store ptr %102, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16, !tbaa !11
+  br label %103
 
-do.end.i83:                                       ; preds = %st_mult.exit.i80, %sigchain_push.exit70
-  %call19.i84 = tail call ptr @signal(i32 noundef 13, ptr noundef %f) #5
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8
-  %idxprom.i85 = sext i32 %29 to i64
-  %arrayidx.i86 = getelementptr inbounds ptr, ptr %28, i64 %idxprom.i85
-  store ptr %call19.i84, ptr %arrayidx.i86, align 8
-  %cmp26.i87 = icmp eq ptr %call19.i84, inttoptr (i64 -1 to ptr)
-  br i1 %cmp26.i87, label %sigchain_push.exit92, label %if.end29.i88
+103:                                              ; preds = %st_mult.exit.i26, %sigchain_push.exit22
+  %104 = tail call ptr @signal(i32 noundef 13, ptr noundef %0) #5
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16, !tbaa !11
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8, !tbaa !4
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds ptr, ptr %105, i64 %107
+  store ptr %104, ptr %108, align 8, !tbaa !12
+  %109 = icmp eq ptr %104, inttoptr (i64 -1 to ptr)
+  br i1 %109, label %sigchain_push.exit28, label %110
 
-if.end29.i88:                                     ; preds = %do.end.i83
-  %inc.i89 = add nsw i32 %29, 1
-  store i32 %inc.i89, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8
-  br label %sigchain_push.exit92
+110:                                              ; preds = %103
+  %111 = add nsw i32 %106, 1
+  store i32 %111, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8, !tbaa !4
+  br label %sigchain_push.exit28
 
-sigchain_push.exit92:                             ; preds = %do.end.i83, %if.end29.i88
+sigchain_push.exit28:                             ; preds = %103, %110
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sigchain_pop_common() local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %sigchain_pop.exit, label %if.end.i
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8, !tbaa !4
+  %2 = icmp slt i32 %1, 1
+  br i1 %2, label %sigchain_pop.exit, label %3
 
-if.end.i:                                         ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16
-  %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr ptr, ptr %1, i64 %2
-  %arrayidx.i = getelementptr i8, ptr %3, i64 -8
-  %4 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call ptr @signal(i32 noundef 13, ptr noundef %4) #5
-  %cmp2.i = icmp eq ptr %call.i, inttoptr (i64 -1 to ptr)
-  br i1 %cmp2.i, label %sigchain_pop.exit, label %if.end4.i
+3:                                                ; preds = %0
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16, !tbaa !11
+  %5 = zext nneg i32 %1 to i64
+  %6 = getelementptr ptr, ptr %4, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -8
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = tail call ptr @signal(i32 noundef 13, ptr noundef %8) #5
+  %10 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
+  br i1 %10, label %sigchain_pop.exit, label %11
 
-if.end4.i:                                        ; preds = %if.end.i
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8
-  %dec.i = add nsw i32 %5, -1
-  store i32 %dec.i, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8
+11:                                               ; preds = %3
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8, !tbaa !4
+  %13 = add nsw i32 %12, -1
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8, !tbaa !4
   br label %sigchain_pop.exit
 
-sigchain_pop.exit:                                ; preds = %entry, %if.end.i, %if.end4.i
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8
-  %cmp.i1 = icmp slt i32 %6, 1
-  br i1 %cmp.i1, label %sigchain_pop.exit9, label %if.end.i2
+sigchain_pop.exit:                                ; preds = %0, %3, %11
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8, !tbaa !4
+  %15 = icmp slt i32 %14, 1
+  br i1 %15, label %sigchain_pop.exit2, label %16
 
-if.end.i2:                                        ; preds = %sigchain_pop.exit
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16
-  %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
-  %arrayidx.i3 = getelementptr i8, ptr %9, i64 -8
-  %10 = load ptr, ptr %arrayidx.i3, align 8
-  %call.i4 = tail call ptr @signal(i32 noundef 3, ptr noundef %10) #5
-  %cmp2.i5 = icmp eq ptr %call.i4, inttoptr (i64 -1 to ptr)
-  br i1 %cmp2.i5, label %sigchain_pop.exit9, label %if.end4.i6
+16:                                               ; preds = %sigchain_pop.exit
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16, !tbaa !11
+  %18 = zext nneg i32 %14 to i64
+  %19 = getelementptr ptr, ptr %17, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 -8
+  %21 = load ptr, ptr %20, align 8, !tbaa !12
+  %22 = tail call ptr @signal(i32 noundef 3, ptr noundef %21) #5
+  %23 = icmp eq ptr %22, inttoptr (i64 -1 to ptr)
+  br i1 %23, label %sigchain_pop.exit2, label %24
 
-if.end4.i6:                                       ; preds = %if.end.i2
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8
-  %dec.i7 = add nsw i32 %11, -1
-  store i32 %dec.i7, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8
-  br label %sigchain_pop.exit9
+24:                                               ; preds = %16
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8, !tbaa !4
+  %26 = add nsw i32 %25, -1
+  store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8, !tbaa !4
+  br label %sigchain_pop.exit2
 
-sigchain_pop.exit9:                               ; preds = %sigchain_pop.exit, %if.end.i2, %if.end4.i6
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8
-  %cmp.i10 = icmp slt i32 %12, 1
-  br i1 %cmp.i10, label %sigchain_pop.exit18, label %if.end.i11
+sigchain_pop.exit2:                               ; preds = %sigchain_pop.exit, %16, %24
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8, !tbaa !4
+  %28 = icmp slt i32 %27, 1
+  br i1 %28, label %sigchain_pop.exit4, label %29
 
-if.end.i11:                                       ; preds = %sigchain_pop.exit9
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16
-  %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
-  %arrayidx.i12 = getelementptr i8, ptr %15, i64 -8
-  %16 = load ptr, ptr %arrayidx.i12, align 8
-  %call.i13 = tail call ptr @signal(i32 noundef 15, ptr noundef %16) #5
-  %cmp2.i14 = icmp eq ptr %call.i13, inttoptr (i64 -1 to ptr)
-  br i1 %cmp2.i14, label %sigchain_pop.exit18, label %if.end4.i15
+29:                                               ; preds = %sigchain_pop.exit2
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16, !tbaa !11
+  %31 = zext nneg i32 %27 to i64
+  %32 = getelementptr ptr, ptr %30, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 -8
+  %34 = load ptr, ptr %33, align 8, !tbaa !12
+  %35 = tail call ptr @signal(i32 noundef 15, ptr noundef %34) #5
+  %36 = icmp eq ptr %35, inttoptr (i64 -1 to ptr)
+  br i1 %36, label %sigchain_pop.exit4, label %37
 
-if.end4.i15:                                      ; preds = %if.end.i11
-  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8
-  %dec.i16 = add nsw i32 %17, -1
-  store i32 %dec.i16, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8
-  br label %sigchain_pop.exit18
+37:                                               ; preds = %29
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8, !tbaa !4
+  %39 = add nsw i32 %38, -1
+  store i32 %39, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8, !tbaa !4
+  br label %sigchain_pop.exit4
 
-sigchain_pop.exit18:                              ; preds = %sigchain_pop.exit9, %if.end.i11, %if.end4.i15
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8
-  %cmp.i19 = icmp slt i32 %18, 1
-  br i1 %cmp.i19, label %sigchain_pop.exit27, label %if.end.i20
+sigchain_pop.exit4:                               ; preds = %sigchain_pop.exit2, %29, %37
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8, !tbaa !4
+  %41 = icmp slt i32 %40, 1
+  br i1 %41, label %sigchain_pop.exit6, label %42
 
-if.end.i20:                                       ; preds = %sigchain_pop.exit18
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16
-  %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
-  %arrayidx.i21 = getelementptr i8, ptr %21, i64 -8
-  %22 = load ptr, ptr %arrayidx.i21, align 8
-  %call.i22 = tail call ptr @signal(i32 noundef 1, ptr noundef %22) #5
-  %cmp2.i23 = icmp eq ptr %call.i22, inttoptr (i64 -1 to ptr)
-  br i1 %cmp2.i23, label %sigchain_pop.exit27, label %if.end4.i24
+42:                                               ; preds = %sigchain_pop.exit4
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16, !tbaa !11
+  %44 = zext nneg i32 %40 to i64
+  %45 = getelementptr ptr, ptr %43, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 -8
+  %47 = load ptr, ptr %46, align 8, !tbaa !12
+  %48 = tail call ptr @signal(i32 noundef 1, ptr noundef %47) #5
+  %49 = icmp eq ptr %48, inttoptr (i64 -1 to ptr)
+  br i1 %49, label %sigchain_pop.exit6, label %50
 
-if.end4.i24:                                      ; preds = %if.end.i20
-  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8
-  %dec.i25 = add nsw i32 %23, -1
-  store i32 %dec.i25, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8
-  br label %sigchain_pop.exit27
+50:                                               ; preds = %42
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8, !tbaa !4
+  %52 = add nsw i32 %51, -1
+  store i32 %52, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8, !tbaa !4
+  br label %sigchain_pop.exit6
 
-sigchain_pop.exit27:                              ; preds = %sigchain_pop.exit18, %if.end.i20, %if.end4.i24
-  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8
-  %cmp.i28 = icmp slt i32 %24, 1
-  br i1 %cmp.i28, label %sigchain_pop.exit36, label %if.end.i29
+sigchain_pop.exit6:                               ; preds = %sigchain_pop.exit4, %42, %50
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8, !tbaa !4
+  %54 = icmp slt i32 %53, 1
+  br i1 %54, label %sigchain_pop.exit8, label %55
 
-if.end.i29:                                       ; preds = %sigchain_pop.exit27
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16
-  %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
-  %arrayidx.i30 = getelementptr i8, ptr %27, i64 -8
-  %28 = load ptr, ptr %arrayidx.i30, align 8
-  %call.i31 = tail call ptr @signal(i32 noundef 2, ptr noundef %28) #5
-  %cmp2.i32 = icmp eq ptr %call.i31, inttoptr (i64 -1 to ptr)
-  br i1 %cmp2.i32, label %sigchain_pop.exit36, label %if.end4.i33
+55:                                               ; preds = %sigchain_pop.exit6
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16, !tbaa !11
+  %57 = zext nneg i32 %53 to i64
+  %58 = getelementptr ptr, ptr %56, i64 %57
+  %59 = getelementptr i8, ptr %58, i64 -8
+  %60 = load ptr, ptr %59, align 8, !tbaa !12
+  %61 = tail call ptr @signal(i32 noundef 2, ptr noundef %60) #5
+  %62 = icmp eq ptr %61, inttoptr (i64 -1 to ptr)
+  br i1 %62, label %sigchain_pop.exit8, label %63
 
-if.end4.i33:                                      ; preds = %if.end.i29
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8
-  %dec.i34 = add nsw i32 %29, -1
-  store i32 %dec.i34, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8
-  br label %sigchain_pop.exit36
+63:                                               ; preds = %55
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8, !tbaa !4
+  %65 = add nsw i32 %64, -1
+  store i32 %65, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8, !tbaa !4
+  br label %sigchain_pop.exit8
 
-sigchain_pop.exit36:                              ; preds = %sigchain_pop.exit27, %if.end.i29, %if.end4.i33
+sigchain_pop.exit8:                               ; preds = %sigchain_pop.exit6, %55, %63
   ret void
 }
 
@@ -462,17 +458,25 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !9, i64 8}
+!5 = !{!"sigchain_signal", !6, i64 0, !9, i64 8, !9, i64 12}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!5, !9, i64 12}
+!11 = !{!5, !6, i64 0}
+!12 = !{!6, !6, i64 0}
