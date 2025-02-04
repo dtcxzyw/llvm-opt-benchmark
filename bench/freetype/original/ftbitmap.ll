@@ -13,19 +13,19 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FT_Slot_InternalRec_ = type { ptr, i32, i8, %struct.FT_Matrix_, %struct.FT_Vector_, ptr, i32 }
 %struct.FT_Matrix_ = type { i64, i64, i64, i64 }
 
-@null_bitmap = internal constant %struct.FT_Bitmap_ zeroinitializer, align 8
+@null_bitmap = internal constant { i32, i32, i32, [4 x i8], ptr, i16, i8, i8, [4 x i8], ptr } zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
 define void @FT_Bitmap_Init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 @null_bitmap, i64 40, i1 false)
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 @null_bitmap, i64 40, i1 false), !tbaa.struct !8
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -33,19 +33,19 @@ define void @FT_Bitmap_Init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @FT_Bitmap_New(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 @null_bitmap, i64 40, i1 false)
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 @null_bitmap, i64 40, i1 false), !tbaa.struct !8
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -63,255 +63,284 @@ define i32 @FT_Bitmap_Copy(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = alloca ptr, align 8
+  %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 0, ptr %9, align 4
-  %15 = load ptr, ptr %5, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %18, label %17
-
-17:                                               ; preds = %3
-  store i32 33, ptr %4, align 4
-  br label %167
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  store i32 0, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %16 = load ptr, ptr %5, align 8, !tbaa !17
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %19, label %18
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr %6, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %24
+  store i32 33, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %169
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %7, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %25, label %24
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %25
 
-24:                                               ; preds = %21, %18
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %7, align 8, !tbaa !3
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %26, label %25
+
+25:                                               ; preds = %22, %19
   store i32 6, ptr %4, align 4
-  br label %167
+  store i32 1, ptr %12, align 4
+  br label %169
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %6, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = icmp eq ptr %26, %27
-  br i1 %28, label %29, label %30
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %6, align 8, !tbaa !3
+  %28 = load ptr, ptr %7, align 8, !tbaa !3
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   store i32 0, ptr %4, align 4
-  br label %167
+  store i32 1, ptr %12, align 4
+  br label %169
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.FT_Bitmap_, ptr %31, i32 0, i32 2
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %40
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %6, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %32, i32 0, i32 2
+  %34 = load i32, ptr %33, align 8, !tbaa !19
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %41
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct.FT_Bitmap_, ptr %36, i32 0, i32 2
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %52, label %40
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %7, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %37, i32 0, i32 2
+  %39 = load i32, ptr %38, align 8, !tbaa !19
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %53, label %41
 
-40:                                               ; preds = %35, %30
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.FT_Bitmap_, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %45, label %50
+41:                                               ; preds = %36, %31
+  %42 = load ptr, ptr %6, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8, !tbaa !19
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %46, label %51
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct.FT_Bitmap_, ptr %46, i32 0, i32 2
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp slt i32 %48, 0
-  br label %50
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %7, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %47, i32 0, i32 2
+  %49 = load i32, ptr %48, align 8, !tbaa !19
+  %50 = icmp slt i32 %49, 0
+  br label %51
 
-50:                                               ; preds = %45, %40
-  %51 = phi i1 [ false, %40 ], [ %49, %45 ]
-  br label %52
+51:                                               ; preds = %46, %41
+  %52 = phi i1 [ false, %41 ], [ %50, %46 ]
+  br label %53
 
-52:                                               ; preds = %50, %35
-  %53 = phi i1 [ true, %35 ], [ %51, %50 ]
-  %54 = zext i1 %53 to i32
-  store i32 %54, ptr %11, align 4
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.FT_LibraryRec_, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %8, align 8
-  br label %58
+53:                                               ; preds = %51, %36
+  %54 = phi i1 [ true, %36 ], [ %52, %51 ]
+  %55 = zext i1 %54 to i32
+  store i32 %55, ptr %11, align 4, !tbaa !9
+  %56 = load ptr, ptr %5, align 8, !tbaa !17
+  %57 = getelementptr inbounds nuw %struct.FT_LibraryRec_, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !21
+  store ptr %58, ptr %8, align 8, !tbaa !28
+  br label %59
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %8, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %struct.FT_Bitmap_, ptr %60, i32 0, i32 3
-  %62 = load ptr, ptr %61, align 8
-  call void @ft_mem_free(ptr noundef %59, ptr noundef %62)
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct.FT_Bitmap_, ptr %63, i32 0, i32 3
-  store ptr null, ptr %64, align 8
-  br label %65
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %8, align 8, !tbaa !28
+  %61 = load ptr, ptr %7, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %61, i32 0, i32 3
+  %63 = load ptr, ptr %62, align 8, !tbaa !29
+  call void @ft_mem_free(ptr noundef %60, ptr noundef %63)
+  %64 = load ptr, ptr %7, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %64, i32 0, i32 3
+  store ptr null, ptr %65, align 8, !tbaa !29
+  br label %66
 
-65:                                               ; preds = %58
-  %66 = load ptr, ptr %7, align 8
-  %67 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %66, ptr align 8 %67, i64 40, i1 false)
-  %68 = load i32, ptr %11, align 4
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %70, label %77
+66:                                               ; preds = %59
+  br label %67
 
-70:                                               ; preds = %65
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct.FT_Bitmap_, ptr %71, i32 0, i32 2
-  %73 = load i32, ptr %72, align 8
-  %74 = sub nsw i32 0, %73
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %struct.FT_Bitmap_, ptr %75, i32 0, i32 2
-  store i32 %74, ptr %76, align 8
-  br label %77
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %7, align 8, !tbaa !3
+  %69 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 8 %69, i64 40, i1 false), !tbaa.struct !8
+  %70 = load i32, ptr %11, align 4, !tbaa !9
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %79
 
-77:                                               ; preds = %70, %65
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.FT_Bitmap_, ptr %78, i32 0, i32 3
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %83, label %82
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %7, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %73, i32 0, i32 2
+  %75 = load i32, ptr %74, align 8, !tbaa !19
+  %76 = sub nsw i32 0, %75
+  %77 = load ptr, ptr %7, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %77, i32 0, i32 2
+  store i32 %76, ptr %78, align 8, !tbaa !19
+  br label %79
 
-82:                                               ; preds = %77
+79:                                               ; preds = %72, %67
+  %80 = load ptr, ptr %6, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8, !tbaa !29
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %85, label %84
+
+84:                                               ; preds = %79
   store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %169
+
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %6, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %86, i32 0, i32 2
+  %88 = load i32, ptr %87, align 8, !tbaa !19
+  store i32 %88, ptr %10, align 4, !tbaa !9
+  %89 = load i32, ptr %10, align 4, !tbaa !9
+  %90 = icmp slt i32 %89, 0
+  br i1 %90, label %91, label %94
+
+91:                                               ; preds = %85
+  %92 = load i32, ptr %10, align 4, !tbaa !9
+  %93 = sub nsw i32 0, %92
+  store i32 %93, ptr %10, align 4, !tbaa !9
+  br label %94
+
+94:                                               ; preds = %91, %85
+  %95 = load ptr, ptr %8, align 8, !tbaa !28
+  %96 = load i32, ptr %10, align 4, !tbaa !9
+  %97 = sext i32 %96 to i64
+  %98 = load ptr, ptr %7, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %98, i32 0, i32 0
+  %100 = load i32, ptr %99, align 8, !tbaa !30
+  %101 = zext i32 %100 to i64
+  %102 = call ptr @ft_mem_qrealloc(ptr noundef %95, i64 noundef %97, i64 noundef 0, i64 noundef %101, ptr noundef null, ptr noundef %9)
+  %103 = load ptr, ptr %7, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %103, i32 0, i32 3
+  store ptr %102, ptr %104, align 8, !tbaa !29
+  %105 = load i32, ptr %9, align 4, !tbaa !9
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %167, label %107
+
+107:                                              ; preds = %94
+  %108 = load i32, ptr %11, align 4, !tbaa !9
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %110, label %152
+
+110:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %111 = load ptr, ptr %6, align 8, !tbaa !3
+  %112 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %111, i32 0, i32 3
+  %113 = load ptr, ptr %112, align 8, !tbaa !29
+  store ptr %113, ptr %14, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %114 = load ptr, ptr %7, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %114, i32 0, i32 3
+  %116 = load ptr, ptr %115, align 8, !tbaa !29
+  store ptr %116, ptr %15, align 8, !tbaa !11
+  %117 = load i32, ptr %10, align 4, !tbaa !9
+  %118 = sext i32 %117 to i64
+  %119 = load ptr, ptr %7, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %119, i32 0, i32 0
+  %121 = load i32, ptr %120, align 8, !tbaa !30
+  %122 = sub i32 %121, 1
+  %123 = zext i32 %122 to i64
+  %124 = mul i64 %118, %123
+  %125 = load ptr, ptr %15, align 8, !tbaa !11
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %124
+  store ptr %126, ptr %15, align 8, !tbaa !11
+  %127 = load ptr, ptr %7, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %127, i32 0, i32 0
+  %129 = load i32, ptr %128, align 8, !tbaa !30
+  store i32 %129, ptr %13, align 4, !tbaa !9
+  br label %130
+
+130:                                              ; preds = %148, %110
+  %131 = load i32, ptr %13, align 4, !tbaa !9
+  %132 = icmp ugt i32 %131, 0
+  br i1 %132, label %133, label %151
+
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %15, align 8, !tbaa !11
+  %135 = load ptr, ptr %14, align 8, !tbaa !11
+  %136 = load i32, ptr %10, align 4, !tbaa !9
+  %137 = sext i32 %136 to i64
+  %138 = mul i64 %137, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 1 %135, i64 %138, i1 false)
+  %139 = load i32, ptr %10, align 4, !tbaa !9
+  %140 = load ptr, ptr %14, align 8, !tbaa !11
+  %141 = sext i32 %139 to i64
+  %142 = getelementptr inbounds i8, ptr %140, i64 %141
+  store ptr %142, ptr %14, align 8, !tbaa !11
+  %143 = load i32, ptr %10, align 4, !tbaa !9
+  %144 = load ptr, ptr %15, align 8, !tbaa !11
+  %145 = sext i32 %143 to i64
+  %146 = sub i64 0, %145
+  %147 = getelementptr inbounds i8, ptr %144, i64 %146
+  store ptr %147, ptr %15, align 8, !tbaa !11
+  br label %148
+
+148:                                              ; preds = %133
+  %149 = load i32, ptr %13, align 4, !tbaa !9
+  %150 = add i32 %149, -1
+  store i32 %150, ptr %13, align 4, !tbaa !9
+  br label %130, !llvm.loop !31
+
+151:                                              ; preds = %130
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  br label %166
+
+152:                                              ; preds = %107
+  %153 = load ptr, ptr %7, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %153, i32 0, i32 3
+  %155 = load ptr, ptr %154, align 8, !tbaa !29
+  %156 = load ptr, ptr %6, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %156, i32 0, i32 3
+  %158 = load ptr, ptr %157, align 8, !tbaa !29
+  %159 = load ptr, ptr %6, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %159, i32 0, i32 0
+  %161 = load i32, ptr %160, align 8, !tbaa !30
+  %162 = zext i32 %161 to i64
+  %163 = load i32, ptr %10, align 4, !tbaa !9
+  %164 = sext i32 %163 to i64
+  %165 = mul nsw i64 %162, %164
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %155, ptr align 1 %158, i64 %165, i1 false)
+  br label %166
+
+166:                                              ; preds = %152, %151
   br label %167
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %6, align 8
-  %85 = getelementptr inbounds %struct.FT_Bitmap_, ptr %84, i32 0, i32 2
-  %86 = load i32, ptr %85, align 8
-  store i32 %86, ptr %10, align 4
-  %87 = load i32, ptr %10, align 4
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %92
+167:                                              ; preds = %166, %94
+  %168 = load i32, ptr %9, align 4, !tbaa !9
+  store i32 %168, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %169
 
-89:                                               ; preds = %83
-  %90 = load i32, ptr %10, align 4
-  %91 = sub nsw i32 0, %90
-  store i32 %91, ptr %10, align 4
-  br label %92
-
-92:                                               ; preds = %89, %83
-  %93 = load ptr, ptr %8, align 8
-  %94 = load i32, ptr %10, align 4
-  %95 = sext i32 %94 to i64
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %struct.FT_Bitmap_, ptr %96, i32 0, i32 0
-  %98 = load i32, ptr %97, align 8
-  %99 = zext i32 %98 to i64
-  %100 = call ptr @ft_mem_qrealloc(ptr noundef %93, i64 noundef %95, i64 noundef 0, i64 noundef %99, ptr noundef null, ptr noundef %9)
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct.FT_Bitmap_, ptr %101, i32 0, i32 3
-  store ptr %100, ptr %102, align 8
-  %103 = load i32, ptr %9, align 4
-  %104 = icmp ne i32 %103, 0
-  br i1 %104, label %165, label %105
-
-105:                                              ; preds = %92
-  %106 = load i32, ptr %11, align 4
-  %107 = icmp ne i32 %106, 0
-  br i1 %107, label %108, label %150
-
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct.FT_Bitmap_, ptr %109, i32 0, i32 3
-  %111 = load ptr, ptr %110, align 8
-  store ptr %111, ptr %13, align 8
-  %112 = load ptr, ptr %7, align 8
-  %113 = getelementptr inbounds %struct.FT_Bitmap_, ptr %112, i32 0, i32 3
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr %14, align 8
-  %115 = load i32, ptr %10, align 4
-  %116 = sext i32 %115 to i64
-  %117 = load ptr, ptr %7, align 8
-  %118 = getelementptr inbounds %struct.FT_Bitmap_, ptr %117, i32 0, i32 0
-  %119 = load i32, ptr %118, align 8
-  %120 = sub i32 %119, 1
-  %121 = zext i32 %120 to i64
-  %122 = mul i64 %116, %121
-  %123 = load ptr, ptr %14, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 %122
-  store ptr %124, ptr %14, align 8
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.FT_Bitmap_, ptr %125, i32 0, i32 0
-  %127 = load i32, ptr %126, align 8
-  store i32 %127, ptr %12, align 4
-  br label %128
-
-128:                                              ; preds = %146, %108
-  %129 = load i32, ptr %12, align 4
-  %130 = icmp ugt i32 %129, 0
-  br i1 %130, label %131, label %149
-
-131:                                              ; preds = %128
-  %132 = load ptr, ptr %14, align 8
-  %133 = load ptr, ptr %13, align 8
-  %134 = load i32, ptr %10, align 4
-  %135 = sext i32 %134 to i64
-  %136 = mul i64 %135, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %132, ptr align 1 %133, i64 %136, i1 false)
-  %137 = load i32, ptr %10, align 4
-  %138 = load ptr, ptr %13, align 8
-  %139 = sext i32 %137 to i64
-  %140 = getelementptr inbounds i8, ptr %138, i64 %139
-  store ptr %140, ptr %13, align 8
-  %141 = load i32, ptr %10, align 4
-  %142 = load ptr, ptr %14, align 8
-  %143 = sext i32 %141 to i64
-  %144 = sub i64 0, %143
-  %145 = getelementptr inbounds i8, ptr %142, i64 %144
-  store ptr %145, ptr %14, align 8
-  br label %146
-
-146:                                              ; preds = %131
-  %147 = load i32, ptr %12, align 4
-  %148 = add i32 %147, -1
-  store i32 %148, ptr %12, align 4
-  br label %128, !llvm.loop !4
-
-149:                                              ; preds = %128
-  br label %164
-
-150:                                              ; preds = %105
-  %151 = load ptr, ptr %7, align 8
-  %152 = getelementptr inbounds %struct.FT_Bitmap_, ptr %151, i32 0, i32 3
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds %struct.FT_Bitmap_, ptr %154, i32 0, i32 3
-  %156 = load ptr, ptr %155, align 8
-  %157 = load ptr, ptr %6, align 8
-  %158 = getelementptr inbounds %struct.FT_Bitmap_, ptr %157, i32 0, i32 0
-  %159 = load i32, ptr %158, align 8
-  %160 = zext i32 %159 to i64
-  %161 = load i32, ptr %10, align 4
-  %162 = sext i32 %161 to i64
-  %163 = mul nsw i64 %160, %162
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %153, ptr align 1 %156, i64 %163, i1 false)
-  br label %164
-
-164:                                              ; preds = %150, %149
-  br label %165
-
-165:                                              ; preds = %164, %92
-  %166 = load i32, ptr %9, align 4
-  store i32 %166, ptr %4, align 4
-  br label %167
-
-167:                                              ; preds = %165, %82, %29, %24, %17
-  %168 = load i32, ptr %4, align 4
-  ret i32 %168
+169:                                              ; preds = %167, %84, %30, %25, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %170 = load i32, ptr %4, align 4
+  ret i32 %170
 }
 
-declare hidden void @ft_mem_free(ptr noundef, ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #2
+declare hidden void @ft_mem_free(ptr noundef, ptr noundef) #3
+
+declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @FT_Bitmap_Embolden(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
@@ -328,524 +357,566 @@ define i32 @FT_Bitmap_Embolden(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  %18 = alloca %struct.FT_Bitmap_, align 8
-  %19 = alloca i8, align 1
-  %20 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %24, label %23
-
-23:                                               ; preds = %4
-  store i32 33, ptr %5, align 4
-  br label %352
+  %18 = alloca i32, align 4
+  %19 = alloca %struct.FT_Bitmap_, align 8
+  %20 = alloca i8, align 1
+  %21 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !17
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store i64 %2, ptr %8, align 8, !tbaa !33
+  store i64 %3, ptr %9, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  %22 = load ptr, ptr %6, align 8, !tbaa !17
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %25, label %24
 
 24:                                               ; preds = %4
-  %25 = load ptr, ptr %7, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %27, label %32
+  store i32 33, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %356
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct.FT_Bitmap_, ptr %28, i32 0, i32 3
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %33, label %32
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %7, align 8, !tbaa !3
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %33
 
-32:                                               ; preds = %27, %24
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %7, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8, !tbaa !29
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %34, label %33
+
+33:                                               ; preds = %28, %25
   store i32 6, ptr %5, align 4
-  br label %352
+  store i32 1, ptr %18, align 4
+  br label %356
 
-33:                                               ; preds = %27
-  %34 = load i64, ptr %8, align 8
-  %35 = add nsw i64 %34, 32
-  %36 = and i64 %35, -64
-  %37 = ashr i64 %36, 6
-  %38 = icmp sgt i64 %37, 2147483647
-  br i1 %38, label %45, label %39
+34:                                               ; preds = %28
+  %35 = load i64, ptr %8, align 8, !tbaa !33
+  %36 = add nsw i64 %35, 32
+  %37 = and i64 %36, -64
+  %38 = ashr i64 %37, 6
+  %39 = icmp sgt i64 %38, 2147483647
+  br i1 %39, label %46, label %40
 
-39:                                               ; preds = %33
-  %40 = load i64, ptr %9, align 8
-  %41 = add nsw i64 %40, 32
-  %42 = and i64 %41, -64
-  %43 = ashr i64 %42, 6
-  %44 = icmp sgt i64 %43, 2147483647
-  br i1 %44, label %45, label %46
+40:                                               ; preds = %34
+  %41 = load i64, ptr %9, align 8, !tbaa !33
+  %42 = add nsw i64 %41, 32
+  %43 = and i64 %42, -64
+  %44 = ashr i64 %43, 6
+  %45 = icmp sgt i64 %44, 2147483647
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %39, %33
+46:                                               ; preds = %40, %34
   store i32 6, ptr %5, align 4
-  br label %352
+  store i32 1, ptr %18, align 4
+  br label %356
 
-46:                                               ; preds = %39
-  %47 = load i64, ptr %8, align 8
-  %48 = add nsw i64 %47, 32
-  %49 = and i64 %48, -64
-  %50 = trunc i64 %49 to i32
-  %51 = ashr i32 %50, 6
-  store i32 %51, ptr %16, align 4
-  %52 = load i64, ptr %9, align 8
-  %53 = add nsw i64 %52, 32
-  %54 = and i64 %53, -64
-  %55 = trunc i64 %54 to i32
-  %56 = ashr i32 %55, 6
-  store i32 %56, ptr %17, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %63
+47:                                               ; preds = %40
+  %48 = load i64, ptr %8, align 8, !tbaa !33
+  %49 = add nsw i64 %48, 32
+  %50 = and i64 %49, -64
+  %51 = trunc i64 %50 to i32
+  %52 = ashr i32 %51, 6
+  store i32 %52, ptr %16, align 4, !tbaa !9
+  %53 = load i64, ptr %9, align 8, !tbaa !33
+  %54 = add nsw i64 %53, 32
+  %55 = and i64 %54, -64
+  %56 = trunc i64 %55 to i32
+  %57 = ashr i32 %56, 6
+  store i32 %57, ptr %17, align 4, !tbaa !9
+  %58 = load i32, ptr %16, align 4, !tbaa !9
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %64
 
-59:                                               ; preds = %46
-  %60 = load i32, ptr %17, align 4
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %63
+60:                                               ; preds = %47
+  %61 = load i32, ptr %17, align 4, !tbaa !9
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %64
 
-62:                                               ; preds = %59
+63:                                               ; preds = %60
   store i32 0, ptr %5, align 4
-  br label %352
+  store i32 1, ptr %18, align 4
+  br label %356
 
-63:                                               ; preds = %59, %46
-  %64 = load i32, ptr %16, align 4
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %69, label %66
+64:                                               ; preds = %60, %47
+  %65 = load i32, ptr %16, align 4, !tbaa !9
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %70, label %67
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %17, align 4
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %69, label %70
+67:                                               ; preds = %64
+  %68 = load i32, ptr %17, align 4, !tbaa !9
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %66, %63
+70:                                               ; preds = %67, %64
   store i32 6, ptr %5, align 4
-  br label %352
+  store i32 1, ptr %18, align 4
+  br label %356
 
-70:                                               ; preds = %66
-  br label %71
+71:                                               ; preds = %67
+  br label %72
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %struct.FT_Bitmap_, ptr %72, i32 0, i32 5
-  %74 = load i8, ptr %73, align 2
-  %75 = zext i8 %74 to i32
-  switch i32 %75, label %101 [
-    i32 3, label %76
-    i32 4, label %76
-    i32 1, label %89
-    i32 5, label %94
-    i32 6, label %97
-    i32 7, label %100
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %7, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %73, i32 0, i32 5
+  %75 = load i8, ptr %74, align 2, !tbaa !35
+  %76 = zext i8 %75 to i32
+  switch i32 %76, label %105 [
+    i32 3, label %77
+    i32 4, label %77
+    i32 1, label %93
+    i32 5, label %98
+    i32 6, label %101
+    i32 7, label %104
   ]
 
-76:                                               ; preds = %71, %71
-  call void @FT_Bitmap_Init(ptr noundef %18)
-  %77 = load ptr, ptr %6, align 8
-  %78 = load ptr, ptr %7, align 8
-  %79 = call i32 @FT_Bitmap_Convert(ptr noundef %77, ptr noundef %78, ptr noundef %18, i32 noundef 1)
-  store i32 %79, ptr %10, align 4
-  %80 = load i32, ptr %10, align 4
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %84
+77:                                               ; preds = %72, %72
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #5
+  call void @FT_Bitmap_Init(ptr noundef %19)
+  %78 = load ptr, ptr %6, align 8, !tbaa !17
+  %79 = load ptr, ptr %7, align 8, !tbaa !3
+  %80 = call i32 @FT_Bitmap_Convert(ptr noundef %78, ptr noundef %79, ptr noundef %19, i32 noundef 1)
+  store i32 %80, ptr %10, align 4, !tbaa !9
+  %81 = load i32, ptr %10, align 4, !tbaa !9
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %85
 
-82:                                               ; preds = %76
-  %83 = load i32, ptr %10, align 4
-  store i32 %83, ptr %5, align 4
-  br label %352
+83:                                               ; preds = %77
+  %84 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %84, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %90
 
-84:                                               ; preds = %76
-  %85 = load ptr, ptr %6, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = call i32 @FT_Bitmap_Done(ptr noundef %85, ptr noundef %86)
-  %88 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %88, ptr align 8 %18, i64 40, i1 false)
-  br label %101
+85:                                               ; preds = %77
+  %86 = load ptr, ptr %6, align 8, !tbaa !17
+  %87 = load ptr, ptr %7, align 8, !tbaa !3
+  %88 = call i32 @FT_Bitmap_Done(ptr noundef %86, ptr noundef %87)
+  %89 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %89, ptr align 8 %19, i64 40, i1 false), !tbaa.struct !8
+  store i32 0, ptr %18, align 4
+  br label %90
 
-89:                                               ; preds = %71
-  %90 = load i32, ptr %16, align 4
-  %91 = icmp sgt i32 %90, 8
-  br i1 %91, label %92, label %93
+90:                                               ; preds = %85, %83
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #5
+  %91 = load i32, ptr %18, align 4
+  switch i32 %91, label %356 [
+    i32 0, label %92
+  ]
 
-92:                                               ; preds = %89
-  store i32 8, ptr %16, align 4
-  br label %93
+92:                                               ; preds = %90
+  br label %105
 
-93:                                               ; preds = %92, %89
-  br label %101
+93:                                               ; preds = %72
+  %94 = load i32, ptr %16, align 4, !tbaa !9
+  %95 = icmp sgt i32 %94, 8
+  br i1 %95, label %96, label %97
 
-94:                                               ; preds = %71
-  %95 = load i32, ptr %16, align 4
-  %96 = mul nsw i32 %95, 3
-  store i32 %96, ptr %16, align 4
-  br label %101
+96:                                               ; preds = %93
+  store i32 8, ptr %16, align 4, !tbaa !9
+  br label %97
 
-97:                                               ; preds = %71
-  %98 = load i32, ptr %17, align 4
-  %99 = mul nsw i32 %98, 3
-  store i32 %99, ptr %17, align 4
-  br label %101
+97:                                               ; preds = %96, %93
+  br label %105
 
-100:                                              ; preds = %71
+98:                                               ; preds = %72
+  %99 = load i32, ptr %16, align 4, !tbaa !9
+  %100 = mul nsw i32 %99, 3
+  store i32 %100, ptr %16, align 4, !tbaa !9
+  br label %105
+
+101:                                              ; preds = %72
+  %102 = load i32, ptr %17, align 4, !tbaa !9
+  %103 = mul nsw i32 %102, 3
+  store i32 %103, ptr %17, align 4, !tbaa !9
+  br label %105
+
+104:                                              ; preds = %72
   store i32 0, ptr %5, align 4
-  br label %352
+  store i32 1, ptr %18, align 4
+  br label %356
 
-101:                                              ; preds = %97, %94, %93, %84, %71
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct.FT_LibraryRec_, ptr %102, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %7, align 8
-  %106 = load i32, ptr %16, align 4
-  %107 = load i32, ptr %17, align 4
-  %108 = call i32 @ft_bitmap_assure_buffer(ptr noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef %107)
-  store i32 %108, ptr %10, align 4
-  %109 = load i32, ptr %10, align 4
-  %110 = icmp ne i32 %109, 0
-  br i1 %110, label %111, label %113
+105:                                              ; preds = %72, %101, %98, %97, %92
+  %106 = load ptr, ptr %6, align 8, !tbaa !17
+  %107 = getelementptr inbounds nuw %struct.FT_LibraryRec_, ptr %106, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8, !tbaa !21
+  %109 = load ptr, ptr %7, align 8, !tbaa !3
+  %110 = load i32, ptr %16, align 4, !tbaa !9
+  %111 = load i32, ptr %17, align 4, !tbaa !9
+  %112 = call i32 @ft_bitmap_assure_buffer(ptr noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef %111)
+  store i32 %112, ptr %10, align 4, !tbaa !9
+  %113 = load i32, ptr %10, align 4, !tbaa !9
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %117
 
-111:                                              ; preds = %101
-  %112 = load i32, ptr %10, align 4
-  store i32 %112, ptr %5, align 4
-  br label %352
+115:                                              ; preds = %105
+  %116 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %116, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %356
 
-113:                                              ; preds = %101
-  %114 = load ptr, ptr %7, align 8
-  %115 = getelementptr inbounds %struct.FT_Bitmap_, ptr %114, i32 0, i32 2
-  %116 = load i32, ptr %115, align 8
-  store i32 %116, ptr %14, align 4
-  %117 = load i32, ptr %14, align 4
-  %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %119, label %128
+117:                                              ; preds = %105
+  %118 = load ptr, ptr %7, align 8, !tbaa !3
+  %119 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %118, i32 0, i32 2
+  %120 = load i32, ptr %119, align 8, !tbaa !19
+  store i32 %120, ptr %14, align 4, !tbaa !9
+  %121 = load i32, ptr %14, align 4, !tbaa !9
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %123, label %132
 
-119:                                              ; preds = %113
-  %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds %struct.FT_Bitmap_, ptr %120, i32 0, i32 3
-  %122 = load ptr, ptr %121, align 8
-  %123 = load i32, ptr %14, align 4
-  %124 = load i32, ptr %17, align 4
-  %125 = mul nsw i32 %123, %124
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i8, ptr %122, i64 %126
-  store ptr %127, ptr %11, align 8
-  br label %142
+123:                                              ; preds = %117
+  %124 = load ptr, ptr %7, align 8, !tbaa !3
+  %125 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %124, i32 0, i32 3
+  %126 = load ptr, ptr %125, align 8, !tbaa !29
+  %127 = load i32, ptr %14, align 4, !tbaa !9
+  %128 = load i32, ptr %17, align 4, !tbaa !9
+  %129 = mul nsw i32 %127, %128
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds i8, ptr %126, i64 %130
+  store ptr %131, ptr %11, align 8, !tbaa !11
+  br label %146
 
-128:                                              ; preds = %113
-  %129 = load i32, ptr %14, align 4
-  %130 = sub nsw i32 0, %129
-  store i32 %130, ptr %14, align 4
-  %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds %struct.FT_Bitmap_, ptr %131, i32 0, i32 3
-  %133 = load ptr, ptr %132, align 8
-  %134 = load i32, ptr %14, align 4
-  %135 = load ptr, ptr %7, align 8
-  %136 = getelementptr inbounds %struct.FT_Bitmap_, ptr %135, i32 0, i32 0
-  %137 = load i32, ptr %136, align 8
-  %138 = sub i32 %137, 1
-  %139 = mul i32 %134, %138
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds i8, ptr %133, i64 %140
-  store ptr %141, ptr %11, align 8
-  br label %142
+132:                                              ; preds = %117
+  %133 = load i32, ptr %14, align 4, !tbaa !9
+  %134 = sub nsw i32 0, %133
+  store i32 %134, ptr %14, align 4, !tbaa !9
+  %135 = load ptr, ptr %7, align 8, !tbaa !3
+  %136 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %135, i32 0, i32 3
+  %137 = load ptr, ptr %136, align 8, !tbaa !29
+  %138 = load i32, ptr %14, align 4, !tbaa !9
+  %139 = load ptr, ptr %7, align 8, !tbaa !3
+  %140 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %139, i32 0, i32 0
+  %141 = load i32, ptr %140, align 8, !tbaa !30
+  %142 = sub i32 %141, 1
+  %143 = mul i32 %138, %142
+  %144 = zext i32 %143 to i64
+  %145 = getelementptr inbounds nuw i8, ptr %137, i64 %144
+  store ptr %145, ptr %11, align 8, !tbaa !11
+  br label %146
 
-142:                                              ; preds = %128, %119
-  store i32 0, ptr %15, align 4
-  br label %143
+146:                                              ; preds = %132, %123
+  store i32 0, ptr %15, align 4, !tbaa !9
+  br label %147
 
-143:                                              ; preds = %338, %142
-  %144 = load i32, ptr %15, align 4
-  %145 = load ptr, ptr %7, align 8
-  %146 = getelementptr inbounds %struct.FT_Bitmap_, ptr %145, i32 0, i32 0
-  %147 = load i32, ptr %146, align 8
-  %148 = icmp ult i32 %144, %147
-  br i1 %148, label %149, label %341
+147:                                              ; preds = %342, %146
+  %148 = load i32, ptr %15, align 4, !tbaa !9
+  %149 = load ptr, ptr %7, align 8, !tbaa !3
+  %150 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %149, i32 0, i32 0
+  %151 = load i32, ptr %150, align 8, !tbaa !30
+  %152 = icmp ult i32 %148, %151
+  br i1 %152, label %153, label %345
 
-149:                                              ; preds = %143
-  %150 = load i32, ptr %14, align 4
-  %151 = sub nsw i32 %150, 1
-  store i32 %151, ptr %13, align 4
-  br label %152
+153:                                              ; preds = %147
+  %154 = load i32, ptr %14, align 4, !tbaa !9
+  %155 = sub nsw i32 %154, 1
+  store i32 %155, ptr %13, align 4, !tbaa !9
+  br label %156
 
-152:                                              ; preds = %287, %149
-  %153 = load i32, ptr %13, align 4
-  %154 = icmp sge i32 %153, 0
-  br i1 %154, label %155, label %290
+156:                                              ; preds = %291, %153
+  %157 = load i32, ptr %13, align 4, !tbaa !9
+  %158 = icmp sge i32 %157, 0
+  br i1 %158, label %159, label %294
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr %11, align 8
-  %157 = load i32, ptr %13, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i8, ptr %156, i64 %158
-  %160 = load i8, ptr %159, align 1
-  store i8 %160, ptr %19, align 1
-  store i32 1, ptr %12, align 4
-  br label %161
+159:                                              ; preds = %156
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #5
+  %160 = load ptr, ptr %11, align 8, !tbaa !11
+  %161 = load i32, ptr %13, align 4, !tbaa !9
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds i8, ptr %160, i64 %162
+  %164 = load i8, ptr %163, align 1, !tbaa !15
+  store i8 %164, ptr %20, align 1, !tbaa !15
+  store i32 1, ptr %12, align 4, !tbaa !9
+  br label %165
 
-161:                                              ; preds = %283, %155
-  %162 = load i32, ptr %12, align 4
-  %163 = load i32, ptr %16, align 4
-  %164 = icmp sle i32 %162, %163
-  br i1 %164, label %165, label %286
+165:                                              ; preds = %287, %159
+  %166 = load i32, ptr %12, align 4, !tbaa !9
+  %167 = load i32, ptr %16, align 4, !tbaa !9
+  %168 = icmp sle i32 %166, %167
+  br i1 %168, label %169, label %290
 
-165:                                              ; preds = %161
-  %166 = load ptr, ptr %7, align 8
-  %167 = getelementptr inbounds %struct.FT_Bitmap_, ptr %166, i32 0, i32 5
-  %168 = load i8, ptr %167, align 2
-  %169 = zext i8 %168 to i32
-  %170 = icmp eq i32 %169, 1
-  br i1 %170, label %171, label %206
-
-171:                                              ; preds = %165
-  %172 = load i8, ptr %19, align 1
+169:                                              ; preds = %165
+  %170 = load ptr, ptr %7, align 8, !tbaa !3
+  %171 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %170, i32 0, i32 5
+  %172 = load i8, ptr %171, align 2, !tbaa !35
   %173 = zext i8 %172 to i32
-  %174 = load i32, ptr %12, align 4
-  %175 = ashr i32 %173, %174
-  %176 = load ptr, ptr %11, align 8
-  %177 = load i32, ptr %13, align 4
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i8, ptr %176, i64 %178
-  %180 = load i8, ptr %179, align 1
-  %181 = zext i8 %180 to i32
-  %182 = or i32 %181, %175
-  %183 = trunc i32 %182 to i8
-  store i8 %183, ptr %179, align 1
-  %184 = load i32, ptr %13, align 4
-  %185 = icmp sgt i32 %184, 0
-  br i1 %185, label %186, label %205
+  %174 = icmp eq i32 %173, 1
+  br i1 %174, label %175, label %210
 
-186:                                              ; preds = %171
-  %187 = load ptr, ptr %11, align 8
-  %188 = load i32, ptr %13, align 4
-  %189 = sub nsw i32 %188, 1
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds i8, ptr %187, i64 %190
-  %192 = load i8, ptr %191, align 1
-  %193 = zext i8 %192 to i32
-  %194 = load i32, ptr %12, align 4
-  %195 = sub nsw i32 8, %194
-  %196 = shl i32 %193, %195
-  %197 = load ptr, ptr %11, align 8
-  %198 = load i32, ptr %13, align 4
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds i8, ptr %197, i64 %199
-  %201 = load i8, ptr %200, align 1
-  %202 = zext i8 %201 to i32
-  %203 = or i32 %202, %196
-  %204 = trunc i32 %203 to i8
-  store i8 %204, ptr %200, align 1
-  br label %205
+175:                                              ; preds = %169
+  %176 = load i8, ptr %20, align 1, !tbaa !15
+  %177 = zext i8 %176 to i32
+  %178 = load i32, ptr %12, align 4, !tbaa !9
+  %179 = ashr i32 %177, %178
+  %180 = load ptr, ptr %11, align 8, !tbaa !11
+  %181 = load i32, ptr %13, align 4, !tbaa !9
+  %182 = sext i32 %181 to i64
+  %183 = getelementptr inbounds i8, ptr %180, i64 %182
+  %184 = load i8, ptr %183, align 1, !tbaa !15
+  %185 = zext i8 %184 to i32
+  %186 = or i32 %185, %179
+  %187 = trunc i32 %186 to i8
+  store i8 %187, ptr %183, align 1, !tbaa !15
+  %188 = load i32, ptr %13, align 4, !tbaa !9
+  %189 = icmp sgt i32 %188, 0
+  br i1 %189, label %190, label %209
 
-205:                                              ; preds = %186, %171
-  br label %282
+190:                                              ; preds = %175
+  %191 = load ptr, ptr %11, align 8, !tbaa !11
+  %192 = load i32, ptr %13, align 4, !tbaa !9
+  %193 = sub nsw i32 %192, 1
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds i8, ptr %191, i64 %194
+  %196 = load i8, ptr %195, align 1, !tbaa !15
+  %197 = zext i8 %196 to i32
+  %198 = load i32, ptr %12, align 4, !tbaa !9
+  %199 = sub nsw i32 8, %198
+  %200 = shl i32 %197, %199
+  %201 = load ptr, ptr %11, align 8, !tbaa !11
+  %202 = load i32, ptr %13, align 4, !tbaa !9
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds i8, ptr %201, i64 %203
+  %205 = load i8, ptr %204, align 1, !tbaa !15
+  %206 = zext i8 %205 to i32
+  %207 = or i32 %206, %200
+  %208 = trunc i32 %207 to i8
+  store i8 %208, ptr %204, align 1, !tbaa !15
+  br label %209
 
-206:                                              ; preds = %165
-  %207 = load i32, ptr %13, align 4
-  %208 = load i32, ptr %12, align 4
-  %209 = sub nsw i32 %207, %208
-  %210 = icmp sge i32 %209, 0
-  br i1 %210, label %211, label %280
-
-211:                                              ; preds = %206
-  %212 = load ptr, ptr %11, align 8
-  %213 = load i32, ptr %13, align 4
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i8, ptr %212, i64 %214
-  %216 = load i8, ptr %215, align 1
-  %217 = zext i8 %216 to i32
-  %218 = load ptr, ptr %11, align 8
-  %219 = load i32, ptr %13, align 4
-  %220 = load i32, ptr %12, align 4
-  %221 = sub nsw i32 %219, %220
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds i8, ptr %218, i64 %222
-  %224 = load i8, ptr %223, align 1
-  %225 = zext i8 %224 to i32
-  %226 = add nsw i32 %217, %225
-  %227 = load ptr, ptr %7, align 8
-  %228 = getelementptr inbounds %struct.FT_Bitmap_, ptr %227, i32 0, i32 4
-  %229 = load i16, ptr %228, align 8
-  %230 = zext i16 %229 to i32
-  %231 = sub nsw i32 %230, 1
-  %232 = icmp sgt i32 %226, %231
-  br i1 %232, label %233, label %244
-
-233:                                              ; preds = %211
-  %234 = load ptr, ptr %7, align 8
-  %235 = getelementptr inbounds %struct.FT_Bitmap_, ptr %234, i32 0, i32 4
-  %236 = load i16, ptr %235, align 8
-  %237 = zext i16 %236 to i32
-  %238 = sub nsw i32 %237, 1
-  %239 = trunc i32 %238 to i8
-  %240 = load ptr, ptr %11, align 8
-  %241 = load i32, ptr %13, align 4
-  %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds i8, ptr %240, i64 %242
-  store i8 %239, ptr %243, align 1
+209:                                              ; preds = %190, %175
   br label %286
 
-244:                                              ; preds = %211
-  %245 = load ptr, ptr %11, align 8
-  %246 = load i32, ptr %13, align 4
-  %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds i8, ptr %245, i64 %247
-  %249 = load i8, ptr %248, align 1
-  %250 = zext i8 %249 to i32
-  %251 = load ptr, ptr %11, align 8
-  %252 = load i32, ptr %13, align 4
-  %253 = load i32, ptr %12, align 4
-  %254 = sub nsw i32 %252, %253
-  %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds i8, ptr %251, i64 %255
-  %257 = load i8, ptr %256, align 1
-  %258 = zext i8 %257 to i32
-  %259 = add nsw i32 %250, %258
-  %260 = trunc i32 %259 to i8
-  %261 = load ptr, ptr %11, align 8
-  %262 = load i32, ptr %13, align 4
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds i8, ptr %261, i64 %263
-  store i8 %260, ptr %264, align 1
-  %265 = load ptr, ptr %11, align 8
-  %266 = load i32, ptr %13, align 4
+210:                                              ; preds = %169
+  %211 = load i32, ptr %13, align 4, !tbaa !9
+  %212 = load i32, ptr %12, align 4, !tbaa !9
+  %213 = sub nsw i32 %211, %212
+  %214 = icmp sge i32 %213, 0
+  br i1 %214, label %215, label %284
+
+215:                                              ; preds = %210
+  %216 = load ptr, ptr %11, align 8, !tbaa !11
+  %217 = load i32, ptr %13, align 4, !tbaa !9
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr inbounds i8, ptr %216, i64 %218
+  %220 = load i8, ptr %219, align 1, !tbaa !15
+  %221 = zext i8 %220 to i32
+  %222 = load ptr, ptr %11, align 8, !tbaa !11
+  %223 = load i32, ptr %13, align 4, !tbaa !9
+  %224 = load i32, ptr %12, align 4, !tbaa !9
+  %225 = sub nsw i32 %223, %224
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds i8, ptr %222, i64 %226
+  %228 = load i8, ptr %227, align 1, !tbaa !15
+  %229 = zext i8 %228 to i32
+  %230 = add nsw i32 %221, %229
+  %231 = load ptr, ptr %7, align 8, !tbaa !3
+  %232 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %231, i32 0, i32 4
+  %233 = load i16, ptr %232, align 8, !tbaa !36
+  %234 = zext i16 %233 to i32
+  %235 = sub nsw i32 %234, 1
+  %236 = icmp sgt i32 %230, %235
+  br i1 %236, label %237, label %248
+
+237:                                              ; preds = %215
+  %238 = load ptr, ptr %7, align 8, !tbaa !3
+  %239 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %238, i32 0, i32 4
+  %240 = load i16, ptr %239, align 8, !tbaa !36
+  %241 = zext i16 %240 to i32
+  %242 = sub nsw i32 %241, 1
+  %243 = trunc i32 %242 to i8
+  %244 = load ptr, ptr %11, align 8, !tbaa !11
+  %245 = load i32, ptr %13, align 4, !tbaa !9
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds i8, ptr %244, i64 %246
+  store i8 %243, ptr %247, align 1, !tbaa !15
+  br label %290
+
+248:                                              ; preds = %215
+  %249 = load ptr, ptr %11, align 8, !tbaa !11
+  %250 = load i32, ptr %13, align 4, !tbaa !9
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr inbounds i8, ptr %249, i64 %251
+  %253 = load i8, ptr %252, align 1, !tbaa !15
+  %254 = zext i8 %253 to i32
+  %255 = load ptr, ptr %11, align 8, !tbaa !11
+  %256 = load i32, ptr %13, align 4, !tbaa !9
+  %257 = load i32, ptr %12, align 4, !tbaa !9
+  %258 = sub nsw i32 %256, %257
+  %259 = sext i32 %258 to i64
+  %260 = getelementptr inbounds i8, ptr %255, i64 %259
+  %261 = load i8, ptr %260, align 1, !tbaa !15
+  %262 = zext i8 %261 to i32
+  %263 = add nsw i32 %254, %262
+  %264 = trunc i32 %263 to i8
+  %265 = load ptr, ptr %11, align 8, !tbaa !11
+  %266 = load i32, ptr %13, align 4, !tbaa !9
   %267 = sext i32 %266 to i64
   %268 = getelementptr inbounds i8, ptr %265, i64 %267
-  %269 = load i8, ptr %268, align 1
-  %270 = zext i8 %269 to i32
-  %271 = load ptr, ptr %7, align 8
-  %272 = getelementptr inbounds %struct.FT_Bitmap_, ptr %271, i32 0, i32 4
-  %273 = load i16, ptr %272, align 8
-  %274 = zext i16 %273 to i32
-  %275 = sub nsw i32 %274, 1
-  %276 = icmp eq i32 %270, %275
-  br i1 %276, label %277, label %278
+  store i8 %264, ptr %268, align 1, !tbaa !15
+  %269 = load ptr, ptr %11, align 8, !tbaa !11
+  %270 = load i32, ptr %13, align 4, !tbaa !9
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds i8, ptr %269, i64 %271
+  %273 = load i8, ptr %272, align 1, !tbaa !15
+  %274 = zext i8 %273 to i32
+  %275 = load ptr, ptr %7, align 8, !tbaa !3
+  %276 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %275, i32 0, i32 4
+  %277 = load i16, ptr %276, align 8, !tbaa !36
+  %278 = zext i16 %277 to i32
+  %279 = sub nsw i32 %278, 1
+  %280 = icmp eq i32 %274, %279
+  br i1 %280, label %281, label %282
 
-277:                                              ; preds = %244
-  br label %286
+281:                                              ; preds = %248
+  br label %290
 
-278:                                              ; preds = %244
-  br label %279
-
-279:                                              ; preds = %278
-  br label %281
-
-280:                                              ; preds = %206
-  br label %286
-
-281:                                              ; preds = %279
-  br label %282
-
-282:                                              ; preds = %281, %205
+282:                                              ; preds = %248
   br label %283
 
 283:                                              ; preds = %282
-  %284 = load i32, ptr %12, align 4
-  %285 = add nsw i32 %284, 1
-  store i32 %285, ptr %12, align 4
-  br label %161, !llvm.loop !6
+  br label %285
 
-286:                                              ; preds = %280, %277, %233, %161
+284:                                              ; preds = %210
+  br label %290
+
+285:                                              ; preds = %283
+  br label %286
+
+286:                                              ; preds = %285, %209
   br label %287
 
 287:                                              ; preds = %286
-  %288 = load i32, ptr %13, align 4
-  %289 = add nsw i32 %288, -1
-  store i32 %289, ptr %13, align 4
-  br label %152, !llvm.loop !7
+  %288 = load i32, ptr %12, align 4, !tbaa !9
+  %289 = add nsw i32 %288, 1
+  store i32 %289, ptr %12, align 4, !tbaa !9
+  br label %165, !llvm.loop !37
 
-290:                                              ; preds = %152
-  store i32 1, ptr %13, align 4
+290:                                              ; preds = %284, %281, %237, %165
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #5
   br label %291
 
-291:                                              ; preds = %328, %290
-  %292 = load i32, ptr %13, align 4
-  %293 = load i32, ptr %17, align 4
-  %294 = icmp sle i32 %292, %293
-  br i1 %294, label %295, label %331
+291:                                              ; preds = %290
+  %292 = load i32, ptr %13, align 4, !tbaa !9
+  %293 = add nsw i32 %292, -1
+  store i32 %293, ptr %13, align 4, !tbaa !9
+  br label %156, !llvm.loop !38
 
-295:                                              ; preds = %291
-  %296 = load ptr, ptr %11, align 8
-  %297 = load ptr, ptr %7, align 8
-  %298 = getelementptr inbounds %struct.FT_Bitmap_, ptr %297, i32 0, i32 2
-  %299 = load i32, ptr %298, align 8
-  %300 = load i32, ptr %13, align 4
-  %301 = mul nsw i32 %299, %300
-  %302 = sext i32 %301 to i64
-  %303 = sub i64 0, %302
-  %304 = getelementptr inbounds i8, ptr %296, i64 %303
-  store ptr %304, ptr %20, align 8
-  store i32 0, ptr %12, align 4
-  br label %305
+294:                                              ; preds = %156
+  store i32 1, ptr %13, align 4, !tbaa !9
+  br label %295
 
-305:                                              ; preds = %324, %295
-  %306 = load i32, ptr %12, align 4
-  %307 = load i32, ptr %14, align 4
-  %308 = icmp slt i32 %306, %307
-  br i1 %308, label %309, label %327
+295:                                              ; preds = %332, %294
+  %296 = load i32, ptr %13, align 4, !tbaa !9
+  %297 = load i32, ptr %17, align 4, !tbaa !9
+  %298 = icmp sle i32 %296, %297
+  br i1 %298, label %299, label %335
 
-309:                                              ; preds = %305
-  %310 = load ptr, ptr %11, align 8
-  %311 = load i32, ptr %12, align 4
-  %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds i8, ptr %310, i64 %312
-  %314 = load i8, ptr %313, align 1
-  %315 = zext i8 %314 to i32
-  %316 = load ptr, ptr %20, align 8
-  %317 = load i32, ptr %12, align 4
-  %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds i8, ptr %316, i64 %318
-  %320 = load i8, ptr %319, align 1
-  %321 = zext i8 %320 to i32
-  %322 = or i32 %321, %315
-  %323 = trunc i32 %322 to i8
-  store i8 %323, ptr %319, align 1
-  br label %324
+299:                                              ; preds = %295
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  %300 = load ptr, ptr %11, align 8, !tbaa !11
+  %301 = load ptr, ptr %7, align 8, !tbaa !3
+  %302 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %301, i32 0, i32 2
+  %303 = load i32, ptr %302, align 8, !tbaa !19
+  %304 = load i32, ptr %13, align 4, !tbaa !9
+  %305 = mul nsw i32 %303, %304
+  %306 = sext i32 %305 to i64
+  %307 = sub i64 0, %306
+  %308 = getelementptr inbounds i8, ptr %300, i64 %307
+  store ptr %308, ptr %21, align 8, !tbaa !11
+  store i32 0, ptr %12, align 4, !tbaa !9
+  br label %309
 
-324:                                              ; preds = %309
-  %325 = load i32, ptr %12, align 4
-  %326 = add nsw i32 %325, 1
-  store i32 %326, ptr %12, align 4
-  br label %305, !llvm.loop !8
+309:                                              ; preds = %328, %299
+  %310 = load i32, ptr %12, align 4, !tbaa !9
+  %311 = load i32, ptr %14, align 4, !tbaa !9
+  %312 = icmp slt i32 %310, %311
+  br i1 %312, label %313, label %331
 
-327:                                              ; preds = %305
+313:                                              ; preds = %309
+  %314 = load ptr, ptr %11, align 8, !tbaa !11
+  %315 = load i32, ptr %12, align 4, !tbaa !9
+  %316 = sext i32 %315 to i64
+  %317 = getelementptr inbounds i8, ptr %314, i64 %316
+  %318 = load i8, ptr %317, align 1, !tbaa !15
+  %319 = zext i8 %318 to i32
+  %320 = load ptr, ptr %21, align 8, !tbaa !11
+  %321 = load i32, ptr %12, align 4, !tbaa !9
+  %322 = sext i32 %321 to i64
+  %323 = getelementptr inbounds i8, ptr %320, i64 %322
+  %324 = load i8, ptr %323, align 1, !tbaa !15
+  %325 = zext i8 %324 to i32
+  %326 = or i32 %325, %319
+  %327 = trunc i32 %326 to i8
+  store i8 %327, ptr %323, align 1, !tbaa !15
   br label %328
 
-328:                                              ; preds = %327
-  %329 = load i32, ptr %13, align 4
+328:                                              ; preds = %313
+  %329 = load i32, ptr %12, align 4, !tbaa !9
   %330 = add nsw i32 %329, 1
-  store i32 %330, ptr %13, align 4
-  br label %291, !llvm.loop !9
+  store i32 %330, ptr %12, align 4, !tbaa !9
+  br label %309, !llvm.loop !39
 
-331:                                              ; preds = %291
-  %332 = load ptr, ptr %7, align 8
-  %333 = getelementptr inbounds %struct.FT_Bitmap_, ptr %332, i32 0, i32 2
-  %334 = load i32, ptr %333, align 8
-  %335 = load ptr, ptr %11, align 8
-  %336 = sext i32 %334 to i64
-  %337 = getelementptr inbounds i8, ptr %335, i64 %336
-  store ptr %337, ptr %11, align 8
-  br label %338
+331:                                              ; preds = %309
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  br label %332
 
-338:                                              ; preds = %331
-  %339 = load i32, ptr %15, align 4
-  %340 = add i32 %339, 1
-  store i32 %340, ptr %15, align 4
-  br label %143, !llvm.loop !10
+332:                                              ; preds = %331
+  %333 = load i32, ptr %13, align 4, !tbaa !9
+  %334 = add nsw i32 %333, 1
+  store i32 %334, ptr %13, align 4, !tbaa !9
+  br label %295, !llvm.loop !40
 
-341:                                              ; preds = %143
-  %342 = load i32, ptr %16, align 4
-  %343 = load ptr, ptr %7, align 8
-  %344 = getelementptr inbounds %struct.FT_Bitmap_, ptr %343, i32 0, i32 1
-  %345 = load i32, ptr %344, align 4
-  %346 = add i32 %345, %342
-  store i32 %346, ptr %344, align 4
-  %347 = load i32, ptr %17, align 4
-  %348 = load ptr, ptr %7, align 8
-  %349 = getelementptr inbounds %struct.FT_Bitmap_, ptr %348, i32 0, i32 0
-  %350 = load i32, ptr %349, align 8
-  %351 = add i32 %350, %347
-  store i32 %351, ptr %349, align 8
+335:                                              ; preds = %295
+  %336 = load ptr, ptr %7, align 8, !tbaa !3
+  %337 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %336, i32 0, i32 2
+  %338 = load i32, ptr %337, align 8, !tbaa !19
+  %339 = load ptr, ptr %11, align 8, !tbaa !11
+  %340 = sext i32 %338 to i64
+  %341 = getelementptr inbounds i8, ptr %339, i64 %340
+  store ptr %341, ptr %11, align 8, !tbaa !11
+  br label %342
+
+342:                                              ; preds = %335
+  %343 = load i32, ptr %15, align 4, !tbaa !9
+  %344 = add i32 %343, 1
+  store i32 %344, ptr %15, align 4, !tbaa !9
+  br label %147, !llvm.loop !41
+
+345:                                              ; preds = %147
+  %346 = load i32, ptr %16, align 4, !tbaa !9
+  %347 = load ptr, ptr %7, align 8, !tbaa !3
+  %348 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %347, i32 0, i32 1
+  %349 = load i32, ptr %348, align 4, !tbaa !42
+  %350 = add i32 %349, %346
+  store i32 %350, ptr %348, align 4, !tbaa !42
+  %351 = load i32, ptr %17, align 4, !tbaa !9
+  %352 = load ptr, ptr %7, align 8, !tbaa !3
+  %353 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %352, i32 0, i32 0
+  %354 = load i32, ptr %353, align 8, !tbaa !30
+  %355 = add i32 %354, %351
+  store i32 %355, ptr %353, align 8, !tbaa !30
   store i32 0, ptr %5, align 4
-  br label %352
+  store i32 1, ptr %18, align 4
+  br label %356
 
-352:                                              ; preds = %341, %111, %100, %82, %69, %62, %45, %32, %23
-  %353 = load i32, ptr %5, align 4
-  ret i32 %353
+356:                                              ; preds = %345, %115, %104, %90, %70, %63, %46, %33, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %357 = load i32, ptr %5, align 4
+  ret i32 %357
 }
 
 ; Function Attrs: nounwind uwtable
@@ -863,862 +934,937 @@ define i32 @FT_Bitmap_Convert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  %18 = alloca ptr, align 8
+  %18 = alloca i32, align 4
   %19 = alloca ptr, align 8
-  %20 = alloca i32, align 4
+  %20 = alloca ptr, align 8
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
   %25 = alloca i32, align 4
-  %26 = alloca ptr, align 8
+  %26 = alloca i32, align 4
   %27 = alloca ptr, align 8
-  %28 = alloca i32, align 4
+  %28 = alloca ptr, align 8
   %29 = alloca i32, align 4
   %30 = alloca i32, align 4
   %31 = alloca i32, align 4
-  %32 = alloca ptr, align 8
+  %32 = alloca i32, align 4
   %33 = alloca ptr, align 8
-  %34 = alloca i32, align 4
+  %34 = alloca ptr, align 8
   %35 = alloca i32, align 4
   %36 = alloca i32, align 4
-  %37 = alloca ptr, align 8
+  %37 = alloca i32, align 4
   %38 = alloca ptr, align 8
-  %39 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i32 %3, ptr %9, align 4
-  store i32 0, ptr %10, align 4
-  %40 = load ptr, ptr %6, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %43, label %42
-
-42:                                               ; preds = %4
-  store i32 33, ptr %5, align 4
-  br label %579
+  %39 = alloca ptr, align 8
+  %40 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !17
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store ptr %2, ptr %8, align 8, !tbaa !3
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 0, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %41 = load ptr, ptr %6, align 8, !tbaa !17
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %44, label %43
 
 43:                                               ; preds = %4
-  %44 = load ptr, ptr %7, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %49
+  store i32 33, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %583
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %8, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %50, label %49
+44:                                               ; preds = %4
+  %45 = load ptr, ptr %7, align 8, !tbaa !3
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %50
 
-49:                                               ; preds = %46, %43
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %8, align 8, !tbaa !3
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %51, label %50
+
+50:                                               ; preds = %47, %44
   store i32 6, ptr %5, align 4
-  br label %579
+  store i32 1, ptr %14, align 4
+  br label %583
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.FT_LibraryRec_, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %11, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct.FT_Bitmap_, ptr %54, i32 0, i32 5
-  %56 = load i8, ptr %55, align 2
-  %57 = zext i8 %56 to i32
-  switch i32 %57, label %147 [
-    i32 1, label %58
-    i32 2, label %58
-    i32 3, label %58
-    i32 4, label %58
-    i32 5, label %58
-    i32 6, label %58
-    i32 7, label %58
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %6, align 8, !tbaa !17
+  %53 = getelementptr inbounds nuw %struct.FT_LibraryRec_, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !21
+  store ptr %54, ptr %11, align 8, !tbaa !28
+  %55 = load ptr, ptr %7, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %55, i32 0, i32 5
+  %57 = load i8, ptr %56, align 2, !tbaa !35
+  %58 = zext i8 %57 to i32
+  switch i32 %58, label %151 [
+    i32 1, label %59
+    i32 2, label %59
+    i32 3, label %59
+    i32 4, label %59
+    i32 5, label %59
+    i32 6, label %59
+    i32 7, label %59
   ]
 
-58:                                               ; preds = %50, %50, %50, %50, %50, %50, %50
-  %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds %struct.FT_Bitmap_, ptr %59, i32 0, i32 1
-  %61 = load i32, ptr %60, align 4
-  store i32 %61, ptr %14, align 4
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds %struct.FT_Bitmap_, ptr %62, i32 0, i32 2
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %71
+59:                                               ; preds = %51, %51, %51, %51, %51, %51, %51
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  %60 = load ptr, ptr %7, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %60, i32 0, i32 1
+  %62 = load i32, ptr %61, align 4, !tbaa !42
+  store i32 %62, ptr %15, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %63 = load ptr, ptr %8, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %63, i32 0, i32 2
+  %65 = load i32, ptr %64, align 8, !tbaa !19
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %72
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds %struct.FT_Bitmap_, ptr %67, i32 0, i32 2
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %76, label %71
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %7, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %68, i32 0, i32 2
+  %70 = load i32, ptr %69, align 8, !tbaa !19
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %77, label %72
 
-71:                                               ; preds = %66, %58
-  %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds %struct.FT_Bitmap_, ptr %72, i32 0, i32 2
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp slt i32 %74, 0
-  br label %76
+72:                                               ; preds = %67, %59
+  %73 = load ptr, ptr %8, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %73, i32 0, i32 2
+  %75 = load i32, ptr %74, align 8, !tbaa !19
+  %76 = icmp slt i32 %75, 0
+  br label %77
 
-76:                                               ; preds = %71, %66
-  %77 = phi i1 [ true, %66 ], [ %75, %71 ]
-  %78 = zext i1 %77 to i32
-  store i32 %78, ptr %15, align 4
-  %79 = load ptr, ptr %6, align 8
-  %80 = load ptr, ptr %8, align 8
-  %81 = call i32 @FT_Bitmap_Done(ptr noundef %79, ptr noundef %80)
-  %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds %struct.FT_Bitmap_, ptr %82, i32 0, i32 5
-  store i8 2, ptr %83, align 2
-  %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %struct.FT_Bitmap_, ptr %84, i32 0, i32 0
-  %86 = load i32, ptr %85, align 8
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct.FT_Bitmap_, ptr %87, i32 0, i32 0
-  store i32 %86, ptr %88, align 8
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct.FT_Bitmap_, ptr %89, i32 0, i32 1
-  %91 = load i32, ptr %90, align 4
-  %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr inbounds %struct.FT_Bitmap_, ptr %92, i32 0, i32 1
-  store i32 %91, ptr %93, align 4
-  %94 = load i32, ptr %9, align 4
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %120
+77:                                               ; preds = %72, %67
+  %78 = phi i1 [ true, %67 ], [ %76, %72 ]
+  %79 = zext i1 %78 to i32
+  store i32 %79, ptr %16, align 4, !tbaa !9
+  %80 = load ptr, ptr %6, align 8, !tbaa !17
+  %81 = load ptr, ptr %8, align 8, !tbaa !3
+  %82 = call i32 @FT_Bitmap_Done(ptr noundef %80, ptr noundef %81)
+  %83 = load ptr, ptr %8, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %83, i32 0, i32 5
+  store i8 2, ptr %84, align 2, !tbaa !35
+  %85 = load ptr, ptr %7, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %85, i32 0, i32 0
+  %87 = load i32, ptr %86, align 8, !tbaa !30
+  %88 = load ptr, ptr %8, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %88, i32 0, i32 0
+  store i32 %87, ptr %89, align 8, !tbaa !30
+  %90 = load ptr, ptr %7, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %90, i32 0, i32 1
+  %92 = load i32, ptr %91, align 4, !tbaa !42
+  %93 = load ptr, ptr %8, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %93, i32 0, i32 1
+  store i32 %92, ptr %94, align 4, !tbaa !42
+  %95 = load i32, ptr %9, align 4, !tbaa !9
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %121
 
-96:                                               ; preds = %76
-  %97 = load i32, ptr %14, align 4
-  %98 = load i32, ptr %9, align 4
-  %99 = srem i32 %97, %98
-  store i32 %99, ptr %16, align 4
-  %100 = load i32, ptr %16, align 4
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %119
+97:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  %98 = load i32, ptr %15, align 4, !tbaa !9
+  %99 = load i32, ptr %9, align 4, !tbaa !9
+  %100 = srem i32 %98, %99
+  store i32 %100, ptr %17, align 4, !tbaa !9
+  %101 = load i32, ptr %17, align 4, !tbaa !9
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %120
 
-102:                                              ; preds = %96
-  %103 = load i32, ptr %9, align 4
-  %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %105, label %111
+103:                                              ; preds = %97
+  %104 = load i32, ptr %9, align 4, !tbaa !9
+  %105 = icmp sgt i32 %104, 0
+  br i1 %105, label %106, label %112
 
-105:                                              ; preds = %102
-  %106 = load i32, ptr %14, align 4
-  %107 = load i32, ptr %16, align 4
-  %108 = sub nsw i32 %106, %107
-  %109 = load i32, ptr %9, align 4
-  %110 = add nsw i32 %108, %109
-  br label %117
+106:                                              ; preds = %103
+  %107 = load i32, ptr %15, align 4, !tbaa !9
+  %108 = load i32, ptr %17, align 4, !tbaa !9
+  %109 = sub nsw i32 %107, %108
+  %110 = load i32, ptr %9, align 4, !tbaa !9
+  %111 = add nsw i32 %109, %110
+  br label %118
 
-111:                                              ; preds = %102
-  %112 = load i32, ptr %14, align 4
-  %113 = load i32, ptr %16, align 4
-  %114 = sub nsw i32 %112, %113
-  %115 = load i32, ptr %9, align 4
-  %116 = sub nsw i32 %114, %115
-  br label %117
+112:                                              ; preds = %103
+  %113 = load i32, ptr %15, align 4, !tbaa !9
+  %114 = load i32, ptr %17, align 4, !tbaa !9
+  %115 = sub nsw i32 %113, %114
+  %116 = load i32, ptr %9, align 4, !tbaa !9
+  %117 = sub nsw i32 %115, %116
+  br label %118
 
-117:                                              ; preds = %111, %105
-  %118 = phi i32 [ %110, %105 ], [ %116, %111 ]
-  store i32 %118, ptr %14, align 4
-  br label %119
-
-119:                                              ; preds = %117, %96
+118:                                              ; preds = %112, %106
+  %119 = phi i32 [ %111, %106 ], [ %117, %112 ]
+  store i32 %119, ptr %15, align 4, !tbaa !9
   br label %120
 
-120:                                              ; preds = %119, %76
-  %121 = load ptr, ptr %11, align 8
-  %122 = load i32, ptr %14, align 4
-  %123 = sext i32 %122 to i64
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds %struct.FT_Bitmap_, ptr %124, i32 0, i32 0
-  %126 = load i32, ptr %125, align 8
-  %127 = zext i32 %126 to i64
-  %128 = call ptr @ft_mem_qrealloc(ptr noundef %121, i64 noundef %123, i64 noundef 0, i64 noundef %127, ptr noundef null, ptr noundef %10)
-  %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr inbounds %struct.FT_Bitmap_, ptr %129, i32 0, i32 3
-  store ptr %128, ptr %130, align 8
-  %131 = load i32, ptr %10, align 4
-  %132 = icmp ne i32 %131, 0
-  br i1 %132, label %133, label %135
+120:                                              ; preds = %118, %97
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  br label %121
 
-133:                                              ; preds = %120
-  %134 = load i32, ptr %10, align 4
-  store i32 %134, ptr %5, align 4
-  br label %579
+121:                                              ; preds = %120, %77
+  %122 = load ptr, ptr %11, align 8, !tbaa !28
+  %123 = load i32, ptr %15, align 4, !tbaa !9
+  %124 = sext i32 %123 to i64
+  %125 = load ptr, ptr %8, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %125, i32 0, i32 0
+  %127 = load i32, ptr %126, align 8, !tbaa !30
+  %128 = zext i32 %127 to i64
+  %129 = call ptr @ft_mem_qrealloc(ptr noundef %122, i64 noundef %124, i64 noundef 0, i64 noundef %128, ptr noundef null, ptr noundef %10)
+  %130 = load ptr, ptr %8, align 8, !tbaa !3
+  %131 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %130, i32 0, i32 3
+  store ptr %129, ptr %131, align 8, !tbaa !29
+  %132 = load i32, ptr %10, align 4, !tbaa !9
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %136
 
-135:                                              ; preds = %120
-  %136 = load i32, ptr %15, align 4
-  %137 = icmp ne i32 %136, 0
-  br i1 %137, label %138, label %141
-
-138:                                              ; preds = %135
-  %139 = load i32, ptr %14, align 4
-  %140 = sub nsw i32 0, %139
-  br label %143
-
-141:                                              ; preds = %135
-  %142 = load i32, ptr %14, align 4
-  br label %143
-
-143:                                              ; preds = %141, %138
-  %144 = phi i32 [ %140, %138 ], [ %142, %141 ]
-  %145 = load ptr, ptr %8, align 8
-  %146 = getelementptr inbounds %struct.FT_Bitmap_, ptr %145, i32 0, i32 2
-  store i32 %144, ptr %146, align 8
+134:                                              ; preds = %121
+  %135 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %135, ptr %5, align 4
+  store i32 1, ptr %14, align 4
   br label %148
 
-147:                                              ; preds = %50
-  store i32 6, ptr %10, align 4
+136:                                              ; preds = %121
+  %137 = load i32, ptr %16, align 4, !tbaa !9
+  %138 = icmp ne i32 %137, 0
+  br i1 %138, label %139, label %142
+
+139:                                              ; preds = %136
+  %140 = load i32, ptr %15, align 4, !tbaa !9
+  %141 = sub nsw i32 0, %140
+  br label %144
+
+142:                                              ; preds = %136
+  %143 = load i32, ptr %15, align 4, !tbaa !9
+  br label %144
+
+144:                                              ; preds = %142, %139
+  %145 = phi i32 [ %141, %139 ], [ %143, %142 ]
+  %146 = load ptr, ptr %8, align 8, !tbaa !3
+  %147 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %146, i32 0, i32 2
+  store i32 %145, ptr %147, align 8, !tbaa !19
+  store i32 0, ptr %14, align 4
   br label %148
 
-148:                                              ; preds = %147, %143
-  %149 = load ptr, ptr %7, align 8
-  %150 = getelementptr inbounds %struct.FT_Bitmap_, ptr %149, i32 0, i32 3
-  %151 = load ptr, ptr %150, align 8
-  store ptr %151, ptr %12, align 8
-  %152 = load ptr, ptr %8, align 8
-  %153 = getelementptr inbounds %struct.FT_Bitmap_, ptr %152, i32 0, i32 3
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr %13, align 8
-  %155 = load ptr, ptr %7, align 8
-  %156 = getelementptr inbounds %struct.FT_Bitmap_, ptr %155, i32 0, i32 2
-  %157 = load i32, ptr %156, align 8
-  %158 = icmp slt i32 %157, 0
-  br i1 %158, label %159, label %172
-
-159:                                              ; preds = %148
-  %160 = load ptr, ptr %7, align 8
-  %161 = getelementptr inbounds %struct.FT_Bitmap_, ptr %160, i32 0, i32 2
-  %162 = load i32, ptr %161, align 8
-  %163 = load ptr, ptr %7, align 8
-  %164 = getelementptr inbounds %struct.FT_Bitmap_, ptr %163, i32 0, i32 0
-  %165 = load i32, ptr %164, align 8
-  %166 = sub i32 %165, 1
-  %167 = mul nsw i32 %162, %166
-  %168 = load ptr, ptr %12, align 8
-  %169 = sext i32 %167 to i64
-  %170 = sub i64 0, %169
-  %171 = getelementptr inbounds i8, ptr %168, i64 %170
-  store ptr %171, ptr %12, align 8
-  br label %172
-
-172:                                              ; preds = %159, %148
-  %173 = load ptr, ptr %8, align 8
-  %174 = getelementptr inbounds %struct.FT_Bitmap_, ptr %173, i32 0, i32 2
-  %175 = load i32, ptr %174, align 8
-  %176 = icmp slt i32 %175, 0
-  br i1 %176, label %177, label %190
-
-177:                                              ; preds = %172
-  %178 = load ptr, ptr %8, align 8
-  %179 = getelementptr inbounds %struct.FT_Bitmap_, ptr %178, i32 0, i32 2
-  %180 = load i32, ptr %179, align 8
-  %181 = load ptr, ptr %8, align 8
-  %182 = getelementptr inbounds %struct.FT_Bitmap_, ptr %181, i32 0, i32 0
-  %183 = load i32, ptr %182, align 8
-  %184 = sub i32 %183, 1
-  %185 = mul nsw i32 %180, %184
-  %186 = load ptr, ptr %13, align 8
-  %187 = sext i32 %185 to i64
-  %188 = sub i64 0, %187
-  %189 = getelementptr inbounds i8, ptr %186, i64 %188
-  store ptr %189, ptr %13, align 8
-  br label %190
-
-190:                                              ; preds = %177, %172
-  %191 = load ptr, ptr %7, align 8
-  %192 = getelementptr inbounds %struct.FT_Bitmap_, ptr %191, i32 0, i32 5
-  %193 = load i8, ptr %192, align 2
-  %194 = zext i8 %193 to i32
-  switch i32 %194, label %576 [
-    i32 1, label %195
-    i32 2, label %319
-    i32 5, label %319
-    i32 6, label %319
-    i32 3, label %353
-    i32 4, label %454
-    i32 7, label %529
+148:                                              ; preds = %144, %134
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  %149 = load i32, ptr %14, align 4
+  switch i32 %149, label %583 [
+    i32 0, label %150
   ]
 
-195:                                              ; preds = %190
-  %196 = load ptr, ptr %8, align 8
-  %197 = getelementptr inbounds %struct.FT_Bitmap_, ptr %196, i32 0, i32 4
-  store i16 2, ptr %197, align 8
-  %198 = load ptr, ptr %7, align 8
-  %199 = getelementptr inbounds %struct.FT_Bitmap_, ptr %198, i32 0, i32 0
-  %200 = load i32, ptr %199, align 8
-  store i32 %200, ptr %17, align 4
-  br label %201
+150:                                              ; preds = %148
+  br label %152
 
-201:                                              ; preds = %315, %195
-  %202 = load i32, ptr %17, align 4
-  %203 = icmp ugt i32 %202, 0
-  br i1 %203, label %204, label %318
+151:                                              ; preds = %51
+  store i32 6, ptr %10, align 4, !tbaa !9
+  br label %152
 
-204:                                              ; preds = %201
-  %205 = load ptr, ptr %12, align 8
-  store ptr %205, ptr %18, align 8
-  %206 = load ptr, ptr %13, align 8
-  store ptr %206, ptr %19, align 8
-  %207 = load ptr, ptr %7, align 8
-  %208 = getelementptr inbounds %struct.FT_Bitmap_, ptr %207, i32 0, i32 1
-  %209 = load i32, ptr %208, align 4
-  %210 = lshr i32 %209, 3
-  store i32 %210, ptr %20, align 4
-  br label %211
+152:                                              ; preds = %151, %150
+  %153 = load ptr, ptr %7, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %153, i32 0, i32 3
+  %155 = load ptr, ptr %154, align 8, !tbaa !29
+  store ptr %155, ptr %12, align 8, !tbaa !11
+  %156 = load ptr, ptr %8, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %156, i32 0, i32 3
+  %158 = load ptr, ptr %157, align 8, !tbaa !29
+  store ptr %158, ptr %13, align 8, !tbaa !11
+  %159 = load ptr, ptr %7, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %159, i32 0, i32 2
+  %161 = load i32, ptr %160, align 8, !tbaa !19
+  %162 = icmp slt i32 %161, 0
+  br i1 %162, label %163, label %176
 
-211:                                              ; preds = %270, %204
-  %212 = load i32, ptr %20, align 4
-  %213 = icmp ugt i32 %212, 0
-  br i1 %213, label %214, label %273
+163:                                              ; preds = %152
+  %164 = load ptr, ptr %7, align 8, !tbaa !3
+  %165 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %164, i32 0, i32 2
+  %166 = load i32, ptr %165, align 8, !tbaa !19
+  %167 = load ptr, ptr %7, align 8, !tbaa !3
+  %168 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %167, i32 0, i32 0
+  %169 = load i32, ptr %168, align 8, !tbaa !30
+  %170 = sub i32 %169, 1
+  %171 = mul nsw i32 %166, %170
+  %172 = load ptr, ptr %12, align 8, !tbaa !11
+  %173 = sext i32 %171 to i64
+  %174 = sub i64 0, %173
+  %175 = getelementptr inbounds i8, ptr %172, i64 %174
+  store ptr %175, ptr %12, align 8, !tbaa !11
+  br label %176
 
-214:                                              ; preds = %211
-  %215 = load ptr, ptr %18, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 0
-  %217 = load i8, ptr %216, align 1
-  %218 = zext i8 %217 to i32
-  store i32 %218, ptr %21, align 4
-  %219 = load i32, ptr %21, align 4
-  %220 = and i32 %219, 128
-  %221 = ashr i32 %220, 7
-  %222 = trunc i32 %221 to i8
-  %223 = load ptr, ptr %19, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 0
-  store i8 %222, ptr %224, align 1
-  %225 = load i32, ptr %21, align 4
-  %226 = and i32 %225, 64
-  %227 = ashr i32 %226, 6
-  %228 = trunc i32 %227 to i8
-  %229 = load ptr, ptr %19, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 1
-  store i8 %228, ptr %230, align 1
-  %231 = load i32, ptr %21, align 4
-  %232 = and i32 %231, 32
-  %233 = ashr i32 %232, 5
-  %234 = trunc i32 %233 to i8
-  %235 = load ptr, ptr %19, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 2
-  store i8 %234, ptr %236, align 1
-  %237 = load i32, ptr %21, align 4
-  %238 = and i32 %237, 16
-  %239 = ashr i32 %238, 4
-  %240 = trunc i32 %239 to i8
-  %241 = load ptr, ptr %19, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 3
-  store i8 %240, ptr %242, align 1
-  %243 = load i32, ptr %21, align 4
-  %244 = and i32 %243, 8
-  %245 = ashr i32 %244, 3
-  %246 = trunc i32 %245 to i8
-  %247 = load ptr, ptr %19, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 4
-  store i8 %246, ptr %248, align 1
-  %249 = load i32, ptr %21, align 4
-  %250 = and i32 %249, 4
-  %251 = ashr i32 %250, 2
-  %252 = trunc i32 %251 to i8
-  %253 = load ptr, ptr %19, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 5
-  store i8 %252, ptr %254, align 1
-  %255 = load i32, ptr %21, align 4
-  %256 = and i32 %255, 2
-  %257 = ashr i32 %256, 1
-  %258 = trunc i32 %257 to i8
-  %259 = load ptr, ptr %19, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 6
-  store i8 %258, ptr %260, align 1
-  %261 = load i32, ptr %21, align 4
-  %262 = and i32 %261, 1
-  %263 = trunc i32 %262 to i8
-  %264 = load ptr, ptr %19, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 7
-  store i8 %263, ptr %265, align 1
-  %266 = load ptr, ptr %19, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 8
-  store ptr %267, ptr %19, align 8
-  %268 = load ptr, ptr %18, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 1
-  store ptr %269, ptr %18, align 8
-  br label %270
+176:                                              ; preds = %163, %152
+  %177 = load ptr, ptr %8, align 8, !tbaa !3
+  %178 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %177, i32 0, i32 2
+  %179 = load i32, ptr %178, align 8, !tbaa !19
+  %180 = icmp slt i32 %179, 0
+  br i1 %180, label %181, label %194
 
-270:                                              ; preds = %214
-  %271 = load i32, ptr %20, align 4
-  %272 = add i32 %271, -1
-  store i32 %272, ptr %20, align 4
-  br label %211, !llvm.loop !11
+181:                                              ; preds = %176
+  %182 = load ptr, ptr %8, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %182, i32 0, i32 2
+  %184 = load i32, ptr %183, align 8, !tbaa !19
+  %185 = load ptr, ptr %8, align 8, !tbaa !3
+  %186 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %185, i32 0, i32 0
+  %187 = load i32, ptr %186, align 8, !tbaa !30
+  %188 = sub i32 %187, 1
+  %189 = mul nsw i32 %184, %188
+  %190 = load ptr, ptr %13, align 8, !tbaa !11
+  %191 = sext i32 %189 to i64
+  %192 = sub i64 0, %191
+  %193 = getelementptr inbounds i8, ptr %190, i64 %192
+  store ptr %193, ptr %13, align 8, !tbaa !11
+  br label %194
 
-273:                                              ; preds = %211
-  %274 = load ptr, ptr %7, align 8
-  %275 = getelementptr inbounds %struct.FT_Bitmap_, ptr %274, i32 0, i32 1
-  %276 = load i32, ptr %275, align 4
-  %277 = and i32 %276, 7
-  store i32 %277, ptr %20, align 4
-  %278 = load i32, ptr %20, align 4
-  %279 = icmp ugt i32 %278, 0
-  br i1 %279, label %280, label %302
+194:                                              ; preds = %181, %176
+  %195 = load ptr, ptr %7, align 8, !tbaa !3
+  %196 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %195, i32 0, i32 5
+  %197 = load i8, ptr %196, align 2, !tbaa !35
+  %198 = zext i8 %197 to i32
+  switch i32 %198, label %580 [
+    i32 1, label %199
+    i32 2, label %323
+    i32 5, label %323
+    i32 6, label %323
+    i32 3, label %357
+    i32 4, label %458
+    i32 7, label %533
+  ]
 
-280:                                              ; preds = %273
-  %281 = load ptr, ptr %18, align 8
-  %282 = load i8, ptr %281, align 1
-  %283 = zext i8 %282 to i32
-  store i32 %283, ptr %22, align 4
-  br label %284
+199:                                              ; preds = %194
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  %200 = load ptr, ptr %8, align 8, !tbaa !3
+  %201 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %200, i32 0, i32 4
+  store i16 2, ptr %201, align 8, !tbaa !36
+  %202 = load ptr, ptr %7, align 8, !tbaa !3
+  %203 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %202, i32 0, i32 0
+  %204 = load i32, ptr %203, align 8, !tbaa !30
+  store i32 %204, ptr %18, align 4, !tbaa !9
+  br label %205
 
-284:                                              ; preds = %298, %280
-  %285 = load i32, ptr %20, align 4
-  %286 = icmp ugt i32 %285, 0
-  br i1 %286, label %287, label %301
+205:                                              ; preds = %319, %199
+  %206 = load i32, ptr %18, align 4, !tbaa !9
+  %207 = icmp ugt i32 %206, 0
+  br i1 %207, label %208, label %322
 
-287:                                              ; preds = %284
-  %288 = load i32, ptr %22, align 4
-  %289 = and i32 %288, 128
-  %290 = ashr i32 %289, 7
-  %291 = trunc i32 %290 to i8
-  %292 = load ptr, ptr %19, align 8
-  %293 = getelementptr inbounds i8, ptr %292, i64 0
-  store i8 %291, ptr %293, align 1
-  %294 = load i32, ptr %22, align 4
-  %295 = shl i32 %294, 1
-  store i32 %295, ptr %22, align 4
-  %296 = load ptr, ptr %19, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 1
-  store ptr %297, ptr %19, align 8
-  br label %298
+208:                                              ; preds = %205
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %209 = load ptr, ptr %12, align 8, !tbaa !11
+  store ptr %209, ptr %19, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  %210 = load ptr, ptr %13, align 8, !tbaa !11
+  store ptr %210, ptr %20, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #5
+  %211 = load ptr, ptr %7, align 8, !tbaa !3
+  %212 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %211, i32 0, i32 1
+  %213 = load i32, ptr %212, align 4, !tbaa !42
+  %214 = lshr i32 %213, 3
+  store i32 %214, ptr %21, align 4, !tbaa !9
+  br label %215
 
-298:                                              ; preds = %287
-  %299 = load i32, ptr %20, align 4
-  %300 = add i32 %299, -1
-  store i32 %300, ptr %20, align 4
-  br label %284, !llvm.loop !12
+215:                                              ; preds = %274, %208
+  %216 = load i32, ptr %21, align 4, !tbaa !9
+  %217 = icmp ugt i32 %216, 0
+  br i1 %217, label %218, label %277
 
-301:                                              ; preds = %284
+218:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #5
+  %219 = load ptr, ptr %19, align 8, !tbaa !11
+  %220 = getelementptr inbounds i8, ptr %219, i64 0
+  %221 = load i8, ptr %220, align 1, !tbaa !15
+  %222 = zext i8 %221 to i32
+  store i32 %222, ptr %22, align 4, !tbaa !9
+  %223 = load i32, ptr %22, align 4, !tbaa !9
+  %224 = and i32 %223, 128
+  %225 = ashr i32 %224, 7
+  %226 = trunc i32 %225 to i8
+  %227 = load ptr, ptr %20, align 8, !tbaa !11
+  %228 = getelementptr inbounds i8, ptr %227, i64 0
+  store i8 %226, ptr %228, align 1, !tbaa !15
+  %229 = load i32, ptr %22, align 4, !tbaa !9
+  %230 = and i32 %229, 64
+  %231 = ashr i32 %230, 6
+  %232 = trunc i32 %231 to i8
+  %233 = load ptr, ptr %20, align 8, !tbaa !11
+  %234 = getelementptr inbounds i8, ptr %233, i64 1
+  store i8 %232, ptr %234, align 1, !tbaa !15
+  %235 = load i32, ptr %22, align 4, !tbaa !9
+  %236 = and i32 %235, 32
+  %237 = ashr i32 %236, 5
+  %238 = trunc i32 %237 to i8
+  %239 = load ptr, ptr %20, align 8, !tbaa !11
+  %240 = getelementptr inbounds i8, ptr %239, i64 2
+  store i8 %238, ptr %240, align 1, !tbaa !15
+  %241 = load i32, ptr %22, align 4, !tbaa !9
+  %242 = and i32 %241, 16
+  %243 = ashr i32 %242, 4
+  %244 = trunc i32 %243 to i8
+  %245 = load ptr, ptr %20, align 8, !tbaa !11
+  %246 = getelementptr inbounds i8, ptr %245, i64 3
+  store i8 %244, ptr %246, align 1, !tbaa !15
+  %247 = load i32, ptr %22, align 4, !tbaa !9
+  %248 = and i32 %247, 8
+  %249 = ashr i32 %248, 3
+  %250 = trunc i32 %249 to i8
+  %251 = load ptr, ptr %20, align 8, !tbaa !11
+  %252 = getelementptr inbounds i8, ptr %251, i64 4
+  store i8 %250, ptr %252, align 1, !tbaa !15
+  %253 = load i32, ptr %22, align 4, !tbaa !9
+  %254 = and i32 %253, 4
+  %255 = ashr i32 %254, 2
+  %256 = trunc i32 %255 to i8
+  %257 = load ptr, ptr %20, align 8, !tbaa !11
+  %258 = getelementptr inbounds i8, ptr %257, i64 5
+  store i8 %256, ptr %258, align 1, !tbaa !15
+  %259 = load i32, ptr %22, align 4, !tbaa !9
+  %260 = and i32 %259, 2
+  %261 = ashr i32 %260, 1
+  %262 = trunc i32 %261 to i8
+  %263 = load ptr, ptr %20, align 8, !tbaa !11
+  %264 = getelementptr inbounds i8, ptr %263, i64 6
+  store i8 %262, ptr %264, align 1, !tbaa !15
+  %265 = load i32, ptr %22, align 4, !tbaa !9
+  %266 = and i32 %265, 1
+  %267 = trunc i32 %266 to i8
+  %268 = load ptr, ptr %20, align 8, !tbaa !11
+  %269 = getelementptr inbounds i8, ptr %268, i64 7
+  store i8 %267, ptr %269, align 1, !tbaa !15
+  %270 = load ptr, ptr %20, align 8, !tbaa !11
+  %271 = getelementptr inbounds i8, ptr %270, i64 8
+  store ptr %271, ptr %20, align 8, !tbaa !11
+  %272 = load ptr, ptr %19, align 8, !tbaa !11
+  %273 = getelementptr inbounds i8, ptr %272, i64 1
+  store ptr %273, ptr %19, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #5
+  br label %274
+
+274:                                              ; preds = %218
+  %275 = load i32, ptr %21, align 4, !tbaa !9
+  %276 = add i32 %275, -1
+  store i32 %276, ptr %21, align 4, !tbaa !9
+  br label %215, !llvm.loop !43
+
+277:                                              ; preds = %215
+  %278 = load ptr, ptr %7, align 8, !tbaa !3
+  %279 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %278, i32 0, i32 1
+  %280 = load i32, ptr %279, align 4, !tbaa !42
+  %281 = and i32 %280, 7
+  store i32 %281, ptr %21, align 4, !tbaa !9
+  %282 = load i32, ptr %21, align 4, !tbaa !9
+  %283 = icmp ugt i32 %282, 0
+  br i1 %283, label %284, label %306
+
+284:                                              ; preds = %277
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #5
+  %285 = load ptr, ptr %19, align 8, !tbaa !11
+  %286 = load i8, ptr %285, align 1, !tbaa !15
+  %287 = zext i8 %286 to i32
+  store i32 %287, ptr %23, align 4, !tbaa !9
+  br label %288
+
+288:                                              ; preds = %302, %284
+  %289 = load i32, ptr %21, align 4, !tbaa !9
+  %290 = icmp ugt i32 %289, 0
+  br i1 %290, label %291, label %305
+
+291:                                              ; preds = %288
+  %292 = load i32, ptr %23, align 4, !tbaa !9
+  %293 = and i32 %292, 128
+  %294 = ashr i32 %293, 7
+  %295 = trunc i32 %294 to i8
+  %296 = load ptr, ptr %20, align 8, !tbaa !11
+  %297 = getelementptr inbounds i8, ptr %296, i64 0
+  store i8 %295, ptr %297, align 1, !tbaa !15
+  %298 = load i32, ptr %23, align 4, !tbaa !9
+  %299 = shl i32 %298, 1
+  store i32 %299, ptr %23, align 4, !tbaa !9
+  %300 = load ptr, ptr %20, align 8, !tbaa !11
+  %301 = getelementptr inbounds i8, ptr %300, i64 1
+  store ptr %301, ptr %20, align 8, !tbaa !11
   br label %302
 
-302:                                              ; preds = %301, %273
-  %303 = load ptr, ptr %7, align 8
-  %304 = getelementptr inbounds %struct.FT_Bitmap_, ptr %303, i32 0, i32 2
-  %305 = load i32, ptr %304, align 8
-  %306 = load ptr, ptr %12, align 8
-  %307 = sext i32 %305 to i64
-  %308 = getelementptr inbounds i8, ptr %306, i64 %307
-  store ptr %308, ptr %12, align 8
-  %309 = load ptr, ptr %8, align 8
-  %310 = getelementptr inbounds %struct.FT_Bitmap_, ptr %309, i32 0, i32 2
-  %311 = load i32, ptr %310, align 8
-  %312 = load ptr, ptr %13, align 8
-  %313 = sext i32 %311 to i64
-  %314 = getelementptr inbounds i8, ptr %312, i64 %313
-  store ptr %314, ptr %13, align 8
-  br label %315
+302:                                              ; preds = %291
+  %303 = load i32, ptr %21, align 4, !tbaa !9
+  %304 = add i32 %303, -1
+  store i32 %304, ptr %21, align 4, !tbaa !9
+  br label %288, !llvm.loop !44
 
-315:                                              ; preds = %302
-  %316 = load i32, ptr %17, align 4
-  %317 = add i32 %316, -1
-  store i32 %317, ptr %17, align 4
-  br label %201, !llvm.loop !13
+305:                                              ; preds = %288
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #5
+  br label %306
 
-318:                                              ; preds = %201
-  br label %577
+306:                                              ; preds = %305, %277
+  %307 = load ptr, ptr %7, align 8, !tbaa !3
+  %308 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %307, i32 0, i32 2
+  %309 = load i32, ptr %308, align 8, !tbaa !19
+  %310 = load ptr, ptr %12, align 8, !tbaa !11
+  %311 = sext i32 %309 to i64
+  %312 = getelementptr inbounds i8, ptr %310, i64 %311
+  store ptr %312, ptr %12, align 8, !tbaa !11
+  %313 = load ptr, ptr %8, align 8, !tbaa !3
+  %314 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %313, i32 0, i32 2
+  %315 = load i32, ptr %314, align 8, !tbaa !19
+  %316 = load ptr, ptr %13, align 8, !tbaa !11
+  %317 = sext i32 %315 to i64
+  %318 = getelementptr inbounds i8, ptr %316, i64 %317
+  store ptr %318, ptr %13, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  br label %319
 
-319:                                              ; preds = %190, %190, %190
-  %320 = load ptr, ptr %7, align 8
-  %321 = getelementptr inbounds %struct.FT_Bitmap_, ptr %320, i32 0, i32 1
-  %322 = load i32, ptr %321, align 4
-  store i32 %322, ptr %23, align 4
-  %323 = load ptr, ptr %8, align 8
-  %324 = getelementptr inbounds %struct.FT_Bitmap_, ptr %323, i32 0, i32 4
-  store i16 256, ptr %324, align 8
-  %325 = load ptr, ptr %7, align 8
-  %326 = getelementptr inbounds %struct.FT_Bitmap_, ptr %325, i32 0, i32 0
-  %327 = load i32, ptr %326, align 8
-  store i32 %327, ptr %24, align 4
-  br label %328
+319:                                              ; preds = %306
+  %320 = load i32, ptr %18, align 4, !tbaa !9
+  %321 = add i32 %320, -1
+  store i32 %321, ptr %18, align 4, !tbaa !9
+  br label %205, !llvm.loop !45
 
-328:                                              ; preds = %349, %319
-  %329 = load i32, ptr %24, align 4
-  %330 = icmp ugt i32 %329, 0
-  br i1 %330, label %331, label %352
+322:                                              ; preds = %205
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  br label %581
 
-331:                                              ; preds = %328
-  %332 = load ptr, ptr %13, align 8
-  %333 = load ptr, ptr %12, align 8
-  %334 = load i32, ptr %23, align 4
-  %335 = zext i32 %334 to i64
-  %336 = mul i64 %335, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %332, ptr align 1 %333, i64 %336, i1 false)
-  %337 = load ptr, ptr %7, align 8
-  %338 = getelementptr inbounds %struct.FT_Bitmap_, ptr %337, i32 0, i32 2
-  %339 = load i32, ptr %338, align 8
-  %340 = load ptr, ptr %12, align 8
-  %341 = sext i32 %339 to i64
-  %342 = getelementptr inbounds i8, ptr %340, i64 %341
-  store ptr %342, ptr %12, align 8
-  %343 = load ptr, ptr %8, align 8
-  %344 = getelementptr inbounds %struct.FT_Bitmap_, ptr %343, i32 0, i32 2
-  %345 = load i32, ptr %344, align 8
-  %346 = load ptr, ptr %13, align 8
-  %347 = sext i32 %345 to i64
-  %348 = getelementptr inbounds i8, ptr %346, i64 %347
-  store ptr %348, ptr %13, align 8
-  br label %349
+323:                                              ; preds = %194, %194, %194
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #5
+  %324 = load ptr, ptr %7, align 8, !tbaa !3
+  %325 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %324, i32 0, i32 1
+  %326 = load i32, ptr %325, align 4, !tbaa !42
+  store i32 %326, ptr %24, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #5
+  %327 = load ptr, ptr %8, align 8, !tbaa !3
+  %328 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %327, i32 0, i32 4
+  store i16 256, ptr %328, align 8, !tbaa !36
+  %329 = load ptr, ptr %7, align 8, !tbaa !3
+  %330 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %329, i32 0, i32 0
+  %331 = load i32, ptr %330, align 8, !tbaa !30
+  store i32 %331, ptr %25, align 4, !tbaa !9
+  br label %332
 
-349:                                              ; preds = %331
-  %350 = load i32, ptr %24, align 4
-  %351 = add i32 %350, -1
-  store i32 %351, ptr %24, align 4
-  br label %328, !llvm.loop !14
+332:                                              ; preds = %353, %323
+  %333 = load i32, ptr %25, align 4, !tbaa !9
+  %334 = icmp ugt i32 %333, 0
+  br i1 %334, label %335, label %356
 
-352:                                              ; preds = %328
-  br label %577
+335:                                              ; preds = %332
+  %336 = load ptr, ptr %13, align 8, !tbaa !11
+  %337 = load ptr, ptr %12, align 8, !tbaa !11
+  %338 = load i32, ptr %24, align 4, !tbaa !9
+  %339 = zext i32 %338 to i64
+  %340 = mul i64 %339, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %336, ptr align 1 %337, i64 %340, i1 false)
+  %341 = load ptr, ptr %7, align 8, !tbaa !3
+  %342 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %341, i32 0, i32 2
+  %343 = load i32, ptr %342, align 8, !tbaa !19
+  %344 = load ptr, ptr %12, align 8, !tbaa !11
+  %345 = sext i32 %343 to i64
+  %346 = getelementptr inbounds i8, ptr %344, i64 %345
+  store ptr %346, ptr %12, align 8, !tbaa !11
+  %347 = load ptr, ptr %8, align 8, !tbaa !3
+  %348 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %347, i32 0, i32 2
+  %349 = load i32, ptr %348, align 8, !tbaa !19
+  %350 = load ptr, ptr %13, align 8, !tbaa !11
+  %351 = sext i32 %349 to i64
+  %352 = getelementptr inbounds i8, ptr %350, i64 %351
+  store ptr %352, ptr %13, align 8, !tbaa !11
+  br label %353
 
-353:                                              ; preds = %190
-  %354 = load ptr, ptr %8, align 8
-  %355 = getelementptr inbounds %struct.FT_Bitmap_, ptr %354, i32 0, i32 4
-  store i16 4, ptr %355, align 8
-  %356 = load ptr, ptr %7, align 8
-  %357 = getelementptr inbounds %struct.FT_Bitmap_, ptr %356, i32 0, i32 0
-  %358 = load i32, ptr %357, align 8
-  store i32 %358, ptr %25, align 4
-  br label %359
+353:                                              ; preds = %335
+  %354 = load i32, ptr %25, align 4, !tbaa !9
+  %355 = add i32 %354, -1
+  store i32 %355, ptr %25, align 4, !tbaa !9
+  br label %332, !llvm.loop !46
 
-359:                                              ; preds = %450, %353
-  %360 = load i32, ptr %25, align 4
-  %361 = icmp ugt i32 %360, 0
-  br i1 %361, label %362, label %453
+356:                                              ; preds = %332
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #5
+  br label %581
 
-362:                                              ; preds = %359
-  %363 = load ptr, ptr %12, align 8
-  store ptr %363, ptr %26, align 8
-  %364 = load ptr, ptr %13, align 8
-  store ptr %364, ptr %27, align 8
-  %365 = load ptr, ptr %7, align 8
-  %366 = getelementptr inbounds %struct.FT_Bitmap_, ptr %365, i32 0, i32 1
-  %367 = load i32, ptr %366, align 4
-  %368 = lshr i32 %367, 2
-  store i32 %368, ptr %28, align 4
-  br label %369
+357:                                              ; preds = %194
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #5
+  %358 = load ptr, ptr %8, align 8, !tbaa !3
+  %359 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %358, i32 0, i32 4
+  store i16 4, ptr %359, align 8, !tbaa !36
+  %360 = load ptr, ptr %7, align 8, !tbaa !3
+  %361 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %360, i32 0, i32 0
+  %362 = load i32, ptr %361, align 8, !tbaa !30
+  store i32 %362, ptr %26, align 4, !tbaa !9
+  br label %363
 
-369:                                              ; preds = %404, %362
-  %370 = load i32, ptr %28, align 4
-  %371 = icmp ugt i32 %370, 0
-  br i1 %371, label %372, label %407
+363:                                              ; preds = %454, %357
+  %364 = load i32, ptr %26, align 4, !tbaa !9
+  %365 = icmp ugt i32 %364, 0
+  br i1 %365, label %366, label %457
 
-372:                                              ; preds = %369
-  %373 = load ptr, ptr %26, align 8
-  %374 = getelementptr inbounds i8, ptr %373, i64 0
-  %375 = load i8, ptr %374, align 1
-  %376 = zext i8 %375 to i32
-  store i32 %376, ptr %29, align 4
-  %377 = load i32, ptr %29, align 4
-  %378 = and i32 %377, 192
-  %379 = ashr i32 %378, 6
-  %380 = trunc i32 %379 to i8
-  %381 = load ptr, ptr %27, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 0
-  store i8 %380, ptr %382, align 1
-  %383 = load i32, ptr %29, align 4
-  %384 = and i32 %383, 48
-  %385 = ashr i32 %384, 4
-  %386 = trunc i32 %385 to i8
-  %387 = load ptr, ptr %27, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 1
-  store i8 %386, ptr %388, align 1
-  %389 = load i32, ptr %29, align 4
-  %390 = and i32 %389, 12
-  %391 = ashr i32 %390, 2
-  %392 = trunc i32 %391 to i8
-  %393 = load ptr, ptr %27, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 2
-  store i8 %392, ptr %394, align 1
-  %395 = load i32, ptr %29, align 4
-  %396 = and i32 %395, 3
-  %397 = trunc i32 %396 to i8
-  %398 = load ptr, ptr %27, align 8
-  %399 = getelementptr inbounds i8, ptr %398, i64 3
-  store i8 %397, ptr %399, align 1
-  %400 = load ptr, ptr %26, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 1
-  store ptr %401, ptr %26, align 8
-  %402 = load ptr, ptr %27, align 8
-  %403 = getelementptr inbounds i8, ptr %402, i64 4
-  store ptr %403, ptr %27, align 8
-  br label %404
+366:                                              ; preds = %363
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  %367 = load ptr, ptr %12, align 8, !tbaa !11
+  store ptr %367, ptr %27, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #5
+  %368 = load ptr, ptr %13, align 8, !tbaa !11
+  store ptr %368, ptr %28, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #5
+  %369 = load ptr, ptr %7, align 8, !tbaa !3
+  %370 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %369, i32 0, i32 1
+  %371 = load i32, ptr %370, align 4, !tbaa !42
+  %372 = lshr i32 %371, 2
+  store i32 %372, ptr %29, align 4, !tbaa !9
+  br label %373
 
-404:                                              ; preds = %372
-  %405 = load i32, ptr %28, align 4
-  %406 = add i32 %405, -1
-  store i32 %406, ptr %28, align 4
-  br label %369, !llvm.loop !15
+373:                                              ; preds = %408, %366
+  %374 = load i32, ptr %29, align 4, !tbaa !9
+  %375 = icmp ugt i32 %374, 0
+  br i1 %375, label %376, label %411
 
-407:                                              ; preds = %369
-  %408 = load ptr, ptr %7, align 8
-  %409 = getelementptr inbounds %struct.FT_Bitmap_, ptr %408, i32 0, i32 1
-  %410 = load i32, ptr %409, align 4
-  %411 = and i32 %410, 3
-  store i32 %411, ptr %28, align 4
-  %412 = load i32, ptr %28, align 4
-  %413 = icmp ugt i32 %412, 0
-  br i1 %413, label %414, label %437
+376:                                              ; preds = %373
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #5
+  %377 = load ptr, ptr %27, align 8, !tbaa !11
+  %378 = getelementptr inbounds i8, ptr %377, i64 0
+  %379 = load i8, ptr %378, align 1, !tbaa !15
+  %380 = zext i8 %379 to i32
+  store i32 %380, ptr %30, align 4, !tbaa !9
+  %381 = load i32, ptr %30, align 4, !tbaa !9
+  %382 = and i32 %381, 192
+  %383 = ashr i32 %382, 6
+  %384 = trunc i32 %383 to i8
+  %385 = load ptr, ptr %28, align 8, !tbaa !11
+  %386 = getelementptr inbounds i8, ptr %385, i64 0
+  store i8 %384, ptr %386, align 1, !tbaa !15
+  %387 = load i32, ptr %30, align 4, !tbaa !9
+  %388 = and i32 %387, 48
+  %389 = ashr i32 %388, 4
+  %390 = trunc i32 %389 to i8
+  %391 = load ptr, ptr %28, align 8, !tbaa !11
+  %392 = getelementptr inbounds i8, ptr %391, i64 1
+  store i8 %390, ptr %392, align 1, !tbaa !15
+  %393 = load i32, ptr %30, align 4, !tbaa !9
+  %394 = and i32 %393, 12
+  %395 = ashr i32 %394, 2
+  %396 = trunc i32 %395 to i8
+  %397 = load ptr, ptr %28, align 8, !tbaa !11
+  %398 = getelementptr inbounds i8, ptr %397, i64 2
+  store i8 %396, ptr %398, align 1, !tbaa !15
+  %399 = load i32, ptr %30, align 4, !tbaa !9
+  %400 = and i32 %399, 3
+  %401 = trunc i32 %400 to i8
+  %402 = load ptr, ptr %28, align 8, !tbaa !11
+  %403 = getelementptr inbounds i8, ptr %402, i64 3
+  store i8 %401, ptr %403, align 1, !tbaa !15
+  %404 = load ptr, ptr %27, align 8, !tbaa !11
+  %405 = getelementptr inbounds i8, ptr %404, i64 1
+  store ptr %405, ptr %27, align 8, !tbaa !11
+  %406 = load ptr, ptr %28, align 8, !tbaa !11
+  %407 = getelementptr inbounds i8, ptr %406, i64 4
+  store ptr %407, ptr %28, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #5
+  br label %408
 
-414:                                              ; preds = %407
-  %415 = load ptr, ptr %26, align 8
-  %416 = getelementptr inbounds i8, ptr %415, i64 0
-  %417 = load i8, ptr %416, align 1
-  %418 = zext i8 %417 to i32
-  store i32 %418, ptr %30, align 4
-  br label %419
+408:                                              ; preds = %376
+  %409 = load i32, ptr %29, align 4, !tbaa !9
+  %410 = add i32 %409, -1
+  store i32 %410, ptr %29, align 4, !tbaa !9
+  br label %373, !llvm.loop !47
 
-419:                                              ; preds = %433, %414
-  %420 = load i32, ptr %28, align 4
-  %421 = icmp ugt i32 %420, 0
-  br i1 %421, label %422, label %436
+411:                                              ; preds = %373
+  %412 = load ptr, ptr %7, align 8, !tbaa !3
+  %413 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %412, i32 0, i32 1
+  %414 = load i32, ptr %413, align 4, !tbaa !42
+  %415 = and i32 %414, 3
+  store i32 %415, ptr %29, align 4, !tbaa !9
+  %416 = load i32, ptr %29, align 4, !tbaa !9
+  %417 = icmp ugt i32 %416, 0
+  br i1 %417, label %418, label %441
 
-422:                                              ; preds = %419
-  %423 = load i32, ptr %30, align 4
-  %424 = and i32 %423, 192
-  %425 = ashr i32 %424, 6
-  %426 = trunc i32 %425 to i8
-  %427 = load ptr, ptr %27, align 8
-  %428 = getelementptr inbounds i8, ptr %427, i64 0
-  store i8 %426, ptr %428, align 1
-  %429 = load i32, ptr %30, align 4
-  %430 = shl i32 %429, 2
-  store i32 %430, ptr %30, align 4
-  %431 = load ptr, ptr %27, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 1
-  store ptr %432, ptr %27, align 8
-  br label %433
+418:                                              ; preds = %411
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #5
+  %419 = load ptr, ptr %27, align 8, !tbaa !11
+  %420 = getelementptr inbounds i8, ptr %419, i64 0
+  %421 = load i8, ptr %420, align 1, !tbaa !15
+  %422 = zext i8 %421 to i32
+  store i32 %422, ptr %31, align 4, !tbaa !9
+  br label %423
 
-433:                                              ; preds = %422
-  %434 = load i32, ptr %28, align 4
-  %435 = add i32 %434, -1
-  store i32 %435, ptr %28, align 4
-  br label %419, !llvm.loop !16
+423:                                              ; preds = %437, %418
+  %424 = load i32, ptr %29, align 4, !tbaa !9
+  %425 = icmp ugt i32 %424, 0
+  br i1 %425, label %426, label %440
 
-436:                                              ; preds = %419
+426:                                              ; preds = %423
+  %427 = load i32, ptr %31, align 4, !tbaa !9
+  %428 = and i32 %427, 192
+  %429 = ashr i32 %428, 6
+  %430 = trunc i32 %429 to i8
+  %431 = load ptr, ptr %28, align 8, !tbaa !11
+  %432 = getelementptr inbounds i8, ptr %431, i64 0
+  store i8 %430, ptr %432, align 1, !tbaa !15
+  %433 = load i32, ptr %31, align 4, !tbaa !9
+  %434 = shl i32 %433, 2
+  store i32 %434, ptr %31, align 4, !tbaa !9
+  %435 = load ptr, ptr %28, align 8, !tbaa !11
+  %436 = getelementptr inbounds i8, ptr %435, i64 1
+  store ptr %436, ptr %28, align 8, !tbaa !11
   br label %437
 
-437:                                              ; preds = %436, %407
-  %438 = load ptr, ptr %7, align 8
-  %439 = getelementptr inbounds %struct.FT_Bitmap_, ptr %438, i32 0, i32 2
-  %440 = load i32, ptr %439, align 8
-  %441 = load ptr, ptr %12, align 8
-  %442 = sext i32 %440 to i64
-  %443 = getelementptr inbounds i8, ptr %441, i64 %442
-  store ptr %443, ptr %12, align 8
-  %444 = load ptr, ptr %8, align 8
-  %445 = getelementptr inbounds %struct.FT_Bitmap_, ptr %444, i32 0, i32 2
-  %446 = load i32, ptr %445, align 8
-  %447 = load ptr, ptr %13, align 8
-  %448 = sext i32 %446 to i64
-  %449 = getelementptr inbounds i8, ptr %447, i64 %448
-  store ptr %449, ptr %13, align 8
-  br label %450
+437:                                              ; preds = %426
+  %438 = load i32, ptr %29, align 4, !tbaa !9
+  %439 = add i32 %438, -1
+  store i32 %439, ptr %29, align 4, !tbaa !9
+  br label %423, !llvm.loop !48
 
-450:                                              ; preds = %437
-  %451 = load i32, ptr %25, align 4
-  %452 = add i32 %451, -1
-  store i32 %452, ptr %25, align 4
-  br label %359, !llvm.loop !17
+440:                                              ; preds = %423
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #5
+  br label %441
 
-453:                                              ; preds = %359
-  br label %577
+441:                                              ; preds = %440, %411
+  %442 = load ptr, ptr %7, align 8, !tbaa !3
+  %443 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %442, i32 0, i32 2
+  %444 = load i32, ptr %443, align 8, !tbaa !19
+  %445 = load ptr, ptr %12, align 8, !tbaa !11
+  %446 = sext i32 %444 to i64
+  %447 = getelementptr inbounds i8, ptr %445, i64 %446
+  store ptr %447, ptr %12, align 8, !tbaa !11
+  %448 = load ptr, ptr %8, align 8, !tbaa !3
+  %449 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %448, i32 0, i32 2
+  %450 = load i32, ptr %449, align 8, !tbaa !19
+  %451 = load ptr, ptr %13, align 8, !tbaa !11
+  %452 = sext i32 %450 to i64
+  %453 = getelementptr inbounds i8, ptr %451, i64 %452
+  store ptr %453, ptr %13, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  br label %454
 
-454:                                              ; preds = %190
-  %455 = load ptr, ptr %8, align 8
-  %456 = getelementptr inbounds %struct.FT_Bitmap_, ptr %455, i32 0, i32 4
-  store i16 16, ptr %456, align 8
-  %457 = load ptr, ptr %7, align 8
-  %458 = getelementptr inbounds %struct.FT_Bitmap_, ptr %457, i32 0, i32 0
-  %459 = load i32, ptr %458, align 8
-  store i32 %459, ptr %31, align 4
-  br label %460
+454:                                              ; preds = %441
+  %455 = load i32, ptr %26, align 4, !tbaa !9
+  %456 = add i32 %455, -1
+  store i32 %456, ptr %26, align 4, !tbaa !9
+  br label %363, !llvm.loop !49
 
-460:                                              ; preds = %525, %454
-  %461 = load i32, ptr %31, align 4
-  %462 = icmp ugt i32 %461, 0
-  br i1 %462, label %463, label %528
+457:                                              ; preds = %363
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #5
+  br label %581
 
-463:                                              ; preds = %460
-  %464 = load ptr, ptr %12, align 8
-  store ptr %464, ptr %32, align 8
-  %465 = load ptr, ptr %13, align 8
-  store ptr %465, ptr %33, align 8
-  %466 = load ptr, ptr %7, align 8
-  %467 = getelementptr inbounds %struct.FT_Bitmap_, ptr %466, i32 0, i32 1
-  %468 = load i32, ptr %467, align 4
-  %469 = lshr i32 %468, 1
-  store i32 %469, ptr %34, align 4
-  br label %470
+458:                                              ; preds = %194
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #5
+  %459 = load ptr, ptr %8, align 8, !tbaa !3
+  %460 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %459, i32 0, i32 4
+  store i16 16, ptr %460, align 8, !tbaa !36
+  %461 = load ptr, ptr %7, align 8, !tbaa !3
+  %462 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %461, i32 0, i32 0
+  %463 = load i32, ptr %462, align 8, !tbaa !30
+  store i32 %463, ptr %32, align 4, !tbaa !9
+  br label %464
 
-470:                                              ; preds = %493, %463
-  %471 = load i32, ptr %34, align 4
-  %472 = icmp ugt i32 %471, 0
-  br i1 %472, label %473, label %496
+464:                                              ; preds = %529, %458
+  %465 = load i32, ptr %32, align 4, !tbaa !9
+  %466 = icmp ugt i32 %465, 0
+  br i1 %466, label %467, label %532
 
-473:                                              ; preds = %470
-  %474 = load ptr, ptr %32, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 0
-  %476 = load i8, ptr %475, align 1
-  %477 = zext i8 %476 to i32
-  store i32 %477, ptr %35, align 4
-  %478 = load i32, ptr %35, align 4
-  %479 = and i32 %478, 240
-  %480 = ashr i32 %479, 4
-  %481 = trunc i32 %480 to i8
-  %482 = load ptr, ptr %33, align 8
-  %483 = getelementptr inbounds i8, ptr %482, i64 0
-  store i8 %481, ptr %483, align 1
-  %484 = load i32, ptr %35, align 4
-  %485 = and i32 %484, 15
-  %486 = trunc i32 %485 to i8
-  %487 = load ptr, ptr %33, align 8
-  %488 = getelementptr inbounds i8, ptr %487, i64 1
-  store i8 %486, ptr %488, align 1
-  %489 = load ptr, ptr %32, align 8
-  %490 = getelementptr inbounds i8, ptr %489, i64 1
-  store ptr %490, ptr %32, align 8
-  %491 = load ptr, ptr %33, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 2
-  store ptr %492, ptr %33, align 8
-  br label %493
+467:                                              ; preds = %464
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #5
+  %468 = load ptr, ptr %12, align 8, !tbaa !11
+  store ptr %468, ptr %33, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #5
+  %469 = load ptr, ptr %13, align 8, !tbaa !11
+  store ptr %469, ptr %34, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #5
+  %470 = load ptr, ptr %7, align 8, !tbaa !3
+  %471 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %470, i32 0, i32 1
+  %472 = load i32, ptr %471, align 4, !tbaa !42
+  %473 = lshr i32 %472, 1
+  store i32 %473, ptr %35, align 4, !tbaa !9
+  br label %474
 
-493:                                              ; preds = %473
-  %494 = load i32, ptr %34, align 4
-  %495 = add i32 %494, -1
-  store i32 %495, ptr %34, align 4
-  br label %470, !llvm.loop !18
+474:                                              ; preds = %497, %467
+  %475 = load i32, ptr %35, align 4, !tbaa !9
+  %476 = icmp ugt i32 %475, 0
+  br i1 %476, label %477, label %500
 
-496:                                              ; preds = %470
-  %497 = load ptr, ptr %7, align 8
-  %498 = getelementptr inbounds %struct.FT_Bitmap_, ptr %497, i32 0, i32 1
-  %499 = load i32, ptr %498, align 4
-  %500 = and i32 %499, 1
-  %501 = icmp ne i32 %500, 0
-  br i1 %501, label %502, label %512
+477:                                              ; preds = %474
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #5
+  %478 = load ptr, ptr %33, align 8, !tbaa !11
+  %479 = getelementptr inbounds i8, ptr %478, i64 0
+  %480 = load i8, ptr %479, align 1, !tbaa !15
+  %481 = zext i8 %480 to i32
+  store i32 %481, ptr %36, align 4, !tbaa !9
+  %482 = load i32, ptr %36, align 4, !tbaa !9
+  %483 = and i32 %482, 240
+  %484 = ashr i32 %483, 4
+  %485 = trunc i32 %484 to i8
+  %486 = load ptr, ptr %34, align 8, !tbaa !11
+  %487 = getelementptr inbounds i8, ptr %486, i64 0
+  store i8 %485, ptr %487, align 1, !tbaa !15
+  %488 = load i32, ptr %36, align 4, !tbaa !9
+  %489 = and i32 %488, 15
+  %490 = trunc i32 %489 to i8
+  %491 = load ptr, ptr %34, align 8, !tbaa !11
+  %492 = getelementptr inbounds i8, ptr %491, i64 1
+  store i8 %490, ptr %492, align 1, !tbaa !15
+  %493 = load ptr, ptr %33, align 8, !tbaa !11
+  %494 = getelementptr inbounds i8, ptr %493, i64 1
+  store ptr %494, ptr %33, align 8, !tbaa !11
+  %495 = load ptr, ptr %34, align 8, !tbaa !11
+  %496 = getelementptr inbounds i8, ptr %495, i64 2
+  store ptr %496, ptr %34, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #5
+  br label %497
 
-502:                                              ; preds = %496
-  %503 = load ptr, ptr %32, align 8
-  %504 = getelementptr inbounds i8, ptr %503, i64 0
-  %505 = load i8, ptr %504, align 1
-  %506 = zext i8 %505 to i32
-  %507 = and i32 %506, 240
-  %508 = ashr i32 %507, 4
-  %509 = trunc i32 %508 to i8
-  %510 = load ptr, ptr %33, align 8
-  %511 = getelementptr inbounds i8, ptr %510, i64 0
-  store i8 %509, ptr %511, align 1
-  br label %512
+497:                                              ; preds = %477
+  %498 = load i32, ptr %35, align 4, !tbaa !9
+  %499 = add i32 %498, -1
+  store i32 %499, ptr %35, align 4, !tbaa !9
+  br label %474, !llvm.loop !50
 
-512:                                              ; preds = %502, %496
-  %513 = load ptr, ptr %7, align 8
-  %514 = getelementptr inbounds %struct.FT_Bitmap_, ptr %513, i32 0, i32 2
-  %515 = load i32, ptr %514, align 8
-  %516 = load ptr, ptr %12, align 8
-  %517 = sext i32 %515 to i64
-  %518 = getelementptr inbounds i8, ptr %516, i64 %517
-  store ptr %518, ptr %12, align 8
-  %519 = load ptr, ptr %8, align 8
-  %520 = getelementptr inbounds %struct.FT_Bitmap_, ptr %519, i32 0, i32 2
-  %521 = load i32, ptr %520, align 8
-  %522 = load ptr, ptr %13, align 8
-  %523 = sext i32 %521 to i64
-  %524 = getelementptr inbounds i8, ptr %522, i64 %523
-  store ptr %524, ptr %13, align 8
-  br label %525
+500:                                              ; preds = %474
+  %501 = load ptr, ptr %7, align 8, !tbaa !3
+  %502 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %501, i32 0, i32 1
+  %503 = load i32, ptr %502, align 4, !tbaa !42
+  %504 = and i32 %503, 1
+  %505 = icmp ne i32 %504, 0
+  br i1 %505, label %506, label %516
 
-525:                                              ; preds = %512
-  %526 = load i32, ptr %31, align 4
-  %527 = add i32 %526, -1
-  store i32 %527, ptr %31, align 4
-  br label %460, !llvm.loop !19
+506:                                              ; preds = %500
+  %507 = load ptr, ptr %33, align 8, !tbaa !11
+  %508 = getelementptr inbounds i8, ptr %507, i64 0
+  %509 = load i8, ptr %508, align 1, !tbaa !15
+  %510 = zext i8 %509 to i32
+  %511 = and i32 %510, 240
+  %512 = ashr i32 %511, 4
+  %513 = trunc i32 %512 to i8
+  %514 = load ptr, ptr %34, align 8, !tbaa !11
+  %515 = getelementptr inbounds i8, ptr %514, i64 0
+  store i8 %513, ptr %515, align 1, !tbaa !15
+  br label %516
 
-528:                                              ; preds = %460
-  br label %577
+516:                                              ; preds = %506, %500
+  %517 = load ptr, ptr %7, align 8, !tbaa !3
+  %518 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %517, i32 0, i32 2
+  %519 = load i32, ptr %518, align 8, !tbaa !19
+  %520 = load ptr, ptr %12, align 8, !tbaa !11
+  %521 = sext i32 %519 to i64
+  %522 = getelementptr inbounds i8, ptr %520, i64 %521
+  store ptr %522, ptr %12, align 8, !tbaa !11
+  %523 = load ptr, ptr %8, align 8, !tbaa !3
+  %524 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %523, i32 0, i32 2
+  %525 = load i32, ptr %524, align 8, !tbaa !19
+  %526 = load ptr, ptr %13, align 8, !tbaa !11
+  %527 = sext i32 %525 to i64
+  %528 = getelementptr inbounds i8, ptr %526, i64 %527
+  store ptr %528, ptr %13, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #5
+  br label %529
 
-529:                                              ; preds = %190
-  %530 = load ptr, ptr %8, align 8
-  %531 = getelementptr inbounds %struct.FT_Bitmap_, ptr %530, i32 0, i32 4
-  store i16 256, ptr %531, align 8
-  %532 = load ptr, ptr %7, align 8
-  %533 = getelementptr inbounds %struct.FT_Bitmap_, ptr %532, i32 0, i32 0
-  %534 = load i32, ptr %533, align 8
-  store i32 %534, ptr %36, align 4
-  br label %535
+529:                                              ; preds = %516
+  %530 = load i32, ptr %32, align 4, !tbaa !9
+  %531 = add i32 %530, -1
+  store i32 %531, ptr %32, align 4, !tbaa !9
+  br label %464, !llvm.loop !51
 
-535:                                              ; preds = %572, %529
-  %536 = load i32, ptr %36, align 4
-  %537 = icmp ugt i32 %536, 0
-  br i1 %537, label %538, label %575
+532:                                              ; preds = %464
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #5
+  br label %581
 
-538:                                              ; preds = %535
-  %539 = load ptr, ptr %12, align 8
-  store ptr %539, ptr %37, align 8
-  %540 = load ptr, ptr %13, align 8
-  store ptr %540, ptr %38, align 8
-  %541 = load ptr, ptr %7, align 8
-  %542 = getelementptr inbounds %struct.FT_Bitmap_, ptr %541, i32 0, i32 1
-  %543 = load i32, ptr %542, align 4
-  store i32 %543, ptr %39, align 4
-  br label %544
+533:                                              ; preds = %194
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #5
+  %534 = load ptr, ptr %8, align 8, !tbaa !3
+  %535 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %534, i32 0, i32 4
+  store i16 256, ptr %535, align 8, !tbaa !36
+  %536 = load ptr, ptr %7, align 8, !tbaa !3
+  %537 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %536, i32 0, i32 0
+  %538 = load i32, ptr %537, align 8, !tbaa !30
+  store i32 %538, ptr %37, align 4, !tbaa !9
+  br label %539
 
-544:                                              ; preds = %556, %538
-  %545 = load i32, ptr %39, align 4
-  %546 = icmp ugt i32 %545, 0
-  br i1 %546, label %547, label %559
+539:                                              ; preds = %576, %533
+  %540 = load i32, ptr %37, align 4, !tbaa !9
+  %541 = icmp ugt i32 %540, 0
+  br i1 %541, label %542, label %579
 
-547:                                              ; preds = %544
-  %548 = load ptr, ptr %37, align 8
-  %549 = call zeroext i8 @ft_gray_for_premultiplied_srgb_bgra(ptr noundef %548)
-  %550 = load ptr, ptr %38, align 8
-  %551 = getelementptr inbounds i8, ptr %550, i64 0
-  store i8 %549, ptr %551, align 1
-  %552 = load ptr, ptr %37, align 8
-  %553 = getelementptr inbounds i8, ptr %552, i64 4
-  store ptr %553, ptr %37, align 8
-  %554 = load ptr, ptr %38, align 8
-  %555 = getelementptr inbounds i8, ptr %554, i64 1
-  store ptr %555, ptr %38, align 8
-  br label %556
+542:                                              ; preds = %539
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #5
+  %543 = load ptr, ptr %12, align 8, !tbaa !11
+  store ptr %543, ptr %38, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #5
+  %544 = load ptr, ptr %13, align 8, !tbaa !11
+  store ptr %544, ptr %39, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #5
+  %545 = load ptr, ptr %7, align 8, !tbaa !3
+  %546 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %545, i32 0, i32 1
+  %547 = load i32, ptr %546, align 4, !tbaa !42
+  store i32 %547, ptr %40, align 4, !tbaa !9
+  br label %548
 
-556:                                              ; preds = %547
-  %557 = load i32, ptr %39, align 4
-  %558 = add i32 %557, -1
-  store i32 %558, ptr %39, align 4
-  br label %544, !llvm.loop !20
+548:                                              ; preds = %560, %542
+  %549 = load i32, ptr %40, align 4, !tbaa !9
+  %550 = icmp ugt i32 %549, 0
+  br i1 %550, label %551, label %563
 
-559:                                              ; preds = %544
-  %560 = load ptr, ptr %7, align 8
-  %561 = getelementptr inbounds %struct.FT_Bitmap_, ptr %560, i32 0, i32 2
-  %562 = load i32, ptr %561, align 8
-  %563 = load ptr, ptr %12, align 8
-  %564 = sext i32 %562 to i64
-  %565 = getelementptr inbounds i8, ptr %563, i64 %564
-  store ptr %565, ptr %12, align 8
-  %566 = load ptr, ptr %8, align 8
-  %567 = getelementptr inbounds %struct.FT_Bitmap_, ptr %566, i32 0, i32 2
-  %568 = load i32, ptr %567, align 8
-  %569 = load ptr, ptr %13, align 8
-  %570 = sext i32 %568 to i64
-  %571 = getelementptr inbounds i8, ptr %569, i64 %570
-  store ptr %571, ptr %13, align 8
-  br label %572
+551:                                              ; preds = %548
+  %552 = load ptr, ptr %38, align 8, !tbaa !11
+  %553 = call zeroext i8 @ft_gray_for_premultiplied_srgb_bgra(ptr noundef %552)
+  %554 = load ptr, ptr %39, align 8, !tbaa !11
+  %555 = getelementptr inbounds i8, ptr %554, i64 0
+  store i8 %553, ptr %555, align 1, !tbaa !15
+  %556 = load ptr, ptr %38, align 8, !tbaa !11
+  %557 = getelementptr inbounds i8, ptr %556, i64 4
+  store ptr %557, ptr %38, align 8, !tbaa !11
+  %558 = load ptr, ptr %39, align 8, !tbaa !11
+  %559 = getelementptr inbounds i8, ptr %558, i64 1
+  store ptr %559, ptr %39, align 8, !tbaa !11
+  br label %560
 
-572:                                              ; preds = %559
-  %573 = load i32, ptr %36, align 4
-  %574 = add i32 %573, -1
-  store i32 %574, ptr %36, align 4
-  br label %535, !llvm.loop !21
+560:                                              ; preds = %551
+  %561 = load i32, ptr %40, align 4, !tbaa !9
+  %562 = add i32 %561, -1
+  store i32 %562, ptr %40, align 4, !tbaa !9
+  br label %548, !llvm.loop !52
 
-575:                                              ; preds = %535
-  br label %577
+563:                                              ; preds = %548
+  %564 = load ptr, ptr %7, align 8, !tbaa !3
+  %565 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %564, i32 0, i32 2
+  %566 = load i32, ptr %565, align 8, !tbaa !19
+  %567 = load ptr, ptr %12, align 8, !tbaa !11
+  %568 = sext i32 %566 to i64
+  %569 = getelementptr inbounds i8, ptr %567, i64 %568
+  store ptr %569, ptr %12, align 8, !tbaa !11
+  %570 = load ptr, ptr %8, align 8, !tbaa !3
+  %571 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %570, i32 0, i32 2
+  %572 = load i32, ptr %571, align 8, !tbaa !19
+  %573 = load ptr, ptr %13, align 8, !tbaa !11
+  %574 = sext i32 %572 to i64
+  %575 = getelementptr inbounds i8, ptr %573, i64 %574
+  store ptr %575, ptr %13, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #5
+  br label %576
 
-576:                                              ; preds = %190
-  br label %577
+576:                                              ; preds = %563
+  %577 = load i32, ptr %37, align 4, !tbaa !9
+  %578 = add i32 %577, -1
+  store i32 %578, ptr %37, align 4, !tbaa !9
+  br label %539, !llvm.loop !53
 
-577:                                              ; preds = %576, %575, %528, %453, %352, %318
-  %578 = load i32, ptr %10, align 4
-  store i32 %578, ptr %5, align 4
-  br label %579
+579:                                              ; preds = %539
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #5
+  br label %581
 
-579:                                              ; preds = %577, %133, %49, %42
-  %580 = load i32, ptr %5, align 4
-  ret i32 %580
+580:                                              ; preds = %194
+  br label %581
+
+581:                                              ; preds = %580, %579, %532, %457, %356, %322
+  %582 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %582, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %583
+
+583:                                              ; preds = %581, %148, %50, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %584 = load i32, ptr %5, align 4
+  ret i32 %584
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1727,52 +1873,61 @@ define i32 @FT_Bitmap_Done(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  store i32 33, ptr %3, align 4
-  br label %27
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !17
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %14, label %13
+  store i32 33, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %29
 
-13:                                               ; preds = %10
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %11
   store i32 6, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %29
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !17
+  %17 = getelementptr inbounds nuw %struct.FT_LibraryRec_, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  store ptr %18, ptr %6, align 8, !tbaa !28
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %6, align 8, !tbaa !28
+  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %21, i32 0, i32 3
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @ft_mem_free(ptr noundef %20, ptr noundef %23)
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %24, i32 0, i32 3
+  store ptr null, ptr %25, align 8, !tbaa !29
+  br label %26
+
+26:                                               ; preds = %19
   br label %27
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.FT_LibraryRec_, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %6, align 8
-  br label %18
-
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.FT_Bitmap_, ptr %20, i32 0, i32 3
-  %22 = load ptr, ptr %21, align 8
-  call void @ft_mem_free(ptr noundef %19, ptr noundef %22)
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.FT_Bitmap_, ptr %23, i32 0, i32 3
-  store ptr null, ptr %24, align 8
-  br label %25
-
-25:                                               ; preds = %18
-  %26 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 @null_bitmap, i64 40, i1 false)
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 @null_bitmap, i64 40, i1 false), !tbaa.struct !8
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %29
 
-27:                                               ; preds = %25, %13, %9
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+29:                                               ; preds = %27, %14, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1791,460 +1946,518 @@ define internal i32 @ft_bitmap_assure_buffer(ptr noundef %0, ptr noundef %1, i32
   %16 = alloca ptr, align 8
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  %19 = alloca ptr, align 8
+  %19 = alloca i32, align 4
   %20 = alloca ptr, align 8
-  %21 = alloca i32, align 4
+  %21 = alloca ptr, align 8
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
-  %24 = alloca ptr, align 8
-  %25 = alloca i32, align 4
-  %26 = alloca ptr, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca ptr, align 8
+  %26 = alloca i32, align 4
   %27 = alloca ptr, align 8
   %28 = alloca ptr, align 8
-  %29 = alloca i32, align 4
+  %29 = alloca ptr, align 8
   %30 = alloca i32, align 4
-  %31 = alloca ptr, align 8
+  %31 = alloca i32, align 4
   %32 = alloca ptr, align 8
   %33 = alloca ptr, align 8
-  %34 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store ptr null, ptr %16, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.FT_Bitmap_, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4
-  store i32 %37, ptr %14, align 4
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct.FT_Bitmap_, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %39, align 8
-  store i32 %40, ptr %15, align 4
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct.FT_Bitmap_, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %45, label %50
+  %34 = alloca ptr, align 8
+  %35 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !28
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  store ptr null, ptr %16, align 8, !tbaa !11
+  %36 = load ptr, ptr %7, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 4, !tbaa !42
+  store i32 %38, ptr %14, align 4, !tbaa !9
+  %39 = load ptr, ptr %7, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %40, align 8, !tbaa !30
+  store i32 %41, ptr %15, align 4, !tbaa !9
+  %42 = load ptr, ptr %7, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8, !tbaa !19
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %46, label %51
 
-45:                                               ; preds = %4
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct.FT_Bitmap_, ptr %46, i32 0, i32 2
-  %48 = load i32, ptr %47, align 8
-  %49 = sub nsw i32 0, %48
-  br label %54
+46:                                               ; preds = %4
+  %47 = load ptr, ptr %7, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %47, i32 0, i32 2
+  %49 = load i32, ptr %48, align 8, !tbaa !19
+  %50 = sub nsw i32 0, %49
+  br label %55
 
-50:                                               ; preds = %4
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct.FT_Bitmap_, ptr %51, i32 0, i32 2
-  %53 = load i32, ptr %52, align 8
-  br label %54
+51:                                               ; preds = %4
+  %52 = load ptr, ptr %7, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %53, align 8, !tbaa !19
+  br label %55
 
-54:                                               ; preds = %50, %45
-  %55 = phi i32 [ %49, %45 ], [ %53, %50 ]
-  store i32 %55, ptr %11, align 4
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds %struct.FT_Bitmap_, ptr %56, i32 0, i32 5
-  %58 = load i8, ptr %57, align 2
-  %59 = zext i8 %58 to i32
-  switch i32 %59, label %82 [
-    i32 1, label %60
-    i32 3, label %66
-    i32 4, label %72
-    i32 2, label %78
-    i32 5, label %78
-    i32 6, label %78
+55:                                               ; preds = %51, %46
+  %56 = phi i32 [ %50, %46 ], [ %54, %51 ]
+  store i32 %56, ptr %11, align 4, !tbaa !9
+  %57 = load ptr, ptr %7, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %57, i32 0, i32 5
+  %59 = load i8, ptr %58, align 2, !tbaa !35
+  %60 = zext i8 %59 to i32
+  switch i32 %60, label %83 [
+    i32 1, label %61
+    i32 3, label %67
+    i32 4, label %73
+    i32 2, label %79
+    i32 5, label %79
+    i32 6, label %79
   ]
 
-60:                                               ; preds = %54
-  store i32 1, ptr %13, align 4
-  %61 = load i32, ptr %14, align 4
-  %62 = load i32, ptr %8, align 4
-  %63 = add i32 %61, %62
-  %64 = add i32 %63, 7
-  %65 = lshr i32 %64, 3
-  store i32 %65, ptr %12, align 4
-  br label %83
+61:                                               ; preds = %55
+  store i32 1, ptr %13, align 4, !tbaa !9
+  %62 = load i32, ptr %14, align 4, !tbaa !9
+  %63 = load i32, ptr %8, align 4, !tbaa !9
+  %64 = add i32 %62, %63
+  %65 = add i32 %64, 7
+  %66 = lshr i32 %65, 3
+  store i32 %66, ptr %12, align 4, !tbaa !9
+  br label %84
 
-66:                                               ; preds = %54
-  store i32 2, ptr %13, align 4
-  %67 = load i32, ptr %14, align 4
-  %68 = load i32, ptr %8, align 4
-  %69 = add i32 %67, %68
-  %70 = add i32 %69, 3
-  %71 = lshr i32 %70, 2
-  store i32 %71, ptr %12, align 4
-  br label %83
+67:                                               ; preds = %55
+  store i32 2, ptr %13, align 4, !tbaa !9
+  %68 = load i32, ptr %14, align 4, !tbaa !9
+  %69 = load i32, ptr %8, align 4, !tbaa !9
+  %70 = add i32 %68, %69
+  %71 = add i32 %70, 3
+  %72 = lshr i32 %71, 2
+  store i32 %72, ptr %12, align 4, !tbaa !9
+  br label %84
 
-72:                                               ; preds = %54
-  store i32 4, ptr %13, align 4
-  %73 = load i32, ptr %14, align 4
-  %74 = load i32, ptr %8, align 4
-  %75 = add i32 %73, %74
-  %76 = add i32 %75, 1
-  %77 = lshr i32 %76, 1
-  store i32 %77, ptr %12, align 4
-  br label %83
+73:                                               ; preds = %55
+  store i32 4, ptr %13, align 4, !tbaa !9
+  %74 = load i32, ptr %14, align 4, !tbaa !9
+  %75 = load i32, ptr %8, align 4, !tbaa !9
+  %76 = add i32 %74, %75
+  %77 = add i32 %76, 1
+  %78 = lshr i32 %77, 1
+  store i32 %78, ptr %12, align 4, !tbaa !9
+  br label %84
 
-78:                                               ; preds = %54, %54, %54
-  store i32 8, ptr %13, align 4
-  %79 = load i32, ptr %14, align 4
-  %80 = load i32, ptr %8, align 4
-  %81 = add i32 %79, %80
-  store i32 %81, ptr %12, align 4
-  br label %83
+79:                                               ; preds = %55, %55, %55
+  store i32 8, ptr %13, align 4, !tbaa !9
+  %80 = load i32, ptr %14, align 4, !tbaa !9
+  %81 = load i32, ptr %8, align 4, !tbaa !9
+  %82 = add i32 %80, %81
+  store i32 %82, ptr %12, align 4, !tbaa !9
+  br label %84
 
-82:                                               ; preds = %54
+83:                                               ; preds = %55
   store i32 18, ptr %5, align 4
-  br label %322
+  store i32 1, ptr %17, align 4
+  br label %324
 
-83:                                               ; preds = %78, %72, %66, %60
-  %84 = load i32, ptr %9, align 4
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %164
+84:                                               ; preds = %79, %73, %67, %61
+  %85 = load i32, ptr %9, align 4, !tbaa !9
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %165
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr %12, align 4
-  %88 = load i32, ptr %11, align 4
-  %89 = icmp ule i32 %87, %88
-  br i1 %89, label %90, label %164
+87:                                               ; preds = %84
+  %88 = load i32, ptr %12, align 4, !tbaa !9
+  %89 = load i32, ptr %11, align 4, !tbaa !9
+  %90 = icmp ule i32 %88, %89
+  br i1 %90, label %91, label %165
 
-90:                                               ; preds = %86
-  %91 = load i32, ptr %11, align 4
-  %92 = mul i32 %91, 8
-  store i32 %92, ptr %17, align 4
-  %93 = load i32, ptr %14, align 4
-  %94 = load i32, ptr %8, align 4
-  %95 = add i32 %93, %94
-  %96 = load i32, ptr %13, align 4
-  %97 = mul i32 %95, %96
-  store i32 %97, ptr %18, align 4
-  %98 = load i32, ptr %18, align 4
-  %99 = load i32, ptr %17, align 4
-  %100 = icmp ult i32 %98, %99
-  br i1 %100, label %101, label %163
+91:                                               ; preds = %87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  %92 = load i32, ptr %11, align 4, !tbaa !9
+  %93 = mul i32 %92, 8
+  store i32 %93, ptr %18, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  %94 = load i32, ptr %14, align 4, !tbaa !9
+  %95 = load i32, ptr %8, align 4, !tbaa !9
+  %96 = add i32 %94, %95
+  %97 = load i32, ptr %13, align 4, !tbaa !9
+  %98 = mul i32 %96, %97
+  store i32 %98, ptr %19, align 4, !tbaa !9
+  %99 = load i32, ptr %19, align 4, !tbaa !9
+  %100 = load i32, ptr %18, align 4, !tbaa !9
+  %101 = icmp ult i32 %99, %100
+  br i1 %101, label %102, label %164
 
-101:                                              ; preds = %90
-  %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds %struct.FT_Bitmap_, ptr %102, i32 0, i32 3
-  %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr %18, align 4
-  %106 = lshr i32 %105, 3
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds i8, ptr %104, i64 %107
-  store ptr %108, ptr %19, align 8
-  %109 = load ptr, ptr %7, align 8
-  %110 = getelementptr inbounds %struct.FT_Bitmap_, ptr %109, i32 0, i32 3
-  %111 = load ptr, ptr %110, align 8
-  %112 = load i32, ptr %11, align 4
-  %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr %111, i64 %113
-  store ptr %114, ptr %20, align 8
-  %115 = load i32, ptr %18, align 4
-  %116 = and i32 %115, 7
-  store i32 %116, ptr %21, align 4
-  %117 = load i32, ptr %21, align 4
-  %118 = lshr i32 65280, %117
-  store i32 %118, ptr %22, align 4
-  %119 = load i32, ptr %15, align 4
-  store i32 %119, ptr %23, align 4
-  br label %120
+102:                                              ; preds = %91
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  %103 = load ptr, ptr %7, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %103, i32 0, i32 3
+  %105 = load ptr, ptr %104, align 8, !tbaa !29
+  %106 = load i32, ptr %19, align 4, !tbaa !9
+  %107 = lshr i32 %106, 3
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 %108
+  store ptr %109, ptr %20, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  %110 = load ptr, ptr %7, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %110, i32 0, i32 3
+  %112 = load ptr, ptr %111, align 8, !tbaa !29
+  %113 = load i32, ptr %11, align 4, !tbaa !9
+  %114 = zext i32 %113 to i64
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 %114
+  store ptr %115, ptr %21, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #5
+  %116 = load i32, ptr %19, align 4, !tbaa !9
+  %117 = and i32 %116, 7
+  store i32 %117, ptr %22, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #5
+  %118 = load i32, ptr %22, align 4, !tbaa !9
+  %119 = lshr i32 65280, %118
+  store i32 %119, ptr %23, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #5
+  %120 = load i32, ptr %15, align 4, !tbaa !9
+  store i32 %120, ptr %24, align 4, !tbaa !9
+  br label %121
 
-120:                                              ; preds = %151, %101
-  %121 = load i32, ptr %23, align 4
-  %122 = icmp ugt i32 %121, 0
-  br i1 %122, label %123, label %162
+121:                                              ; preds = %152, %102
+  %122 = load i32, ptr %24, align 4, !tbaa !9
+  %123 = icmp ugt i32 %122, 0
+  br i1 %123, label %124, label %163
 
-123:                                              ; preds = %120
-  %124 = load ptr, ptr %19, align 8
-  store ptr %124, ptr %24, align 8
-  %125 = load i32, ptr %21, align 4
-  %126 = icmp ugt i32 %125, 0
-  br i1 %126, label %127, label %139
+124:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
+  %125 = load ptr, ptr %20, align 8, !tbaa !11
+  store ptr %125, ptr %25, align 8, !tbaa !11
+  %126 = load i32, ptr %22, align 4, !tbaa !9
+  %127 = icmp ugt i32 %126, 0
+  br i1 %127, label %128, label %140
 
-127:                                              ; preds = %123
-  %128 = load ptr, ptr %24, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 0
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %132 = load i32, ptr %22, align 4
-  %133 = and i32 %131, %132
-  %134 = trunc i32 %133 to i8
-  %135 = load ptr, ptr %24, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 0
-  store i8 %134, ptr %136, align 1
-  %137 = load ptr, ptr %24, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i32 1
-  store ptr %138, ptr %24, align 8
-  br label %139
+128:                                              ; preds = %124
+  %129 = load ptr, ptr %25, align 8, !tbaa !11
+  %130 = getelementptr inbounds i8, ptr %129, i64 0
+  %131 = load i8, ptr %130, align 1, !tbaa !15
+  %132 = zext i8 %131 to i32
+  %133 = load i32, ptr %23, align 4, !tbaa !9
+  %134 = and i32 %132, %133
+  %135 = trunc i32 %134 to i8
+  %136 = load ptr, ptr %25, align 8, !tbaa !11
+  %137 = getelementptr inbounds i8, ptr %136, i64 0
+  store i8 %135, ptr %137, align 1, !tbaa !15
+  %138 = load ptr, ptr %25, align 8, !tbaa !11
+  %139 = getelementptr inbounds nuw i8, ptr %138, i32 1
+  store ptr %139, ptr %25, align 8, !tbaa !11
+  br label %140
 
-139:                                              ; preds = %127, %123
-  %140 = load ptr, ptr %24, align 8
-  %141 = load ptr, ptr %20, align 8
-  %142 = icmp ult ptr %140, %141
-  br i1 %142, label %143, label %150
+140:                                              ; preds = %128, %124
+  %141 = load ptr, ptr %25, align 8, !tbaa !11
+  %142 = load ptr, ptr %21, align 8, !tbaa !11
+  %143 = icmp ult ptr %141, %142
+  br i1 %143, label %144, label %151
 
-143:                                              ; preds = %139
-  %144 = load ptr, ptr %24, align 8
-  %145 = load ptr, ptr %20, align 8
-  %146 = load ptr, ptr %24, align 8
-  %147 = ptrtoint ptr %145 to i64
+144:                                              ; preds = %140
+  %145 = load ptr, ptr %25, align 8, !tbaa !11
+  %146 = load ptr, ptr %21, align 8, !tbaa !11
+  %147 = load ptr, ptr %25, align 8, !tbaa !11
   %148 = ptrtoint ptr %146 to i64
-  %149 = sub i64 %147, %148
-  call void @llvm.memset.p0.i64(ptr align 1 %144, i8 0, i64 %149, i1 false)
-  br label %150
-
-150:                                              ; preds = %143, %139
+  %149 = ptrtoint ptr %147 to i64
+  %150 = sub i64 %148, %149
+  call void @llvm.memset.p0.i64(ptr align 1 %145, i8 0, i64 %150, i1 false)
   br label %151
 
-151:                                              ; preds = %150
-  %152 = load i32, ptr %23, align 4
-  %153 = add i32 %152, -1
-  store i32 %153, ptr %23, align 4
-  %154 = load i32, ptr %11, align 4
-  %155 = load ptr, ptr %19, align 8
-  %156 = zext i32 %154 to i64
-  %157 = getelementptr inbounds i8, ptr %155, i64 %156
-  store ptr %157, ptr %19, align 8
-  %158 = load i32, ptr %11, align 4
-  %159 = load ptr, ptr %20, align 8
-  %160 = zext i32 %158 to i64
-  %161 = getelementptr inbounds i8, ptr %159, i64 %160
-  store ptr %161, ptr %20, align 8
-  br label %120, !llvm.loop !22
+151:                                              ; preds = %144, %140
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  br label %152
 
-162:                                              ; preds = %120
-  br label %163
+152:                                              ; preds = %151
+  %153 = load i32, ptr %24, align 4, !tbaa !9
+  %154 = add i32 %153, -1
+  store i32 %154, ptr %24, align 4, !tbaa !9
+  %155 = load i32, ptr %11, align 4, !tbaa !9
+  %156 = load ptr, ptr %20, align 8, !tbaa !11
+  %157 = zext i32 %155 to i64
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %157
+  store ptr %158, ptr %20, align 8, !tbaa !11
+  %159 = load i32, ptr %11, align 4, !tbaa !9
+  %160 = load ptr, ptr %21, align 8, !tbaa !11
+  %161 = zext i32 %159 to i64
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 %161
+  store ptr %162, ptr %21, align 8, !tbaa !11
+  br label %121, !llvm.loop !54
 
-163:                                              ; preds = %162, %90
+163:                                              ; preds = %121
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  br label %164
+
+164:                                              ; preds = %163, %91
   store i32 0, ptr %5, align 4
-  br label %322
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  br label %324
 
-164:                                              ; preds = %86, %83
-  %165 = load ptr, ptr %6, align 8
-  %166 = load i32, ptr %12, align 4
-  %167 = zext i32 %166 to i64
-  %168 = load ptr, ptr %7, align 8
-  %169 = getelementptr inbounds %struct.FT_Bitmap_, ptr %168, i32 0, i32 0
-  %170 = load i32, ptr %169, align 8
-  %171 = load i32, ptr %9, align 4
-  %172 = add i32 %170, %171
-  %173 = zext i32 %172 to i64
-  %174 = call ptr @ft_mem_qrealloc(ptr noundef %165, i64 noundef %167, i64 noundef 0, i64 noundef %173, ptr noundef null, ptr noundef %10)
-  store ptr %174, ptr %16, align 8
-  %175 = load i32, ptr %10, align 4
-  %176 = icmp ne i32 %175, 0
-  br i1 %176, label %177, label %179
+165:                                              ; preds = %87, %84
+  %166 = load ptr, ptr %6, align 8, !tbaa !28
+  %167 = load i32, ptr %12, align 4, !tbaa !9
+  %168 = zext i32 %167 to i64
+  %169 = load ptr, ptr %7, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %169, i32 0, i32 0
+  %171 = load i32, ptr %170, align 8, !tbaa !30
+  %172 = load i32, ptr %9, align 4, !tbaa !9
+  %173 = add i32 %171, %172
+  %174 = zext i32 %173 to i64
+  %175 = call ptr @ft_mem_qrealloc(ptr noundef %166, i64 noundef %168, i64 noundef 0, i64 noundef %174, ptr noundef null, ptr noundef %10)
+  store ptr %175, ptr %16, align 8, !tbaa !11
+  %176 = load i32, ptr %10, align 4, !tbaa !9
+  %177 = icmp ne i32 %176, 0
+  br i1 %177, label %178, label %180
 
-177:                                              ; preds = %164
-  %178 = load i32, ptr %10, align 4
-  store i32 %178, ptr %5, align 4
-  br label %322
+178:                                              ; preds = %165
+  %179 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %179, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %324
 
-179:                                              ; preds = %164
-  %180 = load ptr, ptr %7, align 8
-  %181 = getelementptr inbounds %struct.FT_Bitmap_, ptr %180, i32 0, i32 2
-  %182 = load i32, ptr %181, align 8
-  %183 = icmp sgt i32 %182, 0
-  br i1 %183, label %184, label %243
+180:                                              ; preds = %165
+  %181 = load ptr, ptr %7, align 8, !tbaa !3
+  %182 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %181, i32 0, i32 2
+  %183 = load i32, ptr %182, align 8, !tbaa !19
+  %184 = icmp sgt i32 %183, 0
+  br i1 %184, label %185, label %244
 
-184:                                              ; preds = %179
-  %185 = load i32, ptr %14, align 4
-  %186 = load i32, ptr %13, align 4
-  %187 = mul i32 %185, %186
-  %188 = add i32 %187, 7
-  %189 = lshr i32 %188, 3
-  store i32 %189, ptr %25, align 4
-  %190 = load ptr, ptr %7, align 8
-  %191 = getelementptr inbounds %struct.FT_Bitmap_, ptr %190, i32 0, i32 3
-  %192 = load ptr, ptr %191, align 8
-  store ptr %192, ptr %26, align 8
-  %193 = load ptr, ptr %16, align 8
-  store ptr %193, ptr %27, align 8
-  %194 = load ptr, ptr %7, align 8
-  %195 = getelementptr inbounds %struct.FT_Bitmap_, ptr %194, i32 0, i32 3
-  %196 = load ptr, ptr %195, align 8
-  %197 = load i32, ptr %11, align 4
-  %198 = load ptr, ptr %7, align 8
-  %199 = getelementptr inbounds %struct.FT_Bitmap_, ptr %198, i32 0, i32 0
-  %200 = load i32, ptr %199, align 8
-  %201 = mul i32 %197, %200
-  %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds i8, ptr %196, i64 %202
-  store ptr %203, ptr %28, align 8
-  %204 = load i32, ptr %12, align 4
-  %205 = load i32, ptr %25, align 4
-  %206 = sub i32 %204, %205
-  store i32 %206, ptr %29, align 4
-  %207 = load ptr, ptr %27, align 8
-  %208 = load i32, ptr %12, align 4
-  %209 = load i32, ptr %9, align 4
-  %210 = mul i32 %208, %209
-  %211 = zext i32 %210 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %207, i8 0, i64 %211, i1 false)
-  %212 = load i32, ptr %12, align 4
-  %213 = load i32, ptr %9, align 4
-  %214 = mul i32 %212, %213
-  %215 = load ptr, ptr %27, align 8
-  %216 = zext i32 %214 to i64
-  %217 = getelementptr inbounds i8, ptr %215, i64 %216
-  store ptr %217, ptr %27, align 8
-  br label %218
+185:                                              ; preds = %180
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #5
+  %186 = load i32, ptr %14, align 4, !tbaa !9
+  %187 = load i32, ptr %13, align 4, !tbaa !9
+  %188 = mul i32 %186, %187
+  %189 = add i32 %188, 7
+  %190 = lshr i32 %189, 3
+  store i32 %190, ptr %26, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  %191 = load ptr, ptr %7, align 8, !tbaa !3
+  %192 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %191, i32 0, i32 3
+  %193 = load ptr, ptr %192, align 8, !tbaa !29
+  store ptr %193, ptr %27, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #5
+  %194 = load ptr, ptr %16, align 8, !tbaa !11
+  store ptr %194, ptr %28, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #5
+  %195 = load ptr, ptr %7, align 8, !tbaa !3
+  %196 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %195, i32 0, i32 3
+  %197 = load ptr, ptr %196, align 8, !tbaa !29
+  %198 = load i32, ptr %11, align 4, !tbaa !9
+  %199 = load ptr, ptr %7, align 8, !tbaa !3
+  %200 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %199, i32 0, i32 0
+  %201 = load i32, ptr %200, align 8, !tbaa !30
+  %202 = mul i32 %198, %201
+  %203 = zext i32 %202 to i64
+  %204 = getelementptr inbounds nuw i8, ptr %197, i64 %203
+  store ptr %204, ptr %29, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #5
+  %205 = load i32, ptr %12, align 4, !tbaa !9
+  %206 = load i32, ptr %26, align 4, !tbaa !9
+  %207 = sub i32 %205, %206
+  store i32 %207, ptr %30, align 4, !tbaa !9
+  %208 = load ptr, ptr %28, align 8, !tbaa !11
+  %209 = load i32, ptr %12, align 4, !tbaa !9
+  %210 = load i32, ptr %9, align 4, !tbaa !9
+  %211 = mul i32 %209, %210
+  %212 = zext i32 %211 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %208, i8 0, i64 %212, i1 false)
+  %213 = load i32, ptr %12, align 4, !tbaa !9
+  %214 = load i32, ptr %9, align 4, !tbaa !9
+  %215 = mul i32 %213, %214
+  %216 = load ptr, ptr %28, align 8, !tbaa !11
+  %217 = zext i32 %215 to i64
+  %218 = getelementptr inbounds nuw i8, ptr %216, i64 %217
+  store ptr %218, ptr %28, align 8, !tbaa !11
+  br label %219
 
-218:                                              ; preds = %222, %184
-  %219 = load ptr, ptr %26, align 8
-  %220 = load ptr, ptr %28, align 8
-  %221 = icmp ult ptr %219, %220
-  br i1 %221, label %222, label %242
+219:                                              ; preds = %223, %185
+  %220 = load ptr, ptr %27, align 8, !tbaa !11
+  %221 = load ptr, ptr %29, align 8, !tbaa !11
+  %222 = icmp ult ptr %220, %221
+  br i1 %222, label %223, label %243
 
-222:                                              ; preds = %218
-  %223 = load ptr, ptr %27, align 8
-  %224 = load ptr, ptr %26, align 8
-  %225 = load i32, ptr %25, align 4
-  %226 = zext i32 %225 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %223, ptr align 1 %224, i64 %226, i1 false)
-  %227 = load i32, ptr %11, align 4
-  %228 = load ptr, ptr %26, align 8
-  %229 = zext i32 %227 to i64
-  %230 = getelementptr inbounds i8, ptr %228, i64 %229
-  store ptr %230, ptr %26, align 8
-  %231 = load i32, ptr %25, align 4
-  %232 = load ptr, ptr %27, align 8
-  %233 = zext i32 %231 to i64
-  %234 = getelementptr inbounds i8, ptr %232, i64 %233
-  store ptr %234, ptr %27, align 8
-  %235 = load ptr, ptr %27, align 8
-  %236 = load i32, ptr %29, align 4
-  %237 = zext i32 %236 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %235, i8 0, i64 %237, i1 false)
-  %238 = load i32, ptr %29, align 4
-  %239 = load ptr, ptr %27, align 8
-  %240 = zext i32 %238 to i64
-  %241 = getelementptr inbounds i8, ptr %239, i64 %240
-  store ptr %241, ptr %27, align 8
-  br label %218, !llvm.loop !23
+223:                                              ; preds = %219
+  %224 = load ptr, ptr %28, align 8, !tbaa !11
+  %225 = load ptr, ptr %27, align 8, !tbaa !11
+  %226 = load i32, ptr %26, align 4, !tbaa !9
+  %227 = zext i32 %226 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %224, ptr align 1 %225, i64 %227, i1 false)
+  %228 = load i32, ptr %11, align 4, !tbaa !9
+  %229 = load ptr, ptr %27, align 8, !tbaa !11
+  %230 = zext i32 %228 to i64
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 %230
+  store ptr %231, ptr %27, align 8, !tbaa !11
+  %232 = load i32, ptr %26, align 4, !tbaa !9
+  %233 = load ptr, ptr %28, align 8, !tbaa !11
+  %234 = zext i32 %232 to i64
+  %235 = getelementptr inbounds nuw i8, ptr %233, i64 %234
+  store ptr %235, ptr %28, align 8, !tbaa !11
+  %236 = load ptr, ptr %28, align 8, !tbaa !11
+  %237 = load i32, ptr %30, align 4, !tbaa !9
+  %238 = zext i32 %237 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %236, i8 0, i64 %238, i1 false)
+  %239 = load i32, ptr %30, align 4, !tbaa !9
+  %240 = load ptr, ptr %28, align 8, !tbaa !11
+  %241 = zext i32 %239 to i64
+  %242 = getelementptr inbounds nuw i8, ptr %240, i64 %241
+  store ptr %242, ptr %28, align 8, !tbaa !11
+  br label %219, !llvm.loop !55
 
-242:                                              ; preds = %218
-  br label %296
-
-243:                                              ; preds = %179
-  %244 = load i32, ptr %14, align 4
-  %245 = load i32, ptr %13, align 4
-  %246 = mul i32 %244, %245
-  %247 = add i32 %246, 7
-  %248 = lshr i32 %247, 3
-  store i32 %248, ptr %30, align 4
-  %249 = load ptr, ptr %7, align 8
-  %250 = getelementptr inbounds %struct.FT_Bitmap_, ptr %249, i32 0, i32 3
-  %251 = load ptr, ptr %250, align 8
-  store ptr %251, ptr %31, align 8
-  %252 = load ptr, ptr %16, align 8
-  store ptr %252, ptr %32, align 8
-  %253 = load ptr, ptr %7, align 8
-  %254 = getelementptr inbounds %struct.FT_Bitmap_, ptr %253, i32 0, i32 3
-  %255 = load ptr, ptr %254, align 8
-  %256 = load i32, ptr %11, align 4
-  %257 = load ptr, ptr %7, align 8
-  %258 = getelementptr inbounds %struct.FT_Bitmap_, ptr %257, i32 0, i32 0
-  %259 = load i32, ptr %258, align 8
-  %260 = mul i32 %256, %259
-  %261 = zext i32 %260 to i64
-  %262 = getelementptr inbounds i8, ptr %255, i64 %261
-  store ptr %262, ptr %33, align 8
-  %263 = load i32, ptr %12, align 4
-  %264 = load i32, ptr %30, align 4
-  %265 = sub i32 %263, %264
-  store i32 %265, ptr %34, align 4
-  br label %266
-
-266:                                              ; preds = %270, %243
-  %267 = load ptr, ptr %31, align 8
-  %268 = load ptr, ptr %33, align 8
-  %269 = icmp ult ptr %267, %268
-  br i1 %269, label %270, label %290
-
-270:                                              ; preds = %266
-  %271 = load ptr, ptr %32, align 8
-  %272 = load ptr, ptr %31, align 8
-  %273 = load i32, ptr %30, align 4
-  %274 = zext i32 %273 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %271, ptr align 1 %272, i64 %274, i1 false)
-  %275 = load i32, ptr %11, align 4
-  %276 = load ptr, ptr %31, align 8
-  %277 = zext i32 %275 to i64
-  %278 = getelementptr inbounds i8, ptr %276, i64 %277
-  store ptr %278, ptr %31, align 8
-  %279 = load i32, ptr %30, align 4
-  %280 = load ptr, ptr %32, align 8
-  %281 = zext i32 %279 to i64
-  %282 = getelementptr inbounds i8, ptr %280, i64 %281
-  store ptr %282, ptr %32, align 8
-  %283 = load ptr, ptr %32, align 8
-  %284 = load i32, ptr %34, align 4
-  %285 = zext i32 %284 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %283, i8 0, i64 %285, i1 false)
-  %286 = load i32, ptr %34, align 4
-  %287 = load ptr, ptr %32, align 8
-  %288 = zext i32 %286 to i64
-  %289 = getelementptr inbounds i8, ptr %287, i64 %288
-  store ptr %289, ptr %32, align 8
-  br label %266, !llvm.loop !24
-
-290:                                              ; preds = %266
-  %291 = load ptr, ptr %32, align 8
-  %292 = load i32, ptr %12, align 4
-  %293 = load i32, ptr %9, align 4
-  %294 = mul i32 %292, %293
-  %295 = zext i32 %294 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %291, i8 0, i64 %295, i1 false)
-  br label %296
-
-296:                                              ; preds = %290, %242
+243:                                              ; preds = %219
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #5
   br label %297
 
-297:                                              ; preds = %296
-  %298 = load ptr, ptr %6, align 8
-  %299 = load ptr, ptr %7, align 8
-  %300 = getelementptr inbounds %struct.FT_Bitmap_, ptr %299, i32 0, i32 3
-  %301 = load ptr, ptr %300, align 8
-  call void @ft_mem_free(ptr noundef %298, ptr noundef %301)
-  %302 = load ptr, ptr %7, align 8
-  %303 = getelementptr inbounds %struct.FT_Bitmap_, ptr %302, i32 0, i32 3
-  store ptr null, ptr %303, align 8
-  br label %304
+244:                                              ; preds = %180
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #5
+  %245 = load i32, ptr %14, align 4, !tbaa !9
+  %246 = load i32, ptr %13, align 4, !tbaa !9
+  %247 = mul i32 %245, %246
+  %248 = add i32 %247, 7
+  %249 = lshr i32 %248, 3
+  store i32 %249, ptr %31, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #5
+  %250 = load ptr, ptr %7, align 8, !tbaa !3
+  %251 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %250, i32 0, i32 3
+  %252 = load ptr, ptr %251, align 8, !tbaa !29
+  store ptr %252, ptr %32, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #5
+  %253 = load ptr, ptr %16, align 8, !tbaa !11
+  store ptr %253, ptr %33, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #5
+  %254 = load ptr, ptr %7, align 8, !tbaa !3
+  %255 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %254, i32 0, i32 3
+  %256 = load ptr, ptr %255, align 8, !tbaa !29
+  %257 = load i32, ptr %11, align 4, !tbaa !9
+  %258 = load ptr, ptr %7, align 8, !tbaa !3
+  %259 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %258, i32 0, i32 0
+  %260 = load i32, ptr %259, align 8, !tbaa !30
+  %261 = mul i32 %257, %260
+  %262 = zext i32 %261 to i64
+  %263 = getelementptr inbounds nuw i8, ptr %256, i64 %262
+  store ptr %263, ptr %34, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #5
+  %264 = load i32, ptr %12, align 4, !tbaa !9
+  %265 = load i32, ptr %31, align 4, !tbaa !9
+  %266 = sub i32 %264, %265
+  store i32 %266, ptr %35, align 4, !tbaa !9
+  br label %267
 
-304:                                              ; preds = %297
-  %305 = load ptr, ptr %16, align 8
-  %306 = load ptr, ptr %7, align 8
-  %307 = getelementptr inbounds %struct.FT_Bitmap_, ptr %306, i32 0, i32 3
-  store ptr %305, ptr %307, align 8
-  %308 = load ptr, ptr %7, align 8
-  %309 = getelementptr inbounds %struct.FT_Bitmap_, ptr %308, i32 0, i32 2
-  %310 = load i32, ptr %309, align 8
-  %311 = icmp slt i32 %310, 0
-  br i1 %311, label %312, label %317
+267:                                              ; preds = %271, %244
+  %268 = load ptr, ptr %32, align 8, !tbaa !11
+  %269 = load ptr, ptr %34, align 8, !tbaa !11
+  %270 = icmp ult ptr %268, %269
+  br i1 %270, label %271, label %291
 
-312:                                              ; preds = %304
-  %313 = load i32, ptr %12, align 4
-  %314 = sub nsw i32 0, %313
-  %315 = load ptr, ptr %7, align 8
-  %316 = getelementptr inbounds %struct.FT_Bitmap_, ptr %315, i32 0, i32 2
-  store i32 %314, ptr %316, align 8
-  br label %321
+271:                                              ; preds = %267
+  %272 = load ptr, ptr %33, align 8, !tbaa !11
+  %273 = load ptr, ptr %32, align 8, !tbaa !11
+  %274 = load i32, ptr %31, align 4, !tbaa !9
+  %275 = zext i32 %274 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %272, ptr align 1 %273, i64 %275, i1 false)
+  %276 = load i32, ptr %11, align 4, !tbaa !9
+  %277 = load ptr, ptr %32, align 8, !tbaa !11
+  %278 = zext i32 %276 to i64
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 %278
+  store ptr %279, ptr %32, align 8, !tbaa !11
+  %280 = load i32, ptr %31, align 4, !tbaa !9
+  %281 = load ptr, ptr %33, align 8, !tbaa !11
+  %282 = zext i32 %280 to i64
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 %282
+  store ptr %283, ptr %33, align 8, !tbaa !11
+  %284 = load ptr, ptr %33, align 8, !tbaa !11
+  %285 = load i32, ptr %35, align 4, !tbaa !9
+  %286 = zext i32 %285 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %284, i8 0, i64 %286, i1 false)
+  %287 = load i32, ptr %35, align 4, !tbaa !9
+  %288 = load ptr, ptr %33, align 8, !tbaa !11
+  %289 = zext i32 %287 to i64
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 %289
+  store ptr %290, ptr %33, align 8, !tbaa !11
+  br label %267, !llvm.loop !56
 
-317:                                              ; preds = %304
-  %318 = load i32, ptr %12, align 4
-  %319 = load ptr, ptr %7, align 8
-  %320 = getelementptr inbounds %struct.FT_Bitmap_, ptr %319, i32 0, i32 2
-  store i32 %318, ptr %320, align 8
-  br label %321
+291:                                              ; preds = %267
+  %292 = load ptr, ptr %33, align 8, !tbaa !11
+  %293 = load i32, ptr %12, align 4, !tbaa !9
+  %294 = load i32, ptr %9, align 4, !tbaa !9
+  %295 = mul i32 %293, %294
+  %296 = zext i32 %295 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %292, i8 0, i64 %296, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #5
+  br label %297
 
-321:                                              ; preds = %317, %312
+297:                                              ; preds = %291, %243
+  br label %298
+
+298:                                              ; preds = %297
+  %299 = load ptr, ptr %6, align 8, !tbaa !28
+  %300 = load ptr, ptr %7, align 8, !tbaa !3
+  %301 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %300, i32 0, i32 3
+  %302 = load ptr, ptr %301, align 8, !tbaa !29
+  call void @ft_mem_free(ptr noundef %299, ptr noundef %302)
+  %303 = load ptr, ptr %7, align 8, !tbaa !3
+  %304 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %303, i32 0, i32 3
+  store ptr null, ptr %304, align 8, !tbaa !29
+  br label %305
+
+305:                                              ; preds = %298
+  br label %306
+
+306:                                              ; preds = %305
+  %307 = load ptr, ptr %16, align 8, !tbaa !11
+  %308 = load ptr, ptr %7, align 8, !tbaa !3
+  %309 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %308, i32 0, i32 3
+  store ptr %307, ptr %309, align 8, !tbaa !29
+  %310 = load ptr, ptr %7, align 8, !tbaa !3
+  %311 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %310, i32 0, i32 2
+  %312 = load i32, ptr %311, align 8, !tbaa !19
+  %313 = icmp slt i32 %312, 0
+  br i1 %313, label %314, label %319
+
+314:                                              ; preds = %306
+  %315 = load i32, ptr %12, align 4, !tbaa !9
+  %316 = sub nsw i32 0, %315
+  %317 = load ptr, ptr %7, align 8, !tbaa !3
+  %318 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %317, i32 0, i32 2
+  store i32 %316, ptr %318, align 8, !tbaa !19
+  br label %323
+
+319:                                              ; preds = %306
+  %320 = load i32, ptr %12, align 4, !tbaa !9
+  %321 = load ptr, ptr %7, align 8, !tbaa !3
+  %322 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %321, i32 0, i32 2
+  store i32 %320, ptr %322, align 8, !tbaa !19
+  br label %323
+
+323:                                              ; preds = %319, %314
   store i32 0, ptr %5, align 4
-  br label %322
+  store i32 1, ptr %17, align 4
+  br label %324
 
-322:                                              ; preds = %321, %177, %163, %82
-  %323 = load i32, ptr %5, align 4
-  ret i32 %323
+324:                                              ; preds = %323, %178, %164, %83
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %325 = load i32, ptr %5, align 4
+  ret i32 %325
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2253,68 +2466,75 @@ define internal zeroext i8 @ft_gray_for_premultiplied_srgb_bgra(ptr noundef %0) 
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 3
-  %8 = load i8, ptr %7, align 1
-  %9 = zext i8 %8 to i32
-  store i32 %9, ptr %4, align 4
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %1
-  store i8 0, ptr %2, align 1
-  br label %54
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  %7 = load ptr, ptr %3, align 8, !tbaa !11
+  %8 = getelementptr inbounds i8, ptr %7, i64 3
+  %9 = load i8, ptr %8, align 1, !tbaa !15
+  %10 = zext i8 %9 to i32
+  store i32 %10, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 0
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i64
-  %18 = mul i64 4731, %17
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 0
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i64
-  %23 = mul i64 %18, %22
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
-  %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i64
-  %28 = mul i64 46868, %27
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i64
-  %33 = mul i64 %28, %32
-  %34 = add i64 %23, %33
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 2
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i64
-  %39 = mul i64 13937, %38
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i64
-  %44 = mul i64 %39, %43
-  %45 = add i64 %34, %44
-  %46 = lshr i64 %45, 16
-  %47 = trunc i64 %46 to i32
-  store i32 %47, ptr %5, align 4
-  %48 = load i32, ptr %4, align 4
-  %49 = load i32, ptr %5, align 4
-  %50 = load i32, ptr %4, align 4
-  %51 = udiv i32 %49, %50
-  %52 = sub i32 %48, %51
-  %53 = trunc i32 %52 to i8
-  store i8 %53, ptr %2, align 1
-  br label %54
+  store i8 0, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %55
 
-54:                                               ; preds = %13, %12
-  %55 = load i8, ptr %2, align 1
-  ret i8 %55
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !11
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !15
+  %18 = zext i8 %17 to i64
+  %19 = mul i64 4731, %18
+  %20 = load ptr, ptr %3, align 8, !tbaa !11
+  %21 = getelementptr inbounds i8, ptr %20, i64 0
+  %22 = load i8, ptr %21, align 1, !tbaa !15
+  %23 = zext i8 %22 to i64
+  %24 = mul i64 %19, %23
+  %25 = load ptr, ptr %3, align 8, !tbaa !11
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !15
+  %28 = zext i8 %27 to i64
+  %29 = mul i64 46868, %28
+  %30 = load ptr, ptr %3, align 8, !tbaa !11
+  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %32 = load i8, ptr %31, align 1, !tbaa !15
+  %33 = zext i8 %32 to i64
+  %34 = mul i64 %29, %33
+  %35 = add i64 %24, %34
+  %36 = load ptr, ptr %3, align 8, !tbaa !11
+  %37 = getelementptr inbounds i8, ptr %36, i64 2
+  %38 = load i8, ptr %37, align 1, !tbaa !15
+  %39 = zext i8 %38 to i64
+  %40 = mul i64 13937, %39
+  %41 = load ptr, ptr %3, align 8, !tbaa !11
+  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  %43 = load i8, ptr %42, align 1, !tbaa !15
+  %44 = zext i8 %43 to i64
+  %45 = mul i64 %40, %44
+  %46 = add i64 %35, %45
+  %47 = lshr i64 %46, 16
+  %48 = trunc i64 %47 to i32
+  store i32 %48, ptr %5, align 4, !tbaa !9
+  %49 = load i32, ptr %4, align 4, !tbaa !9
+  %50 = load i32, ptr %5, align 4, !tbaa !9
+  %51 = load i32, ptr %4, align 4, !tbaa !9
+  %52 = udiv i32 %50, %51
+  %53 = sub i32 %49, %52
+  %54 = trunc i32 %53 to i8
+  store i8 %54, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %55
+
+55:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %56 = load i8, ptr %2, align 1
+  ret i8 %56
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2352,7 +2572,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr 
   %38 = alloca i64, align 8
   %39 = alloca i32, align 4
   %40 = alloca i32, align 4
-  %41 = alloca ptr, align 8
+  %41 = alloca i32, align 4
   %42 = alloca ptr, align 8
   %43 = alloca ptr, align 8
   %44 = alloca ptr, align 8
@@ -2362,7 +2582,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr 
   %48 = alloca ptr, align 8
   %49 = alloca ptr, align 8
   %50 = alloca ptr, align 8
-  %51 = alloca i32, align 4
+  %51 = alloca ptr, align 8
   %52 = alloca i32, align 4
   %53 = alloca i32, align 4
   %54 = alloca i32, align 4
@@ -2372,997 +2592,1137 @@ define i32 @FT_Bitmap_Blend(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr 
   %58 = alloca i32, align 4
   %59 = alloca i32, align 4
   %60 = alloca i32, align 4
-  %61 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
-  store i64 %2, ptr %61, align 8
-  %62 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
-  store i64 %3, ptr %62, align 8
+  %61 = alloca i32, align 4
+  %62 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 0
+  store i64 %2, ptr %62, align 8
+  %63 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 1
+  store i64 %3, ptr %63, align 8
   store i32 %6, ptr %10, align 1
-  store ptr %0, ptr %11, align 8
-  store ptr %1, ptr %12, align 8
-  store ptr %4, ptr %13, align 8
-  store ptr %5, ptr %14, align 8
-  store i32 0, ptr %15, align 4
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %22, align 1
-  %63 = load ptr, ptr %11, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %74
+  store ptr %0, ptr %11, align 8, !tbaa !17
+  store ptr %1, ptr %12, align 8, !tbaa !3
+  store ptr %4, ptr %13, align 8, !tbaa !3
+  store ptr %5, ptr %14, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  store i32 0, ptr %15, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 40, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #5
+  store i8 0, ptr %21, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #5
+  store i8 0, ptr %22, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #5
+  %64 = load ptr, ptr %11, align 8, !tbaa !17
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %75
 
-65:                                               ; preds = %7
-  %66 = load ptr, ptr %13, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %74
+66:                                               ; preds = %7
+  %67 = load ptr, ptr %13, align 8, !tbaa !3
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %75
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %12, align 8
-  %70 = icmp ne ptr %69, null
-  br i1 %70, label %71, label %74
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %12, align 8, !tbaa !3
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %75
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %14, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %75, label %74
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %14, align 8, !tbaa !57
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %76, label %75
 
-74:                                               ; preds = %71, %68, %65, %7
+75:                                               ; preds = %72, %69, %66, %7
   store i32 6, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %11, align 8
-  %77 = getelementptr inbounds %struct.FT_LibraryRec_, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  store ptr %78, ptr %16, align 8
-  %79 = load ptr, ptr %13, align 8
-  %80 = getelementptr inbounds %struct.FT_Bitmap_, ptr %79, i32 0, i32 5
-  %81 = load i8, ptr %80, align 2
-  %82 = zext i8 %81 to i32
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %96, label %84
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %11, align 8, !tbaa !17
+  %78 = getelementptr inbounds nuw %struct.FT_LibraryRec_, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8, !tbaa !21
+  store ptr %79, ptr %16, align 8, !tbaa !28
+  %80 = load ptr, ptr %13, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %80, i32 0, i32 5
+  %82 = load i8, ptr %81, align 2, !tbaa !35
+  %83 = zext i8 %82 to i32
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %97, label %85
 
-84:                                               ; preds = %75
-  %85 = load ptr, ptr %13, align 8
-  %86 = getelementptr inbounds %struct.FT_Bitmap_, ptr %85, i32 0, i32 5
-  %87 = load i8, ptr %86, align 2
-  %88 = zext i8 %87 to i32
-  %89 = icmp eq i32 %88, 7
-  br i1 %89, label %90, label %95
+85:                                               ; preds = %76
+  %86 = load ptr, ptr %13, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %86, i32 0, i32 5
+  %88 = load i8, ptr %87, align 2, !tbaa !35
+  %89 = zext i8 %88 to i32
+  %90 = icmp eq i32 %89, 7
+  br i1 %90, label %91, label %96
 
-90:                                               ; preds = %84
-  %91 = load ptr, ptr %13, align 8
-  %92 = getelementptr inbounds %struct.FT_Bitmap_, ptr %91, i32 0, i32 3
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %96, label %95
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %13, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %92, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8, !tbaa !29
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %97, label %96
 
-95:                                               ; preds = %90, %84
+96:                                               ; preds = %91, %85
   store i32 6, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-96:                                               ; preds = %90, %75
-  %97 = load ptr, ptr %12, align 8
-  %98 = getelementptr inbounds %struct.FT_Bitmap_, ptr %97, i32 0, i32 5
-  %99 = load i8, ptr %98, align 2
-  %100 = zext i8 %99 to i32
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %103
+97:                                               ; preds = %91, %76
+  %98 = load ptr, ptr %12, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %98, i32 0, i32 5
+  %100 = load i8, ptr %99, align 2, !tbaa !35
+  %101 = zext i8 %100 to i32
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %104
 
-102:                                              ; preds = %96
+103:                                              ; preds = %97
   store i32 0, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-103:                                              ; preds = %96
-  %104 = load ptr, ptr %13, align 8
-  %105 = getelementptr inbounds %struct.FT_Bitmap_, ptr %104, i32 0, i32 5
-  %106 = load i8, ptr %105, align 2
-  %107 = zext i8 %106 to i32
-  %108 = icmp eq i32 %107, 7
-  br i1 %108, label %109, label %119
+104:                                              ; preds = %97
+  %105 = load ptr, ptr %13, align 8, !tbaa !3
+  %106 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %105, i32 0, i32 5
+  %107 = load i8, ptr %106, align 2, !tbaa !35
+  %108 = zext i8 %107 to i32
+  %109 = icmp eq i32 %108, 7
+  br i1 %109, label %110, label %120
 
-109:                                              ; preds = %103
-  %110 = load ptr, ptr %12, align 8
-  %111 = getelementptr inbounds %struct.FT_Bitmap_, ptr %110, i32 0, i32 2
-  %112 = load i32, ptr %111, align 8
-  %113 = load ptr, ptr %13, align 8
-  %114 = getelementptr inbounds %struct.FT_Bitmap_, ptr %113, i32 0, i32 2
-  %115 = load i32, ptr %114, align 8
-  %116 = xor i32 %112, %115
-  %117 = icmp slt i32 %116, 0
-  br i1 %117, label %118, label %119
+110:                                              ; preds = %104
+  %111 = load ptr, ptr %12, align 8, !tbaa !3
+  %112 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %111, i32 0, i32 2
+  %113 = load i32, ptr %112, align 8, !tbaa !19
+  %114 = load ptr, ptr %13, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %114, i32 0, i32 2
+  %116 = load i32, ptr %115, align 8, !tbaa !19
+  %117 = xor i32 %113, %116
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %119, label %120
 
-118:                                              ; preds = %109
+119:                                              ; preds = %110
   store i32 6, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-119:                                              ; preds = %109, %103
-  %120 = load ptr, ptr %12, align 8
-  %121 = getelementptr inbounds %struct.FT_Bitmap_, ptr %120, i32 0, i32 1
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp ne i32 %122, 0
-  br i1 %123, label %124, label %129
+120:                                              ; preds = %110, %104
+  %121 = load ptr, ptr %12, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %121, i32 0, i32 1
+  %123 = load i32, ptr %122, align 4, !tbaa !42
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %125, label %130
 
-124:                                              ; preds = %119
-  %125 = load ptr, ptr %12, align 8
-  %126 = getelementptr inbounds %struct.FT_Bitmap_, ptr %125, i32 0, i32 0
-  %127 = load i32, ptr %126, align 8
-  %128 = icmp ne i32 %127, 0
-  br i1 %128, label %130, label %129
+125:                                              ; preds = %120
+  %126 = load ptr, ptr %12, align 8, !tbaa !3
+  %127 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %126, i32 0, i32 0
+  %128 = load i32, ptr %127, align 8, !tbaa !30
+  %129 = icmp ne i32 %128, 0
+  br i1 %129, label %131, label %130
 
-129:                                              ; preds = %124, %119
+130:                                              ; preds = %125, %120
   store i32 0, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-130:                                              ; preds = %124
-  %131 = getelementptr inbounds %struct.FT_Vector_, ptr %9, i32 0, i32 0
-  %132 = load i64, ptr %131, align 8
-  %133 = and i64 %132, -64
-  %134 = getelementptr inbounds %struct.FT_Vector_, ptr %19, i32 0, i32 0
-  store i64 %133, ptr %134, align 8
-  %135 = getelementptr inbounds %struct.FT_Vector_, ptr %9, i32 0, i32 1
-  %136 = load i64, ptr %135, align 8
-  %137 = and i64 %136, -64
-  %138 = getelementptr inbounds %struct.FT_Vector_, ptr %19, i32 0, i32 1
-  store i64 %137, ptr %138, align 8
-  %139 = load ptr, ptr %14, align 8
-  %140 = getelementptr inbounds %struct.FT_Vector_, ptr %139, i32 0, i32 0
-  %141 = load i64, ptr %140, align 8
-  %142 = and i64 %141, -64
-  %143 = getelementptr inbounds %struct.FT_Vector_, ptr %20, i32 0, i32 0
-  store i64 %142, ptr %143, align 8
-  %144 = load ptr, ptr %14, align 8
-  %145 = getelementptr inbounds %struct.FT_Vector_, ptr %144, i32 0, i32 1
-  %146 = load i64, ptr %145, align 8
-  %147 = and i64 %146, -64
-  %148 = getelementptr inbounds %struct.FT_Vector_, ptr %20, i32 0, i32 1
-  store i64 %147, ptr %148, align 8
-  %149 = getelementptr inbounds %struct.FT_Vector_, ptr %19, i32 0, i32 0
-  %150 = load i64, ptr %149, align 8
-  store i64 %150, ptr %23, align 8
-  %151 = load ptr, ptr %12, align 8
-  %152 = getelementptr inbounds %struct.FT_Bitmap_, ptr %151, i32 0, i32 0
-  %153 = load i32, ptr %152, align 8
-  %154 = shl i32 %153, 6
-  %155 = zext i32 %154 to i64
-  %156 = add nsw i64 -9223372036854775808, %155
-  %157 = add nsw i64 %156, 64
-  %158 = getelementptr inbounds %struct.FT_Vector_, ptr %19, i32 0, i32 1
-  %159 = load i64, ptr %158, align 8
-  %160 = icmp sgt i64 %157, %159
-  br i1 %160, label %161, label %164
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %9, i32 0, i32 0
+  %133 = load i64, ptr %132, align 8, !tbaa !59
+  %134 = and i64 %133, -64
+  %135 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %19, i32 0, i32 0
+  store i64 %134, ptr %135, align 8, !tbaa !59
+  %136 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %9, i32 0, i32 1
+  %137 = load i64, ptr %136, align 8, !tbaa !61
+  %138 = and i64 %137, -64
+  %139 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %19, i32 0, i32 1
+  store i64 %138, ptr %139, align 8, !tbaa !61
+  %140 = load ptr, ptr %14, align 8, !tbaa !57
+  %141 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %140, i32 0, i32 0
+  %142 = load i64, ptr %141, align 8, !tbaa !59
+  %143 = and i64 %142, -64
+  %144 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %20, i32 0, i32 0
+  store i64 %143, ptr %144, align 8, !tbaa !59
+  %145 = load ptr, ptr %14, align 8, !tbaa !57
+  %146 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %145, i32 0, i32 1
+  %147 = load i64, ptr %146, align 8, !tbaa !61
+  %148 = and i64 %147, -64
+  %149 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %20, i32 0, i32 1
+  store i64 %148, ptr %149, align 8, !tbaa !61
+  %150 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %19, i32 0, i32 0
+  %151 = load i64, ptr %150, align 8, !tbaa !59
+  store i64 %151, ptr %23, align 8, !tbaa !33
+  %152 = load ptr, ptr %12, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %152, i32 0, i32 0
+  %154 = load i32, ptr %153, align 8, !tbaa !30
+  %155 = shl i32 %154, 6
+  %156 = zext i32 %155 to i64
+  %157 = add nsw i64 -9223372036854775808, %156
+  %158 = add nsw i64 %157, 64
+  %159 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %19, i32 0, i32 1
+  %160 = load i64, ptr %159, align 8, !tbaa !61
+  %161 = icmp sgt i64 %158, %160
+  br i1 %161, label %162, label %166
 
-161:                                              ; preds = %130
-  br label %162
-
-162:                                              ; preds = %161
+162:                                              ; preds = %131
   br label %163
 
 163:                                              ; preds = %162
+  br label %164
+
+164:                                              ; preds = %163
+  br label %165
+
+165:                                              ; preds = %164
   store i32 6, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-164:                                              ; preds = %130
-  %165 = getelementptr inbounds %struct.FT_Vector_, ptr %19, i32 0, i32 1
-  %166 = load i64, ptr %165, align 8
-  %167 = load ptr, ptr %12, align 8
-  %168 = getelementptr inbounds %struct.FT_Bitmap_, ptr %167, i32 0, i32 0
-  %169 = load i32, ptr %168, align 8
-  %170 = shl i32 %169, 6
-  %171 = zext i32 %170 to i64
-  %172 = sub nsw i64 %166, %171
-  store i64 %172, ptr %24, align 8
-  %173 = load ptr, ptr %12, align 8
-  %174 = getelementptr inbounds %struct.FT_Bitmap_, ptr %173, i32 0, i32 1
-  %175 = load i32, ptr %174, align 4
-  %176 = shl i32 %175, 6
-  %177 = zext i32 %176 to i64
-  %178 = sub nsw i64 9223372036854775807, %177
-  %179 = sub nsw i64 %178, 64
-  %180 = load i64, ptr %23, align 8
-  %181 = icmp slt i64 %179, %180
-  br i1 %181, label %182, label %185
+166:                                              ; preds = %131
+  %167 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %19, i32 0, i32 1
+  %168 = load i64, ptr %167, align 8, !tbaa !61
+  %169 = load ptr, ptr %12, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %169, i32 0, i32 0
+  %171 = load i32, ptr %170, align 8, !tbaa !30
+  %172 = shl i32 %171, 6
+  %173 = zext i32 %172 to i64
+  %174 = sub nsw i64 %168, %173
+  store i64 %174, ptr %24, align 8, !tbaa !33
+  %175 = load ptr, ptr %12, align 8, !tbaa !3
+  %176 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %175, i32 0, i32 1
+  %177 = load i32, ptr %176, align 4, !tbaa !42
+  %178 = shl i32 %177, 6
+  %179 = zext i32 %178 to i64
+  %180 = sub nsw i64 9223372036854775807, %179
+  %181 = sub nsw i64 %180, 64
+  %182 = load i64, ptr %23, align 8, !tbaa !33
+  %183 = icmp slt i64 %181, %182
+  br i1 %183, label %184, label %188
 
-182:                                              ; preds = %164
-  br label %183
+184:                                              ; preds = %166
+  br label %185
 
-183:                                              ; preds = %182
-  br label %184
+185:                                              ; preds = %184
+  br label %186
 
-184:                                              ; preds = %183
+186:                                              ; preds = %185
+  br label %187
+
+187:                                              ; preds = %186
   store i32 6, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-185:                                              ; preds = %164
-  %186 = load i64, ptr %23, align 8
-  %187 = load ptr, ptr %12, align 8
-  %188 = getelementptr inbounds %struct.FT_Bitmap_, ptr %187, i32 0, i32 1
-  %189 = load i32, ptr %188, align 4
-  %190 = shl i32 %189, 6
-  %191 = zext i32 %190 to i64
-  %192 = add nsw i64 %186, %191
-  store i64 %192, ptr %25, align 8
-  %193 = getelementptr inbounds %struct.FT_Vector_, ptr %19, i32 0, i32 1
-  %194 = load i64, ptr %193, align 8
-  store i64 %194, ptr %26, align 8
-  %195 = load ptr, ptr %13, align 8
-  %196 = getelementptr inbounds %struct.FT_Bitmap_, ptr %195, i32 0, i32 1
-  %197 = load i32, ptr %196, align 4
-  %198 = icmp ne i32 %197, 0
-  br i1 %198, label %199, label %249
+188:                                              ; preds = %166
+  %189 = load i64, ptr %23, align 8, !tbaa !33
+  %190 = load ptr, ptr %12, align 8, !tbaa !3
+  %191 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %190, i32 0, i32 1
+  %192 = load i32, ptr %191, align 4, !tbaa !42
+  %193 = shl i32 %192, 6
+  %194 = zext i32 %193 to i64
+  %195 = add nsw i64 %189, %194
+  store i64 %195, ptr %25, align 8, !tbaa !33
+  %196 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %19, i32 0, i32 1
+  %197 = load i64, ptr %196, align 8, !tbaa !61
+  store i64 %197, ptr %26, align 8, !tbaa !33
+  %198 = load ptr, ptr %13, align 8, !tbaa !3
+  %199 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %198, i32 0, i32 1
+  %200 = load i32, ptr %199, align 4, !tbaa !42
+  %201 = icmp ne i32 %200, 0
+  br i1 %201, label %202, label %254
 
-199:                                              ; preds = %185
-  %200 = load ptr, ptr %13, align 8
-  %201 = getelementptr inbounds %struct.FT_Bitmap_, ptr %200, i32 0, i32 0
-  %202 = load i32, ptr %201, align 8
-  %203 = icmp ne i32 %202, 0
-  br i1 %203, label %204, label %249
+202:                                              ; preds = %188
+  %203 = load ptr, ptr %13, align 8, !tbaa !3
+  %204 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %203, i32 0, i32 0
+  %205 = load i32, ptr %204, align 8, !tbaa !30
+  %206 = icmp ne i32 %205, 0
+  br i1 %206, label %207, label %254
 
-204:                                              ; preds = %199
-  %205 = getelementptr inbounds %struct.FT_Vector_, ptr %20, i32 0, i32 0
-  %206 = load i64, ptr %205, align 8
-  store i64 %206, ptr %27, align 8
-  %207 = load ptr, ptr %13, align 8
-  %208 = getelementptr inbounds %struct.FT_Bitmap_, ptr %207, i32 0, i32 0
-  %209 = load i32, ptr %208, align 8
-  %210 = shl i32 %209, 6
-  %211 = zext i32 %210 to i64
-  %212 = add nsw i64 -9223372036854775808, %211
-  %213 = getelementptr inbounds %struct.FT_Vector_, ptr %20, i32 0, i32 1
-  %214 = load i64, ptr %213, align 8
-  %215 = icmp sgt i64 %212, %214
-  br i1 %215, label %216, label %219
+207:                                              ; preds = %202
+  %208 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %20, i32 0, i32 0
+  %209 = load i64, ptr %208, align 8, !tbaa !59
+  store i64 %209, ptr %27, align 8, !tbaa !33
+  %210 = load ptr, ptr %13, align 8, !tbaa !3
+  %211 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %210, i32 0, i32 0
+  %212 = load i32, ptr %211, align 8, !tbaa !30
+  %213 = shl i32 %212, 6
+  %214 = zext i32 %213 to i64
+  %215 = add nsw i64 -9223372036854775808, %214
+  %216 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %20, i32 0, i32 1
+  %217 = load i64, ptr %216, align 8, !tbaa !61
+  %218 = icmp sgt i64 %215, %217
+  br i1 %218, label %219, label %223
 
-216:                                              ; preds = %204
-  br label %217
+219:                                              ; preds = %207
+  br label %220
 
-217:                                              ; preds = %216
-  br label %218
+220:                                              ; preds = %219
+  br label %221
 
-218:                                              ; preds = %217
+221:                                              ; preds = %220
+  br label %222
+
+222:                                              ; preds = %221
   store i32 6, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-219:                                              ; preds = %204
-  %220 = getelementptr inbounds %struct.FT_Vector_, ptr %20, i32 0, i32 1
-  %221 = load i64, ptr %220, align 8
-  %222 = load ptr, ptr %13, align 8
-  %223 = getelementptr inbounds %struct.FT_Bitmap_, ptr %222, i32 0, i32 0
-  %224 = load i32, ptr %223, align 8
-  %225 = shl i32 %224, 6
-  %226 = zext i32 %225 to i64
-  %227 = sub nsw i64 %221, %226
-  store i64 %227, ptr %28, align 8
-  %228 = load ptr, ptr %13, align 8
-  %229 = getelementptr inbounds %struct.FT_Bitmap_, ptr %228, i32 0, i32 1
-  %230 = load i32, ptr %229, align 4
-  %231 = shl i32 %230, 6
-  %232 = zext i32 %231 to i64
-  %233 = sub nsw i64 9223372036854775807, %232
-  %234 = load i64, ptr %27, align 8
-  %235 = icmp slt i64 %233, %234
-  br i1 %235, label %236, label %239
+223:                                              ; preds = %207
+  %224 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %20, i32 0, i32 1
+  %225 = load i64, ptr %224, align 8, !tbaa !61
+  %226 = load ptr, ptr %13, align 8, !tbaa !3
+  %227 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %226, i32 0, i32 0
+  %228 = load i32, ptr %227, align 8, !tbaa !30
+  %229 = shl i32 %228, 6
+  %230 = zext i32 %229 to i64
+  %231 = sub nsw i64 %225, %230
+  store i64 %231, ptr %28, align 8, !tbaa !33
+  %232 = load ptr, ptr %13, align 8, !tbaa !3
+  %233 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %232, i32 0, i32 1
+  %234 = load i32, ptr %233, align 4, !tbaa !42
+  %235 = shl i32 %234, 6
+  %236 = zext i32 %235 to i64
+  %237 = sub nsw i64 9223372036854775807, %236
+  %238 = load i64, ptr %27, align 8, !tbaa !33
+  %239 = icmp slt i64 %237, %238
+  br i1 %239, label %240, label %244
 
-236:                                              ; preds = %219
-  br label %237
+240:                                              ; preds = %223
+  br label %241
 
-237:                                              ; preds = %236
-  br label %238
+241:                                              ; preds = %240
+  br label %242
 
-238:                                              ; preds = %237
+242:                                              ; preds = %241
+  br label %243
+
+243:                                              ; preds = %242
   store i32 6, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-239:                                              ; preds = %219
-  %240 = load i64, ptr %27, align 8
-  %241 = load ptr, ptr %13, align 8
-  %242 = getelementptr inbounds %struct.FT_Bitmap_, ptr %241, i32 0, i32 1
-  %243 = load i32, ptr %242, align 4
-  %244 = shl i32 %243, 6
-  %245 = zext i32 %244 to i64
-  %246 = add nsw i64 %240, %245
-  store i64 %246, ptr %29, align 8
-  %247 = getelementptr inbounds %struct.FT_Vector_, ptr %20, i32 0, i32 1
-  %248 = load i64, ptr %247, align 8
-  store i64 %248, ptr %30, align 8
-  br label %250
+244:                                              ; preds = %223
+  %245 = load i64, ptr %27, align 8, !tbaa !33
+  %246 = load ptr, ptr %13, align 8, !tbaa !3
+  %247 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %246, i32 0, i32 1
+  %248 = load i32, ptr %247, align 4, !tbaa !42
+  %249 = shl i32 %248, 6
+  %250 = zext i32 %249 to i64
+  %251 = add nsw i64 %245, %250
+  store i64 %251, ptr %29, align 8, !tbaa !33
+  %252 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %20, i32 0, i32 1
+  %253 = load i64, ptr %252, align 8, !tbaa !61
+  store i64 %253, ptr %30, align 8, !tbaa !33
+  br label %255
 
-249:                                              ; preds = %199, %185
-  store i64 9223372036854775807, ptr %27, align 8
-  store i64 9223372036854775807, ptr %28, align 8
-  store i64 -9223372036854775808, ptr %29, align 8
-  store i64 -9223372036854775808, ptr %30, align 8
-  br label %250
+254:                                              ; preds = %202, %188
+  store i64 9223372036854775807, ptr %27, align 8, !tbaa !33
+  store i64 9223372036854775807, ptr %28, align 8, !tbaa !33
+  store i64 -9223372036854775808, ptr %29, align 8, !tbaa !33
+  store i64 -9223372036854775808, ptr %30, align 8, !tbaa !33
+  br label %255
 
-250:                                              ; preds = %249, %239
-  %251 = load i64, ptr %23, align 8
-  %252 = load i64, ptr %27, align 8
-  %253 = icmp slt i64 %251, %252
-  br i1 %253, label %254, label %256
+255:                                              ; preds = %254, %244
+  %256 = load i64, ptr %23, align 8, !tbaa !33
+  %257 = load i64, ptr %27, align 8, !tbaa !33
+  %258 = icmp slt i64 %256, %257
+  br i1 %258, label %259, label %261
 
-254:                                              ; preds = %250
-  %255 = load i64, ptr %23, align 8
-  br label %258
+259:                                              ; preds = %255
+  %260 = load i64, ptr %23, align 8, !tbaa !33
+  br label %263
 
-256:                                              ; preds = %250
-  %257 = load i64, ptr %27, align 8
-  br label %258
+261:                                              ; preds = %255
+  %262 = load i64, ptr %27, align 8, !tbaa !33
+  br label %263
 
-258:                                              ; preds = %256, %254
-  %259 = phi i64 [ %255, %254 ], [ %257, %256 ]
-  store i64 %259, ptr %31, align 8
-  %260 = load i64, ptr %24, align 8
-  %261 = load i64, ptr %28, align 8
-  %262 = icmp slt i64 %260, %261
-  br i1 %262, label %263, label %265
+263:                                              ; preds = %261, %259
+  %264 = phi i64 [ %260, %259 ], [ %262, %261 ]
+  store i64 %264, ptr %31, align 8, !tbaa !33
+  %265 = load i64, ptr %24, align 8, !tbaa !33
+  %266 = load i64, ptr %28, align 8, !tbaa !33
+  %267 = icmp slt i64 %265, %266
+  br i1 %267, label %268, label %270
 
-263:                                              ; preds = %258
-  %264 = load i64, ptr %24, align 8
-  br label %267
+268:                                              ; preds = %263
+  %269 = load i64, ptr %24, align 8, !tbaa !33
+  br label %272
 
-265:                                              ; preds = %258
-  %266 = load i64, ptr %28, align 8
-  br label %267
+270:                                              ; preds = %263
+  %271 = load i64, ptr %28, align 8, !tbaa !33
+  br label %272
 
-267:                                              ; preds = %265, %263
-  %268 = phi i64 [ %264, %263 ], [ %266, %265 ]
-  store i64 %268, ptr %32, align 8
-  %269 = load i64, ptr %25, align 8
-  %270 = load i64, ptr %29, align 8
-  %271 = icmp sgt i64 %269, %270
-  br i1 %271, label %272, label %274
+272:                                              ; preds = %270, %268
+  %273 = phi i64 [ %269, %268 ], [ %271, %270 ]
+  store i64 %273, ptr %32, align 8, !tbaa !33
+  %274 = load i64, ptr %25, align 8, !tbaa !33
+  %275 = load i64, ptr %29, align 8, !tbaa !33
+  %276 = icmp sgt i64 %274, %275
+  br i1 %276, label %277, label %279
 
-272:                                              ; preds = %267
-  %273 = load i64, ptr %25, align 8
-  br label %276
+277:                                              ; preds = %272
+  %278 = load i64, ptr %25, align 8, !tbaa !33
+  br label %281
 
-274:                                              ; preds = %267
-  %275 = load i64, ptr %29, align 8
-  br label %276
+279:                                              ; preds = %272
+  %280 = load i64, ptr %29, align 8, !tbaa !33
+  br label %281
 
-276:                                              ; preds = %274, %272
-  %277 = phi i64 [ %273, %272 ], [ %275, %274 ]
-  store i64 %277, ptr %33, align 8
-  %278 = load i64, ptr %26, align 8
-  %279 = load i64, ptr %30, align 8
-  %280 = icmp sgt i64 %278, %279
-  br i1 %280, label %281, label %283
+281:                                              ; preds = %279, %277
+  %282 = phi i64 [ %278, %277 ], [ %280, %279 ]
+  store i64 %282, ptr %33, align 8, !tbaa !33
+  %283 = load i64, ptr %26, align 8, !tbaa !33
+  %284 = load i64, ptr %30, align 8, !tbaa !33
+  %285 = icmp sgt i64 %283, %284
+  br i1 %285, label %286, label %288
 
-281:                                              ; preds = %276
-  %282 = load i64, ptr %26, align 8
-  br label %285
+286:                                              ; preds = %281
+  %287 = load i64, ptr %26, align 8, !tbaa !33
+  br label %290
 
-283:                                              ; preds = %276
-  %284 = load i64, ptr %30, align 8
-  br label %285
+288:                                              ; preds = %281
+  %289 = load i64, ptr %30, align 8, !tbaa !33
+  br label %290
 
-285:                                              ; preds = %283, %281
-  %286 = phi i64 [ %282, %281 ], [ %284, %283 ]
-  store i64 %286, ptr %34, align 8
-  %287 = load i64, ptr %33, align 8
-  %288 = load i64, ptr %31, align 8
-  %289 = sub nsw i64 %287, %288
-  %290 = ashr i64 %289, 6
-  %291 = trunc i64 %290 to i32
-  store i32 %291, ptr %36, align 4
-  %292 = load i64, ptr %34, align 8
-  %293 = load i64, ptr %32, align 8
+290:                                              ; preds = %288, %286
+  %291 = phi i64 [ %287, %286 ], [ %289, %288 ]
+  store i64 %291, ptr %34, align 8, !tbaa !33
+  %292 = load i64, ptr %33, align 8, !tbaa !33
+  %293 = load i64, ptr %31, align 8, !tbaa !33
   %294 = sub nsw i64 %292, %293
   %295 = ashr i64 %294, 6
   %296 = trunc i64 %295 to i32
-  store i32 %296, ptr %35, align 4
-  %297 = load i32, ptr %36, align 4
-  %298 = icmp ne i32 %297, 0
-  br i1 %298, label %299, label %302
+  store i32 %296, ptr %36, align 4, !tbaa !9
+  %297 = load i64, ptr %34, align 8, !tbaa !33
+  %298 = load i64, ptr %32, align 8, !tbaa !33
+  %299 = sub nsw i64 %297, %298
+  %300 = ashr i64 %299, 6
+  %301 = trunc i64 %300 to i32
+  store i32 %301, ptr %35, align 4, !tbaa !9
+  %302 = load i32, ptr %36, align 4, !tbaa !9
+  %303 = icmp ne i32 %302, 0
+  br i1 %303, label %304, label %307
 
-299:                                              ; preds = %285
-  %300 = load i32, ptr %35, align 4
-  %301 = icmp ne i32 %300, 0
-  br i1 %301, label %303, label %302
+304:                                              ; preds = %290
+  %305 = load i32, ptr %35, align 4, !tbaa !9
+  %306 = icmp ne i32 %305, 0
+  br i1 %306, label %308, label %307
 
-302:                                              ; preds = %299, %285
+307:                                              ; preds = %304, %290
   store i32 0, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-303:                                              ; preds = %299
-  %304 = load i64, ptr %31, align 8
-  %305 = load i64, ptr %23, align 8
-  %306 = sub nsw i64 %305, %304
-  store i64 %306, ptr %23, align 8
-  %307 = load i64, ptr %32, align 8
-  %308 = load i64, ptr %24, align 8
-  %309 = sub nsw i64 %308, %307
-  store i64 %309, ptr %24, align 8
-  %310 = load ptr, ptr %13, align 8
-  %311 = getelementptr inbounds %struct.FT_Bitmap_, ptr %310, i32 0, i32 1
-  %312 = load i32, ptr %311, align 4
-  %313 = icmp ne i32 %312, 0
-  br i1 %313, label %314, label %326
-
-314:                                              ; preds = %303
-  %315 = load ptr, ptr %13, align 8
-  %316 = getelementptr inbounds %struct.FT_Bitmap_, ptr %315, i32 0, i32 0
-  %317 = load i32, ptr %316, align 8
+308:                                              ; preds = %304
+  %309 = load i64, ptr %31, align 8, !tbaa !33
+  %310 = load i64, ptr %23, align 8, !tbaa !33
+  %311 = sub nsw i64 %310, %309
+  store i64 %311, ptr %23, align 8, !tbaa !33
+  %312 = load i64, ptr %32, align 8, !tbaa !33
+  %313 = load i64, ptr %24, align 8, !tbaa !33
+  %314 = sub nsw i64 %313, %312
+  store i64 %314, ptr %24, align 8, !tbaa !33
+  %315 = load ptr, ptr %13, align 8, !tbaa !3
+  %316 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %315, i32 0, i32 1
+  %317 = load i32, ptr %316, align 4, !tbaa !42
   %318 = icmp ne i32 %317, 0
-  br i1 %318, label %319, label %326
+  br i1 %318, label %319, label %331
 
-319:                                              ; preds = %314
-  %320 = load i64, ptr %31, align 8
-  %321 = load i64, ptr %27, align 8
-  %322 = sub nsw i64 %321, %320
-  store i64 %322, ptr %27, align 8
-  %323 = load i64, ptr %32, align 8
-  %324 = load i64, ptr %28, align 8
-  %325 = sub nsw i64 %324, %323
-  store i64 %325, ptr %28, align 8
-  br label %326
+319:                                              ; preds = %308
+  %320 = load ptr, ptr %13, align 8, !tbaa !3
+  %321 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %320, i32 0, i32 0
+  %322 = load i32, ptr %321, align 8, !tbaa !30
+  %323 = icmp ne i32 %322, 0
+  br i1 %323, label %324, label %331
 
-326:                                              ; preds = %319, %314, %303
-  %327 = load ptr, ptr %13, align 8
-  %328 = getelementptr inbounds %struct.FT_Bitmap_, ptr %327, i32 0, i32 5
-  %329 = load i8, ptr %328, align 2
-  %330 = zext i8 %329 to i32
-  %331 = icmp eq i32 %330, 0
-  br i1 %331, label %332, label %378
+324:                                              ; preds = %319
+  %325 = load i64, ptr %31, align 8, !tbaa !33
+  %326 = load i64, ptr %27, align 8, !tbaa !33
+  %327 = sub nsw i64 %326, %325
+  store i64 %327, ptr %27, align 8, !tbaa !33
+  %328 = load i64, ptr %32, align 8, !tbaa !33
+  %329 = load i64, ptr %28, align 8, !tbaa !33
+  %330 = sub nsw i64 %329, %328
+  store i64 %330, ptr %28, align 8, !tbaa !33
+  br label %331
 
-332:                                              ; preds = %326
-  %333 = load i32, ptr %36, align 4
-  %334 = load ptr, ptr %13, align 8
-  %335 = getelementptr inbounds %struct.FT_Bitmap_, ptr %334, i32 0, i32 1
-  store i32 %333, ptr %335, align 4
-  %336 = load i32, ptr %35, align 4
-  %337 = load ptr, ptr %13, align 8
-  %338 = getelementptr inbounds %struct.FT_Bitmap_, ptr %337, i32 0, i32 0
-  store i32 %336, ptr %338, align 8
-  %339 = load ptr, ptr %13, align 8
-  %340 = getelementptr inbounds %struct.FT_Bitmap_, ptr %339, i32 0, i32 5
-  store i8 7, ptr %340, align 2
-  %341 = load i32, ptr %36, align 4
-  %342 = mul nsw i32 %341, 4
-  %343 = load ptr, ptr %13, align 8
-  %344 = getelementptr inbounds %struct.FT_Bitmap_, ptr %343, i32 0, i32 2
-  store i32 %342, ptr %344, align 8
-  %345 = load ptr, ptr %13, align 8
-  %346 = getelementptr inbounds %struct.FT_Bitmap_, ptr %345, i32 0, i32 4
-  store i16 256, ptr %346, align 8
-  %347 = load ptr, ptr %13, align 8
-  %348 = getelementptr inbounds %struct.FT_Bitmap_, ptr %347, i32 0, i32 2
-  %349 = load i32, ptr %348, align 8
-  %350 = sext i32 %349 to i64
-  %351 = sdiv i64 9223372036854775807, %350
-  %352 = load ptr, ptr %13, align 8
-  %353 = getelementptr inbounds %struct.FT_Bitmap_, ptr %352, i32 0, i32 0
-  %354 = load i32, ptr %353, align 8
+331:                                              ; preds = %324, %319, %308
+  %332 = load ptr, ptr %13, align 8, !tbaa !3
+  %333 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %332, i32 0, i32 5
+  %334 = load i8, ptr %333, align 2, !tbaa !35
+  %335 = zext i8 %334 to i32
+  %336 = icmp eq i32 %335, 0
+  br i1 %336, label %337, label %384
+
+337:                                              ; preds = %331
+  %338 = load i32, ptr %36, align 4, !tbaa !9
+  %339 = load ptr, ptr %13, align 8, !tbaa !3
+  %340 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %339, i32 0, i32 1
+  store i32 %338, ptr %340, align 4, !tbaa !42
+  %341 = load i32, ptr %35, align 4, !tbaa !9
+  %342 = load ptr, ptr %13, align 8, !tbaa !3
+  %343 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %342, i32 0, i32 0
+  store i32 %341, ptr %343, align 8, !tbaa !30
+  %344 = load ptr, ptr %13, align 8, !tbaa !3
+  %345 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %344, i32 0, i32 5
+  store i8 7, ptr %345, align 2, !tbaa !35
+  %346 = load i32, ptr %36, align 4, !tbaa !9
+  %347 = mul nsw i32 %346, 4
+  %348 = load ptr, ptr %13, align 8, !tbaa !3
+  %349 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %348, i32 0, i32 2
+  store i32 %347, ptr %349, align 8, !tbaa !19
+  %350 = load ptr, ptr %13, align 8, !tbaa !3
+  %351 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %350, i32 0, i32 4
+  store i16 256, ptr %351, align 8, !tbaa !36
+  %352 = load ptr, ptr %13, align 8, !tbaa !3
+  %353 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %352, i32 0, i32 2
+  %354 = load i32, ptr %353, align 8, !tbaa !19
   %355 = sext i32 %354 to i64
-  %356 = icmp slt i64 %351, %355
-  br i1 %356, label %357, label %360
+  %356 = sdiv i64 9223372036854775807, %355
+  %357 = load ptr, ptr %13, align 8, !tbaa !3
+  %358 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %357, i32 0, i32 0
+  %359 = load i32, ptr %358, align 8, !tbaa !30
+  %360 = sext i32 %359 to i64
+  %361 = icmp slt i64 %356, %360
+  br i1 %361, label %362, label %366
 
-357:                                              ; preds = %332
-  br label %358
+362:                                              ; preds = %337
+  br label %363
 
-358:                                              ; preds = %357
-  br label %359
+363:                                              ; preds = %362
+  br label %364
 
-359:                                              ; preds = %358
+364:                                              ; preds = %363
+  br label %365
+
+365:                                              ; preds = %364
   store i32 6, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %729
 
-360:                                              ; preds = %332
-  %361 = load ptr, ptr %16, align 8
-  %362 = load ptr, ptr %13, align 8
-  %363 = getelementptr inbounds %struct.FT_Bitmap_, ptr %362, i32 0, i32 2
-  %364 = load i32, ptr %363, align 8
-  %365 = load ptr, ptr %13, align 8
-  %366 = getelementptr inbounds %struct.FT_Bitmap_, ptr %365, i32 0, i32 0
-  %367 = load i32, ptr %366, align 8
-  %368 = mul nsw i32 %364, %367
-  %369 = sext i32 %368 to i64
-  %370 = call ptr @ft_mem_alloc(ptr noundef %361, i64 noundef %369, ptr noundef %15)
-  %371 = load ptr, ptr %13, align 8
-  %372 = getelementptr inbounds %struct.FT_Bitmap_, ptr %371, i32 0, i32 3
-  store ptr %370, ptr %372, align 8
-  %373 = load i32, ptr %15, align 4
-  %374 = icmp ne i32 %373, 0
-  br i1 %374, label %375, label %377
+366:                                              ; preds = %337
+  %367 = load ptr, ptr %16, align 8, !tbaa !28
+  %368 = load ptr, ptr %13, align 8, !tbaa !3
+  %369 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %368, i32 0, i32 2
+  %370 = load i32, ptr %369, align 8, !tbaa !19
+  %371 = load ptr, ptr %13, align 8, !tbaa !3
+  %372 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %371, i32 0, i32 0
+  %373 = load i32, ptr %372, align 8, !tbaa !30
+  %374 = mul nsw i32 %370, %373
+  %375 = sext i32 %374 to i64
+  %376 = call ptr @ft_mem_alloc(ptr noundef %367, i64 noundef %375, ptr noundef %15)
+  %377 = load ptr, ptr %13, align 8, !tbaa !3
+  %378 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %377, i32 0, i32 3
+  store ptr %376, ptr %378, align 8, !tbaa !29
+  %379 = load i32, ptr %15, align 4, !tbaa !9
+  %380 = icmp ne i32 %379, 0
+  br i1 %380, label %381, label %383
 
-375:                                              ; preds = %360
-  %376 = load i32, ptr %15, align 4
-  store i32 %376, ptr %8, align 4
-  br label %718
+381:                                              ; preds = %366
+  %382 = load i32, ptr %15, align 4, !tbaa !9
+  store i32 %382, ptr %8, align 4
+  store i32 1, ptr %39, align 4
+  br label %729
 
-377:                                              ; preds = %360
-  store i8 1, ptr %22, align 1
-  br label %511
+383:                                              ; preds = %366
+  store i8 1, ptr %22, align 1, !tbaa !15
+  br label %522
 
-378:                                              ; preds = %326
-  %379 = load ptr, ptr %13, align 8
-  %380 = getelementptr inbounds %struct.FT_Bitmap_, ptr %379, i32 0, i32 1
-  %381 = load i32, ptr %380, align 4
-  %382 = load i32, ptr %36, align 4
-  %383 = icmp ne i32 %381, %382
-  br i1 %383, label %390, label %384
-
-384:                                              ; preds = %378
-  %385 = load ptr, ptr %13, align 8
-  %386 = getelementptr inbounds %struct.FT_Bitmap_, ptr %385, i32 0, i32 0
-  %387 = load i32, ptr %386, align 8
-  %388 = load i32, ptr %35, align 4
+384:                                              ; preds = %331
+  %385 = load ptr, ptr %13, align 8, !tbaa !3
+  %386 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %385, i32 0, i32 1
+  %387 = load i32, ptr %386, align 4, !tbaa !42
+  %388 = load i32, ptr %36, align 4, !tbaa !9
   %389 = icmp ne i32 %387, %388
-  br i1 %389, label %390, label %510
+  br i1 %389, label %396, label %390
 
-390:                                              ; preds = %384, %378
-  store ptr null, ptr %41, align 8
-  %391 = load ptr, ptr %13, align 8
-  %392 = getelementptr inbounds %struct.FT_Bitmap_, ptr %391, i32 0, i32 2
-  %393 = load i32, ptr %392, align 8
-  store i32 %393, ptr %39, align 4
-  %394 = load i32, ptr %39, align 4
-  %395 = icmp slt i32 %394, 0
-  br i1 %395, label %396, label %399
+390:                                              ; preds = %384
+  %391 = load ptr, ptr %13, align 8, !tbaa !3
+  %392 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %391, i32 0, i32 0
+  %393 = load i32, ptr %392, align 8, !tbaa !30
+  %394 = load i32, ptr %35, align 4, !tbaa !9
+  %395 = icmp ne i32 %393, %394
+  br i1 %395, label %396, label %521
 
-396:                                              ; preds = %390
-  %397 = load i32, ptr %39, align 4
-  %398 = sub nsw i32 0, %397
-  store i32 %398, ptr %39, align 4
-  br label %399
+396:                                              ; preds = %390, %384
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #5
+  store ptr null, ptr %42, align 8, !tbaa !11
+  %397 = load ptr, ptr %13, align 8, !tbaa !3
+  %398 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %397, i32 0, i32 2
+  %399 = load i32, ptr %398, align 8, !tbaa !19
+  store i32 %399, ptr %40, align 4, !tbaa !9
+  %400 = load i32, ptr %40, align 4, !tbaa !9
+  %401 = icmp slt i32 %400, 0
+  br i1 %401, label %402, label %405
 
-399:                                              ; preds = %396, %390
-  %400 = load i32, ptr %36, align 4
-  %401 = mul nsw i32 %400, 4
-  store i32 %401, ptr %40, align 4
-  %402 = load i32, ptr %40, align 4
-  %403 = sext i32 %402 to i64
-  %404 = sdiv i64 9223372036854775807, %403
-  %405 = load i32, ptr %35, align 4
-  %406 = sext i32 %405 to i64
-  %407 = icmp slt i64 %404, %406
-  br i1 %407, label %408, label %411
+402:                                              ; preds = %396
+  %403 = load i32, ptr %40, align 4, !tbaa !9
+  %404 = sub nsw i32 0, %403
+  store i32 %404, ptr %40, align 4, !tbaa !9
+  br label %405
 
-408:                                              ; preds = %399
-  br label %409
+405:                                              ; preds = %402, %396
+  %406 = load i32, ptr %36, align 4, !tbaa !9
+  %407 = mul nsw i32 %406, 4
+  store i32 %407, ptr %41, align 4, !tbaa !9
+  %408 = load i32, ptr %41, align 4, !tbaa !9
+  %409 = sext i32 %408 to i64
+  %410 = sdiv i64 9223372036854775807, %409
+  %411 = load i32, ptr %35, align 4, !tbaa !9
+  %412 = sext i32 %411 to i64
+  %413 = icmp slt i64 %410, %412
+  br i1 %413, label %414, label %418
 
-409:                                              ; preds = %408
-  br label %410
+414:                                              ; preds = %405
+  br label %415
 
-410:                                              ; preds = %409
+415:                                              ; preds = %414
+  br label %416
+
+416:                                              ; preds = %415
+  br label %417
+
+417:                                              ; preds = %416
   store i32 6, ptr %8, align 4
-  br label %718
+  store i32 1, ptr %39, align 4
+  br label %518
 
-411:                                              ; preds = %399
-  %412 = load ptr, ptr %16, align 8
-  %413 = load i32, ptr %40, align 4
-  %414 = load i32, ptr %35, align 4
-  %415 = mul nsw i32 %413, %414
-  %416 = sext i32 %415 to i64
-  %417 = call ptr @ft_mem_alloc(ptr noundef %412, i64 noundef %416, ptr noundef %15)
-  store ptr %417, ptr %41, align 8
-  %418 = load i32, ptr %15, align 4
-  %419 = icmp ne i32 %418, 0
-  br i1 %419, label %420, label %421
+418:                                              ; preds = %405
+  %419 = load ptr, ptr %16, align 8, !tbaa !28
+  %420 = load i32, ptr %41, align 4, !tbaa !9
+  %421 = load i32, ptr %35, align 4, !tbaa !9
+  %422 = mul nsw i32 %420, %421
+  %423 = sext i32 %422 to i64
+  %424 = call ptr @ft_mem_alloc(ptr noundef %419, i64 noundef %423, ptr noundef %15)
+  store ptr %424, ptr %42, align 8, !tbaa !11
+  %425 = load i32, ptr %15, align 4, !tbaa !9
+  %426 = icmp ne i32 %425, 0
+  br i1 %426, label %427, label %428
 
-420:                                              ; preds = %411
-  br label %699
+427:                                              ; preds = %418
+  store i32 14, ptr %39, align 4
+  br label %518
 
-421:                                              ; preds = %411
-  %422 = load i64, ptr %27, align 8
-  %423 = ashr i64 %422, 6
-  store i64 %423, ptr %37, align 8
-  %424 = load i64, ptr %28, align 8
-  %425 = ashr i64 %424, 6
-  store i64 %425, ptr %38, align 8
-  %426 = load ptr, ptr %13, align 8
-  %427 = getelementptr inbounds %struct.FT_Bitmap_, ptr %426, i32 0, i32 2
-  %428 = load i32, ptr %427, align 8
-  %429 = icmp slt i32 %428, 0
-  br i1 %429, label %430, label %431
+428:                                              ; preds = %418
+  %429 = load i64, ptr %27, align 8, !tbaa !33
+  %430 = ashr i64 %429, 6
+  store i64 %430, ptr %37, align 8, !tbaa !33
+  %431 = load i64, ptr %28, align 8, !tbaa !33
+  %432 = ashr i64 %431, 6
+  store i64 %432, ptr %38, align 8, !tbaa !33
+  %433 = load ptr, ptr %13, align 8, !tbaa !3
+  %434 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %433, i32 0, i32 2
+  %435 = load i32, ptr %434, align 8, !tbaa !19
+  %436 = icmp slt i32 %435, 0
+  br i1 %436, label %437, label %438
 
-430:                                              ; preds = %421
-  br label %478
+437:                                              ; preds = %428
+  br label %485
 
-431:                                              ; preds = %421
-  %432 = load ptr, ptr %13, align 8
-  %433 = getelementptr inbounds %struct.FT_Bitmap_, ptr %432, i32 0, i32 3
-  %434 = load ptr, ptr %433, align 8
-  store ptr %434, ptr %42, align 8
-  %435 = load ptr, ptr %41, align 8
-  %436 = load i32, ptr %35, align 4
-  %437 = zext i32 %436 to i64
-  %438 = load i64, ptr %38, align 8
-  %439 = sub nsw i64 %437, %438
-  %440 = load ptr, ptr %13, align 8
-  %441 = getelementptr inbounds %struct.FT_Bitmap_, ptr %440, i32 0, i32 0
-  %442 = load i32, ptr %441, align 8
-  %443 = zext i32 %442 to i64
-  %444 = sub nsw i64 %439, %443
-  %445 = load i32, ptr %40, align 4
-  %446 = sext i32 %445 to i64
-  %447 = mul nsw i64 %444, %446
-  %448 = getelementptr inbounds i8, ptr %435, i64 %447
-  %449 = load i64, ptr %37, align 8
-  %450 = mul nsw i64 %449, 4
-  %451 = getelementptr inbounds i8, ptr %448, i64 %450
-  store ptr %451, ptr %43, align 8
-  %452 = load ptr, ptr %42, align 8
-  %453 = load i32, ptr %39, align 4
-  %454 = load ptr, ptr %13, align 8
-  %455 = getelementptr inbounds %struct.FT_Bitmap_, ptr %454, i32 0, i32 0
-  %456 = load i32, ptr %455, align 8
-  %457 = mul nsw i32 %453, %456
-  %458 = sext i32 %457 to i64
-  %459 = getelementptr inbounds i8, ptr %452, i64 %458
-  store ptr %459, ptr %44, align 8
-  br label %460
+438:                                              ; preds = %428
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #5
+  %439 = load ptr, ptr %13, align 8, !tbaa !3
+  %440 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %439, i32 0, i32 3
+  %441 = load ptr, ptr %440, align 8, !tbaa !29
+  store ptr %441, ptr %43, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #5
+  %442 = load ptr, ptr %42, align 8, !tbaa !11
+  %443 = load i32, ptr %35, align 4, !tbaa !9
+  %444 = zext i32 %443 to i64
+  %445 = load i64, ptr %38, align 8, !tbaa !33
+  %446 = sub nsw i64 %444, %445
+  %447 = load ptr, ptr %13, align 8, !tbaa !3
+  %448 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %447, i32 0, i32 0
+  %449 = load i32, ptr %448, align 8, !tbaa !30
+  %450 = zext i32 %449 to i64
+  %451 = sub nsw i64 %446, %450
+  %452 = load i32, ptr %41, align 4, !tbaa !9
+  %453 = sext i32 %452 to i64
+  %454 = mul nsw i64 %451, %453
+  %455 = getelementptr inbounds i8, ptr %442, i64 %454
+  %456 = load i64, ptr %37, align 8, !tbaa !33
+  %457 = mul nsw i64 %456, 4
+  %458 = getelementptr inbounds i8, ptr %455, i64 %457
+  store ptr %458, ptr %44, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #5
+  %459 = load ptr, ptr %43, align 8, !tbaa !11
+  %460 = load i32, ptr %40, align 4, !tbaa !9
+  %461 = load ptr, ptr %13, align 8, !tbaa !3
+  %462 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %461, i32 0, i32 0
+  %463 = load i32, ptr %462, align 8, !tbaa !30
+  %464 = mul nsw i32 %460, %463
+  %465 = sext i32 %464 to i64
+  %466 = getelementptr inbounds i8, ptr %459, i64 %465
+  store ptr %466, ptr %45, align 8, !tbaa !11
+  br label %467
 
-460:                                              ; preds = %464, %431
-  %461 = load ptr, ptr %42, align 8
-  %462 = load ptr, ptr %44, align 8
-  %463 = icmp ult ptr %461, %462
-  br i1 %463, label %464, label %477
+467:                                              ; preds = %471, %438
+  %468 = load ptr, ptr %43, align 8, !tbaa !11
+  %469 = load ptr, ptr %45, align 8, !tbaa !11
+  %470 = icmp ult ptr %468, %469
+  br i1 %470, label %471, label %484
 
-464:                                              ; preds = %460
-  %465 = load ptr, ptr %43, align 8
-  %466 = load ptr, ptr %42, align 8
-  %467 = load i32, ptr %39, align 4
-  %468 = sext i32 %467 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %465, ptr align 1 %466, i64 %468, i1 false)
-  %469 = load i32, ptr %39, align 4
-  %470 = load ptr, ptr %42, align 8
-  %471 = sext i32 %469 to i64
-  %472 = getelementptr inbounds i8, ptr %470, i64 %471
-  store ptr %472, ptr %42, align 8
-  %473 = load i32, ptr %40, align 4
-  %474 = load ptr, ptr %43, align 8
-  %475 = sext i32 %473 to i64
-  %476 = getelementptr inbounds i8, ptr %474, i64 %475
-  store ptr %476, ptr %43, align 8
-  br label %460, !llvm.loop !25
+471:                                              ; preds = %467
+  %472 = load ptr, ptr %44, align 8, !tbaa !11
+  %473 = load ptr, ptr %43, align 8, !tbaa !11
+  %474 = load i32, ptr %40, align 4, !tbaa !9
+  %475 = sext i32 %474 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %472, ptr align 1 %473, i64 %475, i1 false)
+  %476 = load i32, ptr %40, align 4, !tbaa !9
+  %477 = load ptr, ptr %43, align 8, !tbaa !11
+  %478 = sext i32 %476 to i64
+  %479 = getelementptr inbounds i8, ptr %477, i64 %478
+  store ptr %479, ptr %43, align 8, !tbaa !11
+  %480 = load i32, ptr %41, align 4, !tbaa !9
+  %481 = load ptr, ptr %44, align 8, !tbaa !11
+  %482 = sext i32 %480 to i64
+  %483 = getelementptr inbounds i8, ptr %481, i64 %482
+  store ptr %483, ptr %44, align 8, !tbaa !11
+  br label %467, !llvm.loop !62
 
-477:                                              ; preds = %460
-  br label %478
+484:                                              ; preds = %467
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #5
+  br label %485
 
-478:                                              ; preds = %477, %430
-  br label %479
-
-479:                                              ; preds = %478
-  %480 = load ptr, ptr %16, align 8
-  %481 = load ptr, ptr %13, align 8
-  %482 = getelementptr inbounds %struct.FT_Bitmap_, ptr %481, i32 0, i32 3
-  %483 = load ptr, ptr %482, align 8
-  call void @ft_mem_free(ptr noundef %480, ptr noundef %483)
-  %484 = load ptr, ptr %13, align 8
-  %485 = getelementptr inbounds %struct.FT_Bitmap_, ptr %484, i32 0, i32 3
-  store ptr null, ptr %485, align 8
+485:                                              ; preds = %484, %437
   br label %486
 
-486:                                              ; preds = %479
-  %487 = load i32, ptr %36, align 4
-  %488 = load ptr, ptr %13, align 8
-  %489 = getelementptr inbounds %struct.FT_Bitmap_, ptr %488, i32 0, i32 1
-  store i32 %487, ptr %489, align 4
-  %490 = load i32, ptr %35, align 4
-  %491 = load ptr, ptr %13, align 8
-  %492 = getelementptr inbounds %struct.FT_Bitmap_, ptr %491, i32 0, i32 0
-  store i32 %490, ptr %492, align 8
-  %493 = load ptr, ptr %13, align 8
-  %494 = getelementptr inbounds %struct.FT_Bitmap_, ptr %493, i32 0, i32 2
-  %495 = load i32, ptr %494, align 8
-  %496 = icmp slt i32 %495, 0
-  br i1 %496, label %497, label %502
+486:                                              ; preds = %485
+  %487 = load ptr, ptr %16, align 8, !tbaa !28
+  %488 = load ptr, ptr %13, align 8, !tbaa !3
+  %489 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %488, i32 0, i32 3
+  %490 = load ptr, ptr %489, align 8, !tbaa !29
+  call void @ft_mem_free(ptr noundef %487, ptr noundef %490)
+  %491 = load ptr, ptr %13, align 8, !tbaa !3
+  %492 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %491, i32 0, i32 3
+  store ptr null, ptr %492, align 8, !tbaa !29
+  br label %493
 
-497:                                              ; preds = %486
-  %498 = load i32, ptr %40, align 4
-  %499 = sub nsw i32 0, %498
-  %500 = load ptr, ptr %13, align 8
-  %501 = getelementptr inbounds %struct.FT_Bitmap_, ptr %500, i32 0, i32 2
-  store i32 %499, ptr %501, align 8
-  br label %506
+493:                                              ; preds = %486
+  br label %494
 
-502:                                              ; preds = %486
-  %503 = load i32, ptr %40, align 4
-  %504 = load ptr, ptr %13, align 8
-  %505 = getelementptr inbounds %struct.FT_Bitmap_, ptr %504, i32 0, i32 2
-  store i32 %503, ptr %505, align 8
-  br label %506
+494:                                              ; preds = %493
+  %495 = load i32, ptr %36, align 4, !tbaa !9
+  %496 = load ptr, ptr %13, align 8, !tbaa !3
+  %497 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %496, i32 0, i32 1
+  store i32 %495, ptr %497, align 4, !tbaa !42
+  %498 = load i32, ptr %35, align 4, !tbaa !9
+  %499 = load ptr, ptr %13, align 8, !tbaa !3
+  %500 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %499, i32 0, i32 0
+  store i32 %498, ptr %500, align 8, !tbaa !30
+  %501 = load ptr, ptr %13, align 8, !tbaa !3
+  %502 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %501, i32 0, i32 2
+  %503 = load i32, ptr %502, align 8, !tbaa !19
+  %504 = icmp slt i32 %503, 0
+  br i1 %504, label %505, label %510
 
-506:                                              ; preds = %502, %497
-  %507 = load ptr, ptr %41, align 8
-  %508 = load ptr, ptr %13, align 8
-  %509 = getelementptr inbounds %struct.FT_Bitmap_, ptr %508, i32 0, i32 3
-  store ptr %507, ptr %509, align 8
-  br label %510
+505:                                              ; preds = %494
+  %506 = load i32, ptr %41, align 4, !tbaa !9
+  %507 = sub nsw i32 0, %506
+  %508 = load ptr, ptr %13, align 8, !tbaa !3
+  %509 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %508, i32 0, i32 2
+  store i32 %507, ptr %509, align 8, !tbaa !19
+  br label %514
 
-510:                                              ; preds = %506, %384
-  br label %511
+510:                                              ; preds = %494
+  %511 = load i32, ptr %41, align 4, !tbaa !9
+  %512 = load ptr, ptr %13, align 8, !tbaa !3
+  %513 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %512, i32 0, i32 2
+  store i32 %511, ptr %513, align 8, !tbaa !19
+  br label %514
 
-511:                                              ; preds = %510, %377
-  %512 = load ptr, ptr %12, align 8
-  %513 = getelementptr inbounds %struct.FT_Bitmap_, ptr %512, i32 0, i32 5
-  %514 = load i8, ptr %513, align 2
-  %515 = zext i8 %514 to i32
-  %516 = icmp ne i32 %515, 2
-  br i1 %516, label %517, label %525
+514:                                              ; preds = %510, %505
+  %515 = load ptr, ptr %42, align 8, !tbaa !11
+  %516 = load ptr, ptr %13, align 8, !tbaa !3
+  %517 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %516, i32 0, i32 3
+  store ptr %515, ptr %517, align 8, !tbaa !29
+  store i32 0, ptr %39, align 4
+  br label %518
 
-517:                                              ; preds = %511
+518:                                              ; preds = %427, %514, %417
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #5
+  %519 = load i32, ptr %39, align 4
+  switch i32 %519, label %729 [
+    i32 0, label %520
+    i32 14, label %710
+  ]
+
+520:                                              ; preds = %518
+  br label %521
+
+521:                                              ; preds = %520, %390
+  br label %522
+
+522:                                              ; preds = %521, %383
+  %523 = load ptr, ptr %12, align 8, !tbaa !3
+  %524 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %523, i32 0, i32 5
+  %525 = load i8, ptr %524, align 2, !tbaa !35
+  %526 = zext i8 %525 to i32
+  %527 = icmp ne i32 %526, 2
+  br i1 %527, label %528, label %536
+
+528:                                              ; preds = %522
   call void @FT_Bitmap_Init(ptr noundef %17)
-  %518 = load ptr, ptr %11, align 8
-  %519 = load ptr, ptr %12, align 8
-  %520 = call i32 @FT_Bitmap_Convert(ptr noundef %518, ptr noundef %519, ptr noundef %17, i32 noundef 1)
-  store i32 %520, ptr %15, align 4
-  %521 = load i32, ptr %15, align 4
-  %522 = icmp ne i32 %521, 0
-  br i1 %522, label %523, label %524
+  %529 = load ptr, ptr %11, align 8, !tbaa !17
+  %530 = load ptr, ptr %12, align 8, !tbaa !3
+  %531 = call i32 @FT_Bitmap_Convert(ptr noundef %529, ptr noundef %530, ptr noundef %17, i32 noundef 1)
+  store i32 %531, ptr %15, align 4, !tbaa !9
+  %532 = load i32, ptr %15, align 4, !tbaa !9
+  %533 = icmp ne i32 %532, 0
+  br i1 %533, label %534, label %535
 
-523:                                              ; preds = %517
-  br label %699
-
-524:                                              ; preds = %517
-  store ptr %17, ptr %18, align 8
-  store i8 1, ptr %21, align 1
-  br label %527
-
-525:                                              ; preds = %511
-  %526 = load ptr, ptr %12, align 8
-  store ptr %526, ptr %18, align 8
-  br label %527
-
-527:                                              ; preds = %525, %524
-  %528 = load i64, ptr %23, align 8
-  %529 = ashr i64 %528, 6
-  store i64 %529, ptr %37, align 8
-  %530 = load i64, ptr %24, align 8
-  %531 = ashr i64 %530, 6
-  store i64 %531, ptr %38, align 8
-  %532 = load ptr, ptr %13, align 8
-  %533 = getelementptr inbounds %struct.FT_Bitmap_, ptr %532, i32 0, i32 2
-  %534 = load i32, ptr %533, align 8
-  %535 = icmp slt i32 %534, 0
-  br i1 %535, label %536, label %537
-
-536:                                              ; preds = %527
-  br label %688
-
-537:                                              ; preds = %527
-  %538 = load ptr, ptr %18, align 8
-  %539 = getelementptr inbounds %struct.FT_Bitmap_, ptr %538, i32 0, i32 3
-  %540 = load ptr, ptr %539, align 8
-  store ptr %540, ptr %45, align 8
-  %541 = load ptr, ptr %13, align 8
-  %542 = getelementptr inbounds %struct.FT_Bitmap_, ptr %541, i32 0, i32 3
-  %543 = load ptr, ptr %542, align 8
-  %544 = load ptr, ptr %13, align 8
-  %545 = getelementptr inbounds %struct.FT_Bitmap_, ptr %544, i32 0, i32 0
-  %546 = load i32, ptr %545, align 8
-  %547 = zext i32 %546 to i64
-  %548 = load i64, ptr %38, align 8
-  %549 = sub nsw i64 %547, %548
-  %550 = load ptr, ptr %18, align 8
-  %551 = getelementptr inbounds %struct.FT_Bitmap_, ptr %550, i32 0, i32 0
-  %552 = load i32, ptr %551, align 8
-  %553 = zext i32 %552 to i64
-  %554 = sub nsw i64 %549, %553
-  %555 = load ptr, ptr %13, align 8
-  %556 = getelementptr inbounds %struct.FT_Bitmap_, ptr %555, i32 0, i32 2
-  %557 = load i32, ptr %556, align 8
-  %558 = sext i32 %557 to i64
-  %559 = mul nsw i64 %554, %558
-  %560 = getelementptr inbounds i8, ptr %543, i64 %559
-  %561 = load i64, ptr %37, align 8
-  %562 = mul nsw i64 %561, 4
-  %563 = getelementptr inbounds i8, ptr %560, i64 %562
-  store ptr %563, ptr %46, align 8
-  %564 = load ptr, ptr %45, align 8
-  %565 = load ptr, ptr %18, align 8
-  %566 = getelementptr inbounds %struct.FT_Bitmap_, ptr %565, i32 0, i32 2
-  %567 = load i32, ptr %566, align 8
-  %568 = load ptr, ptr %18, align 8
-  %569 = getelementptr inbounds %struct.FT_Bitmap_, ptr %568, i32 0, i32 0
-  %570 = load i32, ptr %569, align 8
-  %571 = mul nsw i32 %567, %570
-  %572 = sext i32 %571 to i64
-  %573 = getelementptr inbounds i8, ptr %564, i64 %572
-  store ptr %573, ptr %47, align 8
-  br label %574
-
-574:                                              ; preds = %674, %537
-  %575 = load ptr, ptr %45, align 8
-  %576 = load ptr, ptr %47, align 8
-  %577 = icmp ult ptr %575, %576
-  br i1 %577, label %578, label %687
-
-578:                                              ; preds = %574
-  %579 = load ptr, ptr %45, align 8
-  store ptr %579, ptr %48, align 8
-  %580 = load ptr, ptr %46, align 8
-  store ptr %580, ptr %49, align 8
-  %581 = load ptr, ptr %48, align 8
-  %582 = load ptr, ptr %18, align 8
-  %583 = getelementptr inbounds %struct.FT_Bitmap_, ptr %582, i32 0, i32 1
-  %584 = load i32, ptr %583, align 4
-  %585 = zext i32 %584 to i64
-  %586 = getelementptr inbounds i8, ptr %581, i64 %585
-  store ptr %586, ptr %50, align 8
-  br label %587
-
-587:                                              ; preds = %591, %578
-  %588 = load ptr, ptr %48, align 8
-  %589 = load ptr, ptr %50, align 8
-  %590 = icmp ult ptr %588, %589
-  br i1 %590, label %591, label %674
-
-591:                                              ; preds = %587
-  %592 = load ptr, ptr %48, align 8
-  %593 = getelementptr inbounds i8, ptr %592, i32 1
-  store ptr %593, ptr %48, align 8
-  %594 = load i8, ptr %592, align 1
-  %595 = zext i8 %594 to i32
-  store i32 %595, ptr %51, align 4
-  %596 = getelementptr inbounds %struct.FT_Color_, ptr %10, i32 0, i32 3
-  %597 = load i8, ptr %596, align 1
-  %598 = zext i8 %597 to i32
-  %599 = load i32, ptr %51, align 4
-  %600 = mul nsw i32 %598, %599
-  %601 = sdiv i32 %600, 255
-  store i32 %601, ptr %52, align 4
-  %602 = getelementptr inbounds %struct.FT_Color_, ptr %10, i32 0, i32 0
-  %603 = load i8, ptr %602, align 1
-  %604 = zext i8 %603 to i32
-  %605 = load i32, ptr %52, align 4
-  %606 = mul nsw i32 %604, %605
-  %607 = sdiv i32 %606, 255
-  store i32 %607, ptr %53, align 4
-  %608 = getelementptr inbounds %struct.FT_Color_, ptr %10, i32 0, i32 1
-  %609 = load i8, ptr %608, align 1
-  %610 = zext i8 %609 to i32
-  %611 = load i32, ptr %52, align 4
-  %612 = mul nsw i32 %610, %611
-  %613 = sdiv i32 %612, 255
-  store i32 %613, ptr %54, align 4
-  %614 = getelementptr inbounds %struct.FT_Color_, ptr %10, i32 0, i32 2
-  %615 = load i8, ptr %614, align 1
-  %616 = zext i8 %615 to i32
-  %617 = load i32, ptr %52, align 4
-  %618 = mul nsw i32 %616, %617
-  %619 = sdiv i32 %618, 255
-  store i32 %619, ptr %55, align 4
-  %620 = load i32, ptr %52, align 4
-  %621 = sub nsw i32 255, %620
-  store i32 %621, ptr %56, align 4
-  %622 = load ptr, ptr %49, align 8
-  %623 = getelementptr inbounds i8, ptr %622, i64 0
-  %624 = load i8, ptr %623, align 1
-  %625 = zext i8 %624 to i32
-  store i32 %625, ptr %57, align 4
-  %626 = load ptr, ptr %49, align 8
-  %627 = getelementptr inbounds i8, ptr %626, i64 1
-  %628 = load i8, ptr %627, align 1
-  %629 = zext i8 %628 to i32
-  store i32 %629, ptr %58, align 4
-  %630 = load ptr, ptr %49, align 8
-  %631 = getelementptr inbounds i8, ptr %630, i64 2
-  %632 = load i8, ptr %631, align 1
-  %633 = zext i8 %632 to i32
-  store i32 %633, ptr %59, align 4
-  %634 = load ptr, ptr %49, align 8
-  %635 = getelementptr inbounds i8, ptr %634, i64 3
-  %636 = load i8, ptr %635, align 1
-  %637 = zext i8 %636 to i32
-  store i32 %637, ptr %60, align 4
-  %638 = load i32, ptr %57, align 4
-  %639 = load i32, ptr %56, align 4
-  %640 = mul nsw i32 %638, %639
-  %641 = sdiv i32 %640, 255
-  %642 = load i32, ptr %53, align 4
-  %643 = add nsw i32 %641, %642
-  %644 = trunc i32 %643 to i8
-  %645 = load ptr, ptr %49, align 8
-  %646 = getelementptr inbounds i8, ptr %645, i32 1
-  store ptr %646, ptr %49, align 8
-  store i8 %644, ptr %645, align 1
-  %647 = load i32, ptr %58, align 4
-  %648 = load i32, ptr %56, align 4
-  %649 = mul nsw i32 %647, %648
-  %650 = sdiv i32 %649, 255
-  %651 = load i32, ptr %54, align 4
-  %652 = add nsw i32 %650, %651
-  %653 = trunc i32 %652 to i8
-  %654 = load ptr, ptr %49, align 8
-  %655 = getelementptr inbounds i8, ptr %654, i32 1
-  store ptr %655, ptr %49, align 8
-  store i8 %653, ptr %654, align 1
-  %656 = load i32, ptr %59, align 4
-  %657 = load i32, ptr %56, align 4
-  %658 = mul nsw i32 %656, %657
-  %659 = sdiv i32 %658, 255
-  %660 = load i32, ptr %55, align 4
-  %661 = add nsw i32 %659, %660
-  %662 = trunc i32 %661 to i8
-  %663 = load ptr, ptr %49, align 8
-  %664 = getelementptr inbounds i8, ptr %663, i32 1
-  store ptr %664, ptr %49, align 8
-  store i8 %662, ptr %663, align 1
-  %665 = load i32, ptr %60, align 4
-  %666 = load i32, ptr %56, align 4
-  %667 = mul nsw i32 %665, %666
-  %668 = sdiv i32 %667, 255
-  %669 = load i32, ptr %52, align 4
-  %670 = add nsw i32 %668, %669
-  %671 = trunc i32 %670 to i8
-  %672 = load ptr, ptr %49, align 8
-  %673 = getelementptr inbounds i8, ptr %672, i32 1
-  store ptr %673, ptr %49, align 8
-  store i8 %671, ptr %672, align 1
-  br label %587, !llvm.loop !26
-
-674:                                              ; preds = %587
-  %675 = load ptr, ptr %18, align 8
-  %676 = getelementptr inbounds %struct.FT_Bitmap_, ptr %675, i32 0, i32 2
-  %677 = load i32, ptr %676, align 8
-  %678 = load ptr, ptr %45, align 8
-  %679 = sext i32 %677 to i64
-  %680 = getelementptr inbounds i8, ptr %678, i64 %679
-  store ptr %680, ptr %45, align 8
-  %681 = load ptr, ptr %13, align 8
-  %682 = getelementptr inbounds %struct.FT_Bitmap_, ptr %681, i32 0, i32 2
-  %683 = load i32, ptr %682, align 8
-  %684 = load ptr, ptr %46, align 8
-  %685 = sext i32 %683 to i64
-  %686 = getelementptr inbounds i8, ptr %684, i64 %685
-  store ptr %686, ptr %46, align 8
-  br label %574, !llvm.loop !27
-
-687:                                              ; preds = %574
-  br label %688
-
-688:                                              ; preds = %687, %536
-  %689 = load i64, ptr %31, align 8
-  %690 = load ptr, ptr %14, align 8
-  %691 = getelementptr inbounds %struct.FT_Vector_, ptr %690, i32 0, i32 0
-  store i64 %689, ptr %691, align 8
-  %692 = load i64, ptr %32, align 8
-  %693 = load i32, ptr %35, align 4
-  %694 = shl i32 %693, 6
-  %695 = zext i32 %694 to i64
-  %696 = add nsw i64 %692, %695
-  %697 = load ptr, ptr %14, align 8
-  %698 = getelementptr inbounds %struct.FT_Vector_, ptr %697, i32 0, i32 1
-  store i64 %696, ptr %698, align 8
-  br label %699
-
-699:                                              ; preds = %688, %523, %420
-  %700 = load i32, ptr %15, align 4
-  %701 = icmp ne i32 %700, 0
-  br i1 %701, label %702, label %710
-
-702:                                              ; preds = %699
-  %703 = load i8, ptr %22, align 1
-  %704 = zext i8 %703 to i32
-  %705 = icmp ne i32 %704, 0
-  br i1 %705, label %706, label %710
-
-706:                                              ; preds = %702
-  %707 = load ptr, ptr %11, align 8
-  %708 = load ptr, ptr %13, align 8
-  %709 = call i32 @FT_Bitmap_Done(ptr noundef %707, ptr noundef %708)
+534:                                              ; preds = %528
   br label %710
 
-710:                                              ; preds = %706, %702, %699
-  %711 = load i8, ptr %21, align 1
-  %712 = icmp ne i8 %711, 0
-  br i1 %712, label %713, label %716
+535:                                              ; preds = %528
+  store ptr %17, ptr %18, align 8, !tbaa !3
+  store i8 1, ptr %21, align 1, !tbaa !15
+  br label %538
+
+536:                                              ; preds = %522
+  %537 = load ptr, ptr %12, align 8, !tbaa !3
+  store ptr %537, ptr %18, align 8, !tbaa !3
+  br label %538
+
+538:                                              ; preds = %536, %535
+  %539 = load i64, ptr %23, align 8, !tbaa !33
+  %540 = ashr i64 %539, 6
+  store i64 %540, ptr %37, align 8, !tbaa !33
+  %541 = load i64, ptr %24, align 8, !tbaa !33
+  %542 = ashr i64 %541, 6
+  store i64 %542, ptr %38, align 8, !tbaa !33
+  %543 = load ptr, ptr %13, align 8, !tbaa !3
+  %544 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %543, i32 0, i32 2
+  %545 = load i32, ptr %544, align 8, !tbaa !19
+  %546 = icmp slt i32 %545, 0
+  br i1 %546, label %547, label %548
+
+547:                                              ; preds = %538
+  br label %699
+
+548:                                              ; preds = %538
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #5
+  %549 = load ptr, ptr %18, align 8, !tbaa !3
+  %550 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %549, i32 0, i32 3
+  %551 = load ptr, ptr %550, align 8, !tbaa !29
+  store ptr %551, ptr %46, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #5
+  %552 = load ptr, ptr %13, align 8, !tbaa !3
+  %553 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %552, i32 0, i32 3
+  %554 = load ptr, ptr %553, align 8, !tbaa !29
+  %555 = load ptr, ptr %13, align 8, !tbaa !3
+  %556 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %555, i32 0, i32 0
+  %557 = load i32, ptr %556, align 8, !tbaa !30
+  %558 = zext i32 %557 to i64
+  %559 = load i64, ptr %38, align 8, !tbaa !33
+  %560 = sub nsw i64 %558, %559
+  %561 = load ptr, ptr %18, align 8, !tbaa !3
+  %562 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %561, i32 0, i32 0
+  %563 = load i32, ptr %562, align 8, !tbaa !30
+  %564 = zext i32 %563 to i64
+  %565 = sub nsw i64 %560, %564
+  %566 = load ptr, ptr %13, align 8, !tbaa !3
+  %567 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %566, i32 0, i32 2
+  %568 = load i32, ptr %567, align 8, !tbaa !19
+  %569 = sext i32 %568 to i64
+  %570 = mul nsw i64 %565, %569
+  %571 = getelementptr inbounds i8, ptr %554, i64 %570
+  %572 = load i64, ptr %37, align 8, !tbaa !33
+  %573 = mul nsw i64 %572, 4
+  %574 = getelementptr inbounds i8, ptr %571, i64 %573
+  store ptr %574, ptr %47, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #5
+  %575 = load ptr, ptr %46, align 8, !tbaa !11
+  %576 = load ptr, ptr %18, align 8, !tbaa !3
+  %577 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %576, i32 0, i32 2
+  %578 = load i32, ptr %577, align 8, !tbaa !19
+  %579 = load ptr, ptr %18, align 8, !tbaa !3
+  %580 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %579, i32 0, i32 0
+  %581 = load i32, ptr %580, align 8, !tbaa !30
+  %582 = mul nsw i32 %578, %581
+  %583 = sext i32 %582 to i64
+  %584 = getelementptr inbounds i8, ptr %575, i64 %583
+  store ptr %584, ptr %48, align 8, !tbaa !11
+  br label %585
+
+585:                                              ; preds = %685, %548
+  %586 = load ptr, ptr %46, align 8, !tbaa !11
+  %587 = load ptr, ptr %48, align 8, !tbaa !11
+  %588 = icmp ult ptr %586, %587
+  br i1 %588, label %589, label %698
+
+589:                                              ; preds = %585
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #5
+  %590 = load ptr, ptr %46, align 8, !tbaa !11
+  store ptr %590, ptr %49, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %50) #5
+  %591 = load ptr, ptr %47, align 8, !tbaa !11
+  store ptr %591, ptr %50, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %51) #5
+  %592 = load ptr, ptr %49, align 8, !tbaa !11
+  %593 = load ptr, ptr %18, align 8, !tbaa !3
+  %594 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %593, i32 0, i32 1
+  %595 = load i32, ptr %594, align 4, !tbaa !42
+  %596 = zext i32 %595 to i64
+  %597 = getelementptr inbounds nuw i8, ptr %592, i64 %596
+  store ptr %597, ptr %51, align 8, !tbaa !11
+  br label %598
+
+598:                                              ; preds = %602, %589
+  %599 = load ptr, ptr %49, align 8, !tbaa !11
+  %600 = load ptr, ptr %51, align 8, !tbaa !11
+  %601 = icmp ult ptr %599, %600
+  br i1 %601, label %602, label %685
+
+602:                                              ; preds = %598
+  call void @llvm.lifetime.start.p0(i64 4, ptr %52) #5
+  %603 = load ptr, ptr %49, align 8, !tbaa !11
+  %604 = getelementptr inbounds nuw i8, ptr %603, i32 1
+  store ptr %604, ptr %49, align 8, !tbaa !11
+  %605 = load i8, ptr %603, align 1, !tbaa !15
+  %606 = zext i8 %605 to i32
+  store i32 %606, ptr %52, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %53) #5
+  %607 = getelementptr inbounds nuw %struct.FT_Color_, ptr %10, i32 0, i32 3
+  %608 = load i8, ptr %607, align 1, !tbaa !63
+  %609 = zext i8 %608 to i32
+  %610 = load i32, ptr %52, align 4, !tbaa !9
+  %611 = mul nsw i32 %609, %610
+  %612 = sdiv i32 %611, 255
+  store i32 %612, ptr %53, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %54) #5
+  %613 = getelementptr inbounds nuw %struct.FT_Color_, ptr %10, i32 0, i32 0
+  %614 = load i8, ptr %613, align 1, !tbaa !65
+  %615 = zext i8 %614 to i32
+  %616 = load i32, ptr %53, align 4, !tbaa !9
+  %617 = mul nsw i32 %615, %616
+  %618 = sdiv i32 %617, 255
+  store i32 %618, ptr %54, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %55) #5
+  %619 = getelementptr inbounds nuw %struct.FT_Color_, ptr %10, i32 0, i32 1
+  %620 = load i8, ptr %619, align 1, !tbaa !66
+  %621 = zext i8 %620 to i32
+  %622 = load i32, ptr %53, align 4, !tbaa !9
+  %623 = mul nsw i32 %621, %622
+  %624 = sdiv i32 %623, 255
+  store i32 %624, ptr %55, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %56) #5
+  %625 = getelementptr inbounds nuw %struct.FT_Color_, ptr %10, i32 0, i32 2
+  %626 = load i8, ptr %625, align 1, !tbaa !67
+  %627 = zext i8 %626 to i32
+  %628 = load i32, ptr %53, align 4, !tbaa !9
+  %629 = mul nsw i32 %627, %628
+  %630 = sdiv i32 %629, 255
+  store i32 %630, ptr %56, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %57) #5
+  %631 = load i32, ptr %53, align 4, !tbaa !9
+  %632 = sub nsw i32 255, %631
+  store i32 %632, ptr %57, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %58) #5
+  %633 = load ptr, ptr %50, align 8, !tbaa !11
+  %634 = getelementptr inbounds i8, ptr %633, i64 0
+  %635 = load i8, ptr %634, align 1, !tbaa !15
+  %636 = zext i8 %635 to i32
+  store i32 %636, ptr %58, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %59) #5
+  %637 = load ptr, ptr %50, align 8, !tbaa !11
+  %638 = getelementptr inbounds i8, ptr %637, i64 1
+  %639 = load i8, ptr %638, align 1, !tbaa !15
+  %640 = zext i8 %639 to i32
+  store i32 %640, ptr %59, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %60) #5
+  %641 = load ptr, ptr %50, align 8, !tbaa !11
+  %642 = getelementptr inbounds i8, ptr %641, i64 2
+  %643 = load i8, ptr %642, align 1, !tbaa !15
+  %644 = zext i8 %643 to i32
+  store i32 %644, ptr %60, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %61) #5
+  %645 = load ptr, ptr %50, align 8, !tbaa !11
+  %646 = getelementptr inbounds i8, ptr %645, i64 3
+  %647 = load i8, ptr %646, align 1, !tbaa !15
+  %648 = zext i8 %647 to i32
+  store i32 %648, ptr %61, align 4, !tbaa !9
+  %649 = load i32, ptr %58, align 4, !tbaa !9
+  %650 = load i32, ptr %57, align 4, !tbaa !9
+  %651 = mul nsw i32 %649, %650
+  %652 = sdiv i32 %651, 255
+  %653 = load i32, ptr %54, align 4, !tbaa !9
+  %654 = add nsw i32 %652, %653
+  %655 = trunc i32 %654 to i8
+  %656 = load ptr, ptr %50, align 8, !tbaa !11
+  %657 = getelementptr inbounds nuw i8, ptr %656, i32 1
+  store ptr %657, ptr %50, align 8, !tbaa !11
+  store i8 %655, ptr %656, align 1, !tbaa !15
+  %658 = load i32, ptr %59, align 4, !tbaa !9
+  %659 = load i32, ptr %57, align 4, !tbaa !9
+  %660 = mul nsw i32 %658, %659
+  %661 = sdiv i32 %660, 255
+  %662 = load i32, ptr %55, align 4, !tbaa !9
+  %663 = add nsw i32 %661, %662
+  %664 = trunc i32 %663 to i8
+  %665 = load ptr, ptr %50, align 8, !tbaa !11
+  %666 = getelementptr inbounds nuw i8, ptr %665, i32 1
+  store ptr %666, ptr %50, align 8, !tbaa !11
+  store i8 %664, ptr %665, align 1, !tbaa !15
+  %667 = load i32, ptr %60, align 4, !tbaa !9
+  %668 = load i32, ptr %57, align 4, !tbaa !9
+  %669 = mul nsw i32 %667, %668
+  %670 = sdiv i32 %669, 255
+  %671 = load i32, ptr %56, align 4, !tbaa !9
+  %672 = add nsw i32 %670, %671
+  %673 = trunc i32 %672 to i8
+  %674 = load ptr, ptr %50, align 8, !tbaa !11
+  %675 = getelementptr inbounds nuw i8, ptr %674, i32 1
+  store ptr %675, ptr %50, align 8, !tbaa !11
+  store i8 %673, ptr %674, align 1, !tbaa !15
+  %676 = load i32, ptr %61, align 4, !tbaa !9
+  %677 = load i32, ptr %57, align 4, !tbaa !9
+  %678 = mul nsw i32 %676, %677
+  %679 = sdiv i32 %678, 255
+  %680 = load i32, ptr %53, align 4, !tbaa !9
+  %681 = add nsw i32 %679, %680
+  %682 = trunc i32 %681 to i8
+  %683 = load ptr, ptr %50, align 8, !tbaa !11
+  %684 = getelementptr inbounds nuw i8, ptr %683, i32 1
+  store ptr %684, ptr %50, align 8, !tbaa !11
+  store i8 %682, ptr %683, align 1, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %61) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %60) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %59) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %58) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %57) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %56) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %55) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %54) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %53) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %52) #5
+  br label %598, !llvm.loop !68
+
+685:                                              ; preds = %598
+  %686 = load ptr, ptr %18, align 8, !tbaa !3
+  %687 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %686, i32 0, i32 2
+  %688 = load i32, ptr %687, align 8, !tbaa !19
+  %689 = load ptr, ptr %46, align 8, !tbaa !11
+  %690 = sext i32 %688 to i64
+  %691 = getelementptr inbounds i8, ptr %689, i64 %690
+  store ptr %691, ptr %46, align 8, !tbaa !11
+  %692 = load ptr, ptr %13, align 8, !tbaa !3
+  %693 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %692, i32 0, i32 2
+  %694 = load i32, ptr %693, align 8, !tbaa !19
+  %695 = load ptr, ptr %47, align 8, !tbaa !11
+  %696 = sext i32 %694 to i64
+  %697 = getelementptr inbounds i8, ptr %695, i64 %696
+  store ptr %697, ptr %47, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %51) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %50) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #5
+  br label %585, !llvm.loop !69
+
+698:                                              ; preds = %585
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #5
+  br label %699
+
+699:                                              ; preds = %698, %547
+  %700 = load i64, ptr %31, align 8, !tbaa !33
+  %701 = load ptr, ptr %14, align 8, !tbaa !57
+  %702 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %701, i32 0, i32 0
+  store i64 %700, ptr %702, align 8, !tbaa !59
+  %703 = load i64, ptr %32, align 8, !tbaa !33
+  %704 = load i32, ptr %35, align 4, !tbaa !9
+  %705 = shl i32 %704, 6
+  %706 = zext i32 %705 to i64
+  %707 = add nsw i64 %703, %706
+  %708 = load ptr, ptr %14, align 8, !tbaa !57
+  %709 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %708, i32 0, i32 1
+  store i64 %707, ptr %709, align 8, !tbaa !61
+  br label %710
+
+710:                                              ; preds = %699, %518, %534
+  %711 = load i32, ptr %15, align 4, !tbaa !9
+  %712 = icmp ne i32 %711, 0
+  br i1 %712, label %713, label %721
 
 713:                                              ; preds = %710
-  %714 = load ptr, ptr %11, align 8
-  %715 = call i32 @FT_Bitmap_Done(ptr noundef %714, ptr noundef %17)
-  br label %716
+  %714 = load i8, ptr %22, align 1, !tbaa !15
+  %715 = zext i8 %714 to i32
+  %716 = icmp ne i32 %715, 0
+  br i1 %716, label %717, label %721
 
-716:                                              ; preds = %713, %710
-  %717 = load i32, ptr %15, align 4
-  store i32 %717, ptr %8, align 4
-  br label %718
+717:                                              ; preds = %713
+  %718 = load ptr, ptr %11, align 8, !tbaa !17
+  %719 = load ptr, ptr %13, align 8, !tbaa !3
+  %720 = call i32 @FT_Bitmap_Done(ptr noundef %718, ptr noundef %719)
+  br label %721
 
-718:                                              ; preds = %716, %410, %375, %359, %302, %238, %218, %184, %163, %129, %118, %102, %95, %74
-  %719 = load i32, ptr %8, align 4
-  ret i32 %719
+721:                                              ; preds = %717, %713, %710
+  %722 = load i8, ptr %21, align 1, !tbaa !15
+  %723 = icmp ne i8 %722, 0
+  br i1 %723, label %724, label %727
+
+724:                                              ; preds = %721
+  %725 = load ptr, ptr %11, align 8, !tbaa !17
+  %726 = call i32 @FT_Bitmap_Done(ptr noundef %725, ptr noundef %17)
+  br label %727
+
+727:                                              ; preds = %724, %721
+  %728 = load i32, ptr %15, align 4, !tbaa !9
+  store i32 %728, ptr %8, align 4
+  store i32 1, ptr %39, align 4
+  br label %729
+
+729:                                              ; preds = %727, %518, %381, %365, %307, %243, %222, %187, %165, %130, %119, %103, %96, %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 40, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  %730 = load i32, ptr %8, align 4
+  ret i32 %730
 }
 
-declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) #2
+declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef %0) #0 {
@@ -3370,103 +3730,184 @@ define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.FT_Bitmap_, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %41
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !70
+  %7 = load ptr, ptr %3, align 8, !tbaa !70
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %45
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %9, i32 0, i32 9
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, 1651078259
-  br i1 %12, label %13, label %41
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !70
+  %11 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %10, i32 0, i32 9
+  %12 = load i32, ptr %11, align 8, !tbaa !72
+  %13 = icmp eq i32 %12, 1651078259
+  br i1 %13, label %14, label %45
 
-13:                                               ; preds = %8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %14, i32 0, i32 21
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct.FT_Slot_InternalRec_, ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %17, align 8
-  %19 = and i32 %18, 1
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %41, label %21
+14:                                               ; preds = %9
+  %15 = load ptr, ptr %3, align 8, !tbaa !70
+  %16 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %15, i32 0, i32 21
+  %17 = load ptr, ptr %16, align 8, !tbaa !81
+  %18 = getelementptr inbounds nuw %struct.FT_Slot_InternalRec_, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8, !tbaa !82
+  %20 = and i32 %19, 1
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %45, label %22
 
-21:                                               ; preds = %13
+22:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 40, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   call void @FT_Bitmap_Init(ptr noundef %4)
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %25, i32 0, i32 10
-  %27 = call i32 @FT_Bitmap_Copy(ptr noundef %24, ptr noundef %26, ptr noundef %4)
-  store i32 %27, ptr %5, align 4
-  %28 = load i32, ptr %5, align 4
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %32
+  %23 = load ptr, ptr %3, align 8, !tbaa !70
+  %24 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !86
+  %26 = load ptr, ptr %3, align 8, !tbaa !70
+  %27 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %26, i32 0, i32 10
+  %28 = call i32 @FT_Bitmap_Copy(ptr noundef %25, ptr noundef %27, ptr noundef %4)
+  store i32 %28, ptr %5, align 4, !tbaa !9
+  %29 = load i32, ptr %5, align 4, !tbaa !9
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %21
-  %31 = load i32, ptr %5, align 4
-  store i32 %31, ptr %2, align 4
+31:                                               ; preds = %22
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %32, ptr %2, align 4
+  store i32 1, ptr %6, align 4
   br label %42
 
-32:                                               ; preds = %21
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %33, i32 0, i32 10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %4, i64 40, i1 false)
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %35, i32 0, i32 21
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.FT_Slot_InternalRec_, ptr %37, i32 0, i32 1
-  %39 = load i32, ptr %38, align 8
-  %40 = or i32 %39, 1
-  store i32 %40, ptr %38, align 8
-  br label %41
+33:                                               ; preds = %22
+  %34 = load ptr, ptr %3, align 8, !tbaa !70
+  %35 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %34, i32 0, i32 10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %4, i64 40, i1 false), !tbaa.struct !8
+  %36 = load ptr, ptr %3, align 8, !tbaa !70
+  %37 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %36, i32 0, i32 21
+  %38 = load ptr, ptr %37, align 8, !tbaa !81
+  %39 = getelementptr inbounds nuw %struct.FT_Slot_InternalRec_, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 8, !tbaa !82
+  %41 = or i32 %40, 1
+  store i32 %41, ptr %39, align 8, !tbaa !82
+  store i32 0, ptr %6, align 4
+  br label %42
 
-41:                                               ; preds = %32, %13, %8, %1
+42:                                               ; preds = %33, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 40, ptr %4) #5
+  %43 = load i32, ptr %6, align 4
+  switch i32 %43, label %48 [
+    i32 0, label %44
+    i32 1, label %46
+  ]
+
+44:                                               ; preds = %42
+  br label %45
+
+45:                                               ; preds = %44, %14, %9, %1
   store i32 0, ptr %2, align 4
-  br label %42
+  br label %46
 
-42:                                               ; preds = %41, %30
-  %43 = load i32, ptr %2, align 4
-  ret i32 %43
+46:                                               ; preds = %45, %42
+  %47 = load i32, ptr %2, align 4
+  ret i32 %47
+
+48:                                               ; preds = %42
+  unreachable
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS10FT_Bitmap_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{i64 0, i64 4, !9, i64 4, i64 4, !9, i64 8, i64 4, !9, i64 16, i64 8, !11, i64 24, i64 2, !13, i64 26, i64 1, !15, i64 27, i64 1, !15, i64 32, i64 8, !16}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"short", !6, i64 0}
+!15 = !{!6, !6, i64 0}
+!16 = !{!5, !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS14FT_LibraryRec_", !5, i64 0}
+!19 = !{!20, !10, i64 8}
+!20 = !{!"FT_Bitmap_", !10, i64 0, !10, i64 4, !10, i64 8, !12, i64 16, !14, i64 24, !6, i64 26, !6, i64 27, !5, i64 32}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"FT_LibraryRec_", !23, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !6, i64 24, !24, i64 280, !26, i64 296, !27, i64 304, !6, i64 312, !6, i64 344, !10, i64 392}
+!23 = !{!"p1 _ZTS13FT_MemoryRec_", !5, i64 0}
+!24 = !{!"FT_ListRec_", !25, i64 0, !25, i64 8}
+!25 = !{!"p1 _ZTS15FT_ListNodeRec_", !5, i64 0}
+!26 = !{!"p1 _ZTS15FT_RendererRec_", !5, i64 0}
+!27 = !{!"p1 _ZTS13FT_ModuleRec_", !5, i64 0}
+!28 = !{!23, !23, i64 0}
+!29 = !{!20, !12, i64 16}
+!30 = !{!20, !10, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"long", !6, i64 0}
+!35 = !{!20, !6, i64 26}
+!36 = !{!20, !14, i64 24}
+!37 = distinct !{!37, !32}
+!38 = distinct !{!38, !32}
+!39 = distinct !{!39, !32}
+!40 = distinct !{!40, !32}
+!41 = distinct !{!41, !32}
+!42 = !{!20, !10, i64 4}
+!43 = distinct !{!43, !32}
+!44 = distinct !{!44, !32}
+!45 = distinct !{!45, !32}
+!46 = distinct !{!46, !32}
+!47 = distinct !{!47, !32}
+!48 = distinct !{!48, !32}
+!49 = distinct !{!49, !32}
+!50 = distinct !{!50, !32}
+!51 = distinct !{!51, !32}
+!52 = distinct !{!52, !32}
+!53 = distinct !{!53, !32}
+!54 = distinct !{!54, !32}
+!55 = distinct !{!55, !32}
+!56 = distinct !{!56, !32}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTS10FT_Vector_", !5, i64 0}
+!59 = !{!60, !34, i64 0}
+!60 = !{!"FT_Vector_", !34, i64 0, !34, i64 8}
+!61 = !{!60, !34, i64 8}
+!62 = distinct !{!62, !32}
+!63 = !{!64, !6, i64 3}
+!64 = !{!"FT_Color_", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3}
+!65 = !{!64, !6, i64 0}
+!66 = !{!64, !6, i64 1}
+!67 = !{!64, !6, i64 2}
+!68 = distinct !{!68, !32}
+!69 = distinct !{!69, !32}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS16FT_GlyphSlotRec_", !5, i64 0}
+!72 = !{!73, !10, i64 144}
+!73 = !{!"FT_GlyphSlotRec_", !18, i64 0, !74, i64 8, !71, i64 16, !10, i64 24, !75, i64 32, !76, i64 48, !34, i64 112, !34, i64 120, !60, i64 128, !10, i64 144, !20, i64 152, !10, i64 192, !10, i64 196, !77, i64 200, !10, i64 240, !79, i64 248, !5, i64 256, !34, i64 264, !34, i64 272, !34, i64 280, !5, i64 288, !80, i64 296}
+!74 = !{!"p1 _ZTS11FT_FaceRec_", !5, i64 0}
+!75 = !{!"FT_Generic_", !5, i64 0, !5, i64 8}
+!76 = !{!"FT_Glyph_Metrics_", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24, !34, i64 32, !34, i64 40, !34, i64 48, !34, i64 56}
+!77 = !{!"FT_Outline_", !14, i64 0, !14, i64 2, !58, i64 8, !12, i64 16, !78, i64 24, !10, i64 32}
+!78 = !{!"p1 short", !5, i64 0}
+!79 = !{!"p1 _ZTS15FT_SubGlyphRec_", !5, i64 0}
+!80 = !{!"p1 _ZTS20FT_Slot_InternalRec_", !5, i64 0}
+!81 = !{!73, !80, i64 296}
+!82 = !{!83, !10, i64 8}
+!83 = !{!"FT_Slot_InternalRec_", !84, i64 0, !10, i64 8, !6, i64 12, !85, i64 16, !60, i64 48, !5, i64 64, !10, i64 72}
+!84 = !{!"p1 _ZTS18FT_GlyphLoaderRec_", !5, i64 0}
+!85 = !{!"FT_Matrix_", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24}
+!86 = !{!73, !18, i64 0}

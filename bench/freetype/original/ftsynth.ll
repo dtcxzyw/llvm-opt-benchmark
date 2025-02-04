@@ -17,8 +17,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @FT_GlyphSlot_Oblique(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   call void @FT_GlyphSlot_Slant(ptr noundef %3, i64 noundef 13930, i64 noundef 0)
   ret void
 }
@@ -30,56 +30,80 @@ define void @FT_GlyphSlot_Slant(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   %6 = alloca i64, align 8
   %7 = alloca %struct.FT_Matrix_, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %12, label %11
-
-11:                                               ; preds = %3
-  br label %29
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %13, i32 0, i32 13
-  store ptr %14, ptr %8, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %15, i32 0, i32 9
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp ne i32 %17, 1869968492
-  br i1 %18, label %19, label %20
+  store i32 1, ptr %9, align 4
+  br label %30
 
-19:                                               ; preds = %12
-  br label %29
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %14, i32 0, i32 13
+  store ptr %15, ptr %8, align 8, !tbaa !10
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %16, i32 0, i32 9
+  %18 = load i32, ptr %17, align 8, !tbaa !12
+  %19 = icmp ne i32 %18, 1869968492
+  br i1 %19, label %20, label %21
 
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds %struct.FT_Matrix_, ptr %7, i32 0, i32 0
-  store i64 65536, ptr %21, align 8
-  %22 = load i64, ptr %6, align 8
-  %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %struct.FT_Matrix_, ptr %7, i32 0, i32 2
-  store i64 %23, ptr %24, align 8
-  %25 = load i64, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.FT_Matrix_, ptr %7, i32 0, i32 1
-  store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds %struct.FT_Matrix_, ptr %7, i32 0, i32 3
-  store i64 65536, ptr %27, align 8
-  %28 = load ptr, ptr %8, align 8
-  call void @FT_Outline_Transform(ptr noundef %28, ptr noundef %7)
-  br label %29
+20:                                               ; preds = %13
+  store i32 1, ptr %9, align 4
+  br label %30
 
-29:                                               ; preds = %20, %19, %11
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw %struct.FT_Matrix_, ptr %7, i32 0, i32 0
+  store i64 65536, ptr %22, align 8, !tbaa !28
+  %23 = load i64, ptr %6, align 8, !tbaa !8
+  %24 = sub nsw i64 0, %23
+  %25 = getelementptr inbounds nuw %struct.FT_Matrix_, ptr %7, i32 0, i32 2
+  store i64 %24, ptr %25, align 8, !tbaa !30
+  %26 = load i64, ptr %5, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.FT_Matrix_, ptr %7, i32 0, i32 1
+  store i64 %26, ptr %27, align 8, !tbaa !31
+  %28 = getelementptr inbounds nuw %struct.FT_Matrix_, ptr %7, i32 0, i32 3
+  store i64 65536, ptr %28, align 8, !tbaa !32
+  %29 = load ptr, ptr %8, align 8, !tbaa !10
+  call void @FT_Outline_Transform(ptr noundef %29, ptr noundef %7)
+  store i32 0, ptr %9, align 4
+  br label %30
+
+30:                                               ; preds = %21, %20, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #3
+  %31 = load i32, ptr %9, align 4
+  switch i32 %31, label %33 [
+    i32 0, label %32
+    i32 1, label %32
+  ]
+
+32:                                               ; preds = %30, %30
   ret void
+
+33:                                               ; preds = %30
+  unreachable
 }
 
-declare void @FT_Outline_Transform(ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @FT_Outline_Transform(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @FT_GlyphSlot_Embolden(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   call void @FT_GlyphSlot_AdjustWeight(ptr noundef %3, i64 noundef 2730, i64 noundef 2730)
   ret void
 }
@@ -94,107 +118,112 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %3
-  br label %168
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %7, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.FT_FaceRec_, ptr %21, i32 0, i32 22
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %8, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %24, i32 0, i32 9
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp ne i32 %26, 1869968492
-  br i1 %27, label %28, label %34
+  store i32 1, ptr %12, align 4
+  br label %172
 
-28:                                               ; preds = %15
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %29, i32 0, i32 9
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp ne i32 %31, 1651078259
-  br i1 %32, label %33, label %34
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
+  store ptr %19, ptr %7, align 8, !tbaa !34
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %23 = getelementptr inbounds nuw %struct.FT_FaceRec_, ptr %22, i32 0, i32 22
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  store ptr %24, ptr %8, align 8, !tbaa !49
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %25, i32 0, i32 9
+  %27 = load i32, ptr %26, align 8, !tbaa !12
+  %28 = icmp ne i32 %27, 1869968492
+  br i1 %28, label %29, label %35
 
-33:                                               ; preds = %28
-  br label %168
+29:                                               ; preds = %16
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %30, i32 0, i32 9
+  %32 = load i32, ptr %31, align 8, !tbaa !12
+  %33 = icmp ne i32 %32, 1651078259
+  br i1 %33, label %34, label %35
 
-34:                                               ; preds = %28, %15
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.FT_SizeRec_, ptr %35, i32 0, i32 2
-  %37 = getelementptr inbounds %struct.FT_Size_Metrics_, ptr %36, i32 0, i32 0
-  %38 = load i16, ptr %37, align 8
-  %39 = zext i16 %38 to i64
-  %40 = load i64, ptr %5, align 8
-  %41 = mul nsw i64 %39, %40
-  %42 = sdiv i64 %41, 1024
-  store i64 %42, ptr %10, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.FT_SizeRec_, ptr %43, i32 0, i32 2
-  %45 = getelementptr inbounds %struct.FT_Size_Metrics_, ptr %44, i32 0, i32 1
-  %46 = load i16, ptr %45, align 2
-  %47 = zext i16 %46 to i64
-  %48 = load i64, ptr %6, align 8
-  %49 = mul nsw i64 %47, %48
-  %50 = sdiv i64 %49, 1024
-  store i64 %50, ptr %11, align 8
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %51, i32 0, i32 9
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, 1869968492
-  br i1 %54, label %55, label %61
+34:                                               ; preds = %29
+  store i32 1, ptr %12, align 4
+  br label %172
 
-55:                                               ; preds = %34
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %56, i32 0, i32 13
-  %58 = load i64, ptr %10, align 8
-  %59 = load i64, ptr %11, align 8
-  %60 = call i32 @FT_Outline_EmboldenXY(ptr noundef %57, i64 noundef %58, i64 noundef %59)
-  br label %99
+35:                                               ; preds = %29, %16
+  %36 = load ptr, ptr %8, align 8, !tbaa !49
+  %37 = getelementptr inbounds nuw %struct.FT_SizeRec_, ptr %36, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %struct.FT_Size_Metrics_, ptr %37, i32 0, i32 0
+  %39 = load i16, ptr %38, align 8, !tbaa !50
+  %40 = zext i16 %39 to i64
+  %41 = load i64, ptr %5, align 8, !tbaa !8
+  %42 = mul nsw i64 %40, %41
+  %43 = sdiv i64 %42, 1024
+  store i64 %43, ptr %10, align 8, !tbaa !8
+  %44 = load ptr, ptr %8, align 8, !tbaa !49
+  %45 = getelementptr inbounds nuw %struct.FT_SizeRec_, ptr %44, i32 0, i32 2
+  %46 = getelementptr inbounds nuw %struct.FT_Size_Metrics_, ptr %45, i32 0, i32 1
+  %47 = load i16, ptr %46, align 2, !tbaa !54
+  %48 = zext i16 %47 to i64
+  %49 = load i64, ptr %6, align 8, !tbaa !8
+  %50 = mul nsw i64 %48, %49
+  %51 = sdiv i64 %50, 1024
+  store i64 %51, ptr %11, align 8, !tbaa !8
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %52, i32 0, i32 9
+  %54 = load i32, ptr %53, align 8, !tbaa !12
+  %55 = icmp eq i32 %54, 1869968492
+  br i1 %55, label %56, label %62
 
-61:                                               ; preds = %34
-  %62 = load i64, ptr %10, align 8
-  %63 = and i64 %62, -64
-  store i64 %63, ptr %10, align 8
-  %64 = load i64, ptr %10, align 8
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %67
+56:                                               ; preds = %35
+  %57 = load ptr, ptr %4, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %57, i32 0, i32 13
+  %59 = load i64, ptr %10, align 8, !tbaa !8
+  %60 = load i64, ptr %11, align 8, !tbaa !8
+  %61 = call i32 @FT_Outline_EmboldenXY(ptr noundef %58, i64 noundef %59, i64 noundef %60)
+  br label %102
 
-66:                                               ; preds = %61
-  store i64 64, ptr %10, align 8
-  br label %67
+62:                                               ; preds = %35
+  %63 = load i64, ptr %10, align 8, !tbaa !8
+  %64 = and i64 %63, -64
+  store i64 %64, ptr %10, align 8, !tbaa !8
+  %65 = load i64, ptr %10, align 8, !tbaa !8
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %68
 
-67:                                               ; preds = %66, %61
-  %68 = load i64, ptr %11, align 8
-  %69 = and i64 %68, -64
-  store i64 %69, ptr %11, align 8
-  %70 = load i64, ptr %11, align 8
-  %71 = ashr i64 %70, 6
-  %72 = icmp sgt i64 %71, 2147483647
-  br i1 %72, label %77, label %73
+67:                                               ; preds = %62
+  store i64 64, ptr %10, align 8, !tbaa !8
+  br label %68
 
-73:                                               ; preds = %67
-  %74 = load i64, ptr %11, align 8
-  %75 = ashr i64 %74, 6
-  %76 = icmp slt i64 %75, -2147483648
-  br i1 %76, label %77, label %82
+68:                                               ; preds = %67, %62
+  %69 = load i64, ptr %11, align 8, !tbaa !8
+  %70 = and i64 %69, -64
+  store i64 %70, ptr %11, align 8, !tbaa !8
+  %71 = load i64, ptr %11, align 8, !tbaa !8
+  %72 = ashr i64 %71, 6
+  %73 = icmp sgt i64 %72, 2147483647
+  br i1 %73, label %78, label %74
 
-77:                                               ; preds = %73, %67
-  br label %78
+74:                                               ; preds = %68
+  %75 = load i64, ptr %11, align 8, !tbaa !8
+  %76 = ashr i64 %75, 6
+  %77 = icmp slt i64 %76, -2147483648
+  br i1 %77, label %78, label %85
 
-78:                                               ; preds = %77
+78:                                               ; preds = %74, %68
   br label %79
 
 79:                                               ; preds = %78
@@ -204,142 +233,235 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
   br label %81
 
 81:                                               ; preds = %80
-  br label %168
+  br label %82
 
-82:                                               ; preds = %73
-  %83 = load ptr, ptr %4, align 8
-  %84 = call i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef %83)
-  store i32 %84, ptr %9, align 4
-  %85 = load i32, ptr %9, align 4
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %88
+82:                                               ; preds = %81
+  br label %83
 
-87:                                               ; preds = %82
-  br label %168
+83:                                               ; preds = %82
+  br label %84
 
-88:                                               ; preds = %82
-  %89 = load ptr, ptr %7, align 8
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %90, i32 0, i32 10
-  %92 = load i64, ptr %10, align 8
-  %93 = load i64, ptr %11, align 8
-  %94 = call i32 @FT_Bitmap_Embolden(ptr noundef %89, ptr noundef %91, i64 noundef %92, i64 noundef %93)
-  store i32 %94, ptr %9, align 4
-  %95 = load i32, ptr %9, align 4
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %98
+84:                                               ; preds = %83
+  store i32 1, ptr %12, align 4
+  br label %172
 
-97:                                               ; preds = %88
-  br label %168
+85:                                               ; preds = %74
+  %86 = load ptr, ptr %4, align 8, !tbaa !3
+  %87 = call i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef %86)
+  store i32 %87, ptr %9, align 4, !tbaa !55
+  %88 = load i32, ptr %9, align 4, !tbaa !55
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %91
 
-98:                                               ; preds = %88
-  br label %99
+90:                                               ; preds = %85
+  store i32 1, ptr %12, align 4
+  br label %172
 
-99:                                               ; preds = %98, %55
-  %100 = load ptr, ptr %4, align 8
-  %101 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %100, i32 0, i32 8
-  %102 = getelementptr inbounds %struct.FT_Vector_, ptr %101, i32 0, i32 0
-  %103 = load i64, ptr %102, align 8
-  %104 = icmp ne i64 %103, 0
-  br i1 %104, label %105, label %112
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %7, align 8, !tbaa !34
+  %93 = load ptr, ptr %4, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %93, i32 0, i32 10
+  %95 = load i64, ptr %10, align 8, !tbaa !8
+  %96 = load i64, ptr %11, align 8, !tbaa !8
+  %97 = call i32 @FT_Bitmap_Embolden(ptr noundef %92, ptr noundef %94, i64 noundef %95, i64 noundef %96)
+  store i32 %97, ptr %9, align 4, !tbaa !55
+  %98 = load i32, ptr %9, align 4, !tbaa !55
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %100, label %101
 
-105:                                              ; preds = %99
-  %106 = load i64, ptr %10, align 8
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %107, i32 0, i32 8
-  %109 = getelementptr inbounds %struct.FT_Vector_, ptr %108, i32 0, i32 0
-  %110 = load i64, ptr %109, align 8
-  %111 = add nsw i64 %110, %106
-  store i64 %111, ptr %109, align 8
-  br label %112
+100:                                              ; preds = %91
+  store i32 1, ptr %12, align 4
+  br label %172
 
-112:                                              ; preds = %105, %99
-  %113 = load ptr, ptr %4, align 8
-  %114 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %113, i32 0, i32 8
-  %115 = getelementptr inbounds %struct.FT_Vector_, ptr %114, i32 0, i32 1
-  %116 = load i64, ptr %115, align 8
-  %117 = icmp ne i64 %116, 0
-  br i1 %117, label %118, label %125
+101:                                              ; preds = %91
+  br label %102
 
-118:                                              ; preds = %112
-  %119 = load i64, ptr %11, align 8
-  %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %120, i32 0, i32 8
-  %122 = getelementptr inbounds %struct.FT_Vector_, ptr %121, i32 0, i32 1
-  %123 = load i64, ptr %122, align 8
-  %124 = add nsw i64 %123, %119
-  store i64 %124, ptr %122, align 8
-  br label %125
+102:                                              ; preds = %101, %56
+  %103 = load ptr, ptr %4, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %103, i32 0, i32 8
+  %105 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %104, i32 0, i32 0
+  %106 = load i64, ptr %105, align 8, !tbaa !56
+  %107 = icmp ne i64 %106, 0
+  br i1 %107, label %108, label %115
 
-125:                                              ; preds = %118, %112
-  %126 = load i64, ptr %10, align 8
-  %127 = load ptr, ptr %4, align 8
-  %128 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %127, i32 0, i32 5
-  %129 = getelementptr inbounds %struct.FT_Glyph_Metrics_, ptr %128, i32 0, i32 0
-  %130 = load i64, ptr %129, align 8
-  %131 = add nsw i64 %130, %126
-  store i64 %131, ptr %129, align 8
-  %132 = load i64, ptr %11, align 8
-  %133 = load ptr, ptr %4, align 8
-  %134 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %133, i32 0, i32 5
-  %135 = getelementptr inbounds %struct.FT_Glyph_Metrics_, ptr %134, i32 0, i32 1
-  %136 = load i64, ptr %135, align 8
-  %137 = add nsw i64 %136, %132
-  store i64 %137, ptr %135, align 8
-  %138 = load i64, ptr %10, align 8
-  %139 = load ptr, ptr %4, align 8
-  %140 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %139, i32 0, i32 5
-  %141 = getelementptr inbounds %struct.FT_Glyph_Metrics_, ptr %140, i32 0, i32 4
-  %142 = load i64, ptr %141, align 8
-  %143 = add nsw i64 %142, %138
-  store i64 %143, ptr %141, align 8
-  %144 = load i64, ptr %11, align 8
-  %145 = load ptr, ptr %4, align 8
-  %146 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %145, i32 0, i32 5
-  %147 = getelementptr inbounds %struct.FT_Glyph_Metrics_, ptr %146, i32 0, i32 7
-  %148 = load i64, ptr %147, align 8
-  %149 = add nsw i64 %148, %144
-  store i64 %149, ptr %147, align 8
-  %150 = load i64, ptr %11, align 8
-  %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %151, i32 0, i32 5
-  %153 = getelementptr inbounds %struct.FT_Glyph_Metrics_, ptr %152, i32 0, i32 3
-  %154 = load i64, ptr %153, align 8
-  %155 = add nsw i64 %154, %150
-  store i64 %155, ptr %153, align 8
-  %156 = load ptr, ptr %4, align 8
-  %157 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %156, i32 0, i32 9
-  %158 = load i32, ptr %157, align 8
-  %159 = icmp eq i32 %158, 1651078259
-  br i1 %159, label %160, label %168
+108:                                              ; preds = %102
+  %109 = load i64, ptr %10, align 8, !tbaa !8
+  %110 = load ptr, ptr %4, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %110, i32 0, i32 8
+  %112 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %111, i32 0, i32 0
+  %113 = load i64, ptr %112, align 8, !tbaa !56
+  %114 = add nsw i64 %113, %109
+  store i64 %114, ptr %112, align 8, !tbaa !56
+  br label %115
 
-160:                                              ; preds = %125
-  %161 = load i64, ptr %11, align 8
-  %162 = ashr i64 %161, 6
-  %163 = trunc i64 %162 to i32
-  %164 = load ptr, ptr %4, align 8
-  %165 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %164, i32 0, i32 12
-  %166 = load i32, ptr %165, align 4
-  %167 = add nsw i32 %166, %163
-  store i32 %167, ptr %165, align 4
-  br label %168
+115:                                              ; preds = %108, %102
+  %116 = load ptr, ptr %4, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %116, i32 0, i32 8
+  %118 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %117, i32 0, i32 1
+  %119 = load i64, ptr %118, align 8, !tbaa !57
+  %120 = icmp ne i64 %119, 0
+  br i1 %120, label %121, label %128
 
-168:                                              ; preds = %160, %125, %97, %87, %81, %33, %14
+121:                                              ; preds = %115
+  %122 = load i64, ptr %11, align 8, !tbaa !8
+  %123 = load ptr, ptr %4, align 8, !tbaa !3
+  %124 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %123, i32 0, i32 8
+  %125 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %124, i32 0, i32 1
+  %126 = load i64, ptr %125, align 8, !tbaa !57
+  %127 = add nsw i64 %126, %122
+  store i64 %127, ptr %125, align 8, !tbaa !57
+  br label %128
+
+128:                                              ; preds = %121, %115
+  %129 = load i64, ptr %10, align 8, !tbaa !8
+  %130 = load ptr, ptr %4, align 8, !tbaa !3
+  %131 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %130, i32 0, i32 5
+  %132 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %131, i32 0, i32 0
+  %133 = load i64, ptr %132, align 8, !tbaa !58
+  %134 = add nsw i64 %133, %129
+  store i64 %134, ptr %132, align 8, !tbaa !58
+  %135 = load i64, ptr %11, align 8, !tbaa !8
+  %136 = load ptr, ptr %4, align 8, !tbaa !3
+  %137 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %136, i32 0, i32 5
+  %138 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %137, i32 0, i32 1
+  %139 = load i64, ptr %138, align 8, !tbaa !59
+  %140 = add nsw i64 %139, %135
+  store i64 %140, ptr %138, align 8, !tbaa !59
+  %141 = load i64, ptr %10, align 8, !tbaa !8
+  %142 = load ptr, ptr %4, align 8, !tbaa !3
+  %143 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %142, i32 0, i32 5
+  %144 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %143, i32 0, i32 4
+  %145 = load i64, ptr %144, align 8, !tbaa !60
+  %146 = add nsw i64 %145, %141
+  store i64 %146, ptr %144, align 8, !tbaa !60
+  %147 = load i64, ptr %11, align 8, !tbaa !8
+  %148 = load ptr, ptr %4, align 8, !tbaa !3
+  %149 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %148, i32 0, i32 5
+  %150 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %149, i32 0, i32 7
+  %151 = load i64, ptr %150, align 8, !tbaa !61
+  %152 = add nsw i64 %151, %147
+  store i64 %152, ptr %150, align 8, !tbaa !61
+  %153 = load i64, ptr %11, align 8, !tbaa !8
+  %154 = load ptr, ptr %4, align 8, !tbaa !3
+  %155 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %154, i32 0, i32 5
+  %156 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %155, i32 0, i32 3
+  %157 = load i64, ptr %156, align 8, !tbaa !62
+  %158 = add nsw i64 %157, %153
+  store i64 %158, ptr %156, align 8, !tbaa !62
+  %159 = load ptr, ptr %4, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %159, i32 0, i32 9
+  %161 = load i32, ptr %160, align 8, !tbaa !12
+  %162 = icmp eq i32 %161, 1651078259
+  br i1 %162, label %163, label %171
+
+163:                                              ; preds = %128
+  %164 = load i64, ptr %11, align 8, !tbaa !8
+  %165 = ashr i64 %164, 6
+  %166 = trunc i64 %165 to i32
+  %167 = load ptr, ptr %4, align 8, !tbaa !3
+  %168 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %167, i32 0, i32 12
+  %169 = load i32, ptr %168, align 4, !tbaa !63
+  %170 = add nsw i32 %169, %166
+  store i32 %170, ptr %168, align 4, !tbaa !63
+  br label %171
+
+171:                                              ; preds = %163, %128
+  store i32 0, ptr %12, align 4
+  br label %172
+
+172:                                              ; preds = %171, %100, %90, %84, %34, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  %173 = load i32, ptr %12, align 4
+  switch i32 %173, label %175 [
+    i32 0, label %174
+    i32 1, label %174
+  ]
+
+174:                                              ; preds = %172, %172
   ret void
+
+175:                                              ; preds = %172
+  unreachable
 }
 
-declare i32 @FT_Outline_EmboldenXY(ptr noundef, i64 noundef, i64 noundef) #1
+declare i32 @FT_Outline_EmboldenXY(ptr noundef, i64 noundef, i64 noundef) #2
 
-declare i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef) #1
+declare i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef) #2
 
-declare i32 @FT_Bitmap_Embolden(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #1
+declare i32 @FT_Bitmap_Embolden(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS16FT_GlyphSlotRec_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS11FT_Outline_", !5, i64 0}
+!12 = !{!13, !16, i64 144}
+!13 = !{!"FT_GlyphSlotRec_", !14, i64 0, !15, i64 8, !4, i64 16, !16, i64 24, !17, i64 32, !18, i64 48, !9, i64 112, !9, i64 120, !19, i64 128, !16, i64 144, !20, i64 152, !16, i64 192, !16, i64 196, !23, i64 200, !16, i64 240, !26, i64 248, !5, i64 256, !9, i64 264, !9, i64 272, !9, i64 280, !5, i64 288, !27, i64 296}
+!14 = !{!"p1 _ZTS14FT_LibraryRec_", !5, i64 0}
+!15 = !{!"p1 _ZTS11FT_FaceRec_", !5, i64 0}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!"FT_Generic_", !5, i64 0, !5, i64 8}
+!18 = !{!"FT_Glyph_Metrics_", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56}
+!19 = !{!"FT_Vector_", !9, i64 0, !9, i64 8}
+!20 = !{!"FT_Bitmap_", !16, i64 0, !16, i64 4, !16, i64 8, !21, i64 16, !22, i64 24, !6, i64 26, !6, i64 27, !5, i64 32}
+!21 = !{!"p1 omnipotent char", !5, i64 0}
+!22 = !{!"short", !6, i64 0}
+!23 = !{!"FT_Outline_", !22, i64 0, !22, i64 2, !24, i64 8, !21, i64 16, !25, i64 24, !16, i64 32}
+!24 = !{!"p1 _ZTS10FT_Vector_", !5, i64 0}
+!25 = !{!"p1 short", !5, i64 0}
+!26 = !{!"p1 _ZTS15FT_SubGlyphRec_", !5, i64 0}
+!27 = !{!"p1 _ZTS20FT_Slot_InternalRec_", !5, i64 0}
+!28 = !{!29, !9, i64 0}
+!29 = !{!"FT_Matrix_", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!30 = !{!29, !9, i64 16}
+!31 = !{!29, !9, i64 8}
+!32 = !{!29, !9, i64 24}
+!33 = !{!13, !14, i64 0}
+!34 = !{!14, !14, i64 0}
+!35 = !{!13, !15, i64 8}
+!36 = !{!37, !41, i64 160}
+!37 = !{!"FT_FaceRec_", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !21, i64 40, !21, i64 48, !16, i64 56, !38, i64 64, !16, i64 72, !39, i64 80, !17, i64 88, !40, i64 104, !22, i64 136, !22, i64 138, !22, i64 140, !22, i64 142, !22, i64 144, !22, i64 146, !22, i64 148, !22, i64 150, !4, i64 152, !41, i64 160, !42, i64 168, !43, i64 176, !44, i64 184, !45, i64 192, !46, i64 200, !17, i64 216, !5, i64 232, !48, i64 240}
+!38 = !{!"p1 _ZTS15FT_Bitmap_Size_", !5, i64 0}
+!39 = !{!"p2 _ZTS14FT_CharMapRec_", !5, i64 0}
+!40 = !{!"FT_BBox_", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!41 = !{!"p1 _ZTS11FT_SizeRec_", !5, i64 0}
+!42 = !{!"p1 _ZTS14FT_CharMapRec_", !5, i64 0}
+!43 = !{!"p1 _ZTS13FT_DriverRec_", !5, i64 0}
+!44 = !{!"p1 _ZTS13FT_MemoryRec_", !5, i64 0}
+!45 = !{!"p1 _ZTS13FT_StreamRec_", !5, i64 0}
+!46 = !{!"FT_ListRec_", !47, i64 0, !47, i64 8}
+!47 = !{!"p1 _ZTS15FT_ListNodeRec_", !5, i64 0}
+!48 = !{!"p1 _ZTS20FT_Face_InternalRec_", !5, i64 0}
+!49 = !{!41, !41, i64 0}
+!50 = !{!51, !22, i64 24}
+!51 = !{!"FT_SizeRec_", !15, i64 0, !17, i64 8, !52, i64 24, !53, i64 80}
+!52 = !{!"FT_Size_Metrics_", !22, i64 0, !22, i64 2, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
+!53 = !{!"p1 _ZTS20FT_Size_InternalRec_", !5, i64 0}
+!54 = !{!51, !22, i64 26}
+!55 = !{!16, !16, i64 0}
+!56 = !{!13, !9, i64 128}
+!57 = !{!13, !9, i64 136}
+!58 = !{!13, !9, i64 48}
+!59 = !{!13, !9, i64 56}
+!60 = !{!13, !9, i64 80}
+!61 = !{!13, !9, i64 104}
+!62 = !{!13, !9, i64 72}
+!63 = !{!13, !16, i64 196}

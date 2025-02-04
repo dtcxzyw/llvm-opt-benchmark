@@ -17,6 +17,7 @@ supported_project = [
     "curl",
     "darktable",
     "flac",
+    "freetype",
 ]
 
 modify_only = [

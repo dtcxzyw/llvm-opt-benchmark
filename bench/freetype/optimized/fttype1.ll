@@ -1,5 +1,5 @@
-; ModuleID = 'bench/freetype/original/fttype1.c.ll'
-source_filename = "bench/freetype/original/fttype1.c.ll"
+; ModuleID = 'bench/freetype/original/fttype1.ll'
+source_filename = "bench/freetype/original/fttype1.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -16,10 +16,10 @@ define i32 @FT_Get_PS_Font_Info(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %6, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !3
+  %7 = load ptr, ptr %6, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
   %.not20 = icmp eq ptr %9, null
   br i1 %.not20, label %.thread, label %10
 
@@ -29,7 +29,7 @@ define i32 @FT_Get_PS_Font_Info(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not21, label %.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %11, align 8, !tbaa !31
   %.not22 = icmp eq ptr %13, null
   br i1 %.not22, label %.thread, label %14
 
@@ -49,10 +49,10 @@ define i32 @FT_Has_PS_Glyph_Names(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %.thread, label %8
 
@@ -63,7 +63,7 @@ define i32 @FT_Has_PS_Glyph_Names(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %.thread, label %13
 
@@ -87,10 +87,10 @@ define i32 @FT_Get_PS_Font_Private(ptr noundef %0, ptr noundef %1) local_unnamed
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %6, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !3
+  %7 = load ptr, ptr %6, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
   %.not20 = icmp eq ptr %9, null
   br i1 %.not20, label %.thread, label %10
 
@@ -101,7 +101,7 @@ define i32 @FT_Get_PS_Font_Private(ptr noundef %0, ptr noundef %1) local_unnamed
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
   %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %.thread, label %15
 
@@ -121,10 +121,10 @@ define range(i64 -2147483648, 2147483648) i64 @FT_Get_PS_Font_Value(ptr noundef 
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %8, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   %.not18 = icmp eq ptr %11, null
   br i1 %.not18, label %.thread, label %12
 
@@ -135,7 +135,7 @@ define range(i64 -2147483648, 2147483648) i64 @FT_Get_PS_Font_Value(ptr noundef 
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !35
   %.not20 = icmp eq ptr %16, null
   br i1 %.not20, label %.thread, label %17
 
@@ -150,12 +150,44 @@ define range(i64 -2147483648, 2147483648) i64 @FT_Get_PS_Font_Value(ptr noundef 
   ret i64 %.014
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !19, i64 176}
+!4 = !{!"FT_FaceRec_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !8, i64 40, !8, i64 48, !10, i64 56, !11, i64 64, !10, i64 72, !12, i64 80, !13, i64 88, !14, i64 104, !15, i64 136, !15, i64 138, !15, i64 140, !15, i64 142, !15, i64 144, !15, i64 146, !15, i64 148, !15, i64 150, !16, i64 152, !17, i64 160, !18, i64 168, !19, i64 176, !20, i64 184, !21, i64 192, !22, i64 200, !13, i64 216, !9, i64 232, !24, i64 240}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!"p1 _ZTS15FT_Bitmap_Size_", !9, i64 0}
+!12 = !{!"p2 _ZTS14FT_CharMapRec_", !9, i64 0}
+!13 = !{!"FT_Generic_", !9, i64 0, !9, i64 8}
+!14 = !{!"FT_BBox_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!15 = !{!"short", !6, i64 0}
+!16 = !{!"p1 _ZTS16FT_GlyphSlotRec_", !9, i64 0}
+!17 = !{!"p1 _ZTS11FT_SizeRec_", !9, i64 0}
+!18 = !{!"p1 _ZTS14FT_CharMapRec_", !9, i64 0}
+!19 = !{!"p1 _ZTS13FT_DriverRec_", !9, i64 0}
+!20 = !{!"p1 _ZTS13FT_MemoryRec_", !9, i64 0}
+!21 = !{!"p1 _ZTS13FT_StreamRec_", !9, i64 0}
+!22 = !{!"FT_ListRec_", !23, i64 0, !23, i64 8}
+!23 = !{!"p1 _ZTS15FT_ListNodeRec_", !9, i64 0}
+!24 = !{!"p1 _ZTS20FT_Face_InternalRec_", !9, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"FT_ModuleRec_", !27, i64 0, !28, i64 8, !20, i64 16}
+!27 = !{!"p1 _ZTS16FT_Module_Class_", !9, i64 0}
+!28 = !{!"p1 _ZTS14FT_LibraryRec_", !9, i64 0}
+!29 = !{!30, !9, i64 64}
+!30 = !{!"FT_Module_Class_", !5, i64 0, !5, i64 8, !8, i64 16, !5, i64 24, !5, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64}
+!31 = !{!32, !9, i64 0}
+!32 = !{!"FT_Service_PsInfoRec_", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
+!33 = !{!32, !9, i64 16}
+!34 = !{!32, !9, i64 24}
+!35 = !{!32, !9, i64 32}

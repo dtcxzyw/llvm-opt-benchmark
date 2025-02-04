@@ -1,14 +1,13 @@
-; ModuleID = 'bench/freetype/original/ftbbox.c.ll'
-source_filename = "bench/freetype/original/ftbbox.c.ll"
+; ModuleID = 'bench/freetype/original/ftbbox.ll'
+source_filename = "bench/freetype/original/ftbbox.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FT_Outline_Funcs_ = type { ptr, ptr, ptr, ptr, i32, i64 }
 %struct.TBBox_Rec_ = type { %struct.FT_Vector_, %struct.FT_BBox_ }
 %struct.FT_Vector_ = type { i64, i64 }
 %struct.FT_BBox_ = type { i64, i64, i64, i64 }
 
-@bbox_interface = internal constant %struct.FT_Outline_Funcs_ { ptr @BBox_Move_To, ptr @BBox_Line_To, ptr @BBox_Conic_To, ptr @BBox_Cubic_To, i32 0, i64 0 }, align 8
+@bbox_interface = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], i64 } { ptr @BBox_Move_To, ptr @BBox_Line_To, ptr @BBox_Conic_To, ptr @BBox_Cubic_To, i32 0, [4 x i8] zeroinitializer, i64 0 }, align 8
 
 ; Function Attrs: nounwind uwtable
 define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
@@ -17,17 +16,17 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   br i1 %.not, label %39, label %4
 
 4:                                                ; preds = %2
-  %.not69 = icmp eq ptr %0, null
-  br i1 %.not69, label %39, label %5
+  %.not70 = icmp eq ptr %0, null
+  br i1 %.not70, label %39, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %7 = load i16, ptr %6, align 2
+  %7 = load i16, ptr %6, align 2, !tbaa !3
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = load i16, ptr %0, align 8
+  %10 = load i16, ptr %0, align 8, !tbaa !13
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %12, label %13
 
@@ -37,301 +36,304 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !15
   %wide.trip.count = zext i16 %7 to i64
   br label %18
 
 18:                                               ; preds = %13, %27
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %27 ]
-  %.05783 = phi ptr [ %15, %13 ], [ %28, %27 ]
-  %.sroa.0.082 = phi i64 [ 2147483647, %13 ], [ %.sroa.0.1, %27 ]
-  %.sroa.6.081 = phi i64 [ 2147483647, %13 ], [ %.sroa.6.1, %27 ]
-  %.sroa.9.080 = phi i64 [ -2147483647, %13 ], [ %.sroa.9.1, %27 ]
-  %.sroa.12.079 = phi i64 [ -2147483647, %13 ], [ %.sroa.12.1, %27 ]
-  %.sroa.036.078 = phi i64 [ 2147483647, %13 ], [ %spec.select, %27 ]
-  %.sroa.4.077 = phi i64 [ 2147483647, %13 ], [ %.sroa.4.1, %27 ]
-  %.sroa.7.076 = phi i64 [ -2147483647, %13 ], [ %.sroa.7.1, %27 ]
-  %.sroa.10.075 = phi i64 [ -2147483647, %13 ], [ %.sroa.10.1, %27 ]
-  %19 = load i64, ptr %.05783, align 8
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %19, i64 %.sroa.036.078)
-  %.sroa.7.1 = tail call i64 @llvm.smax.i64(i64 %19, i64 %.sroa.7.076)
-  %20 = getelementptr inbounds nuw i8, ptr %.05783, i64 8
-  %21 = load i64, ptr %20, align 8
-  %.sroa.4.1 = tail call i64 @llvm.smin.i64(i64 %21, i64 %.sroa.4.077)
-  %.sroa.10.1 = tail call i64 @llvm.smax.i64(i64 %21, i64 %.sroa.10.075)
+  %.05984 = phi ptr [ %15, %13 ], [ %28, %27 ]
+  %.sroa.0.083 = phi i64 [ 2147483647, %13 ], [ %.sroa.0.1, %27 ]
+  %.sroa.8.082 = phi i64 [ 2147483647, %13 ], [ %.sroa.8.1, %27 ]
+  %.sroa.11.081 = phi i64 [ -2147483647, %13 ], [ %.sroa.11.1, %27 ]
+  %.sroa.14.080 = phi i64 [ -2147483647, %13 ], [ %.sroa.14.1, %27 ]
+  %.sroa.037.079 = phi i64 [ 2147483647, %13 ], [ %spec.select, %27 ]
+  %.sroa.6.078 = phi i64 [ 2147483647, %13 ], [ %.sroa.6.1, %27 ]
+  %.sroa.9.077 = phi i64 [ -2147483647, %13 ], [ %.sroa.9.1, %27 ]
+  %.sroa.12.076 = phi i64 [ -2147483647, %13 ], [ %.sroa.12.1, %27 ]
+  %19 = load i64, ptr %.05984, align 8, !tbaa !16
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %19, i64 %.sroa.037.079)
+  %.sroa.9.1 = tail call i64 @llvm.smax.i64(i64 %19, i64 %.sroa.9.077)
+  %20 = getelementptr inbounds nuw i8, ptr %.05984, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %.sroa.6.1 = tail call i64 @llvm.smin.i64(i64 %21, i64 %.sroa.6.078)
+  %.sroa.12.1 = tail call i64 @llvm.smax.i64(i64 %21, i64 %.sroa.12.076)
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1
+  %23 = load i8, ptr %22, align 1, !tbaa !20
   %24 = and i8 %23, 3
   %25 = icmp eq i8 %24, 1
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %18
-  %spec.select71 = tail call i64 @llvm.smin.i64(i64 %19, i64 %.sroa.0.082)
-  %.sroa.9.2 = tail call i64 @llvm.smax.i64(i64 %19, i64 %.sroa.9.080)
-  %.sroa.6.2 = tail call i64 @llvm.smin.i64(i64 %21, i64 %.sroa.6.081)
-  %spec.select74 = tail call i64 @llvm.smax.i64(i64 %21, i64 %.sroa.12.079)
+  %spec.select72 = tail call i64 @llvm.smin.i64(i64 %19, i64 %.sroa.0.083)
+  %.sroa.11.2 = tail call i64 @llvm.smax.i64(i64 %19, i64 %.sroa.11.081)
+  %.sroa.8.2 = tail call i64 @llvm.smin.i64(i64 %21, i64 %.sroa.8.082)
+  %spec.select75 = tail call i64 @llvm.smax.i64(i64 %21, i64 %.sroa.14.080)
   br label %27
 
 27:                                               ; preds = %26, %18
-  %.sroa.12.1 = phi i64 [ %.sroa.12.079, %18 ], [ %spec.select74, %26 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.080, %18 ], [ %.sroa.9.2, %26 ]
-  %.sroa.6.1 = phi i64 [ %.sroa.6.081, %18 ], [ %.sroa.6.2, %26 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.082, %18 ], [ %spec.select71, %26 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.05783, i64 16
+  %.sroa.14.1 = phi i64 [ %.sroa.14.080, %18 ], [ %spec.select75, %26 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.081, %18 ], [ %.sroa.11.2, %26 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.082, %18 ], [ %.sroa.8.2, %26 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.083, %18 ], [ %spec.select72, %26 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.05984, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %29, label %18, !llvm.loop !4
+  br i1 %exitcond.not, label %29, label %18, !llvm.loop !21
 
 29:                                               ; preds = %27
   %30 = icmp slt i64 %spec.select, %.sroa.0.1
-  %31 = icmp sgt i64 %.sroa.7.1, %.sroa.9.1
+  %31 = icmp sgt i64 %.sroa.9.1, %.sroa.11.1
   %or.cond = select i1 %30, i1 true, i1 %31
-  %32 = icmp slt i64 %.sroa.4.1, %.sroa.6.1
-  %or.cond72 = select i1 %or.cond, i1 true, i1 %32
-  %33 = icmp sgt i64 %.sroa.10.1, %.sroa.12.1
-  %or.cond73 = select i1 %or.cond72, i1 true, i1 %33
-  br i1 %or.cond73, label %34, label %38
+  %32 = icmp slt i64 %.sroa.6.1, %.sroa.8.1
+  %or.cond73 = select i1 %or.cond, i1 true, i1 %32
+  %33 = icmp sgt i64 %.sroa.12.1, %.sroa.14.1
+  %or.cond74 = select i1 %or.cond73, i1 true, i1 %33
+  br i1 %or.cond74, label %34, label %38
 
 34:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.sroa.0.1, ptr %35, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx, align 8
-  %36 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %0, ptr noundef nonnull @bbox_interface, ptr noundef nonnull %3) #8
-  %.not70 = icmp eq i32 %36, 0
-  br i1 %.not70, label %37, label %39
+  store i64 %.sroa.0.1, ptr %35, align 8, !tbaa !23
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !23
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 %.sroa.11.1, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !23
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 %.sroa.14.1, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !23
+  %36 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %0, ptr noundef nonnull @bbox_interface, ptr noundef nonnull %3) #9
+  %.not71 = icmp eq i32 %36, 0
+  br i1 %.not71, label %37, label %.critedge
 
 37:                                               ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #9
   br label %39
 
 38:                                               ; preds = %29
-  store i64 %.sroa.0.1, ptr %1, align 8
-  %.sroa.6.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx25, align 8
-  %.sroa.9.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx29, align 8
-  %.sroa.12.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx33, align 8
+  store i64 %.sroa.0.1, ptr %1, align 8, !tbaa !23
+  %.sroa.8.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx26, align 8, !tbaa !23
+  %.sroa.11.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %.sroa.11.1, ptr %.sroa.11.0..sroa_idx30, align 8, !tbaa !23
+  %.sroa.14.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.sroa.14.1, ptr %.sroa.14.0..sroa_idx34, align 8, !tbaa !23
   br label %39
 
-39:                                               ; preds = %37, %38, %34, %4, %2, %12
-  %.0 = phi i32 [ 0, %12 ], [ 6, %2 ], [ 20, %4 ], [ %36, %34 ], [ 0, %38 ], [ 0, %37 ]
+.critedge:                                        ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #9
+  br label %39
+
+39:                                               ; preds = %38, %37, %.critedge, %4, %2, %12
+  %.0 = phi i32 [ 0, %12 ], [ 6, %2 ], [ 20, %4 ], [ %36, %.critedge ], [ 0, %37 ], [ 0, %38 ]
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @BBox_Move_To(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 16)) %1) #3 {
-  %3 = load i64, ptr %0, align 8
+define internal noundef i32 @BBox_Move_To(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 16)) %1) #4 {
+  %3 = load i64, ptr %0, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !25
   %6 = icmp slt i64 %3, %5
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  store i64 %3, ptr %4, align 8
-  %.pre = load i64, ptr %0, align 8
+  store i64 %3, ptr %4, align 8, !tbaa !25
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = phi i64 [ %.pre, %7 ], [ %3, %2 ]
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load i64, ptr %10, align 8
-  %12 = icmp sgt i64 %9, %11
-  br i1 %12, label %13, label %14
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %10 = load i64, ptr %9, align 8, !tbaa !28
+  %11 = icmp sgt i64 %3, %10
+  br i1 %11, label %12, label %13
 
-13:                                               ; preds = %8
-  store i64 %9, ptr %10, align 8
-  br label %14
+12:                                               ; preds = %8
+  store i64 %3, ptr %9, align 8, !tbaa !28
+  br label %13
 
-14:                                               ; preds = %13, %8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp slt i64 %16, %18
-  br i1 %19, label %20, label %21
+13:                                               ; preds = %12, %8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load i64, ptr %14, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = load i64, ptr %16, align 8, !tbaa !29
+  %18 = icmp slt i64 %15, %17
+  br i1 %18, label %19, label %20
 
-20:                                               ; preds = %14
-  store i64 %16, ptr %17, align 8
-  %.pre22 = load i64, ptr %15, align 8
-  br label %21
+19:                                               ; preds = %13
+  store i64 %15, ptr %16, align 8, !tbaa !29
+  br label %20
 
-21:                                               ; preds = %20, %14
-  %22 = phi i64 [ %.pre22, %20 ], [ %16, %14 ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp sgt i64 %22, %24
-  br i1 %25, label %26, label %27
+20:                                               ; preds = %19, %13
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %22 = load i64, ptr %21, align 8, !tbaa !30
+  %23 = icmp sgt i64 %15, %22
+  br i1 %23, label %24, label %25
 
-26:                                               ; preds = %21
-  store i64 %22, ptr %23, align 8
-  br label %27
+24:                                               ; preds = %20
+  store i64 %15, ptr %21, align 8, !tbaa !30
+  br label %25
 
-27:                                               ; preds = %21, %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
+25:                                               ; preds = %24, %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !31
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @BBox_Line_To(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #3 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
+define internal noundef i32 @BBox_Line_To(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #4 {
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !31
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @BBox_Conic_To(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 {
-  %4 = load i64, ptr %1, align 8
+  %4 = load i64, ptr %1, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !25
   %7 = icmp slt i64 %4, %6
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  store i64 %4, ptr %5, align 8
-  %.pre = load i64, ptr %1, align 8
+  store i64 %4, ptr %5, align 8, !tbaa !25
   br label %9
 
 9:                                                ; preds = %8, %3
   %10 = phi i64 [ %4, %8 ], [ %6, %3 ]
-  %11 = phi i64 [ %.pre, %8 ], [ %4, %3 ]
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %13 = load i64, ptr %12, align 8
-  %14 = icmp sgt i64 %11, %13
-  br i1 %14, label %15, label %16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = load i64, ptr %11, align 8, !tbaa !28
+  %13 = icmp sgt i64 %4, %12
+  br i1 %13, label %14, label %15
 
-15:                                               ; preds = %9
-  store i64 %11, ptr %12, align 8
-  br label %16
+14:                                               ; preds = %9
+  store i64 %4, ptr %11, align 8, !tbaa !28
+  br label %15
 
-16:                                               ; preds = %15, %9
-  %17 = phi i64 [ %11, %15 ], [ %13, %9 ]
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %21 = load i64, ptr %20, align 8
-  %22 = icmp slt i64 %19, %21
-  br i1 %22, label %23, label %24
+15:                                               ; preds = %14, %9
+  %16 = phi i64 [ %4, %14 ], [ %12, %9 ]
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load i64, ptr %17, align 8, !tbaa !19
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %20 = load i64, ptr %19, align 8, !tbaa !29
+  %21 = icmp slt i64 %18, %20
+  br i1 %21, label %22, label %23
 
-23:                                               ; preds = %16
-  store i64 %19, ptr %20, align 8
-  %.pre43 = load i64, ptr %18, align 8
-  br label %24
+22:                                               ; preds = %15
+  store i64 %18, ptr %19, align 8, !tbaa !29
+  br label %23
 
-24:                                               ; preds = %23, %16
-  %25 = phi i64 [ %.pre43, %23 ], [ %19, %16 ]
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp sgt i64 %25, %27
-  br i1 %28, label %29, label %30
+23:                                               ; preds = %22, %15
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %25 = load i64, ptr %24, align 8, !tbaa !30
+  %26 = icmp sgt i64 %18, %25
+  br i1 %26, label %27, label %28
 
-29:                                               ; preds = %24
-  store i64 %25, ptr %26, align 8
-  br label %30
+27:                                               ; preds = %23
+  store i64 %18, ptr %24, align 8, !tbaa !30
+  br label %28
 
-30:                                               ; preds = %24, %29
-  %31 = load i64, ptr %0, align 8
-  %32 = icmp slt i64 %31, %10
-  %33 = icmp sgt i64 %31, %17
-  %or.cond = or i1 %32, %33
-  br i1 %or.cond, label %34, label %BBox_Conic_Check.exit
+28:                                               ; preds = %27, %23
+  %29 = load i64, ptr %0, align 8, !tbaa !16
+  %30 = icmp slt i64 %29, %10
+  %31 = icmp sgt i64 %29, %16
+  %or.cond = or i1 %30, %31
+  br i1 %or.cond, label %32, label %BBox_Conic_Check.exit
 
-34:                                               ; preds = %30
-  %35 = load i64, ptr %2, align 8
-  %36 = load i64, ptr %1, align 8
-  %37 = sub nsw i64 %35, %31
-  %38 = sub nsw i64 %36, %31
-  %39 = add nsw i64 %38, %37
-  %40 = tail call i64 @FT_MulDiv(i64 noundef %37, i64 noundef %38, i64 noundef %39) #8
-  %41 = add nsw i64 %40, %31
-  %42 = load i64, ptr %5, align 8
-  %43 = icmp slt i64 %41, %42
-  br i1 %43, label %44, label %45
+32:                                               ; preds = %28
+  %33 = load i64, ptr %2, align 8, !tbaa !32
+  %34 = sub nsw i64 %33, %29
+  %35 = sub nsw i64 %4, %29
+  %36 = add nsw i64 %34, %35
+  %37 = tail call i64 @FT_MulDiv(i64 noundef %34, i64 noundef %35, i64 noundef %36) #9
+  %38 = add nsw i64 %37, %29
+  %39 = load i64, ptr %5, align 8, !tbaa !23
+  %40 = icmp slt i64 %38, %39
+  br i1 %40, label %41, label %42
 
-44:                                               ; preds = %34
-  store i64 %41, ptr %5, align 8
-  br label %45
+41:                                               ; preds = %32
+  store i64 %38, ptr %5, align 8, !tbaa !23
+  br label %42
 
-45:                                               ; preds = %44, %34
-  %46 = load i64, ptr %12, align 8
-  %47 = icmp sgt i64 %41, %46
-  br i1 %47, label %48, label %BBox_Conic_Check.exit
+42:                                               ; preds = %41, %32
+  %43 = load i64, ptr %11, align 8, !tbaa !23
+  %44 = icmp sgt i64 %38, %43
+  br i1 %44, label %45, label %BBox_Conic_Check.exit
 
-48:                                               ; preds = %45
-  store i64 %41, ptr %12, align 8
+45:                                               ; preds = %42
+  store i64 %38, ptr %11, align 8, !tbaa !23
   br label %BBox_Conic_Check.exit
 
-BBox_Conic_Check.exit:                            ; preds = %30, %48, %45
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = load i64, ptr %20, align 8
-  %52 = icmp slt i64 %50, %51
-  br i1 %52, label %56, label %53
+BBox_Conic_Check.exit:                            ; preds = %28, %45, %42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !19
+  %48 = load i64, ptr %19, align 8, !tbaa !29
+  %49 = icmp slt i64 %47, %48
+  br i1 %49, label %53, label %50
 
-53:                                               ; preds = %BBox_Conic_Check.exit
-  %54 = load i64, ptr %26, align 8
-  %55 = icmp sgt i64 %50, %54
-  br i1 %55, label %56, label %BBox_Conic_Check.exit42
+50:                                               ; preds = %BBox_Conic_Check.exit
+  %51 = load i64, ptr %24, align 8, !tbaa !30
+  %52 = icmp sgt i64 %47, %51
+  br i1 %52, label %53, label %BBox_Conic_Check.exit42
 
-56:                                               ; preds = %53, %BBox_Conic_Check.exit
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %58 = load i64, ptr %57, align 8
-  %59 = load i64, ptr %18, align 8
-  %60 = sub nsw i64 %58, %50
-  %61 = sub nsw i64 %59, %50
-  %62 = add nsw i64 %61, %60
-  %63 = tail call i64 @FT_MulDiv(i64 noundef %60, i64 noundef %61, i64 noundef %62) #8
-  %64 = add nsw i64 %63, %50
-  %65 = load i64, ptr %20, align 8
-  %66 = icmp slt i64 %64, %65
-  br i1 %66, label %67, label %68
+53:                                               ; preds = %50, %BBox_Conic_Check.exit
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %55 = load i64, ptr %54, align 8, !tbaa !33
+  %56 = load i64, ptr %17, align 8, !tbaa !19
+  %57 = sub nsw i64 %55, %47
+  %58 = sub nsw i64 %56, %47
+  %59 = add nsw i64 %58, %57
+  %60 = tail call i64 @FT_MulDiv(i64 noundef %57, i64 noundef %58, i64 noundef %59) #9
+  %61 = add nsw i64 %60, %47
+  %62 = load i64, ptr %19, align 8, !tbaa !23
+  %63 = icmp slt i64 %61, %62
+  br i1 %63, label %64, label %65
 
-67:                                               ; preds = %56
-  store i64 %64, ptr %20, align 8
-  br label %68
+64:                                               ; preds = %53
+  store i64 %61, ptr %19, align 8, !tbaa !23
+  br label %65
 
-68:                                               ; preds = %67, %56
-  %69 = load i64, ptr %26, align 8
-  %70 = icmp sgt i64 %64, %69
-  br i1 %70, label %71, label %BBox_Conic_Check.exit42
+65:                                               ; preds = %64, %53
+  %66 = load i64, ptr %24, align 8, !tbaa !23
+  %67 = icmp sgt i64 %61, %66
+  br i1 %67, label %68, label %BBox_Conic_Check.exit42
 
-71:                                               ; preds = %68
-  store i64 %64, ptr %26, align 8
+68:                                               ; preds = %65
+  store i64 %61, ptr %24, align 8, !tbaa !23
   br label %BBox_Conic_Check.exit42
 
-BBox_Conic_Check.exit42:                          ; preds = %71, %68, %53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+BBox_Conic_Check.exit42:                          ; preds = %68, %65, %50
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !31
   ret i32 0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @BBox_Cubic_To(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) #4 {
-  %5 = load i64, ptr %0, align 8
+define internal noundef i32 @BBox_Cubic_To(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) #5 {
+  %5 = load i64, ptr %0, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !25
   %8 = icmp slt i64 %5, %7
   br i1 %8, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %4
-  %.pre = load i64, ptr %1, align 8
+  %.pre = load i64, ptr %1, align 8, !tbaa !16
   br label %16
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !28
   %12 = icmp sgt i64 %5, %11
-  %.pre39 = load i64, ptr %1, align 8
+  %.pre39 = load i64, ptr %1, align 8, !tbaa !16
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %9
@@ -342,29 +344,29 @@ define internal noundef i32 @BBox_Cubic_To(ptr noundef readonly captures(none) %
 
 16:                                               ; preds = %._crit_edge, %13, %9
   %17 = phi i64 [ %.pre, %._crit_edge ], [ %.pre39, %13 ], [ %.pre39, %9 ]
-  %18 = load i64, ptr %3, align 8
-  %19 = load i64, ptr %2, align 8
+  %18 = load i64, ptr %3, align 8, !tbaa !32
+  %19 = load i64, ptr %2, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call fastcc void @BBox_Cubic_Check(i64 noundef %18, i64 noundef %5, i64 noundef %17, i64 noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %20)
   br label %21
 
 21:                                               ; preds = %13, %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load i64, ptr %22, align 8
+  %23 = load i64, ptr %22, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %25 = load i64, ptr %24, align 8
+  %25 = load i64, ptr %24, align 8, !tbaa !29
   %26 = icmp slt i64 %23, %25
   br i1 %26, label %36, label %27
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %29 = load i64, ptr %28, align 8
+  %29 = load i64, ptr %28, align 8, !tbaa !30
   %30 = icmp sgt i64 %23, %29
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load i64, ptr %32, align 8
+  %33 = load i64, ptr %32, align 8, !tbaa !19
   %34 = icmp slt i64 %33, %25
   %35 = icmp sgt i64 %33, %29
   %or.cond38 = or i1 %34, %35
@@ -372,25 +374,25 @@ define internal noundef i32 @BBox_Cubic_To(ptr noundef readonly captures(none) %
 
 36:                                               ; preds = %31, %27, %21
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %38 = load i64, ptr %37, align 8
+  %38 = load i64, ptr %37, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load i64, ptr %39, align 8
+  %40 = load i64, ptr %39, align 8, !tbaa !19
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %42 = load i64, ptr %41, align 8
+  %42 = load i64, ptr %41, align 8, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
   tail call fastcc void @BBox_Cubic_Check(i64 noundef %38, i64 noundef %23, i64 noundef %40, i64 noundef %42, ptr noundef nonnull %24, ptr noundef nonnull %43)
   br label %44
 
 44:                                               ; preds = %31, %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   ret i32 0
 }
 
-declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BBox_Cubic_Check(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #4 {
-  %7 = load i64, ptr %5, align 8
+define internal fastcc void @BBox_Cubic_Check(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #5 {
+  %7 = load i64, ptr %5, align 8, !tbaa !23
   %8 = icmp sgt i64 %1, %7
   %9 = icmp sgt i64 %2, %7
   %or.cond = or i1 %8, %9
@@ -490,7 +492,7 @@ define internal fastcc void @BBox_Cubic_Check(i64 noundef %0, i64 noundef %1, i6
   %66 = icmp ne i64 %.285.i, %.2.i
   %.not98.i = icmp sgt i64 %.288.i, %.2.i
   %or.cond99.i = or i1 %66, %.not98.i
-  br i1 %or.cond99.i, label %40, label %cubic_peak.exit, !llvm.loop !6
+  br i1 %or.cond99.i, label %40, label %cubic_peak.exit, !llvm.loop !34
 
 cubic_peak.exit:                                  ; preds = %40, %63, %65
   %.080.i = phi i64 [ 0, %40 ], [ %.291.i, %63 ], [ %.285.i, %65 ]
@@ -502,11 +504,11 @@ cubic_peak.exit:                                  ; preds = %40, %63, %65
   %72 = shl i64 %.080.i, %71
   %.1.i = select i1 %67, i64 %69, i64 %72
   %73 = add nsw i64 %.1.i, %7
-  store i64 %73, ptr %5, align 8
+  store i64 %73, ptr %5, align 8, !tbaa !23
   br label %74
 
 74:                                               ; preds = %6, %cubic_peak.exit
-  %75 = load i64, ptr %4, align 8
+  %75 = load i64, ptr %4, align 8, !tbaa !23
   %76 = icmp slt i64 %1, %75
   %77 = icmp slt i64 %2, %75
   %or.cond26 = or i1 %76, %77
@@ -606,7 +608,7 @@ cubic_peak.exit:                                  ; preds = %40, %63, %65
   %134 = icmp ne i64 %.285.i41, %.2.i42
   %.not98.i45 = icmp sgt i64 %.288.i40, %.2.i42
   %or.cond99.i46 = or i1 %134, %.not98.i45
-  br i1 %or.cond99.i46, label %108, label %cubic_peak.exit48, !llvm.loop !6
+  br i1 %or.cond99.i46, label %108, label %cubic_peak.exit48, !llvm.loop !34
 
 cubic_peak.exit48:                                ; preds = %108, %131, %133
   %.080.i37 = phi i64 [ 0, %108 ], [ %.291.i39, %131 ], [ %.285.i41, %133 ]
@@ -618,7 +620,7 @@ cubic_peak.exit48:                                ; preds = %108, %131, %133
   %140 = shl i64 %.080.i37, %139
   %.1.i38 = select i1 %135, i64 %137, i64 %140
   %141 = sub nsw i64 %75, %.1.i38
-  store i64 %141, ptr %4, align 8
+  store i64 %141, ptr %4, align 8, !tbaa !23
   br label %142
 
 142:                                              ; preds = %74, %cubic_peak.exit48
@@ -626,39 +628,68 @@ cubic_peak.exit48:                                ; preds = %108, %131, %133
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #6
+declare i64 @llvm.abs.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
+declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #6
+declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !5, i64 2}
+!4 = !{!"FT_Outline_", !5, i64 0, !5, i64 2, !8, i64 8, !10, i64 16, !11, i64 24, !12, i64 32}
+!5 = !{!"short", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 _ZTS10FT_Vector_", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!"p1 omnipotent char", !9, i64 0}
+!11 = !{!"p1 short", !9, i64 0}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!4, !5, i64 0}
+!14 = !{!4, !8, i64 8}
+!15 = !{!4, !10, i64 16}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"FT_Vector_", !18, i64 0, !18, i64 8}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!17, !18, i64 8}
+!20 = !{!6, !6, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!18, !18, i64 0}
+!24 = !{i64 0, i64 8, !23, i64 8, i64 8, !23, i64 16, i64 8, !23, i64 24, i64 8, !23}
+!25 = !{!26, !18, i64 16}
+!26 = !{!"TBBox_Rec_", !17, i64 0, !27, i64 16}
+!27 = !{!"FT_BBox_", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24}
+!28 = !{!26, !18, i64 32}
+!29 = !{!26, !18, i64 24}
+!30 = !{!26, !18, i64 40}
+!31 = !{i64 0, i64 8, !23, i64 8, i64 8, !23}
+!32 = !{!26, !18, i64 0}
+!33 = !{!26, !18, i64 8}
+!34 = distinct !{!34, !22}
