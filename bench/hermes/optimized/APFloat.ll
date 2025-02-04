@@ -1140,7 +1140,6 @@ _ZN4llvh6detail9IEEEFloat16convertFromAPIntERKNS_5APIntEbNS_11APFloatBase12round
   br i1 %cmp16.not, label %if.end18, label %cleanup
 
 if.end18:                                         ; preds = %_ZN4llvh6detail9IEEEFloat16convertFromAPIntERKNS_5APIntEbNS_11APFloatBase12roundingModeE.exit
-  %tobool.i = icmp ne i8 %bf.clear, 0
   %call.i.i = call noundef i32 @_ZN4llvh6detail9IEEEFloat21addOrSubtractSpecialsERKS1_b(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %MagicConstant, i1 noundef zeroext false)
   %cmp.i.i25 = icmp eq i32 %call.i.i, 2
   br i1 %cmp.i.i25, label %if.then.i.i27, label %if.end.i.i
@@ -1221,10 +1220,10 @@ if.then24.i.i41:                                  ; preds = %lor.lhs.false.i.i46
 
 _ZN4llvh6detail9IEEEFloat8subtractERKS1_NS_11APFloatBase12roundingModeE.exit: ; preds = %if.end.i.i30, %lor.lhs.false.i.i46, %if.then24.i.i41
   %bf.load.i53 = phi i8 [ %bf.load.i.i33, %if.end.i.i30 ], [ %bf.load.i.i33, %lor.lhs.false.i.i46 ], [ %bf.set.i.i45, %if.then24.i.i41 ]
-  %23 = and i8 %bf.load.i53, 8
-  %tobool.i54 = icmp ne i8 %23, 0
-  %24 = xor i1 %tobool.i, %tobool.i54
-  br i1 %24, label %if.then31, label %cleanup
+  %23 = xor i8 %bf.load.i53, %bf.load
+  %24 = and i8 %23, 8
+  %.not = icmp eq i8 %24, 0
+  br i1 %.not, label %cleanup, label %if.then31
 
 if.then31:                                        ; preds = %_ZN4llvh6detail9IEEEFloat8subtractERKS1_NS_11APFloatBase12roundingModeE.exit
   %bf.set.i57 = xor i8 %bf.load.i53, 8
@@ -14980,27 +14979,25 @@ land.lhs.true:                                    ; preds = %if.end17
   br i1 %cmp21, label %land.lhs.true22, label %if.then32
 
 land.lhs.true22:                                  ; preds = %land.lhs.true
-  %6 = and i8 %bf.load.i.i.i, 8
-  %tobool.i.i.i = icmp ne i8 %6, 0
-  %7 = and i8 %bf.load.i.i.i34, 8
-  %tobool.i.i.i92 = icmp ne i8 %7, 0
-  %8 = xor i1 %tobool.i.i.i, %tobool.i.i.i92
-  br i1 %8, label %if.then27, label %if.then32
+  %6 = xor i8 %bf.load.i.i.i34, %bf.load.i.i.i
+  %7 = and i8 %6, 8
+  %.not = icmp eq i8 %7, 0
+  br i1 %.not, label %if.then32, label %if.then27
 
 if.then27:                                        ; preds = %land.lhs.true22
   %Floats.i93 = getelementptr inbounds nuw i8, ptr %Out, i64 8
-  %9 = load ptr, ptr %Floats.i93, align 8
-  %U.i.i.i94 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %10 = load ptr, ptr %U.i.i.i94, align 8
-  %cmp.i.not.i.i.i95 = icmp eq ptr %10, @_ZN4llvhL18semPPCDoubleDoubleE
-  %Floats.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load ptr, ptr %Floats.i.i.i.i96, align 8
-  %U8.i.i.i97 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %8 = load ptr, ptr %Floats.i93, align 8
+  %U.i.i.i94 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %U.i.i.i94, align 8
+  %cmp.i.not.i.i.i95 = icmp eq ptr %9, @_ZN4llvhL18semPPCDoubleDoubleE
+  %Floats.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load ptr, ptr %Floats.i.i.i.i96, align 8
+  %U8.i.i.i97 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %retval.0.i.i.i98 = select i1 %cmp.i.not.i.i.i95, ptr %U8.i.i.i97, ptr %U.i.i.i94
   %sign.i.i.i99 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i98, i64 18
   %bf.load.i.i.i100 = load i8, ptr %sign.i.i.i99, align 2
-  %12 = and i8 %bf.load.i.i.i100, 8
-  %tobool.i.i.i101 = icmp ne i8 %12, 0
+  %11 = and i8 %bf.load.i.i.i100, 8
+  %tobool.i.i.i101 = icmp ne i8 %11, 0
   tail call void @_ZN4llvh6detail13DoubleAPFloat7makeNaNEbbPKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %Out, i1 noundef zeroext false, i1 noundef zeroext %tobool.i.i.i101, ptr noundef null)
   br label %return
 
@@ -15018,38 +15015,38 @@ if.then37:                                        ; preds = %if.end34
 if.end39:                                         ; preds = %if.end34
   %U.i = getelementptr inbounds nuw i8, ptr %A, i64 8
   call void @_ZN4llvh7APFloat7StorageC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(24) %U.i.i.i)
-  %13 = load ptr, ptr %Floats.i, align 8
+  %12 = load ptr, ptr %Floats.i, align 8
   %U.i122 = getelementptr inbounds nuw i8, ptr %AA, i64 8
-  %U2.i123 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %U2.i123 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @_ZN4llvh7APFloat7StorageC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i122, ptr noundef nonnull align 8 dereferenceable(24) %U2.i123)
-  %14 = load ptr, ptr %Floats.i27, align 8
+  %13 = load ptr, ptr %Floats.i27, align 8
   %U.i125 = getelementptr inbounds nuw i8, ptr %C, i64 8
-  %U2.i126 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %U2.i126 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @_ZN4llvh7APFloat7StorageC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i125, ptr noundef nonnull align 8 dereferenceable(24) %U2.i126)
-  %15 = load ptr, ptr %Floats.i27, align 8
+  %14 = load ptr, ptr %Floats.i27, align 8
   %U.i128 = getelementptr inbounds nuw i8, ptr %CC, i64 8
-  %U2.i129 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %U2.i129 = getelementptr inbounds nuw i8, ptr %14, i64 40
   call void @_ZN4llvh7APFloat7StorageC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i128, ptr noundef nonnull align 8 dereferenceable(24) %U2.i129)
   %call47 = call noundef i32 @_ZN4llvh6detail13DoubleAPFloat7addImplERKNS_7APFloatES4_S4_S4_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %Out, ptr noundef nonnull align 8 dereferenceable(32) %A, ptr noundef nonnull align 8 dereferenceable(32) %AA, ptr noundef nonnull align 8 dereferenceable(32) %C, ptr noundef nonnull align 8 dereferenceable(32) %CC, i32 noundef %RM)
-  %16 = load ptr, ptr %U.i128, align 8
-  %cmp.i.not.i = icmp eq ptr %16, @_ZN4llvhL18semPPCDoubleDoubleE
+  %15 = load ptr, ptr %U.i128, align 8
+  %cmp.i.not.i = icmp eq ptr %15, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i.not.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end39
-  %precision.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %17 = load i32, ptr %precision.i.i.i.i.i, align 4
-  %18 = add i32 %17, -64
-  %cmp.i.i.i.i = icmp ult i32 %18, -128
+  %precision.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %16 = load i32, ptr %precision.i.i.i.i.i, align 4
+  %17 = add i32 %16, -64
+  %cmp.i.i.i.i = icmp ult i32 %17, -128
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN4llvh7APFloatD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %significand.i.i.i = getelementptr inbounds nuw i8, ptr %CC, i64 16
-  %19 = load ptr, ptr %significand.i.i.i, align 8
-  %isnull.i.i.i = icmp eq ptr %19, null
+  %18 = load ptr, ptr %significand.i.i.i, align 8
+  %isnull.i.i.i = icmp eq ptr %18, null
   br i1 %isnull.i.i.i, label %_ZN4llvh7APFloatD2Ev.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %19) #25
+  call void @_ZdaPv(ptr noundef nonnull %18) #25
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %if.end39
@@ -15057,25 +15054,25 @@ if.end.i.i:                                       ; preds = %if.end39
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
-  %20 = load ptr, ptr %U.i125, align 8
-  %cmp.i.not.i132 = icmp eq ptr %20, @_ZN4llvhL18semPPCDoubleDoubleE
+  %19 = load ptr, ptr %U.i125, align 8
+  %cmp.i.not.i132 = icmp eq ptr %19, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i.not.i132, label %if.end.i.i140, label %if.then.i.i133
 
 if.then.i.i133:                                   ; preds = %_ZN4llvh7APFloatD2Ev.exit
-  %precision.i.i.i.i.i134 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %21 = load i32, ptr %precision.i.i.i.i.i134, align 4
-  %22 = add i32 %21, -64
-  %cmp.i.i.i.i135 = icmp ult i32 %22, -128
+  %precision.i.i.i.i.i134 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %20 = load i32, ptr %precision.i.i.i.i.i134, align 4
+  %21 = add i32 %20, -64
+  %cmp.i.i.i.i135 = icmp ult i32 %21, -128
   br i1 %cmp.i.i.i.i135, label %if.then.i.i.i136, label %_ZN4llvh7APFloatD2Ev.exit141
 
 if.then.i.i.i136:                                 ; preds = %if.then.i.i133
   %significand.i.i.i137 = getelementptr inbounds nuw i8, ptr %C, i64 16
-  %23 = load ptr, ptr %significand.i.i.i137, align 8
-  %isnull.i.i.i138 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %significand.i.i.i137, align 8
+  %isnull.i.i.i138 = icmp eq ptr %22, null
   br i1 %isnull.i.i.i138, label %_ZN4llvh7APFloatD2Ev.exit141, label %delete.notnull.i.i.i139
 
 delete.notnull.i.i.i139:                          ; preds = %if.then.i.i.i136
-  call void @_ZdaPv(ptr noundef nonnull %23) #25
+  call void @_ZdaPv(ptr noundef nonnull %22) #25
   br label %_ZN4llvh7APFloatD2Ev.exit141
 
 if.end.i.i140:                                    ; preds = %_ZN4llvh7APFloatD2Ev.exit
@@ -15083,25 +15080,25 @@ if.end.i.i140:                                    ; preds = %_ZN4llvh7APFloatD2E
   br label %_ZN4llvh7APFloatD2Ev.exit141
 
 _ZN4llvh7APFloatD2Ev.exit141:                     ; preds = %if.then.i.i133, %if.then.i.i.i136, %delete.notnull.i.i.i139, %if.end.i.i140
-  %24 = load ptr, ptr %U.i122, align 8
-  %cmp.i.not.i143 = icmp eq ptr %24, @_ZN4llvhL18semPPCDoubleDoubleE
+  %23 = load ptr, ptr %U.i122, align 8
+  %cmp.i.not.i143 = icmp eq ptr %23, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i.not.i143, label %if.end.i.i151, label %if.then.i.i144
 
 if.then.i.i144:                                   ; preds = %_ZN4llvh7APFloatD2Ev.exit141
-  %precision.i.i.i.i.i145 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %25 = load i32, ptr %precision.i.i.i.i.i145, align 4
-  %26 = add i32 %25, -64
-  %cmp.i.i.i.i146 = icmp ult i32 %26, -128
+  %precision.i.i.i.i.i145 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %24 = load i32, ptr %precision.i.i.i.i.i145, align 4
+  %25 = add i32 %24, -64
+  %cmp.i.i.i.i146 = icmp ult i32 %25, -128
   br i1 %cmp.i.i.i.i146, label %if.then.i.i.i147, label %_ZN4llvh7APFloatD2Ev.exit152
 
 if.then.i.i.i147:                                 ; preds = %if.then.i.i144
   %significand.i.i.i148 = getelementptr inbounds nuw i8, ptr %AA, i64 16
-  %27 = load ptr, ptr %significand.i.i.i148, align 8
-  %isnull.i.i.i149 = icmp eq ptr %27, null
+  %26 = load ptr, ptr %significand.i.i.i148, align 8
+  %isnull.i.i.i149 = icmp eq ptr %26, null
   br i1 %isnull.i.i.i149, label %_ZN4llvh7APFloatD2Ev.exit152, label %delete.notnull.i.i.i150
 
 delete.notnull.i.i.i150:                          ; preds = %if.then.i.i.i147
-  call void @_ZdaPv(ptr noundef nonnull %27) #25
+  call void @_ZdaPv(ptr noundef nonnull %26) #25
   br label %_ZN4llvh7APFloatD2Ev.exit152
 
 if.end.i.i151:                                    ; preds = %_ZN4llvh7APFloatD2Ev.exit141
@@ -15109,25 +15106,25 @@ if.end.i.i151:                                    ; preds = %_ZN4llvh7APFloatD2E
   br label %_ZN4llvh7APFloatD2Ev.exit152
 
 _ZN4llvh7APFloatD2Ev.exit152:                     ; preds = %if.then.i.i144, %if.then.i.i.i147, %delete.notnull.i.i.i150, %if.end.i.i151
-  %28 = load ptr, ptr %U.i, align 8
-  %cmp.i.not.i154 = icmp eq ptr %28, @_ZN4llvhL18semPPCDoubleDoubleE
+  %27 = load ptr, ptr %U.i, align 8
+  %cmp.i.not.i154 = icmp eq ptr %27, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i.not.i154, label %if.end.i.i162, label %if.then.i.i155
 
 if.then.i.i155:                                   ; preds = %_ZN4llvh7APFloatD2Ev.exit152
-  %precision.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %29 = load i32, ptr %precision.i.i.i.i.i156, align 4
-  %30 = add i32 %29, -64
-  %cmp.i.i.i.i157 = icmp ult i32 %30, -128
+  %precision.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %28 = load i32, ptr %precision.i.i.i.i.i156, align 4
+  %29 = add i32 %28, -64
+  %cmp.i.i.i.i157 = icmp ult i32 %29, -128
   br i1 %cmp.i.i.i.i157, label %if.then.i.i.i158, label %return
 
 if.then.i.i.i158:                                 ; preds = %if.then.i.i155
   %significand.i.i.i159 = getelementptr inbounds nuw i8, ptr %A, i64 16
-  %31 = load ptr, ptr %significand.i.i.i159, align 8
-  %isnull.i.i.i160 = icmp eq ptr %31, null
+  %30 = load ptr, ptr %significand.i.i.i159, align 8
+  %isnull.i.i.i160 = icmp eq ptr %30, null
   br i1 %isnull.i.i.i160, label %return, label %delete.notnull.i.i.i161
 
 delete.notnull.i.i.i161:                          ; preds = %if.then.i.i.i158
-  call void @_ZdaPv(ptr noundef nonnull %31) #25
+  call void @_ZdaPv(ptr noundef nonnull %30) #25
   br label %return
 
 if.end.i.i162:                                    ; preds = %_ZN4llvh7APFloatD2Ev.exit152
@@ -16583,20 +16580,18 @@ if.then12:                                        ; preds = %_ZNK4llvh7APFloat20
   %retval.0.i.i63 = select i1 %cmp.i.not.i.i, ptr %U8.i.i, ptr %U.i.i62
   %sign.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i63, i64 18
   %bf.load.i.i = load i8, ptr %sign.i.i, align 2
-  %28 = and i8 %bf.load.i.i, 8
-  %tobool.i.i = icmp ne i8 %28, 0
   %U.i.i65 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %29 = load ptr, ptr %U.i.i65, align 8
-  %cmp.i.not.i.i66 = icmp eq ptr %29, @_ZN4llvhL18semPPCDoubleDoubleE
+  %28 = load ptr, ptr %U.i.i65, align 8
+  %cmp.i.not.i.i66 = icmp eq ptr %28, @_ZN4llvhL18semPPCDoubleDoubleE
   %Floats.i.i.i67 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %30 = load ptr, ptr %Floats.i.i.i67, align 8
-  %U8.i.i68 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %29 = load ptr, ptr %Floats.i.i.i67, align 8
+  %U8.i.i68 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %retval.0.i.i69 = select i1 %cmp.i.not.i.i66, ptr %U8.i.i68, ptr %U.i.i65
   %sign.i.i70 = getelementptr inbounds nuw i8, ptr %retval.0.i.i69, i64 18
   %bf.load.i.i71 = load i8, ptr %sign.i.i70, align 2
-  %31 = and i8 %bf.load.i.i71, 8
-  %tobool.i.i72 = icmp ne i8 %31, 0
-  %xor20 = xor i1 %tobool.i.i, %tobool.i.i72
+  %30 = xor i8 %bf.load.i.i71, %bf.load.i.i
+  %31 = and i8 %30, 8
+  %xor20.not = icmp eq i8 %31, 0
   %32 = load ptr, ptr %Floats2, align 8
   %U.i.i74 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %33 = load ptr, ptr %U.i.i74, align 8
@@ -16607,32 +16602,30 @@ if.then12:                                        ; preds = %_ZNK4llvh7APFloat20
   %retval.0.i.i78 = select i1 %cmp.i.not.i.i75, ptr %U8.i.i77, ptr %U.i.i74
   %sign.i.i79 = getelementptr inbounds nuw i8, ptr %retval.0.i.i78, i64 18
   %bf.load.i.i80 = load i8, ptr %sign.i.i79, align 2
-  %35 = and i8 %bf.load.i.i80, 8
-  %tobool.i.i81 = icmp ne i8 %35, 0
   %U.i.i83 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %36 = load ptr, ptr %U.i.i83, align 8
-  %cmp.i.not.i.i84 = icmp eq ptr %36, @_ZN4llvhL18semPPCDoubleDoubleE
+  %35 = load ptr, ptr %U.i.i83, align 8
+  %cmp.i.not.i.i84 = icmp eq ptr %35, @_ZN4llvhL18semPPCDoubleDoubleE
   %Floats.i.i.i85 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %37 = load ptr, ptr %Floats.i.i.i85, align 8
-  %U8.i.i86 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %36 = load ptr, ptr %Floats.i.i.i85, align 8
+  %U8.i.i86 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %retval.0.i.i87 = select i1 %cmp.i.not.i.i84, ptr %U8.i.i86, ptr %U.i.i83
   %sign.i.i88 = getelementptr inbounds nuw i8, ptr %retval.0.i.i87, i64 18
   %bf.load.i.i89 = load i8, ptr %sign.i.i88, align 2
-  %38 = and i8 %bf.load.i.i89, 8
-  %tobool.i.i90 = icmp ne i8 %38, 0
-  %xor2821 = xor i1 %tobool.i.i81, %tobool.i.i90
-  %tobool = xor i1 %xor20, true
-  %or.cond1 = or i1 %xor2821, %tobool
+  %37 = xor i8 %bf.load.i.i89, %bf.load.i.i80
+  %38 = and i8 %37, 8
+  %xor2821 = icmp ne i8 %38, 0
+  %or.cond1 = or i1 %xor20.not, %xor2821
   br i1 %or.cond1, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.then12
-  %or.cond2 = and i1 %xor2821, %tobool
+  %or.cond2 = and i1 %xor20.not, %xor2821
   br i1 %or.cond2, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.end31
-  %or.cond4 = and i1 %xor20, %xor2821
+  %39 = and i8 %31, %37
+  %or.cond4.not = icmp eq i8 %39, 0
   %sub = sub nuw nsw i32 2, %retval.0.i32
-  %spec.select = select i1 %or.cond4, i32 %sub, i32 %retval.0.i32
+  %spec.select = select i1 %or.cond4.not, i32 %retval.0.i32, i32 %sub
   br label %return
 
 return:                                           ; preds = %_ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit.i, %if.end36, %_ZNK4llvh7APFloat20compareAbsoluteValueERKS0_.exit60, %if.end31, %if.then12, %_ZNK4llvh7APFloat20compareAbsoluteValueERKS0_.exit

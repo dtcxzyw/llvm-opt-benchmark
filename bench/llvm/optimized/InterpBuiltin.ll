@@ -10442,139 +10442,137 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %27, %28
   %.0.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i.i.i, ptr %31, ptr %5
   %.0.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.0.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 20
   %32 = load i8, ptr %.0.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %33 = and i8 %32, 8
-  %34 = icmp ne i8 %33, 0
-  %35 = load ptr, ptr %4, align 8, !tbaa !62
-  %.not.i.i2.i = icmp eq ptr %35, %14
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %.0.i.i3.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i.i2.i, ptr %37, ptr %4
+  %33 = load ptr, ptr %4, align 8, !tbaa !62
+  %.not.i.i2.i = icmp eq ptr %33, %14
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %.0.i.i3.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i.i2.i, ptr %35, ptr %4
   %.0.i.i3.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 20
-  %38 = load i8, ptr %.0.i.i3.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %39 = and i8 %38, 8
-  %40 = icmp ne i8 %39, 0
-  %41 = xor i1 %34, %40
-  br i1 %41, label %42, label %_ZN4llvm7APFloat8copySignERKS0_.exit
+  %36 = load i8, ptr %.0.i.i3.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %37 = xor i8 %36, %32
+  %38 = and i8 %37, 8
+  %.not.i = icmp eq i8 %38, 0
+  br i1 %.not.i, label %_ZN4llvm7APFloat8copySignERKS0_.exit, label %39
 
-42:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit
-  br i1 %.not.i.i.i, label %44, label %43
+39:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit
+  br i1 %.not.i.i.i, label %41, label %40
 
-43:                                               ; preds = %42
+40:                                               ; preds = %39
   call void @_ZN4llvm6detail9IEEEFloat10changeSignEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   br label %_ZN4llvm7APFloat8copySignERKS0_.exit
 
-44:                                               ; preds = %42
+41:                                               ; preds = %39
   call void @_ZN4llvm6detail13DoubleAPFloat10changeSignEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   br label %_ZN4llvm7APFloat8copySignERKS0_.exit
 
-_ZN4llvm7APFloat8copySignERKS0_.exit:             ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit, %43, %44
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %46 = load ptr, ptr %45, align 8, !tbaa !108
+_ZN4llvm7APFloat8copySignERKS0_.exit:             ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit, %40, %41
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %43 = load ptr, ptr %42, align 8, !tbaa !108
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #20
-  %47 = load ptr, ptr %5, align 8, !tbaa !62
-  %.not.i.i.i7 = icmp eq ptr %47, %14
-  br i1 %.not.i.i.i7, label %49, label %48
+  %44 = load ptr, ptr %5, align 8, !tbaa !62
+  %.not.i.i.i7 = icmp eq ptr %44, %14
+  br i1 %.not.i.i.i7, label %46, label %45
 
-48:                                               ; preds = %_ZN4llvm7APFloat8copySignERKS0_.exit
+45:                                               ; preds = %_ZN4llvm7APFloat8copySignERKS0_.exit
   call void @_ZN4llvm6detail9IEEEFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   br label %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit
 
-49:                                               ; preds = %_ZN4llvm7APFloat8copySignERKS0_.exit
+46:                                               ; preds = %_ZN4llvm7APFloat8copySignERKS0_.exit
   call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   br label %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit
 
-_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit: ; preds = %48, %49
-  %50 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %46, i64 noundef 24) #20
+_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit: ; preds = %45, %46
+  %47 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef 24) #20
+  %48 = load ptr, ptr %6, align 8, !tbaa !62
+  %.not.i.i.i.i8 = icmp eq ptr %48, %14
+  br i1 %.not.i.i.i.i8, label %50, label %49
+
+49:                                               ; preds = %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit
+  call void @_ZN4llvm6detail9IEEEFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %6) #20
+  br label %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit
+
+50:                                               ; preds = %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit
+  call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %6) #20
+  br label %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit
+
+_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit: ; preds = %49, %50
   %51 = load ptr, ptr %6, align 8, !tbaa !62
-  %.not.i.i.i.i8 = icmp eq ptr %51, %14
-  br i1 %.not.i.i.i.i8, label %53, label %52
+  %.not.i.i.i9 = icmp eq ptr %51, %14
+  br i1 %.not.i.i.i9, label %53, label %52
 
-52:                                               ; preds = %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit
-  call void @_ZN4llvm6detail9IEEEFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %6) #20
-  br label %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit
-
-53:                                               ; preds = %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %6) #20
-  br label %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit
-
-_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit: ; preds = %52, %53
-  %54 = load ptr, ptr %6, align 8, !tbaa !62
-  %.not.i.i.i9 = icmp eq ptr %54, %14
-  br i1 %.not.i.i.i9, label %56, label %55
-
-55:                                               ; preds = %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit
+52:                                               ; preds = %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   br label %_ZN5clang6interp8FloatingD2Ev.exit
 
-56:                                               ; preds = %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !109
-  %.not.i.i.i.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5clang6interp8FloatingD2Ev.exit, label %59
+53:                                               ; preds = %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !109
+  %.not.i.i.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i.i, label %_ZN5clang6interp8FloatingD2Ev.exit, label %56
 
-59:                                               ; preds = %56
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull %58)
+56:                                               ; preds = %53
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull %55)
   br label %_ZN5clang6interp8FloatingD2Ev.exit
 
-_ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %56, %59, %55
+_ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %53, %56, %52
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #20
-  %60 = load ptr, ptr %5, align 8, !tbaa !62
-  %.not.i.i10 = icmp eq ptr %60, %14
-  br i1 %.not.i.i10, label %62, label %61
+  %57 = load ptr, ptr %5, align 8, !tbaa !62
+  %.not.i.i10 = icmp eq ptr %57, %14
+  br i1 %.not.i.i10, label %59, label %58
 
-61:                                               ; preds = %_ZN5clang6interp8FloatingD2Ev.exit
+58:                                               ; preds = %_ZN5clang6interp8FloatingD2Ev.exit
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   br label %_ZN4llvm7APFloatD2Ev.exit
 
-62:                                               ; preds = %_ZN5clang6interp8FloatingD2Ev.exit
-  %63 = load ptr, ptr %30, align 8, !tbaa !109
-  %.not.i.i.i.i11 = icmp eq ptr %63, null
-  br i1 %.not.i.i.i.i11, label %_ZN4llvm7APFloatD2Ev.exit, label %64
+59:                                               ; preds = %_ZN5clang6interp8FloatingD2Ev.exit
+  %60 = load ptr, ptr %30, align 8, !tbaa !109
+  %.not.i.i.i.i11 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i.i11, label %_ZN4llvm7APFloatD2Ev.exit, label %61
 
-64:                                               ; preds = %62
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull %63)
+61:                                               ; preds = %59
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull %60)
   br label %_ZN4llvm7APFloatD2Ev.exit
 
-_ZN4llvm7APFloatD2Ev.exit:                        ; preds = %62, %64, %61
+_ZN4llvm7APFloatD2Ev.exit:                        ; preds = %59, %61, %58
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
-  %65 = load ptr, ptr %4, align 8, !tbaa !62
-  %.not.i.i.i12 = icmp eq ptr %65, %14
-  br i1 %.not.i.i.i12, label %67, label %66
+  %62 = load ptr, ptr %4, align 8, !tbaa !62
+  %.not.i.i.i12 = icmp eq ptr %62, %14
+  br i1 %.not.i.i.i12, label %64, label %63
 
-66:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
+63:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
   br label %_ZN5clang6interp8FloatingD2Ev.exit15
 
-67:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  %68 = load ptr, ptr %36, align 8, !tbaa !109
-  %.not.i.i.i.i.i13 = icmp eq ptr %68, null
-  br i1 %.not.i.i.i.i.i13, label %_ZN5clang6interp8FloatingD2Ev.exit15, label %69
+64:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
+  %65 = load ptr, ptr %34, align 8, !tbaa !109
+  %.not.i.i.i.i.i13 = icmp eq ptr %65, null
+  br i1 %.not.i.i.i.i.i13, label %_ZN5clang6interp8FloatingD2Ev.exit15, label %66
 
-69:                                               ; preds = %67
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull %68)
+66:                                               ; preds = %64
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull %65)
   br label %_ZN5clang6interp8FloatingD2Ev.exit15
 
-_ZN5clang6interp8FloatingD2Ev.exit15:             ; preds = %67, %69, %66
+_ZN5clang6interp8FloatingD2Ev.exit15:             ; preds = %64, %66, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20
-  %70 = load ptr, ptr %3, align 8, !tbaa !62
-  %.not.i.i.i16 = icmp eq ptr %70, %14
-  br i1 %.not.i.i.i16, label %72, label %71
+  %67 = load ptr, ptr %3, align 8, !tbaa !62
+  %.not.i.i.i16 = icmp eq ptr %67, %14
+  br i1 %.not.i.i.i16, label %69, label %68
 
-71:                                               ; preds = %_ZN5clang6interp8FloatingD2Ev.exit15
+68:                                               ; preds = %_ZN5clang6interp8FloatingD2Ev.exit15
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
   br label %_ZN5clang6interp8FloatingD2Ev.exit19
 
-72:                                               ; preds = %_ZN5clang6interp8FloatingD2Ev.exit15
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !109
-  %.not.i.i.i.i.i17 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i.i.i17, label %_ZN5clang6interp8FloatingD2Ev.exit19, label %75
+69:                                               ; preds = %_ZN5clang6interp8FloatingD2Ev.exit15
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !109
+  %.not.i.i.i.i.i17 = icmp eq ptr %71, null
+  br i1 %.not.i.i.i.i.i17, label %_ZN5clang6interp8FloatingD2Ev.exit19, label %72
 
-75:                                               ; preds = %72
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull %74)
+72:                                               ; preds = %69
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull %71)
   br label %_ZN5clang6interp8FloatingD2Ev.exit19
 
-_ZN5clang6interp8FloatingD2Ev.exit19:             ; preds = %72, %75, %71
+_ZN5clang6interp8FloatingD2Ev.exit19:             ; preds = %69, %72, %68
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #20
   ret void
 }

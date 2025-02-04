@@ -6099,7 +6099,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   %13 = and i32 %12, 7
   %14 = shl nuw nsw i32 8, %13
   %.not = icmp eq i32 %10, %14
-  br i1 %.not, label %36, label %91
+  br i1 %.not, label %36, label %85
 
 15:                                               ; preds = %3
   %16 = trunc i64 %1 to i32
@@ -6111,7 +6111,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   %22 = and i32 %21, 7
   %23 = shl nuw nsw i32 8, %22
   %24 = icmp samesign ult i32 %19, %23
-  br i1 %24, label %91, label %36
+  br i1 %24, label %85, label %36
 
 25:                                               ; preds = %3
   %26 = trunc i64 %1 to i32
@@ -6125,7 +6125,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   %34 = icmp samesign ult i32 %29, %33
   %35 = icmp samesign ugt i32 %28, 2
   %or.cond = select i1 %34, i1 true, i1 %35
-  br i1 %or.cond, label %91, label %36
+  br i1 %or.cond, label %85, label %36
 
 36:                                               ; preds = %25, %15, %6, %3
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 3
@@ -6139,7 +6139,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   %40 = xor i64 %1, %0
   %41 = and i64 %40, 7
   %.not27 = icmp eq i64 %41, 0
-  br i1 %.not27, label %51, label %91
+  br i1 %.not27, label %51, label %85
 
 42:                                               ; preds = %36
   %43 = trunc i64 %1 to i8
@@ -6150,7 +6150,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   %48 = and i64 %45, 4294967295
   %49 = icmp eq i64 %48, 1
   %50 = or i1 %47, %49
-  br i1 %50, label %51, label %91
+  br i1 %50, label %51, label %85
 
 51:                                               ; preds = %42, %39, %36
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -6174,41 +6174,37 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   %68 = and i8 %67, 7
   %69 = tail call noundef i32 @_ZN4llvm10RISCVVType15getSEWLMULRatioEjNS_7RISCVII5VLMULE(i32 noundef %66, i8 noundef zeroext %68) #20
   %.not28.not = icmp eq i32 %62, %69
-  br i1 %.not28.not, label %70, label %91
+  br i1 %.not28.not, label %70, label %85
 
 70:                                               ; preds = %55, %51
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %72 = load i8, ptr %71, align 1, !tbaa !525, !range !52, !noundef !53
   %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %80
+  br i1 %73, label %74, label %77
 
 74:                                               ; preds = %70
-  %75 = and i64 %0, 64
-  %76 = icmp ne i64 %75, 0
-  %77 = and i64 %1, 64
-  %78 = icmp ne i64 %77, 0
-  %79 = xor i1 %76, %78
-  br i1 %79, label %91, label %80
+  %75 = xor i64 %1, %0
+  %76 = and i64 %75, 64
+  %.not31 = icmp eq i64 %76, 0
+  br i1 %.not31, label %77, label %85
 
-80:                                               ; preds = %74, %70
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %82 = load i8, ptr %81, align 1, !tbaa !526, !range !52, !noundef !53
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %90
+77:                                               ; preds = %74, %70
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %79 = load i8, ptr %78, align 1, !tbaa !526, !range !52, !noundef !53
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %81, label %84
 
-84:                                               ; preds = %80
-  %85 = and i64 %0, 128
-  %86 = icmp ne i64 %85, 0
-  %87 = and i64 %1, 128
-  %88 = icmp ne i64 %87, 0
-  %89 = xor i1 %86, %88
-  br i1 %89, label %91, label %90
+81:                                               ; preds = %77
+  %82 = xor i64 %1, %0
+  %83 = and i64 %82, 128
+  %.not32 = icmp eq i64 %83, 0
+  br i1 %.not32, label %84, label %85
 
-90:                                               ; preds = %84, %80
-  br label %91
+84:                                               ; preds = %81, %77
+  br label %85
 
-91:                                               ; preds = %55, %84, %74, %42, %39, %25, %15, %6, %90
-  %.026 = phi i1 [ false, %55 ], [ true, %90 ], [ false, %6 ], [ false, %15 ], [ false, %25 ], [ false, %39 ], [ false, %42 ], [ false, %74 ], [ false, %84 ]
+85:                                               ; preds = %55, %81, %74, %42, %39, %25, %15, %6, %84
+  %.026 = phi i1 [ false, %55 ], [ true, %84 ], [ false, %6 ], [ false, %15 ], [ false, %25 ], [ false, %39 ], [ false, %42 ], [ false, %74 ], [ false, %81 ]
   ret i1 %.026
 }
 

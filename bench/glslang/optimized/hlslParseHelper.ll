@@ -557,8 +557,6 @@ $_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_ = comdat any
 
 $_ZNK7glslang5TType14sameStructTypeERKS0_PiS3_ = comdat any
 
-$_ZNK7glslang5TType17sameReferenceTypeERKS0_ = comdat any
-
 $_ZNK7glslang17TSmallArrayVectoreqERKS0_ = comdat any
 
 $_ZNK7glslang15TTypeParameterseqERKS0_ = comdat any
@@ -608,8 +606,6 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_all
 $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_bESt10_Select1stISA_ESt4lessIS7_ENS5_ISA_EEE24_M_get_insert_unique_posERS9_ = comdat any
 
 $_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS1_S5_EEOS1_ = comdat any
-
-$_ZNK7glslang8TSamplerneERKS0_ = comdat any
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEENS5_IS7_EEE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_ = comdat any
 
@@ -76189,7 +76185,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 255
   %.not17 = icmp eq i32 %13, 14
-  br i1 %.not17, label %14, label %58
+  br i1 %.not17, label %14, label %21
 
 14:                                               ; preds = %10, %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -76197,100 +76193,71 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %17 = load i32, ptr %15, align 8
   %18 = load i32, ptr %16, align 8
   %19 = xor i32 %18, %17
-  %20 = and i32 %19, 262143
-  %or.cond19.i = icmp eq i32 %20, 0
-  br i1 %or.cond19.i, label %21, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
-
-21:                                               ; preds = %14
-  %22 = and i32 %17, 262144
-  %23 = icmp ne i32 %22, 0
-  %24 = and i32 %18, 262144
-  %25 = icmp ne i32 %24, 0
-  %26 = xor i1 %23, %25
-  br i1 %26, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %27
-
-27:                                               ; preds = %21
-  %28 = and i32 %17, 524288
-  %29 = icmp ne i32 %28, 0
-  %30 = and i32 %18, 524288
-  %31 = icmp ne i32 %30, 0
-  %32 = xor i1 %29, %31
-  br i1 %32, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %33
-
-33:                                               ; preds = %27
-  %34 = and i32 %17, 1048576
-  %35 = icmp ne i32 %34, 0
-  %36 = and i32 %18, 1048576
-  %37 = icmp ne i32 %36, 0
-  %38 = xor i1 %35, %37
-  br i1 %38, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %39
-
-39:                                               ; preds = %33
-  %40 = and i32 %17, 2097152
-  %41 = icmp ne i32 %40, 0
-  %42 = and i32 %18, 2097152
-  %43 = icmp ne i32 %42, 0
-  %44 = xor i1 %41, %43
-  br i1 %44, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %45
-
-45:                                               ; preds = %39
-  %46 = and i32 %17, 536870912
-  %47 = icmp ne i32 %46, 0
-  %48 = and i32 %18, 536870912
-  %49 = icmp ne i32 %48, 0
-  %50 = xor i1 %47, %49
-  br i1 %50, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %51
-
-51:                                               ; preds = %45
-  %52 = and i32 %17, 1073741824
-  %53 = icmp ne i32 %52, 0
-  %54 = and i32 %18, 1073741824
-  %55 = icmp eq i32 %54, 0
-  %.not.i = xor i1 %53, %55
-  %56 = and i32 %19, 532676608
-  %57 = icmp eq i32 %56, 0
-  %or.cond = and i1 %.not.i, %57
+  %20 = and i32 %19, 2147483647
+  %or.cond = icmp eq i32 %20, 0
   br i1 %or.cond, label %._crit_edge, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-._crit_edge:                                      ; preds = %51
+._crit_edge:                                      ; preds = %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %58
+  br label %21
 
-58:                                               ; preds = %._crit_edge, %10
-  %59 = phi i32 [ %.pre, %._crit_edge ], [ %12, %10 ]
-  %60 = xor i32 %59, %8
-  %61 = and i32 %60, 2096896
-  %or.cond25 = icmp eq i32 %61, 0
-  br i1 %or.cond25, label %62, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
+21:                                               ; preds = %._crit_edge, %10
+  %22 = phi i32 [ %.pre, %._crit_edge ], [ %12, %10 ]
+  %23 = xor i32 %22, %8
+  %24 = and i32 %23, 8388352
+  %or.cond29 = icmp eq i32 %24, 0
+  br i1 %or.cond29, label %25, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-62:                                               ; preds = %58
-  %63 = and i32 %8, 2097152
-  %64 = icmp ne i32 %63, 0
-  %65 = and i32 %59, 2097152
-  %66 = icmp ne i32 %65, 0
-  %67 = xor i1 %64, %66
-  br i1 %67, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %68
+25:                                               ; preds = %21
+  %26 = tail call noundef zeroext i1 @_ZNK7glslang5TType14sameStructTypeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %2, ptr noundef %3)
+  br i1 %26, label %27, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-68:                                               ; preds = %62
-  %69 = and i32 %8, 4194304
-  %70 = icmp ne i32 %69, 0
-  %71 = and i32 %59, 4194304
-  %72 = icmp ne i32 %71, 0
-  %73 = xor i1 %70, %72
-  br i1 %73, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %74
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(152) %0) #24
+  %32 = icmp eq i32 %31, 18
+  %33 = load ptr, ptr %1, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %37 = icmp eq i32 %36, 18
+  %38 = xor i1 %32, %37
+  br i1 %38, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %39
 
-74:                                               ; preds = %68
-  %75 = tail call noundef zeroext i1 @_ZNK7glslang5TType14sameStructTypeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %2, ptr noundef %3)
-  br i1 %75, label %76, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
+39:                                               ; preds = %27
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(152) %0) #24
+  %44 = icmp eq i32 %43, 18
+  br i1 %44, label %51, label %45
 
-76:                                               ; preds = %74
-  %77 = tail call noundef zeroext i1 @_ZNK7glslang5TType17sameReferenceTypeERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %1, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %50 = icmp eq i32 %49, 18
+  br i1 %50, label %51, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
+
+51:                                               ; preds = %45, %39
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %53, %55
+  br i1 %56, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %57
+
+57:                                               ; preds = %51
+  %58 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %53, ptr noundef nonnull align 8 dereferenceable(152) %55)
   br label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-_ZNK7glslang8TSamplereqERKS0_.exit.thread:        ; preds = %14, %21, %27, %33, %39, %45, %51, %76, %74, %68, %62, %58
-  %78 = phi i1 [ false, %74 ], [ false, %68 ], [ false, %62 ], [ false, %58 ], [ %77, %76 ], [ false, %51 ], [ false, %45 ], [ false, %39 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %14 ]
-  ret i1 %78
+_ZNK7glslang8TSamplereqERKS0_.exit.thread:        ; preds = %57, %51, %45, %27, %14, %25, %21
+  %59 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %14 ], [ %58, %57 ], [ false, %27 ], [ true, %45 ], [ true, %51 ]
+  ret i1 %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -76922,54 +76889,6 @@ _ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 _ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %231, %_ZNK7glslang17TSpirvInstructioneqERKS0_.exit.i.i, %._crit_edge.i, %149, %200, %190, %_ZNK7glslang5TType15sameElementTypeERKS0_PiS3_.exit, %_ZNK7glslang5TType13sameArraynessERKS0_.exit, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit, %202, %95, %275, %_ZNK7glslang5TType13sameSpirvTypeERKS0_.exit, %177, %.lr.ph.i.i.i.i.i.i.i, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.sink.split, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread130, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread126, %62, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit, %32, %37, %11, %26
   %.055 = phi i1 [ true, %26 ], [ true, %11 ], [ false, %37 ], [ false, %32 ], [ false, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit ], [ false, %62 ], [ false, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread126 ], [ false, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread130 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.sink.split ], [ false, %.lr.ph.i.i.i.i.i.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ false, %231 ], [ false, %_ZNK7glslang17TSpirvInstructioneqERKS0_.exit.i.i ], [ false, %_ZNK7glslang5TType13sameSpirvTypeERKS0_.exit ], [ false, %275 ], [ true, %95 ], [ false, %202 ], [ false, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit ], [ false, %_ZNK7glslang5TType13sameArraynessERKS0_.exit ], [ false, %_ZNK7glslang5TType15sameElementTypeERKS0_PiS3_.exit ], [ false, %190 ], [ false, %200 ], [ false, %149 ], [ false, %._crit_edge.i ], [ false, %177 ]
   ret i1 %.055
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType17sameReferenceTypeERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(152) %0) #24
-  %7 = icmp eq i32 %6, 18
-  %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %12 = icmp eq i32 %11, 18
-  %13 = xor i1 %7, %12
-  br i1 %13, label %34, label %14
-
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(152) %0) #24
-  %19 = icmp eq i32 %18, 18
-  br i1 %19, label %26, label %20
-
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %25 = icmp eq i32 %24, 18
-  br i1 %25, label %26, label %34
-
-26:                                               ; preds = %20, %14
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %28, %30
-  br i1 %31, label %34, label %32
-
-32:                                               ; preds = %26
-  %33 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %28, ptr noundef nonnull align 8 dereferenceable(152) %30)
-  br label %34
-
-34:                                               ; preds = %26, %20, %2, %32
-  %.0 = phi i1 [ %33, %32 ], [ false, %2 ], [ true, %20 ], [ true, %26 ]
-  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -82550,333 +82469,221 @@ declare noundef zeroext i1 @_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(152) %3) #0 align 2 {
-  %5 = alloca %"struct.glslang::TSampler", align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %6 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %3)
-  br i1 %6, label %7, label %9
+  %5 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %3)
+  br i1 %5, label %6, label %8
 
-7:                                                ; preds = %4
-  %8 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeneERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
+6:                                                ; preds = %4
+  %7 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeneERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
   br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-9:                                                ; preds = %4
-  %10 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br i1 %10, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %11
+8:                                                ; preds = %4
+  %9 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
+  br i1 %9, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %10
 
-11:                                               ; preds = %9
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 192
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  br i1 %15, label %21, label %16
+10:                                               ; preds = %8
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 192
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  br i1 %14, label %20, label %15
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 216
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  br i1 %20, label %21, label %59
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %1, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 216
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  br i1 %19, label %20, label %58
 
-21:                                               ; preds = %16, %11
-  %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
-  %30 = icmp eq i32 %25, %29
-  br i1 %30, label %31, label %40
+20:                                               ; preds = %15, %10
+  %21 = load ptr, ptr %1, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
+  %29 = icmp eq i32 %24, %28
+  br i1 %29, label %30, label %39
 
-31:                                               ; preds = %21
-  %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  %.not.i.i.i = icmp eq i32 %35, %39
-  br i1 %.not.i.i.i, label %40, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+30:                                               ; preds = %20
+  %31 = load ptr, ptr %1, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
+  %.not.i.i.i = icmp eq i32 %34, %38
+  br i1 %.not.i.i.i, label %39, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-40:                                               ; preds = %31, %21
-  %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  %49 = icmp eq i32 %44, %48
-  br i1 %49, label %50, label %59
+39:                                               ; preds = %30, %20
+  %40 = load ptr, ptr %1, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
+  %48 = icmp eq i32 %43, %47
+  br i1 %48, label %49, label %58
 
-50:                                               ; preds = %40
-  %51 = load ptr, ptr %1, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 96
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
-  %.not30.i.i.i = icmp eq i32 %54, %58
-  br i1 %.not30.i.i.i, label %59, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+49:                                               ; preds = %39
+  %50 = load ptr, ptr %1, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 96
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 96
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef i32 %56(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
+  %.not30.i.i.i = icmp eq i32 %53, %57
+  br i1 %.not30.i.i.i, label %58, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-59:                                               ; preds = %50, %40, %16
-  %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %64 = icmp eq i32 %63, 14
-  br i1 %64, label %65, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i
+58:                                               ; preds = %49, %39, %15
+  %59 = load ptr, ptr %1, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %63 = icmp eq i32 %62, 14
+  br i1 %63, label %64, label %_ZNK7glslang8TSamplereqERKS0_.exit35.thread.i.i.i
 
-65:                                               ; preds = %59
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  %70 = icmp eq i32 %69, 14
-  br i1 %70, label %71, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %2, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
+  %69 = icmp eq i32 %68, 14
+  br i1 %69, label %70, label %_ZNK7glslang8TSamplereqERKS0_.exit35.thread.i.i.i
 
-71:                                               ; preds = %65
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef i32 %74(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
-  %76 = icmp eq i32 %75, 14
-  br i1 %76, label %77, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 56
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
+  %75 = icmp eq i32 %74, 14
+  br i1 %75, label %76, label %_ZNK7glslang8TSamplereqERKS0_.exit35.thread.i.i.i
 
-77:                                               ; preds = %71
-  %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef nonnull align 4 dereferenceable(4) ptr %80(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  %82 = load i32, ptr %81, align 4
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 64
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef nonnull align 4 dereferenceable(4) ptr %85(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
-  %87 = load i32, ptr %86, align 4
-  %88 = load ptr, ptr %1, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 64
-  %90 = load ptr, ptr %89, align 8
-  %91 = tail call noundef nonnull align 4 dereferenceable(4) ptr %90(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %92 = load i32, ptr %91, align 4
-  %93 = and i32 %92, 29360128
-  %94 = and i32 %87, -29360129
-  %95 = or disjoint i32 %93, %94
-  %96 = and i32 %82, -29360129
-  %97 = or disjoint i32 %93, %96
-  store i32 %97, ptr %5, align 4
-  %98 = load ptr, ptr %1, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 64
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call noundef nonnull align 4 dereferenceable(4) ptr %100(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %102 = load i32, ptr %101, align 4
-  %103 = xor i32 %102, %95
-  %104 = and i32 %103, 262143
-  %or.cond19.i.i.i.i = icmp eq i32 %104, 0
-  br i1 %or.cond19.i.i.i.i, label %105, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i
+76:                                               ; preds = %70
+  %77 = load ptr, ptr %2, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call noundef nonnull align 4 dereferenceable(4) ptr %79(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
+  %81 = load i32, ptr %80, align 4
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
+  %84 = load ptr, ptr %83, align 8
+  %85 = tail call noundef nonnull align 4 dereferenceable(4) ptr %84(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
+  %86 = load i32, ptr %85, align 4
+  %87 = load ptr, ptr %1, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
+  %89 = load ptr, ptr %88, align 8
+  %90 = tail call noundef nonnull align 4 dereferenceable(4) ptr %89(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %91 = load i32, ptr %90, align 4
+  %92 = and i32 %91, 29360128
+  %93 = and i32 %86, 2118123519
+  %94 = or disjoint i32 %92, %93
+  %95 = and i32 %81, 2118123519
+  %96 = or disjoint i32 %92, %95
+  %97 = load ptr, ptr %1, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
+  %99 = load ptr, ptr %98, align 8
+  %100 = tail call noundef nonnull align 4 dereferenceable(4) ptr %99(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %101 = load i32, ptr %100, align 4
+  %.masked.i.i.i = and i32 %101, 2147483647
+  %or.cond.i.i.i = icmp eq i32 %94, %.masked.i.i.i
+  %102 = load ptr, ptr %1, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 64
+  %104 = load ptr, ptr %103, align 8
+  %105 = tail call noundef nonnull align 4 dereferenceable(4) ptr %104(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %106 = load i32, ptr %105, align 4
+  %.masked11.i.i.i = and i32 %106, 2147483647
+  br i1 %or.cond.i.i.i, label %107, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i
 
-105:                                              ; preds = %77
-  %106 = and i32 %102, 262144
-  %107 = icmp ne i32 %106, 0
-  %108 = and i32 %87, 262144
-  %109 = icmp ne i32 %108, 0
-  %110 = xor i1 %109, %107
-  br i1 %110, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i, label %111
-
-111:                                              ; preds = %105
-  %112 = and i32 %102, 524288
-  %113 = icmp ne i32 %112, 0
-  %114 = and i32 %87, 524288
-  %115 = icmp ne i32 %114, 0
-  %116 = xor i1 %115, %113
-  br i1 %116, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i, label %117
-
-117:                                              ; preds = %111
-  %118 = and i32 %102, 1048576
-  %119 = icmp ne i32 %118, 0
-  %120 = and i32 %87, 1048576
-  %121 = icmp ne i32 %120, 0
-  %122 = xor i1 %121, %119
-  br i1 %122, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i, label %123
-
-123:                                              ; preds = %117
-  %124 = and i32 %102, 2097152
-  %125 = icmp ne i32 %124, 0
-  %126 = and i32 %87, 2097152
-  %127 = icmp ne i32 %126, 0
-  %128 = xor i1 %127, %125
-  br i1 %128, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i, label %129
-
-129:                                              ; preds = %123
-  %130 = and i32 %102, 536870912
-  %131 = icmp ne i32 %130, 0
-  %132 = and i32 %87, 536870912
-  %133 = icmp ne i32 %132, 0
-  %134 = xor i1 %133, %131
-  br i1 %134, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i, label %135
-
-135:                                              ; preds = %129
-  %136 = and i32 %102, 1073741824
-  %137 = icmp ne i32 %136, 0
-  %138 = and i32 %87, 1073741824
-  %139 = icmp eq i32 %138, 0
-  %.not.i.i.i.i = xor i1 %139, %137
-  %140 = and i32 %103, 532676608
-  %141 = icmp eq i32 %140, 0
-  %or.cond.i.i.i = and i1 %.not.i.i.i.i, %141
-  br i1 %or.cond.i.i.i, label %142, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i
-
-142:                                              ; preds = %135
-  %143 = load ptr, ptr %1, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 64
-  %145 = load ptr, ptr %144, align 8
-  %146 = tail call noundef nonnull align 4 dereferenceable(4) ptr %145(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %147 = call noundef zeroext i1 @_ZNK7glslang8TSamplerneERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %146, ptr noundef nonnull align 4 dereferenceable(4) %5)
+107:                                              ; preds = %76
+  %108 = icmp ne i32 %.masked11.i.i.i, %96
   br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i:  ; preds = %135, %129, %123, %117, %111, %105, %77
-  %148 = load ptr, ptr %1, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 64
-  %150 = load ptr, ptr %149, align 8
-  %151 = tail call noundef nonnull align 4 dereferenceable(4) ptr %150(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %152 = load i32, ptr %151, align 4
-  %153 = xor i32 %152, %97
-  %154 = and i32 %153, 262143
-  %or.cond19.i.i.i = icmp eq i32 %154, 0
-  br i1 %or.cond19.i.i.i, label %155, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i
+_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i:  ; preds = %76
+  %or.cond10.i.i.i = icmp eq i32 %.masked11.i.i.i, %96
+  br i1 %or.cond10.i.i.i, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %_ZNK7glslang8TSamplereqERKS0_.exit35.thread.i.i.i
 
-155:                                              ; preds = %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i
-  %156 = and i32 %152, 262144
-  %157 = icmp ne i32 %156, 0
-  %158 = and i32 %82, 262144
-  %159 = icmp ne i32 %158, 0
-  %160 = xor i1 %159, %157
-  br i1 %160, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i, label %161
+_ZNK7glslang8TSamplereqERKS0_.exit35.thread.i.i.i: ; preds = %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i, %70, %64, %58
+  %109 = load ptr, ptr %3, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
+  %111 = load ptr, ptr %110, align 8
+  %112 = tail call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
+  %switch.tableidx = add i32 %112, -1
+  %113 = icmp ult i32 %switch.tableidx, 12
+  br i1 %113, label %switch.lookup, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i"
 
-161:                                              ; preds = %155
-  %162 = and i32 %152, 524288
-  %163 = icmp ne i32 %162, 0
-  %164 = and i32 %82, 524288
-  %165 = icmp ne i32 %164, 0
-  %166 = xor i1 %165, %163
-  br i1 %166, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i, label %167
-
-167:                                              ; preds = %161
-  %168 = and i32 %152, 1048576
-  %169 = icmp ne i32 %168, 0
-  %170 = and i32 %82, 1048576
-  %171 = icmp ne i32 %170, 0
-  %172 = xor i1 %171, %169
-  br i1 %172, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i, label %173
-
-173:                                              ; preds = %167
-  %174 = and i32 %152, 2097152
-  %175 = icmp ne i32 %174, 0
-  %176 = and i32 %82, 2097152
-  %177 = icmp ne i32 %176, 0
-  %178 = xor i1 %177, %175
-  br i1 %178, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i, label %179
-
-179:                                              ; preds = %173
-  %180 = and i32 %152, 536870912
-  %181 = icmp ne i32 %180, 0
-  %182 = and i32 %82, 536870912
-  %183 = icmp ne i32 %182, 0
-  %184 = xor i1 %183, %181
-  br i1 %184, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i, label %185
-
-185:                                              ; preds = %179
-  %186 = and i32 %152, 1073741824
-  %187 = icmp ne i32 %186, 0
-  %188 = and i32 %82, 1073741824
-  %189 = icmp eq i32 %188, 0
-  %.not.i4.i.i = xor i1 %189, %187
-  %190 = and i32 %153, 532676608
-  %191 = icmp eq i32 %190, 0
-  %or.cond.i.i = and i1 %.not.i4.i.i, %191
-  br i1 %or.cond.i.i, label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i
-
-_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i:    ; preds = %185, %179, %173, %167, %161, %155, %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i, %71, %65, %59
-  %192 = load ptr, ptr %3, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 56
-  %194 = load ptr, ptr %193, align 8
-  %195 = tail call noundef i32 %194(ptr noundef nonnull align 8 dereferenceable(152) %3) #24
-  %switch.tableidx = add i32 %195, -1
-  %196 = icmp ult i32 %switch.tableidx, 12
-  br i1 %196, label %switch.lookup, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i"
-
-switch.lookup:                                    ; preds = %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i
-  %197 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.101", i64 0, i64 %197
+switch.lookup:                                    ; preds = %_ZNK7glslang8TSamplereqERKS0_.exit35.thread.i.i.i
+  %114 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.101", i64 0, i64 %114
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i"
 
-"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i": ; preds = %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i, %switch.lookup
-  %.0.i.i.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i ]
-  %198 = load ptr, ptr %1, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 56
-  %200 = load ptr, ptr %199, align 8
-  %201 = tail call noundef i32 %200(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %switch.tableidx5 = add i32 %201, -1
-  %202 = icmp ult i32 %switch.tableidx5, 12
-  br i1 %202, label %switch.lookup4, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i"
+"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i": ; preds = %_ZNK7glslang8TSamplereqERKS0_.exit35.thread.i.i.i, %switch.lookup
+  %.0.i.i.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %_ZNK7glslang8TSamplereqERKS0_.exit35.thread.i.i.i ]
+  %115 = load ptr, ptr %1, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
+  %117 = load ptr, ptr %116, align 8
+  %118 = tail call noundef i32 %117(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %switch.tableidx5 = add i32 %118, -1
+  %119 = icmp ult i32 %switch.tableidx5, 12
+  br i1 %119, label %switch.lookup4, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i"
 
 switch.lookup4:                                   ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i"
-  %203 = zext nneg i32 %switch.tableidx5 to i64
-  %switch.gep6 = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.102", i64 0, i64 %203
+  %120 = zext nneg i32 %switch.tableidx5 to i64
+  %switch.gep6 = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.102", i64 0, i64 %120
   %switch.load7 = load i32, ptr %switch.gep6, align 4
-  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i"
-
-"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i", %switch.lookup4
-  %.0.i34.neg.i.i.i = phi i32 [ %switch.load7, %switch.lookup4 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i" ]
-  %204 = add nsw i32 %.0.i34.neg.i.i.i, %.0.i.i.i.i
-  %205 = tail call i32 @llvm.abs.i32(i32 %204, i1 true)
-  %206 = load ptr, ptr %2, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 56
-  %208 = load ptr, ptr %207, align 8
-  %209 = tail call noundef i32 %208(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
-  %switch.tableidx9 = add i32 %209, -1
-  %210 = icmp ult i32 %switch.tableidx9, 12
-  br i1 %210, label %switch.lookup8, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i"
-
-switch.lookup8:                                   ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i"
-  %211 = zext nneg i32 %switch.tableidx9 to i64
-  %switch.gep10 = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.101", i64 0, i64 %211
-  %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i"
 
-"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i", %switch.lookup8
-  %.0.i36.i.i.i = phi i32 [ %switch.load11, %switch.lookup8 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit35.i.i.i" ]
-  %212 = load ptr, ptr %1, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 56
-  %214 = load ptr, ptr %213, align 8
-  %215 = tail call noundef i32 %214(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %switch.tableidx13 = add i32 %215, -1
-  %216 = icmp ult i32 %switch.tableidx13, 12
-  br i1 %216, label %switch.lookup12, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i"
+"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i", %switch.lookup4
+  %.0.i36.neg.i.i.i = phi i32 [ %switch.load7, %switch.lookup4 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit.i.i.i" ]
+  %121 = add nsw i32 %.0.i36.neg.i.i.i, %.0.i.i.i.i
+  %122 = tail call i32 @llvm.abs.i32(i32 %121, i1 true)
+  %123 = load ptr, ptr %2, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call noundef i32 %125(ptr noundef nonnull align 8 dereferenceable(152) %2) #24
+  %switch.tableidx9 = add i32 %126, -1
+  %127 = icmp ult i32 %switch.tableidx9, 12
+  br i1 %127, label %switch.lookup8, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i"
 
-switch.lookup12:                                  ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i"
-  %217 = zext nneg i32 %switch.tableidx13 to i64
-  %switch.gep14 = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.102", i64 0, i64 %217
-  %switch.load15 = load i32, ptr %switch.gep14, align 4
+switch.lookup8:                                   ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i"
+  %128 = zext nneg i32 %switch.tableidx9 to i64
+  %switch.gep10 = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.101", i64 0, i64 %128
+  %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i"
 
-"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i", %switch.lookup12
-  %.0.i38.neg.i.i.i = phi i32 [ %switch.load15, %switch.lookup12 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i" ]
-  %218 = add nsw i32 %.0.i38.neg.i.i.i, %.0.i36.i.i.i
-  %219 = tail call i32 @llvm.abs.i32(i32 %218, i1 true)
-  %220 = icmp samesign ult i32 %205, %219
+"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i", %switch.lookup8
+  %.0.i38.i.i.i = phi i32 [ %switch.load11, %switch.lookup8 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i" ]
+  %129 = load ptr, ptr %1, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 56
+  %131 = load ptr, ptr %130, align 8
+  %132 = tail call noundef i32 %131(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %switch.tableidx13 = add i32 %132, -1
+  %133 = icmp ult i32 %switch.tableidx13, 12
+  br i1 %133, label %switch.lookup12, label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit41.i.i.i"
+
+switch.lookup12:                                  ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i"
+  %134 = zext nneg i32 %switch.tableidx13 to i64
+  %switch.gep14 = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_.102", i64 0, i64 %134
+  %switch.load15 = load i32, ptr %switch.gep14, align 4
+  br label %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit41.i.i.i"
+
+"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit41.i.i.i": ; preds = %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i", %switch.lookup12
+  %.0.i40.neg.i.i.i = phi i32 [ %switch.load15, %switch.lookup12 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i" ]
+  %135 = add nsw i32 %.0.i40.neg.i.i.i, %.0.i38.i.i.i
+  %136 = tail call i32 @llvm.abs.i32(i32 %135, i1 true)
+  %137 = icmp samesign ult i32 %122, %136
   br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %7, %9, %31, %50, %142, %185, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i"
-  %.0.i.i.i = phi i1 [ %8, %7 ], [ %147, %142 ], [ %220, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i" ], [ false, %9 ], [ true, %31 ], [ false, %50 ], [ false, %185 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %6, %8, %30, %49, %107, %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit41.i.i.i"
+  %.0.i.i.i = phi i1 [ %7, %6 ], [ %108, %107 ], [ %137, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit41.i.i.i" ], [ false, %8 ], [ true, %30 ], [ false, %49 ], [ false, %_ZNK7glslang8TSamplereqERKS0_.exit.thread.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -82897,76 +82704,6 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
 
 "_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN7glslang16HlslParseContext12findFunctionERKNS1_10TSourceLocERNS1_9TFunctionERbRiRPNS1_12TIntermTypedEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK7glslang8TSamplerneERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load i32, ptr %0, align 4
-  %4 = load i32, ptr %1, align 4
-  %5 = xor i32 %4, %3
-  %6 = and i32 %5, 262143
-  %or.cond19.i = icmp eq i32 %6, 0
-  br i1 %or.cond19.i, label %7, label %_ZNK7glslang8TSamplereqERKS0_.exit
-
-7:                                                ; preds = %2
-  %8 = and i32 %3, 262144
-  %9 = icmp ne i32 %8, 0
-  %10 = and i32 %4, 262144
-  %11 = icmp ne i32 %10, 0
-  %12 = xor i1 %9, %11
-  br i1 %12, label %_ZNK7glslang8TSamplereqERKS0_.exit, label %13
-
-13:                                               ; preds = %7
-  %14 = and i32 %3, 524288
-  %15 = icmp ne i32 %14, 0
-  %16 = and i32 %4, 524288
-  %17 = icmp ne i32 %16, 0
-  %18 = xor i1 %15, %17
-  br i1 %18, label %_ZNK7glslang8TSamplereqERKS0_.exit, label %19
-
-19:                                               ; preds = %13
-  %20 = and i32 %3, 1048576
-  %21 = icmp ne i32 %20, 0
-  %22 = and i32 %4, 1048576
-  %23 = icmp ne i32 %22, 0
-  %24 = xor i1 %21, %23
-  br i1 %24, label %_ZNK7glslang8TSamplereqERKS0_.exit, label %25
-
-25:                                               ; preds = %19
-  %26 = and i32 %3, 2097152
-  %27 = icmp ne i32 %26, 0
-  %28 = and i32 %4, 2097152
-  %29 = icmp ne i32 %28, 0
-  %30 = xor i1 %27, %29
-  br i1 %30, label %_ZNK7glslang8TSamplereqERKS0_.exit, label %31
-
-31:                                               ; preds = %25
-  %32 = and i32 %3, 536870912
-  %33 = icmp ne i32 %32, 0
-  %34 = and i32 %4, 536870912
-  %35 = icmp ne i32 %34, 0
-  %36 = xor i1 %33, %35
-  br i1 %36, label %_ZNK7glslang8TSamplereqERKS0_.exit, label %37
-
-37:                                               ; preds = %31
-  %38 = and i32 %3, 1073741824
-  %39 = icmp ne i32 %38, 0
-  %40 = and i32 %4, 1073741824
-  %41 = icmp eq i32 %40, 0
-  %.not.i = xor i1 %39, %41
-  %42 = and i32 %5, 29360128
-  %43 = icmp eq i32 %42, 0
-  %or.cond.i = and i1 %.not.i, %43
-  br i1 %or.cond.i, label %44, label %_ZNK7glslang8TSamplereqERKS0_.exit
-
-44:                                               ; preds = %37
-  %45 = and i32 %5, 503316480
-  %46 = icmp ne i32 %45, 0
-  br label %_ZNK7glslang8TSamplereqERKS0_.exit
-
-_ZNK7glslang8TSamplereqERKS0_.exit:               ; preds = %2, %7, %13, %19, %25, %31, %37, %44
-  %47 = phi i1 [ true, %37 ], [ true, %31 ], [ true, %25 ], [ true, %19 ], [ true, %13 ], [ true, %7 ], [ true, %2 ], [ %46, %44 ]
-  ret i1 %47
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
