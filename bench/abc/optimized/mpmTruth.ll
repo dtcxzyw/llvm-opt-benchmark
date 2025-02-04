@@ -110,12 +110,12 @@ define range(i32 0, 2) i32 @Mpm_CutComputeTruth(ptr noundef %0, ptr noundef capt
   %84 = icmp samesign ugt i64 %indvars.iv.next.i.i, %77
   br i1 %84, label %85, label %87
 
-85:                                               ; preds = %83
+86:                                               ; preds = %83
   %86 = trunc nsw i64 %indvars.iv.next.i.i to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %11, i32 noundef %16, i32 noundef %.017.i.i, i32 noundef %86)
   br label %87
 
-87:                                               ; preds = %85, %83
+87:                                               ; preds = %86, %83
   %88 = add nsw i32 %.017.i.i, -1
   br label %89
 
@@ -156,12 +156,12 @@ Mpm_TruthStretch.exit.i:                          ; preds = %89, %50
   %109 = icmp samesign ugt i64 %indvars.iv.next.i53.i, %102
   br i1 %109, label %110, label %112
 
-110:                                              ; preds = %108
+111:                                              ; preds = %108
   %111 = trunc nsw i64 %indvars.iv.next.i53.i to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %12, i32 noundef %16, i32 noundef %.017.i52.i, i32 noundef %111)
   br label %112
 
-112:                                              ; preds = %110, %108
+112:                                              ; preds = %111, %108
   %113 = add nsw i32 %.017.i52.i, -1
   br label %114
 
@@ -227,12 +227,12 @@ Mpm_TruthStretch.exit55.i:                        ; preds = %114, %Mpm_TruthStre
   %154 = icmp samesign ugt i64 %indvars.iv.next.i59.i, %147
   br i1 %154, label %155, label %157
 
-155:                                              ; preds = %153
+156:                                              ; preds = %153
   %156 = trunc nsw i64 %indvars.iv.next.i59.i to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %13, i32 noundef %16, i32 noundef %.017.i58.i, i32 noundef %156)
   br label %157
 
-157:                                              ; preds = %155, %153
+157:                                              ; preds = %156, %153
   %158 = add nsw i32 %.017.i58.i, -1
   br label %159
 
@@ -580,12 +580,12 @@ Abc_TtCopy.exit86.i:                              ; preds = %.lr.ph.i75.i, %.lr.
   %318 = icmp samesign ugt i64 %indvars.iv.next.i89.i, %311
   br i1 %318, label %319, label %321
 
-319:                                              ; preds = %317
+320:                                              ; preds = %317
   %320 = trunc nsw i64 %indvars.iv.next.i89.i to i32
   tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %270, i32 noundef %16, i32 noundef %.017.i.i36, i32 noundef %320)
   br label %321
 
-321:                                              ; preds = %319, %317
+321:                                              ; preds = %320, %317
   %322 = add nsw i32 %.017.i.i36, -1
   br label %323
 
@@ -635,12 +635,12 @@ Mpm_TruthStretch.exit.i21:                        ; preds = %Mpm_TruthStretch.ex
   %347 = icmp samesign ugt i64 %indvars.iv.next.i93.i, %340
   br i1 %347, label %348, label %350
 
-348:                                              ; preds = %346
+349:                                              ; preds = %346
   %349 = trunc nsw i64 %indvars.iv.next.i93.i to i32
   tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %285, i32 noundef %328, i32 noundef %.017.i92.i, i32 noundef %349)
   br label %350
 
-350:                                              ; preds = %348, %346
+350:                                              ; preds = %349, %346
   %351 = add nsw i32 %.017.i92.i, -1
   br label %352
 
@@ -755,12 +755,12 @@ Abc_TtCopy.exit111.i:                             ; preds = %.lr.ph.i100.i, %.lr
   %410 = icmp samesign ugt i64 %indvars.iv.next.i115.i, %403
   br i1 %410, label %411, label %413
 
-411:                                              ; preds = %409
+412:                                              ; preds = %409
   %412 = trunc nsw i64 %indvars.iv.next.i115.i to i32
   tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %376, i32 noundef %390, i32 noundef %.017.i114.i, i32 noundef %412)
   br label %413
 
-413:                                              ; preds = %411, %409
+413:                                              ; preds = %412, %409
   %414 = add nsw i32 %.017.i114.i, -1
   br label %415
 
