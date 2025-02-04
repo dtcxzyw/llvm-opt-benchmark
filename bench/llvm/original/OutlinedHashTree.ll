@@ -1,0 +1,10294 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
+%"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
+%"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
+%"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
+%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
+%"struct.llvm::SmallVectorStorage" = type { [48 x i8] }
+%class.anon = type { ptr, ptr, ptr }
+%"class.llvm::SmallVector.5" = type { %"class.llvm::SmallVectorImpl.6", %"struct.llvm::SmallVectorStorage.9" }
+%"class.llvm::SmallVectorImpl.6" = type { %"class.llvm::SmallVectorTemplateBase.7" }
+%"class.llvm::SmallVectorTemplateBase.7" = type { %"class.llvm::SmallVectorTemplateCommon.8" }
+%"class.llvm::SmallVectorTemplateCommon.8" = type { %"class.llvm::SmallVectorBase" }
+%"struct.llvm::SmallVectorStorage.9" = type { [48 x i8] }
+%"struct.std::__detail::_Node_const_iterator" = type { %"struct.std::__detail::_Node_iterator_base" }
+%"struct.std::__detail::_Node_iterator_base" = type { ptr }
+%"struct.llvm::HashNode" = type { i64, %"class.std::optional", %"class.std::unordered_map" }
+%"class.std::optional" = type { %"struct.std::_Optional_base" }
+%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
+%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [3 x i8] }
+%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8 }>
+%"union.std::_Optional_payload_base<unsigned int>::_Storage" = type { i32 }
+%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
+%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"struct.std::__detail::_Hash_node_base" = type { ptr }
+%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
+%"struct.std::pair.12" = type { i64, ptr }
+%"struct.std::pair" = type { i64, %"class.std::unique_ptr" }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.11" }
+%"struct.std::_Head_base.11" = type { ptr }
+%"class.llvm::OutlinedHashTree" = type { %"struct.llvm::HashNode" }
+%"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
+%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
+%"union.std::_Nocopy_types" = type { { i64, i64 } }
+%class.anon.14 = type <{ ptr, i8, [7 x i8] }>
+%"class.std::function.0" = type { %"class.std::_Function_base", ptr }
+%"class.llvm::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
+%class.anon.15 = type { ptr, ptr }
+%class.anon.16 = type { ptr }
+%"struct.std::__detail::_Node_iterator" = type { %"struct.std::__detail::_Node_iterator_base" }
+%"struct.std::pair.24" = type <{ %"struct.std::__detail::_Node_iterator", i8, [7 x i8] }>
+%"class.llvm::SmallVector.27" = type { %"class.llvm::SmallVectorImpl.28", %"struct.llvm::SmallVectorStorage.31" }
+%"class.llvm::SmallVectorImpl.28" = type { %"class.llvm::SmallVectorTemplateBase.29" }
+%"class.llvm::SmallVectorTemplateBase.29" = type { %"class.llvm::SmallVectorTemplateCommon.30" }
+%"class.llvm::SmallVectorTemplateCommon.30" = type { %"class.llvm::SmallVectorBase" }
+%"struct.llvm::SmallVectorStorage.31" = type { [48 x i8] }
+%"struct.std::pair.32" = type { ptr, ptr }
+%"struct.std::pair.17" = type <{ %"class.llvm::SmallVector.19", i32, [4 x i8] }>
+%"class.llvm::SmallVector.19" = type { %"class.llvm::SmallVectorImpl.20", %"struct.llvm::SmallVectorStorage.23" }
+%"class.llvm::SmallVectorImpl.20" = type { %"class.llvm::SmallVectorTemplateBase.21" }
+%"class.llvm::SmallVectorTemplateBase.21" = type { %"class.llvm::SmallVectorTemplateCommon.22" }
+%"class.llvm::SmallVectorTemplateCommon.22" = type { %"class.llvm::SmallVectorBase" }
+%"struct.llvm::SmallVectorStorage.23" = type { [48 x i8] }
+%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8, [3 x i8] }>
+%"struct.std::__detail::_Hash_node_value_base" = type { %"struct.__gnu_cxx::__aligned_buffer" }
+%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<16, 8>::type" }
+%"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
+%"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
+%"struct.__gnu_cxx::__ops::_Iter_less_val" = type { i8 }
+%"struct.__gnu_cxx::__ops::_Val_less_iter" = type { i8 }
+%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.34" }
+%"struct.std::pair.34" = type { ptr, i64 }
+%"struct.std::__detail::_Select1st" = type { i8 }
+%"struct.std::__detail::_Mod_range_hashing" = type { i8 }
+%"class.std::allocator.36" = type { i8 }
+%"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
+%"struct.std::pair.39" = type { i8, i64 }
+
+$_ZN4llvm11SmallVectorIPKNS_8HashNodeELj6EEC2Ev = comdat any
+
+$_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEE12emplace_backIJS3_EEERS3_DpOT_ = comdat any
+
+$_ZNK4llvm16OutlinedHashTree7getRootEv = comdat any
+
+$_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEE12pop_back_valEv = comdat any
+
+$_ZNKSt8functionIFvPKN4llvm8HashNodeEEEcvbEv = comdat any
+
+$_ZNKSt8functionIFvPKN4llvm8HashNodeEEEclES3_ = comdat any
+
+$_ZN4llvm11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEC2Ev = comdat any
+
+$_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE5beginEv = comdat any
+
+$_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv = comdat any
+
+$_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_ = comdat any
+
+$_ZNKSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEdeEv = comdat any
+
+$_ZSt3getILm0EKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKSB_ = comdat any
+
+$_ZSt3getILm1EKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKSB_ = comdat any
+
+$_ZN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEE12emplace_backIJRKmPS2_EEERS5_DpOT_ = comdat any
+
+$_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv = comdat any
+
+$_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv = comdat any
+
+$_ZN4llvm4sortIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEvOT_ = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE5beginEv = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE3endEv = comdat any
+
+$_ZN4llvm11SmallVectorISt4pairImPKNS_8HashNodeEELj3EED2Ev = comdat any
+
+$_ZN4llvm11SmallVectorIPKNS_8HashNodeELj6EED2Ev = comdat any
+
+$_ZNSt8functionIFvPKN4llvm8HashNodeES3_EEC2EDn = comdat any
+
+$_ZNSt14_Function_baseD2Ev = comdat any
+
+$_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEC2Ej = comdat any
+
+$_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEED2Ev = comdat any
+
+$_ZSt3getILm0EN4llvm11SmallVectorImLj6EEEjERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKS7_ = comdat any
+
+$_ZSt3getILm1EN4llvm11SmallVectorImLj6EEEjERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKS7_ = comdat any
+
+$_ZN4llvm16OutlinedHashTree7getRootEv = comdat any
+
+$_ZNK4llvm25SmallVectorTemplateCommonImvE5beginEv = comdat any
+
+$_ZNK4llvm25SmallVectorTemplateCommonImvE3endEv = comdat any
+
+$_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_ = comdat any
+
+$_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_ = comdat any
+
+$_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv = comdat any
+
+$_ZSt11make_uniqueIN4llvm8HashNodeEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
+
+$_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE7emplaceIJRmS5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb0EEEbEDpOT_ = comdat any
+
+$_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev = comdat any
+
+$_ZNKSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEptEv = comdat any
+
+$_ZNKRSt8optionalIjE8value_orIiEEjOT_ = comdat any
+
+$_ZNSt8optionalIjEC2IjTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_IS4_ISt10in_place_tSB_EESt16is_constructibleIjJS7_EESt14is_convertibleIS7_jEEEbE4typeELb1EEEOS7_ = comdat any
+
+$_ZN4llvm11SmallVectorISt4pairIPNS_8HashNodeEPKS2_ELj3EEC2Ev = comdat any
+
+$_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12emplace_backIJRS3_RS5_EEERS6_DpOT_ = comdat any
+
+$_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12pop_back_valEv = comdat any
+
+$_ZSt3getILm0EPN4llvm8HashNodeEPKS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_ = comdat any
+
+$_ZSt3getILm1EPN4llvm8HashNodeEPKS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_ = comdat any
+
+$_ZNKSt8optionalIjEcvbEv = comdat any
+
+$_ZNKRSt8optionalIjEdeEv = comdat any
+
+$_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE7emplaceIJRSB_S5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb0EEEbEDpOT_ = comdat any
+
+$_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12emplace_backIJRS3_S3_EEERS6_DpOT_ = comdat any
+
+$_ZN4llvm11SmallVectorISt4pairIPNS_8HashNodeEPKS2_ELj3EED2Ev = comdat any
+
+$_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_ = comdat any
+
+$_ZNSt8optionalIjEC2IiTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_IS4_ISt10in_place_tSB_EESt16is_constructibleIjJS7_EESt14is_convertibleIS7_jEEEbE4typeELb1EEEOS7_ = comdat any
+
+$_ZNKSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEptEv = comdat any
+
+$_ZNSt10__pair_getILm0EE11__const_getIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEERKT_RKSt4pairIS9_T0_E = comdat any
+
+$_ZNSt10__pair_getILm1EE11__const_getIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEERKT0_RKSt4pairIT_S9_E = comdat any
+
+$_ZNKSt8functionIFvPKN4llvm8HashNodeES3_EEcvbEv = comdat any
+
+$_ZNKSt8functionIFvPKN4llvm8HashNodeES3_EEclES3_S3_ = comdat any
+
+$_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEE12emplace_backIJRS3_EEES6_DpOT_ = comdat any
+
+$_ZNKSt14_Function_base8_M_emptyEv = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE18growAndEmplaceBackIJRS3_EEES6_DpOT_ = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE3endEv = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE4backEv = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE9push_backES3_ = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE28reserveForParamAndGetAddressERS3_m = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS3_Lb1EEEEEPKS3_PT_RS8_m = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE4growEm = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE5beginEv = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE8grow_podEmm = comdat any
+
+$_ZNK4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE10getFirstElEv = comdat any
+
+$_ZNSt10__pair_getILm0EE11__const_getIN4llvm11SmallVectorImLj6EEEjEERKT_RKSt4pairIS5_T0_E = comdat any
+
+$_ZNSt10__pair_getILm1EE11__const_getIN4llvm11SmallVectorImLj6EEEjEERKT0_RKSt4pairIT_S5_E = comdat any
+
+$_ZNKSt19_Optional_base_implIjSt14_Optional_baseIjLb1ELb1EEE13_M_is_engagedEv = comdat any
+
+$_ZNKSt19_Optional_base_implIjSt14_Optional_baseIjLb1ELb1EEE6_M_getEv = comdat any
+
+$_ZNKSt22_Optional_payload_baseIjE6_M_getEv = comdat any
+
+$_ZNSt14_Optional_baseIjLb1ELb1EEC2IJjETnNSt9enable_ifIX18is_constructible_vIjDpT_EEbE4typeELb0EEESt10in_place_tDpOS3_ = comdat any
+
+$_ZNSt17_Optional_payloadIjLb1ELb1ELb1EECI2St22_Optional_payload_baseIjEIJjEEESt10in_place_tDpOT_ = comdat any
+
+$_ZNSt22_Optional_payload_baseIjEC2IJjEEESt10in_place_tDpOT_ = comdat any
+
+$_ZNSt22_Optional_payload_baseIjE8_StorageIjLb1EEC2IJjEEESt10in_place_tDpOT_ = comdat any
+
+$_ZNSt10__pair_getILm0EE10__move_getIPN4llvm8HashNodeEPKS3_EEOT_OSt4pairIS7_T0_E = comdat any
+
+$_ZNSt10__pair_getILm1EE10__move_getIPN4llvm8HashNodeEPKS3_EEOT0_OSt4pairIT_S7_E = comdat any
+
+$_ZNSt14_Optional_baseIjLb1ELb1EEC2IJiETnNSt9enable_ifIX18is_constructible_vIjDpT_EEbE4typeELb0EEESt10in_place_tDpOS3_ = comdat any
+
+$_ZNSt17_Optional_payloadIjLb1ELb1ELb1EECI2St22_Optional_payload_baseIjEIJiEEESt10in_place_tDpOT_ = comdat any
+
+$_ZNSt22_Optional_payload_baseIjEC2IJiEEESt10in_place_tDpOT_ = comdat any
+
+$_ZNSt22_Optional_payload_baseIjE8_StorageIjLb1EEC2IJiEEESt10in_place_tDpOT_ = comdat any
+
+$_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEEC2Ej = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EEC2Em = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvEC2Em = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE13destroy_rangeEPS3_S5_ = comdat any
+
+$_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEED2Ev = comdat any
+
+$_ZNK4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE7isSmallEv = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE18growAndEmplaceBackIJS3_EEERS3_DpOT_ = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE8pop_backEv = comdat any
+
+$_ZN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEEC2Ej = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EEC2Em = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvEC2Em = comdat any
+
+$_ZNK4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE10getFirstElEv = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE13destroy_rangeEPS5_S7_ = comdat any
+
+$_ZN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEED2Ev = comdat any
+
+$_ZNK4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE7isSmallEv = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv = comdat any
+
+$_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE = comdat any
+
+$_ZNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv = comdat any
+
+$_ZNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_incrEv = comdat any
+
+$_ZNKSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_nextEv = comdat any
+
+$_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE4_M_vEv = comdat any
+
+$_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE6_M_ptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE7_M_addrEv = comdat any
+
+$_ZNKSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE6_M_ptrEv = comdat any
+
+$_ZSt3getILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_ = comdat any
+
+$_ZSt12__get_helperILm0EPN4llvm8HashNodeEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEE7_M_headERKS5_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN4llvm8HashNodeELb0EE7_M_headERKS3_ = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE18growAndEmplaceBackIJRKmPS2_EEERS5_DpOT_ = comdat any
+
+$_ZNSt4pairImPKN4llvm8HashNodeEEC2IRKmPS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_ = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE4backEv = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE9push_backES5_ = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE28reserveForParamAndGetAddressERS5_m = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS5_Lb1EEEEEPKS5_PT_RSA_m = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE4growEm = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE8grow_podEmm = comdat any
+
+$_ZN4llvm4sortIPSt4pairImPKNS_8HashNodeEEEEvT_S7_ = comdat any
+
+$_ZN4llvm9adl_beginIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS9_ = comdat any
+
+$_ZN4llvm7adl_endIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS9_ = comdat any
+
+$_ZSt4sortIPSt4pairImPKN4llvm8HashNodeEEEvT_S7_ = comdat any
+
+$_ZSt6__sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_ = comdat any
+
+$_ZN9__gnu_cxx5__ops16__iter_less_iterEv = comdat any
+
+$_ZSt16__introsort_loopIPSt4pairImPKN4llvm8HashNodeEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_T1_ = comdat any
+
+$_ZSt4__lgl = comdat any
+
+$_ZSt22__final_insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_ = comdat any
+
+$_ZSt14__partial_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_ = comdat any
+
+$_ZSt27__unguarded_partition_pivotIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_T0_ = comdat any
+
+$_ZSt13__heap_selectIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_ = comdat any
+
+$_ZSt11__sort_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_ = comdat any
+
+$_ZSt11__make_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_ = comdat any
+
+$_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_ = comdat any
+
+$_ZSt10__pop_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_RT0_ = comdat any
+
+$_ZSt13__adjust_heapIPSt4pairImPKN4llvm8HashNodeEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_ = comdat any
+
+$_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_ = comdat any
+
+$_ZN9__gnu_cxx5__ops14_Iter_less_valC2ENS0_15_Iter_less_iterE = comdat any
+
+$_ZSt11__push_heapIPSt4pairImPKN4llvm8HashNodeEElS5_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SB_T1_RT2_ = comdat any
+
+$_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImPKN4llvm8HashNodeEES8_EEbT_RT0_ = comdat any
+
+$_ZStltImPKN4llvm8HashNodeEEbRKSt4pairIT_T0_ES9_ = comdat any
+
+$_ZSt22__move_median_to_firstIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_SA_T0_ = comdat any
+
+$_ZSt21__unguarded_partitionIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_ = comdat any
+
+$_ZSt9iter_swapIPSt4pairImPKN4llvm8HashNodeEES6_EvT_T0_ = comdat any
+
+$_ZSt4swapImPKN4llvm8HashNodeEENSt9enable_ifIXsr6__and_ISt14__is_swappableIT_ES5_IT0_EEE5valueEvE4typeERSt4pairIS6_S8_ESE_ = comdat any
+
+$_ZNSt4pairImPKN4llvm8HashNodeEE4swapERS4_ = comdat any
+
+$_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_ = comdat any
+
+$_ZSt4swapIPKN4llvm8HashNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_ = comdat any
+
+$_ZSt16__insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_ = comdat any
+
+$_ZSt26__unguarded_insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_ = comdat any
+
+$_ZSt13move_backwardIPSt4pairImPKN4llvm8HashNodeEES6_ET0_T_S8_S7_ = comdat any
+
+$_ZSt25__unguarded_linear_insertIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_ = comdat any
+
+$_ZN9__gnu_cxx5__ops15__val_comp_iterENS0_15_Iter_less_iterE = comdat any
+
+$_ZSt22__copy_move_backward_aILb1EPSt4pairImPKN4llvm8HashNodeEES6_ET1_T0_S8_S7_ = comdat any
+
+$_ZSt12__miter_baseIPSt4pairImPKN4llvm8HashNodeEEET_S7_ = comdat any
+
+$_ZSt12__niter_wrapIPSt4pairImPKN4llvm8HashNodeEEET_RKS7_S7_ = comdat any
+
+$_ZSt23__copy_move_backward_a1ILb1EPSt4pairImPKN4llvm8HashNodeEES6_ET1_T0_S8_S7_ = comdat any
+
+$_ZSt12__niter_baseIPSt4pairImPKN4llvm8HashNodeEEET_S7_ = comdat any
+
+$_ZSt23__copy_move_backward_a2ILb1EPSt4pairImPKN4llvm8HashNodeEES6_ET1_T0_S8_S7_ = comdat any
+
+$_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPSt4pairImPKN4llvm8HashNodeEES9_EET0_T_SB_SA_ = comdat any
+
+$_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairImPKN4llvm8HashNodeEEPS8_EEbRT_T0_ = comdat any
+
+$_ZN4llvm10adl_detail10begin_implIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSA_ = comdat any
+
+$_ZSt5beginIN4llvm11SmallVectorISt4pairImPKNS0_8HashNodeEELj3EEEEDTcldtfp_5beginEERT_ = comdat any
+
+$_ZN4llvm10adl_detail8end_implIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSA_ = comdat any
+
+$_ZSt3endIN4llvm11SmallVectorISt4pairImPKNS0_8HashNodeEELj3EEEEDTcldtfp_3endEERT_ = comdat any
+
+$_ZNSt14_Function_baseC2Ev = comdat any
+
+$_ZNSt9_Any_data9_M_accessEv = comdat any
+
+$_ZNKSt9_Any_data9_M_accessEv = comdat any
+
+$_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v = comdat any
+
+$_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE4initEj = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E31getMinBucketToReserveForEntriesEj = comdat any
+
+$_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE15allocateBucketsEj = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E9initEmptyEv = comdat any
+
+$_ZN4llvm12NextPowerOf2Em = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13setNumEntriesEj = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16setNumTombstonesEj = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E11getEmptyKeyEv = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E10getBucketsEv = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getBucketsEndEv = comdat any
+
+$_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv = comdat any
+
+$_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE13setNumEntriesEj = comdat any
+
+$_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE16setNumTombstonesEj = comdat any
+
+$_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE11getEmptyKeyEv = comdat any
+
+$_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE10getBucketsEv = comdat any
+
+$_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumBucketsEv = comdat any
+
+$_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE13getNumBucketsEv = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E10destroyAllEv = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15getTombstoneKeyEv = comdat any
+
+$_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_ = comdat any
+
+$_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE9getSecondEv = comdat any
+
+$_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE15getTombstoneKeyEv = comdat any
+
+$_ZSt3maxImERKT_S2_S2_ = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_ = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_ = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_ = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E12getHashValueERKS4_ = comdat any
+
+$_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE12getHashValueES3_ = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKT_SD_ = comdat any
+
+$_ZN4llvm14DebugEpochBase14incrementEpochEv = comdat any
+
+$_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumEntriesEv = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E4growEj = comdat any
+
+$_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16getNumTombstonesEv = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E19incrementNumEntriesEv = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E22decrementNumTombstonesEv = comdat any
+
+$_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE13getNumEntriesEv = comdat any
+
+$_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE4growEj = comdat any
+
+$_ZSt3maxIjERKT_S2_S2_ = comdat any
+
+$_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E18moveFromOldBucketsEPS9_SC_ = comdat any
+
+$_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE16getNumTombstonesEv = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_ = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv = comdat any
+
+$_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS9_Lb0EEE = comdat any
+
+$_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_ = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m = comdat any
+
+$_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE = comdat any
+
+$_ZNSt8__detail22_Hashtable_hash_traitsISt4hashImEE22__small_size_thresholdEv = comdat any
+
+$_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE5_M_eqEv = comdat any
+
+$_ZNKSt8equal_toImEclERKmS2_ = comdat any
+
+$_ZNKSt8__detail10_Select1stclIRKSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEEEEONS0_10__1st_typeIT_E4typeEOSE_ = comdat any
+
+$_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE4_M_vEv = comdat any
+
+$_ZNKSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toImELb1EE7_M_cgetEv = comdat any
+
+$_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE6_M_ptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE7_M_addrEv = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv = comdat any
+
+$_ZNKSt4hashImEclEm = comdat any
+
+$_ZNKSt8__detail21_Hashtable_ebo_helperILi1ESt4hashImELb1EE7_M_cgetEv = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexEmm = comdat any
+
+$_ZNKSt8__detail18_Mod_range_hashingclEmm = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m = comdat any
+
+$_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_equalsERS2_mRKNS_16_Hash_node_valueIS9_Lb0EEE = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSA_16_Hash_node_valueIS8_Lb0EEE = comdat any
+
+$_ZNSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_S_equalsEmRKNS_21_Hash_node_code_cacheILb0EEE = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS9_Lb0EEEm = comdat any
+
+$_ZN4llvm8HashNodeC2Ev = comdat any
+
+$_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EEC2IS3_vEEPS1_ = comdat any
+
+$_ZNSt8optionalIjEC2Ev = comdat any
+
+$_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEEC2Ev = comdat any
+
+$_ZNSt14_Optional_baseIjLb1ELb1EEC2Ev = comdat any
+
+$_ZNSt17_Optional_payloadIjLb1ELb1ELb1EEC2Ev = comdat any
+
+$_ZNSt22_Optional_payload_baseIjEC2Ev = comdat any
+
+$_ZNSt22_Optional_payload_baseIjE8_StorageIjLb1EEC2Ev = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev = comdat any
+
+$_ZNSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEEC2Ev = comdat any
+
+$_ZNSt8__detail15_Hash_node_baseC2Ev = comdat any
+
+$_ZNSt8__detail20_Prime_rehash_policyC2Ef = comdat any
+
+$_ZNSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEC2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toImELb1EEC2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashImELb1EEC2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEELb1EEC2Ev = comdat any
+
+$_ZNSaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEEEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEC2Ev = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN4llvm8HashNodeESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EEC2EPS1_ = comdat any
+
+$_ZNSt5tupleIJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv = comdat any
+
+$_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE6_M_ptrEv = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2Ev = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm0EPN4llvm8HashNodeELb0EEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN4llvm8HashNodeEELb1EEC2Ev = comdat any
+
+$_ZSt3getILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_ = comdat any
+
+$_ZSt12__get_helperILm0EPN4llvm8HashNodeEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEE7_M_headERS5_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN4llvm8HashNodeELb0EE7_M_headERS3_ = comdat any
+
+$_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE11get_deleterEv = comdat any
+
+$_ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE10_M_deleterEv = comdat any
+
+$_ZSt3getILm1EJPN4llvm8HashNodeESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_ = comdat any
+
+$_ZSt12__get_helperILm1ESt14default_deleteIN4llvm8HashNodeEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEE7_M_headERS4_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN4llvm8HashNodeEELb1EE7_M_headERS4_ = comdat any
+
+$_ZN4llvm8HashNodeD2Ev = comdat any
+
+$_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEED2Ev = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEED2Ev = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE19_M_deallocate_nodesEPSB_ = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE18_M_deallocate_nodeEPSB_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE7destroyISA_EEvRSC_PT_ = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE22_M_deallocate_node_ptrEPSB_ = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_ = comdat any
+
+$_ZNSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEED2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEELb1EE6_M_getEv = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPNSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEESB_Lb0EE10pointer_toERSB_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE10deallocateERSC_PSB_m = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE10deallocateEPSB_m = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEPPNSA_15_Hash_node_baseEm = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_uses_single_bucketEPPNSA_15_Hash_node_baseE = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE21_M_deallocate_bucketsEPPNS_15_Hash_node_baseEm = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPPNSt8__detail15_Hash_node_baseES2_Lb0EE10pointer_toERS2_ = comdat any
+
+$_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS9_EEELb0EEEEERKSaIT_E = comdat any
+
+$_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE10deallocateERS3_PS2_m = comdat any
+
+$_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE10deallocateEPS2_m = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7emplaceIJRmS7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbEDpOT_ = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRmS7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_ = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRmS7_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb0EEEEEEDpOT_ = comdat any
+
+$_ZNKSt8__detail10_Select1stclIRSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEEEEONS0_10__1st_typeIT_E4typeEOSD_ = comdat any
+
+$_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2IRSA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_ = comdat any
+
+$_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2ISA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_ = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE16_M_allocate_nodeIJRmS9_EEEPSB_DpOT_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE8allocateERSC_m = comdat any
+
+$_ZSt12__to_addressINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEPT_SD_ = comdat any
+
+$_ZNSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEC2Ev = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE9constructISA_JRmS9_EEEvRSC_PT_DpOT0_ = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE11_M_max_sizeEv = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE9constructISA_JRmS9_EEEvPT_DpOT0_ = comdat any
+
+$_ZNSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEEC2IRmS6_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_ = comdat any
+
+$_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EEC2EOS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN4llvm8HashNodeESt14default_deleteIS1_ELb1ELb1EEC2EOS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EEC2EOS4_ = comdat any
+
+$_ZNSt5tupleIJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2EOS5_ = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2EOS5_ = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEEC2EOS4_ = comdat any
+
+$_ZNKSt8__detail20_Prime_rehash_policy8_M_stateEv = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_ = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE13_M_store_codeERNS_21_Hash_node_code_cacheILb0EEEm = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEE = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE19_M_allocate_bucketsEm = comdat any
+
+$_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE8allocateERS3_m = comdat any
+
+$_ZSt12__to_addressIPNSt8__detail15_Hash_node_baseEEPT_S4_ = comdat any
+
+$_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE11_M_max_sizeEv = comdat any
+
+$_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EEC2Ej = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EEC2Em = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvEC2Em = comdat any
+
+$_ZNK4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE10getFirstElEv = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE13destroy_rangeEPS6_S8_ = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE5beginEv = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE3endEv = comdat any
+
+$_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EED2Ev = comdat any
+
+$_ZNK4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE7isSmallEv = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE18growAndEmplaceBackIJRS3_RS5_EEERS6_DpOT_ = comdat any
+
+$_ZNSt4pairIPN4llvm8HashNodeEPKS1_EC2IRS2_RS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_ = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE4backEv = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE9push_backES6_ = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE28reserveForParamAndGetAddressERS6_m = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS6_Lb1EEEEEPKS6_PT_RSB_m = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE4growEm = comdat any
+
+$_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE8grow_podEmm = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE8pop_backEv = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7emplaceIJRS1_S7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbEDpOT_ = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRS1_S7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_ = comdat any
+
+$_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRS1_S7_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb0EEEEEEDpOT_ = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE16_M_allocate_nodeIJRS3_S9_EEEPSB_DpOT_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE9constructISA_JRS3_S9_EEEvRSC_PT_DpOT0_ = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE9constructISA_JRS3_S9_EEEvPT_DpOT0_ = comdat any
+
+$_ZNSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEEC2IRS0_S6_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_ = comdat any
+
+$_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE18growAndEmplaceBackIJRS3_S3_EEERS6_DpOT_ = comdat any
+
+$_ZNSt4pairIPN4llvm8HashNodeEPKS1_EC2IRS2_S2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_ = comdat any
+
+$_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_ = comdat any
+
+@_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
+@_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZNK4llvm16OutlinedHashTree9walkGraphESt8functionIFvPKNS_8HashNodeEEES1_IFvS4_S4_EEb(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca %"class.llvm::SmallVector", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca %class.anon, align 8
+  %13 = alloca %"class.llvm::SmallVector.5", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %16 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %27 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %28 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  %29 = zext i1 %3 to i8
+  store i8 %29, ptr %8, align 1, !tbaa !12
+  %30 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %9) #12
+  call void @_ZN4llvm11SmallVectorIPKNS_8HashNodeELj6EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %31 = call noundef ptr @_ZNK4llvm16OutlinedHashTree7getRootEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
+  store ptr %31, ptr %10, align 8, !tbaa !14
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEE12emplace_backIJS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %33
+
+33:                                               ; preds = %114, %4
+  %34 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %35 = xor i1 %34, true
+  br i1 %35, label %36, label %115
+
+36:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %37 = call noundef ptr @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEE12pop_back_valEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  store ptr %37, ptr %11, align 8, !tbaa !14
+  %38 = call noundef zeroext i1 @_ZNKSt8functionIFvPKN4llvm8HashNodeEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
+  br i1 %38, label %39, label %41
+
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %11, align 8, !tbaa !14
+  call void @_ZNKSt8functionIFvPKN4llvm8HashNodeEEEclES3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %40)
+  br label %41
+
+41:                                               ; preds = %39, %36
+  call void @llvm.lifetime.start.p0(i64 24, ptr %12) #12
+  %42 = getelementptr inbounds nuw %class.anon, ptr %12, i32 0, i32 0
+  store ptr %2, ptr %42, align 8, !tbaa !10
+  %43 = getelementptr inbounds nuw %class.anon, ptr %12, i32 0, i32 1
+  store ptr %11, ptr %43, align 8, !tbaa !16
+  %44 = getelementptr inbounds nuw %class.anon, ptr %12, i32 0, i32 2
+  store ptr %9, ptr %44, align 8, !tbaa !18
+  %45 = load i8, ptr %8, align 1, !tbaa !12, !range !20, !noundef !21
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %92
+
+47:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 64, ptr %13) #12
+  call void @_ZN4llvm11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #12
+  %48 = load ptr, ptr %11, align 8, !tbaa !14
+  %49 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %48, i32 0, i32 2
+  store ptr %49, ptr %14, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  %50 = load ptr, ptr %14, align 8, !tbaa !22
+  %51 = call ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %50) #12
+  %52 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %15, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %52, i32 0, i32 0
+  store ptr %51, ptr %53, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  %54 = load ptr, ptr %14, align 8, !tbaa !22
+  %55 = call ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %54) #12
+  %56 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %16, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %56, i32 0, i32 0
+  store ptr %55, ptr %57, align 8
+  br label %58
+
+58:                                               ; preds = %71, %47
+  %59 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #12
+  br i1 %59, label %61, label %60
+
+60:                                               ; preds = %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #12
+  br label %73
+
+61:                                               ; preds = %58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #12
+  %62 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #12
+  store ptr %62, ptr %17, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #12
+  %63 = load ptr, ptr %17, align 8, !tbaa !24
+  %64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(16) %63) #12
+  store ptr %64, ptr %18, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #12
+  %65 = load ptr, ptr %17, align 8, !tbaa !24
+  %66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(16) %65) #12
+  store ptr %66, ptr %19, align 8, !tbaa !28
+  %67 = load ptr, ptr %18, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #12
+  %68 = load ptr, ptr %19, align 8, !tbaa !28
+  %69 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %68) #12
+  store ptr %69, ptr %20, align 8, !tbaa !14
+  %70 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEE12emplace_backIJRKmPS2_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #12
+  br label %71
+
+71:                                               ; preds = %61
+  %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #12
+  br label %58
+
+73:                                               ; preds = %60
+  call void @_ZN4llvm4sortIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(64) %13)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #12
+  store ptr %13, ptr %21, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #12
+  %74 = load ptr, ptr %21, align 8, !tbaa !30
+  %75 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %74)
+  store ptr %75, ptr %22, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #12
+  %76 = load ptr, ptr %21, align 8, !tbaa !30
+  %77 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %76)
+  store ptr %77, ptr %23, align 8, !tbaa !32
+  br label %78
+
+78:                                               ; preds = %88, %73
+  %79 = load ptr, ptr %22, align 8, !tbaa !32
+  %80 = load ptr, ptr %23, align 8, !tbaa !32
+  %81 = icmp ne ptr %79, %80
+  br i1 %81, label %83, label %82
+
+82:                                               ; preds = %78
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #12
+  br label %91
+
+83:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #12
+  %84 = load ptr, ptr %22, align 8, !tbaa !32
+  store ptr %84, ptr %24, align 8, !tbaa !32
+  %85 = load ptr, ptr %24, align 8, !tbaa !32
+  %86 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %85, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8, !tbaa !34
+  call void @"_ZZNK4llvm16OutlinedHashTree9walkGraphESt8functionIFvPKNS_8HashNodeEEES1_IFvS4_S4_EEbENK3$_0clES4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %87)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #12
+  br label %88
+
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %22, align 8, !tbaa !32
+  %90 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %89, i32 1
+  store ptr %90, ptr %22, align 8, !tbaa !32
+  br label %78
+
+91:                                               ; preds = %82
+  call void @_ZN4llvm11SmallVectorISt4pairImPKNS_8HashNodeEELj3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr %13) #12
+  br label %114
+
+92:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #12
+  %93 = load ptr, ptr %11, align 8, !tbaa !14
+  %94 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %93, i32 0, i32 2
+  store ptr %94, ptr %25, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #12
+  %95 = load ptr, ptr %25, align 8, !tbaa !22
+  %96 = call ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %95) #12
+  %97 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %26, i32 0, i32 0
+  %98 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %97, i32 0, i32 0
+  store ptr %96, ptr %98, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #12
+  %99 = load ptr, ptr %25, align 8, !tbaa !22
+  %100 = call ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %99) #12
+  %101 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %27, i32 0, i32 0
+  %102 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %101, i32 0, i32 0
+  store ptr %100, ptr %102, align 8
+  br label %103
+
+103:                                              ; preds = %111, %92
+  %104 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27) #12
+  br i1 %104, label %106, label %105
+
+105:                                              ; preds = %103
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #12
+  br label %113
+
+106:                                              ; preds = %103
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #12
+  %107 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #12
+  store ptr %107, ptr %28, align 8, !tbaa !24
+  %108 = load ptr, ptr %28, align 8, !tbaa !24
+  %109 = getelementptr inbounds nuw %"struct.std::pair", ptr %108, i32 0, i32 1
+  %110 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %109) #12
+  call void @"_ZZNK4llvm16OutlinedHashTree9walkGraphESt8functionIFvPKNS_8HashNodeEEES1_IFvS4_S4_EEbENK3$_0clES4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %110)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #12
+  br label %111
+
+111:                                              ; preds = %106
+  %112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #12
+  br label %103
+
+113:                                              ; preds = %105
+  br label %114
+
+114:                                              ; preds = %113, %91
+  call void @llvm.lifetime.end.p0(i64 24, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  br label %33, !llvm.loop !37
+
+115:                                              ; preds = %33
+  call void @_ZN4llvm11SmallVectorIPKNS_8HashNodeELj6EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr %9) #12
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm11SmallVectorIPKNS_8HashNodeELj6EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEEC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEE12emplace_backIJS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !39
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %8 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %9 = icmp uge i64 %7, %8
+  %10 = zext i1 %9 to i64
+  %11 = call i64 @llvm.expect.i64(i64 %10, i64 0)
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %16
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !16
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE18growAndEmplaceBackIJS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  store ptr %15, ptr %3, align 8
+  br label %23
+
+16:                                               ; preds = %2
+  %17 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %18 = load ptr, ptr %5, align 8, !tbaa !16
+  %19 = load ptr, ptr %18, align 8, !tbaa !14
+  store ptr %19, ptr %17, align 8, !tbaa !14
+  %20 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %21 = add i64 %20, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %21)
+  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  store ptr %22, ptr %3, align 8
+  br label %23
+
+23:                                               ; preds = %16, %13
+  %24 = load ptr, ptr %3, align 8
+  ret ptr %24
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4llvm16OutlinedHashTree7getRootEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::OutlinedHashTree", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !43
+  %6 = icmp ne i32 %5, 0
+  %7 = xor i1 %6, true
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEE12pop_back_valEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
+  store ptr %6, ptr %3, align 8, !tbaa !14
+  call void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %7 = load ptr, ptr %3, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt8functionIFvPKN4llvm8HashNodeEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %5 = xor i1 %4, true
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNKSt8functionIFvPKN4llvm8HashNodeEEEclES3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %2
+  call void @_ZSt25__throw_bad_function_callv() #13
+  unreachable
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"class.std::function", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
+  %11 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %5, i32 0, i32 0
+  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEEC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store ptr %1, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %3, align 8, !tbaa !49
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !51
+  %8 = load ptr, ptr %4, align 8, !tbaa !49
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE11__const_getIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEERKT_RKSt4pairIS9_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE11__const_getIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEERKT0_RKSt4pairIT_S9_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEE12emplace_backIJRKmPS2_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !56
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %10 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %11 = icmp uge i64 %9, %10
+  %12 = zext i1 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 0)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %19
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !26
+  %17 = load ptr, ptr %7, align 8, !tbaa !16
+  %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE18growAndEmplaceBackIJRKmPS2_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  store ptr %18, ptr %4, align 8
+  br label %26
+
+19:                                               ; preds = %3
+  %20 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %21 = load ptr, ptr %6, align 8, !tbaa !26
+  %22 = load ptr, ptr %7, align 8, !tbaa !16
+  call void @_ZNSt4pairImPKN4llvm8HashNodeEEC2IRKmPS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %23 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %24 = add i64 %23, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %24)
+  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %25, ptr %4, align 8
+  br label %26
+
+26:                                               ; preds = %19, %15
+  %27 = load ptr, ptr %4, align 8
+  ret ptr %27
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm4sortIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(64) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = call noundef ptr @_ZN4llvm9adl_beginIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS9_(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %5 = load ptr, ptr %2, align 8, !tbaa !30
+  %6 = call noundef ptr @_ZN4llvm7adl_endIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS9_(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  call void @_ZN4llvm4sortIPSt4pairImPKNS_8HashNodeEEEEvT_S7_(ptr noundef %4, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %6 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %4, i64 %5
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZNK4llvm16OutlinedHashTree9walkGraphESt8functionIFvPKNS_8HashNodeEEES1_IFvS4_S4_EEbENK3$_0clES4_"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.anon, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !62
+  %8 = call noundef zeroext i1 @_ZNKSt8functionIFvPKN4llvm8HashNodeES3_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw %class.anon, ptr %5, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !62
+  %12 = getelementptr inbounds nuw %class.anon, ptr %5, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  %14 = load ptr, ptr %13, align 8, !tbaa !14
+  %15 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @_ZNKSt8functionIFvPKN4llvm8HashNodeES3_EEclES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %14, ptr noundef %15)
+  br label %16
+
+16:                                               ; preds = %9, %2
+  %17 = getelementptr inbounds nuw %class.anon, ptr %5, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !65
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEE12emplace_backIJRS3_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm11SmallVectorISt4pairImPKNS_8HashNodeEELj3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE13destroy_rangeEPS5_S7_(ptr noundef %4, ptr noundef %5)
+  call void @_ZN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm11SmallVectorIPKNS_8HashNodeELj6EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE13destroy_rangeEPS3_S5_(ptr noundef %4, ptr noundef %5)
+  call void @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef i64 @_ZNK4llvm16OutlinedHashTree4sizeEb(ptr noundef nonnull align 8 dereferenceable(72) %0, i1 noundef zeroext %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i64, align 8
+  %6 = alloca %"class.std::function", align 8
+  %7 = alloca %class.anon.14, align 8
+  %8 = alloca %"class.std::function.0", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %9 = zext i1 %1 to i8
+  store i8 %9, ptr %4, align 1, !tbaa !12
+  %10 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  store i64 0, ptr %5, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #12
+  %11 = getelementptr inbounds nuw %class.anon.14, ptr %7, i32 0, i32 0
+  store ptr %5, ptr %11, align 8, !tbaa !26
+  %12 = getelementptr inbounds nuw %class.anon.14, ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %4, align 1, !tbaa !12, !range !20, !noundef !21
+  %14 = trunc i8 %13 to i1
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %12, align 8, !tbaa !67
+  call void @"_ZNSt8functionIFvPKN4llvm8HashNodeEEEC2IZNKS0_16OutlinedHashTree4sizeEbE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(9) %7) #12
+  call void @_ZNSt8functionIFvPKN4llvm8HashNodeES3_EEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr null) #12
+  call void @_ZNK4llvm16OutlinedHashTree9walkGraphESt8functionIFvPKNS_8HashNodeEEES1_IFvS4_S4_EEb(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef %6, ptr noundef %8, i1 noundef zeroext false)
+  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
+  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #12
+  %16 = load i64, ptr %5, align 8, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret i64 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt8functionIFvPKN4llvm8HashNodeEEEC2IZNKS0_16OutlinedHashTree4sizeEbE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
+  call void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %7 = getelementptr inbounds nuw %"class.std::function", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8, !tbaa !46
+  %8 = load ptr, ptr %4, align 8, !tbaa !61
+  %9 = call noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E21_M_not_empty_functionIS3_EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(9) %8) #12
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E15_M_init_functorIS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(9) %12) #12
+  %13 = getelementptr inbounds nuw %"class.std::function", ptr %5, i32 0, i32 1
+  store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeEEZNKS0_16OutlinedHashTree4sizeEbE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %13, align 8, !tbaa !46
+  %14 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %5, i32 0, i32 1
+  store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeEEZNKS0_16OutlinedHashTree4sizeEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %14, align 8, !tbaa !69
+  br label %15
+
+15:                                               ; preds = %10, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8functionIFvPKN4llvm8HashNodeES3_EEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !70
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
+  call void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %7 = getelementptr inbounds nuw %"class.std::function.0", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8, !tbaa !72
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %13
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !69
+  %10 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 0
+  %12 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  br label %13
+
+13:                                               ; preds = %7, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef i64 @_ZNK4llvm16OutlinedHashTree5depthEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca %"class.llvm::DenseMap", align 8
+  %5 = alloca %"class.std::function", align 8
+  %6 = alloca %class.anon.15, align 8
+  %7 = alloca %"class.std::function.0", align 8
+  %8 = alloca %class.anon.16, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %9 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  store i64 0, ptr %3, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #12
+  call void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEC2Ej(ptr noundef nonnull align 8 dereferenceable(20) %4, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #12
+  %10 = getelementptr inbounds nuw %class.anon.15, ptr %6, i32 0, i32 0
+  store ptr %3, ptr %10, align 8, !tbaa !26
+  %11 = getelementptr inbounds nuw %class.anon.15, ptr %6, i32 0, i32 1
+  store ptr %4, ptr %11, align 8, !tbaa !76
+  call void @"_ZNSt8functionIFvPKN4llvm8HashNodeEEEC2IZNKS0_16OutlinedHashTree5depthEvE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %12 = getelementptr inbounds nuw %class.anon.16, ptr %8, i32 0, i32 0
+  store ptr %4, ptr %12, align 8, !tbaa !76
+  call void @"_ZNSt8functionIFvPKN4llvm8HashNodeES3_EEC2IZNKS0_16OutlinedHashTree5depthEvE3$_1vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  call void @_ZNK4llvm16OutlinedHashTree9walkGraphESt8functionIFvPKNS_8HashNodeEEES1_IFvS4_S4_EEb(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %5, ptr noundef %7, i1 noundef zeroext false)
+  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #12
+  %13 = load i64, ptr %3, align 8, !tbaa !66
+  call void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %4) #12
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  ret i64 %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEC2Ej(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !78
+  call void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE4initEj(ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt8functionIFvPKN4llvm8HashNodeEEEC2IZNKS0_16OutlinedHashTree5depthEvE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
+  call void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %7 = getelementptr inbounds nuw %"class.std::function", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8, !tbaa !46
+  %8 = load ptr, ptr %4, align 8, !tbaa !61
+  %9 = call noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E21_M_not_empty_functionIS3_EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E15_M_init_functorIS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12) #12
+  %13 = getelementptr inbounds nuw %"class.std::function", ptr %5, i32 0, i32 1
+  store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeEEZNKS0_16OutlinedHashTree5depthEvE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %13, align 8, !tbaa !46
+  %14 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %5, i32 0, i32 1
+  store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeEEZNKS0_16OutlinedHashTree5depthEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %14, align 8, !tbaa !69
+  br label %15
+
+15:                                               ; preds = %10, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt8functionIFvPKN4llvm8HashNodeES3_EEC2IZNKS0_16OutlinedHashTree5depthEvE3$_1vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
+  call void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %7 = getelementptr inbounds nuw %"class.std::function.0", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8, !tbaa !72
+  %8 = load ptr, ptr %4, align 8, !tbaa !61
+  %9 = call noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E21_M_not_empty_functionIS3_EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E15_M_init_functorIS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  %13 = getelementptr inbounds nuw %"class.std::function.0", ptr %5, i32 0, i32 1
+  store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeES3_EZNKS0_16OutlinedHashTree5depthEvE3$_1E9_M_invokeERKSt9_Any_dataOS3_SB_", ptr %13, align 8, !tbaa !72
+  %14 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %5, i32 0, i32 1
+  store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeES3_EZNKS0_16OutlinedHashTree5depthEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %14, align 8, !tbaa !69
+  br label %15
+
+15:                                               ; preds = %10, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %4 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %3, i32 0, i32 3
+  %7 = load i32, ptr %6, align 8, !tbaa !82
+  %8 = zext i32 %7 to i64
+  %9 = mul i64 16, %8
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %5, i64 noundef %9, i64 noundef 8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN4llvm16OutlinedHashTree6insertERKSt4pairINS_11SmallVectorImLj6EEEjE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %14 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %15 = alloca %"class.std::unique_ptr", align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca %"struct.std::pair.24", align 8
+  %18 = alloca %"class.std::optional", align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !83
+  %21 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %22 = load ptr, ptr %4, align 8, !tbaa !83
+  store ptr %22, ptr %5, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %23 = load ptr, ptr %5, align 8, !tbaa !83
+  %24 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZSt3getILm0EN4llvm11SmallVectorImLj6EEEjERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKS7_(ptr noundef nonnull align 8 dereferenceable(68) %23) #12
+  store ptr %24, ptr %6, align 8, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %25 = load ptr, ptr %5, align 8, !tbaa !83
+  %26 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3getILm1EN4llvm11SmallVectorImLj6EEEjERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKS7_(ptr noundef nonnull align 8 dereferenceable(68) %25) #12
+  store ptr %26, ptr %7, align 8, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %27 = call noundef ptr @_ZN4llvm16OutlinedHashTree7getRootEv(ptr noundef nonnull align 8 dereferenceable(72) %21)
+  store ptr %27, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %28 = load ptr, ptr %6, align 8, !tbaa !85
+  store ptr %28, ptr %9, align 8, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %29 = load ptr, ptr %9, align 8, !tbaa !85
+  %30 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonImvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %29)
+  store ptr %30, ptr %10, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %31 = load ptr, ptr %9, align 8, !tbaa !85
+  %32 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonImvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
+  store ptr %32, ptr %11, align 8, !tbaa !26
+  br label %33
+
+33:                                               ; preds = %70, %2
+  %34 = load ptr, ptr %10, align 8, !tbaa !26
+  %35 = load ptr, ptr %11, align 8, !tbaa !26
+  %36 = icmp ne ptr %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %73
+
+38:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %39 = load ptr, ptr %10, align 8, !tbaa !26
+  %40 = load i64, ptr %39, align 8, !tbaa !66
+  store i64 %40, ptr %12, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  %41 = load ptr, ptr %8, align 8, !tbaa !14
+  %42 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %41, i32 0, i32 2
+  %43 = call ptr @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %44 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %13, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %44, i32 0, i32 0
+  store ptr %43, ptr %45, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #12
+  %46 = load ptr, ptr %8, align 8, !tbaa !14
+  %47 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %46, i32 0, i32 2
+  %48 = call ptr @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %47) #12
+  %49 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %14, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %49, i32 0, i32 0
+  store ptr %48, ptr %50, align 8
+  %51 = call noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #12
+  br i1 %51, label %52, label %65
+
+52:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  call void @_ZSt11make_uniqueIN4llvm8HashNodeEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %15)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  %53 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #12
+  store ptr %53, ptr %16, align 8, !tbaa !14
+  %54 = load i64, ptr %12, align 8, !tbaa !66
+  %55 = load ptr, ptr %16, align 8, !tbaa !14
+  %56 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %55, i32 0, i32 0
+  store i64 %54, ptr %56, align 8, !tbaa !89
+  %57 = load ptr, ptr %8, align 8, !tbaa !14
+  %58 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %57, i32 0, i32 2
+  %59 = call { ptr, i8 } @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE7emplaceIJRmS5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %60 = getelementptr inbounds nuw { ptr, i8 }, ptr %17, i32 0, i32 0
+  %61 = extractvalue { ptr, i8 } %59, 0
+  store ptr %61, ptr %60, align 8
+  %62 = getelementptr inbounds nuw { ptr, i8 }, ptr %17, i32 0, i32 1
+  %63 = extractvalue { ptr, i8 } %59, 1
+  store i8 %63, ptr %62, align 8
+  %64 = load ptr, ptr %16, align 8, !tbaa !14
+  store ptr %64, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  call void @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  br label %69
+
+65:                                               ; preds = %38
+  %66 = call noundef ptr @_ZNKSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
+  %67 = getelementptr inbounds nuw %"struct.std::pair", ptr %66, i32 0, i32 1
+  %68 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %67) #12
+  store ptr %68, ptr %8, align 8, !tbaa !14
+  br label %69
+
+69:                                               ; preds = %65, %52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  br label %70
+
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %10, align 8, !tbaa !26
+  %72 = getelementptr inbounds nuw i64, ptr %71, i32 1
+  store ptr %72, ptr %10, align 8, !tbaa !26
+  br label %33
+
+73:                                               ; preds = %37
+  %74 = load ptr, ptr %7, align 8, !tbaa !87
+  %75 = load i32, ptr %74, align 4, !tbaa !78
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %86
+
+77:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #12
+  %78 = load ptr, ptr %8, align 8, !tbaa !14
+  %79 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %78, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #12
+  store i32 0, ptr %20, align 4, !tbaa !78
+  %80 = call noundef i32 @_ZNKRSt8optionalIjE8value_orIiEEjOT_(ptr noundef nonnull align 4 dereferenceable(8) %79, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %81 = load ptr, ptr %7, align 8, !tbaa !87
+  %82 = load i32, ptr %81, align 4, !tbaa !78
+  %83 = add i32 %80, %82
+  store i32 %83, ptr %19, align 4, !tbaa !78
+  call void @_ZNSt8optionalIjEC2IjTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_IS4_ISt10in_place_tSB_EESt16is_constructibleIjJS7_EESt14is_convertibleIS7_jEEEbE4typeELb1EEEOS7_(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19) #12
+  %84 = load ptr, ptr %8, align 8, !tbaa !14
+  %85 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %84, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %85, ptr align 4 %18, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #12
+  br label %86
+
+86:                                               ; preds = %77, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZSt3getILm0EN4llvm11SmallVectorImLj6EEEjERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKS7_(ptr noundef nonnull align 8 dereferenceable(68) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
+  %4 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt10__pair_getILm0EE11__const_getIN4llvm11SmallVectorImLj6EEEjEERKT_RKSt4pairIS5_T0_E(ptr noundef nonnull align 8 dereferenceable(68) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3getILm1EN4llvm11SmallVectorImLj6EEEjERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKS7_(ptr noundef nonnull align 8 dereferenceable(68) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt10__pair_getILm1EE11__const_getIN4llvm11SmallVectorImLj6EEEjEERKT0_RKSt4pairIT_S5_E(ptr noundef nonnull align 8 dereferenceable(68) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm16OutlinedHashTree7getRootEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::OutlinedHashTree", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonImvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !102
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonImvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !102
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonImvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %10, i32 0, i32 0
+  store ptr %9, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store ptr %1, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %3, align 8, !tbaa !49
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !51
+  %8 = load ptr, ptr %4, align 8, !tbaa !49
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt11make_uniqueIN4llvm8HashNodeEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #14
+  call void @llvm.memset.p0.i64(ptr align 16 %3, i8 0, i64 72, i1 false)
+  call void @_ZN4llvm8HashNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
+  call void @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden { ptr, i8 } @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE7emplaceIJRmS5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca %"struct.std::pair.24", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !26
+  %12 = load ptr, ptr %7, align 8, !tbaa !28
+  %13 = call { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7emplaceIJRmS7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  store { ptr, i8 } %13, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %8, i64 9, i1 false)
+  %14 = load { ptr, i8 }, ptr %4, align 8
+  ret { ptr, i8 } %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  store ptr %6, ptr %3, align 8, !tbaa !16
+  %7 = load ptr, ptr %3, align 8, !tbaa !16
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  %12 = load ptr, ptr %3, align 8, !tbaa !16
+  %13 = load ptr, ptr %12, align 8, !tbaa !14
+  call void @_ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %10, %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !16
+  store ptr null, ptr %15, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNKRSt8optionalIjE8value_orIiEEjOT_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !106
+  store ptr %1, ptr %5, align 8, !tbaa !87
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef zeroext i1 @_ZNKSt19_Optional_base_implIjSt14_Optional_baseIjLb1ELb1EEE13_M_is_engagedEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %2
+  %9 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt19_Optional_base_implIjSt14_Optional_baseIjLb1ELb1EEE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  %10 = load i32, ptr %9, align 4, !tbaa !78
+  store i32 %10, ptr %3, align 4
+  br label %14
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !87
+  %13 = load i32, ptr %12, align 4, !tbaa !78
+  store i32 %13, ptr %3, align 4
+  br label %14
+
+14:                                               ; preds = %11, %8
+  %15 = load i32, ptr %3, align 4
+  ret i32 %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8optionalIjEC2IjTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_IS4_ISt10in_place_tSB_EESt16is_constructibleIjJS7_EESt14is_convertibleIS7_jEEEbE4typeELb1EEEOS7_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !87
+  call void @_ZNSt14_Optional_baseIjLb1ELb1EEC2IJjETnNSt9enable_ifIX18is_constructible_vIjDpT_EEbE4typeELb0EEESt10in_place_tDpOS3_(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN4llvm16OutlinedHashTree5mergeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.llvm::SmallVector.27", align 8
+  %8 = alloca %"struct.std::pair.32", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.std::optional", align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %17 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %23 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %24 = alloca %"class.std::unique_ptr", align 8
+  %25 = alloca %"struct.std::pair.24", align 8
+  %26 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %27 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %28 = call noundef ptr @_ZN4llvm16OutlinedHashTree7getRootEv(ptr noundef nonnull align 8 dereferenceable(72) %27)
+  store ptr %28, ptr %5, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %29 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = call noundef ptr @_ZNK4llvm16OutlinedHashTree7getRootEv(ptr noundef nonnull align 8 dereferenceable(72) %29)
+  store ptr %30, ptr %6, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 64, ptr %7) #12
+  call void @_ZN4llvm11SmallVectorISt4pairIPNS_8HashNodeEPKS2_ELj3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
+  %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12emplace_backIJRS3_RS5_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br label %32
+
+32:                                               ; preds = %129, %127, %2
+  %33 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %34 = xor i1 %33, true
+  br i1 %34, label %35, label %130
+
+35:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #12
+  %36 = call { ptr, ptr } @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12pop_back_valEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %37 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  %38 = extractvalue { ptr, ptr } %36, 0
+  store ptr %38, ptr %37, align 8
+  %39 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  %40 = extractvalue { ptr, ptr } %36, 1
+  store ptr %40, ptr %39, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EPN4llvm8HashNodeEPKS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  store ptr %41, ptr %9, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EPN4llvm8HashNodeEPKS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  store ptr %42, ptr %10, align 8, !tbaa !16
+  %43 = load ptr, ptr %10, align 8, !tbaa !16
+  %44 = load ptr, ptr %43, align 8, !tbaa !14
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %47, label %46
+
+46:                                               ; preds = %35
+  store i32 2, ptr %11, align 4
+  br label %127, !llvm.loop !108
+
+47:                                               ; preds = %35
+  %48 = load ptr, ptr %10, align 8, !tbaa !16
+  %49 = load ptr, ptr %48, align 8, !tbaa !14
+  %50 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %49, i32 0, i32 1
+  %51 = call noundef zeroext i1 @_ZNKSt8optionalIjEcvbEv(ptr noundef nonnull align 4 dereferenceable(8) %50) #12
+  br i1 %51, label %52, label %66
+
+52:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #12
+  %53 = load ptr, ptr %9, align 8, !tbaa !16
+  %54 = load ptr, ptr %53, align 8, !tbaa !14
+  %55 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %54, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
+  store i32 0, ptr %14, align 4, !tbaa !78
+  %56 = call noundef i32 @_ZNKRSt8optionalIjE8value_orIiEEjOT_(ptr noundef nonnull align 4 dereferenceable(8) %55, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %57 = load ptr, ptr %10, align 8, !tbaa !16
+  %58 = load ptr, ptr %57, align 8, !tbaa !14
+  %59 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %58, i32 0, i32 1
+  %60 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKRSt8optionalIjEdeEv(ptr noundef nonnull align 4 dereferenceable(8) %59) #12
+  %61 = load i32, ptr %60, align 4, !tbaa !78
+  %62 = add i32 %56, %61
+  store i32 %62, ptr %13, align 4, !tbaa !78
+  call void @_ZNSt8optionalIjEC2IjTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_IS4_ISt10in_place_tSB_EESt16is_constructibleIjJS7_EESt14is_convertibleIS7_jEEEbE4typeELb1EEEOS7_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13) #12
+  %63 = load ptr, ptr %9, align 8, !tbaa !16
+  %64 = load ptr, ptr %63, align 8, !tbaa !14
+  %65 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %64, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %65, ptr align 4 %12, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  br label %66
+
+66:                                               ; preds = %52, %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  %67 = load ptr, ptr %10, align 8, !tbaa !16
+  %68 = load ptr, ptr %67, align 8, !tbaa !14
+  %69 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %68, i32 0, i32 2
+  store ptr %69, ptr %15, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  %70 = load ptr, ptr %15, align 8, !tbaa !22
+  %71 = call ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %70) #12
+  %72 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %16, i32 0, i32 0
+  %73 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %72, i32 0, i32 0
+  store ptr %71, ptr %73, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #12
+  %74 = load ptr, ptr %15, align 8, !tbaa !22
+  %75 = call ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %74) #12
+  %76 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %17, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %76, i32 0, i32 0
+  store ptr %75, ptr %77, align 8
+  br label %78
+
+78:                                               ; preds = %124, %66
+  %79 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17) #12
+  br i1 %79, label %81, label %80
+
+80:                                               ; preds = %78
+  store i32 4, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  br label %126
+
+81:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #12
+  %82 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
+  store ptr %82, ptr %18, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #12
+  %83 = load ptr, ptr %18, align 8, !tbaa !24
+  %84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(16) %83) #12
+  store ptr %84, ptr %19, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #12
+  %85 = load ptr, ptr %18, align 8, !tbaa !24
+  %86 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(16) %85) #12
+  store ptr %86, ptr %20, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #12
+  %87 = load ptr, ptr %9, align 8, !tbaa !16
+  %88 = load ptr, ptr %87, align 8, !tbaa !14
+  %89 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %88, i32 0, i32 2
+  %90 = load ptr, ptr %19, align 8, !tbaa !26
+  %91 = call ptr @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(8) %90)
+  %92 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %22, i32 0, i32 0
+  %93 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %92, i32 0, i32 0
+  store ptr %91, ptr %93, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #12
+  %94 = load ptr, ptr %9, align 8, !tbaa !16
+  %95 = load ptr, ptr %94, align 8, !tbaa !14
+  %96 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %95, i32 0, i32 2
+  %97 = call ptr @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %96) #12
+  %98 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %23, i32 0, i32 0
+  %99 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %98, i32 0, i32 0
+  store ptr %97, ptr %99, align 8
+  %100 = call noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #12
+  br i1 %100, label %101, label %116
+
+101:                                              ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #12
+  call void @_ZSt11make_uniqueIN4llvm8HashNodeEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %24)
+  %102 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #12
+  store ptr %102, ptr %21, align 8, !tbaa !14
+  %103 = load ptr, ptr %19, align 8, !tbaa !26
+  %104 = load i64, ptr %103, align 8, !tbaa !66
+  %105 = load ptr, ptr %21, align 8, !tbaa !14
+  %106 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %105, i32 0, i32 0
+  store i64 %104, ptr %106, align 8, !tbaa !89
+  %107 = load ptr, ptr %9, align 8, !tbaa !16
+  %108 = load ptr, ptr %107, align 8, !tbaa !14
+  %109 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %108, i32 0, i32 2
+  %110 = load ptr, ptr %19, align 8, !tbaa !26
+  %111 = call { ptr, i8 } @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE7emplaceIJRSB_S5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %109, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  %112 = getelementptr inbounds nuw { ptr, i8 }, ptr %25, i32 0, i32 0
+  %113 = extractvalue { ptr, i8 } %111, 0
+  store ptr %113, ptr %112, align 8
+  %114 = getelementptr inbounds nuw { ptr, i8 }, ptr %25, i32 0, i32 1
+  %115 = extractvalue { ptr, i8 } %111, 1
+  store i8 %115, ptr %114, align 8
+  call void @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #12
+  br label %120
+
+116:                                              ; preds = %81
+  %117 = call noundef ptr @_ZNKSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #12
+  %118 = getelementptr inbounds nuw %"struct.std::pair", ptr %117, i32 0, i32 1
+  %119 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %118) #12
+  store ptr %119, ptr %21, align 8, !tbaa !14
+  br label %120
+
+120:                                              ; preds = %116, %101
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #12
+  %121 = load ptr, ptr %20, align 8, !tbaa !28
+  %122 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %121) #12
+  store ptr %122, ptr %26, align 8, !tbaa !14
+  %123 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12emplace_backIJRS3_S3_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #12
+  br label %124
+
+124:                                              ; preds = %120
+  %125 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
+  br label %78
+
+126:                                              ; preds = %80
+  store i32 0, ptr %11, align 4
+  br label %127
+
+127:                                              ; preds = %126, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #12
+  %128 = load i32, ptr %11, align 4
+  switch i32 %128, label %131 [
+    i32 0, label %129
+    i32 2, label %32
+  ]
+
+129:                                              ; preds = %127
+  br label %32, !llvm.loop !108
+
+130:                                              ; preds = %32
+  call void @_ZN4llvm11SmallVectorISt4pairIPNS_8HashNodeEPKS2_ELj3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret void
+
+131:                                              ; preds = %127
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm11SmallVectorISt4pairIPNS_8HashNodeEPKS2_ELj3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !109
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EEC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12emplace_backIJRS3_RS5_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !111
+  store ptr %1, ptr %6, align 8, !tbaa !16
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %10 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %11 = icmp uge i64 %9, %10
+  %12 = zext i1 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 0)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %19
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !16
+  %17 = load ptr, ptr %7, align 8, !tbaa !16
+  %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE18growAndEmplaceBackIJRS3_RS5_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  store ptr %18, ptr %4, align 8
+  br label %26
+
+19:                                               ; preds = %3
+  %20 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %21 = load ptr, ptr %6, align 8, !tbaa !16
+  %22 = load ptr, ptr %7, align 8, !tbaa !16
+  call void @_ZNSt4pairIPN4llvm8HashNodeEPKS1_EC2IRS2_RS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %23 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %24 = add i64 %23, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %24)
+  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %25, ptr %4, align 8
+  br label %26
+
+26:                                               ; preds = %19, %15
+  %27 = load ptr, ptr %4, align 8
+  ret ptr %27
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12pop_back_valEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::pair.32", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !111
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %5, i64 16, i1 false)
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %6 = load { ptr, ptr }, ptr %2, align 8
+  ret { ptr, ptr } %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EPN4llvm8HashNodeEPKS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !113
+  %3 = load ptr, ptr %2, align 8, !tbaa !113
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE10__move_getIPN4llvm8HashNodeEPKS3_EEOT_OSt4pairIS7_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EPN4llvm8HashNodeEPKS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !113
+  %3 = load ptr, ptr %2, align 8, !tbaa !113
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE10__move_getIPN4llvm8HashNodeEPKS3_EEOT0_OSt4pairIT_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt8optionalIjEcvbEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt19_Optional_base_implIjSt14_Optional_baseIjLb1ELb1EEE13_M_is_engagedEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNKRSt8optionalIjEdeEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt19_Optional_base_implIjSt14_Optional_baseIjLb1ELb1EEE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden { ptr, i8 } @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE7emplaceIJRSB_S5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca %"struct.std::pair.24", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !26
+  %12 = load ptr, ptr %7, align 8, !tbaa !28
+  %13 = call { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7emplaceIJRS1_S7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  store { ptr, i8 } %13, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %8, i64 9, i1 false)
+  %14 = load { ptr, i8 }, ptr %4, align 8
+  ret { ptr, i8 } %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12emplace_backIJRS3_S3_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !111
+  store ptr %1, ptr %6, align 8, !tbaa !16
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %10 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %11 = icmp uge i64 %9, %10
+  %12 = zext i1 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 0)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %19
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !16
+  %17 = load ptr, ptr %7, align 8, !tbaa !16
+  %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE18growAndEmplaceBackIJRS3_S3_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  store ptr %18, ptr %4, align 8
+  br label %26
+
+19:                                               ; preds = %3
+  %20 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %21 = load ptr, ptr %6, align 8, !tbaa !16
+  %22 = load ptr, ptr %7, align 8, !tbaa !16
+  call void @_ZNSt4pairIPN4llvm8HashNodeEPKS1_EC2IRS2_S2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %23 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %24 = add i64 %23, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %24)
+  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %25, ptr %4, align 8
+  br label %26
+
+26:                                               ; preds = %19, %15
+  %27 = load ptr, ptr %4, align 8
+  ret ptr %27
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm11SmallVectorISt4pairIPNS_8HashNodeEPKS2_ELj3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !109
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE13destroy_rangeEPS6_S8_(ptr noundef %4, ptr noundef %5)
+  call void @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local i64 @_ZNK4llvm16OutlinedHashTree4findERKNS_11SmallVectorImLj6EEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) #0 align 2 {
+  %3 = alloca %"class.std::optional", align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %13 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !85
+  %15 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %16 = call noundef ptr @_ZNK4llvm16OutlinedHashTree7getRootEv(ptr noundef nonnull align 8 dereferenceable(72) %15)
+  store ptr %16, ptr %6, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %17 = load ptr, ptr %5, align 8, !tbaa !85
+  store ptr %17, ptr %7, align 8, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %18 = load ptr, ptr %7, align 8, !tbaa !85
+  %19 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonImvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
+  store ptr %19, ptr %8, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %20 = load ptr, ptr %7, align 8, !tbaa !85
+  %21 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonImvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
+  store ptr %21, ptr %9, align 8, !tbaa !26
+  br label %22
+
+22:                                               ; preds = %52, %2
+  %23 = load ptr, ptr %8, align 8, !tbaa !26
+  %24 = load ptr, ptr %9, align 8, !tbaa !26
+  %25 = icmp ne ptr %23, %24
+  br i1 %25, label %27, label %26
+
+26:                                               ; preds = %22
+  store i32 2, ptr %10, align 4
+  br label %55
+
+27:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %28 = load ptr, ptr %8, align 8, !tbaa !26
+  %29 = load i64, ptr %28, align 8, !tbaa !66
+  store i64 %29, ptr %11, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %30 = load ptr, ptr %6, align 8, !tbaa !14
+  %31 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %30, i32 0, i32 2
+  %32 = call ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %33 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %12, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %33, i32 0, i32 0
+  store ptr %32, ptr %34, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  %35 = load ptr, ptr %6, align 8, !tbaa !14
+  %36 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %35, i32 0, i32 2
+  %37 = call ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %36) #12
+  %38 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %13, i32 0, i32 0
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8
+  %40 = call noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
+  store i32 0, ptr %14, align 4, !tbaa !78
+  call void @_ZNSt8optionalIjEC2IiTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_IS4_ISt10in_place_tSB_EESt16is_constructibleIjJS7_EESt14is_convertibleIS7_jEEEbE4typeELb1EEEOS7_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %14) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  store i32 1, ptr %10, align 4
+  br label %46
+
+42:                                               ; preds = %27
+  %43 = call noundef ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  %44 = getelementptr inbounds nuw %"struct.std::pair", ptr %43, i32 0, i32 1
+  %45 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %44) #12
+  store ptr %45, ptr %6, align 8, !tbaa !14
+  store i32 0, ptr %10, align 4
+  br label %46
+
+46:                                               ; preds = %42, %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  %47 = load i32, ptr %10, align 4
+  switch i32 %47, label %49 [
+    i32 0, label %48
+  ]
+
+48:                                               ; preds = %46
+  store i32 0, ptr %10, align 4
+  br label %49
+
+49:                                               ; preds = %48, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  %50 = load i32, ptr %10, align 4
+  switch i32 %50, label %55 [
+    i32 0, label %51
+  ]
+
+51:                                               ; preds = %49
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %8, align 8, !tbaa !26
+  %54 = getelementptr inbounds nuw i64, ptr %53, i32 1
+  store ptr %54, ptr %8, align 8, !tbaa !26
+  br label %22
+
+55:                                               ; preds = %49, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  %56 = load i32, ptr %10, align 4
+  switch i32 %56, label %60 [
+    i32 2, label %57
+  ]
+
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %6, align 8, !tbaa !14
+  %59 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %58, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 8 %59, i64 8, i1 false)
+  store i32 1, ptr %10, align 4
+  br label %60
+
+60:                                               ; preds = %57, %55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  %61 = getelementptr inbounds nuw %"class.std::optional", ptr %3, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %"struct.std::_Optional_base", ptr %61, i32 0, i32 0
+  %63 = load i64, ptr %62, align 4
+  ret i64 %63
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNKSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = call ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %10, i32 0, i32 0
+  store ptr %9, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8optionalIjEC2IiTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_IS4_ISt10in_place_tSB_EESt16is_constructibleIjJS7_EESt14is_convertibleIS7_jEEEbE4typeELb1EEEOS7_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !87
+  call void @_ZNSt14_Optional_baseIjLb1ELb1EEC2IJiETnNSt9enable_ifIX18is_constructible_vIjDpT_EEbE4typeELb0EEESt10in_place_tDpOS3_(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE11__const_getIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEERKT_RKSt4pairIS9_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %4 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE11__const_getIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEERKT0_RKSt4pairIT_S9_E(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %4 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt8functionIFvPKN4llvm8HashNodeES3_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %5 = xor i1 %4, true
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNKSt8functionIFvPKN4llvm8HashNodeES3_EEclES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %3
+  call void @_ZSt25__throw_bad_function_callv() #13
+  unreachable
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"class.std::function.0", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !72
+  %13 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %7, i32 0, i32 0
+  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEE12emplace_backIJRS3_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !39
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %8 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %9 = icmp uge i64 %7, %8
+  %10 = zext i1 %9 to i64
+  %11 = call i64 @llvm.expect.i64(i64 %10, i64 0)
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %16
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !16
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE18growAndEmplaceBackIJRS3_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  store ptr %15, ptr %3, align 8
+  br label %23
+
+16:                                               ; preds = %2
+  %17 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %18 = load ptr, ptr %5, align 8, !tbaa !16
+  %19 = load ptr, ptr %18, align 8, !tbaa !14
+  store ptr %19, ptr %17, align 8, !tbaa !14
+  %20 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %21 = add i64 %20, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %21)
+  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  store ptr %22, ptr %3, align 8
+  br label %23
+
+23:                                               ; preds = %16, %13
+  %24 = load ptr, ptr %3, align 8
+  ret ptr %24
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %6 = icmp ne ptr %5, null
+  %7 = xor i1 %6, true
+  ret i1 %7
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt25__throw_bad_function_callv() #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !43
+  %6 = zext i32 %5 to i64
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 4, !tbaa !115
+  %6 = zext i32 %5 to i64
+  ret i64 %6
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE18growAndEmplaceBackIJRS3_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !116
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE9push_backES3_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %7)
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !41
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  %7 = trunc i64 %6 to i32
+  %8 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %5, i32 0, i32 1
+  store i32 %7, ptr %8, align 8, !tbaa !43
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = getelementptr inbounds ptr, ptr %4, i64 -1
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE9push_backES3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !116
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %7 = call noundef ptr @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE28reserveForParamAndGetAddressERS3_m(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1)
+  store ptr %7, ptr %5, align 8, !tbaa !16
+  %8 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %9 = load ptr, ptr %5, align 8, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 8 %9, i64 8, i1 false)
+  %10 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %11 = add i64 %10, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE28reserveForParamAndGetAddressERS3_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !116
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !16
+  %9 = load i64, ptr %6, align 8, !tbaa !66
+  %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS3_Lb1EEEEEPKS3_PT_RS8_m(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS3_Lb1EEEEEPKS3_PT_RS8_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !116
+  store ptr %1, ptr %6, align 8, !tbaa !16
+  store i64 %2, ptr %7, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %12 = load ptr, ptr %5, align 8, !tbaa !116
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %14 = load i64, ptr %7, align 8, !tbaa !66
+  %15 = add i64 %13, %14
+  store i64 %15, ptr %8, align 8, !tbaa !66
+  %16 = load i64, ptr %8, align 8, !tbaa !66
+  %17 = load ptr, ptr %5, align 8, !tbaa !116
+  %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %19 = icmp ule i64 %16, %18
+  %20 = zext i1 %19 to i64
+  %21 = call i64 @llvm.expect.i64(i64 %20, i64 1)
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %6, align 8, !tbaa !16
+  store ptr %24, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %39
+
+25:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #12
+  store i8 0, ptr %10, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store i64 -1, ptr %11, align 8, !tbaa !66
+  %26 = load ptr, ptr %5, align 8, !tbaa !116
+  %27 = load i64, ptr %8, align 8, !tbaa !66
+  call void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %27)
+  %28 = load i8, ptr %10, align 1, !tbaa !12, !range !20, !noundef !21
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %35
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %5, align 8, !tbaa !116
+  %32 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %33 = load i64, ptr %11, align 8, !tbaa !66
+  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  br label %37
+
+35:                                               ; preds = %25
+  %36 = load ptr, ptr %6, align 8, !tbaa !16
+  br label %37
+
+37:                                               ; preds = %35, %30
+  %38 = phi ptr [ %34, %30 ], [ %36, %35 ]
+  store ptr %38, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #12
+  br label %39
+
+39:                                               ; preds = %37, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %40 = load ptr, ptr %4, align 8
+  ret ptr %40
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !116
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE8grow_podEmm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6, i64 noundef 8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE8grow_podEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !118
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %9 = load i64, ptr %5, align 8, !tbaa !66
+  %10 = load i64, ptr %6, align 8, !tbaa !66
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, i64 noundef %9, i64 noundef %10)
+  ret void
+}
+
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt10__pair_getILm0EE11__const_getIN4llvm11SmallVectorImLj6EEEjEERKT_RKSt4pairIS5_T0_E(ptr noundef nonnull align 8 dereferenceable(68) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
+  %4 = getelementptr inbounds nuw %"struct.std::pair.17", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt10__pair_getILm1EE11__const_getIN4llvm11SmallVectorImLj6EEEjEERKT0_RKSt4pairIT_S5_E(ptr noundef nonnull align 8 dereferenceable(68) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
+  %4 = getelementptr inbounds nuw %"struct.std::pair.17", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt19_Optional_base_implIjSt14_Optional_baseIjLb1ELb1EEE13_M_is_engagedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Optional_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %4, i32 0, i32 1
+  %6 = load i8, ptr %5, align 4, !tbaa !122, !range !20, !noundef !21
+  %7 = trunc i8 %6 to i1
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt19_Optional_base_implIjSt14_Optional_baseIjLb1ELb1EEE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  %3 = load ptr, ptr %2, align 8
+  br label %4
+
+4:                                                ; preds = %1
+  br label %5
+
+5:                                                ; preds = %4
+  %6 = getelementptr inbounds nuw %"struct.std::_Optional_base", ptr %3, i32 0, i32 0
+  %7 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt22_Optional_payload_baseIjE6_M_getEv(ptr noundef nonnull align 4 dereferenceable(5) %6) #12
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt22_Optional_payload_baseIjE6_M_getEv(ptr noundef nonnull align 4 dereferenceable(5) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !123
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt14_Optional_baseIjLb1ELb1EEC2IJjETnNSt9enable_ifIX18is_constructible_vIjDpT_EEbE4typeELb0EEESt10in_place_tDpOS3_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !125
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Optional_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !87
+  call void @_ZNSt17_Optional_payloadIjLb1ELb1ELb1EECI2St22_Optional_payload_baseIjEIJjEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt17_Optional_payloadIjLb1ELb1ELb1EECI2St22_Optional_payload_baseIjEIJjEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !127
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt22_Optional_payload_baseIjEC2IJjEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIjEC2IJjEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !87
+  call void @_ZNSt22_Optional_payload_baseIjE8_StorageIjLb1EEC2IJjEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %8 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %5, i32 0, i32 1
+  store i8 1, ptr %8, align 4, !tbaa !122
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIjE8_StorageIjLb1EEC2IJjEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !129
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !87
+  %7 = load i32, ptr %6, align 4, !tbaa !78
+  store i32 %7, ptr %5, align 4, !tbaa !131
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE10__move_getIPN4llvm8HashNodeEPKS3_EEOT_OSt4pairIS7_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !113
+  %3 = load ptr, ptr %2, align 8, !tbaa !113
+  %4 = getelementptr inbounds nuw %"struct.std::pair.32", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE10__move_getIPN4llvm8HashNodeEPKS3_EEOT0_OSt4pairIT_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !113
+  %3 = load ptr, ptr %2, align 8, !tbaa !113
+  %4 = getelementptr inbounds nuw %"struct.std::pair.32", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt14_Optional_baseIjLb1ELb1EEC2IJiETnNSt9enable_ifIX18is_constructible_vIjDpT_EEbE4typeELb0EEESt10in_place_tDpOS3_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !125
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Optional_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !87
+  call void @_ZNSt17_Optional_payloadIjLb1ELb1ELb1EECI2St22_Optional_payload_baseIjEIJiEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt17_Optional_payloadIjLb1ELb1ELb1EECI2St22_Optional_payload_baseIjEIJiEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !127
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt22_Optional_payload_baseIjEC2IJiEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIjEC2IJiEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !87
+  call void @_ZNSt22_Optional_payload_baseIjE8_StorageIjLb1EEC2IJiEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %8 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %5, i32 0, i32 1
+  store i8 1, ptr %8, align 4, !tbaa !122
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIjE8_StorageIjLb1EEC2IJiEEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !129
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !87
+  %7 = load i32, ptr %6, align 4, !tbaa !78
+  store i32 %7, ptr %5, align 4, !tbaa !131
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEEC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !78
+  %7 = zext i32 %6 to i64
+  call void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !116
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %7 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6, i64 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !41
+  store ptr %1, ptr %5, align 8, !tbaa !61
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !61
+  store ptr %9, ptr %8, align 8, !tbaa !60
+  %10 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %7, i32 0, i32 1
+  store i32 0, ptr %10, align 8, !tbaa !43
+  %11 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8, !tbaa !66
+  %13 = trunc i64 %12 to i32
+  store i32 %13, ptr %11, align 4, !tbaa !115
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE13destroy_rangeEPS3_S5_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPKNS_8HashNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE7isSmallEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %4, label %7, label %5
+
+5:                                                ; preds = %1
+  %6 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @free(ptr noundef %6) #12
+  br label %7
+
+7:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE7isSmallEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  %6 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %7 = icmp eq ptr %5, %6
+  ret i1 %7
+}
+
+; Function Attrs: nounwind
+declare void @free(ptr noundef) #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE18growAndEmplaceBackIJS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !116
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE9push_backES3_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %7)
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !116
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = sub i64 %4, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEEC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !78
+  %7 = zext i32 %6 to i64
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !132
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !58
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %7 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6, i64 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE13destroy_rangeEPS5_S7_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE7isSmallEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %4, label %7, label %5
+
+5:                                                ; preds = %1
+  %6 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @free(ptr noundef %6) #12
+  br label %7
+
+7:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE7isSmallEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  %6 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %7 = icmp eq ptr %5, %6
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #12
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !136
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !137
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !137
+  store ptr %7, ptr %6, align 8, !tbaa !51
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null) #12
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %6 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  store ptr %6, ptr %7, align 8, !tbaa !51
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !138
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !139
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !139
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_value_base", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !143
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !145
+  %3 = load ptr, ptr %2, align 8, !tbaa !145
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm8HashNodeEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm8HashNodeEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
+  %3 = load ptr, ptr %2, align 8, !tbaa !147
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
+  %3 = load ptr, ptr %2, align 8, !tbaa !147
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm8HashNodeELb0EE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm8HashNodeELb0EE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
+  %3 = load ptr, ptr %2, align 8, !tbaa !149
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.11", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE18growAndEmplaceBackIJRKmPS2_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::pair.12", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !132
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !26
+  %10 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @_ZNSt4pairImPKN4llvm8HashNodeEEC2IRKmPS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %11 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE9push_backES5_(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 %12, ptr %14)
+  %15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret ptr %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairImPKN4llvm8HashNodeEEC2IRKmPS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !26
+  %10 = load i64, ptr %9, align 8, !tbaa !66
+  store i64 %10, ptr %8, align 8, !tbaa !151
+  %11 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8, !tbaa !16
+  %13 = load ptr, ptr %12, align 8, !tbaa !14
+  store ptr %13, ptr %11, align 8, !tbaa !34
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = getelementptr inbounds %"struct.std::pair.12", ptr %4, i64 -1
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE9push_backES5_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1, ptr %2) #0 comdat align 2 {
+  %4 = alloca %"struct.std::pair.12", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = getelementptr inbounds nuw { i64, ptr }, ptr %4, i32 0, i32 0
+  store i64 %1, ptr %7, align 8
+  %8 = getelementptr inbounds nuw { i64, ptr }, ptr %4, i32 0, i32 1
+  store ptr %2, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !132
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %10 = call noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE28reserveForParamAndGetAddressERS5_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 1)
+  store ptr %10, ptr %6, align 8, !tbaa !32
+  %11 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %12 = load ptr, ptr %6, align 8, !tbaa !32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 8 %12, i64 16, i1 false)
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %14 = add i64 %13, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE28reserveForParamAndGetAddressERS5_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !132
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
+  %9 = load i64, ptr %6, align 8, !tbaa !66
+  %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS5_Lb1EEEEEPKS5_PT_RSA_m(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS5_Lb1EEEEEPKS5_PT_RSA_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !132
+  store ptr %1, ptr %6, align 8, !tbaa !32
+  store i64 %2, ptr %7, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %12 = load ptr, ptr %5, align 8, !tbaa !132
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %14 = load i64, ptr %7, align 8, !tbaa !66
+  %15 = add i64 %13, %14
+  store i64 %15, ptr %8, align 8, !tbaa !66
+  %16 = load i64, ptr %8, align 8, !tbaa !66
+  %17 = load ptr, ptr %5, align 8, !tbaa !132
+  %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %19 = icmp ule i64 %16, %18
+  %20 = zext i1 %19 to i64
+  %21 = call i64 @llvm.expect.i64(i64 %20, i64 1)
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %6, align 8, !tbaa !32
+  store ptr %24, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %39
+
+25:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #12
+  store i8 0, ptr %10, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store i64 -1, ptr %11, align 8, !tbaa !66
+  %26 = load ptr, ptr %5, align 8, !tbaa !132
+  %27 = load i64, ptr %8, align 8, !tbaa !66
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %27)
+  %28 = load i8, ptr %10, align 1, !tbaa !12, !range !20, !noundef !21
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %35
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %5, align 8, !tbaa !132
+  %32 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %33 = load i64, ptr %11, align 8, !tbaa !66
+  %34 = getelementptr inbounds %"struct.std::pair.12", ptr %32, i64 %33
+  br label %37
+
+35:                                               ; preds = %25
+  %36 = load ptr, ptr %6, align 8, !tbaa !32
+  br label %37
+
+37:                                               ; preds = %35, %30
+  %38 = phi ptr [ %34, %30 ], [ %36, %35 ]
+  store ptr %38, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #12
+  br label %39
+
+39:                                               ; preds = %37, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %40 = load ptr, ptr %4, align 8
+  ret ptr %40
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !132
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE8grow_podEmm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6, i64 noundef 16)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE8grow_podEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !58
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %9 = load i64, ptr %5, align 8, !tbaa !66
+  %10 = load i64, ptr %6, align 8, !tbaa !66
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, i64 noundef %9, i64 noundef %10)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm4sortIPSt4pairImPKNS_8HashNodeEEEEvT_S7_(ptr noundef %0, ptr noundef %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZSt4sortIPSt4pairImPKN4llvm8HashNodeEEEvT_S7_(ptr noundef %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm9adl_beginIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS9_(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = call noundef ptr @_ZN4llvm10adl_detail10begin_implIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm7adl_endIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS9_(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = call noundef ptr @_ZN4llvm10adl_detail8end_implIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4sortIPSt4pairImPKN4llvm8HashNodeEEEvT_S7_(ptr noundef %0, ptr noundef %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZN9__gnu_cxx5__ops16__iter_less_iterEv()
+  call void @_ZSt6__sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt6__sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef %0, ptr noundef %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr %4, align 8, !tbaa !32
+  %7 = icmp ne ptr %5, %6
+  br i1 %7, label %8, label %21
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %3, align 8, !tbaa !32
+  %10 = load ptr, ptr %4, align 8, !tbaa !32
+  %11 = load ptr, ptr %4, align 8, !tbaa !32
+  %12 = load ptr, ptr %3, align 8, !tbaa !32
+  %13 = ptrtoint ptr %11 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 16
+  %17 = call noundef i64 @_ZSt4__lgl(i64 noundef %16)
+  %18 = mul nsw i64 %17, 2
+  call void @_ZSt16__introsort_loopIPSt4pairImPKN4llvm8HashNodeEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_T1_(ptr noundef %9, ptr noundef %10, i64 noundef %18)
+  %19 = load ptr, ptr %3, align 8, !tbaa !32
+  %20 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZSt22__final_insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef %19, ptr noundef %20)
+  br label %21
+
+21:                                               ; preds = %8, %2
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9__gnu_cxx5__ops16__iter_less_iterEv() #2 comdat {
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairImPKN4llvm8HashNodeEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_T1_(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  br label %8
+
+8:                                                ; preds = %23, %3
+  %9 = load ptr, ptr %5, align 8, !tbaa !32
+  %10 = load ptr, ptr %4, align 8, !tbaa !32
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 16
+  %15 = icmp sgt i64 %14, 16
+  br i1 %15, label %16, label %33
+
+16:                                               ; preds = %8
+  %17 = load i64, ptr %6, align 8, !tbaa !66
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %23
+
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %4, align 8, !tbaa !32
+  %21 = load ptr, ptr %5, align 8, !tbaa !32
+  %22 = load ptr, ptr %5, align 8, !tbaa !32
+  call void @_ZSt14__partial_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_(ptr noundef %20, ptr noundef %21, ptr noundef %22)
+  br label %33
+
+23:                                               ; preds = %16
+  %24 = load i64, ptr %6, align 8, !tbaa !66
+  %25 = add nsw i64 %24, -1
+  store i64 %25, ptr %6, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %26 = load ptr, ptr %4, align 8, !tbaa !32
+  %27 = load ptr, ptr %5, align 8, !tbaa !32
+  %28 = call noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_T0_(ptr noundef %26, ptr noundef %27)
+  store ptr %28, ptr %7, align 8, !tbaa !32
+  %29 = load ptr, ptr %7, align 8, !tbaa !32
+  %30 = load ptr, ptr %5, align 8, !tbaa !32
+  %31 = load i64, ptr %6, align 8, !tbaa !66
+  call void @_ZSt16__introsort_loopIPSt4pairImPKN4llvm8HashNodeEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_T1_(ptr noundef %29, ptr noundef %30, i64 noundef %31)
+  %32 = load ptr, ptr %7, align 8, !tbaa !32
+  store ptr %32, ptr %5, align 8, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %8, !llvm.loop !152
+
+33:                                               ; preds = %19, %8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt4__lgl(i64 noundef %0) #2 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !66
+  %3 = load i64, ptr %2, align 8, !tbaa !66
+  %4 = call i64 @llvm.ctlz.i64(i64 %3, i1 true)
+  %5 = trunc i64 %4 to i32
+  %6 = sub nsw i32 63, %5
+  %7 = sext i32 %6 to i64
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt22__final_insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef %0, ptr noundef %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %4, align 8, !tbaa !32
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  %10 = sdiv exact i64 %9, 16
+  %11 = icmp sgt i64 %10, 16
+  br i1 %11, label %12, label %19
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %14 = load ptr, ptr %3, align 8, !tbaa !32
+  %15 = getelementptr inbounds %"struct.std::pair.12", ptr %14, i64 16
+  call void @_ZSt16__insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef %13, ptr noundef %15)
+  %16 = load ptr, ptr %3, align 8, !tbaa !32
+  %17 = getelementptr inbounds %"struct.std::pair.12", ptr %16, i64 16
+  %18 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZSt26__unguarded_insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef %17, ptr noundef %18)
+  br label %22
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %3, align 8, !tbaa !32
+  %21 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZSt16__insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef %20, ptr noundef %21)
+  br label %22
+
+22:                                               ; preds = %19, %12
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt14__partial_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 comdat {
+  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !32
+  store ptr %2, ptr %7, align 8, !tbaa !32
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
+  %9 = load ptr, ptr %6, align 8, !tbaa !32
+  %10 = load ptr, ptr %7, align 8, !tbaa !32
+  call void @_ZSt13__heap_selectIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_(ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  %11 = load ptr, ptr %5, align 8, !tbaa !32
+  %12 = load ptr, ptr %6, align 8, !tbaa !32
+  call void @_ZSt11__sort_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_(ptr noundef %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_T0_(ptr noundef %0, ptr noundef %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = ptrtoint ptr %7 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  %12 = sdiv exact i64 %11, 16
+  %13 = sdiv i64 %12, 2
+  %14 = getelementptr inbounds %"struct.std::pair.12", ptr %6, i64 %13
+  store ptr %14, ptr %5, align 8, !tbaa !32
+  %15 = load ptr, ptr %3, align 8, !tbaa !32
+  %16 = load ptr, ptr %3, align 8, !tbaa !32
+  %17 = getelementptr inbounds %"struct.std::pair.12", ptr %16, i64 1
+  %18 = load ptr, ptr %5, align 8, !tbaa !32
+  %19 = load ptr, ptr %4, align 8, !tbaa !32
+  %20 = getelementptr inbounds %"struct.std::pair.12", ptr %19, i64 -1
+  call void @_ZSt22__move_median_to_firstIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_SA_T0_(ptr noundef %15, ptr noundef %17, ptr noundef %18, ptr noundef %20)
+  %21 = load ptr, ptr %3, align 8, !tbaa !32
+  %22 = getelementptr inbounds %"struct.std::pair.12", ptr %21, i64 1
+  %23 = load ptr, ptr %4, align 8, !tbaa !32
+  %24 = load ptr, ptr %3, align 8, !tbaa !32
+  %25 = call noundef ptr @_ZSt21__unguarded_partitionIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_(ptr noundef %22, ptr noundef %23, ptr noundef %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret ptr %25
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt13__heap_selectIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat {
+  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !32
+  store ptr %2, ptr %7, align 8, !tbaa !32
+  %9 = load ptr, ptr %5, align 8, !tbaa !32
+  %10 = load ptr, ptr %6, align 8, !tbaa !32
+  call void @_ZSt11__make_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_(ptr noundef %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %11 = load ptr, ptr %6, align 8, !tbaa !32
+  store ptr %11, ptr %8, align 8, !tbaa !32
+  br label %12
+
+12:                                               ; preds = %26, %3
+  %13 = load ptr, ptr %8, align 8, !tbaa !32
+  %14 = load ptr, ptr %7, align 8, !tbaa !32
+  %15 = icmp ult ptr %13, %14
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %29
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %8, align 8, !tbaa !32
+  %19 = load ptr, ptr %5, align 8, !tbaa !32
+  %20 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %18, ptr noundef %19)
+  br i1 %20, label %21, label %25
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8, !tbaa !32
+  %23 = load ptr, ptr %6, align 8, !tbaa !32
+  %24 = load ptr, ptr %8, align 8, !tbaa !32
+  call void @_ZSt10__pop_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_RT0_(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  br label %25
+
+25:                                               ; preds = %21, %17
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %8, align 8, !tbaa !32
+  %28 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %27, i32 1
+  store ptr %28, ptr %8, align 8, !tbaa !32
+  br label %12, !llvm.loop !153
+
+29:                                               ; preds = %16
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt11__sort_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !154
+  br label %7
+
+7:                                                ; preds = %15, %3
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
+  %9 = load ptr, ptr %4, align 8, !tbaa !32
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 16
+  %14 = icmp sgt i64 %13, 1
+  br i1 %14, label %15, label %22
+
+15:                                               ; preds = %7
+  %16 = load ptr, ptr %5, align 8, !tbaa !32
+  %17 = getelementptr inbounds %"struct.std::pair.12", ptr %16, i32 -1
+  store ptr %17, ptr %5, align 8, !tbaa !32
+  %18 = load ptr, ptr %4, align 8, !tbaa !32
+  %19 = load ptr, ptr %5, align 8, !tbaa !32
+  %20 = load ptr, ptr %5, align 8, !tbaa !32
+  %21 = load ptr, ptr %6, align 8, !tbaa !154
+  call void @_ZSt10__pop_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_RT0_(ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %21)
+  br label %7, !llvm.loop !156
+
+22:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt11__make_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %"struct.std::pair.12", align 8
+  %10 = alloca %"struct.std::pair.12", align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !154
+  %12 = load ptr, ptr %5, align 8, !tbaa !32
+  %13 = load ptr, ptr %4, align 8, !tbaa !32
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub i64 %14, %15
+  %17 = sdiv exact i64 %16, 16
+  %18 = icmp slt i64 %17, 2
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %3
+  br label %52
+
+20:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %21 = load ptr, ptr %5, align 8, !tbaa !32
+  %22 = load ptr, ptr %4, align 8, !tbaa !32
+  %23 = ptrtoint ptr %21 to i64
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %23, %24
+  %26 = sdiv exact i64 %25, 16
+  store i64 %26, ptr %7, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %27 = load i64, ptr %7, align 8, !tbaa !66
+  %28 = sub nsw i64 %27, 2
+  %29 = sdiv i64 %28, 2
+  store i64 %29, ptr %8, align 8, !tbaa !66
+  br label %30
+
+30:                                               ; preds = %50, %20
+  br label %31
+
+31:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #12
+  %32 = load ptr, ptr %4, align 8, !tbaa !32
+  %33 = load i64, ptr %8, align 8, !tbaa !66
+  %34 = getelementptr inbounds %"struct.std::pair.12", ptr %32, i64 %33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %34, i64 16, i1 false)
+  %35 = load ptr, ptr %4, align 8, !tbaa !32
+  %36 = load i64, ptr %8, align 8, !tbaa !66
+  %37 = load i64, ptr %7, align 8, !tbaa !66
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %9, i64 16, i1 false)
+  %38 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  call void @_ZSt13__adjust_heapIPSt4pairImPKN4llvm8HashNodeEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_(ptr noundef %35, i64 noundef %36, i64 noundef %37, i64 %39, ptr %41)
+  %42 = load i64, ptr %8, align 8, !tbaa !66
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %31
+  store i32 1, ptr %11, align 4
+  br label %48
+
+45:                                               ; preds = %31
+  %46 = load i64, ptr %8, align 8, !tbaa !66
+  %47 = add nsw i64 %46, -1
+  store i64 %47, ptr %8, align 8, !tbaa !66
+  store i32 0, ptr %11, align 4
+  br label %48
+
+48:                                               ; preds = %45, %44
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #12
+  %49 = load i32, ptr %11, align 4
+  switch i32 %49, label %51 [
+    i32 0, label %50
+  ]
+
+50:                                               ; preds = %48
+  br label %30, !llvm.loop !157
+
+51:                                               ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %52
+
+52:                                               ; preds = %51, %19
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !154
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %5, align 8, !tbaa !32
+  %8 = load ptr, ptr %6, align 8, !tbaa !32
+  %9 = call noundef zeroext i1 @_ZStltImPKN4llvm8HashNodeEEbRKSt4pairIT_T0_ES9_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret i1 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt10__pop_heapIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"struct.std::pair.12", align 8
+  %10 = alloca %"struct.std::pair.12", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !32
+  store ptr %2, ptr %7, align 8, !tbaa !32
+  store ptr %3, ptr %8, align 8, !tbaa !154
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #12
+  %11 = load ptr, ptr %7, align 8, !tbaa !32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 16, i1 false)
+  %12 = load ptr, ptr %5, align 8, !tbaa !32
+  %13 = load ptr, ptr %7, align 8, !tbaa !32
+  %14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %12) #12
+  %15 = load ptr, ptr %5, align 8, !tbaa !32
+  %16 = load ptr, ptr %6, align 8, !tbaa !32
+  %17 = load ptr, ptr %5, align 8, !tbaa !32
+  %18 = ptrtoint ptr %16 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = sdiv exact i64 %20, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %9, i64 16, i1 false)
+  %22 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  call void @_ZSt13__adjust_heapIPSt4pairImPKN4llvm8HashNodeEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_(ptr noundef %15, i64 noundef 0, i64 noundef %21, i64 %23, ptr %25)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairImPKN4llvm8HashNodeEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, ptr %4) #0 comdat {
+  %6 = alloca %"struct.std::pair.12", align 8
+  %7 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_val", align 1
+  %14 = alloca %"struct.std::pair.12", align 8
+  %15 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 0
+  store i64 %3, ptr %15, align 8
+  %16 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 1
+  store ptr %4, ptr %16, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !32
+  store i64 %1, ptr %9, align 8, !tbaa !66
+  store i64 %2, ptr %10, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %17 = load i64, ptr %9, align 8, !tbaa !66
+  store i64 %17, ptr %11, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %18 = load i64, ptr %9, align 8, !tbaa !66
+  store i64 %18, ptr %12, align 8, !tbaa !66
+  br label %19
+
+19:                                               ; preds = %40, %5
+  %20 = load i64, ptr %12, align 8, !tbaa !66
+  %21 = load i64, ptr %10, align 8, !tbaa !66
+  %22 = sub nsw i64 %21, 1
+  %23 = sdiv i64 %22, 2
+  %24 = icmp slt i64 %20, %23
+  br i1 %24, label %25, label %49
+
+25:                                               ; preds = %19
+  %26 = load i64, ptr %12, align 8, !tbaa !66
+  %27 = add nsw i64 %26, 1
+  %28 = mul nsw i64 2, %27
+  store i64 %28, ptr %12, align 8, !tbaa !66
+  %29 = load ptr, ptr %8, align 8, !tbaa !32
+  %30 = load i64, ptr %12, align 8, !tbaa !66
+  %31 = getelementptr inbounds %"struct.std::pair.12", ptr %29, i64 %30
+  %32 = load ptr, ptr %8, align 8, !tbaa !32
+  %33 = load i64, ptr %12, align 8, !tbaa !66
+  %34 = sub nsw i64 %33, 1
+  %35 = getelementptr inbounds %"struct.std::pair.12", ptr %32, i64 %34
+  %36 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %31, ptr noundef %35)
+  br i1 %36, label %37, label %40
+
+37:                                               ; preds = %25
+  %38 = load i64, ptr %12, align 8, !tbaa !66
+  %39 = add nsw i64 %38, -1
+  store i64 %39, ptr %12, align 8, !tbaa !66
+  br label %40
+
+40:                                               ; preds = %37, %25
+  %41 = load ptr, ptr %8, align 8, !tbaa !32
+  %42 = load i64, ptr %12, align 8, !tbaa !66
+  %43 = getelementptr inbounds %"struct.std::pair.12", ptr %41, i64 %42
+  %44 = load ptr, ptr %8, align 8, !tbaa !32
+  %45 = load i64, ptr %9, align 8, !tbaa !66
+  %46 = getelementptr inbounds %"struct.std::pair.12", ptr %44, i64 %45
+  %47 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %43) #12
+  %48 = load i64, ptr %12, align 8, !tbaa !66
+  store i64 %48, ptr %9, align 8, !tbaa !66
+  br label %19, !llvm.loop !158
+
+49:                                               ; preds = %19
+  %50 = load i64, ptr %10, align 8, !tbaa !66
+  %51 = and i64 %50, 1
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %53, label %73
+
+53:                                               ; preds = %49
+  %54 = load i64, ptr %12, align 8, !tbaa !66
+  %55 = load i64, ptr %10, align 8, !tbaa !66
+  %56 = sub nsw i64 %55, 2
+  %57 = sdiv i64 %56, 2
+  %58 = icmp eq i64 %54, %57
+  br i1 %58, label %59, label %73
+
+59:                                               ; preds = %53
+  %60 = load i64, ptr %12, align 8, !tbaa !66
+  %61 = add nsw i64 %60, 1
+  %62 = mul nsw i64 2, %61
+  store i64 %62, ptr %12, align 8, !tbaa !66
+  %63 = load ptr, ptr %8, align 8, !tbaa !32
+  %64 = load i64, ptr %12, align 8, !tbaa !66
+  %65 = sub nsw i64 %64, 1
+  %66 = getelementptr inbounds %"struct.std::pair.12", ptr %63, i64 %65
+  %67 = load ptr, ptr %8, align 8, !tbaa !32
+  %68 = load i64, ptr %9, align 8, !tbaa !66
+  %69 = getelementptr inbounds %"struct.std::pair.12", ptr %67, i64 %68
+  %70 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %66) #12
+  %71 = load i64, ptr %12, align 8, !tbaa !66
+  %72 = sub nsw i64 %71, 1
+  store i64 %72, ptr %9, align 8, !tbaa !66
+  br label %73
+
+73:                                               ; preds = %59, %53, %49
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #12
+  call void @_ZN9__gnu_cxx5__ops14_Iter_less_valC2ENS0_15_Iter_less_iterE(ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %74 = load ptr, ptr %8, align 8, !tbaa !32
+  %75 = load i64, ptr %9, align 8, !tbaa !66
+  %76 = load i64, ptr %11, align 8, !tbaa !66
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %6, i64 16, i1 false)
+  %77 = getelementptr inbounds nuw { i64, ptr }, ptr %14, i32 0, i32 0
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds nuw { i64, ptr }, ptr %14, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  call void @_ZSt11__push_heapIPSt4pairImPKN4llvm8HashNodeEElS5_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SB_T1_RT2_(ptr noundef %74, i64 noundef %75, i64 noundef %76, i64 %78, ptr %80, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !32
+  %7 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !66
+  %9 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %5, i32 0, i32 0
+  store i64 %8, ptr %9, align 8, !tbaa !151
+  %10 = load ptr, ptr %4, align 8, !tbaa !32
+  %11 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
+  %13 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %5, i32 0, i32 1
+  store ptr %12, ptr %13, align 8, !tbaa !34
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9__gnu_cxx5__ops14_Iter_less_valC2ENS0_15_Iter_less_iterE(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !159
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt11__push_heapIPSt4pairImPKN4llvm8HashNodeEElS5_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SB_T1_RT2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #0 comdat {
+  %7 = alloca %"struct.std::pair.12", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 0
+  store i64 %3, ptr %13, align 8
+  %14 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 1
+  store ptr %4, ptr %14, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !32
+  store i64 %1, ptr %9, align 8, !tbaa !66
+  store i64 %2, ptr %10, align 8, !tbaa !66
+  store ptr %5, ptr %11, align 8, !tbaa !159
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %15 = load i64, ptr %9, align 8, !tbaa !66
+  %16 = sub nsw i64 %15, 1
+  %17 = sdiv i64 %16, 2
+  store i64 %17, ptr %12, align 8, !tbaa !66
+  br label %18
+
+18:                                               ; preds = %30, %6
+  %19 = load i64, ptr %9, align 8, !tbaa !66
+  %20 = load i64, ptr %10, align 8, !tbaa !66
+  %21 = icmp sgt i64 %19, %20
+  br i1 %21, label %22, label %28
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %11, align 8, !tbaa !159
+  %24 = load ptr, ptr %8, align 8, !tbaa !32
+  %25 = load i64, ptr %12, align 8, !tbaa !66
+  %26 = getelementptr inbounds %"struct.std::pair.12", ptr %24, i64 %25
+  %27 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImPKN4llvm8HashNodeEES8_EEbT_RT0_(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  br label %28
+
+28:                                               ; preds = %22, %18
+  %29 = phi i1 [ false, %18 ], [ %27, %22 ]
+  br i1 %29, label %30, label %42
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %8, align 8, !tbaa !32
+  %32 = load i64, ptr %12, align 8, !tbaa !66
+  %33 = getelementptr inbounds %"struct.std::pair.12", ptr %31, i64 %32
+  %34 = load ptr, ptr %8, align 8, !tbaa !32
+  %35 = load i64, ptr %9, align 8, !tbaa !66
+  %36 = getelementptr inbounds %"struct.std::pair.12", ptr %34, i64 %35
+  %37 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %33) #12
+  %38 = load i64, ptr %12, align 8, !tbaa !66
+  store i64 %38, ptr %9, align 8, !tbaa !66
+  %39 = load i64, ptr %9, align 8, !tbaa !66
+  %40 = sub nsw i64 %39, 1
+  %41 = sdiv i64 %40, 2
+  store i64 %41, ptr %12, align 8, !tbaa !66
+  br label %18, !llvm.loop !161
+
+42:                                               ; preds = %28
+  %43 = load ptr, ptr %8, align 8, !tbaa !32
+  %44 = load i64, ptr %9, align 8, !tbaa !66
+  %45 = getelementptr inbounds %"struct.std::pair.12", ptr %43, i64 %44
+  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImPKN4llvm8HashNodeEES8_EEbT_RT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !159
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %5, align 8, !tbaa !32
+  %8 = load ptr, ptr %6, align 8, !tbaa !32
+  %9 = call noundef zeroext i1 @_ZStltImPKN4llvm8HashNodeEEbRKSt4pairIT_T0_ES9_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret i1 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZStltImPKN4llvm8HashNodeEEbRKSt4pairIT_T0_ES9_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8, !tbaa !151
+  %8 = load ptr, ptr %4, align 8, !tbaa !32
+  %9 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %8, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !151
+  %11 = icmp ult i64 %7, %10
+  br i1 %11, label %30, label %12
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !32
+  %14 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %13, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8, !tbaa !151
+  %16 = load ptr, ptr %3, align 8, !tbaa !32
+  %17 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %16, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8, !tbaa !151
+  %19 = icmp ult i64 %15, %18
+  br i1 %19, label %28, label %20
+
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %3, align 8, !tbaa !32
+  %22 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !34
+  %24 = load ptr, ptr %4, align 8, !tbaa !32
+  %25 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !34
+  %27 = icmp ult ptr %23, %26
+  br label %28
+
+28:                                               ; preds = %20, %12
+  %29 = phi i1 [ false, %12 ], [ %27, %20 ]
+  br label %30
+
+30:                                               ; preds = %28, %2
+  %31 = phi i1 [ true, %2 ], [ %29, %28 ]
+  ret i1 %31
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt22__move_median_to_firstIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_SA_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 comdat {
+  %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !32
+  store ptr %1, ptr %7, align 8, !tbaa !32
+  store ptr %2, ptr %8, align 8, !tbaa !32
+  store ptr %3, ptr %9, align 8, !tbaa !32
+  %10 = load ptr, ptr %7, align 8, !tbaa !32
+  %11 = load ptr, ptr %8, align 8, !tbaa !32
+  %12 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %10, ptr noundef %11)
+  br i1 %12, label %13, label %32
+
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %8, align 8, !tbaa !32
+  %15 = load ptr, ptr %9, align 8, !tbaa !32
+  %16 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %14, ptr noundef %15)
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8, !tbaa !32
+  %19 = load ptr, ptr %8, align 8, !tbaa !32
+  call void @_ZSt9iter_swapIPSt4pairImPKN4llvm8HashNodeEES6_EvT_T0_(ptr noundef %18, ptr noundef %19)
+  br label %31
+
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %7, align 8, !tbaa !32
+  %22 = load ptr, ptr %9, align 8, !tbaa !32
+  %23 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %21, ptr noundef %22)
+  br i1 %23, label %24, label %27
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %6, align 8, !tbaa !32
+  %26 = load ptr, ptr %9, align 8, !tbaa !32
+  call void @_ZSt9iter_swapIPSt4pairImPKN4llvm8HashNodeEES6_EvT_T0_(ptr noundef %25, ptr noundef %26)
+  br label %30
+
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %6, align 8, !tbaa !32
+  %29 = load ptr, ptr %7, align 8, !tbaa !32
+  call void @_ZSt9iter_swapIPSt4pairImPKN4llvm8HashNodeEES6_EvT_T0_(ptr noundef %28, ptr noundef %29)
+  br label %30
+
+30:                                               ; preds = %27, %24
+  br label %31
+
+31:                                               ; preds = %30, %17
+  br label %51
+
+32:                                               ; preds = %4
+  %33 = load ptr, ptr %7, align 8, !tbaa !32
+  %34 = load ptr, ptr %9, align 8, !tbaa !32
+  %35 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %33, ptr noundef %34)
+  br i1 %35, label %36, label %39
+
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %6, align 8, !tbaa !32
+  %38 = load ptr, ptr %7, align 8, !tbaa !32
+  call void @_ZSt9iter_swapIPSt4pairImPKN4llvm8HashNodeEES6_EvT_T0_(ptr noundef %37, ptr noundef %38)
+  br label %50
+
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %8, align 8, !tbaa !32
+  %41 = load ptr, ptr %9, align 8, !tbaa !32
+  %42 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %40, ptr noundef %41)
+  br i1 %42, label %43, label %46
+
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %6, align 8, !tbaa !32
+  %45 = load ptr, ptr %9, align 8, !tbaa !32
+  call void @_ZSt9iter_swapIPSt4pairImPKN4llvm8HashNodeEES6_EvT_T0_(ptr noundef %44, ptr noundef %45)
+  br label %49
+
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %6, align 8, !tbaa !32
+  %48 = load ptr, ptr %8, align 8, !tbaa !32
+  call void @_ZSt9iter_swapIPSt4pairImPKN4llvm8HashNodeEES6_EvT_T0_(ptr noundef %47, ptr noundef %48)
+  br label %49
+
+49:                                               ; preds = %46, %43
+  br label %50
+
+50:                                               ; preds = %49, %36
+  br label %51
+
+51:                                               ; preds = %50, %31
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt21__unguarded_partitionIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat {
+  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !32
+  store ptr %2, ptr %7, align 8, !tbaa !32
+  br label %8
+
+8:                                                ; preds = %3, %32
+  br label %9
+
+9:                                                ; preds = %13, %8
+  %10 = load ptr, ptr %5, align 8, !tbaa !32
+  %11 = load ptr, ptr %7, align 8, !tbaa !32
+  %12 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %10, ptr noundef %11)
+  br i1 %12, label %13, label %16
+
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %5, align 8, !tbaa !32
+  %15 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %14, i32 1
+  store ptr %15, ptr %5, align 8, !tbaa !32
+  br label %9, !llvm.loop !162
+
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %6, align 8, !tbaa !32
+  %18 = getelementptr inbounds %"struct.std::pair.12", ptr %17, i32 -1
+  store ptr %18, ptr %6, align 8, !tbaa !32
+  br label %19
+
+19:                                               ; preds = %23, %16
+  %20 = load ptr, ptr %7, align 8, !tbaa !32
+  %21 = load ptr, ptr %6, align 8, !tbaa !32
+  %22 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %20, ptr noundef %21)
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %6, align 8, !tbaa !32
+  %25 = getelementptr inbounds %"struct.std::pair.12", ptr %24, i32 -1
+  store ptr %25, ptr %6, align 8, !tbaa !32
+  br label %19, !llvm.loop !163
+
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %5, align 8, !tbaa !32
+  %28 = load ptr, ptr %6, align 8, !tbaa !32
+  %29 = icmp ult ptr %27, %28
+  br i1 %29, label %32, label %30
+
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %5, align 8, !tbaa !32
+  ret ptr %31
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %5, align 8, !tbaa !32
+  %34 = load ptr, ptr %6, align 8, !tbaa !32
+  call void @_ZSt9iter_swapIPSt4pairImPKN4llvm8HashNodeEES6_EvT_T0_(ptr noundef %33, ptr noundef %34)
+  %35 = load ptr, ptr %5, align 8, !tbaa !32
+  %36 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %35, i32 1
+  store ptr %36, ptr %5, align 8, !tbaa !32
+  br label %8, !llvm.loop !164
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt9iter_swapIPSt4pairImPKN4llvm8HashNodeEES6_EvT_T0_(ptr noundef %0, ptr noundef %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZSt4swapImPKN4llvm8HashNodeEENSt9enable_ifIXsr6__and_ISt14__is_swappableIT_ES5_IT0_EEE5valueEvE4typeERSt4pairIS6_S8_ESE_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapImPKN4llvm8HashNodeEENSt9enable_ifIXsr6__and_ISt14__is_swappableIT_ES5_IT0_EEE5valueEvE4typeERSt4pairIS6_S8_ESE_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZNSt4pairImPKN4llvm8HashNodeEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairImPKN4llvm8HashNodeEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %7, i32 0, i32 0
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  %9 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8, !tbaa !32
+  %11 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %10, i32 0, i32 1
+  call void @_ZSt4swapIPKN4llvm8HashNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %6 = load ptr, ptr %3, align 8, !tbaa !26
+  %7 = load i64, ptr %6, align 8, !tbaa !66
+  store i64 %7, ptr %5, align 8, !tbaa !66
+  %8 = load ptr, ptr %4, align 8, !tbaa !26
+  %9 = load i64, ptr %8, align 8, !tbaa !66
+  %10 = load ptr, ptr %3, align 8, !tbaa !26
+  store i64 %9, ptr %10, align 8, !tbaa !66
+  %11 = load i64, ptr %5, align 8, !tbaa !66
+  %12 = load ptr, ptr %4, align 8, !tbaa !26
+  store i64 %11, ptr %12, align 8, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPKN4llvm8HashNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %6 = load ptr, ptr %3, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  store ptr %7, ptr %5, align 8, !tbaa !14
+  %8 = load ptr, ptr %4, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
+  %10 = load ptr, ptr %3, align 8, !tbaa !16
+  store ptr %9, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %5, align 8, !tbaa !14
+  %12 = load ptr, ptr %4, align 8, !tbaa !16
+  store ptr %11, ptr %12, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt16__insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef %0, ptr noundef %1) #0 comdat {
+  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::pair.12", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  %8 = load ptr, ptr %4, align 8, !tbaa !32
+  %9 = load ptr, ptr %5, align 8, !tbaa !32
+  %10 = icmp eq ptr %8, %9
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %2
+  br label %39
+
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %13 = load ptr, ptr %4, align 8, !tbaa !32
+  %14 = getelementptr inbounds %"struct.std::pair.12", ptr %13, i64 1
+  store ptr %14, ptr %6, align 8, !tbaa !32
+  br label %15
+
+15:                                               ; preds = %36, %12
+  %16 = load ptr, ptr %6, align 8, !tbaa !32
+  %17 = load ptr, ptr %5, align 8, !tbaa !32
+  %18 = icmp ne ptr %16, %17
+  br i1 %18, label %20, label %19
+
+19:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  br label %39
+
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %6, align 8, !tbaa !32
+  %22 = load ptr, ptr %4, align 8, !tbaa !32
+  %23 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %21, ptr noundef %22)
+  br i1 %23, label %24, label %33
+
+24:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #12
+  %25 = load ptr, ptr %6, align 8, !tbaa !32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %25, i64 16, i1 false)
+  %26 = load ptr, ptr %4, align 8, !tbaa !32
+  %27 = load ptr, ptr %6, align 8, !tbaa !32
+  %28 = load ptr, ptr %6, align 8, !tbaa !32
+  %29 = getelementptr inbounds %"struct.std::pair.12", ptr %28, i64 1
+  %30 = call noundef ptr @_ZSt13move_backwardIPSt4pairImPKN4llvm8HashNodeEES6_ET0_T_S8_S7_(ptr noundef %26, ptr noundef %27, ptr noundef %29)
+  %31 = load ptr, ptr %4, align 8, !tbaa !32
+  %32 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #12
+  br label %35
+
+33:                                               ; preds = %20
+  %34 = load ptr, ptr %6, align 8, !tbaa !32
+  call void @_ZN9__gnu_cxx5__ops15__val_comp_iterENS0_15_Iter_less_iterE()
+  call void @_ZSt25__unguarded_linear_insertIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_(ptr noundef %34)
+  br label %35
+
+35:                                               ; preds = %33, %24
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %6, align 8, !tbaa !32
+  %38 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %37, i32 1
+  store ptr %38, ptr %6, align 8, !tbaa !32
+  br label %15, !llvm.loop !165
+
+39:                                               ; preds = %11, %19
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt26__unguarded_insertion_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef %0, ptr noundef %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
+  store ptr %6, ptr %5, align 8, !tbaa !32
+  br label %7
+
+7:                                                ; preds = %14, %2
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
+  %9 = load ptr, ptr %4, align 8, !tbaa !32
+  %10 = icmp ne ptr %8, %9
+  br i1 %10, label %12, label %11
+
+11:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  br label %17
+
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %5, align 8, !tbaa !32
+  call void @_ZN9__gnu_cxx5__ops15__val_comp_iterENS0_15_Iter_less_iterE()
+  call void @_ZSt25__unguarded_linear_insertIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_(ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %12
+  %15 = load ptr, ptr %5, align 8, !tbaa !32
+  %16 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %15, i32 1
+  store ptr %16, ptr %5, align 8, !tbaa !32
+  br label %7, !llvm.loop !166
+
+17:                                               ; preds = %11
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt13move_backwardIPSt4pairImPKN4llvm8HashNodeEES6_ET0_T_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = call noundef ptr @_ZSt12__miter_baseIPSt4pairImPKN4llvm8HashNodeEEET_S7_(ptr noundef %7)
+  %9 = load ptr, ptr %5, align 8, !tbaa !32
+  %10 = call noundef ptr @_ZSt12__miter_baseIPSt4pairImPKN4llvm8HashNodeEEET_S7_(ptr noundef %9)
+  %11 = load ptr, ptr %6, align 8, !tbaa !32
+  %12 = call noundef ptr @_ZSt22__copy_move_backward_aILb1EPSt4pairImPKN4llvm8HashNodeEES6_ET1_T0_S8_S7_(ptr noundef %8, ptr noundef %10, ptr noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt25__unguarded_linear_insertIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_(ptr noundef %0) #0 comdat {
+  %2 = alloca %"struct.__gnu_cxx::__ops::_Val_less_iter", align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca %"struct.std::pair.12", align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #12
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %6, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %7 = load ptr, ptr %3, align 8, !tbaa !32
+  store ptr %7, ptr %5, align 8, !tbaa !32
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
+  %9 = getelementptr inbounds %"struct.std::pair.12", ptr %8, i32 -1
+  store ptr %9, ptr %5, align 8, !tbaa !32
+  br label %10
+
+10:                                               ; preds = %13, %1
+  %11 = load ptr, ptr %5, align 8, !tbaa !32
+  %12 = call noundef zeroext i1 @_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairImPKN4llvm8HashNodeEEPS8_EEbRT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %11)
+  br i1 %12, label %13, label %20
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %5, align 8, !tbaa !32
+  %15 = load ptr, ptr %3, align 8, !tbaa !32
+  %16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %14) #12
+  %17 = load ptr, ptr %5, align 8, !tbaa !32
+  store ptr %17, ptr %3, align 8, !tbaa !32
+  %18 = load ptr, ptr %5, align 8, !tbaa !32
+  %19 = getelementptr inbounds %"struct.std::pair.12", ptr %18, i32 -1
+  store ptr %19, ptr %5, align 8, !tbaa !32
+  br label %10, !llvm.loop !167
+
+20:                                               ; preds = %10
+  %21 = load ptr, ptr %3, align 8, !tbaa !32
+  %22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #12
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9__gnu_cxx5__ops15__val_comp_iterENS0_15_Iter_less_iterE() #2 comdat {
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt22__copy_move_backward_aILb1EPSt4pairImPKN4llvm8HashNodeEES6_ET1_T0_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = call noundef ptr @_ZSt12__niter_baseIPSt4pairImPKN4llvm8HashNodeEEET_S7_(ptr noundef %7) #12
+  %9 = load ptr, ptr %5, align 8, !tbaa !32
+  %10 = call noundef ptr @_ZSt12__niter_baseIPSt4pairImPKN4llvm8HashNodeEEET_S7_(ptr noundef %9) #12
+  %11 = load ptr, ptr %6, align 8, !tbaa !32
+  %12 = call noundef ptr @_ZSt12__niter_baseIPSt4pairImPKN4llvm8HashNodeEEET_S7_(ptr noundef %11) #12
+  %13 = call noundef ptr @_ZSt23__copy_move_backward_a1ILb1EPSt4pairImPKN4llvm8HashNodeEES6_ET1_T0_S8_S7_(ptr noundef %8, ptr noundef %10, ptr noundef %12)
+  %14 = call noundef ptr @_ZSt12__niter_wrapIPSt4pairImPKN4llvm8HashNodeEEET_RKS7_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %13)
+  ret ptr %14
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__miter_baseIPSt4pairImPKN4llvm8HashNodeEEET_S7_(ptr noundef %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_wrapIPSt4pairImPKN4llvm8HashNodeEEET_RKS7_S7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !168
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %4, align 8, !tbaa !32
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt23__copy_move_backward_a1ILb1EPSt4pairImPKN4llvm8HashNodeEES6_ET1_T0_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
+  %9 = load ptr, ptr %6, align 8, !tbaa !32
+  %10 = call noundef ptr @_ZSt23__copy_move_backward_a2ILb1EPSt4pairImPKN4llvm8HashNodeEES6_ET1_T0_S8_S7_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPSt4pairImPKN4llvm8HashNodeEEET_S7_(ptr noundef %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt23__copy_move_backward_a2ILb1EPSt4pairImPKN4llvm8HashNodeEES6_ET1_T0_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
+  %9 = load ptr, ptr %6, align 8, !tbaa !32
+  %10 = call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPSt4pairImPKN4llvm8HashNodeEES9_EET0_T_SB_SA_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPSt4pairImPKN4llvm8HashNodeEES9_EET0_T_SB_SA_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
+  %9 = load ptr, ptr %4, align 8, !tbaa !32
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 16
+  store i64 %13, ptr %7, align 8, !tbaa !66
+  br label %14
+
+14:                                               ; preds = %23, %3
+  %15 = load i64, ptr %7, align 8, !tbaa !66
+  %16 = icmp sgt i64 %15, 0
+  br i1 %16, label %17, label %26
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %5, align 8, !tbaa !32
+  %19 = getelementptr inbounds %"struct.std::pair.12", ptr %18, i32 -1
+  store ptr %19, ptr %5, align 8, !tbaa !32
+  %20 = load ptr, ptr %6, align 8, !tbaa !32
+  %21 = getelementptr inbounds %"struct.std::pair.12", ptr %20, i32 -1
+  store ptr %21, ptr %6, align 8, !tbaa !32
+  %22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt4pairImPKN4llvm8HashNodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %19) #12
+  br label %23
+
+23:                                               ; preds = %17
+  %24 = load i64, ptr %7, align 8, !tbaa !66
+  %25 = add nsw i64 %24, -1
+  store i64 %25, ptr %7, align 8, !tbaa !66
+  br label %14, !llvm.loop !170
+
+26:                                               ; preds = %14
+  %27 = load ptr, ptr %6, align 8, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  ret ptr %27
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairImPKN4llvm8HashNodeEEPS8_EEbRT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !171
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %5, align 8, !tbaa !32
+  %8 = load ptr, ptr %6, align 8, !tbaa !32
+  %9 = call noundef zeroext i1 @_ZStltImPKN4llvm8HashNodeEEbRKSt4pairIT_T0_ES9_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm10adl_detail10begin_implIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = call noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt4pairImPKNS0_8HashNodeEELj3EEEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt4pairImPKNS0_8HashNodeEELj3EEEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 8 dereferenceable(64) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm10adl_detail8end_implIRNS_11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = call noundef ptr @_ZSt3endIN4llvm11SmallVectorISt4pairImPKNS0_8HashNodeEELj3EEEEDTcldtfp_3endEERT_(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt3endIN4llvm11SmallVectorISt4pairImPKNS0_8HashNodeEELj3EEEEDTcldtfp_3endEERT_(ptr noundef nonnull align 8 dereferenceable(64) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  ret ptr %4
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !131
+  %5 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !69
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E21_M_not_empty_functionIS3_EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E15_M_init_functorIS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(9) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeEEZNKS0_16OutlinedHashTree4sizeEbE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @"_ZSt10__invoke_rIvRZNK4llvm16OutlinedHashTree4sizeEbE3$_0JPKNS0_8HashNodeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_"(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeEEZNKS0_16OutlinedHashTree4sizeEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !173
+  store ptr %1, ptr %5, align 8, !tbaa !173
+  store i32 %2, ptr %6, align 4, !tbaa !175
+  %7 = load i32, ptr %6, align 4, !tbaa !175
+  switch i32 %7, label %13 [
+    i32 1, label %8
+  ]
+
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %5, align 8, !tbaa !173
+  %10 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  %11 = load ptr, ptr %4, align 8, !tbaa !173
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZNK4llvm16OutlinedHashTree4sizeEbE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %11) #12
+  store ptr %10, ptr %12, align 8, !tbaa !61
+  br label %18
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8, !tbaa !173
+  %15 = load ptr, ptr %5, align 8, !tbaa !173
+  %16 = load i32, ptr %6, align 4, !tbaa !175
+  %17 = call noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %16)
+  br label %18
+
+18:                                               ; preds = %13, %8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !177
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZSt10__invoke_rIvRZNK4llvm16OutlinedHashTree4sizeEbE3$_0JPKNS0_8HashNodeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_"(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !61
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @"_ZSt13__invoke_implIvRZNK4llvm16OutlinedHashTree4sizeEbE3$_0JPKNS0_8HashNodeEEET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  %4 = load ptr, ptr %2, align 8, !tbaa !173
+  %5 = call noundef nonnull align 8 dereferenceable(9) ptr @"_ZNKSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree4sizeEbE3$_0EERKT_v"(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  store ptr %5, ptr %3, align 8, !tbaa !61
+  %6 = load ptr, ptr %3, align 8, !tbaa !61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZSt13__invoke_implIvRZNK4llvm16OutlinedHashTree4sizeEbE3$_0JPKNS0_8HashNodeEEET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !61
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @"_ZZNK4llvm16OutlinedHashTree4sizeEbENK3$_0clEPKNS_8HashNodeE"(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %7)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZNK4llvm16OutlinedHashTree4sizeEbENK3$_0clEPKNS_8HashNodeE"(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !14
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %18
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %class.anon.14, ptr %5, i32 0, i32 1
+  %10 = load i8, ptr %9, align 8, !tbaa !67, !range !20, !noundef !21
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %4, align 8, !tbaa !14
+  %14 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %13, i32 0, i32 1
+  %15 = call noundef zeroext i1 @_ZNKSt8optionalIjEcvbEv(ptr noundef nonnull align 4 dereferenceable(8) %14) #12
+  br label %16
+
+16:                                               ; preds = %12, %8
+  %17 = phi i1 [ true, %8 ], [ %15, %12 ]
+  br label %18
+
+18:                                               ; preds = %16, %2
+  %19 = phi i1 [ false, %2 ], [ %17, %16 ]
+  %20 = zext i1 %19 to i64
+  %21 = getelementptr inbounds nuw %class.anon.14, ptr %5, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !178
+  %23 = load i64, ptr %22, align 8, !tbaa !66
+  %24 = add i64 %23, %20
+  store i64 %24, ptr %22, align 8, !tbaa !66
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(9) ptr @"_ZNKSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree4sizeEbE3$_0EERKT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZNK4llvm16OutlinedHashTree4sizeEbE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !173
+  store ptr %1, ptr %5, align 8, !tbaa !173
+  store i32 %2, ptr %6, align 4, !tbaa !175
+  %7 = load i32, ptr %6, align 4, !tbaa !175
+  switch i32 %7, label %22 [
+    i32 0, label %8
+    i32 1, label %11
+    i32 2, label %16
+    i32 3, label %20
+  ]
+
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %4, align 8, !tbaa !173
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  store ptr null, ptr %10, align 8, !tbaa !179
+  br label %22
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !173
+  %13 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
+  %14 = load ptr, ptr %4, align 8, !tbaa !173
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZNK4llvm16OutlinedHashTree4sizeEbE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
+  store ptr %13, ptr %15, align 8, !tbaa !61
+  br label %22
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8, !tbaa !173
+  %18 = load ptr, ptr %5, align 8, !tbaa !173
+  %19 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %18) #12
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(9) %19) #12
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8, !tbaa !173
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br label %22
+
+22:                                               ; preds = %3, %20, %16, %11, %8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(9) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8, !tbaa !173
+  %4 = call noundef nonnull align 8 dereferenceable(9) ptr @"_ZNSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree4sizeEbE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree4sizeEbE3$_0E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !177
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(9) ptr @"_ZNSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree4sizeEbE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE4initEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  %7 = load i32, ptr %4, align 4, !tbaa !78
+  %8 = call noundef i32 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E31getMinBucketToReserveForEntriesEj(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %7)
+  store i32 %8, ptr %5, align 4, !tbaa !78
+  %9 = load i32, ptr %5, align 4, !tbaa !78
+  %10 = call noundef zeroext i1 @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE15allocateBucketsEj(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef %9)
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %2
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E9initEmptyEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  br label %15
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %6, i32 0, i32 1
+  store i32 0, ptr %13, align 8, !tbaa !181
+  %14 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %6, i32 0, i32 2
+  store i32 0, ptr %14, align 4, !tbaa !182
+  br label %15
+
+15:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E31getMinBucketToReserveForEntriesEj(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !183
+  store i32 %1, ptr %5, align 4, !tbaa !78
+  %6 = load i32, ptr %5, align 4, !tbaa !78
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %17
+
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !78
+  %11 = mul i32 %10, 4
+  %12 = udiv i32 %11, 3
+  %13 = add i32 %12, 1
+  %14 = zext i32 %13 to i64
+  %15 = call noundef i64 @_ZN4llvm12NextPowerOf2Em(i64 noundef %14)
+  %16 = trunc i64 %15 to i32
+  store i32 %16, ptr %3, align 4
+  br label %17
+
+17:                                               ; preds = %9, %8
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE15allocateBucketsEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !76
+  store i32 %1, ptr %5, align 4, !tbaa !78
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !78
+  %8 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %6, i32 0, i32 3
+  store i32 %7, ptr %8, align 8, !tbaa !82
+  %9 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %6, i32 0, i32 3
+  %10 = load i32, ptr %9, align 8, !tbaa !82
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %6, i32 0, i32 0
+  store ptr null, ptr %13, align 8, !tbaa !79
+  store i1 false, ptr %3, align 1
+  br label %21
+
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %6, i32 0, i32 3
+  %16 = load i32, ptr %15, align 8, !tbaa !82
+  %17 = zext i32 %16 to i64
+  %18 = mul i64 16, %17
+  %19 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %18, i64 noundef 8)
+  %20 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %6, i32 0, i32 0
+  store ptr %19, ptr %20, align 8, !tbaa !79
+  store i1 true, ptr %3, align 1
+  br label %21
+
+21:                                               ; preds = %14, %12
+  %22 = load i1, ptr %3, align 1
+  ret i1 %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E9initEmptyEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %6 = load ptr, ptr %2, align 8
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13setNumEntriesEj(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef 0)
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16setNumTombstonesEj(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  %7 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E11getEmptyKeyEv()
+  store ptr %7, ptr %3, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %8 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E10getBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  store ptr %8, ptr %4, align 8, !tbaa !185
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %9 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getBucketsEndEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  store ptr %9, ptr %5, align 8, !tbaa !185
+  br label %10
+
+10:                                               ; preds = %19, %1
+  %11 = load ptr, ptr %4, align 8, !tbaa !185
+  %12 = load ptr, ptr %5, align 8, !tbaa !185
+  %13 = icmp ne ptr %11, %12
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  br label %22
+
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %4, align 8, !tbaa !185
+  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %18 = load ptr, ptr %3, align 8, !tbaa !14
+  store ptr %18, ptr %17, align 8, !tbaa !14
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %4, align 8, !tbaa !185
+  %21 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %20, i32 1
+  store ptr %21, ptr %4, align 8, !tbaa !185
+  br label %10, !llvm.loop !186
+
+22:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4llvm12NextPowerOf2Em(i64 noundef %0) #0 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !66
+  %3 = load i64, ptr %2, align 8, !tbaa !66
+  %4 = lshr i64 %3, 1
+  %5 = load i64, ptr %2, align 8, !tbaa !66
+  %6 = or i64 %5, %4
+  store i64 %6, ptr %2, align 8, !tbaa !66
+  %7 = load i64, ptr %2, align 8, !tbaa !66
+  %8 = lshr i64 %7, 2
+  %9 = load i64, ptr %2, align 8, !tbaa !66
+  %10 = or i64 %9, %8
+  store i64 %10, ptr %2, align 8, !tbaa !66
+  %11 = load i64, ptr %2, align 8, !tbaa !66
+  %12 = lshr i64 %11, 4
+  %13 = load i64, ptr %2, align 8, !tbaa !66
+  %14 = or i64 %13, %12
+  store i64 %14, ptr %2, align 8, !tbaa !66
+  %15 = load i64, ptr %2, align 8, !tbaa !66
+  %16 = lshr i64 %15, 8
+  %17 = load i64, ptr %2, align 8, !tbaa !66
+  %18 = or i64 %17, %16
+  store i64 %18, ptr %2, align 8, !tbaa !66
+  %19 = load i64, ptr %2, align 8, !tbaa !66
+  %20 = lshr i64 %19, 16
+  %21 = load i64, ptr %2, align 8, !tbaa !66
+  %22 = or i64 %21, %20
+  store i64 %22, ptr %2, align 8, !tbaa !66
+  %23 = load i64, ptr %2, align 8, !tbaa !66
+  %24 = lshr i64 %23, 32
+  %25 = load i64, ptr %2, align 8, !tbaa !66
+  %26 = or i64 %25, %24
+  store i64 %26, ptr %2, align 8, !tbaa !66
+  %27 = load i64, ptr %2, align 8, !tbaa !66
+  %28 = add i64 %27, 1
+  ret i64 %28
+}
+
+declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13setNumEntriesEj(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !183
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !78
+  call void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE13setNumEntriesEj(ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16setNumTombstonesEj(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !183
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !78
+  call void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE16setNumTombstonesEj(ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E11getEmptyKeyEv() #0 comdat align 2 {
+  %1 = call noundef ptr @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE11getEmptyKeyEv()
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E10getBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE10getBucketsEv(ptr noundef nonnull align 8 dereferenceable(20) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getBucketsEndEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E10getBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %5 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %6 = zext i32 %5 to i64
+  %7 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %6
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !185
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE13setNumEntriesEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !78
+  %7 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %5, i32 0, i32 1
+  store i32 %6, ptr %7, align 8, !tbaa !181
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE16setNumTombstonesEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !78
+  %7 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %5, i32 0, i32 2
+  store i32 %6, ptr %7, align 4, !tbaa !182
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE11getEmptyKeyEv() #2 comdat align 2 {
+  %1 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #12
+  store i64 -1, ptr %1, align 8, !tbaa !66
+  %2 = load i64, ptr %1, align 8, !tbaa !66
+  %3 = shl i64 %2, 12
+  store i64 %3, ptr %1, align 8, !tbaa !66
+  %4 = load i64, ptr %1, align 8, !tbaa !66
+  %5 = inttoptr i64 %4 to ptr
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE10getBucketsEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE13getNumBucketsEv(ptr noundef nonnull align 8 dereferenceable(20) %3)
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE13getNumBucketsEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 8, !tbaa !82
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %7 = load ptr, ptr %2, align 8
+  %8 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %1
+  br label %43
+
+11:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  %12 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E11getEmptyKeyEv()
+  store ptr %12, ptr %3, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %13 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15getTombstoneKeyEv()
+  store ptr %13, ptr %4, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %14 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E10getBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  store ptr %14, ptr %5, align 8, !tbaa !185
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %15 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getBucketsEndEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  store ptr %15, ptr %6, align 8, !tbaa !185
+  br label %16
+
+16:                                               ; preds = %39, %11
+  %17 = load ptr, ptr %5, align 8, !tbaa !185
+  %18 = load ptr, ptr %6, align 8, !tbaa !185
+  %19 = icmp ne ptr %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  br label %42
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8, !tbaa !185
+  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %24 = load ptr, ptr %23, align 8, !tbaa !14
+  %25 = load ptr, ptr %3, align 8, !tbaa !14
+  %26 = call noundef zeroext i1 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_(ptr noundef %24, ptr noundef %25)
+  br i1 %26, label %36, label %27
+
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %5, align 8, !tbaa !185
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  %30 = load ptr, ptr %29, align 8, !tbaa !14
+  %31 = load ptr, ptr %4, align 8, !tbaa !14
+  %32 = call noundef zeroext i1 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_(ptr noundef %30, ptr noundef %31)
+  br i1 %32, label %36, label %33
+
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %5, align 8, !tbaa !185
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE9getSecondEv(ptr noundef nonnull align 8 dereferenceable(16) %34)
+  br label %36
+
+36:                                               ; preds = %33, %27, %21
+  %37 = load ptr, ptr %5, align 8, !tbaa !185
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %37)
+  br label %39
+
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %5, align 8, !tbaa !185
+  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %40, i32 1
+  store ptr %41, ptr %5, align 8, !tbaa !185
+  br label %16, !llvm.loop !187
+
+42:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  br label %43
+
+43:                                               ; preds = %42, %10
+  ret void
+}
+
+declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15getTombstoneKeyEv() #0 comdat align 2 {
+  %1 = call noundef ptr @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE15getTombstoneKeyEv()
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !14
+  %6 = load ptr, ptr %4, align 8, !tbaa !14
+  %7 = icmp eq ptr %5, %6
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE9getSecondEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !185
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE15getTombstoneKeyEv() #2 comdat align 2 {
+  %1 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #12
+  store i64 -2, ptr %1, align 8, !tbaa !66
+  %2 = load i64, ptr %1, align 8, !tbaa !66
+  %3 = shl i64 %2, 12
+  store i64 %3, ptr %1, align 8, !tbaa !66
+  %4 = load i64, ptr %1, align 8, !tbaa !66
+  %5 = inttoptr i64 %4 to ptr
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E21_M_not_empty_functionIS3_EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E15_M_init_functorIS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeEEZNKS0_16OutlinedHashTree5depthEvE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @"_ZSt10__invoke_rIvRZNK4llvm16OutlinedHashTree5depthEvE3$_0JPKNS0_8HashNodeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeEEZNKS0_16OutlinedHashTree5depthEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !173
+  store ptr %1, ptr %5, align 8, !tbaa !173
+  store i32 %2, ptr %6, align 4, !tbaa !175
+  %7 = load i32, ptr %6, align 4, !tbaa !175
+  switch i32 %7, label %13 [
+    i32 1, label %8
+  ]
+
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %5, align 8, !tbaa !173
+  %10 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  %11 = load ptr, ptr %4, align 8, !tbaa !173
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZNK4llvm16OutlinedHashTree5depthEvE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %11) #12
+  store ptr %10, ptr %12, align 8, !tbaa !61
+  br label %18
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8, !tbaa !173
+  %15 = load ptr, ptr %5, align 8, !tbaa !173
+  %16 = load i32, ptr %6, align 4, !tbaa !175
+  %17 = call noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %16)
+  br label %18
+
+18:                                               ; preds = %13, %8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !188
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZSt10__invoke_rIvRZNK4llvm16OutlinedHashTree5depthEvE3$_0JPKNS0_8HashNodeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !61
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @"_ZSt13__invoke_implIvRZNK4llvm16OutlinedHashTree5depthEvE3$_0JPKNS0_8HashNodeEEET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  %4 = load ptr, ptr %2, align 8, !tbaa !173
+  %5 = call noundef nonnull align 8 dereferenceable(16) ptr @"_ZNKSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree5depthEvE3$_0EERKT_v"(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  store ptr %5, ptr %3, align 8, !tbaa !61
+  %6 = load ptr, ptr %3, align 8, !tbaa !61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZSt13__invoke_implIvRZNK4llvm16OutlinedHashTree5depthEvE3$_0JPKNS0_8HashNodeEEET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !61
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @"_ZZNK4llvm16OutlinedHashTree5depthEvENK3$_0clEPKNS_8HashNodeE"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %7)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZNK4llvm16OutlinedHashTree5depthEvENK3$_0clEPKNS_8HashNodeE"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.anon.15, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !189
+  %8 = getelementptr inbounds nuw %class.anon.15, ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !191
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = load i64, ptr %11, align 8, !tbaa !66
+  %13 = getelementptr inbounds nuw %class.anon.15, ptr %5, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !189
+  store i64 %12, ptr %14, align 8, !tbaa !66
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  %6 = load ptr, ptr %4, align 8, !tbaa !26
+  %7 = load i64, ptr %6, align 8, !tbaa !66
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load i64, ptr %8, align 8, !tbaa !66
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !26
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !26
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !183
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %9 = load ptr, ptr %5, align 8, !tbaa !16
+  %10 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %6, align 8, !tbaa !185
+  %13 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %19
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %6, align 8, !tbaa !185
+  %16 = load ptr, ptr %5, align 8, !tbaa !16
+  %17 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %18 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %17, i32 0, i32 1
+  store ptr %18, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %19
+
+19:                                               ; preds = %14, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !183
+  store ptr %1, ptr %6, align 8, !tbaa !16
+  store ptr %2, ptr %7, align 8, !tbaa !192
+  %17 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %18 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E10getBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %17)
+  store ptr %18, ptr %8, align 8, !tbaa !185
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %19 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %17)
+  store i32 %19, ptr %9, align 4, !tbaa !78
+  %20 = load i32, ptr %9, align 4, !tbaa !78
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %7, align 8, !tbaa !192
+  store ptr null, ptr %23, align 8, !tbaa !185
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %10, align 4
+  br label %93
+
+24:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store ptr null, ptr %11, align 8, !tbaa !185
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %25 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E11getEmptyKeyEv()
+  store ptr %25, ptr %12, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  %26 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15getTombstoneKeyEv()
+  store ptr %26, ptr %13, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
+  %27 = load ptr, ptr %6, align 8, !tbaa !16
+  %28 = call noundef i32 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E12getHashValueERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %29 = load i32, ptr %9, align 4, !tbaa !78
+  %30 = sub i32 %29, 1
+  %31 = and i32 %28, %30
+  store i32 %31, ptr %14, align 4, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #12
+  store i32 1, ptr %15, align 4, !tbaa !78
+  br label %32
+
+32:                                               ; preds = %91, %24
+  br label %33
+
+33:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  %34 = load ptr, ptr %8, align 8, !tbaa !185
+  %35 = load i32, ptr %14, align 4, !tbaa !78
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %34, i64 %36
+  store ptr %37, ptr %16, align 8, !tbaa !185
+  %38 = load ptr, ptr %6, align 8, !tbaa !16
+  %39 = load ptr, ptr %38, align 8, !tbaa !14
+  %40 = load ptr, ptr %16, align 8, !tbaa !185
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %40)
+  %42 = load ptr, ptr %41, align 8, !tbaa !14
+  %43 = call noundef zeroext i1 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_(ptr noundef %39, ptr noundef %42)
+  %44 = zext i1 %43 to i64
+  %45 = call i64 @llvm.expect.i64(i64 %44, i64 1)
+  %46 = icmp ne i64 %45, 0
+  br i1 %46, label %47, label %50
+
+47:                                               ; preds = %33
+  %48 = load ptr, ptr %16, align 8, !tbaa !185
+  %49 = load ptr, ptr %7, align 8, !tbaa !192
+  store ptr %48, ptr %49, align 8, !tbaa !185
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %10, align 4
+  br label %89
+
+50:                                               ; preds = %33
+  %51 = load ptr, ptr %16, align 8, !tbaa !185
+  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %53 = load ptr, ptr %52, align 8, !tbaa !14
+  %54 = load ptr, ptr %12, align 8, !tbaa !14
+  %55 = call noundef zeroext i1 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_(ptr noundef %53, ptr noundef %54)
+  %56 = zext i1 %55 to i64
+  %57 = call i64 @llvm.expect.i64(i64 %56, i64 1)
+  %58 = icmp ne i64 %57, 0
+  br i1 %58, label %59, label %69
+
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %11, align 8, !tbaa !185
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %11, align 8, !tbaa !185
+  br label %66
+
+64:                                               ; preds = %59
+  %65 = load ptr, ptr %16, align 8, !tbaa !185
+  br label %66
+
+66:                                               ; preds = %64, %62
+  %67 = phi ptr [ %63, %62 ], [ %65, %64 ]
+  %68 = load ptr, ptr %7, align 8, !tbaa !192
+  store ptr %67, ptr %68, align 8, !tbaa !185
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %10, align 4
+  br label %89
+
+69:                                               ; preds = %50
+  %70 = load ptr, ptr %16, align 8, !tbaa !185
+  %71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %70)
+  %72 = load ptr, ptr %71, align 8, !tbaa !14
+  %73 = load ptr, ptr %13, align 8, !tbaa !14
+  %74 = call noundef zeroext i1 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_(ptr noundef %72, ptr noundef %73)
+  br i1 %74, label %75, label %80
+
+75:                                               ; preds = %69
+  %76 = load ptr, ptr %11, align 8, !tbaa !185
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %80, label %78
+
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %16, align 8, !tbaa !185
+  store ptr %79, ptr %11, align 8, !tbaa !185
+  br label %80
+
+80:                                               ; preds = %78, %75, %69
+  %81 = load i32, ptr %15, align 4, !tbaa !78
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %15, align 4, !tbaa !78
+  %83 = load i32, ptr %14, align 4, !tbaa !78
+  %84 = add i32 %83, %81
+  store i32 %84, ptr %14, align 4, !tbaa !78
+  %85 = load i32, ptr %9, align 4, !tbaa !78
+  %86 = sub i32 %85, 1
+  %87 = load i32, ptr %14, align 4, !tbaa !78
+  %88 = and i32 %87, %86
+  store i32 %88, ptr %14, align 4, !tbaa !78
+  store i32 0, ptr %10, align 4
+  br label %89
+
+89:                                               ; preds = %80, %66, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  %90 = load i32, ptr %10, align 4
+  switch i32 %90, label %92 [
+    i32 0, label %91
+  ]
+
+91:                                               ; preds = %89
+  br label %32, !llvm.loop !194
+
+92:                                               ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  br label %93
+
+93:                                               ; preds = %92, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %94 = load i1, ptr %4, align 1
+  ret i1 %94
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !183
+  store ptr %1, ptr %5, align 8, !tbaa !185
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !16
+  %9 = load ptr, ptr %5, align 8, !tbaa !185
+  %10 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
+  store ptr %10, ptr %5, align 8, !tbaa !185
+  %11 = load ptr, ptr %6, align 8, !tbaa !16
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
+  %13 = load ptr, ptr %5, align 8, !tbaa !185
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+  store ptr %12, ptr %14, align 8, !tbaa !14
+  %15 = load ptr, ptr %5, align 8, !tbaa !185
+  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE9getSecondEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  store i64 0, ptr %16, align 8, !tbaa !66
+  %17 = load ptr, ptr %5, align 8, !tbaa !185
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E12getHashValueERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %5 = call noundef i32 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE12getHashValueES3_(ptr noundef %4)
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE12getHashValueES3_(ptr noundef %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %4 = ptrtoint ptr %3 to i64
+  %5 = trunc i64 %4 to i32
+  %6 = lshr i32 %5, 4
+  %7 = load ptr, ptr %2, align 8, !tbaa !14
+  %8 = ptrtoint ptr %7 to i64
+  %9 = trunc i64 %8 to i32
+  %10 = lshr i32 %9, 9
+  %11 = xor i32 %6, %10
+  ret i32 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !183
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !185
+  %10 = load ptr, ptr %4, align 8
+  call void @_ZN4llvm14DebugEpochBase14incrementEpochEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %11 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumEntriesEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %12 = add i32 %11, 1
+  store i32 %12, ptr %7, align 4, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  %13 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  store i32 %13, ptr %8, align 4, !tbaa !78
+  %14 = load i32, ptr %7, align 4, !tbaa !78
+  %15 = mul i32 %14, 4
+  %16 = load i32, ptr %8, align 4, !tbaa !78
+  %17 = mul i32 %16, 3
+  %18 = icmp uge i32 %15, %17
+  %19 = zext i1 %18 to i64
+  %20 = call i64 @llvm.expect.i64(i64 %19, i64 0)
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %28
+
+22:                                               ; preds = %3
+  %23 = load i32, ptr %8, align 4, !tbaa !78
+  %24 = mul i32 %23, 2
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %10, i32 noundef %24)
+  %25 = load ptr, ptr %5, align 8, !tbaa !16
+  %26 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %27 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumBucketsEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  store i32 %27, ptr %8, align 4, !tbaa !78
+  br label %45
+
+28:                                               ; preds = %3
+  %29 = load i32, ptr %8, align 4, !tbaa !78
+  %30 = load i32, ptr %7, align 4, !tbaa !78
+  %31 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16getNumTombstonesEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %32 = add i32 %30, %31
+  %33 = sub i32 %29, %32
+  %34 = load i32, ptr %8, align 4, !tbaa !78
+  %35 = udiv i32 %34, 8
+  %36 = icmp ule i32 %33, %35
+  %37 = zext i1 %36 to i64
+  %38 = call i64 @llvm.expect.i64(i64 %37, i64 0)
+  %39 = icmp ne i64 %38, 0
+  br i1 %39, label %40, label %44
+
+40:                                               ; preds = %28
+  %41 = load i32, ptr %8, align 4, !tbaa !78
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %10, i32 noundef %41)
+  %42 = load ptr, ptr %5, align 8, !tbaa !16
+  %43 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br label %44
+
+44:                                               ; preds = %40, %28
+  br label %45
+
+45:                                               ; preds = %44, %22
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E19incrementNumEntriesEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %46 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E11getEmptyKeyEv()
+  store ptr %46, ptr %9, align 8, !tbaa !14
+  %47 = load ptr, ptr %6, align 8, !tbaa !185
+  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %47)
+  %49 = load ptr, ptr %48, align 8, !tbaa !14
+  %50 = load ptr, ptr %9, align 8, !tbaa !14
+  %51 = call noundef zeroext i1 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_(ptr noundef %49, ptr noundef %50)
+  br i1 %51, label %53, label %52
+
+52:                                               ; preds = %45
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E22decrementNumTombstonesEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  br label %53
+
+53:                                               ; preds = %52, %45
+  %54 = load ptr, ptr %6, align 8, !tbaa !185
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  ret ptr %54
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm14DebugEpochBase14incrementEpochEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !195
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumEntriesEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(20) %3)
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !183
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !78
+  call void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16getNumTombstonesEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE16getNumTombstonesEv(ptr noundef nonnull align 8 dereferenceable(20) %3)
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E19incrementNumEntriesEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13getNumEntriesEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %5 = add i32 %4, 1
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E13setNumEntriesEj(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E22decrementNumTombstonesEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16getNumTombstonesEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %5 = sub i32 %4, 1
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E16setNumTombstonesEj(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !181
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %10 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  %11 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %10, i32 0, i32 3
+  %12 = load i32, ptr %11, align 8, !tbaa !82
+  store i32 %12, ptr %5, align 4, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %13 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %10, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !79
+  store ptr %14, ptr %6, align 8, !tbaa !185
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  store i32 64, ptr %7, align 4, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  %15 = load i32, ptr %4, align 4, !tbaa !78
+  %16 = sub i32 %15, 1
+  %17 = zext i32 %16 to i64
+  %18 = call noundef i64 @_ZN4llvm12NextPowerOf2Em(i64 noundef %17)
+  %19 = trunc i64 %18 to i32
+  store i32 %19, ptr %8, align 4, !tbaa !78
+  %20 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %21 = load i32, ptr %20, align 4, !tbaa !78
+  %22 = call noundef zeroext i1 @_ZN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE15allocateBucketsEj(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef %21)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  %23 = load ptr, ptr %6, align 8, !tbaa !185
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %26, label %25
+
+25:                                               ; preds = %2
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E9initEmptyEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  store i32 1, ptr %9, align 4
+  br label %36
+
+26:                                               ; preds = %2
+  %27 = load ptr, ptr %6, align 8, !tbaa !185
+  %28 = load ptr, ptr %6, align 8, !tbaa !185
+  %29 = load i32, ptr %5, align 4, !tbaa !78
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %28, i64 %30
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %27, ptr noundef %31)
+  %32 = load ptr, ptr %6, align 8, !tbaa !185
+  %33 = load i32, ptr %5, align 4, !tbaa !78
+  %34 = zext i32 %33 to i64
+  %35 = mul i64 16, %34
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %32, i64 noundef %35, i64 noundef 8)
+  store i32 0, ptr %9, align 4
+  br label %36
+
+36:                                               ; preds = %26, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  %37 = load i32, ptr %9, align 4
+  switch i32 %37, label %39 [
+    i32 0, label %38
+    i32 1, label %38
+  ]
+
+38:                                               ; preds = %36, %36
+  ret void
+
+39:                                               ; preds = %36
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !87
+  store ptr %1, ptr %5, align 8, !tbaa !87
+  %6 = load ptr, ptr %4, align 8, !tbaa !87
+  %7 = load i32, ptr %6, align 4, !tbaa !78
+  %8 = load ptr, ptr %5, align 8, !tbaa !87
+  %9 = load i32, ptr %8, align 4, !tbaa !78
+  %10 = icmp ult i32 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !87
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !87
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !183
+  store ptr %1, ptr %5, align 8, !tbaa !185
+  store ptr %2, ptr %6, align 8, !tbaa !185
+  %13 = load ptr, ptr %4, align 8
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E9initEmptyEv(ptr noundef nonnull align 1 dereferenceable(1) %13)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %14 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E11getEmptyKeyEv()
+  store ptr %14, ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %15 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15getTombstoneKeyEv()
+  store ptr %15, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %16 = load ptr, ptr %5, align 8, !tbaa !185
+  store ptr %16, ptr %9, align 8, !tbaa !185
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %17 = load ptr, ptr %6, align 8, !tbaa !185
+  store ptr %17, ptr %10, align 8, !tbaa !185
+  br label %18
+
+18:                                               ; preds = %55, %3
+  %19 = load ptr, ptr %9, align 8, !tbaa !185
+  %20 = load ptr, ptr %10, align 8, !tbaa !185
+  %21 = icmp ne ptr %19, %20
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %58
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %9, align 8, !tbaa !185
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = load ptr, ptr %7, align 8, !tbaa !14
+  %28 = call noundef zeroext i1 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_(ptr noundef %26, ptr noundef %27)
+  br i1 %28, label %52, label %29
+
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %9, align 8, !tbaa !185
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %32 = load ptr, ptr %31, align 8, !tbaa !14
+  %33 = load ptr, ptr %8, align 8, !tbaa !14
+  %34 = call noundef zeroext i1 @_ZN4llvm12DenseMapInfoIPKNS_8HashNodeEvE7isEqualES3_S3_(ptr noundef %32, ptr noundef %33)
+  br i1 %34, label %52, label %35
+
+35:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #12
+  %36 = load ptr, ptr %9, align 8, !tbaa !185
+  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %36)
+  %38 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %39 = zext i1 %38 to i8
+  store i8 %39, ptr %12, align 1, !tbaa !12
+  %40 = load ptr, ptr %9, align 8, !tbaa !185
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %40)
+  %42 = load ptr, ptr %41, align 8, !tbaa !14
+  %43 = load ptr, ptr %11, align 8, !tbaa !185
+  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %43)
+  store ptr %42, ptr %44, align 8, !tbaa !14
+  %45 = load ptr, ptr %11, align 8, !tbaa !185
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE9getSecondEv(ptr noundef nonnull align 8 dereferenceable(16) %45)
+  %47 = load ptr, ptr %9, align 8, !tbaa !185
+  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE9getSecondEv(ptr noundef nonnull align 8 dereferenceable(16) %47)
+  %49 = load i64, ptr %48, align 8, !tbaa !66
+  store i64 %49, ptr %46, align 8, !tbaa !66
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E19incrementNumEntriesEv(ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %50 = load ptr, ptr %9, align 8, !tbaa !185
+  %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE9getSecondEv(ptr noundef nonnull align 8 dereferenceable(16) %50)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  br label %52
+
+52:                                               ; preds = %35, %29, %23
+  %53 = load ptr, ptr %9, align 8, !tbaa !185
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmE8getFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %53)
+  br label %55
+
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %9, align 8, !tbaa !185
+  %57 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i32 1
+  store ptr %57, ptr %9, align 8, !tbaa !185
+  br label %18, !llvm.loop !197
+
+58:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEE16getNumTombstonesEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::DenseMap", ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 4, !tbaa !182
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNKSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree5depthEvE3$_0EERKT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZNK4llvm16OutlinedHashTree5depthEvE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !173
+  store ptr %1, ptr %5, align 8, !tbaa !173
+  store i32 %2, ptr %6, align 4, !tbaa !175
+  %7 = load i32, ptr %6, align 4, !tbaa !175
+  switch i32 %7, label %22 [
+    i32 0, label %8
+    i32 1, label %11
+    i32 2, label %16
+    i32 3, label %20
+  ]
+
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %4, align 8, !tbaa !173
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  store ptr null, ptr %10, align 8, !tbaa !179
+  br label %22
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !173
+  %13 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
+  %14 = load ptr, ptr %4, align 8, !tbaa !173
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZNK4llvm16OutlinedHashTree5depthEvE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
+  store ptr %13, ptr %15, align 8, !tbaa !61
+  br label %22
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8, !tbaa !173
+  %18 = load ptr, ptr %5, align 8, !tbaa !173
+  %19 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %18) #12
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %19) #12
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8, !tbaa !173
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br label %22
+
+22:                                               ; preds = %3, %20, %16, %11, %8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8, !tbaa !173
+  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @"_ZNSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree5depthEvE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_0E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !188
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree5depthEvE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E21_M_not_empty_functionIS3_EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E15_M_init_functorIS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeES3_EZNKS0_16OutlinedHashTree5depthEvE3$_1E9_M_invokeERKSt9_Any_dataOS3_SB_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !173
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8, !tbaa !173
+  %8 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  %9 = load ptr, ptr %5, align 8, !tbaa !16
+  %10 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @"_ZSt10__invoke_rIvRZNK4llvm16OutlinedHashTree5depthEvE3$_1JPKNS0_8HashNodeES6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_"(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKN4llvm8HashNodeES3_EZNKS0_16OutlinedHashTree5depthEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !173
+  store ptr %1, ptr %5, align 8, !tbaa !173
+  store i32 %2, ptr %6, align 4, !tbaa !175
+  %7 = load i32, ptr %6, align 4, !tbaa !175
+  switch i32 %7, label %13 [
+    i32 1, label %8
+  ]
+
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %5, align 8, !tbaa !173
+  %10 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  %11 = load ptr, ptr %4, align 8, !tbaa !173
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZNK4llvm16OutlinedHashTree5depthEvE3$_1EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %11) #12
+  store ptr %10, ptr %12, align 8, !tbaa !61
+  br label %18
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8, !tbaa !173
+  %15 = load ptr, ptr %5, align 8, !tbaa !173
+  %16 = load i32, ptr %6, align 4, !tbaa !175
+  %17 = call noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %16)
+  br label %18
+
+18:                                               ; preds = %13, %8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !198
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZSt10__invoke_rIvRZNK4llvm16OutlinedHashTree5depthEvE3$_1JPKNS0_8HashNodeES6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  %8 = load ptr, ptr %5, align 8, !tbaa !16
+  %9 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @"_ZSt13__invoke_implIvRZNK4llvm16OutlinedHashTree5depthEvE3$_1JPKNS0_8HashNodeES6_EET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  %4 = load ptr, ptr %2, align 8, !tbaa !173
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNKSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree5depthEvE3$_1EERKT_v"(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  store ptr %5, ptr %3, align 8, !tbaa !61
+  %6 = load ptr, ptr %3, align 8, !tbaa !61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZSt13__invoke_implIvRZNK4llvm16OutlinedHashTree5depthEvE3$_1JPKNS0_8HashNodeES6_EET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  %8 = load ptr, ptr %5, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
+  %10 = load ptr, ptr %6, align 8, !tbaa !16
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
+  call void @"_ZZNK4llvm16OutlinedHashTree5depthEvENK3$_1clEPKNS_8HashNodeES4_"(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9, ptr noundef %11)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZNK4llvm16OutlinedHashTree5depthEvENK3$_1clEPKNS_8HashNodeES4_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store ptr %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %9 = getelementptr inbounds nuw %class.anon.16, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !199
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %12 = load i64, ptr %11, align 8, !tbaa !66
+  store i64 %12, ptr %7, align 8, !tbaa !66
+  %13 = load i64, ptr %7, align 8, !tbaa !66
+  %14 = add i64 %13, 1
+  %15 = getelementptr inbounds nuw %class.anon.16, ptr %8, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !199
+  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  store i64 %14, ptr %17, align 8, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNKSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree5depthEvE3$_1EERKT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZNK4llvm16OutlinedHashTree5depthEvE3$_1EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !173
+  store ptr %1, ptr %5, align 8, !tbaa !173
+  store i32 %2, ptr %6, align 4, !tbaa !175
+  %7 = load i32, ptr %6, align 4, !tbaa !175
+  switch i32 %7, label %22 [
+    i32 0, label %8
+    i32 1, label %11
+    i32 2, label %16
+    i32 3, label %20
+  ]
+
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %4, align 8, !tbaa !173
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  store ptr null, ptr %10, align 8, !tbaa !179
+  br label %22
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !173
+  %13 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
+  %14 = load ptr, ptr %4, align 8, !tbaa !173
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZNK4llvm16OutlinedHashTree5depthEvE3$_1EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
+  store ptr %13, ptr %15, align 8, !tbaa !61
+  br label %22
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8, !tbaa !173
+  %18 = load ptr, ptr %5, align 8, !tbaa !173
+  %19 = call noundef ptr @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E14_M_get_pointerERKSt9_Any_data"(ptr noundef nonnull align 8 dereferenceable(16) %18) #12
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %19) #12
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8, !tbaa !173
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br label %22
+
+22:                                               ; preds = %3, %20, %16, %11, %8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8, !tbaa !173
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree5depthEvE3$_1EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZNSt14_Function_base13_Base_managerIZNK4llvm16OutlinedHashTree5depthEvE3$_1E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !173
+  %6 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !198
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIZNK4llvm16OutlinedHashTree5depthEvE3$_1EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt9_Any_data9_M_accessEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !134
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %11 = call noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %12 = icmp ule i64 %10, %11
+  br i1 %12, label %13, label %36
+
+13:                                               ; preds = %2
+  %14 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8
+  br label %17
+
+17:                                               ; preds = %30, %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %18 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %19 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %19, i32 0, i32 0
+  store ptr %18, ptr %20, align 8
+  %21 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  br i1 %21, label %22, label %32
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8, !tbaa !26
+  %24 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !51
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS9_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(16) %26)
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %22
+  br label %45
+
+29:                                               ; preds = %22
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  br label %17, !llvm.loop !201
+
+32:                                               ; preds = %17
+  %33 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %34 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %34, i32 0, i32 0
+  store ptr %33, ptr %35, align 8
+  br label %45
+
+36:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %37 = load ptr, ptr %5, align 8, !tbaa !26
+  %38 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %37)
+  store i64 %38, ptr %7, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %39 = load i64, ptr %7, align 8, !tbaa !66
+  %40 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %39)
+  store i64 %40, ptr %8, align 8, !tbaa !66
+  %41 = load i64, ptr %8, align 8, !tbaa !66
+  %42 = load ptr, ptr %5, align 8, !tbaa !26
+  %43 = load i64, ptr %7, align 8, !tbaa !66
+  %44 = call noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %41, ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef %43)
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %44) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %45
+
+45:                                               ; preds = %36, %32, %28
+  %46 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  ret ptr %48
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 3
+  %5 = load i64, ptr %4, align 8, !tbaa !202
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #0 comdat align 2 {
+  %1 = call noundef i64 @_ZNSt8__detail22_Hashtable_hash_traitsISt4hashImEE22__small_size_thresholdEv() #12
+  ret i64 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #12
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null) #12
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS9_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::__detail::_Select1st", align 1
+  store ptr %0, ptr %4, align 8, !tbaa !203
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !205
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE5_M_eqEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %10 = load ptr, ptr %5, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #12
+  %11 = load ptr, ptr %6, align 8, !tbaa !205
+  %12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #12
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail10_Select1stclIRKSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEEEEONS0_10__1st_typeIT_E4typeEOSE_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %12) #12
+  %14 = call noundef zeroext i1 @_ZNKSt8equal_toImEclERKmS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #12
+  ret i1 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !207
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load i64, ptr %7, align 8, !tbaa !66
+  %9 = call noundef i64 @_ZNKSt4hashImEclEm(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef %8) #12
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8, !tbaa !209
+  %9 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexEmm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, i64 noundef %8)
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !134
+  store i64 %1, ptr %7, align 8, !tbaa !66
+  store ptr %2, ptr %8, align 8, !tbaa !26
+  store i64 %3, ptr %9, align 8, !tbaa !66
+  %12 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %13 = load i64, ptr %7, align 8, !tbaa !66
+  %14 = load ptr, ptr %8, align 8, !tbaa !26
+  %15 = load i64, ptr %9, align 8, !tbaa !66
+  %16 = call noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %15)
+  store ptr %16, ptr %10, align 8, !tbaa !210
+  %17 = load ptr, ptr %10, align 8, !tbaa !210
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %23
+
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %10, align 8, !tbaa !210
+  %21 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !138
+  store ptr %22, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %24
+
+23:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %24
+
+24:                                               ; preds = %23, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  %25 = load ptr, ptr %5, align 8
+  ret ptr %25
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !104
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !137
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt8__detail22_Hashtable_hash_traitsISt4hashImEE22__small_size_thresholdEv() #0 comdat align 2 {
+  ret i64 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE5_M_eqEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !203
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toImELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt8equal_toImEclERKmS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !211
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %5, align 8, !tbaa !26
+  %8 = load i64, ptr %7, align 8, !tbaa !66
+  %9 = load ptr, ptr %6, align 8, !tbaa !26
+  %10 = load i64, ptr %9, align 8, !tbaa !66
+  %11 = icmp eq i64 %8, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail10_Select1stclIRKSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEEEEONS0_10__1st_typeIT_E4typeEOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !213
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !139
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toImELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !215
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !139
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_value_base", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !207
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi1ESt4hashImELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt4hashImEclEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !217
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load i64, ptr %4, align 8, !tbaa !66
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi1ESt4hashImELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !219
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexEmm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"struct.std::__detail::_Mod_range_hashing", align 1
+  store ptr %0, ptr %4, align 8, !tbaa !207
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #12
+  %8 = load i64, ptr %5, align 8, !tbaa !66
+  %9 = load i64, ptr %6, align 8, !tbaa !66
+  %10 = call noundef i64 @_ZNKSt8__detail18_Mod_range_hashingclEmm(ptr noundef nonnull align 1 dereferenceable(1) %7, i64 noundef %8, i64 noundef %9) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #12
+  ret i64 %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt8__detail18_Mod_range_hashingclEmm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !221
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load i64, ptr %5, align 8, !tbaa !66
+  %8 = load i64, ptr %6, align 8, !tbaa !66
+  %9 = urem i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !134
+  store i64 %1, ptr %7, align 8, !tbaa !66
+  store ptr %2, ptr %8, align 8, !tbaa !26
+  store i64 %3, ptr %9, align 8, !tbaa !66
+  %13 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %14 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !223
+  %16 = load i64, ptr %7, align 8, !tbaa !66
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %18 = load ptr, ptr %17, align 8, !tbaa !210
+  store ptr %18, ptr %10, align 8, !tbaa !210
+  %19 = load ptr, ptr %10, align 8, !tbaa !210
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
+
+21:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %55
+
+22:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %23 = load ptr, ptr %10, align 8, !tbaa !210
+  %24 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !138
+  store ptr %25, ptr %12, align 8, !tbaa !137
+  br label %26
+
+26:                                               ; preds = %49, %22
+  %27 = load ptr, ptr %8, align 8, !tbaa !26
+  %28 = load i64, ptr %9, align 8, !tbaa !66
+  %29 = load ptr, ptr %12, align 8, !tbaa !137
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_equalsERS2_mRKNS_16_Hash_node_valueIS9_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef %28, ptr noundef nonnull align 8 dereferenceable(16) %30)
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %10, align 8, !tbaa !210
+  store ptr %33, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %52
+
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %12, align 8, !tbaa !137
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !138
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %46
+
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %12, align 8, !tbaa !137
+  %41 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #12
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSA_16_Hash_node_valueIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(16) %42) #12
+  %44 = load i64, ptr %7, align 8, !tbaa !66
+  %45 = icmp ne i64 %43, %44
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %39, %34
+  store i32 2, ptr %11, align 4
+  br label %52
+
+47:                                               ; preds = %39
+  %48 = load ptr, ptr %12, align 8, !tbaa !137
+  store ptr %48, ptr %10, align 8, !tbaa !210
+  br label %49
+
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %12, align 8, !tbaa !137
+  %51 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %50) #12
+  store ptr %51, ptr %12, align 8, !tbaa !137
+  br label %26, !llvm.loop !224
+
+52:                                               ; preds = %46, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  %53 = load i32, ptr %11, align 4
+  switch i32 %53, label %55 [
+    i32 2, label %54
+  ]
+
+54:                                               ; preds = %52
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %55
+
+55:                                               ; preds = %54, %52, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  %56 = load ptr, ptr %5, align 8
+  ret ptr %56
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_equalsERS2_mRKNS_16_Hash_node_valueIS9_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !203
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store i64 %2, ptr %7, align 8, !tbaa !66
+  store ptr %3, ptr %8, align 8, !tbaa !205
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i64, ptr %7, align 8, !tbaa !66
+  %11 = load ptr, ptr %8, align 8, !tbaa !205
+  %12 = call noundef zeroext i1 @_ZNSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_S_equalsEmRKNS_21_Hash_node_code_cacheILb0EEE(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %6, align 8, !tbaa !26
+  %15 = load ptr, ptr %8, align 8, !tbaa !205
+  %16 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS9_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  br label %17
+
+17:                                               ; preds = %13, %4
+  %18 = phi i1 [ false, %4 ], [ %16, %13 ]
+  ret i1 %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSA_16_Hash_node_valueIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  store ptr %1, ptr %4, align 8, !tbaa !205
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !205
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8, !tbaa !209
+  %9 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS9_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8) #12
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_S_equalsEmRKNS_21_Hash_node_code_cacheILb0EEE(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !66
+  store ptr %1, ptr %4, align 8, !tbaa !225
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS9_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"struct.std::__detail::_Mod_range_hashing", align 1
+  %8 = alloca %"struct.std::__detail::_Select1st", align 1
+  store ptr %0, ptr %4, align 8, !tbaa !207
+  store ptr %1, ptr %5, align 8, !tbaa !205
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #12
+  %10 = load ptr, ptr %5, align 8, !tbaa !205
+  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #12
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail10_Select1stclIRKSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEEEEONS0_10__1st_typeIT_E4typeEOSE_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(16) %11) #12
+  %13 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %14 = load i64, ptr %6, align 8, !tbaa !66
+  %15 = call noundef i64 @_ZNKSt8__detail18_Mod_range_hashingclEmm(ptr noundef nonnull align 1 dereferenceable(1) %7, i64 noundef %13, i64 noundef %14) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #12
+  ret i64 %15
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #10
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8HashNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %3, i32 0, i32 0
+  store i64 0, ptr %4, align 8, !tbaa !89
+  %5 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %3, i32 0, i32 1
+  call void @_ZNSt8optionalIjEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #12
+  %6 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %3, i32 0, i32 2
+  call void @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @_ZNSt15__uniq_ptr_dataIN4llvm8HashNodeESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8optionalIjEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt14_Optional_baseIjLb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %3, i32 0, i32 0
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt14_Optional_baseIjLb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !125
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Optional_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt17_Optional_payloadIjLb1ELb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt17_Optional_payloadIjLb1ELb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !127
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt22_Optional_payload_baseIjEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIjEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !123
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt22_Optional_payload_baseIjE8_StorageIjLb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #12
+  %5 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 4, !tbaa !122
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIjE8_StorageIjLb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !129
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 5
+  store ptr %5, ptr %4, align 8, !tbaa !223
+  %6 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 1
+  store i64 1, ptr %6, align 8, !tbaa !209
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 2
+  call void @_ZNSt8__detail15_Hash_node_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  %8 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 3
+  store i64 0, ptr %8, align 8, !tbaa !202
+  %9 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 4
+  call void @_ZNSt8__detail20_Prime_rehash_policyC2Ef(ptr noundef nonnull align 8 dereferenceable(16) %9, float noundef 1.000000e+00) #12
+  %10 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 5
+  store ptr null, ptr %10, align 8, !tbaa !227
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !203
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toImELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !228
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail15_Hash_node_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !210
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !138
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail20_Prime_rehash_policyC2Ef(ptr noundef nonnull align 8 dereferenceable(16) %0, float noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !230
+  store float %1, ptr %4, align 4, !tbaa !232
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Prime_rehash_policy", ptr %5, i32 0, i32 0
+  %7 = load float, ptr %4, align 4, !tbaa !232
+  store float %7, ptr %6, align 8, !tbaa !233
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Prime_rehash_policy", ptr %5, i32 0, i32 1
+  store i64 0, ptr %8, align 8, !tbaa !234
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !207
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashImELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toImELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !215
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashImELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !219
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !235
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !237
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !239
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN4llvm8HashNodeESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !241
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !14
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  store ptr %7, ptr %8, align 8, !tbaa !14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt5tupleIJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !145
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !143
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNSt10_Head_baseILm0EPN4llvm8HashNodeELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !243
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN4llvm8HashNodeEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EPN4llvm8HashNodeELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.11", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !245
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm1ESt14default_deleteIN4llvm8HashNodeEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !247
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !145
+  %3 = load ptr, ptr %2, align 8, !tbaa !145
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm8HashNodeEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm8HashNodeEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
+  %3 = load ptr, ptr %2, align 8, !tbaa !147
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
+  %3 = load ptr, ptr %2, align 8, !tbaa !147
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm8HashNodeELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm8HashNodeELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
+  %3 = load ptr, ptr %2, align 8, !tbaa !149
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.11", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !249
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
+
+7:                                                ; preds = %2
+  call void @_ZN4llvm8HashNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 72) #15
+  br label %8
+
+8:                                                ; preds = %7, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !143
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN4llvm8HashNodeESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN4llvm8HashNodeESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !145
+  %3 = load ptr, ptr %2, align 8, !tbaa !145
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN4llvm8HashNodeEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN4llvm8HashNodeEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !243
+  %3 = load ptr, ptr %2, align 8, !tbaa !243
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !243
+  %3 = load ptr, ptr %2, align 8, !tbaa !243
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN4llvm8HashNodeEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN4llvm8HashNodeEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !247
+  %3 = load ptr, ptr %2, align 8, !tbaa !247
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8HashNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.llvm::HashNode", ptr %3, i32 0, i32 2
+  call void @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #11
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %3, i32 0, i32 0
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE19_M_deallocate_nodesEPSB_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4)
+  %5 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !223
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8, !tbaa !209
+  %9 = mul i64 %8, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %9, i1 false)
+  %10 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 3
+  store i64 0, ptr %10, align 8, !tbaa !202
+  %11 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %11, i32 0, i32 0
+  store ptr null, ptr %12, align 8, !tbaa !136
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !223
+  %6 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8, !tbaa !209
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEPPNSA_15_Hash_node_baseEm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %5, i64 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !239
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE19_M_deallocate_nodesEPSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !228
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %6 = load ptr, ptr %3, align 8
+  br label %7
+
+7:                                                ; preds = %10, %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !137
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %11 = load ptr, ptr %4, align 8, !tbaa !137
+  store ptr %11, ptr %5, align 8, !tbaa !137
+  %12 = load ptr, ptr %4, align 8, !tbaa !137
+  %13 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
+  store ptr %13, ptr %4, align 8, !tbaa !137
+  %14 = load ptr, ptr %5, align 8, !tbaa !137
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE18_M_deallocate_nodeEPSB_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  br label %7, !llvm.loop !251
+
+15:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE18_M_deallocate_nodeEPSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !228
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !137
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  call void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE7destroyISA_EEvRSC_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %9) #12
+  %10 = load ptr, ptr %4, align 8, !tbaa !137
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE22_M_deallocate_node_ptrEPSB_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %10)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE7destroyISA_EEvRSC_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !237
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8, !tbaa !237
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !228
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEELb1EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE22_M_deallocate_node_ptrEPSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !228
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !137
+  %8 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPNSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEESB_Lb0EE10pointer_toERSB_(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  store ptr %8, ptr %5, align 8, !tbaa !137
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %10 = load ptr, ptr %5, align 8, !tbaa !137
+  call void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE10deallocateERSC_PSB_m(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !239
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @_ZNSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEELb1EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !235
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPNSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEESB_Lb0EE10pointer_toERSB_(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8, !tbaa !137
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE10deallocateERSC_PSB_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !237
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8, !tbaa !237
+  %8 = load ptr, ptr %5, align 8, !tbaa !137
+  %9 = load i64, ptr %6, align 8, !tbaa !66
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE10deallocateEPSB_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE10deallocateEPSB_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !239
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %5, align 8, !tbaa !137
+  %8 = load i64, ptr %6, align 8, !tbaa !66
+  %9 = mul i64 %8, 24
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEPPNSA_15_Hash_node_baseEm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !134
+  store ptr %1, ptr %5, align 8, !tbaa !252
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !252
+  %9 = call noundef zeroext i1 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_uses_single_bucketEPPNSA_15_Hash_node_baseE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %8)
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %3
+  br label %14
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !252
+  %13 = load i64, ptr %6, align 8, !tbaa !66
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE21_M_deallocate_bucketsEPPNS_15_Hash_node_baseEm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %12, i64 noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_uses_single_bucketEPPNSA_15_Hash_node_baseE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  store ptr %1, ptr %4, align 8, !tbaa !252
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !252
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %5, i32 0, i32 5
+  %8 = icmp eq ptr %6, %7
+  %9 = zext i1 %8 to i64
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 0)
+  %11 = icmp ne i64 %10, 0
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE21_M_deallocate_bucketsEPPNS_15_Hash_node_baseEm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.std::allocator.36", align 1
+  store ptr %0, ptr %4, align 8, !tbaa !228
+  store ptr %1, ptr %5, align 8, !tbaa !252
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %10 = load ptr, ptr %5, align 8, !tbaa !252
+  %11 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPPNSt8__detail15_Hash_node_baseES2_Lb0EE10pointer_toERS2_(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  store ptr %11, ptr %7, align 8, !tbaa !252
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #12
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS9_EEELb0EEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %12) #12
+  %13 = load ptr, ptr %7, align 8, !tbaa !252
+  %14 = load i64, ptr %6, align 8, !tbaa !66
+  call void @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %13, i64 noundef %14)
+  call void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPPNSt8__detail15_Hash_node_baseES2_Lb0EE10pointer_toERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !252
+  %3 = load ptr, ptr %2, align 8, !tbaa !252
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS9_EEELb0EEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !253
+  store ptr %1, ptr %4, align 8, !tbaa !237
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !253
+  store ptr %1, ptr %5, align 8, !tbaa !252
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8, !tbaa !253
+  %8 = load ptr, ptr %5, align 8, !tbaa !252
+  %9 = load i64, ptr %6, align 8, !tbaa !66
+  call void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !255
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !255
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !255
+  store ptr %1, ptr %5, align 8, !tbaa !252
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %5, align 8, !tbaa !252
+  %8 = load i64, ptr %6, align 8, !tbaa !66
+  %9 = mul i64 %8, 8
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7emplaceIJRmS7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca %"struct.std::pair.24", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !134
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !26
+  %11 = load ptr, ptr %7, align 8, !tbaa !28
+  %12 = call { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRmS7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  store { ptr, i8 } %12, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %8, i64 9, i1 false)
+  %13 = load { ptr, i8 }, ptr %4, align 8
+  ret { ptr, i8 } %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRmS7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca %"struct.std::pair.24", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"struct.std::__detail::_Select1st", align 1
+  %11 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %12 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i8, align 1
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %19 = alloca i8, align 1
+  %20 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %21 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !134
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %22 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #12
+  %23 = load ptr, ptr %6, align 8, !tbaa !26
+  %24 = load ptr, ptr %7, align 8, !tbaa !28
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRmS7_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb0EEEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #12
+  %25 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %8, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !257
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #12
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail10_Select1stclIRSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEEEEONS0_10__1st_typeIT_E4typeEOSD_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(16) %28) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #12
+  store ptr %29, ptr %9, align 8, !tbaa !26
+  %30 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %31 = call noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %32 = icmp ule i64 %30, %31
+  br i1 %32, label %33, label %56
+
+33:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %34 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %11, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  br label %37
+
+37:                                               ; preds = %51, %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %38 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %12, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %39, i32 0, i32 0
+  store ptr %38, ptr %40, align 8
+  %41 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %37
+  store i32 2, ptr %13, align 4
+  br label %53
+
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %9, align 8, !tbaa !26
+  %45 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %11, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !51
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS9_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(16) %47)
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #12
+  store i8 0, ptr %14, align 1, !tbaa !12
+  call void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2IRSA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #12
+  store i32 1, ptr %13, align 4
+  br label %53
+
+50:                                               ; preds = %43
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  br label %37, !llvm.loop !259
+
+53:                                               ; preds = %49, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  %54 = load i32, ptr %13, align 4
+  switch i32 %54, label %87 [
+    i32 2, label %55
+  ]
+
+55:                                               ; preds = %53
+  br label %56
+
+56:                                               ; preds = %55, %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  %57 = load ptr, ptr %9, align 8, !tbaa !26
+  %58 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(8) %57)
+  store i64 %58, ptr %15, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  %59 = load i64, ptr %15, align 8, !tbaa !66
+  %60 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %59)
+  store i64 %60, ptr %16, align 8, !tbaa !66
+  %61 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %62 = call noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %63 = icmp ugt i64 %61, %62
+  br i1 %63, label %64, label %77
+
+64:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #12
+  %65 = load i64, ptr %16, align 8, !tbaa !66
+  %66 = load ptr, ptr %9, align 8, !tbaa !26
+  %67 = load i64, ptr %15, align 8, !tbaa !66
+  %68 = call noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %65, ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef %67)
+  store ptr %68, ptr %17, align 8, !tbaa !137
+  %69 = load ptr, ptr %17, align 8, !tbaa !137
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %73
+
+71:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #12
+  %72 = load ptr, ptr %17, align 8, !tbaa !137
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %72) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #12
+  store i8 0, ptr %19, align 1, !tbaa !12
+  call void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2ISA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(1) %19)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #12
+  store i32 1, ptr %13, align 4
+  br label %74
+
+73:                                               ; preds = %64
+  store i32 0, ptr %13, align 4
+  br label %74
+
+74:                                               ; preds = %73, %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #12
+  %75 = load i32, ptr %13, align 4
+  switch i32 %75, label %86 [
+    i32 0, label %76
+  ]
+
+76:                                               ; preds = %74
+  br label %77
+
+77:                                               ; preds = %76, %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #12
+  %78 = load i64, ptr %16, align 8, !tbaa !66
+  %79 = load i64, ptr %15, align 8, !tbaa !66
+  %80 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %8, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8, !tbaa !257
+  %82 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %78, i64 noundef %79, ptr noundef %81, i64 noundef 1)
+  %83 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %20, i32 0, i32 0
+  %84 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %83, i32 0, i32 0
+  store ptr %82, ptr %84, align 8
+  %85 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %8, i32 0, i32 1
+  store ptr null, ptr %85, align 8, !tbaa !257
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #12
+  store i8 1, ptr %21, align 1, !tbaa !12
+  call void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2IRSA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %21)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #12
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #12
+  br label %86
+
+86:                                               ; preds = %77, %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  br label %87
+
+87:                                               ; preds = %86, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #12
+  %88 = load { ptr, i8 }, ptr %4, align 8
+  ret { ptr, i8 } %88
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRmS7_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb0EEEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !260
+  store ptr %1, ptr %6, align 8, !tbaa !228
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !228
+  store ptr %11, ptr %10, align 8, !tbaa !262
+  %12 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %6, align 8, !tbaa !228
+  %14 = load ptr, ptr %7, align 8, !tbaa !26
+  %15 = load ptr, ptr %8, align 8, !tbaa !28
+  %16 = call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE16_M_allocate_nodeIJRmS9_EEEPSB_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  store ptr %16, ptr %12, align 8, !tbaa !257
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail10_Select1stclIRSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEEEEONS0_10__1st_typeIT_E4typeEOSD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !213
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2IRSA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !263
+  store ptr %1, ptr %5, align 8, !tbaa !104
+  store ptr %2, ptr %6, align 8, !tbaa !265
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.24", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !104
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 8, i1 false)
+  %10 = getelementptr inbounds nuw %"struct.std::pair.24", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !265
+  %12 = load i8, ptr %11, align 1, !tbaa !12, !range !20, !noundef !21
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %10, align 8, !tbaa !267
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2ISA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !263
+  store ptr %1, ptr %5, align 8, !tbaa !104
+  store ptr %2, ptr %6, align 8, !tbaa !265
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.24", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !104
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 8, i1 false)
+  %10 = getelementptr inbounds nuw %"struct.std::pair.24", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !265
+  %12 = load i8, ptr %11, align 1, !tbaa !12, !range !20, !noundef !21
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %10, align 8, !tbaa !267
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca %"struct.std::pair.39", align 8
+  store ptr %0, ptr %7, align 8, !tbaa !134
+  store i64 %1, ptr %8, align 8, !tbaa !66
+  store i64 %2, ptr %9, align 8, !tbaa !66
+  store ptr %3, ptr %10, align 8, !tbaa !137
+  store i64 %4, ptr %11, align 8, !tbaa !66
+  %15 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  %16 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 4
+  %17 = call noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy8_M_stateEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  store i64 %17, ptr %13, align 8, !tbaa !66
+  store ptr %13, ptr %12, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #12
+  %18 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8, !tbaa !209
+  %21 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8, !tbaa !202
+  %23 = load i64, ptr %11, align 8, !tbaa !66
+  %24 = call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %20, i64 noundef %22, i64 noundef %23)
+  %25 = getelementptr inbounds nuw { i8, i64 }, ptr %14, i32 0, i32 0
+  %26 = extractvalue { i8, i64 } %24, 0
+  store i8 %26, ptr %25, align 8
+  %27 = getelementptr inbounds nuw { i8, i64 }, ptr %14, i32 0, i32 1
+  %28 = extractvalue { i8, i64 } %24, 1
+  store i64 %28, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %"struct.std::pair.39", ptr %14, i32 0, i32 0
+  %30 = load i8, ptr %29, align 8, !tbaa !270, !range !20, !noundef !21
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %5
+  %33 = getelementptr inbounds nuw %"struct.std::pair.39", ptr %14, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8, !tbaa !272
+  %35 = load ptr, ptr %12, align 8, !tbaa !26
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %36 = load i64, ptr %9, align 8, !tbaa !66
+  %37 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %36)
+  store i64 %37, ptr %8, align 8, !tbaa !66
+  br label %38
+
+38:                                               ; preds = %32, %5
+  %39 = load ptr, ptr %10, align 8, !tbaa !137
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load i64, ptr %9, align 8, !tbaa !66
+  call void @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE13_M_store_codeERNS_21_Hash_node_code_cacheILb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %40, i64 noundef %41)
+  %42 = load i64, ptr %8, align 8, !tbaa !66
+  %43 = load ptr, ptr %10, align 8, !tbaa !137
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %42, ptr noundef %43)
+  %44 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 3
+  %45 = load i64, ptr %44, align 8, !tbaa !202
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %44, align 8, !tbaa !202
+  %47 = load ptr, ptr %10, align 8, !tbaa !137
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %47) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  %48 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %6, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  ret ptr %50
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !260
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !257
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %12
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !262
+  %10 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !257
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE18_M_deallocate_nodeEPSB_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %11)
+  br label %12
+
+12:                                               ; preds = %7, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE16_M_allocate_nodeIJRmS9_EEEPSB_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !228
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE8allocateERSC_m(ptr noundef nonnull align 1 dereferenceable(1) %10, i64 noundef 1)
+  store ptr %11, ptr %7, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %12 = load ptr, ptr %7, align 8, !tbaa !137
+  %13 = call noundef ptr @_ZSt12__to_addressINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEPT_SD_(ptr noundef %12) #12
+  store ptr %13, ptr %8, align 8, !tbaa !137
+  %14 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZNSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  %15 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %16 = load ptr, ptr %8, align 8, !tbaa !137
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #12
+  %19 = load ptr, ptr %5, align 8, !tbaa !26
+  %20 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE9constructISA_JRmS9_EEEvRSC_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %21 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  ret ptr %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE8allocateERSC_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !237
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8, !tbaa !237
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  %7 = call noundef ptr @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__to_addressINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEPT_SD_(ptr noundef %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8, !tbaa !137
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail15_Hash_node_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE9constructISA_JRmS9_EEEvRSC_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !237
+  store ptr %1, ptr %6, align 8, !tbaa !24
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %5, align 8, !tbaa !237
+  %10 = load ptr, ptr %6, align 8, !tbaa !24
+  %11 = load ptr, ptr %7, align 8, !tbaa !26
+  %12 = load ptr, ptr %8, align 8, !tbaa !28
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE9constructISA_JRmS9_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !239
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store ptr %2, ptr %6, align 8, !tbaa !61
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !66
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
+
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !66
+  %16 = icmp ugt i64 %15, 768614336404564650
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #13
+  unreachable
+
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #13
+  unreachable
+
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !66
+  %21 = mul i64 %20, 24
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #14
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !239
+  ret i64 384307168202282325
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt28__throw_bad_array_new_lengthv() #4
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE9constructISA_JRmS9_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !239
+  store ptr %1, ptr %6, align 8, !tbaa !24
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %7, align 8, !tbaa !26
+  %11 = load ptr, ptr %8, align 8, !tbaa !28
+  call void @_ZNSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEEC2IRmS6_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEEC2IRmS6_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !26
+  %10 = load i64, ptr %9, align 8, !tbaa !66
+  store i64 %10, ptr %8, align 8, !tbaa !273
+  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %8 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i32 0, i32 0
+  call void @_ZNSt15__uniq_ptr_dataIN4llvm8HashNodeESt14default_deleteIS1_ELb1ELb1EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN4llvm8HashNodeESt14default_deleteIS1_ELb1ELb1EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !241
+  store ptr %1, ptr %4, align 8, !tbaa !241
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !241
+  call void @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !143
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !143
+  %8 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %7, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  %9 = load ptr, ptr %4, align 8, !tbaa !143
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  store ptr null, ptr %10, align 8, !tbaa !14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt5tupleIJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !145
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !145
+  call void @_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !147
+  store ptr %1, ptr %4, align 8, !tbaa !147
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !147
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEEC2EOS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !147
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !280
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEEC2EOS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !243
+  store ptr %1, ptr %4, align 8, !tbaa !243
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy8_M_stateEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !230
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Prime_rehash_policy", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !234
+  ret i64 %5
+}
+
+declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !134
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !66
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE13_M_store_codeERNS_21_Hash_node_code_cacheILb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !207
+  store ptr %1, ptr %5, align 8, !tbaa !225
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !134
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store ptr %2, ptr %6, align 8, !tbaa !137
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !223
+  %10 = load i64, ptr %5, align 8, !tbaa !66
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !210
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %31
+
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !223
+  %17 = load i64, ptr %5, align 8, !tbaa !66
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !210
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !138
+  %22 = load ptr, ptr %6, align 8, !tbaa !137
+  %23 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %22, i32 0, i32 0
+  store ptr %21, ptr %23, align 8, !tbaa !138
+  %24 = load ptr, ptr %6, align 8, !tbaa !137
+  %25 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !223
+  %27 = load i64, ptr %5, align 8, !tbaa !66
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !210
+  %30 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %29, i32 0, i32 0
+  store ptr %24, ptr %30, align 8, !tbaa !138
+  br label %59
+
+31:                                               ; preds = %3
+  %32 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !136
+  %35 = load ptr, ptr %6, align 8, !tbaa !137
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8, !tbaa !138
+  %37 = load ptr, ptr %6, align 8, !tbaa !137
+  %38 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8, !tbaa !136
+  %40 = load ptr, ptr %6, align 8, !tbaa !137
+  %41 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !138
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %53
+
+44:                                               ; preds = %31
+  %45 = load ptr, ptr %6, align 8, !tbaa !137
+  %46 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !223
+  %48 = load ptr, ptr %6, align 8, !tbaa !137
+  %49 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %48) #12
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSA_16_Hash_node_valueIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(16) %50) #12
+  %52 = getelementptr inbounds nuw ptr, ptr %47, i64 %51
+  store ptr %45, ptr %52, align 8, !tbaa !210
+  br label %53
+
+53:                                               ; preds = %44, %31
+  %54 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !223
+  %57 = load i64, ptr %5, align 8, !tbaa !66
+  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
+  store ptr %54, ptr %58, align 8, !tbaa !210
+  br label %59
+
+59:                                               ; preds = %53, %14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %10 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %11 = load i64, ptr %4, align 8, !tbaa !66
+  %12 = call noundef ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 8 dereferenceable(56) %10, i64 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !252
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %13 = call noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %10)
+  store ptr %13, ptr %6, align 8, !tbaa !137
+  %14 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8, !tbaa !136
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !66
+  br label %16
+
+16:                                               ; preds = %70, %2
+  %17 = load ptr, ptr %6, align 8, !tbaa !137
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %72
+
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %20 = load ptr, ptr %6, align 8, !tbaa !137
+  %21 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #12
+  store ptr %21, ptr %8, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %22 = load ptr, ptr %6, align 8, !tbaa !137
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = load i64, ptr %4, align 8, !tbaa !66
+  %25 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS9_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %24) #12
+  store i64 %25, ptr %9, align 8, !tbaa !66
+  %26 = load ptr, ptr %5, align 8, !tbaa !252
+  %27 = load i64, ptr %9, align 8, !tbaa !66
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !210
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %55, label %31
+
+31:                                               ; preds = %19
+  %32 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !136
+  %35 = load ptr, ptr %6, align 8, !tbaa !137
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8, !tbaa !138
+  %37 = load ptr, ptr %6, align 8, !tbaa !137
+  %38 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8, !tbaa !136
+  %40 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 2
+  %41 = load ptr, ptr %5, align 8, !tbaa !252
+  %42 = load i64, ptr %9, align 8, !tbaa !66
+  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  store ptr %40, ptr %43, align 8, !tbaa !210
+  %44 = load ptr, ptr %6, align 8, !tbaa !137
+  %45 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !138
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %53
+
+48:                                               ; preds = %31
+  %49 = load ptr, ptr %6, align 8, !tbaa !137
+  %50 = load ptr, ptr %5, align 8, !tbaa !252
+  %51 = load i64, ptr %7, align 8, !tbaa !66
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  store ptr %49, ptr %52, align 8, !tbaa !210
+  br label %53
+
+53:                                               ; preds = %48, %31
+  %54 = load i64, ptr %9, align 8, !tbaa !66
+  store i64 %54, ptr %7, align 8, !tbaa !66
+  br label %70
+
+55:                                               ; preds = %19
+  %56 = load ptr, ptr %5, align 8, !tbaa !252
+  %57 = load i64, ptr %9, align 8, !tbaa !66
+  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !210
+  %60 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8, !tbaa !138
+  %62 = load ptr, ptr %6, align 8, !tbaa !137
+  %63 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %62, i32 0, i32 0
+  store ptr %61, ptr %63, align 8, !tbaa !138
+  %64 = load ptr, ptr %6, align 8, !tbaa !137
+  %65 = load ptr, ptr %5, align 8, !tbaa !252
+  %66 = load i64, ptr %9, align 8, !tbaa !66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %68 = load ptr, ptr %67, align 8, !tbaa !210
+  %69 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %68, i32 0, i32 0
+  store ptr %64, ptr %69, align 8, !tbaa !138
+  br label %70
+
+70:                                               ; preds = %55, %53
+  %71 = load ptr, ptr %8, align 8, !tbaa !137
+  store ptr %71, ptr %6, align 8, !tbaa !137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %16, !llvm.loop !281
+
+72:                                               ; preds = %16
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv(ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %73 = load i64, ptr %4, align 8, !tbaa !66
+  %74 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 1
+  store i64 %73, ptr %74, align 8, !tbaa !209
+  %75 = load ptr, ptr %5, align 8, !tbaa !252
+  %76 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 0
+  store ptr %75, ptr %76, align 8, !tbaa !223
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !134
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i64, ptr %5, align 8, !tbaa !66
+  %8 = icmp eq i64 %7, 1
+  %9 = zext i1 %8 to i64
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 0)
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %6, i32 0, i32 5
+  store ptr null, ptr %13, align 8, !tbaa !227
+  %14 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %6, i32 0, i32 5
+  store ptr %14, ptr %3, align 8
+  br label %18
+
+15:                                               ; preds = %2
+  %16 = load i64, ptr %5, align 8, !tbaa !66
+  %17 = call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef %16)
+  store ptr %17, ptr %3, align 8
+  br label %18
+
+18:                                               ; preds = %15, %12
+  %19 = load ptr, ptr %3, align 8
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %"class.std::allocator.36", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !228
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #12
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS9_EEELb0EEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %9) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %10 = load i64, ptr %4, align 8, !tbaa !66
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %10)
+  store ptr %11, ptr %6, align 8, !tbaa !252
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %12 = load ptr, ptr %6, align 8, !tbaa !252
+  %13 = call noundef ptr @_ZSt12__to_addressIPNSt8__detail15_Hash_node_baseEEPT_S4_(ptr noundef %12) #12
+  store ptr %13, ptr %7, align 8, !tbaa !252
+  %14 = load ptr, ptr %7, align 8, !tbaa !252
+  %15 = load i64, ptr %4, align 8, !tbaa !66
+  %16 = mul i64 %15, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %16, i1 false)
+  %17 = load ptr, ptr %7, align 8, !tbaa !252
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #12
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !253
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8, !tbaa !253
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__to_addressIPNSt8__detail15_Hash_node_baseEEPT_S4_(ptr noundef %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !252
+  %3 = load ptr, ptr %2, align 8, !tbaa !252
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !255
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store ptr %2, ptr %6, align 8, !tbaa !61
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !66
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
+
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !66
+  %16 = icmp ugt i64 %15, 2305843009213693951
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #13
+  unreachable
+
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #13
+  unreachable
+
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !66
+  %21 = mul i64 %20, 8
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #14
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !255
+  ret i64 1152921504606846975
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EEC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !111
+  store i32 %1, ptr %4, align 4, !tbaa !78
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !78
+  %7 = zext i32 %6 to i64
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !282
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvEC2Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !284
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %7 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6, i64 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !284
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE13destroy_rangeEPS6_S8_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !113
+  store ptr %1, ptr %4, align 8, !tbaa !113
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !284
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !284
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %6 = getelementptr inbounds nuw %"struct.std::pair.32", ptr %4, i64 %5
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !111
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE7isSmallEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %4, label %7, label %5
+
+5:                                                ; preds = %1
+  %6 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @free(ptr noundef %6) #12
+  br label %7
+
+7:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE7isSmallEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !284
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  %6 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %7 = icmp eq ptr %5, %6
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE18growAndEmplaceBackIJRS3_RS5_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::pair.32", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !282
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !16
+  %10 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @_ZNSt4pairIPN4llvm8HashNodeEPKS1_EC2IRS2_RS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE9push_backES6_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %12, ptr %14)
+  %15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret ptr %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIPN4llvm8HashNodeEPKS1_EC2IRS2_RS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !113
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.32", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !16
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
+  store ptr %10, ptr %8, align 8, !tbaa !286
+  %11 = getelementptr inbounds nuw %"struct.std::pair.32", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8, !tbaa !16
+  %13 = load ptr, ptr %12, align 8, !tbaa !14
+  store ptr %13, ptr %11, align 8, !tbaa !288
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !284
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = getelementptr inbounds %"struct.std::pair.32", ptr %4, i64 -1
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE9push_backES6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr %2) #0 comdat align 2 {
+  %4 = alloca %"struct.std::pair.32", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  store ptr %1, ptr %7, align 8
+  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  store ptr %2, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !282
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %10 = call noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE28reserveForParamAndGetAddressERS6_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 1)
+  store ptr %10, ptr %6, align 8, !tbaa !113
+  %11 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %12 = load ptr, ptr %6, align 8, !tbaa !113
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 8 %12, i64 16, i1 false)
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %14 = add i64 %13, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE28reserveForParamAndGetAddressERS6_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !282
+  store ptr %1, ptr %5, align 8, !tbaa !113
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !113
+  %9 = load i64, ptr %6, align 8, !tbaa !66
+  %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS6_Lb1EEEEEPKS6_PT_RSB_m(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS6_Lb1EEEEEPKS6_PT_RSB_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !282
+  store ptr %1, ptr %6, align 8, !tbaa !113
+  store i64 %2, ptr %7, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %12 = load ptr, ptr %5, align 8, !tbaa !282
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %14 = load i64, ptr %7, align 8, !tbaa !66
+  %15 = add i64 %13, %14
+  store i64 %15, ptr %8, align 8, !tbaa !66
+  %16 = load i64, ptr %8, align 8, !tbaa !66
+  %17 = load ptr, ptr %5, align 8, !tbaa !282
+  %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %19 = icmp ule i64 %16, %18
+  %20 = zext i1 %19 to i64
+  %21 = call i64 @llvm.expect.i64(i64 %20, i64 1)
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %6, align 8, !tbaa !113
+  store ptr %24, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %39
+
+25:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #12
+  store i8 0, ptr %10, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store i64 -1, ptr %11, align 8, !tbaa !66
+  %26 = load ptr, ptr %5, align 8, !tbaa !282
+  %27 = load i64, ptr %8, align 8, !tbaa !66
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %27)
+  %28 = load i8, ptr %10, align 1, !tbaa !12, !range !20, !noundef !21
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %35
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %5, align 8, !tbaa !282
+  %32 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %33 = load i64, ptr %11, align 8, !tbaa !66
+  %34 = getelementptr inbounds %"struct.std::pair.32", ptr %32, i64 %33
+  br label %37
+
+35:                                               ; preds = %25
+  %36 = load ptr, ptr %6, align 8, !tbaa !113
+  br label %37
+
+37:                                               ; preds = %35, %30
+  %38 = phi ptr [ %34, %30 ], [ %36, %35 ]
+  store ptr %38, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #12
+  br label %39
+
+39:                                               ; preds = %37, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %40 = load ptr, ptr %4, align 8
+  ret ptr %40
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !282
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE8grow_podEmm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6, i64 noundef 16)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE8grow_podEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !284
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %9 = load i64, ptr %5, align 8, !tbaa !66
+  %10 = load i64, ptr %6, align 8, !tbaa !66
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, i64 noundef %9, i64 noundef %10)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !282
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = sub i64 %4, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7emplaceIJRS1_S7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca %"struct.std::pair.24", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !134
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !26
+  %11 = load ptr, ptr %7, align 8, !tbaa !28
+  %12 = call { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRS1_S7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  store { ptr, i8 } %12, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %8, i64 9, i1 false)
+  %13 = load { ptr, i8 }, ptr %4, align 8
+  ret { ptr, i8 } %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRS1_S7_EEES0_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca %"struct.std::pair.24", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"struct.std::__detail::_Select1st", align 1
+  %11 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %12 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i8, align 1
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %19 = alloca i8, align 1
+  %20 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %21 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !134
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %22 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #12
+  %23 = load ptr, ptr %6, align 8, !tbaa !26
+  %24 = load ptr, ptr %7, align 8, !tbaa !28
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRS1_S7_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb0EEEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #12
+  %25 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %8, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !257
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #12
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail10_Select1stclIRSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEEEEONS0_10__1st_typeIT_E4typeEOSD_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(16) %28) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #12
+  store ptr %29, ptr %9, align 8, !tbaa !26
+  %30 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %31 = call noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %32 = icmp ule i64 %30, %31
+  br i1 %32, label %33, label %56
+
+33:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %34 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %11, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  br label %37
+
+37:                                               ; preds = %51, %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %38 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %12, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %39, i32 0, i32 0
+  store ptr %38, ptr %40, align 8
+  %41 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %37
+  store i32 2, ptr %13, align 4
+  br label %53
+
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %9, align 8, !tbaa !26
+  %45 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %11, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !51
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS9_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(16) %47)
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #12
+  store i8 0, ptr %14, align 1, !tbaa !12
+  call void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2IRSA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #12
+  store i32 1, ptr %13, align 4
+  br label %53
+
+50:                                               ; preds = %43
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  br label %37, !llvm.loop !289
+
+53:                                               ; preds = %49, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  %54 = load i32, ptr %13, align 4
+  switch i32 %54, label %87 [
+    i32 2, label %55
+  ]
+
+55:                                               ; preds = %53
+  br label %56
+
+56:                                               ; preds = %55, %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  %57 = load ptr, ptr %9, align 8, !tbaa !26
+  %58 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(8) %57)
+  store i64 %58, ptr %15, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  %59 = load i64, ptr %15, align 8, !tbaa !66
+  %60 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %59)
+  store i64 %60, ptr %16, align 8, !tbaa !66
+  %61 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %62 = call noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %63 = icmp ugt i64 %61, %62
+  br i1 %63, label %64, label %77
+
+64:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #12
+  %65 = load i64, ptr %16, align 8, !tbaa !66
+  %66 = load ptr, ptr %9, align 8, !tbaa !26
+  %67 = load i64, ptr %15, align 8, !tbaa !66
+  %68 = call noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %65, ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef %67)
+  store ptr %68, ptr %17, align 8, !tbaa !137
+  %69 = load ptr, ptr %17, align 8, !tbaa !137
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %73
+
+71:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #12
+  %72 = load ptr, ptr %17, align 8, !tbaa !137
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %72) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #12
+  store i8 0, ptr %19, align 1, !tbaa !12
+  call void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2ISA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(1) %19)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #12
+  store i32 1, ptr %13, align 4
+  br label %74
+
+73:                                               ; preds = %64
+  store i32 0, ptr %13, align 4
+  br label %74
+
+74:                                               ; preds = %73, %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #12
+  %75 = load i32, ptr %13, align 4
+  switch i32 %75, label %86 [
+    i32 0, label %76
+  ]
+
+76:                                               ; preds = %74
+  br label %77
+
+77:                                               ; preds = %76, %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #12
+  %78 = load i64, ptr %16, align 8, !tbaa !66
+  %79 = load i64, ptr %15, align 8, !tbaa !66
+  %80 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %8, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8, !tbaa !257
+  %82 = call ptr @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %78, i64 noundef %79, ptr noundef %81, i64 noundef 1)
+  %83 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %20, i32 0, i32 0
+  %84 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %83, i32 0, i32 0
+  store ptr %82, ptr %84, align 8
+  %85 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %8, i32 0, i32 1
+  store ptr null, ptr %85, align 8, !tbaa !257
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #12
+  store i8 1, ptr %21, align 1, !tbaa !12
+  call void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbEC2IRSA_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %21)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #12
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #12
+  br label %86
+
+86:                                               ; preds = %77, %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  br label %87
+
+87:                                               ; preds = %86, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #12
+  %88 = load { ptr, i8 }, ptr %4, align 8
+  ret { ptr, i8 } %88
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRS1_S7_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb0EEEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !260
+  store ptr %1, ptr %6, align 8, !tbaa !228
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !228
+  store ptr %11, ptr %10, align 8, !tbaa !262
+  %12 = getelementptr inbounds nuw %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>, std::allocator<std::pair<const unsigned long, std::unique_ptr<llvm::HashNode>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %6, align 8, !tbaa !228
+  %14 = load ptr, ptr %7, align 8, !tbaa !26
+  %15 = load ptr, ptr %8, align 8, !tbaa !28
+  %16 = call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE16_M_allocate_nodeIJRS3_S9_EEEPSB_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  store ptr %16, ptr %12, align 8, !tbaa !257
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE16_M_allocate_nodeIJRS3_S9_EEEPSB_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !228
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE8allocateERSC_m(ptr noundef nonnull align 1 dereferenceable(1) %10, i64 noundef 1)
+  store ptr %11, ptr %7, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %12 = load ptr, ptr %7, align 8, !tbaa !137
+  %13 = call noundef ptr @_ZSt12__to_addressINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEPT_SD_(ptr noundef %12) #12
+  store ptr %13, ptr %8, align 8, !tbaa !137
+  %14 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZNSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  %15 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %16 = load ptr, ptr %8, align 8, !tbaa !137
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #12
+  %19 = load ptr, ptr %5, align 8, !tbaa !26
+  %20 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE9constructISA_JRS3_S9_EEEvRSC_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %21 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  ret ptr %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE9constructISA_JRS3_S9_EEEvRSC_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !237
+  store ptr %1, ptr %6, align 8, !tbaa !24
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %5, align 8, !tbaa !237
+  %10 = load ptr, ptr %6, align 8, !tbaa !24
+  %11 = load ptr, ptr %7, align 8, !tbaa !26
+  %12 = load ptr, ptr %8, align 8, !tbaa !28
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE9constructISA_JRS3_S9_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE9constructISA_JRS3_S9_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !239
+  store ptr %1, ptr %6, align 8, !tbaa !24
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %7, align 8, !tbaa !26
+  %11 = load ptr, ptr %8, align 8, !tbaa !28
+  call void @_ZNSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEEC2IRS0_S6_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEEC2IRS0_S6_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !26
+  %10 = load i64, ptr %9, align 8, !tbaa !66
+  store i64 %10, ptr %8, align 8, !tbaa !273
+  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE18growAndEmplaceBackIJRS3_S3_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::pair.32", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !282
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !16
+  %10 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @_ZNSt4pairIPN4llvm8HashNodeEPKS1_EC2IRS2_S2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EE9push_backES6_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %12, ptr %14)
+  %15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret ptr %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIPN4llvm8HashNodeEPKS1_EC2IRS2_S2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !113
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.32", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !16
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
+  store ptr %10, ptr %8, align 8, !tbaa !286
+  %11 = getelementptr inbounds nuw %"struct.std::pair.32", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8, !tbaa !16
+  %13 = load ptr, ptr %12, align 8, !tbaa !14
+  store ptr %13, ptr %11, align 8, !tbaa !288
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !134
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %11 = call noundef i64 @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %12 = icmp ule i64 %10, %11
+  br i1 %12, label %13, label %36
+
+13:                                               ; preds = %2
+  %14 = call ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8
+  br label %17
+
+17:                                               ; preds = %30, %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %18 = call ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %19 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %19, i32 0, i32 0
+  store ptr %18, ptr %20, align 8
+  %21 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEESC_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  br i1 %21, label %22, label %32
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8, !tbaa !26
+  %24 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !51
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS9_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(16) %26)
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %22
+  br label %45
+
+29:                                               ; preds = %22
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  br label %17, !llvm.loop !290
+
+32:                                               ; preds = %17
+  %33 = call ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %34 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %34, i32 0, i32 0
+  store ptr %33, ptr %35, align 8
+  br label %45
+
+36:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %37 = load ptr, ptr %5, align 8, !tbaa !26
+  %38 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %37)
+  store i64 %38, ptr %7, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %39 = load i64, ptr %7, align 8, !tbaa !66
+  %40 = call noundef i64 @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %39)
+  store i64 %40, ptr %8, align 8, !tbaa !66
+  %41 = load i64, ptr %8, align 8, !tbaa !66
+  %42 = load ptr, ptr %5, align 8, !tbaa !26
+  %43 = load i64, ptr %7, align 8, !tbaa !66
+  %44 = call noundef ptr @_ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %41, ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef %43)
+  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEC2EPNS_10_Hash_nodeIS9_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %44) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %45
+
+45:                                               ; preds = %36, %32, %28
+  %46 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  ret ptr %48
+}
+
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4llvm16OutlinedHashTreeE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSSt8functionIFvPKN4llvm8HashNodeEEE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSSt8functionIFvPKN4llvm8HashNodeES3_EE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"bool", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN4llvm8HashNodeE", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p2 _ZTSN4llvm8HashNodeE", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN4llvm11SmallVectorIPKNS_8HashNodeELj6EEE", !5, i64 0}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTSSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE", !5, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTSSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEE", !5, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 long", !5, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE", !5, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSN4llvm11SmallVectorISt4pairImPKNS_8HashNodeEELj3EEE", !5, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTSSt4pairImPKN4llvm8HashNodeEE", !5, i64 0}
+!34 = !{!35, !15, i64 8}
+!35 = !{!"_ZTSSt4pairImPKN4llvm8HashNodeEE", !36, i64 0, !15, i64 8}
+!36 = !{!"long", !6, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTSN4llvm15SmallVectorImplIPKNS_8HashNodeEEE", !5, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0}
+!43 = !{!44, !45, i64 8}
+!44 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !45, i64 8, !45, i64 12}
+!45 = !{!"int", !6, i64 0}
+!46 = !{!47, !5, i64 24}
+!47 = !{!"_ZTSSt8functionIFvPKN4llvm8HashNodeEEE", !48, i64 0, !5, i64 24}
+!48 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTSNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEE", !5, i64 0}
+!51 = !{!52, !53, i64 0}
+!52 = !{!"_ZTSNSt8__detail19_Node_iterator_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEE", !53, i64 0}
+!53 = !{!"p1 _ZTSNSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEE", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTSNSt8__detail20_Node_const_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEE", !5, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSN4llvm15SmallVectorImplISt4pairImPKNS_8HashNodeEEEE", !5, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSN4llvm25SmallVectorTemplateCommonISt4pairImPKNS_8HashNodeEEvEE", !5, i64 0}
+!60 = !{!44, !5, i64 0}
+!61 = !{!5, !5, i64 0}
+!62 = !{!63, !11, i64 0}
+!63 = !{!"_ZTSZNK4llvm16OutlinedHashTree9walkGraphESt8functionIFvPKNS_8HashNodeEEES1_IFvS4_S4_EEbE3$_0", !11, i64 0, !17, i64 8, !19, i64 16}
+!64 = !{!63, !17, i64 8}
+!65 = !{!63, !19, i64 16}
+!66 = !{!36, !36, i64 0}
+!67 = !{!68, !13, i64 8}
+!68 = !{!"_ZTSZNK4llvm16OutlinedHashTree4sizeEbE3$_0", !27, i64 0, !13, i64 8}
+!69 = !{!48, !5, i64 16}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"std::nullptr_t", !6, i64 0}
+!72 = !{!73, !5, i64 24}
+!73 = !{!"_ZTSSt8functionIFvPKN4llvm8HashNodeES3_EE", !48, i64 0, !5, i64 24}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTSSt14_Function_base", !5, i64 0}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTSN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEE", !5, i64 0}
+!78 = !{!45, !45, i64 0}
+!79 = !{!80, !81, i64 0}
+!80 = !{!"_ZTSN4llvm8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEE", !81, i64 0, !45, i64 8, !45, i64 12, !45, i64 16}
+!81 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmEE", !5, i64 0}
+!82 = !{!80, !45, i64 16}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTSSt4pairIN4llvm11SmallVectorImLj6EEEjE", !5, i64 0}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"p1 _ZTSN4llvm11SmallVectorImLj6EEE", !5, i64 0}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 int", !5, i64 0}
+!89 = !{!90, !36, i64 0}
+!90 = !{!"_ZTSN4llvm8HashNodeE", !36, i64 0, !91, i64 8, !95, i64 16}
+!91 = !{!"_ZTSSt8optionalIjE", !92, i64 0}
+!92 = !{!"_ZTSSt14_Optional_baseIjLb1ELb1EE", !93, i64 0}
+!93 = !{!"_ZTSSt17_Optional_payloadIjLb1ELb1ELb1EE", !94, i64 0}
+!94 = !{!"_ZTSSt22_Optional_payload_baseIjE", !6, i64 0, !13, i64 4}
+!95 = !{!"_ZTSSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE", !96, i64 0}
+!96 = !{!"_ZTSSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE", !97, i64 0, !36, i64 8, !98, i64 16, !36, i64 24, !100, i64 32, !99, i64 48}
+!97 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !5, i64 0}
+!98 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !99, i64 0}
+!99 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !5, i64 0}
+!100 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !101, i64 0, !36, i64 8}
+!101 = !{!"float", !6, i64 0}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSN4llvm25SmallVectorTemplateCommonImvEE", !5, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTSNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEE", !5, i64 0}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 _ZTSSt8optionalIjE", !5, i64 0}
+!108 = distinct !{!108, !38}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"p1 _ZTSN4llvm11SmallVectorISt4pairIPNS_8HashNodeEPKS2_ELj3EEE", !5, i64 0}
+!111 = !{!112, !112, i64 0}
+!112 = !{!"p1 _ZTSN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EEE", !5, i64 0}
+!113 = !{!114, !114, i64 0}
+!114 = !{!"p1 _ZTSSt4pairIPN4llvm8HashNodeEPKS1_E", !5, i64 0}
+!115 = !{!44, !45, i64 12}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTSN4llvm23SmallVectorTemplateBaseIPKNS_8HashNodeELb1EEE", !5, i64 0}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSN4llvm25SmallVectorTemplateCommonIPKNS_8HashNodeEvEE", !5, i64 0}
+!120 = !{!121, !121, i64 0}
+!121 = !{!"p1 _ZTSSt19_Optional_base_implIjSt14_Optional_baseIjLb1ELb1EEE", !5, i64 0}
+!122 = !{!94, !13, i64 4}
+!123 = !{!124, !124, i64 0}
+!124 = !{!"p1 _ZTSSt22_Optional_payload_baseIjE", !5, i64 0}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 _ZTSSt14_Optional_baseIjLb1ELb1EE", !5, i64 0}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p1 _ZTSSt17_Optional_payloadIjLb1ELb1ELb1EE", !5, i64 0}
+!129 = !{!130, !130, i64 0}
+!130 = !{!"p1 _ZTSNSt22_Optional_payload_baseIjE8_StorageIjLb1EEE", !5, i64 0}
+!131 = !{!6, !6, i64 0}
+!132 = !{!133, !133, i64 0}
+!133 = !{!"p1 _ZTSN4llvm23SmallVectorTemplateBaseISt4pairImPKNS_8HashNodeEELb1EEE", !5, i64 0}
+!134 = !{!135, !135, i64 0}
+!135 = !{!"p1 _ZTSSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE", !5, i64 0}
+!136 = !{!96, !99, i64 16}
+!137 = !{!53, !53, i64 0}
+!138 = !{!98, !99, i64 0}
+!139 = !{!140, !140, i64 0}
+!140 = !{!"p1 _ZTSNSt8__detail21_Hash_node_value_baseISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEEE", !5, i64 0}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"p1 _ZTSN9__gnu_cxx16__aligned_bufferISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEEEE", !5, i64 0}
+!143 = !{!144, !144, i64 0}
+!144 = !{!"p1 _ZTSSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE", !5, i64 0}
+!145 = !{!146, !146, i64 0}
+!146 = !{!"p1 _ZTSSt5tupleIJPN4llvm8HashNodeESt14default_deleteIS1_EEE", !5, i64 0}
+!147 = !{!148, !148, i64 0}
+!148 = !{!"p1 _ZTSSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEE", !5, i64 0}
+!149 = !{!150, !150, i64 0}
+!150 = !{!"p1 _ZTSSt10_Head_baseILm0EPN4llvm8HashNodeELb0EE", !5, i64 0}
+!151 = !{!35, !36, i64 0}
+!152 = distinct !{!152, !38}
+!153 = distinct !{!153, !38}
+!154 = !{!155, !155, i64 0}
+!155 = !{!"p1 _ZTSN9__gnu_cxx5__ops15_Iter_less_iterE", !5, i64 0}
+!156 = distinct !{!156, !38}
+!157 = distinct !{!157, !38}
+!158 = distinct !{!158, !38}
+!159 = !{!160, !160, i64 0}
+!160 = !{!"p1 _ZTSN9__gnu_cxx5__ops14_Iter_less_valE", !5, i64 0}
+!161 = distinct !{!161, !38}
+!162 = distinct !{!162, !38}
+!163 = distinct !{!163, !38}
+!164 = distinct !{!164, !38}
+!165 = distinct !{!165, !38}
+!166 = distinct !{!166, !38}
+!167 = distinct !{!167, !38}
+!168 = !{!169, !169, i64 0}
+!169 = !{!"p2 _ZTSSt4pairImPKN4llvm8HashNodeEE", !5, i64 0}
+!170 = distinct !{!170, !38}
+!171 = !{!172, !172, i64 0}
+!172 = !{!"p1 _ZTSN9__gnu_cxx5__ops14_Val_less_iterE", !5, i64 0}
+!173 = !{!174, !174, i64 0}
+!174 = !{!"p1 _ZTSSt9_Any_data", !5, i64 0}
+!175 = !{!176, !176, i64 0}
+!176 = !{!"_ZTSSt18_Manager_operation", !6, i64 0}
+!177 = !{i64 0, i64 8, !26, i64 8, i64 1, !12}
+!178 = !{!68, !27, i64 0}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"p1 _ZTSSt9type_info", !5, i64 0}
+!181 = !{!80, !45, i64 8}
+!182 = !{!80, !45, i64 12}
+!183 = !{!184, !184, i64 0}
+!184 = !{!"p1 _ZTSN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8HashNodeEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EE", !5, i64 0}
+!185 = !{!81, !81, i64 0}
+!186 = distinct !{!186, !38}
+!187 = distinct !{!187, !38}
+!188 = !{i64 0, i64 8, !26, i64 8, i64 8, !76}
+!189 = !{!190, !27, i64 0}
+!190 = !{!"_ZTSZNK4llvm16OutlinedHashTree5depthEvE3$_0", !27, i64 0, !77, i64 8}
+!191 = !{!190, !77, i64 8}
+!192 = !{!193, !193, i64 0}
+!193 = !{!"p2 _ZTSN4llvm6detail12DenseMapPairIPKNS_8HashNodeEmEE", !5, i64 0}
+!194 = distinct !{!194, !38}
+!195 = !{!196, !196, i64 0}
+!196 = !{!"p1 _ZTSN4llvm14DebugEpochBaseE", !5, i64 0}
+!197 = distinct !{!197, !38}
+!198 = !{i64 0, i64 8, !76}
+!199 = !{!200, !77, i64 0}
+!200 = !{!"_ZTSZNK4llvm16OutlinedHashTree5depthEvE3$_1", !77, i64 0}
+!201 = distinct !{!201, !38}
+!202 = !{!96, !36, i64 24}
+!203 = !{!204, !204, i64 0}
+!204 = !{!"p1 _ZTSNSt8__detail15_Hashtable_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEEE", !5, i64 0}
+!205 = !{!206, !206, i64 0}
+!206 = !{!"p1 _ZTSNSt8__detail16_Hash_node_valueISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEE", !5, i64 0}
+!207 = !{!208, !208, i64 0}
+!208 = !{!"p1 _ZTSNSt8__detail15_Hash_code_baseImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEENS_10_Select1stESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEE", !5, i64 0}
+!209 = !{!96, !36, i64 8}
+!210 = !{!99, !99, i64 0}
+!211 = !{!212, !212, i64 0}
+!212 = !{!"p1 _ZTSSt8equal_toImE", !5, i64 0}
+!213 = !{!214, !214, i64 0}
+!214 = !{!"p1 _ZTSNSt8__detail10_Select1stE", !5, i64 0}
+!215 = !{!216, !216, i64 0}
+!216 = !{!"p1 _ZTSNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toImELb1EEE", !5, i64 0}
+!217 = !{!218, !218, i64 0}
+!218 = !{!"p1 _ZTSSt4hashImE", !5, i64 0}
+!219 = !{!220, !220, i64 0}
+!220 = !{!"p1 _ZTSNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashImELb1EEE", !5, i64 0}
+!221 = !{!222, !222, i64 0}
+!222 = !{!"p1 _ZTSNSt8__detail18_Mod_range_hashingE", !5, i64 0}
+!223 = !{!96, !97, i64 0}
+!224 = distinct !{!224, !38}
+!225 = !{!226, !226, i64 0}
+!226 = !{!"p1 _ZTSNSt8__detail21_Hash_node_code_cacheILb0EEE", !5, i64 0}
+!227 = !{!96, !99, i64 48}
+!228 = !{!229, !229, i64 0}
+!229 = !{!"p1 _ZTSNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEEE", !5, i64 0}
+!230 = !{!231, !231, i64 0}
+!231 = !{!"p1 _ZTSNSt8__detail20_Prime_rehash_policyE", !5, i64 0}
+!232 = !{!101, !101, i64 0}
+!233 = !{!100, !101, i64 0}
+!234 = !{!100, !36, i64 8}
+!235 = !{!236, !236, i64 0}
+!236 = !{!"p1 _ZTSNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEELb1EEE", !5, i64 0}
+!237 = !{!238, !238, i64 0}
+!238 = !{!"p1 _ZTSSaINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0EEEE", !5, i64 0}
+!239 = !{!240, !240, i64 0}
+!240 = !{!"p1 _ZTSSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE", !5, i64 0}
+!241 = !{!242, !242, i64 0}
+!242 = !{!"p1 _ZTSSt15__uniq_ptr_dataIN4llvm8HashNodeESt14default_deleteIS1_ELb1ELb1EE", !5, i64 0}
+!243 = !{!244, !244, i64 0}
+!244 = !{!"p1 _ZTSSt11_Tuple_implILm1EJSt14default_deleteIN4llvm8HashNodeEEEE", !5, i64 0}
+!245 = !{!246, !15, i64 0}
+!246 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm8HashNodeELb0EE", !15, i64 0}
+!247 = !{!248, !248, i64 0}
+!248 = !{!"p1 _ZTSSt10_Head_baseILm1ESt14default_deleteIN4llvm8HashNodeEELb1EE", !5, i64 0}
+!249 = !{!250, !250, i64 0}
+!250 = !{!"p1 _ZTSSt14default_deleteIN4llvm8HashNodeEE", !5, i64 0}
+!251 = distinct !{!251, !38}
+!252 = !{!97, !97, i64 0}
+!253 = !{!254, !254, i64 0}
+!254 = !{!"p1 _ZTSSaIPNSt8__detail15_Hash_node_baseEE", !5, i64 0}
+!255 = !{!256, !256, i64 0}
+!256 = !{!"p1 _ZTSSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE", !5, i64 0}
+!257 = !{!258, !53, i64 8}
+!258 = !{!"_ZTSNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeE", !229, i64 0, !53, i64 8}
+!259 = distinct !{!259, !38}
+!260 = !{!261, !261, i64 0}
+!261 = !{!"p1 _ZTSNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeE", !5, i64 0}
+!262 = !{!258, !229, i64 0}
+!263 = !{!264, !264, i64 0}
+!264 = !{!"p1 _ZTSSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbE", !5, i64 0}
+!265 = !{!266, !266, i64 0}
+!266 = !{!"p1 bool", !5, i64 0}
+!267 = !{!268, !13, i64 8}
+!268 = !{!"_ZTSSt4pairINSt8__detail14_Node_iteratorIS_IKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEEbE", !269, i64 0, !13, i64 8}
+!269 = !{!"_ZTSNSt8__detail14_Node_iteratorISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS5_EEELb0ELb0EEE", !52, i64 0}
+!270 = !{!271, !13, i64 0}
+!271 = !{!"_ZTSSt4pairIbmE", !13, i64 0, !36, i64 8}
+!272 = !{!271, !36, i64 8}
+!273 = !{!274, !36, i64 0}
+!274 = !{!"_ZTSSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS3_EEE", !36, i64 0, !275, i64 8}
+!275 = !{!"_ZTSSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EE", !276, i64 0}
+!276 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm8HashNodeESt14default_deleteIS1_ELb1ELb1EE", !277, i64 0}
+!277 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm8HashNodeESt14default_deleteIS1_EE", !278, i64 0}
+!278 = !{!"_ZTSSt5tupleIJPN4llvm8HashNodeESt14default_deleteIS1_EEE", !279, i64 0}
+!279 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm8HashNodeESt14default_deleteIS1_EEE", !246, i64 0}
+!280 = !{i64 0, i64 8, !14}
+!281 = distinct !{!281, !38}
+!282 = !{!283, !283, i64 0}
+!283 = !{!"p1 _ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8HashNodeEPKS2_ELb1EEE", !5, i64 0}
+!284 = !{!285, !285, i64 0}
+!285 = !{!"p1 _ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPNS_8HashNodeEPKS2_EvEE", !5, i64 0}
+!286 = !{!287, !15, i64 0}
+!287 = !{!"_ZTSSt4pairIPN4llvm8HashNodeEPKS1_E", !15, i64 0, !15, i64 8}
+!288 = !{!287, !15, i64 8}
+!289 = distinct !{!289, !38}
+!290 = distinct !{!290, !38}

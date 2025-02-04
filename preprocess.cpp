@@ -27,6 +27,8 @@ public:
     if (!Prefix)
       return PreservedAnalyses::none();
     std::string FileName = M.getSourceFileName();
+    if (FileName.find("CMakeTmp") != std::string::npos || FileName.find("CMakeScratch") != std::string::npos)
+      return PreservedAnalyses::none();
     M.setModuleIdentifier("");
     M.setSourceFileName("");
     StripDebugInfo(M);
