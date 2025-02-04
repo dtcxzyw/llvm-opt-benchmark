@@ -10898,7 +10898,7 @@ define dso_local void @_ZN5clang11SemaOpenACC17ActOnForStmtBeginENS_14SourceLoca
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 1024
   %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %76, label %_ZNSt8optionalIPKN5clang4StmtEEaSESt9nullopt_t.exit
+  br i1 %.not, label %74, label %_ZNSt8optionalIPKN5clang4StmtEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalIPKN5clang4StmtEEaSESt9nullopt_t.exit: ; preds = %8
   %14 = icmp ne ptr %6, %7
@@ -10975,59 +10975,57 @@ _ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread:
   %49 = load ptr, ptr %48, align 16, !tbaa !133
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 17
   %51 = load i16, ptr %50, align 1
-  %52 = and i16 %51, 2
-  %53 = icmp ne i16 %52, 0
-  %54 = and i64 %.sroa.0.0.copyload.i42, -16
-  %55 = inttoptr i64 %54 to ptr
-  %56 = load ptr, ptr %55, align 16, !tbaa !133
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 17
-  %58 = load i16, ptr %57, align 1
-  %59 = and i16 %58, 2
-  %60 = icmp ne i16 %59, 0
-  %61 = xor i1 %53, %60
-  %62 = zext i1 %61 to i8
+  %52 = and i64 %.sroa.0.0.copyload.i42, -16
+  %53 = inttoptr i64 %52 to ptr
+  %54 = load ptr, ptr %53, align 16, !tbaa !133
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 17
+  %56 = load i16, ptr %55, align 1
+  %57 = xor i16 %56, %51
+  %58 = trunc i16 %57 to i8
+  %59 = lshr i8 %58, 1
+  %60 = and i8 %59, 1
   br label %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread.thread
 
 _ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread.thread: ; preds = %33, %39, %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit.thread, %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread, %46, %_ZNSt8optionalIPKN5clang4StmtEEaSESt9nullopt_t.exit
-  %.0 = phi i8 [ 0, %_ZNSt8optionalIPKN5clang4StmtEEaSESt9nullopt_t.exit ], [ 1, %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread ], [ %62, %46 ], [ 1, %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit.thread ], [ 1, %39 ], [ 1, %33 ]
+  %.0 = phi i8 [ 0, %_ZNSt8optionalIPKN5clang4StmtEEaSESt9nullopt_t.exit ], [ 1, %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread ], [ %60, %46 ], [ 1, %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit.thread ], [ 1, %39 ], [ 1, %33 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9) #21
   store ptr %0, ptr %9, align 8, !tbaa !45
-  %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %1, ptr %63, align 8, !tbaa !60
-  %64 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i8 0, ptr %64, align 4, !tbaa !351
-  %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr null, ptr %65, align 8, !tbaa !66
-  %66 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i8 1, ptr %66, align 8, !tbaa !352
-  %67 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %3, ptr %67, align 8, !tbaa !382
-  %68 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i8 %.0, ptr %68, align 8, !tbaa !383
-  %69 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %.sroa.056.1, ptr %69, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %1, ptr %61, align 8, !tbaa !60
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i8 0, ptr %62, align 4, !tbaa !351
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr null, ptr %63, align 8, !tbaa !66
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i8 1, ptr %64, align 8, !tbaa !352
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr %3, ptr %65, align 8, !tbaa !382
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i8 %.0, ptr %66, align 8, !tbaa !383
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store ptr %.sroa.056.1, ptr %67, align 8
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i8 %.sroa.557.1, ptr %.sroa.463.0..sroa_idx, align 8
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i8 0, ptr %.sroa.466.0..sroa_idx, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i8 0, ptr %70, align 8, !tbaa !350
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %72 = load i8, ptr %71, align 8
-  %73 = and i8 %72, 1
-  %.not34 = icmp eq i8 %73, 0
-  br i1 %.not34, label %74, label %75
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i8 0, ptr %68, align 8, !tbaa !350
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %70 = load i8, ptr %69, align 8
+  %71 = and i8 %70, 1
+  %.not34 = icmp eq i8 %71, 0
+  br i1 %.not34, label %72, label %73
 
-74:                                               ; preds = %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread.thread
+72:                                               ; preds = %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread.thread
   call void @_ZN5clang11SemaOpenACC19ForStmtBeginChecker5checkEv(ptr noundef nonnull align 8 dereferenceable(81) %9)
-  br label %75
+  br label %73
 
-75:                                               ; preds = %74, %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread.thread
+73:                                               ; preds = %72, %_ZN4llvm19dyn_cast_if_presentIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit41.thread.thread
   call void @_ZN5clang11SemaOpenACC18ForStmtBeginHelperENS_14SourceLocationERNS0_19ForStmtBeginCheckerE(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(81) %9)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9) #21
-  br label %76
+  br label %74
 
-76:                                               ; preds = %8, %75
+74:                                               ; preds = %8, %73
   ret void
 }
 

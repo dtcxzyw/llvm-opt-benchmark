@@ -102929,7 +102929,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFu
   br label %.thread
 
 _ZNK5clang4Type15isUndeducedTypeEv.exit.thread:   ; preds = %580, %_ZNK5clang4Type15isUndeducedTypeEv.exit
-  br i1 %38, label %629, label %726
+  br i1 %38, label %629, label %722
 
 629:                                              ; preds = %_ZNK5clang4Type15isUndeducedTypeEv.exit.thread
   %630 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -103031,83 +103031,80 @@ _ZNK5clang4Type15isUndeducedTypeEv.exit.thread:   ; preds = %580, %_ZNK5clang4Ty
   br label %.thread
 
 687:                                              ; preds = %674
-  %688 = and i32 %676, 2
-  %689 = icmp ne i32 %688, 0
-  %690 = and i32 %677, 2
-  %691 = icmp ne i32 %690, 0
-  %692 = xor i1 %689, %691
-  br i1 %692, label %693, label %700
+  %688 = and i32 %678, 2
+  %.not298 = icmp eq i32 %688, 0
+  br i1 %.not298, label %696, label %689
 
-693:                                              ; preds = %687
+689:                                              ; preds = %687
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %32) #30
-  %694 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %690 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.09.0.copyload = load i32, ptr %6, align 8, !tbaa !694
-  %695 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %32, ptr noundef nonnull align 8 dereferenceable(8) %694, i32 %.sroa.09.0.copyload, ptr noundef nonnull align 8 dereferenceable(20) %695, i1 noundef zeroext false) #30
-  %696 = call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE9DifferentvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %32, i32 3)
-  %697 = getelementptr inbounds nuw i8, ptr %32, i64 120
-  %698 = load i8, ptr %697, align 8, !tbaa !795, !range !792, !noundef !793
-  %699 = trunc nuw i8 %698 to i1
+  %691 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %32, ptr noundef nonnull align 8 dereferenceable(8) %690, i32 %.sroa.09.0.copyload, ptr noundef nonnull align 8 dereferenceable(20) %691, i1 noundef zeroext false) #30
+  %692 = call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE9DifferentvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %32, i32 3)
+  %693 = getelementptr inbounds nuw i8, ptr %32, i64 120
+  %694 = load i8, ptr %693, align 8, !tbaa !795, !range !792, !noundef !793
+  %695 = trunc nuw i8 %694 to i1
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %32) #30
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %32) #30
   br label %.thread
 
-700:                                              ; preds = %687
-  %701 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl16getFormalLinkageEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #30
-  %702 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl16getFormalLinkageEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #30
-  %.not120 = icmp eq i8 %701, %702
-  br i1 %.not120, label %710, label %703
+696:                                              ; preds = %687
+  %697 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl16getFormalLinkageEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #30
+  %698 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl16getFormalLinkageEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #30
+  %.not120 = icmp eq i8 %697, %698
+  br i1 %.not120, label %706, label %699
 
-703:                                              ; preds = %700
+699:                                              ; preds = %696
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %33) #30
-  %704 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %700 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.08.0.copyload = load i32, ptr %6, align 8, !tbaa !694
-  %705 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %704, i32 %.sroa.08.0.copyload, ptr noundef nonnull align 8 dereferenceable(20) %705, i1 noundef zeroext false) #30
-  %706 = call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE9DifferentvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %33, i32 4)
-  %707 = getelementptr inbounds nuw i8, ptr %33, i64 120
-  %708 = load i8, ptr %707, align 8, !tbaa !795, !range !792, !noundef !793
-  %709 = trunc nuw i8 %708 to i1
+  %701 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %700, i32 %.sroa.08.0.copyload, ptr noundef nonnull align 8 dereferenceable(20) %701, i1 noundef zeroext false) #30
+  %702 = call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE9DifferentvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %33, i32 4)
+  %703 = getelementptr inbounds nuw i8, ptr %33, i64 120
+  %704 = load i8, ptr %703, align 8, !tbaa !795, !range !792, !noundef !793
+  %705 = trunc nuw i8 %704 to i1
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %33) #30
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %33) #30
   br label %.thread
 
-710:                                              ; preds = %700
-  br i1 %9, label %722, label %711
+706:                                              ; preds = %696
+  br i1 %9, label %718, label %707
 
-711:                                              ; preds = %710
-  %712 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl9isExternCEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #30
-  %713 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl9isExternCEv(ptr noundef nonnull align 8 dereferenceable(168) %2) #30
-  %714 = xor i1 %712, %713
-  br i1 %714, label %715, label %722
+707:                                              ; preds = %706
+  %708 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl9isExternCEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #30
+  %709 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl9isExternCEv(ptr noundef nonnull align 8 dereferenceable(168) %2) #30
+  %710 = xor i1 %708, %709
+  br i1 %710, label %711, label %718
 
-715:                                              ; preds = %711
+711:                                              ; preds = %707
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %34) #30
-  %716 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %712 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.07.0.copyload = load i32, ptr %6, align 8, !tbaa !694
-  %717 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %716, i32 %.sroa.07.0.copyload, ptr noundef nonnull align 8 dereferenceable(20) %717, i1 noundef zeroext false) #30
-  %718 = call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE9DifferentvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %34, i32 5)
-  %719 = getelementptr inbounds nuw i8, ptr %34, i64 120
-  %720 = load i8, ptr %719, align 8, !tbaa !795, !range !792, !noundef !793
-  %721 = trunc nuw i8 %720 to i1
+  %713 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %712, i32 %.sroa.07.0.copyload, ptr noundef nonnull align 8 dereferenceable(20) %713, i1 noundef zeroext false) #30
+  %714 = call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE9DifferentvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %34, i32 5)
+  %715 = getelementptr inbounds nuw i8, ptr %34, i64 120
+  %716 = load i8, ptr %715, align 8, !tbaa !795, !range !792, !noundef !793
+  %717 = trunc nuw i8 %716 to i1
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %34) #30
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %34) #30
   br label %.thread
 
-722:                                              ; preds = %710, %711
-  %723 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i174 = load i32, ptr %723, align 8, !tbaa !694
-  %724 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.0.0.copyload.i175 = load i32, ptr %724, align 8, !tbaa !694
-  %725 = tail call noundef zeroext i1 @_ZN5clang4Sema28CheckEquivalentExceptionSpecEPKNS_17FunctionProtoTypeENS_14SourceLocationES3_S4_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %643, i32 %.sroa.0.0.copyload.i174, ptr noundef %647, i32 %.sroa.0.0.copyload.i175) #30
-  br i1 %725, label %.thread, label %726
+718:                                              ; preds = %706, %707
+  %719 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i174 = load i32, ptr %719, align 8, !tbaa !694
+  %720 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.0.0.copyload.i175 = load i32, ptr %720, align 8, !tbaa !694
+  %721 = tail call noundef zeroext i1 @_ZN5clang4Sema28CheckEquivalentExceptionSpecEPKNS_17FunctionProtoTypeENS_14SourceLocationES3_S4_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %643, i32 %.sroa.0.0.copyload.i174, ptr noundef %647, i32 %.sroa.0.0.copyload.i175) #30
+  br i1 %721, label %.thread, label %722
 
-726:                                              ; preds = %722, %_ZNK5clang4Type15isUndeducedTypeEv.exit.thread
+722:                                              ; preds = %718, %_ZNK5clang4Type15isUndeducedTypeEv.exit.thread
   br label %.thread
 
-.thread:                                          ; preds = %715, %703, %693, %680, %667, %658, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit151, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit148, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit145, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit165, %726, %722, %569, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit157, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit154, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit141.thread, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread
-  %.0 = phi i1 [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread ], [ %78, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit141.thread ], [ %476, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit154 ], [ %565, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit157 ], [ %579, %569 ], [ %166, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit ], [ %628, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit165 ], [ false, %726 ], [ true, %722 ], [ %383, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit151 ], [ %353, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit148 ], [ %265, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit145 ], [ %721, %715 ], [ %709, %703 ], [ %699, %693 ], [ %686, %680 ], [ %673, %667 ], [ %664, %658 ]
+.thread:                                          ; preds = %711, %699, %689, %680, %667, %658, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit151, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit148, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit145, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit165, %722, %718, %569, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit157, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit154, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit141.thread, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread
+  %.0 = phi i1 [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread ], [ %78, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit141.thread ], [ %476, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit154 ], [ %565, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit157 ], [ %579, %569 ], [ %166, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit ], [ %628, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit165 ], [ false, %722 ], [ true, %718 ], [ %383, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit151 ], [ %353, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit148 ], [ %265, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIZNS_4Sema41areMultiversionVariantFunctionsCompatibleEPKNS_12FunctionDeclES6_RKNS_17PartialDiagnosticERKSt4pairINS_14SourceLocationES7_ESE_SE_bbbE13DoesntSupportvEERKS1_OT_.exit145 ], [ %717, %711 ], [ %705, %699 ], [ %695, %689 ], [ %686, %680 ], [ %673, %667 ], [ %664, %658 ]
   ret i1 %.0
 }
 

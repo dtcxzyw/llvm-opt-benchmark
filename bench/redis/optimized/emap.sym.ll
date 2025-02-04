@@ -412,12 +412,10 @@ if.end14.i:                                       ; preds = %if.then11.i
   br i1 %expanding, label %if.end27.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end14.i
-  %19 = and i64 %edata.val98, 8192
-  %tobool.i105 = icmp ne i64 %19, 0
-  %20 = and i64 %.val100.pre114, 8192
-  %tobool.i106 = icmp ne i64 %20, 0
-  %21 = xor i1 %tobool.i105, %tobool.i106
-  br i1 %21, label %return, label %if.end27.i
+  %19 = xor i64 %.val100.pre114, %edata.val98
+  %20 = and i64 %19, 8192
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %if.end27.i, label %return
 
 if.else.i122:                                     ; preds = %if.end8.i143
   %cmp23.i = icmp eq i32 %conv8.i, 0
@@ -429,21 +427,21 @@ if.else.i122.if.end27.i_crit_edge:                ; preds = %if.else.i122
 
 if.end27.i:                                       ; preds = %if.else.i122.if.end27.i_crit_edge, %if.end14.i, %land.lhs.true.i
   %.val100 = phi i64 [ %.val100.pre, %if.else.i122.if.end27.i_crit_edge ], [ %.val100.pre114, %if.end14.i ], [ %.val100.pre114, %land.lhs.true.i ]
-  %22 = trunc i64 %.val100 to i32
-  %23 = lshr i32 %22, 14
-  %conv.i = and i32 %23, 1
+  %21 = trunc i64 %.val100 to i32
+  %22 = lshr i32 %21, 14
+  %conv.i = and i32 %22, 1
   %cmp29.i.not = icmp eq i32 %conv.i, %pai
   br i1 %cmp29.i.not, label %if.end32.i, label %return
 
 if.end32.i:                                       ; preds = %if.end27.i
-  %24 = load i8, ptr @opt_retain, align 1
-  %tobool33.i = trunc i8 %24 to i1
+  %23 = load i8, ptr @opt_retain, align 1
+  %tobool33.i = trunc i8 %23 to i1
   br i1 %tobool33.i, label %if.end44.i, label %if.else37.i
 
 if.else37.i:                                      ; preds = %if.end32.i
-  %25 = xor i64 %.val100, %edata.val98
-  %26 = and i64 %25, 4095
-  %cmp40.i.not = icmp eq i64 %26, 0
+  %24 = xor i64 %.val100, %edata.val98
+  %25 = and i64 %24, 4095
+  %cmp40.i.not = icmp eq i64 %25, 0
   br i1 %cmp40.i.not, label %if.end44.i, label %return
 
 if.end44.i:                                       ; preds = %if.else37.i, %if.end32.i

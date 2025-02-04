@@ -201,8 +201,6 @@ $_ZN11aig_manager3imp8aig2expr9add_childE7aig_lit = comdat any
 
 $_ZN11aig_manager3imp8aig2expr10get_cachedERK7aig_lit = comdat any
 
-$_ZNK11aig_manager3imp11is_ite_coreILb1EEEbP3aigR7aig_litS5_S5_ = comdat any
-
 $_ZNK11aig_manager3imp16display_smt2_refERSoRK7aig_lit = comdat any
 
 $_ZN11aig_manager3impD2Ev = comdat any
@@ -7336,17 +7334,17 @@ entry:
   store ptr %l.coerce, ptr %l, align 8
   store ptr %r.coerce, ptr %r, align 8
   %0 = ptrtoint ptr %l.coerce to i64
-  %and.i392 = and i64 %0, 1
-  %cmp.i393 = icmp ne i64 %and.i392, 0
-  %and.i53394 = and i64 %0, -2
-  %1 = inttoptr i64 %and.i53394 to ptr
+  %and.i277 = and i64 %0, 1
+  %cmp.i278 = icmp ne i64 %and.i277, 0
+  %and.i53279 = and i64 %0, -2
+  %1 = inttoptr i64 %and.i53279 to ptr
   %2 = load i32, ptr %1, align 8
-  %cmp398 = icmp eq i32 %2, 0
-  br i1 %cmp398, label %if.then, label %if.end
+  %cmp283 = icmp eq i32 %2, 0
+  br i1 %cmp283, label %if.then, label %if.end
 
 if.then:                                          ; preds = %start.backedge, %entry
-  %cmp.i.lcssa = phi i1 [ %cmp.i393, %entry ], [ %cmp.i, %start.backedge ]
-  %.lcssa354 = phi ptr [ %r.coerce, %entry ], [ %19, %start.backedge ]
+  %cmp.i.lcssa = phi i1 [ %cmp.i278, %entry ], [ %cmp.i, %start.backedge ]
+  %.lcssa239 = phi ptr [ %r.coerce, %entry ], [ %21, %start.backedge ]
   br i1 %cmp.i.lcssa, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.then
@@ -7355,24 +7353,24 @@ if.then7:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry, %start.backedge
-  %3 = phi i32 [ %23, %start.backedge ], [ %2, %entry ]
-  %4 = phi ptr [ %22, %start.backedge ], [ %1, %entry ]
-  %and.i53402 = phi i64 [ %and.i53, %start.backedge ], [ %and.i53394, %entry ]
-  %cmp.i399 = phi i1 [ %cmp.i, %start.backedge ], [ %cmp.i393, %entry ]
-  %5 = phi i64 [ %21, %start.backedge ], [ %0, %entry ]
-  %6 = phi ptr [ %20, %start.backedge ], [ %l.coerce, %entry ]
-  %7 = phi ptr [ %19, %start.backedge ], [ %r.coerce, %entry ]
+  %3 = phi i32 [ %25, %start.backedge ], [ %2, %entry ]
+  %4 = phi ptr [ %24, %start.backedge ], [ %1, %entry ]
+  %and.i53285 = phi i64 [ %and.i53, %start.backedge ], [ %and.i53279, %entry ]
+  %cmp.i284 = phi i1 [ %cmp.i, %start.backedge ], [ %cmp.i278, %entry ]
+  %5 = phi i64 [ %23, %start.backedge ], [ %0, %entry ]
+  %6 = phi ptr [ %22, %start.backedge ], [ %l.coerce, %entry ]
+  %7 = phi ptr [ %21, %start.backedge ], [ %r.coerce, %entry ]
   %8 = ptrtoint ptr %7 to i64
-  %cmp.i55403.in = and i64 %8, 1
-  %cmp.i55403 = icmp ne i64 %cmp.i55403.in, 0
-  %and.i56404 = and i64 %8, -2
-  %9 = inttoptr i64 %and.i56404 to ptr
+  %cmp.i55286.in = and i64 %8, 1
+  %cmp.i55286 = icmp ne i64 %cmp.i55286.in, 0
+  %and.i56287 = and i64 %8, -2
+  %9 = inttoptr i64 %and.i56287 to ptr
   %10 = load i32, ptr %9, align 8
   %cmp9 = icmp eq i32 %10, 0
   br i1 %cmp9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.end
-  br i1 %cmp.i55403, label %if.then12, label %return
+  br i1 %cmp.i55286, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.then10
   %m_false13 = getelementptr inbounds nuw i8, ptr %this, i64 656
@@ -7380,11 +7378,11 @@ if.then12:                                        ; preds = %if.then10
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %cmp16 = icmp eq i64 %and.i53402, %and.i56404
+  %cmp16 = icmp eq i64 %and.i53285, %and.i56287
   br i1 %cmp16, label %if.then17, label %if.end25
 
 if.then17:                                        ; preds = %if.end15
-  %11 = xor i1 %cmp.i399, %cmp.i55403
+  %11 = xor i1 %cmp.i284, %cmp.i55286
   br i1 %11, label %if.else23, label %return
 
 if.else23:                                        ; preds = %if.then17
@@ -7404,454 +7402,296 @@ if.then27:                                        ; preds = %if.end25
   %14 = load i64, ptr %arrayidx29, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = xor i64 %13, %8
-  %cmp.i57 = icmp ult i64 %16, 2
-  br i1 %cmp.i57, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit, label %lor.lhs.false
+  %17 = icmp eq i64 %16, 1
+  %18 = xor i64 %14, %8
+  %19 = icmp eq i64 %18, 1
+  %or.cond = select i1 %17, i1 true, i1 %19
+  br i1 %or.cond, label %if.then32, label %if.end37
 
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit: ; preds = %if.then27
-  %and.i4.i = and i64 %13, 1
-  %cmp.i.i58 = icmp ne i64 %and.i4.i, 0
-  %cmp6.i = xor i1 %cmp.i55403, %cmp.i.i58
-  br i1 %cmp6.i, label %if.then32, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then27, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
-  %17 = xor i64 %14, %8
-  %cmp.i59 = icmp ult i64 %17, 2
-  br i1 %cmp.i59, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit66, label %if.end37
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit66: ; preds = %lor.lhs.false
-  %and.i4.i61 = and i64 %14, 1
-  %cmp.i.i62 = icmp ne i64 %and.i4.i61, 0
-  %cmp6.i65 = xor i1 %cmp.i55403, %cmp.i.i62
-  br i1 %cmp6.i65, label %if.then32, label %if.end37
-
-if.then32:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit66, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
-  br i1 %cmp.i399, label %return, label %if.else35
+if.then32:                                        ; preds = %if.then27
+  br i1 %cmp.i284, label %return, label %if.else35
 
 if.else35:                                        ; preds = %if.then32
   %m_false36 = getelementptr inbounds nuw i8, ptr %this, i64 656
   %retval.sroa.0.0.copyload36 = load ptr, ptr %m_false36, align 8
   br label %return
 
-if.end37:                                         ; preds = %lor.lhs.false, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit66
-  %cmp.i67 = icmp eq ptr %7, %12
-  br i1 %cmp.i67, label %if.then39, label %if.end44
+if.end37:                                         ; preds = %if.then27
+  %cmp.i57 = icmp eq ptr %7, %12
+  br i1 %cmp.i57, label %if.then39, label %if.end44
 
 if.then39:                                        ; preds = %if.end37
-  br i1 %cmp.i399, label %if.then41, label %return
+  br i1 %cmp.i284, label %if.then41, label %return
 
 if.then41:                                        ; preds = %if.then39
   %xor.i = xor i64 %14, 1
-  %18 = inttoptr i64 %xor.i to ptr
-  store ptr %18, ptr %l, align 8
+  %20 = inttoptr i64 %xor.i to ptr
+  store ptr %20, ptr %l, align 8
   br label %start.backedge
 
 start.backedge:                                   ; preds = %if.then41, %if.then48, %if.then74, %if.then80, %if.then86, %if.then112, %if.then118, %if.then138, %if.then144, %if.then185, %if.then192
-  %19 = phi ptr [ %7, %if.then41 ], [ %7, %if.then48 ], [ %28, %if.then74 ], [ %7, %if.then80 ], [ %25, %if.then86 ], [ %7, %if.then112 ], [ %7, %if.then118 ], [ %45, %if.then138 ], [ %46, %if.then144 ], [ %59, %if.then185 ], [ %60, %if.then192 ]
-  %20 = phi ptr [ %18, %if.then41 ], [ %24, %if.then48 ], [ %6, %if.then74 ], [ %12, %if.then80 ], [ %6, %if.then86 ], [ %39, %if.then112 ], [ %40, %if.then118 ], [ %6, %if.then138 ], [ %6, %if.then144 ], [ %6, %if.then185 ], [ %6, %if.then192 ]
-  %21 = ptrtoint ptr %20 to i64
-  %and.i = and i64 %21, 1
+  %21 = phi ptr [ %7, %if.then41 ], [ %7, %if.then48 ], [ %30, %if.then74 ], [ %7, %if.then80 ], [ %27, %if.then86 ], [ %7, %if.then112 ], [ %7, %if.then118 ], [ %59, %if.then138 ], [ %60, %if.then144 ], [ %77, %if.then185 ], [ %78, %if.then192 ]
+  %22 = phi ptr [ %20, %if.then41 ], [ %26, %if.then48 ], [ %6, %if.then74 ], [ %12, %if.then80 ], [ %6, %if.then86 ], [ %49, %if.then112 ], [ %50, %if.then118 ], [ %6, %if.then138 ], [ %6, %if.then144 ], [ %6, %if.then185 ], [ %6, %if.then192 ]
+  %23 = ptrtoint ptr %22 to i64
+  %and.i = and i64 %23, 1
   %cmp.i = icmp ne i64 %and.i, 0
-  %and.i53 = and i64 %21, -2
-  %22 = inttoptr i64 %and.i53 to ptr
-  %23 = load i32, ptr %22, align 8
-  %cmp = icmp eq i32 %23, 0
+  %and.i53 = and i64 %23, -2
+  %24 = inttoptr i64 %and.i53 to ptr
+  %25 = load i32, ptr %24, align 8
+  %cmp = icmp eq i32 %25, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.end44:                                         ; preds = %if.end37
-  %cmp.i68 = icmp eq ptr %7, %15
-  br i1 %cmp.i68, label %if.then46, label %if.end51
+  %cmp.i58 = icmp eq ptr %7, %15
+  br i1 %cmp.i58, label %if.then46, label %if.end51
 
 if.then46:                                        ; preds = %if.end44
-  br i1 %cmp.i399, label %if.then48, label %return
+  br i1 %cmp.i284, label %if.then48, label %return
 
 if.then48:                                        ; preds = %if.then46
-  %xor.i69 = xor i64 %13, 1
-  %24 = inttoptr i64 %xor.i69 to ptr
-  store ptr %24, ptr %l, align 8
+  %xor.i59 = xor i64 %13, 1
+  %26 = inttoptr i64 %xor.i59 to ptr
+  store ptr %26, ptr %l, align 8
   br label %start.backedge
 
 if.end51:                                         ; preds = %if.end44
-  %m_children.i70 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %25 = load ptr, ptr %m_children.i70, align 8
-  %cmp.i.i71 = icmp eq ptr %25, null
-  %26 = ptrtoint ptr %25 to i64
-  br i1 %cmp.i.i71, label %if.end196, label %if.then53
+  %m_children.i60 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %27 = load ptr, ptr %m_children.i60, align 8
+  %cmp.i.i61 = icmp eq ptr %27, null
+  %28 = ptrtoint ptr %27 to i64
+  br i1 %cmp.i.i61, label %if.end196, label %if.then53
 
 if.then53:                                        ; preds = %if.end51
   %arrayidx57 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %27 = load i64, ptr %arrayidx57, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = or i64 %5, %8
-  %30 = and i64 %29, 1
-  %brmerge.not = icmp eq i64 %30, 0
+  %29 = load i64, ptr %arrayidx57, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %31 = or i64 %5, %8
+  %32 = and i64 %31, 1
+  %brmerge.not = icmp eq i64 %32, 0
   br i1 %brmerge.not, label %if.then60, label %if.end95
 
 if.then60:                                        ; preds = %if.then53
-  %31 = xor i64 %26, %13
-  %cmp.i72 = icmp ult i64 %31, 2
-  br i1 %cmp.i72, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit79, label %lor.lhs.false62
+  %33 = xor i64 %28, %13
+  %34 = icmp eq i64 %33, 1
+  %35 = xor i64 %29, %13
+  %36 = icmp eq i64 %35, 1
+  %or.cond186 = select i1 %34, i1 true, i1 %36
+  %37 = xor i64 %14, %28
+  %38 = icmp eq i64 %37, 1
+  %or.cond188 = select i1 %or.cond186, i1 true, i1 %38
+  %39 = xor i64 %29, %14
+  %40 = icmp eq i64 %39, 1
+  %or.cond190 = select i1 %or.cond188, i1 true, i1 %40
+  br i1 %or.cond190, label %if.then68, label %if.end70
 
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit79: ; preds = %if.then60
-  %and.i4.i74 = and i64 %13, 1
-  %cmp.i.i75 = icmp ne i64 %and.i4.i74, 0
-  %and.i5.i76 = and i64 %26, 1
-  %cmp.i6.i77 = icmp ne i64 %and.i5.i76, 0
-  %cmp6.i78 = xor i1 %cmp.i.i75, %cmp.i6.i77
-  br i1 %cmp6.i78, label %if.then68, label %lor.lhs.false62
-
-lor.lhs.false62:                                  ; preds = %if.then60, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit79
-  %32 = xor i64 %27, %13
-  %cmp.i80 = icmp ult i64 %32, 2
-  br i1 %cmp.i80, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit87, label %lor.lhs.false64
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit87: ; preds = %lor.lhs.false62
-  %and.i4.i82 = and i64 %13, 1
-  %cmp.i.i83 = icmp ne i64 %and.i4.i82, 0
-  %and.i5.i84 = and i64 %27, 1
-  %cmp.i6.i85 = icmp ne i64 %and.i5.i84, 0
-  %cmp6.i86 = xor i1 %cmp.i.i83, %cmp.i6.i85
-  br i1 %cmp6.i86, label %if.then68, label %lor.lhs.false64
-
-lor.lhs.false64:                                  ; preds = %lor.lhs.false62, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit87
-  %33 = xor i64 %14, %26
-  %cmp.i88 = icmp ult i64 %33, 2
-  br i1 %cmp.i88, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit95, label %lor.lhs.false66
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit95: ; preds = %lor.lhs.false64
-  %and.i4.i90 = and i64 %14, 1
-  %cmp.i.i91 = icmp ne i64 %and.i4.i90, 0
-  %and.i5.i92 = and i64 %26, 1
-  %cmp.i6.i93 = icmp ne i64 %and.i5.i92, 0
-  %cmp6.i94 = xor i1 %cmp.i.i91, %cmp.i6.i93
-  br i1 %cmp6.i94, label %if.then68, label %lor.lhs.false66
-
-lor.lhs.false66:                                  ; preds = %lor.lhs.false64, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit95
-  %34 = xor i64 %27, %14
-  %cmp.i96 = icmp ult i64 %34, 2
-  br i1 %cmp.i96, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit103, label %if.end70
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit103: ; preds = %lor.lhs.false66
-  %and.i4.i98 = and i64 %14, 1
-  %cmp.i.i99 = icmp ne i64 %and.i4.i98, 0
-  %and.i5.i100 = and i64 %27, 1
-  %cmp.i6.i101 = icmp ne i64 %and.i5.i100, 0
-  %cmp6.i102 = xor i1 %cmp.i.i99, %cmp.i6.i101
-  br i1 %cmp6.i102, label %if.then68, label %if.end70
-
-if.then68:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit103, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit95, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit87, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit79
+if.then68:                                        ; preds = %if.then60
   %m_false69 = getelementptr inbounds nuw i8, ptr %this, i64 656
   %retval.sroa.0.0.copyload39 = load ptr, ptr %m_false69, align 8
   br label %return
 
-if.end70:                                         ; preds = %lor.lhs.false66, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit103
-  %cmp.i104 = icmp eq ptr %12, %25
-  %cmp.i105 = icmp eq i64 %14, %26
-  %or.cond = select i1 %cmp.i104, i1 true, i1 %cmp.i105
-  br i1 %or.cond, label %if.then74, label %lor.lhs.false78
+if.end70:                                         ; preds = %if.then60
+  %cmp.i62 = icmp eq ptr %12, %27
+  %cmp.i63 = icmp eq i64 %14, %28
+  %or.cond191 = select i1 %cmp.i62, i1 true, i1 %cmp.i63
+  br i1 %or.cond191, label %if.then74, label %lor.lhs.false78
 
 if.then74:                                        ; preds = %if.end70
-  store ptr %28, ptr %r, align 8
+  store ptr %30, ptr %r, align 8
   br label %start.backedge
 
 lor.lhs.false78:                                  ; preds = %if.end70
-  %cmp.i107 = icmp eq i64 %14, %27
-  br i1 %cmp.i107, label %if.then80, label %if.end82
+  %cmp.i65 = icmp eq i64 %14, %29
+  br i1 %cmp.i65, label %if.then80, label %if.end82
 
 if.then80:                                        ; preds = %lor.lhs.false78
   store ptr %12, ptr %l, align 8
   br label %start.backedge
 
 if.end82:                                         ; preds = %lor.lhs.false78
-  %cmp.i108 = icmp eq i64 %27, %13
-  br i1 %cmp.i108, label %if.then86, label %if.end95.thread
+  %cmp.i66 = icmp eq i64 %29, %13
+  br i1 %cmp.i66, label %if.then86, label %if.end95.thread
 
 if.end95.thread:                                  ; preds = %if.end82
-  %call.not314 = xor i1 %cmp.i399, true
+  %call.not176 = xor i1 %cmp.i284, true
   br label %if.end121.thread
 
 if.then86:                                        ; preds = %if.end82
-  store ptr %25, ptr %r, align 8
+  store ptr %27, ptr %r, align 8
   br label %start.backedge
 
 if.end95:                                         ; preds = %if.then53
-  %call.not = xor i1 %cmp.i399, true
-  %brmerge48 = or i1 %cmp.i55403, %call.not
+  %call.not = xor i1 %cmp.i284, true
+  %brmerge48 = or i1 %cmp.i55286, %call.not
   br i1 %brmerge48, label %if.end121, label %if.then99
 
 if.then99:                                        ; preds = %if.end95
-  %35 = xor i64 %26, %13
-  %cmp.i112 = icmp ult i64 %35, 2
-  br i1 %cmp.i112, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119, label %lor.lhs.false101
+  %41 = xor i64 %28, %13
+  %42 = icmp eq i64 %41, 1
+  %43 = xor i64 %29, %13
+  %44 = icmp eq i64 %43, 1
+  %or.cond193 = select i1 %42, i1 true, i1 %44
+  %45 = xor i64 %14, %28
+  %46 = icmp eq i64 %45, 1
+  %or.cond195 = select i1 %or.cond193, i1 true, i1 %46
+  %47 = xor i64 %29, %14
+  %48 = icmp eq i64 %47, 1
+  %or.cond197 = select i1 %or.cond195, i1 true, i1 %48
+  br i1 %or.cond197, label %return, label %if.end108
 
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119: ; preds = %if.then99
-  %and.i4.i114 = and i64 %13, 1
-  %cmp.i.i115 = icmp ne i64 %and.i4.i114, 0
-  %and.i5.i116 = and i64 %26, 1
-  %cmp.i6.i117 = icmp ne i64 %and.i5.i116, 0
-  %cmp6.i118 = xor i1 %cmp.i.i115, %cmp.i6.i117
-  br i1 %cmp6.i118, label %return, label %lor.lhs.false101
-
-lor.lhs.false101:                                 ; preds = %if.then99, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119
-  %36 = xor i64 %27, %13
-  %cmp.i120 = icmp ult i64 %36, 2
-  br i1 %cmp.i120, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127, label %lor.lhs.false103
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127: ; preds = %lor.lhs.false101
-  %and.i4.i122 = and i64 %13, 1
-  %cmp.i.i123 = icmp ne i64 %and.i4.i122, 0
-  %and.i5.i124 = and i64 %27, 1
-  %cmp.i6.i125 = icmp ne i64 %and.i5.i124, 0
-  %cmp6.i126 = xor i1 %cmp.i.i123, %cmp.i6.i125
-  br i1 %cmp6.i126, label %return, label %lor.lhs.false103
-
-lor.lhs.false103:                                 ; preds = %lor.lhs.false101, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127
-  %37 = xor i64 %14, %26
-  %cmp.i128 = icmp ult i64 %37, 2
-  br i1 %cmp.i128, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135, label %lor.lhs.false105
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135: ; preds = %lor.lhs.false103
-  %and.i4.i130 = and i64 %14, 1
-  %cmp.i.i131 = icmp ne i64 %and.i4.i130, 0
-  %and.i5.i132 = and i64 %26, 1
-  %cmp.i6.i133 = icmp ne i64 %and.i5.i132, 0
-  %cmp6.i134 = xor i1 %cmp.i.i131, %cmp.i6.i133
-  br i1 %cmp6.i134, label %return, label %lor.lhs.false105
-
-lor.lhs.false105:                                 ; preds = %lor.lhs.false103, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135
-  %38 = xor i64 %27, %14
-  %cmp.i136 = icmp ult i64 %38, 2
-  br i1 %cmp.i136, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143, label %if.end108
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143: ; preds = %lor.lhs.false105
-  %and.i4.i138 = and i64 %14, 1
-  %cmp.i.i139 = icmp ne i64 %and.i4.i138, 0
-  %and.i5.i140 = and i64 %27, 1
-  %cmp.i6.i141 = icmp ne i64 %and.i5.i140, 0
-  %cmp6.i142 = xor i1 %cmp.i.i139, %cmp.i6.i141
-  br i1 %cmp6.i142, label %return, label %if.end108
-
-if.end108:                                        ; preds = %lor.lhs.false105, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143
-  %cmp.i144 = icmp eq i64 %14, %26
-  %cmp.i145 = icmp eq i64 %14, %27
-  %or.cond322 = select i1 %cmp.i144, i1 true, i1 %cmp.i145
-  br i1 %or.cond322, label %if.then112, label %if.end114
+if.end108:                                        ; preds = %if.then99
+  %cmp.i70 = icmp eq i64 %14, %28
+  %cmp.i71 = icmp eq i64 %14, %29
+  %or.cond198 = select i1 %cmp.i70, i1 true, i1 %cmp.i71
+  br i1 %or.cond198, label %if.then112, label %if.end114
 
 if.then112:                                       ; preds = %if.end108
-  %xor.i146 = xor i64 %13, 1
-  %39 = inttoptr i64 %xor.i146 to ptr
-  store ptr %39, ptr %l, align 8
+  %xor.i72 = xor i64 %13, 1
+  %49 = inttoptr i64 %xor.i72 to ptr
+  store ptr %49, ptr %l, align 8
   br label %start.backedge
 
 if.end114:                                        ; preds = %if.end108
-  %cmp.i147 = icmp eq ptr %12, %25
-  %cmp.i148 = icmp eq i64 %27, %13
-  %or.cond323 = select i1 %cmp.i147, i1 true, i1 %cmp.i148
-  br i1 %or.cond323, label %if.then118, label %if.end121.thread
+  %cmp.i73 = icmp eq ptr %12, %27
+  %cmp.i74 = icmp eq i64 %29, %13
+  %or.cond199 = select i1 %cmp.i73, i1 true, i1 %cmp.i74
+  br i1 %or.cond199, label %if.then118, label %if.end121.thread
 
 if.then118:                                       ; preds = %if.end114
-  %xor.i149 = xor i64 %14, 1
-  %40 = inttoptr i64 %xor.i149 to ptr
-  store ptr %40, ptr %l, align 8
+  %xor.i75 = xor i64 %14, 1
+  %50 = inttoptr i64 %xor.i75 to ptr
+  store ptr %50, ptr %l, align 8
   br label %start.backedge
 
 if.end121.thread:                                 ; preds = %if.end114, %if.end95.thread
-  %call.not316.ph = phi i1 [ %call.not314, %if.end95.thread ], [ false, %if.end114 ]
-  %call4.not318 = xor i1 %cmp.i55403, true
+  %call.not178.ph = phi i1 [ %call.not176, %if.end95.thread ], [ false, %if.end114 ]
+  %call4.not180 = xor i1 %cmp.i55286, true
   br label %if.end147
 
 if.end121:                                        ; preds = %if.end95
-  %call4.not = xor i1 %cmp.i55403, true
-  %brmerge49 = or i1 %cmp.i399, %call4.not
+  %call4.not = xor i1 %cmp.i55286, true
+  %brmerge49 = or i1 %cmp.i284, %call4.not
   br i1 %brmerge49, label %if.end147, label %if.then125
 
 if.then125:                                       ; preds = %if.end121
-  %41 = xor i64 %26, %13
-  %cmp.i150 = icmp ult i64 %41, 2
-  br i1 %cmp.i150, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157, label %lor.lhs.false127
+  %51 = xor i64 %28, %13
+  %52 = icmp eq i64 %51, 1
+  %53 = xor i64 %29, %13
+  %54 = icmp eq i64 %53, 1
+  %or.cond201 = select i1 %52, i1 true, i1 %54
+  %55 = xor i64 %14, %28
+  %56 = icmp eq i64 %55, 1
+  %or.cond203 = select i1 %or.cond201, i1 true, i1 %56
+  %57 = xor i64 %29, %14
+  %58 = icmp eq i64 %57, 1
+  %or.cond205 = select i1 %or.cond203, i1 true, i1 %58
+  br i1 %or.cond205, label %return, label %if.end134
 
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157: ; preds = %if.then125
-  %and.i4.i152 = and i64 %13, 1
-  %cmp.i.i153 = icmp ne i64 %and.i4.i152, 0
-  %and.i5.i154 = and i64 %26, 1
-  %cmp.i6.i155 = icmp ne i64 %and.i5.i154, 0
-  %cmp6.i156 = xor i1 %cmp.i.i153, %cmp.i6.i155
-  br i1 %cmp6.i156, label %return, label %lor.lhs.false127
-
-lor.lhs.false127:                                 ; preds = %if.then125, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157
-  %42 = xor i64 %27, %13
-  %cmp.i158 = icmp ult i64 %42, 2
-  br i1 %cmp.i158, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165, label %lor.lhs.false129
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165: ; preds = %lor.lhs.false127
-  %and.i4.i160 = and i64 %13, 1
-  %cmp.i.i161 = icmp ne i64 %and.i4.i160, 0
-  %and.i5.i162 = and i64 %27, 1
-  %cmp.i6.i163 = icmp ne i64 %and.i5.i162, 0
-  %cmp6.i164 = xor i1 %cmp.i.i161, %cmp.i6.i163
-  br i1 %cmp6.i164, label %return, label %lor.lhs.false129
-
-lor.lhs.false129:                                 ; preds = %lor.lhs.false127, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165
-  %43 = xor i64 %14, %26
-  %cmp.i166 = icmp ult i64 %43, 2
-  br i1 %cmp.i166, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173, label %lor.lhs.false131
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173: ; preds = %lor.lhs.false129
-  %and.i4.i168 = and i64 %14, 1
-  %cmp.i.i169 = icmp ne i64 %and.i4.i168, 0
-  %and.i5.i170 = and i64 %26, 1
-  %cmp.i6.i171 = icmp ne i64 %and.i5.i170, 0
-  %cmp6.i172 = xor i1 %cmp.i.i169, %cmp.i6.i171
-  br i1 %cmp6.i172, label %return, label %lor.lhs.false131
-
-lor.lhs.false131:                                 ; preds = %lor.lhs.false129, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173
-  %44 = xor i64 %27, %14
-  %cmp.i174 = icmp ult i64 %44, 2
-  br i1 %cmp.i174, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181, label %if.end134
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181: ; preds = %lor.lhs.false131
-  %and.i4.i176 = and i64 %14, 1
-  %cmp.i.i177 = icmp ne i64 %and.i4.i176, 0
-  %and.i5.i178 = and i64 %27, 1
-  %cmp.i6.i179 = icmp ne i64 %and.i5.i178, 0
-  %cmp6.i180 = xor i1 %cmp.i.i177, %cmp.i6.i179
-  br i1 %cmp6.i180, label %return, label %if.end134
-
-if.end134:                                        ; preds = %lor.lhs.false131, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181
-  %cmp.i182 = icmp eq ptr %25, %12
-  %cmp.i183 = icmp eq i64 %14, %26
-  %or.cond324 = select i1 %cmp.i182, i1 true, i1 %cmp.i183
-  br i1 %or.cond324, label %if.then138, label %if.end140
+if.end134:                                        ; preds = %if.then125
+  %cmp.i76 = icmp eq ptr %27, %12
+  %cmp.i77 = icmp eq i64 %14, %28
+  %or.cond206 = select i1 %cmp.i76, i1 true, i1 %cmp.i77
+  br i1 %or.cond206, label %if.then138, label %if.end140
 
 if.then138:                                       ; preds = %if.end134
-  %xor.i184 = xor i64 %27, 1
-  %45 = inttoptr i64 %xor.i184 to ptr
-  store ptr %45, ptr %r, align 8
+  %xor.i78 = xor i64 %29, 1
+  %59 = inttoptr i64 %xor.i78 to ptr
+  store ptr %59, ptr %r, align 8
   br label %start.backedge
 
 if.end140:                                        ; preds = %if.end134
-  %cmp.i185 = icmp eq i64 %27, %13
-  %cmp.i186 = icmp eq i64 %27, %14
-  %or.cond325 = select i1 %cmp.i185, i1 true, i1 %cmp.i186
-  br i1 %or.cond325, label %if.then144, label %if.end147
+  %cmp.i79 = icmp eq i64 %29, %13
+  %cmp.i80 = icmp eq i64 %29, %14
+  %or.cond207 = select i1 %cmp.i79, i1 true, i1 %cmp.i80
+  br i1 %or.cond207, label %if.then144, label %if.end147
 
 if.then144:                                       ; preds = %if.end140
-  %xor.i187 = xor i64 %26, 1
-  %46 = inttoptr i64 %xor.i187 to ptr
-  store ptr %46, ptr %r, align 8
+  %xor.i81 = xor i64 %28, 1
+  %60 = inttoptr i64 %xor.i81 to ptr
+  store ptr %60, ptr %r, align 8
   br label %start.backedge
 
 if.end147:                                        ; preds = %if.end140, %if.end121.thread, %if.end121
-  %call4.not321 = phi i1 [ %call4.not318, %if.end121.thread ], [ %call4.not, %if.end121 ], [ false, %if.end140 ]
-  %call.not316320 = phi i1 [ %call.not316.ph, %if.end121.thread ], [ %call.not, %if.end121 ], [ %call.not, %if.end140 ]
-  %brmerge52 = or i1 %call4.not321, %call.not316320
+  %call4.not183 = phi i1 [ %call4.not180, %if.end121.thread ], [ %call4.not, %if.end121 ], [ false, %if.end140 ]
+  %call.not178182 = phi i1 [ %call.not178.ph, %if.end121.thread ], [ %call.not, %if.end121 ], [ %call.not, %if.end140 ]
+  %brmerge52 = or i1 %call4.not183, %call.not178182
   br i1 %brmerge52, label %if.then166, label %if.then151
 
 if.then151:                                       ; preds = %if.end147
-  %cmp.i188 = icmp eq ptr %12, %25
-  %47 = xor i64 %27, %14
-  %cmp.i189 = icmp ult i64 %47, 2
-  %or.cond326 = select i1 %cmp.i188, i1 %cmp.i189, i1 false
-  br i1 %or.cond326, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit196, label %if.end156
+  %cmp.i82 = icmp eq ptr %12, %27
+  %61 = xor i64 %29, %14
+  %62 = icmp eq i64 %61, 1
+  %or.cond209 = select i1 %cmp.i82, i1 %62, i1 false
+  br i1 %or.cond209, label %if.then155, label %if.end156
 
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit196: ; preds = %if.then151
-  %and.i4.i191 = and i64 %14, 1
-  %cmp.i.i192 = icmp ne i64 %and.i4.i191, 0
-  %and.i5.i193 = and i64 %27, 1
-  %cmp.i6.i194 = icmp ne i64 %and.i5.i193, 0
-  %cmp6.i195 = xor i1 %cmp.i.i192, %cmp.i6.i194
-  br i1 %cmp6.i195, label %if.then155, label %if.end156
-
-if.then155:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit196
-  %xor.i197 = xor i64 %13, 1
-  %48 = inttoptr i64 %xor.i197 to ptr
+if.then155:                                       ; preds = %if.then151
+  %xor.i83 = xor i64 %13, 1
+  %63 = inttoptr i64 %xor.i83 to ptr
   br label %return
 
-if.end156:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit196, %if.then151
-  %49 = xor i64 %26, %13
-  %cmp.i198 = icmp ult i64 %49, 2
-  br i1 %cmp.i198, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205, label %if.then166
+if.end156:                                        ; preds = %if.then151
+  %64 = xor i64 %28, %13
+  %65 = icmp eq i64 %64, 1
+  %cmp.i84 = icmp eq i64 %14, %29
+  %or.cond210 = select i1 %65, i1 %cmp.i84, i1 false
+  br i1 %or.cond210, label %if.then160, label %if.then166
 
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205: ; preds = %if.end156
-  %and.i4.i200 = and i64 %13, 1
-  %cmp.i.i201 = icmp ne i64 %and.i4.i200, 0
-  %and.i5.i202 = and i64 %26, 1
-  %cmp.i6.i203 = icmp ne i64 %and.i5.i202, 0
-  %cmp6.i204 = xor i1 %cmp.i.i201, %cmp.i6.i203
-  %cmp.i206 = icmp eq i64 %14, %27
-  %or.cond327 = select i1 %cmp6.i204, i1 %cmp.i206, i1 false
-  br i1 %or.cond327, label %if.then160, label %if.then166
-
-if.then160:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205
-  %xor.i207 = xor i64 %14, 1
-  %50 = inttoptr i64 %xor.i207 to ptr
+if.then160:                                       ; preds = %if.end156
+  %xor.i85 = xor i64 %14, 1
+  %66 = inttoptr i64 %xor.i85 to ptr
   br label %return
 
 if.end164:                                        ; preds = %if.end25
-  %m_children.i208.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.pre = load ptr, ptr %m_children.i208.phi.trans.insert, align 8
-  %51 = ptrtoint ptr %.pre to i64
-  %52 = icmp eq ptr %.pre, null
-  br i1 %52, label %if.end196, label %if.then166
+  %m_children.i86.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.pre = load ptr, ptr %m_children.i86.phi.trans.insert, align 8
+  %67 = ptrtoint ptr %.pre to i64
+  %68 = icmp eq ptr %.pre, null
+  br i1 %68, label %if.end196, label %if.then166
 
-if.then166:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205, %if.end147, %if.end156, %if.end164
-  %53 = phi i64 [ %51, %if.end164 ], [ %26, %if.end156 ], [ %26, %if.end147 ], [ %26, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205 ]
-  %54 = inttoptr i64 %53 to ptr
+if.then166:                                       ; preds = %if.end156, %if.end147, %if.end164
+  %69 = phi i64 [ %67, %if.end164 ], [ %28, %if.end147 ], [ %28, %if.end156 ]
   %arrayidx172 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %55 = load i64, ptr %arrayidx172, align 8
-  %56 = inttoptr i64 %55 to ptr
-  %57 = xor i64 %53, %5
-  %cmp.i210 = icmp ult i64 %57, 2
-  br i1 %cmp.i210, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit217, label %lor.lhs.false174
+  %70 = load i64, ptr %arrayidx172, align 8
+  %71 = inttoptr i64 %70 to ptr
+  %72 = xor i64 %69, %5
+  %73 = icmp eq i64 %72, 1
+  %74 = xor i64 %70, %5
+  %75 = icmp eq i64 %74, 1
+  %or.cond212 = select i1 %73, i1 true, i1 %75
+  br i1 %or.cond212, label %if.then176, label %if.end181
 
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit217: ; preds = %if.then166
-  %and.i5.i214 = and i64 %53, 1
-  %cmp.i6.i215 = icmp ne i64 %and.i5.i214, 0
-  %cmp6.i216 = xor i1 %cmp.i399, %cmp.i6.i215
-  br i1 %cmp6.i216, label %if.then176, label %lor.lhs.false174
-
-lor.lhs.false174:                                 ; preds = %if.then166, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit217
-  %58 = xor i64 %55, %5
-  %cmp.i218 = icmp ult i64 %58, 2
-  br i1 %cmp.i218, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit225, label %if.end181
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit225: ; preds = %lor.lhs.false174
-  %and.i5.i222 = and i64 %55, 1
-  %cmp.i6.i223 = icmp ne i64 %and.i5.i222, 0
-  %cmp6.i224 = xor i1 %cmp.i399, %cmp.i6.i223
-  br i1 %cmp6.i224, label %if.then176, label %if.end181
-
-if.then176:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit225, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit217
-  br i1 %cmp.i55403, label %return, label %if.else179
+if.then176:                                       ; preds = %if.then166
+  br i1 %cmp.i55286, label %return, label %if.else179
 
 if.else179:                                       ; preds = %if.then176
   %m_false180 = getelementptr inbounds nuw i8, ptr %this, i64 656
   %retval.sroa.0.0.copyload45 = load ptr, ptr %m_false180, align 8
   br label %return
 
-if.end181:                                        ; preds = %lor.lhs.false174, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit225
-  %cmp.i226 = icmp eq ptr %6, %54
-  br i1 %cmp.i226, label %if.then183, label %if.end188
+if.end181:                                        ; preds = %if.then166
+  %76 = inttoptr i64 %69 to ptr
+  %cmp.i88 = icmp eq ptr %6, %76
+  br i1 %cmp.i88, label %if.then183, label %if.end188
 
 if.then183:                                       ; preds = %if.end181
-  br i1 %cmp.i55403, label %if.then185, label %return
+  br i1 %cmp.i55286, label %if.then185, label %return
 
 if.then185:                                       ; preds = %if.then183
-  %xor.i227 = xor i64 %55, 1
-  %59 = inttoptr i64 %xor.i227 to ptr
-  store ptr %59, ptr %r, align 8
+  %xor.i89 = xor i64 %70, 1
+  %77 = inttoptr i64 %xor.i89 to ptr
+  store ptr %77, ptr %r, align 8
   br label %start.backedge
 
 if.end188:                                        ; preds = %if.end181
-  %cmp.i228 = icmp eq ptr %6, %56
-  br i1 %cmp.i228, label %if.then190, label %if.end196
+  %cmp.i90 = icmp eq ptr %6, %71
+  br i1 %cmp.i90, label %if.then190, label %if.end196
 
 if.then190:                                       ; preds = %if.end188
-  br i1 %cmp.i55403, label %if.then192, label %return
+  br i1 %cmp.i55286, label %if.then192, label %return
 
 if.then192:                                       ; preds = %if.then190
-  %xor.i229 = xor i64 %53, 1
-  %60 = inttoptr i64 %xor.i229 to ptr
-  store ptr %60, ptr %r, align 8
+  %xor.i91 = xor i64 %69, 1
+  %78 = inttoptr i64 %xor.i91 to ptr
+  store ptr %78, ptr %r, align 8
   br label %start.backedge
 
 if.end196:                                        ; preds = %if.end51, %if.end188, %if.end164
@@ -7866,8 +7706,8 @@ if.else203:                                       ; preds = %if.end196
   %call204 = call ptr @_ZN11aig_manager3imp12mk_node_coreERK7aig_litS3_(ptr noundef nonnull align 8 dereferenceable(680) %this, ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull align 8 dereferenceable(8) %r)
   br label %return
 
-return:                                           ; preds = %if.then190, %if.then183, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143, %if.then46, %if.then39, %if.then176, %if.then32, %if.then17, %if.then10, %if.then, %if.else203, %if.then200, %if.else179, %if.then160, %if.then155, %if.then68, %if.else35, %if.else23, %if.then12, %if.then7
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %if.then7 ], [ %retval.sroa.0.0.copyload31, %if.then12 ], [ %retval.sroa.0.0.copyload34, %if.else23 ], [ %call201, %if.then200 ], [ %call204, %if.else203 ], [ %retval.sroa.0.0.copyload45, %if.else179 ], [ %retval.sroa.0.0.copyload36, %if.else35 ], [ %48, %if.then155 ], [ %50, %if.then160 ], [ %retval.sroa.0.0.copyload39, %if.then68 ], [ %.lcssa354, %if.then ], [ %6, %if.then10 ], [ %6, %if.then17 ], [ %7, %if.then32 ], [ %6, %if.then176 ], [ %7, %if.then190 ], [ %7, %if.then183 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143 ], [ %6, %if.then46 ], [ %6, %if.then39 ]
+return:                                           ; preds = %if.then190, %if.then183, %if.then125, %if.then99, %if.then46, %if.then39, %if.then176, %if.then32, %if.then17, %if.then10, %if.then, %if.else203, %if.then200, %if.else179, %if.then160, %if.then155, %if.then68, %if.else35, %if.else23, %if.then12, %if.then7
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %if.then7 ], [ %retval.sroa.0.0.copyload31, %if.then12 ], [ %retval.sroa.0.0.copyload34, %if.else23 ], [ %call201, %if.then200 ], [ %call204, %if.else203 ], [ %retval.sroa.0.0.copyload45, %if.else179 ], [ %retval.sroa.0.0.copyload36, %if.else35 ], [ %63, %if.then155 ], [ %66, %if.then160 ], [ %retval.sroa.0.0.copyload39, %if.then68 ], [ %.lcssa239, %if.then ], [ %6, %if.then10 ], [ %6, %if.then17 ], [ %7, %if.then32 ], [ %6, %if.then176 ], [ %7, %if.then190 ], [ %7, %if.then183 ], [ %6, %if.then125 ], [ %7, %if.then99 ], [ %6, %if.then46 ], [ %6, %if.then39 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -11900,68 +11740,34 @@ lor.lhs.false.i:                                  ; preds = %if.then7.i
 if.end13.i:                                       ; preds = %lor.lhs.false.i
   %arrayidx.i19.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %retval.sroa.0.0.copyload.i20.i = load ptr, ptr %arrayidx.i19.i, align 8
-  %arrayidx.i23.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %retval.sroa.0.0.copyload.i24.i = load ptr, ptr %arrayidx.i23.i, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = xor i64 %14, %13
-  %cmp.i25.i = icmp ult i64 %15, 2
-  br i1 %cmp.i25.i, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit.i, label %if.else.i
+  %16 = icmp eq i64 %15, 1
+  br i1 %16, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %if.else.i
 
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit.i: ; preds = %if.end13.i
-  %and.i4.i.i = and i64 %13, 1
-  %cmp.i.i26.i = icmp ne i64 %and.i4.i.i, 0
-  %and.i5.i.i = and i64 %14, 1
-  %cmp.i6.i.i = icmp ne i64 %and.i5.i.i, 0
-  %cmp6.i.i = xor i1 %cmp.i.i26.i, %cmp.i6.i.i
-  br i1 %cmp6.i.i, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %if.else.i
+if.else.i:                                        ; preds = %if.end13.i
+  %arrayidx.i23.i = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %retval.sroa.0.0.copyload.i24.i = load ptr, ptr %arrayidx.i23.i, align 8
+  %17 = ptrtoint ptr %retval.sroa.0.0.copyload.i24.i to i64
+  %18 = xor i64 %17, %13
+  %19 = icmp eq i64 %18, 1
+  br i1 %19, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %if.else26.i
 
-if.else.i:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit.i, %if.end13.i
-  %16 = ptrtoint ptr %retval.sroa.0.0.copyload.i24.i to i64
-  %17 = xor i64 %16, %13
-  %cmp.i27.i = icmp ult i64 %17, 2
-  br i1 %cmp.i27.i, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit34.i, label %if.else26.i
+if.else26.i:                                      ; preds = %if.else.i
+  %20 = ptrtoint ptr %retval.sroa.0.0.copyload.i20.i to i64
+  %21 = xor i64 %20, %14
+  %22 = icmp eq i64 %21, 1
+  %23 = xor i64 %17, %20
+  %24 = icmp eq i64 %23, 1
+  %or.cond.i = or i1 %22, %24
+  br i1 %or.cond.i, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %if.end36.i
 
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit34.i: ; preds = %if.else.i
-  %and.i4.i29.i = and i64 %13, 1
-  %cmp.i.i30.i = icmp ne i64 %and.i4.i29.i, 0
-  %and.i5.i31.i = and i64 %16, 1
-  %cmp.i6.i32.i = icmp ne i64 %and.i5.i31.i, 0
-  %cmp6.i33.i = xor i1 %cmp.i.i30.i, %cmp.i6.i32.i
-  br i1 %cmp6.i33.i, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %if.else26.i
-
-if.else26.i:                                      ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit34.i, %if.else.i
-  %18 = ptrtoint ptr %retval.sroa.0.0.copyload.i20.i to i64
-  %19 = xor i64 %18, %14
-  %cmp.i35.i = icmp ult i64 %19, 2
-  br i1 %cmp.i35.i, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit42.i, label %if.else29.i
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit42.i: ; preds = %if.else26.i
-  %and.i4.i37.i = and i64 %18, 1
-  %cmp.i.i38.i = icmp ne i64 %and.i4.i37.i, 0
-  %and.i5.i39.i = and i64 %14, 1
-  %cmp.i6.i40.i = icmp ne i64 %and.i5.i39.i, 0
-  %cmp6.i41.i = xor i1 %cmp.i6.i40.i, %cmp.i.i38.i
-  br i1 %cmp6.i41.i, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %if.else29.i
-
-if.else29.i:                                      ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit42.i, %if.else26.i
-  %20 = xor i64 %16, %18
-  %cmp.i43.i = icmp ult i64 %20, 2
-  br i1 %cmp.i43.i, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit50.i, label %if.end36.i
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit50.i: ; preds = %if.else29.i
-  %and.i4.i45.i = and i64 %18, 1
-  %cmp.i.i46.i = icmp ne i64 %and.i4.i45.i, 0
-  %and.i5.i47.i = and i64 %16, 1
-  %cmp.i6.i48.i = icmp ne i64 %and.i5.i47.i, 0
-  %cmp6.i49.i = xor i1 %cmp.i.i46.i, %cmp.i6.i48.i
-  br i1 %cmp6.i49.i, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %if.end36.i
-
-if.end36.i:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit50.i, %if.else29.i, %land.lhs.true.i, %if.end.i
+if.end36.i:                                       ; preds = %if.else26.i, %land.lhs.true.i, %if.end.i
   br label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit
 
-_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit: ; preds = %init.end15, %if.then7.i, %lor.lhs.false.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit34.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit42.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit50.i, %if.end36.i
-  %retval.0.i = phi i1 [ false, %if.end36.i ], [ false, %init.end15 ], [ false, %lor.lhs.false.i ], [ false, %if.then7.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit34.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit42.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit50.i ]
+_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit: ; preds = %init.end15, %if.then7.i, %lor.lhs.false.i, %if.end13.i, %if.else.i, %if.else26.i, %if.end36.i
+  %retval.0.i = phi i1 [ false, %if.end36.i ], [ false, %init.end15 ], [ false, %lor.lhs.false.i ], [ false, %if.then7.i ], [ true, %if.end13.i ], [ true, %if.else.i ], [ true, %if.else26.i ]
   ret i1 %retval.0.i
 }
 
@@ -12362,115 +12168,230 @@ entry:
   %c = alloca %class.aig_lit, align 8
   %t = alloca %class.aig_lit, align 8
   %e = alloca %class.aig_lit, align 8
-  store ptr null, ptr %c, align 8
-  store ptr null, ptr %t, align 8
-  store ptr null, ptr %e, align 8
-  %0 = load ptr, ptr %this, align 8
-  %call.i = call noundef zeroext i1 @_ZNK11aig_manager3imp11is_ite_coreILb1EEEbP3aigR7aig_litS5_S5_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef %n, ptr noundef nonnull align 8 dereferenceable(8) %c, ptr noundef nonnull align 8 dereferenceable(8) %t, ptr noundef nonnull align 8 dereferenceable(8) %e)
-  br i1 %call.i, label %if.end, label %if.then
+  %m_children.i.i = getelementptr inbounds nuw i8, ptr %n, i64 8
+  %0 = load ptr, ptr %m_children.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %0, null
+  br i1 %cmp.i.i.i, label %if.then, label %if.end.i
 
-if.then:                                          ; preds = %entry
-  call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 876, ptr noundef nonnull @.str.8)
-  call void @exit(i32 noundef 114) #27
+if.end.i:                                         ; preds = %entry
+  %1 = ptrtoint ptr %0 to i64
+  %and.i.i = and i64 %1, 1
+  %cmp.i.not.i = icmp eq i64 %and.i.i, 0
+  br i1 %cmp.i.not.i, label %if.then, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %if.end.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %n, i64 16
+  %retval.sroa.0.0.copyload.i29.i = load ptr, ptr %arrayidx.i.i, align 8
+  %2 = ptrtoint ptr %retval.sroa.0.0.copyload.i29.i to i64
+  %and.i30.i = and i64 %2, 1
+  %cmp.i31.not.i = icmp eq i64 %and.i30.i, 0
+  br i1 %cmp.i31.not.i, label %if.then, label %if.then7.i
+
+if.then7.i:                                       ; preds = %land.lhs.true.i
+  %and.i32.i = and i64 %1, -2
+  %3 = inttoptr i64 %and.i32.i to ptr
+  %and.i33.i = and i64 %2, -2
+  %4 = inttoptr i64 %and.i33.i to ptr
+  %m_children.i34.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %m_children.i34.i, align 8
+  %cmp.i.i35.i = icmp eq ptr %5, null
+  br i1 %cmp.i.i35.i, label %if.then, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.then7.i
+  %m_children.i36.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %m_children.i36.i, align 8
+  %cmp.i.i37.i = icmp eq ptr %6, null
+  br i1 %cmp.i.i37.i, label %if.then, label %if.end13.i
+
+if.end13.i:                                       ; preds = %lor.lhs.false.i
+  %arrayidx.i40.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %retval.sroa.0.0.copyload.i41.i = load ptr, ptr %arrayidx.i40.i, align 8
+  %arrayidx.i44.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %retval.sroa.0.0.copyload.i45.i = load ptr, ptr %arrayidx.i44.i, align 8
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = xor i64 %8, %7
+  %10 = icmp eq i64 %9, 1
+  br i1 %10, label %if.then23.i, label %if.else33.i
+
+if.then23.i:                                      ; preds = %if.end13.i
+  %11 = ptrtoint ptr %retval.sroa.0.0.copyload.i41.i to i64
+  %xor.i46.i = xor i64 %11, 1
+  %12 = inttoptr i64 %xor.i46.i to ptr
+  %13 = ptrtoint ptr %retval.sroa.0.0.copyload.i45.i to i64
+  %xor.i48.i = xor i64 %13, 1
+  %14 = inttoptr i64 %xor.i48.i to ptr
+  %15 = and i64 %7, 1
+  %cmp.i50.not.not.i = icmp eq i64 %15, 0
+  br i1 %cmp.i50.not.not.i, label %if.then25.i, label %if.else.i
+
+if.then25.i:                                      ; preds = %if.then23.i
+  %xor.i47.i = xor i64 %8, 1
+  br label %if.end
+
+if.else.i:                                        ; preds = %if.then23.i
+  %xor.i.i = and i64 %7, -2
+  br label %if.end
+
+if.else33.i:                                      ; preds = %if.end13.i
+  %16 = ptrtoint ptr %retval.sroa.0.0.copyload.i45.i to i64
+  %17 = xor i64 %16, %7
+  %18 = icmp eq i64 %17, 1
+  %19 = ptrtoint ptr %retval.sroa.0.0.copyload.i41.i to i64
+  br i1 %18, label %if.then35.i, label %if.else46.i
+
+if.then35.i:                                      ; preds = %if.else33.i
+  %xor.i52.i = xor i64 %19, 1
+  %20 = inttoptr i64 %xor.i52.i to ptr
+  %xor.i53.i = xor i64 %8, 1
+  %21 = inttoptr i64 %xor.i53.i to ptr
+  %22 = and i64 %7, 1
+  %cmp.i56.not.not.i = icmp eq i64 %22, 0
+  br i1 %cmp.i56.not.not.i, label %if.then37.i, label %if.else41.i
+
+if.then37.i:                                      ; preds = %if.then35.i
+  %xor.i54.i = xor i64 %16, 1
+  br label %if.end
+
+if.else41.i:                                      ; preds = %if.then35.i
+  %xor.i51.i = and i64 %7, -2
+  br label %if.end
+
+if.else46.i:                                      ; preds = %if.else33.i
+  %23 = xor i64 %19, %8
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %if.then48.i, label %if.else59.i
+
+if.then48.i:                                      ; preds = %if.else46.i
+  %xor.i57.i = xor i64 %7, 1
+  %25 = inttoptr i64 %xor.i57.i to ptr
+  %xor.i60.i = xor i64 %16, 1
+  %26 = inttoptr i64 %xor.i60.i to ptr
+  %27 = and i64 %19, 1
+  %cmp.i62.not.not.i = icmp eq i64 %27, 0
+  br i1 %cmp.i62.not.not.i, label %if.then50.i, label %if.else54.i
+
+if.then50.i:                                      ; preds = %if.then48.i
+  %xor.i59.i = xor i64 %8, 1
+  br label %if.end
+
+if.else54.i:                                      ; preds = %if.then48.i
+  %xor.i58.i = and i64 %19, -2
+  br label %if.end
+
+if.else59.i:                                      ; preds = %if.else46.i
+  %28 = xor i64 %16, %19
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %if.then61.i, label %if.then
+
+if.then61.i:                                      ; preds = %if.else59.i
+  %xor.i63.i = xor i64 %7, 1
+  %30 = inttoptr i64 %xor.i63.i to ptr
+  %xor.i65.i = xor i64 %8, 1
+  %31 = inttoptr i64 %xor.i65.i to ptr
+  %32 = and i64 %19, 1
+  %cmp.i68.not.not.i = icmp eq i64 %32, 0
+  br i1 %cmp.i68.not.not.i, label %if.then63.i, label %if.else67.i
+
+if.then63.i:                                      ; preds = %if.then61.i
+  %xor.i66.i = xor i64 %16, 1
+  br label %if.end
+
+if.else67.i:                                      ; preds = %if.then61.i
+  %xor.i64.i = and i64 %19, -2
+  br label %if.end
+
+if.then:                                          ; preds = %entry, %lor.lhs.false.i, %if.then7.i, %if.else59.i, %land.lhs.true.i, %if.end.i
+  tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 876, ptr noundef nonnull @.str.8)
+  tail call void @exit(i32 noundef 114) #27
   unreachable
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %c, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %and.i = and i64 %2, 1
+if.end:                                           ; preds = %if.else67.i, %if.then63.i, %if.else54.i, %if.then50.i, %if.else41.i, %if.then37.i, %if.else.i, %if.then25.i
+  %xor.i66.sink.i = phi i64 [ %xor.i66.i, %if.then63.i ], [ %xor.i64.i, %if.else67.i ], [ %xor.i59.i, %if.then50.i ], [ %xor.i58.i, %if.else54.i ], [ %xor.i54.i, %if.then37.i ], [ %xor.i51.i, %if.else41.i ], [ %xor.i47.i, %if.then25.i ], [ %xor.i.i, %if.else.i ]
+  %.sink119.i = phi ptr [ %30, %if.then63.i ], [ %31, %if.else67.i ], [ %25, %if.then50.i ], [ %26, %if.else54.i ], [ %20, %if.then37.i ], [ %21, %if.else41.i ], [ %12, %if.then25.i ], [ %14, %if.else.i ]
+  %33 = phi ptr [ %31, %if.then63.i ], [ %30, %if.else67.i ], [ %26, %if.then50.i ], [ %25, %if.else54.i ], [ %21, %if.then37.i ], [ %20, %if.else41.i ], [ %14, %if.then25.i ], [ %12, %if.else.i ]
+  %34 = inttoptr i64 %xor.i66.sink.i to ptr
+  store ptr %34, ptr %c, align 8
+  store ptr %.sink119.i, ptr %t, align 8
+  store ptr %33, ptr %e, align 8
+  %and.i = and i64 %xor.i66.sink.i, 1
   %cmp.i.not = icmp eq i64 %and.i, 0
+  %35 = ptrtoint ptr %.sink119.i to i64
   br i1 %cmp.i.not, label %if.end.if.end4_crit_edge, label %if.then3
 
 if.end.if.end4_crit_edge:                         ; preds = %if.end
-  %.pre = load ptr, ptr %t, align 8
-  %.pre5 = load ptr, ptr %e, align 8
-  %3 = ptrtoint ptr %.pre5 to i64
+  %.pre5 = ptrtoint ptr %33 to i64
   br label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %xor.i = and i64 %2, -2
-  %4 = inttoptr i64 %xor.i to ptr
-  store ptr %4, ptr %c, align 8
-  %5 = load i64, ptr %t, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load ptr, ptr %e, align 8
-  store ptr %7, ptr %t, align 8
-  store ptr %6, ptr %e, align 8
+  %xor.i = and i64 %xor.i66.sink.i, -2
+  %36 = inttoptr i64 %xor.i to ptr
+  store ptr %36, ptr %c, align 8
+  store ptr %33, ptr %t, align 8
+  store ptr %.sink119.i, ptr %e, align 8
+  %.pre = ptrtoint ptr %33 to i64
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end.if.end4_crit_edge, %if.then3
-  %8 = phi i64 [ %3, %if.end.if.end4_crit_edge ], [ %5, %if.then3 ]
-  %9 = phi ptr [ %.pre, %if.end.if.end4_crit_edge ], [ %7, %if.then3 ]
-  %10 = ptrtoint ptr %9 to i64
-  %11 = xor i64 %8, %10
-  %cmp.i2 = icmp ult i64 %11, 2
-  br i1 %cmp.i2, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit, label %if.else
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit: ; preds = %if.end4
-  %and.i4.i = and i64 %10, 1
-  %cmp.i.i = icmp ne i64 %and.i4.i, 0
-  %and.i5.i = and i64 %8, 1
-  %cmp.i6.i = icmp ne i64 %and.i5.i, 0
-  %cmp6.i = xor i1 %cmp.i.i, %cmp.i6.i
-  br i1 %cmp6.i, label %if.then7, label %if.else
-
-if.then7:                                         ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
+  %.pre-phi6 = phi i64 [ %.pre5, %if.end.if.end4_crit_edge ], [ %35, %if.then3 ]
+  %.pre-phi = phi i64 [ %35, %if.end.if.end4_crit_edge ], [ %.pre, %if.then3 ]
+  %37 = xor i64 %.pre-phi6, %.pre-phi
+  %38 = icmp eq i64 %37, 1
   %ast_mng = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %12 = load ptr, ptr %ast_mng, align 8
+  %39 = load ptr, ptr %ast_mng, align 8
   %call8 = call noundef ptr @_ZN11aig_manager3imp8aig2expr10get_cachedERK7aig_lit(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %c)
   %call9 = call noundef ptr @_ZN11aig_manager3imp8aig2expr10get_cachedERK7aig_lit(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %t)
-  %call.i3 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %12, i32 noundef 0, i32 noundef 2, ptr noundef %call8, ptr noundef %call9)
+  br i1 %38, label %if.then7, label %if.else
+
+if.then7:                                         ; preds = %if.end4
+  %call.i2 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %39, i32 noundef 0, i32 noundef 2, ptr noundef %call8, ptr noundef %call9)
   br label %if.end16
 
-if.else:                                          ; preds = %if.end4, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
-  %ast_mng11 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %13 = load ptr, ptr %ast_mng11, align 8
-  %call12 = call noundef ptr @_ZN11aig_manager3imp8aig2expr10get_cachedERK7aig_lit(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %c)
-  %call13 = call noundef ptr @_ZN11aig_manager3imp8aig2expr10get_cachedERK7aig_lit(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %t)
+if.else:                                          ; preds = %if.end4
   %call14 = call noundef ptr @_ZN11aig_manager3imp8aig2expr10get_cachedERK7aig_lit(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %e)
-  %call.i4 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef 0, i32 noundef 4, ptr noundef %call12, ptr noundef %call13, ptr noundef %call14)
+  %call.i3 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(976) %39, i32 noundef 0, i32 noundef 4, ptr noundef %call8, ptr noundef %call9, ptr noundef %call14)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else, %if.then7
-  %r.0 = phi ptr [ %call.i3, %if.then7 ], [ %call.i4, %if.else ]
-  %14 = load i32, ptr %n, align 8
-  %sub.i.i = add i32 %14, -2147483647
+  %r.0 = phi ptr [ %call.i2, %if.then7 ], [ %call.i3, %if.else ]
+  %40 = load i32, ptr %n, align 8
+  %sub.i.i = add i32 %40, -2147483647
   %m_cache.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %r.0, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end16
   %m_ref_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %r.0, i64 8
-  %15 = load i32, ptr %m_ref_count.i.i.i.i.i.i.i, align 4
-  %inc.i.i.i.i.i.i.i = add i32 %15, 1
+  %41 = load i32, ptr %m_ref_count.i.i.i.i.i.i.i, align 4
+  %inc.i.i.i.i.i.i.i = add i32 %41, 1
   store i32 %inc.i.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i.i.i, align 4
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.end16
   %m_nodes.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %16 = load ptr, ptr %m_nodes.i.i.i, align 8
+  %42 = load ptr, ptr %m_nodes.i.i.i, align 8
   %idxprom.i.i.i.i = zext i32 %sub.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %idxprom.i.i.i.i
-  %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %18 = load ptr, ptr %m_cache.i, align 8
-  %tobool.not.i.i.i3.i.i.i = icmp eq ptr %17, null
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %42, i64 %idxprom.i.i.i.i
+  %43 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  %44 = load ptr, ptr %m_cache.i, align 8
+  %tobool.not.i.i.i3.i.i.i = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i3.i.i.i, label %_ZN11aig_manager3imp8aig2expr12cache_resultEP3aigP4expr.exit, label %if.then.i.i.i4.i.i.i
 
 if.then.i.i.i4.i.i.i:                             ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i
-  %m_ref_count.i.i.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load i32, ptr %m_ref_count.i.i.i.i5.i.i.i, align 4
-  %dec.i.i.i.i.i.i.i = add i32 %19, -1
+  %m_ref_count.i.i.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load i32, ptr %m_ref_count.i.i.i.i5.i.i.i, align 4
+  %dec.i.i.i.i.i.i.i = add i32 %45, -1
   store i32 %dec.i.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i5.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i, label %_ZN11aig_manager3imp8aig2expr12cache_resultEP3aigP4expr.exit
 
 if.then2.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i4.i.i.i
-  call void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %18, ptr noundef nonnull %17)
+  call void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %44, ptr noundef nonnull %43)
   br label %_ZN11aig_manager3imp8aig2expr12cache_resultEP3aigP4expr.exit
 
 _ZN11aig_manager3imp8aig2expr12cache_resultEP3aigP4expr.exit: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i, %if.then.i.i.i4.i.i.i, %if.then2.i.i.i.i.i.i
-  %20 = load ptr, ptr %m_nodes.i.i.i, align 8
-  %arrayidx.i7.i.i.i = getelementptr inbounds nuw ptr, ptr %20, i64 %idxprom.i.i.i.i
+  %46 = load ptr, ptr %m_nodes.i.i.i, align 8
+  %arrayidx.i7.i.i.i = getelementptr inbounds nuw ptr, ptr %46, i64 %idxprom.i.i.i.i
   store ptr %r.0, ptr %arrayidx.i7.i.i.i, align 8
   ret void
 }
@@ -12897,186 +12818,6 @@ _ZN11aig_manager3imp8aig2expr10get_cachedEP3aig.exit29: ; preds = %cond.true.i26
 return:                                           ; preds = %if.end9.i, %if.then6.i, %if.then.i9, %_ZN11aig_manager3imp8aig2expr10get_cachedEP3aig.exit29
   %retval.0 = phi ptr [ %retval.0.i19, %_ZN11aig_manager3imp8aig2expr10get_cachedEP3aig.exit29 ], [ %14, %if.then.i9 ], [ %17, %if.then6.i ], [ %call.i.i, %if.end9.i ]
   ret ptr %retval.0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK11aig_manager3imp11is_ite_coreILb1EEEbP3aigR7aig_litS5_S5_(ptr noundef nonnull align 8 dereferenceable(680) %this, ptr noundef %n, ptr noundef nonnull align 8 dereferenceable(8) %c, ptr noundef nonnull align 8 dereferenceable(8) %t, ptr noundef nonnull align 8 dereferenceable(8) %e) local_unnamed_addr #6 comdat align 2 {
-entry:
-  %m_children.i = getelementptr inbounds nuw i8, ptr %n, i64 8
-  %0 = load ptr, ptr %m_children.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
-  %1 = ptrtoint ptr %0 to i64
-  %and.i = and i64 %1, 1
-  %cmp.i.not = icmp eq i64 %and.i, 0
-  br i1 %cmp.i.not, label %return, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.end
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %n, i64 16
-  %retval.sroa.0.0.copyload.i29 = load ptr, ptr %arrayidx.i, align 8
-  %2 = ptrtoint ptr %retval.sroa.0.0.copyload.i29 to i64
-  %and.i30 = and i64 %2, 1
-  %cmp.i31.not = icmp eq i64 %and.i30, 0
-  br i1 %cmp.i31.not, label %return, label %if.then7
-
-if.then7:                                         ; preds = %land.lhs.true
-  %and.i32 = and i64 %1, -2
-  %3 = inttoptr i64 %and.i32 to ptr
-  %and.i33 = and i64 %2, -2
-  %4 = inttoptr i64 %and.i33 to ptr
-  %m_children.i34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %m_children.i34, align 8
-  %cmp.i.i35 = icmp eq ptr %5, null
-  br i1 %cmp.i.i35, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then7
-  %m_children.i36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %m_children.i36, align 8
-  %cmp.i.i37 = icmp eq ptr %6, null
-  br i1 %cmp.i.i37, label %return, label %if.end13
-
-if.end13:                                         ; preds = %lor.lhs.false
-  %arrayidx.i40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %retval.sroa.0.0.copyload.i41 = load ptr, ptr %arrayidx.i40, align 8
-  %arrayidx.i44 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %retval.sroa.0.0.copyload.i45 = load ptr, ptr %arrayidx.i44, align 8
-  %7 = ptrtoint ptr %5 to i64
-  %8 = ptrtoint ptr %6 to i64
-  %9 = xor i64 %8, %7
-  %cmp.i46 = icmp ult i64 %9, 2
-  br i1 %cmp.i46, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit, label %if.else33
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit: ; preds = %if.end13
-  %and.i4.i = and i64 %7, 1
-  %cmp.i.i47 = icmp ne i64 %and.i4.i, 0
-  %and.i5.i = and i64 %8, 1
-  %cmp.i6.i = icmp ne i64 %and.i5.i, 0
-  %cmp6.i = xor i1 %cmp.i.i47, %cmp.i6.i
-  br i1 %cmp6.i, label %if.then23, label %if.else33
-
-if.then23:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
-  %10 = ptrtoint ptr %retval.sroa.0.0.copyload.i41 to i64
-  %xor.i48 = xor i64 %10, 1
-  %11 = inttoptr i64 %xor.i48 to ptr
-  %12 = ptrtoint ptr %retval.sroa.0.0.copyload.i45 to i64
-  %xor.i50 = xor i64 %12, 1
-  %13 = inttoptr i64 %xor.i50 to ptr
-  %cmp.i52.not.not = icmp eq i64 %and.i4.i, 0
-  br i1 %cmp.i52.not.not, label %if.then25, label %if.else
-
-if.then25:                                        ; preds = %if.then23
-  %xor.i49 = xor i64 %8, 1
-  br label %return.sink.split
-
-if.else:                                          ; preds = %if.then23
-  %xor.i = and i64 %7, -2
-  br label %return.sink.split
-
-if.else33:                                        ; preds = %if.end13, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
-  %14 = ptrtoint ptr %retval.sroa.0.0.copyload.i45 to i64
-  %15 = xor i64 %14, %7
-  %cmp.i53 = icmp ult i64 %15, 2
-  br i1 %cmp.i53, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit60, label %if.else46
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit60: ; preds = %if.else33
-  %and.i4.i55 = and i64 %7, 1
-  %cmp.i.i56 = icmp ne i64 %and.i4.i55, 0
-  %and.i5.i57 = and i64 %14, 1
-  %cmp.i6.i58 = icmp ne i64 %and.i5.i57, 0
-  %cmp6.i59 = xor i1 %cmp.i.i56, %cmp.i6.i58
-  br i1 %cmp6.i59, label %if.then35, label %if.else46
-
-if.then35:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit60
-  %16 = ptrtoint ptr %retval.sroa.0.0.copyload.i41 to i64
-  %xor.i62 = xor i64 %16, 1
-  %17 = inttoptr i64 %xor.i62 to ptr
-  %xor.i63 = xor i64 %8, 1
-  %18 = inttoptr i64 %xor.i63 to ptr
-  %cmp.i66.not.not = icmp eq i64 %and.i4.i55, 0
-  br i1 %cmp.i66.not.not, label %if.then37, label %if.else41
-
-if.then37:                                        ; preds = %if.then35
-  %xor.i64 = xor i64 %14, 1
-  br label %return.sink.split
-
-if.else41:                                        ; preds = %if.then35
-  %xor.i61 = and i64 %7, -2
-  br label %return.sink.split
-
-if.else46:                                        ; preds = %if.else33, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit60
-  %19 = ptrtoint ptr %retval.sroa.0.0.copyload.i41 to i64
-  %20 = xor i64 %19, %8
-  %cmp.i67 = icmp ult i64 %20, 2
-  br i1 %cmp.i67, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit74, label %if.else59
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit74: ; preds = %if.else46
-  %and.i4.i69 = and i64 %19, 1
-  %cmp.i.i70 = icmp ne i64 %and.i4.i69, 0
-  %and.i5.i71 = and i64 %8, 1
-  %cmp.i6.i72 = icmp ne i64 %and.i5.i71, 0
-  %cmp6.i73 = xor i1 %cmp.i6.i72, %cmp.i.i70
-  br i1 %cmp6.i73, label %if.then48, label %if.else59
-
-if.then48:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit74
-  %xor.i75 = xor i64 %7, 1
-  %21 = inttoptr i64 %xor.i75 to ptr
-  %xor.i78 = xor i64 %14, 1
-  %22 = inttoptr i64 %xor.i78 to ptr
-  %cmp.i80.not.not = icmp eq i64 %and.i4.i69, 0
-  br i1 %cmp.i80.not.not, label %if.then50, label %if.else54
-
-if.then50:                                        ; preds = %if.then48
-  %xor.i77 = xor i64 %8, 1
-  br label %return.sink.split
-
-if.else54:                                        ; preds = %if.then48
-  %xor.i76 = and i64 %19, -2
-  br label %return.sink.split
-
-if.else59:                                        ; preds = %if.else46, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit74
-  %23 = xor i64 %14, %19
-  %cmp.i81 = icmp ult i64 %23, 2
-  br i1 %cmp.i81, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit88, label %return
-
-_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit88: ; preds = %if.else59
-  %and.i4.i83 = and i64 %19, 1
-  %cmp.i.i84 = icmp ne i64 %and.i4.i83, 0
-  %and.i5.i85 = and i64 %14, 1
-  %cmp.i6.i86 = icmp ne i64 %and.i5.i85, 0
-  %cmp6.i87 = xor i1 %cmp.i.i84, %cmp.i6.i86
-  br i1 %cmp6.i87, label %if.then61, label %return
-
-if.then61:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit88
-  %xor.i89 = xor i64 %7, 1
-  %24 = inttoptr i64 %xor.i89 to ptr
-  %xor.i91 = xor i64 %8, 1
-  %25 = inttoptr i64 %xor.i91 to ptr
-  %cmp.i94.not.not = icmp eq i64 %and.i4.i83, 0
-  br i1 %cmp.i94.not.not, label %if.then63, label %if.else67
-
-if.then63:                                        ; preds = %if.then61
-  %xor.i92 = xor i64 %14, 1
-  br label %return.sink.split
-
-if.else67:                                        ; preds = %if.then61
-  %xor.i90 = and i64 %19, -2
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.else, %if.then25, %if.else41, %if.then37, %if.else54, %if.then50, %if.else67, %if.then63
-  %xor.i92.sink = phi i64 [ %xor.i92, %if.then63 ], [ %xor.i90, %if.else67 ], [ %xor.i77, %if.then50 ], [ %xor.i76, %if.else54 ], [ %xor.i64, %if.then37 ], [ %xor.i61, %if.else41 ], [ %xor.i49, %if.then25 ], [ %xor.i, %if.else ]
-  %.sink145 = phi ptr [ %24, %if.then63 ], [ %25, %if.else67 ], [ %21, %if.then50 ], [ %22, %if.else54 ], [ %17, %if.then37 ], [ %18, %if.else41 ], [ %11, %if.then25 ], [ %13, %if.else ]
-  %.sink = phi ptr [ %25, %if.then63 ], [ %24, %if.else67 ], [ %22, %if.then50 ], [ %21, %if.else54 ], [ %18, %if.then37 ], [ %17, %if.else41 ], [ %13, %if.then25 ], [ %11, %if.else ]
-  %26 = inttoptr i64 %xor.i92.sink to ptr
-  store ptr %26, ptr %c, align 8
-  store ptr %.sink145, ptr %t, align 8
-  store ptr %.sink, ptr %e, align 8
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %if.else59, %if.end, %land.lhs.true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit88, %if.then7, %lor.lhs.false, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %lor.lhs.false ], [ false, %if.then7 ], [ false, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit88 ], [ false, %land.lhs.true ], [ false, %if.end ], [ false, %if.else59 ], [ true, %return.sink.split ]
-  ret i1 %retval.0
 }
 
 declare noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0

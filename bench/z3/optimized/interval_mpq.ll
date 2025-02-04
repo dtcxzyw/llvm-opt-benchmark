@@ -6071,25 +6071,20 @@ _Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit60: ; 
 
 land.lhs.true13:                                  ; preds = %if.then.i.i16.i.i51, %if.else.i24, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit60
   %bf.load.i.i61 = load i8, ptr %m_lower_inf.i.i, align 8
-  %bf.clear.i.i = and i8 %bf.load.i.i61, 1
-  %tobool.i.i = icmp ne i8 %bf.clear.i.i, 0
   %bf.load.i.i63 = load i8, ptr %m_lower_inf.i.i11, align 8
-  %bf.clear.i.i64 = and i8 %bf.load.i.i63, 1
-  %tobool.i.i65 = icmp ne i8 %bf.clear.i.i64, 0
-  %14 = xor i1 %tobool.i.i, %tobool.i.i65
-  br i1 %14, label %land.end, label %land.rhs
+  %14 = xor i8 %bf.load.i.i63, %bf.load.i.i61
+  %15 = and i8 %14, 1
+  %.not = icmp eq i8 %15, 0
+  br i1 %.not, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true13
-  %15 = and i8 %bf.load.i.i61, 2
-  %tobool.i.i67 = icmp ne i8 %15, 0
-  %16 = and i8 %bf.load.i.i63, 2
-  %17 = icmp eq i8 %16, 0
-  %cmp21 = xor i1 %tobool.i.i67, %17
+  %16 = and i8 %14, 2
+  %.not73 = icmp eq i8 %16, 0
   br label %land.end
 
 land.end:                                         ; preds = %if.then.i.i.i.i58, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i33, %if.then.i27, %if.then.i.i.i.i, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i, %if.then.i, %if.then.i.i16.i.i51, %if.else.i24, %if.then.i.i16.i.i, %if.else.i, %land.rhs, %land.lhs.true13, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit60, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit
-  %18 = phi i1 [ false, %land.lhs.true13 ], [ false, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit60 ], [ false, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit ], [ %cmp21, %land.rhs ], [ false, %if.else.i ], [ false, %if.then.i.i16.i.i ], [ false, %if.else.i24 ], [ false, %if.then.i.i16.i.i51 ], [ false, %if.then.i ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i ], [ false, %if.then.i.i.i.i ], [ false, %if.then.i27 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i33 ], [ false, %if.then.i.i.i.i58 ]
-  ret i1 %18
+  %17 = phi i1 [ false, %land.lhs.true13 ], [ false, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit60 ], [ false, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit ], [ %.not73, %land.rhs ], [ false, %if.else.i ], [ false, %if.then.i.i16.i.i ], [ false, %if.else.i24 ], [ false, %if.then.i.i16.i.i51 ], [ false, %if.then.i ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i ], [ false, %if.then.i.i.i.i ], [ false, %if.then.i27 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i33 ], [ false, %if.then.i.i.i.i58 ]
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress uwtable

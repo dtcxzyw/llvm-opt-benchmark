@@ -6082,7 +6082,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit8.lr.ph: ; preds = %_ZN5arith6solver
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit8:    ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit8.lr.ph, %if.end29
   %12 = phi i32 [ %10, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit8.lr.ph ], [ %inc, %if.end29 ]
-  %13 = phi ptr [ %11, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit8.lr.ph ], [ %33, %if.end29 ]
+  %13 = phi ptr [ %11, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit8.lr.ph ], [ %32, %if.end29 ]
   %arrayidx.i6 = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i6, align 4
   %cmp12 = icmp ult i32 %12, %14
@@ -6176,52 +6176,50 @@ if.then22:                                        ; preds = %land.lhs.true.i.i.i
   %retval.0.i.i.i = phi ptr [ %curr.132.i.i.i, %land.lhs.true25.i.i.i ], [ %curr.030.i.i.i, %land.lhs.true.i.i.i ]
   %m_value.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 16
   %29 = load ptr, ptr %m_value.i, align 8
-  %30 = and i32 %20, 1
-  %tobool.i12 = icmp ne i32 %30, 0
   %m_bv.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   %retval.sroa.0.0.copyload.i = load i32, ptr %m_bv.i, align 8
-  %31 = and i32 %retval.sroa.0.0.copyload.i, 1
-  %32 = icmp eq i32 %31, 0
-  %cmp28 = xor i1 %tobool.i12, %32
-  tail call void @_ZN5arith6solver12assert_boundEbRN6lp_api5boundIN3sat7literalEEE(ptr noundef nonnull align 8 dereferenceable(1144) %this, i1 noundef zeroext %cmp28, ptr noundef nonnull align 8 dereferenceable(68) %29)
+  %30 = xor i32 %retval.sroa.0.0.copyload.i, %20
+  %31 = and i32 %30, 1
+  %.not = icmp eq i32 %31, 0
+  tail call void @_ZN5arith6solver12assert_boundEbRN6lp_api5boundIN3sat7literalEEE(ptr noundef nonnull align 8 dereferenceable(1144) %this, i1 noundef zeroext %.not, ptr noundef nonnull align 8 dereferenceable(68) %29)
   %.pre = load i32, ptr %m_asserted_qhead8, align 8
   %.pre39 = load ptr, ptr %m_asserted10, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %for.cond18.preheader.i.i.i, %if.then22
-  %33 = phi ptr [ %19, %for.cond18.preheader.i.i.i ], [ %.pre39, %if.then22 ], [ %19, %for.body20.i.i.i ], [ %19, %for.inc36.i.i.i ], [ %19, %for.body.i.i.i ]
-  %34 = phi i32 [ %18, %for.cond18.preheader.i.i.i ], [ %.pre, %if.then22 ], [ %18, %for.body20.i.i.i ], [ %18, %for.inc36.i.i.i ], [ %18, %for.body.i.i.i ]
-  %inc = add i32 %34, 1
+  %32 = phi ptr [ %19, %for.cond18.preheader.i.i.i ], [ %.pre39, %if.then22 ], [ %19, %for.body20.i.i.i ], [ %19, %for.inc36.i.i.i ], [ %19, %for.body.i.i.i ]
+  %33 = phi i32 [ %18, %for.cond18.preheader.i.i.i ], [ %.pre, %if.then22 ], [ %18, %for.body20.i.i.i ], [ %18, %for.inc36.i.i.i ], [ %18, %for.body.i.i.i ]
+  %inc = add i32 %33, 1
   store i32 %inc, ptr %m_asserted_qhead8, align 8
-  %cmp.i4 = icmp eq ptr %33, null
+  %cmp.i4 = icmp eq ptr %32, null
   br i1 %cmp.i4, label %while.end, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit8, !llvm.loop !38
 
 while.end:                                        ; preds = %land.rhs, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit8, %land.lhs.true13, %if.end29, %_ZN5arith6solver13propagate_nlaEv.exit
   %m_solver.i14 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %35 = load ptr, ptr %m_solver.i14, align 8
-  %m_inconsistent.i15 = getelementptr inbounds nuw i8, ptr %35, i64 3336
-  %36 = load i8, ptr %m_inconsistent.i15, align 8
-  %tobool.i16 = trunc i8 %36 to i1
+  %34 = load ptr, ptr %m_solver.i14, align 8
+  %m_inconsistent.i15 = getelementptr inbounds nuw i8, ptr %34, i64 3336
+  %35 = load i8, ptr %m_inconsistent.i15, align 8
+  %tobool.i16 = trunc i8 %35 to i1
   br i1 %tobool.i16, label %return, label %if.end34
 
 if.end34:                                         ; preds = %while.end
-  %37 = load ptr, ptr %m_solver, align 8
-  %call2.i18 = tail call noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(1888) %37)
+  %36 = load ptr, ptr %m_solver, align 8
+  %call2.i18 = tail call noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(1888) %36)
   %switch.tableidx = add i32 %call2.i18, -1
-  %38 = icmp ult i32 %switch.tableidx, 7
-  br i1 %38, label %switch.lookup, label %_ZN5arith6solver13make_feasibleEv.exit
+  %37 = icmp ult i32 %switch.tableidx, 7
+  br i1 %37, label %switch.lookup, label %_ZN5arith6solver13make_feasibleEv.exit
 
 switch.lookup:                                    ; preds = %if.end34
-  %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN5arith6solver13make_feasibleEv, i64 0, i64 %39
+  %38 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN5arith6solver13make_feasibleEv, i64 0, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5arith6solver13make_feasibleEv.exit
 
 _ZN5arith6solver13make_feasibleEv.exit:           ; preds = %if.end34, %switch.lookup
   %retval.0.i19 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %if.end34 ]
   %m36 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %40 = load ptr, ptr %m36, align 8
-  %call2.i20 = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %40)
+  %39 = load ptr, ptr %m36, align 8
+  %call2.i20 = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %39)
   br i1 %call2.i20, label %if.end39, label %return
 
 if.end39:                                         ; preds = %_ZN5arith6solver13make_feasibleEv.exit
@@ -6233,18 +6231,18 @@ if.end39:                                         ; preds = %_ZN5arith6solver13m
 sw.bb:                                            ; preds = %if.end39
   %m_explanation.i = getelementptr inbounds nuw i8, ptr %this, i64 816
   tail call void @_ZN2lp11explanation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_explanation.i)
-  %41 = load ptr, ptr %m_solver, align 8
-  tail call void @_ZNK2lp10lar_solver29get_infeasibility_explanationERNS_11explanationE(ptr noundef nonnull align 8 dereferenceable(1888) %41, ptr noundef nonnull align 8 dereferenceable(32) %m_explanation.i)
+  %40 = load ptr, ptr %m_solver, align 8
+  tail call void @_ZNK2lp10lar_solver29get_infeasibility_explanationERNS_11explanationE(ptr noundef nonnull align 8 dereferenceable(1888) %40, ptr noundef nonnull align 8 dereferenceable(32) %m_explanation.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %core.i.i)
   store ptr null, ptr %core.i.i, align 8
   invoke void @_ZN5arith6solver21set_conflict_or_lemmaENS_9hint_typeERK7svectorIN3sat7literalEjEb(ptr noundef nonnull align 8 dereferenceable(1144) %this, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %core.i.i, i1 noundef zeroext true)
           to label %_ZN5arith6solver46get_infeasibility_explanation_and_set_conflictEv.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %sw.bb
-  %42 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7svectorIN3sat7literalEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %core.i.i) #25
-  resume { ptr, i32 } %42
+  resume { ptr, i32 } %41
 
 _ZN5arith6solver46get_infeasibility_explanation_and_set_conflictEv.exit: ; preds = %sw.bb
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %core.i.i)

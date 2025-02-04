@@ -569,8 +569,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
 
 38:                                               ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
-  %39 = phi ptr [ %33, %.lr.ph ], [ %81, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
-  %.029 = phi ptr [ %2, %.lr.ph ], [ %80, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
+  %39 = phi ptr [ %33, %.lr.ph ], [ %75, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
+  %.031 = phi ptr [ %2, %.lr.ph ], [ %74, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %41, i64 %indvars.iv
@@ -578,14 +578,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
   %44 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %45, i64 %indvars.iv
-  %47 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSubsetEPNS1_16FaceVertexSubsetEPKiRKS3_(ptr noundef nonnull align 8 dereferenceable(224) %42, ptr noundef %46, ptr noundef %.029, ptr noundef nonnull align 4 dereferenceable(12) %44)
+  %47 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSubsetEPNS1_16FaceVertexSubsetEPKiRKS3_(ptr noundef nonnull align 8 dereferenceable(224) %42, ptr noundef %46, ptr noundef %.031, ptr noundef nonnull align 4 dereferenceable(12) %44)
   %48 = load i16, ptr %46, align 4
   %49 = and i16 %48, 3
   %or.cond.not = icmp eq i16 %49, 1
   br i1 %or.cond.not, label %50, label %51
 
 50:                                               ; preds = %38
-  tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface35sharpenBySdcFVarLinearInterpolationEPNS1_16FaceVertexSubsetEPKiRKS3_RKNS1_10FaceVertexE(ptr noundef nonnull align 8 dereferenceable(143) %0, ptr noundef nonnull %46, ptr noundef %.029, ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(224) %42)
+  tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface35sharpenBySdcFVarLinearInterpolationEPNS1_16FaceVertexSubsetEPKiRKS3_RKNS1_10FaceVertexE(ptr noundef nonnull align 8 dereferenceable(143) %0, ptr noundef nonnull %46, ptr noundef %.031, ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(224) %42)
   %.pre = load i16, ptr %46, align 4, !noalias !11
   br label %51
 
@@ -609,90 +609,85 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
 
 _ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset21ExtentMatchesSupersetERKS2_.exit.i: ; preds = %56
   %62 = load i16, ptr %46, align 4
-  %63 = and i16 %62, 1
-  %64 = icmp ne i16 %63, 0
-  %65 = load i16, ptr %44, align 4
-  %66 = and i16 %65, 1
-  %67 = icmp eq i16 %66, 0
-  %68 = xor i1 %64, %67
-  br i1 %68, label %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit, label %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread
+  %63 = load i16, ptr %44, align 4
+  %64 = xor i16 %63, %62
+  %.fr29 = freeze i16 %64
+  %65 = and i16 %.fr29, 1
+  %.not.i.i = icmp eq i16 %65, 0
+  br i1 %.not.i.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit, label %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread
 
 _ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset21ExtentMatchesSupersetERKS2_.exit.i
-  %69 = and i16 %62, 2
-  %70 = icmp ne i16 %69, 0
-  %71 = and i16 %65, 2
-  %72 = icmp eq i16 %71, 0
-  %73 = xor i1 %70, %72
-  %cond.fr = freeze i1 %73
-  %spec.select = select i1 %cond.fr, i8 2, i8 0
+  %66 = trunc i16 %.fr29 to i8
+  %67 = and i8 %66, 2
+  %spec.select = xor i8 %67, 2
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread
 
 _ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit, %56, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset21ExtentMatchesSupersetERKS2_.exit.i, %51
-  %74 = phi i8 [ 0, %51 ], [ 0, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset21ExtentMatchesSupersetERKS2_.exit.i ], [ 0, %56 ], [ %spec.select, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit ]
-  %75 = and i8 %54, -3
-  %76 = or disjoint i8 %74, %75
-  store i8 %76, ptr %6, align 2
-  %77 = getelementptr inbounds nuw i8, ptr %42, i64 160
-  %78 = load i32, ptr %77, align 8
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i32, ptr %.029, i64 %79
+  %68 = phi i8 [ 0, %51 ], [ 0, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset21ExtentMatchesSupersetERKS2_.exit.i ], [ 0, %56 ], [ %spec.select, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit ]
+  %69 = and i8 %54, -3
+  %70 = or disjoint i8 %68, %69
+  store i8 %70, ptr %6, align 2
+  %71 = getelementptr inbounds nuw i8, ptr %42, i64 160
+  %72 = load i32, ptr %71, align 8
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i32, ptr %.031, i64 %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load i32, ptr %82, align 8
-  %84 = sext i32 %83 to i64
-  %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %38, label %._crit_edge, !llvm.loop !14
+  %75 = load ptr, ptr %0, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load i32, ptr %76, align 8
+  %78 = sext i32 %77 to i64
+  %79 = icmp slt i64 %indvars.iv.next, %78
+  br i1 %79, label %38, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread, %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit
-  %86 = phi i16 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit ], [ %53, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
-  %87 = phi i8 [ %32, %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit ], [ %76, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
-  %.lcssa = phi ptr [ %33, %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit ], [ %81, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
-  %88 = tail call noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv(ptr noundef nonnull align 8 dereferenceable(143) %0)
-  %89 = select i1 %88, i8 4, i8 0
-  %90 = and i8 %87, -5
-  %91 = or disjoint i8 %90, %89
-  store i8 %91, ptr %6, align 2
-  %92 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
-  %.sroa.0.0.copyload.i.i = load i32, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  store i32 %.sroa.0.0.copyload.i.i, ptr %93, align 2
-  br i1 %88, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit, label %94
+  %80 = phi i16 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit ], [ %53, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
+  %81 = phi i8 [ %32, %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit ], [ %70, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
+  %.lcssa = phi ptr [ %33, %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit ], [ %75, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
+  %82 = tail call noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv(ptr noundef nonnull align 8 dereferenceable(143) %0)
+  %83 = select i1 %82, i8 4, i8 0
+  %84 = and i8 %81, -5
+  %85 = or disjoint i8 %84, %83
+  store i8 %85, ptr %6, align 2
+  %86 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
+  %.sroa.0.0.copyload.i.i = load i32, ptr %86, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  store i32 %.sroa.0.0.copyload.i.i, ptr %87, align 2
+  br i1 %82, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit, label %88
 
-94:                                               ; preds = %._crit_edge
-  store i8 1, ptr %93, align 2
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 139
-  store i8 5, ptr %95, align 1
-  %96 = and i32 %.sroa.0.0.copyload.i.i, 16711680
-  %.not.i.i = icmp ne i32 %96, 0
-  %97 = and i16 %86, 48
-  %or.cond.not.i.i = icmp eq i16 %97, 0
-  %or.cond = select i1 %.not.i.i, i1 %or.cond.not.i.i, i1 false
-  br i1 %or.cond, label %98, label %100
+88:                                               ; preds = %._crit_edge
+  store i8 1, ptr %87, align 2
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 139
+  store i8 5, ptr %89, align 1
+  %90 = and i32 %.sroa.0.0.copyload.i.i, 16711680
+  %.not.i.i26 = icmp ne i32 %90, 0
+  %91 = and i16 %80, 48
+  %or.cond.not.i.i = icmp eq i16 %91, 0
+  %or.cond = select i1 %.not.i.i26, i1 %or.cond.not.i.i, i1 false
+  br i1 %or.cond, label %92, label %94
 
-98:                                               ; preds = %94
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i8 0, ptr %99, align 4
-  br label %100
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i8 0, ptr %93, align 4
+  br label %94
 
-100:                                              ; preds = %98, %94
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 141
+94:                                               ; preds = %92, %88
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 141
   %.not10.i.i = icmp ult i32 %.sroa.0.0.copyload.i.i, 16777216
-  br i1 %.not10.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit, label %102
+  br i1 %.not10.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit, label %96
 
-102:                                              ; preds = %100
-  %103 = load i32, ptr %.lcssa, align 8
-  %.not11.i.i = icmp ne i32 %103, 1
-  %104 = and i16 %86, 128
-  %.not13.i.i = icmp eq i16 %104, 0
-  %or.cond35 = select i1 %.not11.i.i, i1 true, i1 %.not13.i.i
-  br i1 %or.cond35, label %105, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit
+96:                                               ; preds = %94
+  %97 = load i32, ptr %.lcssa, align 8
+  %.not11.i.i = icmp ne i32 %97, 1
+  %98 = and i16 %80, 128
+  %.not13.i.i = icmp eq i16 %98, 0
+  %or.cond37 = select i1 %.not11.i.i, i1 true, i1 %.not13.i.i
+  br i1 %or.cond37, label %99, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit
 
-105:                                              ; preds = %102
-  store i8 0, ptr %101, align 1
+99:                                               ; preds = %96
+  store i8 0, ptr %95, align 1
   br label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit
 
-_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit: ; preds = %102, %._crit_edge, %100, %105
+_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit: ; preds = %96, %._crit_edge, %94, %99
   ret void
 }
 
