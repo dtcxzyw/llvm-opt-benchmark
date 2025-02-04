@@ -1,5 +1,5 @@
-; ModuleID = 'bench/csmith/original/LinearSequence.cpp.ll'
-source_filename = "bench/csmith/original/LinearSequence.cpp.ll"
+; ModuleID = 'bench/csmith/original/LinearSequence.ll'
+source_filename = "bench/csmith/original/LinearSequence.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 

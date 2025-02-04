@@ -1,5 +1,5 @@
-; ModuleID = 'bench/mold/original/perf.cc.ll'
-source_filename = "bench/mold/original/perf.cc.ll"
+; ModuleID = 'bench/mold/original/perf.ll'
+source_filename = "bench/mold/original/perf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 

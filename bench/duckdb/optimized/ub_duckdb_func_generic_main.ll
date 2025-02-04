@@ -1,5 +1,5 @@
-; ModuleID = 'bench/duckdb/original/ub_duckdb_func_generic_main.cpp.ll'
-source_filename = "bench/duckdb/original/ub_duckdb_func_generic_main.cpp.ll"
+; ModuleID = 'bench/duckdb/original/ub_duckdb_func_generic_main.ll'
+source_filename = "bench/duckdb/original/ub_duckdb_func_generic_main.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 

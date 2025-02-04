@@ -1,5 +1,5 @@
-; ModuleID = 'bench/qemu/original/block_monitor_bitmap-qmp-cmds.c.ll'
-source_filename = "bench/qemu/original/block_monitor_bitmap-qmp-cmds.c.ll"
+; ModuleID = 'bench/qemu/original/block_monitor_bitmap-qmp-cmds.ll'
+source_filename = "bench/qemu/original/block_monitor_bitmap-qmp-cmds.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 

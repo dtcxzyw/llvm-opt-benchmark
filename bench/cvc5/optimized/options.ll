@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cvc5/original/options.cpp.ll'
-source_filename = "bench/cvc5/original/options.cpp.ll"
+; ModuleID = 'bench/cvc5/original/options.ll'
+source_filename = "bench/cvc5/original/options.ll"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }

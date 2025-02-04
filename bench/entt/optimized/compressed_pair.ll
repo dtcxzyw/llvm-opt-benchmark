@@ -1,5 +1,5 @@
-; ModuleID = 'bench/entt/original/compressed_pair.cpp.ll'
-source_filename = "bench/entt/original/compressed_pair.cpp.ll"
+; ModuleID = 'bench/entt/original/compressed_pair.ll'
+source_filename = "bench/entt/original/compressed_pair.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 

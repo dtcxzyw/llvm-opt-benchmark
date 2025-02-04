@@ -1,5 +1,5 @@
-; ModuleID = 'bench/xgboost/original/sparse_page_source.cc.ll'
-source_filename = "bench/xgboost/original/sparse_page_source.cc.ll"
+; ModuleID = 'bench/xgboost/original/sparse_page_source.ll'
+source_filename = "bench/xgboost/original/sparse_page_source.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 

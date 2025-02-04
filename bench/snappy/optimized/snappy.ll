@@ -1,5 +1,5 @@
-; ModuleID = 'bench/snappy/original/snappy.cc.ll'
-source_filename = "bench/snappy/original/snappy.cc.ll"
+; ModuleID = 'bench/snappy/original/snappy.ll'
+source_filename = "bench/snappy/original/snappy.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
