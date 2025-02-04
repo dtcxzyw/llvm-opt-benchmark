@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/is_tar.c.ll'
-source_filename = "bench/clamav/original/is_tar.c.ll"
+; ModuleID = 'bench/clamav/original/is_tar.ll'
+source_filename = "bench/clamav/original/is_tar.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -13,16 +13,16 @@ define range(i32 0, 3) i32 @is_tar(ptr noundef readonly captures(none) %0, i32 n
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %6 = tail call ptr @__ctype_b_loc() #3
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   br label %8
 
 8:                                                ; preds = %15, %4
   %.014.i = phi i32 [ 8, %4 ], [ %17, %15 ]
   %.013.i = phi ptr [ %5, %4 ], [ %16, %15 ]
-  %9 = load i8, ptr %.013.i, align 1
+  %9 = load i8, ptr %.013.i, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
   %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
-  %12 = load i16, ptr %11, align 2
+  %12 = load i16, ptr %11, align 2, !tbaa !9
   %13 = and i16 %12, 8192
   %.not.i = icmp eq i16 %13, 0
   br i1 %.not.i, label %.preheader.i, label %15
@@ -41,7 +41,7 @@ define range(i32 0, 3) i32 @is_tar(ptr noundef readonly captures(none) %0, i32 n
   %.030.i = phi i32 [ %25, %21 ], [ 0, %.preheader.i ]
   %.129.i = phi ptr [ %23, %21 ], [ %.013.i, %.preheader.i ]
   %.11528.i = phi i32 [ %26, %21 ], [ %.014.i, %.preheader.i ]
-  %19 = load i8, ptr %.129.i, align 1
+  %19 = load i8, ptr %.129.i, align 1, !tbaa !8
   %20 = and i8 %19, -8
   %or.cond.i = icmp eq i8 %20, 48
   br i1 %or.cond.i, label %21, label %.critedge.i
@@ -63,7 +63,7 @@ define range(i32 0, 3) i32 @is_tar(ptr noundef readonly captures(none) %0, i32 n
 28:                                               ; preds = %.critedge.i
   %29 = zext i8 %19 to i64
   %30 = getelementptr inbounds nuw i16, ptr %7, i64 %29
-  %31 = load i16, ptr %30, align 2
+  %31 = load i16, ptr %30, align 2, !tbaa !9
   %32 = and i16 %31, 8192
   %.not20.i = icmp eq i16 %32, 0
   %spec.select.i = select i1 %.not20.i, i32 -1, i32 %.030.i
@@ -79,7 +79,7 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   %.01727 = phi i32 [ 512, %from_oct.exit ], [ %34, %33 ]
   %34 = add nsw i32 %.01727, -1
   %35 = getelementptr inbounds nuw i8, ptr %.029, i64 1
-  %36 = load i8, ptr %.029, align 1
+  %36 = load i8, ptr %.029, align 1, !tbaa !8
   %37 = zext i8 %36 to i32
   %38 = add nuw nsw i32 %.01628, %37
   %39 = icmp ugt i32 %.01727, 1
@@ -90,7 +90,7 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   %.131 = phi i32 [ %43, %.preheader ], [ %38, %33 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv.next
-  %41 = load i8, ptr %40, align 1
+  %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = zext i8 %41 to i32
   %43 = sub nsw i32 %.131, %42
   %44 = icmp ugt i64 %indvars.iv, 1
@@ -119,15 +119,22 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
-attributes #0 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind willreturn memory(none) }
 attributes #4 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 short", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"short", !6, i64 0}

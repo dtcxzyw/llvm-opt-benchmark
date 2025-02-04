@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/lzssd.c.ll'
-source_filename = "bench/clamav/original/lzssd.c.ll"
+; ModuleID = 'bench/clamav/original/lzssd.ll'
+source_filename = "bench/clamav/original/lzssd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -14,7 +14,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = add nuw nsw i32 %3, 4096
   %12 = zext nneg i32 %11 to i64
   %13 = tail call ptr %10(ptr noundef nonnull %0, i64 noundef %12) #2
@@ -40,14 +40,14 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not134, label %33, label %22
 
 22:                                               ; preds = %.loopexit148
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !8
   %24 = tail call i32 %23(ptr noundef %1, ptr noundef nonnull %15, i32 noundef %3) #2
   %25 = icmp slt i32 %24, 1
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !9
   tail call void %28(ptr noundef nonnull %13) #2
   %.not146 = icmp eq i32 %24, 0
   %29 = select i1 %.not146, i32 0, i32 3
@@ -58,10 +58,10 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %31
   br label %33
 
-33:                                               ; preds = %.loopexit148, %30
+33:                                               ; preds = %30, %.loopexit148
   %.1116 = phi ptr [ %32, %30 ], [ %.0115, %.loopexit148 ]
   %.1 = phi ptr [ %15, %30 ], [ %.0109, %.loopexit148 ]
-  %34 = load i8, ptr %.1, align 1
+  %34 = load i8, ptr %.1, align 1, !tbaa !10
   %35 = zext i8 %34 to i32
   %36 = xor i32 %35, %19
   %.2170 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -81,14 +81,14 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not137, label %51, label %40
 
 40:                                               ; preds = %39
-  %41 = load ptr, ptr %20, align 8
+  %41 = load ptr, ptr %20, align 8, !tbaa !8
   %42 = tail call i32 %41(ptr noundef %1, ptr noundef nonnull %15, i32 noundef %3) #2
   %43 = icmp slt i32 %42, 1
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %46 = load ptr, ptr %45, align 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !9
   tail call void %46(ptr noundef nonnull %13) #2
   %.not145 = icmp eq i32 %42, 0
   %47 = select i1 %.not145, i32 0, i32 3
@@ -99,21 +99,21 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 %49
   br label %51
 
-51:                                               ; preds = %39, %48
+51:                                               ; preds = %48, %39
   %.3118 = phi ptr [ %50, %48 ], [ %.2117171, %39 ]
   %.3 = phi ptr [ %15, %48 ], [ %.2174, %39 ]
-  %52 = load i8, ptr %.3, align 1
+  %52 = load i8, ptr %.3, align 1, !tbaa !10
   %53 = zext i32 %.1112172 to i64
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 %53
-  store i8 %52, ptr %54, align 1
-  %55 = load ptr, ptr %21, align 8
+  store i8 %52, ptr %54, align 1, !tbaa !10
+  %55 = load ptr, ptr %21, align 8, !tbaa !11
   %56 = tail call i32 %55(ptr noundef %2, ptr noundef nonnull %54, i32 noundef 1) #2
   %.not144 = icmp eq i32 %56, 1
   br i1 %.not144, label %60, label %57
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %59 = load ptr, ptr %58, align 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !9
   tail call void %59(ptr noundef nonnull %13) #2
   br label %117
 
@@ -126,14 +126,14 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not137, label %75, label %64
 
 64:                                               ; preds = %63
-  %65 = load ptr, ptr %20, align 8
+  %65 = load ptr, ptr %20, align 8, !tbaa !8
   %66 = tail call i32 %65(ptr noundef %1, ptr noundef nonnull %15, i32 noundef %3) #2
   %67 = icmp slt i32 %66, 1
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %70 = load ptr, ptr %69, align 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !9
   tail call void %70(ptr noundef nonnull %13) #2
   %.not142 = icmp eq i32 %66, 0
   %71 = select i1 %.not142, i32 0, i32 3
@@ -144,24 +144,24 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 %73
   br label %75
 
-75:                                               ; preds = %63, %72
+75:                                               ; preds = %72, %63
   %.4119 = phi ptr [ %74, %72 ], [ %.2117171, %63 ]
   %.4 = phi ptr [ %15, %72 ], [ %.2174, %63 ]
   %76 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  %77 = load i8, ptr %.4, align 1
+  %77 = load i8, ptr %.4, align 1, !tbaa !10
   %78 = zext i8 %77 to i32
   %.not138 = icmp ult ptr %76, %.4119
   br i1 %.not138, label %90, label %79
 
 79:                                               ; preds = %75
-  %80 = load ptr, ptr %20, align 8
+  %80 = load ptr, ptr %20, align 8, !tbaa !8
   %81 = tail call i32 %80(ptr noundef %1, ptr noundef nonnull %15, i32 noundef %3) #2
   %82 = icmp slt i32 %81, 1
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %85 = load ptr, ptr %84, align 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !9
   tail call void %85(ptr noundef nonnull %13) #2
   %.not141 = icmp eq i32 %81, 0
   %86 = select i1 %.not141, i32 0, i32 3
@@ -172,10 +172,10 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   %89 = getelementptr inbounds nuw i8, ptr %15, i64 %88
   br label %90
 
-90:                                               ; preds = %75, %87
+90:                                               ; preds = %87, %75
   %.5120 = phi ptr [ %89, %87 ], [ %.4119, %75 ]
   %.5 = phi ptr [ %15, %87 ], [ %76, %75 ]
-  %91 = load i8, ptr %.5, align 1
+  %91 = load i8, ptr %.5, align 1, !tbaa !10
   %92 = zext i8 %91 to i32
   %93 = shl nuw nsw i32 %92, 4
   %94 = and i32 %93, 3840
@@ -190,18 +190,18 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   %.2113168 = phi i32 [ %.1112172, %90 ], [ %111, %109 ]
   %99 = zext nneg i32 %.0107169 to i64
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 %99
-  %101 = load i8, ptr %100, align 1
+  %101 = load i8, ptr %100, align 1, !tbaa !10
   %102 = zext i32 %.2113168 to i64
   %103 = getelementptr inbounds nuw i8, ptr %13, i64 %102
-  store i8 %101, ptr %103, align 1
-  %104 = load ptr, ptr %21, align 8
+  store i8 %101, ptr %103, align 1, !tbaa !10
+  %104 = load ptr, ptr %21, align 8, !tbaa !11
   %105 = tail call i32 %104(ptr noundef %2, ptr noundef nonnull %103, i32 noundef 1) #2
   %.not140 = icmp eq i32 %105, 1
   br i1 %.not140, label %109, label %106
 
 106:                                              ; preds = %97
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %108 = load ptr, ptr %107, align 8
+  %108 = load ptr, ptr %107, align 8, !tbaa !9
   tail call void %108(ptr noundef nonnull %13) #2
   br label %117
 
@@ -232,13 +232,21 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 56}
+!4 = !{!"mspack_system", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!4, !5, i64 16}
+!9 = !{!4, !5, i64 64}
+!10 = !{!6, !6, i64 0}
+!11 = !{!4, !5, i64 24}

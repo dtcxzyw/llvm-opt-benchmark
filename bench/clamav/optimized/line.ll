@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/line.c.ll'
-source_filename = "bench/clamav/original/line.c.ll"
+; ModuleID = 'bench/clamav/original/line.ll'
+source_filename = "bench/clamav/original/line.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -22,12 +22,12 @@ define ptr @lineCreate(ptr noundef readonly captures(none) %0) local_unnamed_add
   br label %11
 
 7:                                                ; preds = %1
-  store i8 1, ptr %4, align 1
+  store i8 1, ptr %4, align 1, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %0, i64 %2, i1 false)
   %9 = getelementptr i8, ptr %4, i64 %2
   %10 = getelementptr i8, ptr %9, i64 1
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 1, !tbaa !3
   br label %11
 
 11:                                               ; preds = %7, %6
@@ -54,7 +54,7 @@ define ptr @lineLink(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr %0, align 1
+  %4 = load i8, ptr %0, align 1, !tbaa !3
   %5 = icmp eq i8 %4, -1
   br i1 %5, label %6, label %17
 
@@ -72,17 +72,17 @@ define ptr @lineLink(ptr noundef %0) local_unnamed_addr #0 {
   br label %lineCreate.exit
 
 13:                                               ; preds = %6
-  store i8 1, ptr %10, align 1
+  store i8 1, ptr %10, align 1, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %7, i64 %8, i1 false)
   %15 = getelementptr i8, ptr %10, i64 %8
   %16 = getelementptr i8, ptr %15, i64 1
-  store i8 0, ptr %16, align 1
+  store i8 0, ptr %16, align 1, !tbaa !3
   br label %lineCreate.exit
 
 17:                                               ; preds = %3
   %18 = add nuw i8 %4, 1
-  store i8 %18, ptr %0, align 1
+  store i8 %18, ptr %0, align 1, !tbaa !3
   br label %lineCreate.exit
 
 lineCreate.exit:                                  ; preds = %13, %12, %17
@@ -105,9 +105,9 @@ define ptr @lineGetData(ptr noundef readnone %0) local_unnamed_addr #5 {
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef ptr @lineUnlink(ptr noundef %0) local_unnamed_addr #6 {
-  %2 = load i8, ptr %0, align 1
+  %2 = load i8, ptr %0, align 1, !tbaa !3
   %3 = add i8 %2, -1
-  store i8 %3, ptr %0, align 1
+  store i8 %3, ptr %0, align 1, !tbaa !3
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %6
 
@@ -123,21 +123,23 @@ define noundef ptr @lineUnlink(ptr noundef %0) local_unnamed_addr #6 {
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}

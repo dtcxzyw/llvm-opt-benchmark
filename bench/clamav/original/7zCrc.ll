@@ -9,66 +9,86 @@ define i32 @CrcUpdate(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  store ptr %8, ptr %7, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  store i64 %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #2
+  %8 = load ptr, ptr %5, align 8, !tbaa !7
+  store ptr %8, ptr %7, align 8, !tbaa !11
   br label %9
 
 9:                                                ; preds = %25, %3
-  %10 = load i64, ptr %6, align 8
+  %10 = load i64, ptr %6, align 8, !tbaa !9
   %11 = icmp ugt i64 %10, 0
   br i1 %11, label %12, label %30
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %4, align 4
-  %14 = load ptr, ptr %7, align 8
-  %15 = load i8, ptr %14, align 1
+  %13 = load i32, ptr %4, align 4, !tbaa !3
+  %14 = load ptr, ptr %7, align 8, !tbaa !11
+  %15 = load i8, ptr %14, align 1, !tbaa !13
   %16 = zext i8 %15 to i32
   %17 = xor i32 %13, %16
   %18 = and i32 %17, 255
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds [256 x i32], ptr @g_CrcTable, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = load i32, ptr %4, align 4
+  %20 = getelementptr inbounds nuw [256 x i32], ptr @g_CrcTable, i64 0, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !3
+  %22 = load i32, ptr %4, align 4, !tbaa !3
   %23 = lshr i32 %22, 8
   %24 = xor i32 %21, %23
-  store i32 %24, ptr %4, align 4
+  store i32 %24, ptr %4, align 4, !tbaa !3
   br label %25
 
 25:                                               ; preds = %12
-  %26 = load i64, ptr %6, align 8
+  %26 = load i64, ptr %6, align 8, !tbaa !9
   %27 = add i64 %26, -1
-  store i64 %27, ptr %6, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i32 1
-  store ptr %29, ptr %7, align 8
+  store i64 %27, ptr %6, align 8, !tbaa !9
+  %28 = load ptr, ptr %7, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw i8, ptr %28, i32 1
+  store ptr %29, ptr %7, align 8, !tbaa !11
   br label %9
 
 30:                                               ; preds = %9
-  %31 = load i32, ptr %4, align 4
+  %31 = load i32, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #2
   ret i32 %31
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @CrcCalc(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i64, ptr %4, align 8, !tbaa !9
   %7 = call i32 @CrcUpdate(i32 noundef -1, ptr noundef %5, i64 noundef %6)
   %8 = xor i32 %7, -1
   ret i32 %8
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !8, i64 0}
+!13 = !{!5, !5, i64 0}

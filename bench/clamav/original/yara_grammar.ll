@@ -219,5357 +219,5644 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
+  %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca %union.YYSTYPE, align 8
-  %7 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %union.YYSTYPE, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = alloca [200 x i8], align 16
-  %11 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca [200 x i8], align 16
   %12 = alloca ptr, align 8
-  %13 = alloca [200 x %union.YYSTYPE], align 16
-  %14 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca [200 x %union.YYSTYPE], align 16
   %15 = alloca ptr, align 8
-  %16 = alloca i64, align 8
-  %17 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  %20 = alloca %union.YYSTYPE, align 8
-  %21 = alloca [128 x i8], align 16
-  %22 = alloca ptr, align 8
-  %23 = alloca i64, align 8
-  %24 = alloca i32, align 4
-  %25 = alloca i64, align 8
-  %26 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca %union.YYSTYPE, align 8
+  %22 = alloca [128 x i8], align 16
+  %23 = alloca ptr, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i32, align 4
+  %26 = alloca i64, align 8
   %27 = alloca ptr, align 8
-  %28 = alloca i64, align 8
+  %28 = alloca ptr, align 8
   %29 = alloca i64, align 8
-  %30 = alloca i32, align 4
+  %30 = alloca i64, align 8
   %31 = alloca i32, align 4
-  %32 = alloca %struct._yc_string, align 8
-  %33 = alloca ptr, align 8
-  %34 = alloca ptr, align 8
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca %struct._yc_string, align 8
   %35 = alloca ptr, align 8
   %36 = alloca ptr, align 8
   %37 = alloca ptr, align 8
-  %38 = alloca i32, align 4
+  %38 = alloca ptr, align 8
   %39 = alloca ptr, align 8
-  %40 = alloca ptr, align 8
+  %40 = alloca i32, align 4
   %41 = alloca ptr, align 8
-  %42 = alloca i32, align 4
-  %43 = alloca i32, align 4
+  %42 = alloca ptr, align 8
+  %43 = alloca ptr, align 8
   %44 = alloca i32, align 4
   %45 = alloca i32, align 4
-  %46 = alloca ptr, align 8
+  %46 = alloca i32, align 4
   %47 = alloca i32, align 4
-  %48 = alloca i32, align 4
-  %49 = alloca ptr, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca i32, align 4
   %50 = alloca i32, align 4
   %51 = alloca ptr, align 8
   %52 = alloca i32, align 4
-  %53 = alloca i32, align 4
-  %54 = alloca ptr, align 8
+  %53 = alloca ptr, align 8
+  %54 = alloca i32, align 4
   %55 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 @yara_yyparse.yyval_default, i64 8, i1 false)
-  store i32 0, ptr %19, align 4
-  %56 = getelementptr inbounds [128 x i8], ptr %21, i64 0, i64 0
-  store ptr %56, ptr %22, align 8
-  store i64 128, ptr %23, align 8
-  store i32 0, ptr %24, align 4
-  %57 = getelementptr inbounds [200 x i8], ptr %10, i64 0, i64 0
-  store ptr %57, ptr %11, align 8
-  store ptr %57, ptr %12, align 8
-  %58 = getelementptr inbounds [200 x %union.YYSTYPE], ptr %13, i64 0, i64 0
-  store ptr %58, ptr %14, align 8
-  store ptr %58, ptr %15, align 8
-  store i64 200, ptr %16, align 8
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %9, align 4
-  store i32 0, ptr %7, align 4
-  store i32 -2, ptr %5, align 4
-  br label %62
+  %56 = alloca ptr, align 8
+  %57 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 @yara_yyparse.yyval_default, i64 8, i1 false), !tbaa.struct !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 200, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 1600, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #9
+  store i32 0, ptr %20, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #9
+  call void @llvm.lifetime.start.p0(i64 128, ptr %22) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #9
+  %58 = getelementptr inbounds [128 x i8], ptr %22, i64 0, i64 0
+  store ptr %58, ptr %23, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #9
+  store i64 128, ptr %24, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #9
+  store i32 0, ptr %25, align 4, !tbaa !11
+  %59 = getelementptr inbounds [200 x i8], ptr %11, i64 0, i64 0
+  store ptr %59, ptr %12, align 8, !tbaa !13
+  store ptr %59, ptr %13, align 8, !tbaa !13
+  %60 = getelementptr inbounds [200 x %union.YYSTYPE], ptr %14, i64 0, i64 0
+  store ptr %60, ptr %15, align 8, !tbaa !17
+  store ptr %60, ptr %16, align 8, !tbaa !17
+  store i64 200, ptr %17, align 8, !tbaa !15
+  store i32 0, ptr %9, align 4, !tbaa !11
+  store i32 0, ptr %10, align 4, !tbaa !11
+  store i32 0, ptr %8, align 4, !tbaa !11
+  store i32 -2, ptr %6, align 4, !tbaa !11
+  br label %64
 
-59:                                               ; preds = %3265, %3112, %223
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i32 1
-  store ptr %61, ptr %12, align 8
-  br label %62
+61:                                               ; preds = %3305, %3149, %233
+  %62 = load ptr, ptr %13, align 8, !tbaa !13
+  %63 = getelementptr inbounds nuw i8, ptr %62, i32 1
+  store ptr %63, ptr %13, align 8, !tbaa !13
+  br label %64
 
-62:                                               ; preds = %59, %2
-  %63 = load i32, ptr %8, align 4
-  %64 = trunc i32 %63 to i8
-  %65 = load ptr, ptr %12, align 8
-  store i8 %64, ptr %65, align 1
-  %66 = load ptr, ptr %11, align 8
-  %67 = load i64, ptr %16, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 %67
-  %69 = getelementptr inbounds i8, ptr %68, i64 -1
-  %70 = load ptr, ptr %12, align 8
-  %71 = icmp ule ptr %69, %70
-  br i1 %71, label %72, label %148
+64:                                               ; preds = %61, %2
+  %65 = load i32, ptr %9, align 4, !tbaa !11
+  %66 = trunc i32 %65 to i8
+  %67 = load ptr, ptr %13, align 8, !tbaa !13
+  store i8 %66, ptr %67, align 1, !tbaa !10
+  %68 = load ptr, ptr %12, align 8, !tbaa !13
+  %69 = load i64, ptr %17, align 8, !tbaa !15
+  %70 = getelementptr inbounds i8, ptr %68, i64 %69
+  %71 = getelementptr inbounds i8, ptr %70, i64 -1
+  %72 = load ptr, ptr %13, align 8, !tbaa !13
+  %73 = icmp ule ptr %71, %72
+  br i1 %73, label %74, label %158
 
-72:                                               ; preds = %62
-  %73 = load ptr, ptr %12, align 8
-  %74 = load ptr, ptr %11, align 8
-  %75 = ptrtoint ptr %73 to i64
-  %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %75, %76
-  %78 = add nsw i64 %77, 1
-  store i64 %78, ptr %25, align 8
-  %79 = load i64, ptr %16, align 8
-  %80 = icmp sle i64 10000, %79
-  br i1 %80, label %81, label %82
+74:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #9
+  %75 = load ptr, ptr %13, align 8, !tbaa !13
+  %76 = load ptr, ptr %12, align 8, !tbaa !13
+  %77 = ptrtoint ptr %75 to i64
+  %78 = ptrtoint ptr %76 to i64
+  %79 = sub i64 %77, %78
+  %80 = add nsw i64 %79, 1
+  store i64 %80, ptr %26, align 8, !tbaa !15
+  %81 = load i64, ptr %17, align 8, !tbaa !15
+  %82 = icmp sle i64 10000, %81
+  br i1 %82, label %83, label %84
 
-81:                                               ; preds = %72
-  br label %3271
+83:                                               ; preds = %74
+  store i32 4, ptr %31, align 4
+  br label %155
 
-82:                                               ; preds = %72
-  %83 = load i64, ptr %16, align 8
-  %84 = mul nsw i64 %83, 2
-  store i64 %84, ptr %16, align 8
-  %85 = load i64, ptr %16, align 8
-  %86 = icmp slt i64 10000, %85
-  br i1 %86, label %87, label %88
+84:                                               ; preds = %74
+  %85 = load i64, ptr %17, align 8, !tbaa !15
+  %86 = mul nsw i64 %85, 2
+  store i64 %86, ptr %17, align 8, !tbaa !15
+  %87 = load i64, ptr %17, align 8, !tbaa !15
+  %88 = icmp slt i64 10000, %87
+  br i1 %88, label %89, label %90
 
-87:                                               ; preds = %82
-  store i64 10000, ptr %16, align 8
-  br label %88
+89:                                               ; preds = %84
+  store i64 10000, ptr %17, align 8, !tbaa !15
+  br label %90
 
-88:                                               ; preds = %87, %82
-  %89 = load ptr, ptr %11, align 8
-  store ptr %89, ptr %26, align 8
-  %90 = load i64, ptr %16, align 8
-  %91 = mul nsw i64 %90, 9
-  %92 = add nsw i64 %91, 7
-  %93 = call noalias ptr @malloc(i64 noundef %92) #8
-  store ptr %93, ptr %27, align 8
-  %94 = load ptr, ptr %27, align 8
-  %95 = icmp ne ptr %94, null
-  br i1 %95, label %97, label %96
+90:                                               ; preds = %89, %84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #9
+  %91 = load ptr, ptr %12, align 8, !tbaa !13
+  store ptr %91, ptr %27, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #9
+  %92 = load i64, ptr %17, align 8, !tbaa !15
+  %93 = mul nsw i64 %92, 9
+  %94 = add nsw i64 %93, 7
+  %95 = call noalias ptr @malloc(i64 noundef %94) #10
+  store ptr %95, ptr %28, align 8, !tbaa !19
+  %96 = load ptr, ptr %28, align 8, !tbaa !19
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %99, label %98
 
-96:                                               ; preds = %88
-  br label %3271
+98:                                               ; preds = %90
+  store i32 4, ptr %31, align 4
+  br label %136
 
-97:                                               ; preds = %88
-  br label %98
+99:                                               ; preds = %90
+  br label %100
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %27, align 8
-  %100 = load ptr, ptr %11, align 8
-  %101 = load i64, ptr %25, align 8
-  %102 = mul i64 %101, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 1 %100, i64 %102, i1 false)
-  %103 = load ptr, ptr %27, align 8
-  store ptr %103, ptr %11, align 8
-  %104 = load i64, ptr %16, align 8
-  %105 = mul nsw i64 %104, 1
-  %106 = add nsw i64 %105, 7
-  store i64 %106, ptr %28, align 8
-  %107 = load i64, ptr %28, align 8
-  %108 = sdiv i64 %107, 8
-  %109 = load ptr, ptr %27, align 8
-  %110 = getelementptr inbounds %union.yyalloc, ptr %109, i64 %108
-  store ptr %110, ptr %27, align 8
-  br label %111
+100:                                              ; preds = %99
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #9
+  %101 = load ptr, ptr %28, align 8, !tbaa !19
+  %102 = load ptr, ptr %12, align 8, !tbaa !13
+  %103 = load i64, ptr %26, align 8, !tbaa !15
+  %104 = mul i64 %103, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %101, ptr align 1 %102, i64 %104, i1 false)
+  %105 = load ptr, ptr %28, align 8, !tbaa !19
+  store ptr %105, ptr %12, align 8, !tbaa !13
+  %106 = load i64, ptr %17, align 8, !tbaa !15
+  %107 = mul nsw i64 %106, 1
+  %108 = add nsw i64 %107, 7
+  store i64 %108, ptr %29, align 8, !tbaa !15
+  %109 = load i64, ptr %29, align 8, !tbaa !15
+  %110 = sdiv i64 %109, 8
+  %111 = load ptr, ptr %28, align 8, !tbaa !19
+  %112 = getelementptr inbounds %union.yyalloc, ptr %111, i64 %110
+  store ptr %112, ptr %28, align 8, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #9
+  br label %113
 
-111:                                              ; preds = %98
-  br label %112
+113:                                              ; preds = %100
+  br label %114
 
-112:                                              ; preds = %111
-  %113 = load ptr, ptr %27, align 8
-  %114 = load ptr, ptr %14, align 8
-  %115 = load i64, ptr %25, align 8
-  %116 = mul i64 %115, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %113, ptr align 8 %114, i64 %116, i1 false)
-  %117 = load ptr, ptr %27, align 8
-  store ptr %117, ptr %14, align 8
-  %118 = load i64, ptr %16, align 8
-  %119 = mul nsw i64 %118, 8
-  %120 = add nsw i64 %119, 7
-  store i64 %120, ptr %29, align 8
-  %121 = load i64, ptr %29, align 8
-  %122 = sdiv i64 %121, 8
-  %123 = load ptr, ptr %27, align 8
-  %124 = getelementptr inbounds %union.yyalloc, ptr %123, i64 %122
-  store ptr %124, ptr %27, align 8
-  br label %125
+114:                                              ; preds = %113
+  br label %115
 
-125:                                              ; preds = %112
-  %126 = load ptr, ptr %26, align 8
-  %127 = getelementptr inbounds [200 x i8], ptr %10, i64 0, i64 0
-  %128 = icmp ne ptr %126, %127
-  br i1 %128, label %129, label %131
+115:                                              ; preds = %114
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #9
+  %116 = load ptr, ptr %28, align 8, !tbaa !19
+  %117 = load ptr, ptr %15, align 8, !tbaa !17
+  %118 = load i64, ptr %26, align 8, !tbaa !15
+  %119 = mul i64 %118, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %116, ptr align 8 %117, i64 %119, i1 false)
+  %120 = load ptr, ptr %28, align 8, !tbaa !19
+  store ptr %120, ptr %15, align 8, !tbaa !17
+  %121 = load i64, ptr %17, align 8, !tbaa !15
+  %122 = mul nsw i64 %121, 8
+  %123 = add nsw i64 %122, 7
+  store i64 %123, ptr %30, align 8, !tbaa !15
+  %124 = load i64, ptr %30, align 8, !tbaa !15
+  %125 = sdiv i64 %124, 8
+  %126 = load ptr, ptr %28, align 8, !tbaa !19
+  %127 = getelementptr inbounds %union.yyalloc, ptr %126, i64 %125
+  store ptr %127, ptr %28, align 8, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #9
+  br label %128
 
-129:                                              ; preds = %125
-  %130 = load ptr, ptr %26, align 8
-  call void @free(ptr noundef %130) #9
-  br label %131
+128:                                              ; preds = %115
+  br label %129
 
-131:                                              ; preds = %129, %125
-  %132 = load ptr, ptr %11, align 8
-  %133 = load i64, ptr %25, align 8
-  %134 = getelementptr inbounds i8, ptr %132, i64 %133
-  %135 = getelementptr inbounds i8, ptr %134, i64 -1
-  store ptr %135, ptr %12, align 8
-  %136 = load ptr, ptr %14, align 8
-  %137 = load i64, ptr %25, align 8
-  %138 = getelementptr inbounds %union.YYSTYPE, ptr %136, i64 %137
-  %139 = getelementptr inbounds %union.YYSTYPE, ptr %138, i64 -1
-  store ptr %139, ptr %15, align 8
-  %140 = load ptr, ptr %11, align 8
-  %141 = load i64, ptr %16, align 8
-  %142 = getelementptr inbounds i8, ptr %140, i64 %141
-  %143 = getelementptr inbounds i8, ptr %142, i64 -1
-  %144 = load ptr, ptr %12, align 8
-  %145 = icmp ule ptr %143, %144
-  br i1 %145, label %146, label %147
+129:                                              ; preds = %128
+  %130 = load ptr, ptr %27, align 8, !tbaa !13
+  %131 = getelementptr inbounds [200 x i8], ptr %11, i64 0, i64 0
+  %132 = icmp ne ptr %130, %131
+  br i1 %132, label %133, label %135
 
-146:                                              ; preds = %131
-  br label %3270
+133:                                              ; preds = %129
+  %134 = load ptr, ptr %27, align 8, !tbaa !13
+  call void @free(ptr noundef %134) #9
+  br label %135
 
-147:                                              ; preds = %131
-  br label %148
+135:                                              ; preds = %133, %129
+  store i32 0, ptr %31, align 4
+  br label %136
 
-148:                                              ; preds = %147, %62
-  %149 = load i32, ptr %8, align 4
-  %150 = icmp eq i32 %149, 2
-  br i1 %150, label %151, label %152
-
-151:                                              ; preds = %148
-  br label %3269
-
-152:                                              ; preds = %148
-  br label %153
-
-153:                                              ; preds = %152
-  %154 = load i32, ptr %8, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds [216 x i16], ptr @yypact, i64 0, i64 %155
-  %157 = load i16, ptr %156, align 2
-  %158 = sext i16 %157 to i32
-  store i32 %158, ptr %17, align 4
-  %159 = load i32, ptr %17, align 4
-  %160 = icmp eq i32 %159, -66
-  br i1 %160, label %161, label %162
-
-161:                                              ; preds = %153
-  br label %227
-
-162:                                              ; preds = %153
-  %163 = load i32, ptr %5, align 4
-  %164 = icmp eq i32 %163, -2
-  br i1 %164, label %165, label %169
-
-165:                                              ; preds = %162
-  %166 = load ptr, ptr %3, align 8
-  %167 = load ptr, ptr %4, align 8
-  %168 = call i32 @yara_yylex(ptr noundef %6, ptr noundef %166, ptr noundef %167)
-  store i32 %168, ptr %5, align 4
-  br label %169
-
-169:                                              ; preds = %165, %162
-  %170 = load i32, ptr %5, align 4
-  %171 = icmp sle i32 %170, 0
-  br i1 %171, label %172, label %173
-
-172:                                              ; preds = %169
-  store i32 0, ptr %19, align 4
-  store i32 0, ptr %5, align 4
-  br label %188
-
-173:                                              ; preds = %169
-  %174 = load i32, ptr %5, align 4
-  %175 = icmp sle i32 0, %174
-  br i1 %175, label %176, label %185
-
-176:                                              ; preds = %173
-  %177 = load i32, ptr %5, align 4
-  %178 = icmp sle i32 %177, 309
-  br i1 %178, label %179, label %185
-
-179:                                              ; preds = %176
-  %180 = load i32, ptr %5, align 4
-  %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds [310 x i8], ptr @yytranslate, i64 0, i64 %181
-  %183 = load i8, ptr %182, align 1
-  %184 = sext i8 %183 to i32
-  br label %186
-
-185:                                              ; preds = %176, %173
-  br label %186
-
-186:                                              ; preds = %185, %179
-  %187 = phi i32 [ %184, %179 ], [ 2, %185 ]
-  store i32 %187, ptr %19, align 4
-  br label %188
-
-188:                                              ; preds = %186, %172
-  %189 = load i32, ptr %19, align 4
-  %190 = load i32, ptr %17, align 4
-  %191 = add nsw i32 %190, %189
-  store i32 %191, ptr %17, align 4
-  %192 = load i32, ptr %17, align 4
-  %193 = icmp slt i32 %192, 0
-  br i1 %193, label %205, label %194
-
-194:                                              ; preds = %188
-  %195 = load i32, ptr %17, align 4
-  %196 = icmp slt i32 433, %195
-  br i1 %196, label %205, label %197
-
-197:                                              ; preds = %194
-  %198 = load i32, ptr %17, align 4
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds [434 x i16], ptr @yycheck, i64 0, i64 %199
-  %201 = load i16, ptr %200, align 2
-  %202 = sext i16 %201 to i32
-  %203 = load i32, ptr %19, align 4
-  %204 = icmp ne i32 %202, %203
-  br i1 %204, label %205, label %206
-
-205:                                              ; preds = %197, %194, %188
-  br label %227
-
-206:                                              ; preds = %197
-  %207 = load i32, ptr %17, align 4
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds [434 x i16], ptr @yytable, i64 0, i64 %208
-  %210 = load i16, ptr %209, align 2
-  %211 = sext i16 %210 to i32
-  store i32 %211, ptr %17, align 4
-  %212 = load i32, ptr %17, align 4
-  %213 = icmp sle i32 %212, 0
-  br i1 %213, label %214, label %217
-
-214:                                              ; preds = %206
-  %215 = load i32, ptr %17, align 4
-  %216 = sub nsw i32 0, %215
-  store i32 %216, ptr %17, align 4
-  br label %237
-
-217:                                              ; preds = %206
-  %218 = load i32, ptr %9, align 4
-  %219 = icmp ne i32 %218, 0
-  br i1 %219, label %220, label %223
-
-220:                                              ; preds = %217
-  %221 = load i32, ptr %9, align 4
-  %222 = add nsw i32 %221, -1
-  store i32 %222, ptr %9, align 4
-  br label %223
-
-223:                                              ; preds = %220, %217
-  %224 = load i32, ptr %17, align 4
-  store i32 %224, ptr %8, align 4
-  %225 = load ptr, ptr %15, align 8
-  %226 = getelementptr inbounds %union.YYSTYPE, ptr %225, i32 1
-  store ptr %226, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %226, ptr align 8 %6, i64 8, i1 false)
-  store i32 -2, ptr %5, align 4
-  br label %59
-
-227:                                              ; preds = %205, %161
-  %228 = load i32, ptr %8, align 4
-  %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds [216 x i8], ptr @yydefact, i64 0, i64 %229
-  %231 = load i8, ptr %230, align 1
-  %232 = sext i8 %231 to i32
-  store i32 %232, ptr %17, align 4
-  %233 = load i32, ptr %17, align 4
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %235, label %236
-
-235:                                              ; preds = %227
-  br label %3114
-
-236:                                              ; preds = %227
-  br label %237
-
-237:                                              ; preds = %236, %214
-  %238 = load i32, ptr %17, align 4
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds [116 x i8], ptr @yyr2, i64 0, i64 %239
-  %241 = load i8, ptr %240, align 1
-  %242 = sext i8 %241 to i32
-  store i32 %242, ptr %24, align 4
-  %243 = load ptr, ptr %15, align 8
-  %244 = load i32, ptr %24, align 4
-  %245 = sub nsw i32 1, %244
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds %union.YYSTYPE, ptr %243, i64 %246
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %247, i64 8, i1 false)
-  %248 = load i32, ptr %17, align 4
-  switch i32 %248, label %3056 [
-    i32 7, label %249
-    i32 8, label %264
-    i32 9, label %292
-    i32 10, label %293
-    i32 11, label %305
-    i32 12, label %309
-    i32 14, label %333
-    i32 15, label %334
-    i32 16, label %342
-    i32 17, label %343
-    i32 18, label %344
-    i32 19, label %345
-    i32 20, label %349
-    i32 21, label %353
-    i32 22, label %368
-    i32 23, label %372
-    i32 24, label %376
-    i32 25, label %400
-    i32 26, label %419
-    i32 27, label %434
-    i32 28, label %449
-    i32 29, label %453
-    i32 30, label %457
-    i32 31, label %482
-    i32 32, label %487
-    i32 33, label %513
-    i32 34, label %534
-    i32 35, label %535
-    i32 36, label %543
-    i32 37, label %544
-    i32 38, label %545
-    i32 39, label %546
-    i32 40, label %547
-    i32 41, label %661
-    i32 42, label %740
-    i32 43, label %787
-    i32 44, label %857
-    i32 45, label %859
-    i32 46, label %884
-    i32 47, label %931
-    i32 48, label %932
-    i32 49, label %952
-    i32 50, label %965
-    i32 51, label %978
-    i32 52, label %1049
-    i32 53, label %1114
-    i32 54, label %1129
-    i32 55, label %1178
-    i32 56, label %1201
-    i32 57, label %1256
-    i32 58, label %1313
-    i32 59, label %1402
-    i32 60, label %1467
-    i32 61, label %1513
-    i32 62, label %1516
-    i32 63, label %1519
-    i32 64, label %1522
-    i32 65, label %1551
-    i32 66, label %1606
-    i32 67, label %1661
-    i32 68, label %1716
-    i32 69, label %1771
-    i32 70, label %1814
-    i32 71, label %1857
-    i32 72, label %1900
-    i32 73, label %1904
-    i32 74, label %1908
-    i32 75, label %1909
-    i32 76, label %1910
-    i32 77, label %1945
-    i32 78, label %1967
-    i32 79, label %1989
-    i32 81, label %1992
-    i32 84, label %2001
-    i32 85, label %2010
-    i32 87, label %2019
-    i32 88, label %2026
-    i32 89, label %2033
-    i32 90, label %2037
-    i32 91, label %2050
-    i32 92, label %2067
-    i32 93, label %2106
-    i32 94, label %2145
-    i32 95, label %2184
-    i32 96, label %2223
-    i32 97, label %2262
-    i32 98, label %2301
-    i32 99, label %2317
-    i32 100, label %2341
-    i32 101, label %2360
-    i32 102, label %2383
-    i32 103, label %2416
-    i32 104, label %2473
-    i32 105, label %2528
-    i32 106, label %2583
-    i32 107, label %2638
-    i32 108, label %2693
-    i32 109, label %2748
-    i32 110, label %2803
-    i32 111, label %2858
-    i32 112, label %2913
-    i32 113, label %2942
-    i32 114, label %2997
-    i32 115, label %3052
+136:                                              ; preds = %98, %135
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #9
+  %137 = load i32, ptr %31, align 4
+  switch i32 %137, label %155 [
+    i32 0, label %138
   ]
 
-249:                                              ; preds = %237
-  %250 = load ptr, ptr %3, align 8
-  %251 = load ptr, ptr %15, align 8
-  %252 = getelementptr inbounds %union.YYSTYPE, ptr %251, i64 0
-  %253 = load ptr, ptr %252, align 8
-  %254 = call i32 @yr_parser_reduce_import(ptr noundef %250, ptr noundef %253)
-  store i32 %254, ptr %30, align 4
-  %255 = load ptr, ptr %15, align 8
-  %256 = getelementptr inbounds %union.YYSTYPE, ptr %255, i64 0
-  %257 = load ptr, ptr %256, align 8
-  call void @free(ptr noundef %257) #9
-  %258 = load i32, ptr %30, align 4
-  %259 = icmp ne i32 %258, 0
-  br i1 %259, label %260, label %263
+138:                                              ; preds = %136
+  %139 = load ptr, ptr %12, align 8, !tbaa !13
+  %140 = load i64, ptr %26, align 8, !tbaa !15
+  %141 = getelementptr inbounds i8, ptr %139, i64 %140
+  %142 = getelementptr inbounds i8, ptr %141, i64 -1
+  store ptr %142, ptr %13, align 8, !tbaa !13
+  %143 = load ptr, ptr %15, align 8, !tbaa !17
+  %144 = load i64, ptr %26, align 8, !tbaa !15
+  %145 = getelementptr inbounds %union.YYSTYPE, ptr %143, i64 %144
+  %146 = getelementptr inbounds %union.YYSTYPE, ptr %145, i64 -1
+  store ptr %146, ptr %16, align 8, !tbaa !17
+  %147 = load ptr, ptr %12, align 8, !tbaa !13
+  %148 = load i64, ptr %17, align 8, !tbaa !15
+  %149 = getelementptr inbounds i8, ptr %147, i64 %148
+  %150 = getelementptr inbounds i8, ptr %149, i64 -1
+  %151 = load ptr, ptr %13, align 8, !tbaa !13
+  %152 = icmp ule ptr %150, %151
+  br i1 %152, label %153, label %154
 
-260:                                              ; preds = %249
-  %261 = load ptr, ptr %3, align 8
-  %262 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %261, ptr noundef %262, ptr noundef null)
-  br label %3195
+153:                                              ; preds = %138
+  store i32 9, ptr %31, align 4
+  br label %155
 
-263:                                              ; preds = %249
-  br label %3057
+154:                                              ; preds = %138
+  store i32 0, ptr %31, align 4
+  br label %155
 
-264:                                              ; preds = %237
-  %265 = load ptr, ptr %3, align 8
-  %266 = load ptr, ptr %15, align 8
-  %267 = getelementptr inbounds %union.YYSTYPE, ptr %266, i64 -8
-  %268 = load i64, ptr %267, align 8
-  %269 = trunc i64 %268 to i32
-  %270 = load ptr, ptr %15, align 8
-  %271 = getelementptr inbounds %union.YYSTYPE, ptr %270, i64 -6
-  %272 = load ptr, ptr %271, align 8
-  %273 = load ptr, ptr %15, align 8
-  %274 = getelementptr inbounds %union.YYSTYPE, ptr %273, i64 -5
-  %275 = load ptr, ptr %274, align 8
-  %276 = load ptr, ptr %15, align 8
-  %277 = getelementptr inbounds %union.YYSTYPE, ptr %276, i64 -2
-  %278 = load ptr, ptr %277, align 8
-  %279 = load ptr, ptr %15, align 8
-  %280 = getelementptr inbounds %union.YYSTYPE, ptr %279, i64 -3
-  %281 = load ptr, ptr %280, align 8
-  %282 = call i32 @yr_parser_reduce_rule_declaration(ptr noundef %265, i32 noundef %269, ptr noundef %272, ptr noundef %275, ptr noundef %278, ptr noundef %281)
-  store i32 %282, ptr %31, align 4
-  %283 = load ptr, ptr %15, align 8
+155:                                              ; preds = %153, %83, %154, %136
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #9
+  %156 = load i32, ptr %31, align 4
+  switch i32 %156, label %3379 [
+    i32 0, label %157
+    i32 9, label %3310
+    i32 4, label %3311
+  ]
+
+157:                                              ; preds = %155
+  br label %158
+
+158:                                              ; preds = %157, %64
+  %159 = load i32, ptr %9, align 4, !tbaa !11
+  %160 = icmp eq i32 %159, 2
+  br i1 %160, label %161, label %162
+
+161:                                              ; preds = %158
+  br label %3309
+
+162:                                              ; preds = %158
+  br label %163
+
+163:                                              ; preds = %162
+  %164 = load i32, ptr %9, align 4, !tbaa !11
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds [216 x i16], ptr @yypact, i64 0, i64 %165
+  %167 = load i16, ptr %166, align 2, !tbaa !21
+  %168 = sext i16 %167 to i32
+  store i32 %168, ptr %18, align 4, !tbaa !11
+  %169 = load i32, ptr %18, align 4, !tbaa !11
+  %170 = icmp eq i32 %169, -66
+  br i1 %170, label %171, label %172
+
+171:                                              ; preds = %163
+  br label %237
+
+172:                                              ; preds = %163
+  %173 = load i32, ptr %6, align 4, !tbaa !11
+  %174 = icmp eq i32 %173, -2
+  br i1 %174, label %175, label %179
+
+175:                                              ; preds = %172
+  %176 = load ptr, ptr %4, align 8, !tbaa !3
+  %177 = load ptr, ptr %5, align 8, !tbaa !7
+  %178 = call i32 @yara_yylex(ptr noundef %7, ptr noundef %176, ptr noundef %177)
+  store i32 %178, ptr %6, align 4, !tbaa !11
+  br label %179
+
+179:                                              ; preds = %175, %172
+  %180 = load i32, ptr %6, align 4, !tbaa !11
+  %181 = icmp sle i32 %180, 0
+  br i1 %181, label %182, label %183
+
+182:                                              ; preds = %179
+  store i32 0, ptr %20, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4, !tbaa !11
+  br label %198
+
+183:                                              ; preds = %179
+  %184 = load i32, ptr %6, align 4, !tbaa !11
+  %185 = icmp sle i32 0, %184
+  br i1 %185, label %186, label %195
+
+186:                                              ; preds = %183
+  %187 = load i32, ptr %6, align 4, !tbaa !11
+  %188 = icmp sle i32 %187, 309
+  br i1 %188, label %189, label %195
+
+189:                                              ; preds = %186
+  %190 = load i32, ptr %6, align 4, !tbaa !11
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds [310 x i8], ptr @yytranslate, i64 0, i64 %191
+  %193 = load i8, ptr %192, align 1, !tbaa !10
+  %194 = sext i8 %193 to i32
+  br label %196
+
+195:                                              ; preds = %186, %183
+  br label %196
+
+196:                                              ; preds = %195, %189
+  %197 = phi i32 [ %194, %189 ], [ 2, %195 ]
+  store i32 %197, ptr %20, align 4, !tbaa !11
+  br label %198
+
+198:                                              ; preds = %196, %182
+  %199 = load i32, ptr %20, align 4, !tbaa !11
+  %200 = load i32, ptr %18, align 4, !tbaa !11
+  %201 = add nsw i32 %200, %199
+  store i32 %201, ptr %18, align 4, !tbaa !11
+  %202 = load i32, ptr %18, align 4, !tbaa !11
+  %203 = icmp slt i32 %202, 0
+  br i1 %203, label %215, label %204
+
+204:                                              ; preds = %198
+  %205 = load i32, ptr %18, align 4, !tbaa !11
+  %206 = icmp slt i32 433, %205
+  br i1 %206, label %215, label %207
+
+207:                                              ; preds = %204
+  %208 = load i32, ptr %18, align 4, !tbaa !11
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds [434 x i16], ptr @yycheck, i64 0, i64 %209
+  %211 = load i16, ptr %210, align 2, !tbaa !21
+  %212 = sext i16 %211 to i32
+  %213 = load i32, ptr %20, align 4, !tbaa !11
+  %214 = icmp ne i32 %212, %213
+  br i1 %214, label %215, label %216
+
+215:                                              ; preds = %207, %204, %198
+  br label %237
+
+216:                                              ; preds = %207
+  %217 = load i32, ptr %18, align 4, !tbaa !11
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr inbounds [434 x i16], ptr @yytable, i64 0, i64 %218
+  %220 = load i16, ptr %219, align 2, !tbaa !21
+  %221 = sext i16 %220 to i32
+  store i32 %221, ptr %18, align 4, !tbaa !11
+  %222 = load i32, ptr %18, align 4, !tbaa !11
+  %223 = icmp sle i32 %222, 0
+  br i1 %223, label %224, label %227
+
+224:                                              ; preds = %216
+  %225 = load i32, ptr %18, align 4, !tbaa !11
+  %226 = sub nsw i32 0, %225
+  store i32 %226, ptr %18, align 4, !tbaa !11
+  br label %247
+
+227:                                              ; preds = %216
+  %228 = load i32, ptr %10, align 4, !tbaa !11
+  %229 = icmp ne i32 %228, 0
+  br i1 %229, label %230, label %233
+
+230:                                              ; preds = %227
+  %231 = load i32, ptr %10, align 4, !tbaa !11
+  %232 = add nsw i32 %231, -1
+  store i32 %232, ptr %10, align 4, !tbaa !11
+  br label %233
+
+233:                                              ; preds = %230, %227
+  %234 = load i32, ptr %18, align 4, !tbaa !11
+  store i32 %234, ptr %9, align 4, !tbaa !11
+  %235 = load ptr, ptr %16, align 8, !tbaa !17
+  %236 = getelementptr inbounds nuw %union.YYSTYPE, ptr %235, i32 1
+  store ptr %236, ptr %16, align 8, !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %236, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !9
+  store i32 -2, ptr %6, align 4, !tbaa !11
+  br label %61
+
+237:                                              ; preds = %215, %171
+  %238 = load i32, ptr %9, align 4, !tbaa !11
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds [216 x i8], ptr @yydefact, i64 0, i64 %239
+  %241 = load i8, ptr %240, align 1, !tbaa !10
+  %242 = sext i8 %241 to i32
+  store i32 %242, ptr %18, align 4, !tbaa !11
+  %243 = load i32, ptr %18, align 4, !tbaa !11
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %245, label %246
+
+245:                                              ; preds = %237
+  br label %3151
+
+246:                                              ; preds = %237
+  br label %247
+
+247:                                              ; preds = %246, %224
+  %248 = load i32, ptr %18, align 4, !tbaa !11
+  %249 = sext i32 %248 to i64
+  %250 = getelementptr inbounds [116 x i8], ptr @yyr2, i64 0, i64 %249
+  %251 = load i8, ptr %250, align 1, !tbaa !10
+  %252 = sext i8 %251 to i32
+  store i32 %252, ptr %25, align 4, !tbaa !11
+  %253 = load ptr, ptr %16, align 8, !tbaa !17
+  %254 = load i32, ptr %25, align 4, !tbaa !11
+  %255 = sub nsw i32 1, %254
+  %256 = sext i32 %255 to i64
+  %257 = getelementptr inbounds %union.YYSTYPE, ptr %253, i64 %256
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %257, i64 8, i1 false), !tbaa.struct !9
+  %258 = load i32, ptr %18, align 4, !tbaa !11
+  switch i32 %258, label %3093 [
+    i32 7, label %259
+    i32 8, label %277
+    i32 9, label %308
+    i32 10, label %309
+    i32 11, label %321
+    i32 12, label %325
+    i32 14, label %352
+    i32 15, label %353
+    i32 16, label %361
+    i32 17, label %362
+    i32 18, label %363
+    i32 19, label %364
+    i32 20, label %368
+    i32 21, label %372
+    i32 22, label %387
+    i32 23, label %391
+    i32 24, label %395
+    i32 25, label %422
+    i32 26, label %441
+    i32 27, label %456
+    i32 28, label %471
+    i32 29, label %475
+    i32 30, label %479
+    i32 31, label %504
+    i32 32, label %509
+    i32 33, label %535
+    i32 34, label %556
+    i32 35, label %557
+    i32 36, label %565
+    i32 37, label %566
+    i32 38, label %567
+    i32 39, label %568
+    i32 40, label %569
+    i32 41, label %684
+    i32 42, label %764
+    i32 43, label %811
+    i32 44, label %884
+    i32 45, label %886
+    i32 46, label %911
+    i32 47, label %958
+    i32 48, label %959
+    i32 49, label %979
+    i32 50, label %992
+    i32 51, label %1005
+    i32 52, label %1076
+    i32 53, label %1141
+    i32 54, label %1159
+    i32 55, label %1208
+    i32 56, label %1231
+    i32 57, label %1289
+    i32 58, label %1346
+    i32 59, label %1435
+    i32 60, label %1503
+    i32 61, label %1549
+    i32 62, label %1552
+    i32 63, label %1555
+    i32 64, label %1558
+    i32 65, label %1587
+    i32 66, label %1642
+    i32 67, label %1697
+    i32 68, label %1752
+    i32 69, label %1807
+    i32 70, label %1850
+    i32 71, label %1893
+    i32 72, label %1936
+    i32 73, label %1940
+    i32 74, label %1944
+    i32 75, label %1945
+    i32 76, label %1946
+    i32 77, label %1981
+    i32 78, label %2003
+    i32 79, label %2025
+    i32 81, label %2028
+    i32 84, label %2037
+    i32 85, label %2046
+    i32 87, label %2055
+    i32 88, label %2062
+    i32 89, label %2069
+    i32 90, label %2073
+    i32 91, label %2086
+    i32 92, label %2103
+    i32 93, label %2142
+    i32 94, label %2181
+    i32 95, label %2220
+    i32 96, label %2259
+    i32 97, label %2298
+    i32 98, label %2337
+    i32 99, label %2353
+    i32 100, label %2380
+    i32 101, label %2399
+    i32 102, label %2422
+    i32 103, label %2455
+    i32 104, label %2510
+    i32 105, label %2565
+    i32 106, label %2620
+    i32 107, label %2675
+    i32 108, label %2730
+    i32 109, label %2785
+    i32 110, label %2840
+    i32 111, label %2895
+    i32 112, label %2950
+    i32 113, label %2979
+    i32 114, label %3034
+    i32 115, label %3089
+  ]
+
+259:                                              ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #9
+  %260 = load ptr, ptr %4, align 8, !tbaa !3
+  %261 = load ptr, ptr %16, align 8, !tbaa !17
+  %262 = getelementptr inbounds %union.YYSTYPE, ptr %261, i64 0
+  %263 = load ptr, ptr %262, align 8, !tbaa !10
+  %264 = call i32 @yr_parser_reduce_import(ptr noundef %260, ptr noundef %263)
+  store i32 %264, ptr %32, align 4, !tbaa !11
+  %265 = load ptr, ptr %16, align 8, !tbaa !17
+  %266 = getelementptr inbounds %union.YYSTYPE, ptr %265, i64 0
+  %267 = load ptr, ptr %266, align 8, !tbaa !10
+  call void @free(ptr noundef %267) #9
+  %268 = load i32, ptr %32, align 4, !tbaa !11
+  %269 = icmp ne i32 %268, 0
+  br i1 %269, label %270, label %273
+
+270:                                              ; preds = %259
+  %271 = load ptr, ptr %4, align 8, !tbaa !3
+  %272 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %271, ptr noundef %272, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %274
+
+273:                                              ; preds = %259
+  store i32 0, ptr %31, align 4
+  br label %274
+
+274:                                              ; preds = %270, %273
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #9
+  %275 = load i32, ptr %31, align 4
+  switch i32 %275, label %3379 [
+    i32 0, label %276
+    i32 16, label %3235
+  ]
+
+276:                                              ; preds = %274
+  br label %3094
+
+277:                                              ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #9
+  %278 = load ptr, ptr %4, align 8, !tbaa !3
+  %279 = load ptr, ptr %16, align 8, !tbaa !17
+  %280 = getelementptr inbounds %union.YYSTYPE, ptr %279, i64 -8
+  %281 = load i64, ptr %280, align 8, !tbaa !10
+  %282 = trunc i64 %281 to i32
+  %283 = load ptr, ptr %16, align 8, !tbaa !17
   %284 = getelementptr inbounds %union.YYSTYPE, ptr %283, i64 -6
-  %285 = load ptr, ptr %284, align 8
-  call void @free(ptr noundef %285) #9
-  %286 = load i32, ptr %31, align 4
-  %287 = icmp ne i32 %286, 0
-  br i1 %287, label %288, label %291
-
-288:                                              ; preds = %264
-  %289 = load ptr, ptr %3, align 8
-  %290 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %289, ptr noundef %290, ptr noundef null)
-  br label %3195
-
-291:                                              ; preds = %264
-  br label %3057
-
-292:                                              ; preds = %237
-  store ptr null, ptr %20, align 8
-  br label %3057
-
-293:                                              ; preds = %237
-  %294 = load ptr, ptr %15, align 8
-  %295 = getelementptr inbounds %union.YYSTYPE, ptr %294, i64 0
-  %296 = load ptr, ptr %295, align 8
-  store ptr %296, ptr %20, align 8
-  %297 = load ptr, ptr %4, align 8
-  %298 = getelementptr inbounds %struct._YR_COMPILER, ptr %297, i32 0, i32 4
-  %299 = load i32, ptr %298, align 8
+  %285 = load ptr, ptr %284, align 8, !tbaa !10
+  %286 = load ptr, ptr %16, align 8, !tbaa !17
+  %287 = getelementptr inbounds %union.YYSTYPE, ptr %286, i64 -5
+  %288 = load ptr, ptr %287, align 8, !tbaa !10
+  %289 = load ptr, ptr %16, align 8, !tbaa !17
+  %290 = getelementptr inbounds %union.YYSTYPE, ptr %289, i64 -2
+  %291 = load ptr, ptr %290, align 8, !tbaa !10
+  %292 = load ptr, ptr %16, align 8, !tbaa !17
+  %293 = getelementptr inbounds %union.YYSTYPE, ptr %292, i64 -3
+  %294 = load ptr, ptr %293, align 8, !tbaa !10
+  %295 = call i32 @yr_parser_reduce_rule_declaration(ptr noundef %278, i32 noundef %282, ptr noundef %285, ptr noundef %288, ptr noundef %291, ptr noundef %294)
+  store i32 %295, ptr %33, align 4, !tbaa !11
+  %296 = load ptr, ptr %16, align 8, !tbaa !17
+  %297 = getelementptr inbounds %union.YYSTYPE, ptr %296, i64 -6
+  %298 = load ptr, ptr %297, align 8, !tbaa !10
+  call void @free(ptr noundef %298) #9
+  %299 = load i32, ptr %33, align 4, !tbaa !11
   %300 = icmp ne i32 %299, 0
   br i1 %300, label %301, label %304
 
-301:                                              ; preds = %293
-  %302 = load ptr, ptr %3, align 8
-  %303 = load ptr, ptr %4, align 8
+301:                                              ; preds = %277
+  %302 = load ptr, ptr %4, align 8, !tbaa !3
+  %303 = load ptr, ptr %5, align 8, !tbaa !7
   call void @yara_yyerror(ptr noundef %302, ptr noundef %303, ptr noundef null)
-  br label %3195
+  store i32 16, ptr %31, align 4
+  br label %305
 
-304:                                              ; preds = %293
-  br label %3057
+304:                                              ; preds = %277
+  store i32 0, ptr %31, align 4
+  br label %305
 
-305:                                              ; preds = %237
-  store ptr null, ptr %20, align 8
-  %306 = load ptr, ptr %20, align 8
-  %307 = load ptr, ptr %4, align 8
-  %308 = getelementptr inbounds %struct._YR_COMPILER, ptr %307, i32 0, i32 19
-  store ptr %306, ptr %308, align 8
-  br label %3057
+305:                                              ; preds = %301, %304
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #9
+  %306 = load i32, ptr %31, align 4
+  switch i32 %306, label %3379 [
+    i32 0, label %307
+    i32 16, label %3235
+  ]
 
-309:                                              ; preds = %237
-  call void @llvm.memset.p0.i64(ptr align 8 %32, i8 -1, i64 48, i1 false)
-  %310 = getelementptr inbounds %struct._yc_string, ptr %32, i32 0, i32 1
-  store i32 4096, ptr %310, align 8
-  %311 = load ptr, ptr %4, align 8
-  %312 = getelementptr inbounds %struct._YR_COMPILER, ptr %311, i32 0, i32 8
-  %313 = load ptr, ptr %312, align 8
-  %314 = call i32 @yr_arena_write_data(ptr noundef %313, ptr noundef %32, i64 noundef 48, ptr noundef null)
-  %315 = load ptr, ptr %4, align 8
-  %316 = getelementptr inbounds %struct._YR_COMPILER, ptr %315, i32 0, i32 4
-  store i32 %314, ptr %316, align 8
-  %317 = load ptr, ptr %4, align 8
-  %318 = getelementptr inbounds %struct._YR_COMPILER, ptr %317, i32 0, i32 4
-  %319 = load i32, ptr %318, align 8
-  %320 = icmp ne i32 %319, 0
-  br i1 %320, label %321, label %324
+307:                                              ; preds = %305
+  br label %3094
 
-321:                                              ; preds = %309
-  %322 = load ptr, ptr %3, align 8
-  %323 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %322, ptr noundef %323, ptr noundef null)
-  br label %3195
+308:                                              ; preds = %247
+  store ptr null, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-324:                                              ; preds = %309
-  %325 = load ptr, ptr %15, align 8
-  %326 = getelementptr inbounds %union.YYSTYPE, ptr %325, i64 0
-  %327 = load ptr, ptr %326, align 8
-  %328 = load ptr, ptr %4, align 8
-  %329 = getelementptr inbounds %struct._YR_COMPILER, ptr %328, i32 0, i32 19
-  store ptr %327, ptr %329, align 8
-  %330 = load ptr, ptr %15, align 8
-  %331 = getelementptr inbounds %union.YYSTYPE, ptr %330, i64 0
-  %332 = load ptr, ptr %331, align 8
-  store ptr %332, ptr %20, align 8
-  br label %3057
+309:                                              ; preds = %247
+  %310 = load ptr, ptr %16, align 8, !tbaa !17
+  %311 = getelementptr inbounds %union.YYSTYPE, ptr %310, i64 0
+  %312 = load ptr, ptr %311, align 8, !tbaa !10
+  store ptr %312, ptr %21, align 8, !tbaa !10
+  %313 = load ptr, ptr %5, align 8, !tbaa !7
+  %314 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %313, i32 0, i32 4
+  %315 = load i32, ptr %314, align 8, !tbaa !23
+  %316 = icmp ne i32 %315, 0
+  br i1 %316, label %317, label %320
 
-333:                                              ; preds = %237
-  store i64 0, ptr %20, align 8
-  br label %3057
+317:                                              ; preds = %309
+  %318 = load ptr, ptr %4, align 8, !tbaa !3
+  %319 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %318, ptr noundef %319, ptr noundef null)
+  br label %3235
 
-334:                                              ; preds = %237
-  %335 = load ptr, ptr %15, align 8
-  %336 = getelementptr inbounds %union.YYSTYPE, ptr %335, i64 -1
-  %337 = load i64, ptr %336, align 8
-  %338 = load ptr, ptr %15, align 8
-  %339 = getelementptr inbounds %union.YYSTYPE, ptr %338, i64 0
-  %340 = load i64, ptr %339, align 8
-  %341 = or i64 %337, %340
-  store i64 %341, ptr %20, align 8
-  br label %3057
+320:                                              ; preds = %309
+  br label %3094
 
-342:                                              ; preds = %237
-  store i64 1, ptr %20, align 8
-  br label %3057
+321:                                              ; preds = %247
+  store ptr null, ptr %21, align 8, !tbaa !10
+  %322 = load ptr, ptr %21, align 8, !tbaa !10
+  %323 = load ptr, ptr %5, align 8, !tbaa !7
+  %324 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %323, i32 0, i32 19
+  store ptr %322, ptr %324, align 8, !tbaa !34
+  br label %3094
 
-343:                                              ; preds = %237
-  store i64 2, ptr %20, align 8
-  br label %3057
+325:                                              ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 48, ptr %34) #9
+  call void @llvm.memset.p0.i64(ptr align 8 %34, i8 -1, i64 48, i1 false)
+  %326 = getelementptr inbounds nuw %struct._yc_string, ptr %34, i32 0, i32 1
+  store i32 4096, ptr %326, align 8, !tbaa !35
+  %327 = load ptr, ptr %5, align 8, !tbaa !7
+  %328 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %327, i32 0, i32 8
+  %329 = load ptr, ptr %328, align 8, !tbaa !38
+  %330 = call i32 @yr_arena_write_data(ptr noundef %329, ptr noundef %34, i64 noundef 48, ptr noundef null)
+  %331 = load ptr, ptr %5, align 8, !tbaa !7
+  %332 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %331, i32 0, i32 4
+  store i32 %330, ptr %332, align 8, !tbaa !23
+  %333 = load ptr, ptr %5, align 8, !tbaa !7
+  %334 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %333, i32 0, i32 4
+  %335 = load i32, ptr %334, align 8, !tbaa !23
+  %336 = icmp ne i32 %335, 0
+  br i1 %336, label %337, label %340
 
-344:                                              ; preds = %237
-  store ptr null, ptr %20, align 8
-  br label %3057
+337:                                              ; preds = %325
+  %338 = load ptr, ptr %4, align 8, !tbaa !3
+  %339 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %338, ptr noundef %339, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %349
 
-345:                                              ; preds = %237
-  %346 = load ptr, ptr %15, align 8
+340:                                              ; preds = %325
+  %341 = load ptr, ptr %16, align 8, !tbaa !17
+  %342 = getelementptr inbounds %union.YYSTYPE, ptr %341, i64 0
+  %343 = load ptr, ptr %342, align 8, !tbaa !10
+  %344 = load ptr, ptr %5, align 8, !tbaa !7
+  %345 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %344, i32 0, i32 19
+  store ptr %343, ptr %345, align 8, !tbaa !34
+  %346 = load ptr, ptr %16, align 8, !tbaa !17
   %347 = getelementptr inbounds %union.YYSTYPE, ptr %346, i64 0
-  %348 = load ptr, ptr %347, align 8
-  store ptr %348, ptr %20, align 8
-  br label %3057
+  %348 = load ptr, ptr %347, align 8, !tbaa !10
+  store ptr %348, ptr %21, align 8, !tbaa !10
+  store i32 0, ptr %31, align 4
+  br label %349
 
-349:                                              ; preds = %237
-  %350 = load ptr, ptr %15, align 8
-  %351 = getelementptr inbounds %union.YYSTYPE, ptr %350, i64 0
-  %352 = load ptr, ptr %351, align 8
-  call void @free(ptr noundef %352) #9
-  br label %3057
+349:                                              ; preds = %337, %340
+  call void @llvm.lifetime.end.p0(i64 48, ptr %34) #9
+  %350 = load i32, ptr %31, align 4
+  switch i32 %350, label %3379 [
+    i32 0, label %351
+    i32 16, label %3235
+  ]
 
-353:                                              ; preds = %237
-  %354 = load ptr, ptr %15, align 8
-  %355 = getelementptr inbounds %union.YYSTYPE, ptr %354, i64 0
-  %356 = load ptr, ptr %355, align 8
-  call void @free(ptr noundef %356) #9
-  %357 = load ptr, ptr %4, align 8
-  %358 = getelementptr inbounds %struct._YR_COMPILER, ptr %357, i32 0, i32 4
-  %359 = load i32, ptr %358, align 8
-  %360 = icmp ne i32 %359, 0
-  br i1 %360, label %361, label %364
+351:                                              ; preds = %349
+  br label %3094
 
-361:                                              ; preds = %353
-  %362 = load ptr, ptr %3, align 8
-  %363 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %362, ptr noundef %363, ptr noundef null)
-  br label %3195
+352:                                              ; preds = %247
+  store i64 0, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-364:                                              ; preds = %353
-  %365 = load ptr, ptr %15, align 8
-  %366 = getelementptr inbounds %union.YYSTYPE, ptr %365, i64 -1
-  %367 = load ptr, ptr %366, align 8
-  store ptr %367, ptr %20, align 8
-  br label %3057
+353:                                              ; preds = %247
+  %354 = load ptr, ptr %16, align 8, !tbaa !17
+  %355 = getelementptr inbounds %union.YYSTYPE, ptr %354, i64 -1
+  %356 = load i64, ptr %355, align 8, !tbaa !10
+  %357 = load ptr, ptr %16, align 8, !tbaa !17
+  %358 = getelementptr inbounds %union.YYSTYPE, ptr %357, i64 0
+  %359 = load i64, ptr %358, align 8, !tbaa !10
+  %360 = or i64 %356, %359
+  store i64 %360, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-368:                                              ; preds = %237
-  %369 = load ptr, ptr %15, align 8
+361:                                              ; preds = %247
+  store i64 1, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+362:                                              ; preds = %247
+  store i64 2, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+363:                                              ; preds = %247
+  store ptr null, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+364:                                              ; preds = %247
+  %365 = load ptr, ptr %16, align 8, !tbaa !17
+  %366 = getelementptr inbounds %union.YYSTYPE, ptr %365, i64 0
+  %367 = load ptr, ptr %366, align 8, !tbaa !10
+  store ptr %367, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+368:                                              ; preds = %247
+  %369 = load ptr, ptr %16, align 8, !tbaa !17
   %370 = getelementptr inbounds %union.YYSTYPE, ptr %369, i64 0
-  %371 = load ptr, ptr %370, align 8
-  store ptr %371, ptr %20, align 8
-  br label %3057
+  %371 = load ptr, ptr %370, align 8, !tbaa !10
+  call void @free(ptr noundef %371) #9
+  br label %3094
 
-372:                                              ; preds = %237
-  %373 = load ptr, ptr %15, align 8
-  %374 = getelementptr inbounds %union.YYSTYPE, ptr %373, i64 -1
-  %375 = load ptr, ptr %374, align 8
-  store ptr %375, ptr %20, align 8
-  br label %3057
+372:                                              ; preds = %247
+  %373 = load ptr, ptr %16, align 8, !tbaa !17
+  %374 = getelementptr inbounds %union.YYSTYPE, ptr %373, i64 0
+  %375 = load ptr, ptr %374, align 8, !tbaa !10
+  call void @free(ptr noundef %375) #9
+  %376 = load ptr, ptr %5, align 8, !tbaa !7
+  %377 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %376, i32 0, i32 4
+  %378 = load i32, ptr %377, align 8, !tbaa !23
+  %379 = icmp ne i32 %378, 0
+  br i1 %379, label %380, label %383
 
-376:                                              ; preds = %237
-  %377 = load ptr, ptr %15, align 8
-  %378 = getelementptr inbounds %union.YYSTYPE, ptr %377, i64 0
-  %379 = load ptr, ptr %378, align 8
-  store ptr %379, ptr %33, align 8
-  %380 = load ptr, ptr %3, align 8
-  %381 = load ptr, ptr %15, align 8
-  %382 = getelementptr inbounds %union.YYSTYPE, ptr %381, i64 -2
-  %383 = load ptr, ptr %382, align 8
-  %384 = load ptr, ptr %33, align 8
-  %385 = getelementptr inbounds %struct._SIZED_STRING, ptr %384, i32 0, i32 2
-  %386 = getelementptr inbounds [1 x i8], ptr %385, i64 0, i64 0
-  %387 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %380, i32 noundef 2, ptr noundef %383, ptr noundef %386, i32 noundef 0)
-  store ptr %387, ptr %20, align 8
-  %388 = load ptr, ptr %15, align 8
-  %389 = getelementptr inbounds %union.YYSTYPE, ptr %388, i64 -2
-  %390 = load ptr, ptr %389, align 8
-  call void @free(ptr noundef %390) #9
-  %391 = load ptr, ptr %15, align 8
-  %392 = getelementptr inbounds %union.YYSTYPE, ptr %391, i64 0
-  %393 = load ptr, ptr %392, align 8
-  call void @free(ptr noundef %393) #9
-  %394 = load ptr, ptr %20, align 8
-  %395 = icmp eq ptr %394, null
-  br i1 %395, label %396, label %399
+380:                                              ; preds = %372
+  %381 = load ptr, ptr %4, align 8, !tbaa !3
+  %382 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %381, ptr noundef %382, ptr noundef null)
+  br label %3235
 
-396:                                              ; preds = %376
-  %397 = load ptr, ptr %3, align 8
-  %398 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %397, ptr noundef %398, ptr noundef null)
-  br label %3195
+383:                                              ; preds = %372
+  %384 = load ptr, ptr %16, align 8, !tbaa !17
+  %385 = getelementptr inbounds %union.YYSTYPE, ptr %384, i64 -1
+  %386 = load ptr, ptr %385, align 8, !tbaa !10
+  store ptr %386, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-399:                                              ; preds = %376
-  br label %3057
+387:                                              ; preds = %247
+  %388 = load ptr, ptr %16, align 8, !tbaa !17
+  %389 = getelementptr inbounds %union.YYSTYPE, ptr %388, i64 0
+  %390 = load ptr, ptr %389, align 8, !tbaa !10
+  store ptr %390, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-400:                                              ; preds = %237
-  %401 = load ptr, ptr %3, align 8
-  %402 = load ptr, ptr %15, align 8
-  %403 = getelementptr inbounds %union.YYSTYPE, ptr %402, i64 -2
-  %404 = load ptr, ptr %403, align 8
-  %405 = load ptr, ptr %15, align 8
-  %406 = getelementptr inbounds %union.YYSTYPE, ptr %405, i64 0
-  %407 = load i64, ptr %406, align 8
-  %408 = trunc i64 %407 to i32
-  %409 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %401, i32 noundef 1, ptr noundef %404, ptr noundef null, i32 noundef %408)
-  store ptr %409, ptr %20, align 8
-  %410 = load ptr, ptr %15, align 8
-  %411 = getelementptr inbounds %union.YYSTYPE, ptr %410, i64 -2
-  %412 = load ptr, ptr %411, align 8
+391:                                              ; preds = %247
+  %392 = load ptr, ptr %16, align 8, !tbaa !17
+  %393 = getelementptr inbounds %union.YYSTYPE, ptr %392, i64 -1
+  %394 = load ptr, ptr %393, align 8, !tbaa !10
+  store ptr %394, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+395:                                              ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #9
+  %396 = load ptr, ptr %16, align 8, !tbaa !17
+  %397 = getelementptr inbounds %union.YYSTYPE, ptr %396, i64 0
+  %398 = load ptr, ptr %397, align 8, !tbaa !10
+  store ptr %398, ptr %35, align 8, !tbaa !39
+  %399 = load ptr, ptr %4, align 8, !tbaa !3
+  %400 = load ptr, ptr %16, align 8, !tbaa !17
+  %401 = getelementptr inbounds %union.YYSTYPE, ptr %400, i64 -2
+  %402 = load ptr, ptr %401, align 8, !tbaa !10
+  %403 = load ptr, ptr %35, align 8, !tbaa !39
+  %404 = getelementptr inbounds nuw %struct._SIZED_STRING, ptr %403, i32 0, i32 2
+  %405 = getelementptr inbounds [1 x i8], ptr %404, i64 0, i64 0
+  %406 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %399, i32 noundef 2, ptr noundef %402, ptr noundef %405, i32 noundef 0)
+  store ptr %406, ptr %21, align 8, !tbaa !10
+  %407 = load ptr, ptr %16, align 8, !tbaa !17
+  %408 = getelementptr inbounds %union.YYSTYPE, ptr %407, i64 -2
+  %409 = load ptr, ptr %408, align 8, !tbaa !10
+  call void @free(ptr noundef %409) #9
+  %410 = load ptr, ptr %16, align 8, !tbaa !17
+  %411 = getelementptr inbounds %union.YYSTYPE, ptr %410, i64 0
+  %412 = load ptr, ptr %411, align 8, !tbaa !10
   call void @free(ptr noundef %412) #9
-  %413 = load ptr, ptr %20, align 8
+  %413 = load ptr, ptr %21, align 8, !tbaa !10
   %414 = icmp eq ptr %413, null
   br i1 %414, label %415, label %418
 
-415:                                              ; preds = %400
-  %416 = load ptr, ptr %3, align 8
-  %417 = load ptr, ptr %4, align 8
+415:                                              ; preds = %395
+  %416 = load ptr, ptr %4, align 8, !tbaa !3
+  %417 = load ptr, ptr %5, align 8, !tbaa !7
   call void @yara_yyerror(ptr noundef %416, ptr noundef %417, ptr noundef null)
-  br label %3195
+  store i32 16, ptr %31, align 4
+  br label %419
 
-418:                                              ; preds = %400
-  br label %3057
+418:                                              ; preds = %395
+  store i32 0, ptr %31, align 4
+  br label %419
 
-419:                                              ; preds = %237
-  %420 = load ptr, ptr %3, align 8
-  %421 = load ptr, ptr %15, align 8
-  %422 = getelementptr inbounds %union.YYSTYPE, ptr %421, i64 -2
-  %423 = load ptr, ptr %422, align 8
-  %424 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %420, i32 noundef 3, ptr noundef %423, ptr noundef null, i32 noundef 1)
-  store ptr %424, ptr %20, align 8
-  %425 = load ptr, ptr %15, align 8
-  %426 = getelementptr inbounds %union.YYSTYPE, ptr %425, i64 -2
-  %427 = load ptr, ptr %426, align 8
-  call void @free(ptr noundef %427) #9
-  %428 = load ptr, ptr %20, align 8
-  %429 = icmp eq ptr %428, null
-  br i1 %429, label %430, label %433
+419:                                              ; preds = %415, %418
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #9
+  %420 = load i32, ptr %31, align 4
+  switch i32 %420, label %3379 [
+    i32 0, label %421
+    i32 16, label %3235
+  ]
 
-430:                                              ; preds = %419
-  %431 = load ptr, ptr %3, align 8
-  %432 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %431, ptr noundef %432, ptr noundef null)
-  br label %3195
+421:                                              ; preds = %419
+  br label %3094
 
-433:                                              ; preds = %419
-  br label %3057
+422:                                              ; preds = %247
+  %423 = load ptr, ptr %4, align 8, !tbaa !3
+  %424 = load ptr, ptr %16, align 8, !tbaa !17
+  %425 = getelementptr inbounds %union.YYSTYPE, ptr %424, i64 -2
+  %426 = load ptr, ptr %425, align 8, !tbaa !10
+  %427 = load ptr, ptr %16, align 8, !tbaa !17
+  %428 = getelementptr inbounds %union.YYSTYPE, ptr %427, i64 0
+  %429 = load i64, ptr %428, align 8, !tbaa !10
+  %430 = trunc i64 %429 to i32
+  %431 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %423, i32 noundef 1, ptr noundef %426, ptr noundef null, i32 noundef %430)
+  store ptr %431, ptr %21, align 8, !tbaa !10
+  %432 = load ptr, ptr %16, align 8, !tbaa !17
+  %433 = getelementptr inbounds %union.YYSTYPE, ptr %432, i64 -2
+  %434 = load ptr, ptr %433, align 8, !tbaa !10
+  call void @free(ptr noundef %434) #9
+  %435 = load ptr, ptr %21, align 8, !tbaa !10
+  %436 = icmp eq ptr %435, null
+  br i1 %436, label %437, label %440
 
-434:                                              ; preds = %237
-  %435 = load ptr, ptr %3, align 8
-  %436 = load ptr, ptr %15, align 8
-  %437 = getelementptr inbounds %union.YYSTYPE, ptr %436, i64 -2
-  %438 = load ptr, ptr %437, align 8
-  %439 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %435, i32 noundef 3, ptr noundef %438, ptr noundef null, i32 noundef 0)
-  store ptr %439, ptr %20, align 8
-  %440 = load ptr, ptr %15, align 8
-  %441 = getelementptr inbounds %union.YYSTYPE, ptr %440, i64 -2
-  %442 = load ptr, ptr %441, align 8
-  call void @free(ptr noundef %442) #9
-  %443 = load ptr, ptr %20, align 8
-  %444 = icmp eq ptr %443, null
-  br i1 %444, label %445, label %448
+437:                                              ; preds = %422
+  %438 = load ptr, ptr %4, align 8, !tbaa !3
+  %439 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %438, ptr noundef %439, ptr noundef null)
+  br label %3235
 
-445:                                              ; preds = %434
-  %446 = load ptr, ptr %3, align 8
-  %447 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %446, ptr noundef %447, ptr noundef null)
-  br label %3195
+440:                                              ; preds = %422
+  br label %3094
 
-448:                                              ; preds = %434
-  br label %3057
+441:                                              ; preds = %247
+  %442 = load ptr, ptr %4, align 8, !tbaa !3
+  %443 = load ptr, ptr %16, align 8, !tbaa !17
+  %444 = getelementptr inbounds %union.YYSTYPE, ptr %443, i64 -2
+  %445 = load ptr, ptr %444, align 8, !tbaa !10
+  %446 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %442, i32 noundef 3, ptr noundef %445, ptr noundef null, i32 noundef 1)
+  store ptr %446, ptr %21, align 8, !tbaa !10
+  %447 = load ptr, ptr %16, align 8, !tbaa !17
+  %448 = getelementptr inbounds %union.YYSTYPE, ptr %447, i64 -2
+  %449 = load ptr, ptr %448, align 8, !tbaa !10
+  call void @free(ptr noundef %449) #9
+  %450 = load ptr, ptr %21, align 8, !tbaa !10
+  %451 = icmp eq ptr %450, null
+  br i1 %451, label %452, label %455
 
-449:                                              ; preds = %237
-  %450 = load ptr, ptr %15, align 8
-  %451 = getelementptr inbounds %union.YYSTYPE, ptr %450, i64 0
-  %452 = load ptr, ptr %451, align 8
-  store ptr %452, ptr %20, align 8
-  br label %3057
+452:                                              ; preds = %441
+  %453 = load ptr, ptr %4, align 8, !tbaa !3
+  %454 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %453, ptr noundef %454, ptr noundef null)
+  br label %3235
 
-453:                                              ; preds = %237
-  %454 = load ptr, ptr %15, align 8
-  %455 = getelementptr inbounds %union.YYSTYPE, ptr %454, i64 -1
-  %456 = load ptr, ptr %455, align 8
-  store ptr %456, ptr %20, align 8
-  br label %3057
+455:                                              ; preds = %441
+  br label %3094
 
-457:                                              ; preds = %237
-  %458 = load ptr, ptr %3, align 8
-  %459 = load ptr, ptr %15, align 8
-  %460 = getelementptr inbounds %union.YYSTYPE, ptr %459, i64 0
-  %461 = load i64, ptr %460, align 8
-  %462 = trunc i64 %461 to i32
-  %463 = load ptr, ptr %15, align 8
-  %464 = getelementptr inbounds %union.YYSTYPE, ptr %463, i64 -3
-  %465 = load ptr, ptr %464, align 8
-  %466 = load ptr, ptr %15, align 8
-  %467 = getelementptr inbounds %union.YYSTYPE, ptr %466, i64 -1
-  %468 = load ptr, ptr %467, align 8
-  %469 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %458, i32 noundef %462, ptr noundef %465, ptr noundef %468)
-  store ptr %469, ptr %20, align 8
-  %470 = load ptr, ptr %15, align 8
-  %471 = getelementptr inbounds %union.YYSTYPE, ptr %470, i64 -3
-  %472 = load ptr, ptr %471, align 8
-  call void @free(ptr noundef %472) #9
-  %473 = load ptr, ptr %15, align 8
-  %474 = getelementptr inbounds %union.YYSTYPE, ptr %473, i64 -1
-  %475 = load ptr, ptr %474, align 8
-  call void @free(ptr noundef %475) #9
-  %476 = load ptr, ptr %20, align 8
-  %477 = icmp eq ptr %476, null
-  br i1 %477, label %478, label %481
+456:                                              ; preds = %247
+  %457 = load ptr, ptr %4, align 8, !tbaa !3
+  %458 = load ptr, ptr %16, align 8, !tbaa !17
+  %459 = getelementptr inbounds %union.YYSTYPE, ptr %458, i64 -2
+  %460 = load ptr, ptr %459, align 8, !tbaa !10
+  %461 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %457, i32 noundef 3, ptr noundef %460, ptr noundef null, i32 noundef 0)
+  store ptr %461, ptr %21, align 8, !tbaa !10
+  %462 = load ptr, ptr %16, align 8, !tbaa !17
+  %463 = getelementptr inbounds %union.YYSTYPE, ptr %462, i64 -2
+  %464 = load ptr, ptr %463, align 8, !tbaa !10
+  call void @free(ptr noundef %464) #9
+  %465 = load ptr, ptr %21, align 8, !tbaa !10
+  %466 = icmp eq ptr %465, null
+  br i1 %466, label %467, label %470
 
-478:                                              ; preds = %457
-  %479 = load ptr, ptr %3, align 8
-  %480 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %479, ptr noundef %480, ptr noundef null)
-  br label %3195
+467:                                              ; preds = %456
+  %468 = load ptr, ptr %4, align 8, !tbaa !3
+  %469 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %468, ptr noundef %469, ptr noundef null)
+  br label %3235
 
-481:                                              ; preds = %457
-  br label %3057
+470:                                              ; preds = %456
+  br label %3094
 
-482:                                              ; preds = %237
-  %483 = load ptr, ptr %3, align 8
-  %484 = call i32 @yara_yyget_lineno(ptr noundef %483)
-  %485 = load ptr, ptr %4, align 8
-  %486 = getelementptr inbounds %struct._YR_COMPILER, ptr %485, i32 0, i32 1
-  store i32 %484, ptr %486, align 4
-  br label %3057
+471:                                              ; preds = %247
+  %472 = load ptr, ptr %16, align 8, !tbaa !17
+  %473 = getelementptr inbounds %union.YYSTYPE, ptr %472, i64 0
+  %474 = load ptr, ptr %473, align 8, !tbaa !10
+  store ptr %474, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-487:                                              ; preds = %237
-  %488 = load ptr, ptr %3, align 8
-  %489 = load ptr, ptr %15, align 8
-  %490 = getelementptr inbounds %union.YYSTYPE, ptr %489, i64 0
-  %491 = load i64, ptr %490, align 8
-  %492 = or i64 %491, 32
-  %493 = trunc i64 %492 to i32
-  %494 = load ptr, ptr %15, align 8
-  %495 = getelementptr inbounds %union.YYSTYPE, ptr %494, i64 -4
-  %496 = load ptr, ptr %495, align 8
-  %497 = load ptr, ptr %15, align 8
-  %498 = getelementptr inbounds %union.YYSTYPE, ptr %497, i64 -1
-  %499 = load ptr, ptr %498, align 8
-  %500 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %488, i32 noundef %493, ptr noundef %496, ptr noundef %499)
-  store ptr %500, ptr %20, align 8
-  %501 = load ptr, ptr %15, align 8
-  %502 = getelementptr inbounds %union.YYSTYPE, ptr %501, i64 -4
-  %503 = load ptr, ptr %502, align 8
-  call void @free(ptr noundef %503) #9
-  %504 = load ptr, ptr %15, align 8
-  %505 = getelementptr inbounds %union.YYSTYPE, ptr %504, i64 -1
-  %506 = load ptr, ptr %505, align 8
-  call void @free(ptr noundef %506) #9
-  %507 = load ptr, ptr %20, align 8
-  %508 = icmp eq ptr %507, null
-  br i1 %508, label %509, label %512
+475:                                              ; preds = %247
+  %476 = load ptr, ptr %16, align 8, !tbaa !17
+  %477 = getelementptr inbounds %union.YYSTYPE, ptr %476, i64 -1
+  %478 = load ptr, ptr %477, align 8, !tbaa !10
+  store ptr %478, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-509:                                              ; preds = %487
-  %510 = load ptr, ptr %3, align 8
-  %511 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %510, ptr noundef %511, ptr noundef null)
-  br label %3195
+479:                                              ; preds = %247
+  %480 = load ptr, ptr %4, align 8, !tbaa !3
+  %481 = load ptr, ptr %16, align 8, !tbaa !17
+  %482 = getelementptr inbounds %union.YYSTYPE, ptr %481, i64 0
+  %483 = load i64, ptr %482, align 8, !tbaa !10
+  %484 = trunc i64 %483 to i32
+  %485 = load ptr, ptr %16, align 8, !tbaa !17
+  %486 = getelementptr inbounds %union.YYSTYPE, ptr %485, i64 -3
+  %487 = load ptr, ptr %486, align 8, !tbaa !10
+  %488 = load ptr, ptr %16, align 8, !tbaa !17
+  %489 = getelementptr inbounds %union.YYSTYPE, ptr %488, i64 -1
+  %490 = load ptr, ptr %489, align 8, !tbaa !10
+  %491 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %480, i32 noundef %484, ptr noundef %487, ptr noundef %490)
+  store ptr %491, ptr %21, align 8, !tbaa !10
+  %492 = load ptr, ptr %16, align 8, !tbaa !17
+  %493 = getelementptr inbounds %union.YYSTYPE, ptr %492, i64 -3
+  %494 = load ptr, ptr %493, align 8, !tbaa !10
+  call void @free(ptr noundef %494) #9
+  %495 = load ptr, ptr %16, align 8, !tbaa !17
+  %496 = getelementptr inbounds %union.YYSTYPE, ptr %495, i64 -1
+  %497 = load ptr, ptr %496, align 8, !tbaa !10
+  call void @free(ptr noundef %497) #9
+  %498 = load ptr, ptr %21, align 8, !tbaa !10
+  %499 = icmp eq ptr %498, null
+  br i1 %499, label %500, label %503
 
-512:                                              ; preds = %487
-  br label %3057
+500:                                              ; preds = %479
+  %501 = load ptr, ptr %4, align 8, !tbaa !3
+  %502 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %501, ptr noundef %502, ptr noundef null)
+  br label %3235
 
-513:                                              ; preds = %237
-  %514 = load ptr, ptr %3, align 8
-  %515 = load ptr, ptr %15, align 8
-  %516 = getelementptr inbounds %union.YYSTYPE, ptr %515, i64 -2
-  %517 = load ptr, ptr %516, align 8
-  %518 = load ptr, ptr %15, align 8
-  %519 = getelementptr inbounds %union.YYSTYPE, ptr %518, i64 0
-  %520 = load ptr, ptr %519, align 8
-  %521 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %514, i32 noundef 2, ptr noundef %517, ptr noundef %520)
-  store ptr %521, ptr %20, align 8
-  %522 = load ptr, ptr %15, align 8
-  %523 = getelementptr inbounds %union.YYSTYPE, ptr %522, i64 -2
-  %524 = load ptr, ptr %523, align 8
-  call void @free(ptr noundef %524) #9
-  %525 = load ptr, ptr %15, align 8
-  %526 = getelementptr inbounds %union.YYSTYPE, ptr %525, i64 0
-  %527 = load ptr, ptr %526, align 8
-  call void @free(ptr noundef %527) #9
-  %528 = load ptr, ptr %20, align 8
-  %529 = icmp eq ptr %528, null
-  br i1 %529, label %530, label %533
+503:                                              ; preds = %479
+  br label %3094
 
-530:                                              ; preds = %513
-  %531 = load ptr, ptr %3, align 8
-  %532 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %531, ptr noundef %532, ptr noundef null)
-  br label %3195
+504:                                              ; preds = %247
+  %505 = load ptr, ptr %4, align 8, !tbaa !3
+  %506 = call i32 @yara_yyget_lineno(ptr noundef %505)
+  %507 = load ptr, ptr %5, align 8, !tbaa !7
+  %508 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %507, i32 0, i32 1
+  store i32 %506, ptr %508, align 4, !tbaa !41
+  br label %3094
 
-533:                                              ; preds = %513
-  br label %3057
+509:                                              ; preds = %247
+  %510 = load ptr, ptr %4, align 8, !tbaa !3
+  %511 = load ptr, ptr %16, align 8, !tbaa !17
+  %512 = getelementptr inbounds %union.YYSTYPE, ptr %511, i64 0
+  %513 = load i64, ptr %512, align 8, !tbaa !10
+  %514 = or i64 %513, 32
+  %515 = trunc i64 %514 to i32
+  %516 = load ptr, ptr %16, align 8, !tbaa !17
+  %517 = getelementptr inbounds %union.YYSTYPE, ptr %516, i64 -4
+  %518 = load ptr, ptr %517, align 8, !tbaa !10
+  %519 = load ptr, ptr %16, align 8, !tbaa !17
+  %520 = getelementptr inbounds %union.YYSTYPE, ptr %519, i64 -1
+  %521 = load ptr, ptr %520, align 8, !tbaa !10
+  %522 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %510, i32 noundef %515, ptr noundef %518, ptr noundef %521)
+  store ptr %522, ptr %21, align 8, !tbaa !10
+  %523 = load ptr, ptr %16, align 8, !tbaa !17
+  %524 = getelementptr inbounds %union.YYSTYPE, ptr %523, i64 -4
+  %525 = load ptr, ptr %524, align 8, !tbaa !10
+  call void @free(ptr noundef %525) #9
+  %526 = load ptr, ptr %16, align 8, !tbaa !17
+  %527 = getelementptr inbounds %union.YYSTYPE, ptr %526, i64 -1
+  %528 = load ptr, ptr %527, align 8, !tbaa !10
+  call void @free(ptr noundef %528) #9
+  %529 = load ptr, ptr %21, align 8, !tbaa !10
+  %530 = icmp eq ptr %529, null
+  br i1 %530, label %531, label %534
 
-534:                                              ; preds = %237
-  store i64 0, ptr %20, align 8
-  br label %3057
+531:                                              ; preds = %509
+  %532 = load ptr, ptr %4, align 8, !tbaa !3
+  %533 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %532, ptr noundef %533, ptr noundef null)
+  br label %3235
 
-535:                                              ; preds = %237
-  %536 = load ptr, ptr %15, align 8
-  %537 = getelementptr inbounds %union.YYSTYPE, ptr %536, i64 -1
-  %538 = load i64, ptr %537, align 8
-  %539 = load ptr, ptr %15, align 8
-  %540 = getelementptr inbounds %union.YYSTYPE, ptr %539, i64 0
-  %541 = load i64, ptr %540, align 8
-  %542 = or i64 %538, %541
-  store i64 %542, ptr %20, align 8
-  br label %3057
+534:                                              ; preds = %509
+  br label %3094
 
-543:                                              ; preds = %237
-  store i64 16, ptr %20, align 8
-  br label %3057
+535:                                              ; preds = %247
+  %536 = load ptr, ptr %4, align 8, !tbaa !3
+  %537 = load ptr, ptr %16, align 8, !tbaa !17
+  %538 = getelementptr inbounds %union.YYSTYPE, ptr %537, i64 -2
+  %539 = load ptr, ptr %538, align 8, !tbaa !10
+  %540 = load ptr, ptr %16, align 8, !tbaa !17
+  %541 = getelementptr inbounds %union.YYSTYPE, ptr %540, i64 0
+  %542 = load ptr, ptr %541, align 8, !tbaa !10
+  %543 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %536, i32 noundef 2, ptr noundef %539, ptr noundef %542)
+  store ptr %543, ptr %21, align 8, !tbaa !10
+  %544 = load ptr, ptr %16, align 8, !tbaa !17
+  %545 = getelementptr inbounds %union.YYSTYPE, ptr %544, i64 -2
+  %546 = load ptr, ptr %545, align 8, !tbaa !10
+  call void @free(ptr noundef %546) #9
+  %547 = load ptr, ptr %16, align 8, !tbaa !17
+  %548 = getelementptr inbounds %union.YYSTYPE, ptr %547, i64 0
+  %549 = load ptr, ptr %548, align 8, !tbaa !10
+  call void @free(ptr noundef %549) #9
+  %550 = load ptr, ptr %21, align 8, !tbaa !10
+  %551 = icmp eq ptr %550, null
+  br i1 %551, label %552, label %555
 
-544:                                              ; preds = %237
-  store i64 8, ptr %20, align 8
-  br label %3057
+552:                                              ; preds = %535
+  %553 = load ptr, ptr %4, align 8, !tbaa !3
+  %554 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %553, ptr noundef %554, ptr noundef null)
+  br label %3235
 
-545:                                              ; preds = %237
-  store i64 4, ptr %20, align 8
-  br label %3057
+555:                                              ; preds = %535
+  br label %3094
 
-546:                                              ; preds = %237
-  store i64 128, ptr %20, align 8
-  br label %3057
+556:                                              ; preds = %247
+  store i64 0, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-547:                                              ; preds = %237
-  store ptr null, ptr %34, align 8
-  store ptr null, ptr %37, align 8
-  %548 = load ptr, ptr %3, align 8
-  %549 = load ptr, ptr %15, align 8
-  %550 = getelementptr inbounds %union.YYSTYPE, ptr %549, i64 0
-  %551 = load ptr, ptr %550, align 8
-  %552 = call i32 @yr_parser_lookup_loop_variable(ptr noundef %548, ptr noundef %551)
-  store i32 %552, ptr %38, align 4
-  %553 = load i32, ptr %38, align 4
-  %554 = icmp sge i32 %553, 0
-  br i1 %554, label %555, label %564
+557:                                              ; preds = %247
+  %558 = load ptr, ptr %16, align 8, !tbaa !17
+  %559 = getelementptr inbounds %union.YYSTYPE, ptr %558, i64 -1
+  %560 = load i64, ptr %559, align 8, !tbaa !10
+  %561 = load ptr, ptr %16, align 8, !tbaa !17
+  %562 = getelementptr inbounds %union.YYSTYPE, ptr %561, i64 0
+  %563 = load i64, ptr %562, align 8, !tbaa !10
+  %564 = or i64 %560, %563
+  store i64 %564, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-555:                                              ; preds = %547
-  %556 = load ptr, ptr %3, align 8
-  %557 = load i32, ptr %38, align 4
-  %558 = mul nsw i32 4, %557
-  %559 = sext i32 %558 to i64
-  %560 = call i32 @yr_parser_emit_with_arg(ptr noundef %556, i8 noundef signext 41, i64 noundef %559, ptr noundef null)
-  %561 = load ptr, ptr %4, align 8
-  %562 = getelementptr inbounds %struct._YR_COMPILER, ptr %561, i32 0, i32 4
-  store i32 %560, ptr %562, align 8
-  %563 = inttoptr i64 -1 to ptr
-  store ptr %563, ptr %20, align 8
-  br label %649
+565:                                              ; preds = %247
+  store i64 16, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-564:                                              ; preds = %547
-  %565 = load ptr, ptr %4, align 8
-  %566 = getelementptr inbounds %struct._YR_COMPILER, ptr %565, i32 0, i32 17
-  %567 = load ptr, ptr %566, align 8
-  %568 = load ptr, ptr %15, align 8
-  %569 = getelementptr inbounds %union.YYSTYPE, ptr %568, i64 0
-  %570 = load ptr, ptr %569, align 8
-  %571 = call ptr @yr_hash_table_lookup(ptr noundef %567, ptr noundef %570, ptr noundef null)
-  store ptr %571, ptr %34, align 8
-  %572 = load ptr, ptr %34, align 8
-  %573 = icmp eq ptr %572, null
-  br i1 %573, label %574, label %588
+566:                                              ; preds = %247
+  store i64 8, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-574:                                              ; preds = %564
-  %575 = load ptr, ptr %4, align 8
-  %576 = getelementptr inbounds %struct._YR_COMPILER, ptr %575, i32 0, i32 18
-  %577 = load ptr, ptr %576, align 8
-  %578 = getelementptr inbounds %struct._YR_NAMESPACE, ptr %577, i32 0, i32 0
-  %579 = load ptr, ptr %578, align 8
-  store ptr %579, ptr %37, align 8
-  %580 = load ptr, ptr %4, align 8
-  %581 = getelementptr inbounds %struct._YR_COMPILER, ptr %580, i32 0, i32 17
-  %582 = load ptr, ptr %581, align 8
-  %583 = load ptr, ptr %15, align 8
-  %584 = getelementptr inbounds %union.YYSTYPE, ptr %583, i64 0
-  %585 = load ptr, ptr %584, align 8
-  %586 = load ptr, ptr %37, align 8
-  %587 = call ptr @yr_hash_table_lookup(ptr noundef %582, ptr noundef %585, ptr noundef %586)
-  store ptr %587, ptr %34, align 8
-  br label %588
+567:                                              ; preds = %247
+  store i64 4, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-588:                                              ; preds = %574, %564
-  %589 = load ptr, ptr %34, align 8
-  %590 = icmp ne ptr %589, null
-  br i1 %590, label %591, label %614
+568:                                              ; preds = %247
+  store i64 128, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-591:                                              ; preds = %588
-  %592 = load ptr, ptr %4, align 8
-  %593 = getelementptr inbounds %struct._YR_COMPILER, ptr %592, i32 0, i32 6
-  %594 = load ptr, ptr %593, align 8
-  %595 = load ptr, ptr %15, align 8
-  %596 = getelementptr inbounds %union.YYSTYPE, ptr %595, i64 0
-  %597 = load ptr, ptr %596, align 8
-  %598 = call i32 @yr_arena_write_string(ptr noundef %594, ptr noundef %597, ptr noundef %36)
-  %599 = load ptr, ptr %4, align 8
-  %600 = getelementptr inbounds %struct._YR_COMPILER, ptr %599, i32 0, i32 4
-  store i32 %598, ptr %600, align 8
-  %601 = load ptr, ptr %4, align 8
-  %602 = getelementptr inbounds %struct._YR_COMPILER, ptr %601, i32 0, i32 4
-  %603 = load i32, ptr %602, align 8
-  %604 = icmp eq i32 %603, 0
-  br i1 %604, label %605, label %612
+569:                                              ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #9
+  store ptr null, ptr %36, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #9
+  store ptr null, ptr %39, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #9
+  %570 = load ptr, ptr %4, align 8, !tbaa !3
+  %571 = load ptr, ptr %16, align 8, !tbaa !17
+  %572 = getelementptr inbounds %union.YYSTYPE, ptr %571, i64 0
+  %573 = load ptr, ptr %572, align 8, !tbaa !10
+  %574 = call i32 @yr_parser_lookup_loop_variable(ptr noundef %570, ptr noundef %573)
+  store i32 %574, ptr %40, align 4, !tbaa !11
+  %575 = load i32, ptr %40, align 4, !tbaa !11
+  %576 = icmp sge i32 %575, 0
+  br i1 %576, label %577, label %585
 
-605:                                              ; preds = %591
-  %606 = load ptr, ptr %3, align 8
-  %607 = load ptr, ptr %36, align 8
-  %608 = ptrtoint ptr %607 to i64
-  %609 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %606, i8 noundef signext 25, i64 noundef %608, ptr noundef null)
-  %610 = load ptr, ptr %4, align 8
-  %611 = getelementptr inbounds %struct._YR_COMPILER, ptr %610, i32 0, i32 4
-  store i32 %609, ptr %611, align 8
-  br label %612
+577:                                              ; preds = %569
+  %578 = load ptr, ptr %4, align 8, !tbaa !3
+  %579 = load i32, ptr %40, align 4, !tbaa !11
+  %580 = mul nsw i32 4, %579
+  %581 = sext i32 %580 to i64
+  %582 = call i32 @yr_parser_emit_with_arg(ptr noundef %578, i8 noundef signext 41, i64 noundef %581, ptr noundef null)
+  %583 = load ptr, ptr %5, align 8, !tbaa !7
+  %584 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %583, i32 0, i32 4
+  store i32 %582, ptr %584, align 8, !tbaa !23
+  store ptr inttoptr (i64 -1 to ptr), ptr %21, align 8, !tbaa !10
+  br label %669
 
-612:                                              ; preds = %605, %591
-  %613 = load ptr, ptr %34, align 8
-  store ptr %613, ptr %20, align 8
-  br label %648
+585:                                              ; preds = %569
+  %586 = load ptr, ptr %5, align 8, !tbaa !7
+  %587 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %586, i32 0, i32 17
+  %588 = load ptr, ptr %587, align 8, !tbaa !44
+  %589 = load ptr, ptr %16, align 8, !tbaa !17
+  %590 = getelementptr inbounds %union.YYSTYPE, ptr %589, i64 0
+  %591 = load ptr, ptr %590, align 8, !tbaa !10
+  %592 = call ptr @yr_hash_table_lookup(ptr noundef %588, ptr noundef %591, ptr noundef null)
+  store ptr %592, ptr %36, align 8, !tbaa !42
+  %593 = load ptr, ptr %36, align 8, !tbaa !42
+  %594 = icmp eq ptr %593, null
+  br i1 %594, label %595, label %609
 
-614:                                              ; preds = %588
-  %615 = load ptr, ptr %4, align 8
-  %616 = getelementptr inbounds %struct._YR_COMPILER, ptr %615, i32 0, i32 16
-  %617 = load ptr, ptr %616, align 8
-  %618 = load ptr, ptr %15, align 8
-  %619 = getelementptr inbounds %union.YYSTYPE, ptr %618, i64 0
-  %620 = load ptr, ptr %619, align 8
-  %621 = load ptr, ptr %4, align 8
-  %622 = getelementptr inbounds %struct._YR_COMPILER, ptr %621, i32 0, i32 18
-  %623 = load ptr, ptr %622, align 8
-  %624 = getelementptr inbounds %struct._YR_NAMESPACE, ptr %623, i32 0, i32 0
-  %625 = load ptr, ptr %624, align 8
-  %626 = call ptr @yr_hash_table_lookup(ptr noundef %617, ptr noundef %620, ptr noundef %625)
-  store ptr %626, ptr %35, align 8
-  %627 = load ptr, ptr %35, align 8
-  %628 = icmp ne ptr %627, null
-  br i1 %628, label %629, label %636
+595:                                              ; preds = %585
+  %596 = load ptr, ptr %5, align 8, !tbaa !7
+  %597 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %596, i32 0, i32 18
+  %598 = load ptr, ptr %597, align 8, !tbaa !45
+  %599 = getelementptr inbounds nuw %struct._YR_NAMESPACE, ptr %598, i32 0, i32 0
+  %600 = load ptr, ptr %599, align 8, !tbaa !10
+  store ptr %600, ptr %39, align 8, !tbaa !13
+  %601 = load ptr, ptr %5, align 8, !tbaa !7
+  %602 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %601, i32 0, i32 17
+  %603 = load ptr, ptr %602, align 8, !tbaa !44
+  %604 = load ptr, ptr %16, align 8, !tbaa !17
+  %605 = getelementptr inbounds %union.YYSTYPE, ptr %604, i64 0
+  %606 = load ptr, ptr %605, align 8, !tbaa !10
+  %607 = load ptr, ptr %39, align 8, !tbaa !13
+  %608 = call ptr @yr_hash_table_lookup(ptr noundef %603, ptr noundef %606, ptr noundef %607)
+  store ptr %608, ptr %36, align 8, !tbaa !42
+  br label %609
 
-629:                                              ; preds = %614
-  %630 = load ptr, ptr %3, align 8
-  %631 = load ptr, ptr %35, align 8
-  %632 = ptrtoint ptr %631 to i64
-  %633 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %630, i8 noundef signext 35, i64 noundef %632, ptr noundef null)
-  %634 = load ptr, ptr %4, align 8
-  %635 = getelementptr inbounds %struct._YR_COMPILER, ptr %634, i32 0, i32 4
-  store i32 %633, ptr %635, align 8
-  br label %646
+609:                                              ; preds = %595, %585
+  %610 = load ptr, ptr %36, align 8, !tbaa !42
+  %611 = icmp ne ptr %610, null
+  br i1 %611, label %612, label %635
 
-636:                                              ; preds = %614
-  %637 = load ptr, ptr %4, align 8
-  %638 = getelementptr inbounds %struct._YR_COMPILER, ptr %637, i32 0, i32 31
-  %639 = getelementptr inbounds [256 x i8], ptr %638, i64 0, i64 0
-  %640 = load ptr, ptr %15, align 8
-  %641 = getelementptr inbounds %union.YYSTYPE, ptr %640, i64 0
-  %642 = load ptr, ptr %641, align 8
-  %643 = call i64 @cli_strlcpy(ptr noundef %639, ptr noundef %642, i64 noundef 256)
-  %644 = load ptr, ptr %4, align 8
-  %645 = getelementptr inbounds %struct._YR_COMPILER, ptr %644, i32 0, i32 4
-  store i32 20, ptr %645, align 8
-  br label %646
+612:                                              ; preds = %609
+  %613 = load ptr, ptr %5, align 8, !tbaa !7
+  %614 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %613, i32 0, i32 6
+  %615 = load ptr, ptr %614, align 8, !tbaa !46
+  %616 = load ptr, ptr %16, align 8, !tbaa !17
+  %617 = getelementptr inbounds %union.YYSTYPE, ptr %616, i64 0
+  %618 = load ptr, ptr %617, align 8, !tbaa !10
+  %619 = call i32 @yr_arena_write_string(ptr noundef %615, ptr noundef %618, ptr noundef %38)
+  %620 = load ptr, ptr %5, align 8, !tbaa !7
+  %621 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %620, i32 0, i32 4
+  store i32 %619, ptr %621, align 8, !tbaa !23
+  %622 = load ptr, ptr %5, align 8, !tbaa !7
+  %623 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %622, i32 0, i32 4
+  %624 = load i32, ptr %623, align 8, !tbaa !23
+  %625 = icmp eq i32 %624, 0
+  br i1 %625, label %626, label %633
 
-646:                                              ; preds = %636, %629
-  %647 = inttoptr i64 -2 to ptr
-  store ptr %647, ptr %20, align 8
-  br label %648
+626:                                              ; preds = %612
+  %627 = load ptr, ptr %4, align 8, !tbaa !3
+  %628 = load ptr, ptr %38, align 8, !tbaa !13
+  %629 = ptrtoint ptr %628 to i64
+  %630 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %627, i8 noundef signext 25, i64 noundef %629, ptr noundef null)
+  %631 = load ptr, ptr %5, align 8, !tbaa !7
+  %632 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %631, i32 0, i32 4
+  store i32 %630, ptr %632, align 8, !tbaa !23
+  br label %633
 
-648:                                              ; preds = %646, %612
-  br label %649
+633:                                              ; preds = %626, %612
+  %634 = load ptr, ptr %36, align 8, !tbaa !42
+  store ptr %634, ptr %21, align 8, !tbaa !10
+  br label %668
 
-649:                                              ; preds = %648, %555
-  %650 = load ptr, ptr %15, align 8
-  %651 = getelementptr inbounds %union.YYSTYPE, ptr %650, i64 0
-  %652 = load ptr, ptr %651, align 8
-  call void @free(ptr noundef %652) #9
-  %653 = load ptr, ptr %4, align 8
-  %654 = getelementptr inbounds %struct._YR_COMPILER, ptr %653, i32 0, i32 4
-  %655 = load i32, ptr %654, align 8
-  %656 = icmp ne i32 %655, 0
-  br i1 %656, label %657, label %660
+635:                                              ; preds = %609
+  %636 = load ptr, ptr %5, align 8, !tbaa !7
+  %637 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %636, i32 0, i32 16
+  %638 = load ptr, ptr %637, align 8, !tbaa !47
+  %639 = load ptr, ptr %16, align 8, !tbaa !17
+  %640 = getelementptr inbounds %union.YYSTYPE, ptr %639, i64 0
+  %641 = load ptr, ptr %640, align 8, !tbaa !10
+  %642 = load ptr, ptr %5, align 8, !tbaa !7
+  %643 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %642, i32 0, i32 18
+  %644 = load ptr, ptr %643, align 8, !tbaa !45
+  %645 = getelementptr inbounds nuw %struct._YR_NAMESPACE, ptr %644, i32 0, i32 0
+  %646 = load ptr, ptr %645, align 8, !tbaa !10
+  %647 = call ptr @yr_hash_table_lookup(ptr noundef %638, ptr noundef %641, ptr noundef %646)
+  store ptr %647, ptr %37, align 8, !tbaa !48
+  %648 = load ptr, ptr %37, align 8, !tbaa !48
+  %649 = icmp ne ptr %648, null
+  br i1 %649, label %650, label %657
 
-657:                                              ; preds = %649
-  %658 = load ptr, ptr %3, align 8
-  %659 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %658, ptr noundef %659, ptr noundef null)
-  br label %3195
+650:                                              ; preds = %635
+  %651 = load ptr, ptr %4, align 8, !tbaa !3
+  %652 = load ptr, ptr %37, align 8, !tbaa !48
+  %653 = ptrtoint ptr %652 to i64
+  %654 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %651, i8 noundef signext 35, i64 noundef %653, ptr noundef null)
+  %655 = load ptr, ptr %5, align 8, !tbaa !7
+  %656 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %655, i32 0, i32 4
+  store i32 %654, ptr %656, align 8, !tbaa !23
+  br label %667
 
-660:                                              ; preds = %649
-  br label %3057
+657:                                              ; preds = %635
+  %658 = load ptr, ptr %5, align 8, !tbaa !7
+  %659 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %658, i32 0, i32 31
+  %660 = getelementptr inbounds [256 x i8], ptr %659, i64 0, i64 0
+  %661 = load ptr, ptr %16, align 8, !tbaa !17
+  %662 = getelementptr inbounds %union.YYSTYPE, ptr %661, i64 0
+  %663 = load ptr, ptr %662, align 8, !tbaa !10
+  %664 = call i64 @cli_strlcpy(ptr noundef %660, ptr noundef %663, i64 noundef 256)
+  %665 = load ptr, ptr %5, align 8, !tbaa !7
+  %666 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %665, i32 0, i32 4
+  store i32 20, ptr %666, align 8, !tbaa !23
+  br label %667
 
-661:                                              ; preds = %237
-  %662 = load ptr, ptr %15, align 8
-  %663 = getelementptr inbounds %union.YYSTYPE, ptr %662, i64 -2
-  %664 = load ptr, ptr %663, align 8
-  store ptr %664, ptr %39, align 8
-  store ptr null, ptr %40, align 8
-  %665 = load ptr, ptr %39, align 8
-  %666 = icmp ne ptr %665, null
-  br i1 %666, label %667, label %717
+667:                                              ; preds = %657, %650
+  store ptr inttoptr (i64 -2 to ptr), ptr %21, align 8, !tbaa !10
+  br label %668
 
-667:                                              ; preds = %661
-  %668 = load ptr, ptr %39, align 8
-  %669 = inttoptr i64 -1 to ptr
-  %670 = icmp ne ptr %668, %669
-  br i1 %670, label %671, label %717
+668:                                              ; preds = %667, %633
+  br label %669
 
-671:                                              ; preds = %667
-  %672 = load ptr, ptr %39, align 8
-  %673 = inttoptr i64 -2 to ptr
-  %674 = icmp ne ptr %672, %673
-  br i1 %674, label %675, label %717
+669:                                              ; preds = %668, %577
+  %670 = load ptr, ptr %16, align 8, !tbaa !17
+  %671 = getelementptr inbounds %union.YYSTYPE, ptr %670, i64 0
+  %672 = load ptr, ptr %671, align 8, !tbaa !10
+  call void @free(ptr noundef %672) #9
+  %673 = load ptr, ptr %5, align 8, !tbaa !7
+  %674 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %673, i32 0, i32 4
+  %675 = load i32, ptr %674, align 8, !tbaa !23
+  %676 = icmp ne i32 %675, 0
+  br i1 %676, label %677, label %680
 
-675:                                              ; preds = %671
-  %676 = load ptr, ptr %39, align 8
-  %677 = getelementptr inbounds %struct._YR_OBJECT, ptr %676, i32 0, i32 0
-  %678 = load i8, ptr %677, align 8
-  %679 = sext i8 %678 to i32
-  %680 = icmp eq i32 %679, 3
-  br i1 %680, label %681, label %717
+677:                                              ; preds = %669
+  %678 = load ptr, ptr %4, align 8, !tbaa !3
+  %679 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %678, ptr noundef %679, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %681
 
-681:                                              ; preds = %675
-  %682 = load ptr, ptr %40, align 8
-  %683 = icmp ne ptr %682, null
-  br i1 %683, label %684, label %706
+680:                                              ; preds = %669
+  store i32 0, ptr %31, align 4
+  br label %681
 
-684:                                              ; preds = %681
-  %685 = load ptr, ptr %4, align 8
-  %686 = getelementptr inbounds %struct._YR_COMPILER, ptr %685, i32 0, i32 6
-  %687 = load ptr, ptr %686, align 8
-  %688 = load ptr, ptr %15, align 8
-  %689 = getelementptr inbounds %union.YYSTYPE, ptr %688, i64 0
-  %690 = load ptr, ptr %689, align 8
-  %691 = call i32 @yr_arena_write_string(ptr noundef %687, ptr noundef %690, ptr noundef %41)
-  %692 = load ptr, ptr %4, align 8
-  %693 = getelementptr inbounds %struct._YR_COMPILER, ptr %692, i32 0, i32 4
-  store i32 %691, ptr %693, align 8
-  %694 = load ptr, ptr %4, align 8
-  %695 = getelementptr inbounds %struct._YR_COMPILER, ptr %694, i32 0, i32 4
-  %696 = load i32, ptr %695, align 8
-  %697 = icmp eq i32 %696, 0
-  br i1 %697, label %698, label %705
+681:                                              ; preds = %677, %680
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #9
+  %682 = load i32, ptr %31, align 4
+  switch i32 %682, label %3379 [
+    i32 0, label %683
+    i32 16, label %3235
+  ]
 
-698:                                              ; preds = %684
-  %699 = load ptr, ptr %3, align 8
-  %700 = load ptr, ptr %41, align 8
-  %701 = ptrtoint ptr %700 to i64
-  %702 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %699, i8 noundef signext 27, i64 noundef %701, ptr noundef null)
-  %703 = load ptr, ptr %4, align 8
-  %704 = getelementptr inbounds %struct._YR_COMPILER, ptr %703, i32 0, i32 4
-  store i32 %702, ptr %704, align 8
-  br label %705
+683:                                              ; preds = %681
+  br label %3094
 
-705:                                              ; preds = %698, %684
-  br label %716
+684:                                              ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #9
+  %685 = load ptr, ptr %16, align 8, !tbaa !17
+  %686 = getelementptr inbounds %union.YYSTYPE, ptr %685, i64 -2
+  %687 = load ptr, ptr %686, align 8, !tbaa !10
+  store ptr %687, ptr %41, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #9
+  store ptr null, ptr %42, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #9
+  %688 = load ptr, ptr %41, align 8, !tbaa !42
+  %689 = icmp ne ptr %688, null
+  br i1 %689, label %690, label %738
 
-706:                                              ; preds = %681
-  %707 = load ptr, ptr %4, align 8
-  %708 = getelementptr inbounds %struct._YR_COMPILER, ptr %707, i32 0, i32 31
-  %709 = getelementptr inbounds [256 x i8], ptr %708, i64 0, i64 0
-  %710 = load ptr, ptr %15, align 8
-  %711 = getelementptr inbounds %union.YYSTYPE, ptr %710, i64 0
-  %712 = load ptr, ptr %711, align 8
-  %713 = call i64 @cli_strlcpy(ptr noundef %709, ptr noundef %712, i64 noundef 256)
-  %714 = load ptr, ptr %4, align 8
-  %715 = getelementptr inbounds %struct._YR_COMPILER, ptr %714, i32 0, i32 4
-  store i32 33, ptr %715, align 8
-  br label %716
+690:                                              ; preds = %684
+  %691 = load ptr, ptr %41, align 8, !tbaa !42
+  %692 = icmp ne ptr %691, inttoptr (i64 -1 to ptr)
+  br i1 %692, label %693, label %738
 
-716:                                              ; preds = %706, %705
-  br label %727
+693:                                              ; preds = %690
+  %694 = load ptr, ptr %41, align 8, !tbaa !42
+  %695 = icmp ne ptr %694, inttoptr (i64 -2 to ptr)
+  br i1 %695, label %696, label %738
 
-717:                                              ; preds = %675, %671, %667, %661
-  %718 = load ptr, ptr %4, align 8
-  %719 = getelementptr inbounds %struct._YR_COMPILER, ptr %718, i32 0, i32 31
-  %720 = getelementptr inbounds [256 x i8], ptr %719, i64 0, i64 0
-  %721 = load ptr, ptr %39, align 8
-  %722 = getelementptr inbounds %struct._YR_OBJECT, ptr %721, i32 0, i32 1
-  %723 = load ptr, ptr %722, align 8
-  %724 = call i64 @cli_strlcpy(ptr noundef %720, ptr noundef %723, i64 noundef 256)
-  %725 = load ptr, ptr %4, align 8
-  %726 = getelementptr inbounds %struct._YR_COMPILER, ptr %725, i32 0, i32 4
-  store i32 35, ptr %726, align 8
-  br label %727
+696:                                              ; preds = %693
+  %697 = load ptr, ptr %41, align 8, !tbaa !42
+  %698 = getelementptr inbounds nuw %struct._YR_OBJECT, ptr %697, i32 0, i32 0
+  %699 = load i8, ptr %698, align 8, !tbaa !49
+  %700 = sext i8 %699 to i32
+  %701 = icmp eq i32 %700, 3
+  br i1 %701, label %702, label %738
 
-727:                                              ; preds = %717, %716
-  %728 = load ptr, ptr %40, align 8
-  store ptr %728, ptr %20, align 8
-  %729 = load ptr, ptr %15, align 8
-  %730 = getelementptr inbounds %union.YYSTYPE, ptr %729, i64 0
-  %731 = load ptr, ptr %730, align 8
-  call void @free(ptr noundef %731) #9
-  %732 = load ptr, ptr %4, align 8
-  %733 = getelementptr inbounds %struct._YR_COMPILER, ptr %732, i32 0, i32 4
-  %734 = load i32, ptr %733, align 8
-  %735 = icmp ne i32 %734, 0
-  br i1 %735, label %736, label %739
+702:                                              ; preds = %696
+  %703 = load ptr, ptr %42, align 8, !tbaa !42
+  %704 = icmp ne ptr %703, null
+  br i1 %704, label %705, label %727
 
-736:                                              ; preds = %727
-  %737 = load ptr, ptr %3, align 8
-  %738 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %737, ptr noundef %738, ptr noundef null)
-  br label %3195
+705:                                              ; preds = %702
+  %706 = load ptr, ptr %5, align 8, !tbaa !7
+  %707 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %706, i32 0, i32 6
+  %708 = load ptr, ptr %707, align 8, !tbaa !46
+  %709 = load ptr, ptr %16, align 8, !tbaa !17
+  %710 = getelementptr inbounds %union.YYSTYPE, ptr %709, i64 0
+  %711 = load ptr, ptr %710, align 8, !tbaa !10
+  %712 = call i32 @yr_arena_write_string(ptr noundef %708, ptr noundef %711, ptr noundef %43)
+  %713 = load ptr, ptr %5, align 8, !tbaa !7
+  %714 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %713, i32 0, i32 4
+  store i32 %712, ptr %714, align 8, !tbaa !23
+  %715 = load ptr, ptr %5, align 8, !tbaa !7
+  %716 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %715, i32 0, i32 4
+  %717 = load i32, ptr %716, align 8, !tbaa !23
+  %718 = icmp eq i32 %717, 0
+  br i1 %718, label %719, label %726
 
-739:                                              ; preds = %727
-  br label %3057
+719:                                              ; preds = %705
+  %720 = load ptr, ptr %4, align 8, !tbaa !3
+  %721 = load ptr, ptr %43, align 8, !tbaa !13
+  %722 = ptrtoint ptr %721 to i64
+  %723 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %720, i8 noundef signext 27, i64 noundef %722, ptr noundef null)
+  %724 = load ptr, ptr %5, align 8, !tbaa !7
+  %725 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %724, i32 0, i32 4
+  store i32 %723, ptr %725, align 8, !tbaa !23
+  br label %726
 
-740:                                              ; preds = %237
-  %741 = load ptr, ptr %15, align 8
-  %742 = getelementptr inbounds %union.YYSTYPE, ptr %741, i64 -3
-  %743 = load ptr, ptr %742, align 8
-  %744 = icmp ne ptr %743, null
-  br i1 %744, label %745, label %766
+726:                                              ; preds = %719, %705
+  br label %737
 
-745:                                              ; preds = %740
-  %746 = load ptr, ptr %15, align 8
-  %747 = getelementptr inbounds %union.YYSTYPE, ptr %746, i64 -3
-  %748 = load ptr, ptr %747, align 8
-  %749 = getelementptr inbounds %struct._YR_OBJECT, ptr %748, i32 0, i32 0
-  %750 = load i8, ptr %749, align 8
-  %751 = sext i8 %750 to i32
-  %752 = icmp eq i32 %751, 4
-  br i1 %752, label %753, label %766
+727:                                              ; preds = %702
+  %728 = load ptr, ptr %5, align 8, !tbaa !7
+  %729 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %728, i32 0, i32 31
+  %730 = getelementptr inbounds [256 x i8], ptr %729, i64 0, i64 0
+  %731 = load ptr, ptr %16, align 8, !tbaa !17
+  %732 = getelementptr inbounds %union.YYSTYPE, ptr %731, i64 0
+  %733 = load ptr, ptr %732, align 8, !tbaa !10
+  %734 = call i64 @cli_strlcpy(ptr noundef %730, ptr noundef %733, i64 noundef 256)
+  %735 = load ptr, ptr %5, align 8, !tbaa !7
+  %736 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %735, i32 0, i32 4
+  store i32 33, ptr %736, align 8, !tbaa !23
+  br label %737
 
-753:                                              ; preds = %745
-  %754 = load ptr, ptr %3, align 8
-  %755 = call i32 @yr_parser_emit(ptr noundef %754, i8 noundef signext 28, ptr noundef null)
-  %756 = load ptr, ptr %4, align 8
-  %757 = getelementptr inbounds %struct._YR_COMPILER, ptr %756, i32 0, i32 4
-  store i32 %755, ptr %757, align 8
-  %758 = load ptr, ptr %15, align 8
-  %759 = getelementptr inbounds %union.YYSTYPE, ptr %758, i64 -3
-  %760 = load ptr, ptr %759, align 8
-  %761 = getelementptr inbounds %struct._YR_OBJECT_ARRAY, ptr %760, i32 0, i32 4
-  %762 = load ptr, ptr %761, align 8
-  %763 = getelementptr inbounds %struct._YR_ARRAY_ITEMS, ptr %762, i32 0, i32 1
-  %764 = getelementptr inbounds [1 x ptr], ptr %763, i64 0, i64 0
-  %765 = load ptr, ptr %764, align 8
-  store ptr %765, ptr %20, align 8
-  br label %778
+737:                                              ; preds = %727, %726
+  br label %748
 
-766:                                              ; preds = %745, %740
-  %767 = load ptr, ptr %4, align 8
-  %768 = getelementptr inbounds %struct._YR_COMPILER, ptr %767, i32 0, i32 31
-  %769 = getelementptr inbounds [256 x i8], ptr %768, i64 0, i64 0
-  %770 = load ptr, ptr %15, align 8
+738:                                              ; preds = %696, %693, %690, %684
+  %739 = load ptr, ptr %5, align 8, !tbaa !7
+  %740 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %739, i32 0, i32 31
+  %741 = getelementptr inbounds [256 x i8], ptr %740, i64 0, i64 0
+  %742 = load ptr, ptr %41, align 8, !tbaa !42
+  %743 = getelementptr inbounds nuw %struct._YR_OBJECT, ptr %742, i32 0, i32 1
+  %744 = load ptr, ptr %743, align 8, !tbaa !51
+  %745 = call i64 @cli_strlcpy(ptr noundef %741, ptr noundef %744, i64 noundef 256)
+  %746 = load ptr, ptr %5, align 8, !tbaa !7
+  %747 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %746, i32 0, i32 4
+  store i32 35, ptr %747, align 8, !tbaa !23
+  br label %748
+
+748:                                              ; preds = %738, %737
+  %749 = load ptr, ptr %42, align 8, !tbaa !42
+  store ptr %749, ptr %21, align 8, !tbaa !10
+  %750 = load ptr, ptr %16, align 8, !tbaa !17
+  %751 = getelementptr inbounds %union.YYSTYPE, ptr %750, i64 0
+  %752 = load ptr, ptr %751, align 8, !tbaa !10
+  call void @free(ptr noundef %752) #9
+  %753 = load ptr, ptr %5, align 8, !tbaa !7
+  %754 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %753, i32 0, i32 4
+  %755 = load i32, ptr %754, align 8, !tbaa !23
+  %756 = icmp ne i32 %755, 0
+  br i1 %756, label %757, label %760
+
+757:                                              ; preds = %748
+  %758 = load ptr, ptr %4, align 8, !tbaa !3
+  %759 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %758, ptr noundef %759, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %761
+
+760:                                              ; preds = %748
+  store i32 0, ptr %31, align 4
+  br label %761
+
+761:                                              ; preds = %757, %760
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #9
+  %762 = load i32, ptr %31, align 4
+  switch i32 %762, label %3379 [
+    i32 0, label %763
+    i32 16, label %3235
+  ]
+
+763:                                              ; preds = %761
+  br label %3094
+
+764:                                              ; preds = %247
+  %765 = load ptr, ptr %16, align 8, !tbaa !17
+  %766 = getelementptr inbounds %union.YYSTYPE, ptr %765, i64 -3
+  %767 = load ptr, ptr %766, align 8, !tbaa !10
+  %768 = icmp ne ptr %767, null
+  br i1 %768, label %769, label %790
+
+769:                                              ; preds = %764
+  %770 = load ptr, ptr %16, align 8, !tbaa !17
   %771 = getelementptr inbounds %union.YYSTYPE, ptr %770, i64 -3
-  %772 = load ptr, ptr %771, align 8
-  %773 = getelementptr inbounds %struct._YR_OBJECT, ptr %772, i32 0, i32 1
-  %774 = load ptr, ptr %773, align 8
-  %775 = call i64 @cli_strlcpy(ptr noundef %769, ptr noundef %774, i64 noundef 256)
-  %776 = load ptr, ptr %4, align 8
-  %777 = getelementptr inbounds %struct._YR_COMPILER, ptr %776, i32 0, i32 4
-  store i32 36, ptr %777, align 8
-  br label %778
+  %772 = load ptr, ptr %771, align 8, !tbaa !10
+  %773 = getelementptr inbounds nuw %struct._YR_OBJECT, ptr %772, i32 0, i32 0
+  %774 = load i8, ptr %773, align 8, !tbaa !49
+  %775 = sext i8 %774 to i32
+  %776 = icmp eq i32 %775, 4
+  br i1 %776, label %777, label %790
 
-778:                                              ; preds = %766, %753
-  %779 = load ptr, ptr %4, align 8
-  %780 = getelementptr inbounds %struct._YR_COMPILER, ptr %779, i32 0, i32 4
-  %781 = load i32, ptr %780, align 8
-  %782 = icmp ne i32 %781, 0
-  br i1 %782, label %783, label %786
+777:                                              ; preds = %769
+  %778 = load ptr, ptr %4, align 8, !tbaa !3
+  %779 = call i32 @yr_parser_emit(ptr noundef %778, i8 noundef signext 28, ptr noundef null)
+  %780 = load ptr, ptr %5, align 8, !tbaa !7
+  %781 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %780, i32 0, i32 4
+  store i32 %779, ptr %781, align 8, !tbaa !23
+  %782 = load ptr, ptr %16, align 8, !tbaa !17
+  %783 = getelementptr inbounds %union.YYSTYPE, ptr %782, i64 -3
+  %784 = load ptr, ptr %783, align 8, !tbaa !10
+  %785 = getelementptr inbounds nuw %struct._YR_OBJECT_ARRAY, ptr %784, i32 0, i32 4
+  %786 = load ptr, ptr %785, align 8, !tbaa !52
+  %787 = getelementptr inbounds nuw %struct._YR_ARRAY_ITEMS, ptr %786, i32 0, i32 1
+  %788 = getelementptr inbounds [1 x ptr], ptr %787, i64 0, i64 0
+  %789 = load ptr, ptr %788, align 8, !tbaa !42
+  store ptr %789, ptr %21, align 8, !tbaa !10
+  br label %802
 
-783:                                              ; preds = %778
-  %784 = load ptr, ptr %3, align 8
-  %785 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %784, ptr noundef %785, ptr noundef null)
-  br label %3195
+790:                                              ; preds = %769, %764
+  %791 = load ptr, ptr %5, align 8, !tbaa !7
+  %792 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %791, i32 0, i32 31
+  %793 = getelementptr inbounds [256 x i8], ptr %792, i64 0, i64 0
+  %794 = load ptr, ptr %16, align 8, !tbaa !17
+  %795 = getelementptr inbounds %union.YYSTYPE, ptr %794, i64 -3
+  %796 = load ptr, ptr %795, align 8, !tbaa !10
+  %797 = getelementptr inbounds nuw %struct._YR_OBJECT, ptr %796, i32 0, i32 1
+  %798 = load ptr, ptr %797, align 8, !tbaa !51
+  %799 = call i64 @cli_strlcpy(ptr noundef %793, ptr noundef %798, i64 noundef 256)
+  %800 = load ptr, ptr %5, align 8, !tbaa !7
+  %801 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %800, i32 0, i32 4
+  store i32 36, ptr %801, align 8, !tbaa !23
+  br label %802
 
-786:                                              ; preds = %778
-  br label %3057
+802:                                              ; preds = %790, %777
+  %803 = load ptr, ptr %5, align 8, !tbaa !7
+  %804 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %803, i32 0, i32 4
+  %805 = load i32, ptr %804, align 8, !tbaa !23
+  %806 = icmp ne i32 %805, 0
+  br i1 %806, label %807, label %810
 
-787:                                              ; preds = %237
-  %788 = load ptr, ptr %15, align 8
-  %789 = getelementptr inbounds %union.YYSTYPE, ptr %788, i64 -3
-  %790 = load ptr, ptr %789, align 8
-  %791 = icmp ne ptr %790, null
-  br i1 %791, label %792, label %833
+807:                                              ; preds = %802
+  %808 = load ptr, ptr %4, align 8, !tbaa !3
+  %809 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %808, ptr noundef %809, ptr noundef null)
+  br label %3235
 
-792:                                              ; preds = %787
-  %793 = load ptr, ptr %15, align 8
-  %794 = getelementptr inbounds %union.YYSTYPE, ptr %793, i64 -3
-  %795 = load ptr, ptr %794, align 8
-  %796 = getelementptr inbounds %struct._YR_OBJECT, ptr %795, i32 0, i32 0
-  %797 = load i8, ptr %796, align 8
-  %798 = sext i8 %797 to i32
-  %799 = icmp eq i32 %798, 5
-  br i1 %799, label %800, label %833
+810:                                              ; preds = %802
+  br label %3094
 
-800:                                              ; preds = %792
-  %801 = load ptr, ptr %4, align 8
-  %802 = load ptr, ptr %15, align 8
-  %803 = getelementptr inbounds %union.YYSTYPE, ptr %802, i64 -3
-  %804 = load ptr, ptr %803, align 8
-  %805 = load ptr, ptr %15, align 8
-  %806 = getelementptr inbounds %union.YYSTYPE, ptr %805, i64 -1
-  %807 = load ptr, ptr %806, align 8
-  %808 = call i32 @yr_parser_check_types(ptr noundef %801, ptr noundef %804, ptr noundef %807)
-  %809 = load ptr, ptr %4, align 8
-  %810 = getelementptr inbounds %struct._YR_COMPILER, ptr %809, i32 0, i32 4
-  store i32 %808, ptr %810, align 8
-  %811 = load ptr, ptr %4, align 8
-  %812 = getelementptr inbounds %struct._YR_COMPILER, ptr %811, i32 0, i32 4
-  %813 = load i32, ptr %812, align 8
-  %814 = icmp eq i32 %813, 0
-  br i1 %814, label %815, label %827
+811:                                              ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %44) #9
+  %812 = load ptr, ptr %16, align 8, !tbaa !17
+  %813 = getelementptr inbounds %union.YYSTYPE, ptr %812, i64 -3
+  %814 = load ptr, ptr %813, align 8, !tbaa !10
+  %815 = icmp ne ptr %814, null
+  br i1 %815, label %816, label %857
 
-815:                                              ; preds = %800
-  %816 = load ptr, ptr %15, align 8
-  %817 = getelementptr inbounds %union.YYSTYPE, ptr %816, i64 -1
-  %818 = load ptr, ptr %817, align 8
-  %819 = call i64 @strlen(ptr noundef %818) #10
-  %820 = trunc i64 %819 to i32
-  store i32 %820, ptr %42, align 4
-  %821 = load ptr, ptr %3, align 8
-  %822 = load i32, ptr %42, align 4
-  %823 = sext i32 %822 to i64
-  %824 = call i32 @yr_parser_emit_with_arg(ptr noundef %821, i8 noundef signext 24, i64 noundef %823, ptr noundef null)
-  %825 = load ptr, ptr %4, align 8
-  %826 = getelementptr inbounds %struct._YR_COMPILER, ptr %825, i32 0, i32 4
-  store i32 %824, ptr %826, align 8
-  br label %827
+816:                                              ; preds = %811
+  %817 = load ptr, ptr %16, align 8, !tbaa !17
+  %818 = getelementptr inbounds %union.YYSTYPE, ptr %817, i64 -3
+  %819 = load ptr, ptr %818, align 8, !tbaa !10
+  %820 = getelementptr inbounds nuw %struct._YR_OBJECT, ptr %819, i32 0, i32 0
+  %821 = load i8, ptr %820, align 8, !tbaa !49
+  %822 = sext i8 %821 to i32
+  %823 = icmp eq i32 %822, 5
+  br i1 %823, label %824, label %857
 
-827:                                              ; preds = %815, %800
-  %828 = load ptr, ptr %15, align 8
-  %829 = getelementptr inbounds %union.YYSTYPE, ptr %828, i64 -3
-  %830 = load ptr, ptr %829, align 8
-  %831 = getelementptr inbounds %struct._YR_OBJECT_FUNCTION, ptr %830, i32 0, i32 5
-  %832 = load ptr, ptr %831, align 8
-  store ptr %832, ptr %20, align 8
-  br label %845
+824:                                              ; preds = %816
+  %825 = load ptr, ptr %5, align 8, !tbaa !7
+  %826 = load ptr, ptr %16, align 8, !tbaa !17
+  %827 = getelementptr inbounds %union.YYSTYPE, ptr %826, i64 -3
+  %828 = load ptr, ptr %827, align 8, !tbaa !10
+  %829 = load ptr, ptr %16, align 8, !tbaa !17
+  %830 = getelementptr inbounds %union.YYSTYPE, ptr %829, i64 -1
+  %831 = load ptr, ptr %830, align 8, !tbaa !10
+  %832 = call i32 @yr_parser_check_types(ptr noundef %825, ptr noundef %828, ptr noundef %831)
+  %833 = load ptr, ptr %5, align 8, !tbaa !7
+  %834 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %833, i32 0, i32 4
+  store i32 %832, ptr %834, align 8, !tbaa !23
+  %835 = load ptr, ptr %5, align 8, !tbaa !7
+  %836 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %835, i32 0, i32 4
+  %837 = load i32, ptr %836, align 8, !tbaa !23
+  %838 = icmp eq i32 %837, 0
+  br i1 %838, label %839, label %851
 
-833:                                              ; preds = %792, %787
-  %834 = load ptr, ptr %4, align 8
-  %835 = getelementptr inbounds %struct._YR_COMPILER, ptr %834, i32 0, i32 31
-  %836 = getelementptr inbounds [256 x i8], ptr %835, i64 0, i64 0
-  %837 = load ptr, ptr %15, align 8
-  %838 = getelementptr inbounds %union.YYSTYPE, ptr %837, i64 -3
-  %839 = load ptr, ptr %838, align 8
-  %840 = getelementptr inbounds %struct._YR_OBJECT, ptr %839, i32 0, i32 1
-  %841 = load ptr, ptr %840, align 8
-  %842 = call i64 @cli_strlcpy(ptr noundef %836, ptr noundef %841, i64 noundef 256)
-  %843 = load ptr, ptr %4, align 8
-  %844 = getelementptr inbounds %struct._YR_COMPILER, ptr %843, i32 0, i32 4
-  store i32 37, ptr %844, align 8
-  br label %845
+839:                                              ; preds = %824
+  %840 = load ptr, ptr %16, align 8, !tbaa !17
+  %841 = getelementptr inbounds %union.YYSTYPE, ptr %840, i64 -1
+  %842 = load ptr, ptr %841, align 8, !tbaa !10
+  %843 = call i64 @strlen(ptr noundef %842) #11
+  %844 = trunc i64 %843 to i32
+  store i32 %844, ptr %44, align 4, !tbaa !11
+  %845 = load ptr, ptr %4, align 8, !tbaa !3
+  %846 = load i32, ptr %44, align 4, !tbaa !11
+  %847 = sext i32 %846 to i64
+  %848 = call i32 @yr_parser_emit_with_arg(ptr noundef %845, i8 noundef signext 24, i64 noundef %847, ptr noundef null)
+  %849 = load ptr, ptr %5, align 8, !tbaa !7
+  %850 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %849, i32 0, i32 4
+  store i32 %848, ptr %850, align 8, !tbaa !23
+  br label %851
 
-845:                                              ; preds = %833, %827
-  %846 = load ptr, ptr %15, align 8
-  %847 = getelementptr inbounds %union.YYSTYPE, ptr %846, i64 -1
-  %848 = load ptr, ptr %847, align 8
-  call void @free(ptr noundef %848) #9
-  %849 = load ptr, ptr %4, align 8
-  %850 = getelementptr inbounds %struct._YR_COMPILER, ptr %849, i32 0, i32 4
-  %851 = load i32, ptr %850, align 8
-  %852 = icmp ne i32 %851, 0
-  br i1 %852, label %853, label %856
+851:                                              ; preds = %839, %824
+  %852 = load ptr, ptr %16, align 8, !tbaa !17
+  %853 = getelementptr inbounds %union.YYSTYPE, ptr %852, i64 -3
+  %854 = load ptr, ptr %853, align 8, !tbaa !10
+  %855 = getelementptr inbounds nuw %struct._YR_OBJECT_FUNCTION, ptr %854, i32 0, i32 5
+  %856 = load ptr, ptr %855, align 8, !tbaa !55
+  store ptr %856, ptr %21, align 8, !tbaa !10
+  br label %869
 
-853:                                              ; preds = %845
-  %854 = load ptr, ptr %3, align 8
-  %855 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %854, ptr noundef %855, ptr noundef null)
-  br label %3195
+857:                                              ; preds = %816, %811
+  %858 = load ptr, ptr %5, align 8, !tbaa !7
+  %859 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %858, i32 0, i32 31
+  %860 = getelementptr inbounds [256 x i8], ptr %859, i64 0, i64 0
+  %861 = load ptr, ptr %16, align 8, !tbaa !17
+  %862 = getelementptr inbounds %union.YYSTYPE, ptr %861, i64 -3
+  %863 = load ptr, ptr %862, align 8, !tbaa !10
+  %864 = getelementptr inbounds nuw %struct._YR_OBJECT, ptr %863, i32 0, i32 1
+  %865 = load ptr, ptr %864, align 8, !tbaa !51
+  %866 = call i64 @cli_strlcpy(ptr noundef %860, ptr noundef %865, i64 noundef 256)
+  %867 = load ptr, ptr %5, align 8, !tbaa !7
+  %868 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %867, i32 0, i32 4
+  store i32 37, ptr %868, align 8, !tbaa !23
+  br label %869
 
-856:                                              ; preds = %845
-  br label %3057
+869:                                              ; preds = %857, %851
+  %870 = load ptr, ptr %16, align 8, !tbaa !17
+  %871 = getelementptr inbounds %union.YYSTYPE, ptr %870, i64 -1
+  %872 = load ptr, ptr %871, align 8, !tbaa !10
+  call void @free(ptr noundef %872) #9
+  %873 = load ptr, ptr %5, align 8, !tbaa !7
+  %874 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %873, i32 0, i32 4
+  %875 = load i32, ptr %874, align 8, !tbaa !23
+  %876 = icmp ne i32 %875, 0
+  br i1 %876, label %877, label %880
 
-857:                                              ; preds = %237
-  %858 = call ptr @cli_safer_strdup(ptr noundef @.str)
-  store ptr %858, ptr %20, align 8
-  br label %3057
+877:                                              ; preds = %869
+  %878 = load ptr, ptr %4, align 8, !tbaa !3
+  %879 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %878, ptr noundef %879, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %881
 
-859:                                              ; preds = %237
-  %860 = call ptr @cli_max_malloc(i64 noundef 129)
-  store ptr %860, ptr %20, align 8
-  %861 = load ptr, ptr %15, align 8
-  %862 = getelementptr inbounds %union.YYSTYPE, ptr %861, i64 0
-  %863 = load i8, ptr %862, align 8
-  %864 = sext i8 %863 to i32
-  switch i32 %864, label %877 [
-    i32 2, label %865
-    i32 1, label %868
-    i32 3, label %871
-    i32 4, label %874
+880:                                              ; preds = %869
+  store i32 0, ptr %31, align 4
+  br label %881
+
+881:                                              ; preds = %877, %880
+  call void @llvm.lifetime.end.p0(i64 4, ptr %44) #9
+  %882 = load i32, ptr %31, align 4
+  switch i32 %882, label %3379 [
+    i32 0, label %883
+    i32 16, label %3235
   ]
 
-865:                                              ; preds = %859
-  %866 = load ptr, ptr %20, align 8
-  %867 = call i64 @cli_strlcpy(ptr noundef %866, ptr noundef @.str.1, i64 noundef 128)
-  br label %877
+883:                                              ; preds = %881
+  br label %3094
 
-868:                                              ; preds = %859
-  %869 = load ptr, ptr %20, align 8
-  %870 = call i64 @cli_strlcpy(ptr noundef %869, ptr noundef @.str.2, i64 noundef 128)
-  br label %877
+884:                                              ; preds = %247
+  %885 = call ptr @cli_safer_strdup(ptr noundef @.str)
+  store ptr %885, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-871:                                              ; preds = %859
-  %872 = load ptr, ptr %20, align 8
-  %873 = call i64 @cli_strlcpy(ptr noundef %872, ptr noundef @.str.3, i64 noundef 128)
-  br label %877
-
-874:                                              ; preds = %859
-  %875 = load ptr, ptr %20, align 8
-  %876 = call i64 @cli_strlcpy(ptr noundef %875, ptr noundef @.str.4, i64 noundef 128)
-  br label %877
-
-877:                                              ; preds = %874, %871, %868, %865, %859
-  %878 = load ptr, ptr %20, align 8
-  %879 = icmp eq ptr %878, null
-  br i1 %879, label %880, label %883
-
-880:                                              ; preds = %877
-  %881 = load ptr, ptr %3, align 8
-  %882 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %881, ptr noundef %882, ptr noundef null)
-  br label %3195
-
-883:                                              ; preds = %877
-  br label %3057
-
-884:                                              ; preds = %237
-  %885 = load ptr, ptr %15, align 8
-  %886 = getelementptr inbounds %union.YYSTYPE, ptr %885, i64 -2
-  %887 = load ptr, ptr %886, align 8
-  %888 = call i64 @strlen(ptr noundef %887) #10
-  %889 = icmp eq i64 %888, 128
-  br i1 %889, label %890, label %893
-
-890:                                              ; preds = %884
-  %891 = load ptr, ptr %4, align 8
-  %892 = getelementptr inbounds %struct._YR_COMPILER, ptr %891, i32 0, i32 4
-  store i32 39, ptr %892, align 8
-  br label %919
-
-893:                                              ; preds = %884
-  %894 = load ptr, ptr %15, align 8
-  %895 = getelementptr inbounds %union.YYSTYPE, ptr %894, i64 0
-  %896 = load i8, ptr %895, align 8
-  %897 = sext i8 %896 to i32
-  switch i32 %897, label %918 [
-    i32 2, label %898
-    i32 1, label %903
-    i32 3, label %908
-    i32 4, label %913
+886:                                              ; preds = %247
+  %887 = call ptr @cli_max_malloc(i64 noundef 129)
+  store ptr %887, ptr %21, align 8, !tbaa !10
+  %888 = load ptr, ptr %16, align 8, !tbaa !17
+  %889 = getelementptr inbounds %union.YYSTYPE, ptr %888, i64 0
+  %890 = load i8, ptr %889, align 8, !tbaa !10
+  %891 = sext i8 %890 to i32
+  switch i32 %891, label %904 [
+    i32 2, label %892
+    i32 1, label %895
+    i32 3, label %898
+    i32 4, label %901
   ]
 
-898:                                              ; preds = %893
-  %899 = load ptr, ptr %15, align 8
-  %900 = getelementptr inbounds %union.YYSTYPE, ptr %899, i64 -2
-  %901 = load ptr, ptr %900, align 8
-  %902 = call i64 @cli_strlcat(ptr noundef %901, ptr noundef @.str.1, i64 noundef 128)
-  br label %918
+892:                                              ; preds = %886
+  %893 = load ptr, ptr %21, align 8, !tbaa !10
+  %894 = call i64 @cli_strlcpy(ptr noundef %893, ptr noundef @.str.1, i64 noundef 128)
+  br label %904
 
-903:                                              ; preds = %893
-  %904 = load ptr, ptr %15, align 8
-  %905 = getelementptr inbounds %union.YYSTYPE, ptr %904, i64 -2
-  %906 = load ptr, ptr %905, align 8
-  %907 = call i64 @cli_strlcat(ptr noundef %906, ptr noundef @.str.2, i64 noundef 128)
-  br label %918
+895:                                              ; preds = %886
+  %896 = load ptr, ptr %21, align 8, !tbaa !10
+  %897 = call i64 @cli_strlcpy(ptr noundef %896, ptr noundef @.str.2, i64 noundef 128)
+  br label %904
 
-908:                                              ; preds = %893
-  %909 = load ptr, ptr %15, align 8
-  %910 = getelementptr inbounds %union.YYSTYPE, ptr %909, i64 -2
-  %911 = load ptr, ptr %910, align 8
-  %912 = call i64 @cli_strlcat(ptr noundef %911, ptr noundef @.str.3, i64 noundef 128)
-  br label %918
+898:                                              ; preds = %886
+  %899 = load ptr, ptr %21, align 8, !tbaa !10
+  %900 = call i64 @cli_strlcpy(ptr noundef %899, ptr noundef @.str.3, i64 noundef 128)
+  br label %904
 
-913:                                              ; preds = %893
-  %914 = load ptr, ptr %15, align 8
-  %915 = getelementptr inbounds %union.YYSTYPE, ptr %914, i64 -2
-  %916 = load ptr, ptr %915, align 8
-  %917 = call i64 @cli_strlcat(ptr noundef %916, ptr noundef @.str.4, i64 noundef 128)
-  br label %918
+901:                                              ; preds = %886
+  %902 = load ptr, ptr %21, align 8, !tbaa !10
+  %903 = call i64 @cli_strlcpy(ptr noundef %902, ptr noundef @.str.4, i64 noundef 128)
+  br label %904
 
-918:                                              ; preds = %913, %908, %903, %898, %893
-  br label %919
+904:                                              ; preds = %886, %901, %898, %895, %892
+  %905 = load ptr, ptr %21, align 8, !tbaa !10
+  %906 = icmp eq ptr %905, null
+  br i1 %906, label %907, label %910
 
-919:                                              ; preds = %918, %890
-  %920 = load ptr, ptr %4, align 8
-  %921 = getelementptr inbounds %struct._YR_COMPILER, ptr %920, i32 0, i32 4
-  %922 = load i32, ptr %921, align 8
-  %923 = icmp ne i32 %922, 0
-  br i1 %923, label %924, label %927
+907:                                              ; preds = %904
+  %908 = load ptr, ptr %4, align 8, !tbaa !3
+  %909 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %908, ptr noundef %909, ptr noundef null)
+  br label %3235
 
-924:                                              ; preds = %919
-  %925 = load ptr, ptr %3, align 8
-  %926 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %925, ptr noundef %926, ptr noundef null)
-  br label %3195
+910:                                              ; preds = %904
+  br label %3094
 
-927:                                              ; preds = %919
-  %928 = load ptr, ptr %15, align 8
-  %929 = getelementptr inbounds %union.YYSTYPE, ptr %928, i64 -2
-  %930 = load ptr, ptr %929, align 8
-  store ptr %930, ptr %20, align 8
-  br label %3057
+911:                                              ; preds = %247
+  %912 = load ptr, ptr %16, align 8, !tbaa !17
+  %913 = getelementptr inbounds %union.YYSTYPE, ptr %912, i64 -2
+  %914 = load ptr, ptr %913, align 8, !tbaa !10
+  %915 = call i64 @strlen(ptr noundef %914) #11
+  %916 = icmp eq i64 %915, 128
+  br i1 %916, label %917, label %920
 
-931:                                              ; preds = %237
-  store i8 4, ptr %20, align 8
-  br label %3057
+917:                                              ; preds = %911
+  %918 = load ptr, ptr %5, align 8, !tbaa !7
+  %919 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %918, i32 0, i32 4
+  store i32 39, ptr %919, align 8, !tbaa !23
+  br label %946
 
-932:                                              ; preds = %237
-  %933 = load ptr, ptr %15, align 8
-  %934 = getelementptr inbounds %union.YYSTYPE, ptr %933, i64 0
-  %935 = load i8, ptr %934, align 8
-  %936 = sext i8 %935 to i32
-  %937 = icmp eq i32 %936, 3
-  br i1 %937, label %938, label %951
+920:                                              ; preds = %911
+  %921 = load ptr, ptr %16, align 8, !tbaa !17
+  %922 = getelementptr inbounds %union.YYSTYPE, ptr %921, i64 0
+  %923 = load i8, ptr %922, align 8, !tbaa !10
+  %924 = sext i8 %923 to i32
+  switch i32 %924, label %945 [
+    i32 2, label %925
+    i32 1, label %930
+    i32 3, label %935
+    i32 4, label %940
+  ]
 
-938:                                              ; preds = %932
-  %939 = load ptr, ptr %3, align 8
-  %940 = call i32 @yr_parser_emit(ptr noundef %939, i8 noundef signext 13, ptr noundef null)
-  %941 = load ptr, ptr %4, align 8
-  %942 = getelementptr inbounds %struct._YR_COMPILER, ptr %941, i32 0, i32 4
-  store i32 %940, ptr %942, align 8
-  %943 = load ptr, ptr %4, align 8
-  %944 = getelementptr inbounds %struct._YR_COMPILER, ptr %943, i32 0, i32 4
-  %945 = load i32, ptr %944, align 8
-  %946 = icmp ne i32 %945, 0
-  br i1 %946, label %947, label %950
+925:                                              ; preds = %920
+  %926 = load ptr, ptr %16, align 8, !tbaa !17
+  %927 = getelementptr inbounds %union.YYSTYPE, ptr %926, i64 -2
+  %928 = load ptr, ptr %927, align 8, !tbaa !10
+  %929 = call i64 @cli_strlcat(ptr noundef %928, ptr noundef @.str.1, i64 noundef 128)
+  br label %945
 
-947:                                              ; preds = %938
-  %948 = load ptr, ptr %3, align 8
-  %949 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %948, ptr noundef %949, ptr noundef null)
-  br label %3195
+930:                                              ; preds = %920
+  %931 = load ptr, ptr %16, align 8, !tbaa !17
+  %932 = getelementptr inbounds %union.YYSTYPE, ptr %931, i64 -2
+  %933 = load ptr, ptr %932, align 8, !tbaa !10
+  %934 = call i64 @cli_strlcat(ptr noundef %933, ptr noundef @.str.2, i64 noundef 128)
+  br label %945
 
-950:                                              ; preds = %938
-  br label %951
+935:                                              ; preds = %920
+  %936 = load ptr, ptr %16, align 8, !tbaa !17
+  %937 = getelementptr inbounds %union.YYSTYPE, ptr %936, i64 -2
+  %938 = load ptr, ptr %937, align 8, !tbaa !10
+  %939 = call i64 @cli_strlcat(ptr noundef %938, ptr noundef @.str.3, i64 noundef 128)
+  br label %945
 
-951:                                              ; preds = %950, %932
-  store i8 1, ptr %20, align 8
-  br label %3057
+940:                                              ; preds = %920
+  %941 = load ptr, ptr %16, align 8, !tbaa !17
+  %942 = getelementptr inbounds %union.YYSTYPE, ptr %941, i64 -2
+  %943 = load ptr, ptr %942, align 8, !tbaa !10
+  %944 = call i64 @cli_strlcat(ptr noundef %943, ptr noundef @.str.4, i64 noundef 128)
+  br label %945
 
-952:                                              ; preds = %237
-  %953 = load ptr, ptr %3, align 8
-  %954 = call i32 @yr_parser_emit_with_arg(ptr noundef %953, i8 noundef signext 22, i64 noundef 1, ptr noundef null)
-  %955 = load ptr, ptr %4, align 8
-  %956 = getelementptr inbounds %struct._YR_COMPILER, ptr %955, i32 0, i32 4
-  store i32 %954, ptr %956, align 8
-  %957 = load ptr, ptr %4, align 8
-  %958 = getelementptr inbounds %struct._YR_COMPILER, ptr %957, i32 0, i32 4
-  %959 = load i32, ptr %958, align 8
-  %960 = icmp ne i32 %959, 0
-  br i1 %960, label %961, label %964
+945:                                              ; preds = %920, %940, %935, %930, %925
+  br label %946
 
-961:                                              ; preds = %952
-  %962 = load ptr, ptr %3, align 8
-  %963 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %962, ptr noundef %963, ptr noundef null)
-  br label %3195
+946:                                              ; preds = %945, %917
+  %947 = load ptr, ptr %5, align 8, !tbaa !7
+  %948 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %947, i32 0, i32 4
+  %949 = load i32, ptr %948, align 8, !tbaa !23
+  %950 = icmp ne i32 %949, 0
+  br i1 %950, label %951, label %954
 
-964:                                              ; preds = %952
-  store i8 1, ptr %20, align 8
-  br label %3057
+951:                                              ; preds = %946
+  %952 = load ptr, ptr %4, align 8, !tbaa !3
+  %953 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %952, ptr noundef %953, ptr noundef null)
+  br label %3235
 
-965:                                              ; preds = %237
-  %966 = load ptr, ptr %3, align 8
-  %967 = call i32 @yr_parser_emit_with_arg(ptr noundef %966, i8 noundef signext 22, i64 noundef 0, ptr noundef null)
-  %968 = load ptr, ptr %4, align 8
-  %969 = getelementptr inbounds %struct._YR_COMPILER, ptr %968, i32 0, i32 4
-  store i32 %967, ptr %969, align 8
-  %970 = load ptr, ptr %4, align 8
-  %971 = getelementptr inbounds %struct._YR_COMPILER, ptr %970, i32 0, i32 4
-  %972 = load i32, ptr %971, align 8
+954:                                              ; preds = %946
+  %955 = load ptr, ptr %16, align 8, !tbaa !17
+  %956 = getelementptr inbounds %union.YYSTYPE, ptr %955, i64 -2
+  %957 = load ptr, ptr %956, align 8, !tbaa !10
+  store ptr %957, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+958:                                              ; preds = %247
+  store i8 4, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+959:                                              ; preds = %247
+  %960 = load ptr, ptr %16, align 8, !tbaa !17
+  %961 = getelementptr inbounds %union.YYSTYPE, ptr %960, i64 0
+  %962 = load i8, ptr %961, align 8, !tbaa !10
+  %963 = sext i8 %962 to i32
+  %964 = icmp eq i32 %963, 3
+  br i1 %964, label %965, label %978
+
+965:                                              ; preds = %959
+  %966 = load ptr, ptr %4, align 8, !tbaa !3
+  %967 = call i32 @yr_parser_emit(ptr noundef %966, i8 noundef signext 13, ptr noundef null)
+  %968 = load ptr, ptr %5, align 8, !tbaa !7
+  %969 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %968, i32 0, i32 4
+  store i32 %967, ptr %969, align 8, !tbaa !23
+  %970 = load ptr, ptr %5, align 8, !tbaa !7
+  %971 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %970, i32 0, i32 4
+  %972 = load i32, ptr %971, align 8, !tbaa !23
   %973 = icmp ne i32 %972, 0
   br i1 %973, label %974, label %977
 
 974:                                              ; preds = %965
-  %975 = load ptr, ptr %3, align 8
-  %976 = load ptr, ptr %4, align 8
+  %975 = load ptr, ptr %4, align 8, !tbaa !3
+  %976 = load ptr, ptr %5, align 8, !tbaa !7
   call void @yara_yyerror(ptr noundef %975, ptr noundef %976, ptr noundef null)
-  br label %3195
+  br label %3235
 
 977:                                              ; preds = %965
-  store i8 1, ptr %20, align 8
-  br label %3057
+  br label %978
 
-978:                                              ; preds = %237
-  %979 = load ptr, ptr %15, align 8
-  %980 = getelementptr inbounds %union.YYSTYPE, ptr %979, i64 -2
-  %981 = load i8, ptr %980, align 8
-  %982 = sext i8 %981 to i32
-  %983 = icmp ne i32 %982, 3
-  br i1 %983, label %984, label %1004
+978:                                              ; preds = %977, %959
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-984:                                              ; preds = %978
-  %985 = load ptr, ptr %15, align 8
-  %986 = getelementptr inbounds %union.YYSTYPE, ptr %985, i64 -2
-  %987 = load i8, ptr %986, align 8
-  %988 = sext i8 %987 to i32
-  switch i32 %988, label %999 [
-    i32 2, label %989
-    i32 3, label %994
-  ]
+979:                                              ; preds = %247
+  %980 = load ptr, ptr %4, align 8, !tbaa !3
+  %981 = call i32 @yr_parser_emit_with_arg(ptr noundef %980, i8 noundef signext 22, i64 noundef 1, ptr noundef null)
+  %982 = load ptr, ptr %5, align 8, !tbaa !7
+  %983 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %982, i32 0, i32 4
+  store i32 %981, ptr %983, align 8, !tbaa !23
+  %984 = load ptr, ptr %5, align 8, !tbaa !7
+  %985 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %984, i32 0, i32 4
+  %986 = load i32, ptr %985, align 8, !tbaa !23
+  %987 = icmp ne i32 %986, 0
+  br i1 %987, label %988, label %991
 
-989:                                              ; preds = %984
-  %990 = load ptr, ptr %4, align 8
-  %991 = getelementptr inbounds %struct._YR_COMPILER, ptr %990, i32 0, i32 31
-  %992 = getelementptr inbounds [256 x i8], ptr %991, i64 0, i64 0
-  %993 = call i64 @cli_strlcpy(ptr noundef %992, ptr noundef @.str.5, i64 noundef 256)
-  br label %999
+988:                                              ; preds = %979
+  %989 = load ptr, ptr %4, align 8, !tbaa !3
+  %990 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %989, ptr noundef %990, ptr noundef null)
+  br label %3235
 
-994:                                              ; preds = %984
-  %995 = load ptr, ptr %4, align 8
-  %996 = getelementptr inbounds %struct._YR_COMPILER, ptr %995, i32 0, i32 31
-  %997 = getelementptr inbounds [256 x i8], ptr %996, i64 0, i64 0
-  %998 = call i64 @cli_strlcpy(ptr noundef %997, ptr noundef @.str.6, i64 noundef 256)
-  br label %999
+991:                                              ; preds = %979
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-999:                                              ; preds = %994, %989, %984
-  %1000 = load ptr, ptr %4, align 8
-  %1001 = getelementptr inbounds %struct._YR_COMPILER, ptr %1000, i32 0, i32 4
-  store i32 24, ptr %1001, align 8
-  %1002 = load ptr, ptr %3, align 8
-  %1003 = load ptr, ptr %4, align 8
+992:                                              ; preds = %247
+  %993 = load ptr, ptr %4, align 8, !tbaa !3
+  %994 = call i32 @yr_parser_emit_with_arg(ptr noundef %993, i8 noundef signext 22, i64 noundef 0, ptr noundef null)
+  %995 = load ptr, ptr %5, align 8, !tbaa !7
+  %996 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %995, i32 0, i32 4
+  store i32 %994, ptr %996, align 8, !tbaa !23
+  %997 = load ptr, ptr %5, align 8, !tbaa !7
+  %998 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %997, i32 0, i32 4
+  %999 = load i32, ptr %998, align 8, !tbaa !23
+  %1000 = icmp ne i32 %999, 0
+  br i1 %1000, label %1001, label %1004
+
+1001:                                             ; preds = %992
+  %1002 = load ptr, ptr %4, align 8, !tbaa !3
+  %1003 = load ptr, ptr %5, align 8, !tbaa !7
   call void @yara_yyerror(ptr noundef %1002, ptr noundef %1003, ptr noundef null)
-  br label %3195
+  br label %3235
 
-1004:                                             ; preds = %978
-  %1005 = load ptr, ptr %15, align 8
-  %1006 = getelementptr inbounds %union.YYSTYPE, ptr %1005, i64 0
-  %1007 = load i8, ptr %1006, align 8
-  %1008 = sext i8 %1007 to i32
-  %1009 = icmp ne i32 %1008, 4
-  br i1 %1009, label %1010, label %1030
+1004:                                             ; preds = %992
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1010:                                             ; preds = %1004
-  %1011 = load ptr, ptr %15, align 8
-  %1012 = getelementptr inbounds %union.YYSTYPE, ptr %1011, i64 0
-  %1013 = load i8, ptr %1012, align 8
-  %1014 = sext i8 %1013 to i32
-  switch i32 %1014, label %1025 [
-    i32 2, label %1015
-    i32 3, label %1020
+1005:                                             ; preds = %247
+  %1006 = load ptr, ptr %16, align 8, !tbaa !17
+  %1007 = getelementptr inbounds %union.YYSTYPE, ptr %1006, i64 -2
+  %1008 = load i8, ptr %1007, align 8, !tbaa !10
+  %1009 = sext i8 %1008 to i32
+  %1010 = icmp ne i32 %1009, 3
+  br i1 %1010, label %1011, label %1031
+
+1011:                                             ; preds = %1005
+  %1012 = load ptr, ptr %16, align 8, !tbaa !17
+  %1013 = getelementptr inbounds %union.YYSTYPE, ptr %1012, i64 -2
+  %1014 = load i8, ptr %1013, align 8, !tbaa !10
+  %1015 = sext i8 %1014 to i32
+  switch i32 %1015, label %1026 [
+    i32 2, label %1016
+    i32 3, label %1021
   ]
 
-1015:                                             ; preds = %1010
-  %1016 = load ptr, ptr %4, align 8
-  %1017 = getelementptr inbounds %struct._YR_COMPILER, ptr %1016, i32 0, i32 31
-  %1018 = getelementptr inbounds [256 x i8], ptr %1017, i64 0, i64 0
-  %1019 = call i64 @cli_strlcpy(ptr noundef %1018, ptr noundef @.str.5, i64 noundef 256)
-  br label %1025
+1016:                                             ; preds = %1011
+  %1017 = load ptr, ptr %5, align 8, !tbaa !7
+  %1018 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1017, i32 0, i32 31
+  %1019 = getelementptr inbounds [256 x i8], ptr %1018, i64 0, i64 0
+  %1020 = call i64 @cli_strlcpy(ptr noundef %1019, ptr noundef @.str.5, i64 noundef 256)
+  br label %1026
 
-1020:                                             ; preds = %1010
-  %1021 = load ptr, ptr %4, align 8
-  %1022 = getelementptr inbounds %struct._YR_COMPILER, ptr %1021, i32 0, i32 31
-  %1023 = getelementptr inbounds [256 x i8], ptr %1022, i64 0, i64 0
-  %1024 = call i64 @cli_strlcpy(ptr noundef %1023, ptr noundef @.str.6, i64 noundef 256)
-  br label %1025
+1021:                                             ; preds = %1011
+  %1022 = load ptr, ptr %5, align 8, !tbaa !7
+  %1023 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1022, i32 0, i32 31
+  %1024 = getelementptr inbounds [256 x i8], ptr %1023, i64 0, i64 0
+  %1025 = call i64 @cli_strlcpy(ptr noundef %1024, ptr noundef @.str.6, i64 noundef 256)
+  br label %1026
 
-1025:                                             ; preds = %1020, %1015, %1010
-  %1026 = load ptr, ptr %4, align 8
-  %1027 = getelementptr inbounds %struct._YR_COMPILER, ptr %1026, i32 0, i32 4
-  store i32 24, ptr %1027, align 8
-  %1028 = load ptr, ptr %3, align 8
-  %1029 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1028, ptr noundef %1029, ptr noundef null)
-  br label %3195
+1026:                                             ; preds = %1011, %1021, %1016
+  %1027 = load ptr, ptr %5, align 8, !tbaa !7
+  %1028 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1027, i32 0, i32 4
+  store i32 24, ptr %1028, align 8, !tbaa !23
+  %1029 = load ptr, ptr %4, align 8, !tbaa !3
+  %1030 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1029, ptr noundef %1030, ptr noundef null)
+  br label %3235
 
-1030:                                             ; preds = %1004
-  %1031 = load ptr, ptr %4, align 8
-  %1032 = getelementptr inbounds %struct._YR_COMPILER, ptr %1031, i32 0, i32 4
-  %1033 = load i32, ptr %1032, align 8
-  %1034 = icmp eq i32 %1033, 0
-  br i1 %1034, label %1035, label %1040
+1031:                                             ; preds = %1005
+  %1032 = load ptr, ptr %16, align 8, !tbaa !17
+  %1033 = getelementptr inbounds %union.YYSTYPE, ptr %1032, i64 0
+  %1034 = load i8, ptr %1033, align 8, !tbaa !10
+  %1035 = sext i8 %1034 to i32
+  %1036 = icmp ne i32 %1035, 4
+  br i1 %1036, label %1037, label %1057
 
-1035:                                             ; preds = %1030
-  %1036 = load ptr, ptr %3, align 8
-  %1037 = call i32 @yr_parser_emit(ptr noundef %1036, i8 noundef signext 54, ptr noundef null)
-  %1038 = load ptr, ptr %4, align 8
-  %1039 = getelementptr inbounds %struct._YR_COMPILER, ptr %1038, i32 0, i32 4
-  store i32 %1037, ptr %1039, align 8
-  br label %1040
-
-1040:                                             ; preds = %1035, %1030
-  %1041 = load ptr, ptr %4, align 8
-  %1042 = getelementptr inbounds %struct._YR_COMPILER, ptr %1041, i32 0, i32 4
-  %1043 = load i32, ptr %1042, align 8
-  %1044 = icmp ne i32 %1043, 0
-  br i1 %1044, label %1045, label %1048
-
-1045:                                             ; preds = %1040
-  %1046 = load ptr, ptr %3, align 8
-  %1047 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1046, ptr noundef %1047, ptr noundef null)
-  br label %3195
-
-1048:                                             ; preds = %1040
-  store i8 1, ptr %20, align 8
-  br label %3057
-
-1049:                                             ; preds = %237
-  %1050 = load ptr, ptr %15, align 8
-  %1051 = getelementptr inbounds %union.YYSTYPE, ptr %1050, i64 -2
-  %1052 = load i8, ptr %1051, align 8
-  %1053 = sext i8 %1052 to i32
-  %1054 = icmp ne i32 %1053, 3
-  br i1 %1054, label %1055, label %1075
-
-1055:                                             ; preds = %1049
-  %1056 = load ptr, ptr %15, align 8
-  %1057 = getelementptr inbounds %union.YYSTYPE, ptr %1056, i64 -2
-  %1058 = load i8, ptr %1057, align 8
-  %1059 = sext i8 %1058 to i32
-  switch i32 %1059, label %1070 [
-    i32 2, label %1060
-    i32 3, label %1065
+1037:                                             ; preds = %1031
+  %1038 = load ptr, ptr %16, align 8, !tbaa !17
+  %1039 = getelementptr inbounds %union.YYSTYPE, ptr %1038, i64 0
+  %1040 = load i8, ptr %1039, align 8, !tbaa !10
+  %1041 = sext i8 %1040 to i32
+  switch i32 %1041, label %1052 [
+    i32 2, label %1042
+    i32 3, label %1047
   ]
 
-1060:                                             ; preds = %1055
-  %1061 = load ptr, ptr %4, align 8
-  %1062 = getelementptr inbounds %struct._YR_COMPILER, ptr %1061, i32 0, i32 31
-  %1063 = getelementptr inbounds [256 x i8], ptr %1062, i64 0, i64 0
-  %1064 = call i64 @cli_strlcpy(ptr noundef %1063, ptr noundef @.str.7, i64 noundef 256)
-  br label %1070
+1042:                                             ; preds = %1037
+  %1043 = load ptr, ptr %5, align 8, !tbaa !7
+  %1044 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1043, i32 0, i32 31
+  %1045 = getelementptr inbounds [256 x i8], ptr %1044, i64 0, i64 0
+  %1046 = call i64 @cli_strlcpy(ptr noundef %1045, ptr noundef @.str.5, i64 noundef 256)
+  br label %1052
 
-1065:                                             ; preds = %1055
-  %1066 = load ptr, ptr %4, align 8
-  %1067 = getelementptr inbounds %struct._YR_COMPILER, ptr %1066, i32 0, i32 31
-  %1068 = getelementptr inbounds [256 x i8], ptr %1067, i64 0, i64 0
-  %1069 = call i64 @cli_strlcpy(ptr noundef %1068, ptr noundef @.str.8, i64 noundef 256)
-  br label %1070
+1047:                                             ; preds = %1037
+  %1048 = load ptr, ptr %5, align 8, !tbaa !7
+  %1049 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1048, i32 0, i32 31
+  %1050 = getelementptr inbounds [256 x i8], ptr %1049, i64 0, i64 0
+  %1051 = call i64 @cli_strlcpy(ptr noundef %1050, ptr noundef @.str.6, i64 noundef 256)
+  br label %1052
 
-1070:                                             ; preds = %1065, %1060, %1055
-  %1071 = load ptr, ptr %4, align 8
-  %1072 = getelementptr inbounds %struct._YR_COMPILER, ptr %1071, i32 0, i32 4
-  store i32 24, ptr %1072, align 8
-  %1073 = load ptr, ptr %3, align 8
-  %1074 = load ptr, ptr %4, align 8
+1052:                                             ; preds = %1037, %1047, %1042
+  %1053 = load ptr, ptr %5, align 8, !tbaa !7
+  %1054 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1053, i32 0, i32 4
+  store i32 24, ptr %1054, align 8, !tbaa !23
+  %1055 = load ptr, ptr %4, align 8, !tbaa !3
+  %1056 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1055, ptr noundef %1056, ptr noundef null)
+  br label %3235
+
+1057:                                             ; preds = %1031
+  %1058 = load ptr, ptr %5, align 8, !tbaa !7
+  %1059 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1058, i32 0, i32 4
+  %1060 = load i32, ptr %1059, align 8, !tbaa !23
+  %1061 = icmp eq i32 %1060, 0
+  br i1 %1061, label %1062, label %1067
+
+1062:                                             ; preds = %1057
+  %1063 = load ptr, ptr %4, align 8, !tbaa !3
+  %1064 = call i32 @yr_parser_emit(ptr noundef %1063, i8 noundef signext 54, ptr noundef null)
+  %1065 = load ptr, ptr %5, align 8, !tbaa !7
+  %1066 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1065, i32 0, i32 4
+  store i32 %1064, ptr %1066, align 8, !tbaa !23
+  br label %1067
+
+1067:                                             ; preds = %1062, %1057
+  %1068 = load ptr, ptr %5, align 8, !tbaa !7
+  %1069 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1068, i32 0, i32 4
+  %1070 = load i32, ptr %1069, align 8, !tbaa !23
+  %1071 = icmp ne i32 %1070, 0
+  br i1 %1071, label %1072, label %1075
+
+1072:                                             ; preds = %1067
+  %1073 = load ptr, ptr %4, align 8, !tbaa !3
+  %1074 = load ptr, ptr %5, align 8, !tbaa !7
   call void @yara_yyerror(ptr noundef %1073, ptr noundef %1074, ptr noundef null)
-  br label %3195
+  br label %3235
 
-1075:                                             ; preds = %1049
-  %1076 = load ptr, ptr %15, align 8
-  %1077 = getelementptr inbounds %union.YYSTYPE, ptr %1076, i64 0
-  %1078 = load i8, ptr %1077, align 8
-  %1079 = sext i8 %1078 to i32
-  %1080 = icmp ne i32 %1079, 3
-  br i1 %1080, label %1081, label %1101
+1075:                                             ; preds = %1067
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1081:                                             ; preds = %1075
-  %1082 = load ptr, ptr %15, align 8
-  %1083 = getelementptr inbounds %union.YYSTYPE, ptr %1082, i64 0
-  %1084 = load i8, ptr %1083, align 8
-  %1085 = sext i8 %1084 to i32
-  switch i32 %1085, label %1096 [
-    i32 2, label %1086
-    i32 3, label %1091
+1076:                                             ; preds = %247
+  %1077 = load ptr, ptr %16, align 8, !tbaa !17
+  %1078 = getelementptr inbounds %union.YYSTYPE, ptr %1077, i64 -2
+  %1079 = load i8, ptr %1078, align 8, !tbaa !10
+  %1080 = sext i8 %1079 to i32
+  %1081 = icmp ne i32 %1080, 3
+  br i1 %1081, label %1082, label %1102
+
+1082:                                             ; preds = %1076
+  %1083 = load ptr, ptr %16, align 8, !tbaa !17
+  %1084 = getelementptr inbounds %union.YYSTYPE, ptr %1083, i64 -2
+  %1085 = load i8, ptr %1084, align 8, !tbaa !10
+  %1086 = sext i8 %1085 to i32
+  switch i32 %1086, label %1097 [
+    i32 2, label %1087
+    i32 3, label %1092
   ]
 
-1086:                                             ; preds = %1081
-  %1087 = load ptr, ptr %4, align 8
-  %1088 = getelementptr inbounds %struct._YR_COMPILER, ptr %1087, i32 0, i32 31
-  %1089 = getelementptr inbounds [256 x i8], ptr %1088, i64 0, i64 0
-  %1090 = call i64 @cli_strlcpy(ptr noundef %1089, ptr noundef @.str.7, i64 noundef 256)
-  br label %1096
+1087:                                             ; preds = %1082
+  %1088 = load ptr, ptr %5, align 8, !tbaa !7
+  %1089 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1088, i32 0, i32 31
+  %1090 = getelementptr inbounds [256 x i8], ptr %1089, i64 0, i64 0
+  %1091 = call i64 @cli_strlcpy(ptr noundef %1090, ptr noundef @.str.7, i64 noundef 256)
+  br label %1097
 
-1091:                                             ; preds = %1081
-  %1092 = load ptr, ptr %4, align 8
-  %1093 = getelementptr inbounds %struct._YR_COMPILER, ptr %1092, i32 0, i32 31
-  %1094 = getelementptr inbounds [256 x i8], ptr %1093, i64 0, i64 0
-  %1095 = call i64 @cli_strlcpy(ptr noundef %1094, ptr noundef @.str.8, i64 noundef 256)
-  br label %1096
+1092:                                             ; preds = %1082
+  %1093 = load ptr, ptr %5, align 8, !tbaa !7
+  %1094 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1093, i32 0, i32 31
+  %1095 = getelementptr inbounds [256 x i8], ptr %1094, i64 0, i64 0
+  %1096 = call i64 @cli_strlcpy(ptr noundef %1095, ptr noundef @.str.8, i64 noundef 256)
+  br label %1097
 
-1096:                                             ; preds = %1091, %1086, %1081
-  %1097 = load ptr, ptr %4, align 8
-  %1098 = getelementptr inbounds %struct._YR_COMPILER, ptr %1097, i32 0, i32 4
-  store i32 24, ptr %1098, align 8
-  %1099 = load ptr, ptr %3, align 8
-  %1100 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1099, ptr noundef %1100, ptr noundef null)
-  br label %3195
+1097:                                             ; preds = %1082, %1092, %1087
+  %1098 = load ptr, ptr %5, align 8, !tbaa !7
+  %1099 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1098, i32 0, i32 4
+  store i32 24, ptr %1099, align 8, !tbaa !23
+  %1100 = load ptr, ptr %4, align 8, !tbaa !3
+  %1101 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1100, ptr noundef %1101, ptr noundef null)
+  br label %3235
 
-1101:                                             ; preds = %1075
-  %1102 = load ptr, ptr %3, align 8
-  %1103 = call i32 @yr_parser_emit(ptr noundef %1102, i8 noundef signext 53, ptr noundef null)
-  %1104 = load ptr, ptr %4, align 8
-  %1105 = getelementptr inbounds %struct._YR_COMPILER, ptr %1104, i32 0, i32 4
-  store i32 %1103, ptr %1105, align 8
-  %1106 = load ptr, ptr %4, align 8
-  %1107 = getelementptr inbounds %struct._YR_COMPILER, ptr %1106, i32 0, i32 4
-  %1108 = load i32, ptr %1107, align 8
-  %1109 = icmp ne i32 %1108, 0
-  br i1 %1109, label %1110, label %1113
+1102:                                             ; preds = %1076
+  %1103 = load ptr, ptr %16, align 8, !tbaa !17
+  %1104 = getelementptr inbounds %union.YYSTYPE, ptr %1103, i64 0
+  %1105 = load i8, ptr %1104, align 8, !tbaa !10
+  %1106 = sext i8 %1105 to i32
+  %1107 = icmp ne i32 %1106, 3
+  br i1 %1107, label %1108, label %1128
 
-1110:                                             ; preds = %1101
-  %1111 = load ptr, ptr %3, align 8
-  %1112 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1111, ptr noundef %1112, ptr noundef null)
-  br label %3195
+1108:                                             ; preds = %1102
+  %1109 = load ptr, ptr %16, align 8, !tbaa !17
+  %1110 = getelementptr inbounds %union.YYSTYPE, ptr %1109, i64 0
+  %1111 = load i8, ptr %1110, align 8, !tbaa !10
+  %1112 = sext i8 %1111 to i32
+  switch i32 %1112, label %1123 [
+    i32 2, label %1113
+    i32 3, label %1118
+  ]
 
-1113:                                             ; preds = %1101
-  store i8 1, ptr %20, align 8
-  br label %3057
+1113:                                             ; preds = %1108
+  %1114 = load ptr, ptr %5, align 8, !tbaa !7
+  %1115 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1114, i32 0, i32 31
+  %1116 = getelementptr inbounds [256 x i8], ptr %1115, i64 0, i64 0
+  %1117 = call i64 @cli_strlcpy(ptr noundef %1116, ptr noundef @.str.7, i64 noundef 256)
+  br label %1123
 
-1114:                                             ; preds = %237
-  %1115 = load ptr, ptr %3, align 8
-  %1116 = load ptr, ptr %15, align 8
-  %1117 = getelementptr inbounds %union.YYSTYPE, ptr %1116, i64 0
-  %1118 = load ptr, ptr %1117, align 8
-  %1119 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %1115, ptr noundef %1118, i8 noundef signext 30)
-  store i32 %1119, ptr %43, align 4
-  %1120 = load ptr, ptr %15, align 8
-  %1121 = getelementptr inbounds %union.YYSTYPE, ptr %1120, i64 0
-  %1122 = load ptr, ptr %1121, align 8
-  call void @free(ptr noundef %1122) #9
-  %1123 = load i32, ptr %43, align 4
-  %1124 = icmp ne i32 %1123, 0
-  br i1 %1124, label %1125, label %1128
+1118:                                             ; preds = %1108
+  %1119 = load ptr, ptr %5, align 8, !tbaa !7
+  %1120 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1119, i32 0, i32 31
+  %1121 = getelementptr inbounds [256 x i8], ptr %1120, i64 0, i64 0
+  %1122 = call i64 @cli_strlcpy(ptr noundef %1121, ptr noundef @.str.8, i64 noundef 256)
+  br label %1123
 
-1125:                                             ; preds = %1114
-  %1126 = load ptr, ptr %3, align 8
-  %1127 = load ptr, ptr %4, align 8
+1123:                                             ; preds = %1108, %1118, %1113
+  %1124 = load ptr, ptr %5, align 8, !tbaa !7
+  %1125 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1124, i32 0, i32 4
+  store i32 24, ptr %1125, align 8, !tbaa !23
+  %1126 = load ptr, ptr %4, align 8, !tbaa !3
+  %1127 = load ptr, ptr %5, align 8, !tbaa !7
   call void @yara_yyerror(ptr noundef %1126, ptr noundef %1127, ptr noundef null)
-  br label %3195
+  br label %3235
 
-1128:                                             ; preds = %1114
-  store i8 1, ptr %20, align 8
-  br label %3057
+1128:                                             ; preds = %1102
+  %1129 = load ptr, ptr %4, align 8, !tbaa !3
+  %1130 = call i32 @yr_parser_emit(ptr noundef %1129, i8 noundef signext 53, ptr noundef null)
+  %1131 = load ptr, ptr %5, align 8, !tbaa !7
+  %1132 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1131, i32 0, i32 4
+  store i32 %1130, ptr %1132, align 8, !tbaa !23
+  %1133 = load ptr, ptr %5, align 8, !tbaa !7
+  %1134 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1133, i32 0, i32 4
+  %1135 = load i32, ptr %1134, align 8, !tbaa !23
+  %1136 = icmp ne i32 %1135, 0
+  br i1 %1136, label %1137, label %1140
 
-1129:                                             ; preds = %237
-  %1130 = load ptr, ptr %15, align 8
-  %1131 = getelementptr inbounds %union.YYSTYPE, ptr %1130, i64 0
-  %1132 = load i8, ptr %1131, align 8
-  %1133 = sext i8 %1132 to i32
-  %1134 = icmp ne i32 %1133, 2
-  br i1 %1134, label %1135, label %1155
+1137:                                             ; preds = %1128
+  %1138 = load ptr, ptr %4, align 8, !tbaa !3
+  %1139 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1138, ptr noundef %1139, ptr noundef null)
+  br label %3235
 
-1135:                                             ; preds = %1129
-  %1136 = load ptr, ptr %15, align 8
-  %1137 = getelementptr inbounds %union.YYSTYPE, ptr %1136, i64 0
-  %1138 = load i8, ptr %1137, align 8
-  %1139 = sext i8 %1138 to i32
-  switch i32 %1139, label %1150 [
-    i32 2, label %1140
-    i32 3, label %1145
+1140:                                             ; preds = %1128
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+1141:                                             ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %45) #9
+  %1142 = load ptr, ptr %4, align 8, !tbaa !3
+  %1143 = load ptr, ptr %16, align 8, !tbaa !17
+  %1144 = getelementptr inbounds %union.YYSTYPE, ptr %1143, i64 0
+  %1145 = load ptr, ptr %1144, align 8, !tbaa !10
+  %1146 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %1142, ptr noundef %1145, i8 noundef signext 30)
+  store i32 %1146, ptr %45, align 4, !tbaa !11
+  %1147 = load ptr, ptr %16, align 8, !tbaa !17
+  %1148 = getelementptr inbounds %union.YYSTYPE, ptr %1147, i64 0
+  %1149 = load ptr, ptr %1148, align 8, !tbaa !10
+  call void @free(ptr noundef %1149) #9
+  %1150 = load i32, ptr %45, align 4, !tbaa !11
+  %1151 = icmp ne i32 %1150, 0
+  br i1 %1151, label %1152, label %1155
+
+1152:                                             ; preds = %1141
+  %1153 = load ptr, ptr %4, align 8, !tbaa !3
+  %1154 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1153, ptr noundef %1154, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %1156
+
+1155:                                             ; preds = %1141
+  store i8 1, ptr %21, align 8, !tbaa !10
+  store i32 0, ptr %31, align 4
+  br label %1156
+
+1156:                                             ; preds = %1152, %1155
+  call void @llvm.lifetime.end.p0(i64 4, ptr %45) #9
+  %1157 = load i32, ptr %31, align 4
+  switch i32 %1157, label %3379 [
+    i32 0, label %1158
+    i32 16, label %3235
   ]
 
-1140:                                             ; preds = %1135
-  %1141 = load ptr, ptr %4, align 8
-  %1142 = getelementptr inbounds %struct._YR_COMPILER, ptr %1141, i32 0, i32 31
-  %1143 = getelementptr inbounds [256 x i8], ptr %1142, i64 0, i64 0
-  %1144 = call i64 @cli_strlcpy(ptr noundef %1143, ptr noundef @.str.9, i64 noundef 256)
-  br label %1150
+1158:                                             ; preds = %1156
+  br label %3094
 
-1145:                                             ; preds = %1135
-  %1146 = load ptr, ptr %4, align 8
-  %1147 = getelementptr inbounds %struct._YR_COMPILER, ptr %1146, i32 0, i32 31
-  %1148 = getelementptr inbounds [256 x i8], ptr %1147, i64 0, i64 0
-  %1149 = call i64 @cli_strlcpy(ptr noundef %1148, ptr noundef @.str.10, i64 noundef 256)
-  br label %1150
+1159:                                             ; preds = %247
+  %1160 = load ptr, ptr %16, align 8, !tbaa !17
+  %1161 = getelementptr inbounds %union.YYSTYPE, ptr %1160, i64 0
+  %1162 = load i8, ptr %1161, align 8, !tbaa !10
+  %1163 = sext i8 %1162 to i32
+  %1164 = icmp ne i32 %1163, 2
+  br i1 %1164, label %1165, label %1185
 
-1150:                                             ; preds = %1145, %1140, %1135
-  %1151 = load ptr, ptr %4, align 8
-  %1152 = getelementptr inbounds %struct._YR_COMPILER, ptr %1151, i32 0, i32 4
-  store i32 24, ptr %1152, align 8
-  %1153 = load ptr, ptr %3, align 8
-  %1154 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1153, ptr noundef %1154, ptr noundef null)
-  br label %3195
+1165:                                             ; preds = %1159
+  %1166 = load ptr, ptr %16, align 8, !tbaa !17
+  %1167 = getelementptr inbounds %union.YYSTYPE, ptr %1166, i64 0
+  %1168 = load i8, ptr %1167, align 8, !tbaa !10
+  %1169 = sext i8 %1168 to i32
+  switch i32 %1169, label %1180 [
+    i32 2, label %1170
+    i32 3, label %1175
+  ]
 
-1155:                                             ; preds = %1129
-  %1156 = load ptr, ptr %3, align 8
-  %1157 = load ptr, ptr %15, align 8
-  %1158 = getelementptr inbounds %union.YYSTYPE, ptr %1157, i64 -2
-  %1159 = load ptr, ptr %1158, align 8
-  %1160 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %1156, ptr noundef %1159, i8 noundef signext 31)
-  %1161 = load ptr, ptr %4, align 8
-  %1162 = getelementptr inbounds %struct._YR_COMPILER, ptr %1161, i32 0, i32 4
-  store i32 %1160, ptr %1162, align 8
-  %1163 = load ptr, ptr %15, align 8
-  %1164 = getelementptr inbounds %union.YYSTYPE, ptr %1163, i64 -2
-  %1165 = load ptr, ptr %1164, align 8
-  call void @free(ptr noundef %1165) #9
-  %1166 = load ptr, ptr %4, align 8
-  %1167 = getelementptr inbounds %struct._YR_COMPILER, ptr %1166, i32 0, i32 4
-  %1168 = load i32, ptr %1167, align 8
-  %1169 = icmp ne i32 %1168, 0
-  br i1 %1169, label %1170, label %1173
+1170:                                             ; preds = %1165
+  %1171 = load ptr, ptr %5, align 8, !tbaa !7
+  %1172 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1171, i32 0, i32 31
+  %1173 = getelementptr inbounds [256 x i8], ptr %1172, i64 0, i64 0
+  %1174 = call i64 @cli_strlcpy(ptr noundef %1173, ptr noundef @.str.9, i64 noundef 256)
+  br label %1180
 
-1170:                                             ; preds = %1155
-  %1171 = load ptr, ptr %3, align 8
-  %1172 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1171, ptr noundef %1172, ptr noundef null)
-  br label %3195
+1175:                                             ; preds = %1165
+  %1176 = load ptr, ptr %5, align 8, !tbaa !7
+  %1177 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1176, i32 0, i32 31
+  %1178 = getelementptr inbounds [256 x i8], ptr %1177, i64 0, i64 0
+  %1179 = call i64 @cli_strlcpy(ptr noundef %1178, ptr noundef @.str.10, i64 noundef 256)
+  br label %1180
 
-1173:                                             ; preds = %1155
-  %1174 = load ptr, ptr %4, align 8
-  %1175 = getelementptr inbounds %struct._YR_COMPILER, ptr %1174, i32 0, i32 40
-  %1176 = load i32, ptr %1175, align 8
-  %1177 = or i32 %1176, 32
-  store i32 %1177, ptr %1175, align 8
-  store i8 1, ptr %20, align 8
-  br label %3057
+1180:                                             ; preds = %1165, %1175, %1170
+  %1181 = load ptr, ptr %5, align 8, !tbaa !7
+  %1182 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1181, i32 0, i32 4
+  store i32 24, ptr %1182, align 8, !tbaa !23
+  %1183 = load ptr, ptr %4, align 8, !tbaa !3
+  %1184 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1183, ptr noundef %1184, ptr noundef null)
+  br label %3235
 
-1178:                                             ; preds = %237
-  %1179 = load ptr, ptr %3, align 8
-  %1180 = load ptr, ptr %15, align 8
-  %1181 = getelementptr inbounds %union.YYSTYPE, ptr %1180, i64 -2
-  %1182 = load ptr, ptr %1181, align 8
-  %1183 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %1179, ptr noundef %1182, i8 noundef signext 32)
-  %1184 = load ptr, ptr %4, align 8
-  %1185 = getelementptr inbounds %struct._YR_COMPILER, ptr %1184, i32 0, i32 4
-  store i32 %1183, ptr %1185, align 8
-  %1186 = load ptr, ptr %15, align 8
-  %1187 = getelementptr inbounds %union.YYSTYPE, ptr %1186, i64 -2
-  %1188 = load ptr, ptr %1187, align 8
-  call void @free(ptr noundef %1188) #9
-  %1189 = load ptr, ptr %4, align 8
-  %1190 = getelementptr inbounds %struct._YR_COMPILER, ptr %1189, i32 0, i32 4
-  %1191 = load i32, ptr %1190, align 8
-  %1192 = icmp ne i32 %1191, 0
-  br i1 %1192, label %1193, label %1196
+1185:                                             ; preds = %1159
+  %1186 = load ptr, ptr %4, align 8, !tbaa !3
+  %1187 = load ptr, ptr %16, align 8, !tbaa !17
+  %1188 = getelementptr inbounds %union.YYSTYPE, ptr %1187, i64 -2
+  %1189 = load ptr, ptr %1188, align 8, !tbaa !10
+  %1190 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %1186, ptr noundef %1189, i8 noundef signext 31)
+  %1191 = load ptr, ptr %5, align 8, !tbaa !7
+  %1192 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1191, i32 0, i32 4
+  store i32 %1190, ptr %1192, align 8, !tbaa !23
+  %1193 = load ptr, ptr %16, align 8, !tbaa !17
+  %1194 = getelementptr inbounds %union.YYSTYPE, ptr %1193, i64 -2
+  %1195 = load ptr, ptr %1194, align 8, !tbaa !10
+  call void @free(ptr noundef %1195) #9
+  %1196 = load ptr, ptr %5, align 8, !tbaa !7
+  %1197 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1196, i32 0, i32 4
+  %1198 = load i32, ptr %1197, align 8, !tbaa !23
+  %1199 = icmp ne i32 %1198, 0
+  br i1 %1199, label %1200, label %1203
 
-1193:                                             ; preds = %1178
-  %1194 = load ptr, ptr %3, align 8
-  %1195 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1194, ptr noundef %1195, ptr noundef null)
-  br label %3195
+1200:                                             ; preds = %1185
+  %1201 = load ptr, ptr %4, align 8, !tbaa !3
+  %1202 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1201, ptr noundef %1202, ptr noundef null)
+  br label %3235
 
-1196:                                             ; preds = %1178
-  %1197 = load ptr, ptr %4, align 8
-  %1198 = getelementptr inbounds %struct._YR_COMPILER, ptr %1197, i32 0, i32 40
-  %1199 = load i32, ptr %1198, align 8
-  %1200 = or i32 %1199, 32
-  store i32 %1200, ptr %1198, align 8
-  store i8 1, ptr %20, align 8
-  br label %3057
+1203:                                             ; preds = %1185
+  %1204 = load ptr, ptr %5, align 8, !tbaa !7
+  %1205 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1204, i32 0, i32 40
+  %1206 = load i32, ptr %1205, align 8, !tbaa !57
+  %1207 = or i32 %1206, 32
+  store i32 %1207, ptr %1205, align 8, !tbaa !57
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1201:                                             ; preds = %237
-  %1202 = load ptr, ptr %4, align 8
-  %1203 = getelementptr inbounds %struct._YR_COMPILER, ptr %1202, i32 0, i32 24
-  %1204 = load i32, ptr %1203, align 8
-  %1205 = icmp eq i32 %1204, 4
-  br i1 %1205, label %1206, label %1209
+1208:                                             ; preds = %247
+  %1209 = load ptr, ptr %4, align 8, !tbaa !3
+  %1210 = load ptr, ptr %16, align 8, !tbaa !17
+  %1211 = getelementptr inbounds %union.YYSTYPE, ptr %1210, i64 -2
+  %1212 = load ptr, ptr %1211, align 8, !tbaa !10
+  %1213 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %1209, ptr noundef %1212, i8 noundef signext 32)
+  %1214 = load ptr, ptr %5, align 8, !tbaa !7
+  %1215 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1214, i32 0, i32 4
+  store i32 %1213, ptr %1215, align 8, !tbaa !23
+  %1216 = load ptr, ptr %16, align 8, !tbaa !17
+  %1217 = getelementptr inbounds %union.YYSTYPE, ptr %1216, i64 -2
+  %1218 = load ptr, ptr %1217, align 8, !tbaa !10
+  call void @free(ptr noundef %1218) #9
+  %1219 = load ptr, ptr %5, align 8, !tbaa !7
+  %1220 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1219, i32 0, i32 4
+  %1221 = load i32, ptr %1220, align 8, !tbaa !23
+  %1222 = icmp ne i32 %1221, 0
+  br i1 %1222, label %1223, label %1226
 
-1206:                                             ; preds = %1201
-  %1207 = load ptr, ptr %4, align 8
-  %1208 = getelementptr inbounds %struct._YR_COMPILER, ptr %1207, i32 0, i32 4
-  store i32 12, ptr %1208, align 8
-  br label %1209
+1223:                                             ; preds = %1208
+  %1224 = load ptr, ptr %4, align 8, !tbaa !3
+  %1225 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1224, ptr noundef %1225, ptr noundef null)
+  br label %3235
 
-1209:                                             ; preds = %1206, %1201
-  %1210 = load ptr, ptr %4, align 8
-  %1211 = getelementptr inbounds %struct._YR_COMPILER, ptr %1210, i32 0, i32 4
-  %1212 = load i32, ptr %1211, align 8
-  %1213 = icmp ne i32 %1212, 0
-  br i1 %1213, label %1214, label %1217
+1226:                                             ; preds = %1208
+  %1227 = load ptr, ptr %5, align 8, !tbaa !7
+  %1228 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1227, i32 0, i32 40
+  %1229 = load i32, ptr %1228, align 8, !tbaa !57
+  %1230 = or i32 %1229, 32
+  store i32 %1230, ptr %1228, align 8, !tbaa !57
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1214:                                             ; preds = %1209
-  %1215 = load ptr, ptr %3, align 8
-  %1216 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1215, ptr noundef %1216, ptr noundef null)
-  br label %3195
+1231:                                             ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %46) #9
+  %1232 = load ptr, ptr %5, align 8, !tbaa !7
+  %1233 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1232, i32 0, i32 24
+  %1234 = load i32, ptr %1233, align 8, !tbaa !58
+  %1235 = icmp eq i32 %1234, 4
+  br i1 %1235, label %1236, label %1239
 
-1217:                                             ; preds = %1209
-  %1218 = load ptr, ptr %3, align 8
-  %1219 = load ptr, ptr %15, align 8
-  %1220 = getelementptr inbounds %union.YYSTYPE, ptr %1219, i64 -1
-  %1221 = load ptr, ptr %1220, align 8
-  %1222 = call i32 @yr_parser_lookup_loop_variable(ptr noundef %1218, ptr noundef %1221)
-  store i32 %1222, ptr %44, align 4
-  %1223 = load i32, ptr %44, align 4
-  %1224 = icmp sge i32 %1223, 0
-  br i1 %1224, label %1225, label %1235
+1236:                                             ; preds = %1231
+  %1237 = load ptr, ptr %5, align 8, !tbaa !7
+  %1238 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1237, i32 0, i32 4
+  store i32 12, ptr %1238, align 8, !tbaa !23
+  br label %1239
 
-1225:                                             ; preds = %1217
-  %1226 = load ptr, ptr %4, align 8
-  %1227 = getelementptr inbounds %struct._YR_COMPILER, ptr %1226, i32 0, i32 31
-  %1228 = getelementptr inbounds [256 x i8], ptr %1227, i64 0, i64 0
-  %1229 = load ptr, ptr %15, align 8
-  %1230 = getelementptr inbounds %union.YYSTYPE, ptr %1229, i64 -1
-  %1231 = load ptr, ptr %1230, align 8
-  %1232 = call i64 @cli_strlcpy(ptr noundef %1228, ptr noundef %1231, i64 noundef 256)
-  %1233 = load ptr, ptr %4, align 8
-  %1234 = getelementptr inbounds %struct._YR_COMPILER, ptr %1233, i32 0, i32 4
-  store i32 13, ptr %1234, align 8
-  br label %1235
+1239:                                             ; preds = %1236, %1231
+  %1240 = load ptr, ptr %5, align 8, !tbaa !7
+  %1241 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1240, i32 0, i32 4
+  %1242 = load i32, ptr %1241, align 8, !tbaa !23
+  %1243 = icmp ne i32 %1242, 0
+  br i1 %1243, label %1244, label %1247
 
-1235:                                             ; preds = %1225, %1217
-  %1236 = load ptr, ptr %4, align 8
-  %1237 = getelementptr inbounds %struct._YR_COMPILER, ptr %1236, i32 0, i32 4
-  %1238 = load i32, ptr %1237, align 8
-  %1239 = icmp ne i32 %1238, 0
-  br i1 %1239, label %1240, label %1243
+1244:                                             ; preds = %1239
+  %1245 = load ptr, ptr %4, align 8, !tbaa !3
+  %1246 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1245, ptr noundef %1246, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %1286
 
-1240:                                             ; preds = %1235
-  %1241 = load ptr, ptr %3, align 8
-  %1242 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1241, ptr noundef %1242, ptr noundef null)
-  br label %3195
+1247:                                             ; preds = %1239
+  %1248 = load ptr, ptr %4, align 8, !tbaa !3
+  %1249 = load ptr, ptr %16, align 8, !tbaa !17
+  %1250 = getelementptr inbounds %union.YYSTYPE, ptr %1249, i64 -1
+  %1251 = load ptr, ptr %1250, align 8, !tbaa !10
+  %1252 = call i32 @yr_parser_lookup_loop_variable(ptr noundef %1248, ptr noundef %1251)
+  store i32 %1252, ptr %46, align 4, !tbaa !11
+  %1253 = load i32, ptr %46, align 4, !tbaa !11
+  %1254 = icmp sge i32 %1253, 0
+  br i1 %1254, label %1255, label %1265
 
-1243:                                             ; preds = %1235
-  %1244 = load ptr, ptr %3, align 8
-  %1245 = call i32 @yr_parser_emit_with_arg(ptr noundef %1244, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null)
-  %1246 = load ptr, ptr %4, align 8
-  %1247 = getelementptr inbounds %struct._YR_COMPILER, ptr %1246, i32 0, i32 4
-  store i32 %1245, ptr %1247, align 8
-  %1248 = load ptr, ptr %4, align 8
-  %1249 = getelementptr inbounds %struct._YR_COMPILER, ptr %1248, i32 0, i32 4
-  %1250 = load i32, ptr %1249, align 8
-  %1251 = icmp ne i32 %1250, 0
-  br i1 %1251, label %1252, label %1255
+1255:                                             ; preds = %1247
+  %1256 = load ptr, ptr %5, align 8, !tbaa !7
+  %1257 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1256, i32 0, i32 31
+  %1258 = getelementptr inbounds [256 x i8], ptr %1257, i64 0, i64 0
+  %1259 = load ptr, ptr %16, align 8, !tbaa !17
+  %1260 = getelementptr inbounds %union.YYSTYPE, ptr %1259, i64 -1
+  %1261 = load ptr, ptr %1260, align 8, !tbaa !10
+  %1262 = call i64 @cli_strlcpy(ptr noundef %1258, ptr noundef %1261, i64 noundef 256)
+  %1263 = load ptr, ptr %5, align 8, !tbaa !7
+  %1264 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1263, i32 0, i32 4
+  store i32 13, ptr %1264, align 8, !tbaa !23
+  br label %1265
 
-1252:                                             ; preds = %1243
-  %1253 = load ptr, ptr %3, align 8
-  %1254 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1253, ptr noundef %1254, ptr noundef null)
-  br label %3195
+1265:                                             ; preds = %1255, %1247
+  %1266 = load ptr, ptr %5, align 8, !tbaa !7
+  %1267 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1266, i32 0, i32 4
+  %1268 = load i32, ptr %1267, align 8, !tbaa !23
+  %1269 = icmp ne i32 %1268, 0
+  br i1 %1269, label %1270, label %1273
 
-1255:                                             ; preds = %1243
-  br label %3057
+1270:                                             ; preds = %1265
+  %1271 = load ptr, ptr %4, align 8, !tbaa !3
+  %1272 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1271, ptr noundef %1272, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %1286
 
-1256:                                             ; preds = %237
-  %1257 = load ptr, ptr %4, align 8
-  %1258 = getelementptr inbounds %struct._YR_COMPILER, ptr %1257, i32 0, i32 24
-  %1259 = load i32, ptr %1258, align 8
-  %1260 = mul nsw i32 4, %1259
-  store i32 %1260, ptr %45, align 4
-  %1261 = load ptr, ptr %3, align 8
-  %1262 = load i32, ptr %45, align 4
-  %1263 = add nsw i32 %1262, 1
-  %1264 = sext i32 %1263 to i64
-  %1265 = call i32 @yr_parser_emit_with_arg(ptr noundef %1261, i8 noundef signext 38, i64 noundef %1264, ptr noundef null)
-  %1266 = load ptr, ptr %3, align 8
-  %1267 = load i32, ptr %45, align 4
-  %1268 = add nsw i32 %1267, 2
-  %1269 = sext i32 %1268 to i64
-  %1270 = call i32 @yr_parser_emit_with_arg(ptr noundef %1266, i8 noundef signext 38, i64 noundef %1269, ptr noundef null)
-  %1271 = load ptr, ptr %15, align 8
-  %1272 = getelementptr inbounds %union.YYSTYPE, ptr %1271, i64 -1
-  %1273 = load i64, ptr %1272, align 8
-  %1274 = icmp eq i64 %1273, 1
-  br i1 %1274, label %1275, label %1280
+1273:                                             ; preds = %1265
+  %1274 = load ptr, ptr %4, align 8, !tbaa !3
+  %1275 = call i32 @yr_parser_emit_with_arg(ptr noundef %1274, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null)
+  %1276 = load ptr, ptr %5, align 8, !tbaa !7
+  %1277 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1276, i32 0, i32 4
+  store i32 %1275, ptr %1277, align 8, !tbaa !23
+  %1278 = load ptr, ptr %5, align 8, !tbaa !7
+  %1279 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1278, i32 0, i32 4
+  %1280 = load i32, ptr %1279, align 8, !tbaa !23
+  %1281 = icmp ne i32 %1280, 0
+  br i1 %1281, label %1282, label %1285
 
-1275:                                             ; preds = %1256
-  %1276 = load ptr, ptr %3, align 8
-  %1277 = load i32, ptr %45, align 4
-  %1278 = sext i32 %1277 to i64
-  %1279 = call i32 @yr_parser_emit_with_arg(ptr noundef %1276, i8 noundef signext 40, i64 noundef %1278, ptr noundef %46)
-  br label %1290
+1282:                                             ; preds = %1273
+  %1283 = load ptr, ptr %4, align 8, !tbaa !3
+  %1284 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1283, ptr noundef %1284, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %1286
 
-1280:                                             ; preds = %1256
-  %1281 = load ptr, ptr %3, align 8
-  %1282 = load i32, ptr %45, align 4
-  %1283 = add nsw i32 %1282, 3
-  %1284 = sext i32 %1283 to i64
-  %1285 = call i32 @yr_parser_emit_with_arg(ptr noundef %1281, i8 noundef signext 40, i64 noundef %1284, ptr noundef %46)
-  %1286 = load ptr, ptr %3, align 8
-  %1287 = load i32, ptr %45, align 4
-  %1288 = sext i32 %1287 to i64
-  %1289 = call i32 @yr_parser_emit_with_arg(ptr noundef %1286, i8 noundef signext 40, i64 noundef %1288, ptr noundef null)
-  br label %1290
+1285:                                             ; preds = %1273
+  store i32 0, ptr %31, align 4
+  br label %1286
 
-1290:                                             ; preds = %1280, %1275
-  %1291 = load ptr, ptr %46, align 8
-  %1292 = load ptr, ptr %4, align 8
-  %1293 = getelementptr inbounds %struct._YR_COMPILER, ptr %1292, i32 0, i32 22
-  %1294 = load ptr, ptr %4, align 8
-  %1295 = getelementptr inbounds %struct._YR_COMPILER, ptr %1294, i32 0, i32 24
-  %1296 = load i32, ptr %1295, align 8
+1286:                                             ; preds = %1282, %1270, %1244, %1285
+  call void @llvm.lifetime.end.p0(i64 4, ptr %46) #9
+  %1287 = load i32, ptr %31, align 4
+  switch i32 %1287, label %3379 [
+    i32 0, label %1288
+    i32 16, label %3235
+  ]
+
+1288:                                             ; preds = %1286
+  br label %3094
+
+1289:                                             ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %47) #9
+  %1290 = load ptr, ptr %5, align 8, !tbaa !7
+  %1291 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1290, i32 0, i32 24
+  %1292 = load i32, ptr %1291, align 8, !tbaa !58
+  %1293 = mul nsw i32 4, %1292
+  store i32 %1293, ptr %47, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #9
+  %1294 = load ptr, ptr %4, align 8, !tbaa !3
+  %1295 = load i32, ptr %47, align 4, !tbaa !11
+  %1296 = add nsw i32 %1295, 1
   %1297 = sext i32 %1296 to i64
-  %1298 = getelementptr inbounds [4 x ptr], ptr %1293, i64 0, i64 %1297
-  store ptr %1291, ptr %1298, align 8
-  %1299 = load ptr, ptr %15, align 8
-  %1300 = getelementptr inbounds %union.YYSTYPE, ptr %1299, i64 -4
-  %1301 = load ptr, ptr %1300, align 8
-  %1302 = load ptr, ptr %4, align 8
-  %1303 = getelementptr inbounds %struct._YR_COMPILER, ptr %1302, i32 0, i32 23
-  %1304 = load ptr, ptr %4, align 8
-  %1305 = getelementptr inbounds %struct._YR_COMPILER, ptr %1304, i32 0, i32 24
-  %1306 = load i32, ptr %1305, align 8
-  %1307 = sext i32 %1306 to i64
-  %1308 = getelementptr inbounds [4 x ptr], ptr %1303, i64 0, i64 %1307
-  store ptr %1301, ptr %1308, align 8
-  %1309 = load ptr, ptr %4, align 8
-  %1310 = getelementptr inbounds %struct._YR_COMPILER, ptr %1309, i32 0, i32 24
-  %1311 = load i32, ptr %1310, align 8
-  %1312 = add nsw i32 %1311, 1
-  store i32 %1312, ptr %1310, align 8
-  br label %3057
+  %1298 = call i32 @yr_parser_emit_with_arg(ptr noundef %1294, i8 noundef signext 38, i64 noundef %1297, ptr noundef null)
+  %1299 = load ptr, ptr %4, align 8, !tbaa !3
+  %1300 = load i32, ptr %47, align 4, !tbaa !11
+  %1301 = add nsw i32 %1300, 2
+  %1302 = sext i32 %1301 to i64
+  %1303 = call i32 @yr_parser_emit_with_arg(ptr noundef %1299, i8 noundef signext 38, i64 noundef %1302, ptr noundef null)
+  %1304 = load ptr, ptr %16, align 8, !tbaa !17
+  %1305 = getelementptr inbounds %union.YYSTYPE, ptr %1304, i64 -1
+  %1306 = load i64, ptr %1305, align 8, !tbaa !10
+  %1307 = icmp eq i64 %1306, 1
+  br i1 %1307, label %1308, label %1313
 
-1313:                                             ; preds = %237
-  %1314 = load ptr, ptr %4, align 8
-  %1315 = getelementptr inbounds %struct._YR_COMPILER, ptr %1314, i32 0, i32 24
-  %1316 = load i32, ptr %1315, align 8
-  %1317 = add nsw i32 %1316, -1
-  store i32 %1317, ptr %1315, align 8
-  %1318 = load ptr, ptr %4, align 8
-  %1319 = getelementptr inbounds %struct._YR_COMPILER, ptr %1318, i32 0, i32 24
-  %1320 = load i32, ptr %1319, align 8
-  %1321 = mul nsw i32 4, %1320
-  store i32 %1321, ptr %47, align 4
-  %1322 = load ptr, ptr %3, align 8
-  %1323 = load i32, ptr %47, align 4
-  %1324 = add nsw i32 %1323, 1
-  %1325 = sext i32 %1324 to i64
-  %1326 = call i32 @yr_parser_emit_with_arg(ptr noundef %1322, i8 noundef signext 39, i64 noundef %1325, ptr noundef null)
-  %1327 = load ptr, ptr %3, align 8
-  %1328 = load i32, ptr %47, align 4
-  %1329 = add nsw i32 %1328, 2
+1308:                                             ; preds = %1289
+  %1309 = load ptr, ptr %4, align 8, !tbaa !3
+  %1310 = load i32, ptr %47, align 4, !tbaa !11
+  %1311 = sext i32 %1310 to i64
+  %1312 = call i32 @yr_parser_emit_with_arg(ptr noundef %1309, i8 noundef signext 40, i64 noundef %1311, ptr noundef %48)
+  br label %1323
+
+1313:                                             ; preds = %1289
+  %1314 = load ptr, ptr %4, align 8, !tbaa !3
+  %1315 = load i32, ptr %47, align 4, !tbaa !11
+  %1316 = add nsw i32 %1315, 3
+  %1317 = sext i32 %1316 to i64
+  %1318 = call i32 @yr_parser_emit_with_arg(ptr noundef %1314, i8 noundef signext 40, i64 noundef %1317, ptr noundef %48)
+  %1319 = load ptr, ptr %4, align 8, !tbaa !3
+  %1320 = load i32, ptr %47, align 4, !tbaa !11
+  %1321 = sext i32 %1320 to i64
+  %1322 = call i32 @yr_parser_emit_with_arg(ptr noundef %1319, i8 noundef signext 40, i64 noundef %1321, ptr noundef null)
+  br label %1323
+
+1323:                                             ; preds = %1313, %1308
+  %1324 = load ptr, ptr %48, align 8, !tbaa !13
+  %1325 = load ptr, ptr %5, align 8, !tbaa !7
+  %1326 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1325, i32 0, i32 22
+  %1327 = load ptr, ptr %5, align 8, !tbaa !7
+  %1328 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1327, i32 0, i32 24
+  %1329 = load i32, ptr %1328, align 8, !tbaa !58
   %1330 = sext i32 %1329 to i64
-  %1331 = call i32 @yr_parser_emit_with_arg(ptr noundef %1327, i8 noundef signext 37, i64 noundef %1330, ptr noundef null)
-  %1332 = load ptr, ptr %15, align 8
-  %1333 = getelementptr inbounds %union.YYSTYPE, ptr %1332, i64 -5
-  %1334 = load i64, ptr %1333, align 8
-  %1335 = icmp eq i64 %1334, 1
-  br i1 %1335, label %1336, label %1348
+  %1331 = getelementptr inbounds [4 x ptr], ptr %1326, i64 0, i64 %1330
+  store ptr %1324, ptr %1331, align 8, !tbaa !13
+  %1332 = load ptr, ptr %16, align 8, !tbaa !17
+  %1333 = getelementptr inbounds %union.YYSTYPE, ptr %1332, i64 -4
+  %1334 = load ptr, ptr %1333, align 8, !tbaa !10
+  %1335 = load ptr, ptr %5, align 8, !tbaa !7
+  %1336 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1335, i32 0, i32 23
+  %1337 = load ptr, ptr %5, align 8, !tbaa !7
+  %1338 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1337, i32 0, i32 24
+  %1339 = load i32, ptr %1338, align 8, !tbaa !58
+  %1340 = sext i32 %1339 to i64
+  %1341 = getelementptr inbounds [4 x ptr], ptr %1336, i64 0, i64 %1340
+  store ptr %1334, ptr %1341, align 8, !tbaa !13
+  %1342 = load ptr, ptr %5, align 8, !tbaa !7
+  %1343 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1342, i32 0, i32 24
+  %1344 = load i32, ptr %1343, align 8, !tbaa !58
+  %1345 = add nsw i32 %1344, 1
+  store i32 %1345, ptr %1343, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %47) #9
+  br label %3094
 
-1336:                                             ; preds = %1313
-  %1337 = load ptr, ptr %3, align 8
-  %1338 = load ptr, ptr %4, align 8
-  %1339 = getelementptr inbounds %struct._YR_COMPILER, ptr %1338, i32 0, i32 22
-  %1340 = load ptr, ptr %4, align 8
-  %1341 = getelementptr inbounds %struct._YR_COMPILER, ptr %1340, i32 0, i32 24
-  %1342 = load i32, ptr %1341, align 8
-  %1343 = sext i32 %1342 to i64
-  %1344 = getelementptr inbounds [4 x ptr], ptr %1339, i64 0, i64 %1343
-  %1345 = load ptr, ptr %1344, align 8
-  %1346 = ptrtoint ptr %1345 to i64
-  %1347 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %1337, i8 noundef signext 43, i64 noundef %1346, ptr noundef null)
-  br label %1377
+1346:                                             ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %49) #9
+  %1347 = load ptr, ptr %5, align 8, !tbaa !7
+  %1348 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1347, i32 0, i32 24
+  %1349 = load i32, ptr %1348, align 8, !tbaa !58
+  %1350 = add nsw i32 %1349, -1
+  store i32 %1350, ptr %1348, align 8, !tbaa !58
+  %1351 = load ptr, ptr %5, align 8, !tbaa !7
+  %1352 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1351, i32 0, i32 24
+  %1353 = load i32, ptr %1352, align 8, !tbaa !58
+  %1354 = mul nsw i32 4, %1353
+  store i32 %1354, ptr %49, align 4, !tbaa !11
+  %1355 = load ptr, ptr %4, align 8, !tbaa !3
+  %1356 = load i32, ptr %49, align 4, !tbaa !11
+  %1357 = add nsw i32 %1356, 1
+  %1358 = sext i32 %1357 to i64
+  %1359 = call i32 @yr_parser_emit_with_arg(ptr noundef %1355, i8 noundef signext 39, i64 noundef %1358, ptr noundef null)
+  %1360 = load ptr, ptr %4, align 8, !tbaa !3
+  %1361 = load i32, ptr %49, align 4, !tbaa !11
+  %1362 = add nsw i32 %1361, 2
+  %1363 = sext i32 %1362 to i64
+  %1364 = call i32 @yr_parser_emit_with_arg(ptr noundef %1360, i8 noundef signext 37, i64 noundef %1363, ptr noundef null)
+  %1365 = load ptr, ptr %16, align 8, !tbaa !17
+  %1366 = getelementptr inbounds %union.YYSTYPE, ptr %1365, i64 -5
+  %1367 = load i64, ptr %1366, align 8, !tbaa !10
+  %1368 = icmp eq i64 %1367, 1
+  br i1 %1368, label %1369, label %1381
 
-1348:                                             ; preds = %1313
-  %1349 = load ptr, ptr %3, align 8
-  %1350 = load i32, ptr %47, align 4
-  %1351 = sext i32 %1350 to i64
-  %1352 = call i32 @yr_parser_emit_with_arg(ptr noundef %1349, i8 noundef signext 37, i64 noundef %1351, ptr noundef null)
-  %1353 = load ptr, ptr %3, align 8
-  %1354 = load i32, ptr %47, align 4
-  %1355 = sext i32 %1354 to i64
-  %1356 = call i32 @yr_parser_emit_with_arg(ptr noundef %1353, i8 noundef signext 41, i64 noundef %1355, ptr noundef null)
-  %1357 = load ptr, ptr %3, align 8
-  %1358 = load i32, ptr %47, align 4
-  %1359 = add nsw i32 %1358, 3
-  %1360 = sext i32 %1359 to i64
-  %1361 = call i32 @yr_parser_emit_with_arg(ptr noundef %1357, i8 noundef signext 41, i64 noundef %1360, ptr noundef null)
-  %1362 = load ptr, ptr %3, align 8
-  %1363 = load ptr, ptr %4, align 8
-  %1364 = getelementptr inbounds %struct._YR_COMPILER, ptr %1363, i32 0, i32 22
-  %1365 = load ptr, ptr %4, align 8
-  %1366 = getelementptr inbounds %struct._YR_COMPILER, ptr %1365, i32 0, i32 24
-  %1367 = load i32, ptr %1366, align 8
-  %1368 = sext i32 %1367 to i64
-  %1369 = getelementptr inbounds [4 x ptr], ptr %1364, i64 0, i64 %1368
-  %1370 = load ptr, ptr %1369, align 8
-  %1371 = ptrtoint ptr %1370 to i64
-  %1372 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %1362, i8 noundef signext 44, i64 noundef %1371, ptr noundef null)
-  %1373 = load ptr, ptr %3, align 8
-  %1374 = call i32 @yr_parser_emit(ptr noundef %1373, i8 noundef signext 23, ptr noundef null)
-  %1375 = load ptr, ptr %3, align 8
-  %1376 = call i32 @yr_parser_emit(ptr noundef %1375, i8 noundef signext 23, ptr noundef null)
-  br label %1377
+1369:                                             ; preds = %1346
+  %1370 = load ptr, ptr %4, align 8, !tbaa !3
+  %1371 = load ptr, ptr %5, align 8, !tbaa !7
+  %1372 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1371, i32 0, i32 22
+  %1373 = load ptr, ptr %5, align 8, !tbaa !7
+  %1374 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1373, i32 0, i32 24
+  %1375 = load i32, ptr %1374, align 8, !tbaa !58
+  %1376 = sext i32 %1375 to i64
+  %1377 = getelementptr inbounds [4 x ptr], ptr %1372, i64 0, i64 %1376
+  %1378 = load ptr, ptr %1377, align 8, !tbaa !13
+  %1379 = ptrtoint ptr %1378 to i64
+  %1380 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %1370, i8 noundef signext 43, i64 noundef %1379, ptr noundef null)
+  br label %1410
 
-1377:                                             ; preds = %1348, %1336
-  %1378 = load ptr, ptr %3, align 8
-  %1379 = call i32 @yr_parser_emit(ptr noundef %1378, i8 noundef signext 23, ptr noundef null)
-  %1380 = load ptr, ptr %3, align 8
-  %1381 = load i32, ptr %47, align 4
-  %1382 = add nsw i32 %1381, 2
-  %1383 = sext i32 %1382 to i64
-  %1384 = call i32 @yr_parser_emit_with_arg(ptr noundef %1380, i8 noundef signext 42, i64 noundef %1383, ptr noundef null)
-  %1385 = load ptr, ptr %3, align 8
-  %1386 = load i32, ptr %47, align 4
-  %1387 = add nsw i32 %1386, 1
+1381:                                             ; preds = %1346
+  %1382 = load ptr, ptr %4, align 8, !tbaa !3
+  %1383 = load i32, ptr %49, align 4, !tbaa !11
+  %1384 = sext i32 %1383 to i64
+  %1385 = call i32 @yr_parser_emit_with_arg(ptr noundef %1382, i8 noundef signext 37, i64 noundef %1384, ptr noundef null)
+  %1386 = load ptr, ptr %4, align 8, !tbaa !3
+  %1387 = load i32, ptr %49, align 4, !tbaa !11
   %1388 = sext i32 %1387 to i64
-  %1389 = call i32 @yr_parser_emit_with_arg(ptr noundef %1385, i8 noundef signext 41, i64 noundef %1388, ptr noundef null)
-  %1390 = load ptr, ptr %3, align 8
-  %1391 = call i32 @yr_parser_emit(ptr noundef %1390, i8 noundef signext 7, ptr noundef null)
-  %1392 = load ptr, ptr %4, align 8
-  %1393 = getelementptr inbounds %struct._YR_COMPILER, ptr %1392, i32 0, i32 23
-  %1394 = load ptr, ptr %4, align 8
-  %1395 = getelementptr inbounds %struct._YR_COMPILER, ptr %1394, i32 0, i32 24
-  %1396 = load i32, ptr %1395, align 8
-  %1397 = sext i32 %1396 to i64
-  %1398 = getelementptr inbounds [4 x ptr], ptr %1393, i64 0, i64 %1397
-  store ptr null, ptr %1398, align 8
-  %1399 = load ptr, ptr %15, align 8
-  %1400 = getelementptr inbounds %union.YYSTYPE, ptr %1399, i64 -8
-  %1401 = load ptr, ptr %1400, align 8
-  call void @free(ptr noundef %1401) #9
-  store i8 1, ptr %20, align 8
-  br label %3057
+  %1389 = call i32 @yr_parser_emit_with_arg(ptr noundef %1386, i8 noundef signext 41, i64 noundef %1388, ptr noundef null)
+  %1390 = load ptr, ptr %4, align 8, !tbaa !3
+  %1391 = load i32, ptr %49, align 4, !tbaa !11
+  %1392 = add nsw i32 %1391, 3
+  %1393 = sext i32 %1392 to i64
+  %1394 = call i32 @yr_parser_emit_with_arg(ptr noundef %1390, i8 noundef signext 41, i64 noundef %1393, ptr noundef null)
+  %1395 = load ptr, ptr %4, align 8, !tbaa !3
+  %1396 = load ptr, ptr %5, align 8, !tbaa !7
+  %1397 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1396, i32 0, i32 22
+  %1398 = load ptr, ptr %5, align 8, !tbaa !7
+  %1399 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1398, i32 0, i32 24
+  %1400 = load i32, ptr %1399, align 8, !tbaa !58
+  %1401 = sext i32 %1400 to i64
+  %1402 = getelementptr inbounds [4 x ptr], ptr %1397, i64 0, i64 %1401
+  %1403 = load ptr, ptr %1402, align 8, !tbaa !13
+  %1404 = ptrtoint ptr %1403 to i64
+  %1405 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %1395, i8 noundef signext 44, i64 noundef %1404, ptr noundef null)
+  %1406 = load ptr, ptr %4, align 8, !tbaa !3
+  %1407 = call i32 @yr_parser_emit(ptr noundef %1406, i8 noundef signext 23, ptr noundef null)
+  %1408 = load ptr, ptr %4, align 8, !tbaa !3
+  %1409 = call i32 @yr_parser_emit(ptr noundef %1408, i8 noundef signext 23, ptr noundef null)
+  br label %1410
 
-1402:                                             ; preds = %237
-  %1403 = load ptr, ptr %4, align 8
-  %1404 = getelementptr inbounds %struct._YR_COMPILER, ptr %1403, i32 0, i32 24
-  %1405 = load i32, ptr %1404, align 8
-  %1406 = mul nsw i32 4, %1405
-  store i32 %1406, ptr %48, align 4
-  %1407 = load ptr, ptr %4, align 8
-  %1408 = getelementptr inbounds %struct._YR_COMPILER, ptr %1407, i32 0, i32 24
-  %1409 = load i32, ptr %1408, align 8
-  %1410 = icmp eq i32 %1409, 4
-  br i1 %1410, label %1411, label %1414
+1410:                                             ; preds = %1381, %1369
+  %1411 = load ptr, ptr %4, align 8, !tbaa !3
+  %1412 = call i32 @yr_parser_emit(ptr noundef %1411, i8 noundef signext 23, ptr noundef null)
+  %1413 = load ptr, ptr %4, align 8, !tbaa !3
+  %1414 = load i32, ptr %49, align 4, !tbaa !11
+  %1415 = add nsw i32 %1414, 2
+  %1416 = sext i32 %1415 to i64
+  %1417 = call i32 @yr_parser_emit_with_arg(ptr noundef %1413, i8 noundef signext 42, i64 noundef %1416, ptr noundef null)
+  %1418 = load ptr, ptr %4, align 8, !tbaa !3
+  %1419 = load i32, ptr %49, align 4, !tbaa !11
+  %1420 = add nsw i32 %1419, 1
+  %1421 = sext i32 %1420 to i64
+  %1422 = call i32 @yr_parser_emit_with_arg(ptr noundef %1418, i8 noundef signext 41, i64 noundef %1421, ptr noundef null)
+  %1423 = load ptr, ptr %4, align 8, !tbaa !3
+  %1424 = call i32 @yr_parser_emit(ptr noundef %1423, i8 noundef signext 7, ptr noundef null)
+  %1425 = load ptr, ptr %5, align 8, !tbaa !7
+  %1426 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1425, i32 0, i32 23
+  %1427 = load ptr, ptr %5, align 8, !tbaa !7
+  %1428 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1427, i32 0, i32 24
+  %1429 = load i32, ptr %1428, align 8, !tbaa !58
+  %1430 = sext i32 %1429 to i64
+  %1431 = getelementptr inbounds [4 x ptr], ptr %1426, i64 0, i64 %1430
+  store ptr null, ptr %1431, align 8, !tbaa !13
+  %1432 = load ptr, ptr %16, align 8, !tbaa !17
+  %1433 = getelementptr inbounds %union.YYSTYPE, ptr %1432, i64 -8
+  %1434 = load ptr, ptr %1433, align 8, !tbaa !10
+  call void @free(ptr noundef %1434) #9
+  store i8 1, ptr %21, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %49) #9
+  br label %3094
 
-1411:                                             ; preds = %1402
-  %1412 = load ptr, ptr %4, align 8
-  %1413 = getelementptr inbounds %struct._YR_COMPILER, ptr %1412, i32 0, i32 4
-  store i32 12, ptr %1413, align 8
-  br label %1414
+1435:                                             ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %50) #9
+  %1436 = load ptr, ptr %5, align 8, !tbaa !7
+  %1437 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1436, i32 0, i32 24
+  %1438 = load i32, ptr %1437, align 8, !tbaa !58
+  %1439 = mul nsw i32 4, %1438
+  store i32 %1439, ptr %50, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %51) #9
+  %1440 = load ptr, ptr %5, align 8, !tbaa !7
+  %1441 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1440, i32 0, i32 24
+  %1442 = load i32, ptr %1441, align 8, !tbaa !58
+  %1443 = icmp eq i32 %1442, 4
+  br i1 %1443, label %1444, label %1447
 
-1414:                                             ; preds = %1411, %1402
-  %1415 = load ptr, ptr %4, align 8
-  %1416 = getelementptr inbounds %struct._YR_COMPILER, ptr %1415, i32 0, i32 25
-  %1417 = load i32, ptr %1416, align 4
-  %1418 = icmp ne i32 %1417, -1
-  br i1 %1418, label %1419, label %1422
+1444:                                             ; preds = %1435
+  %1445 = load ptr, ptr %5, align 8, !tbaa !7
+  %1446 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1445, i32 0, i32 4
+  store i32 12, ptr %1446, align 8, !tbaa !23
+  br label %1447
 
-1419:                                             ; preds = %1414
-  %1420 = load ptr, ptr %4, align 8
-  %1421 = getelementptr inbounds %struct._YR_COMPILER, ptr %1420, i32 0, i32 4
-  store i32 32, ptr %1421, align 8
-  br label %1422
+1447:                                             ; preds = %1444, %1435
+  %1448 = load ptr, ptr %5, align 8, !tbaa !7
+  %1449 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1448, i32 0, i32 25
+  %1450 = load i32, ptr %1449, align 4, !tbaa !59
+  %1451 = icmp ne i32 %1450, -1
+  br i1 %1451, label %1452, label %1455
 
-1422:                                             ; preds = %1419, %1414
-  %1423 = load ptr, ptr %4, align 8
-  %1424 = getelementptr inbounds %struct._YR_COMPILER, ptr %1423, i32 0, i32 4
-  %1425 = load i32, ptr %1424, align 8
-  %1426 = icmp ne i32 %1425, 0
-  br i1 %1426, label %1427, label %1430
+1452:                                             ; preds = %1447
+  %1453 = load ptr, ptr %5, align 8, !tbaa !7
+  %1454 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1453, i32 0, i32 4
+  store i32 32, ptr %1454, align 8, !tbaa !23
+  br label %1455
 
-1427:                                             ; preds = %1422
-  %1428 = load ptr, ptr %3, align 8
-  %1429 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1428, ptr noundef %1429, ptr noundef null)
-  br label %3195
+1455:                                             ; preds = %1452, %1447
+  %1456 = load ptr, ptr %5, align 8, !tbaa !7
+  %1457 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1456, i32 0, i32 4
+  %1458 = load i32, ptr %1457, align 8, !tbaa !23
+  %1459 = icmp ne i32 %1458, 0
+  br i1 %1459, label %1460, label %1463
 
-1430:                                             ; preds = %1422
-  %1431 = load ptr, ptr %3, align 8
-  %1432 = load i32, ptr %48, align 4
-  %1433 = add nsw i32 %1432, 1
-  %1434 = sext i32 %1433 to i64
-  %1435 = call i32 @yr_parser_emit_with_arg(ptr noundef %1431, i8 noundef signext 38, i64 noundef %1434, ptr noundef null)
-  %1436 = load ptr, ptr %3, align 8
-  %1437 = load i32, ptr %48, align 4
-  %1438 = add nsw i32 %1437, 2
-  %1439 = sext i32 %1438 to i64
-  %1440 = call i32 @yr_parser_emit_with_arg(ptr noundef %1436, i8 noundef signext 38, i64 noundef %1439, ptr noundef null)
-  %1441 = load ptr, ptr %3, align 8
-  %1442 = load i32, ptr %48, align 4
-  %1443 = sext i32 %1442 to i64
-  %1444 = call i32 @yr_parser_emit_with_arg(ptr noundef %1441, i8 noundef signext 40, i64 noundef %1443, ptr noundef %49)
-  %1445 = load i32, ptr %48, align 4
-  %1446 = load ptr, ptr %4, align 8
-  %1447 = getelementptr inbounds %struct._YR_COMPILER, ptr %1446, i32 0, i32 25
-  store i32 %1445, ptr %1447, align 4
-  %1448 = load ptr, ptr %49, align 8
-  %1449 = load ptr, ptr %4, align 8
-  %1450 = getelementptr inbounds %struct._YR_COMPILER, ptr %1449, i32 0, i32 22
-  %1451 = load ptr, ptr %4, align 8
-  %1452 = getelementptr inbounds %struct._YR_COMPILER, ptr %1451, i32 0, i32 24
-  %1453 = load i32, ptr %1452, align 8
-  %1454 = sext i32 %1453 to i64
-  %1455 = getelementptr inbounds [4 x ptr], ptr %1450, i64 0, i64 %1454
-  store ptr %1448, ptr %1455, align 8
-  %1456 = load ptr, ptr %4, align 8
-  %1457 = getelementptr inbounds %struct._YR_COMPILER, ptr %1456, i32 0, i32 23
-  %1458 = load ptr, ptr %4, align 8
-  %1459 = getelementptr inbounds %struct._YR_COMPILER, ptr %1458, i32 0, i32 24
-  %1460 = load i32, ptr %1459, align 8
-  %1461 = sext i32 %1460 to i64
-  %1462 = getelementptr inbounds [4 x ptr], ptr %1457, i64 0, i64 %1461
-  store ptr null, ptr %1462, align 8
-  %1463 = load ptr, ptr %4, align 8
-  %1464 = getelementptr inbounds %struct._YR_COMPILER, ptr %1463, i32 0, i32 24
-  %1465 = load i32, ptr %1464, align 8
+1460:                                             ; preds = %1455
+  %1461 = load ptr, ptr %4, align 8, !tbaa !3
+  %1462 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1461, ptr noundef %1462, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %1500
+
+1463:                                             ; preds = %1455
+  %1464 = load ptr, ptr %4, align 8, !tbaa !3
+  %1465 = load i32, ptr %50, align 4, !tbaa !11
   %1466 = add nsw i32 %1465, 1
-  store i32 %1466, ptr %1464, align 8
-  br label %3057
-
-1467:                                             ; preds = %237
-  %1468 = load ptr, ptr %4, align 8
-  %1469 = getelementptr inbounds %struct._YR_COMPILER, ptr %1468, i32 0, i32 24
-  %1470 = load i32, ptr %1469, align 8
-  %1471 = add nsw i32 %1470, -1
-  store i32 %1471, ptr %1469, align 8
-  %1472 = load ptr, ptr %4, align 8
-  %1473 = getelementptr inbounds %struct._YR_COMPILER, ptr %1472, i32 0, i32 25
-  store i32 -1, ptr %1473, align 4
-  %1474 = load ptr, ptr %4, align 8
-  %1475 = getelementptr inbounds %struct._YR_COMPILER, ptr %1474, i32 0, i32 24
-  %1476 = load i32, ptr %1475, align 8
-  %1477 = mul nsw i32 4, %1476
-  store i32 %1477, ptr %50, align 4
-  %1478 = load ptr, ptr %3, align 8
-  %1479 = load i32, ptr %50, align 4
-  %1480 = add nsw i32 %1479, 1
-  %1481 = sext i32 %1480 to i64
-  %1482 = call i32 @yr_parser_emit_with_arg(ptr noundef %1478, i8 noundef signext 39, i64 noundef %1481, ptr noundef null)
-  %1483 = load ptr, ptr %3, align 8
-  %1484 = load i32, ptr %50, align 4
-  %1485 = add nsw i32 %1484, 2
-  %1486 = sext i32 %1485 to i64
-  %1487 = call i32 @yr_parser_emit_with_arg(ptr noundef %1483, i8 noundef signext 37, i64 noundef %1486, ptr noundef null)
-  %1488 = load ptr, ptr %3, align 8
-  %1489 = load ptr, ptr %4, align 8
-  %1490 = getelementptr inbounds %struct._YR_COMPILER, ptr %1489, i32 0, i32 22
-  %1491 = load ptr, ptr %4, align 8
-  %1492 = getelementptr inbounds %struct._YR_COMPILER, ptr %1491, i32 0, i32 24
-  %1493 = load i32, ptr %1492, align 8
+  %1467 = sext i32 %1466 to i64
+  %1468 = call i32 @yr_parser_emit_with_arg(ptr noundef %1464, i8 noundef signext 38, i64 noundef %1467, ptr noundef null)
+  %1469 = load ptr, ptr %4, align 8, !tbaa !3
+  %1470 = load i32, ptr %50, align 4, !tbaa !11
+  %1471 = add nsw i32 %1470, 2
+  %1472 = sext i32 %1471 to i64
+  %1473 = call i32 @yr_parser_emit_with_arg(ptr noundef %1469, i8 noundef signext 38, i64 noundef %1472, ptr noundef null)
+  %1474 = load ptr, ptr %4, align 8, !tbaa !3
+  %1475 = load i32, ptr %50, align 4, !tbaa !11
+  %1476 = sext i32 %1475 to i64
+  %1477 = call i32 @yr_parser_emit_with_arg(ptr noundef %1474, i8 noundef signext 40, i64 noundef %1476, ptr noundef %51)
+  %1478 = load i32, ptr %50, align 4, !tbaa !11
+  %1479 = load ptr, ptr %5, align 8, !tbaa !7
+  %1480 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1479, i32 0, i32 25
+  store i32 %1478, ptr %1480, align 4, !tbaa !59
+  %1481 = load ptr, ptr %51, align 8, !tbaa !13
+  %1482 = load ptr, ptr %5, align 8, !tbaa !7
+  %1483 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1482, i32 0, i32 22
+  %1484 = load ptr, ptr %5, align 8, !tbaa !7
+  %1485 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1484, i32 0, i32 24
+  %1486 = load i32, ptr %1485, align 8, !tbaa !58
+  %1487 = sext i32 %1486 to i64
+  %1488 = getelementptr inbounds [4 x ptr], ptr %1483, i64 0, i64 %1487
+  store ptr %1481, ptr %1488, align 8, !tbaa !13
+  %1489 = load ptr, ptr %5, align 8, !tbaa !7
+  %1490 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1489, i32 0, i32 23
+  %1491 = load ptr, ptr %5, align 8, !tbaa !7
+  %1492 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1491, i32 0, i32 24
+  %1493 = load i32, ptr %1492, align 8, !tbaa !58
   %1494 = sext i32 %1493 to i64
   %1495 = getelementptr inbounds [4 x ptr], ptr %1490, i64 0, i64 %1494
-  %1496 = load ptr, ptr %1495, align 8
-  %1497 = ptrtoint ptr %1496 to i64
-  %1498 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %1488, i8 noundef signext 43, i64 noundef %1497, ptr noundef null)
-  %1499 = load ptr, ptr %3, align 8
-  %1500 = call i32 @yr_parser_emit(ptr noundef %1499, i8 noundef signext 23, ptr noundef null)
-  %1501 = load ptr, ptr %3, align 8
-  %1502 = load i32, ptr %50, align 4
-  %1503 = add nsw i32 %1502, 2
-  %1504 = sext i32 %1503 to i64
-  %1505 = call i32 @yr_parser_emit_with_arg(ptr noundef %1501, i8 noundef signext 42, i64 noundef %1504, ptr noundef null)
-  %1506 = load ptr, ptr %3, align 8
-  %1507 = load i32, ptr %50, align 4
-  %1508 = add nsw i32 %1507, 1
-  %1509 = sext i32 %1508 to i64
-  %1510 = call i32 @yr_parser_emit_with_arg(ptr noundef %1506, i8 noundef signext 41, i64 noundef %1509, ptr noundef null)
-  %1511 = load ptr, ptr %3, align 8
-  %1512 = call i32 @yr_parser_emit(ptr noundef %1511, i8 noundef signext 7, ptr noundef null)
-  store i8 1, ptr %20, align 8
-  br label %3057
+  store ptr null, ptr %1495, align 8, !tbaa !13
+  %1496 = load ptr, ptr %5, align 8, !tbaa !7
+  %1497 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1496, i32 0, i32 24
+  %1498 = load i32, ptr %1497, align 8, !tbaa !58
+  %1499 = add nsw i32 %1498, 1
+  store i32 %1499, ptr %1497, align 8, !tbaa !58
+  store i32 0, ptr %31, align 4
+  br label %1500
 
-1513:                                             ; preds = %237
-  %1514 = load ptr, ptr %3, align 8
-  %1515 = call i32 @yr_parser_emit(ptr noundef %1514, i8 noundef signext 34, ptr noundef null)
-  store i8 1, ptr %20, align 8
-  br label %3057
-
-1516:                                             ; preds = %237
-  %1517 = load ptr, ptr %3, align 8
-  %1518 = call i32 @yr_parser_emit(ptr noundef %1517, i8 noundef signext 4, ptr noundef null)
-  store i8 1, ptr %20, align 8
-  br label %3057
-
-1519:                                             ; preds = %237
-  %1520 = load ptr, ptr %3, align 8
-  %1521 = call i32 @yr_parser_emit(ptr noundef %1520, i8 noundef signext 1, ptr noundef null)
-  store i8 1, ptr %20, align 8
-  br label %3057
-
-1522:                                             ; preds = %237
-  %1523 = load ptr, ptr %15, align 8
-  %1524 = getelementptr inbounds %union.YYSTYPE, ptr %1523, i64 -2
-  %1525 = load i8, ptr %1524, align 8
-  %1526 = sext i8 %1525 to i32
-  %1527 = icmp ne i32 %1526, 1
-  br i1 %1527, label %1528, label %1548
-
-1528:                                             ; preds = %1522
-  %1529 = load ptr, ptr %15, align 8
-  %1530 = getelementptr inbounds %union.YYSTYPE, ptr %1529, i64 -2
-  %1531 = load i8, ptr %1530, align 8
-  %1532 = sext i8 %1531 to i32
-  switch i32 %1532, label %1543 [
-    i32 2, label %1533
-    i32 3, label %1538
+1500:                                             ; preds = %1460, %1463
+  call void @llvm.lifetime.end.p0(i64 8, ptr %51) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %50) #9
+  %1501 = load i32, ptr %31, align 4
+  switch i32 %1501, label %3379 [
+    i32 0, label %1502
+    i32 16, label %3235
   ]
 
-1533:                                             ; preds = %1528
-  %1534 = load ptr, ptr %4, align 8
-  %1535 = getelementptr inbounds %struct._YR_COMPILER, ptr %1534, i32 0, i32 31
-  %1536 = getelementptr inbounds [256 x i8], ptr %1535, i64 0, i64 0
-  %1537 = call i64 @cli_strlcpy(ptr noundef %1536, ptr noundef @.str.11, i64 noundef 256)
-  br label %1543
+1502:                                             ; preds = %1500
+  br label %3094
 
-1538:                                             ; preds = %1528
-  %1539 = load ptr, ptr %4, align 8
-  %1540 = getelementptr inbounds %struct._YR_COMPILER, ptr %1539, i32 0, i32 31
-  %1541 = getelementptr inbounds [256 x i8], ptr %1540, i64 0, i64 0
-  %1542 = call i64 @cli_strlcpy(ptr noundef %1541, ptr noundef @.str.12, i64 noundef 256)
-  br label %1543
+1503:                                             ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %52) #9
+  %1504 = load ptr, ptr %5, align 8, !tbaa !7
+  %1505 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1504, i32 0, i32 24
+  %1506 = load i32, ptr %1505, align 8, !tbaa !58
+  %1507 = add nsw i32 %1506, -1
+  store i32 %1507, ptr %1505, align 8, !tbaa !58
+  %1508 = load ptr, ptr %5, align 8, !tbaa !7
+  %1509 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1508, i32 0, i32 25
+  store i32 -1, ptr %1509, align 4, !tbaa !59
+  %1510 = load ptr, ptr %5, align 8, !tbaa !7
+  %1511 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1510, i32 0, i32 24
+  %1512 = load i32, ptr %1511, align 8, !tbaa !58
+  %1513 = mul nsw i32 4, %1512
+  store i32 %1513, ptr %52, align 4, !tbaa !11
+  %1514 = load ptr, ptr %4, align 8, !tbaa !3
+  %1515 = load i32, ptr %52, align 4, !tbaa !11
+  %1516 = add nsw i32 %1515, 1
+  %1517 = sext i32 %1516 to i64
+  %1518 = call i32 @yr_parser_emit_with_arg(ptr noundef %1514, i8 noundef signext 39, i64 noundef %1517, ptr noundef null)
+  %1519 = load ptr, ptr %4, align 8, !tbaa !3
+  %1520 = load i32, ptr %52, align 4, !tbaa !11
+  %1521 = add nsw i32 %1520, 2
+  %1522 = sext i32 %1521 to i64
+  %1523 = call i32 @yr_parser_emit_with_arg(ptr noundef %1519, i8 noundef signext 37, i64 noundef %1522, ptr noundef null)
+  %1524 = load ptr, ptr %4, align 8, !tbaa !3
+  %1525 = load ptr, ptr %5, align 8, !tbaa !7
+  %1526 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1525, i32 0, i32 22
+  %1527 = load ptr, ptr %5, align 8, !tbaa !7
+  %1528 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1527, i32 0, i32 24
+  %1529 = load i32, ptr %1528, align 8, !tbaa !58
+  %1530 = sext i32 %1529 to i64
+  %1531 = getelementptr inbounds [4 x ptr], ptr %1526, i64 0, i64 %1530
+  %1532 = load ptr, ptr %1531, align 8, !tbaa !13
+  %1533 = ptrtoint ptr %1532 to i64
+  %1534 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %1524, i8 noundef signext 43, i64 noundef %1533, ptr noundef null)
+  %1535 = load ptr, ptr %4, align 8, !tbaa !3
+  %1536 = call i32 @yr_parser_emit(ptr noundef %1535, i8 noundef signext 23, ptr noundef null)
+  %1537 = load ptr, ptr %4, align 8, !tbaa !3
+  %1538 = load i32, ptr %52, align 4, !tbaa !11
+  %1539 = add nsw i32 %1538, 2
+  %1540 = sext i32 %1539 to i64
+  %1541 = call i32 @yr_parser_emit_with_arg(ptr noundef %1537, i8 noundef signext 42, i64 noundef %1540, ptr noundef null)
+  %1542 = load ptr, ptr %4, align 8, !tbaa !3
+  %1543 = load i32, ptr %52, align 4, !tbaa !11
+  %1544 = add nsw i32 %1543, 1
+  %1545 = sext i32 %1544 to i64
+  %1546 = call i32 @yr_parser_emit_with_arg(ptr noundef %1542, i8 noundef signext 41, i64 noundef %1545, ptr noundef null)
+  %1547 = load ptr, ptr %4, align 8, !tbaa !3
+  %1548 = call i32 @yr_parser_emit(ptr noundef %1547, i8 noundef signext 7, ptr noundef null)
+  store i8 1, ptr %21, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %52) #9
+  br label %3094
 
-1543:                                             ; preds = %1538, %1533, %1528
-  %1544 = load ptr, ptr %4, align 8
-  %1545 = getelementptr inbounds %struct._YR_COMPILER, ptr %1544, i32 0, i32 4
-  store i32 24, ptr %1545, align 8
-  %1546 = load ptr, ptr %3, align 8
-  %1547 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1546, ptr noundef %1547, ptr noundef null)
-  br label %3195
+1549:                                             ; preds = %247
+  %1550 = load ptr, ptr %4, align 8, !tbaa !3
+  %1551 = call i32 @yr_parser_emit(ptr noundef %1550, i8 noundef signext 34, ptr noundef null)
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1548:                                             ; preds = %1522
-  %1549 = load ptr, ptr %3, align 8
-  %1550 = call i32 @yr_parser_emit(ptr noundef %1549, i8 noundef signext 2, ptr noundef null)
-  store i8 1, ptr %20, align 8
-  br label %3057
+1552:                                             ; preds = %247
+  %1553 = load ptr, ptr %4, align 8, !tbaa !3
+  %1554 = call i32 @yr_parser_emit(ptr noundef %1553, i8 noundef signext 4, ptr noundef null)
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1551:                                             ; preds = %237
-  %1552 = load ptr, ptr %15, align 8
-  %1553 = getelementptr inbounds %union.YYSTYPE, ptr %1552, i64 -2
-  %1554 = load i8, ptr %1553, align 8
-  %1555 = sext i8 %1554 to i32
-  %1556 = icmp ne i32 %1555, 2
-  br i1 %1556, label %1557, label %1577
+1555:                                             ; preds = %247
+  %1556 = load ptr, ptr %4, align 8, !tbaa !3
+  %1557 = call i32 @yr_parser_emit(ptr noundef %1556, i8 noundef signext 1, ptr noundef null)
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1557:                                             ; preds = %1551
-  %1558 = load ptr, ptr %15, align 8
-  %1559 = getelementptr inbounds %union.YYSTYPE, ptr %1558, i64 -2
-  %1560 = load i8, ptr %1559, align 8
-  %1561 = sext i8 %1560 to i32
-  switch i32 %1561, label %1572 [
-    i32 2, label %1562
-    i32 3, label %1567
+1558:                                             ; preds = %247
+  %1559 = load ptr, ptr %16, align 8, !tbaa !17
+  %1560 = getelementptr inbounds %union.YYSTYPE, ptr %1559, i64 -2
+  %1561 = load i8, ptr %1560, align 8, !tbaa !10
+  %1562 = sext i8 %1561 to i32
+  %1563 = icmp ne i32 %1562, 1
+  br i1 %1563, label %1564, label %1584
+
+1564:                                             ; preds = %1558
+  %1565 = load ptr, ptr %16, align 8, !tbaa !17
+  %1566 = getelementptr inbounds %union.YYSTYPE, ptr %1565, i64 -2
+  %1567 = load i8, ptr %1566, align 8, !tbaa !10
+  %1568 = sext i8 %1567 to i32
+  switch i32 %1568, label %1579 [
+    i32 2, label %1569
+    i32 3, label %1574
   ]
 
-1562:                                             ; preds = %1557
-  %1563 = load ptr, ptr %4, align 8
-  %1564 = getelementptr inbounds %struct._YR_COMPILER, ptr %1563, i32 0, i32 31
-  %1565 = getelementptr inbounds [256 x i8], ptr %1564, i64 0, i64 0
-  %1566 = call i64 @cli_strlcpy(ptr noundef %1565, ptr noundef @.str.13, i64 noundef 256)
-  br label %1572
+1569:                                             ; preds = %1564
+  %1570 = load ptr, ptr %5, align 8, !tbaa !7
+  %1571 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1570, i32 0, i32 31
+  %1572 = getelementptr inbounds [256 x i8], ptr %1571, i64 0, i64 0
+  %1573 = call i64 @cli_strlcpy(ptr noundef %1572, ptr noundef @.str.11, i64 noundef 256)
+  br label %1579
 
-1567:                                             ; preds = %1557
-  %1568 = load ptr, ptr %4, align 8
-  %1569 = getelementptr inbounds %struct._YR_COMPILER, ptr %1568, i32 0, i32 31
-  %1570 = getelementptr inbounds [256 x i8], ptr %1569, i64 0, i64 0
-  %1571 = call i64 @cli_strlcpy(ptr noundef %1570, ptr noundef @.str.14, i64 noundef 256)
-  br label %1572
+1574:                                             ; preds = %1564
+  %1575 = load ptr, ptr %5, align 8, !tbaa !7
+  %1576 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1575, i32 0, i32 31
+  %1577 = getelementptr inbounds [256 x i8], ptr %1576, i64 0, i64 0
+  %1578 = call i64 @cli_strlcpy(ptr noundef %1577, ptr noundef @.str.12, i64 noundef 256)
+  br label %1579
 
-1572:                                             ; preds = %1567, %1562, %1557
-  %1573 = load ptr, ptr %4, align 8
-  %1574 = getelementptr inbounds %struct._YR_COMPILER, ptr %1573, i32 0, i32 4
-  store i32 24, ptr %1574, align 8
-  %1575 = load ptr, ptr %3, align 8
-  %1576 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1575, ptr noundef %1576, ptr noundef null)
-  br label %3195
+1579:                                             ; preds = %1564, %1574, %1569
+  %1580 = load ptr, ptr %5, align 8, !tbaa !7
+  %1581 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1580, i32 0, i32 4
+  store i32 24, ptr %1581, align 8, !tbaa !23
+  %1582 = load ptr, ptr %4, align 8, !tbaa !3
+  %1583 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1582, ptr noundef %1583, ptr noundef null)
+  br label %3235
 
-1577:                                             ; preds = %1551
-  %1578 = load ptr, ptr %15, align 8
-  %1579 = getelementptr inbounds %union.YYSTYPE, ptr %1578, i64 0
-  %1580 = load i8, ptr %1579, align 8
-  %1581 = sext i8 %1580 to i32
-  %1582 = icmp ne i32 %1581, 2
-  br i1 %1582, label %1583, label %1603
+1584:                                             ; preds = %1558
+  %1585 = load ptr, ptr %4, align 8, !tbaa !3
+  %1586 = call i32 @yr_parser_emit(ptr noundef %1585, i8 noundef signext 2, ptr noundef null)
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1583:                                             ; preds = %1577
-  %1584 = load ptr, ptr %15, align 8
-  %1585 = getelementptr inbounds %union.YYSTYPE, ptr %1584, i64 0
-  %1586 = load i8, ptr %1585, align 8
-  %1587 = sext i8 %1586 to i32
-  switch i32 %1587, label %1598 [
-    i32 2, label %1588
-    i32 3, label %1593
+1587:                                             ; preds = %247
+  %1588 = load ptr, ptr %16, align 8, !tbaa !17
+  %1589 = getelementptr inbounds %union.YYSTYPE, ptr %1588, i64 -2
+  %1590 = load i8, ptr %1589, align 8, !tbaa !10
+  %1591 = sext i8 %1590 to i32
+  %1592 = icmp ne i32 %1591, 2
+  br i1 %1592, label %1593, label %1613
+
+1593:                                             ; preds = %1587
+  %1594 = load ptr, ptr %16, align 8, !tbaa !17
+  %1595 = getelementptr inbounds %union.YYSTYPE, ptr %1594, i64 -2
+  %1596 = load i8, ptr %1595, align 8, !tbaa !10
+  %1597 = sext i8 %1596 to i32
+  switch i32 %1597, label %1608 [
+    i32 2, label %1598
+    i32 3, label %1603
   ]
 
-1588:                                             ; preds = %1583
-  %1589 = load ptr, ptr %4, align 8
-  %1590 = getelementptr inbounds %struct._YR_COMPILER, ptr %1589, i32 0, i32 31
-  %1591 = getelementptr inbounds [256 x i8], ptr %1590, i64 0, i64 0
-  %1592 = call i64 @cli_strlcpy(ptr noundef %1591, ptr noundef @.str.13, i64 noundef 256)
-  br label %1598
+1598:                                             ; preds = %1593
+  %1599 = load ptr, ptr %5, align 8, !tbaa !7
+  %1600 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1599, i32 0, i32 31
+  %1601 = getelementptr inbounds [256 x i8], ptr %1600, i64 0, i64 0
+  %1602 = call i64 @cli_strlcpy(ptr noundef %1601, ptr noundef @.str.13, i64 noundef 256)
+  br label %1608
 
-1593:                                             ; preds = %1583
-  %1594 = load ptr, ptr %4, align 8
-  %1595 = getelementptr inbounds %struct._YR_COMPILER, ptr %1594, i32 0, i32 31
-  %1596 = getelementptr inbounds [256 x i8], ptr %1595, i64 0, i64 0
-  %1597 = call i64 @cli_strlcpy(ptr noundef %1596, ptr noundef @.str.14, i64 noundef 256)
-  br label %1598
+1603:                                             ; preds = %1593
+  %1604 = load ptr, ptr %5, align 8, !tbaa !7
+  %1605 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1604, i32 0, i32 31
+  %1606 = getelementptr inbounds [256 x i8], ptr %1605, i64 0, i64 0
+  %1607 = call i64 @cli_strlcpy(ptr noundef %1606, ptr noundef @.str.14, i64 noundef 256)
+  br label %1608
 
-1598:                                             ; preds = %1593, %1588, %1583
-  %1599 = load ptr, ptr %4, align 8
-  %1600 = getelementptr inbounds %struct._YR_COMPILER, ptr %1599, i32 0, i32 4
-  store i32 24, ptr %1600, align 8
-  %1601 = load ptr, ptr %3, align 8
-  %1602 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1601, ptr noundef %1602, ptr noundef null)
-  br label %3195
+1608:                                             ; preds = %1593, %1603, %1598
+  %1609 = load ptr, ptr %5, align 8, !tbaa !7
+  %1610 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1609, i32 0, i32 4
+  store i32 24, ptr %1610, align 8, !tbaa !23
+  %1611 = load ptr, ptr %4, align 8, !tbaa !3
+  %1612 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1611, ptr noundef %1612, ptr noundef null)
+  br label %3235
 
-1603:                                             ; preds = %1577
-  %1604 = load ptr, ptr %3, align 8
-  %1605 = call i32 @yr_parser_emit(ptr noundef %1604, i8 noundef signext 5, ptr noundef null)
-  store i8 1, ptr %20, align 8
-  br label %3057
+1613:                                             ; preds = %1587
+  %1614 = load ptr, ptr %16, align 8, !tbaa !17
+  %1615 = getelementptr inbounds %union.YYSTYPE, ptr %1614, i64 0
+  %1616 = load i8, ptr %1615, align 8, !tbaa !10
+  %1617 = sext i8 %1616 to i32
+  %1618 = icmp ne i32 %1617, 2
+  br i1 %1618, label %1619, label %1639
 
-1606:                                             ; preds = %237
-  %1607 = load ptr, ptr %15, align 8
-  %1608 = getelementptr inbounds %union.YYSTYPE, ptr %1607, i64 -2
-  %1609 = load i8, ptr %1608, align 8
-  %1610 = sext i8 %1609 to i32
-  %1611 = icmp ne i32 %1610, 2
-  br i1 %1611, label %1612, label %1632
-
-1612:                                             ; preds = %1606
-  %1613 = load ptr, ptr %15, align 8
-  %1614 = getelementptr inbounds %union.YYSTYPE, ptr %1613, i64 -2
-  %1615 = load i8, ptr %1614, align 8
-  %1616 = sext i8 %1615 to i32
-  switch i32 %1616, label %1627 [
-    i32 2, label %1617
-    i32 3, label %1622
+1619:                                             ; preds = %1613
+  %1620 = load ptr, ptr %16, align 8, !tbaa !17
+  %1621 = getelementptr inbounds %union.YYSTYPE, ptr %1620, i64 0
+  %1622 = load i8, ptr %1621, align 8, !tbaa !10
+  %1623 = sext i8 %1622 to i32
+  switch i32 %1623, label %1634 [
+    i32 2, label %1624
+    i32 3, label %1629
   ]
 
-1617:                                             ; preds = %1612
-  %1618 = load ptr, ptr %4, align 8
-  %1619 = getelementptr inbounds %struct._YR_COMPILER, ptr %1618, i32 0, i32 31
-  %1620 = getelementptr inbounds [256 x i8], ptr %1619, i64 0, i64 0
-  %1621 = call i64 @cli_strlcpy(ptr noundef %1620, ptr noundef @.str.15, i64 noundef 256)
-  br label %1627
+1624:                                             ; preds = %1619
+  %1625 = load ptr, ptr %5, align 8, !tbaa !7
+  %1626 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1625, i32 0, i32 31
+  %1627 = getelementptr inbounds [256 x i8], ptr %1626, i64 0, i64 0
+  %1628 = call i64 @cli_strlcpy(ptr noundef %1627, ptr noundef @.str.13, i64 noundef 256)
+  br label %1634
 
-1622:                                             ; preds = %1612
-  %1623 = load ptr, ptr %4, align 8
-  %1624 = getelementptr inbounds %struct._YR_COMPILER, ptr %1623, i32 0, i32 31
-  %1625 = getelementptr inbounds [256 x i8], ptr %1624, i64 0, i64 0
-  %1626 = call i64 @cli_strlcpy(ptr noundef %1625, ptr noundef @.str.16, i64 noundef 256)
-  br label %1627
+1629:                                             ; preds = %1619
+  %1630 = load ptr, ptr %5, align 8, !tbaa !7
+  %1631 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1630, i32 0, i32 31
+  %1632 = getelementptr inbounds [256 x i8], ptr %1631, i64 0, i64 0
+  %1633 = call i64 @cli_strlcpy(ptr noundef %1632, ptr noundef @.str.14, i64 noundef 256)
+  br label %1634
 
-1627:                                             ; preds = %1622, %1617, %1612
-  %1628 = load ptr, ptr %4, align 8
-  %1629 = getelementptr inbounds %struct._YR_COMPILER, ptr %1628, i32 0, i32 4
-  store i32 24, ptr %1629, align 8
-  %1630 = load ptr, ptr %3, align 8
-  %1631 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1630, ptr noundef %1631, ptr noundef null)
-  br label %3195
+1634:                                             ; preds = %1619, %1629, %1624
+  %1635 = load ptr, ptr %5, align 8, !tbaa !7
+  %1636 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1635, i32 0, i32 4
+  store i32 24, ptr %1636, align 8, !tbaa !23
+  %1637 = load ptr, ptr %4, align 8, !tbaa !3
+  %1638 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1637, ptr noundef %1638, ptr noundef null)
+  br label %3235
 
-1632:                                             ; preds = %1606
-  %1633 = load ptr, ptr %15, align 8
-  %1634 = getelementptr inbounds %union.YYSTYPE, ptr %1633, i64 0
-  %1635 = load i8, ptr %1634, align 8
-  %1636 = sext i8 %1635 to i32
-  %1637 = icmp ne i32 %1636, 2
-  br i1 %1637, label %1638, label %1658
+1639:                                             ; preds = %1613
+  %1640 = load ptr, ptr %4, align 8, !tbaa !3
+  %1641 = call i32 @yr_parser_emit(ptr noundef %1640, i8 noundef signext 5, ptr noundef null)
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1638:                                             ; preds = %1632
-  %1639 = load ptr, ptr %15, align 8
-  %1640 = getelementptr inbounds %union.YYSTYPE, ptr %1639, i64 0
-  %1641 = load i8, ptr %1640, align 8
-  %1642 = sext i8 %1641 to i32
-  switch i32 %1642, label %1653 [
-    i32 2, label %1643
-    i32 3, label %1648
+1642:                                             ; preds = %247
+  %1643 = load ptr, ptr %16, align 8, !tbaa !17
+  %1644 = getelementptr inbounds %union.YYSTYPE, ptr %1643, i64 -2
+  %1645 = load i8, ptr %1644, align 8, !tbaa !10
+  %1646 = sext i8 %1645 to i32
+  %1647 = icmp ne i32 %1646, 2
+  br i1 %1647, label %1648, label %1668
+
+1648:                                             ; preds = %1642
+  %1649 = load ptr, ptr %16, align 8, !tbaa !17
+  %1650 = getelementptr inbounds %union.YYSTYPE, ptr %1649, i64 -2
+  %1651 = load i8, ptr %1650, align 8, !tbaa !10
+  %1652 = sext i8 %1651 to i32
+  switch i32 %1652, label %1663 [
+    i32 2, label %1653
+    i32 3, label %1658
   ]
 
-1643:                                             ; preds = %1638
-  %1644 = load ptr, ptr %4, align 8
-  %1645 = getelementptr inbounds %struct._YR_COMPILER, ptr %1644, i32 0, i32 31
-  %1646 = getelementptr inbounds [256 x i8], ptr %1645, i64 0, i64 0
-  %1647 = call i64 @cli_strlcpy(ptr noundef %1646, ptr noundef @.str.15, i64 noundef 256)
-  br label %1653
+1653:                                             ; preds = %1648
+  %1654 = load ptr, ptr %5, align 8, !tbaa !7
+  %1655 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1654, i32 0, i32 31
+  %1656 = getelementptr inbounds [256 x i8], ptr %1655, i64 0, i64 0
+  %1657 = call i64 @cli_strlcpy(ptr noundef %1656, ptr noundef @.str.15, i64 noundef 256)
+  br label %1663
 
-1648:                                             ; preds = %1638
-  %1649 = load ptr, ptr %4, align 8
-  %1650 = getelementptr inbounds %struct._YR_COMPILER, ptr %1649, i32 0, i32 31
-  %1651 = getelementptr inbounds [256 x i8], ptr %1650, i64 0, i64 0
-  %1652 = call i64 @cli_strlcpy(ptr noundef %1651, ptr noundef @.str.16, i64 noundef 256)
-  br label %1653
+1658:                                             ; preds = %1648
+  %1659 = load ptr, ptr %5, align 8, !tbaa !7
+  %1660 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1659, i32 0, i32 31
+  %1661 = getelementptr inbounds [256 x i8], ptr %1660, i64 0, i64 0
+  %1662 = call i64 @cli_strlcpy(ptr noundef %1661, ptr noundef @.str.16, i64 noundef 256)
+  br label %1663
 
-1653:                                             ; preds = %1648, %1643, %1638
-  %1654 = load ptr, ptr %4, align 8
-  %1655 = getelementptr inbounds %struct._YR_COMPILER, ptr %1654, i32 0, i32 4
-  store i32 24, ptr %1655, align 8
-  %1656 = load ptr, ptr %3, align 8
-  %1657 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1656, ptr noundef %1657, ptr noundef null)
-  br label %3195
+1663:                                             ; preds = %1648, %1658, %1653
+  %1664 = load ptr, ptr %5, align 8, !tbaa !7
+  %1665 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1664, i32 0, i32 4
+  store i32 24, ptr %1665, align 8, !tbaa !23
+  %1666 = load ptr, ptr %4, align 8, !tbaa !3
+  %1667 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1666, ptr noundef %1667, ptr noundef null)
+  br label %3235
 
-1658:                                             ; preds = %1632
-  %1659 = load ptr, ptr %3, align 8
-  %1660 = call i32 @yr_parser_emit(ptr noundef %1659, i8 noundef signext 6, ptr noundef null)
-  store i8 1, ptr %20, align 8
-  br label %3057
+1668:                                             ; preds = %1642
+  %1669 = load ptr, ptr %16, align 8, !tbaa !17
+  %1670 = getelementptr inbounds %union.YYSTYPE, ptr %1669, i64 0
+  %1671 = load i8, ptr %1670, align 8, !tbaa !10
+  %1672 = sext i8 %1671 to i32
+  %1673 = icmp ne i32 %1672, 2
+  br i1 %1673, label %1674, label %1694
 
-1661:                                             ; preds = %237
-  %1662 = load ptr, ptr %15, align 8
-  %1663 = getelementptr inbounds %union.YYSTYPE, ptr %1662, i64 -2
-  %1664 = load i8, ptr %1663, align 8
-  %1665 = sext i8 %1664 to i32
-  %1666 = icmp ne i32 %1665, 2
-  br i1 %1666, label %1667, label %1687
-
-1667:                                             ; preds = %1661
-  %1668 = load ptr, ptr %15, align 8
-  %1669 = getelementptr inbounds %union.YYSTYPE, ptr %1668, i64 -2
-  %1670 = load i8, ptr %1669, align 8
-  %1671 = sext i8 %1670 to i32
-  switch i32 %1671, label %1682 [
-    i32 2, label %1672
-    i32 3, label %1677
+1674:                                             ; preds = %1668
+  %1675 = load ptr, ptr %16, align 8, !tbaa !17
+  %1676 = getelementptr inbounds %union.YYSTYPE, ptr %1675, i64 0
+  %1677 = load i8, ptr %1676, align 8, !tbaa !10
+  %1678 = sext i8 %1677 to i32
+  switch i32 %1678, label %1689 [
+    i32 2, label %1679
+    i32 3, label %1684
   ]
 
-1672:                                             ; preds = %1667
-  %1673 = load ptr, ptr %4, align 8
-  %1674 = getelementptr inbounds %struct._YR_COMPILER, ptr %1673, i32 0, i32 31
-  %1675 = getelementptr inbounds [256 x i8], ptr %1674, i64 0, i64 0
-  %1676 = call i64 @cli_strlcpy(ptr noundef %1675, ptr noundef @.str.17, i64 noundef 256)
-  br label %1682
+1679:                                             ; preds = %1674
+  %1680 = load ptr, ptr %5, align 8, !tbaa !7
+  %1681 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1680, i32 0, i32 31
+  %1682 = getelementptr inbounds [256 x i8], ptr %1681, i64 0, i64 0
+  %1683 = call i64 @cli_strlcpy(ptr noundef %1682, ptr noundef @.str.15, i64 noundef 256)
+  br label %1689
 
-1677:                                             ; preds = %1667
-  %1678 = load ptr, ptr %4, align 8
-  %1679 = getelementptr inbounds %struct._YR_COMPILER, ptr %1678, i32 0, i32 31
-  %1680 = getelementptr inbounds [256 x i8], ptr %1679, i64 0, i64 0
-  %1681 = call i64 @cli_strlcpy(ptr noundef %1680, ptr noundef @.str.18, i64 noundef 256)
-  br label %1682
+1684:                                             ; preds = %1674
+  %1685 = load ptr, ptr %5, align 8, !tbaa !7
+  %1686 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1685, i32 0, i32 31
+  %1687 = getelementptr inbounds [256 x i8], ptr %1686, i64 0, i64 0
+  %1688 = call i64 @cli_strlcpy(ptr noundef %1687, ptr noundef @.str.16, i64 noundef 256)
+  br label %1689
 
-1682:                                             ; preds = %1677, %1672, %1667
-  %1683 = load ptr, ptr %4, align 8
-  %1684 = getelementptr inbounds %struct._YR_COMPILER, ptr %1683, i32 0, i32 4
-  store i32 24, ptr %1684, align 8
-  %1685 = load ptr, ptr %3, align 8
-  %1686 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1685, ptr noundef %1686, ptr noundef null)
-  br label %3195
+1689:                                             ; preds = %1674, %1684, %1679
+  %1690 = load ptr, ptr %5, align 8, !tbaa !7
+  %1691 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1690, i32 0, i32 4
+  store i32 24, ptr %1691, align 8, !tbaa !23
+  %1692 = load ptr, ptr %4, align 8, !tbaa !3
+  %1693 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1692, ptr noundef %1693, ptr noundef null)
+  br label %3235
 
-1687:                                             ; preds = %1661
-  %1688 = load ptr, ptr %15, align 8
-  %1689 = getelementptr inbounds %union.YYSTYPE, ptr %1688, i64 0
-  %1690 = load i8, ptr %1689, align 8
-  %1691 = sext i8 %1690 to i32
-  %1692 = icmp ne i32 %1691, 2
-  br i1 %1692, label %1693, label %1713
+1694:                                             ; preds = %1668
+  %1695 = load ptr, ptr %4, align 8, !tbaa !3
+  %1696 = call i32 @yr_parser_emit(ptr noundef %1695, i8 noundef signext 6, ptr noundef null)
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1693:                                             ; preds = %1687
-  %1694 = load ptr, ptr %15, align 8
-  %1695 = getelementptr inbounds %union.YYSTYPE, ptr %1694, i64 0
-  %1696 = load i8, ptr %1695, align 8
-  %1697 = sext i8 %1696 to i32
-  switch i32 %1697, label %1708 [
-    i32 2, label %1698
-    i32 3, label %1703
+1697:                                             ; preds = %247
+  %1698 = load ptr, ptr %16, align 8, !tbaa !17
+  %1699 = getelementptr inbounds %union.YYSTYPE, ptr %1698, i64 -2
+  %1700 = load i8, ptr %1699, align 8, !tbaa !10
+  %1701 = sext i8 %1700 to i32
+  %1702 = icmp ne i32 %1701, 2
+  br i1 %1702, label %1703, label %1723
+
+1703:                                             ; preds = %1697
+  %1704 = load ptr, ptr %16, align 8, !tbaa !17
+  %1705 = getelementptr inbounds %union.YYSTYPE, ptr %1704, i64 -2
+  %1706 = load i8, ptr %1705, align 8, !tbaa !10
+  %1707 = sext i8 %1706 to i32
+  switch i32 %1707, label %1718 [
+    i32 2, label %1708
+    i32 3, label %1713
   ]
 
-1698:                                             ; preds = %1693
-  %1699 = load ptr, ptr %4, align 8
-  %1700 = getelementptr inbounds %struct._YR_COMPILER, ptr %1699, i32 0, i32 31
-  %1701 = getelementptr inbounds [256 x i8], ptr %1700, i64 0, i64 0
-  %1702 = call i64 @cli_strlcpy(ptr noundef %1701, ptr noundef @.str.17, i64 noundef 256)
-  br label %1708
+1708:                                             ; preds = %1703
+  %1709 = load ptr, ptr %5, align 8, !tbaa !7
+  %1710 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1709, i32 0, i32 31
+  %1711 = getelementptr inbounds [256 x i8], ptr %1710, i64 0, i64 0
+  %1712 = call i64 @cli_strlcpy(ptr noundef %1711, ptr noundef @.str.17, i64 noundef 256)
+  br label %1718
 
-1703:                                             ; preds = %1693
-  %1704 = load ptr, ptr %4, align 8
-  %1705 = getelementptr inbounds %struct._YR_COMPILER, ptr %1704, i32 0, i32 31
-  %1706 = getelementptr inbounds [256 x i8], ptr %1705, i64 0, i64 0
-  %1707 = call i64 @cli_strlcpy(ptr noundef %1706, ptr noundef @.str.18, i64 noundef 256)
-  br label %1708
+1713:                                             ; preds = %1703
+  %1714 = load ptr, ptr %5, align 8, !tbaa !7
+  %1715 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1714, i32 0, i32 31
+  %1716 = getelementptr inbounds [256 x i8], ptr %1715, i64 0, i64 0
+  %1717 = call i64 @cli_strlcpy(ptr noundef %1716, ptr noundef @.str.18, i64 noundef 256)
+  br label %1718
 
-1708:                                             ; preds = %1703, %1698, %1693
-  %1709 = load ptr, ptr %4, align 8
-  %1710 = getelementptr inbounds %struct._YR_COMPILER, ptr %1709, i32 0, i32 4
-  store i32 24, ptr %1710, align 8
-  %1711 = load ptr, ptr %3, align 8
-  %1712 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1711, ptr noundef %1712, ptr noundef null)
-  br label %3195
+1718:                                             ; preds = %1703, %1713, %1708
+  %1719 = load ptr, ptr %5, align 8, !tbaa !7
+  %1720 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1719, i32 0, i32 4
+  store i32 24, ptr %1720, align 8, !tbaa !23
+  %1721 = load ptr, ptr %4, align 8, !tbaa !3
+  %1722 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1721, ptr noundef %1722, ptr noundef null)
+  br label %3235
 
-1713:                                             ; preds = %1687
-  %1714 = load ptr, ptr %3, align 8
-  %1715 = call i32 @yr_parser_emit(ptr noundef %1714, i8 noundef signext 7, ptr noundef null)
-  store i8 1, ptr %20, align 8
-  br label %3057
+1723:                                             ; preds = %1697
+  %1724 = load ptr, ptr %16, align 8, !tbaa !17
+  %1725 = getelementptr inbounds %union.YYSTYPE, ptr %1724, i64 0
+  %1726 = load i8, ptr %1725, align 8, !tbaa !10
+  %1727 = sext i8 %1726 to i32
+  %1728 = icmp ne i32 %1727, 2
+  br i1 %1728, label %1729, label %1749
 
-1716:                                             ; preds = %237
-  %1717 = load ptr, ptr %15, align 8
-  %1718 = getelementptr inbounds %union.YYSTYPE, ptr %1717, i64 -2
-  %1719 = load i8, ptr %1718, align 8
-  %1720 = sext i8 %1719 to i32
-  %1721 = icmp ne i32 %1720, 2
-  br i1 %1721, label %1722, label %1742
-
-1722:                                             ; preds = %1716
-  %1723 = load ptr, ptr %15, align 8
-  %1724 = getelementptr inbounds %union.YYSTYPE, ptr %1723, i64 -2
-  %1725 = load i8, ptr %1724, align 8
-  %1726 = sext i8 %1725 to i32
-  switch i32 %1726, label %1737 [
-    i32 2, label %1727
-    i32 3, label %1732
+1729:                                             ; preds = %1723
+  %1730 = load ptr, ptr %16, align 8, !tbaa !17
+  %1731 = getelementptr inbounds %union.YYSTYPE, ptr %1730, i64 0
+  %1732 = load i8, ptr %1731, align 8, !tbaa !10
+  %1733 = sext i8 %1732 to i32
+  switch i32 %1733, label %1744 [
+    i32 2, label %1734
+    i32 3, label %1739
   ]
 
-1727:                                             ; preds = %1722
-  %1728 = load ptr, ptr %4, align 8
-  %1729 = getelementptr inbounds %struct._YR_COMPILER, ptr %1728, i32 0, i32 31
-  %1730 = getelementptr inbounds [256 x i8], ptr %1729, i64 0, i64 0
-  %1731 = call i64 @cli_strlcpy(ptr noundef %1730, ptr noundef @.str.19, i64 noundef 256)
-  br label %1737
+1734:                                             ; preds = %1729
+  %1735 = load ptr, ptr %5, align 8, !tbaa !7
+  %1736 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1735, i32 0, i32 31
+  %1737 = getelementptr inbounds [256 x i8], ptr %1736, i64 0, i64 0
+  %1738 = call i64 @cli_strlcpy(ptr noundef %1737, ptr noundef @.str.17, i64 noundef 256)
+  br label %1744
 
-1732:                                             ; preds = %1722
-  %1733 = load ptr, ptr %4, align 8
-  %1734 = getelementptr inbounds %struct._YR_COMPILER, ptr %1733, i32 0, i32 31
-  %1735 = getelementptr inbounds [256 x i8], ptr %1734, i64 0, i64 0
-  %1736 = call i64 @cli_strlcpy(ptr noundef %1735, ptr noundef @.str.20, i64 noundef 256)
-  br label %1737
+1739:                                             ; preds = %1729
+  %1740 = load ptr, ptr %5, align 8, !tbaa !7
+  %1741 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1740, i32 0, i32 31
+  %1742 = getelementptr inbounds [256 x i8], ptr %1741, i64 0, i64 0
+  %1743 = call i64 @cli_strlcpy(ptr noundef %1742, ptr noundef @.str.18, i64 noundef 256)
+  br label %1744
 
-1737:                                             ; preds = %1732, %1727, %1722
-  %1738 = load ptr, ptr %4, align 8
-  %1739 = getelementptr inbounds %struct._YR_COMPILER, ptr %1738, i32 0, i32 4
-  store i32 24, ptr %1739, align 8
-  %1740 = load ptr, ptr %3, align 8
-  %1741 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1740, ptr noundef %1741, ptr noundef null)
-  br label %3195
+1744:                                             ; preds = %1729, %1739, %1734
+  %1745 = load ptr, ptr %5, align 8, !tbaa !7
+  %1746 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1745, i32 0, i32 4
+  store i32 24, ptr %1746, align 8, !tbaa !23
+  %1747 = load ptr, ptr %4, align 8, !tbaa !3
+  %1748 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1747, ptr noundef %1748, ptr noundef null)
+  br label %3235
 
-1742:                                             ; preds = %1716
-  %1743 = load ptr, ptr %15, align 8
-  %1744 = getelementptr inbounds %union.YYSTYPE, ptr %1743, i64 0
-  %1745 = load i8, ptr %1744, align 8
-  %1746 = sext i8 %1745 to i32
-  %1747 = icmp ne i32 %1746, 2
-  br i1 %1747, label %1748, label %1768
+1749:                                             ; preds = %1723
+  %1750 = load ptr, ptr %4, align 8, !tbaa !3
+  %1751 = call i32 @yr_parser_emit(ptr noundef %1750, i8 noundef signext 7, ptr noundef null)
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1748:                                             ; preds = %1742
-  %1749 = load ptr, ptr %15, align 8
-  %1750 = getelementptr inbounds %union.YYSTYPE, ptr %1749, i64 0
-  %1751 = load i8, ptr %1750, align 8
-  %1752 = sext i8 %1751 to i32
-  switch i32 %1752, label %1763 [
-    i32 2, label %1753
-    i32 3, label %1758
+1752:                                             ; preds = %247
+  %1753 = load ptr, ptr %16, align 8, !tbaa !17
+  %1754 = getelementptr inbounds %union.YYSTYPE, ptr %1753, i64 -2
+  %1755 = load i8, ptr %1754, align 8, !tbaa !10
+  %1756 = sext i8 %1755 to i32
+  %1757 = icmp ne i32 %1756, 2
+  br i1 %1757, label %1758, label %1778
+
+1758:                                             ; preds = %1752
+  %1759 = load ptr, ptr %16, align 8, !tbaa !17
+  %1760 = getelementptr inbounds %union.YYSTYPE, ptr %1759, i64 -2
+  %1761 = load i8, ptr %1760, align 8, !tbaa !10
+  %1762 = sext i8 %1761 to i32
+  switch i32 %1762, label %1773 [
+    i32 2, label %1763
+    i32 3, label %1768
   ]
 
-1753:                                             ; preds = %1748
-  %1754 = load ptr, ptr %4, align 8
-  %1755 = getelementptr inbounds %struct._YR_COMPILER, ptr %1754, i32 0, i32 31
-  %1756 = getelementptr inbounds [256 x i8], ptr %1755, i64 0, i64 0
-  %1757 = call i64 @cli_strlcpy(ptr noundef %1756, ptr noundef @.str.19, i64 noundef 256)
-  br label %1763
+1763:                                             ; preds = %1758
+  %1764 = load ptr, ptr %5, align 8, !tbaa !7
+  %1765 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1764, i32 0, i32 31
+  %1766 = getelementptr inbounds [256 x i8], ptr %1765, i64 0, i64 0
+  %1767 = call i64 @cli_strlcpy(ptr noundef %1766, ptr noundef @.str.19, i64 noundef 256)
+  br label %1773
 
-1758:                                             ; preds = %1748
-  %1759 = load ptr, ptr %4, align 8
-  %1760 = getelementptr inbounds %struct._YR_COMPILER, ptr %1759, i32 0, i32 31
-  %1761 = getelementptr inbounds [256 x i8], ptr %1760, i64 0, i64 0
-  %1762 = call i64 @cli_strlcpy(ptr noundef %1761, ptr noundef @.str.20, i64 noundef 256)
-  br label %1763
+1768:                                             ; preds = %1758
+  %1769 = load ptr, ptr %5, align 8, !tbaa !7
+  %1770 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1769, i32 0, i32 31
+  %1771 = getelementptr inbounds [256 x i8], ptr %1770, i64 0, i64 0
+  %1772 = call i64 @cli_strlcpy(ptr noundef %1771, ptr noundef @.str.20, i64 noundef 256)
+  br label %1773
 
-1763:                                             ; preds = %1758, %1753, %1748
-  %1764 = load ptr, ptr %4, align 8
-  %1765 = getelementptr inbounds %struct._YR_COMPILER, ptr %1764, i32 0, i32 4
-  store i32 24, ptr %1765, align 8
-  %1766 = load ptr, ptr %3, align 8
-  %1767 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1766, ptr noundef %1767, ptr noundef null)
-  br label %3195
+1773:                                             ; preds = %1758, %1768, %1763
+  %1774 = load ptr, ptr %5, align 8, !tbaa !7
+  %1775 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1774, i32 0, i32 4
+  store i32 24, ptr %1775, align 8, !tbaa !23
+  %1776 = load ptr, ptr %4, align 8, !tbaa !3
+  %1777 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1776, ptr noundef %1777, ptr noundef null)
+  br label %3235
 
-1768:                                             ; preds = %1742
-  %1769 = load ptr, ptr %3, align 8
-  %1770 = call i32 @yr_parser_emit(ptr noundef %1769, i8 noundef signext 8, ptr noundef null)
-  store i8 1, ptr %20, align 8
-  br label %3057
+1778:                                             ; preds = %1752
+  %1779 = load ptr, ptr %16, align 8, !tbaa !17
+  %1780 = getelementptr inbounds %union.YYSTYPE, ptr %1779, i64 0
+  %1781 = load i8, ptr %1780, align 8, !tbaa !10
+  %1782 = sext i8 %1781 to i32
+  %1783 = icmp ne i32 %1782, 2
+  br i1 %1783, label %1784, label %1804
 
-1771:                                             ; preds = %237
-  %1772 = load ptr, ptr %15, align 8
-  %1773 = getelementptr inbounds %union.YYSTYPE, ptr %1772, i64 -2
-  %1774 = load i8, ptr %1773, align 8
-  %1775 = sext i8 %1774 to i32
-  %1776 = load ptr, ptr %15, align 8
-  %1777 = getelementptr inbounds %union.YYSTYPE, ptr %1776, i64 0
-  %1778 = load i8, ptr %1777, align 8
-  %1779 = sext i8 %1778 to i32
-  %1780 = icmp ne i32 %1775, %1779
-  br i1 %1780, label %1781, label %1788
+1784:                                             ; preds = %1778
+  %1785 = load ptr, ptr %16, align 8, !tbaa !17
+  %1786 = getelementptr inbounds %union.YYSTYPE, ptr %1785, i64 0
+  %1787 = load i8, ptr %1786, align 8, !tbaa !10
+  %1788 = sext i8 %1787 to i32
+  switch i32 %1788, label %1799 [
+    i32 2, label %1789
+    i32 3, label %1794
+  ]
 
-1781:                                             ; preds = %1771
-  %1782 = load ptr, ptr %4, align 8
-  %1783 = getelementptr inbounds %struct._YR_COMPILER, ptr %1782, i32 0, i32 31
-  %1784 = getelementptr inbounds [256 x i8], ptr %1783, i64 0, i64 0
-  %1785 = call i64 @cli_strlcpy(ptr noundef %1784, ptr noundef @.str.21, i64 noundef 256)
-  %1786 = load ptr, ptr %4, align 8
-  %1787 = getelementptr inbounds %struct._YR_COMPILER, ptr %1786, i32 0, i32 4
-  store i32 24, ptr %1787, align 8
-  br label %1805
+1789:                                             ; preds = %1784
+  %1790 = load ptr, ptr %5, align 8, !tbaa !7
+  %1791 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1790, i32 0, i32 31
+  %1792 = getelementptr inbounds [256 x i8], ptr %1791, i64 0, i64 0
+  %1793 = call i64 @cli_strlcpy(ptr noundef %1792, ptr noundef @.str.19, i64 noundef 256)
+  br label %1799
 
-1788:                                             ; preds = %1771
-  %1789 = load ptr, ptr %15, align 8
-  %1790 = getelementptr inbounds %union.YYSTYPE, ptr %1789, i64 -2
-  %1791 = load i8, ptr %1790, align 8
-  %1792 = sext i8 %1791 to i32
-  %1793 = icmp eq i32 %1792, 3
-  br i1 %1793, label %1794, label %1799
+1794:                                             ; preds = %1784
+  %1795 = load ptr, ptr %5, align 8, !tbaa !7
+  %1796 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1795, i32 0, i32 31
+  %1797 = getelementptr inbounds [256 x i8], ptr %1796, i64 0, i64 0
+  %1798 = call i64 @cli_strlcpy(ptr noundef %1797, ptr noundef @.str.20, i64 noundef 256)
+  br label %1799
 
-1794:                                             ; preds = %1788
-  %1795 = load ptr, ptr %3, align 8
-  %1796 = call i32 @yr_parser_emit(ptr noundef %1795, i8 noundef signext 11, ptr noundef null)
-  %1797 = load ptr, ptr %4, align 8
-  %1798 = getelementptr inbounds %struct._YR_COMPILER, ptr %1797, i32 0, i32 4
-  store i32 %1796, ptr %1798, align 8
-  br label %1804
+1799:                                             ; preds = %1784, %1794, %1789
+  %1800 = load ptr, ptr %5, align 8, !tbaa !7
+  %1801 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1800, i32 0, i32 4
+  store i32 24, ptr %1801, align 8, !tbaa !23
+  %1802 = load ptr, ptr %4, align 8, !tbaa !3
+  %1803 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1802, ptr noundef %1803, ptr noundef null)
+  br label %3235
 
-1799:                                             ; preds = %1788
-  %1800 = load ptr, ptr %3, align 8
-  %1801 = call i32 @yr_parser_emit(ptr noundef %1800, i8 noundef signext 9, ptr noundef null)
-  %1802 = load ptr, ptr %4, align 8
-  %1803 = getelementptr inbounds %struct._YR_COMPILER, ptr %1802, i32 0, i32 4
-  store i32 %1801, ptr %1803, align 8
-  br label %1804
+1804:                                             ; preds = %1778
+  %1805 = load ptr, ptr %4, align 8, !tbaa !3
+  %1806 = call i32 @yr_parser_emit(ptr noundef %1805, i8 noundef signext 8, ptr noundef null)
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1804:                                             ; preds = %1799, %1794
-  br label %1805
+1807:                                             ; preds = %247
+  %1808 = load ptr, ptr %16, align 8, !tbaa !17
+  %1809 = getelementptr inbounds %union.YYSTYPE, ptr %1808, i64 -2
+  %1810 = load i8, ptr %1809, align 8, !tbaa !10
+  %1811 = sext i8 %1810 to i32
+  %1812 = load ptr, ptr %16, align 8, !tbaa !17
+  %1813 = getelementptr inbounds %union.YYSTYPE, ptr %1812, i64 0
+  %1814 = load i8, ptr %1813, align 8, !tbaa !10
+  %1815 = sext i8 %1814 to i32
+  %1816 = icmp ne i32 %1811, %1815
+  br i1 %1816, label %1817, label %1824
 
-1805:                                             ; preds = %1804, %1781
-  %1806 = load ptr, ptr %4, align 8
-  %1807 = getelementptr inbounds %struct._YR_COMPILER, ptr %1806, i32 0, i32 4
-  %1808 = load i32, ptr %1807, align 8
-  %1809 = icmp ne i32 %1808, 0
-  br i1 %1809, label %1810, label %1813
+1817:                                             ; preds = %1807
+  %1818 = load ptr, ptr %5, align 8, !tbaa !7
+  %1819 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1818, i32 0, i32 31
+  %1820 = getelementptr inbounds [256 x i8], ptr %1819, i64 0, i64 0
+  %1821 = call i64 @cli_strlcpy(ptr noundef %1820, ptr noundef @.str.21, i64 noundef 256)
+  %1822 = load ptr, ptr %5, align 8, !tbaa !7
+  %1823 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1822, i32 0, i32 4
+  store i32 24, ptr %1823, align 8, !tbaa !23
+  br label %1841
 
-1810:                                             ; preds = %1805
-  %1811 = load ptr, ptr %3, align 8
-  %1812 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1811, ptr noundef %1812, ptr noundef null)
-  br label %3195
+1824:                                             ; preds = %1807
+  %1825 = load ptr, ptr %16, align 8, !tbaa !17
+  %1826 = getelementptr inbounds %union.YYSTYPE, ptr %1825, i64 -2
+  %1827 = load i8, ptr %1826, align 8, !tbaa !10
+  %1828 = sext i8 %1827 to i32
+  %1829 = icmp eq i32 %1828, 3
+  br i1 %1829, label %1830, label %1835
 
-1813:                                             ; preds = %1805
-  store i8 1, ptr %20, align 8
-  br label %3057
+1830:                                             ; preds = %1824
+  %1831 = load ptr, ptr %4, align 8, !tbaa !3
+  %1832 = call i32 @yr_parser_emit(ptr noundef %1831, i8 noundef signext 11, ptr noundef null)
+  %1833 = load ptr, ptr %5, align 8, !tbaa !7
+  %1834 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1833, i32 0, i32 4
+  store i32 %1832, ptr %1834, align 8, !tbaa !23
+  br label %1840
 
-1814:                                             ; preds = %237
-  %1815 = load ptr, ptr %15, align 8
-  %1816 = getelementptr inbounds %union.YYSTYPE, ptr %1815, i64 -2
-  %1817 = load i8, ptr %1816, align 8
-  %1818 = sext i8 %1817 to i32
-  %1819 = load ptr, ptr %15, align 8
-  %1820 = getelementptr inbounds %union.YYSTYPE, ptr %1819, i64 0
-  %1821 = load i8, ptr %1820, align 8
-  %1822 = sext i8 %1821 to i32
-  %1823 = icmp ne i32 %1818, %1822
-  br i1 %1823, label %1824, label %1831
+1835:                                             ; preds = %1824
+  %1836 = load ptr, ptr %4, align 8, !tbaa !3
+  %1837 = call i32 @yr_parser_emit(ptr noundef %1836, i8 noundef signext 9, ptr noundef null)
+  %1838 = load ptr, ptr %5, align 8, !tbaa !7
+  %1839 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1838, i32 0, i32 4
+  store i32 %1837, ptr %1839, align 8, !tbaa !23
+  br label %1840
 
-1824:                                             ; preds = %1814
-  %1825 = load ptr, ptr %4, align 8
-  %1826 = getelementptr inbounds %struct._YR_COMPILER, ptr %1825, i32 0, i32 31
-  %1827 = getelementptr inbounds [256 x i8], ptr %1826, i64 0, i64 0
-  %1828 = call i64 @cli_strlcpy(ptr noundef %1827, ptr noundef @.str.21, i64 noundef 256)
-  %1829 = load ptr, ptr %4, align 8
-  %1830 = getelementptr inbounds %struct._YR_COMPILER, ptr %1829, i32 0, i32 4
-  store i32 24, ptr %1830, align 8
-  br label %1848
+1840:                                             ; preds = %1835, %1830
+  br label %1841
 
-1831:                                             ; preds = %1814
-  %1832 = load ptr, ptr %15, align 8
-  %1833 = getelementptr inbounds %union.YYSTYPE, ptr %1832, i64 -2
-  %1834 = load i8, ptr %1833, align 8
-  %1835 = sext i8 %1834 to i32
-  %1836 = icmp eq i32 %1835, 3
-  br i1 %1836, label %1837, label %1842
+1841:                                             ; preds = %1840, %1817
+  %1842 = load ptr, ptr %5, align 8, !tbaa !7
+  %1843 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1842, i32 0, i32 4
+  %1844 = load i32, ptr %1843, align 8, !tbaa !23
+  %1845 = icmp ne i32 %1844, 0
+  br i1 %1845, label %1846, label %1849
 
-1837:                                             ; preds = %1831
-  %1838 = load ptr, ptr %3, align 8
-  %1839 = call i32 @yr_parser_emit(ptr noundef %1838, i8 noundef signext 11, ptr noundef null)
-  %1840 = load ptr, ptr %4, align 8
-  %1841 = getelementptr inbounds %struct._YR_COMPILER, ptr %1840, i32 0, i32 4
-  store i32 %1839, ptr %1841, align 8
-  br label %1847
+1846:                                             ; preds = %1841
+  %1847 = load ptr, ptr %4, align 8, !tbaa !3
+  %1848 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1847, ptr noundef %1848, ptr noundef null)
+  br label %3235
 
-1842:                                             ; preds = %1831
-  %1843 = load ptr, ptr %3, align 8
-  %1844 = call i32 @yr_parser_emit(ptr noundef %1843, i8 noundef signext 9, ptr noundef null)
-  %1845 = load ptr, ptr %4, align 8
-  %1846 = getelementptr inbounds %struct._YR_COMPILER, ptr %1845, i32 0, i32 4
-  store i32 %1844, ptr %1846, align 8
-  br label %1847
+1849:                                             ; preds = %1841
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1847:                                             ; preds = %1842, %1837
-  br label %1848
+1850:                                             ; preds = %247
+  %1851 = load ptr, ptr %16, align 8, !tbaa !17
+  %1852 = getelementptr inbounds %union.YYSTYPE, ptr %1851, i64 -2
+  %1853 = load i8, ptr %1852, align 8, !tbaa !10
+  %1854 = sext i8 %1853 to i32
+  %1855 = load ptr, ptr %16, align 8, !tbaa !17
+  %1856 = getelementptr inbounds %union.YYSTYPE, ptr %1855, i64 0
+  %1857 = load i8, ptr %1856, align 8, !tbaa !10
+  %1858 = sext i8 %1857 to i32
+  %1859 = icmp ne i32 %1854, %1858
+  br i1 %1859, label %1860, label %1867
 
-1848:                                             ; preds = %1847, %1824
-  %1849 = load ptr, ptr %4, align 8
-  %1850 = getelementptr inbounds %struct._YR_COMPILER, ptr %1849, i32 0, i32 4
-  %1851 = load i32, ptr %1850, align 8
-  %1852 = icmp ne i32 %1851, 0
-  br i1 %1852, label %1853, label %1856
+1860:                                             ; preds = %1850
+  %1861 = load ptr, ptr %5, align 8, !tbaa !7
+  %1862 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1861, i32 0, i32 31
+  %1863 = getelementptr inbounds [256 x i8], ptr %1862, i64 0, i64 0
+  %1864 = call i64 @cli_strlcpy(ptr noundef %1863, ptr noundef @.str.21, i64 noundef 256)
+  %1865 = load ptr, ptr %5, align 8, !tbaa !7
+  %1866 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1865, i32 0, i32 4
+  store i32 24, ptr %1866, align 8, !tbaa !23
+  br label %1884
 
-1853:                                             ; preds = %1848
-  %1854 = load ptr, ptr %3, align 8
-  %1855 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1854, ptr noundef %1855, ptr noundef null)
-  br label %3195
+1867:                                             ; preds = %1850
+  %1868 = load ptr, ptr %16, align 8, !tbaa !17
+  %1869 = getelementptr inbounds %union.YYSTYPE, ptr %1868, i64 -2
+  %1870 = load i8, ptr %1869, align 8, !tbaa !10
+  %1871 = sext i8 %1870 to i32
+  %1872 = icmp eq i32 %1871, 3
+  br i1 %1872, label %1873, label %1878
 
-1856:                                             ; preds = %1848
-  store i8 1, ptr %20, align 8
-  br label %3057
+1873:                                             ; preds = %1867
+  %1874 = load ptr, ptr %4, align 8, !tbaa !3
+  %1875 = call i32 @yr_parser_emit(ptr noundef %1874, i8 noundef signext 11, ptr noundef null)
+  %1876 = load ptr, ptr %5, align 8, !tbaa !7
+  %1877 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1876, i32 0, i32 4
+  store i32 %1875, ptr %1877, align 8, !tbaa !23
+  br label %1883
 
-1857:                                             ; preds = %237
-  %1858 = load ptr, ptr %15, align 8
-  %1859 = getelementptr inbounds %union.YYSTYPE, ptr %1858, i64 -2
-  %1860 = load i8, ptr %1859, align 8
-  %1861 = sext i8 %1860 to i32
-  %1862 = load ptr, ptr %15, align 8
-  %1863 = getelementptr inbounds %union.YYSTYPE, ptr %1862, i64 0
-  %1864 = load i8, ptr %1863, align 8
-  %1865 = sext i8 %1864 to i32
-  %1866 = icmp ne i32 %1861, %1865
-  br i1 %1866, label %1867, label %1874
+1878:                                             ; preds = %1867
+  %1879 = load ptr, ptr %4, align 8, !tbaa !3
+  %1880 = call i32 @yr_parser_emit(ptr noundef %1879, i8 noundef signext 9, ptr noundef null)
+  %1881 = load ptr, ptr %5, align 8, !tbaa !7
+  %1882 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1881, i32 0, i32 4
+  store i32 %1880, ptr %1882, align 8, !tbaa !23
+  br label %1883
 
-1867:                                             ; preds = %1857
-  %1868 = load ptr, ptr %4, align 8
-  %1869 = getelementptr inbounds %struct._YR_COMPILER, ptr %1868, i32 0, i32 31
-  %1870 = getelementptr inbounds [256 x i8], ptr %1869, i64 0, i64 0
-  %1871 = call i64 @cli_strlcpy(ptr noundef %1870, ptr noundef @.str.22, i64 noundef 256)
-  %1872 = load ptr, ptr %4, align 8
-  %1873 = getelementptr inbounds %struct._YR_COMPILER, ptr %1872, i32 0, i32 4
-  store i32 24, ptr %1873, align 8
-  br label %1891
+1883:                                             ; preds = %1878, %1873
+  br label %1884
 
-1874:                                             ; preds = %1857
-  %1875 = load ptr, ptr %15, align 8
-  %1876 = getelementptr inbounds %union.YYSTYPE, ptr %1875, i64 -2
-  %1877 = load i8, ptr %1876, align 8
-  %1878 = sext i8 %1877 to i32
-  %1879 = icmp eq i32 %1878, 3
-  br i1 %1879, label %1880, label %1885
+1884:                                             ; preds = %1883, %1860
+  %1885 = load ptr, ptr %5, align 8, !tbaa !7
+  %1886 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1885, i32 0, i32 4
+  %1887 = load i32, ptr %1886, align 8, !tbaa !23
+  %1888 = icmp ne i32 %1887, 0
+  br i1 %1888, label %1889, label %1892
 
-1880:                                             ; preds = %1874
-  %1881 = load ptr, ptr %3, align 8
-  %1882 = call i32 @yr_parser_emit(ptr noundef %1881, i8 noundef signext 12, ptr noundef null)
-  %1883 = load ptr, ptr %4, align 8
-  %1884 = getelementptr inbounds %struct._YR_COMPILER, ptr %1883, i32 0, i32 4
-  store i32 %1882, ptr %1884, align 8
-  br label %1890
+1889:                                             ; preds = %1884
+  %1890 = load ptr, ptr %4, align 8, !tbaa !3
+  %1891 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1890, ptr noundef %1891, ptr noundef null)
+  br label %3235
 
-1885:                                             ; preds = %1874
-  %1886 = load ptr, ptr %3, align 8
-  %1887 = call i32 @yr_parser_emit(ptr noundef %1886, i8 noundef signext 10, ptr noundef null)
-  %1888 = load ptr, ptr %4, align 8
-  %1889 = getelementptr inbounds %struct._YR_COMPILER, ptr %1888, i32 0, i32 4
-  store i32 %1887, ptr %1889, align 8
-  br label %1890
+1892:                                             ; preds = %1884
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1890:                                             ; preds = %1885, %1880
-  br label %1891
+1893:                                             ; preds = %247
+  %1894 = load ptr, ptr %16, align 8, !tbaa !17
+  %1895 = getelementptr inbounds %union.YYSTYPE, ptr %1894, i64 -2
+  %1896 = load i8, ptr %1895, align 8, !tbaa !10
+  %1897 = sext i8 %1896 to i32
+  %1898 = load ptr, ptr %16, align 8, !tbaa !17
+  %1899 = getelementptr inbounds %union.YYSTYPE, ptr %1898, i64 0
+  %1900 = load i8, ptr %1899, align 8, !tbaa !10
+  %1901 = sext i8 %1900 to i32
+  %1902 = icmp ne i32 %1897, %1901
+  br i1 %1902, label %1903, label %1910
 
-1891:                                             ; preds = %1890, %1867
-  %1892 = load ptr, ptr %4, align 8
-  %1893 = getelementptr inbounds %struct._YR_COMPILER, ptr %1892, i32 0, i32 4
-  %1894 = load i32, ptr %1893, align 8
-  %1895 = icmp ne i32 %1894, 0
-  br i1 %1895, label %1896, label %1899
+1903:                                             ; preds = %1893
+  %1904 = load ptr, ptr %5, align 8, !tbaa !7
+  %1905 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1904, i32 0, i32 31
+  %1906 = getelementptr inbounds [256 x i8], ptr %1905, i64 0, i64 0
+  %1907 = call i64 @cli_strlcpy(ptr noundef %1906, ptr noundef @.str.22, i64 noundef 256)
+  %1908 = load ptr, ptr %5, align 8, !tbaa !7
+  %1909 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1908, i32 0, i32 4
+  store i32 24, ptr %1909, align 8, !tbaa !23
+  br label %1927
 
-1896:                                             ; preds = %1891
-  %1897 = load ptr, ptr %3, align 8
-  %1898 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1897, ptr noundef %1898, ptr noundef null)
-  br label %3195
-
-1899:                                             ; preds = %1891
-  store i8 1, ptr %20, align 8
-  br label %3057
-
-1900:                                             ; preds = %237
-  %1901 = load ptr, ptr %15, align 8
-  %1902 = getelementptr inbounds %union.YYSTYPE, ptr %1901, i64 0
-  %1903 = load i8, ptr %1902, align 8
-  store i8 %1903, ptr %20, align 8
-  br label %3057
-
-1904:                                             ; preds = %237
-  %1905 = load ptr, ptr %15, align 8
-  %1906 = getelementptr inbounds %union.YYSTYPE, ptr %1905, i64 -1
-  %1907 = load i8, ptr %1906, align 8
-  store i8 %1907, ptr %20, align 8
-  br label %3057
-
-1908:                                             ; preds = %237
-  store i64 1, ptr %20, align 8
-  br label %3057
-
-1909:                                             ; preds = %237
-  store i64 2, ptr %20, align 8
-  br label %3057
-
-1910:                                             ; preds = %237
-  %1911 = load ptr, ptr %15, align 8
-  %1912 = getelementptr inbounds %union.YYSTYPE, ptr %1911, i64 -4
-  %1913 = load i8, ptr %1912, align 8
+1910:                                             ; preds = %1893
+  %1911 = load ptr, ptr %16, align 8, !tbaa !17
+  %1912 = getelementptr inbounds %union.YYSTYPE, ptr %1911, i64 -2
+  %1913 = load i8, ptr %1912, align 8, !tbaa !10
   %1914 = sext i8 %1913 to i32
-  %1915 = icmp ne i32 %1914, 2
-  br i1 %1915, label %1916, label %1923
+  %1915 = icmp eq i32 %1914, 3
+  br i1 %1915, label %1916, label %1921
 
 1916:                                             ; preds = %1910
-  %1917 = load ptr, ptr %4, align 8
-  %1918 = getelementptr inbounds %struct._YR_COMPILER, ptr %1917, i32 0, i32 31
-  %1919 = getelementptr inbounds [256 x i8], ptr %1918, i64 0, i64 0
-  %1920 = call i64 @cli_strlcpy(ptr noundef %1919, ptr noundef @.str.23, i64 noundef 256)
-  %1921 = load ptr, ptr %4, align 8
-  %1922 = getelementptr inbounds %struct._YR_COMPILER, ptr %1921, i32 0, i32 4
-  store i32 24, ptr %1922, align 8
-  br label %1923
+  %1917 = load ptr, ptr %4, align 8, !tbaa !3
+  %1918 = call i32 @yr_parser_emit(ptr noundef %1917, i8 noundef signext 12, ptr noundef null)
+  %1919 = load ptr, ptr %5, align 8, !tbaa !7
+  %1920 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1919, i32 0, i32 4
+  store i32 %1918, ptr %1920, align 8, !tbaa !23
+  br label %1926
 
-1923:                                             ; preds = %1916, %1910
-  %1924 = load ptr, ptr %15, align 8
-  %1925 = getelementptr inbounds %union.YYSTYPE, ptr %1924, i64 -1
-  %1926 = load i8, ptr %1925, align 8
-  %1927 = sext i8 %1926 to i32
-  %1928 = icmp ne i32 %1927, 2
-  br i1 %1928, label %1929, label %1936
+1921:                                             ; preds = %1910
+  %1922 = load ptr, ptr %4, align 8, !tbaa !3
+  %1923 = call i32 @yr_parser_emit(ptr noundef %1922, i8 noundef signext 10, ptr noundef null)
+  %1924 = load ptr, ptr %5, align 8, !tbaa !7
+  %1925 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1924, i32 0, i32 4
+  store i32 %1923, ptr %1925, align 8, !tbaa !23
+  br label %1926
 
-1929:                                             ; preds = %1923
-  %1930 = load ptr, ptr %4, align 8
-  %1931 = getelementptr inbounds %struct._YR_COMPILER, ptr %1930, i32 0, i32 31
-  %1932 = getelementptr inbounds [256 x i8], ptr %1931, i64 0, i64 0
-  %1933 = call i64 @cli_strlcpy(ptr noundef %1932, ptr noundef @.str.24, i64 noundef 256)
-  %1934 = load ptr, ptr %4, align 8
-  %1935 = getelementptr inbounds %struct._YR_COMPILER, ptr %1934, i32 0, i32 4
-  store i32 24, ptr %1935, align 8
-  br label %1936
+1926:                                             ; preds = %1921, %1916
+  br label %1927
 
-1936:                                             ; preds = %1929, %1923
-  %1937 = load ptr, ptr %4, align 8
-  %1938 = getelementptr inbounds %struct._YR_COMPILER, ptr %1937, i32 0, i32 4
-  %1939 = load i32, ptr %1938, align 8
-  %1940 = icmp ne i32 %1939, 0
-  br i1 %1940, label %1941, label %1944
+1927:                                             ; preds = %1926, %1903
+  %1928 = load ptr, ptr %5, align 8, !tbaa !7
+  %1929 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1928, i32 0, i32 4
+  %1930 = load i32, ptr %1929, align 8, !tbaa !23
+  %1931 = icmp ne i32 %1930, 0
+  br i1 %1931, label %1932, label %1935
 
-1941:                                             ; preds = %1936
-  %1942 = load ptr, ptr %3, align 8
-  %1943 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1942, ptr noundef %1943, ptr noundef null)
-  br label %3195
+1932:                                             ; preds = %1927
+  %1933 = load ptr, ptr %4, align 8, !tbaa !3
+  %1934 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1933, ptr noundef %1934, ptr noundef null)
+  br label %3235
 
-1944:                                             ; preds = %1936
-  br label %3057
+1935:                                             ; preds = %1927
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1945:                                             ; preds = %237
-  %1946 = load ptr, ptr %15, align 8
-  %1947 = getelementptr inbounds %union.YYSTYPE, ptr %1946, i64 0
-  %1948 = load i8, ptr %1947, align 8
-  %1949 = sext i8 %1948 to i32
-  %1950 = icmp ne i32 %1949, 2
-  br i1 %1950, label %1951, label %1958
+1936:                                             ; preds = %247
+  %1937 = load ptr, ptr %16, align 8, !tbaa !17
+  %1938 = getelementptr inbounds %union.YYSTYPE, ptr %1937, i64 0
+  %1939 = load i8, ptr %1938, align 8, !tbaa !10
+  store i8 %1939, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1951:                                             ; preds = %1945
-  %1952 = load ptr, ptr %4, align 8
-  %1953 = getelementptr inbounds %struct._YR_COMPILER, ptr %1952, i32 0, i32 31
-  %1954 = getelementptr inbounds [256 x i8], ptr %1953, i64 0, i64 0
-  %1955 = call i64 @cli_strlcpy(ptr noundef %1954, ptr noundef @.str.25, i64 noundef 256)
-  %1956 = load ptr, ptr %4, align 8
-  %1957 = getelementptr inbounds %struct._YR_COMPILER, ptr %1956, i32 0, i32 4
-  store i32 24, ptr %1957, align 8
-  br label %1958
+1940:                                             ; preds = %247
+  %1941 = load ptr, ptr %16, align 8, !tbaa !17
+  %1942 = getelementptr inbounds %union.YYSTYPE, ptr %1941, i64 -1
+  %1943 = load i8, ptr %1942, align 8, !tbaa !10
+  store i8 %1943, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1958:                                             ; preds = %1951, %1945
-  %1959 = load ptr, ptr %4, align 8
-  %1960 = getelementptr inbounds %struct._YR_COMPILER, ptr %1959, i32 0, i32 4
-  %1961 = load i32, ptr %1960, align 8
-  %1962 = icmp ne i32 %1961, 0
-  br i1 %1962, label %1963, label %1966
+1944:                                             ; preds = %247
+  store i64 1, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1963:                                             ; preds = %1958
-  %1964 = load ptr, ptr %3, align 8
-  %1965 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1964, ptr noundef %1965, ptr noundef null)
-  br label %3195
+1945:                                             ; preds = %247
+  store i64 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-1966:                                             ; preds = %1958
-  br label %3057
+1946:                                             ; preds = %247
+  %1947 = load ptr, ptr %16, align 8, !tbaa !17
+  %1948 = getelementptr inbounds %union.YYSTYPE, ptr %1947, i64 -4
+  %1949 = load i8, ptr %1948, align 8, !tbaa !10
+  %1950 = sext i8 %1949 to i32
+  %1951 = icmp ne i32 %1950, 2
+  br i1 %1951, label %1952, label %1959
 
-1967:                                             ; preds = %237
-  %1968 = load ptr, ptr %15, align 8
-  %1969 = getelementptr inbounds %union.YYSTYPE, ptr %1968, i64 0
-  %1970 = load i8, ptr %1969, align 8
-  %1971 = sext i8 %1970 to i32
-  %1972 = icmp ne i32 %1971, 2
-  br i1 %1972, label %1973, label %1980
+1952:                                             ; preds = %1946
+  %1953 = load ptr, ptr %5, align 8, !tbaa !7
+  %1954 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1953, i32 0, i32 31
+  %1955 = getelementptr inbounds [256 x i8], ptr %1954, i64 0, i64 0
+  %1956 = call i64 @cli_strlcpy(ptr noundef %1955, ptr noundef @.str.23, i64 noundef 256)
+  %1957 = load ptr, ptr %5, align 8, !tbaa !7
+  %1958 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1957, i32 0, i32 4
+  store i32 24, ptr %1958, align 8, !tbaa !23
+  br label %1959
 
-1973:                                             ; preds = %1967
-  %1974 = load ptr, ptr %4, align 8
-  %1975 = getelementptr inbounds %struct._YR_COMPILER, ptr %1974, i32 0, i32 31
-  %1976 = getelementptr inbounds [256 x i8], ptr %1975, i64 0, i64 0
-  %1977 = call i64 @cli_strlcpy(ptr noundef %1976, ptr noundef @.str.25, i64 noundef 256)
-  %1978 = load ptr, ptr %4, align 8
-  %1979 = getelementptr inbounds %struct._YR_COMPILER, ptr %1978, i32 0, i32 4
-  store i32 24, ptr %1979, align 8
-  br label %1980
+1959:                                             ; preds = %1952, %1946
+  %1960 = load ptr, ptr %16, align 8, !tbaa !17
+  %1961 = getelementptr inbounds %union.YYSTYPE, ptr %1960, i64 -1
+  %1962 = load i8, ptr %1961, align 8, !tbaa !10
+  %1963 = sext i8 %1962 to i32
+  %1964 = icmp ne i32 %1963, 2
+  br i1 %1964, label %1965, label %1972
 
-1980:                                             ; preds = %1973, %1967
-  %1981 = load ptr, ptr %4, align 8
-  %1982 = getelementptr inbounds %struct._YR_COMPILER, ptr %1981, i32 0, i32 4
-  %1983 = load i32, ptr %1982, align 8
-  %1984 = icmp ne i32 %1983, 0
-  br i1 %1984, label %1985, label %1988
+1965:                                             ; preds = %1959
+  %1966 = load ptr, ptr %5, align 8, !tbaa !7
+  %1967 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1966, i32 0, i32 31
+  %1968 = getelementptr inbounds [256 x i8], ptr %1967, i64 0, i64 0
+  %1969 = call i64 @cli_strlcpy(ptr noundef %1968, ptr noundef @.str.24, i64 noundef 256)
+  %1970 = load ptr, ptr %5, align 8, !tbaa !7
+  %1971 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1970, i32 0, i32 4
+  store i32 24, ptr %1971, align 8, !tbaa !23
+  br label %1972
 
-1985:                                             ; preds = %1980
-  %1986 = load ptr, ptr %3, align 8
-  %1987 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %1986, ptr noundef %1987, ptr noundef null)
-  br label %3195
+1972:                                             ; preds = %1965, %1959
+  %1973 = load ptr, ptr %5, align 8, !tbaa !7
+  %1974 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1973, i32 0, i32 4
+  %1975 = load i32, ptr %1974, align 8, !tbaa !23
+  %1976 = icmp ne i32 %1975, 0
+  br i1 %1976, label %1977, label %1980
 
-1988:                                             ; preds = %1980
-  br label %3057
+1977:                                             ; preds = %1972
+  %1978 = load ptr, ptr %4, align 8, !tbaa !3
+  %1979 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %1978, ptr noundef %1979, ptr noundef null)
+  br label %3235
 
-1989:                                             ; preds = %237
-  %1990 = load ptr, ptr %3, align 8
-  %1991 = call i32 @yr_parser_emit_with_arg(ptr noundef %1990, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null)
-  br label %3057
+1980:                                             ; preds = %1972
+  br label %3094
 
-1992:                                             ; preds = %237
-  %1993 = load ptr, ptr %3, align 8
-  %1994 = call i32 @yr_parser_emit_with_arg(ptr noundef %1993, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null)
-  %1995 = load ptr, ptr %3, align 8
-  %1996 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %1995, ptr noundef @.str.26)
-  %1997 = load ptr, ptr %4, align 8
-  %1998 = getelementptr inbounds %struct._YR_COMPILER, ptr %1997, i32 0, i32 40
-  %1999 = load i32, ptr %1998, align 8
-  %2000 = or i32 %1999, 8
-  store i32 %2000, ptr %1998, align 8
-  br label %3057
+1981:                                             ; preds = %247
+  %1982 = load ptr, ptr %16, align 8, !tbaa !17
+  %1983 = getelementptr inbounds %union.YYSTYPE, ptr %1982, i64 0
+  %1984 = load i8, ptr %1983, align 8, !tbaa !10
+  %1985 = sext i8 %1984 to i32
+  %1986 = icmp ne i32 %1985, 2
+  br i1 %1986, label %1987, label %1994
 
-2001:                                             ; preds = %237
-  %2002 = load ptr, ptr %3, align 8
-  %2003 = load ptr, ptr %15, align 8
-  %2004 = getelementptr inbounds %union.YYSTYPE, ptr %2003, i64 0
-  %2005 = load ptr, ptr %2004, align 8
-  %2006 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %2002, ptr noundef %2005)
-  %2007 = load ptr, ptr %15, align 8
-  %2008 = getelementptr inbounds %union.YYSTYPE, ptr %2007, i64 0
-  %2009 = load ptr, ptr %2008, align 8
-  call void @free(ptr noundef %2009) #9
-  br label %3057
+1987:                                             ; preds = %1981
+  %1988 = load ptr, ptr %5, align 8, !tbaa !7
+  %1989 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1988, i32 0, i32 31
+  %1990 = getelementptr inbounds [256 x i8], ptr %1989, i64 0, i64 0
+  %1991 = call i64 @cli_strlcpy(ptr noundef %1990, ptr noundef @.str.25, i64 noundef 256)
+  %1992 = load ptr, ptr %5, align 8, !tbaa !7
+  %1993 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1992, i32 0, i32 4
+  store i32 24, ptr %1993, align 8, !tbaa !23
+  br label %1994
 
-2010:                                             ; preds = %237
-  %2011 = load ptr, ptr %3, align 8
-  %2012 = load ptr, ptr %15, align 8
-  %2013 = getelementptr inbounds %union.YYSTYPE, ptr %2012, i64 0
-  %2014 = load ptr, ptr %2013, align 8
-  %2015 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %2011, ptr noundef %2014)
-  %2016 = load ptr, ptr %15, align 8
-  %2017 = getelementptr inbounds %union.YYSTYPE, ptr %2016, i64 0
-  %2018 = load ptr, ptr %2017, align 8
-  call void @free(ptr noundef %2018) #9
-  br label %3057
+1994:                                             ; preds = %1987, %1981
+  %1995 = load ptr, ptr %5, align 8, !tbaa !7
+  %1996 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %1995, i32 0, i32 4
+  %1997 = load i32, ptr %1996, align 8, !tbaa !23
+  %1998 = icmp ne i32 %1997, 0
+  br i1 %1998, label %1999, label %2002
 
-2019:                                             ; preds = %237
-  %2020 = load ptr, ptr %3, align 8
-  %2021 = call i32 @yr_parser_emit_with_arg(ptr noundef %2020, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null)
-  %2022 = load ptr, ptr %4, align 8
-  %2023 = getelementptr inbounds %struct._YR_COMPILER, ptr %2022, i32 0, i32 40
-  %2024 = load i32, ptr %2023, align 8
-  %2025 = or i32 %2024, 2
-  store i32 %2025, ptr %2023, align 8
-  br label %3057
+1999:                                             ; preds = %1994
+  %2000 = load ptr, ptr %4, align 8, !tbaa !3
+  %2001 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2000, ptr noundef %2001, ptr noundef null)
+  br label %3235
 
-2026:                                             ; preds = %237
-  %2027 = load ptr, ptr %3, align 8
-  %2028 = call i32 @yr_parser_emit_with_arg(ptr noundef %2027, i8 noundef signext 22, i64 noundef 1, ptr noundef null)
-  %2029 = load ptr, ptr %4, align 8
-  %2030 = getelementptr inbounds %struct._YR_COMPILER, ptr %2029, i32 0, i32 40
-  %2031 = load i32, ptr %2030, align 8
-  %2032 = or i32 %2031, 1
-  store i32 %2032, ptr %2030, align 8
-  br label %3057
+2002:                                             ; preds = %1994
+  br label %3094
 
-2033:                                             ; preds = %237
-  %2034 = load ptr, ptr %15, align 8
-  %2035 = getelementptr inbounds %union.YYSTYPE, ptr %2034, i64 -1
-  %2036 = load i8, ptr %2035, align 8
-  store i8 %2036, ptr %20, align 8
-  br label %3057
+2003:                                             ; preds = %247
+  %2004 = load ptr, ptr %16, align 8, !tbaa !17
+  %2005 = getelementptr inbounds %union.YYSTYPE, ptr %2004, i64 0
+  %2006 = load i8, ptr %2005, align 8, !tbaa !10
+  %2007 = sext i8 %2006 to i32
+  %2008 = icmp ne i32 %2007, 2
+  br i1 %2008, label %2009, label %2016
 
-2037:                                             ; preds = %237
-  %2038 = load ptr, ptr %3, align 8
-  %2039 = call i32 @yr_parser_emit(ptr noundef %2038, i8 noundef signext 45, ptr noundef null)
-  %2040 = load ptr, ptr %4, align 8
-  %2041 = getelementptr inbounds %struct._YR_COMPILER, ptr %2040, i32 0, i32 4
-  store i32 %2039, ptr %2041, align 8
-  store i8 2, ptr %20, align 8
-  %2042 = load ptr, ptr %4, align 8
-  %2043 = getelementptr inbounds %struct._YR_COMPILER, ptr %2042, i32 0, i32 4
-  %2044 = load i32, ptr %2043, align 8
-  %2045 = icmp ne i32 %2044, 0
-  br i1 %2045, label %2046, label %2049
+2009:                                             ; preds = %2003
+  %2010 = load ptr, ptr %5, align 8, !tbaa !7
+  %2011 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2010, i32 0, i32 31
+  %2012 = getelementptr inbounds [256 x i8], ptr %2011, i64 0, i64 0
+  %2013 = call i64 @cli_strlcpy(ptr noundef %2012, ptr noundef @.str.25, i64 noundef 256)
+  %2014 = load ptr, ptr %5, align 8, !tbaa !7
+  %2015 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2014, i32 0, i32 4
+  store i32 24, ptr %2015, align 8, !tbaa !23
+  br label %2016
 
-2046:                                             ; preds = %2037
-  %2047 = load ptr, ptr %3, align 8
-  %2048 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2047, ptr noundef %2048, ptr noundef null)
-  br label %3195
+2016:                                             ; preds = %2009, %2003
+  %2017 = load ptr, ptr %5, align 8, !tbaa !7
+  %2018 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2017, i32 0, i32 4
+  %2019 = load i32, ptr %2018, align 8, !tbaa !23
+  %2020 = icmp ne i32 %2019, 0
+  br i1 %2020, label %2021, label %2024
 
-2049:                                             ; preds = %2037
-  br label %3057
+2021:                                             ; preds = %2016
+  %2022 = load ptr, ptr %4, align 8, !tbaa !3
+  %2023 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2022, ptr noundef %2023, ptr noundef null)
+  br label %3235
 
-2050:                                             ; preds = %237
-  %2051 = load ptr, ptr %4, align 8
-  %2052 = getelementptr inbounds %struct._YR_COMPILER, ptr %2051, i32 0, i32 40
-  %2053 = load i32, ptr %2052, align 8
-  %2054 = or i32 %2053, 16
-  store i32 %2054, ptr %2052, align 8
-  %2055 = load ptr, ptr %3, align 8
-  %2056 = call i32 @yr_parser_emit(ptr noundef %2055, i8 noundef signext 46, ptr noundef null)
-  %2057 = load ptr, ptr %4, align 8
-  %2058 = getelementptr inbounds %struct._YR_COMPILER, ptr %2057, i32 0, i32 4
-  store i32 %2056, ptr %2058, align 8
-  %2059 = load ptr, ptr %4, align 8
-  %2060 = getelementptr inbounds %struct._YR_COMPILER, ptr %2059, i32 0, i32 4
-  %2061 = load i32, ptr %2060, align 8
-  %2062 = icmp ne i32 %2061, 0
-  br i1 %2062, label %2063, label %2066
+2024:                                             ; preds = %2016
+  br label %3094
 
-2063:                                             ; preds = %2050
-  %2064 = load ptr, ptr %3, align 8
-  %2065 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2064, ptr noundef %2065, ptr noundef null)
-  br label %3195
+2025:                                             ; preds = %247
+  %2026 = load ptr, ptr %4, align 8, !tbaa !3
+  %2027 = call i32 @yr_parser_emit_with_arg(ptr noundef %2026, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null)
+  br label %3094
 
-2066:                                             ; preds = %2050
-  store i8 2, ptr %20, align 8
-  br label %3057
+2028:                                             ; preds = %247
+  %2029 = load ptr, ptr %4, align 8, !tbaa !3
+  %2030 = call i32 @yr_parser_emit_with_arg(ptr noundef %2029, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null)
+  %2031 = load ptr, ptr %4, align 8, !tbaa !3
+  %2032 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %2031, ptr noundef @.str.26)
+  %2033 = load ptr, ptr %5, align 8, !tbaa !7
+  %2034 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2033, i32 0, i32 40
+  %2035 = load i32, ptr %2034, align 8, !tbaa !57
+  %2036 = or i32 %2035, 8
+  store i32 %2036, ptr %2034, align 8, !tbaa !57
+  br label %3094
 
-2067:                                             ; preds = %237
-  %2068 = load ptr, ptr %15, align 8
-  %2069 = getelementptr inbounds %union.YYSTYPE, ptr %2068, i64 -1
-  %2070 = load i8, ptr %2069, align 8
-  %2071 = sext i8 %2070 to i32
-  %2072 = icmp ne i32 %2071, 2
-  br i1 %2072, label %2073, label %2093
+2037:                                             ; preds = %247
+  %2038 = load ptr, ptr %4, align 8, !tbaa !3
+  %2039 = load ptr, ptr %16, align 8, !tbaa !17
+  %2040 = getelementptr inbounds %union.YYSTYPE, ptr %2039, i64 0
+  %2041 = load ptr, ptr %2040, align 8, !tbaa !10
+  %2042 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %2038, ptr noundef %2041)
+  %2043 = load ptr, ptr %16, align 8, !tbaa !17
+  %2044 = getelementptr inbounds %union.YYSTYPE, ptr %2043, i64 0
+  %2045 = load ptr, ptr %2044, align 8, !tbaa !10
+  call void @free(ptr noundef %2045) #9
+  br label %3094
 
-2073:                                             ; preds = %2067
-  %2074 = load ptr, ptr %15, align 8
-  %2075 = getelementptr inbounds %union.YYSTYPE, ptr %2074, i64 -1
-  %2076 = load i8, ptr %2075, align 8
-  %2077 = sext i8 %2076 to i32
-  switch i32 %2077, label %2088 [
-    i32 2, label %2078
-    i32 3, label %2083
+2046:                                             ; preds = %247
+  %2047 = load ptr, ptr %4, align 8, !tbaa !3
+  %2048 = load ptr, ptr %16, align 8, !tbaa !17
+  %2049 = getelementptr inbounds %union.YYSTYPE, ptr %2048, i64 0
+  %2050 = load ptr, ptr %2049, align 8, !tbaa !10
+  %2051 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %2047, ptr noundef %2050)
+  %2052 = load ptr, ptr %16, align 8, !tbaa !17
+  %2053 = getelementptr inbounds %union.YYSTYPE, ptr %2052, i64 0
+  %2054 = load ptr, ptr %2053, align 8, !tbaa !10
+  call void @free(ptr noundef %2054) #9
+  br label %3094
+
+2055:                                             ; preds = %247
+  %2056 = load ptr, ptr %4, align 8, !tbaa !3
+  %2057 = call i32 @yr_parser_emit_with_arg(ptr noundef %2056, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null)
+  %2058 = load ptr, ptr %5, align 8, !tbaa !7
+  %2059 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2058, i32 0, i32 40
+  %2060 = load i32, ptr %2059, align 8, !tbaa !57
+  %2061 = or i32 %2060, 2
+  store i32 %2061, ptr %2059, align 8, !tbaa !57
+  br label %3094
+
+2062:                                             ; preds = %247
+  %2063 = load ptr, ptr %4, align 8, !tbaa !3
+  %2064 = call i32 @yr_parser_emit_with_arg(ptr noundef %2063, i8 noundef signext 22, i64 noundef 1, ptr noundef null)
+  %2065 = load ptr, ptr %5, align 8, !tbaa !7
+  %2066 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2065, i32 0, i32 40
+  %2067 = load i32, ptr %2066, align 8, !tbaa !57
+  %2068 = or i32 %2067, 1
+  store i32 %2068, ptr %2066, align 8, !tbaa !57
+  br label %3094
+
+2069:                                             ; preds = %247
+  %2070 = load ptr, ptr %16, align 8, !tbaa !17
+  %2071 = getelementptr inbounds %union.YYSTYPE, ptr %2070, i64 -1
+  %2072 = load i8, ptr %2071, align 8, !tbaa !10
+  store i8 %2072, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+2073:                                             ; preds = %247
+  %2074 = load ptr, ptr %4, align 8, !tbaa !3
+  %2075 = call i32 @yr_parser_emit(ptr noundef %2074, i8 noundef signext 45, ptr noundef null)
+  %2076 = load ptr, ptr %5, align 8, !tbaa !7
+  %2077 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2076, i32 0, i32 4
+  store i32 %2075, ptr %2077, align 8, !tbaa !23
+  store i8 2, ptr %21, align 8, !tbaa !10
+  %2078 = load ptr, ptr %5, align 8, !tbaa !7
+  %2079 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2078, i32 0, i32 4
+  %2080 = load i32, ptr %2079, align 8, !tbaa !23
+  %2081 = icmp ne i32 %2080, 0
+  br i1 %2081, label %2082, label %2085
+
+2082:                                             ; preds = %2073
+  %2083 = load ptr, ptr %4, align 8, !tbaa !3
+  %2084 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2083, ptr noundef %2084, ptr noundef null)
+  br label %3235
+
+2085:                                             ; preds = %2073
+  br label %3094
+
+2086:                                             ; preds = %247
+  %2087 = load ptr, ptr %5, align 8, !tbaa !7
+  %2088 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2087, i32 0, i32 40
+  %2089 = load i32, ptr %2088, align 8, !tbaa !57
+  %2090 = or i32 %2089, 16
+  store i32 %2090, ptr %2088, align 8, !tbaa !57
+  %2091 = load ptr, ptr %4, align 8, !tbaa !3
+  %2092 = call i32 @yr_parser_emit(ptr noundef %2091, i8 noundef signext 46, ptr noundef null)
+  %2093 = load ptr, ptr %5, align 8, !tbaa !7
+  %2094 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2093, i32 0, i32 4
+  store i32 %2092, ptr %2094, align 8, !tbaa !23
+  %2095 = load ptr, ptr %5, align 8, !tbaa !7
+  %2096 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2095, i32 0, i32 4
+  %2097 = load i32, ptr %2096, align 8, !tbaa !23
+  %2098 = icmp ne i32 %2097, 0
+  br i1 %2098, label %2099, label %2102
+
+2099:                                             ; preds = %2086
+  %2100 = load ptr, ptr %4, align 8, !tbaa !3
+  %2101 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2100, ptr noundef %2101, ptr noundef null)
+  br label %3235
+
+2102:                                             ; preds = %2086
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+2103:                                             ; preds = %247
+  %2104 = load ptr, ptr %16, align 8, !tbaa !17
+  %2105 = getelementptr inbounds %union.YYSTYPE, ptr %2104, i64 -1
+  %2106 = load i8, ptr %2105, align 8, !tbaa !10
+  %2107 = sext i8 %2106 to i32
+  %2108 = icmp ne i32 %2107, 2
+  br i1 %2108, label %2109, label %2129
+
+2109:                                             ; preds = %2103
+  %2110 = load ptr, ptr %16, align 8, !tbaa !17
+  %2111 = getelementptr inbounds %union.YYSTYPE, ptr %2110, i64 -1
+  %2112 = load i8, ptr %2111, align 8, !tbaa !10
+  %2113 = sext i8 %2112 to i32
+  switch i32 %2113, label %2124 [
+    i32 2, label %2114
+    i32 3, label %2119
   ]
 
-2078:                                             ; preds = %2073
-  %2079 = load ptr, ptr %4, align 8
-  %2080 = getelementptr inbounds %struct._YR_COMPILER, ptr %2079, i32 0, i32 31
-  %2081 = getelementptr inbounds [256 x i8], ptr %2080, i64 0, i64 0
-  %2082 = call i64 @cli_strlcpy(ptr noundef %2081, ptr noundef @.str.27, i64 noundef 256)
-  br label %2088
+2114:                                             ; preds = %2109
+  %2115 = load ptr, ptr %5, align 8, !tbaa !7
+  %2116 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2115, i32 0, i32 31
+  %2117 = getelementptr inbounds [256 x i8], ptr %2116, i64 0, i64 0
+  %2118 = call i64 @cli_strlcpy(ptr noundef %2117, ptr noundef @.str.27, i64 noundef 256)
+  br label %2124
 
-2083:                                             ; preds = %2073
-  %2084 = load ptr, ptr %4, align 8
-  %2085 = getelementptr inbounds %struct._YR_COMPILER, ptr %2084, i32 0, i32 31
-  %2086 = getelementptr inbounds [256 x i8], ptr %2085, i64 0, i64 0
-  %2087 = call i64 @cli_strlcpy(ptr noundef %2086, ptr noundef @.str.28, i64 noundef 256)
-  br label %2088
+2119:                                             ; preds = %2109
+  %2120 = load ptr, ptr %5, align 8, !tbaa !7
+  %2121 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2120, i32 0, i32 31
+  %2122 = getelementptr inbounds [256 x i8], ptr %2121, i64 0, i64 0
+  %2123 = call i64 @cli_strlcpy(ptr noundef %2122, ptr noundef @.str.28, i64 noundef 256)
+  br label %2124
 
-2088:                                             ; preds = %2083, %2078, %2073
-  %2089 = load ptr, ptr %4, align 8
-  %2090 = getelementptr inbounds %struct._YR_COMPILER, ptr %2089, i32 0, i32 4
-  store i32 24, ptr %2090, align 8
-  %2091 = load ptr, ptr %3, align 8
-  %2092 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2091, ptr noundef %2092, ptr noundef null)
-  br label %3195
+2124:                                             ; preds = %2109, %2119, %2114
+  %2125 = load ptr, ptr %5, align 8, !tbaa !7
+  %2126 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2125, i32 0, i32 4
+  store i32 24, ptr %2126, align 8, !tbaa !23
+  %2127 = load ptr, ptr %4, align 8, !tbaa !3
+  %2128 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2127, ptr noundef %2128, ptr noundef null)
+  br label %3235
 
-2093:                                             ; preds = %2067
-  %2094 = load ptr, ptr %3, align 8
-  %2095 = call i32 @yr_parser_emit(ptr noundef %2094, i8 noundef signext 47, ptr noundef null)
-  %2096 = load ptr, ptr %4, align 8
-  %2097 = getelementptr inbounds %struct._YR_COMPILER, ptr %2096, i32 0, i32 4
-  store i32 %2095, ptr %2097, align 8
-  %2098 = load ptr, ptr %4, align 8
-  %2099 = getelementptr inbounds %struct._YR_COMPILER, ptr %2098, i32 0, i32 4
-  %2100 = load i32, ptr %2099, align 8
-  %2101 = icmp ne i32 %2100, 0
-  br i1 %2101, label %2102, label %2105
+2129:                                             ; preds = %2103
+  %2130 = load ptr, ptr %4, align 8, !tbaa !3
+  %2131 = call i32 @yr_parser_emit(ptr noundef %2130, i8 noundef signext 47, ptr noundef null)
+  %2132 = load ptr, ptr %5, align 8, !tbaa !7
+  %2133 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2132, i32 0, i32 4
+  store i32 %2131, ptr %2133, align 8, !tbaa !23
+  %2134 = load ptr, ptr %5, align 8, !tbaa !7
+  %2135 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2134, i32 0, i32 4
+  %2136 = load i32, ptr %2135, align 8, !tbaa !23
+  %2137 = icmp ne i32 %2136, 0
+  br i1 %2137, label %2138, label %2141
 
-2102:                                             ; preds = %2093
-  %2103 = load ptr, ptr %3, align 8
-  %2104 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2103, ptr noundef %2104, ptr noundef null)
-  br label %3195
+2138:                                             ; preds = %2129
+  %2139 = load ptr, ptr %4, align 8, !tbaa !3
+  %2140 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2139, ptr noundef %2140, ptr noundef null)
+  br label %3235
 
-2105:                                             ; preds = %2093
-  store i8 2, ptr %20, align 8
-  br label %3057
+2141:                                             ; preds = %2129
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2106:                                             ; preds = %237
-  %2107 = load ptr, ptr %15, align 8
-  %2108 = getelementptr inbounds %union.YYSTYPE, ptr %2107, i64 -1
-  %2109 = load i8, ptr %2108, align 8
-  %2110 = sext i8 %2109 to i32
-  %2111 = icmp ne i32 %2110, 2
-  br i1 %2111, label %2112, label %2132
+2142:                                             ; preds = %247
+  %2143 = load ptr, ptr %16, align 8, !tbaa !17
+  %2144 = getelementptr inbounds %union.YYSTYPE, ptr %2143, i64 -1
+  %2145 = load i8, ptr %2144, align 8, !tbaa !10
+  %2146 = sext i8 %2145 to i32
+  %2147 = icmp ne i32 %2146, 2
+  br i1 %2147, label %2148, label %2168
 
-2112:                                             ; preds = %2106
-  %2113 = load ptr, ptr %15, align 8
-  %2114 = getelementptr inbounds %union.YYSTYPE, ptr %2113, i64 -1
-  %2115 = load i8, ptr %2114, align 8
-  %2116 = sext i8 %2115 to i32
-  switch i32 %2116, label %2127 [
-    i32 2, label %2117
-    i32 3, label %2122
+2148:                                             ; preds = %2142
+  %2149 = load ptr, ptr %16, align 8, !tbaa !17
+  %2150 = getelementptr inbounds %union.YYSTYPE, ptr %2149, i64 -1
+  %2151 = load i8, ptr %2150, align 8, !tbaa !10
+  %2152 = sext i8 %2151 to i32
+  switch i32 %2152, label %2163 [
+    i32 2, label %2153
+    i32 3, label %2158
   ]
 
-2117:                                             ; preds = %2112
-  %2118 = load ptr, ptr %4, align 8
-  %2119 = getelementptr inbounds %struct._YR_COMPILER, ptr %2118, i32 0, i32 31
-  %2120 = getelementptr inbounds [256 x i8], ptr %2119, i64 0, i64 0
-  %2121 = call i64 @cli_strlcpy(ptr noundef %2120, ptr noundef @.str.29, i64 noundef 256)
-  br label %2127
+2153:                                             ; preds = %2148
+  %2154 = load ptr, ptr %5, align 8, !tbaa !7
+  %2155 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2154, i32 0, i32 31
+  %2156 = getelementptr inbounds [256 x i8], ptr %2155, i64 0, i64 0
+  %2157 = call i64 @cli_strlcpy(ptr noundef %2156, ptr noundef @.str.29, i64 noundef 256)
+  br label %2163
 
-2122:                                             ; preds = %2112
-  %2123 = load ptr, ptr %4, align 8
-  %2124 = getelementptr inbounds %struct._YR_COMPILER, ptr %2123, i32 0, i32 31
-  %2125 = getelementptr inbounds [256 x i8], ptr %2124, i64 0, i64 0
-  %2126 = call i64 @cli_strlcpy(ptr noundef %2125, ptr noundef @.str.30, i64 noundef 256)
-  br label %2127
+2158:                                             ; preds = %2148
+  %2159 = load ptr, ptr %5, align 8, !tbaa !7
+  %2160 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2159, i32 0, i32 31
+  %2161 = getelementptr inbounds [256 x i8], ptr %2160, i64 0, i64 0
+  %2162 = call i64 @cli_strlcpy(ptr noundef %2161, ptr noundef @.str.30, i64 noundef 256)
+  br label %2163
 
-2127:                                             ; preds = %2122, %2117, %2112
-  %2128 = load ptr, ptr %4, align 8
-  %2129 = getelementptr inbounds %struct._YR_COMPILER, ptr %2128, i32 0, i32 4
-  store i32 24, ptr %2129, align 8
-  %2130 = load ptr, ptr %3, align 8
-  %2131 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2130, ptr noundef %2131, ptr noundef null)
-  br label %3195
+2163:                                             ; preds = %2148, %2158, %2153
+  %2164 = load ptr, ptr %5, align 8, !tbaa !7
+  %2165 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2164, i32 0, i32 4
+  store i32 24, ptr %2165, align 8, !tbaa !23
+  %2166 = load ptr, ptr %4, align 8, !tbaa !3
+  %2167 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2166, ptr noundef %2167, ptr noundef null)
+  br label %3235
 
-2132:                                             ; preds = %2106
-  %2133 = load ptr, ptr %3, align 8
-  %2134 = call i32 @yr_parser_emit(ptr noundef %2133, i8 noundef signext 48, ptr noundef null)
-  %2135 = load ptr, ptr %4, align 8
-  %2136 = getelementptr inbounds %struct._YR_COMPILER, ptr %2135, i32 0, i32 4
-  store i32 %2134, ptr %2136, align 8
-  %2137 = load ptr, ptr %4, align 8
-  %2138 = getelementptr inbounds %struct._YR_COMPILER, ptr %2137, i32 0, i32 4
-  %2139 = load i32, ptr %2138, align 8
-  %2140 = icmp ne i32 %2139, 0
-  br i1 %2140, label %2141, label %2144
+2168:                                             ; preds = %2142
+  %2169 = load ptr, ptr %4, align 8, !tbaa !3
+  %2170 = call i32 @yr_parser_emit(ptr noundef %2169, i8 noundef signext 48, ptr noundef null)
+  %2171 = load ptr, ptr %5, align 8, !tbaa !7
+  %2172 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2171, i32 0, i32 4
+  store i32 %2170, ptr %2172, align 8, !tbaa !23
+  %2173 = load ptr, ptr %5, align 8, !tbaa !7
+  %2174 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2173, i32 0, i32 4
+  %2175 = load i32, ptr %2174, align 8, !tbaa !23
+  %2176 = icmp ne i32 %2175, 0
+  br i1 %2176, label %2177, label %2180
 
-2141:                                             ; preds = %2132
-  %2142 = load ptr, ptr %3, align 8
-  %2143 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2142, ptr noundef %2143, ptr noundef null)
-  br label %3195
+2177:                                             ; preds = %2168
+  %2178 = load ptr, ptr %4, align 8, !tbaa !3
+  %2179 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2178, ptr noundef %2179, ptr noundef null)
+  br label %3235
 
-2144:                                             ; preds = %2132
-  store i8 2, ptr %20, align 8
-  br label %3057
+2180:                                             ; preds = %2168
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2145:                                             ; preds = %237
-  %2146 = load ptr, ptr %15, align 8
-  %2147 = getelementptr inbounds %union.YYSTYPE, ptr %2146, i64 -1
-  %2148 = load i8, ptr %2147, align 8
-  %2149 = sext i8 %2148 to i32
-  %2150 = icmp ne i32 %2149, 2
-  br i1 %2150, label %2151, label %2171
+2181:                                             ; preds = %247
+  %2182 = load ptr, ptr %16, align 8, !tbaa !17
+  %2183 = getelementptr inbounds %union.YYSTYPE, ptr %2182, i64 -1
+  %2184 = load i8, ptr %2183, align 8, !tbaa !10
+  %2185 = sext i8 %2184 to i32
+  %2186 = icmp ne i32 %2185, 2
+  br i1 %2186, label %2187, label %2207
 
-2151:                                             ; preds = %2145
-  %2152 = load ptr, ptr %15, align 8
-  %2153 = getelementptr inbounds %union.YYSTYPE, ptr %2152, i64 -1
-  %2154 = load i8, ptr %2153, align 8
-  %2155 = sext i8 %2154 to i32
-  switch i32 %2155, label %2166 [
-    i32 2, label %2156
-    i32 3, label %2161
+2187:                                             ; preds = %2181
+  %2188 = load ptr, ptr %16, align 8, !tbaa !17
+  %2189 = getelementptr inbounds %union.YYSTYPE, ptr %2188, i64 -1
+  %2190 = load i8, ptr %2189, align 8, !tbaa !10
+  %2191 = sext i8 %2190 to i32
+  switch i32 %2191, label %2202 [
+    i32 2, label %2192
+    i32 3, label %2197
   ]
 
-2156:                                             ; preds = %2151
-  %2157 = load ptr, ptr %4, align 8
-  %2158 = getelementptr inbounds %struct._YR_COMPILER, ptr %2157, i32 0, i32 31
-  %2159 = getelementptr inbounds [256 x i8], ptr %2158, i64 0, i64 0
-  %2160 = call i64 @cli_strlcpy(ptr noundef %2159, ptr noundef @.str.31, i64 noundef 256)
-  br label %2166
+2192:                                             ; preds = %2187
+  %2193 = load ptr, ptr %5, align 8, !tbaa !7
+  %2194 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2193, i32 0, i32 31
+  %2195 = getelementptr inbounds [256 x i8], ptr %2194, i64 0, i64 0
+  %2196 = call i64 @cli_strlcpy(ptr noundef %2195, ptr noundef @.str.31, i64 noundef 256)
+  br label %2202
 
-2161:                                             ; preds = %2151
-  %2162 = load ptr, ptr %4, align 8
-  %2163 = getelementptr inbounds %struct._YR_COMPILER, ptr %2162, i32 0, i32 31
-  %2164 = getelementptr inbounds [256 x i8], ptr %2163, i64 0, i64 0
-  %2165 = call i64 @cli_strlcpy(ptr noundef %2164, ptr noundef @.str.32, i64 noundef 256)
-  br label %2166
+2197:                                             ; preds = %2187
+  %2198 = load ptr, ptr %5, align 8, !tbaa !7
+  %2199 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2198, i32 0, i32 31
+  %2200 = getelementptr inbounds [256 x i8], ptr %2199, i64 0, i64 0
+  %2201 = call i64 @cli_strlcpy(ptr noundef %2200, ptr noundef @.str.32, i64 noundef 256)
+  br label %2202
 
-2166:                                             ; preds = %2161, %2156, %2151
-  %2167 = load ptr, ptr %4, align 8
-  %2168 = getelementptr inbounds %struct._YR_COMPILER, ptr %2167, i32 0, i32 4
-  store i32 24, ptr %2168, align 8
-  %2169 = load ptr, ptr %3, align 8
-  %2170 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2169, ptr noundef %2170, ptr noundef null)
-  br label %3195
+2202:                                             ; preds = %2187, %2197, %2192
+  %2203 = load ptr, ptr %5, align 8, !tbaa !7
+  %2204 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2203, i32 0, i32 4
+  store i32 24, ptr %2204, align 8, !tbaa !23
+  %2205 = load ptr, ptr %4, align 8, !tbaa !3
+  %2206 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2205, ptr noundef %2206, ptr noundef null)
+  br label %3235
 
-2171:                                             ; preds = %2145
-  %2172 = load ptr, ptr %3, align 8
-  %2173 = call i32 @yr_parser_emit(ptr noundef %2172, i8 noundef signext 49, ptr noundef null)
-  %2174 = load ptr, ptr %4, align 8
-  %2175 = getelementptr inbounds %struct._YR_COMPILER, ptr %2174, i32 0, i32 4
-  store i32 %2173, ptr %2175, align 8
-  %2176 = load ptr, ptr %4, align 8
-  %2177 = getelementptr inbounds %struct._YR_COMPILER, ptr %2176, i32 0, i32 4
-  %2178 = load i32, ptr %2177, align 8
-  %2179 = icmp ne i32 %2178, 0
-  br i1 %2179, label %2180, label %2183
+2207:                                             ; preds = %2181
+  %2208 = load ptr, ptr %4, align 8, !tbaa !3
+  %2209 = call i32 @yr_parser_emit(ptr noundef %2208, i8 noundef signext 49, ptr noundef null)
+  %2210 = load ptr, ptr %5, align 8, !tbaa !7
+  %2211 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2210, i32 0, i32 4
+  store i32 %2209, ptr %2211, align 8, !tbaa !23
+  %2212 = load ptr, ptr %5, align 8, !tbaa !7
+  %2213 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2212, i32 0, i32 4
+  %2214 = load i32, ptr %2213, align 8, !tbaa !23
+  %2215 = icmp ne i32 %2214, 0
+  br i1 %2215, label %2216, label %2219
 
-2180:                                             ; preds = %2171
-  %2181 = load ptr, ptr %3, align 8
-  %2182 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2181, ptr noundef %2182, ptr noundef null)
-  br label %3195
+2216:                                             ; preds = %2207
+  %2217 = load ptr, ptr %4, align 8, !tbaa !3
+  %2218 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2217, ptr noundef %2218, ptr noundef null)
+  br label %3235
 
-2183:                                             ; preds = %2171
-  store i8 2, ptr %20, align 8
-  br label %3057
+2219:                                             ; preds = %2207
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2184:                                             ; preds = %237
-  %2185 = load ptr, ptr %15, align 8
-  %2186 = getelementptr inbounds %union.YYSTYPE, ptr %2185, i64 -1
-  %2187 = load i8, ptr %2186, align 8
-  %2188 = sext i8 %2187 to i32
-  %2189 = icmp ne i32 %2188, 2
-  br i1 %2189, label %2190, label %2210
+2220:                                             ; preds = %247
+  %2221 = load ptr, ptr %16, align 8, !tbaa !17
+  %2222 = getelementptr inbounds %union.YYSTYPE, ptr %2221, i64 -1
+  %2223 = load i8, ptr %2222, align 8, !tbaa !10
+  %2224 = sext i8 %2223 to i32
+  %2225 = icmp ne i32 %2224, 2
+  br i1 %2225, label %2226, label %2246
 
-2190:                                             ; preds = %2184
-  %2191 = load ptr, ptr %15, align 8
-  %2192 = getelementptr inbounds %union.YYSTYPE, ptr %2191, i64 -1
-  %2193 = load i8, ptr %2192, align 8
-  %2194 = sext i8 %2193 to i32
-  switch i32 %2194, label %2205 [
-    i32 2, label %2195
-    i32 3, label %2200
+2226:                                             ; preds = %2220
+  %2227 = load ptr, ptr %16, align 8, !tbaa !17
+  %2228 = getelementptr inbounds %union.YYSTYPE, ptr %2227, i64 -1
+  %2229 = load i8, ptr %2228, align 8, !tbaa !10
+  %2230 = sext i8 %2229 to i32
+  switch i32 %2230, label %2241 [
+    i32 2, label %2231
+    i32 3, label %2236
   ]
 
-2195:                                             ; preds = %2190
-  %2196 = load ptr, ptr %4, align 8
-  %2197 = getelementptr inbounds %struct._YR_COMPILER, ptr %2196, i32 0, i32 31
-  %2198 = getelementptr inbounds [256 x i8], ptr %2197, i64 0, i64 0
-  %2199 = call i64 @cli_strlcpy(ptr noundef %2198, ptr noundef @.str.33, i64 noundef 256)
-  br label %2205
+2231:                                             ; preds = %2226
+  %2232 = load ptr, ptr %5, align 8, !tbaa !7
+  %2233 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2232, i32 0, i32 31
+  %2234 = getelementptr inbounds [256 x i8], ptr %2233, i64 0, i64 0
+  %2235 = call i64 @cli_strlcpy(ptr noundef %2234, ptr noundef @.str.33, i64 noundef 256)
+  br label %2241
 
-2200:                                             ; preds = %2190
-  %2201 = load ptr, ptr %4, align 8
-  %2202 = getelementptr inbounds %struct._YR_COMPILER, ptr %2201, i32 0, i32 31
-  %2203 = getelementptr inbounds [256 x i8], ptr %2202, i64 0, i64 0
-  %2204 = call i64 @cli_strlcpy(ptr noundef %2203, ptr noundef @.str.34, i64 noundef 256)
-  br label %2205
+2236:                                             ; preds = %2226
+  %2237 = load ptr, ptr %5, align 8, !tbaa !7
+  %2238 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2237, i32 0, i32 31
+  %2239 = getelementptr inbounds [256 x i8], ptr %2238, i64 0, i64 0
+  %2240 = call i64 @cli_strlcpy(ptr noundef %2239, ptr noundef @.str.34, i64 noundef 256)
+  br label %2241
 
-2205:                                             ; preds = %2200, %2195, %2190
-  %2206 = load ptr, ptr %4, align 8
-  %2207 = getelementptr inbounds %struct._YR_COMPILER, ptr %2206, i32 0, i32 4
-  store i32 24, ptr %2207, align 8
-  %2208 = load ptr, ptr %3, align 8
-  %2209 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2208, ptr noundef %2209, ptr noundef null)
-  br label %3195
+2241:                                             ; preds = %2226, %2236, %2231
+  %2242 = load ptr, ptr %5, align 8, !tbaa !7
+  %2243 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2242, i32 0, i32 4
+  store i32 24, ptr %2243, align 8, !tbaa !23
+  %2244 = load ptr, ptr %4, align 8, !tbaa !3
+  %2245 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2244, ptr noundef %2245, ptr noundef null)
+  br label %3235
 
-2210:                                             ; preds = %2184
-  %2211 = load ptr, ptr %3, align 8
-  %2212 = call i32 @yr_parser_emit(ptr noundef %2211, i8 noundef signext 50, ptr noundef null)
-  %2213 = load ptr, ptr %4, align 8
-  %2214 = getelementptr inbounds %struct._YR_COMPILER, ptr %2213, i32 0, i32 4
-  store i32 %2212, ptr %2214, align 8
-  %2215 = load ptr, ptr %4, align 8
-  %2216 = getelementptr inbounds %struct._YR_COMPILER, ptr %2215, i32 0, i32 4
-  %2217 = load i32, ptr %2216, align 8
-  %2218 = icmp ne i32 %2217, 0
-  br i1 %2218, label %2219, label %2222
+2246:                                             ; preds = %2220
+  %2247 = load ptr, ptr %4, align 8, !tbaa !3
+  %2248 = call i32 @yr_parser_emit(ptr noundef %2247, i8 noundef signext 50, ptr noundef null)
+  %2249 = load ptr, ptr %5, align 8, !tbaa !7
+  %2250 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2249, i32 0, i32 4
+  store i32 %2248, ptr %2250, align 8, !tbaa !23
+  %2251 = load ptr, ptr %5, align 8, !tbaa !7
+  %2252 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2251, i32 0, i32 4
+  %2253 = load i32, ptr %2252, align 8, !tbaa !23
+  %2254 = icmp ne i32 %2253, 0
+  br i1 %2254, label %2255, label %2258
 
-2219:                                             ; preds = %2210
-  %2220 = load ptr, ptr %3, align 8
-  %2221 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2220, ptr noundef %2221, ptr noundef null)
-  br label %3195
+2255:                                             ; preds = %2246
+  %2256 = load ptr, ptr %4, align 8, !tbaa !3
+  %2257 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2256, ptr noundef %2257, ptr noundef null)
+  br label %3235
 
-2222:                                             ; preds = %2210
-  store i8 2, ptr %20, align 8
-  br label %3057
+2258:                                             ; preds = %2246
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2223:                                             ; preds = %237
-  %2224 = load ptr, ptr %15, align 8
-  %2225 = getelementptr inbounds %union.YYSTYPE, ptr %2224, i64 -1
-  %2226 = load i8, ptr %2225, align 8
-  %2227 = sext i8 %2226 to i32
-  %2228 = icmp ne i32 %2227, 2
-  br i1 %2228, label %2229, label %2249
+2259:                                             ; preds = %247
+  %2260 = load ptr, ptr %16, align 8, !tbaa !17
+  %2261 = getelementptr inbounds %union.YYSTYPE, ptr %2260, i64 -1
+  %2262 = load i8, ptr %2261, align 8, !tbaa !10
+  %2263 = sext i8 %2262 to i32
+  %2264 = icmp ne i32 %2263, 2
+  br i1 %2264, label %2265, label %2285
 
-2229:                                             ; preds = %2223
-  %2230 = load ptr, ptr %15, align 8
-  %2231 = getelementptr inbounds %union.YYSTYPE, ptr %2230, i64 -1
-  %2232 = load i8, ptr %2231, align 8
-  %2233 = sext i8 %2232 to i32
-  switch i32 %2233, label %2244 [
-    i32 2, label %2234
-    i32 3, label %2239
+2265:                                             ; preds = %2259
+  %2266 = load ptr, ptr %16, align 8, !tbaa !17
+  %2267 = getelementptr inbounds %union.YYSTYPE, ptr %2266, i64 -1
+  %2268 = load i8, ptr %2267, align 8, !tbaa !10
+  %2269 = sext i8 %2268 to i32
+  switch i32 %2269, label %2280 [
+    i32 2, label %2270
+    i32 3, label %2275
   ]
 
-2234:                                             ; preds = %2229
-  %2235 = load ptr, ptr %4, align 8
-  %2236 = getelementptr inbounds %struct._YR_COMPILER, ptr %2235, i32 0, i32 31
-  %2237 = getelementptr inbounds [256 x i8], ptr %2236, i64 0, i64 0
-  %2238 = call i64 @cli_strlcpy(ptr noundef %2237, ptr noundef @.str.35, i64 noundef 256)
-  br label %2244
+2270:                                             ; preds = %2265
+  %2271 = load ptr, ptr %5, align 8, !tbaa !7
+  %2272 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2271, i32 0, i32 31
+  %2273 = getelementptr inbounds [256 x i8], ptr %2272, i64 0, i64 0
+  %2274 = call i64 @cli_strlcpy(ptr noundef %2273, ptr noundef @.str.35, i64 noundef 256)
+  br label %2280
 
-2239:                                             ; preds = %2229
-  %2240 = load ptr, ptr %4, align 8
-  %2241 = getelementptr inbounds %struct._YR_COMPILER, ptr %2240, i32 0, i32 31
-  %2242 = getelementptr inbounds [256 x i8], ptr %2241, i64 0, i64 0
-  %2243 = call i64 @cli_strlcpy(ptr noundef %2242, ptr noundef @.str.36, i64 noundef 256)
-  br label %2244
+2275:                                             ; preds = %2265
+  %2276 = load ptr, ptr %5, align 8, !tbaa !7
+  %2277 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2276, i32 0, i32 31
+  %2278 = getelementptr inbounds [256 x i8], ptr %2277, i64 0, i64 0
+  %2279 = call i64 @cli_strlcpy(ptr noundef %2278, ptr noundef @.str.36, i64 noundef 256)
+  br label %2280
 
-2244:                                             ; preds = %2239, %2234, %2229
-  %2245 = load ptr, ptr %4, align 8
-  %2246 = getelementptr inbounds %struct._YR_COMPILER, ptr %2245, i32 0, i32 4
-  store i32 24, ptr %2246, align 8
-  %2247 = load ptr, ptr %3, align 8
-  %2248 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2247, ptr noundef %2248, ptr noundef null)
-  br label %3195
+2280:                                             ; preds = %2265, %2275, %2270
+  %2281 = load ptr, ptr %5, align 8, !tbaa !7
+  %2282 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2281, i32 0, i32 4
+  store i32 24, ptr %2282, align 8, !tbaa !23
+  %2283 = load ptr, ptr %4, align 8, !tbaa !3
+  %2284 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2283, ptr noundef %2284, ptr noundef null)
+  br label %3235
 
-2249:                                             ; preds = %2223
-  %2250 = load ptr, ptr %3, align 8
-  %2251 = call i32 @yr_parser_emit(ptr noundef %2250, i8 noundef signext 51, ptr noundef null)
-  %2252 = load ptr, ptr %4, align 8
-  %2253 = getelementptr inbounds %struct._YR_COMPILER, ptr %2252, i32 0, i32 4
-  store i32 %2251, ptr %2253, align 8
-  %2254 = load ptr, ptr %4, align 8
-  %2255 = getelementptr inbounds %struct._YR_COMPILER, ptr %2254, i32 0, i32 4
-  %2256 = load i32, ptr %2255, align 8
-  %2257 = icmp ne i32 %2256, 0
-  br i1 %2257, label %2258, label %2261
+2285:                                             ; preds = %2259
+  %2286 = load ptr, ptr %4, align 8, !tbaa !3
+  %2287 = call i32 @yr_parser_emit(ptr noundef %2286, i8 noundef signext 51, ptr noundef null)
+  %2288 = load ptr, ptr %5, align 8, !tbaa !7
+  %2289 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2288, i32 0, i32 4
+  store i32 %2287, ptr %2289, align 8, !tbaa !23
+  %2290 = load ptr, ptr %5, align 8, !tbaa !7
+  %2291 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2290, i32 0, i32 4
+  %2292 = load i32, ptr %2291, align 8, !tbaa !23
+  %2293 = icmp ne i32 %2292, 0
+  br i1 %2293, label %2294, label %2297
 
-2258:                                             ; preds = %2249
-  %2259 = load ptr, ptr %3, align 8
-  %2260 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2259, ptr noundef %2260, ptr noundef null)
-  br label %3195
+2294:                                             ; preds = %2285
+  %2295 = load ptr, ptr %4, align 8, !tbaa !3
+  %2296 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2295, ptr noundef %2296, ptr noundef null)
+  br label %3235
 
-2261:                                             ; preds = %2249
-  store i8 2, ptr %20, align 8
-  br label %3057
+2297:                                             ; preds = %2285
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2262:                                             ; preds = %237
-  %2263 = load ptr, ptr %15, align 8
-  %2264 = getelementptr inbounds %union.YYSTYPE, ptr %2263, i64 -1
-  %2265 = load i8, ptr %2264, align 8
-  %2266 = sext i8 %2265 to i32
-  %2267 = icmp ne i32 %2266, 2
-  br i1 %2267, label %2268, label %2288
+2298:                                             ; preds = %247
+  %2299 = load ptr, ptr %16, align 8, !tbaa !17
+  %2300 = getelementptr inbounds %union.YYSTYPE, ptr %2299, i64 -1
+  %2301 = load i8, ptr %2300, align 8, !tbaa !10
+  %2302 = sext i8 %2301 to i32
+  %2303 = icmp ne i32 %2302, 2
+  br i1 %2303, label %2304, label %2324
 
-2268:                                             ; preds = %2262
-  %2269 = load ptr, ptr %15, align 8
-  %2270 = getelementptr inbounds %union.YYSTYPE, ptr %2269, i64 -1
-  %2271 = load i8, ptr %2270, align 8
-  %2272 = sext i8 %2271 to i32
-  switch i32 %2272, label %2283 [
-    i32 2, label %2273
-    i32 3, label %2278
+2304:                                             ; preds = %2298
+  %2305 = load ptr, ptr %16, align 8, !tbaa !17
+  %2306 = getelementptr inbounds %union.YYSTYPE, ptr %2305, i64 -1
+  %2307 = load i8, ptr %2306, align 8, !tbaa !10
+  %2308 = sext i8 %2307 to i32
+  switch i32 %2308, label %2319 [
+    i32 2, label %2309
+    i32 3, label %2314
   ]
 
-2273:                                             ; preds = %2268
-  %2274 = load ptr, ptr %4, align 8
-  %2275 = getelementptr inbounds %struct._YR_COMPILER, ptr %2274, i32 0, i32 31
-  %2276 = getelementptr inbounds [256 x i8], ptr %2275, i64 0, i64 0
-  %2277 = call i64 @cli_strlcpy(ptr noundef %2276, ptr noundef @.str.37, i64 noundef 256)
-  br label %2283
+2309:                                             ; preds = %2304
+  %2310 = load ptr, ptr %5, align 8, !tbaa !7
+  %2311 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2310, i32 0, i32 31
+  %2312 = getelementptr inbounds [256 x i8], ptr %2311, i64 0, i64 0
+  %2313 = call i64 @cli_strlcpy(ptr noundef %2312, ptr noundef @.str.37, i64 noundef 256)
+  br label %2319
 
-2278:                                             ; preds = %2268
-  %2279 = load ptr, ptr %4, align 8
-  %2280 = getelementptr inbounds %struct._YR_COMPILER, ptr %2279, i32 0, i32 31
-  %2281 = getelementptr inbounds [256 x i8], ptr %2280, i64 0, i64 0
-  %2282 = call i64 @cli_strlcpy(ptr noundef %2281, ptr noundef @.str.38, i64 noundef 256)
-  br label %2283
+2314:                                             ; preds = %2304
+  %2315 = load ptr, ptr %5, align 8, !tbaa !7
+  %2316 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2315, i32 0, i32 31
+  %2317 = getelementptr inbounds [256 x i8], ptr %2316, i64 0, i64 0
+  %2318 = call i64 @cli_strlcpy(ptr noundef %2317, ptr noundef @.str.38, i64 noundef 256)
+  br label %2319
 
-2283:                                             ; preds = %2278, %2273, %2268
-  %2284 = load ptr, ptr %4, align 8
-  %2285 = getelementptr inbounds %struct._YR_COMPILER, ptr %2284, i32 0, i32 4
-  store i32 24, ptr %2285, align 8
-  %2286 = load ptr, ptr %3, align 8
-  %2287 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2286, ptr noundef %2287, ptr noundef null)
-  br label %3195
+2319:                                             ; preds = %2304, %2314, %2309
+  %2320 = load ptr, ptr %5, align 8, !tbaa !7
+  %2321 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2320, i32 0, i32 4
+  store i32 24, ptr %2321, align 8, !tbaa !23
+  %2322 = load ptr, ptr %4, align 8, !tbaa !3
+  %2323 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2322, ptr noundef %2323, ptr noundef null)
+  br label %3235
 
-2288:                                             ; preds = %2262
-  %2289 = load ptr, ptr %3, align 8
-  %2290 = call i32 @yr_parser_emit(ptr noundef %2289, i8 noundef signext 52, ptr noundef null)
-  %2291 = load ptr, ptr %4, align 8
-  %2292 = getelementptr inbounds %struct._YR_COMPILER, ptr %2291, i32 0, i32 4
-  store i32 %2290, ptr %2292, align 8
-  %2293 = load ptr, ptr %4, align 8
-  %2294 = getelementptr inbounds %struct._YR_COMPILER, ptr %2293, i32 0, i32 4
-  %2295 = load i32, ptr %2294, align 8
-  %2296 = icmp ne i32 %2295, 0
-  br i1 %2296, label %2297, label %2300
+2324:                                             ; preds = %2298
+  %2325 = load ptr, ptr %4, align 8, !tbaa !3
+  %2326 = call i32 @yr_parser_emit(ptr noundef %2325, i8 noundef signext 52, ptr noundef null)
+  %2327 = load ptr, ptr %5, align 8, !tbaa !7
+  %2328 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2327, i32 0, i32 4
+  store i32 %2326, ptr %2328, align 8, !tbaa !23
+  %2329 = load ptr, ptr %5, align 8, !tbaa !7
+  %2330 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2329, i32 0, i32 4
+  %2331 = load i32, ptr %2330, align 8, !tbaa !23
+  %2332 = icmp ne i32 %2331, 0
+  br i1 %2332, label %2333, label %2336
 
-2297:                                             ; preds = %2288
-  %2298 = load ptr, ptr %3, align 8
-  %2299 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2298, ptr noundef %2299, ptr noundef null)
-  br label %3195
+2333:                                             ; preds = %2324
+  %2334 = load ptr, ptr %4, align 8, !tbaa !3
+  %2335 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2334, ptr noundef %2335, ptr noundef null)
+  br label %3235
 
-2300:                                             ; preds = %2288
-  store i8 2, ptr %20, align 8
-  br label %3057
+2336:                                             ; preds = %2324
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2301:                                             ; preds = %237
-  %2302 = load ptr, ptr %3, align 8
-  %2303 = load ptr, ptr %15, align 8
-  %2304 = getelementptr inbounds %union.YYSTYPE, ptr %2303, i64 0
-  %2305 = load i64, ptr %2304, align 8
-  %2306 = call i32 @yr_parser_emit_with_arg(ptr noundef %2302, i8 noundef signext 22, i64 noundef %2305, ptr noundef null)
-  %2307 = load ptr, ptr %4, align 8
-  %2308 = getelementptr inbounds %struct._YR_COMPILER, ptr %2307, i32 0, i32 4
-  store i32 %2306, ptr %2308, align 8
-  %2309 = load ptr, ptr %4, align 8
-  %2310 = getelementptr inbounds %struct._YR_COMPILER, ptr %2309, i32 0, i32 4
-  %2311 = load i32, ptr %2310, align 8
-  %2312 = icmp ne i32 %2311, 0
-  br i1 %2312, label %2313, label %2316
+2337:                                             ; preds = %247
+  %2338 = load ptr, ptr %4, align 8, !tbaa !3
+  %2339 = load ptr, ptr %16, align 8, !tbaa !17
+  %2340 = getelementptr inbounds %union.YYSTYPE, ptr %2339, i64 0
+  %2341 = load i64, ptr %2340, align 8, !tbaa !10
+  %2342 = call i32 @yr_parser_emit_with_arg(ptr noundef %2338, i8 noundef signext 22, i64 noundef %2341, ptr noundef null)
+  %2343 = load ptr, ptr %5, align 8, !tbaa !7
+  %2344 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2343, i32 0, i32 4
+  store i32 %2342, ptr %2344, align 8, !tbaa !23
+  %2345 = load ptr, ptr %5, align 8, !tbaa !7
+  %2346 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2345, i32 0, i32 4
+  %2347 = load i32, ptr %2346, align 8, !tbaa !23
+  %2348 = icmp ne i32 %2347, 0
+  br i1 %2348, label %2349, label %2352
 
-2313:                                             ; preds = %2301
-  %2314 = load ptr, ptr %3, align 8
-  %2315 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2314, ptr noundef %2315, ptr noundef null)
-  br label %3195
+2349:                                             ; preds = %2337
+  %2350 = load ptr, ptr %4, align 8, !tbaa !3
+  %2351 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2350, ptr noundef %2351, ptr noundef null)
+  br label %3235
 
-2316:                                             ; preds = %2301
-  store i8 2, ptr %20, align 8
-  br label %3057
+2352:                                             ; preds = %2337
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2317:                                             ; preds = %237
-  store ptr null, ptr %51, align 8
-  %2318 = load ptr, ptr %15, align 8
-  %2319 = getelementptr inbounds %union.YYSTYPE, ptr %2318, i64 0
-  %2320 = load ptr, ptr %2319, align 8
-  call void @free(ptr noundef %2320) #9
-  %2321 = load ptr, ptr %4, align 8
-  %2322 = getelementptr inbounds %struct._YR_COMPILER, ptr %2321, i32 0, i32 4
-  %2323 = load i32, ptr %2322, align 8
-  %2324 = icmp eq i32 %2323, 0
-  br i1 %2324, label %2325, label %2332
+2353:                                             ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 8, ptr %53) #9
+  store ptr null, ptr %53, align 8, !tbaa !13
+  %2354 = load ptr, ptr %16, align 8, !tbaa !17
+  %2355 = getelementptr inbounds %union.YYSTYPE, ptr %2354, i64 0
+  %2356 = load ptr, ptr %2355, align 8, !tbaa !10
+  call void @free(ptr noundef %2356) #9
+  %2357 = load ptr, ptr %5, align 8, !tbaa !7
+  %2358 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2357, i32 0, i32 4
+  %2359 = load i32, ptr %2358, align 8, !tbaa !23
+  %2360 = icmp eq i32 %2359, 0
+  br i1 %2360, label %2361, label %2368
 
-2325:                                             ; preds = %2317
-  %2326 = load ptr, ptr %3, align 8
-  %2327 = load ptr, ptr %51, align 8
-  %2328 = ptrtoint ptr %2327 to i64
-  %2329 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %2326, i8 noundef signext 22, i64 noundef %2328, ptr noundef null)
-  %2330 = load ptr, ptr %4, align 8
-  %2331 = getelementptr inbounds %struct._YR_COMPILER, ptr %2330, i32 0, i32 4
-  store i32 %2329, ptr %2331, align 8
-  br label %2332
+2361:                                             ; preds = %2353
+  %2362 = load ptr, ptr %4, align 8, !tbaa !3
+  %2363 = load ptr, ptr %53, align 8, !tbaa !13
+  %2364 = ptrtoint ptr %2363 to i64
+  %2365 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %2362, i8 noundef signext 22, i64 noundef %2364, ptr noundef null)
+  %2366 = load ptr, ptr %5, align 8, !tbaa !7
+  %2367 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2366, i32 0, i32 4
+  store i32 %2365, ptr %2367, align 8, !tbaa !23
+  br label %2368
 
-2332:                                             ; preds = %2325, %2317
-  %2333 = load ptr, ptr %4, align 8
-  %2334 = getelementptr inbounds %struct._YR_COMPILER, ptr %2333, i32 0, i32 4
-  %2335 = load i32, ptr %2334, align 8
-  %2336 = icmp ne i32 %2335, 0
-  br i1 %2336, label %2337, label %2340
+2368:                                             ; preds = %2361, %2353
+  %2369 = load ptr, ptr %5, align 8, !tbaa !7
+  %2370 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2369, i32 0, i32 4
+  %2371 = load i32, ptr %2370, align 8, !tbaa !23
+  %2372 = icmp ne i32 %2371, 0
+  br i1 %2372, label %2373, label %2376
 
-2337:                                             ; preds = %2332
-  %2338 = load ptr, ptr %3, align 8
-  %2339 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2338, ptr noundef %2339, ptr noundef null)
-  br label %3195
+2373:                                             ; preds = %2368
+  %2374 = load ptr, ptr %4, align 8, !tbaa !3
+  %2375 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2374, ptr noundef %2375, ptr noundef null)
+  store i32 16, ptr %31, align 4
+  br label %2377
 
-2340:                                             ; preds = %2332
-  store i8 3, ptr %20, align 8
-  br label %3057
+2376:                                             ; preds = %2368
+  store i8 3, ptr %21, align 8, !tbaa !10
+  store i32 0, ptr %31, align 4
+  br label %2377
 
-2341:                                             ; preds = %237
-  %2342 = load ptr, ptr %3, align 8
-  %2343 = load ptr, ptr %15, align 8
-  %2344 = getelementptr inbounds %union.YYSTYPE, ptr %2343, i64 0
-  %2345 = load ptr, ptr %2344, align 8
-  %2346 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %2342, ptr noundef %2345, i8 noundef signext 29)
-  %2347 = load ptr, ptr %4, align 8
-  %2348 = getelementptr inbounds %struct._YR_COMPILER, ptr %2347, i32 0, i32 4
-  store i32 %2346, ptr %2348, align 8
-  %2349 = load ptr, ptr %15, align 8
-  %2350 = getelementptr inbounds %union.YYSTYPE, ptr %2349, i64 0
-  %2351 = load ptr, ptr %2350, align 8
-  call void @free(ptr noundef %2351) #9
-  %2352 = load ptr, ptr %4, align 8
-  %2353 = getelementptr inbounds %struct._YR_COMPILER, ptr %2352, i32 0, i32 4
-  %2354 = load i32, ptr %2353, align 8
-  %2355 = icmp ne i32 %2354, 0
-  br i1 %2355, label %2356, label %2359
+2377:                                             ; preds = %2373, %2376
+  call void @llvm.lifetime.end.p0(i64 8, ptr %53) #9
+  %2378 = load i32, ptr %31, align 4
+  switch i32 %2378, label %3379 [
+    i32 0, label %2379
+    i32 16, label %3235
+  ]
 
-2356:                                             ; preds = %2341
-  %2357 = load ptr, ptr %3, align 8
-  %2358 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2357, ptr noundef %2358, ptr noundef null)
-  br label %3195
+2379:                                             ; preds = %2377
+  br label %3094
 
-2359:                                             ; preds = %2341
-  store i8 2, ptr %20, align 8
-  br label %3057
+2380:                                             ; preds = %247
+  %2381 = load ptr, ptr %4, align 8, !tbaa !3
+  %2382 = load ptr, ptr %16, align 8, !tbaa !17
+  %2383 = getelementptr inbounds %union.YYSTYPE, ptr %2382, i64 0
+  %2384 = load ptr, ptr %2383, align 8, !tbaa !10
+  %2385 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %2381, ptr noundef %2384, i8 noundef signext 29)
+  %2386 = load ptr, ptr %5, align 8, !tbaa !7
+  %2387 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2386, i32 0, i32 4
+  store i32 %2385, ptr %2387, align 8, !tbaa !23
+  %2388 = load ptr, ptr %16, align 8, !tbaa !17
+  %2389 = getelementptr inbounds %union.YYSTYPE, ptr %2388, i64 0
+  %2390 = load ptr, ptr %2389, align 8, !tbaa !10
+  call void @free(ptr noundef %2390) #9
+  %2391 = load ptr, ptr %5, align 8, !tbaa !7
+  %2392 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2391, i32 0, i32 4
+  %2393 = load i32, ptr %2392, align 8, !tbaa !23
+  %2394 = icmp ne i32 %2393, 0
+  br i1 %2394, label %2395, label %2398
 
-2360:                                             ; preds = %237
-  %2361 = load ptr, ptr %3, align 8
-  %2362 = load ptr, ptr %15, align 8
-  %2363 = getelementptr inbounds %union.YYSTYPE, ptr %2362, i64 -3
-  %2364 = load ptr, ptr %2363, align 8
-  %2365 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %2361, ptr noundef %2364, i8 noundef signext 33)
-  %2366 = load ptr, ptr %4, align 8
-  %2367 = getelementptr inbounds %struct._YR_COMPILER, ptr %2366, i32 0, i32 4
-  store i32 %2365, ptr %2367, align 8
-  %2368 = load ptr, ptr %15, align 8
-  %2369 = getelementptr inbounds %union.YYSTYPE, ptr %2368, i64 -3
-  %2370 = load ptr, ptr %2369, align 8
-  call void @free(ptr noundef %2370) #9
-  %2371 = load ptr, ptr %4, align 8
-  %2372 = getelementptr inbounds %struct._YR_COMPILER, ptr %2371, i32 0, i32 4
-  %2373 = load i32, ptr %2372, align 8
-  %2374 = icmp ne i32 %2373, 0
-  br i1 %2374, label %2375, label %2378
+2395:                                             ; preds = %2380
+  %2396 = load ptr, ptr %4, align 8, !tbaa !3
+  %2397 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2396, ptr noundef %2397, ptr noundef null)
+  br label %3235
 
-2375:                                             ; preds = %2360
-  %2376 = load ptr, ptr %3, align 8
-  %2377 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2376, ptr noundef %2377, ptr noundef null)
-  br label %3195
+2398:                                             ; preds = %2380
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2378:                                             ; preds = %2360
-  %2379 = load ptr, ptr %4, align 8
-  %2380 = getelementptr inbounds %struct._YR_COMPILER, ptr %2379, i32 0, i32 40
-  %2381 = load i32, ptr %2380, align 8
-  %2382 = or i32 %2381, 32
-  store i32 %2382, ptr %2380, align 8
-  store i8 2, ptr %20, align 8
-  br label %3057
+2399:                                             ; preds = %247
+  %2400 = load ptr, ptr %4, align 8, !tbaa !3
+  %2401 = load ptr, ptr %16, align 8, !tbaa !17
+  %2402 = getelementptr inbounds %union.YYSTYPE, ptr %2401, i64 -3
+  %2403 = load ptr, ptr %2402, align 8, !tbaa !10
+  %2404 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %2400, ptr noundef %2403, i8 noundef signext 33)
+  %2405 = load ptr, ptr %5, align 8, !tbaa !7
+  %2406 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2405, i32 0, i32 4
+  store i32 %2404, ptr %2406, align 8, !tbaa !23
+  %2407 = load ptr, ptr %16, align 8, !tbaa !17
+  %2408 = getelementptr inbounds %union.YYSTYPE, ptr %2407, i64 -3
+  %2409 = load ptr, ptr %2408, align 8, !tbaa !10
+  call void @free(ptr noundef %2409) #9
+  %2410 = load ptr, ptr %5, align 8, !tbaa !7
+  %2411 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2410, i32 0, i32 4
+  %2412 = load i32, ptr %2411, align 8, !tbaa !23
+  %2413 = icmp ne i32 %2412, 0
+  br i1 %2413, label %2414, label %2417
 
-2383:                                             ; preds = %237
-  %2384 = load ptr, ptr %3, align 8
-  %2385 = call i32 @yr_parser_emit_with_arg(ptr noundef %2384, i8 noundef signext 22, i64 noundef 1, ptr noundef null)
-  %2386 = load ptr, ptr %4, align 8
-  %2387 = getelementptr inbounds %struct._YR_COMPILER, ptr %2386, i32 0, i32 4
-  store i32 %2385, ptr %2387, align 8
-  %2388 = load ptr, ptr %4, align 8
-  %2389 = getelementptr inbounds %struct._YR_COMPILER, ptr %2388, i32 0, i32 4
-  %2390 = load i32, ptr %2389, align 8
-  %2391 = icmp eq i32 %2390, 0
-  br i1 %2391, label %2392, label %2400
+2414:                                             ; preds = %2399
+  %2415 = load ptr, ptr %4, align 8, !tbaa !3
+  %2416 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2415, ptr noundef %2416, ptr noundef null)
+  br label %3235
 
-2392:                                             ; preds = %2383
-  %2393 = load ptr, ptr %3, align 8
-  %2394 = load ptr, ptr %15, align 8
-  %2395 = getelementptr inbounds %union.YYSTYPE, ptr %2394, i64 0
-  %2396 = load ptr, ptr %2395, align 8
-  %2397 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %2393, ptr noundef %2396, i8 noundef signext 33)
-  %2398 = load ptr, ptr %4, align 8
-  %2399 = getelementptr inbounds %struct._YR_COMPILER, ptr %2398, i32 0, i32 4
-  store i32 %2397, ptr %2399, align 8
-  br label %2400
+2417:                                             ; preds = %2399
+  %2418 = load ptr, ptr %5, align 8, !tbaa !7
+  %2419 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2418, i32 0, i32 40
+  %2420 = load i32, ptr %2419, align 8, !tbaa !57
+  %2421 = or i32 %2420, 32
+  store i32 %2421, ptr %2419, align 8, !tbaa !57
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2400:                                             ; preds = %2392, %2383
-  %2401 = load ptr, ptr %15, align 8
-  %2402 = getelementptr inbounds %union.YYSTYPE, ptr %2401, i64 0
-  %2403 = load ptr, ptr %2402, align 8
-  call void @free(ptr noundef %2403) #9
-  %2404 = load ptr, ptr %4, align 8
-  %2405 = getelementptr inbounds %struct._YR_COMPILER, ptr %2404, i32 0, i32 4
-  %2406 = load i32, ptr %2405, align 8
-  %2407 = icmp ne i32 %2406, 0
-  br i1 %2407, label %2408, label %2411
+2422:                                             ; preds = %247
+  %2423 = load ptr, ptr %4, align 8, !tbaa !3
+  %2424 = call i32 @yr_parser_emit_with_arg(ptr noundef %2423, i8 noundef signext 22, i64 noundef 1, ptr noundef null)
+  %2425 = load ptr, ptr %5, align 8, !tbaa !7
+  %2426 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2425, i32 0, i32 4
+  store i32 %2424, ptr %2426, align 8, !tbaa !23
+  %2427 = load ptr, ptr %5, align 8, !tbaa !7
+  %2428 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2427, i32 0, i32 4
+  %2429 = load i32, ptr %2428, align 8, !tbaa !23
+  %2430 = icmp eq i32 %2429, 0
+  br i1 %2430, label %2431, label %2439
 
-2408:                                             ; preds = %2400
-  %2409 = load ptr, ptr %3, align 8
-  %2410 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2409, ptr noundef %2410, ptr noundef null)
-  br label %3195
+2431:                                             ; preds = %2422
+  %2432 = load ptr, ptr %4, align 8, !tbaa !3
+  %2433 = load ptr, ptr %16, align 8, !tbaa !17
+  %2434 = getelementptr inbounds %union.YYSTYPE, ptr %2433, i64 0
+  %2435 = load ptr, ptr %2434, align 8, !tbaa !10
+  %2436 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %2432, ptr noundef %2435, i8 noundef signext 33)
+  %2437 = load ptr, ptr %5, align 8, !tbaa !7
+  %2438 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2437, i32 0, i32 4
+  store i32 %2436, ptr %2438, align 8, !tbaa !23
+  br label %2439
 
-2411:                                             ; preds = %2400
-  %2412 = load ptr, ptr %4, align 8
-  %2413 = getelementptr inbounds %struct._YR_COMPILER, ptr %2412, i32 0, i32 40
-  %2414 = load i32, ptr %2413, align 8
-  %2415 = or i32 %2414, 32
-  store i32 %2415, ptr %2413, align 8
-  store i8 2, ptr %20, align 8
-  br label %3057
-
-2416:                                             ; preds = %237
-  %2417 = load ptr, ptr %15, align 8
-  %2418 = getelementptr inbounds %union.YYSTYPE, ptr %2417, i64 0
-  %2419 = load ptr, ptr %2418, align 8
-  %2420 = inttoptr i64 -1 to ptr
-  %2421 = icmp eq ptr %2419, %2420
-  br i1 %2421, label %2422, label %2423
-
-2422:                                             ; preds = %2416
-  store i8 2, ptr %20, align 8
-  br label %2464
-
-2423:                                             ; preds = %2416
-  %2424 = load ptr, ptr %15, align 8
-  %2425 = getelementptr inbounds %union.YYSTYPE, ptr %2424, i64 0
-  %2426 = load ptr, ptr %2425, align 8
-  %2427 = inttoptr i64 -2 to ptr
-  %2428 = icmp eq ptr %2426, %2427
-  br i1 %2428, label %2429, label %2430
-
-2429:                                             ; preds = %2423
-  store i8 1, ptr %20, align 8
-  br label %2463
-
-2430:                                             ; preds = %2423
-  %2431 = load ptr, ptr %15, align 8
-  %2432 = getelementptr inbounds %union.YYSTYPE, ptr %2431, i64 0
-  %2433 = load ptr, ptr %2432, align 8
-  %2434 = icmp ne ptr %2433, null
-  br i1 %2434, label %2435, label %2450
-
-2435:                                             ; preds = %2430
-  %2436 = load ptr, ptr %3, align 8
-  %2437 = call i32 @yr_parser_emit(ptr noundef %2436, i8 noundef signext 26, ptr noundef null)
-  %2438 = load ptr, ptr %4, align 8
-  %2439 = getelementptr inbounds %struct._YR_COMPILER, ptr %2438, i32 0, i32 4
-  store i32 %2437, ptr %2439, align 8
-  %2440 = load ptr, ptr %15, align 8
+2439:                                             ; preds = %2431, %2422
+  %2440 = load ptr, ptr %16, align 8, !tbaa !17
   %2441 = getelementptr inbounds %union.YYSTYPE, ptr %2440, i64 0
-  %2442 = load ptr, ptr %2441, align 8
-  %2443 = getelementptr inbounds %struct._YR_OBJECT, ptr %2442, i32 0, i32 0
-  %2444 = load i8, ptr %2443, align 8
-  %2445 = sext i8 %2444 to i32
-  switch i32 %2445, label %2448 [
-    i32 1, label %2446
-    i32 2, label %2447
+  %2442 = load ptr, ptr %2441, align 8, !tbaa !10
+  call void @free(ptr noundef %2442) #9
+  %2443 = load ptr, ptr %5, align 8, !tbaa !7
+  %2444 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2443, i32 0, i32 4
+  %2445 = load i32, ptr %2444, align 8, !tbaa !23
+  %2446 = icmp ne i32 %2445, 0
+  br i1 %2446, label %2447, label %2450
+
+2447:                                             ; preds = %2439
+  %2448 = load ptr, ptr %4, align 8, !tbaa !3
+  %2449 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2448, ptr noundef %2449, ptr noundef null)
+  br label %3235
+
+2450:                                             ; preds = %2439
+  %2451 = load ptr, ptr %5, align 8, !tbaa !7
+  %2452 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2451, i32 0, i32 40
+  %2453 = load i32, ptr %2452, align 8, !tbaa !57
+  %2454 = or i32 %2453, 32
+  store i32 %2454, ptr %2452, align 8, !tbaa !57
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
+
+2455:                                             ; preds = %247
+  %2456 = load ptr, ptr %16, align 8, !tbaa !17
+  %2457 = getelementptr inbounds %union.YYSTYPE, ptr %2456, i64 0
+  %2458 = load ptr, ptr %2457, align 8, !tbaa !10
+  %2459 = icmp eq ptr %2458, inttoptr (i64 -1 to ptr)
+  br i1 %2459, label %2460, label %2461
+
+2460:                                             ; preds = %2455
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %2501
+
+2461:                                             ; preds = %2455
+  %2462 = load ptr, ptr %16, align 8, !tbaa !17
+  %2463 = getelementptr inbounds %union.YYSTYPE, ptr %2462, i64 0
+  %2464 = load ptr, ptr %2463, align 8, !tbaa !10
+  %2465 = icmp eq ptr %2464, inttoptr (i64 -2 to ptr)
+  br i1 %2465, label %2466, label %2467
+
+2466:                                             ; preds = %2461
+  store i8 1, ptr %21, align 8, !tbaa !10
+  br label %2500
+
+2467:                                             ; preds = %2461
+  %2468 = load ptr, ptr %16, align 8, !tbaa !17
+  %2469 = getelementptr inbounds %union.YYSTYPE, ptr %2468, i64 0
+  %2470 = load ptr, ptr %2469, align 8, !tbaa !10
+  %2471 = icmp ne ptr %2470, null
+  br i1 %2471, label %2472, label %2487
+
+2472:                                             ; preds = %2467
+  %2473 = load ptr, ptr %4, align 8, !tbaa !3
+  %2474 = call i32 @yr_parser_emit(ptr noundef %2473, i8 noundef signext 26, ptr noundef null)
+  %2475 = load ptr, ptr %5, align 8, !tbaa !7
+  %2476 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2475, i32 0, i32 4
+  store i32 %2474, ptr %2476, align 8, !tbaa !23
+  %2477 = load ptr, ptr %16, align 8, !tbaa !17
+  %2478 = getelementptr inbounds %union.YYSTYPE, ptr %2477, i64 0
+  %2479 = load ptr, ptr %2478, align 8, !tbaa !10
+  %2480 = getelementptr inbounds nuw %struct._YR_OBJECT, ptr %2479, i32 0, i32 0
+  %2481 = load i8, ptr %2480, align 8, !tbaa !49
+  %2482 = sext i8 %2481 to i32
+  switch i32 %2482, label %2485 [
+    i32 1, label %2483
+    i32 2, label %2484
   ]
 
-2446:                                             ; preds = %2435
-  store i8 2, ptr %20, align 8
-  br label %2449
+2483:                                             ; preds = %2472
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %2486
 
-2447:                                             ; preds = %2435
-  store i8 3, ptr %20, align 8
-  br label %2449
+2484:                                             ; preds = %2472
+  store i8 3, ptr %21, align 8, !tbaa !10
+  br label %2486
 
-2448:                                             ; preds = %2435
-  call void @__assert_fail(ptr noundef @.str.39, ptr noundef @.str.40, i32 noundef 1672, ptr noundef @__PRETTY_FUNCTION__.yara_yyparse) #11
+2485:                                             ; preds = %2472
+  call void @__assert_fail(ptr noundef @.str.39, ptr noundef @.str.40, i32 noundef 1672, ptr noundef @__PRETTY_FUNCTION__.yara_yyparse) #12
   unreachable
 
-2449:                                             ; preds = %2447, %2446
-  br label %2462
+2486:                                             ; preds = %2484, %2483
+  br label %2499
 
-2450:                                             ; preds = %2430
-  %2451 = load ptr, ptr %4, align 8
-  %2452 = getelementptr inbounds %struct._YR_COMPILER, ptr %2451, i32 0, i32 31
-  %2453 = getelementptr inbounds [256 x i8], ptr %2452, i64 0, i64 0
-  %2454 = load ptr, ptr %15, align 8
-  %2455 = getelementptr inbounds %union.YYSTYPE, ptr %2454, i64 0
-  %2456 = load ptr, ptr %2455, align 8
-  %2457 = getelementptr inbounds %struct._YR_OBJECT, ptr %2456, i32 0, i32 1
-  %2458 = load ptr, ptr %2457, align 8
-  %2459 = call i64 @cli_strlcpy(ptr noundef %2453, ptr noundef %2458, i64 noundef 256)
-  %2460 = load ptr, ptr %4, align 8
-  %2461 = getelementptr inbounds %struct._YR_COMPILER, ptr %2460, i32 0, i32 4
-  store i32 24, ptr %2461, align 8
-  br label %2462
+2487:                                             ; preds = %2467
+  %2488 = load ptr, ptr %5, align 8, !tbaa !7
+  %2489 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2488, i32 0, i32 31
+  %2490 = getelementptr inbounds [256 x i8], ptr %2489, i64 0, i64 0
+  %2491 = load ptr, ptr %16, align 8, !tbaa !17
+  %2492 = getelementptr inbounds %union.YYSTYPE, ptr %2491, i64 0
+  %2493 = load ptr, ptr %2492, align 8, !tbaa !10
+  %2494 = getelementptr inbounds nuw %struct._YR_OBJECT, ptr %2493, i32 0, i32 1
+  %2495 = load ptr, ptr %2494, align 8, !tbaa !51
+  %2496 = call i64 @cli_strlcpy(ptr noundef %2490, ptr noundef %2495, i64 noundef 256)
+  %2497 = load ptr, ptr %5, align 8, !tbaa !7
+  %2498 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2497, i32 0, i32 4
+  store i32 24, ptr %2498, align 8, !tbaa !23
+  br label %2499
 
-2462:                                             ; preds = %2450, %2449
-  br label %2463
+2499:                                             ; preds = %2487, %2486
+  br label %2500
 
-2463:                                             ; preds = %2462, %2429
-  br label %2464
+2500:                                             ; preds = %2499, %2466
+  br label %2501
 
-2464:                                             ; preds = %2463, %2422
-  %2465 = load ptr, ptr %4, align 8
-  %2466 = getelementptr inbounds %struct._YR_COMPILER, ptr %2465, i32 0, i32 4
-  %2467 = load i32, ptr %2466, align 8
-  %2468 = icmp ne i32 %2467, 0
-  br i1 %2468, label %2469, label %2472
+2501:                                             ; preds = %2500, %2460
+  %2502 = load ptr, ptr %5, align 8, !tbaa !7
+  %2503 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2502, i32 0, i32 4
+  %2504 = load i32, ptr %2503, align 8, !tbaa !23
+  %2505 = icmp ne i32 %2504, 0
+  br i1 %2505, label %2506, label %2509
 
-2469:                                             ; preds = %2464
-  %2470 = load ptr, ptr %3, align 8
-  %2471 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2470, ptr noundef %2471, ptr noundef null)
-  br label %3195
+2506:                                             ; preds = %2501
+  %2507 = load ptr, ptr %4, align 8, !tbaa !3
+  %2508 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2507, ptr noundef %2508, ptr noundef null)
+  br label %3235
 
-2472:                                             ; preds = %2464
-  br label %3057
+2509:                                             ; preds = %2501
+  br label %3094
 
-2473:                                             ; preds = %237
-  %2474 = load ptr, ptr %15, align 8
-  %2475 = getelementptr inbounds %union.YYSTYPE, ptr %2474, i64 -2
-  %2476 = load i8, ptr %2475, align 8
-  %2477 = sext i8 %2476 to i32
-  %2478 = icmp ne i32 %2477, 2
-  br i1 %2478, label %2479, label %2499
+2510:                                             ; preds = %247
+  %2511 = load ptr, ptr %16, align 8, !tbaa !17
+  %2512 = getelementptr inbounds %union.YYSTYPE, ptr %2511, i64 -2
+  %2513 = load i8, ptr %2512, align 8, !tbaa !10
+  %2514 = sext i8 %2513 to i32
+  %2515 = icmp ne i32 %2514, 2
+  br i1 %2515, label %2516, label %2536
 
-2479:                                             ; preds = %2473
-  %2480 = load ptr, ptr %15, align 8
-  %2481 = getelementptr inbounds %union.YYSTYPE, ptr %2480, i64 -2
-  %2482 = load i8, ptr %2481, align 8
-  %2483 = sext i8 %2482 to i32
-  switch i32 %2483, label %2494 [
-    i32 2, label %2484
-    i32 3, label %2489
+2516:                                             ; preds = %2510
+  %2517 = load ptr, ptr %16, align 8, !tbaa !17
+  %2518 = getelementptr inbounds %union.YYSTYPE, ptr %2517, i64 -2
+  %2519 = load i8, ptr %2518, align 8, !tbaa !10
+  %2520 = sext i8 %2519 to i32
+  switch i32 %2520, label %2531 [
+    i32 2, label %2521
+    i32 3, label %2526
   ]
 
-2484:                                             ; preds = %2479
-  %2485 = load ptr, ptr %4, align 8
-  %2486 = getelementptr inbounds %struct._YR_COMPILER, ptr %2485, i32 0, i32 31
-  %2487 = getelementptr inbounds [256 x i8], ptr %2486, i64 0, i64 0
-  %2488 = call i64 @cli_strlcpy(ptr noundef %2487, ptr noundef @.str.41, i64 noundef 256)
-  br label %2494
+2521:                                             ; preds = %2516
+  %2522 = load ptr, ptr %5, align 8, !tbaa !7
+  %2523 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2522, i32 0, i32 31
+  %2524 = getelementptr inbounds [256 x i8], ptr %2523, i64 0, i64 0
+  %2525 = call i64 @cli_strlcpy(ptr noundef %2524, ptr noundef @.str.41, i64 noundef 256)
+  br label %2531
 
-2489:                                             ; preds = %2479
-  %2490 = load ptr, ptr %4, align 8
-  %2491 = getelementptr inbounds %struct._YR_COMPILER, ptr %2490, i32 0, i32 31
-  %2492 = getelementptr inbounds [256 x i8], ptr %2491, i64 0, i64 0
-  %2493 = call i64 @cli_strlcpy(ptr noundef %2492, ptr noundef @.str.42, i64 noundef 256)
-  br label %2494
+2526:                                             ; preds = %2516
+  %2527 = load ptr, ptr %5, align 8, !tbaa !7
+  %2528 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2527, i32 0, i32 31
+  %2529 = getelementptr inbounds [256 x i8], ptr %2528, i64 0, i64 0
+  %2530 = call i64 @cli_strlcpy(ptr noundef %2529, ptr noundef @.str.42, i64 noundef 256)
+  br label %2531
 
-2494:                                             ; preds = %2489, %2484, %2479
-  %2495 = load ptr, ptr %4, align 8
-  %2496 = getelementptr inbounds %struct._YR_COMPILER, ptr %2495, i32 0, i32 4
-  store i32 24, ptr %2496, align 8
-  %2497 = load ptr, ptr %3, align 8
-  %2498 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2497, ptr noundef %2498, ptr noundef null)
-  br label %3195
+2531:                                             ; preds = %2516, %2526, %2521
+  %2532 = load ptr, ptr %5, align 8, !tbaa !7
+  %2533 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2532, i32 0, i32 4
+  store i32 24, ptr %2533, align 8, !tbaa !23
+  %2534 = load ptr, ptr %4, align 8, !tbaa !3
+  %2535 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2534, ptr noundef %2535, ptr noundef null)
+  br label %3235
 
-2499:                                             ; preds = %2473
-  %2500 = load ptr, ptr %15, align 8
-  %2501 = getelementptr inbounds %union.YYSTYPE, ptr %2500, i64 0
-  %2502 = load i8, ptr %2501, align 8
-  %2503 = sext i8 %2502 to i32
-  %2504 = icmp ne i32 %2503, 2
-  br i1 %2504, label %2505, label %2525
+2536:                                             ; preds = %2510
+  %2537 = load ptr, ptr %16, align 8, !tbaa !17
+  %2538 = getelementptr inbounds %union.YYSTYPE, ptr %2537, i64 0
+  %2539 = load i8, ptr %2538, align 8, !tbaa !10
+  %2540 = sext i8 %2539 to i32
+  %2541 = icmp ne i32 %2540, 2
+  br i1 %2541, label %2542, label %2562
 
-2505:                                             ; preds = %2499
-  %2506 = load ptr, ptr %15, align 8
-  %2507 = getelementptr inbounds %union.YYSTYPE, ptr %2506, i64 0
-  %2508 = load i8, ptr %2507, align 8
-  %2509 = sext i8 %2508 to i32
-  switch i32 %2509, label %2520 [
-    i32 2, label %2510
-    i32 3, label %2515
+2542:                                             ; preds = %2536
+  %2543 = load ptr, ptr %16, align 8, !tbaa !17
+  %2544 = getelementptr inbounds %union.YYSTYPE, ptr %2543, i64 0
+  %2545 = load i8, ptr %2544, align 8, !tbaa !10
+  %2546 = sext i8 %2545 to i32
+  switch i32 %2546, label %2557 [
+    i32 2, label %2547
+    i32 3, label %2552
   ]
 
-2510:                                             ; preds = %2505
-  %2511 = load ptr, ptr %4, align 8
-  %2512 = getelementptr inbounds %struct._YR_COMPILER, ptr %2511, i32 0, i32 31
-  %2513 = getelementptr inbounds [256 x i8], ptr %2512, i64 0, i64 0
-  %2514 = call i64 @cli_strlcpy(ptr noundef %2513, ptr noundef @.str.41, i64 noundef 256)
-  br label %2520
+2547:                                             ; preds = %2542
+  %2548 = load ptr, ptr %5, align 8, !tbaa !7
+  %2549 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2548, i32 0, i32 31
+  %2550 = getelementptr inbounds [256 x i8], ptr %2549, i64 0, i64 0
+  %2551 = call i64 @cli_strlcpy(ptr noundef %2550, ptr noundef @.str.41, i64 noundef 256)
+  br label %2557
 
-2515:                                             ; preds = %2505
-  %2516 = load ptr, ptr %4, align 8
-  %2517 = getelementptr inbounds %struct._YR_COMPILER, ptr %2516, i32 0, i32 31
-  %2518 = getelementptr inbounds [256 x i8], ptr %2517, i64 0, i64 0
-  %2519 = call i64 @cli_strlcpy(ptr noundef %2518, ptr noundef @.str.42, i64 noundef 256)
-  br label %2520
+2552:                                             ; preds = %2542
+  %2553 = load ptr, ptr %5, align 8, !tbaa !7
+  %2554 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2553, i32 0, i32 31
+  %2555 = getelementptr inbounds [256 x i8], ptr %2554, i64 0, i64 0
+  %2556 = call i64 @cli_strlcpy(ptr noundef %2555, ptr noundef @.str.42, i64 noundef 256)
+  br label %2557
 
-2520:                                             ; preds = %2515, %2510, %2505
-  %2521 = load ptr, ptr %4, align 8
-  %2522 = getelementptr inbounds %struct._YR_COMPILER, ptr %2521, i32 0, i32 4
-  store i32 24, ptr %2522, align 8
-  %2523 = load ptr, ptr %3, align 8
-  %2524 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2523, ptr noundef %2524, ptr noundef null)
-  br label %3195
+2557:                                             ; preds = %2542, %2552, %2547
+  %2558 = load ptr, ptr %5, align 8, !tbaa !7
+  %2559 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2558, i32 0, i32 4
+  store i32 24, ptr %2559, align 8, !tbaa !23
+  %2560 = load ptr, ptr %4, align 8, !tbaa !3
+  %2561 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2560, ptr noundef %2561, ptr noundef null)
+  br label %3235
 
-2525:                                             ; preds = %2499
-  %2526 = load ptr, ptr %3, align 8
-  %2527 = call i32 @yr_parser_emit(ptr noundef %2526, i8 noundef signext 14, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+2562:                                             ; preds = %2536
+  %2563 = load ptr, ptr %4, align 8, !tbaa !3
+  %2564 = call i32 @yr_parser_emit(ptr noundef %2563, i8 noundef signext 14, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2528:                                             ; preds = %237
-  %2529 = load ptr, ptr %15, align 8
-  %2530 = getelementptr inbounds %union.YYSTYPE, ptr %2529, i64 -2
-  %2531 = load i8, ptr %2530, align 8
-  %2532 = sext i8 %2531 to i32
-  %2533 = icmp ne i32 %2532, 2
-  br i1 %2533, label %2534, label %2554
+2565:                                             ; preds = %247
+  %2566 = load ptr, ptr %16, align 8, !tbaa !17
+  %2567 = getelementptr inbounds %union.YYSTYPE, ptr %2566, i64 -2
+  %2568 = load i8, ptr %2567, align 8, !tbaa !10
+  %2569 = sext i8 %2568 to i32
+  %2570 = icmp ne i32 %2569, 2
+  br i1 %2570, label %2571, label %2591
 
-2534:                                             ; preds = %2528
-  %2535 = load ptr, ptr %15, align 8
-  %2536 = getelementptr inbounds %union.YYSTYPE, ptr %2535, i64 -2
-  %2537 = load i8, ptr %2536, align 8
-  %2538 = sext i8 %2537 to i32
-  switch i32 %2538, label %2549 [
-    i32 2, label %2539
-    i32 3, label %2544
+2571:                                             ; preds = %2565
+  %2572 = load ptr, ptr %16, align 8, !tbaa !17
+  %2573 = getelementptr inbounds %union.YYSTYPE, ptr %2572, i64 -2
+  %2574 = load i8, ptr %2573, align 8, !tbaa !10
+  %2575 = sext i8 %2574 to i32
+  switch i32 %2575, label %2586 [
+    i32 2, label %2576
+    i32 3, label %2581
   ]
 
-2539:                                             ; preds = %2534
-  %2540 = load ptr, ptr %4, align 8
-  %2541 = getelementptr inbounds %struct._YR_COMPILER, ptr %2540, i32 0, i32 31
-  %2542 = getelementptr inbounds [256 x i8], ptr %2541, i64 0, i64 0
-  %2543 = call i64 @cli_strlcpy(ptr noundef %2542, ptr noundef @.str.43, i64 noundef 256)
-  br label %2549
+2576:                                             ; preds = %2571
+  %2577 = load ptr, ptr %5, align 8, !tbaa !7
+  %2578 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2577, i32 0, i32 31
+  %2579 = getelementptr inbounds [256 x i8], ptr %2578, i64 0, i64 0
+  %2580 = call i64 @cli_strlcpy(ptr noundef %2579, ptr noundef @.str.43, i64 noundef 256)
+  br label %2586
 
-2544:                                             ; preds = %2534
-  %2545 = load ptr, ptr %4, align 8
-  %2546 = getelementptr inbounds %struct._YR_COMPILER, ptr %2545, i32 0, i32 31
-  %2547 = getelementptr inbounds [256 x i8], ptr %2546, i64 0, i64 0
-  %2548 = call i64 @cli_strlcpy(ptr noundef %2547, ptr noundef @.str.44, i64 noundef 256)
-  br label %2549
+2581:                                             ; preds = %2571
+  %2582 = load ptr, ptr %5, align 8, !tbaa !7
+  %2583 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2582, i32 0, i32 31
+  %2584 = getelementptr inbounds [256 x i8], ptr %2583, i64 0, i64 0
+  %2585 = call i64 @cli_strlcpy(ptr noundef %2584, ptr noundef @.str.44, i64 noundef 256)
+  br label %2586
 
-2549:                                             ; preds = %2544, %2539, %2534
-  %2550 = load ptr, ptr %4, align 8
-  %2551 = getelementptr inbounds %struct._YR_COMPILER, ptr %2550, i32 0, i32 4
-  store i32 24, ptr %2551, align 8
-  %2552 = load ptr, ptr %3, align 8
-  %2553 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2552, ptr noundef %2553, ptr noundef null)
-  br label %3195
+2586:                                             ; preds = %2571, %2581, %2576
+  %2587 = load ptr, ptr %5, align 8, !tbaa !7
+  %2588 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2587, i32 0, i32 4
+  store i32 24, ptr %2588, align 8, !tbaa !23
+  %2589 = load ptr, ptr %4, align 8, !tbaa !3
+  %2590 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2589, ptr noundef %2590, ptr noundef null)
+  br label %3235
 
-2554:                                             ; preds = %2528
-  %2555 = load ptr, ptr %15, align 8
-  %2556 = getelementptr inbounds %union.YYSTYPE, ptr %2555, i64 0
-  %2557 = load i8, ptr %2556, align 8
-  %2558 = sext i8 %2557 to i32
-  %2559 = icmp ne i32 %2558, 2
-  br i1 %2559, label %2560, label %2580
+2591:                                             ; preds = %2565
+  %2592 = load ptr, ptr %16, align 8, !tbaa !17
+  %2593 = getelementptr inbounds %union.YYSTYPE, ptr %2592, i64 0
+  %2594 = load i8, ptr %2593, align 8, !tbaa !10
+  %2595 = sext i8 %2594 to i32
+  %2596 = icmp ne i32 %2595, 2
+  br i1 %2596, label %2597, label %2617
 
-2560:                                             ; preds = %2554
-  %2561 = load ptr, ptr %15, align 8
-  %2562 = getelementptr inbounds %union.YYSTYPE, ptr %2561, i64 0
-  %2563 = load i8, ptr %2562, align 8
-  %2564 = sext i8 %2563 to i32
-  switch i32 %2564, label %2575 [
-    i32 2, label %2565
-    i32 3, label %2570
+2597:                                             ; preds = %2591
+  %2598 = load ptr, ptr %16, align 8, !tbaa !17
+  %2599 = getelementptr inbounds %union.YYSTYPE, ptr %2598, i64 0
+  %2600 = load i8, ptr %2599, align 8, !tbaa !10
+  %2601 = sext i8 %2600 to i32
+  switch i32 %2601, label %2612 [
+    i32 2, label %2602
+    i32 3, label %2607
   ]
 
-2565:                                             ; preds = %2560
-  %2566 = load ptr, ptr %4, align 8
-  %2567 = getelementptr inbounds %struct._YR_COMPILER, ptr %2566, i32 0, i32 31
-  %2568 = getelementptr inbounds [256 x i8], ptr %2567, i64 0, i64 0
-  %2569 = call i64 @cli_strlcpy(ptr noundef %2568, ptr noundef @.str.43, i64 noundef 256)
-  br label %2575
+2602:                                             ; preds = %2597
+  %2603 = load ptr, ptr %5, align 8, !tbaa !7
+  %2604 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2603, i32 0, i32 31
+  %2605 = getelementptr inbounds [256 x i8], ptr %2604, i64 0, i64 0
+  %2606 = call i64 @cli_strlcpy(ptr noundef %2605, ptr noundef @.str.43, i64 noundef 256)
+  br label %2612
 
-2570:                                             ; preds = %2560
-  %2571 = load ptr, ptr %4, align 8
-  %2572 = getelementptr inbounds %struct._YR_COMPILER, ptr %2571, i32 0, i32 31
-  %2573 = getelementptr inbounds [256 x i8], ptr %2572, i64 0, i64 0
-  %2574 = call i64 @cli_strlcpy(ptr noundef %2573, ptr noundef @.str.44, i64 noundef 256)
-  br label %2575
+2607:                                             ; preds = %2597
+  %2608 = load ptr, ptr %5, align 8, !tbaa !7
+  %2609 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2608, i32 0, i32 31
+  %2610 = getelementptr inbounds [256 x i8], ptr %2609, i64 0, i64 0
+  %2611 = call i64 @cli_strlcpy(ptr noundef %2610, ptr noundef @.str.44, i64 noundef 256)
+  br label %2612
 
-2575:                                             ; preds = %2570, %2565, %2560
-  %2576 = load ptr, ptr %4, align 8
-  %2577 = getelementptr inbounds %struct._YR_COMPILER, ptr %2576, i32 0, i32 4
-  store i32 24, ptr %2577, align 8
-  %2578 = load ptr, ptr %3, align 8
-  %2579 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2578, ptr noundef %2579, ptr noundef null)
-  br label %3195
+2612:                                             ; preds = %2597, %2607, %2602
+  %2613 = load ptr, ptr %5, align 8, !tbaa !7
+  %2614 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2613, i32 0, i32 4
+  store i32 24, ptr %2614, align 8, !tbaa !23
+  %2615 = load ptr, ptr %4, align 8, !tbaa !3
+  %2616 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2615, ptr noundef %2616, ptr noundef null)
+  br label %3235
 
-2580:                                             ; preds = %2554
-  %2581 = load ptr, ptr %3, align 8
-  %2582 = call i32 @yr_parser_emit(ptr noundef %2581, i8 noundef signext 15, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+2617:                                             ; preds = %2591
+  %2618 = load ptr, ptr %4, align 8, !tbaa !3
+  %2619 = call i32 @yr_parser_emit(ptr noundef %2618, i8 noundef signext 15, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2583:                                             ; preds = %237
-  %2584 = load ptr, ptr %15, align 8
-  %2585 = getelementptr inbounds %union.YYSTYPE, ptr %2584, i64 -2
-  %2586 = load i8, ptr %2585, align 8
-  %2587 = sext i8 %2586 to i32
-  %2588 = icmp ne i32 %2587, 2
-  br i1 %2588, label %2589, label %2609
+2620:                                             ; preds = %247
+  %2621 = load ptr, ptr %16, align 8, !tbaa !17
+  %2622 = getelementptr inbounds %union.YYSTYPE, ptr %2621, i64 -2
+  %2623 = load i8, ptr %2622, align 8, !tbaa !10
+  %2624 = sext i8 %2623 to i32
+  %2625 = icmp ne i32 %2624, 2
+  br i1 %2625, label %2626, label %2646
 
-2589:                                             ; preds = %2583
-  %2590 = load ptr, ptr %15, align 8
-  %2591 = getelementptr inbounds %union.YYSTYPE, ptr %2590, i64 -2
-  %2592 = load i8, ptr %2591, align 8
-  %2593 = sext i8 %2592 to i32
-  switch i32 %2593, label %2604 [
-    i32 2, label %2594
-    i32 3, label %2599
+2626:                                             ; preds = %2620
+  %2627 = load ptr, ptr %16, align 8, !tbaa !17
+  %2628 = getelementptr inbounds %union.YYSTYPE, ptr %2627, i64 -2
+  %2629 = load i8, ptr %2628, align 8, !tbaa !10
+  %2630 = sext i8 %2629 to i32
+  switch i32 %2630, label %2641 [
+    i32 2, label %2631
+    i32 3, label %2636
   ]
 
-2594:                                             ; preds = %2589
-  %2595 = load ptr, ptr %4, align 8
-  %2596 = getelementptr inbounds %struct._YR_COMPILER, ptr %2595, i32 0, i32 31
-  %2597 = getelementptr inbounds [256 x i8], ptr %2596, i64 0, i64 0
-  %2598 = call i64 @cli_strlcpy(ptr noundef %2597, ptr noundef @.str.45, i64 noundef 256)
-  br label %2604
+2631:                                             ; preds = %2626
+  %2632 = load ptr, ptr %5, align 8, !tbaa !7
+  %2633 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2632, i32 0, i32 31
+  %2634 = getelementptr inbounds [256 x i8], ptr %2633, i64 0, i64 0
+  %2635 = call i64 @cli_strlcpy(ptr noundef %2634, ptr noundef @.str.45, i64 noundef 256)
+  br label %2641
 
-2599:                                             ; preds = %2589
-  %2600 = load ptr, ptr %4, align 8
-  %2601 = getelementptr inbounds %struct._YR_COMPILER, ptr %2600, i32 0, i32 31
-  %2602 = getelementptr inbounds [256 x i8], ptr %2601, i64 0, i64 0
-  %2603 = call i64 @cli_strlcpy(ptr noundef %2602, ptr noundef @.str.46, i64 noundef 256)
-  br label %2604
+2636:                                             ; preds = %2626
+  %2637 = load ptr, ptr %5, align 8, !tbaa !7
+  %2638 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2637, i32 0, i32 31
+  %2639 = getelementptr inbounds [256 x i8], ptr %2638, i64 0, i64 0
+  %2640 = call i64 @cli_strlcpy(ptr noundef %2639, ptr noundef @.str.46, i64 noundef 256)
+  br label %2641
 
-2604:                                             ; preds = %2599, %2594, %2589
-  %2605 = load ptr, ptr %4, align 8
-  %2606 = getelementptr inbounds %struct._YR_COMPILER, ptr %2605, i32 0, i32 4
-  store i32 24, ptr %2606, align 8
-  %2607 = load ptr, ptr %3, align 8
-  %2608 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2607, ptr noundef %2608, ptr noundef null)
-  br label %3195
+2641:                                             ; preds = %2626, %2636, %2631
+  %2642 = load ptr, ptr %5, align 8, !tbaa !7
+  %2643 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2642, i32 0, i32 4
+  store i32 24, ptr %2643, align 8, !tbaa !23
+  %2644 = load ptr, ptr %4, align 8, !tbaa !3
+  %2645 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2644, ptr noundef %2645, ptr noundef null)
+  br label %3235
 
-2609:                                             ; preds = %2583
-  %2610 = load ptr, ptr %15, align 8
-  %2611 = getelementptr inbounds %union.YYSTYPE, ptr %2610, i64 0
-  %2612 = load i8, ptr %2611, align 8
-  %2613 = sext i8 %2612 to i32
-  %2614 = icmp ne i32 %2613, 2
-  br i1 %2614, label %2615, label %2635
+2646:                                             ; preds = %2620
+  %2647 = load ptr, ptr %16, align 8, !tbaa !17
+  %2648 = getelementptr inbounds %union.YYSTYPE, ptr %2647, i64 0
+  %2649 = load i8, ptr %2648, align 8, !tbaa !10
+  %2650 = sext i8 %2649 to i32
+  %2651 = icmp ne i32 %2650, 2
+  br i1 %2651, label %2652, label %2672
 
-2615:                                             ; preds = %2609
-  %2616 = load ptr, ptr %15, align 8
-  %2617 = getelementptr inbounds %union.YYSTYPE, ptr %2616, i64 0
-  %2618 = load i8, ptr %2617, align 8
-  %2619 = sext i8 %2618 to i32
-  switch i32 %2619, label %2630 [
-    i32 2, label %2620
-    i32 3, label %2625
+2652:                                             ; preds = %2646
+  %2653 = load ptr, ptr %16, align 8, !tbaa !17
+  %2654 = getelementptr inbounds %union.YYSTYPE, ptr %2653, i64 0
+  %2655 = load i8, ptr %2654, align 8, !tbaa !10
+  %2656 = sext i8 %2655 to i32
+  switch i32 %2656, label %2667 [
+    i32 2, label %2657
+    i32 3, label %2662
   ]
 
-2620:                                             ; preds = %2615
-  %2621 = load ptr, ptr %4, align 8
-  %2622 = getelementptr inbounds %struct._YR_COMPILER, ptr %2621, i32 0, i32 31
-  %2623 = getelementptr inbounds [256 x i8], ptr %2622, i64 0, i64 0
-  %2624 = call i64 @cli_strlcpy(ptr noundef %2623, ptr noundef @.str.45, i64 noundef 256)
-  br label %2630
+2657:                                             ; preds = %2652
+  %2658 = load ptr, ptr %5, align 8, !tbaa !7
+  %2659 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2658, i32 0, i32 31
+  %2660 = getelementptr inbounds [256 x i8], ptr %2659, i64 0, i64 0
+  %2661 = call i64 @cli_strlcpy(ptr noundef %2660, ptr noundef @.str.45, i64 noundef 256)
+  br label %2667
 
-2625:                                             ; preds = %2615
-  %2626 = load ptr, ptr %4, align 8
-  %2627 = getelementptr inbounds %struct._YR_COMPILER, ptr %2626, i32 0, i32 31
-  %2628 = getelementptr inbounds [256 x i8], ptr %2627, i64 0, i64 0
-  %2629 = call i64 @cli_strlcpy(ptr noundef %2628, ptr noundef @.str.46, i64 noundef 256)
-  br label %2630
+2662:                                             ; preds = %2652
+  %2663 = load ptr, ptr %5, align 8, !tbaa !7
+  %2664 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2663, i32 0, i32 31
+  %2665 = getelementptr inbounds [256 x i8], ptr %2664, i64 0, i64 0
+  %2666 = call i64 @cli_strlcpy(ptr noundef %2665, ptr noundef @.str.46, i64 noundef 256)
+  br label %2667
 
-2630:                                             ; preds = %2625, %2620, %2615
-  %2631 = load ptr, ptr %4, align 8
-  %2632 = getelementptr inbounds %struct._YR_COMPILER, ptr %2631, i32 0, i32 4
-  store i32 24, ptr %2632, align 8
-  %2633 = load ptr, ptr %3, align 8
-  %2634 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2633, ptr noundef %2634, ptr noundef null)
-  br label %3195
+2667:                                             ; preds = %2652, %2662, %2657
+  %2668 = load ptr, ptr %5, align 8, !tbaa !7
+  %2669 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2668, i32 0, i32 4
+  store i32 24, ptr %2669, align 8, !tbaa !23
+  %2670 = load ptr, ptr %4, align 8, !tbaa !3
+  %2671 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2670, ptr noundef %2671, ptr noundef null)
+  br label %3235
 
-2635:                                             ; preds = %2609
-  %2636 = load ptr, ptr %3, align 8
-  %2637 = call i32 @yr_parser_emit(ptr noundef %2636, i8 noundef signext 16, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+2672:                                             ; preds = %2646
+  %2673 = load ptr, ptr %4, align 8, !tbaa !3
+  %2674 = call i32 @yr_parser_emit(ptr noundef %2673, i8 noundef signext 16, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2638:                                             ; preds = %237
-  %2639 = load ptr, ptr %15, align 8
-  %2640 = getelementptr inbounds %union.YYSTYPE, ptr %2639, i64 -2
-  %2641 = load i8, ptr %2640, align 8
-  %2642 = sext i8 %2641 to i32
-  %2643 = icmp ne i32 %2642, 2
-  br i1 %2643, label %2644, label %2664
+2675:                                             ; preds = %247
+  %2676 = load ptr, ptr %16, align 8, !tbaa !17
+  %2677 = getelementptr inbounds %union.YYSTYPE, ptr %2676, i64 -2
+  %2678 = load i8, ptr %2677, align 8, !tbaa !10
+  %2679 = sext i8 %2678 to i32
+  %2680 = icmp ne i32 %2679, 2
+  br i1 %2680, label %2681, label %2701
 
-2644:                                             ; preds = %2638
-  %2645 = load ptr, ptr %15, align 8
-  %2646 = getelementptr inbounds %union.YYSTYPE, ptr %2645, i64 -2
-  %2647 = load i8, ptr %2646, align 8
-  %2648 = sext i8 %2647 to i32
-  switch i32 %2648, label %2659 [
-    i32 2, label %2649
-    i32 3, label %2654
+2681:                                             ; preds = %2675
+  %2682 = load ptr, ptr %16, align 8, !tbaa !17
+  %2683 = getelementptr inbounds %union.YYSTYPE, ptr %2682, i64 -2
+  %2684 = load i8, ptr %2683, align 8, !tbaa !10
+  %2685 = sext i8 %2684 to i32
+  switch i32 %2685, label %2696 [
+    i32 2, label %2686
+    i32 3, label %2691
   ]
 
-2649:                                             ; preds = %2644
-  %2650 = load ptr, ptr %4, align 8
-  %2651 = getelementptr inbounds %struct._YR_COMPILER, ptr %2650, i32 0, i32 31
-  %2652 = getelementptr inbounds [256 x i8], ptr %2651, i64 0, i64 0
-  %2653 = call i64 @cli_strlcpy(ptr noundef %2652, ptr noundef @.str.47, i64 noundef 256)
-  br label %2659
+2686:                                             ; preds = %2681
+  %2687 = load ptr, ptr %5, align 8, !tbaa !7
+  %2688 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2687, i32 0, i32 31
+  %2689 = getelementptr inbounds [256 x i8], ptr %2688, i64 0, i64 0
+  %2690 = call i64 @cli_strlcpy(ptr noundef %2689, ptr noundef @.str.47, i64 noundef 256)
+  br label %2696
 
-2654:                                             ; preds = %2644
-  %2655 = load ptr, ptr %4, align 8
-  %2656 = getelementptr inbounds %struct._YR_COMPILER, ptr %2655, i32 0, i32 31
-  %2657 = getelementptr inbounds [256 x i8], ptr %2656, i64 0, i64 0
-  %2658 = call i64 @cli_strlcpy(ptr noundef %2657, ptr noundef @.str.48, i64 noundef 256)
-  br label %2659
+2691:                                             ; preds = %2681
+  %2692 = load ptr, ptr %5, align 8, !tbaa !7
+  %2693 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2692, i32 0, i32 31
+  %2694 = getelementptr inbounds [256 x i8], ptr %2693, i64 0, i64 0
+  %2695 = call i64 @cli_strlcpy(ptr noundef %2694, ptr noundef @.str.48, i64 noundef 256)
+  br label %2696
 
-2659:                                             ; preds = %2654, %2649, %2644
-  %2660 = load ptr, ptr %4, align 8
-  %2661 = getelementptr inbounds %struct._YR_COMPILER, ptr %2660, i32 0, i32 4
-  store i32 24, ptr %2661, align 8
-  %2662 = load ptr, ptr %3, align 8
-  %2663 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2662, ptr noundef %2663, ptr noundef null)
-  br label %3195
+2696:                                             ; preds = %2681, %2691, %2686
+  %2697 = load ptr, ptr %5, align 8, !tbaa !7
+  %2698 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2697, i32 0, i32 4
+  store i32 24, ptr %2698, align 8, !tbaa !23
+  %2699 = load ptr, ptr %4, align 8, !tbaa !3
+  %2700 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2699, ptr noundef %2700, ptr noundef null)
+  br label %3235
 
-2664:                                             ; preds = %2638
-  %2665 = load ptr, ptr %15, align 8
-  %2666 = getelementptr inbounds %union.YYSTYPE, ptr %2665, i64 0
-  %2667 = load i8, ptr %2666, align 8
-  %2668 = sext i8 %2667 to i32
-  %2669 = icmp ne i32 %2668, 2
-  br i1 %2669, label %2670, label %2690
+2701:                                             ; preds = %2675
+  %2702 = load ptr, ptr %16, align 8, !tbaa !17
+  %2703 = getelementptr inbounds %union.YYSTYPE, ptr %2702, i64 0
+  %2704 = load i8, ptr %2703, align 8, !tbaa !10
+  %2705 = sext i8 %2704 to i32
+  %2706 = icmp ne i32 %2705, 2
+  br i1 %2706, label %2707, label %2727
 
-2670:                                             ; preds = %2664
-  %2671 = load ptr, ptr %15, align 8
-  %2672 = getelementptr inbounds %union.YYSTYPE, ptr %2671, i64 0
-  %2673 = load i8, ptr %2672, align 8
-  %2674 = sext i8 %2673 to i32
-  switch i32 %2674, label %2685 [
-    i32 2, label %2675
-    i32 3, label %2680
+2707:                                             ; preds = %2701
+  %2708 = load ptr, ptr %16, align 8, !tbaa !17
+  %2709 = getelementptr inbounds %union.YYSTYPE, ptr %2708, i64 0
+  %2710 = load i8, ptr %2709, align 8, !tbaa !10
+  %2711 = sext i8 %2710 to i32
+  switch i32 %2711, label %2722 [
+    i32 2, label %2712
+    i32 3, label %2717
   ]
 
-2675:                                             ; preds = %2670
-  %2676 = load ptr, ptr %4, align 8
-  %2677 = getelementptr inbounds %struct._YR_COMPILER, ptr %2676, i32 0, i32 31
-  %2678 = getelementptr inbounds [256 x i8], ptr %2677, i64 0, i64 0
-  %2679 = call i64 @cli_strlcpy(ptr noundef %2678, ptr noundef @.str.47, i64 noundef 256)
-  br label %2685
+2712:                                             ; preds = %2707
+  %2713 = load ptr, ptr %5, align 8, !tbaa !7
+  %2714 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2713, i32 0, i32 31
+  %2715 = getelementptr inbounds [256 x i8], ptr %2714, i64 0, i64 0
+  %2716 = call i64 @cli_strlcpy(ptr noundef %2715, ptr noundef @.str.47, i64 noundef 256)
+  br label %2722
 
-2680:                                             ; preds = %2670
-  %2681 = load ptr, ptr %4, align 8
-  %2682 = getelementptr inbounds %struct._YR_COMPILER, ptr %2681, i32 0, i32 31
-  %2683 = getelementptr inbounds [256 x i8], ptr %2682, i64 0, i64 0
-  %2684 = call i64 @cli_strlcpy(ptr noundef %2683, ptr noundef @.str.48, i64 noundef 256)
-  br label %2685
+2717:                                             ; preds = %2707
+  %2718 = load ptr, ptr %5, align 8, !tbaa !7
+  %2719 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2718, i32 0, i32 31
+  %2720 = getelementptr inbounds [256 x i8], ptr %2719, i64 0, i64 0
+  %2721 = call i64 @cli_strlcpy(ptr noundef %2720, ptr noundef @.str.48, i64 noundef 256)
+  br label %2722
 
-2685:                                             ; preds = %2680, %2675, %2670
-  %2686 = load ptr, ptr %4, align 8
-  %2687 = getelementptr inbounds %struct._YR_COMPILER, ptr %2686, i32 0, i32 4
-  store i32 24, ptr %2687, align 8
-  %2688 = load ptr, ptr %3, align 8
-  %2689 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2688, ptr noundef %2689, ptr noundef null)
-  br label %3195
+2722:                                             ; preds = %2707, %2717, %2712
+  %2723 = load ptr, ptr %5, align 8, !tbaa !7
+  %2724 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2723, i32 0, i32 4
+  store i32 24, ptr %2724, align 8, !tbaa !23
+  %2725 = load ptr, ptr %4, align 8, !tbaa !3
+  %2726 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2725, ptr noundef %2726, ptr noundef null)
+  br label %3235
 
-2690:                                             ; preds = %2664
-  %2691 = load ptr, ptr %3, align 8
-  %2692 = call i32 @yr_parser_emit(ptr noundef %2691, i8 noundef signext 17, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+2727:                                             ; preds = %2701
+  %2728 = load ptr, ptr %4, align 8, !tbaa !3
+  %2729 = call i32 @yr_parser_emit(ptr noundef %2728, i8 noundef signext 17, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2693:                                             ; preds = %237
-  %2694 = load ptr, ptr %15, align 8
-  %2695 = getelementptr inbounds %union.YYSTYPE, ptr %2694, i64 -2
-  %2696 = load i8, ptr %2695, align 8
-  %2697 = sext i8 %2696 to i32
-  %2698 = icmp ne i32 %2697, 2
-  br i1 %2698, label %2699, label %2719
+2730:                                             ; preds = %247
+  %2731 = load ptr, ptr %16, align 8, !tbaa !17
+  %2732 = getelementptr inbounds %union.YYSTYPE, ptr %2731, i64 -2
+  %2733 = load i8, ptr %2732, align 8, !tbaa !10
+  %2734 = sext i8 %2733 to i32
+  %2735 = icmp ne i32 %2734, 2
+  br i1 %2735, label %2736, label %2756
 
-2699:                                             ; preds = %2693
-  %2700 = load ptr, ptr %15, align 8
-  %2701 = getelementptr inbounds %union.YYSTYPE, ptr %2700, i64 -2
-  %2702 = load i8, ptr %2701, align 8
-  %2703 = sext i8 %2702 to i32
-  switch i32 %2703, label %2714 [
-    i32 2, label %2704
-    i32 3, label %2709
+2736:                                             ; preds = %2730
+  %2737 = load ptr, ptr %16, align 8, !tbaa !17
+  %2738 = getelementptr inbounds %union.YYSTYPE, ptr %2737, i64 -2
+  %2739 = load i8, ptr %2738, align 8, !tbaa !10
+  %2740 = sext i8 %2739 to i32
+  switch i32 %2740, label %2751 [
+    i32 2, label %2741
+    i32 3, label %2746
   ]
 
-2704:                                             ; preds = %2699
-  %2705 = load ptr, ptr %4, align 8
-  %2706 = getelementptr inbounds %struct._YR_COMPILER, ptr %2705, i32 0, i32 31
-  %2707 = getelementptr inbounds [256 x i8], ptr %2706, i64 0, i64 0
-  %2708 = call i64 @cli_strlcpy(ptr noundef %2707, ptr noundef @.str.49, i64 noundef 256)
-  br label %2714
+2741:                                             ; preds = %2736
+  %2742 = load ptr, ptr %5, align 8, !tbaa !7
+  %2743 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2742, i32 0, i32 31
+  %2744 = getelementptr inbounds [256 x i8], ptr %2743, i64 0, i64 0
+  %2745 = call i64 @cli_strlcpy(ptr noundef %2744, ptr noundef @.str.49, i64 noundef 256)
+  br label %2751
 
-2709:                                             ; preds = %2699
-  %2710 = load ptr, ptr %4, align 8
-  %2711 = getelementptr inbounds %struct._YR_COMPILER, ptr %2710, i32 0, i32 31
-  %2712 = getelementptr inbounds [256 x i8], ptr %2711, i64 0, i64 0
-  %2713 = call i64 @cli_strlcpy(ptr noundef %2712, ptr noundef @.str.50, i64 noundef 256)
-  br label %2714
+2746:                                             ; preds = %2736
+  %2747 = load ptr, ptr %5, align 8, !tbaa !7
+  %2748 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2747, i32 0, i32 31
+  %2749 = getelementptr inbounds [256 x i8], ptr %2748, i64 0, i64 0
+  %2750 = call i64 @cli_strlcpy(ptr noundef %2749, ptr noundef @.str.50, i64 noundef 256)
+  br label %2751
 
-2714:                                             ; preds = %2709, %2704, %2699
-  %2715 = load ptr, ptr %4, align 8
-  %2716 = getelementptr inbounds %struct._YR_COMPILER, ptr %2715, i32 0, i32 4
-  store i32 24, ptr %2716, align 8
-  %2717 = load ptr, ptr %3, align 8
-  %2718 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2717, ptr noundef %2718, ptr noundef null)
-  br label %3195
+2751:                                             ; preds = %2736, %2746, %2741
+  %2752 = load ptr, ptr %5, align 8, !tbaa !7
+  %2753 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2752, i32 0, i32 4
+  store i32 24, ptr %2753, align 8, !tbaa !23
+  %2754 = load ptr, ptr %4, align 8, !tbaa !3
+  %2755 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2754, ptr noundef %2755, ptr noundef null)
+  br label %3235
 
-2719:                                             ; preds = %2693
-  %2720 = load ptr, ptr %15, align 8
-  %2721 = getelementptr inbounds %union.YYSTYPE, ptr %2720, i64 0
-  %2722 = load i8, ptr %2721, align 8
-  %2723 = sext i8 %2722 to i32
-  %2724 = icmp ne i32 %2723, 2
-  br i1 %2724, label %2725, label %2745
+2756:                                             ; preds = %2730
+  %2757 = load ptr, ptr %16, align 8, !tbaa !17
+  %2758 = getelementptr inbounds %union.YYSTYPE, ptr %2757, i64 0
+  %2759 = load i8, ptr %2758, align 8, !tbaa !10
+  %2760 = sext i8 %2759 to i32
+  %2761 = icmp ne i32 %2760, 2
+  br i1 %2761, label %2762, label %2782
 
-2725:                                             ; preds = %2719
-  %2726 = load ptr, ptr %15, align 8
-  %2727 = getelementptr inbounds %union.YYSTYPE, ptr %2726, i64 0
-  %2728 = load i8, ptr %2727, align 8
-  %2729 = sext i8 %2728 to i32
-  switch i32 %2729, label %2740 [
-    i32 2, label %2730
-    i32 3, label %2735
+2762:                                             ; preds = %2756
+  %2763 = load ptr, ptr %16, align 8, !tbaa !17
+  %2764 = getelementptr inbounds %union.YYSTYPE, ptr %2763, i64 0
+  %2765 = load i8, ptr %2764, align 8, !tbaa !10
+  %2766 = sext i8 %2765 to i32
+  switch i32 %2766, label %2777 [
+    i32 2, label %2767
+    i32 3, label %2772
   ]
 
-2730:                                             ; preds = %2725
-  %2731 = load ptr, ptr %4, align 8
-  %2732 = getelementptr inbounds %struct._YR_COMPILER, ptr %2731, i32 0, i32 31
-  %2733 = getelementptr inbounds [256 x i8], ptr %2732, i64 0, i64 0
-  %2734 = call i64 @cli_strlcpy(ptr noundef %2733, ptr noundef @.str.49, i64 noundef 256)
-  br label %2740
+2767:                                             ; preds = %2762
+  %2768 = load ptr, ptr %5, align 8, !tbaa !7
+  %2769 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2768, i32 0, i32 31
+  %2770 = getelementptr inbounds [256 x i8], ptr %2769, i64 0, i64 0
+  %2771 = call i64 @cli_strlcpy(ptr noundef %2770, ptr noundef @.str.49, i64 noundef 256)
+  br label %2777
 
-2735:                                             ; preds = %2725
-  %2736 = load ptr, ptr %4, align 8
-  %2737 = getelementptr inbounds %struct._YR_COMPILER, ptr %2736, i32 0, i32 31
-  %2738 = getelementptr inbounds [256 x i8], ptr %2737, i64 0, i64 0
-  %2739 = call i64 @cli_strlcpy(ptr noundef %2738, ptr noundef @.str.50, i64 noundef 256)
-  br label %2740
+2772:                                             ; preds = %2762
+  %2773 = load ptr, ptr %5, align 8, !tbaa !7
+  %2774 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2773, i32 0, i32 31
+  %2775 = getelementptr inbounds [256 x i8], ptr %2774, i64 0, i64 0
+  %2776 = call i64 @cli_strlcpy(ptr noundef %2775, ptr noundef @.str.50, i64 noundef 256)
+  br label %2777
 
-2740:                                             ; preds = %2735, %2730, %2725
-  %2741 = load ptr, ptr %4, align 8
-  %2742 = getelementptr inbounds %struct._YR_COMPILER, ptr %2741, i32 0, i32 4
-  store i32 24, ptr %2742, align 8
-  %2743 = load ptr, ptr %3, align 8
-  %2744 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2743, ptr noundef %2744, ptr noundef null)
-  br label %3195
+2777:                                             ; preds = %2762, %2772, %2767
+  %2778 = load ptr, ptr %5, align 8, !tbaa !7
+  %2779 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2778, i32 0, i32 4
+  store i32 24, ptr %2779, align 8, !tbaa !23
+  %2780 = load ptr, ptr %4, align 8, !tbaa !3
+  %2781 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2780, ptr noundef %2781, ptr noundef null)
+  br label %3235
 
-2745:                                             ; preds = %2719
-  %2746 = load ptr, ptr %3, align 8
-  %2747 = call i32 @yr_parser_emit(ptr noundef %2746, i8 noundef signext 18, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+2782:                                             ; preds = %2756
+  %2783 = load ptr, ptr %4, align 8, !tbaa !3
+  %2784 = call i32 @yr_parser_emit(ptr noundef %2783, i8 noundef signext 18, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2748:                                             ; preds = %237
-  %2749 = load ptr, ptr %15, align 8
-  %2750 = getelementptr inbounds %union.YYSTYPE, ptr %2749, i64 -2
-  %2751 = load i8, ptr %2750, align 8
-  %2752 = sext i8 %2751 to i32
-  %2753 = icmp ne i32 %2752, 2
-  br i1 %2753, label %2754, label %2774
+2785:                                             ; preds = %247
+  %2786 = load ptr, ptr %16, align 8, !tbaa !17
+  %2787 = getelementptr inbounds %union.YYSTYPE, ptr %2786, i64 -2
+  %2788 = load i8, ptr %2787, align 8, !tbaa !10
+  %2789 = sext i8 %2788 to i32
+  %2790 = icmp ne i32 %2789, 2
+  br i1 %2790, label %2791, label %2811
 
-2754:                                             ; preds = %2748
-  %2755 = load ptr, ptr %15, align 8
-  %2756 = getelementptr inbounds %union.YYSTYPE, ptr %2755, i64 -2
-  %2757 = load i8, ptr %2756, align 8
-  %2758 = sext i8 %2757 to i32
-  switch i32 %2758, label %2769 [
-    i32 2, label %2759
-    i32 3, label %2764
+2791:                                             ; preds = %2785
+  %2792 = load ptr, ptr %16, align 8, !tbaa !17
+  %2793 = getelementptr inbounds %union.YYSTYPE, ptr %2792, i64 -2
+  %2794 = load i8, ptr %2793, align 8, !tbaa !10
+  %2795 = sext i8 %2794 to i32
+  switch i32 %2795, label %2806 [
+    i32 2, label %2796
+    i32 3, label %2801
   ]
 
-2759:                                             ; preds = %2754
-  %2760 = load ptr, ptr %4, align 8
-  %2761 = getelementptr inbounds %struct._YR_COMPILER, ptr %2760, i32 0, i32 31
-  %2762 = getelementptr inbounds [256 x i8], ptr %2761, i64 0, i64 0
-  %2763 = call i64 @cli_strlcpy(ptr noundef %2762, ptr noundef @.str.51, i64 noundef 256)
-  br label %2769
+2796:                                             ; preds = %2791
+  %2797 = load ptr, ptr %5, align 8, !tbaa !7
+  %2798 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2797, i32 0, i32 31
+  %2799 = getelementptr inbounds [256 x i8], ptr %2798, i64 0, i64 0
+  %2800 = call i64 @cli_strlcpy(ptr noundef %2799, ptr noundef @.str.51, i64 noundef 256)
+  br label %2806
 
-2764:                                             ; preds = %2754
-  %2765 = load ptr, ptr %4, align 8
-  %2766 = getelementptr inbounds %struct._YR_COMPILER, ptr %2765, i32 0, i32 31
-  %2767 = getelementptr inbounds [256 x i8], ptr %2766, i64 0, i64 0
-  %2768 = call i64 @cli_strlcpy(ptr noundef %2767, ptr noundef @.str.52, i64 noundef 256)
-  br label %2769
+2801:                                             ; preds = %2791
+  %2802 = load ptr, ptr %5, align 8, !tbaa !7
+  %2803 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2802, i32 0, i32 31
+  %2804 = getelementptr inbounds [256 x i8], ptr %2803, i64 0, i64 0
+  %2805 = call i64 @cli_strlcpy(ptr noundef %2804, ptr noundef @.str.52, i64 noundef 256)
+  br label %2806
 
-2769:                                             ; preds = %2764, %2759, %2754
-  %2770 = load ptr, ptr %4, align 8
-  %2771 = getelementptr inbounds %struct._YR_COMPILER, ptr %2770, i32 0, i32 4
-  store i32 24, ptr %2771, align 8
-  %2772 = load ptr, ptr %3, align 8
-  %2773 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2772, ptr noundef %2773, ptr noundef null)
-  br label %3195
+2806:                                             ; preds = %2791, %2801, %2796
+  %2807 = load ptr, ptr %5, align 8, !tbaa !7
+  %2808 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2807, i32 0, i32 4
+  store i32 24, ptr %2808, align 8, !tbaa !23
+  %2809 = load ptr, ptr %4, align 8, !tbaa !3
+  %2810 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2809, ptr noundef %2810, ptr noundef null)
+  br label %3235
 
-2774:                                             ; preds = %2748
-  %2775 = load ptr, ptr %15, align 8
-  %2776 = getelementptr inbounds %union.YYSTYPE, ptr %2775, i64 0
-  %2777 = load i8, ptr %2776, align 8
-  %2778 = sext i8 %2777 to i32
-  %2779 = icmp ne i32 %2778, 2
-  br i1 %2779, label %2780, label %2800
+2811:                                             ; preds = %2785
+  %2812 = load ptr, ptr %16, align 8, !tbaa !17
+  %2813 = getelementptr inbounds %union.YYSTYPE, ptr %2812, i64 0
+  %2814 = load i8, ptr %2813, align 8, !tbaa !10
+  %2815 = sext i8 %2814 to i32
+  %2816 = icmp ne i32 %2815, 2
+  br i1 %2816, label %2817, label %2837
 
-2780:                                             ; preds = %2774
-  %2781 = load ptr, ptr %15, align 8
-  %2782 = getelementptr inbounds %union.YYSTYPE, ptr %2781, i64 0
-  %2783 = load i8, ptr %2782, align 8
-  %2784 = sext i8 %2783 to i32
-  switch i32 %2784, label %2795 [
-    i32 2, label %2785
-    i32 3, label %2790
+2817:                                             ; preds = %2811
+  %2818 = load ptr, ptr %16, align 8, !tbaa !17
+  %2819 = getelementptr inbounds %union.YYSTYPE, ptr %2818, i64 0
+  %2820 = load i8, ptr %2819, align 8, !tbaa !10
+  %2821 = sext i8 %2820 to i32
+  switch i32 %2821, label %2832 [
+    i32 2, label %2822
+    i32 3, label %2827
   ]
 
-2785:                                             ; preds = %2780
-  %2786 = load ptr, ptr %4, align 8
-  %2787 = getelementptr inbounds %struct._YR_COMPILER, ptr %2786, i32 0, i32 31
-  %2788 = getelementptr inbounds [256 x i8], ptr %2787, i64 0, i64 0
-  %2789 = call i64 @cli_strlcpy(ptr noundef %2788, ptr noundef @.str.51, i64 noundef 256)
-  br label %2795
+2822:                                             ; preds = %2817
+  %2823 = load ptr, ptr %5, align 8, !tbaa !7
+  %2824 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2823, i32 0, i32 31
+  %2825 = getelementptr inbounds [256 x i8], ptr %2824, i64 0, i64 0
+  %2826 = call i64 @cli_strlcpy(ptr noundef %2825, ptr noundef @.str.51, i64 noundef 256)
+  br label %2832
 
-2790:                                             ; preds = %2780
-  %2791 = load ptr, ptr %4, align 8
-  %2792 = getelementptr inbounds %struct._YR_COMPILER, ptr %2791, i32 0, i32 31
-  %2793 = getelementptr inbounds [256 x i8], ptr %2792, i64 0, i64 0
-  %2794 = call i64 @cli_strlcpy(ptr noundef %2793, ptr noundef @.str.52, i64 noundef 256)
-  br label %2795
+2827:                                             ; preds = %2817
+  %2828 = load ptr, ptr %5, align 8, !tbaa !7
+  %2829 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2828, i32 0, i32 31
+  %2830 = getelementptr inbounds [256 x i8], ptr %2829, i64 0, i64 0
+  %2831 = call i64 @cli_strlcpy(ptr noundef %2830, ptr noundef @.str.52, i64 noundef 256)
+  br label %2832
 
-2795:                                             ; preds = %2790, %2785, %2780
-  %2796 = load ptr, ptr %4, align 8
-  %2797 = getelementptr inbounds %struct._YR_COMPILER, ptr %2796, i32 0, i32 4
-  store i32 24, ptr %2797, align 8
-  %2798 = load ptr, ptr %3, align 8
-  %2799 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2798, ptr noundef %2799, ptr noundef null)
-  br label %3195
+2832:                                             ; preds = %2817, %2827, %2822
+  %2833 = load ptr, ptr %5, align 8, !tbaa !7
+  %2834 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2833, i32 0, i32 4
+  store i32 24, ptr %2834, align 8, !tbaa !23
+  %2835 = load ptr, ptr %4, align 8, !tbaa !3
+  %2836 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2835, ptr noundef %2836, ptr noundef null)
+  br label %3235
 
-2800:                                             ; preds = %2774
-  %2801 = load ptr, ptr %3, align 8
-  %2802 = call i32 @yr_parser_emit(ptr noundef %2801, i8 noundef signext 3, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+2837:                                             ; preds = %2811
+  %2838 = load ptr, ptr %4, align 8, !tbaa !3
+  %2839 = call i32 @yr_parser_emit(ptr noundef %2838, i8 noundef signext 3, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2803:                                             ; preds = %237
-  %2804 = load ptr, ptr %15, align 8
-  %2805 = getelementptr inbounds %union.YYSTYPE, ptr %2804, i64 -2
-  %2806 = load i8, ptr %2805, align 8
-  %2807 = sext i8 %2806 to i32
-  %2808 = icmp ne i32 %2807, 2
-  br i1 %2808, label %2809, label %2829
+2840:                                             ; preds = %247
+  %2841 = load ptr, ptr %16, align 8, !tbaa !17
+  %2842 = getelementptr inbounds %union.YYSTYPE, ptr %2841, i64 -2
+  %2843 = load i8, ptr %2842, align 8, !tbaa !10
+  %2844 = sext i8 %2843 to i32
+  %2845 = icmp ne i32 %2844, 2
+  br i1 %2845, label %2846, label %2866
 
-2809:                                             ; preds = %2803
-  %2810 = load ptr, ptr %15, align 8
-  %2811 = getelementptr inbounds %union.YYSTYPE, ptr %2810, i64 -2
-  %2812 = load i8, ptr %2811, align 8
-  %2813 = sext i8 %2812 to i32
-  switch i32 %2813, label %2824 [
-    i32 2, label %2814
-    i32 3, label %2819
+2846:                                             ; preds = %2840
+  %2847 = load ptr, ptr %16, align 8, !tbaa !17
+  %2848 = getelementptr inbounds %union.YYSTYPE, ptr %2847, i64 -2
+  %2849 = load i8, ptr %2848, align 8, !tbaa !10
+  %2850 = sext i8 %2849 to i32
+  switch i32 %2850, label %2861 [
+    i32 2, label %2851
+    i32 3, label %2856
   ]
 
-2814:                                             ; preds = %2809
-  %2815 = load ptr, ptr %4, align 8
-  %2816 = getelementptr inbounds %struct._YR_COMPILER, ptr %2815, i32 0, i32 31
-  %2817 = getelementptr inbounds [256 x i8], ptr %2816, i64 0, i64 0
-  %2818 = call i64 @cli_strlcpy(ptr noundef %2817, ptr noundef @.str.51, i64 noundef 256)
-  br label %2824
+2851:                                             ; preds = %2846
+  %2852 = load ptr, ptr %5, align 8, !tbaa !7
+  %2853 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2852, i32 0, i32 31
+  %2854 = getelementptr inbounds [256 x i8], ptr %2853, i64 0, i64 0
+  %2855 = call i64 @cli_strlcpy(ptr noundef %2854, ptr noundef @.str.51, i64 noundef 256)
+  br label %2861
 
-2819:                                             ; preds = %2809
-  %2820 = load ptr, ptr %4, align 8
-  %2821 = getelementptr inbounds %struct._YR_COMPILER, ptr %2820, i32 0, i32 31
-  %2822 = getelementptr inbounds [256 x i8], ptr %2821, i64 0, i64 0
-  %2823 = call i64 @cli_strlcpy(ptr noundef %2822, ptr noundef @.str.52, i64 noundef 256)
-  br label %2824
+2856:                                             ; preds = %2846
+  %2857 = load ptr, ptr %5, align 8, !tbaa !7
+  %2858 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2857, i32 0, i32 31
+  %2859 = getelementptr inbounds [256 x i8], ptr %2858, i64 0, i64 0
+  %2860 = call i64 @cli_strlcpy(ptr noundef %2859, ptr noundef @.str.52, i64 noundef 256)
+  br label %2861
 
-2824:                                             ; preds = %2819, %2814, %2809
-  %2825 = load ptr, ptr %4, align 8
-  %2826 = getelementptr inbounds %struct._YR_COMPILER, ptr %2825, i32 0, i32 4
-  store i32 24, ptr %2826, align 8
-  %2827 = load ptr, ptr %3, align 8
-  %2828 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2827, ptr noundef %2828, ptr noundef null)
-  br label %3195
+2861:                                             ; preds = %2846, %2856, %2851
+  %2862 = load ptr, ptr %5, align 8, !tbaa !7
+  %2863 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2862, i32 0, i32 4
+  store i32 24, ptr %2863, align 8, !tbaa !23
+  %2864 = load ptr, ptr %4, align 8, !tbaa !3
+  %2865 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2864, ptr noundef %2865, ptr noundef null)
+  br label %3235
 
-2829:                                             ; preds = %2803
-  %2830 = load ptr, ptr %15, align 8
-  %2831 = getelementptr inbounds %union.YYSTYPE, ptr %2830, i64 0
-  %2832 = load i8, ptr %2831, align 8
-  %2833 = sext i8 %2832 to i32
-  %2834 = icmp ne i32 %2833, 2
-  br i1 %2834, label %2835, label %2855
+2866:                                             ; preds = %2840
+  %2867 = load ptr, ptr %16, align 8, !tbaa !17
+  %2868 = getelementptr inbounds %union.YYSTYPE, ptr %2867, i64 0
+  %2869 = load i8, ptr %2868, align 8, !tbaa !10
+  %2870 = sext i8 %2869 to i32
+  %2871 = icmp ne i32 %2870, 2
+  br i1 %2871, label %2872, label %2892
 
-2835:                                             ; preds = %2829
-  %2836 = load ptr, ptr %15, align 8
-  %2837 = getelementptr inbounds %union.YYSTYPE, ptr %2836, i64 0
-  %2838 = load i8, ptr %2837, align 8
-  %2839 = sext i8 %2838 to i32
-  switch i32 %2839, label %2850 [
-    i32 2, label %2840
-    i32 3, label %2845
+2872:                                             ; preds = %2866
+  %2873 = load ptr, ptr %16, align 8, !tbaa !17
+  %2874 = getelementptr inbounds %union.YYSTYPE, ptr %2873, i64 0
+  %2875 = load i8, ptr %2874, align 8, !tbaa !10
+  %2876 = sext i8 %2875 to i32
+  switch i32 %2876, label %2887 [
+    i32 2, label %2877
+    i32 3, label %2882
   ]
 
-2840:                                             ; preds = %2835
-  %2841 = load ptr, ptr %4, align 8
-  %2842 = getelementptr inbounds %struct._YR_COMPILER, ptr %2841, i32 0, i32 31
-  %2843 = getelementptr inbounds [256 x i8], ptr %2842, i64 0, i64 0
-  %2844 = call i64 @cli_strlcpy(ptr noundef %2843, ptr noundef @.str.51, i64 noundef 256)
-  br label %2850
+2877:                                             ; preds = %2872
+  %2878 = load ptr, ptr %5, align 8, !tbaa !7
+  %2879 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2878, i32 0, i32 31
+  %2880 = getelementptr inbounds [256 x i8], ptr %2879, i64 0, i64 0
+  %2881 = call i64 @cli_strlcpy(ptr noundef %2880, ptr noundef @.str.51, i64 noundef 256)
+  br label %2887
 
-2845:                                             ; preds = %2835
-  %2846 = load ptr, ptr %4, align 8
-  %2847 = getelementptr inbounds %struct._YR_COMPILER, ptr %2846, i32 0, i32 31
-  %2848 = getelementptr inbounds [256 x i8], ptr %2847, i64 0, i64 0
-  %2849 = call i64 @cli_strlcpy(ptr noundef %2848, ptr noundef @.str.52, i64 noundef 256)
-  br label %2850
+2882:                                             ; preds = %2872
+  %2883 = load ptr, ptr %5, align 8, !tbaa !7
+  %2884 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2883, i32 0, i32 31
+  %2885 = getelementptr inbounds [256 x i8], ptr %2884, i64 0, i64 0
+  %2886 = call i64 @cli_strlcpy(ptr noundef %2885, ptr noundef @.str.52, i64 noundef 256)
+  br label %2887
 
-2850:                                             ; preds = %2845, %2840, %2835
-  %2851 = load ptr, ptr %4, align 8
-  %2852 = getelementptr inbounds %struct._YR_COMPILER, ptr %2851, i32 0, i32 4
-  store i32 24, ptr %2852, align 8
-  %2853 = load ptr, ptr %3, align 8
-  %2854 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2853, ptr noundef %2854, ptr noundef null)
-  br label %3195
+2887:                                             ; preds = %2872, %2882, %2877
+  %2888 = load ptr, ptr %5, align 8, !tbaa !7
+  %2889 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2888, i32 0, i32 4
+  store i32 24, ptr %2889, align 8, !tbaa !23
+  %2890 = load ptr, ptr %4, align 8, !tbaa !3
+  %2891 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2890, ptr noundef %2891, ptr noundef null)
+  br label %3235
 
-2855:                                             ; preds = %2829
-  %2856 = load ptr, ptr %3, align 8
-  %2857 = call i32 @yr_parser_emit(ptr noundef %2856, i8 noundef signext 1, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+2892:                                             ; preds = %2866
+  %2893 = load ptr, ptr %4, align 8, !tbaa !3
+  %2894 = call i32 @yr_parser_emit(ptr noundef %2893, i8 noundef signext 1, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2858:                                             ; preds = %237
-  %2859 = load ptr, ptr %15, align 8
-  %2860 = getelementptr inbounds %union.YYSTYPE, ptr %2859, i64 -2
-  %2861 = load i8, ptr %2860, align 8
-  %2862 = sext i8 %2861 to i32
-  %2863 = icmp ne i32 %2862, 2
-  br i1 %2863, label %2864, label %2884
+2895:                                             ; preds = %247
+  %2896 = load ptr, ptr %16, align 8, !tbaa !17
+  %2897 = getelementptr inbounds %union.YYSTYPE, ptr %2896, i64 -2
+  %2898 = load i8, ptr %2897, align 8, !tbaa !10
+  %2899 = sext i8 %2898 to i32
+  %2900 = icmp ne i32 %2899, 2
+  br i1 %2900, label %2901, label %2921
 
-2864:                                             ; preds = %2858
-  %2865 = load ptr, ptr %15, align 8
-  %2866 = getelementptr inbounds %union.YYSTYPE, ptr %2865, i64 -2
-  %2867 = load i8, ptr %2866, align 8
-  %2868 = sext i8 %2867 to i32
-  switch i32 %2868, label %2879 [
-    i32 2, label %2869
-    i32 3, label %2874
+2901:                                             ; preds = %2895
+  %2902 = load ptr, ptr %16, align 8, !tbaa !17
+  %2903 = getelementptr inbounds %union.YYSTYPE, ptr %2902, i64 -2
+  %2904 = load i8, ptr %2903, align 8, !tbaa !10
+  %2905 = sext i8 %2904 to i32
+  switch i32 %2905, label %2916 [
+    i32 2, label %2906
+    i32 3, label %2911
   ]
 
-2869:                                             ; preds = %2864
-  %2870 = load ptr, ptr %4, align 8
-  %2871 = getelementptr inbounds %struct._YR_COMPILER, ptr %2870, i32 0, i32 31
-  %2872 = getelementptr inbounds [256 x i8], ptr %2871, i64 0, i64 0
-  %2873 = call i64 @cli_strlcpy(ptr noundef %2872, ptr noundef @.str.53, i64 noundef 256)
-  br label %2879
+2906:                                             ; preds = %2901
+  %2907 = load ptr, ptr %5, align 8, !tbaa !7
+  %2908 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2907, i32 0, i32 31
+  %2909 = getelementptr inbounds [256 x i8], ptr %2908, i64 0, i64 0
+  %2910 = call i64 @cli_strlcpy(ptr noundef %2909, ptr noundef @.str.53, i64 noundef 256)
+  br label %2916
 
-2874:                                             ; preds = %2864
-  %2875 = load ptr, ptr %4, align 8
-  %2876 = getelementptr inbounds %struct._YR_COMPILER, ptr %2875, i32 0, i32 31
-  %2877 = getelementptr inbounds [256 x i8], ptr %2876, i64 0, i64 0
-  %2878 = call i64 @cli_strlcpy(ptr noundef %2877, ptr noundef @.str.54, i64 noundef 256)
-  br label %2879
+2911:                                             ; preds = %2901
+  %2912 = load ptr, ptr %5, align 8, !tbaa !7
+  %2913 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2912, i32 0, i32 31
+  %2914 = getelementptr inbounds [256 x i8], ptr %2913, i64 0, i64 0
+  %2915 = call i64 @cli_strlcpy(ptr noundef %2914, ptr noundef @.str.54, i64 noundef 256)
+  br label %2916
 
-2879:                                             ; preds = %2874, %2869, %2864
-  %2880 = load ptr, ptr %4, align 8
-  %2881 = getelementptr inbounds %struct._YR_COMPILER, ptr %2880, i32 0, i32 4
-  store i32 24, ptr %2881, align 8
-  %2882 = load ptr, ptr %3, align 8
-  %2883 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2882, ptr noundef %2883, ptr noundef null)
-  br label %3195
+2916:                                             ; preds = %2901, %2911, %2906
+  %2917 = load ptr, ptr %5, align 8, !tbaa !7
+  %2918 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2917, i32 0, i32 4
+  store i32 24, ptr %2918, align 8, !tbaa !23
+  %2919 = load ptr, ptr %4, align 8, !tbaa !3
+  %2920 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2919, ptr noundef %2920, ptr noundef null)
+  br label %3235
 
-2884:                                             ; preds = %2858
-  %2885 = load ptr, ptr %15, align 8
-  %2886 = getelementptr inbounds %union.YYSTYPE, ptr %2885, i64 0
-  %2887 = load i8, ptr %2886, align 8
-  %2888 = sext i8 %2887 to i32
-  %2889 = icmp ne i32 %2888, 2
-  br i1 %2889, label %2890, label %2910
+2921:                                             ; preds = %2895
+  %2922 = load ptr, ptr %16, align 8, !tbaa !17
+  %2923 = getelementptr inbounds %union.YYSTYPE, ptr %2922, i64 0
+  %2924 = load i8, ptr %2923, align 8, !tbaa !10
+  %2925 = sext i8 %2924 to i32
+  %2926 = icmp ne i32 %2925, 2
+  br i1 %2926, label %2927, label %2947
 
-2890:                                             ; preds = %2884
-  %2891 = load ptr, ptr %15, align 8
-  %2892 = getelementptr inbounds %union.YYSTYPE, ptr %2891, i64 0
-  %2893 = load i8, ptr %2892, align 8
-  %2894 = sext i8 %2893 to i32
-  switch i32 %2894, label %2905 [
-    i32 2, label %2895
-    i32 3, label %2900
+2927:                                             ; preds = %2921
+  %2928 = load ptr, ptr %16, align 8, !tbaa !17
+  %2929 = getelementptr inbounds %union.YYSTYPE, ptr %2928, i64 0
+  %2930 = load i8, ptr %2929, align 8, !tbaa !10
+  %2931 = sext i8 %2930 to i32
+  switch i32 %2931, label %2942 [
+    i32 2, label %2932
+    i32 3, label %2937
   ]
 
-2895:                                             ; preds = %2890
-  %2896 = load ptr, ptr %4, align 8
-  %2897 = getelementptr inbounds %struct._YR_COMPILER, ptr %2896, i32 0, i32 31
-  %2898 = getelementptr inbounds [256 x i8], ptr %2897, i64 0, i64 0
-  %2899 = call i64 @cli_strlcpy(ptr noundef %2898, ptr noundef @.str.53, i64 noundef 256)
-  br label %2905
+2932:                                             ; preds = %2927
+  %2933 = load ptr, ptr %5, align 8, !tbaa !7
+  %2934 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2933, i32 0, i32 31
+  %2935 = getelementptr inbounds [256 x i8], ptr %2934, i64 0, i64 0
+  %2936 = call i64 @cli_strlcpy(ptr noundef %2935, ptr noundef @.str.53, i64 noundef 256)
+  br label %2942
 
-2900:                                             ; preds = %2890
-  %2901 = load ptr, ptr %4, align 8
-  %2902 = getelementptr inbounds %struct._YR_COMPILER, ptr %2901, i32 0, i32 31
-  %2903 = getelementptr inbounds [256 x i8], ptr %2902, i64 0, i64 0
-  %2904 = call i64 @cli_strlcpy(ptr noundef %2903, ptr noundef @.str.54, i64 noundef 256)
-  br label %2905
+2937:                                             ; preds = %2927
+  %2938 = load ptr, ptr %5, align 8, !tbaa !7
+  %2939 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2938, i32 0, i32 31
+  %2940 = getelementptr inbounds [256 x i8], ptr %2939, i64 0, i64 0
+  %2941 = call i64 @cli_strlcpy(ptr noundef %2940, ptr noundef @.str.54, i64 noundef 256)
+  br label %2942
 
-2905:                                             ; preds = %2900, %2895, %2890
-  %2906 = load ptr, ptr %4, align 8
-  %2907 = getelementptr inbounds %struct._YR_COMPILER, ptr %2906, i32 0, i32 4
-  store i32 24, ptr %2907, align 8
-  %2908 = load ptr, ptr %3, align 8
-  %2909 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2908, ptr noundef %2909, ptr noundef null)
-  br label %3195
+2942:                                             ; preds = %2927, %2937, %2932
+  %2943 = load ptr, ptr %5, align 8, !tbaa !7
+  %2944 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2943, i32 0, i32 4
+  store i32 24, ptr %2944, align 8, !tbaa !23
+  %2945 = load ptr, ptr %4, align 8, !tbaa !3
+  %2946 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2945, ptr noundef %2946, ptr noundef null)
+  br label %3235
 
-2910:                                             ; preds = %2884
-  %2911 = load ptr, ptr %3, align 8
-  %2912 = call i32 @yr_parser_emit(ptr noundef %2911, i8 noundef signext 2, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+2947:                                             ; preds = %2921
+  %2948 = load ptr, ptr %4, align 8, !tbaa !3
+  %2949 = call i32 @yr_parser_emit(ptr noundef %2948, i8 noundef signext 2, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2913:                                             ; preds = %237
-  %2914 = load ptr, ptr %15, align 8
-  %2915 = getelementptr inbounds %union.YYSTYPE, ptr %2914, i64 0
-  %2916 = load i8, ptr %2915, align 8
-  %2917 = sext i8 %2916 to i32
-  %2918 = icmp ne i32 %2917, 2
-  br i1 %2918, label %2919, label %2939
+2950:                                             ; preds = %247
+  %2951 = load ptr, ptr %16, align 8, !tbaa !17
+  %2952 = getelementptr inbounds %union.YYSTYPE, ptr %2951, i64 0
+  %2953 = load i8, ptr %2952, align 8, !tbaa !10
+  %2954 = sext i8 %2953 to i32
+  %2955 = icmp ne i32 %2954, 2
+  br i1 %2955, label %2956, label %2976
 
-2919:                                             ; preds = %2913
-  %2920 = load ptr, ptr %15, align 8
-  %2921 = getelementptr inbounds %union.YYSTYPE, ptr %2920, i64 0
-  %2922 = load i8, ptr %2921, align 8
-  %2923 = sext i8 %2922 to i32
-  switch i32 %2923, label %2934 [
-    i32 2, label %2924
-    i32 3, label %2929
+2956:                                             ; preds = %2950
+  %2957 = load ptr, ptr %16, align 8, !tbaa !17
+  %2958 = getelementptr inbounds %union.YYSTYPE, ptr %2957, i64 0
+  %2959 = load i8, ptr %2958, align 8, !tbaa !10
+  %2960 = sext i8 %2959 to i32
+  switch i32 %2960, label %2971 [
+    i32 2, label %2961
+    i32 3, label %2966
   ]
 
-2924:                                             ; preds = %2919
-  %2925 = load ptr, ptr %4, align 8
-  %2926 = getelementptr inbounds %struct._YR_COMPILER, ptr %2925, i32 0, i32 31
-  %2927 = getelementptr inbounds [256 x i8], ptr %2926, i64 0, i64 0
-  %2928 = call i64 @cli_strlcpy(ptr noundef %2927, ptr noundef @.str.55, i64 noundef 256)
-  br label %2934
+2961:                                             ; preds = %2956
+  %2962 = load ptr, ptr %5, align 8, !tbaa !7
+  %2963 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2962, i32 0, i32 31
+  %2964 = getelementptr inbounds [256 x i8], ptr %2963, i64 0, i64 0
+  %2965 = call i64 @cli_strlcpy(ptr noundef %2964, ptr noundef @.str.55, i64 noundef 256)
+  br label %2971
 
-2929:                                             ; preds = %2919
-  %2930 = load ptr, ptr %4, align 8
-  %2931 = getelementptr inbounds %struct._YR_COMPILER, ptr %2930, i32 0, i32 31
-  %2932 = getelementptr inbounds [256 x i8], ptr %2931, i64 0, i64 0
-  %2933 = call i64 @cli_strlcpy(ptr noundef %2932, ptr noundef @.str.56, i64 noundef 256)
-  br label %2934
+2966:                                             ; preds = %2956
+  %2967 = load ptr, ptr %5, align 8, !tbaa !7
+  %2968 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2967, i32 0, i32 31
+  %2969 = getelementptr inbounds [256 x i8], ptr %2968, i64 0, i64 0
+  %2970 = call i64 @cli_strlcpy(ptr noundef %2969, ptr noundef @.str.56, i64 noundef 256)
+  br label %2971
 
-2934:                                             ; preds = %2929, %2924, %2919
-  %2935 = load ptr, ptr %4, align 8
-  %2936 = getelementptr inbounds %struct._YR_COMPILER, ptr %2935, i32 0, i32 4
-  store i32 24, ptr %2936, align 8
-  %2937 = load ptr, ptr %3, align 8
-  %2938 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2937, ptr noundef %2938, ptr noundef null)
-  br label %3195
+2971:                                             ; preds = %2956, %2966, %2961
+  %2972 = load ptr, ptr %5, align 8, !tbaa !7
+  %2973 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2972, i32 0, i32 4
+  store i32 24, ptr %2973, align 8, !tbaa !23
+  %2974 = load ptr, ptr %4, align 8, !tbaa !3
+  %2975 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %2974, ptr noundef %2975, ptr noundef null)
+  br label %3235
 
-2939:                                             ; preds = %2913
-  %2940 = load ptr, ptr %3, align 8
-  %2941 = call i32 @yr_parser_emit(ptr noundef %2940, i8 noundef signext 19, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+2976:                                             ; preds = %2950
+  %2977 = load ptr, ptr %4, align 8, !tbaa !3
+  %2978 = call i32 @yr_parser_emit(ptr noundef %2977, i8 noundef signext 19, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2942:                                             ; preds = %237
-  %2943 = load ptr, ptr %15, align 8
-  %2944 = getelementptr inbounds %union.YYSTYPE, ptr %2943, i64 -2
-  %2945 = load i8, ptr %2944, align 8
-  %2946 = sext i8 %2945 to i32
-  %2947 = icmp ne i32 %2946, 2
-  br i1 %2947, label %2948, label %2968
+2979:                                             ; preds = %247
+  %2980 = load ptr, ptr %16, align 8, !tbaa !17
+  %2981 = getelementptr inbounds %union.YYSTYPE, ptr %2980, i64 -2
+  %2982 = load i8, ptr %2981, align 8, !tbaa !10
+  %2983 = sext i8 %2982 to i32
+  %2984 = icmp ne i32 %2983, 2
+  br i1 %2984, label %2985, label %3005
 
-2948:                                             ; preds = %2942
-  %2949 = load ptr, ptr %15, align 8
-  %2950 = getelementptr inbounds %union.YYSTYPE, ptr %2949, i64 -2
-  %2951 = load i8, ptr %2950, align 8
-  %2952 = sext i8 %2951 to i32
-  switch i32 %2952, label %2963 [
-    i32 2, label %2953
-    i32 3, label %2958
+2985:                                             ; preds = %2979
+  %2986 = load ptr, ptr %16, align 8, !tbaa !17
+  %2987 = getelementptr inbounds %union.YYSTYPE, ptr %2986, i64 -2
+  %2988 = load i8, ptr %2987, align 8, !tbaa !10
+  %2989 = sext i8 %2988 to i32
+  switch i32 %2989, label %3000 [
+    i32 2, label %2990
+    i32 3, label %2995
   ]
 
-2953:                                             ; preds = %2948
-  %2954 = load ptr, ptr %4, align 8
-  %2955 = getelementptr inbounds %struct._YR_COMPILER, ptr %2954, i32 0, i32 31
-  %2956 = getelementptr inbounds [256 x i8], ptr %2955, i64 0, i64 0
-  %2957 = call i64 @cli_strlcpy(ptr noundef %2956, ptr noundef @.str.57, i64 noundef 256)
-  br label %2963
+2990:                                             ; preds = %2985
+  %2991 = load ptr, ptr %5, align 8, !tbaa !7
+  %2992 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2991, i32 0, i32 31
+  %2993 = getelementptr inbounds [256 x i8], ptr %2992, i64 0, i64 0
+  %2994 = call i64 @cli_strlcpy(ptr noundef %2993, ptr noundef @.str.57, i64 noundef 256)
+  br label %3000
 
-2958:                                             ; preds = %2948
-  %2959 = load ptr, ptr %4, align 8
-  %2960 = getelementptr inbounds %struct._YR_COMPILER, ptr %2959, i32 0, i32 31
-  %2961 = getelementptr inbounds [256 x i8], ptr %2960, i64 0, i64 0
-  %2962 = call i64 @cli_strlcpy(ptr noundef %2961, ptr noundef @.str.58, i64 noundef 256)
-  br label %2963
+2995:                                             ; preds = %2985
+  %2996 = load ptr, ptr %5, align 8, !tbaa !7
+  %2997 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %2996, i32 0, i32 31
+  %2998 = getelementptr inbounds [256 x i8], ptr %2997, i64 0, i64 0
+  %2999 = call i64 @cli_strlcpy(ptr noundef %2998, ptr noundef @.str.58, i64 noundef 256)
+  br label %3000
 
-2963:                                             ; preds = %2958, %2953, %2948
-  %2964 = load ptr, ptr %4, align 8
-  %2965 = getelementptr inbounds %struct._YR_COMPILER, ptr %2964, i32 0, i32 4
-  store i32 24, ptr %2965, align 8
-  %2966 = load ptr, ptr %3, align 8
-  %2967 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2966, ptr noundef %2967, ptr noundef null)
-  br label %3195
+3000:                                             ; preds = %2985, %2995, %2990
+  %3001 = load ptr, ptr %5, align 8, !tbaa !7
+  %3002 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3001, i32 0, i32 4
+  store i32 24, ptr %3002, align 8, !tbaa !23
+  %3003 = load ptr, ptr %4, align 8, !tbaa !3
+  %3004 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %3003, ptr noundef %3004, ptr noundef null)
+  br label %3235
 
-2968:                                             ; preds = %2942
-  %2969 = load ptr, ptr %15, align 8
-  %2970 = getelementptr inbounds %union.YYSTYPE, ptr %2969, i64 0
-  %2971 = load i8, ptr %2970, align 8
-  %2972 = sext i8 %2971 to i32
-  %2973 = icmp ne i32 %2972, 2
-  br i1 %2973, label %2974, label %2994
+3005:                                             ; preds = %2979
+  %3006 = load ptr, ptr %16, align 8, !tbaa !17
+  %3007 = getelementptr inbounds %union.YYSTYPE, ptr %3006, i64 0
+  %3008 = load i8, ptr %3007, align 8, !tbaa !10
+  %3009 = sext i8 %3008 to i32
+  %3010 = icmp ne i32 %3009, 2
+  br i1 %3010, label %3011, label %3031
 
-2974:                                             ; preds = %2968
-  %2975 = load ptr, ptr %15, align 8
-  %2976 = getelementptr inbounds %union.YYSTYPE, ptr %2975, i64 0
-  %2977 = load i8, ptr %2976, align 8
-  %2978 = sext i8 %2977 to i32
-  switch i32 %2978, label %2989 [
-    i32 2, label %2979
-    i32 3, label %2984
+3011:                                             ; preds = %3005
+  %3012 = load ptr, ptr %16, align 8, !tbaa !17
+  %3013 = getelementptr inbounds %union.YYSTYPE, ptr %3012, i64 0
+  %3014 = load i8, ptr %3013, align 8, !tbaa !10
+  %3015 = sext i8 %3014 to i32
+  switch i32 %3015, label %3026 [
+    i32 2, label %3016
+    i32 3, label %3021
   ]
 
-2979:                                             ; preds = %2974
-  %2980 = load ptr, ptr %4, align 8
-  %2981 = getelementptr inbounds %struct._YR_COMPILER, ptr %2980, i32 0, i32 31
-  %2982 = getelementptr inbounds [256 x i8], ptr %2981, i64 0, i64 0
-  %2983 = call i64 @cli_strlcpy(ptr noundef %2982, ptr noundef @.str.57, i64 noundef 256)
-  br label %2989
+3016:                                             ; preds = %3011
+  %3017 = load ptr, ptr %5, align 8, !tbaa !7
+  %3018 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3017, i32 0, i32 31
+  %3019 = getelementptr inbounds [256 x i8], ptr %3018, i64 0, i64 0
+  %3020 = call i64 @cli_strlcpy(ptr noundef %3019, ptr noundef @.str.57, i64 noundef 256)
+  br label %3026
 
-2984:                                             ; preds = %2974
-  %2985 = load ptr, ptr %4, align 8
-  %2986 = getelementptr inbounds %struct._YR_COMPILER, ptr %2985, i32 0, i32 31
-  %2987 = getelementptr inbounds [256 x i8], ptr %2986, i64 0, i64 0
-  %2988 = call i64 @cli_strlcpy(ptr noundef %2987, ptr noundef @.str.58, i64 noundef 256)
-  br label %2989
+3021:                                             ; preds = %3011
+  %3022 = load ptr, ptr %5, align 8, !tbaa !7
+  %3023 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3022, i32 0, i32 31
+  %3024 = getelementptr inbounds [256 x i8], ptr %3023, i64 0, i64 0
+  %3025 = call i64 @cli_strlcpy(ptr noundef %3024, ptr noundef @.str.58, i64 noundef 256)
+  br label %3026
 
-2989:                                             ; preds = %2984, %2979, %2974
-  %2990 = load ptr, ptr %4, align 8
-  %2991 = getelementptr inbounds %struct._YR_COMPILER, ptr %2990, i32 0, i32 4
-  store i32 24, ptr %2991, align 8
-  %2992 = load ptr, ptr %3, align 8
-  %2993 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %2992, ptr noundef %2993, ptr noundef null)
-  br label %3195
+3026:                                             ; preds = %3011, %3021, %3016
+  %3027 = load ptr, ptr %5, align 8, !tbaa !7
+  %3028 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3027, i32 0, i32 4
+  store i32 24, ptr %3028, align 8, !tbaa !23
+  %3029 = load ptr, ptr %4, align 8, !tbaa !3
+  %3030 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %3029, ptr noundef %3030, ptr noundef null)
+  br label %3235
 
-2994:                                             ; preds = %2968
-  %2995 = load ptr, ptr %3, align 8
-  %2996 = call i32 @yr_parser_emit(ptr noundef %2995, i8 noundef signext 20, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+3031:                                             ; preds = %3005
+  %3032 = load ptr, ptr %4, align 8, !tbaa !3
+  %3033 = call i32 @yr_parser_emit(ptr noundef %3032, i8 noundef signext 20, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-2997:                                             ; preds = %237
-  %2998 = load ptr, ptr %15, align 8
-  %2999 = getelementptr inbounds %union.YYSTYPE, ptr %2998, i64 -2
-  %3000 = load i8, ptr %2999, align 8
-  %3001 = sext i8 %3000 to i32
-  %3002 = icmp ne i32 %3001, 2
-  br i1 %3002, label %3003, label %3023
+3034:                                             ; preds = %247
+  %3035 = load ptr, ptr %16, align 8, !tbaa !17
+  %3036 = getelementptr inbounds %union.YYSTYPE, ptr %3035, i64 -2
+  %3037 = load i8, ptr %3036, align 8, !tbaa !10
+  %3038 = sext i8 %3037 to i32
+  %3039 = icmp ne i32 %3038, 2
+  br i1 %3039, label %3040, label %3060
 
-3003:                                             ; preds = %2997
-  %3004 = load ptr, ptr %15, align 8
-  %3005 = getelementptr inbounds %union.YYSTYPE, ptr %3004, i64 -2
-  %3006 = load i8, ptr %3005, align 8
-  %3007 = sext i8 %3006 to i32
-  switch i32 %3007, label %3018 [
-    i32 2, label %3008
-    i32 3, label %3013
+3040:                                             ; preds = %3034
+  %3041 = load ptr, ptr %16, align 8, !tbaa !17
+  %3042 = getelementptr inbounds %union.YYSTYPE, ptr %3041, i64 -2
+  %3043 = load i8, ptr %3042, align 8, !tbaa !10
+  %3044 = sext i8 %3043 to i32
+  switch i32 %3044, label %3055 [
+    i32 2, label %3045
+    i32 3, label %3050
   ]
 
-3008:                                             ; preds = %3003
-  %3009 = load ptr, ptr %4, align 8
-  %3010 = getelementptr inbounds %struct._YR_COMPILER, ptr %3009, i32 0, i32 31
-  %3011 = getelementptr inbounds [256 x i8], ptr %3010, i64 0, i64 0
-  %3012 = call i64 @cli_strlcpy(ptr noundef %3011, ptr noundef @.str.59, i64 noundef 256)
-  br label %3018
+3045:                                             ; preds = %3040
+  %3046 = load ptr, ptr %5, align 8, !tbaa !7
+  %3047 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3046, i32 0, i32 31
+  %3048 = getelementptr inbounds [256 x i8], ptr %3047, i64 0, i64 0
+  %3049 = call i64 @cli_strlcpy(ptr noundef %3048, ptr noundef @.str.59, i64 noundef 256)
+  br label %3055
 
-3013:                                             ; preds = %3003
-  %3014 = load ptr, ptr %4, align 8
-  %3015 = getelementptr inbounds %struct._YR_COMPILER, ptr %3014, i32 0, i32 31
-  %3016 = getelementptr inbounds [256 x i8], ptr %3015, i64 0, i64 0
-  %3017 = call i64 @cli_strlcpy(ptr noundef %3016, ptr noundef @.str.60, i64 noundef 256)
-  br label %3018
+3050:                                             ; preds = %3040
+  %3051 = load ptr, ptr %5, align 8, !tbaa !7
+  %3052 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3051, i32 0, i32 31
+  %3053 = getelementptr inbounds [256 x i8], ptr %3052, i64 0, i64 0
+  %3054 = call i64 @cli_strlcpy(ptr noundef %3053, ptr noundef @.str.60, i64 noundef 256)
+  br label %3055
 
-3018:                                             ; preds = %3013, %3008, %3003
-  %3019 = load ptr, ptr %4, align 8
-  %3020 = getelementptr inbounds %struct._YR_COMPILER, ptr %3019, i32 0, i32 4
-  store i32 24, ptr %3020, align 8
-  %3021 = load ptr, ptr %3, align 8
-  %3022 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %3021, ptr noundef %3022, ptr noundef null)
-  br label %3195
+3055:                                             ; preds = %3040, %3050, %3045
+  %3056 = load ptr, ptr %5, align 8, !tbaa !7
+  %3057 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3056, i32 0, i32 4
+  store i32 24, ptr %3057, align 8, !tbaa !23
+  %3058 = load ptr, ptr %4, align 8, !tbaa !3
+  %3059 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %3058, ptr noundef %3059, ptr noundef null)
+  br label %3235
 
-3023:                                             ; preds = %2997
-  %3024 = load ptr, ptr %15, align 8
-  %3025 = getelementptr inbounds %union.YYSTYPE, ptr %3024, i64 0
-  %3026 = load i8, ptr %3025, align 8
-  %3027 = sext i8 %3026 to i32
-  %3028 = icmp ne i32 %3027, 2
-  br i1 %3028, label %3029, label %3049
+3060:                                             ; preds = %3034
+  %3061 = load ptr, ptr %16, align 8, !tbaa !17
+  %3062 = getelementptr inbounds %union.YYSTYPE, ptr %3061, i64 0
+  %3063 = load i8, ptr %3062, align 8, !tbaa !10
+  %3064 = sext i8 %3063 to i32
+  %3065 = icmp ne i32 %3064, 2
+  br i1 %3065, label %3066, label %3086
 
-3029:                                             ; preds = %3023
-  %3030 = load ptr, ptr %15, align 8
-  %3031 = getelementptr inbounds %union.YYSTYPE, ptr %3030, i64 0
-  %3032 = load i8, ptr %3031, align 8
-  %3033 = sext i8 %3032 to i32
-  switch i32 %3033, label %3044 [
-    i32 2, label %3034
-    i32 3, label %3039
+3066:                                             ; preds = %3060
+  %3067 = load ptr, ptr %16, align 8, !tbaa !17
+  %3068 = getelementptr inbounds %union.YYSTYPE, ptr %3067, i64 0
+  %3069 = load i8, ptr %3068, align 8, !tbaa !10
+  %3070 = sext i8 %3069 to i32
+  switch i32 %3070, label %3081 [
+    i32 2, label %3071
+    i32 3, label %3076
   ]
 
-3034:                                             ; preds = %3029
-  %3035 = load ptr, ptr %4, align 8
-  %3036 = getelementptr inbounds %struct._YR_COMPILER, ptr %3035, i32 0, i32 31
-  %3037 = getelementptr inbounds [256 x i8], ptr %3036, i64 0, i64 0
-  %3038 = call i64 @cli_strlcpy(ptr noundef %3037, ptr noundef @.str.59, i64 noundef 256)
-  br label %3044
+3071:                                             ; preds = %3066
+  %3072 = load ptr, ptr %5, align 8, !tbaa !7
+  %3073 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3072, i32 0, i32 31
+  %3074 = getelementptr inbounds [256 x i8], ptr %3073, i64 0, i64 0
+  %3075 = call i64 @cli_strlcpy(ptr noundef %3074, ptr noundef @.str.59, i64 noundef 256)
+  br label %3081
 
-3039:                                             ; preds = %3029
-  %3040 = load ptr, ptr %4, align 8
-  %3041 = getelementptr inbounds %struct._YR_COMPILER, ptr %3040, i32 0, i32 31
-  %3042 = getelementptr inbounds [256 x i8], ptr %3041, i64 0, i64 0
-  %3043 = call i64 @cli_strlcpy(ptr noundef %3042, ptr noundef @.str.60, i64 noundef 256)
-  br label %3044
+3076:                                             ; preds = %3066
+  %3077 = load ptr, ptr %5, align 8, !tbaa !7
+  %3078 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3077, i32 0, i32 31
+  %3079 = getelementptr inbounds [256 x i8], ptr %3078, i64 0, i64 0
+  %3080 = call i64 @cli_strlcpy(ptr noundef %3079, ptr noundef @.str.60, i64 noundef 256)
+  br label %3081
 
-3044:                                             ; preds = %3039, %3034, %3029
-  %3045 = load ptr, ptr %4, align 8
-  %3046 = getelementptr inbounds %struct._YR_COMPILER, ptr %3045, i32 0, i32 4
-  store i32 24, ptr %3046, align 8
-  %3047 = load ptr, ptr %3, align 8
-  %3048 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %3047, ptr noundef %3048, ptr noundef null)
-  br label %3195
+3081:                                             ; preds = %3066, %3076, %3071
+  %3082 = load ptr, ptr %5, align 8, !tbaa !7
+  %3083 = getelementptr inbounds nuw %struct._YR_COMPILER, ptr %3082, i32 0, i32 4
+  store i32 24, ptr %3083, align 8, !tbaa !23
+  %3084 = load ptr, ptr %4, align 8, !tbaa !3
+  %3085 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %3084, ptr noundef %3085, ptr noundef null)
+  br label %3235
 
-3049:                                             ; preds = %3023
-  %3050 = load ptr, ptr %3, align 8
-  %3051 = call i32 @yr_parser_emit(ptr noundef %3050, i8 noundef signext 21, ptr noundef null)
-  store i8 2, ptr %20, align 8
-  br label %3057
+3086:                                             ; preds = %3060
+  %3087 = load ptr, ptr %4, align 8, !tbaa !3
+  %3088 = call i32 @yr_parser_emit(ptr noundef %3087, i8 noundef signext 21, ptr noundef null)
+  store i8 2, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-3052:                                             ; preds = %237
-  %3053 = load ptr, ptr %15, align 8
-  %3054 = getelementptr inbounds %union.YYSTYPE, ptr %3053, i64 0
-  %3055 = load i8, ptr %3054, align 8
-  store i8 %3055, ptr %20, align 8
-  br label %3057
+3089:                                             ; preds = %247
+  %3090 = load ptr, ptr %16, align 8, !tbaa !17
+  %3091 = getelementptr inbounds %union.YYSTYPE, ptr %3090, i64 0
+  %3092 = load i8, ptr %3091, align 8, !tbaa !10
+  store i8 %3092, ptr %21, align 8, !tbaa !10
+  br label %3094
 
-3056:                                             ; preds = %237
-  br label %3057
+3093:                                             ; preds = %247
+  br label %3094
 
-3057:                                             ; preds = %3056, %3052, %3049, %2994, %2939, %2910, %2855, %2800, %2745, %2690, %2635, %2580, %2525, %2472, %2411, %2378, %2359, %2340, %2316, %2300, %2261, %2222, %2183, %2144, %2105, %2066, %2049, %2033, %2026, %2019, %2010, %2001, %1992, %1989, %1988, %1966, %1944, %1909, %1908, %1904, %1900, %1899, %1856, %1813, %1768, %1713, %1658, %1603, %1548, %1519, %1516, %1513, %1467, %1430, %1377, %1290, %1255, %1196, %1173, %1128, %1113, %1048, %977, %964, %951, %931, %927, %883, %857, %856, %786, %739, %660, %546, %545, %544, %543, %535, %534, %533, %512, %482, %481, %453, %449, %448, %433, %418, %399, %372, %368, %364, %349, %345, %344, %343, %342, %334, %333, %324, %305, %304, %292, %291, %263
-  %3058 = load i32, ptr %24, align 4
-  %3059 = load ptr, ptr %15, align 8
-  %3060 = sext i32 %3058 to i64
-  %3061 = sub i64 0, %3060
-  %3062 = getelementptr inbounds %union.YYSTYPE, ptr %3059, i64 %3061
-  store ptr %3062, ptr %15, align 8
-  %3063 = load i32, ptr %24, align 4
-  %3064 = load ptr, ptr %12, align 8
-  %3065 = sext i32 %3063 to i64
-  %3066 = sub i64 0, %3065
-  %3067 = getelementptr inbounds i8, ptr %3064, i64 %3066
-  store ptr %3067, ptr %12, align 8
-  store i32 0, ptr %24, align 4
-  %3068 = load ptr, ptr %15, align 8
-  %3069 = getelementptr inbounds %union.YYSTYPE, ptr %3068, i32 1
-  store ptr %3069, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3069, ptr align 8 %20, i64 8, i1 false)
-  %3070 = load i32, ptr %17, align 4
-  %3071 = sext i32 %3070 to i64
-  %3072 = getelementptr inbounds [116 x i8], ptr @yyr1, i64 0, i64 %3071
-  %3073 = load i8, ptr %3072, align 1
-  %3074 = sext i8 %3073 to i32
-  %3075 = sub nsw i32 %3074, 74
-  store i32 %3075, ptr %52, align 4
-  %3076 = load i32, ptr %52, align 4
-  %3077 = sext i32 %3076 to i64
-  %3078 = getelementptr inbounds [35 x i16], ptr @yypgoto, i64 0, i64 %3077
-  %3079 = load i16, ptr %3078, align 2
-  %3080 = sext i16 %3079 to i32
-  %3081 = load ptr, ptr %12, align 8
-  %3082 = load i8, ptr %3081, align 1
-  %3083 = zext i8 %3082 to i32
-  %3084 = add nsw i32 %3080, %3083
-  store i32 %3084, ptr %53, align 4
-  %3085 = load i32, ptr %53, align 4
-  %3086 = icmp sle i32 0, %3085
-  br i1 %3086, label %3087, label %3106
-
-3087:                                             ; preds = %3057
-  %3088 = load i32, ptr %53, align 4
-  %3089 = icmp sle i32 %3088, 433
-  br i1 %3089, label %3090, label %3106
-
-3090:                                             ; preds = %3087
-  %3091 = load i32, ptr %53, align 4
-  %3092 = sext i32 %3091 to i64
-  %3093 = getelementptr inbounds [434 x i16], ptr @yycheck, i64 0, i64 %3092
-  %3094 = load i16, ptr %3093, align 2
-  %3095 = sext i16 %3094 to i32
-  %3096 = load ptr, ptr %12, align 8
-  %3097 = load i8, ptr %3096, align 1
-  %3098 = zext i8 %3097 to i32
-  %3099 = icmp eq i32 %3095, %3098
-  br i1 %3099, label %3100, label %3106
-
-3100:                                             ; preds = %3090
-  %3101 = load i32, ptr %53, align 4
-  %3102 = sext i32 %3101 to i64
-  %3103 = getelementptr inbounds [434 x i16], ptr @yytable, i64 0, i64 %3102
-  %3104 = load i16, ptr %3103, align 2
-  %3105 = sext i16 %3104 to i32
-  br label %3112
-
-3106:                                             ; preds = %3090, %3087, %3057
-  %3107 = load i32, ptr %52, align 4
+3094:                                             ; preds = %3093, %3089, %3086, %3031, %2976, %2947, %2892, %2837, %2782, %2727, %2672, %2617, %2562, %2509, %2450, %2417, %2398, %2379, %2352, %2336, %2297, %2258, %2219, %2180, %2141, %2102, %2085, %2069, %2062, %2055, %2046, %2037, %2028, %2025, %2024, %2002, %1980, %1945, %1944, %1940, %1936, %1935, %1892, %1849, %1804, %1749, %1694, %1639, %1584, %1555, %1552, %1549, %1503, %1502, %1410, %1323, %1288, %1226, %1203, %1158, %1140, %1075, %1004, %991, %978, %958, %954, %910, %884, %883, %810, %763, %683, %568, %567, %566, %565, %557, %556, %555, %534, %504, %503, %475, %471, %470, %455, %440, %421, %391, %387, %383, %368, %364, %363, %362, %361, %353, %352, %351, %321, %320, %308, %307, %276
+  %3095 = load i32, ptr %25, align 4, !tbaa !11
+  %3096 = load ptr, ptr %16, align 8, !tbaa !17
+  %3097 = sext i32 %3095 to i64
+  %3098 = sub i64 0, %3097
+  %3099 = getelementptr inbounds %union.YYSTYPE, ptr %3096, i64 %3098
+  store ptr %3099, ptr %16, align 8, !tbaa !17
+  %3100 = load i32, ptr %25, align 4, !tbaa !11
+  %3101 = load ptr, ptr %13, align 8, !tbaa !13
+  %3102 = sext i32 %3100 to i64
+  %3103 = sub i64 0, %3102
+  %3104 = getelementptr inbounds i8, ptr %3101, i64 %3103
+  store ptr %3104, ptr %13, align 8, !tbaa !13
+  store i32 0, ptr %25, align 4, !tbaa !11
+  %3105 = load ptr, ptr %16, align 8, !tbaa !17
+  %3106 = getelementptr inbounds nuw %union.YYSTYPE, ptr %3105, i32 1
+  store ptr %3106, ptr %16, align 8, !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3106, ptr align 8 %21, i64 8, i1 false), !tbaa.struct !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %54) #9
+  %3107 = load i32, ptr %18, align 4, !tbaa !11
   %3108 = sext i32 %3107 to i64
-  %3109 = getelementptr inbounds [35 x i16], ptr @yydefgoto, i64 0, i64 %3108
-  %3110 = load i16, ptr %3109, align 2
-  %3111 = sext i16 %3110 to i32
-  br label %3112
+  %3109 = getelementptr inbounds [116 x i8], ptr @yyr1, i64 0, i64 %3108
+  %3110 = load i8, ptr %3109, align 1, !tbaa !10
+  %3111 = sext i8 %3110 to i32
+  %3112 = sub nsw i32 %3111, 74
+  store i32 %3112, ptr %54, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %55) #9
+  %3113 = load i32, ptr %54, align 4, !tbaa !11
+  %3114 = sext i32 %3113 to i64
+  %3115 = getelementptr inbounds [35 x i16], ptr @yypgoto, i64 0, i64 %3114
+  %3116 = load i16, ptr %3115, align 2, !tbaa !21
+  %3117 = sext i16 %3116 to i32
+  %3118 = load ptr, ptr %13, align 8, !tbaa !13
+  %3119 = load i8, ptr %3118, align 1, !tbaa !10
+  %3120 = zext i8 %3119 to i32
+  %3121 = add nsw i32 %3117, %3120
+  store i32 %3121, ptr %55, align 4, !tbaa !11
+  %3122 = load i32, ptr %55, align 4, !tbaa !11
+  %3123 = icmp sle i32 0, %3122
+  br i1 %3123, label %3124, label %3143
 
-3112:                                             ; preds = %3106, %3100
-  %3113 = phi i32 [ %3105, %3100 ], [ %3111, %3106 ]
-  store i32 %3113, ptr %8, align 4
-  br label %59
+3124:                                             ; preds = %3094
+  %3125 = load i32, ptr %55, align 4, !tbaa !11
+  %3126 = icmp sle i32 %3125, 433
+  br i1 %3126, label %3127, label %3143
 
-3114:                                             ; preds = %235
-  %3115 = load i32, ptr %5, align 4
-  %3116 = icmp eq i32 %3115, -2
-  br i1 %3116, label %3117, label %3118
+3127:                                             ; preds = %3124
+  %3128 = load i32, ptr %55, align 4, !tbaa !11
+  %3129 = sext i32 %3128 to i64
+  %3130 = getelementptr inbounds [434 x i16], ptr @yycheck, i64 0, i64 %3129
+  %3131 = load i16, ptr %3130, align 2, !tbaa !21
+  %3132 = sext i16 %3131 to i32
+  %3133 = load ptr, ptr %13, align 8, !tbaa !13
+  %3134 = load i8, ptr %3133, align 1, !tbaa !10
+  %3135 = zext i8 %3134 to i32
+  %3136 = icmp eq i32 %3132, %3135
+  br i1 %3136, label %3137, label %3143
 
-3117:                                             ; preds = %3114
-  br label %3133
+3137:                                             ; preds = %3127
+  %3138 = load i32, ptr %55, align 4, !tbaa !11
+  %3139 = sext i32 %3138 to i64
+  %3140 = getelementptr inbounds [434 x i16], ptr @yytable, i64 0, i64 %3139
+  %3141 = load i16, ptr %3140, align 2, !tbaa !21
+  %3142 = sext i16 %3141 to i32
+  br label %3149
 
-3118:                                             ; preds = %3114
-  %3119 = load i32, ptr %5, align 4
-  %3120 = icmp sle i32 0, %3119
-  br i1 %3120, label %3121, label %3130
+3143:                                             ; preds = %3127, %3124, %3094
+  %3144 = load i32, ptr %54, align 4, !tbaa !11
+  %3145 = sext i32 %3144 to i64
+  %3146 = getelementptr inbounds [35 x i16], ptr @yydefgoto, i64 0, i64 %3145
+  %3147 = load i16, ptr %3146, align 2, !tbaa !21
+  %3148 = sext i16 %3147 to i32
+  br label %3149
 
-3121:                                             ; preds = %3118
-  %3122 = load i32, ptr %5, align 4
-  %3123 = icmp sle i32 %3122, 309
-  br i1 %3123, label %3124, label %3130
+3149:                                             ; preds = %3143, %3137
+  %3150 = phi i32 [ %3142, %3137 ], [ %3148, %3143 ]
+  store i32 %3150, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %55) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %54) #9
+  br label %61
 
-3124:                                             ; preds = %3121
-  %3125 = load i32, ptr %5, align 4
-  %3126 = sext i32 %3125 to i64
-  %3127 = getelementptr inbounds [310 x i8], ptr @yytranslate, i64 0, i64 %3126
-  %3128 = load i8, ptr %3127, align 1
-  %3129 = sext i8 %3128 to i32
-  br label %3131
+3151:                                             ; preds = %245
+  %3152 = load i32, ptr %6, align 4, !tbaa !11
+  %3153 = icmp eq i32 %3152, -2
+  br i1 %3153, label %3154, label %3155
 
-3130:                                             ; preds = %3121, %3118
-  br label %3131
-
-3131:                                             ; preds = %3130, %3124
-  %3132 = phi i32 [ %3129, %3124 ], [ 2, %3130 ]
-  br label %3133
-
-3133:                                             ; preds = %3131, %3117
-  %3134 = phi i32 [ -2, %3117 ], [ %3132, %3131 ]
-  store i32 %3134, ptr %19, align 4
-  %3135 = load i32, ptr %9, align 4
-  %3136 = icmp ne i32 %3135, 0
-  br i1 %3136, label %3178, label %3137
-
-3137:                                             ; preds = %3133
-  %3138 = load i32, ptr %7, align 4
-  %3139 = add nsw i32 %3138, 1
-  store i32 %3139, ptr %7, align 4
-  store ptr @.str.61, ptr %54, align 8
-  %3140 = load ptr, ptr %12, align 8
-  %3141 = load i32, ptr %19, align 4
-  %3142 = call i32 @yysyntax_error(ptr noundef %23, ptr noundef %22, ptr noundef %3140, i32 noundef %3141)
-  store i32 %3142, ptr %55, align 4
-  %3143 = load i32, ptr %55, align 4
-  %3144 = icmp eq i32 %3143, 0
-  br i1 %3144, label %3145, label %3147
-
-3145:                                             ; preds = %3137
-  %3146 = load ptr, ptr %22, align 8
-  store ptr %3146, ptr %54, align 8
+3154:                                             ; preds = %3151
   br label %3170
 
-3147:                                             ; preds = %3137
-  %3148 = load i32, ptr %55, align 4
-  %3149 = icmp eq i32 %3148, 1
-  br i1 %3149, label %3150, label %3169
+3155:                                             ; preds = %3151
+  %3156 = load i32, ptr %6, align 4, !tbaa !11
+  %3157 = icmp sle i32 0, %3156
+  br i1 %3157, label %3158, label %3167
 
-3150:                                             ; preds = %3147
-  %3151 = load ptr, ptr %22, align 8
-  %3152 = getelementptr inbounds [128 x i8], ptr %21, i64 0, i64 0
-  %3153 = icmp ne ptr %3151, %3152
-  br i1 %3153, label %3154, label %3156
+3158:                                             ; preds = %3155
+  %3159 = load i32, ptr %6, align 4, !tbaa !11
+  %3160 = icmp sle i32 %3159, 309
+  br i1 %3160, label %3161, label %3167
 
-3154:                                             ; preds = %3150
-  %3155 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %3155) #9
-  br label %3156
-
-3156:                                             ; preds = %3154, %3150
-  %3157 = load i64, ptr %23, align 8
-  %3158 = call noalias ptr @malloc(i64 noundef %3157) #8
-  store ptr %3158, ptr %22, align 8
-  %3159 = load ptr, ptr %22, align 8
-  %3160 = icmp ne ptr %3159, null
-  br i1 %3160, label %3163, label %3161
-
-3161:                                             ; preds = %3156
-  %3162 = getelementptr inbounds [128 x i8], ptr %21, i64 0, i64 0
-  store ptr %3162, ptr %22, align 8
-  store i64 128, ptr %23, align 8
-  store i32 2, ptr %55, align 4
+3161:                                             ; preds = %3158
+  %3162 = load i32, ptr %6, align 4, !tbaa !11
+  %3163 = sext i32 %3162 to i64
+  %3164 = getelementptr inbounds [310 x i8], ptr @yytranslate, i64 0, i64 %3163
+  %3165 = load i8, ptr %3164, align 1, !tbaa !10
+  %3166 = sext i8 %3165 to i32
   br label %3168
 
-3163:                                             ; preds = %3156
-  %3164 = load ptr, ptr %12, align 8
-  %3165 = load i32, ptr %19, align 4
-  %3166 = call i32 @yysyntax_error(ptr noundef %23, ptr noundef %22, ptr noundef %3164, i32 noundef %3165)
-  store i32 %3166, ptr %55, align 4
-  %3167 = load ptr, ptr %22, align 8
-  store ptr %3167, ptr %54, align 8
+3167:                                             ; preds = %3158, %3155
   br label %3168
 
-3168:                                             ; preds = %3163, %3161
-  br label %3169
-
-3169:                                             ; preds = %3168, %3147
+3168:                                             ; preds = %3167, %3161
+  %3169 = phi i32 [ %3166, %3161 ], [ 2, %3167 ]
   br label %3170
 
-3170:                                             ; preds = %3169, %3145
-  %3171 = load ptr, ptr %3, align 8
-  %3172 = load ptr, ptr %4, align 8
-  %3173 = load ptr, ptr %54, align 8
-  call void @yara_yyerror(ptr noundef %3171, ptr noundef %3172, ptr noundef %3173)
-  %3174 = load i32, ptr %55, align 4
-  %3175 = icmp eq i32 %3174, 2
-  br i1 %3175, label %3176, label %3177
+3170:                                             ; preds = %3168, %3154
+  %3171 = phi i32 [ -2, %3154 ], [ %3169, %3168 ]
+  store i32 %3171, ptr %20, align 4, !tbaa !11
+  %3172 = load i32, ptr %10, align 4, !tbaa !11
+  %3173 = icmp ne i32 %3172, 0
+  br i1 %3173, label %3218, label %3174
 
-3176:                                             ; preds = %3170
-  br label %3271
+3174:                                             ; preds = %3170
+  %3175 = load i32, ptr %8, align 4, !tbaa !11
+  %3176 = add nsw i32 %3175, 1
+  store i32 %3176, ptr %8, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %56) #9
+  store ptr @.str.61, ptr %56, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %57) #9
+  %3177 = load ptr, ptr %13, align 8, !tbaa !13
+  %3178 = load i32, ptr %20, align 4, !tbaa !11
+  %3179 = call i32 @yysyntax_error(ptr noundef %24, ptr noundef %23, ptr noundef %3177, i32 noundef %3178)
+  store i32 %3179, ptr %57, align 4, !tbaa !11
+  %3180 = load i32, ptr %57, align 4, !tbaa !11
+  %3181 = icmp eq i32 %3180, 0
+  br i1 %3181, label %3182, label %3184
 
-3177:                                             ; preds = %3170
-  br label %3178
+3182:                                             ; preds = %3174
+  %3183 = load ptr, ptr %23, align 8, !tbaa !13
+  store ptr %3183, ptr %56, align 8, !tbaa !13
+  br label %3207
 
-3178:                                             ; preds = %3177, %3133
-  %3179 = load i32, ptr %9, align 4
-  %3180 = icmp eq i32 %3179, 3
-  br i1 %3180, label %3181, label %3194
-
-3181:                                             ; preds = %3178
-  %3182 = load i32, ptr %5, align 4
-  %3183 = icmp sle i32 %3182, 0
-  br i1 %3183, label %3184, label %3189
-
-3184:                                             ; preds = %3181
-  %3185 = load i32, ptr %5, align 4
-  %3186 = icmp eq i32 %3185, 0
-  br i1 %3186, label %3187, label %3188
+3184:                                             ; preds = %3174
+  %3185 = load i32, ptr %57, align 4, !tbaa !11
+  %3186 = icmp eq i32 %3185, 1
+  br i1 %3186, label %3187, label %3206
 
 3187:                                             ; preds = %3184
-  br label %3270
+  %3188 = load ptr, ptr %23, align 8, !tbaa !13
+  %3189 = getelementptr inbounds [128 x i8], ptr %22, i64 0, i64 0
+  %3190 = icmp ne ptr %3188, %3189
+  br i1 %3190, label %3191, label %3193
 
-3188:                                             ; preds = %3184
+3191:                                             ; preds = %3187
+  %3192 = load ptr, ptr %23, align 8, !tbaa !13
+  call void @free(ptr noundef %3192) #9
   br label %3193
 
-3189:                                             ; preds = %3181
-  %3190 = load i32, ptr %19, align 4
-  %3191 = load ptr, ptr %3, align 8
-  %3192 = load ptr, ptr %4, align 8
-  call void @yydestruct(ptr noundef @.str.62, i32 noundef %3190, ptr noundef %6, ptr noundef %3191, ptr noundef %3192)
-  store i32 -2, ptr %5, align 4
-  br label %3193
+3193:                                             ; preds = %3191, %3187
+  %3194 = load i64, ptr %24, align 8, !tbaa !15
+  %3195 = call noalias ptr @malloc(i64 noundef %3194) #10
+  store ptr %3195, ptr %23, align 8, !tbaa !13
+  %3196 = load ptr, ptr %23, align 8, !tbaa !13
+  %3197 = icmp ne ptr %3196, null
+  br i1 %3197, label %3200, label %3198
 
-3193:                                             ; preds = %3189, %3188
-  br label %3194
+3198:                                             ; preds = %3193
+  %3199 = getelementptr inbounds [128 x i8], ptr %22, i64 0, i64 0
+  store ptr %3199, ptr %23, align 8, !tbaa !13
+  store i64 128, ptr %24, align 8, !tbaa !15
+  store i32 2, ptr %57, align 4, !tbaa !11
+  br label %3205
 
-3194:                                             ; preds = %3193, %3178
-  br label %3209
+3200:                                             ; preds = %3193
+  %3201 = load ptr, ptr %13, align 8, !tbaa !13
+  %3202 = load i32, ptr %20, align 4, !tbaa !11
+  %3203 = call i32 @yysyntax_error(ptr noundef %24, ptr noundef %23, ptr noundef %3201, i32 noundef %3202)
+  store i32 %3203, ptr %57, align 4, !tbaa !11
+  %3204 = load ptr, ptr %23, align 8, !tbaa !13
+  store ptr %3204, ptr %56, align 8, !tbaa !13
+  br label %3205
 
-3195:                                             ; preds = %3044, %3018, %2989, %2963, %2934, %2905, %2879, %2850, %2824, %2795, %2769, %2740, %2714, %2685, %2659, %2630, %2604, %2575, %2549, %2520, %2494, %2469, %2408, %2375, %2356, %2337, %2313, %2297, %2283, %2258, %2244, %2219, %2205, %2180, %2166, %2141, %2127, %2102, %2088, %2063, %2046, %1985, %1963, %1941, %1896, %1853, %1810, %1763, %1737, %1708, %1682, %1653, %1627, %1598, %1572, %1543, %1427, %1252, %1240, %1214, %1193, %1170, %1150, %1125, %1110, %1096, %1070, %1045, %1025, %999, %974, %961, %947, %924, %880, %853, %783, %736, %657, %530, %509, %478, %445, %430, %415, %396, %361, %321, %301, %288, %260
-  %3196 = load i32, ptr %24, align 4
-  %3197 = load ptr, ptr %15, align 8
-  %3198 = sext i32 %3196 to i64
-  %3199 = sub i64 0, %3198
-  %3200 = getelementptr inbounds %union.YYSTYPE, ptr %3197, i64 %3199
-  store ptr %3200, ptr %15, align 8
-  %3201 = load i32, ptr %24, align 4
-  %3202 = load ptr, ptr %12, align 8
-  %3203 = sext i32 %3201 to i64
-  %3204 = sub i64 0, %3203
-  %3205 = getelementptr inbounds i8, ptr %3202, i64 %3204
-  store ptr %3205, ptr %12, align 8
-  store i32 0, ptr %24, align 4
-  %3206 = load ptr, ptr %12, align 8
-  %3207 = load i8, ptr %3206, align 1
-  %3208 = zext i8 %3207 to i32
-  store i32 %3208, ptr %8, align 4
-  br label %3209
+3205:                                             ; preds = %3200, %3198
+  br label %3206
 
-3209:                                             ; preds = %3195, %3194
-  store i32 3, ptr %9, align 4
-  br label %3210
+3206:                                             ; preds = %3205, %3184
+  br label %3207
 
-3210:                                             ; preds = %3249, %3209
-  %3211 = load i32, ptr %8, align 4
-  %3212 = sext i32 %3211 to i64
-  %3213 = getelementptr inbounds [216 x i16], ptr @yypact, i64 0, i64 %3212
-  %3214 = load i16, ptr %3213, align 2
-  %3215 = sext i16 %3214 to i32
-  store i32 %3215, ptr %17, align 4
-  %3216 = load i32, ptr %17, align 4
-  %3217 = icmp eq i32 %3216, -66
-  br i1 %3217, label %3244, label %3218
+3207:                                             ; preds = %3206, %3182
+  %3208 = load ptr, ptr %4, align 8, !tbaa !3
+  %3209 = load ptr, ptr %5, align 8, !tbaa !7
+  %3210 = load ptr, ptr %56, align 8, !tbaa !13
+  call void @yara_yyerror(ptr noundef %3208, ptr noundef %3209, ptr noundef %3210)
+  %3211 = load i32, ptr %57, align 4, !tbaa !11
+  %3212 = icmp eq i32 %3211, 2
+  br i1 %3212, label %3213, label %3214
 
-3218:                                             ; preds = %3210
-  %3219 = load i32, ptr %17, align 4
-  %3220 = add nsw i32 %3219, 1
-  store i32 %3220, ptr %17, align 4
-  %3221 = load i32, ptr %17, align 4
-  %3222 = icmp sle i32 0, %3221
-  br i1 %3222, label %3223, label %3243
+3213:                                             ; preds = %3207
+  store i32 4, ptr %31, align 4
+  br label %3215
 
-3223:                                             ; preds = %3218
-  %3224 = load i32, ptr %17, align 4
-  %3225 = icmp sle i32 %3224, 433
-  br i1 %3225, label %3226, label %3243
+3214:                                             ; preds = %3207
+  store i32 0, ptr %31, align 4
+  br label %3215
 
-3226:                                             ; preds = %3223
-  %3227 = load i32, ptr %17, align 4
-  %3228 = sext i32 %3227 to i64
-  %3229 = getelementptr inbounds [434 x i16], ptr @yycheck, i64 0, i64 %3228
-  %3230 = load i16, ptr %3229, align 2
-  %3231 = sext i16 %3230 to i32
-  %3232 = icmp eq i32 %3231, 1
-  br i1 %3232, label %3233, label %3243
+3215:                                             ; preds = %3213, %3214
+  call void @llvm.lifetime.end.p0(i64 4, ptr %57) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %56) #9
+  %3216 = load i32, ptr %31, align 4
+  switch i32 %3216, label %3379 [
+    i32 0, label %3217
+    i32 4, label %3311
+  ]
 
-3233:                                             ; preds = %3226
-  %3234 = load i32, ptr %17, align 4
-  %3235 = sext i32 %3234 to i64
-  %3236 = getelementptr inbounds [434 x i16], ptr @yytable, i64 0, i64 %3235
-  %3237 = load i16, ptr %3236, align 2
-  %3238 = sext i16 %3237 to i32
-  store i32 %3238, ptr %17, align 4
-  %3239 = load i32, ptr %17, align 4
-  %3240 = icmp slt i32 0, %3239
-  br i1 %3240, label %3241, label %3242
+3217:                                             ; preds = %3215
+  br label %3218
 
-3241:                                             ; preds = %3233
-  br label %3265
+3218:                                             ; preds = %3217, %3170
+  %3219 = load i32, ptr %10, align 4, !tbaa !11
+  %3220 = icmp eq i32 %3219, 3
+  br i1 %3220, label %3221, label %3234
 
-3242:                                             ; preds = %3233
-  br label %3243
+3221:                                             ; preds = %3218
+  %3222 = load i32, ptr %6, align 4, !tbaa !11
+  %3223 = icmp sle i32 %3222, 0
+  br i1 %3223, label %3224, label %3229
 
-3243:                                             ; preds = %3242, %3226, %3223, %3218
-  br label %3244
+3224:                                             ; preds = %3221
+  %3225 = load i32, ptr %6, align 4, !tbaa !11
+  %3226 = icmp eq i32 %3225, 0
+  br i1 %3226, label %3227, label %3228
 
-3244:                                             ; preds = %3243, %3210
-  %3245 = load ptr, ptr %12, align 8
-  %3246 = load ptr, ptr %11, align 8
-  %3247 = icmp eq ptr %3245, %3246
-  br i1 %3247, label %3248, label %3249
+3227:                                             ; preds = %3224
+  br label %3310
 
-3248:                                             ; preds = %3244
-  br label %3270
+3228:                                             ; preds = %3224
+  br label %3233
 
-3249:                                             ; preds = %3244
-  %3250 = load i32, ptr %8, align 4
-  %3251 = sext i32 %3250 to i64
-  %3252 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %3251
-  %3253 = load i8, ptr %3252, align 1
-  %3254 = sext i8 %3253 to i32
-  %3255 = load ptr, ptr %15, align 8
-  %3256 = load ptr, ptr %3, align 8
-  %3257 = load ptr, ptr %4, align 8
-  call void @yydestruct(ptr noundef @.str.63, i32 noundef %3254, ptr noundef %3255, ptr noundef %3256, ptr noundef %3257)
-  %3258 = load ptr, ptr %15, align 8
-  %3259 = getelementptr inbounds %union.YYSTYPE, ptr %3258, i64 -1
-  store ptr %3259, ptr %15, align 8
-  %3260 = load ptr, ptr %12, align 8
-  %3261 = getelementptr inbounds i8, ptr %3260, i64 -1
-  store ptr %3261, ptr %12, align 8
-  %3262 = load ptr, ptr %12, align 8
-  %3263 = load i8, ptr %3262, align 1
-  %3264 = zext i8 %3263 to i32
-  store i32 %3264, ptr %8, align 4
-  br label %3210
+3229:                                             ; preds = %3221
+  %3230 = load i32, ptr %20, align 4, !tbaa !11
+  %3231 = load ptr, ptr %4, align 8, !tbaa !3
+  %3232 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yydestruct(ptr noundef @.str.62, i32 noundef %3230, ptr noundef %7, ptr noundef %3231, ptr noundef %3232)
+  store i32 -2, ptr %6, align 4, !tbaa !11
+  br label %3233
 
-3265:                                             ; preds = %3241
-  %3266 = load ptr, ptr %15, align 8
-  %3267 = getelementptr inbounds %union.YYSTYPE, ptr %3266, i32 1
-  store ptr %3267, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3267, ptr align 8 %6, i64 8, i1 false)
-  %3268 = load i32, ptr %17, align 4
-  store i32 %3268, ptr %8, align 4
-  br label %59
+3233:                                             ; preds = %3229, %3228
+  br label %3234
 
-3269:                                             ; preds = %151
-  store i32 0, ptr %18, align 4
-  br label %3274
+3234:                                             ; preds = %3233, %3218
+  br label %3249
 
-3270:                                             ; preds = %3248, %3187, %146
-  store i32 1, ptr %18, align 4
-  br label %3274
+3235:                                             ; preds = %2377, %1500, %1286, %1156, %881, %761, %681, %419, %349, %305, %274, %3081, %3055, %3026, %3000, %2971, %2942, %2916, %2887, %2861, %2832, %2806, %2777, %2751, %2722, %2696, %2667, %2641, %2612, %2586, %2557, %2531, %2506, %2447, %2414, %2395, %2349, %2333, %2319, %2294, %2280, %2255, %2241, %2216, %2202, %2177, %2163, %2138, %2124, %2099, %2082, %2021, %1999, %1977, %1932, %1889, %1846, %1799, %1773, %1744, %1718, %1689, %1663, %1634, %1608, %1579, %1223, %1200, %1180, %1137, %1123, %1097, %1072, %1052, %1026, %1001, %988, %974, %951, %907, %807, %552, %531, %500, %467, %452, %437, %380, %317
+  %3236 = load i32, ptr %25, align 4, !tbaa !11
+  %3237 = load ptr, ptr %16, align 8, !tbaa !17
+  %3238 = sext i32 %3236 to i64
+  %3239 = sub i64 0, %3238
+  %3240 = getelementptr inbounds %union.YYSTYPE, ptr %3237, i64 %3239
+  store ptr %3240, ptr %16, align 8, !tbaa !17
+  %3241 = load i32, ptr %25, align 4, !tbaa !11
+  %3242 = load ptr, ptr %13, align 8, !tbaa !13
+  %3243 = sext i32 %3241 to i64
+  %3244 = sub i64 0, %3243
+  %3245 = getelementptr inbounds i8, ptr %3242, i64 %3244
+  store ptr %3245, ptr %13, align 8, !tbaa !13
+  store i32 0, ptr %25, align 4, !tbaa !11
+  %3246 = load ptr, ptr %13, align 8, !tbaa !13
+  %3247 = load i8, ptr %3246, align 1, !tbaa !10
+  %3248 = zext i8 %3247 to i32
+  store i32 %3248, ptr %9, align 4, !tbaa !11
+  br label %3249
 
-3271:                                             ; preds = %3176, %96, %81
-  %3272 = load ptr, ptr %3, align 8
-  %3273 = load ptr, ptr %4, align 8
-  call void @yara_yyerror(ptr noundef %3272, ptr noundef %3273, ptr noundef @.str.64)
-  store i32 2, ptr %18, align 4
-  br label %3274
+3249:                                             ; preds = %3235, %3234
+  store i32 3, ptr %10, align 4, !tbaa !11
+  br label %3250
 
-3274:                                             ; preds = %3271, %3270, %3269
-  %3275 = load i32, ptr %5, align 4
-  %3276 = icmp ne i32 %3275, -2
-  br i1 %3276, label %3277, label %3295
+3250:                                             ; preds = %3289, %3249
+  %3251 = load i32, ptr %9, align 4, !tbaa !11
+  %3252 = sext i32 %3251 to i64
+  %3253 = getelementptr inbounds [216 x i16], ptr @yypact, i64 0, i64 %3252
+  %3254 = load i16, ptr %3253, align 2, !tbaa !21
+  %3255 = sext i16 %3254 to i32
+  store i32 %3255, ptr %18, align 4, !tbaa !11
+  %3256 = load i32, ptr %18, align 4, !tbaa !11
+  %3257 = icmp eq i32 %3256, -66
+  br i1 %3257, label %3284, label %3258
 
-3277:                                             ; preds = %3274
-  %3278 = load i32, ptr %5, align 4
-  %3279 = icmp sle i32 0, %3278
-  br i1 %3279, label %3280, label %3289
+3258:                                             ; preds = %3250
+  %3259 = load i32, ptr %18, align 4, !tbaa !11
+  %3260 = add nsw i32 %3259, 1
+  store i32 %3260, ptr %18, align 4, !tbaa !11
+  %3261 = load i32, ptr %18, align 4, !tbaa !11
+  %3262 = icmp sle i32 0, %3261
+  br i1 %3262, label %3263, label %3283
 
-3280:                                             ; preds = %3277
-  %3281 = load i32, ptr %5, align 4
-  %3282 = icmp sle i32 %3281, 309
-  br i1 %3282, label %3283, label %3289
+3263:                                             ; preds = %3258
+  %3264 = load i32, ptr %18, align 4, !tbaa !11
+  %3265 = icmp sle i32 %3264, 433
+  br i1 %3265, label %3266, label %3283
 
-3283:                                             ; preds = %3280
-  %3284 = load i32, ptr %5, align 4
-  %3285 = sext i32 %3284 to i64
-  %3286 = getelementptr inbounds [310 x i8], ptr @yytranslate, i64 0, i64 %3285
-  %3287 = load i8, ptr %3286, align 1
-  %3288 = sext i8 %3287 to i32
-  br label %3290
+3266:                                             ; preds = %3263
+  %3267 = load i32, ptr %18, align 4, !tbaa !11
+  %3268 = sext i32 %3267 to i64
+  %3269 = getelementptr inbounds [434 x i16], ptr @yycheck, i64 0, i64 %3268
+  %3270 = load i16, ptr %3269, align 2, !tbaa !21
+  %3271 = sext i16 %3270 to i32
+  %3272 = icmp eq i32 %3271, 1
+  br i1 %3272, label %3273, label %3283
 
-3289:                                             ; preds = %3280, %3277
-  br label %3290
+3273:                                             ; preds = %3266
+  %3274 = load i32, ptr %18, align 4, !tbaa !11
+  %3275 = sext i32 %3274 to i64
+  %3276 = getelementptr inbounds [434 x i16], ptr @yytable, i64 0, i64 %3275
+  %3277 = load i16, ptr %3276, align 2, !tbaa !21
+  %3278 = sext i16 %3277 to i32
+  store i32 %3278, ptr %18, align 4, !tbaa !11
+  %3279 = load i32, ptr %18, align 4, !tbaa !11
+  %3280 = icmp slt i32 0, %3279
+  br i1 %3280, label %3281, label %3282
 
-3290:                                             ; preds = %3289, %3283
-  %3291 = phi i32 [ %3288, %3283 ], [ 2, %3289 ]
-  store i32 %3291, ptr %19, align 4
-  %3292 = load i32, ptr %19, align 4
-  %3293 = load ptr, ptr %3, align 8
-  %3294 = load ptr, ptr %4, align 8
-  call void @yydestruct(ptr noundef @.str.65, i32 noundef %3292, ptr noundef %6, ptr noundef %3293, ptr noundef %3294)
-  br label %3295
+3281:                                             ; preds = %3273
+  br label %3305
 
-3295:                                             ; preds = %3290, %3274
-  %3296 = load i32, ptr %24, align 4
-  %3297 = load ptr, ptr %15, align 8
-  %3298 = sext i32 %3296 to i64
-  %3299 = sub i64 0, %3298
-  %3300 = getelementptr inbounds %union.YYSTYPE, ptr %3297, i64 %3299
-  store ptr %3300, ptr %15, align 8
-  %3301 = load i32, ptr %24, align 4
-  %3302 = load ptr, ptr %12, align 8
-  %3303 = sext i32 %3301 to i64
-  %3304 = sub i64 0, %3303
-  %3305 = getelementptr inbounds i8, ptr %3302, i64 %3304
-  store ptr %3305, ptr %12, align 8
-  br label %3306
+3282:                                             ; preds = %3273
+  br label %3283
 
-3306:                                             ; preds = %3310, %3295
-  %3307 = load ptr, ptr %12, align 8
-  %3308 = load ptr, ptr %11, align 8
-  %3309 = icmp ne ptr %3307, %3308
-  br i1 %3309, label %3310, label %3325
+3283:                                             ; preds = %3282, %3266, %3263, %3258
+  br label %3284
 
-3310:                                             ; preds = %3306
-  %3311 = load ptr, ptr %12, align 8
-  %3312 = load i8, ptr %3311, align 1
-  %3313 = zext i8 %3312 to i32
-  %3314 = sext i32 %3313 to i64
-  %3315 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %3314
-  %3316 = load i8, ptr %3315, align 1
-  %3317 = sext i8 %3316 to i32
-  %3318 = load ptr, ptr %15, align 8
-  %3319 = load ptr, ptr %3, align 8
-  %3320 = load ptr, ptr %4, align 8
-  call void @yydestruct(ptr noundef @.str.66, i32 noundef %3317, ptr noundef %3318, ptr noundef %3319, ptr noundef %3320)
-  %3321 = load ptr, ptr %15, align 8
-  %3322 = getelementptr inbounds %union.YYSTYPE, ptr %3321, i64 -1
-  store ptr %3322, ptr %15, align 8
-  %3323 = load ptr, ptr %12, align 8
-  %3324 = getelementptr inbounds i8, ptr %3323, i64 -1
-  store ptr %3324, ptr %12, align 8
-  br label %3306
+3284:                                             ; preds = %3283, %3250
+  %3285 = load ptr, ptr %13, align 8, !tbaa !13
+  %3286 = load ptr, ptr %12, align 8, !tbaa !13
+  %3287 = icmp eq ptr %3285, %3286
+  br i1 %3287, label %3288, label %3289
 
-3325:                                             ; preds = %3306
-  %3326 = load ptr, ptr %11, align 8
-  %3327 = getelementptr inbounds [200 x i8], ptr %10, i64 0, i64 0
-  %3328 = icmp ne ptr %3326, %3327
-  br i1 %3328, label %3329, label %3331
+3288:                                             ; preds = %3284
+  br label %3310
 
-3329:                                             ; preds = %3325
-  %3330 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %3330) #9
-  br label %3331
+3289:                                             ; preds = %3284
+  %3290 = load i32, ptr %9, align 4, !tbaa !11
+  %3291 = sext i32 %3290 to i64
+  %3292 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %3291
+  %3293 = load i8, ptr %3292, align 1, !tbaa !10
+  %3294 = sext i8 %3293 to i32
+  %3295 = load ptr, ptr %16, align 8, !tbaa !17
+  %3296 = load ptr, ptr %4, align 8, !tbaa !3
+  %3297 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yydestruct(ptr noundef @.str.63, i32 noundef %3294, ptr noundef %3295, ptr noundef %3296, ptr noundef %3297)
+  %3298 = load ptr, ptr %16, align 8, !tbaa !17
+  %3299 = getelementptr inbounds %union.YYSTYPE, ptr %3298, i64 -1
+  store ptr %3299, ptr %16, align 8, !tbaa !17
+  %3300 = load ptr, ptr %13, align 8, !tbaa !13
+  %3301 = getelementptr inbounds i8, ptr %3300, i64 -1
+  store ptr %3301, ptr %13, align 8, !tbaa !13
+  %3302 = load ptr, ptr %13, align 8, !tbaa !13
+  %3303 = load i8, ptr %3302, align 1, !tbaa !10
+  %3304 = zext i8 %3303 to i32
+  store i32 %3304, ptr %9, align 4, !tbaa !11
+  br label %3250
 
-3331:                                             ; preds = %3329, %3325
-  %3332 = load ptr, ptr %22, align 8
-  %3333 = getelementptr inbounds [128 x i8], ptr %21, i64 0, i64 0
-  %3334 = icmp ne ptr %3332, %3333
-  br i1 %3334, label %3335, label %3337
+3305:                                             ; preds = %3281
+  %3306 = load ptr, ptr %16, align 8, !tbaa !17
+  %3307 = getelementptr inbounds nuw %union.YYSTYPE, ptr %3306, i32 1
+  store ptr %3307, ptr %16, align 8, !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3307, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !9
+  %3308 = load i32, ptr %18, align 4, !tbaa !11
+  store i32 %3308, ptr %9, align 4, !tbaa !11
+  br label %61
 
-3335:                                             ; preds = %3331
-  %3336 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %3336) #9
-  br label %3337
+3309:                                             ; preds = %161
+  store i32 0, ptr %19, align 4, !tbaa !11
+  br label %3314
 
-3337:                                             ; preds = %3335, %3331
-  %3338 = load i32, ptr %18, align 4
-  ret i32 %3338
+3310:                                             ; preds = %155, %3288, %3227
+  store i32 1, ptr %19, align 4, !tbaa !11
+  br label %3314
+
+3311:                                             ; preds = %3215, %155
+  %3312 = load ptr, ptr %4, align 8, !tbaa !3
+  %3313 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yara_yyerror(ptr noundef %3312, ptr noundef %3313, ptr noundef @.str.64)
+  store i32 2, ptr %19, align 4, !tbaa !11
+  br label %3314
+
+3314:                                             ; preds = %3311, %3310, %3309
+  %3315 = load i32, ptr %6, align 4, !tbaa !11
+  %3316 = icmp ne i32 %3315, -2
+  br i1 %3316, label %3317, label %3335
+
+3317:                                             ; preds = %3314
+  %3318 = load i32, ptr %6, align 4, !tbaa !11
+  %3319 = icmp sle i32 0, %3318
+  br i1 %3319, label %3320, label %3329
+
+3320:                                             ; preds = %3317
+  %3321 = load i32, ptr %6, align 4, !tbaa !11
+  %3322 = icmp sle i32 %3321, 309
+  br i1 %3322, label %3323, label %3329
+
+3323:                                             ; preds = %3320
+  %3324 = load i32, ptr %6, align 4, !tbaa !11
+  %3325 = sext i32 %3324 to i64
+  %3326 = getelementptr inbounds [310 x i8], ptr @yytranslate, i64 0, i64 %3325
+  %3327 = load i8, ptr %3326, align 1, !tbaa !10
+  %3328 = sext i8 %3327 to i32
+  br label %3330
+
+3329:                                             ; preds = %3320, %3317
+  br label %3330
+
+3330:                                             ; preds = %3329, %3323
+  %3331 = phi i32 [ %3328, %3323 ], [ 2, %3329 ]
+  store i32 %3331, ptr %20, align 4, !tbaa !11
+  %3332 = load i32, ptr %20, align 4, !tbaa !11
+  %3333 = load ptr, ptr %4, align 8, !tbaa !3
+  %3334 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yydestruct(ptr noundef @.str.65, i32 noundef %3332, ptr noundef %7, ptr noundef %3333, ptr noundef %3334)
+  br label %3335
+
+3335:                                             ; preds = %3330, %3314
+  %3336 = load i32, ptr %25, align 4, !tbaa !11
+  %3337 = load ptr, ptr %16, align 8, !tbaa !17
+  %3338 = sext i32 %3336 to i64
+  %3339 = sub i64 0, %3338
+  %3340 = getelementptr inbounds %union.YYSTYPE, ptr %3337, i64 %3339
+  store ptr %3340, ptr %16, align 8, !tbaa !17
+  %3341 = load i32, ptr %25, align 4, !tbaa !11
+  %3342 = load ptr, ptr %13, align 8, !tbaa !13
+  %3343 = sext i32 %3341 to i64
+  %3344 = sub i64 0, %3343
+  %3345 = getelementptr inbounds i8, ptr %3342, i64 %3344
+  store ptr %3345, ptr %13, align 8, !tbaa !13
+  br label %3346
+
+3346:                                             ; preds = %3350, %3335
+  %3347 = load ptr, ptr %13, align 8, !tbaa !13
+  %3348 = load ptr, ptr %12, align 8, !tbaa !13
+  %3349 = icmp ne ptr %3347, %3348
+  br i1 %3349, label %3350, label %3365
+
+3350:                                             ; preds = %3346
+  %3351 = load ptr, ptr %13, align 8, !tbaa !13
+  %3352 = load i8, ptr %3351, align 1, !tbaa !10
+  %3353 = zext i8 %3352 to i32
+  %3354 = sext i32 %3353 to i64
+  %3355 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %3354
+  %3356 = load i8, ptr %3355, align 1, !tbaa !10
+  %3357 = sext i8 %3356 to i32
+  %3358 = load ptr, ptr %16, align 8, !tbaa !17
+  %3359 = load ptr, ptr %4, align 8, !tbaa !3
+  %3360 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @yydestruct(ptr noundef @.str.66, i32 noundef %3357, ptr noundef %3358, ptr noundef %3359, ptr noundef %3360)
+  %3361 = load ptr, ptr %16, align 8, !tbaa !17
+  %3362 = getelementptr inbounds %union.YYSTYPE, ptr %3361, i64 -1
+  store ptr %3362, ptr %16, align 8, !tbaa !17
+  %3363 = load ptr, ptr %13, align 8, !tbaa !13
+  %3364 = getelementptr inbounds i8, ptr %3363, i64 -1
+  store ptr %3364, ptr %13, align 8, !tbaa !13
+  br label %3346
+
+3365:                                             ; preds = %3346
+  %3366 = load ptr, ptr %12, align 8, !tbaa !13
+  %3367 = getelementptr inbounds [200 x i8], ptr %11, i64 0, i64 0
+  %3368 = icmp ne ptr %3366, %3367
+  br i1 %3368, label %3369, label %3371
+
+3369:                                             ; preds = %3365
+  %3370 = load ptr, ptr %12, align 8, !tbaa !13
+  call void @free(ptr noundef %3370) #9
+  br label %3371
+
+3371:                                             ; preds = %3369, %3365
+  %3372 = load ptr, ptr %23, align 8, !tbaa !13
+  %3373 = getelementptr inbounds [128 x i8], ptr %22, i64 0, i64 0
+  %3374 = icmp ne ptr %3372, %3373
+  br i1 %3374, label %3375, label %3377
+
+3375:                                             ; preds = %3371
+  %3376 = load ptr, ptr %23, align 8, !tbaa !13
+  call void @free(ptr noundef %3376) #9
+  br label %3377
+
+3377:                                             ; preds = %3375, %3371
+  %3378 = load i32, ptr %19, align 4, !tbaa !11
+  store i32 %3378, ptr %3, align 4
+  store i32 1, ptr %31, align 4
+  br label %3379
+
+3379:                                             ; preds = %3377, %3215, %2377, %1500, %1286, %1156, %881, %761, %681, %419, %349, %305, %274, %155
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #9
+  call void @llvm.lifetime.end.p0(i64 128, ptr %22) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 1600, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 200, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  %3380 = load i32, ptr %3, align 4
+  ret i32 %3380
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
-declare i32 @yara_yylex(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @yara_yylex(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @yr_parser_reduce_import(ptr noundef, ptr noundef) #4
+declare i32 @yr_parser_reduce_import(ptr noundef, ptr noundef) #5
 
-declare void @yara_yyerror(ptr noundef, ptr noundef, ptr noundef) #4
+declare void @yara_yyerror(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @yr_parser_reduce_rule_declaration(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @yr_parser_reduce_rule_declaration(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare i32 @yr_arena_write_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #4
+declare i32 @yr_arena_write_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #5
 
-declare ptr @yr_parser_reduce_meta_declaration(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #4
+declare ptr @yr_parser_reduce_meta_declaration(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @yr_parser_reduce_string_declaration(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #4
+declare ptr @yr_parser_reduce_string_declaration(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @yara_yyget_lineno(ptr noundef) #4
+declare i32 @yara_yyget_lineno(ptr noundef) #5
 
-declare i32 @yr_parser_lookup_loop_variable(ptr noundef, ptr noundef) #4
+declare i32 @yr_parser_lookup_loop_variable(ptr noundef, ptr noundef) #5
 
-declare i32 @yr_parser_emit_with_arg(ptr noundef, i8 noundef signext, i64 noundef, ptr noundef) #4
+declare i32 @yr_parser_emit_with_arg(ptr noundef, i8 noundef signext, i64 noundef, ptr noundef) #5
 
-declare ptr @yr_hash_table_lookup(ptr noundef, ptr noundef, ptr noundef) #4
+declare ptr @yr_hash_table_lookup(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @yr_arena_write_string(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @yr_arena_write_string(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @yr_parser_emit_with_arg_reloc(ptr noundef, i8 noundef signext, i64 noundef, ptr noundef) #4
+declare i32 @yr_parser_emit_with_arg_reloc(ptr noundef, i8 noundef signext, i64 noundef, ptr noundef) #5
 
-declare i64 @cli_strlcpy(ptr noundef, ptr noundef, i64 noundef) #4
+declare i64 @cli_strlcpy(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @yr_parser_emit(ptr noundef, i8 noundef signext, ptr noundef) #4
+declare i32 @yr_parser_emit(ptr noundef, i8 noundef signext, ptr noundef) #5
 
-declare i32 @yr_parser_check_types(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @yr_parser_check_types(ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #7
 
-declare ptr @cli_safer_strdup(ptr noundef) #4
+declare ptr @cli_safer_strdup(ptr noundef) #5
 
-declare ptr @cli_max_malloc(i64 noundef) #4
+declare ptr @cli_max_malloc(i64 noundef) #5
 
-declare i64 @cli_strlcat(ptr noundef, ptr noundef, i64 noundef) #4
+declare i64 @cli_strlcat(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @yr_parser_reduce_string_identifier(ptr noundef, ptr noundef, i8 noundef signext) #4
+declare i32 @yr_parser_reduce_string_identifier(ptr noundef, ptr noundef, i8 noundef signext) #5
 
-declare i32 @yr_parser_emit_pushes_for_strings(ptr noundef, ptr noundef) #4
+declare i32 @yr_parser_emit_pushes_for_strings(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #7
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #8
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @yysyntax_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
@@ -5589,353 +5876,426 @@ define internal i32 @yysyntax_error(ptr noundef %0, ptr noundef %1, ptr noundef 
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i64, align 8
-  %21 = alloca i64, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i32 %3, ptr %9, align 4
-  store ptr null, ptr %10, align 8
-  store i32 0, ptr %12, align 4
-  store i64 0, ptr %13, align 8
-  %24 = load i32, ptr %9, align 4
-  %25 = icmp ne i32 %24, -2
-  br i1 %25, label %26, label %124
+  %21 = alloca i32, align 4
+  %22 = alloca i64, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !60
+  store ptr %1, ptr %7, align 8, !tbaa !62
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store i32 %3, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  store ptr null, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  store i32 0, ptr %12, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  store i64 0, ptr %13, align 8, !tbaa !15
+  %25 = load i32, ptr %9, align 4, !tbaa !11
+  %26 = icmp ne i32 %25, -2
+  br i1 %26, label %27, label %134
 
-26:                                               ; preds = %4
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [216 x i16], ptr @yypact, i64 0, i64 %30
-  %32 = load i16, ptr %31, align 2
-  %33 = sext i16 %32 to i32
-  store i32 %33, ptr %14, align 4
-  %34 = load i32, ptr %9, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  %38 = call i64 @yytnamerr(ptr noundef null, ptr noundef %37)
-  store i64 %38, ptr %15, align 8
-  %39 = load i64, ptr %15, align 8
-  store i64 %39, ptr %13, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %12, align 4
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %12, align 4
-  %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds [5 x ptr], ptr %11, i64 0, i64 %46
-  store ptr %43, ptr %47, align 8
-  %48 = load i32, ptr %14, align 4
-  %49 = icmp eq i32 %48, -66
-  br i1 %49, label %123, label %50
+27:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  %28 = load ptr, ptr %8, align 8, !tbaa !13
+  %29 = load i8, ptr %28, align 1, !tbaa !10
+  %30 = zext i8 %29 to i32
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds [216 x i16], ptr @yypact, i64 0, i64 %31
+  %33 = load i16, ptr %32, align 2, !tbaa !21
+  %34 = sext i16 %33 to i32
+  store i32 %34, ptr %14, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  %35 = load i32, ptr %9, align 4, !tbaa !11
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %36
+  %38 = load ptr, ptr %37, align 8, !tbaa !13
+  %39 = call i64 @yytnamerr(ptr noundef null, ptr noundef %38)
+  store i64 %39, ptr %15, align 8, !tbaa !15
+  %40 = load i64, ptr %15, align 8, !tbaa !15
+  store i64 %40, ptr %13, align 8, !tbaa !15
+  %41 = load i32, ptr %9, align 4, !tbaa !11
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %42
+  %44 = load ptr, ptr %43, align 8, !tbaa !13
+  %45 = load i32, ptr %12, align 4, !tbaa !11
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %12, align 4, !tbaa !11
+  %47 = sext i32 %45 to i64
+  %48 = getelementptr inbounds [5 x ptr], ptr %11, i64 0, i64 %47
+  store ptr %44, ptr %48, align 8, !tbaa !13
+  %49 = load i32, ptr %14, align 4, !tbaa !11
+  %50 = icmp eq i32 %49, -66
+  br i1 %50, label %130, label %51
 
-50:                                               ; preds = %26
-  %51 = load i32, ptr %14, align 4
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %56
+51:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #9
+  %52 = load i32, ptr %14, align 4, !tbaa !11
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %54, label %57
 
-53:                                               ; preds = %50
-  %54 = load i32, ptr %14, align 4
-  %55 = sub nsw i32 0, %54
-  br label %57
+54:                                               ; preds = %51
+  %55 = load i32, ptr %14, align 4, !tbaa !11
+  %56 = sub nsw i32 0, %55
+  br label %58
 
-56:                                               ; preds = %50
-  br label %57
+57:                                               ; preds = %51
+  br label %58
 
-57:                                               ; preds = %56, %53
-  %58 = phi i32 [ %55, %53 ], [ 0, %56 ]
-  store i32 %58, ptr %16, align 4
-  %59 = load i32, ptr %14, align 4
-  %60 = sub nsw i32 433, %59
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %17, align 4
-  %62 = load i32, ptr %17, align 4
-  %63 = icmp slt i32 %62, 74
-  br i1 %63, label %64, label %66
+58:                                               ; preds = %57, %54
+  %59 = phi i32 [ %56, %54 ], [ 0, %57 ]
+  store i32 %59, ptr %16, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #9
+  %60 = load i32, ptr %14, align 4, !tbaa !11
+  %61 = sub nsw i32 433, %60
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %17, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #9
+  %63 = load i32, ptr %17, align 4, !tbaa !11
+  %64 = icmp slt i32 %63, 74
+  br i1 %64, label %65, label %67
 
-64:                                               ; preds = %57
-  %65 = load i32, ptr %17, align 4
-  br label %67
+65:                                               ; preds = %58
+  %66 = load i32, ptr %17, align 4, !tbaa !11
+  br label %68
 
-66:                                               ; preds = %57
-  br label %67
+67:                                               ; preds = %58
+  br label %68
 
-67:                                               ; preds = %66, %64
-  %68 = phi i32 [ %65, %64 ], [ 74, %66 ]
-  store i32 %68, ptr %18, align 4
-  %69 = load i32, ptr %16, align 4
-  store i32 %69, ptr %19, align 4
-  br label %70
+68:                                               ; preds = %67, %65
+  %69 = phi i32 [ %66, %65 ], [ 74, %67 ]
+  store i32 %69, ptr %18, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #9
+  %70 = load i32, ptr %16, align 4, !tbaa !11
+  store i32 %70, ptr %19, align 4, !tbaa !11
+  br label %71
 
-70:                                               ; preds = %119, %67
-  %71 = load i32, ptr %19, align 4
-  %72 = load i32, ptr %18, align 4
-  %73 = icmp slt i32 %71, %72
-  br i1 %73, label %74, label %122
+71:                                               ; preds = %123, %68
+  %72 = load i32, ptr %19, align 4, !tbaa !11
+  %73 = load i32, ptr %18, align 4, !tbaa !11
+  %74 = icmp slt i32 %72, %73
+  br i1 %74, label %75, label %126
 
-74:                                               ; preds = %70
-  %75 = load i32, ptr %19, align 4
-  %76 = load i32, ptr %14, align 4
-  %77 = add nsw i32 %75, %76
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [434 x i16], ptr @yycheck, i64 0, i64 %78
-  %80 = load i16, ptr %79, align 2
-  %81 = sext i16 %80 to i32
-  %82 = load i32, ptr %19, align 4
-  %83 = icmp eq i32 %81, %82
-  br i1 %83, label %84, label %118
+75:                                               ; preds = %71
+  %76 = load i32, ptr %19, align 4, !tbaa !11
+  %77 = load i32, ptr %14, align 4, !tbaa !11
+  %78 = add nsw i32 %76, %77
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds [434 x i16], ptr @yycheck, i64 0, i64 %79
+  %81 = load i16, ptr %80, align 2, !tbaa !21
+  %82 = sext i16 %81 to i32
+  %83 = load i32, ptr %19, align 4, !tbaa !11
+  %84 = icmp eq i32 %82, %83
+  br i1 %84, label %85, label %122
 
-84:                                               ; preds = %74
-  %85 = load i32, ptr %19, align 4
-  %86 = icmp ne i32 %85, 1
-  br i1 %86, label %87, label %118
+85:                                               ; preds = %75
+  %86 = load i32, ptr %19, align 4, !tbaa !11
+  %87 = icmp ne i32 %86, 1
+  br i1 %87, label %88, label %122
 
-87:                                               ; preds = %84
-  %88 = load i32, ptr %12, align 4
-  %89 = icmp eq i32 %88, 5
-  br i1 %89, label %90, label %92
+88:                                               ; preds = %85
+  %89 = load i32, ptr %12, align 4, !tbaa !11
+  %90 = icmp eq i32 %89, 5
+  br i1 %90, label %91, label %93
 
-90:                                               ; preds = %87
-  store i32 1, ptr %12, align 4
-  %91 = load i64, ptr %15, align 8
-  store i64 %91, ptr %13, align 8
-  br label %122
+91:                                               ; preds = %88
+  store i32 1, ptr %12, align 4, !tbaa !11
+  %92 = load i64, ptr %15, align 8, !tbaa !15
+  store i64 %92, ptr %13, align 8, !tbaa !15
+  br label %126
 
-92:                                               ; preds = %87
-  %93 = load i32, ptr %19, align 4
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %94
-  %96 = load ptr, ptr %95, align 8
-  %97 = load i32, ptr %12, align 4
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %12, align 4
-  %99 = sext i32 %97 to i64
-  %100 = getelementptr inbounds [5 x ptr], ptr %11, i64 0, i64 %99
-  store ptr %96, ptr %100, align 8
-  %101 = load i64, ptr %13, align 8
-  %102 = load i32, ptr %19, align 4
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %103
-  %105 = load ptr, ptr %104, align 8
-  %106 = call i64 @yytnamerr(ptr noundef null, ptr noundef %105)
-  %107 = add nsw i64 %101, %106
-  store i64 %107, ptr %20, align 8
-  %108 = load i64, ptr %13, align 8
-  %109 = load i64, ptr %20, align 8
-  %110 = icmp sle i64 %108, %109
-  br i1 %110, label %111, label %116
+93:                                               ; preds = %88
+  %94 = load i32, ptr %19, align 4, !tbaa !11
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %95
+  %97 = load ptr, ptr %96, align 8, !tbaa !13
+  %98 = load i32, ptr %12, align 4, !tbaa !11
+  %99 = add nsw i32 %98, 1
+  store i32 %99, ptr %12, align 4, !tbaa !11
+  %100 = sext i32 %98 to i64
+  %101 = getelementptr inbounds [5 x ptr], ptr %11, i64 0, i64 %100
+  store ptr %97, ptr %101, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #9
+  %102 = load i64, ptr %13, align 8, !tbaa !15
+  %103 = load i32, ptr %19, align 4, !tbaa !11
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %104
+  %106 = load ptr, ptr %105, align 8, !tbaa !13
+  %107 = call i64 @yytnamerr(ptr noundef null, ptr noundef %106)
+  %108 = add nsw i64 %102, %107
+  store i64 %108, ptr %20, align 8, !tbaa !15
+  %109 = load i64, ptr %13, align 8, !tbaa !15
+  %110 = load i64, ptr %20, align 8, !tbaa !15
+  %111 = icmp sle i64 %109, %110
+  br i1 %111, label %112, label %117
 
-111:                                              ; preds = %92
-  %112 = load i64, ptr %20, align 8
-  %113 = icmp sle i64 %112, 9223372036854775807
-  br i1 %113, label %114, label %116
+112:                                              ; preds = %93
+  %113 = load i64, ptr %20, align 8, !tbaa !15
+  %114 = icmp sle i64 %113, 9223372036854775807
+  br i1 %114, label %115, label %117
 
-114:                                              ; preds = %111
-  %115 = load i64, ptr %20, align 8
-  store i64 %115, ptr %13, align 8
-  br label %117
-
-116:                                              ; preds = %111, %92
-  store i32 2, ptr %5, align 4
-  br label %215
-
-117:                                              ; preds = %114
+115:                                              ; preds = %112
+  %116 = load i64, ptr %20, align 8, !tbaa !15
+  store i64 %116, ptr %13, align 8, !tbaa !15
   br label %118
 
-118:                                              ; preds = %117, %84, %74
+117:                                              ; preds = %112, %93
+  store i32 2, ptr %5, align 4
+  store i32 1, ptr %21, align 4
   br label %119
 
-119:                                              ; preds = %118
-  %120 = load i32, ptr %19, align 4
-  %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %19, align 4
-  br label %70
+118:                                              ; preds = %115
+  store i32 0, ptr %21, align 4
+  br label %119
 
-122:                                              ; preds = %90, %70
-  br label %123
-
-123:                                              ; preds = %122, %26
-  br label %124
-
-124:                                              ; preds = %123, %4
-  %125 = load i32, ptr %12, align 4
-  switch i32 %125, label %126 [
-    i32 0, label %127
-    i32 1, label %128
-    i32 2, label %129
-    i32 3, label %130
-    i32 4, label %131
-    i32 5, label %132
+119:                                              ; preds = %118, %117
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #9
+  %120 = load i32, ptr %21, align 4
+  switch i32 %120, label %127 [
+    i32 0, label %121
   ]
 
-126:                                              ; preds = %124
+121:                                              ; preds = %119
+  br label %122
+
+122:                                              ; preds = %121, %85, %75
+  br label %123
+
+123:                                              ; preds = %122
+  %124 = load i32, ptr %19, align 4, !tbaa !11
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %19, align 4, !tbaa !11
+  br label %71
+
+126:                                              ; preds = %91, %71
+  store i32 0, ptr %21, align 4
   br label %127
 
-127:                                              ; preds = %126, %124
-  store ptr @.str.61, ptr %10, align 8
-  br label %133
+127:                                              ; preds = %126, %119
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #9
+  %128 = load i32, ptr %21, align 4
+  switch i32 %128, label %131 [
+    i32 0, label %129
+  ]
 
-128:                                              ; preds = %124
-  store ptr @.str.67, ptr %10, align 8
-  br label %133
+129:                                              ; preds = %127
+  br label %130
 
-129:                                              ; preds = %124
-  store ptr @.str.68, ptr %10, align 8
-  br label %133
+130:                                              ; preds = %129, %27
+  store i32 0, ptr %21, align 4
+  br label %131
 
-130:                                              ; preds = %124
-  store ptr @.str.69, ptr %10, align 8
-  br label %133
+131:                                              ; preds = %130, %127
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  %132 = load i32, ptr %21, align 4
+  switch i32 %132, label %228 [
+    i32 0, label %133
+  ]
 
-131:                                              ; preds = %124
-  store ptr @.str.70, ptr %10, align 8
-  br label %133
+133:                                              ; preds = %131
+  br label %134
 
-132:                                              ; preds = %124
-  store ptr @.str.71, ptr %10, align 8
-  br label %133
+134:                                              ; preds = %133, %4
+  %135 = load i32, ptr %12, align 4, !tbaa !11
+  switch i32 %135, label %136 [
+    i32 0, label %137
+    i32 1, label %138
+    i32 2, label %139
+    i32 3, label %140
+    i32 4, label %141
+    i32 5, label %142
+  ]
 
-133:                                              ; preds = %132, %131, %130, %129, %128, %127
-  %134 = load i64, ptr %13, align 8
-  %135 = load ptr, ptr %10, align 8
-  %136 = call i64 @strlen(ptr noundef %135) #10
-  %137 = load i32, ptr %12, align 4
-  %138 = mul nsw i32 2, %137
-  %139 = sext i32 %138 to i64
-  %140 = sub nsw i64 %136, %139
-  %141 = add nsw i64 %134, %140
-  %142 = add nsw i64 %141, 1
-  store i64 %142, ptr %21, align 8
-  %143 = load i64, ptr %13, align 8
-  %144 = load i64, ptr %21, align 8
-  %145 = icmp sle i64 %143, %144
-  br i1 %145, label %146, label %151
+136:                                              ; preds = %134
+  br label %137
 
-146:                                              ; preds = %133
-  %147 = load i64, ptr %21, align 8
-  %148 = icmp sle i64 %147, 9223372036854775807
-  br i1 %148, label %149, label %151
+137:                                              ; preds = %134, %136
+  store ptr @.str.61, ptr %10, align 8, !tbaa !13
+  br label %143
 
-149:                                              ; preds = %146
-  %150 = load i64, ptr %21, align 8
-  store i64 %150, ptr %13, align 8
-  br label %152
+138:                                              ; preds = %134
+  store ptr @.str.67, ptr %10, align 8, !tbaa !13
+  br label %143
 
-151:                                              ; preds = %146, %133
+139:                                              ; preds = %134
+  store ptr @.str.68, ptr %10, align 8, !tbaa !13
+  br label %143
+
+140:                                              ; preds = %134
+  store ptr @.str.69, ptr %10, align 8, !tbaa !13
+  br label %143
+
+141:                                              ; preds = %134
+  store ptr @.str.70, ptr %10, align 8, !tbaa !13
+  br label %143
+
+142:                                              ; preds = %134
+  store ptr @.str.71, ptr %10, align 8, !tbaa !13
+  br label %143
+
+143:                                              ; preds = %142, %141, %140, %139, %138, %137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #9
+  %144 = load i64, ptr %13, align 8, !tbaa !15
+  %145 = load ptr, ptr %10, align 8, !tbaa !13
+  %146 = call i64 @strlen(ptr noundef %145) #11
+  %147 = load i32, ptr %12, align 4, !tbaa !11
+  %148 = mul nsw i32 2, %147
+  %149 = sext i32 %148 to i64
+  %150 = sub nsw i64 %146, %149
+  %151 = add nsw i64 %144, %150
+  %152 = add nsw i64 %151, 1
+  store i64 %152, ptr %22, align 8, !tbaa !15
+  %153 = load i64, ptr %13, align 8, !tbaa !15
+  %154 = load i64, ptr %22, align 8, !tbaa !15
+  %155 = icmp sle i64 %153, %154
+  br i1 %155, label %156, label %161
+
+156:                                              ; preds = %143
+  %157 = load i64, ptr %22, align 8, !tbaa !15
+  %158 = icmp sle i64 %157, 9223372036854775807
+  br i1 %158, label %159, label %161
+
+159:                                              ; preds = %156
+  %160 = load i64, ptr %22, align 8, !tbaa !15
+  store i64 %160, ptr %13, align 8, !tbaa !15
+  br label %162
+
+161:                                              ; preds = %156, %143
   store i32 2, ptr %5, align 4
-  br label %215
+  store i32 1, ptr %21, align 4
+  br label %163
 
-152:                                              ; preds = %149
-  %153 = load ptr, ptr %6, align 8
-  %154 = load i64, ptr %153, align 8
-  %155 = load i64, ptr %13, align 8
-  %156 = icmp slt i64 %154, %155
-  br i1 %156, label %157, label %172
+162:                                              ; preds = %159
+  store i32 0, ptr %21, align 4
+  br label %163
 
-157:                                              ; preds = %152
-  %158 = load i64, ptr %13, align 8
-  %159 = mul nsw i64 2, %158
-  %160 = load ptr, ptr %6, align 8
-  store i64 %159, ptr %160, align 8
-  %161 = load i64, ptr %13, align 8
-  %162 = load ptr, ptr %6, align 8
-  %163 = load i64, ptr %162, align 8
-  %164 = icmp sle i64 %161, %163
-  br i1 %164, label %165, label %169
+163:                                              ; preds = %162, %161
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #9
+  %164 = load i32, ptr %21, align 4
+  switch i32 %164, label %228 [
+    i32 0, label %165
+  ]
 
-165:                                              ; preds = %157
-  %166 = load ptr, ptr %6, align 8
-  %167 = load i64, ptr %166, align 8
-  %168 = icmp sle i64 %167, 9223372036854775807
-  br i1 %168, label %171, label %169
+165:                                              ; preds = %163
+  %166 = load ptr, ptr %6, align 8, !tbaa !60
+  %167 = load i64, ptr %166, align 8, !tbaa !15
+  %168 = load i64, ptr %13, align 8, !tbaa !15
+  %169 = icmp slt i64 %167, %168
+  br i1 %169, label %170, label %185
 
-169:                                              ; preds = %165, %157
-  %170 = load ptr, ptr %6, align 8
-  store i64 9223372036854775807, ptr %170, align 8
-  br label %171
+170:                                              ; preds = %165
+  %171 = load i64, ptr %13, align 8, !tbaa !15
+  %172 = mul nsw i64 2, %171
+  %173 = load ptr, ptr %6, align 8, !tbaa !60
+  store i64 %172, ptr %173, align 8, !tbaa !15
+  %174 = load i64, ptr %13, align 8, !tbaa !15
+  %175 = load ptr, ptr %6, align 8, !tbaa !60
+  %176 = load i64, ptr %175, align 8, !tbaa !15
+  %177 = icmp sle i64 %174, %176
+  br i1 %177, label %178, label %182
 
-171:                                              ; preds = %169, %165
+178:                                              ; preds = %170
+  %179 = load ptr, ptr %6, align 8, !tbaa !60
+  %180 = load i64, ptr %179, align 8, !tbaa !15
+  %181 = icmp sle i64 %180, 9223372036854775807
+  br i1 %181, label %184, label %182
+
+182:                                              ; preds = %178, %170
+  %183 = load ptr, ptr %6, align 8, !tbaa !60
+  store i64 9223372036854775807, ptr %183, align 8, !tbaa !15
+  br label %184
+
+184:                                              ; preds = %182, %178
   store i32 1, ptr %5, align 4
-  br label %215
+  store i32 1, ptr %21, align 4
+  br label %228
 
-172:                                              ; preds = %152
-  %173 = load ptr, ptr %7, align 8
-  %174 = load ptr, ptr %173, align 8
-  store ptr %174, ptr %22, align 8
-  store i32 0, ptr %23, align 4
-  br label %175
+185:                                              ; preds = %165
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #9
+  %186 = load ptr, ptr %7, align 8, !tbaa !62
+  %187 = load ptr, ptr %186, align 8, !tbaa !13
+  store ptr %187, ptr %23, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #9
+  store i32 0, ptr %24, align 4, !tbaa !11
+  br label %188
 
-175:                                              ; preds = %213, %172
-  %176 = load ptr, ptr %10, align 8
-  %177 = load i8, ptr %176, align 1
-  %178 = load ptr, ptr %22, align 8
-  store i8 %177, ptr %178, align 1
-  %179 = sext i8 %177 to i32
-  %180 = icmp ne i32 %179, 0
-  br i1 %180, label %181, label %214
+188:                                              ; preds = %226, %185
+  %189 = load ptr, ptr %10, align 8, !tbaa !13
+  %190 = load i8, ptr %189, align 1, !tbaa !10
+  %191 = load ptr, ptr %23, align 8, !tbaa !13
+  store i8 %190, ptr %191, align 1, !tbaa !10
+  %192 = sext i8 %190 to i32
+  %193 = icmp ne i32 %192, 0
+  br i1 %193, label %194, label %227
 
-181:                                              ; preds = %175
-  %182 = load ptr, ptr %22, align 8
-  %183 = load i8, ptr %182, align 1
-  %184 = sext i8 %183 to i32
-  %185 = icmp eq i32 %184, 37
-  br i1 %185, label %186, label %208
+194:                                              ; preds = %188
+  %195 = load ptr, ptr %23, align 8, !tbaa !13
+  %196 = load i8, ptr %195, align 1, !tbaa !10
+  %197 = sext i8 %196 to i32
+  %198 = icmp eq i32 %197, 37
+  br i1 %198, label %199, label %221
 
-186:                                              ; preds = %181
-  %187 = load ptr, ptr %10, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 1
-  %189 = load i8, ptr %188, align 1
-  %190 = sext i8 %189 to i32
-  %191 = icmp eq i32 %190, 115
-  br i1 %191, label %192, label %208
+199:                                              ; preds = %194
+  %200 = load ptr, ptr %10, align 8, !tbaa !13
+  %201 = getelementptr inbounds i8, ptr %200, i64 1
+  %202 = load i8, ptr %201, align 1, !tbaa !10
+  %203 = sext i8 %202 to i32
+  %204 = icmp eq i32 %203, 115
+  br i1 %204, label %205, label %221
 
-192:                                              ; preds = %186
-  %193 = load i32, ptr %23, align 4
-  %194 = load i32, ptr %12, align 4
-  %195 = icmp slt i32 %193, %194
-  br i1 %195, label %196, label %208
+205:                                              ; preds = %199
+  %206 = load i32, ptr %24, align 4, !tbaa !11
+  %207 = load i32, ptr %12, align 4, !tbaa !11
+  %208 = icmp slt i32 %206, %207
+  br i1 %208, label %209, label %221
 
-196:                                              ; preds = %192
-  %197 = load ptr, ptr %22, align 8
-  %198 = load i32, ptr %23, align 4
-  %199 = add nsw i32 %198, 1
-  store i32 %199, ptr %23, align 4
-  %200 = sext i32 %198 to i64
-  %201 = getelementptr inbounds [5 x ptr], ptr %11, i64 0, i64 %200
-  %202 = load ptr, ptr %201, align 8
-  %203 = call i64 @yytnamerr(ptr noundef %197, ptr noundef %202)
-  %204 = load ptr, ptr %22, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 %203
-  store ptr %205, ptr %22, align 8
-  %206 = load ptr, ptr %10, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 2
-  store ptr %207, ptr %10, align 8
-  br label %213
+209:                                              ; preds = %205
+  %210 = load ptr, ptr %23, align 8, !tbaa !13
+  %211 = load i32, ptr %24, align 4, !tbaa !11
+  %212 = add nsw i32 %211, 1
+  store i32 %212, ptr %24, align 4, !tbaa !11
+  %213 = sext i32 %211 to i64
+  %214 = getelementptr inbounds [5 x ptr], ptr %11, i64 0, i64 %213
+  %215 = load ptr, ptr %214, align 8, !tbaa !13
+  %216 = call i64 @yytnamerr(ptr noundef %210, ptr noundef %215)
+  %217 = load ptr, ptr %23, align 8, !tbaa !13
+  %218 = getelementptr inbounds i8, ptr %217, i64 %216
+  store ptr %218, ptr %23, align 8, !tbaa !13
+  %219 = load ptr, ptr %10, align 8, !tbaa !13
+  %220 = getelementptr inbounds i8, ptr %219, i64 2
+  store ptr %220, ptr %10, align 8, !tbaa !13
+  br label %226
 
-208:                                              ; preds = %192, %186, %181
-  %209 = load ptr, ptr %22, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i32 1
-  store ptr %210, ptr %22, align 8
-  %211 = load ptr, ptr %10, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i32 1
-  store ptr %212, ptr %10, align 8
-  br label %213
+221:                                              ; preds = %205, %199, %194
+  %222 = load ptr, ptr %23, align 8, !tbaa !13
+  %223 = getelementptr inbounds nuw i8, ptr %222, i32 1
+  store ptr %223, ptr %23, align 8, !tbaa !13
+  %224 = load ptr, ptr %10, align 8, !tbaa !13
+  %225 = getelementptr inbounds nuw i8, ptr %224, i32 1
+  store ptr %225, ptr %10, align 8, !tbaa !13
+  br label %226
 
-213:                                              ; preds = %208, %196
-  br label %175
+226:                                              ; preds = %221, %209
+  br label %188
 
-214:                                              ; preds = %175
+227:                                              ; preds = %188
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #9
   store i32 0, ptr %5, align 4
-  br label %215
+  store i32 1, ptr %21, align 4
+  br label %228
 
-215:                                              ; preds = %214, %171, %151, %116
-  %216 = load i32, ptr %5, align 4
-  ret i32 %216
+228:                                              ; preds = %227, %184, %163, %131
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  %229 = load i32, ptr %5, align 4
+  ret i32 %229
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5945,21 +6305,21 @@ define internal void @yydestruct(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !13
+  store i32 %1, ptr %7, align 4, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !17
+  store ptr %3, ptr %9, align 8, !tbaa !3
+  store ptr %4, ptr %10, align 8, !tbaa !7
+  %11 = load ptr, ptr %6, align 8, !tbaa !13
   %12 = icmp ne ptr %11, null
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %5
-  store ptr @.str.181, ptr %6, align 8
+  store ptr @.str.181, ptr %6, align 8, !tbaa !13
   br label %14
 
 14:                                               ; preds = %13, %5
-  %15 = load i32, ptr %7, align 4
+  %15 = load i32, ptr %7, align 4, !tbaa !11
   switch i32 %15, label %40 [
     i32 9, label %16
     i32 10, label %19
@@ -5972,50 +6332,50 @@ define internal void @yydestruct(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   ]
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %17, align 8
+  %17 = load ptr, ptr %8, align 8, !tbaa !17
+  %18 = load ptr, ptr %17, align 8, !tbaa !10
   call void @free(ptr noundef %18) #9
   br label %41
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr %8, align 8
-  %21 = load ptr, ptr %20, align 8
+  %20 = load ptr, ptr %8, align 8, !tbaa !17
+  %21 = load ptr, ptr %20, align 8, !tbaa !10
   call void @free(ptr noundef %21) #9
   br label %41
 
 22:                                               ; preds = %14
-  %23 = load ptr, ptr %8, align 8
-  %24 = load ptr, ptr %23, align 8
+  %23 = load ptr, ptr %8, align 8, !tbaa !17
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
   call void @free(ptr noundef %24) #9
   br label %41
 
 25:                                               ; preds = %14
-  %26 = load ptr, ptr %8, align 8
-  %27 = load ptr, ptr %26, align 8
+  %26 = load ptr, ptr %8, align 8, !tbaa !17
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
   call void @free(ptr noundef %27) #9
   br label %41
 
 28:                                               ; preds = %14
-  %29 = load ptr, ptr %8, align 8
-  %30 = load ptr, ptr %29, align 8
+  %29 = load ptr, ptr %8, align 8, !tbaa !17
+  %30 = load ptr, ptr %29, align 8, !tbaa !10
   call void @free(ptr noundef %30) #9
   br label %41
 
 31:                                               ; preds = %14
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %32, align 8
+  %32 = load ptr, ptr %8, align 8, !tbaa !17
+  %33 = load ptr, ptr %32, align 8, !tbaa !10
   call void @free(ptr noundef %33) #9
   br label %41
 
 34:                                               ; preds = %14
-  %35 = load ptr, ptr %8, align 8
-  %36 = load ptr, ptr %35, align 8
+  %35 = load ptr, ptr %8, align 8, !tbaa !17
+  %36 = load ptr, ptr %35, align 8, !tbaa !10
   call void @free(ptr noundef %36) #9
   br label %41
 
 37:                                               ; preds = %14
-  %38 = load ptr, ptr %8, align 8
-  %39 = load ptr, ptr %38, align 8
+  %38 = load ptr, ptr %8, align 8, !tbaa !17
+  %39 = load ptr, ptr %38, align 8, !tbaa !10
   call void @free(ptr noundef %39) #9
   br label %41
 
@@ -6033,143 +6393,224 @@ define internal i64 @yytnamerr(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i8, ptr %8, align 1
-  %10 = sext i8 %9 to i32
-  %11 = icmp eq i32 %10, 34
-  br i1 %11, label %12, label %52
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  %9 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load i8, ptr %9, align 1, !tbaa !10
+  %11 = sext i8 %10 to i32
+  %12 = icmp eq i32 %11, 34
+  br i1 %12, label %13, label %56
 
-12:                                               ; preds = %2
-  store i64 0, ptr %6, align 8
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %7, align 8
-  br label %14
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  store i64 0, ptr %6, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %14 = load ptr, ptr %5, align 8, !tbaa !13
+  store ptr %14, ptr %7, align 8, !tbaa !13
+  br label %15
 
-14:                                               ; preds = %50, %12
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i32 1
-  store ptr %16, ptr %7, align 8
-  %17 = load i8, ptr %16, align 1
-  %18 = sext i8 %17 to i32
-  switch i32 %18, label %29 [
-    i32 39, label %19
-    i32 44, label %19
-    i32 92, label %20
-    i32 34, label %41
+15:                                               ; preds = %51, %13
+  %16 = load ptr, ptr %7, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw i8, ptr %16, i32 1
+  store ptr %17, ptr %7, align 8, !tbaa !13
+  %18 = load i8, ptr %17, align 1, !tbaa !10
+  %19 = sext i8 %18 to i32
+  switch i32 %19, label %30 [
+    i32 39, label %20
+    i32 44, label %20
+    i32 92, label %21
+    i32 34, label %42
   ]
 
-19:                                               ; preds = %14, %14
-  br label %51
-
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i32 1
-  store ptr %22, ptr %7, align 8
-  %23 = load i8, ptr %22, align 1
-  %24 = sext i8 %23 to i32
-  %25 = icmp ne i32 %24, 92
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %20
-  br label %51
-
-27:                                               ; preds = %20
-  br label %28
-
-28:                                               ; preds = %27
-  br label %29
-
-29:                                               ; preds = %28, %14
-  %30 = load ptr, ptr %4, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %38
-
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %7, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = load ptr, ptr %4, align 8
-  %36 = load i64, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 %36
-  store i8 %34, ptr %37, align 1
-  br label %38
-
-38:                                               ; preds = %32, %29
-  %39 = load i64, ptr %6, align 8
-  %40 = add nsw i64 %39, 1
-  store i64 %40, ptr %6, align 8
-  br label %50
-
-41:                                               ; preds = %14
-  %42 = load ptr, ptr %4, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %48
-
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %4, align 8
-  %46 = load i64, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 %46
-  store i8 0, ptr %47, align 1
-  br label %48
-
-48:                                               ; preds = %44, %41
-  %49 = load i64, ptr %6, align 8
-  store i64 %49, ptr %3, align 8
-  br label %66
-
-50:                                               ; preds = %38
-  br label %14
-
-51:                                               ; preds = %26, %19
+20:                                               ; preds = %15, %15
   br label %52
 
-52:                                               ; preds = %51, %2
-  %53 = load ptr, ptr %4, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %63
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %7, align 8, !tbaa !13
+  %23 = getelementptr inbounds nuw i8, ptr %22, i32 1
+  store ptr %23, ptr %7, align 8, !tbaa !13
+  %24 = load i8, ptr %23, align 1, !tbaa !10
+  %25 = sext i8 %24 to i32
+  %26 = icmp ne i32 %25, 92
+  br i1 %26, label %27, label %28
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %4, align 8
-  %57 = load ptr, ptr %5, align 8
-  %58 = call ptr @stpcpy(ptr noundef %56, ptr noundef %57) #9
-  %59 = load ptr, ptr %4, align 8
-  %60 = ptrtoint ptr %58 to i64
-  %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  store i64 %62, ptr %3, align 8
-  br label %66
+27:                                               ; preds = %21
+  br label %52
 
-63:                                               ; preds = %52
-  %64 = load ptr, ptr %5, align 8
-  %65 = call i64 @strlen(ptr noundef %64) #10
-  store i64 %65, ptr %3, align 8
-  br label %66
+28:                                               ; preds = %21
+  br label %29
 
-66:                                               ; preds = %63, %55, %48
-  %67 = load i64, ptr %3, align 8
-  ret i64 %67
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %15, %29
+  %31 = load ptr, ptr %4, align 8, !tbaa !13
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %39
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %7, align 8, !tbaa !13
+  %35 = load i8, ptr %34, align 1, !tbaa !10
+  %36 = load ptr, ptr %4, align 8, !tbaa !13
+  %37 = load i64, ptr %6, align 8, !tbaa !15
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  store i8 %35, ptr %38, align 1, !tbaa !10
+  br label %39
+
+39:                                               ; preds = %33, %30
+  %40 = load i64, ptr %6, align 8, !tbaa !15
+  %41 = add nsw i64 %40, 1
+  store i64 %41, ptr %6, align 8, !tbaa !15
+  br label %51
+
+42:                                               ; preds = %15
+  %43 = load ptr, ptr %4, align 8, !tbaa !13
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %49
+
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %4, align 8, !tbaa !13
+  %47 = load i64, ptr %6, align 8, !tbaa !15
+  %48 = getelementptr inbounds i8, ptr %46, i64 %47
+  store i8 0, ptr %48, align 1, !tbaa !10
+  br label %49
+
+49:                                               ; preds = %45, %42
+  %50 = load i64, ptr %6, align 8, !tbaa !15
+  store i64 %50, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %53
+
+51:                                               ; preds = %39
+  br label %15
+
+52:                                               ; preds = %27, %20
+  store i32 0, ptr %8, align 4
+  br label %53
+
+53:                                               ; preds = %52, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %54 = load i32, ptr %8, align 4
+  switch i32 %54, label %72 [
+    i32 0, label %55
+    i32 1, label %70
+  ]
+
+55:                                               ; preds = %53
+  br label %56
+
+56:                                               ; preds = %55, %2
+  %57 = load ptr, ptr %4, align 8, !tbaa !13
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %67
+
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %4, align 8, !tbaa !13
+  %61 = load ptr, ptr %5, align 8, !tbaa !13
+  %62 = call ptr @stpcpy(ptr noundef %60, ptr noundef %61) #9
+  %63 = load ptr, ptr %4, align 8, !tbaa !13
+  %64 = ptrtoint ptr %62 to i64
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  store i64 %66, ptr %3, align 8
+  br label %70
+
+67:                                               ; preds = %56
+  %68 = load ptr, ptr %5, align 8, !tbaa !13
+  %69 = call i64 @strlen(ptr noundef %68) #11
+  store i64 %69, ptr %3, align 8
+  br label %70
+
+70:                                               ; preds = %67, %59, %53
+  %71 = load i64, ptr %3, align 8
+  ret i64 %71
+
+72:                                               ; preds = %53
+  unreachable
 }
 
 ; Function Attrs: nounwind
-declare ptr @stpcpy(ptr noundef, ptr noundef) #3
+declare ptr @stpcpy(ptr noundef, ptr noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { noreturn nounwind }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS12_YR_COMPILER", !4, i64 0}
+!9 = !{i64 0, i64 8, !10}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !4, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS7YYSTYPE", !4, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS7yyalloc", !4, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !5, i64 0}
+!23 = !{!24, !12, i64 16}
+!24 = !{!"_YR_COMPILER", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !5, i64 24, !25, i64 224, !25, i64 232, !25, i64 240, !25, i64 248, !25, i64 256, !25, i64 264, !25, i64 272, !25, i64 280, !25, i64 288, !25, i64 296, !26, i64 304, !26, i64 312, !27, i64 320, !28, i64 328, !12, i64 336, !12, i64 340, !5, i64 344, !5, i64 376, !12, i64 408, !12, i64 412, !12, i64 416, !5, i64 424, !12, i64 552, !5, i64 560, !12, i64 688, !5, i64 692, !5, i64 948, !14, i64 1976, !22, i64 1984, !5, i64 1986, !4, i64 3016, !29, i64 3024, !32, i64 3040, !25, i64 3056, !12, i64 3064}
+!25 = !{!"p1 _ZTS9_YR_ARENA", !4, i64 0}
+!26 = !{!"p1 _ZTS14_YR_HASH_TABLE", !4, i64 0}
+!27 = !{!"p1 _ZTS13_YR_NAMESPACE", !4, i64 0}
+!28 = !{!"p1 _ZTS10_yc_string", !4, i64 0}
+!29 = !{!"rq", !30, i64 0, !31, i64 8}
+!30 = !{!"p1 _ZTS8_yc_rule", !4, i64 0}
+!31 = !{!"p2 _ZTS8_yc_rule", !4, i64 0}
+!32 = !{!"cs", !28, i64 0, !33, i64 8}
+!33 = !{!"p2 _ZTS10_yc_string", !4, i64 0}
+!34 = !{!24, !28, i64 328}
+!35 = !{!36, !12, i64 8}
+!36 = !{!"_yc_string", !37, i64 0, !12, i64 8, !12, i64 12, !5, i64 16, !5, i64 24, !5, i64 32, !12, i64 40}
+!37 = !{!"", !28, i64 0}
+!38 = !{!24, !25, i64 240}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS13_SIZED_STRING", !4, i64 0}
+!41 = !{!24, !12, i64 4}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS10_YR_OBJECT", !4, i64 0}
+!44 = !{!24, !26, i64 312}
+!45 = !{!24, !27, i64 320}
+!46 = !{!24, !25, i64 224}
+!47 = !{!24, !26, i64 304}
+!48 = !{!30, !30, i64 0}
+!49 = !{!50, !5, i64 0}
+!50 = !{!"_YR_OBJECT", !5, i64 0, !14, i64 8, !4, i64 16, !43, i64 24}
+!51 = !{!50, !14, i64 8}
+!52 = !{!53, !54, i64 32}
+!53 = !{!"_YR_OBJECT_ARRAY", !5, i64 0, !14, i64 8, !4, i64 16, !43, i64 24, !54, i64 32}
+!54 = !{!"p1 _ZTS15_YR_ARRAY_ITEMS", !4, i64 0}
+!55 = !{!56, !43, i64 40}
+!56 = !{!"_YR_OBJECT_FUNCTION", !5, i64 0, !14, i64 8, !4, i64 16, !43, i64 24, !14, i64 32, !43, i64 40, !4, i64 48}
+!57 = !{!24, !12, i64 3064}
+!58 = !{!24, !12, i64 408}
+!59 = !{!24, !12, i64 412}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 long", !4, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p2 omnipotent char", !4, i64 0}

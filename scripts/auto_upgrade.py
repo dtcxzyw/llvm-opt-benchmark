@@ -10,6 +10,7 @@ supported_project = [
     "brotli",
     "chibicc",
     "cjson",
+    "clamav",
 ]
 
 modify_only = [

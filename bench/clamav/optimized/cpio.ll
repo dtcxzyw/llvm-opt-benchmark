@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/cpio.c.ll'
-source_filename = "bench/clamav/original/cpio.c.ll"
+; ModuleID = 'bench/clamav/original/cpio.ll'
+source_filename = "bench/clamav/original/cpio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -33,11 +33,13 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.cpio_hdr_old, align 2
   %3 = alloca [513 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(513) %3, i8 0, i64 513, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !23
   %or.cond103.not105.not = icmp eq i64 %7, 0
   br i1 %or.cond103.not105.not, label %fmap_readn.exit.thread, label %.lr.ph
 
@@ -58,8 +60,8 @@ define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   %11 = sub nuw i64 %9, %.0109
   %spec.select.i = call i64 @llvm.umin.i64(i64 %11, i64 26)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %13 = load ptr, ptr %12, align 8
-  %14 = call ptr %13(ptr noundef nonnull %10, i64 noundef %.0109, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #8
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = call ptr %13(ptr noundef nonnull %10, i64 noundef %.0109, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #9
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -70,7 +72,7 @@ fmap_readn.exit:                                  ; preds = %8
 
 16:                                               ; preds = %fmap_readn.exit
   %17 = add i64 %.0109, 26
-  %.0..0..0. = load i16, ptr %2, align 2
+  %.0..0..0. = load i16, ptr %2, align 2, !tbaa !26
   %18 = icmp eq i16 %.0..0..0., 0
   %19 = icmp ne i32 %.051108, 0
   %or.cond = select i1 %18, i1 %19, i1 false
@@ -85,8 +87,8 @@ fmap_readn.exit:                                  ; preds = %8
 
 22:                                               ; preds = %20, %20
   %23 = add i32 %.054107, 1
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %23) #8
-  %.20..20..20. = load i16, ptr %.20..20..20..sroa_idx, align 2
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %23) #9
+  %.20..20..20. = load i16, ptr %.20..20..20..sroa_idx, align 2, !tbaa !29
   %.not = icmp eq i16 %.20..20..20., 0
   br i1 %.not, label %62, label %24
 
@@ -96,10 +98,10 @@ fmap_readn.exit:                                  ; preds = %8
   %25 = zext i16 %.in to i32
   %26 = call i16 @llvm.umin.i16(i16 %.in, i16 513)
   %27 = zext nneg i16 %26 to i32
-  %28 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
   %29 = zext nneg i16 %26 to i64
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  %31 = load i64, ptr %30, align 8
+  %31 = load i64, ptr %30, align 8, !tbaa !23
   %.not104 = icmp eq i64 %17, %31
   br i1 %.not104, label %fmap_readn.exit92, label %32
 
@@ -111,8 +113,8 @@ fmap_readn.exit:                                  ; preds = %8
   %35 = sub nuw i64 %31, %17
   %spec.select.i90 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %29, i64 %35)
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 104
-  %37 = load ptr, ptr %36, align 8
-  %38 = call ptr %37(ptr noundef nonnull %28, i64 noundef %17, i64 noundef range(i64 0, 4294967296) %spec.select.i90, i32 noundef 0) #8
+  %37 = load ptr, ptr %36, align 8, !tbaa !25
+  %38 = call ptr %37(ptr noundef nonnull %28, i64 noundef %17, i64 noundef range(i64 0, 4294967296) %spec.select.i90, i32 noundef 0) #9
   %.not.i91 = icmp eq ptr %38, null
   br i1 %.not.i91, label %fmap_readn.exit.thread.sink.split, label %39
 
@@ -130,8 +132,8 @@ fmap_readn.exit92:                                ; preds = %24, %39
   %42 = add nsw i32 %27, -1
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw [513 x i8], ptr %3, i64 0, i64 %43
-  store i8 0, ptr %44, align 1
-  %45 = load i8, ptr %3, align 16
+  store i8 0, ptr %44, align 1, !tbaa !30
+  %45 = load i8, ptr %3, align 16, !tbaa !30
   %.not7.i = icmp eq i8 %45, 0
   br i1 %.not7.i, label %sanitname.exit, label %.lr.ph.i
 
@@ -148,17 +150,17 @@ fmap_readn.exit92:                                ; preds = %24, %39
   br i1 %.not6.i, label %51, label %50
 
 50:                                               ; preds = %48, %.lr.ph.i
-  store i8 95, ptr %.08.i, align 1
+  store i8 95, ptr %.08.i, align 1, !tbaa !30
   br label %51
 
 51:                                               ; preds = %50, %48
   %52 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
-  %53 = load i8, ptr %52, align 1
+  %53 = load i8, ptr %52, align 1, !tbaa !30
   %.not.i93 = icmp eq i8 %53, 0
   br i1 %.not.i93, label %sanitname.exit, label %.lr.ph.i
 
 sanitname.exit:                                   ; preds = %51, %40
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #9
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %3, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
   %.not70 = icmp eq i32 %bcmp, 0
   %spec.select = select i1 %.not70, i32 1, i32 %.051108
@@ -192,13 +194,13 @@ sanitname.exit:                                   ; preds = %51, %40
   %.in77 = select i1 %21, i16 %.24..24..24.99, i16 %rev76
   %65 = zext i16 %.in77 to i32
   %66 = or disjoint i32 %64, %65
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %66) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %66) #9
   %.not78 = icmp eq i32 %66, 0
   br i1 %.not78, label %.backedge, label %67
 
 67:                                               ; preds = %62
   %68 = zext i32 %66 to i64
-  %69 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %68, i64 noundef %68, i32 noundef 0, i32 noundef %23, i32 noundef 0) #8
+  %69 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %68, i64 noundef %68, i32 noundef 0, i32 noundef %23, i32 noundef 0) #9
   %.not79 = icmp eq i32 %69, 0
   br i1 %.not79, label %70, label %fmap_readn.exit.thread
 
@@ -210,12 +212,12 @@ sanitname.exit:                                   ; preds = %51, %40
   br i1 %.not82, label %72, label %71
 
 71:                                               ; preds = %70
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #9
   br label %75
 
 72:                                               ; preds = %70
-  %73 = load ptr, ptr %4, align 8
-  %74 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %73, i64 noundef %.1, i64 noundef %68, ptr noundef %0, i32 noundef 0, ptr noundef %.156, i32 noundef 0) #8
+  %73 = load ptr, ptr %4, align 8, !tbaa !3
+  %74 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %73, i64 noundef %.1, i64 noundef %68, ptr noundef %0, i32 noundef 0, ptr noundef %.156, i32 noundef 0) #9
   %.not83 = icmp eq i32 %74, 0
   br i1 %.not83, label %75, label %fmap_readn.exit.thread
 
@@ -228,30 +230,38 @@ sanitname.exit:                                   ; preds = %51, %40
 
 .backedge:                                        ; preds = %75, %62
   %.0.be = phi i64 [ %78, %75 ], [ %.1, %62 ]
-  %79 = load ptr, ptr %4, align 8
+  %79 = load ptr, ptr %4, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 88
-  %81 = load i64, ptr %80, align 8
+  %81 = load i64, ptr %80, align 8, !tbaa !23
   %or.cond103.not = icmp ult i64 %.0.be, %81
   br i1 %or.cond103.not, label %8, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %fmap_readn.exit92, %32, %34, %20
   %.str.2.sink = phi ptr [ @.str, %20 ], [ @.str.2, %34 ], [ @.str.2, %32 ], [ @.str.2, %fmap_readn.exit92 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.2.sink) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.2.sink) #9
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %67, %72, %fmap_readn.exit, %16, %.backedge, %8, %fmap_readn.exit.thread.sink.split, %1
   %.148 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ %69, %67 ], [ %74, %72 ], [ 0, %fmap_readn.exit ], [ 0, %16 ], [ 0, %.backedge ], [ 0, %8 ]
+  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %2)
   ret i32 %.148
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
+declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @cli_matchmeta(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @cli_matchmeta(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
@@ -260,15 +270,20 @@ define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca [12 x i8], align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(513) %3, i8 0, i64 513, i1 false)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  store i32 0, ptr %5, align 4
-  store i32 0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  store i32 0, ptr %5, align 4, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  store i32 0, ptr %6, align 4, !tbaa !31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(76) %2, i8 0, i64 76, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !23
   %or.cond53.not55.not = icmp eq i64 %10, 0
   br i1 %or.cond53.not55.not, label %fmap_readn.exit.thread, label %.lr.ph
 
@@ -288,8 +303,8 @@ define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   %18 = sub nuw i64 %16, %.058
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 76)
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %20 = load ptr, ptr %19, align 8
-  %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.058, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #8
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.058, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #9
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -300,7 +315,7 @@ fmap_readn.exit:                                  ; preds = %15
 
 23:                                               ; preds = %fmap_readn.exit
   %24 = add i64 %.058, 76
-  %25 = load i8, ptr %2, align 1
+  %25 = load i8, ptr %2, align 1, !tbaa !30
   %26 = icmp eq i8 %25, 0
   %27 = icmp ne i32 %.02457, 0
   %or.cond = select i1 %26, i1 %27, i1 false
@@ -313,24 +328,24 @@ fmap_readn.exit:                                  ; preds = %15
 
 29:                                               ; preds = %28
   %30 = add i32 %.02656, 1
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %30) #8
-  %31 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %11, i64 noundef 6) #8
-  store i8 0, ptr %12, align 1
-  %32 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, ptr noundef nonnull %6) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %30) #9
+  %31 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %11, i64 noundef 6) #9
+  store i8 0, ptr %12, align 1, !tbaa !30
+  %32 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, ptr noundef nonnull %6) #9
   %.not37 = icmp eq i32 %32, 1
   br i1 %.not37, label %33, label %fmap_readn.exit.thread.sink.split
 
 33:                                               ; preds = %29
-  %34 = load i32, ptr %6, align 4
+  %34 = load i32, ptr %6, align 4, !tbaa !31
   %.not38 = icmp eq i32 %34, 0
   br i1 %.not38, label %69, label %35
 
 35:                                               ; preds = %33
   %36 = call i32 @llvm.umin.i32(i32 %34, i32 513)
-  %37 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %7, align 8, !tbaa !3
   %38 = zext nneg i32 %36 to i64
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 88
-  %40 = load i64, ptr %39, align 8
+  %40 = load i64, ptr %39, align 8, !tbaa !23
   %.not54 = icmp eq i64 %24, %40
   br i1 %.not54, label %fmap_readn.exit48, label %41
 
@@ -342,8 +357,8 @@ fmap_readn.exit:                                  ; preds = %15
   %44 = sub nuw i64 %40, %24
   %spec.select.i46 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %38, i64 %44)
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 104
-  %46 = load ptr, ptr %45, align 8
-  %47 = call ptr %46(ptr noundef nonnull %37, i64 noundef %24, i64 noundef range(i64 0, 4294967296) %spec.select.i46, i32 noundef 0) #8
+  %46 = load ptr, ptr %45, align 8, !tbaa !25
+  %47 = call ptr %46(ptr noundef nonnull %37, i64 noundef %24, i64 noundef range(i64 0, 4294967296) %spec.select.i46, i32 noundef 0) #9
   %.not.i47 = icmp eq ptr %47, null
   br i1 %.not.i47, label %fmap_readn.exit.thread.sink.split, label %48
 
@@ -361,8 +376,8 @@ fmap_readn.exit48:                                ; preds = %35, %48
   %51 = add nsw i32 %36, -1
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw [513 x i8], ptr %3, i64 0, i64 %52
-  store i8 0, ptr %53, align 1
-  %54 = load i8, ptr %3, align 16
+  store i8 0, ptr %53, align 1, !tbaa !30
+  %54 = load i8, ptr %3, align 16, !tbaa !30
   %.not7.i = icmp eq i8 %54, 0
   br i1 %.not7.i, label %sanitname.exit, label %.lr.ph.i
 
@@ -379,21 +394,21 @@ fmap_readn.exit48:                                ; preds = %35, %48
   br i1 %.not6.i, label %60, label %59
 
 59:                                               ; preds = %57, %.lr.ph.i
-  store i8 95, ptr %.08.i, align 1
+  store i8 95, ptr %.08.i, align 1, !tbaa !30
   br label %60
 
 60:                                               ; preds = %59, %57
   %61 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
-  %62 = load i8, ptr %61, align 1
+  %62 = load i8, ptr %61, align 1, !tbaa !30
   %.not.i49 = icmp eq i8 %62, 0
   br i1 %.not.i49, label %sanitname.exit, label %.lr.ph.i
 
 sanitname.exit:                                   ; preds = %60, %49
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #9
   %bcmp40 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %3, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
   %.not41 = icmp eq i32 %bcmp40, 0
   %spec.select = select i1 %.not41, i32 1, i32 %.02457
-  %63 = load i32, ptr %6, align 4
+  %63 = load i32, ptr %6, align 4, !tbaa !31
   %64 = icmp ult i32 %36, %63
   br i1 %64, label %65, label %69
 
@@ -406,62 +421,67 @@ sanitname.exit:                                   ; preds = %60, %49
 69:                                               ; preds = %sanitname.exit, %65, %33
   %.125 = phi i32 [ %spec.select, %65 ], [ %spec.select, %sanitname.exit ], [ %.02457, %33 ]
   %.1 = phi i64 [ %68, %65 ], [ %50, %sanitname.exit ], [ %24, %33 ]
-  %70 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 11) #8
-  store i8 0, ptr %14, align 1
-  %71 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #8
+  %70 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 11) #9
+  store i8 0, ptr %14, align 1, !tbaa !30
+  %71 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #9
   %.not42 = icmp eq i32 %71, 1
   br i1 %.not42, label %72, label %fmap_readn.exit.thread.sink.split
 
 72:                                               ; preds = %69
-  %73 = load i32, ptr %5, align 4
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %73) #8
-  %74 = load i32, ptr %5, align 4
+  %73 = load i32, ptr %5, align 4, !tbaa !31
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %73) #9
+  %74 = load i32, ptr %5, align 4, !tbaa !31
   %.not43 = icmp eq i32 %74, 0
   br i1 %.not43, label %.backedge, label %75
 
 75:                                               ; preds = %72
   %76 = zext i32 %74 to i64
-  %77 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %76, i64 noundef %76, i32 noundef 0, i32 noundef %30, i32 noundef 0) #8
+  %77 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %76, i64 noundef %76, i32 noundef 0, i32 noundef %30, i32 noundef 0) #9
   %78 = icmp eq i32 %77, 1
   br i1 %78, label %fmap_readn.exit.thread, label %79
 
 79:                                               ; preds = %75
-  %80 = load ptr, ptr %7, align 8
-  %81 = load i32, ptr %5, align 4
+  %80 = load ptr, ptr %7, align 8, !tbaa !3
+  %81 = load i32, ptr %5, align 4, !tbaa !31
   %82 = zext i32 %81 to i64
-  %83 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %80, i64 noundef %.1, i64 noundef %82, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 0) #8
+  %83 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %80, i64 noundef %.1, i64 noundef %82, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 0) #9
   %.not44 = icmp eq i32 %83, 0
   br i1 %.not44, label %84, label %fmap_readn.exit.thread
 
 84:                                               ; preds = %79
-  %85 = load i32, ptr %5, align 4
+  %85 = load i32, ptr %5, align 4, !tbaa !31
   %86 = zext i32 %85 to i64
   %87 = add i64 %.1, %86
   br label %.backedge
 
 .backedge:                                        ; preds = %84, %72
   %.0.be = phi i64 [ %87, %84 ], [ %.1, %72 ]
-  %88 = load ptr, ptr %7, align 8
+  %88 = load ptr, ptr %7, align 8, !tbaa !3
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 88
-  %90 = load i64, ptr %89, align 8
+  %90 = load i64, ptr %89, align 8, !tbaa !23
   %or.cond53.not = icmp ult i64 %.0.be, %90
   br i1 %or.cond53.not, label %15, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %69, %fmap_readn.exit48, %41, %43, %29, %28
   %.str.12.sink = phi ptr [ @.str.8, %28 ], [ @.str.10, %29 ], [ @.str.11, %43 ], [ @.str.11, %41 ], [ @.str.11, %fmap_readn.exit48 ], [ @.str.12, %69 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.12.sink) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.12.sink) #9
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %75, %79, %fmap_readn.exit, %23, %.backedge, %15, %fmap_readn.exit.thread.sink.split, %1
   %.128 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 1, %75 ], [ %83, %79 ], [ 0, %fmap_readn.exit ], [ 0, %23 ], [ 0, %.backedge ], [ 0, %15 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %2) #9
   ret i32 %.128
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -470,11 +490,16 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %5 = alloca [9 x i8], align 1
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(513) %4, i8 0, i64 513, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !23
   %or.cond70.not72.not = icmp eq i64 %11, 0
   br i1 %or.cond70.not72.not, label %fmap_readn.exit.thread, label %.lr.ph
 
@@ -494,8 +519,8 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %18 = sub nuw i64 %16, %.075
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 110)
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %20 = load ptr, ptr %19, align 8
-  %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.075, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #8
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.075, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #9
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -506,7 +531,7 @@ fmap_readn.exit:                                  ; preds = %15
 
 23:                                               ; preds = %fmap_readn.exit
   %24 = add i64 %.075, 110
-  %25 = load i8, ptr %3, align 1
+  %25 = load i8, ptr %3, align 1, !tbaa !30
   %26 = icmp eq i8 %25, 0
   %27 = icmp ne i32 %.03474, 0
   %or.cond = select i1 %26, i1 %27, i1 false
@@ -527,24 +552,24 @@ fmap_readn.exit:                                  ; preds = %15
 
 30:                                               ; preds = %29, %.critedge
   %31 = add i32 %.03673, 1
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %31) #8
-  %32 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 8) #8
-  store i8 0, ptr %13, align 1
-  %33 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16, ptr noundef nonnull %7) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %31) #9
+  %32 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 8) #9
+  store i8 0, ptr %13, align 1, !tbaa !30
+  %33 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16, ptr noundef nonnull %7) #9
   %.not51 = icmp eq i32 %33, 1
   br i1 %.not51, label %34, label %fmap_readn.exit.thread.sink.split
 
 34:                                               ; preds = %30
-  %35 = load i32, ptr %7, align 4
+  %35 = load i32, ptr %7, align 4, !tbaa !31
   %.not52 = icmp eq i32 %35, 0
   br i1 %.not52, label %81, label %36
 
 36:                                               ; preds = %34
   %37 = call i32 @llvm.umin.i32(i32 %35, i32 513)
-  %38 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %8, align 8, !tbaa !3
   %39 = zext nneg i32 %37 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 88
-  %41 = load i64, ptr %40, align 8
+  %41 = load i64, ptr %40, align 8, !tbaa !23
   %.not71 = icmp eq i64 %24, %41
   br i1 %.not71, label %fmap_readn.exit65, label %42
 
@@ -556,8 +581,8 @@ fmap_readn.exit:                                  ; preds = %15
   %45 = sub nuw i64 %41, %24
   %spec.select.i63 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %39, i64 %45)
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 104
-  %47 = load ptr, ptr %46, align 8
-  %48 = call ptr %47(ptr noundef nonnull %38, i64 noundef %24, i64 noundef range(i64 0, 4294967296) %spec.select.i63, i32 noundef 0) #8
+  %47 = load ptr, ptr %46, align 8, !tbaa !25
+  %48 = call ptr %47(ptr noundef nonnull %38, i64 noundef %24, i64 noundef range(i64 0, 4294967296) %spec.select.i63, i32 noundef 0) #9
   %.not.i64 = icmp eq ptr %48, null
   br i1 %.not.i64, label %fmap_readn.exit.thread.sink.split, label %49
 
@@ -575,8 +600,8 @@ fmap_readn.exit65:                                ; preds = %36, %49
   %52 = add nsw i32 %37, -1
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds nuw [513 x i8], ptr %4, i64 0, i64 %53
-  store i8 0, ptr %54, align 1
-  %55 = load i8, ptr %4, align 16
+  store i8 0, ptr %54, align 1, !tbaa !30
+  %55 = load i8, ptr %4, align 16, !tbaa !30
   %.not7.i = icmp eq i8 %55, 0
   br i1 %.not7.i, label %sanitname.exit, label %.lr.ph.i
 
@@ -593,21 +618,21 @@ fmap_readn.exit65:                                ; preds = %36, %49
   br i1 %.not6.i, label %61, label %60
 
 60:                                               ; preds = %58, %.lr.ph.i
-  store i8 95, ptr %.08.i, align 1
+  store i8 95, ptr %.08.i, align 1, !tbaa !30
   br label %61
 
 61:                                               ; preds = %60, %58
   %62 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
-  %63 = load i8, ptr %62, align 1
+  %63 = load i8, ptr %62, align 1, !tbaa !30
   %.not.i66 = icmp eq i8 %63, 0
   br i1 %.not.i66, label %sanitname.exit, label %.lr.ph.i
 
 sanitname.exit:                                   ; preds = %61, %50
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #9
   %bcmp54 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %4, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
   %.not55 = icmp eq i32 %bcmp54, 0
   %spec.select = select i1 %.not55, i32 1, i32 %.03474
-  %64 = load i32, ptr %7, align 4
+  %64 = load i32, ptr %7, align 4, !tbaa !31
   %65 = xor i32 %64, 1
   %.neg = add i32 %65, 1
   %66 = and i32 %.neg, 3
@@ -621,7 +646,7 @@ sanitname.exit:                                   ; preds = %61, %50
 
 70:                                               ; preds = %69
   %71 = add i32 %66, %64
-  store i32 %71, ptr %7, align 4
+  store i32 %71, ptr %7, align 4, !tbaa !31
   br label %72
 
 72:                                               ; preds = %70, %69
@@ -642,35 +667,35 @@ sanitname.exit:                                   ; preds = %61, %50
 81:                                               ; preds = %72, %78, %77, %34
   %.135 = phi i32 [ %spec.select, %72 ], [ %spec.select, %78 ], [ %spec.select, %77 ], [ %.03474, %34 ]
   %.1 = phi i64 [ %76, %72 ], [ %80, %78 ], [ %51, %77 ], [ %24, %34 ]
-  %82 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %14, i64 noundef 8) #8
-  store i8 0, ptr %13, align 1
-  %83 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16, ptr noundef nonnull %6) #8
+  %82 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %14, i64 noundef 8) #9
+  store i8 0, ptr %13, align 1, !tbaa !30
+  %83 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16, ptr noundef nonnull %6) #9
   %.not58 = icmp eq i32 %83, 1
   br i1 %.not58, label %84, label %fmap_readn.exit.thread.sink.split
 
 84:                                               ; preds = %81
-  %85 = load i32, ptr %6, align 4
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %85) #8
-  %86 = load i32, ptr %6, align 4
+  %85 = load i32, ptr %6, align 4, !tbaa !31
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %85) #9
+  %86 = load i32, ptr %6, align 4, !tbaa !31
   %.not59 = icmp eq i32 %86, 0
   br i1 %.not59, label %.backedge, label %87
 
 87:                                               ; preds = %84
   %88 = zext i32 %86 to i64
-  %89 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %88, i64 noundef %88, i32 noundef 0, i32 noundef %31, i32 noundef 0) #8
+  %89 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %88, i64 noundef %88, i32 noundef 0, i32 noundef %31, i32 noundef 0) #9
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %fmap_readn.exit.thread, label %91
 
 91:                                               ; preds = %87
-  %92 = load ptr, ptr %8, align 8
-  %93 = load i32, ptr %6, align 4
+  %92 = load ptr, ptr %8, align 8, !tbaa !3
+  %93 = load i32, ptr %6, align 4, !tbaa !31
   %94 = zext i32 %93 to i64
-  %95 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %92, i64 noundef %.1, i64 noundef %94, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0) #8
+  %95 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %92, i64 noundef %.1, i64 noundef %94, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0) #9
   %.not60 = icmp eq i32 %95, 0
   br i1 %.not60, label %96, label %fmap_readn.exit.thread
 
 96:                                               ; preds = %91
-  %97 = load i32, ptr %6, align 4
+  %97 = load i32, ptr %6, align 4, !tbaa !31
   %98 = and i32 %97, 3
   %.not61 = icmp eq i32 %98, 0
   br i1 %.not61, label %101, label %99
@@ -678,7 +703,7 @@ sanitname.exit:                                   ; preds = %61, %50
 99:                                               ; preds = %96
   %reass.sub = and i32 %97, -4
   %100 = add i32 %reass.sub, 4
-  store i32 %100, ptr %6, align 4
+  store i32 %100, ptr %6, align 4, !tbaa !31
   br label %101
 
 101:                                              ; preds = %99, %96
@@ -689,56 +714,90 @@ sanitname.exit:                                   ; preds = %61, %50
 
 .backedge:                                        ; preds = %101, %84
   %.0.be = phi i64 [ %104, %101 ], [ %.1, %84 ]
-  %105 = load ptr, ptr %8, align 8
+  %105 = load ptr, ptr %8, align 8, !tbaa !3
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 88
-  %107 = load i64, ptr %106, align 8
+  %107 = load i64, ptr %106, align 8, !tbaa !23
   %or.cond70.not = icmp ult i64 %.0.be, %107
   br i1 %or.cond70.not, label %15, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %81, %fmap_readn.exit65, %42, %44, %30, %29, %.critedge
   %.str.19.sink = phi ptr [ @.str.15, %.critedge ], [ @.str.15, %29 ], [ @.str.17, %30 ], [ @.str.18, %44 ], [ @.str.18, %42 ], [ @.str.18, %fmap_readn.exit65 ], [ @.str.19, %81 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.19.sink) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.19.sink) #9
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %87, %91, %fmap_readn.exit, %23, %.backedge, %15, %fmap_readn.exit.thread.sink.split, %2
   %.133 = phi i32 [ 0, %2 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 1, %87 ], [ %95, %91 ], [ 0, %fmap_readn.exit ], [ 0, %23 ], [ 0, %.backedge ], [ 0, %15 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %3) #9
   ret i32 %.133
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #6
+declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #6
+declare i16 @llvm.umin.i16(i16, i16) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #7
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !16, i64 96}
+!4 = !{!"cli_ctx_tag", !5, i64 0, !5, i64 8, !5, i64 16, !6, i64 24, !9, i64 32, !10, i64 40, !11, i64 48, !12, i64 56, !13, i64 64, !14, i64 72, !14, i64 76, !15, i64 80, !14, i64 88, !14, i64 92, !16, i64 96, !7, i64 104, !17, i64 120, !18, i64 128, !6, i64 136, !19, i64 144, !20, i64 152, !20, i64 160, !21, i64 168, !22, i64 184, !22, i64 185}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 long", !6, i64 0}
+!10 = !{!"p1 _ZTS11cli_matcher", !6, i64 0}
+!11 = !{!"p1 _ZTS9cl_engine", !6, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!"p1 _ZTS15cl_scan_options", !6, i64 0}
+!14 = !{!"int", !7, i64 0}
+!15 = !{!"p1 _ZTS19recursion_level_tag", !6, i64 0}
+!16 = !{!"p1 _ZTS7cl_fmap", !6, i64 0}
+!17 = !{!"p1 _ZTS9cli_dconf", !6, i64 0}
+!18 = !{!"p1 _ZTS10bitset_tag", !6, i64 0}
+!19 = !{!"p1 _ZTS10cli_events", !6, i64 0}
+!20 = !{!"p1 _ZTS11json_object", !6, i64 0}
+!21 = !{!"timeval", !12, i64 0, !12, i64 8}
+!22 = !{!"_Bool", !7, i64 0}
+!23 = !{!24, !12, i64 88}
+!24 = !{!"cl_fmap", !6, i64 0, !6, i64 8, !6, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !22, i64 56, !22, i64 57, !22, i64 58, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !22, i64 152, !7, i64 153, !22, i64 169, !7, i64 170, !22, i64 190, !7, i64 191, !9, i64 224, !5, i64 232}
+!25 = !{!24, !6, i64 104}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"cpio_hdr_old", !28, i64 0, !28, i64 2, !28, i64 4, !28, i64 6, !28, i64 8, !28, i64 10, !28, i64 12, !28, i64 14, !7, i64 16, !28, i64 20, !7, i64 22}
+!28 = !{!"short", !7, i64 0}
+!29 = !{!27, !28, i64 20}
+!30 = !{!7, !7, i64 0}
+!31 = !{!14, !14, i64 0}

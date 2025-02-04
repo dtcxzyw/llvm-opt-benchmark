@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/rebuildpe.c.ll'
-source_filename = "bench/clamav/original/rebuildpe.c.ll"
+; ModuleID = 'bench/clamav/original/rebuildpe.ll'
+source_filename = "bench/clamav/original/rebuildpe.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -26,7 +26,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %15 = zext i1 %14 to i32
   %16 = add nsw i32 %12, %15
   %17 = shl nsw i32 %16, 9
-  %18 = load i32, ptr %1, align 4
+  %18 = load i32, ptr %1, align 4, !tbaa !3
   %19 = and i32 %16, 7
   %.not = icmp eq i32 %19, 0
   %20 = select i1 %.not, i32 0, i32 4096
@@ -75,7 +75,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %indvars.iv248 = phi i64 [ 0, %.lr.ph234.preheader ], [ %indvars.iv.next249, %.lr.ph234 ]
   %.0203233 = phi i32 [ 0, %.lr.ph234.preheader ], [ %44, %.lr.ph234 ]
   %38 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv248, i32 3
-  %39 = load i32, ptr %38, align 4
+  %39 = load i32, ptr %38, align 4, !tbaa !8
   %40 = and i32 %39, 511
   %.not218 = icmp eq i32 %40, 0
   %41 = select i1 %.not218, i32 0, i32 512
@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.2231 = phi i32 [ 0, %.lr.ph.preheader ], [ %57, %.lr.ph ]
   %45 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv, i32 3
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 4, !tbaa !8
   %47 = udiv i32 %46, %8
   %48 = urem i32 %46, %8
   %49 = icmp ne i32 %48, 0
@@ -129,34 +129,34 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %66 = and i32 %65, -4096
   %67 = trunc i32 %34 to i16
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 214
-  store i16 %67, ptr %68, align 2
+  store i16 %67, ptr %68, align 2, !tbaa !9
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 248
-  store i32 %4, ptr %69, align 4
+  store i32 %4, ptr %69, align 4, !tbaa !12
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 260
-  store i32 %3, ptr %70, align 4
+  store i32 %3, ptr %70, align 4, !tbaa !13
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 292
-  store i32 %.0207, ptr %71, align 4
+  store i32 %.0207, ptr %71, align 4, !tbaa !14
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %72, i8 0, i64 128, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 344
-  store i32 %5, ptr %73, align 1
+  store i32 %5, ptr %73, align 1, !tbaa !15
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 348
-  store i32 %6, ptr %74, align 1
+  store i32 %6, ptr %74, align 1, !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 456
   br i1 %23, label %76, label %90
 
 76:                                               ; preds = %62
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %75, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false)
-  %77 = load i32, ptr %1, align 4
+  %77 = load i32, ptr %1, align 4, !tbaa !3
   %78 = sub i32 %77, %66
   %79 = getelementptr inbounds nuw i8, ptr %61, i64 464
-  store i32 %78, ptr %79, align 1
+  store i32 %78, ptr %79, align 1, !tbaa !15
   %80 = getelementptr inbounds nuw i8, ptr %61, i64 468
-  store i32 %66, ptr %80, align 1
+  store i32 %66, ptr %80, align 1, !tbaa !15
   %81 = getelementptr inbounds nuw i8, ptr %61, i64 492
-  store i32 -1, ptr %81, align 1
+  store i32 -1, ptr %81, align 1, !tbaa !15
   %82 = getelementptr inbounds nuw i8, ptr %61, i64 496
-  %83 = load i32, ptr %1, align 4
+  %83 = load i32, ptr %1, align 4, !tbaa !3
   %84 = sub i32 %83, %66
   %85 = and i32 %83, 4095
   %.not221 = icmp eq i32 %85, 0
@@ -195,35 +195,35 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
 97:                                               ; preds = %95, %.lr.ph240.split.us
   %98 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv258
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %100 = load i32, ptr %99, align 4
+  %100 = load i32, ptr %99, align 4, !tbaa !16
   %101 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 8
-  store i32 %100, ptr %101, align 1
-  %102 = load i32, ptr %98, align 4
+  store i32 %100, ptr %101, align 1, !tbaa !15
+  %102 = load i32, ptr %98, align 4, !tbaa !3
   %103 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 12
-  store i32 %102, ptr %103, align 1
+  store i32 %102, ptr %103, align 1, !tbaa !15
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 12
-  %105 = load i32, ptr %104, align 4
+  %105 = load i32, ptr %104, align 4, !tbaa !8
   %106 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 16
-  store i32 %105, ptr %106, align 1
+  store i32 %105, ptr %106, align 1, !tbaa !15
   %107 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 20
-  store i32 %.1208237.us, ptr %107, align 1
+  store i32 %.1208237.us, ptr %107, align 1, !tbaa !15
   %108 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 36
-  store i32 -1, ptr %108, align 1
+  store i32 -1, ptr %108, align 1, !tbaa !15
   %109 = zext i32 %.1208237.us to i64
   %110 = getelementptr inbounds nuw i8, ptr %61, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %112 = load i32, ptr %111, align 4
+  %112 = load i32, ptr %111, align 4, !tbaa !17
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
-  %115 = load i32, ptr %104, align 4
+  %115 = load i32, ptr %104, align 4, !tbaa !8
   %116 = zext i32 %115 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr align 1 %114, i64 %116, i1 false)
-  %117 = load i32, ptr %104, align 4
+  %117 = load i32, ptr %104, align 4, !tbaa !8
   %118 = and i32 %117, 511
   %.not222.us = icmp eq i32 %118, 0
   %119 = select i1 %.not222.us, i32 0, i32 512
   %120 = add i32 %119, %117
-  %121 = load i32, ptr %99, align 4
+  %121 = load i32, ptr %99, align 4, !tbaa !16
   %122 = and i32 %121, 4095
   %.not223.us = icmp eq i32 %122, 0
   %123 = select i1 %.not223.us, i32 0, i32 4096
@@ -254,7 +254,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
 
 131:                                              ; preds = %129, %.lr.ph240.split
   %132 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv253, i32 1
-  %133 = load i32, ptr %132, align 4
+  %133 = load i32, ptr %132, align 4, !tbaa !16
   %134 = udiv i32 %133, %8
   %135 = urem i32 %133, %8
   %136 = icmp ne i32 %135, 0
@@ -262,9 +262,9 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %138 = add i32 %134, %137
   %139 = mul i32 %138, %8
   %140 = getelementptr inbounds nuw i8, ptr %.1211236, i64 8
-  store i32 %139, ptr %140, align 1
+  store i32 %139, ptr %140, align 1, !tbaa !15
   %141 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv253
-  %142 = load i32, ptr %141, align 4
+  %142 = load i32, ptr %141, align 4, !tbaa !3
   %143 = udiv i32 %142, %8
   %144 = urem i32 %142, %8
   %145 = icmp ne i32 %144, 0
@@ -272,9 +272,9 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %147 = add i32 %143, %146
   %148 = mul i32 %147, %8
   %149 = getelementptr inbounds nuw i8, ptr %.1211236, i64 12
-  store i32 %148, ptr %149, align 1
+  store i32 %148, ptr %149, align 1, !tbaa !15
   %150 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv253, i32 3
-  %151 = load i32, ptr %150, align 4
+  %151 = load i32, ptr %150, align 4, !tbaa !8
   %152 = udiv i32 %151, %8
   %153 = urem i32 %151, %8
   %154 = icmp ne i32 %153, 0
@@ -282,22 +282,22 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %156 = add i32 %152, %155
   %157 = mul i32 %156, %8
   %158 = getelementptr inbounds nuw i8, ptr %.1211236, i64 16
-  store i32 %157, ptr %158, align 1
+  store i32 %157, ptr %158, align 1, !tbaa !15
   %159 = getelementptr inbounds nuw i8, ptr %.1211236, i64 20
-  store i32 %.1208237, ptr %159, align 1
+  store i32 %.1208237, ptr %159, align 1, !tbaa !15
   %160 = getelementptr inbounds nuw i8, ptr %.1211236, i64 36
-  store i32 -1, ptr %160, align 1
+  store i32 -1, ptr %160, align 1, !tbaa !15
   %161 = zext i32 %.1208237 to i64
   %162 = getelementptr inbounds nuw i8, ptr %61, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %164 = load i32, ptr %163, align 4
+  %164 = load i32, ptr %163, align 4, !tbaa !17
   %165 = zext i32 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %141, i64 12
-  %168 = load i32, ptr %167, align 4
+  %168 = load i32, ptr %167, align 4, !tbaa !8
   %169 = zext i32 %168 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %162, ptr align 1 %166, i64 %169, i1 false)
-  %170 = load i32, ptr %167, align 4
+  %170 = load i32, ptr %167, align 4, !tbaa !8
   %171 = udiv i32 %170, %8
   %172 = urem i32 %170, %8
   %173 = icmp ne i32 %172, 0
@@ -309,7 +309,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %178 = select i1 %.not224, i32 0, i32 512
   %179 = add i32 %178, %176
   %180 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  %181 = load i32, ptr %180, align 4
+  %181 = load i32, ptr %180, align 4, !tbaa !16
   %182 = udiv i32 %181, %8
   %183 = urem i32 %181, %8
   %184 = icmp ne i32 %183, 0
@@ -332,7 +332,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %.1208.lcssa = phi i32 [ %.0207, %90 ], [ %.2209.us, %97 ], [ %.2209, %131 ]
   %.4.lcssa = phi i32 [ %.3, %90 ], [ %.5.us, %97 ], [ %.5, %131 ]
   %192 = getelementptr inbounds nuw i8, ptr %61, i64 288
-  store i32 %.4.lcssa, ptr %192, align 4
+  store i32 %.4.lcssa, ptr %192, align 4, !tbaa !18
   %193 = zext i32 %.1208.lcssa to i64
   %194 = tail call i64 @cli_writen(i32 noundef %7, ptr noundef nonnull %61, i64 noundef %193) #6
   %195 = icmp ne i64 %194, -1
@@ -363,17 +363,32 @@ declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"cli_exe_section", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!4, !5, i64 12}
+!9 = !{!10, !11, i64 6}
+!10 = !{!"IMAGE_PE_HEADER", !5, i64 0, !11, i64 4, !11, i64 6, !5, i64 8, !5, i64 12, !5, i64 16, !11, i64 20, !11, i64 22, !11, i64 24, !6, i64 26, !6, i64 27, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !11, i64 64, !11, i64 66, !11, i64 68, !11, i64 70, !11, i64 72, !11, i64 74, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !11, i64 92, !11, i64 94, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116}
+!11 = !{!"short", !6, i64 0}
+!12 = !{!10, !5, i64 40}
+!13 = !{!10, !5, i64 52}
+!14 = !{!10, !5, i64 84}
+!15 = !{!6, !6, i64 0}
+!16 = !{!4, !5, i64 4}
+!17 = !{!4, !5, i64 8}
+!18 = !{!10, !5, i64 80}

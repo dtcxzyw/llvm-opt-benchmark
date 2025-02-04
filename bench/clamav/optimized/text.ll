@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/text.c.ll'
-source_filename = "bench/clamav/original/text.c.ll"
+; ModuleID = 'bench/clamav/original/text.ll'
+source_filename = "bench/clamav/original/text.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -29,8 +29,8 @@ define void @textDestroy(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %7
   %.010 = phi ptr [ %3, %7 ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.010, i64 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %.010, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %.010, align 8, !tbaa !10
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %7, label %5
 
@@ -89,7 +89,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 15:                                               ; preds = %.preheader.i
   %16 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 8
-  store ptr %14, ptr %16, align 8
+  store ptr %14, ptr %16, align 8, !tbaa !3
   br label %17
 
 17:                                               ; preds = %15, %.preheader.i
@@ -105,8 +105,8 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 .lr.ph.i.i.i:                                     ; preds = %19, %25
   %.010.i.i.i = phi ptr [ %21, %25 ], [ %.118.i.i, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %.010.i.i.i, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  %22 = load ptr, ptr %.010.i.i.i, align 8, !tbaa !10
   %.not8.i.i.i = icmp eq ptr %22, null
   br i1 %.not8.i.i.i, label %25, label %23
 
@@ -121,8 +121,8 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr null, ptr %27, align 8
-  %28 = load ptr, ptr %.01927.i.i, align 8
+  store ptr null, ptr %27, align 8, !tbaa !3
+  %28 = load ptr, ptr %.01927.i.i, align 8, !tbaa !10
   %.not23.i.i = icmp eq ptr %28, null
   br i1 %.not23.i.i, label %31, label %29
 
@@ -132,9 +132,9 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 31:                                               ; preds = %29, %26
   %storemerge.i.i = phi ptr [ %30, %29 ], [ null, %26 ]
-  store ptr %storemerge.i.i, ptr %14, align 8
+  store ptr %storemerge.i.i, ptr %14, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %.01927.i.i, i64 8
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %34, label %.preheader.i
 
@@ -144,7 +144,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr null, ptr %36, align 8
+  store ptr null, ptr %36, align 8, !tbaa !3
   br label %textAdd.exit
 
 37:                                               ; preds = %8
@@ -154,7 +154,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %.023.i = phi ptr [ %39, %.preheader33.i ], [ %0, %37 ]
   %.0.i = phi i32 [ %40, %.preheader33.i ], [ 0, %37 ]
   %38 = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
-  %39 = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !3
   %.not.i = icmp eq ptr %39, null
   %40 = add nuw nsw i32 %.0.i, 1
   br i1 %.not.i, label %41, label %.preheader33.i
@@ -168,7 +168,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %.136.i = phi ptr [ %.023.i, %41 ], [ %43, %50 ]
   %43 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %44 = getelementptr inbounds nuw i8, ptr %.136.i, i64 8
-  store ptr %43, ptr %44, align 8
+  store ptr %43, ptr %44, align 8, !tbaa !3
   %.not31.i = icmp eq ptr %43, null
   br i1 %.not31.i, label %45, label %46
 
@@ -177,7 +177,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   unreachable
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr %.02237.i, align 8
+  %47 = load ptr, ptr %.02237.i, align 8, !tbaa !10
   %.not32.i = icmp eq ptr %47, null
   br i1 %.not32.i, label %50, label %48
 
@@ -187,15 +187,15 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 50:                                               ; preds = %48, %46
   %storemerge.i = phi ptr [ %49, %48 ], [ null, %46 ]
-  store ptr %storemerge.i, ptr %43, align 8
+  store ptr %storemerge.i, ptr %43, align 8, !tbaa !10
   %51 = getelementptr inbounds nuw i8, ptr %.02237.i, i64 8
-  %52 = load ptr, ptr %51, align 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !3
   %.not30.i = icmp eq ptr %52, null
   br i1 %.not30.i, label %53, label %42
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr null, ptr %54, align 8
+  store ptr null, ptr %54, align 8, !tbaa !3
   br label %textAdd.exit
 
 55:                                               ; preds = %4
@@ -209,14 +209,14 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 .preheader.i15:                                   ; preds = %57, %.preheader.i15
   %.029.i = phi ptr [ %60, %.preheader.i15 ], [ %0, %57 ]
   %59 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !3
   %.not.i16 = icmp eq ptr %60, null
   br i1 %.not.i16, label %61, label %.preheader.i15
 
 61:                                               ; preds = %.preheader.i15
   %62 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %63 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  store ptr %63, ptr %62, align 8
+  store ptr %63, ptr %62, align 8, !tbaa !3
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %66
 
@@ -225,20 +225,20 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %textMove.exit
 
 66:                                               ; preds = %61
-  %67 = load ptr, ptr %56, align 8
+  %67 = load ptr, ptr %56, align 8, !tbaa !10
   %.not36.i = icmp eq ptr %67, null
   br i1 %.not36.i, label %69, label %68
 
 68:                                               ; preds = %66
-  store ptr null, ptr %56, align 8
+  store ptr null, ptr %56, align 8, !tbaa !10
   br label %69
 
 69:                                               ; preds = %68, %66
-  store ptr %67, ptr %63, align 8
+  store ptr %67, ptr %63, align 8, !tbaa !10
   %70 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %71 = load ptr, ptr %70, align 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %71, ptr %72, align 8
+  store ptr %71, ptr %72, align 8, !tbaa !3
   br label %textMove.exit
 
 textMove.exit:                                    ; preds = %57, %65, %69
@@ -246,7 +246,7 @@ textMove.exit:                                    ; preds = %57, %65, %69
   tail call void @free(ptr noundef %56) #7
   br label %textAdd.exit
 
-textAdd.exit:                                     ; preds = %25, %53, %37, %35, %34, %19, %12, %55, %textMove.exit
+textAdd.exit:                                     ; preds = %25, %53, %37, %35, %34, %19, %12, %textMove.exit, %55
   %.0 = phi ptr [ %.0.i17, %textMove.exit ], [ %56, %55 ], [ null, %12 ], [ %0, %53 ], [ %0, %37 ], [ null, %19 ], [ %.118.i.i, %35 ], [ null, %34 ], [ null, %25 ]
   ret ptr %.0
 }
@@ -283,12 +283,12 @@ define noundef ptr @textMove(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %31
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %1, align 8
-  store ptr %12, ptr %8, align 8
+  %12 = load ptr, ptr %1, align 8, !tbaa !10
+  store ptr %12, ptr %8, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %14, ptr %15, align 8
+  store ptr %14, ptr %15, align 8, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %31
 
@@ -298,14 +298,14 @@ define noundef ptr @textMove(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 .preheader:                                       ; preds = %16, %.preheader
   %.029 = phi ptr [ %18, %.preheader ], [ %0, %16 ]
   %17 = getelementptr inbounds nuw i8, ptr %.029, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !3
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %.preheader
 
 19:                                               ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  store ptr %21, ptr %20, align 8
+  store ptr %21, ptr %20, align 8, !tbaa !3
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
 
@@ -314,21 +314,21 @@ define noundef ptr @textMove(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %31
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr %1, align 8
+  %25 = load ptr, ptr %1, align 8, !tbaa !10
   %.not36 = icmp eq ptr %25, null
   br i1 %.not36, label %27, label %26
 
 26:                                               ; preds = %24
-  store ptr null, ptr %1, align 8
+  store ptr null, ptr %1, align 8, !tbaa !10
   br label %27
 
 27:                                               ; preds = %24, %26
-  store ptr %25, ptr %21, align 8
+  store ptr %25, ptr %21, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %29, ptr %30, align 8
-  store ptr null, ptr %28, align 8
+  store ptr %29, ptr %30, align 8, !tbaa !3
+  store ptr null, ptr %28, align 8, !tbaa !3
   br label %31
 
 31:                                               ; preds = %16, %27, %23, %11, %10, %6
@@ -349,7 +349,7 @@ define noundef ptr @textToBlob(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 .preheader.i:                                     ; preds = %3, %getLength.exit
   %.037 = phi i64 [ %storemerge.i, %getLength.exit ], [ 0, %3 ]
   %.121.i = phi ptr [ %14, %getLength.exit ], [ %0, %3 ]
-  %5 = load ptr, ptr %.121.i, align 8
+  %5 = load ptr, ptr %.121.i, align 8, !tbaa !10
   %.not.i30 = icmp eq ptr %5, null
   br i1 %.not.i30, label %11, label %6
 
@@ -367,7 +367,7 @@ define noundef ptr @textToBlob(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 getLength.exit:                                   ; preds = %6, %11
   %storemerge.i = phi i64 [ %12, %11 ], [ %10, %6 ]
   %13 = getelementptr inbounds nuw i8, ptr %.121.i, i64 8
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !3
   %.not15.i = icmp eq ptr %14, null
   br i1 %.not15.i, label %textIterate.exit, label %.preheader.i
 
@@ -404,7 +404,7 @@ textIterate.exit:                                 ; preds = %getLength.exit
 
 .preheader18.i:                                   ; preds = %25, %35
   %.020.i = phi ptr [ %37, %35 ], [ %0, %25 ]
-  %26 = load ptr, ptr %.020.i, align 8
+  %26 = load ptr, ptr %.020.i, align 8, !tbaa !10
   %.not.i32 = icmp eq ptr %26, null
   br i1 %.not.i32, label %addToBlob.exit33, label %27
 
@@ -416,24 +416,24 @@ textIterate.exit:                                 ; preds = %getLength.exit
 
 addToBlob.exit33:                                 ; preds = %.preheader18.i, %27
   %31 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %32 = load ptr, ptr %.020.i, align 8
+  %32 = load ptr, ptr %.020.i, align 8, !tbaa !10
   %.not17.i = icmp eq ptr %32, null
   br i1 %.not17.i, label %35, label %33
 
 33:                                               ; preds = %addToBlob.exit33
   %34 = tail call ptr @lineUnlink(ptr noundef nonnull %32) #7
-  store ptr null, ptr %.020.i, align 8
+  store ptr null, ptr %.020.i, align 8, !tbaa !10
   br label %35
 
 35:                                               ; preds = %33, %addToBlob.exit33
   %36 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !3
   %.not16.i = icmp eq ptr %37, null
   br i1 %.not16.i, label %textIterate.exit28, label %.preheader18.i
 
 .preheader.i25:                                   ; preds = %25, %addToBlob.exit
   %.121.i26 = phi ptr [ %45, %addToBlob.exit ], [ %0, %25 ]
-  %38 = load ptr, ptr %.121.i26, align 8
+  %38 = load ptr, ptr %.121.i26, align 8, !tbaa !10
   %.not.i31 = icmp eq ptr %38, null
   br i1 %.not.i31, label %addToBlob.exit, label %39
 
@@ -446,7 +446,7 @@ addToBlob.exit33:                                 ; preds = %.preheader18.i, %27
 addToBlob.exit:                                   ; preds = %.preheader.i25, %39
   %43 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull @.str.14, i64 noundef 1) #7
   %44 = getelementptr inbounds nuw i8, ptr %.121.i26, i64 8
-  %45 = load ptr, ptr %44, align 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !3
   %.not15.i27 = icmp eq ptr %45, null
   br i1 %.not15.i27, label %textIterate.exit28, label %.preheader.i25
 
@@ -455,15 +455,15 @@ textIterate.exit28:                               ; preds = %35, %addToBlob.exit
 
 46:                                               ; preds = %textIterate.exit28
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !3
   %.not24 = icmp eq ptr %48, null
   br i1 %.not24, label %55, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46, %54
   %.010.i = phi ptr [ %50, %54 ], [ %48, %46 ]
   %49 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %.010.i, align 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !3
+  %51 = load ptr, ptr %.010.i, align 8, !tbaa !10
   %.not8.i = icmp eq ptr %51, null
   br i1 %.not8.i, label %54, label %52
 
@@ -477,7 +477,7 @@ textIterate.exit28:                               ; preds = %35, %addToBlob.exit
   br i1 %.not.i29, label %textDestroy.exit, label %.lr.ph.i
 
 textDestroy.exit:                                 ; preds = %54
-  store ptr null, ptr %47, align 8
+  store ptr null, ptr %47, align 8, !tbaa !3
   br label %55
 
 55:                                               ; preds = %textDestroy.exit, %46, %textIterate.exit28
@@ -520,13 +520,13 @@ define nonnull ptr @textToFileblob(ptr noundef %0, ptr noundef returned %1, i32 
   %8 = tail call ptr @fileblobGetFilename(ptr noundef nonnull %1) #7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, ptr noundef %8, i32 noundef %2) #7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr null, ptr %9, align 8
+  store ptr null, ptr %9, align 8, !tbaa !11
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader18.i
 
 .preheader18.i:                                   ; preds = %7, %19
   %.020.i = phi ptr [ %21, %19 ], [ %0, %7 ]
-  %10 = load ptr, ptr %.020.i, align 8
+  %10 = load ptr, ptr %.020.i, align 8, !tbaa !10
   %.not.i26 = icmp eq ptr %10, null
   br i1 %.not.i26, label %addToFileblob.exit27, label %11
 
@@ -538,24 +538,24 @@ define nonnull ptr @textToFileblob(ptr noundef %0, ptr noundef returned %1, i32 
 
 addToFileblob.exit27:                             ; preds = %.preheader18.i, %11
   %15 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %16 = load ptr, ptr %.020.i, align 8
+  %16 = load ptr, ptr %.020.i, align 8, !tbaa !10
   %.not17.i = icmp eq ptr %16, null
   br i1 %.not17.i, label %19, label %17
 
 17:                                               ; preds = %addToFileblob.exit27
   %18 = tail call ptr @lineUnlink(ptr noundef nonnull %16) #7
-  store ptr null, ptr %.020.i, align 8
+  store ptr null, ptr %.020.i, align 8, !tbaa !10
   br label %19
 
 19:                                               ; preds = %17, %addToFileblob.exit27
   %20 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
   %.not16.i = icmp eq ptr %21, null
   br i1 %.not16.i, label %textIterate.exit, label %.preheader18.i
 
 .preheader.i:                                     ; preds = %7, %addToFileblob.exit
   %.121.i = phi ptr [ %29, %addToFileblob.exit ], [ %0, %7 ]
-  %22 = load ptr, ptr %.121.i, align 8
+  %22 = load ptr, ptr %.121.i, align 8, !tbaa !10
   %.not.i25 = icmp eq ptr %22, null
   br i1 %.not.i25, label %addToFileblob.exit, label %23
 
@@ -568,7 +568,7 @@ addToFileblob.exit27:                             ; preds = %.preheader18.i, %11
 addToFileblob.exit:                               ; preds = %.preheader.i, %23
   %27 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i64 noundef 1) #7
   %28 = getelementptr inbounds nuw i8, ptr %.121.i, i64 8
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !3
   %.not15.i = icmp eq ptr %29, null
   br i1 %.not15.i, label %textIterate.exit, label %.preheader.i
 
@@ -577,15 +577,15 @@ textIterate.exit:                                 ; preds = %19, %addToFileblob.
 
 30:                                               ; preds = %textIterate.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !3
   %.not23 = icmp eq ptr %32, null
   br i1 %.not23, label %39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %38
   %.010.i = phi ptr [ %34, %38 ], [ %32, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %.010.i, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !3
+  %35 = load ptr, ptr %.010.i, align 8, !tbaa !10
   %.not8.i = icmp eq ptr %35, null
   br i1 %.not8.i, label %38, label %36
 
@@ -599,7 +599,7 @@ textIterate.exit:                                 ; preds = %19, %addToFileblob.
   br i1 %.not.i24, label %textDestroy.exit, label %.lr.ph.i
 
 textDestroy.exit:                                 ; preds = %38
-  store ptr null, ptr %31, align 8
+  store ptr null, ptr %31, align 8, !tbaa !3
   br label %39
 
 39:                                               ; preds = %textIterate.exit, %30, %textDestroy.exit
@@ -624,21 +624,35 @@ declare i32 @fileblobAddData(ptr noundef, ptr noundef, i64 noundef) local_unname
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }
 attributes #9 = { nounwind allocsize(0) }
 attributes #10 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !9, i64 8}
+!4 = !{!"text", !5, i64 0, !9, i64 8}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS4text", !6, i64 0}
+!10 = !{!4, !5, i64 0}
+!11 = !{!12, !17, i64 64}
+!12 = !{!"fileblob", !13, i64 0, !14, i64 8, !15, i64 16, !5, i64 56, !17, i64 64, !16, i64 72, !14, i64 80, !14, i64 80}
+!13 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!14 = !{!"int", !7, i64 0}
+!15 = !{!"blob", !5, i64 0, !5, i64 8, !16, i64 16, !16, i64 24, !14, i64 32}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!"p1 _ZTS11cli_ctx_tag", !6, i64 0}

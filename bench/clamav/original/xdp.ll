@@ -28,335 +28,378 @@ define i32 @cli_scanxdp(ptr noundef %0) #0 {
   %11 = alloca ptr, align 8
   %12 = alloca i64, align 8
   %13 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr null, ptr %4, align 8
-  store i32 0, ptr %10, align 4
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.cli_ctx_tag, ptr %14, i32 0, i32 14
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.cli_ctx_tag, ptr %17, i32 0, i32 14
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.cl_fmap, ptr %19, i32 0, i32 13
-  %21 = load i64, ptr %20, align 8
-  %22 = call ptr @fmap_need_off_once(ptr noundef %16, i64 noundef 0, i64 noundef %21)
-  store ptr %22, ptr %5, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %26, label %25
-
-25:                                               ; preds = %1
-  store i32 12, ptr %2, align 4
-  br label %206
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  store ptr null, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.cli_ctx_tag, ptr %15, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.cli_ctx_tag, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8, !tbaa !12
+  %21 = getelementptr inbounds nuw %struct.cl_fmap, ptr %20, i32 0, i32 13
+  %22 = load i64, ptr %21, align 8, !tbaa !28
+  %23 = call ptr @fmap_need_off_once(ptr noundef %17, i64 noundef 0, i64 noundef %22)
+  store ptr %23, ptr %5, align 8, !tbaa !30
+  %24 = load ptr, ptr %5, align 8, !tbaa !30
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %27, label %26
 
 26:                                               ; preds = %1
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.cli_ctx_tag, ptr %27, i32 0, i32 6
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.cl_engine, ptr %29, i32 0, i32 8
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %47
+  store i32 12, ptr %2, align 4
+  store i32 1, ptr %13, align 4
+  br label %210
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %3, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.cli_ctx_tag, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.cl_fmap, ptr %38, i32 0, i32 13
-  %40 = load i64, ptr %39, align 8
-  %41 = call ptr @dump_xdp(ptr noundef %34, ptr noundef %35, i64 noundef %40)
-  store ptr %41, ptr %11, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %46
+27:                                               ; preds = %1
+  %28 = load ptr, ptr %3, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.cli_ctx_tag, ptr %28, i32 0, i32 6
+  %30 = load ptr, ptr %29, align 8, !tbaa !31
+  %31 = getelementptr inbounds nuw %struct.cl_engine, ptr %30, i32 0, i32 8
+  %32 = load i32, ptr %31, align 8, !tbaa !32
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %48
 
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %45) #5
-  br label %46
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %3, align 8, !tbaa !3
+  %36 = load ptr, ptr %5, align 8, !tbaa !30
+  %37 = load ptr, ptr %3, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.cli_ctx_tag, ptr %37, i32 0, i32 14
+  %39 = load ptr, ptr %38, align 8, !tbaa !12
+  %40 = getelementptr inbounds nuw %struct.cl_fmap, ptr %39, i32 0, i32 13
+  %41 = load i64, ptr %40, align 8, !tbaa !28
+  %42 = call ptr @dump_xdp(ptr noundef %35, ptr noundef %36, i64 noundef %41)
+  store ptr %42, ptr %11, align 8, !tbaa !30
+  %43 = load ptr, ptr %11, align 8, !tbaa !30
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %47
 
-46:                                               ; preds = %44, %33
+45:                                               ; preds = %34
+  %46 = load ptr, ptr %11, align 8, !tbaa !30
+  call void @free(ptr noundef %46) #7
   br label %47
 
-47:                                               ; preds = %46, %26
-  %48 = load ptr, ptr %5, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.cli_ctx_tag, ptr %49, i32 0, i32 14
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.cl_fmap, ptr %51, i32 0, i32 13
-  %53 = load i64, ptr %52, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = call ptr @xmlReaderForMemory(ptr noundef %48, i32 noundef %54, ptr noundef @.str, ptr noundef null, i32 noundef 2080)
-  store ptr %55, ptr %4, align 8
-  %56 = load ptr, ptr %4, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %59, label %58
+47:                                               ; preds = %45, %34
+  br label %48
 
-58:                                               ; preds = %47
+48:                                               ; preds = %47, %27
+  %49 = load ptr, ptr %5, align 8, !tbaa !30
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.cli_ctx_tag, ptr %50, i32 0, i32 14
+  %52 = load ptr, ptr %51, align 8, !tbaa !12
+  %53 = getelementptr inbounds nuw %struct.cl_fmap, ptr %52, i32 0, i32 13
+  %54 = load i64, ptr %53, align 8, !tbaa !28
+  %55 = trunc i64 %54 to i32
+  %56 = call ptr @xmlReaderForMemory(ptr noundef %49, i32 noundef %55, ptr noundef @.str, ptr noundef null, i32 noundef 2080)
+  store ptr %56, ptr %4, align 8, !tbaa !8
+  %57 = load ptr, ptr %4, align 8, !tbaa !8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %60, label %59
+
+59:                                               ; preds = %48
   store i32 0, ptr %2, align 4
-  br label %206
-
-59:                                               ; preds = %47
-  br label %60
-
-60:                                               ; preds = %202, %69, %59
-  %61 = load ptr, ptr %4, align 8
-  %62 = call i32 @xmlTextReaderRead(ptr noundef %61)
-  %63 = icmp eq i32 %62, 1
-  br i1 %63, label %64, label %203
-
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %4, align 8
-  %66 = call ptr @xmlTextReaderConstLocalName(ptr noundef %65)
-  store ptr %66, ptr %6, align 8
-  %67 = load ptr, ptr %6, align 8
-  %68 = icmp ne ptr %67, null
-  br i1 %68, label %70, label %69
-
-69:                                               ; preds = %64
-  br label %60
-
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %6, align 8
-  %72 = call i32 @strcmp(ptr noundef %71, ptr noundef @.str.1) #6
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %202, label %74
-
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %4, align 8
-  %76 = call i32 @xmlTextReaderNodeType(ptr noundef %75)
-  %77 = icmp eq i32 %76, 1
-  br i1 %77, label %78, label %202
-
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %4, align 8
-  %80 = call ptr @xmlTextReaderReadInnerXml(ptr noundef %79)
-  store ptr %80, ptr %7, align 8
-  %81 = load ptr, ptr %7, align 8
-  %82 = icmp ne ptr %81, null
-  br i1 %82, label %83, label %201
-
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %7, align 8
-  %85 = load ptr, ptr %7, align 8
-  %86 = call i64 @strlen(ptr noundef %85) #6
-  %87 = call ptr @cl_base64_decode(ptr noundef %84, i64 noundef %86, ptr noundef null, ptr noundef %9, i32 noundef 0)
-  store ptr %87, ptr %8, align 8
-  %88 = load ptr, ptr %8, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %198
-
-90:                                               ; preds = %83
-  store i32 0, ptr %13, align 4
-  %91 = load i64, ptr %9, align 8
-  %92 = icmp ugt i64 %91, 5
-  br i1 %92, label %93, label %179
-
-93:                                               ; preds = %90
-  store i64 0, ptr %12, align 8
-  br label %94
-
-94:                                               ; preds = %175, %93
-  %95 = load i64, ptr %12, align 8
-  %96 = load i64, ptr %9, align 8
-  %97 = sub i64 %96, 5
-  %98 = icmp ult i64 1028, %97
-  br i1 %98, label %99, label %100
-
-99:                                               ; preds = %94
-  br label %103
-
-100:                                              ; preds = %94
-  %101 = load i64, ptr %9, align 8
-  %102 = sub i64 %101, 5
-  br label %103
-
-103:                                              ; preds = %100, %99
-  %104 = phi i64 [ 1028, %99 ], [ %102, %100 ]
-  %105 = icmp ult i64 %95, %104
-  br i1 %105, label %106, label %178
-
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %8, align 8
-  %108 = load i64, ptr %12, align 8
-  %109 = getelementptr inbounds i8, ptr %107, i64 %108
-  %110 = load i8, ptr %109, align 1
-  %111 = sext i8 %110 to i32
-  %112 = icmp ne i32 %111, 37
-  br i1 %112, label %113, label %114
-
-113:                                              ; preds = %106
-  br label %175
-
-114:                                              ; preds = %106
-  %115 = load ptr, ptr %8, align 8
-  %116 = load i64, ptr %12, align 8
-  %117 = add i64 %116, 1
-  %118 = getelementptr inbounds i8, ptr %115, i64 %117
-  %119 = load i8, ptr %118, align 1
-  %120 = sext i8 %119 to i32
-  %121 = icmp eq i32 %120, 80
-  br i1 %121, label %130, label %122
-
-122:                                              ; preds = %114
-  %123 = load ptr, ptr %8, align 8
-  %124 = load i64, ptr %12, align 8
-  %125 = add i64 %124, 1
-  %126 = getelementptr inbounds i8, ptr %123, i64 %125
-  %127 = load i8, ptr %126, align 1
-  %128 = sext i8 %127 to i32
-  %129 = icmp eq i32 %128, 112
-  br i1 %129, label %130, label %174
-
-130:                                              ; preds = %122, %114
-  %131 = load ptr, ptr %8, align 8
-  %132 = load i64, ptr %12, align 8
-  %133 = add i64 %132, 2
-  %134 = getelementptr inbounds i8, ptr %131, i64 %133
-  %135 = load i8, ptr %134, align 1
-  %136 = sext i8 %135 to i32
-  %137 = icmp eq i32 %136, 68
-  br i1 %137, label %146, label %138
-
-138:                                              ; preds = %130
-  %139 = load ptr, ptr %8, align 8
-  %140 = load i64, ptr %12, align 8
-  %141 = add i64 %140, 2
-  %142 = getelementptr inbounds i8, ptr %139, i64 %141
-  %143 = load i8, ptr %142, align 1
-  %144 = sext i8 %143 to i32
-  %145 = icmp eq i32 %144, 100
-  br i1 %145, label %146, label %173
-
-146:                                              ; preds = %138, %130
-  %147 = load ptr, ptr %8, align 8
-  %148 = load i64, ptr %12, align 8
-  %149 = add i64 %148, 3
-  %150 = getelementptr inbounds i8, ptr %147, i64 %149
-  %151 = load i8, ptr %150, align 1
-  %152 = sext i8 %151 to i32
-  %153 = icmp eq i32 %152, 70
-  br i1 %153, label %162, label %154
-
-154:                                              ; preds = %146
-  %155 = load ptr, ptr %8, align 8
-  %156 = load i64, ptr %12, align 8
-  %157 = add i64 %156, 3
-  %158 = getelementptr inbounds i8, ptr %155, i64 %157
-  %159 = load i8, ptr %158, align 1
-  %160 = sext i8 %159 to i32
-  %161 = icmp eq i32 %160, 102
-  br i1 %161, label %162, label %172
-
-162:                                              ; preds = %154, %146
-  %163 = load ptr, ptr %8, align 8
-  %164 = load i64, ptr %12, align 8
-  %165 = add i64 %164, 4
-  %166 = getelementptr inbounds i8, ptr %163, i64 %165
-  %167 = load i8, ptr %166, align 1
-  %168 = sext i8 %167 to i32
-  %169 = icmp eq i32 %168, 45
-  br i1 %169, label %170, label %171
-
-170:                                              ; preds = %162
   store i32 1, ptr %13, align 4
-  br label %178
+  br label %210
 
-171:                                              ; preds = %162
-  br label %172
+60:                                               ; preds = %48
+  br label %61
 
-172:                                              ; preds = %171, %154
-  br label %173
+61:                                               ; preds = %206, %70, %60
+  %62 = load ptr, ptr %4, align 8, !tbaa !8
+  %63 = call i32 @xmlTextReaderRead(ptr noundef %62)
+  %64 = icmp eq i32 %63, 1
+  br i1 %64, label %65, label %207
 
-173:                                              ; preds = %172, %138
-  br label %174
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %4, align 8, !tbaa !8
+  %67 = call ptr @xmlTextReaderConstLocalName(ptr noundef %66)
+  store ptr %67, ptr %6, align 8, !tbaa !30
+  %68 = load ptr, ptr %6, align 8, !tbaa !30
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %71, label %70
 
-174:                                              ; preds = %173, %122
-  br label %175
+70:                                               ; preds = %65
+  br label %61
 
-175:                                              ; preds = %174, %113
-  %176 = load i64, ptr %12, align 8
-  %177 = add i64 %176, 1
-  store i64 %177, ptr %12, align 8
-  br label %94
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %6, align 8, !tbaa !30
+  %73 = call i32 @strcmp(ptr noundef %72, ptr noundef @.str.1) #8
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %206, label %75
 
-178:                                              ; preds = %170, %103
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %4, align 8, !tbaa !8
+  %77 = call i32 @xmlTextReaderNodeType(ptr noundef %76)
+  %78 = icmp eq i32 %77, 1
+  br i1 %78, label %79, label %206
+
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %4, align 8, !tbaa !8
+  %81 = call ptr @xmlTextReaderReadInnerXml(ptr noundef %80)
+  store ptr %81, ptr %7, align 8, !tbaa !30
+  %82 = load ptr, ptr %7, align 8, !tbaa !30
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %84, label %205
+
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %7, align 8, !tbaa !30
+  %86 = load ptr, ptr %7, align 8, !tbaa !30
+  %87 = call i64 @strlen(ptr noundef %86) #8
+  %88 = call ptr @cl_base64_decode(ptr noundef %85, i64 noundef %87, ptr noundef null, ptr noundef %9, i32 noundef 0)
+  store ptr %88, ptr %8, align 8, !tbaa !30
+  %89 = load ptr, ptr %8, align 8, !tbaa !30
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %202
+
+91:                                               ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  store i32 0, ptr %14, align 4, !tbaa !10
+  %92 = load i64, ptr %9, align 8, !tbaa !51
+  %93 = icmp ugt i64 %92, 5
+  br i1 %93, label %94, label %180
+
+94:                                               ; preds = %91
+  store i64 0, ptr %12, align 8, !tbaa !51
+  br label %95
+
+95:                                               ; preds = %176, %94
+  %96 = load i64, ptr %12, align 8, !tbaa !51
+  %97 = load i64, ptr %9, align 8, !tbaa !51
+  %98 = sub i64 %97, 5
+  %99 = icmp ult i64 1028, %98
+  br i1 %99, label %100, label %101
+
+100:                                              ; preds = %95
+  br label %104
+
+101:                                              ; preds = %95
+  %102 = load i64, ptr %9, align 8, !tbaa !51
+  %103 = sub i64 %102, 5
+  br label %104
+
+104:                                              ; preds = %101, %100
+  %105 = phi i64 [ 1028, %100 ], [ %103, %101 ]
+  %106 = icmp ult i64 %96, %105
+  br i1 %106, label %107, label %179
+
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %8, align 8, !tbaa !30
+  %109 = load i64, ptr %12, align 8, !tbaa !51
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 %109
+  %111 = load i8, ptr %110, align 1, !tbaa !52
+  %112 = sext i8 %111 to i32
+  %113 = icmp ne i32 %112, 37
+  br i1 %113, label %114, label %115
+
+114:                                              ; preds = %107
+  br label %176
+
+115:                                              ; preds = %107
+  %116 = load ptr, ptr %8, align 8, !tbaa !30
+  %117 = load i64, ptr %12, align 8, !tbaa !51
+  %118 = add i64 %117, 1
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 %118
+  %120 = load i8, ptr %119, align 1, !tbaa !52
+  %121 = sext i8 %120 to i32
+  %122 = icmp eq i32 %121, 80
+  br i1 %122, label %131, label %123
+
+123:                                              ; preds = %115
+  %124 = load ptr, ptr %8, align 8, !tbaa !30
+  %125 = load i64, ptr %12, align 8, !tbaa !51
+  %126 = add i64 %125, 1
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 %126
+  %128 = load i8, ptr %127, align 1, !tbaa !52
+  %129 = sext i8 %128 to i32
+  %130 = icmp eq i32 %129, 112
+  br i1 %130, label %131, label %175
+
+131:                                              ; preds = %123, %115
+  %132 = load ptr, ptr %8, align 8, !tbaa !30
+  %133 = load i64, ptr %12, align 8, !tbaa !51
+  %134 = add i64 %133, 2
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 %134
+  %136 = load i8, ptr %135, align 1, !tbaa !52
+  %137 = sext i8 %136 to i32
+  %138 = icmp eq i32 %137, 68
+  br i1 %138, label %147, label %139
+
+139:                                              ; preds = %131
+  %140 = load ptr, ptr %8, align 8, !tbaa !30
+  %141 = load i64, ptr %12, align 8, !tbaa !51
+  %142 = add i64 %141, 2
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 %142
+  %144 = load i8, ptr %143, align 1, !tbaa !52
+  %145 = sext i8 %144 to i32
+  %146 = icmp eq i32 %145, 100
+  br i1 %146, label %147, label %174
+
+147:                                              ; preds = %139, %131
+  %148 = load ptr, ptr %8, align 8, !tbaa !30
+  %149 = load i64, ptr %12, align 8, !tbaa !51
+  %150 = add i64 %149, 3
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 %150
+  %152 = load i8, ptr %151, align 1, !tbaa !52
+  %153 = sext i8 %152 to i32
+  %154 = icmp eq i32 %153, 70
+  br i1 %154, label %163, label %155
+
+155:                                              ; preds = %147
+  %156 = load ptr, ptr %8, align 8, !tbaa !30
+  %157 = load i64, ptr %12, align 8, !tbaa !51
+  %158 = add i64 %157, 3
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 %158
+  %160 = load i8, ptr %159, align 1, !tbaa !52
+  %161 = sext i8 %160 to i32
+  %162 = icmp eq i32 %161, 102
+  br i1 %162, label %163, label %173
+
+163:                                              ; preds = %155, %147
+  %164 = load ptr, ptr %8, align 8, !tbaa !30
+  %165 = load i64, ptr %12, align 8, !tbaa !51
+  %166 = add i64 %165, 4
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 %166
+  %168 = load i8, ptr %167, align 1, !tbaa !52
+  %169 = sext i8 %168 to i32
+  %170 = icmp eq i32 %169, 45
+  br i1 %170, label %171, label %172
+
+171:                                              ; preds = %163
+  store i32 1, ptr %14, align 4, !tbaa !10
   br label %179
 
-179:                                              ; preds = %178, %90
-  %180 = load i32, ptr %13, align 4
-  %181 = icmp ne i32 %180, 0
-  br i1 %181, label %186, label %182
+172:                                              ; preds = %163
+  br label %173
 
-182:                                              ; preds = %179
-  %183 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %183) #5
-  %184 = load ptr, ptr @xmlFree, align 8
-  %185 = load ptr, ptr %7, align 8
-  call void %184(ptr noundef %185)
-  br label %203
+173:                                              ; preds = %172, %155
+  br label %174
 
-186:                                              ; preds = %179
-  %187 = load ptr, ptr %8, align 8
-  %188 = load i64, ptr %9, align 8
-  %189 = load ptr, ptr %3, align 8
-  %190 = call i32 @cli_magic_scan_buff(ptr noundef %187, i64 noundef %188, ptr noundef %189, ptr noundef null, i32 noundef 0)
-  store i32 %190, ptr %10, align 4
-  %191 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %191) #5
-  %192 = load i32, ptr %10, align 4
-  %193 = icmp ne i32 %192, 0
-  br i1 %193, label %194, label %197
+174:                                              ; preds = %173, %139
+  br label %175
 
-194:                                              ; preds = %186
-  %195 = load ptr, ptr @xmlFree, align 8
-  %196 = load ptr, ptr %7, align 8
-  call void %195(ptr noundef %196)
-  br label %203
+175:                                              ; preds = %174, %123
+  br label %176
 
-197:                                              ; preds = %186
-  br label %198
+176:                                              ; preds = %175, %114
+  %177 = load i64, ptr %12, align 8, !tbaa !51
+  %178 = add i64 %177, 1
+  store i64 %178, ptr %12, align 8, !tbaa !51
+  br label %95
 
-198:                                              ; preds = %197, %83
-  %199 = load ptr, ptr @xmlFree, align 8
-  %200 = load ptr, ptr %7, align 8
-  call void %199(ptr noundef %200)
-  br label %201
+179:                                              ; preds = %171, %104
+  br label %180
 
-201:                                              ; preds = %198, %78
+180:                                              ; preds = %179, %91
+  %181 = load i32, ptr %14, align 4, !tbaa !10
+  %182 = icmp ne i32 %181, 0
+  br i1 %182, label %187, label %183
+
+183:                                              ; preds = %180
+  %184 = load ptr, ptr %8, align 8, !tbaa !30
+  call void @free(ptr noundef %184) #7
+  %185 = load ptr, ptr @xmlFree, align 8, !tbaa !53
+  %186 = load ptr, ptr %7, align 8, !tbaa !30
+  call void %185(ptr noundef %186)
+  store i32 3, ptr %13, align 4
+  br label %199
+
+187:                                              ; preds = %180
+  %188 = load ptr, ptr %8, align 8, !tbaa !30
+  %189 = load i64, ptr %9, align 8, !tbaa !51
+  %190 = load ptr, ptr %3, align 8, !tbaa !3
+  %191 = call i32 @cli_magic_scan_buff(ptr noundef %188, i64 noundef %189, ptr noundef %190, ptr noundef null, i32 noundef 0)
+  store i32 %191, ptr %10, align 4, !tbaa !10
+  %192 = load ptr, ptr %8, align 8, !tbaa !30
+  call void @free(ptr noundef %192) #7
+  %193 = load i32, ptr %10, align 4, !tbaa !10
+  %194 = icmp ne i32 %193, 0
+  br i1 %194, label %195, label %198
+
+195:                                              ; preds = %187
+  %196 = load ptr, ptr @xmlFree, align 8, !tbaa !53
+  %197 = load ptr, ptr %7, align 8, !tbaa !30
+  call void %196(ptr noundef %197)
+  store i32 3, ptr %13, align 4
+  br label %199
+
+198:                                              ; preds = %187
+  store i32 0, ptr %13, align 4
+  br label %199
+
+199:                                              ; preds = %198, %195, %183
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  %200 = load i32, ptr %13, align 4
+  switch i32 %200, label %212 [
+    i32 0, label %201
+    i32 3, label %207
+  ]
+
+201:                                              ; preds = %199
   br label %202
 
-202:                                              ; preds = %201, %74, %70
-  br label %60
+202:                                              ; preds = %201, %84
+  %203 = load ptr, ptr @xmlFree, align 8, !tbaa !53
+  %204 = load ptr, ptr %7, align 8, !tbaa !30
+  call void %203(ptr noundef %204)
+  br label %205
 
-203:                                              ; preds = %194, %182, %60
-  %204 = load ptr, ptr %4, align 8
-  call void @xmlFreeTextReader(ptr noundef %204)
-  %205 = load i32, ptr %10, align 4
-  store i32 %205, ptr %2, align 4
+205:                                              ; preds = %202, %79
   br label %206
 
-206:                                              ; preds = %203, %58, %25
-  %207 = load i32, ptr %2, align 4
-  ret i32 %207
+206:                                              ; preds = %205, %75, %71
+  br label %61
+
+207:                                              ; preds = %199, %61
+  %208 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @xmlFreeTextReader(ptr noundef %208)
+  %209 = load i32, ptr %10, align 4, !tbaa !10
+  store i32 %209, ptr %2, align 4
+  store i32 1, ptr %13, align 4
+  br label %210
+
+210:                                              ; preds = %207, %59, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %211 = load i32, ptr %2, align 4
+  ret i32 %211
+
+212:                                              ; preds = %199
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @fmap_need_off_once(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @fmap_need_off_once(ptr noundef %0, i64 noundef %1, i64 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.cl_fmap, ptr %7, i32 0, i32 15
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i64, ptr %5, align 8
-  %12 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !54
+  store i64 %1, ptr %5, align 8, !tbaa !51
+  store i64 %2, ptr %6, align 8, !tbaa !51
+  %7 = load ptr, ptr %4, align 8, !tbaa !54
+  %8 = getelementptr inbounds nuw %struct.cl_fmap, ptr %7, i32 0, i32 15
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %10 = load ptr, ptr %4, align 8, !tbaa !54
+  %11 = load i64, ptr %5, align 8, !tbaa !51
+  %12 = load i64, ptr %6, align 8, !tbaa !51
   %13 = call ptr %9(ptr noundef %10, i64 noundef %11, i64 noundef %12, i32 noundef 0)
   ret ptr %13
 }
@@ -371,134 +414,204 @@ define internal ptr @dump_xdp(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i64 0, ptr %10, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.cli_ctx_tag, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = call i32 @cli_gentempfd(ptr noundef %14, ptr noundef %9, ptr noundef %8)
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %3
-  store ptr null, ptr %4, align 8
-  br label %54
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !30
+  store i64 %2, ptr %7, align 8, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store i64 0, ptr %10, align 8, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.cli_ctx_tag, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !56
+  %16 = call i32 @cli_gentempfd(ptr noundef %15, ptr noundef %9, ptr noundef %8)
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %3
-  br label %19
-
-19:                                               ; preds = %45, %38, %18
-  %20 = load i64, ptr %10, align 8
-  %21 = load i64, ptr %7, align 8
-  %22 = icmp ult i64 %20, %21
-  br i1 %22, label %23, label %49
-
-23:                                               ; preds = %19
-  %24 = load i32, ptr %8, align 4
-  %25 = load ptr, ptr %6, align 8
-  %26 = load i64, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = load i64, ptr %7, align 8
-  %29 = load i64, ptr %10, align 8
-  %30 = sub i64 %28, %29
-  %31 = call i64 @write(i32 noundef %24, ptr noundef %27, i64 noundef %30)
-  store i64 %31, ptr %11, align 8
-  %32 = load i64, ptr %11, align 8
-  %33 = icmp slt i64 %32, 0
-  br i1 %33, label %34, label %45
-
-34:                                               ; preds = %23
-  %35 = call ptr @__errno_location() #7
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %36, 11
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %34
-  br label %19
-
-39:                                               ; preds = %34
-  %40 = load i32, ptr %8, align 4
-  %41 = call i32 @close(i32 noundef %40)
-  %42 = load ptr, ptr %9, align 8
-  %43 = call i32 @cli_unlink(ptr noundef %42)
-  %44 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %44) #5
   store ptr null, ptr %4, align 8
-  br label %54
+  store i32 1, ptr %12, align 4
+  br label %55
 
-45:                                               ; preds = %23
-  %46 = load i64, ptr %11, align 8
-  %47 = load i64, ptr %10, align 8
-  %48 = add i64 %47, %46
-  store i64 %48, ptr %10, align 8
-  br label %19
+19:                                               ; preds = %3
+  br label %20
 
-49:                                               ; preds = %19
-  %50 = load ptr, ptr %9, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.2, ptr noundef %50)
-  %51 = load i32, ptr %8, align 4
-  %52 = call i32 @close(i32 noundef %51)
-  %53 = load ptr, ptr %9, align 8
-  store ptr %53, ptr %4, align 8
-  br label %54
+20:                                               ; preds = %46, %39, %19
+  %21 = load i64, ptr %10, align 8, !tbaa !51
+  %22 = load i64, ptr %7, align 8, !tbaa !51
+  %23 = icmp ult i64 %21, %22
+  br i1 %23, label %24, label %50
 
-54:                                               ; preds = %49, %39, %17
-  %55 = load ptr, ptr %4, align 8
-  ret ptr %55
+24:                                               ; preds = %20
+  %25 = load i32, ptr %8, align 4, !tbaa !10
+  %26 = load ptr, ptr %6, align 8, !tbaa !30
+  %27 = load i64, ptr %10, align 8, !tbaa !51
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  %29 = load i64, ptr %7, align 8, !tbaa !51
+  %30 = load i64, ptr %10, align 8, !tbaa !51
+  %31 = sub i64 %29, %30
+  %32 = call i64 @write(i32 noundef %25, ptr noundef %28, i64 noundef %31)
+  store i64 %32, ptr %11, align 8, !tbaa !51
+  %33 = load i64, ptr %11, align 8, !tbaa !51
+  %34 = icmp slt i64 %33, 0
+  br i1 %34, label %35, label %46
+
+35:                                               ; preds = %24
+  %36 = call ptr @__errno_location() #9
+  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %38 = icmp eq i32 %37, 11
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %35
+  br label %20
+
+40:                                               ; preds = %35
+  %41 = load i32, ptr %8, align 4, !tbaa !10
+  %42 = call i32 @close(i32 noundef %41)
+  %43 = load ptr, ptr %9, align 8, !tbaa !30
+  %44 = call i32 @cli_unlink(ptr noundef %43)
+  %45 = load ptr, ptr %9, align 8, !tbaa !30
+  call void @free(ptr noundef %45) #7
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %12, align 4
+  br label %55
+
+46:                                               ; preds = %24
+  %47 = load i64, ptr %11, align 8, !tbaa !51
+  %48 = load i64, ptr %10, align 8, !tbaa !51
+  %49 = add i64 %48, %47
+  store i64 %49, ptr %10, align 8, !tbaa !51
+  br label %20
+
+50:                                               ; preds = %20
+  %51 = load ptr, ptr %9, align 8, !tbaa !30
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.2, ptr noundef %51)
+  %52 = load i32, ptr %8, align 4, !tbaa !10
+  %53 = call i32 @close(i32 noundef %52)
+  %54 = load ptr, ptr %9, align 8, !tbaa !30
+  store ptr %54, ptr %4, align 8
+  store i32 1, ptr %12, align 4
+  br label %55
+
+55:                                               ; preds = %50, %40, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %56 = load ptr, ptr %4, align 8
+  ret ptr %56
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare void @free(ptr noundef) #3
 
-declare ptr @xmlReaderForMemory(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare ptr @xmlReaderForMemory(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #4
 
-declare i32 @xmlTextReaderRead(ptr noundef) #2
+declare i32 @xmlTextReaderRead(ptr noundef) #4
 
-declare ptr @xmlTextReaderConstLocalName(ptr noundef) #2
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
-
-declare i32 @xmlTextReaderNodeType(ptr noundef) #2
-
-declare ptr @xmlTextReaderReadInnerXml(ptr noundef) #2
-
-declare ptr @cl_base64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare ptr @xmlTextReaderConstLocalName(ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
-declare i32 @cli_magic_scan_buff(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @xmlTextReaderNodeType(ptr noundef) #4
 
-declare void @xmlFreeTextReader(ptr noundef) #2
+declare ptr @xmlTextReaderReadInnerXml(ptr noundef) #4
 
-declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @cl_base64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #4
 
-declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: nounwind willreturn memory(read)
+declare i64 @strlen(ptr noundef) #5
+
+declare i32 @cli_magic_scan_buff(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @xmlFreeTextReader(ptr noundef) #4
+
+declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) #4
+
+declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #6
 
-declare i32 @close(i32 noundef) #2
+declare i32 @close(i32 noundef) #4
 
-declare i32 @cli_unlink(ptr noundef) #2
+declare i32 @cli_unlink(ptr noundef) #4
 
-declare void @cli_dbgmsg(ptr noundef, ...) #2
+declare void @cli_dbgmsg(ptr noundef, ...) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS11cli_ctx_tag", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS14_xmlTextReader", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !21, i64 96}
+!13 = !{!"cli_ctx_tag", !14, i64 0, !14, i64 8, !14, i64 16, !5, i64 24, !15, i64 32, !16, i64 40, !17, i64 48, !18, i64 56, !19, i64 64, !11, i64 72, !11, i64 76, !20, i64 80, !11, i64 88, !11, i64 92, !21, i64 96, !6, i64 104, !22, i64 120, !23, i64 128, !5, i64 136, !24, i64 144, !25, i64 152, !25, i64 160, !26, i64 168, !27, i64 184, !27, i64 185}
+!14 = !{!"p1 omnipotent char", !5, i64 0}
+!15 = !{!"p1 long", !5, i64 0}
+!16 = !{!"p1 _ZTS11cli_matcher", !5, i64 0}
+!17 = !{!"p1 _ZTS9cl_engine", !5, i64 0}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!"p1 _ZTS15cl_scan_options", !5, i64 0}
+!20 = !{!"p1 _ZTS19recursion_level_tag", !5, i64 0}
+!21 = !{!"p1 _ZTS7cl_fmap", !5, i64 0}
+!22 = !{!"p1 _ZTS9cli_dconf", !5, i64 0}
+!23 = !{!"p1 _ZTS10bitset_tag", !5, i64 0}
+!24 = !{!"p1 _ZTS10cli_events", !5, i64 0}
+!25 = !{!"p1 _ZTS11json_object", !5, i64 0}
+!26 = !{!"timeval", !18, i64 0, !18, i64 8}
+!27 = !{!"_Bool", !6, i64 0}
+!28 = !{!29, !18, i64 88}
+!29 = !{!"cl_fmap", !5, i64 0, !5, i64 8, !5, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !27, i64 56, !27, i64 57, !27, i64 58, !18, i64 64, !18, i64 72, !18, i64 80, !18, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !27, i64 152, !6, i64 153, !27, i64 169, !6, i64 170, !27, i64 190, !6, i64 191, !15, i64 224, !14, i64 232}
+!30 = !{!14, !14, i64 0}
+!31 = !{!13, !17, i64 48}
+!32 = !{!33, !11, i64 40}
+!33 = !{!"cl_engine", !11, i64 0, !11, i64 4, !11, i64 8, !6, i64 12, !11, i64 20, !11, i64 24, !11, i64 28, !14, i64 32, !11, i64 40, !18, i64 48, !11, i64 56, !11, i64 60, !18, i64 64, !18, i64 72, !11, i64 80, !11, i64 84, !11, i64 88, !11, i64 92, !34, i64 96, !16, i64 104, !16, i64 112, !16, i64 120, !16, i64 128, !35, i64 136, !36, i64 144, !36, i64 152, !37, i64 160, !22, i64 168, !38, i64 176, !38, i64 184, !39, i64 192, !16, i64 200, !16, i64 208, !14, i64 216, !40, i64 224, !41, i64 232, !42, i64 240, !18, i64 248, !43, i64 256, !44, i64 264, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !46, i64 416, !6, i64 936, !6, i64 992, !11, i64 1020, !11, i64 1024, !11, i64 1028, !11, i64 1032, !18, i64 1040, !18, i64 1048, !18, i64 1056, !18, i64 1064, !18, i64 1072, !5, i64 1080, !5, i64 1088, !5, i64 1096, !5, i64 1104, !5, i64 1112, !5, i64 1120, !5, i64 1128, !5, i64 1136, !5, i64 1144, !11, i64 1152, !11, i64 1156, !11, i64 1160, !18, i64 1168, !18, i64 1176, !18, i64 1184, !50, i64 1192}
+!34 = !{!"p2 _ZTS11cli_matcher", !5, i64 0}
+!35 = !{!"p1 _ZTS7cli_cdb", !5, i64 0}
+!36 = !{!"p1 _ZTS13regex_matcher", !5, i64 0}
+!37 = !{!"p1 _ZTS10phishcheck", !5, i64 0}
+!38 = !{!"p1 _ZTS9cli_ftype", !5, i64 0}
+!39 = !{!"p2 _ZTS8cli_pwdb", !5, i64 0}
+!40 = !{!"p1 _ZTS12icon_matcher", !5, i64 0}
+!41 = !{!"p1 _ZTS5CACHE", !5, i64 0}
+!42 = !{!"p1 _ZTS10cli_dbinfo", !5, i64 0}
+!43 = !{!"p1 _ZTS2MP", !5, i64 0}
+!44 = !{!"", !45, i64 0, !11, i64 8}
+!45 = !{!"p1 _ZTS9cli_crt_t", !5, i64 0}
+!46 = !{!"cli_all_bc", !47, i64 0, !11, i64 8, !48, i64 16, !49, i64 24, !11, i64 516}
+!47 = !{!"p1 _ZTS6cli_bc", !5, i64 0}
+!48 = !{!"p1 _ZTS12cli_bcengine", !5, i64 0}
+!49 = !{!"cli_environment", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !6, i64 28, !6, i64 93, !6, i64 158, !6, i64 223, !6, i64 288, !6, i64 353, !6, i64 418, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491}
+!50 = !{!"p1 _ZTS12_yara_global", !5, i64 0}
+!51 = !{!18, !18, i64 0}
+!52 = !{!6, !6, i64 0}
+!53 = !{!5, !5, i64 0}
+!54 = !{!21, !21, i64 0}
+!55 = !{!29, !5, i64 104}
+!56 = !{!13, !14, i64 16}

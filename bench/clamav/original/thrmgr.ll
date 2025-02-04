@@ -86,424 +86,522 @@ define dso_local i32 @thrmgr_printstats(i32 noundef %0, i8 noundef signext %1) #
   %20 = alloca ptr, align 8
   %21 = alloca %struct.timeval, align 8
   %22 = alloca ptr, align 8
-  %23 = alloca double, align 8
-  %24 = alloca i64, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca double, align 8
   %25 = alloca i64, align 8
   %26 = alloca i64, align 8
-  %27 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store i8 %1, ptr %4, align 1
-  store i32 0, ptr %7, align 4
-  store i64 0, ptr %8, align 8
-  store i64 0, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  store i64 0, ptr %11, align 8
-  store float 0.000000e+00, ptr %12, align 4
-  store float 0.000000e+00, ptr %13, align 4
-  store float 0.000000e+00, ptr %14, align 4
-  store float 0.000000e+00, ptr %15, align 4
-  store float 0.000000e+00, ptr %16, align 4
-  store ptr null, ptr %17, align 8
-  store i32 0, ptr %18, align 4
-  %28 = call i32 @pthread_mutex_lock(ptr noundef @pools_lock) #8
-  store i32 0, ptr %6, align 4
-  %29 = load ptr, ptr @pools, align 8
-  store ptr %29, ptr %5, align 8
-  br label %30
+  %27 = alloca i64, align 8
+  %28 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !4
+  store i8 %1, ptr %4, align 1, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 0, ptr %7, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  store i64 0, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  store i64 0, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  store i64 0, ptr %10, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  store i64 0, ptr %11, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store float 0.000000e+00, ptr %12, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  store float 0.000000e+00, ptr %13, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  store float 0.000000e+00, ptr %14, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  store float 0.000000e+00, ptr %16, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  store ptr null, ptr %17, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  store i32 0, ptr %18, align 4, !tbaa !4
+  %29 = call i32 @pthread_mutex_lock(ptr noundef @pools_lock) #10
+  store i32 0, ptr %6, align 4, !tbaa !4
+  %30 = load ptr, ptr @pools, align 8, !tbaa !16
+  store ptr %30, ptr %5, align 8, !tbaa !16
+  br label %31
 
-30:                                               ; preds = %36, %2
-  %31 = load ptr, ptr %5, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %40
+31:                                               ; preds = %37, %2
+  %32 = load ptr, ptr %5, align 8, !tbaa !16
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %41
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %6, align 4
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %6, align 4
-  br label %36
+34:                                               ; preds = %31
+  %35 = load i32, ptr %6, align 4, !tbaa !4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %6, align 4, !tbaa !4
+  br label %37
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.threadpool_list, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %5, align 8
-  br label %30
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %5, align 8, !tbaa !16
+  %39 = getelementptr inbounds nuw %struct.threadpool_list, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !18
+  store ptr %40, ptr %5, align 8, !tbaa !16
+  br label %31
 
-40:                                               ; preds = %30
-  %41 = load i32, ptr %3, align 4
-  %42 = load i32, ptr %6, align 4
-  %43 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %41, ptr noundef @.str, i32 noundef %42)
-  %44 = load ptr, ptr @pools, align 8
-  store ptr %44, ptr %5, align 8
-  br label %45
+41:                                               ; preds = %31
+  %42 = load i32, ptr %3, align 4, !tbaa !4
+  %43 = load i32, ptr %6, align 4, !tbaa !4
+  %44 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %42, ptr noundef @.str, i32 noundef %43)
+  %45 = load ptr, ptr @pools, align 8, !tbaa !16
+  store ptr %45, ptr %5, align 8, !tbaa !16
+  br label %46
 
-45:                                               ; preds = %239, %40
-  %46 = load ptr, ptr %5, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %52
+46:                                               ; preds = %252, %41
+  %47 = load ptr, ptr %5, align 8, !tbaa !16
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %45
-  %49 = load i64, ptr %11, align 8
-  %50 = icmp ne i64 %49, 0
-  %51 = xor i1 %50, true
-  br label %52
+49:                                               ; preds = %46
+  %50 = load i64, ptr %11, align 8, !tbaa !9
+  %51 = icmp ne i64 %50, 0
+  %52 = xor i1 %51, true
+  br label %53
 
-52:                                               ; preds = %48, %45
-  %53 = phi i1 [ false, %45 ], [ %51, %48 ]
-  br i1 %53, label %54, label %243
+53:                                               ; preds = %49, %46
+  %54 = phi i1 [ false, %46 ], [ %52, %49 ]
+  br i1 %54, label %55, label %256
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.threadpool_list, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %19, align 8
-  store i32 0, ptr %6, align 4
-  %58 = load ptr, ptr %19, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %63, label %60
+55:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  %56 = load ptr, ptr %5, align 8, !tbaa !16
+  %57 = getelementptr inbounds nuw %struct.threadpool_list, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !21
+  store ptr %58, ptr %19, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #10
+  store i32 0, ptr %6, align 4, !tbaa !4
+  %59 = load ptr, ptr %19, align 8, !tbaa !22
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %64, label %61
 
-60:                                               ; preds = %54
-  %61 = load i32, ptr %3, align 4
-  %62 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %61, ptr noundef @.str.1)
-  br label %239
+61:                                               ; preds = %55
+  %62 = load i32, ptr %3, align 4, !tbaa !4
+  %63 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %62, ptr noundef @.str.1)
+  store i32 7, ptr %23, align 4
+  br label %249
 
-63:                                               ; preds = %54
-  %64 = load ptr, ptr %19, align 8
-  %65 = getelementptr inbounds %struct.threadpool_tag, ptr %64, i32 0, i32 6
-  %66 = load i32, ptr %65, align 8
-  switch i32 %66, label %70 [
-    i32 0, label %67
-    i32 1, label %68
-    i32 2, label %69
+64:                                               ; preds = %55
+  %65 = load ptr, ptr %19, align 8, !tbaa !22
+  %66 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %65, i32 0, i32 6
+  %67 = load i32, ptr %66, align 8, !tbaa !23
+  switch i32 %67, label %71 [
+    i32 0, label %68
+    i32 1, label %69
+    i32 2, label %70
   ]
 
-67:                                               ; preds = %63
-  store ptr @.str.2, ptr %20, align 8
-  br label %71
+68:                                               ; preds = %64
+  store ptr @.str.2, ptr %20, align 8, !tbaa !27
+  br label %72
 
-68:                                               ; preds = %63
-  store ptr @.str.3, ptr %20, align 8
-  br label %71
+69:                                               ; preds = %64
+  store ptr @.str.3, ptr %20, align 8, !tbaa !27
+  br label %72
 
-69:                                               ; preds = %63
-  store ptr @.str.4, ptr %20, align 8
-  br label %71
+70:                                               ; preds = %64
+  store ptr @.str.4, ptr %20, align 8, !tbaa !27
+  br label %72
 
-70:                                               ; preds = %63
-  store ptr @.str.5, ptr %20, align 8
-  br label %71
+71:                                               ; preds = %64
+  store ptr @.str.5, ptr %20, align 8, !tbaa !27
+  br label %72
 
-71:                                               ; preds = %70, %69, %68, %67
-  %72 = load i32, ptr %3, align 4
-  %73 = load ptr, ptr %20, align 8
-  %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds %struct.threadpool_list, ptr %74, i32 0, i32 1
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp ne ptr %76, null
-  %78 = select i1 %77, ptr @.str.7, ptr @.str.8
-  %79 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %72, ptr noundef @.str.6, ptr noundef %73, ptr noundef %78)
-  %80 = load i32, ptr %3, align 4
-  %81 = load ptr, ptr %19, align 8
-  %82 = getelementptr inbounds %struct.threadpool_tag, ptr %81, i32 0, i32 9
-  %83 = load i32, ptr %82, align 4
-  %84 = load ptr, ptr %19, align 8
-  %85 = getelementptr inbounds %struct.threadpool_tag, ptr %84, i32 0, i32 10
-  %86 = load i32, ptr %85, align 8
-  %87 = load ptr, ptr %19, align 8
-  %88 = getelementptr inbounds %struct.threadpool_tag, ptr %87, i32 0, i32 7
-  %89 = load i32, ptr %88, align 4
-  %90 = load ptr, ptr %19, align 8
-  %91 = getelementptr inbounds %struct.threadpool_tag, ptr %90, i32 0, i32 12
-  %92 = load i32, ptr %91, align 8
-  %93 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %80, ptr noundef @.str.9, i32 noundef %83, i32 noundef %86, i32 noundef %89, i32 noundef %92)
-  %94 = load i32, ptr %3, align 4
-  %95 = load ptr, ptr %19, align 8
-  %96 = getelementptr inbounds %struct.threadpool_tag, ptr %95, i32 0, i32 16
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds %struct.work_queue_tag, ptr %97, i32 0, i32 2
-  %99 = load i32, ptr %98, align 8
-  %100 = load ptr, ptr %19, align 8
-  %101 = getelementptr inbounds %struct.threadpool_tag, ptr %100, i32 0, i32 15
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds %struct.work_queue_tag, ptr %102, i32 0, i32 2
-  %104 = load i32, ptr %103, align 8
-  %105 = add nsw i32 %99, %104
-  %106 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %94, ptr noundef @.str.10, i32 noundef %105)
-  %107 = call i32 @gettimeofday(ptr noundef %21, ptr noundef null) #8
-  %108 = load i32, ptr %3, align 4
-  %109 = load ptr, ptr %19, align 8
-  %110 = getelementptr inbounds %struct.threadpool_tag, ptr %109, i32 0, i32 15
-  %111 = load ptr, ptr %110, align 8
-  call void @print_queue(i32 noundef %108, ptr noundef %111, ptr noundef %21)
-  %112 = load i32, ptr %3, align 4
-  %113 = load ptr, ptr %19, align 8
-  %114 = getelementptr inbounds %struct.threadpool_tag, ptr %113, i32 0, i32 16
-  %115 = load ptr, ptr %114, align 8
-  call void @print_queue(i32 noundef %112, ptr noundef %115, ptr noundef %21)
-  %116 = load i32, ptr %3, align 4
-  %117 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %116, ptr noundef @.str.11)
-  %118 = load ptr, ptr %19, align 8
-  %119 = getelementptr inbounds %struct.threadpool_tag, ptr %118, i32 0, i32 13
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %22, align 8
-  br label %121
+72:                                               ; preds = %71, %70, %69, %68
+  %73 = load i32, ptr %3, align 4, !tbaa !4
+  %74 = load ptr, ptr %20, align 8, !tbaa !27
+  %75 = load ptr, ptr %5, align 8, !tbaa !16
+  %76 = getelementptr inbounds nuw %struct.threadpool_list, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !18
+  %78 = icmp ne ptr %77, null
+  %79 = select i1 %78, ptr @.str.7, ptr @.str.8
+  %80 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %73, ptr noundef @.str.6, ptr noundef %74, ptr noundef %79)
+  %81 = load i32, ptr %3, align 4, !tbaa !4
+  %82 = load ptr, ptr %19, align 8, !tbaa !22
+  %83 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %82, i32 0, i32 9
+  %84 = load i32, ptr %83, align 4, !tbaa !29
+  %85 = load ptr, ptr %19, align 8, !tbaa !22
+  %86 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %85, i32 0, i32 10
+  %87 = load i32, ptr %86, align 8, !tbaa !30
+  %88 = load ptr, ptr %19, align 8, !tbaa !22
+  %89 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %88, i32 0, i32 7
+  %90 = load i32, ptr %89, align 4, !tbaa !31
+  %91 = load ptr, ptr %19, align 8, !tbaa !22
+  %92 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %91, i32 0, i32 12
+  %93 = load i32, ptr %92, align 8, !tbaa !32
+  %94 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %81, ptr noundef @.str.9, i32 noundef %84, i32 noundef %87, i32 noundef %90, i32 noundef %93)
+  %95 = load i32, ptr %3, align 4, !tbaa !4
+  %96 = load ptr, ptr %19, align 8, !tbaa !22
+  %97 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %96, i32 0, i32 16
+  %98 = load ptr, ptr %97, align 8, !tbaa !33
+  %99 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %98, i32 0, i32 2
+  %100 = load i32, ptr %99, align 8, !tbaa !34
+  %101 = load ptr, ptr %19, align 8, !tbaa !22
+  %102 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %101, i32 0, i32 15
+  %103 = load ptr, ptr %102, align 8, !tbaa !37
+  %104 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %103, i32 0, i32 2
+  %105 = load i32, ptr %104, align 8, !tbaa !34
+  %106 = add nsw i32 %100, %105
+  %107 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %95, ptr noundef @.str.10, i32 noundef %106)
+  %108 = call i32 @gettimeofday(ptr noundef %21, ptr noundef null) #10
+  %109 = load i32, ptr %3, align 4, !tbaa !4
+  %110 = load ptr, ptr %19, align 8, !tbaa !22
+  %111 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %110, i32 0, i32 15
+  %112 = load ptr, ptr %111, align 8, !tbaa !37
+  call void @print_queue(i32 noundef %109, ptr noundef %112, ptr noundef %21)
+  %113 = load i32, ptr %3, align 4, !tbaa !4
+  %114 = load ptr, ptr %19, align 8, !tbaa !22
+  %115 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %114, i32 0, i32 16
+  %116 = load ptr, ptr %115, align 8, !tbaa !33
+  call void @print_queue(i32 noundef %113, ptr noundef %116, ptr noundef %21)
+  %117 = load i32, ptr %3, align 4, !tbaa !4
+  %118 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %117, ptr noundef @.str.11)
+  %119 = load ptr, ptr %19, align 8, !tbaa !22
+  %120 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %119, i32 0, i32 13
+  %121 = load ptr, ptr %120, align 8, !tbaa !38
+  store ptr %121, ptr %22, align 8, !tbaa !39
+  br label %122
 
-121:                                              ; preds = %232, %71
-  %122 = load ptr, ptr %22, align 8
-  %123 = icmp ne ptr %122, null
-  br i1 %123, label %124, label %236
+122:                                              ; preds = %242, %72
+  %123 = load ptr, ptr %22, align 8, !tbaa !39
+  %124 = icmp ne ptr %123, null
+  br i1 %124, label %125, label %246
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds %struct.timeval, ptr %21, i32 0, i32 1
-  %126 = load i64, ptr %125, align 8
-  %127 = load ptr, ptr %22, align 8
-  %128 = getelementptr inbounds %struct.task_desc, ptr %127, i32 0, i32 2
-  %129 = getelementptr inbounds %struct.timeval, ptr %128, i32 0, i32 1
-  %130 = load i64, ptr %129, align 8
-  %131 = sub nsw i64 %126, %130
-  %132 = sitofp i64 %131 to double
-  store double %132, ptr %23, align 8
-  %133 = getelementptr inbounds %struct.timeval, ptr %21, i32 0, i32 0
-  %134 = load i64, ptr %133, align 8
-  %135 = load ptr, ptr %22, align 8
-  %136 = getelementptr inbounds %struct.task_desc, ptr %135, i32 0, i32 2
-  %137 = getelementptr inbounds %struct.timeval, ptr %136, i32 0, i32 0
-  %138 = load i64, ptr %137, align 8
-  %139 = sub nsw i64 %134, %138
-  %140 = sitofp i64 %139 to double
-  %141 = load double, ptr %23, align 8
-  %142 = call double @llvm.fmuladd.f64(double %140, double 1.000000e+06, double %141)
-  store double %142, ptr %23, align 8
-  %143 = load i32, ptr %3, align 4
-  %144 = load ptr, ptr %22, align 8
-  %145 = getelementptr inbounds %struct.task_desc, ptr %144, i32 0, i32 1
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp ne ptr %146, null
-  br i1 %147, label %148, label %152
+125:                                              ; preds = %122
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #10
+  %126 = getelementptr inbounds nuw %struct.timeval, ptr %21, i32 0, i32 1
+  %127 = load i64, ptr %126, align 8, !tbaa !40
+  %128 = load ptr, ptr %22, align 8, !tbaa !39
+  %129 = getelementptr inbounds nuw %struct.task_desc, ptr %128, i32 0, i32 2
+  %130 = getelementptr inbounds nuw %struct.timeval, ptr %129, i32 0, i32 1
+  %131 = load i64, ptr %130, align 8, !tbaa !42
+  %132 = sub nsw i64 %127, %131
+  %133 = sitofp i64 %132 to double
+  store double %133, ptr %24, align 8, !tbaa !45
+  %134 = getelementptr inbounds nuw %struct.timeval, ptr %21, i32 0, i32 0
+  %135 = load i64, ptr %134, align 8, !tbaa !47
+  %136 = load ptr, ptr %22, align 8, !tbaa !39
+  %137 = getelementptr inbounds nuw %struct.task_desc, ptr %136, i32 0, i32 2
+  %138 = getelementptr inbounds nuw %struct.timeval, ptr %137, i32 0, i32 0
+  %139 = load i64, ptr %138, align 8, !tbaa !48
+  %140 = sub nsw i64 %135, %139
+  %141 = sitofp i64 %140 to double
+  %142 = load double, ptr %24, align 8, !tbaa !45
+  %143 = call double @llvm.fmuladd.f64(double %141, double 1.000000e+06, double %142)
+  store double %143, ptr %24, align 8, !tbaa !45
+  %144 = load i32, ptr %3, align 4, !tbaa !4
+  %145 = load ptr, ptr %22, align 8, !tbaa !39
+  %146 = getelementptr inbounds nuw %struct.task_desc, ptr %145, i32 0, i32 1
+  %147 = load ptr, ptr %146, align 8, !tbaa !49
+  %148 = icmp ne ptr %147, null
+  br i1 %148, label %149, label %153
 
-148:                                              ; preds = %124
-  %149 = load ptr, ptr %22, align 8
-  %150 = getelementptr inbounds %struct.task_desc, ptr %149, i32 0, i32 1
-  %151 = load ptr, ptr %150, align 8
-  br label %153
+149:                                              ; preds = %125
+  %150 = load ptr, ptr %22, align 8, !tbaa !39
+  %151 = getelementptr inbounds nuw %struct.task_desc, ptr %150, i32 0, i32 1
+  %152 = load ptr, ptr %151, align 8, !tbaa !49
+  br label %154
 
-152:                                              ; preds = %124
-  br label %153
+153:                                              ; preds = %125
+  br label %154
 
-153:                                              ; preds = %152, %148
-  %154 = phi ptr [ %151, %148 ], [ @.str.13, %152 ]
-  %155 = load double, ptr %23, align 8
-  %156 = fdiv double %155, 1.000000e+06
-  %157 = load ptr, ptr %22, align 8
-  %158 = getelementptr inbounds %struct.task_desc, ptr %157, i32 0, i32 0
-  %159 = load ptr, ptr %158, align 8
-  %160 = icmp ne ptr %159, null
-  br i1 %160, label %161, label %165
+154:                                              ; preds = %153, %149
+  %155 = phi ptr [ %152, %149 ], [ @.str.13, %153 ]
+  %156 = load double, ptr %24, align 8, !tbaa !45
+  %157 = fdiv double %156, 1.000000e+06
+  %158 = load ptr, ptr %22, align 8, !tbaa !39
+  %159 = getelementptr inbounds nuw %struct.task_desc, ptr %158, i32 0, i32 0
+  %160 = load ptr, ptr %159, align 8, !tbaa !50
+  %161 = icmp ne ptr %160, null
+  br i1 %161, label %162, label %166
 
-161:                                              ; preds = %153
-  %162 = load ptr, ptr %22, align 8
-  %163 = getelementptr inbounds %struct.task_desc, ptr %162, i32 0, i32 0
-  %164 = load ptr, ptr %163, align 8
-  br label %166
+162:                                              ; preds = %154
+  %163 = load ptr, ptr %22, align 8, !tbaa !39
+  %164 = getelementptr inbounds nuw %struct.task_desc, ptr %163, i32 0, i32 0
+  %165 = load ptr, ptr %164, align 8, !tbaa !50
+  br label %167
 
-165:                                              ; preds = %153
-  br label %166
+166:                                              ; preds = %154
+  br label %167
 
-166:                                              ; preds = %165, %161
-  %167 = phi ptr [ %164, %161 ], [ @.str.7, %165 ]
-  %168 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %143, ptr noundef @.str.12, ptr noundef %154, double noundef %156, ptr noundef %167)
-  %169 = load ptr, ptr %22, align 8
-  %170 = getelementptr inbounds %struct.task_desc, ptr %169, i32 0, i32 5
-  %171 = load ptr, ptr %170, align 8
-  %172 = icmp ne ptr %171, null
-  br i1 %172, label %173, label %231
+167:                                              ; preds = %166, %162
+  %168 = phi ptr [ %165, %162 ], [ @.str.7, %166 ]
+  %169 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %144, ptr noundef @.str.12, ptr noundef %155, double noundef %157, ptr noundef %168)
+  %170 = load ptr, ptr %22, align 8, !tbaa !39
+  %171 = getelementptr inbounds nuw %struct.task_desc, ptr %170, i32 0, i32 5
+  %172 = load ptr, ptr %171, align 8, !tbaa !51
+  %173 = icmp ne ptr %172, null
+  br i1 %173, label %174, label %238
 
-173:                                              ; preds = %166
-  store i64 0, ptr %26, align 8
-  br label %174
+174:                                              ; preds = %167
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #10
+  store i64 0, ptr %27, align 8, !tbaa !9
+  br label %175
 
-174:                                              ; preds = %189, %173
-  %175 = load i64, ptr %26, align 8
-  %176 = load i64, ptr %10, align 8
-  %177 = icmp ult i64 %175, %176
-  br i1 %177, label %178, label %192
+175:                                              ; preds = %190, %174
+  %176 = load i64, ptr %27, align 8, !tbaa !9
+  %177 = load i64, ptr %10, align 8, !tbaa !9
+  %178 = icmp ult i64 %176, %177
+  br i1 %178, label %179, label %193
 
-178:                                              ; preds = %174
-  %179 = load ptr, ptr %17, align 8
-  %180 = load i64, ptr %26, align 8
-  %181 = getelementptr inbounds ptr, ptr %179, i64 %180
-  %182 = load ptr, ptr %181, align 8
-  %183 = load ptr, ptr %22, align 8
-  %184 = getelementptr inbounds %struct.task_desc, ptr %183, i32 0, i32 5
-  %185 = load ptr, ptr %184, align 8
-  %186 = icmp eq ptr %182, %185
-  br i1 %186, label %187, label %188
+179:                                              ; preds = %175
+  %180 = load ptr, ptr %17, align 8, !tbaa !13
+  %181 = load i64, ptr %27, align 8, !tbaa !9
+  %182 = getelementptr inbounds nuw ptr, ptr %180, i64 %181
+  %183 = load ptr, ptr %182, align 8, !tbaa !52
+  %184 = load ptr, ptr %22, align 8, !tbaa !39
+  %185 = getelementptr inbounds nuw %struct.task_desc, ptr %184, i32 0, i32 5
+  %186 = load ptr, ptr %185, align 8, !tbaa !51
+  %187 = icmp eq ptr %183, %186
+  br i1 %187, label %188, label %189
 
-187:                                              ; preds = %178
-  br label %192
+188:                                              ; preds = %179
+  br label %193
 
-188:                                              ; preds = %178
-  br label %189
+189:                                              ; preds = %179
+  br label %190
 
-189:                                              ; preds = %188
-  %190 = load i64, ptr %26, align 8
-  %191 = add i64 %190, 1
-  store i64 %191, ptr %26, align 8
-  br label %174
+190:                                              ; preds = %189
+  %191 = load i64, ptr %27, align 8, !tbaa !9
+  %192 = add i64 %191, 1
+  store i64 %192, ptr %27, align 8, !tbaa !9
+  br label %175
 
-192:                                              ; preds = %187, %174
-  %193 = load i64, ptr %26, align 8
-  %194 = load i64, ptr %10, align 8
-  %195 = icmp eq i64 %193, %194
-  br i1 %195, label %196, label %230
+193:                                              ; preds = %188, %175
+  %194 = load i64, ptr %27, align 8, !tbaa !9
+  %195 = load i64, ptr %10, align 8, !tbaa !9
+  %196 = icmp eq i64 %194, %195
+  br i1 %196, label %197, label %234
 
-196:                                              ; preds = %192
-  %197 = load i64, ptr %10, align 8
-  %198 = add i64 %197, 1
-  store i64 %198, ptr %10, align 8
-  %199 = load ptr, ptr %17, align 8
-  %200 = load i64, ptr %10, align 8
-  %201 = mul i64 %200, 8
-  %202 = call ptr @realloc(ptr noundef %199, i64 noundef %201) #9
-  store ptr %202, ptr %27, align 8
-  %203 = load ptr, ptr %27, align 8
-  %204 = icmp ne ptr %203, null
-  br i1 %204, label %206, label %205
+197:                                              ; preds = %193
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #10
+  %198 = load i64, ptr %10, align 8, !tbaa !9
+  %199 = add i64 %198, 1
+  store i64 %199, ptr %10, align 8, !tbaa !9
+  %200 = load ptr, ptr %17, align 8, !tbaa !13
+  %201 = load i64, ptr %10, align 8, !tbaa !9
+  %202 = mul i64 %201, 8
+  %203 = call ptr @realloc(ptr noundef %200, i64 noundef %202) #11
+  store ptr %203, ptr %28, align 8, !tbaa !13
+  %204 = load ptr, ptr %28, align 8, !tbaa !13
+  %205 = icmp ne ptr %204, null
+  br i1 %205, label %207, label %206
 
-205:                                              ; preds = %196
-  store i64 1, ptr %11, align 8
-  br label %236
-
-206:                                              ; preds = %196
-  %207 = load ptr, ptr %27, align 8
-  store ptr %207, ptr %17, align 8
-  %208 = load ptr, ptr %22, align 8
-  %209 = getelementptr inbounds %struct.task_desc, ptr %208, i32 0, i32 5
-  %210 = load ptr, ptr %209, align 8
-  %211 = load ptr, ptr %17, align 8
-  %212 = load i64, ptr %10, align 8
-  %213 = sub i64 %212, 1
-  %214 = getelementptr inbounds ptr, ptr %211, i64 %213
-  store ptr %210, ptr %214, align 8
-  %215 = load ptr, ptr %22, align 8
-  %216 = getelementptr inbounds %struct.task_desc, ptr %215, i32 0, i32 5
-  %217 = load ptr, ptr %216, align 8
-  %218 = call i32 @mpool_getstats(ptr noundef %217, ptr noundef %24, ptr noundef %25)
-  %219 = icmp ne i32 %218, -1
-  br i1 %219, label %220, label %229
-
-220:                                              ; preds = %206
-  %221 = load i64, ptr %24, align 8
-  %222 = load i64, ptr %8, align 8
-  %223 = add i64 %222, %221
-  store i64 %223, ptr %8, align 8
-  %224 = load i64, ptr %25, align 8
-  %225 = load i64, ptr %9, align 8
-  %226 = add i64 %225, %224
-  store i64 %226, ptr %9, align 8
-  %227 = load i32, ptr %7, align 4
-  %228 = add i32 %227, 1
-  store i32 %228, ptr %7, align 4
-  br label %229
-
-229:                                              ; preds = %220, %206
-  br label %230
-
-230:                                              ; preds = %229, %192
+206:                                              ; preds = %197
+  store i64 1, ptr %11, align 8, !tbaa !9
+  store i32 9, ptr %23, align 4
   br label %231
 
-231:                                              ; preds = %230, %166
-  br label %232
+207:                                              ; preds = %197
+  %208 = load ptr, ptr %28, align 8, !tbaa !13
+  store ptr %208, ptr %17, align 8, !tbaa !13
+  %209 = load ptr, ptr %22, align 8, !tbaa !39
+  %210 = getelementptr inbounds nuw %struct.task_desc, ptr %209, i32 0, i32 5
+  %211 = load ptr, ptr %210, align 8, !tbaa !51
+  %212 = load ptr, ptr %17, align 8, !tbaa !13
+  %213 = load i64, ptr %10, align 8, !tbaa !9
+  %214 = sub i64 %213, 1
+  %215 = getelementptr inbounds nuw ptr, ptr %212, i64 %214
+  store ptr %211, ptr %215, align 8, !tbaa !52
+  %216 = load ptr, ptr %22, align 8, !tbaa !39
+  %217 = getelementptr inbounds nuw %struct.task_desc, ptr %216, i32 0, i32 5
+  %218 = load ptr, ptr %217, align 8, !tbaa !51
+  %219 = call i32 @mpool_getstats(ptr noundef %218, ptr noundef %25, ptr noundef %26)
+  %220 = icmp ne i32 %219, -1
+  br i1 %220, label %221, label %230
 
-232:                                              ; preds = %231
-  %233 = load ptr, ptr %22, align 8
-  %234 = getelementptr inbounds %struct.task_desc, ptr %233, i32 0, i32 4
-  %235 = load ptr, ptr %234, align 8
-  store ptr %235, ptr %22, align 8
-  br label %121
+221:                                              ; preds = %207
+  %222 = load i64, ptr %25, align 8, !tbaa !9
+  %223 = load i64, ptr %8, align 8, !tbaa !9
+  %224 = add i64 %223, %222
+  store i64 %224, ptr %8, align 8, !tbaa !9
+  %225 = load i64, ptr %26, align 8, !tbaa !9
+  %226 = load i64, ptr %9, align 8, !tbaa !9
+  %227 = add i64 %226, %225
+  store i64 %227, ptr %9, align 8, !tbaa !9
+  %228 = load i32, ptr %7, align 4, !tbaa !4
+  %229 = add i32 %228, 1
+  store i32 %229, ptr %7, align 4, !tbaa !4
+  br label %230
 
-236:                                              ; preds = %205, %121
-  %237 = load i32, ptr %3, align 4
-  %238 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %237, ptr noundef @.str.11)
+230:                                              ; preds = %221, %207
+  store i32 0, ptr %23, align 4
+  br label %231
+
+231:                                              ; preds = %230, %206
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #10
+  %232 = load i32, ptr %23, align 4
+  switch i32 %232, label %235 [
+    i32 0, label %233
+  ]
+
+233:                                              ; preds = %231
+  br label %234
+
+234:                                              ; preds = %233, %193
+  store i32 0, ptr %23, align 4
+  br label %235
+
+235:                                              ; preds = %234, %231
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #10
+  %236 = load i32, ptr %23, align 4
+  switch i32 %236, label %239 [
+    i32 0, label %237
+  ]
+
+237:                                              ; preds = %235
+  br label %238
+
+238:                                              ; preds = %237, %167
+  store i32 0, ptr %23, align 4
   br label %239
 
-239:                                              ; preds = %236, %60
-  %240 = load ptr, ptr %5, align 8
-  %241 = getelementptr inbounds %struct.threadpool_list, ptr %240, i32 0, i32 1
-  %242 = load ptr, ptr %241, align 8
-  store ptr %242, ptr %5, align 8
-  br label %45
+239:                                              ; preds = %238, %235
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  %240 = load i32, ptr %23, align 4
+  switch i32 %240, label %303 [
+    i32 0, label %241
+    i32 9, label %246
+  ]
 
-243:                                              ; preds = %52
-  %244 = load ptr, ptr %17, align 8
-  call void @free(ptr noundef %244) #8
-  %245 = load i64, ptr %11, align 8
-  %246 = icmp ne i64 %245, 0
-  br i1 %246, label %247, label %250
+241:                                              ; preds = %239
+  br label %242
 
-247:                                              ; preds = %243
-  %248 = load i32, ptr %3, align 4
-  %249 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %248, ptr noundef @.str.14)
-  br label %284
+242:                                              ; preds = %241
+  %243 = load ptr, ptr %22, align 8, !tbaa !39
+  %244 = getelementptr inbounds nuw %struct.task_desc, ptr %243, i32 0, i32 4
+  %245 = load ptr, ptr %244, align 8, !tbaa !53
+  store ptr %245, ptr %22, align 8, !tbaa !39
+  br label %122
 
-250:                                              ; preds = %243
-  %251 = load i32, ptr %18, align 4
-  %252 = icmp ne i32 %251, 0
-  br i1 %252, label %253, label %273
+246:                                              ; preds = %239, %122
+  %247 = load i32, ptr %3, align 4, !tbaa !4
+  %248 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %247, ptr noundef @.str.11)
+  store i32 0, ptr %23, align 4
+  br label %249
 
-253:                                              ; preds = %250
-  %254 = load i32, ptr %3, align 4
-  %255 = load float, ptr %12, align 4
-  %256 = fpext float %255 to double
-  %257 = load float, ptr %13, align 4
-  %258 = fpext float %257 to double
-  %259 = load float, ptr %14, align 4
-  %260 = fpext float %259 to double
-  %261 = load float, ptr %15, align 4
-  %262 = fpext float %261 to double
-  %263 = load float, ptr %16, align 4
-  %264 = fpext float %263 to double
-  %265 = load i32, ptr %7, align 4
-  %266 = load i64, ptr %8, align 8
-  %267 = uitofp i64 %266 to double
-  %268 = fdiv double %267, 0x4130000000000000
-  %269 = load i64, ptr %9, align 8
-  %270 = uitofp i64 %269 to double
-  %271 = fdiv double %270, 0x4130000000000000
-  %272 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %254, ptr noundef @.str.15, double noundef %256, double noundef %258, double noundef %260, double noundef %262, double noundef %264, i32 noundef %265, double noundef %268, double noundef %271)
-  br label %283
+249:                                              ; preds = %246, %61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  %250 = load i32, ptr %23, align 4
+  switch i32 %250, label %303 [
+    i32 0, label %251
+    i32 7, label %252
+  ]
 
-273:                                              ; preds = %250
-  %274 = load i32, ptr %3, align 4
-  %275 = load i32, ptr %7, align 4
-  %276 = load i64, ptr %8, align 8
-  %277 = uitofp i64 %276 to double
-  %278 = fdiv double %277, 0x4130000000000000
-  %279 = load i64, ptr %9, align 8
+251:                                              ; preds = %249
+  br label %252
+
+252:                                              ; preds = %251, %249
+  %253 = load ptr, ptr %5, align 8, !tbaa !16
+  %254 = getelementptr inbounds nuw %struct.threadpool_list, ptr %253, i32 0, i32 1
+  %255 = load ptr, ptr %254, align 8, !tbaa !18
+  store ptr %255, ptr %5, align 8, !tbaa !16
+  br label %46
+
+256:                                              ; preds = %53
+  %257 = load ptr, ptr %17, align 8, !tbaa !13
+  call void @free(ptr noundef %257) #10
+  %258 = load i64, ptr %11, align 8, !tbaa !9
+  %259 = icmp ne i64 %258, 0
+  br i1 %259, label %260, label %263
+
+260:                                              ; preds = %256
+  %261 = load i32, ptr %3, align 4, !tbaa !4
+  %262 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %261, ptr noundef @.str.14)
+  br label %297
+
+263:                                              ; preds = %256
+  %264 = load i32, ptr %18, align 4, !tbaa !4
+  %265 = icmp ne i32 %264, 0
+  br i1 %265, label %266, label %286
+
+266:                                              ; preds = %263
+  %267 = load i32, ptr %3, align 4, !tbaa !4
+  %268 = load float, ptr %12, align 4, !tbaa !11
+  %269 = fpext float %268 to double
+  %270 = load float, ptr %13, align 4, !tbaa !11
+  %271 = fpext float %270 to double
+  %272 = load float, ptr %14, align 4, !tbaa !11
+  %273 = fpext float %272 to double
+  %274 = load float, ptr %15, align 4, !tbaa !11
+  %275 = fpext float %274 to double
+  %276 = load float, ptr %16, align 4, !tbaa !11
+  %277 = fpext float %276 to double
+  %278 = load i32, ptr %7, align 4, !tbaa !4
+  %279 = load i64, ptr %8, align 8, !tbaa !9
   %280 = uitofp i64 %279 to double
   %281 = fdiv double %280, 0x4130000000000000
-  %282 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %274, ptr noundef @.str.16, i32 noundef %275, double noundef %278, double noundef %281)
-  br label %283
+  %282 = load i64, ptr %9, align 8, !tbaa !9
+  %283 = uitofp i64 %282 to double
+  %284 = fdiv double %283, 0x4130000000000000
+  %285 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %267, ptr noundef @.str.15, double noundef %269, double noundef %271, double noundef %273, double noundef %275, double noundef %277, i32 noundef %278, double noundef %281, double noundef %284)
+  br label %296
 
-283:                                              ; preds = %273, %253
-  br label %284
+286:                                              ; preds = %263
+  %287 = load i32, ptr %3, align 4, !tbaa !4
+  %288 = load i32, ptr %7, align 4, !tbaa !4
+  %289 = load i64, ptr %8, align 8, !tbaa !9
+  %290 = uitofp i64 %289 to double
+  %291 = fdiv double %290, 0x4130000000000000
+  %292 = load i64, ptr %9, align 8, !tbaa !9
+  %293 = uitofp i64 %292 to double
+  %294 = fdiv double %293, 0x4130000000000000
+  %295 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %287, ptr noundef @.str.16, i32 noundef %288, double noundef %291, double noundef %294)
+  br label %296
 
-284:                                              ; preds = %283, %247
-  %285 = load i32, ptr %3, align 4
-  %286 = load i8, ptr %4, align 1
-  %287 = sext i8 %286 to i32
-  %288 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %285, ptr noundef @.str.17, i32 noundef %287)
-  %289 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #8
+296:                                              ; preds = %286, %266
+  br label %297
+
+297:                                              ; preds = %296, %260
+  %298 = load i32, ptr %3, align 4, !tbaa !4
+  %299 = load i8, ptr %4, align 1, !tbaa !8
+  %300 = sext i8 %299 to i32
+  %301 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %298, ptr noundef @.str.17, i32 noundef %300)
+  %302 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #10
+  store i32 1, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret i32 0
+
+303:                                              ; preds = %249, %239
+  unreachable
 }
 
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) #1
-
-declare i32 @mdprintf(i32 noundef, ptr noundef, ...) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare i32 @gettimeofday(ptr noundef, ptr noundef) #1
+declare i32 @pthread_mutex_lock(ptr noundef) #2
+
+declare i32 @mdprintf(i32 noundef, ptr noundef, ...) #3
+
+; Function Attrs: nounwind
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @print_queue(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -516,176 +614,221 @@ define internal void @print_queue(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
-  %13 = alloca i64, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i64 9223372036854775807, ptr %7, align 8
-  store i64 0, ptr %8, align 8
-  store i64 0, ptr %9, align 8
-  store i32 0, ptr %10, align 4
-  store i32 0, ptr %11, align 4
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.work_queue_tag, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %19, label %18
-
-18:                                               ; preds = %3
-  br label %111
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store ptr %2, ptr %6, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  store i64 9223372036854775807, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  store i64 0, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  store i64 0, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  store i32 0, ptr %11, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %15 = load ptr, ptr %5, align 8, !tbaa !54
+  %16 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !57
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %20, label %19
 
 19:                                               ; preds = %3
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.work_queue_tag, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %12, align 8
-  br label %23
+  store i32 1, ptr %13, align 4
+  br label %116
 
-23:                                               ; preds = %69, %19
-  %24 = load ptr, ptr %12, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %73
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %5, align 8, !tbaa !54
+  %22 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !57
+  store ptr %23, ptr %12, align 8, !tbaa !58
+  br label %24
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.timeval, ptr %27, i32 0, i32 1
-  %29 = load i64, ptr %28, align 8
-  %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds %struct.work_item_tag, ptr %30, i32 0, i32 2
-  %32 = getelementptr inbounds %struct.timeval, ptr %31, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
-  %34 = sub nsw i64 %29, %33
-  store i64 %34, ptr %13, align 8
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.timeval, ptr %35, i32 0, i32 0
-  %37 = load i64, ptr %36, align 8
-  %38 = load ptr, ptr %12, align 8
-  %39 = getelementptr inbounds %struct.work_item_tag, ptr %38, i32 0, i32 2
-  %40 = getelementptr inbounds %struct.timeval, ptr %39, i32 0, i32 0
-  %41 = load i64, ptr %40, align 8
-  %42 = sub nsw i64 %37, %41
-  %43 = mul nsw i64 %42, 1000000
-  %44 = load i64, ptr %13, align 8
-  %45 = add nsw i64 %44, %43
-  store i64 %45, ptr %13, align 8
-  %46 = load i64, ptr %13, align 8
-  %47 = icmp slt i64 %46, 0
-  br i1 %47, label %48, label %51
+24:                                               ; preds = %73, %20
+  %25 = load ptr, ptr %12, align 8, !tbaa !58
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %77
 
-48:                                               ; preds = %26
-  %49 = load i32, ptr %10, align 4
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %10, align 4
-  br label %69
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %28 = load ptr, ptr %6, align 8, !tbaa !55
+  %29 = getelementptr inbounds nuw %struct.timeval, ptr %28, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8, !tbaa !40
+  %31 = load ptr, ptr %12, align 8, !tbaa !58
+  %32 = getelementptr inbounds nuw %struct.work_item_tag, ptr %31, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %struct.timeval, ptr %32, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8, !tbaa !59
+  %35 = sub nsw i64 %30, %34
+  store i64 %35, ptr %14, align 8, !tbaa !9
+  %36 = load ptr, ptr %6, align 8, !tbaa !55
+  %37 = getelementptr inbounds nuw %struct.timeval, ptr %36, i32 0, i32 0
+  %38 = load i64, ptr %37, align 8, !tbaa !47
+  %39 = load ptr, ptr %12, align 8, !tbaa !58
+  %40 = getelementptr inbounds nuw %struct.work_item_tag, ptr %39, i32 0, i32 2
+  %41 = getelementptr inbounds nuw %struct.timeval, ptr %40, i32 0, i32 0
+  %42 = load i64, ptr %41, align 8, !tbaa !61
+  %43 = sub nsw i64 %38, %42
+  %44 = mul nsw i64 %43, 1000000
+  %45 = load i64, ptr %14, align 8, !tbaa !9
+  %46 = add nsw i64 %45, %44
+  store i64 %46, ptr %14, align 8, !tbaa !9
+  %47 = load i64, ptr %14, align 8, !tbaa !9
+  %48 = icmp slt i64 %47, 0
+  br i1 %48, label %49, label %52
 
-51:                                               ; preds = %26
-  %52 = load i64, ptr %13, align 8
-  %53 = load i64, ptr %8, align 8
-  %54 = icmp sgt i64 %52, %53
-  br i1 %54, label %55, label %57
+49:                                               ; preds = %27
+  %50 = load i32, ptr %10, align 4, !tbaa !4
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %10, align 4, !tbaa !4
+  store i32 4, ptr %13, align 4
+  br label %70
 
-55:                                               ; preds = %51
-  %56 = load i64, ptr %13, align 8
-  store i64 %56, ptr %8, align 8
-  br label %57
+52:                                               ; preds = %27
+  %53 = load i64, ptr %14, align 8, !tbaa !9
+  %54 = load i64, ptr %8, align 8, !tbaa !9
+  %55 = icmp sgt i64 %53, %54
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %55, %51
-  %58 = load i64, ptr %13, align 8
-  %59 = load i64, ptr %7, align 8
-  %60 = icmp slt i64 %58, %59
-  br i1 %60, label %61, label %63
+56:                                               ; preds = %52
+  %57 = load i64, ptr %14, align 8, !tbaa !9
+  store i64 %57, ptr %8, align 8, !tbaa !9
+  br label %58
 
-61:                                               ; preds = %57
-  %62 = load i64, ptr %13, align 8
-  store i64 %62, ptr %7, align 8
-  br label %63
+58:                                               ; preds = %56, %52
+  %59 = load i64, ptr %14, align 8, !tbaa !9
+  %60 = load i64, ptr %7, align 8, !tbaa !9
+  %61 = icmp slt i64 %59, %60
+  br i1 %61, label %62, label %64
 
-63:                                               ; preds = %61, %57
-  %64 = load i64, ptr %13, align 8
-  %65 = load i64, ptr %9, align 8
-  %66 = add nsw i64 %65, %64
-  store i64 %66, ptr %9, align 8
-  %67 = load i32, ptr %11, align 4
-  %68 = add i32 %67, 1
-  store i32 %68, ptr %11, align 4
-  br label %69
+62:                                               ; preds = %58
+  %63 = load i64, ptr %14, align 8, !tbaa !9
+  store i64 %63, ptr %7, align 8, !tbaa !9
+  br label %64
 
-69:                                               ; preds = %63, %48
-  %70 = load ptr, ptr %12, align 8
-  %71 = getelementptr inbounds %struct.work_item_tag, ptr %70, i32 0, i32 0
-  %72 = load ptr, ptr %71, align 8
-  store ptr %72, ptr %12, align 8
-  br label %23
+64:                                               ; preds = %62, %58
+  %65 = load i64, ptr %14, align 8, !tbaa !9
+  %66 = load i64, ptr %9, align 8, !tbaa !9
+  %67 = add nsw i64 %66, %65
+  store i64 %67, ptr %9, align 8, !tbaa !9
+  %68 = load i32, ptr %11, align 4, !tbaa !4
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %11, align 4, !tbaa !4
+  store i32 0, ptr %13, align 4
+  br label %70
 
-73:                                               ; preds = %23
-  %74 = load i32, ptr %4, align 4
-  %75 = load i64, ptr %7, align 8
-  %76 = sitofp i64 %75 to double
-  %77 = fdiv double %76, 1.000000e+06
-  %78 = load i64, ptr %8, align 8
-  %79 = sitofp i64 %78 to double
-  %80 = fdiv double %79, 1.000000e+06
-  %81 = load i64, ptr %9, align 8
-  %82 = sitofp i64 %81 to double
-  %83 = load i32, ptr %11, align 4
-  %84 = uitofp i32 %83 to double
-  %85 = fmul double 1.000000e+06, %84
-  %86 = fdiv double %82, %85
-  %87 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %74, ptr noundef @.str.27, double noundef %77, double noundef %80, double noundef %86)
-  %88 = load i32, ptr %10, align 4
-  %89 = icmp ne i32 %88, 0
-  br i1 %89, label %90, label %94
+70:                                               ; preds = %64, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  %71 = load i32, ptr %13, align 4
+  switch i32 %71, label %119 [
+    i32 0, label %72
+    i32 4, label %73
+  ]
 
-90:                                               ; preds = %73
-  %91 = load i32, ptr %4, align 4
-  %92 = load i32, ptr %10, align 4
-  %93 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %91, ptr noundef @.str.28, i32 noundef %92)
-  br label %94
+72:                                               ; preds = %70
+  br label %73
 
-94:                                               ; preds = %90, %73
-  %95 = load i32, ptr %11, align 4
-  %96 = load i32, ptr %10, align 4
-  %97 = add i32 %95, %96
-  %98 = load ptr, ptr %5, align 8
-  %99 = getelementptr inbounds %struct.work_queue_tag, ptr %98, i32 0, i32 2
-  %100 = load i32, ptr %99, align 8
-  %101 = icmp ne i32 %97, %100
-  br i1 %101, label %102, label %111
+73:                                               ; preds = %72, %70
+  %74 = load ptr, ptr %12, align 8, !tbaa !58
+  %75 = getelementptr inbounds nuw %struct.work_item_tag, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !62
+  store ptr %76, ptr %12, align 8, !tbaa !58
+  br label %24
 
-102:                                              ; preds = %94
-  %103 = load i32, ptr %4, align 4
-  %104 = load i32, ptr %11, align 4
-  %105 = load i32, ptr %10, align 4
-  %106 = add i32 %104, %105
-  %107 = load ptr, ptr %5, align 8
-  %108 = getelementptr inbounds %struct.work_queue_tag, ptr %107, i32 0, i32 2
-  %109 = load i32, ptr %108, align 8
-  %110 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %103, ptr noundef @.str.29, i32 noundef %106, i32 noundef %109)
-  br label %111
+77:                                               ; preds = %24
+  %78 = load i32, ptr %4, align 4, !tbaa !4
+  %79 = load i64, ptr %7, align 8, !tbaa !9
+  %80 = sitofp i64 %79 to double
+  %81 = fdiv double %80, 1.000000e+06
+  %82 = load i64, ptr %8, align 8, !tbaa !9
+  %83 = sitofp i64 %82 to double
+  %84 = fdiv double %83, 1.000000e+06
+  %85 = load i64, ptr %9, align 8, !tbaa !9
+  %86 = sitofp i64 %85 to double
+  %87 = load i32, ptr %11, align 4, !tbaa !4
+  %88 = uitofp i32 %87 to double
+  %89 = fmul double 1.000000e+06, %88
+  %90 = fdiv double %86, %89
+  %91 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %78, ptr noundef @.str.27, double noundef %81, double noundef %84, double noundef %90)
+  %92 = load i32, ptr %10, align 4, !tbaa !4
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %98
 
-111:                                              ; preds = %102, %94, %18
+94:                                               ; preds = %77
+  %95 = load i32, ptr %4, align 4, !tbaa !4
+  %96 = load i32, ptr %10, align 4, !tbaa !4
+  %97 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %95, ptr noundef @.str.28, i32 noundef %96)
+  br label %98
+
+98:                                               ; preds = %94, %77
+  %99 = load i32, ptr %11, align 4, !tbaa !4
+  %100 = load i32, ptr %10, align 4, !tbaa !4
+  %101 = add i32 %99, %100
+  %102 = load ptr, ptr %5, align 8, !tbaa !54
+  %103 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %102, i32 0, i32 2
+  %104 = load i32, ptr %103, align 8, !tbaa !34
+  %105 = icmp ne i32 %101, %104
+  br i1 %105, label %106, label %115
+
+106:                                              ; preds = %98
+  %107 = load i32, ptr %4, align 4, !tbaa !4
+  %108 = load i32, ptr %11, align 4, !tbaa !4
+  %109 = load i32, ptr %10, align 4, !tbaa !4
+  %110 = add i32 %108, %109
+  %111 = load ptr, ptr %5, align 8, !tbaa !54
+  %112 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %111, i32 0, i32 2
+  %113 = load i32, ptr %112, align 8, !tbaa !34
+  %114 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %107, ptr noundef @.str.29, i32 noundef %110, i32 noundef %113)
+  br label %115
+
+115:                                              ; preds = %106, %98
+  store i32 0, ptr %13, align 4
+  br label %116
+
+116:                                              ; preds = %115, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  %117 = load i32, ptr %13, align 4
+  switch i32 %117, label %119 [
+    i32 0, label %118
+    i32 1, label %118
+  ]
+
+118:                                              ; preds = %116, %116
   ret void
+
+119:                                              ; preds = %116, %70
+  unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #4
+declare ptr @realloc(ptr noundef, i64 noundef) #5
 
-declare i32 @mpool_getstats(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @mpool_getstats(ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare void @free(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #1
+declare i32 @pthread_mutex_unlock(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @thrmgr_destroy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = icmp ne ptr %3, null
   br i1 %4, label %6, label %5
 
@@ -693,60 +836,60 @@ define dso_local void @thrmgr_destroy(ptr noundef %0) #0 {
   br label %95
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.threadpool_tag, ptr %7, i32 0, i32 0
-  %9 = call i32 @pthread_mutex_lock(ptr noundef %8) #8
+  %7 = load ptr, ptr %2, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %7, i32 0, i32 0
+  %9 = call i32 @pthread_mutex_lock(ptr noundef %8) #10
   %10 = icmp ne i32 %9, 0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.18)
-  call void @exit(i32 noundef -1) #10
+  call void @exit(i32 noundef -1) #12
   unreachable
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.threadpool_tag, ptr %14, i32 0, i32 6
-  %16 = load i32, ptr %15, align 8
+  %14 = load ptr, ptr %2, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %14, i32 0, i32 6
+  %16 = load i32, ptr %15, align 8, !tbaa !23
   %17 = icmp ne i32 %16, 1
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.threadpool_tag, ptr %19, i32 0, i32 0
-  %21 = call i32 @pthread_mutex_unlock(ptr noundef %20) #8
+  %19 = load ptr, ptr %2, align 8, !tbaa !22
+  %20 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %19, i32 0, i32 0
+  %21 = call i32 @pthread_mutex_unlock(ptr noundef %20) #10
   %22 = icmp ne i32 %21, 0
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %18
   %24 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.19)
-  call void @exit(i32 noundef -1) #10
+  call void @exit(i32 noundef -1) #12
   unreachable
 
 25:                                               ; preds = %18
   br label %95
 
 26:                                               ; preds = %13
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.threadpool_tag, ptr %27, i32 0, i32 6
-  store i32 2, ptr %28, align 8
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.threadpool_tag, ptr %29, i32 0, i32 9
-  %31 = load i32, ptr %30, align 4
+  %27 = load ptr, ptr %2, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %27, i32 0, i32 6
+  store i32 2, ptr %28, align 8, !tbaa !23
+  %29 = load ptr, ptr %2, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %29, i32 0, i32 9
+  %31 = load i32, ptr %30, align 4, !tbaa !29
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %26
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.threadpool_tag, ptr %34, i32 0, i32 1
-  %36 = call i32 @pthread_cond_broadcast(ptr noundef %35) #8
+  %34 = load ptr, ptr %2, align 8, !tbaa !22
+  %35 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %34, i32 0, i32 1
+  %36 = call i32 @pthread_cond_broadcast(ptr noundef %35) #10
   %37 = icmp ne i32 %36, 0
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %33
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.threadpool_tag, ptr %39, i32 0, i32 0
-  %41 = call i32 @pthread_mutex_unlock(ptr noundef %40) #8
+  %39 = load ptr, ptr %2, align 8, !tbaa !22
+  %40 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %39, i32 0, i32 0
+  %41 = call i32 @pthread_mutex_unlock(ptr noundef %40) #10
   br label %95
 
 42:                                               ; preds = %33
@@ -756,88 +899,88 @@ define dso_local void @thrmgr_destroy(ptr noundef %0) #0 {
   br label %44
 
 44:                                               ; preds = %60, %43
-  %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.threadpool_tag, ptr %45, i32 0, i32 9
-  %47 = load i32, ptr %46, align 4
+  %45 = load ptr, ptr %2, align 8, !tbaa !22
+  %46 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %45, i32 0, i32 9
+  %47 = load i32, ptr %46, align 4, !tbaa !29
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %61
 
 49:                                               ; preds = %44
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.threadpool_tag, ptr %50, i32 0, i32 1
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.threadpool_tag, ptr %52, i32 0, i32 0
+  %50 = load ptr, ptr %2, align 8, !tbaa !22
+  %51 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %2, align 8, !tbaa !22
+  %53 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %52, i32 0, i32 0
   %54 = call i32 @pthread_cond_wait(ptr noundef %51, ptr noundef %53)
   %55 = icmp ne i32 %54, 0
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %49
-  %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds %struct.threadpool_tag, ptr %57, i32 0, i32 0
-  %59 = call i32 @pthread_mutex_unlock(ptr noundef %58) #8
+  %57 = load ptr, ptr %2, align 8, !tbaa !22
+  %58 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %57, i32 0, i32 0
+  %59 = call i32 @pthread_mutex_unlock(ptr noundef %58) #10
   br label %95
 
 60:                                               ; preds = %49
   br label %44
 
 61:                                               ; preds = %44
-  %62 = load ptr, ptr %2, align 8
+  %62 = load ptr, ptr %2, align 8, !tbaa !22
   call void @remove_frompools(ptr noundef %62)
-  %63 = load ptr, ptr %2, align 8
-  %64 = getelementptr inbounds %struct.threadpool_tag, ptr %63, i32 0, i32 0
-  %65 = call i32 @pthread_mutex_unlock(ptr noundef %64) #8
+  %63 = load ptr, ptr %2, align 8, !tbaa !22
+  %64 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %63, i32 0, i32 0
+  %65 = call i32 @pthread_mutex_unlock(ptr noundef %64) #10
   %66 = icmp ne i32 %65, 0
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %61
   %68 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.19)
-  call void @exit(i32 noundef -1) #10
+  call void @exit(i32 noundef -1) #12
   unreachable
 
 69:                                               ; preds = %61
-  %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds %struct.threadpool_tag, ptr %70, i32 0, i32 0
-  %72 = call i32 @pthread_mutex_destroy(ptr noundef %71) #8
-  %73 = load ptr, ptr %2, align 8
-  %74 = getelementptr inbounds %struct.threadpool_tag, ptr %73, i32 0, i32 3
-  %75 = call i32 @pthread_cond_destroy(ptr noundef %74) #8
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.threadpool_tag, ptr %76, i32 0, i32 4
-  %78 = call i32 @pthread_cond_destroy(ptr noundef %77) #8
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds %struct.threadpool_tag, ptr %79, i32 0, i32 5
-  %81 = call i32 @pthread_cond_destroy(ptr noundef %80) #8
-  %82 = load ptr, ptr %2, align 8
-  %83 = getelementptr inbounds %struct.threadpool_tag, ptr %82, i32 0, i32 1
-  %84 = call i32 @pthread_cond_destroy(ptr noundef %83) #8
-  %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds %struct.threadpool_tag, ptr %85, i32 0, i32 2
-  %87 = call i32 @pthread_attr_destroy(ptr noundef %86) #8
-  %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds %struct.threadpool_tag, ptr %88, i32 0, i32 16
-  %90 = load ptr, ptr %89, align 8
-  call void @free(ptr noundef %90) #8
-  %91 = load ptr, ptr %2, align 8
-  %92 = getelementptr inbounds %struct.threadpool_tag, ptr %91, i32 0, i32 15
-  %93 = load ptr, ptr %92, align 8
-  call void @free(ptr noundef %93) #8
-  %94 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %94) #8
+  %70 = load ptr, ptr %2, align 8, !tbaa !22
+  %71 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %70, i32 0, i32 0
+  %72 = call i32 @pthread_mutex_destroy(ptr noundef %71) #10
+  %73 = load ptr, ptr %2, align 8, !tbaa !22
+  %74 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %73, i32 0, i32 3
+  %75 = call i32 @pthread_cond_destroy(ptr noundef %74) #10
+  %76 = load ptr, ptr %2, align 8, !tbaa !22
+  %77 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %76, i32 0, i32 4
+  %78 = call i32 @pthread_cond_destroy(ptr noundef %77) #10
+  %79 = load ptr, ptr %2, align 8, !tbaa !22
+  %80 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %79, i32 0, i32 5
+  %81 = call i32 @pthread_cond_destroy(ptr noundef %80) #10
+  %82 = load ptr, ptr %2, align 8, !tbaa !22
+  %83 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %82, i32 0, i32 1
+  %84 = call i32 @pthread_cond_destroy(ptr noundef %83) #10
+  %85 = load ptr, ptr %2, align 8, !tbaa !22
+  %86 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %85, i32 0, i32 2
+  %87 = call i32 @pthread_attr_destroy(ptr noundef %86) #10
+  %88 = load ptr, ptr %2, align 8, !tbaa !22
+  %89 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %88, i32 0, i32 16
+  %90 = load ptr, ptr %89, align 8, !tbaa !33
+  call void @free(ptr noundef %90) #10
+  %91 = load ptr, ptr %2, align 8, !tbaa !22
+  %92 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %91, i32 0, i32 15
+  %93 = load ptr, ptr %92, align 8, !tbaa !37
+  call void @free(ptr noundef %93) #10
+  %94 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @free(ptr noundef %94) #10
   br label %95
 
 95:                                               ; preds = %69, %56, %38, %25, %5
   ret void
 }
 
-declare i32 @logg(i32 noundef, ptr noundef, ...) #2
+declare i32 @logg(i32 noundef, ptr noundef, ...) #3
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #5
+declare void @exit(i32 noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_broadcast(ptr noundef) #1
+declare i32 @pthread_cond_broadcast(ptr noundef) #2
 
-declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) #2
+declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @remove_frompools(ptr noundef %0) #0 {
@@ -845,126 +988,147 @@ define internal void @remove_frompools(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %7 = call i32 @pthread_mutex_lock(ptr noundef @pools_lock) #8
-  store ptr null, ptr %4, align 8
-  %8 = load ptr, ptr @pools, align 8
-  store ptr %8, ptr %3, align 8
-  br label %9
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %8 = call i32 @pthread_mutex_lock(ptr noundef @pools_lock) #10
+  store ptr null, ptr %4, align 8, !tbaa !16
+  %9 = load ptr, ptr @pools, align 8, !tbaa !16
+  store ptr %9, ptr %3, align 8, !tbaa !16
+  br label %10
 
-9:                                                ; preds = %20, %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %18
+10:                                               ; preds = %21, %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !16
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %19
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.threadpool_list, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = icmp ne ptr %15, %16
-  br label %18
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %3, align 8, !tbaa !16
+  %15 = getelementptr inbounds nuw %struct.threadpool_list, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
+  %17 = load ptr, ptr %2, align 8, !tbaa !22
+  %18 = icmp ne ptr %16, %17
+  br label %19
 
-18:                                               ; preds = %12, %9
-  %19 = phi i1 [ false, %9 ], [ %17, %12 ]
-  br i1 %19, label %20, label %25
+19:                                               ; preds = %13, %10
+  %20 = phi i1 [ false, %10 ], [ %18, %13 ]
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %3, align 8
-  store ptr %21, ptr %4, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.threadpool_list, ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %3, align 8
-  br label %9
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %3, align 8, !tbaa !16
+  store ptr %22, ptr %4, align 8, !tbaa !16
+  %23 = load ptr, ptr %3, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw %struct.threadpool_list, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !18
+  store ptr %25, ptr %3, align 8, !tbaa !16
+  br label %10
 
-25:                                               ; preds = %18
-  %26 = load ptr, ptr %3, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %30, label %28
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %3, align 8, !tbaa !16
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %31, label %29
 
-28:                                               ; preds = %25
-  %29 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #8
-  br label %65
+29:                                               ; preds = %26
+  %30 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #10
+  store i32 1, ptr %6, align 4
+  br label %66
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %4, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %39
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %4, align 8, !tbaa !16
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %40
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.threadpool_list, ptr %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.threadpool_list, ptr %37, i32 0, i32 1
-  store ptr %36, ptr %38, align 8
-  br label %39
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %3, align 8, !tbaa !16
+  %36 = getelementptr inbounds nuw %struct.threadpool_list, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !18
+  %38 = load ptr, ptr %4, align 8, !tbaa !16
+  %39 = getelementptr inbounds nuw %struct.threadpool_list, ptr %38, i32 0, i32 1
+  store ptr %37, ptr %39, align 8, !tbaa !18
+  br label %40
 
-39:                                               ; preds = %33, %30
-  %40 = load ptr, ptr %3, align 8
-  %41 = load ptr, ptr @pools, align 8
-  %42 = icmp eq ptr %40, %41
-  br i1 %42, label %43, label %47
+40:                                               ; preds = %34, %31
+  %41 = load ptr, ptr %3, align 8, !tbaa !16
+  %42 = load ptr, ptr @pools, align 8, !tbaa !16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.threadpool_list, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr @pools, align 8
-  br label %47
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %3, align 8, !tbaa !16
+  %46 = getelementptr inbounds nuw %struct.threadpool_list, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !18
+  store ptr %47, ptr @pools, align 8, !tbaa !16
+  br label %48
 
-47:                                               ; preds = %43, %39
-  %48 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %48) #8
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.threadpool_tag, ptr %49, i32 0, i32 13
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %5, align 8
-  br label %52
+48:                                               ; preds = %44, %40
+  %49 = load ptr, ptr %3, align 8, !tbaa !16
+  call void @free(ptr noundef %49) #10
+  %50 = load ptr, ptr %2, align 8, !tbaa !22
+  %51 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %50, i32 0, i32 13
+  %52 = load ptr, ptr %51, align 8, !tbaa !38
+  store ptr %52, ptr %5, align 8, !tbaa !39
+  br label %53
 
-52:                                               ; preds = %55, %47
-  %53 = load ptr, ptr %5, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %61
+53:                                               ; preds = %56, %48
+  %54 = load ptr, ptr %5, align 8, !tbaa !39
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %62
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %5, align 8
-  store ptr %56, ptr %6, align 8
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.task_desc, ptr %57, i32 0, i32 4
-  %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %5, align 8
-  %60 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %60) #8
-  br label %52
+56:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %57 = load ptr, ptr %5, align 8, !tbaa !39
+  store ptr %57, ptr %7, align 8, !tbaa !39
+  %58 = load ptr, ptr %5, align 8, !tbaa !39
+  %59 = getelementptr inbounds nuw %struct.task_desc, ptr %58, i32 0, i32 4
+  %60 = load ptr, ptr %59, align 8, !tbaa !53
+  store ptr %60, ptr %5, align 8, !tbaa !39
+  %61 = load ptr, ptr %7, align 8, !tbaa !39
+  call void @free(ptr noundef %61) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  br label %53
 
-61:                                               ; preds = %52
-  %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds %struct.threadpool_tag, ptr %62, i32 0, i32 13
-  store ptr null, ptr %63, align 8
-  %64 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #8
-  br label %65
+62:                                               ; preds = %53
+  %63 = load ptr, ptr %2, align 8, !tbaa !22
+  %64 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %63, i32 0, i32 13
+  store ptr null, ptr %64, align 8, !tbaa !38
+  %65 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #10
+  store i32 0, ptr %6, align 4
+  br label %66
 
-65:                                               ; preds = %61, %28
+66:                                               ; preds = %62, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %67 = load i32, ptr %6, align 4
+  switch i32 %67, label %69 [
+    i32 0, label %68
+    i32 1, label %68
+  ]
+
+68:                                               ; preds = %66, %66
   ret void
+
+69:                                               ; preds = %66
+  unreachable
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) #1
+declare i32 @pthread_mutex_destroy(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_destroy(ptr noundef) #1
+declare i32 @pthread_cond_destroy(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_destroy(ptr noundef) #1
+declare i32 @pthread_attr_destroy(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @thrmgr_wait_for_threads(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = icmp ne ptr %3, null
   br i1 %4, label %6, label %5
 
@@ -972,57 +1136,57 @@ define dso_local void @thrmgr_wait_for_threads(ptr noundef %0) #0 {
   br label %67
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.threadpool_tag, ptr %7, i32 0, i32 0
-  %9 = call i32 @pthread_mutex_lock(ptr noundef %8) #8
+  %7 = load ptr, ptr %2, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %7, i32 0, i32 0
+  %9 = call i32 @pthread_mutex_lock(ptr noundef %8) #10
   %10 = icmp ne i32 %9, 0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.18)
-  call void @exit(i32 noundef -1) #10
+  call void @exit(i32 noundef -1) #12
   unreachable
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.threadpool_tag, ptr %14, i32 0, i32 6
-  %16 = load i32, ptr %15, align 8
+  %14 = load ptr, ptr %2, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %14, i32 0, i32 6
+  %16 = load i32, ptr %15, align 8, !tbaa !23
   %17 = icmp ne i32 %16, 1
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.threadpool_tag, ptr %19, i32 0, i32 0
-  %21 = call i32 @pthread_mutex_unlock(ptr noundef %20) #8
+  %19 = load ptr, ptr %2, align 8, !tbaa !22
+  %20 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %19, i32 0, i32 0
+  %21 = call i32 @pthread_mutex_unlock(ptr noundef %20) #10
   %22 = icmp ne i32 %21, 0
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %18
   %24 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.19)
-  call void @exit(i32 noundef -1) #10
+  call void @exit(i32 noundef -1) #12
   unreachable
 
 25:                                               ; preds = %18
   br label %67
 
 26:                                               ; preds = %13
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.threadpool_tag, ptr %27, i32 0, i32 9
-  %29 = load i32, ptr %28, align 4
+  %27 = load ptr, ptr %2, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %27, i32 0, i32 9
+  %29 = load i32, ptr %28, align 4, !tbaa !29
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.threadpool_tag, ptr %32, i32 0, i32 1
-  %34 = call i32 @pthread_cond_broadcast(ptr noundef %33) #8
+  %32 = load ptr, ptr %2, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %32, i32 0, i32 1
+  %34 = call i32 @pthread_cond_broadcast(ptr noundef %33) #10
   %35 = icmp ne i32 %34, 0
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.threadpool_tag, ptr %37, i32 0, i32 0
-  %39 = call i32 @pthread_mutex_unlock(ptr noundef %38) #8
+  %37 = load ptr, ptr %2, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %37, i32 0, i32 0
+  %39 = call i32 @pthread_mutex_unlock(ptr noundef %38) #10
   br label %67
 
 40:                                               ; preds = %31
@@ -1032,40 +1196,40 @@ define dso_local void @thrmgr_wait_for_threads(ptr noundef %0) #0 {
   br label %42
 
 42:                                               ; preds = %58, %41
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.threadpool_tag, ptr %43, i32 0, i32 9
-  %45 = load i32, ptr %44, align 4
+  %43 = load ptr, ptr %2, align 8, !tbaa !22
+  %44 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %43, i32 0, i32 9
+  %45 = load i32, ptr %44, align 4, !tbaa !29
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %47, label %59
 
 47:                                               ; preds = %42
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.threadpool_tag, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.threadpool_tag, ptr %50, i32 0, i32 0
+  %48 = load ptr, ptr %2, align 8, !tbaa !22
+  %49 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %2, align 8, !tbaa !22
+  %51 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %50, i32 0, i32 0
   %52 = call i32 @pthread_cond_wait(ptr noundef %49, ptr noundef %51)
   %53 = icmp ne i32 %52, 0
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %47
-  %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.threadpool_tag, ptr %55, i32 0, i32 0
-  %57 = call i32 @pthread_mutex_unlock(ptr noundef %56) #8
+  %55 = load ptr, ptr %2, align 8, !tbaa !22
+  %56 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %55, i32 0, i32 0
+  %57 = call i32 @pthread_mutex_unlock(ptr noundef %56) #10
   br label %67
 
 58:                                               ; preds = %47
   br label %42
 
 59:                                               ; preds = %42
-  %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds %struct.threadpool_tag, ptr %60, i32 0, i32 0
-  %62 = call i32 @pthread_mutex_unlock(ptr noundef %61) #8
+  %60 = load ptr, ptr %2, align 8, !tbaa !22
+  %61 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %60, i32 0, i32 0
+  %62 = call i32 @pthread_mutex_unlock(ptr noundef %61) #10
   %63 = icmp ne i32 %62, 0
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %59
   %65 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.19)
-  call void @exit(i32 noundef -1) #10
+  call void @exit(i32 noundef -1) #12
   unreachable
 
 66:                                               ; preds = %59
@@ -1083,403 +1247,438 @@ define dso_local ptr @thrmgr_new(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store i32 %0, ptr %6, align 4
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %11 = load i32, ptr %6, align 4
-  %12 = icmp sle i32 %11, 0
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %4
-  store ptr null, ptr %5, align 8
-  br label %221
+  %11 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !4
+  store i32 %1, ptr %7, align 4, !tbaa !4
+  store i32 %2, ptr %8, align 4, !tbaa !4
+  store ptr %3, ptr %9, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %12 = load i32, ptr %6, align 4, !tbaa !4
+  %13 = icmp sle i32 %12, 0
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %4
-  %15 = call noalias ptr @malloc(i64 noundef 352) #11
-  store ptr %15, ptr %10, align 8
-  %16 = load ptr, ptr %10, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %19, label %18
-
-18:                                               ; preds = %14
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-19:                                               ; preds = %14
-  %20 = call ptr @work_queue_new()
-  %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds %struct.threadpool_tag, ptr %21, i32 0, i32 16
-  store ptr %20, ptr %22, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %struct.threadpool_tag, ptr %23, i32 0, i32 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %29, label %27
+15:                                               ; preds = %4
+  %16 = call noalias ptr @malloc(i64 noundef 352) #13
+  store ptr %16, ptr %10, align 8, !tbaa !22
+  %17 = load ptr, ptr %10, align 8, !tbaa !22
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %20, label %19
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %28) #8
+19:                                               ; preds = %15
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-29:                                               ; preds = %19
-  %30 = call ptr @work_queue_new()
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct.threadpool_tag, ptr %31, i32 0, i32 15
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds %struct.threadpool_tag, ptr %33, i32 0, i32 15
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %42, label %37
+20:                                               ; preds = %15
+  %21 = call ptr @work_queue_new()
+  %22 = load ptr, ptr %10, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %22, i32 0, i32 16
+  store ptr %21, ptr %23, align 8, !tbaa !33
+  %24 = load ptr, ptr %10, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %24, i32 0, i32 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !33
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %30, label %28
 
-37:                                               ; preds = %29
-  %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds %struct.threadpool_tag, ptr %38, i32 0, i32 16
-  %40 = load ptr, ptr %39, align 8
-  call void @free(ptr noundef %40) #8
-  %41 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %41) #8
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %29) #10
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-42:                                               ; preds = %29
-  %43 = load i32, ptr %8, align 4
-  %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds %struct.threadpool_tag, ptr %44, i32 0, i32 8
-  store i32 %43, ptr %45, align 8
-  %46 = load i32, ptr %6, align 4
-  %47 = load ptr, ptr %10, align 8
-  %48 = getelementptr inbounds %struct.threadpool_tag, ptr %47, i32 0, i32 7
-  store i32 %46, ptr %48, align 4
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.threadpool_tag, ptr %49, i32 0, i32 9
-  store i32 0, ptr %50, align 4
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct.threadpool_tag, ptr %51, i32 0, i32 10
-  store i32 0, ptr %52, align 8
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.threadpool_tag, ptr %53, i32 0, i32 11
-  store i32 0, ptr %54, align 4
-  %55 = load i32, ptr %7, align 4
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct.threadpool_tag, ptr %56, i32 0, i32 12
-  store i32 %55, ptr %57, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds %struct.threadpool_tag, ptr %59, i32 0, i32 14
-  store ptr %58, ptr %60, align 8
-  %61 = load ptr, ptr %10, align 8
-  %62 = getelementptr inbounds %struct.threadpool_tag, ptr %61, i32 0, i32 13
-  store ptr null, ptr %62, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds %struct.threadpool_tag, ptr %63, i32 0, i32 0
-  %65 = call i32 @pthread_mutex_init(ptr noundef %64, ptr noundef null) #8
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %75
+30:                                               ; preds = %20
+  %31 = call ptr @work_queue_new()
+  %32 = load ptr, ptr %10, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %32, i32 0, i32 15
+  store ptr %31, ptr %33, align 8, !tbaa !37
+  %34 = load ptr, ptr %10, align 8, !tbaa !22
+  %35 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %34, i32 0, i32 15
+  %36 = load ptr, ptr %35, align 8, !tbaa !37
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %43, label %38
 
-67:                                               ; preds = %42
-  %68 = load ptr, ptr %10, align 8
-  %69 = getelementptr inbounds %struct.threadpool_tag, ptr %68, i32 0, i32 16
-  %70 = load ptr, ptr %69, align 8
-  call void @free(ptr noundef %70) #8
-  %71 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds %struct.threadpool_tag, ptr %71, i32 0, i32 15
-  %73 = load ptr, ptr %72, align 8
-  call void @free(ptr noundef %73) #8
-  %74 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %74) #8
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %10, align 8, !tbaa !22
+  %40 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %39, i32 0, i32 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !33
+  call void @free(ptr noundef %41) #10
+  %42 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %42) #10
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-75:                                               ; preds = %42
-  %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds %struct.threadpool_tag, ptr %76, i32 0, i32 1
-  %78 = call i32 @pthread_cond_init(ptr noundef %77, ptr noundef null) #8
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %91
+43:                                               ; preds = %30
+  %44 = load i32, ptr %8, align 4, !tbaa !4
+  %45 = load ptr, ptr %10, align 8, !tbaa !22
+  %46 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %45, i32 0, i32 8
+  store i32 %44, ptr %46, align 8, !tbaa !64
+  %47 = load i32, ptr %6, align 4, !tbaa !4
+  %48 = load ptr, ptr %10, align 8, !tbaa !22
+  %49 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %48, i32 0, i32 7
+  store i32 %47, ptr %49, align 4, !tbaa !31
+  %50 = load ptr, ptr %10, align 8, !tbaa !22
+  %51 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %50, i32 0, i32 9
+  store i32 0, ptr %51, align 4, !tbaa !29
+  %52 = load ptr, ptr %10, align 8, !tbaa !22
+  %53 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %52, i32 0, i32 10
+  store i32 0, ptr %53, align 8, !tbaa !30
+  %54 = load ptr, ptr %10, align 8, !tbaa !22
+  %55 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %54, i32 0, i32 11
+  store i32 0, ptr %55, align 4, !tbaa !65
+  %56 = load i32, ptr %7, align 4, !tbaa !4
+  %57 = load ptr, ptr %10, align 8, !tbaa !22
+  %58 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %57, i32 0, i32 12
+  store i32 %56, ptr %58, align 8, !tbaa !32
+  %59 = load ptr, ptr %9, align 8, !tbaa !63
+  %60 = load ptr, ptr %10, align 8, !tbaa !22
+  %61 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %60, i32 0, i32 14
+  store ptr %59, ptr %61, align 8, !tbaa !66
+  %62 = load ptr, ptr %10, align 8, !tbaa !22
+  %63 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %62, i32 0, i32 13
+  store ptr null, ptr %63, align 8, !tbaa !38
+  %64 = load ptr, ptr %10, align 8, !tbaa !22
+  %65 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %64, i32 0, i32 0
+  %66 = call i32 @pthread_mutex_init(ptr noundef %65, ptr noundef null) #10
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %76
 
-80:                                               ; preds = %75
-  %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr inbounds %struct.threadpool_tag, ptr %81, i32 0, i32 0
-  %83 = call i32 @pthread_mutex_destroy(ptr noundef %82) #8
-  %84 = load ptr, ptr %10, align 8
-  %85 = getelementptr inbounds %struct.threadpool_tag, ptr %84, i32 0, i32 16
-  %86 = load ptr, ptr %85, align 8
-  call void @free(ptr noundef %86) #8
-  %87 = load ptr, ptr %10, align 8
-  %88 = getelementptr inbounds %struct.threadpool_tag, ptr %87, i32 0, i32 15
-  %89 = load ptr, ptr %88, align 8
-  call void @free(ptr noundef %89) #8
-  %90 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %90) #8
+68:                                               ; preds = %43
+  %69 = load ptr, ptr %10, align 8, !tbaa !22
+  %70 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %69, i32 0, i32 16
+  %71 = load ptr, ptr %70, align 8, !tbaa !33
+  call void @free(ptr noundef %71) #10
+  %72 = load ptr, ptr %10, align 8, !tbaa !22
+  %73 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %72, i32 0, i32 15
+  %74 = load ptr, ptr %73, align 8, !tbaa !37
+  call void @free(ptr noundef %74) #10
+  %75 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %75) #10
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-91:                                               ; preds = %75
-  %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds %struct.threadpool_tag, ptr %92, i32 0, i32 4
-  %94 = call i32 @pthread_cond_init(ptr noundef %93, ptr noundef null) #8
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %110
+76:                                               ; preds = %43
+  %77 = load ptr, ptr %10, align 8, !tbaa !22
+  %78 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %77, i32 0, i32 1
+  %79 = call i32 @pthread_cond_init(ptr noundef %78, ptr noundef null) #10
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %92
 
-96:                                               ; preds = %91
-  %97 = load ptr, ptr %10, align 8
-  %98 = getelementptr inbounds %struct.threadpool_tag, ptr %97, i32 0, i32 1
-  %99 = call i32 @pthread_cond_destroy(ptr noundef %98) #8
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds %struct.threadpool_tag, ptr %100, i32 0, i32 0
-  %102 = call i32 @pthread_mutex_destroy(ptr noundef %101) #8
-  %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct.threadpool_tag, ptr %103, i32 0, i32 16
-  %105 = load ptr, ptr %104, align 8
-  call void @free(ptr noundef %105) #8
-  %106 = load ptr, ptr %10, align 8
-  %107 = getelementptr inbounds %struct.threadpool_tag, ptr %106, i32 0, i32 15
-  %108 = load ptr, ptr %107, align 8
-  call void @free(ptr noundef %108) #8
-  %109 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %109) #8
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %10, align 8, !tbaa !22
+  %83 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %82, i32 0, i32 0
+  %84 = call i32 @pthread_mutex_destroy(ptr noundef %83) #10
+  %85 = load ptr, ptr %10, align 8, !tbaa !22
+  %86 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %85, i32 0, i32 16
+  %87 = load ptr, ptr %86, align 8, !tbaa !33
+  call void @free(ptr noundef %87) #10
+  %88 = load ptr, ptr %10, align 8, !tbaa !22
+  %89 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %88, i32 0, i32 15
+  %90 = load ptr, ptr %89, align 8, !tbaa !37
+  call void @free(ptr noundef %90) #10
+  %91 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %91) #10
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-110:                                              ; preds = %91
-  %111 = load ptr, ptr %10, align 8
-  %112 = getelementptr inbounds %struct.threadpool_tag, ptr %111, i32 0, i32 5
-  %113 = call i32 @pthread_cond_init(ptr noundef %112, ptr noundef null) #8
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %132
+92:                                               ; preds = %76
+  %93 = load ptr, ptr %10, align 8, !tbaa !22
+  %94 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %93, i32 0, i32 4
+  %95 = call i32 @pthread_cond_init(ptr noundef %94, ptr noundef null) #10
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %111
 
-115:                                              ; preds = %110
-  %116 = load ptr, ptr %10, align 8
-  %117 = getelementptr inbounds %struct.threadpool_tag, ptr %116, i32 0, i32 4
-  %118 = call i32 @pthread_cond_destroy(ptr noundef %117) #8
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct.threadpool_tag, ptr %119, i32 0, i32 1
-  %121 = call i32 @pthread_cond_destroy(ptr noundef %120) #8
-  %122 = load ptr, ptr %10, align 8
-  %123 = getelementptr inbounds %struct.threadpool_tag, ptr %122, i32 0, i32 0
-  %124 = call i32 @pthread_mutex_destroy(ptr noundef %123) #8
-  %125 = load ptr, ptr %10, align 8
-  %126 = getelementptr inbounds %struct.threadpool_tag, ptr %125, i32 0, i32 16
-  %127 = load ptr, ptr %126, align 8
-  call void @free(ptr noundef %127) #8
-  %128 = load ptr, ptr %10, align 8
-  %129 = getelementptr inbounds %struct.threadpool_tag, ptr %128, i32 0, i32 15
-  %130 = load ptr, ptr %129, align 8
-  call void @free(ptr noundef %130) #8
-  %131 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %131) #8
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %10, align 8, !tbaa !22
+  %99 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %98, i32 0, i32 1
+  %100 = call i32 @pthread_cond_destroy(ptr noundef %99) #10
+  %101 = load ptr, ptr %10, align 8, !tbaa !22
+  %102 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %101, i32 0, i32 0
+  %103 = call i32 @pthread_mutex_destroy(ptr noundef %102) #10
+  %104 = load ptr, ptr %10, align 8, !tbaa !22
+  %105 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %104, i32 0, i32 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !33
+  call void @free(ptr noundef %106) #10
+  %107 = load ptr, ptr %10, align 8, !tbaa !22
+  %108 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %107, i32 0, i32 15
+  %109 = load ptr, ptr %108, align 8, !tbaa !37
+  call void @free(ptr noundef %109) #10
+  %110 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %110) #10
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-132:                                              ; preds = %110
-  %133 = load ptr, ptr %10, align 8
-  %134 = getelementptr inbounds %struct.threadpool_tag, ptr %133, i32 0, i32 3
-  %135 = call i32 @pthread_cond_init(ptr noundef %134, ptr noundef null) #8
-  %136 = icmp ne i32 %135, 0
-  br i1 %136, label %137, label %157
+111:                                              ; preds = %92
+  %112 = load ptr, ptr %10, align 8, !tbaa !22
+  %113 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %112, i32 0, i32 5
+  %114 = call i32 @pthread_cond_init(ptr noundef %113, ptr noundef null) #10
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %133
 
-137:                                              ; preds = %132
-  %138 = load ptr, ptr %10, align 8
-  %139 = getelementptr inbounds %struct.threadpool_tag, ptr %138, i32 0, i32 4
-  %140 = call i32 @pthread_cond_destroy(ptr noundef %139) #8
-  %141 = load ptr, ptr %10, align 8
-  %142 = getelementptr inbounds %struct.threadpool_tag, ptr %141, i32 0, i32 5
-  %143 = call i32 @pthread_cond_destroy(ptr noundef %142) #8
-  %144 = load ptr, ptr %10, align 8
-  %145 = getelementptr inbounds %struct.threadpool_tag, ptr %144, i32 0, i32 1
-  %146 = call i32 @pthread_cond_destroy(ptr noundef %145) #8
-  %147 = load ptr, ptr %10, align 8
-  %148 = getelementptr inbounds %struct.threadpool_tag, ptr %147, i32 0, i32 0
-  %149 = call i32 @pthread_mutex_destroy(ptr noundef %148) #8
-  %150 = load ptr, ptr %10, align 8
-  %151 = getelementptr inbounds %struct.threadpool_tag, ptr %150, i32 0, i32 16
-  %152 = load ptr, ptr %151, align 8
-  call void @free(ptr noundef %152) #8
-  %153 = load ptr, ptr %10, align 8
-  %154 = getelementptr inbounds %struct.threadpool_tag, ptr %153, i32 0, i32 15
-  %155 = load ptr, ptr %154, align 8
-  call void @free(ptr noundef %155) #8
-  %156 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %156) #8
+116:                                              ; preds = %111
+  %117 = load ptr, ptr %10, align 8, !tbaa !22
+  %118 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %117, i32 0, i32 4
+  %119 = call i32 @pthread_cond_destroy(ptr noundef %118) #10
+  %120 = load ptr, ptr %10, align 8, !tbaa !22
+  %121 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %120, i32 0, i32 1
+  %122 = call i32 @pthread_cond_destroy(ptr noundef %121) #10
+  %123 = load ptr, ptr %10, align 8, !tbaa !22
+  %124 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %123, i32 0, i32 0
+  %125 = call i32 @pthread_mutex_destroy(ptr noundef %124) #10
+  %126 = load ptr, ptr %10, align 8, !tbaa !22
+  %127 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %126, i32 0, i32 16
+  %128 = load ptr, ptr %127, align 8, !tbaa !33
+  call void @free(ptr noundef %128) #10
+  %129 = load ptr, ptr %10, align 8, !tbaa !22
+  %130 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %129, i32 0, i32 15
+  %131 = load ptr, ptr %130, align 8, !tbaa !37
+  call void @free(ptr noundef %131) #10
+  %132 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %132) #10
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-157:                                              ; preds = %132
-  %158 = load ptr, ptr %10, align 8
-  %159 = getelementptr inbounds %struct.threadpool_tag, ptr %158, i32 0, i32 2
-  %160 = call i32 @pthread_attr_init(ptr noundef %159) #8
-  %161 = icmp ne i32 %160, 0
-  br i1 %161, label %162, label %185
+133:                                              ; preds = %111
+  %134 = load ptr, ptr %10, align 8, !tbaa !22
+  %135 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %134, i32 0, i32 3
+  %136 = call i32 @pthread_cond_init(ptr noundef %135, ptr noundef null) #10
+  %137 = icmp ne i32 %136, 0
+  br i1 %137, label %138, label %158
 
-162:                                              ; preds = %157
-  %163 = load ptr, ptr %10, align 8
-  %164 = getelementptr inbounds %struct.threadpool_tag, ptr %163, i32 0, i32 4
-  %165 = call i32 @pthread_cond_destroy(ptr noundef %164) #8
-  %166 = load ptr, ptr %10, align 8
-  %167 = getelementptr inbounds %struct.threadpool_tag, ptr %166, i32 0, i32 5
-  %168 = call i32 @pthread_cond_destroy(ptr noundef %167) #8
-  %169 = load ptr, ptr %10, align 8
-  %170 = getelementptr inbounds %struct.threadpool_tag, ptr %169, i32 0, i32 3
-  %171 = call i32 @pthread_cond_destroy(ptr noundef %170) #8
-  %172 = load ptr, ptr %10, align 8
-  %173 = getelementptr inbounds %struct.threadpool_tag, ptr %172, i32 0, i32 1
-  %174 = call i32 @pthread_cond_destroy(ptr noundef %173) #8
-  %175 = load ptr, ptr %10, align 8
-  %176 = getelementptr inbounds %struct.threadpool_tag, ptr %175, i32 0, i32 0
-  %177 = call i32 @pthread_mutex_destroy(ptr noundef %176) #8
-  %178 = load ptr, ptr %10, align 8
-  %179 = getelementptr inbounds %struct.threadpool_tag, ptr %178, i32 0, i32 16
-  %180 = load ptr, ptr %179, align 8
-  call void @free(ptr noundef %180) #8
-  %181 = load ptr, ptr %10, align 8
-  %182 = getelementptr inbounds %struct.threadpool_tag, ptr %181, i32 0, i32 15
-  %183 = load ptr, ptr %182, align 8
-  call void @free(ptr noundef %183) #8
-  %184 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %184) #8
+138:                                              ; preds = %133
+  %139 = load ptr, ptr %10, align 8, !tbaa !22
+  %140 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %139, i32 0, i32 4
+  %141 = call i32 @pthread_cond_destroy(ptr noundef %140) #10
+  %142 = load ptr, ptr %10, align 8, !tbaa !22
+  %143 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %142, i32 0, i32 5
+  %144 = call i32 @pthread_cond_destroy(ptr noundef %143) #10
+  %145 = load ptr, ptr %10, align 8, !tbaa !22
+  %146 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %145, i32 0, i32 1
+  %147 = call i32 @pthread_cond_destroy(ptr noundef %146) #10
+  %148 = load ptr, ptr %10, align 8, !tbaa !22
+  %149 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %148, i32 0, i32 0
+  %150 = call i32 @pthread_mutex_destroy(ptr noundef %149) #10
+  %151 = load ptr, ptr %10, align 8, !tbaa !22
+  %152 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %151, i32 0, i32 16
+  %153 = load ptr, ptr %152, align 8, !tbaa !33
+  call void @free(ptr noundef %153) #10
+  %154 = load ptr, ptr %10, align 8, !tbaa !22
+  %155 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %154, i32 0, i32 15
+  %156 = load ptr, ptr %155, align 8, !tbaa !37
+  call void @free(ptr noundef %156) #10
+  %157 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %157) #10
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-185:                                              ; preds = %157
-  %186 = load ptr, ptr %10, align 8
-  %187 = getelementptr inbounds %struct.threadpool_tag, ptr %186, i32 0, i32 2
-  %188 = call i32 @pthread_attr_setdetachstate(ptr noundef %187, i32 noundef 1) #8
-  %189 = icmp ne i32 %188, 0
-  br i1 %189, label %190, label %216
+158:                                              ; preds = %133
+  %159 = load ptr, ptr %10, align 8, !tbaa !22
+  %160 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %159, i32 0, i32 2
+  %161 = call i32 @pthread_attr_init(ptr noundef %160) #10
+  %162 = icmp ne i32 %161, 0
+  br i1 %162, label %163, label %186
 
-190:                                              ; preds = %185
-  %191 = load ptr, ptr %10, align 8
-  %192 = getelementptr inbounds %struct.threadpool_tag, ptr %191, i32 0, i32 4
-  %193 = call i32 @pthread_cond_destroy(ptr noundef %192) #8
-  %194 = load ptr, ptr %10, align 8
-  %195 = getelementptr inbounds %struct.threadpool_tag, ptr %194, i32 0, i32 5
-  %196 = call i32 @pthread_cond_destroy(ptr noundef %195) #8
-  %197 = load ptr, ptr %10, align 8
-  %198 = getelementptr inbounds %struct.threadpool_tag, ptr %197, i32 0, i32 2
-  %199 = call i32 @pthread_attr_destroy(ptr noundef %198) #8
-  %200 = load ptr, ptr %10, align 8
-  %201 = getelementptr inbounds %struct.threadpool_tag, ptr %200, i32 0, i32 3
-  %202 = call i32 @pthread_cond_destroy(ptr noundef %201) #8
-  %203 = load ptr, ptr %10, align 8
-  %204 = getelementptr inbounds %struct.threadpool_tag, ptr %203, i32 0, i32 1
-  %205 = call i32 @pthread_cond_destroy(ptr noundef %204) #8
-  %206 = load ptr, ptr %10, align 8
-  %207 = getelementptr inbounds %struct.threadpool_tag, ptr %206, i32 0, i32 0
-  %208 = call i32 @pthread_mutex_destroy(ptr noundef %207) #8
-  %209 = load ptr, ptr %10, align 8
-  %210 = getelementptr inbounds %struct.threadpool_tag, ptr %209, i32 0, i32 16
-  %211 = load ptr, ptr %210, align 8
-  call void @free(ptr noundef %211) #8
-  %212 = load ptr, ptr %10, align 8
-  %213 = getelementptr inbounds %struct.threadpool_tag, ptr %212, i32 0, i32 15
-  %214 = load ptr, ptr %213, align 8
-  call void @free(ptr noundef %214) #8
-  %215 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %215) #8
+163:                                              ; preds = %158
+  %164 = load ptr, ptr %10, align 8, !tbaa !22
+  %165 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %164, i32 0, i32 4
+  %166 = call i32 @pthread_cond_destroy(ptr noundef %165) #10
+  %167 = load ptr, ptr %10, align 8, !tbaa !22
+  %168 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %167, i32 0, i32 5
+  %169 = call i32 @pthread_cond_destroy(ptr noundef %168) #10
+  %170 = load ptr, ptr %10, align 8, !tbaa !22
+  %171 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %170, i32 0, i32 3
+  %172 = call i32 @pthread_cond_destroy(ptr noundef %171) #10
+  %173 = load ptr, ptr %10, align 8, !tbaa !22
+  %174 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %173, i32 0, i32 1
+  %175 = call i32 @pthread_cond_destroy(ptr noundef %174) #10
+  %176 = load ptr, ptr %10, align 8, !tbaa !22
+  %177 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %176, i32 0, i32 0
+  %178 = call i32 @pthread_mutex_destroy(ptr noundef %177) #10
+  %179 = load ptr, ptr %10, align 8, !tbaa !22
+  %180 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %179, i32 0, i32 16
+  %181 = load ptr, ptr %180, align 8, !tbaa !33
+  call void @free(ptr noundef %181) #10
+  %182 = load ptr, ptr %10, align 8, !tbaa !22
+  %183 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %182, i32 0, i32 15
+  %184 = load ptr, ptr %183, align 8, !tbaa !37
+  call void @free(ptr noundef %184) #10
+  %185 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %185) #10
   store ptr null, ptr %5, align 8
-  br label %221
+  store i32 1, ptr %11, align 4
+  br label %222
 
-216:                                              ; preds = %185
-  %217 = load ptr, ptr %10, align 8
-  %218 = getelementptr inbounds %struct.threadpool_tag, ptr %217, i32 0, i32 6
-  store i32 1, ptr %218, align 8
-  %219 = load ptr, ptr %10, align 8
-  call void @add_topools(ptr noundef %219)
-  %220 = load ptr, ptr %10, align 8
-  store ptr %220, ptr %5, align 8
-  br label %221
+186:                                              ; preds = %158
+  %187 = load ptr, ptr %10, align 8, !tbaa !22
+  %188 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %187, i32 0, i32 2
+  %189 = call i32 @pthread_attr_setdetachstate(ptr noundef %188, i32 noundef 1) #10
+  %190 = icmp ne i32 %189, 0
+  br i1 %190, label %191, label %217
 
-221:                                              ; preds = %216, %190, %162, %137, %115, %96, %80, %67, %37, %27, %18, %13
-  %222 = load ptr, ptr %5, align 8
-  ret ptr %222
+191:                                              ; preds = %186
+  %192 = load ptr, ptr %10, align 8, !tbaa !22
+  %193 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %192, i32 0, i32 4
+  %194 = call i32 @pthread_cond_destroy(ptr noundef %193) #10
+  %195 = load ptr, ptr %10, align 8, !tbaa !22
+  %196 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %195, i32 0, i32 5
+  %197 = call i32 @pthread_cond_destroy(ptr noundef %196) #10
+  %198 = load ptr, ptr %10, align 8, !tbaa !22
+  %199 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %198, i32 0, i32 2
+  %200 = call i32 @pthread_attr_destroy(ptr noundef %199) #10
+  %201 = load ptr, ptr %10, align 8, !tbaa !22
+  %202 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %201, i32 0, i32 3
+  %203 = call i32 @pthread_cond_destroy(ptr noundef %202) #10
+  %204 = load ptr, ptr %10, align 8, !tbaa !22
+  %205 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %204, i32 0, i32 1
+  %206 = call i32 @pthread_cond_destroy(ptr noundef %205) #10
+  %207 = load ptr, ptr %10, align 8, !tbaa !22
+  %208 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %207, i32 0, i32 0
+  %209 = call i32 @pthread_mutex_destroy(ptr noundef %208) #10
+  %210 = load ptr, ptr %10, align 8, !tbaa !22
+  %211 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %210, i32 0, i32 16
+  %212 = load ptr, ptr %211, align 8, !tbaa !33
+  call void @free(ptr noundef %212) #10
+  %213 = load ptr, ptr %10, align 8, !tbaa !22
+  %214 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %213, i32 0, i32 15
+  %215 = load ptr, ptr %214, align 8, !tbaa !37
+  call void @free(ptr noundef %215) #10
+  %216 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @free(ptr noundef %216) #10
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %222
+
+217:                                              ; preds = %186
+  %218 = load ptr, ptr %10, align 8, !tbaa !22
+  %219 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %218, i32 0, i32 6
+  store i32 1, ptr %219, align 8, !tbaa !23
+  %220 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @add_topools(ptr noundef %220)
+  %221 = load ptr, ptr %10, align 8, !tbaa !22
+  store ptr %221, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %222
+
+222:                                              ; preds = %217, %191, %163, %138, %116, %97, %81, %68, %38, %28, %19, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %223 = load ptr, ptr %5, align 8
+  ret ptr %223
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #6
+declare noalias ptr @malloc(i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @work_queue_new() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = call noalias ptr @malloc(i64 noundef 24) #11
-  store ptr %3, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = icmp ne ptr %4, null
-  br i1 %5, label %7, label %6
-
-6:                                                ; preds = %0
-  store ptr null, ptr %1, align 8
-  br label %17
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #10
+  %4 = call noalias ptr @malloc(i64 noundef 24) #13
+  store ptr %4, ptr %2, align 8, !tbaa !54
+  %5 = load ptr, ptr %2, align 8, !tbaa !54
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %0
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.work_queue_tag, ptr %8, i32 0, i32 1
-  store ptr null, ptr %9, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.work_queue_tag, ptr %10, i32 0, i32 0
-  store ptr null, ptr %11, align 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.work_queue_tag, ptr %12, i32 0, i32 2
-  store i32 0, ptr %13, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.work_queue_tag, ptr %14, i32 0, i32 3
-  store i32 0, ptr %15, align 4
-  %16 = load ptr, ptr %2, align 8
-  store ptr %16, ptr %1, align 8
-  br label %17
+  store ptr null, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %18
 
-17:                                               ; preds = %7, %6
-  %18 = load ptr, ptr %1, align 8
-  ret ptr %18
+8:                                                ; preds = %0
+  %9 = load ptr, ptr %2, align 8, !tbaa !54
+  %10 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %9, i32 0, i32 1
+  store ptr null, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %2, align 8, !tbaa !54
+  %12 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %11, i32 0, i32 0
+  store ptr null, ptr %12, align 8, !tbaa !57
+  %13 = load ptr, ptr %2, align 8, !tbaa !54
+  %14 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %13, i32 0, i32 2
+  store i32 0, ptr %14, align 8, !tbaa !34
+  %15 = load ptr, ptr %2, align 8, !tbaa !54
+  %16 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %15, i32 0, i32 3
+  store i32 0, ptr %16, align 4, !tbaa !68
+  %17 = load ptr, ptr %2, align 8, !tbaa !54
+  store ptr %17, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %18
+
+18:                                               ; preds = %8, %7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #10
+  %19 = load ptr, ptr %1, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) #1
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_init(ptr noundef, ptr noundef) #1
+declare i32 @pthread_cond_init(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_init(ptr noundef) #1
+declare i32 @pthread_attr_init(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) #1
+declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @add_topools(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = call noalias ptr @malloc(i64 noundef 16) #11
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %9, label %7
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = call noalias ptr @malloc(i64 noundef 16) #13
+  store ptr %5, ptr %3, align 8, !tbaa !16
+  %6 = load ptr, ptr %3, align 8, !tbaa !16
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %10, label %8
 
-7:                                                ; preds = %1
-  %8 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.30)
-  br label %19
+8:                                                ; preds = %1
+  %9 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.30)
+  store i32 1, ptr %4, align 4
+  br label %20
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.threadpool_list, ptr %11, i32 0, i32 0
-  store ptr %10, ptr %12, align 8
-  %13 = call i32 @pthread_mutex_lock(ptr noundef @pools_lock) #8
-  %14 = load ptr, ptr @pools, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.threadpool_list, ptr %15, i32 0, i32 1
-  store ptr %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  store ptr %17, ptr @pools, align 8
-  %18 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #8
-  br label %19
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8, !tbaa !22
+  %12 = load ptr, ptr %3, align 8, !tbaa !16
+  %13 = getelementptr inbounds nuw %struct.threadpool_list, ptr %12, i32 0, i32 0
+  store ptr %11, ptr %13, align 8, !tbaa !21
+  %14 = call i32 @pthread_mutex_lock(ptr noundef @pools_lock) #10
+  %15 = load ptr, ptr @pools, align 8, !tbaa !16
+  %16 = load ptr, ptr %3, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw %struct.threadpool_list, ptr %16, i32 0, i32 1
+  store ptr %15, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %3, align 8, !tbaa !16
+  store ptr %18, ptr @pools, align 8, !tbaa !16
+  %19 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #10
+  store i32 0, ptr %4, align 4
+  br label %20
 
-19:                                               ; preds = %9, %7
+20:                                               ; preds = %10, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %21 = load i32, ptr %4, align 4
+  switch i32 %21, label %23 [
+    i32 0, label %22
+    i32 1, label %22
+  ]
+
+22:                                               ; preds = %20, %20
   ret void
+
+23:                                               ; preds = %20
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1487,105 +1686,139 @@ define dso_local void @thrmgr_setactivetask(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = call i32 @pthread_once(ptr noundef @stats_tls_key_once, ptr noundef @stats_tls_key_alloc)
-  %7 = load i32, ptr @stats_tls_key, align 4
-  %8 = call ptr @pthread_getspecific(i32 noundef %7) #8
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %12, label %11
-
-11:                                               ; preds = %2
-  br label %36
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = call i32 @pthread_once(ptr noundef @stats_tls_key_once, ptr noundef @stats_tls_key_alloc)
+  %8 = load i32, ptr @stats_tls_key, align 4, !tbaa !4
+  %9 = call ptr @pthread_getspecific(i32 noundef %8) #10
+  store ptr %9, ptr %5, align 8, !tbaa !39
+  %10 = load ptr, ptr %5, align 8, !tbaa !39
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.task_desc, ptr %14, i32 0, i32 0
-  store ptr %13, ptr %15, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %36
+  store i32 1, ptr %6, align 4
+  br label %38
 
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr @IDLE_TASK, align 8
-  %21 = icmp eq ptr %19, %20
-  br i1 %21, label %22, label %29
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !27
+  %15 = load ptr, ptr %5, align 8, !tbaa !39
+  %16 = getelementptr inbounds nuw %struct.task_desc, ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8, !tbaa !50
+  %17 = load ptr, ptr %4, align 8, !tbaa !27
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %37
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.task_desc, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = icmp eq ptr %25, %26
-  br i1 %27, label %28, label %29
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %4, align 8, !tbaa !27
+  %21 = load ptr, ptr @IDLE_TASK, align 8, !tbaa !27
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %23, label %30
 
-28:                                               ; preds = %22
-  br label %36
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %5, align 8, !tbaa !39
+  %25 = getelementptr inbounds nuw %struct.task_desc, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !49
+  %27 = load ptr, ptr %4, align 8, !tbaa !27
+  %28 = icmp eq ptr %26, %27
+  br i1 %28, label %29, label %30
 
-29:                                               ; preds = %22, %18
-  %30 = load ptr, ptr %4, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.task_desc, ptr %31, i32 0, i32 1
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.task_desc, ptr %33, i32 0, i32 2
-  %35 = call i32 @gettimeofday(ptr noundef %34, ptr noundef null) #8
-  br label %36
+29:                                               ; preds = %23
+  store i32 1, ptr %6, align 4
+  br label %38
 
-36:                                               ; preds = %29, %28, %12, %11
+30:                                               ; preds = %23, %19
+  %31 = load ptr, ptr %4, align 8, !tbaa !27
+  %32 = load ptr, ptr %5, align 8, !tbaa !39
+  %33 = getelementptr inbounds nuw %struct.task_desc, ptr %32, i32 0, i32 1
+  store ptr %31, ptr %33, align 8, !tbaa !49
+  %34 = load ptr, ptr %5, align 8, !tbaa !39
+  %35 = getelementptr inbounds nuw %struct.task_desc, ptr %34, i32 0, i32 2
+  %36 = call i32 @gettimeofday(ptr noundef %35, ptr noundef null) #10
+  br label %37
+
+37:                                               ; preds = %30, %13
+  store i32 0, ptr %6, align 4
+  br label %38
+
+38:                                               ; preds = %37, %29, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  %39 = load i32, ptr %6, align 4
+  switch i32 %39, label %41 [
+    i32 0, label %40
+    i32 1, label %40
+  ]
+
+40:                                               ; preds = %38, %38
   ret void
+
+41:                                               ; preds = %38
+  unreachable
 }
 
-declare i32 @pthread_once(ptr noundef, ptr noundef) #2
+declare i32 @pthread_once(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @stats_tls_key_alloc() #0 {
-  %1 = call i32 @pthread_key_create(ptr noundef @stats_tls_key, ptr noundef null) #8
+  %1 = call i32 @pthread_key_create(ptr noundef @stats_tls_key, ptr noundef null) #10
   ret void
 }
 
 ; Function Attrs: nounwind
-declare ptr @pthread_getspecific(i32 noundef) #1
+declare ptr @pthread_getspecific(i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @thrmgr_setactiveengine(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = call i32 @pthread_once(ptr noundef @stats_tls_key_once, ptr noundef @stats_tls_key_alloc)
-  %5 = load i32, ptr @stats_tls_key, align 4
-  %6 = call ptr @pthread_getspecific(i32 noundef %5) #8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %1
-  br label %14
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = call i32 @pthread_once(ptr noundef @stats_tls_key_once, ptr noundef @stats_tls_key_alloc)
+  %6 = load i32, ptr @stats_tls_key, align 4, !tbaa !4
+  %7 = call ptr @pthread_getspecific(i32 noundef %6) #10
+  store ptr %7, ptr %3, align 8, !tbaa !39
+  %8 = load ptr, ptr %3, align 8, !tbaa !39
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %2, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.task_desc, ptr %12, i32 0, i32 5
-  store ptr %11, ptr %13, align 8
-  br label %14
+  store i32 1, ptr %4, align 4
+  br label %15
 
-14:                                               ; preds = %10, %9
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %2, align 8, !tbaa !52
+  %13 = load ptr, ptr %3, align 8, !tbaa !39
+  %14 = getelementptr inbounds nuw %struct.task_desc, ptr %13, i32 0, i32 5
+  store ptr %12, ptr %14, align 8, !tbaa !51
+  store i32 0, ptr %4, align 4
+  br label %15
+
+15:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %16 = load i32, ptr %4, align 4
+  switch i32 %16, label %18 [
+    i32 0, label %17
+    i32 1, label %17
+  ]
+
+17:                                               ; preds = %15, %15
   ret void
+
+18:                                               ; preds = %15
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @thrmgr_dispatch(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %3, align 8, !tbaa !22
+  %6 = load ptr, ptr %4, align 8, !tbaa !63
   %7 = call i32 @thrmgr_dispatch_internal(ptr noundef %5, ptr noundef %6, i32 noundef 0)
   ret i32 %7
 }
@@ -1598,181 +1831,215 @@ define internal i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %1, i3
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  %10 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store i32 1, ptr %8, align 4
-  %13 = load ptr, ptr %5, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %116
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !63
+  store i32 %2, ptr %7, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  store i32 1, ptr %8, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %14 = load ptr, ptr %5, align 8, !tbaa !22
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.threadpool_tag, ptr %17, i32 0, i32 0
-  %19 = call i32 @pthread_mutex_lock(ptr noundef %18) #8
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %23
-
-21:                                               ; preds = %16
-  %22 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.18)
   store i32 0, ptr %4, align 4
-  br label %116
+  store i32 1, ptr %10, align 4
+  br label %121
 
-23:                                               ; preds = %16
-  br label %24
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8, !tbaa !22
+  %19 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %18, i32 0, i32 0
+  %20 = call i32 @pthread_mutex_lock(ptr noundef %19) #10
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %24
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.threadpool_tag, ptr %25, i32 0, i32 6
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp ne i32 %27, 1
-  br i1 %28, label %29, label %30
+22:                                               ; preds = %17
+  %23 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.18)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %121
 
-29:                                               ; preds = %24
-  store i32 0, ptr %8, align 4
-  br label %107
+24:                                               ; preds = %17
+  br label %25
 
-30:                                               ; preds = %24
-  %31 = load i32, ptr %7, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %39
+25:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %26 = load ptr, ptr %5, align 8, !tbaa !22
+  %27 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %26, i32 0, i32 6
+  %28 = load i32, ptr %27, align 8, !tbaa !23
+  %29 = icmp ne i32 %28, 1
+  br i1 %29, label %30, label %31
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.threadpool_tag, ptr %34, i32 0, i32 15
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %10, align 8
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.threadpool_tag, ptr %37, i32 0, i32 5
-  store ptr %38, ptr %11, align 8
-  br label %45
+30:                                               ; preds = %25
+  store i32 0, ptr %8, align 4, !tbaa !4
+  store i32 2, ptr %10, align 4
+  br label %108
 
-39:                                               ; preds = %30
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.threadpool_tag, ptr %40, i32 0, i32 16
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %10, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.threadpool_tag, ptr %43, i32 0, i32 4
-  store ptr %44, ptr %11, align 8
-  br label %45
+31:                                               ; preds = %25
+  %32 = load i32, ptr %7, align 4, !tbaa !4
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %40
 
-45:                                               ; preds = %39, %33
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %5, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %35, i32 0, i32 15
+  %37 = load ptr, ptr %36, align 8, !tbaa !37
+  store ptr %37, ptr %11, align 8, !tbaa !54
+  %38 = load ptr, ptr %5, align 8, !tbaa !22
+  %39 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %38, i32 0, i32 5
+  store ptr %39, ptr %12, align 8, !tbaa !63
   br label %46
 
-46:                                               ; preds = %51, %45
-  %47 = load ptr, ptr %5, align 8
-  %48 = load i32, ptr %7, align 4
-  %49 = call i32 @thrmgr_contended(ptr noundef %47, i32 noundef %48)
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %58
-
-51:                                               ; preds = %46
-  %52 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.32)
-  %53 = load ptr, ptr %11, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.threadpool_tag, ptr %54, i32 0, i32 0
-  %56 = call i32 @pthread_cond_wait(ptr noundef %53, ptr noundef %55)
-  %57 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.33)
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %5, align 8, !tbaa !22
+  %42 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %41, i32 0, i32 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !33
+  store ptr %43, ptr %11, align 8, !tbaa !54
+  %44 = load ptr, ptr %5, align 8, !tbaa !22
+  %45 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %44, i32 0, i32 4
+  store ptr %45, ptr %12, align 8, !tbaa !63
   br label %46
 
-58:                                               ; preds = %46
-  %59 = load ptr, ptr %10, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = call i32 @work_queue_add(ptr noundef %59, ptr noundef %60)
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %64, label %63
+46:                                               ; preds = %40, %34
+  br label %47
 
-63:                                               ; preds = %58
-  store i32 0, ptr %8, align 4
-  br label %107
+47:                                               ; preds = %52, %46
+  %48 = load ptr, ptr %5, align 8, !tbaa !22
+  %49 = load i32, ptr %7, align 4, !tbaa !4
+  %50 = call i32 @thrmgr_contended(ptr noundef %48, i32 noundef %49)
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %59
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.threadpool_tag, ptr %65, i32 0, i32 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.work_queue_tag, ptr %67, i32 0, i32 2
-  %69 = load i32, ptr %68, align 8
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.threadpool_tag, ptr %70, i32 0, i32 15
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.work_queue_tag, ptr %72, i32 0, i32 2
-  %74 = load i32, ptr %73, align 8
-  %75 = add nsw i32 %69, %74
-  store i32 %75, ptr %12, align 4
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %struct.threadpool_tag, ptr %76, i32 0, i32 10
-  %78 = load i32, ptr %77, align 8
-  %79 = load i32, ptr %12, align 4
-  %80 = icmp slt i32 %78, %79
-  br i1 %80, label %81, label %103
+52:                                               ; preds = %47
+  %53 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.32)
+  %54 = load ptr, ptr %12, align 8, !tbaa !63
+  %55 = load ptr, ptr %5, align 8, !tbaa !22
+  %56 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %55, i32 0, i32 0
+  %57 = call i32 @pthread_cond_wait(ptr noundef %54, ptr noundef %56)
+  %58 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.33)
+  br label %47
 
-81:                                               ; preds = %64
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.threadpool_tag, ptr %82, i32 0, i32 9
-  %84 = load i32, ptr %83, align 4
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.threadpool_tag, ptr %85, i32 0, i32 7
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp slt i32 %84, %87
-  br i1 %88, label %89, label %103
+59:                                               ; preds = %47
+  %60 = load ptr, ptr %11, align 8, !tbaa !54
+  %61 = load ptr, ptr %6, align 8, !tbaa !63
+  %62 = call i32 @work_queue_add(ptr noundef %60, ptr noundef %61)
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %65, label %64
 
-89:                                               ; preds = %81
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.threadpool_tag, ptr %90, i32 0, i32 2
-  %92 = load ptr, ptr %5, align 8
-  %93 = call i32 @pthread_create(ptr noundef %9, ptr noundef %91, ptr noundef @thrmgr_worker, ptr noundef %92) #8
-  %94 = icmp ne i32 %93, 0
-  br i1 %94, label %95, label %97
+64:                                               ; preds = %59
+  store i32 0, ptr %8, align 4, !tbaa !4
+  store i32 2, ptr %10, align 4
+  br label %108
 
-95:                                               ; preds = %89
-  %96 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.34)
-  br label %102
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %5, align 8, !tbaa !22
+  %67 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %66, i32 0, i32 16
+  %68 = load ptr, ptr %67, align 8, !tbaa !33
+  %69 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %68, i32 0, i32 2
+  %70 = load i32, ptr %69, align 8, !tbaa !34
+  %71 = load ptr, ptr %5, align 8, !tbaa !22
+  %72 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %71, i32 0, i32 15
+  %73 = load ptr, ptr %72, align 8, !tbaa !37
+  %74 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %73, i32 0, i32 2
+  %75 = load i32, ptr %74, align 8, !tbaa !34
+  %76 = add nsw i32 %70, %75
+  store i32 %76, ptr %13, align 4, !tbaa !4
+  %77 = load ptr, ptr %5, align 8, !tbaa !22
+  %78 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %77, i32 0, i32 10
+  %79 = load i32, ptr %78, align 8, !tbaa !30
+  %80 = load i32, ptr %13, align 4, !tbaa !4
+  %81 = icmp slt i32 %79, %80
+  br i1 %81, label %82, label %104
 
-97:                                               ; preds = %89
-  %98 = load ptr, ptr %5, align 8
-  %99 = getelementptr inbounds %struct.threadpool_tag, ptr %98, i32 0, i32 9
-  %100 = load i32, ptr %99, align 4
-  %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %99, align 4
-  br label %102
+82:                                               ; preds = %65
+  %83 = load ptr, ptr %5, align 8, !tbaa !22
+  %84 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %83, i32 0, i32 9
+  %85 = load i32, ptr %84, align 4, !tbaa !29
+  %86 = load ptr, ptr %5, align 8, !tbaa !22
+  %87 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %86, i32 0, i32 7
+  %88 = load i32, ptr %87, align 4, !tbaa !31
+  %89 = icmp slt i32 %85, %88
+  br i1 %89, label %90, label %104
 
-102:                                              ; preds = %97, %95
+90:                                               ; preds = %82
+  %91 = load ptr, ptr %5, align 8, !tbaa !22
+  %92 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %91, i32 0, i32 2
+  %93 = load ptr, ptr %5, align 8, !tbaa !22
+  %94 = call i32 @pthread_create(ptr noundef %9, ptr noundef %92, ptr noundef @thrmgr_worker, ptr noundef %93) #10
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %98
+
+96:                                               ; preds = %90
+  %97 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.34)
   br label %103
 
-103:                                              ; preds = %102, %81, %64
-  %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds %struct.threadpool_tag, ptr %104, i32 0, i32 1
-  %106 = call i32 @pthread_cond_signal(ptr noundef %105) #8
-  br label %107
+98:                                               ; preds = %90
+  %99 = load ptr, ptr %5, align 8, !tbaa !22
+  %100 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %99, i32 0, i32 9
+  %101 = load i32, ptr %100, align 4, !tbaa !29
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %100, align 4, !tbaa !29
+  br label %103
 
-107:                                              ; preds = %103, %63, %29
-  %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %struct.threadpool_tag, ptr %108, i32 0, i32 0
-  %110 = call i32 @pthread_mutex_unlock(ptr noundef %109) #8
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %114
+103:                                              ; preds = %98, %96
+  br label %104
 
-112:                                              ; preds = %107
-  %113 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.19)
+104:                                              ; preds = %103, %82, %65
+  %105 = load ptr, ptr %5, align 8, !tbaa !22
+  %106 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %105, i32 0, i32 1
+  %107 = call i32 @pthread_cond_signal(ptr noundef %106) #10
+  store i32 0, ptr %10, align 4
+  br label %108
+
+108:                                              ; preds = %104, %64, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  %109 = load i32, ptr %10, align 4
+  switch i32 %109, label %123 [
+    i32 0, label %110
+    i32 2, label %112
+  ]
+
+110:                                              ; preds = %108
+  br label %111
+
+111:                                              ; preds = %110
+  br label %112
+
+112:                                              ; preds = %111, %108
+  %113 = load ptr, ptr %5, align 8, !tbaa !22
+  %114 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %113, i32 0, i32 0
+  %115 = call i32 @pthread_mutex_unlock(ptr noundef %114) #10
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %119
+
+117:                                              ; preds = %112
+  %118 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.19)
   store i32 0, ptr %4, align 4
-  br label %116
+  store i32 1, ptr %10, align 4
+  br label %121
 
-114:                                              ; preds = %107
-  %115 = load i32, ptr %8, align 4
-  store i32 %115, ptr %4, align 4
-  br label %116
+119:                                              ; preds = %112
+  %120 = load i32, ptr %8, align 4, !tbaa !4
+  store i32 %120, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %121
 
-116:                                              ; preds = %114, %112, %21, %15
-  %117 = load i32, ptr %4, align 4
-  ret i32 %117
+121:                                              ; preds = %119, %117, %22, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %122 = load i32, ptr %4, align 4
+  ret i32 %122
+
+123:                                              ; preds = %108
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1782,68 +2049,70 @@ define dso_local i32 @thrmgr_group_dispatch(ptr noundef %0, ptr noundef %1, ptr 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %10 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !69
+  store ptr %2, ptr %7, align 8, !tbaa !63
+  store i32 %3, ptr %8, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %10 = load ptr, ptr %6, align 8, !tbaa !69
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.jobgroup, ptr %13, i32 0, i32 0
-  %15 = call i32 @pthread_mutex_lock(ptr noundef %14) #8
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.jobgroup, ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %17, align 8
+  %13 = load ptr, ptr %6, align 8, !tbaa !69
+  %14 = getelementptr inbounds nuw %struct.jobgroup, ptr %13, i32 0, i32 0
+  %15 = call i32 @pthread_mutex_lock(ptr noundef %14) #10
+  %16 = load ptr, ptr %6, align 8, !tbaa !69
+  %17 = getelementptr inbounds nuw %struct.jobgroup, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 8, !tbaa !71
   %19 = add i32 %18, 1
-  store i32 %19, ptr %17, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.jobgroup, ptr %21, i32 0, i32 2
-  %23 = load i32, ptr %22, align 8
+  store i32 %19, ptr %17, align 8, !tbaa !71
+  %20 = load ptr, ptr %6, align 8, !tbaa !69
+  %21 = load ptr, ptr %6, align 8, !tbaa !69
+  %22 = getelementptr inbounds nuw %struct.jobgroup, ptr %21, i32 0, i32 2
+  %23 = load i32, ptr %22, align 8, !tbaa !71
   %24 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.20, ptr noundef %20, i32 noundef %23)
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.jobgroup, ptr %25, i32 0, i32 0
-  %27 = call i32 @pthread_mutex_unlock(ptr noundef %26) #8
+  %25 = load ptr, ptr %6, align 8, !tbaa !69
+  %26 = getelementptr inbounds nuw %struct.jobgroup, ptr %25, i32 0, i32 0
+  %27 = call i32 @pthread_mutex_unlock(ptr noundef %26) #10
   br label %28
 
 28:                                               ; preds = %12, %4
-  %29 = load ptr, ptr %5, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i32, ptr %8, align 4
+  %29 = load ptr, ptr %5, align 8, !tbaa !22
+  %30 = load ptr, ptr %7, align 8, !tbaa !63
+  %31 = load i32, ptr %8, align 4, !tbaa !4
   %32 = call i32 @thrmgr_dispatch_internal(ptr noundef %29, ptr noundef %30, i32 noundef %31)
-  store i32 %32, ptr %9, align 4
+  store i32 %32, ptr %9, align 4, !tbaa !4
   %33 = icmp ne i32 %32, 0
   br i1 %33, label %53, label %34
 
 34:                                               ; preds = %28
-  %35 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %6, align 8, !tbaa !69
   %36 = icmp ne ptr %35, null
   br i1 %36, label %37, label %53
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.jobgroup, ptr %38, i32 0, i32 0
-  %40 = call i32 @pthread_mutex_lock(ptr noundef %39) #8
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.jobgroup, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8
+  %38 = load ptr, ptr %6, align 8, !tbaa !69
+  %39 = getelementptr inbounds nuw %struct.jobgroup, ptr %38, i32 0, i32 0
+  %40 = call i32 @pthread_mutex_lock(ptr noundef %39) #10
+  %41 = load ptr, ptr %6, align 8, !tbaa !69
+  %42 = getelementptr inbounds nuw %struct.jobgroup, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 8, !tbaa !71
   %44 = add i32 %43, -1
-  store i32 %44, ptr %42, align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.jobgroup, ptr %46, i32 0, i32 2
-  %48 = load i32, ptr %47, align 8
+  store i32 %44, ptr %42, align 8, !tbaa !71
+  %45 = load ptr, ptr %6, align 8, !tbaa !69
+  %46 = load ptr, ptr %6, align 8, !tbaa !69
+  %47 = getelementptr inbounds nuw %struct.jobgroup, ptr %46, i32 0, i32 2
+  %48 = load i32, ptr %47, align 8, !tbaa !71
   %49 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.20, ptr noundef %45, i32 noundef %48)
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct.jobgroup, ptr %50, i32 0, i32 0
-  %52 = call i32 @pthread_mutex_unlock(ptr noundef %51) #8
+  %50 = load ptr, ptr %6, align 8, !tbaa !69
+  %51 = getelementptr inbounds nuw %struct.jobgroup, ptr %50, i32 0, i32 0
+  %52 = call i32 @pthread_mutex_unlock(ptr noundef %51) #10
   br label %53
 
 53:                                               ; preds = %37, %34, %28
-  %54 = load i32, ptr %9, align 4
+  %54 = load i32, ptr %9, align 4, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret i32 %54
 }
 
@@ -1853,133 +2122,138 @@ define dso_local i32 @thrmgr_group_finished(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 0, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  store i32 1, ptr %3, align 4
-  br label %81
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !69
+  store i32 %1, ptr %5, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 0, ptr %6, align 4, !tbaa !4
+  %8 = load ptr, ptr %4, align 8, !tbaa !69
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.jobgroup, ptr %11, i32 0, i32 0
-  %13 = call i32 @pthread_mutex_lock(ptr noundef %12) #8
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.jobgroup, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 8
-  %18 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.21, ptr noundef %14, i32 noundef %17)
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.jobgroup, ptr %19, i32 0, i32 5
-  %21 = load i32, ptr %20, align 4
-  %22 = add i32 %21, 1
-  store i32 %22, ptr %20, align 4
-  %23 = load i32, ptr %5, align 4
-  switch i32 %23, label %34 [
-    i32 0, label %24
-    i32 1, label %29
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %82
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !69
+  %13 = getelementptr inbounds nuw %struct.jobgroup, ptr %12, i32 0, i32 0
+  %14 = call i32 @pthread_mutex_lock(ptr noundef %13) #10
+  %15 = load ptr, ptr %4, align 8, !tbaa !69
+  %16 = load ptr, ptr %4, align 8, !tbaa !69
+  %17 = getelementptr inbounds nuw %struct.jobgroup, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 8, !tbaa !71
+  %19 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.21, ptr noundef %15, i32 noundef %18)
+  %20 = load ptr, ptr %4, align 8, !tbaa !69
+  %21 = getelementptr inbounds nuw %struct.jobgroup, ptr %20, i32 0, i32 5
+  %22 = load i32, ptr %21, align 4, !tbaa !73
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %21, align 4, !tbaa !73
+  %24 = load i32, ptr %5, align 4, !tbaa !4
+  switch i32 %24, label %35 [
+    i32 0, label %25
+    i32 1, label %30
   ]
 
-24:                                               ; preds = %10
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.jobgroup, ptr %25, i32 0, i32 3
-  %27 = load i32, ptr %26, align 4
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %26, align 4
-  br label %35
+25:                                               ; preds = %11
+  %26 = load ptr, ptr %4, align 8, !tbaa !69
+  %27 = getelementptr inbounds nuw %struct.jobgroup, ptr %26, i32 0, i32 3
+  %28 = load i32, ptr %27, align 4, !tbaa !74
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %27, align 4, !tbaa !74
+  br label %36
 
-29:                                               ; preds = %10
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.jobgroup, ptr %30, i32 0, i32 4
-  %32 = load i32, ptr %31, align 8
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 8
-  br label %35
+30:                                               ; preds = %11
+  %31 = load ptr, ptr %4, align 8, !tbaa !69
+  %32 = getelementptr inbounds nuw %struct.jobgroup, ptr %31, i32 0, i32 4
+  %33 = load i32, ptr %32, align 8, !tbaa !75
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %32, align 8, !tbaa !75
+  br label %36
 
-34:                                               ; preds = %10
-  br label %35
+35:                                               ; preds = %11
+  br label %36
 
-35:                                               ; preds = %34, %29, %24
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.jobgroup, ptr %36, i32 0, i32 2
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %63
+36:                                               ; preds = %35, %30, %25
+  %37 = load ptr, ptr %4, align 8, !tbaa !69
+  %38 = getelementptr inbounds nuw %struct.jobgroup, ptr %37, i32 0, i32 2
+  %39 = load i32, ptr %38, align 8, !tbaa !71
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %64
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.jobgroup, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8
-  %44 = add i32 %43, -1
-  store i32 %44, ptr %42, align 8
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %47, label %46
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %4, align 8, !tbaa !69
+  %43 = getelementptr inbounds nuw %struct.jobgroup, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8, !tbaa !71
+  %45 = add i32 %44, -1
+  store i32 %45, ptr %43, align 8, !tbaa !71
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %48, label %47
 
-46:                                               ; preds = %40
-  store i32 1, ptr %6, align 4
-  br label %53
+47:                                               ; preds = %41
+  store i32 1, ptr %6, align 4, !tbaa !4
+  br label %54
 
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %4, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.jobgroup, ptr %49, i32 0, i32 2
-  %51 = load i32, ptr %50, align 8
-  %52 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.20, ptr noundef %48, i32 noundef %51)
-  br label %53
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %4, align 8, !tbaa !69
+  %50 = load ptr, ptr %4, align 8, !tbaa !69
+  %51 = getelementptr inbounds nuw %struct.jobgroup, ptr %50, i32 0, i32 2
+  %52 = load i32, ptr %51, align 8, !tbaa !71
+  %53 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.20, ptr noundef %49, i32 noundef %52)
+  br label %54
 
-53:                                               ; preds = %47, %46
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.jobgroup, ptr %54, i32 0, i32 2
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %62
+54:                                               ; preds = %48, %47
+  %55 = load ptr, ptr %4, align 8, !tbaa !69
+  %56 = getelementptr inbounds nuw %struct.jobgroup, ptr %55, i32 0, i32 2
+  %57 = load i32, ptr %56, align 8, !tbaa !71
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %63
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.jobgroup, ptr %59, i32 0, i32 1
-  %61 = call i32 @pthread_cond_signal(ptr noundef %60) #8
-  br label %62
-
-62:                                               ; preds = %58, %53
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %4, align 8, !tbaa !69
+  %61 = getelementptr inbounds nuw %struct.jobgroup, ptr %60, i32 0, i32 1
+  %62 = call i32 @pthread_cond_signal(ptr noundef %61) #10
   br label %63
 
-63:                                               ; preds = %62, %35
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.jobgroup, ptr %64, i32 0, i32 0
-  %66 = call i32 @pthread_mutex_unlock(ptr noundef %65) #8
-  %67 = load i32, ptr %6, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %79
+63:                                               ; preds = %59, %54
+  br label %64
 
-69:                                               ; preds = %63
-  %70 = load ptr, ptr %4, align 8
-  %71 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.22, ptr noundef %70)
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds %struct.jobgroup, ptr %72, i32 0, i32 0
-  %74 = call i32 @pthread_mutex_destroy(ptr noundef %73) #8
-  %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds %struct.jobgroup, ptr %75, i32 0, i32 1
-  %77 = call i32 @pthread_cond_destroy(ptr noundef %76) #8
-  %78 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %78) #8
-  br label %79
+64:                                               ; preds = %63, %36
+  %65 = load ptr, ptr %4, align 8, !tbaa !69
+  %66 = getelementptr inbounds nuw %struct.jobgroup, ptr %65, i32 0, i32 0
+  %67 = call i32 @pthread_mutex_unlock(ptr noundef %66) #10
+  %68 = load i32, ptr %6, align 4, !tbaa !4
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %80
 
-79:                                               ; preds = %69, %63
-  %80 = load i32, ptr %6, align 4
-  store i32 %80, ptr %3, align 4
-  br label %81
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %4, align 8, !tbaa !69
+  %72 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.22, ptr noundef %71)
+  %73 = load ptr, ptr %4, align 8, !tbaa !69
+  %74 = getelementptr inbounds nuw %struct.jobgroup, ptr %73, i32 0, i32 0
+  %75 = call i32 @pthread_mutex_destroy(ptr noundef %74) #10
+  %76 = load ptr, ptr %4, align 8, !tbaa !69
+  %77 = getelementptr inbounds nuw %struct.jobgroup, ptr %76, i32 0, i32 1
+  %78 = call i32 @pthread_cond_destroy(ptr noundef %77) #10
+  %79 = load ptr, ptr %4, align 8, !tbaa !69
+  call void @free(ptr noundef %79) #10
+  br label %80
 
-81:                                               ; preds = %79, %9
-  %82 = load i32, ptr %3, align 4
-  ret i32 %82
+80:                                               ; preds = %70, %64
+  %81 = load i32, ptr %6, align 4, !tbaa !4
+  store i32 %81, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %82
+
+82:                                               ; preds = %80, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %83 = load i32, ptr %3, align 4
+  ret i32 %83
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_signal(ptr noundef) #1
+declare i32 @pthread_cond_signal(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @thrmgr_group_waitforall(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1990,30 +2264,33 @@ define dso_local void @thrmgr_group_waitforall(ptr noundef %0, ptr noundef %1, p
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca %struct.timespec, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  store i32 0, ptr %9, align 4
-  store i32 0, ptr %10, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.jobgroup, ptr %12, i32 0, i32 0
-  %14 = call i32 @pthread_mutex_lock(ptr noundef %13) #8
+  store ptr %0, ptr %5, align 8, !tbaa !69
+  store ptr %1, ptr %6, align 8, !tbaa !76
+  store ptr %2, ptr %7, align 8, !tbaa !76
+  store ptr %3, ptr %8, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store i32 0, ptr %9, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #10
+  %12 = load ptr, ptr %5, align 8, !tbaa !69
+  %13 = getelementptr inbounds nuw %struct.jobgroup, ptr %12, i32 0, i32 0
+  %14 = call i32 @pthread_mutex_lock(ptr noundef %13) #10
   br label %15
 
 15:                                               ; preds = %27, %4
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.jobgroup, ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %17, align 8
+  %16 = load ptr, ptr %5, align 8, !tbaa !69
+  %17 = getelementptr inbounds nuw %struct.jobgroup, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 8, !tbaa !71
   %19 = icmp ugt i32 %18, 1
   br i1 %19, label %20, label %37
 
 20:                                               ; preds = %15
-  %21 = call i32 @pthread_mutex_lock(ptr noundef @exit_mutex) #8
-  %22 = load i32, ptr @progexit, align 4
-  store i32 %22, ptr %9, align 4
-  %23 = call i32 @pthread_mutex_unlock(ptr noundef @exit_mutex) #8
-  %24 = load i32, ptr %9, align 4
+  %21 = call i32 @pthread_mutex_lock(ptr noundef @exit_mutex) #10
+  %22 = load i32, ptr @progexit, align 4, !tbaa !4
+  store i32 %22, ptr %9, align 4, !tbaa !4
+  %23 = call i32 @pthread_mutex_unlock(ptr noundef @exit_mutex) #10
+  %24 = load i32, ptr %9, align 4, !tbaa !4
   %25 = icmp ne i32 %24, 0
   br i1 %25, label %26, label %27
 
@@ -2021,208 +2298,220 @@ define dso_local void @thrmgr_group_waitforall(ptr noundef %0, ptr noundef %1, p
   br label %37
 
 27:                                               ; preds = %20
-  %28 = call i64 @time(ptr noundef null) #8
+  %28 = call i64 @time(ptr noundef null) #10
   %29 = add nsw i64 %28, 5
-  %30 = getelementptr inbounds %struct.timespec, ptr %11, i32 0, i32 0
-  store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds %struct.timespec, ptr %11, i32 0, i32 1
-  store i64 0, ptr %31, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.jobgroup, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.jobgroup, ptr %34, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.timespec, ptr %11, i32 0, i32 0
+  store i64 %29, ptr %30, align 8, !tbaa !78
+  %31 = getelementptr inbounds nuw %struct.timespec, ptr %11, i32 0, i32 1
+  store i64 0, ptr %31, align 8, !tbaa !80
+  %32 = load ptr, ptr %5, align 8, !tbaa !69
+  %33 = getelementptr inbounds nuw %struct.jobgroup, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %5, align 8, !tbaa !69
+  %35 = getelementptr inbounds nuw %struct.jobgroup, ptr %34, i32 0, i32 0
   %36 = call i32 @pthread_cond_timedwait(ptr noundef %33, ptr noundef %35, ptr noundef %11)
   br label %15
 
 37:                                               ; preds = %26, %15
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.jobgroup, ptr %38, i32 0, i32 3
-  %40 = load i32, ptr %39, align 4
-  %41 = load ptr, ptr %6, align 8
-  store i32 %40, ptr %41, align 4
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.jobgroup, ptr %42, i32 0, i32 4
-  %44 = load i32, ptr %43, align 8
-  %45 = load i32, ptr %9, align 4
+  %38 = load ptr, ptr %5, align 8, !tbaa !69
+  %39 = getelementptr inbounds nuw %struct.jobgroup, ptr %38, i32 0, i32 3
+  %40 = load i32, ptr %39, align 4, !tbaa !74
+  %41 = load ptr, ptr %6, align 8, !tbaa !76
+  store i32 %40, ptr %41, align 4, !tbaa !4
+  %42 = load ptr, ptr %5, align 8, !tbaa !69
+  %43 = getelementptr inbounds nuw %struct.jobgroup, ptr %42, i32 0, i32 4
+  %44 = load i32, ptr %43, align 8, !tbaa !75
+  %45 = load i32, ptr %9, align 4, !tbaa !4
   %46 = add i32 %44, %45
-  %47 = load ptr, ptr %7, align 8
-  store i32 %46, ptr %47, align 4
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.jobgroup, ptr %48, i32 0, i32 5
-  %50 = load i32, ptr %49, align 4
-  %51 = load ptr, ptr %8, align 8
-  store i32 %50, ptr %51, align 4
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds %struct.jobgroup, ptr %52, i32 0, i32 2
-  %54 = load i32, ptr %53, align 8
+  %47 = load ptr, ptr %7, align 8, !tbaa !76
+  store i32 %46, ptr %47, align 4, !tbaa !4
+  %48 = load ptr, ptr %5, align 8, !tbaa !69
+  %49 = getelementptr inbounds nuw %struct.jobgroup, ptr %48, i32 0, i32 5
+  %50 = load i32, ptr %49, align 4, !tbaa !73
+  %51 = load ptr, ptr %8, align 8, !tbaa !76
+  store i32 %50, ptr %51, align 4, !tbaa !4
+  %52 = load ptr, ptr %5, align 8, !tbaa !69
+  %53 = getelementptr inbounds nuw %struct.jobgroup, ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %53, align 8, !tbaa !71
   %55 = add i32 %54, -1
-  store i32 %55, ptr %53, align 8
+  store i32 %55, ptr %53, align 8, !tbaa !71
   %56 = icmp ne i32 %55, 0
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %37
-  store i32 1, ptr %10, align 4
+  store i32 1, ptr %10, align 4, !tbaa !4
   br label %64
 
 58:                                               ; preds = %37
-  %59 = load ptr, ptr %5, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.jobgroup, ptr %60, i32 0, i32 2
-  %62 = load i32, ptr %61, align 8
+  %59 = load ptr, ptr %5, align 8, !tbaa !69
+  %60 = load ptr, ptr %5, align 8, !tbaa !69
+  %61 = getelementptr inbounds nuw %struct.jobgroup, ptr %60, i32 0, i32 2
+  %62 = load i32, ptr %61, align 8, !tbaa !71
   %63 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.20, ptr noundef %59, i32 noundef %62)
   br label %64
 
 64:                                               ; preds = %58, %57
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.jobgroup, ptr %65, i32 0, i32 0
-  %67 = call i32 @pthread_mutex_unlock(ptr noundef %66) #8
-  %68 = load i32, ptr %10, align 4
+  %65 = load ptr, ptr %5, align 8, !tbaa !69
+  %66 = getelementptr inbounds nuw %struct.jobgroup, ptr %65, i32 0, i32 0
+  %67 = call i32 @pthread_mutex_unlock(ptr noundef %66) #10
+  %68 = load i32, ptr %10, align 4, !tbaa !4
   %69 = icmp ne i32 %68, 0
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %64
-  %71 = load ptr, ptr %5, align 8
+  %71 = load ptr, ptr %5, align 8, !tbaa !69
   %72 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.23, ptr noundef %71)
-  %73 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %73) #8
+  %73 = load ptr, ptr %5, align 8, !tbaa !69
+  call void @free(ptr noundef %73) #10
   br label %74
 
 74:                                               ; preds = %70, %64
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #1
+declare i64 @time(ptr noundef) #2
 
-declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @thrmgr_group_new() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = call noalias ptr @malloc(i64 noundef 112) #11
-  store ptr %3, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = icmp ne ptr %4, null
-  br i1 %5, label %7, label %6
-
-6:                                                ; preds = %0
-  store ptr null, ptr %1, align 8
-  br label %40
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #10
+  %4 = call noalias ptr @malloc(i64 noundef 112) #13
+  store ptr %4, ptr %2, align 8, !tbaa !69
+  %5 = load ptr, ptr %2, align 8, !tbaa !69
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %0
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.jobgroup, ptr %8, i32 0, i32 2
-  store i32 1, ptr %9, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.jobgroup, ptr %10, i32 0, i32 6
-  store i32 0, ptr %11, align 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.jobgroup, ptr %12, i32 0, i32 5
-  store i32 0, ptr %13, align 4
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.jobgroup, ptr %14, i32 0, i32 4
-  store i32 0, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.jobgroup, ptr %16, i32 0, i32 3
-  store i32 0, ptr %17, align 4
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.jobgroup, ptr %18, i32 0, i32 0
-  %20 = call i32 @pthread_mutex_init(ptr noundef %19, ptr noundef null) #8
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %25
-
-22:                                               ; preds = %7
-  %23 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef @.str.24)
-  %24 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %24) #8
   store ptr null, ptr %1, align 8
-  br label %40
+  store i32 1, ptr %3, align 4
+  br label %41
 
-25:                                               ; preds = %7
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.jobgroup, ptr %26, i32 0, i32 1
-  %28 = call i32 @pthread_cond_init(ptr noundef %27, ptr noundef null) #8
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %36
+8:                                                ; preds = %0
+  %9 = load ptr, ptr %2, align 8, !tbaa !69
+  %10 = getelementptr inbounds nuw %struct.jobgroup, ptr %9, i32 0, i32 2
+  store i32 1, ptr %10, align 8, !tbaa !71
+  %11 = load ptr, ptr %2, align 8, !tbaa !69
+  %12 = getelementptr inbounds nuw %struct.jobgroup, ptr %11, i32 0, i32 6
+  store i32 0, ptr %12, align 8, !tbaa !81
+  %13 = load ptr, ptr %2, align 8, !tbaa !69
+  %14 = getelementptr inbounds nuw %struct.jobgroup, ptr %13, i32 0, i32 5
+  store i32 0, ptr %14, align 4, !tbaa !73
+  %15 = load ptr, ptr %2, align 8, !tbaa !69
+  %16 = getelementptr inbounds nuw %struct.jobgroup, ptr %15, i32 0, i32 4
+  store i32 0, ptr %16, align 8, !tbaa !75
+  %17 = load ptr, ptr %2, align 8, !tbaa !69
+  %18 = getelementptr inbounds nuw %struct.jobgroup, ptr %17, i32 0, i32 3
+  store i32 0, ptr %18, align 4, !tbaa !74
+  %19 = load ptr, ptr %2, align 8, !tbaa !69
+  %20 = getelementptr inbounds nuw %struct.jobgroup, ptr %19, i32 0, i32 0
+  %21 = call i32 @pthread_mutex_init(ptr noundef %20, ptr noundef null) #10
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %26
 
-30:                                               ; preds = %25
-  %31 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef @.str.25)
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.jobgroup, ptr %32, i32 0, i32 0
-  %34 = call i32 @pthread_mutex_destroy(ptr noundef %33) #8
-  %35 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %35) #8
+23:                                               ; preds = %8
+  %24 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef @.str.24)
+  %25 = load ptr, ptr %2, align 8, !tbaa !69
+  call void @free(ptr noundef %25) #10
   store ptr null, ptr %1, align 8
-  br label %40
+  store i32 1, ptr %3, align 4
+  br label %41
 
-36:                                               ; preds = %25
-  %37 = load ptr, ptr %2, align 8
-  %38 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.26, ptr noundef %37)
-  %39 = load ptr, ptr %2, align 8
-  store ptr %39, ptr %1, align 8
-  br label %40
+26:                                               ; preds = %8
+  %27 = load ptr, ptr %2, align 8, !tbaa !69
+  %28 = getelementptr inbounds nuw %struct.jobgroup, ptr %27, i32 0, i32 1
+  %29 = call i32 @pthread_cond_init(ptr noundef %28, ptr noundef null) #10
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %37
 
-40:                                               ; preds = %36, %30, %22, %6
-  %41 = load ptr, ptr %1, align 8
-  ret ptr %41
+31:                                               ; preds = %26
+  %32 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef @.str.25)
+  %33 = load ptr, ptr %2, align 8, !tbaa !69
+  %34 = getelementptr inbounds nuw %struct.jobgroup, ptr %33, i32 0, i32 0
+  %35 = call i32 @pthread_mutex_destroy(ptr noundef %34) #10
+  %36 = load ptr, ptr %2, align 8, !tbaa !69
+  call void @free(ptr noundef %36) #10
+  store ptr null, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %41
+
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %2, align 8, !tbaa !69
+  %39 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.26, ptr noundef %38)
+  %40 = load ptr, ptr %2, align 8, !tbaa !69
+  store ptr %40, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %41
+
+41:                                               ; preds = %37, %31, %23, %7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #10
+  %42 = load ptr, ptr %1, align 8
+  ret ptr %42
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @thrmgr_group_need_terminate(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  %4 = load ptr, ptr %2, align 8, !tbaa !69
   %5 = icmp ne ptr %4, null
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.jobgroup, ptr %7, i32 0, i32 0
-  %9 = call i32 @pthread_mutex_lock(ptr noundef %8) #8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.jobgroup, ptr %10, i32 0, i32 6
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %3, align 4
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.jobgroup, ptr %13, i32 0, i32 0
-  %15 = call i32 @pthread_mutex_unlock(ptr noundef %14) #8
+  %7 = load ptr, ptr %2, align 8, !tbaa !69
+  %8 = getelementptr inbounds nuw %struct.jobgroup, ptr %7, i32 0, i32 0
+  %9 = call i32 @pthread_mutex_lock(ptr noundef %8) #10
+  %10 = load ptr, ptr %2, align 8, !tbaa !69
+  %11 = getelementptr inbounds nuw %struct.jobgroup, ptr %10, i32 0, i32 6
+  %12 = load i32, ptr %11, align 8, !tbaa !81
+  store i32 %12, ptr %3, align 4, !tbaa !4
+  %13 = load ptr, ptr %2, align 8, !tbaa !69
+  %14 = getelementptr inbounds nuw %struct.jobgroup, ptr %13, i32 0, i32 0
+  %15 = call i32 @pthread_mutex_unlock(ptr noundef %14) #10
   br label %17
 
 16:                                               ; preds = %1
-  store i32 0, ptr %3, align 4
+  store i32 0, ptr %3, align 4, !tbaa !4
   br label %17
 
 17:                                               ; preds = %16, %6
-  %18 = call i32 @pthread_mutex_lock(ptr noundef @exit_mutex) #8
-  %19 = load i32, ptr @progexit, align 4
-  %20 = load i32, ptr %3, align 4
+  %18 = call i32 @pthread_mutex_lock(ptr noundef @exit_mutex) #10
+  %19 = load i32, ptr @progexit, align 4, !tbaa !4
+  %20 = load i32, ptr %3, align 4, !tbaa !4
   %21 = or i32 %20, %19
-  store i32 %21, ptr %3, align 4
-  %22 = call i32 @pthread_mutex_unlock(ptr noundef @exit_mutex) #8
-  %23 = load i32, ptr %3, align 4
+  store i32 %21, ptr %3, align 4, !tbaa !4
+  %22 = call i32 @pthread_mutex_unlock(ptr noundef @exit_mutex) #10
+  %23 = load i32, ptr %3, align 4, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
   ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @thrmgr_group_terminate(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.jobgroup, ptr %6, i32 0, i32 0
-  %8 = call i32 @pthread_mutex_lock(ptr noundef %7) #8
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.jobgroup, ptr %9, i32 0, i32 6
-  store i32 1, ptr %10, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.jobgroup, ptr %11, i32 0, i32 0
-  %13 = call i32 @pthread_mutex_unlock(ptr noundef %12) #8
+  %6 = load ptr, ptr %2, align 8, !tbaa !69
+  %7 = getelementptr inbounds nuw %struct.jobgroup, ptr %6, i32 0, i32 0
+  %8 = call i32 @pthread_mutex_lock(ptr noundef %7) #10
+  %9 = load ptr, ptr %2, align 8, !tbaa !69
+  %10 = getelementptr inbounds nuw %struct.jobgroup, ptr %9, i32 0, i32 6
+  store i32 1, ptr %10, align 8, !tbaa !81
+  %11 = load ptr, ptr %2, align 8, !tbaa !69
+  %12 = getelementptr inbounds nuw %struct.jobgroup, ptr %11, i32 0, i32 0
+  %13 = call i32 @pthread_mutex_unlock(ptr noundef %12) #10
   br label %14
 
 14:                                               ; preds = %5, %1
@@ -2230,28 +2519,28 @@ define dso_local void @thrmgr_group_terminate(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_key_create(ptr noundef, ptr noundef) #1
+declare i32 @pthread_key_create(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @thrmgr_contended(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @thrmgr_contended(ptr noundef %0, i32 noundef %1) #8 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store i32 %1, ptr %5, align 4, !tbaa !4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = icmp ne i32 %6, 0
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.threadpool_tag, ptr %9, i32 0, i32 15
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.work_queue_tag, ptr %11, i32 0, i32 2
-  %13 = load i32, ptr %12, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.threadpool_tag, ptr %14, i32 0, i32 8
-  %16 = load i32, ptr %15, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %9, i32 0, i32 15
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %12 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8, !tbaa !34
+  %14 = load ptr, ptr %4, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %14, i32 0, i32 8
+  %16 = load i32, ptr %15, align 8, !tbaa !64
   %17 = sdiv i32 %16, 2
   %18 = icmp sge i32 %13, %17
   br i1 %18, label %19, label %20
@@ -2261,28 +2550,28 @@ define internal i32 @thrmgr_contended(ptr noundef %0, i32 noundef %1) #0 {
   br label %45
 
 20:                                               ; preds = %8, %2
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.threadpool_tag, ptr %21, i32 0, i32 15
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.work_queue_tag, ptr %23, i32 0, i32 2
-  %25 = load i32, ptr %24, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.threadpool_tag, ptr %26, i32 0, i32 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.work_queue_tag, ptr %28, i32 0, i32 2
-  %30 = load i32, ptr %29, align 8
+  %21 = load ptr, ptr %4, align 8, !tbaa !22
+  %22 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %21, i32 0, i32 15
+  %23 = load ptr, ptr %22, align 8, !tbaa !37
+  %24 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %24, align 8, !tbaa !34
+  %26 = load ptr, ptr %4, align 8, !tbaa !22
+  %27 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %26, i32 0, i32 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !33
+  %29 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %28, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8, !tbaa !34
   %31 = add nsw i32 %25, %30
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.threadpool_tag, ptr %32, i32 0, i32 9
-  %34 = load i32, ptr %33, align 4
+  %32 = load ptr, ptr %4, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %32, i32 0, i32 9
+  %34 = load i32, ptr %33, align 4, !tbaa !29
   %35 = add nsw i32 %31, %34
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.threadpool_tag, ptr %36, i32 0, i32 10
-  %38 = load i32, ptr %37, align 8
+  %36 = load ptr, ptr %4, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %36, i32 0, i32 10
+  %38 = load i32, ptr %37, align 8, !tbaa !30
   %39 = sub nsw i32 %35, %38
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.threadpool_tag, ptr %40, i32 0, i32 8
-  %42 = load i32, ptr %41, align 8
+  %40 = load ptr, ptr %4, align 8, !tbaa !22
+  %41 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %40, i32 0, i32 8
+  %42 = load i32, ptr %41, align 8, !tbaa !64
   %43 = icmp sge i32 %39, %42
   %44 = zext i1 %43 to i32
   store i32 %44, ptr %3, align 4
@@ -2299,86 +2588,92 @@ define internal i32 @work_queue_add(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %50
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !54
+  store ptr %1, ptr %5, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = load ptr, ptr %4, align 8, !tbaa !54
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = call noalias ptr @malloc(i64 noundef 32) #11
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %10
   store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %51
+
+11:                                               ; preds = %2
+  %12 = call noalias ptr @malloc(i64 noundef 32) #13
+  store ptr %12, ptr %6, align 8, !tbaa !58
+  %13 = load ptr, ptr %6, align 8, !tbaa !58
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
+
+15:                                               ; preds = %11
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %51
+
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %6, align 8, !tbaa !58
+  %18 = getelementptr inbounds nuw %struct.work_item_tag, ptr %17, i32 0, i32 0
+  store ptr null, ptr %18, align 8, !tbaa !62
+  %19 = load ptr, ptr %5, align 8, !tbaa !63
+  %20 = load ptr, ptr %6, align 8, !tbaa !58
+  %21 = getelementptr inbounds nuw %struct.work_item_tag, ptr %20, i32 0, i32 1
+  store ptr %19, ptr %21, align 8, !tbaa !82
+  %22 = load ptr, ptr %6, align 8, !tbaa !58
+  %23 = getelementptr inbounds nuw %struct.work_item_tag, ptr %22, i32 0, i32 2
+  %24 = call i32 @gettimeofday(ptr noundef %23, ptr noundef null) #10
+  %25 = load ptr, ptr %4, align 8, !tbaa !54
+  %26 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %37
+
+29:                                               ; preds = %16
+  %30 = load ptr, ptr %6, align 8, !tbaa !58
+  %31 = load ptr, ptr %4, align 8, !tbaa !54
+  %32 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %31, i32 0, i32 1
+  store ptr %30, ptr %32, align 8, !tbaa !67
+  %33 = load ptr, ptr %4, align 8, !tbaa !54
+  %34 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %33, i32 0, i32 0
+  store ptr %30, ptr %34, align 8, !tbaa !57
+  %35 = load ptr, ptr %4, align 8, !tbaa !54
+  %36 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %35, i32 0, i32 2
+  store i32 1, ptr %36, align 8, !tbaa !34
   br label %50
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.work_item_tag, ptr %16, i32 0, i32 0
-  store ptr null, ptr %17, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.work_item_tag, ptr %19, i32 0, i32 1
-  store ptr %18, ptr %20, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.work_item_tag, ptr %21, i32 0, i32 2
-  %23 = call i32 @gettimeofday(ptr noundef %22, ptr noundef null) #8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.work_queue_tag, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %36
+37:                                               ; preds = %16
+  %38 = load ptr, ptr %6, align 8, !tbaa !58
+  %39 = load ptr, ptr %4, align 8, !tbaa !54
+  %40 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !67
+  %42 = getelementptr inbounds nuw %struct.work_item_tag, ptr %41, i32 0, i32 0
+  store ptr %38, ptr %42, align 8, !tbaa !62
+  %43 = load ptr, ptr %6, align 8, !tbaa !58
+  %44 = load ptr, ptr %4, align 8, !tbaa !54
+  %45 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %44, i32 0, i32 1
+  store ptr %43, ptr %45, align 8, !tbaa !67
+  %46 = load ptr, ptr %4, align 8, !tbaa !54
+  %47 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %46, i32 0, i32 2
+  %48 = load i32, ptr %47, align 8, !tbaa !34
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %47, align 8, !tbaa !34
+  br label %50
 
-28:                                               ; preds = %15
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.work_queue_tag, ptr %30, i32 0, i32 1
-  store ptr %29, ptr %31, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.work_queue_tag, ptr %32, i32 0, i32 0
-  store ptr %29, ptr %33, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.work_queue_tag, ptr %34, i32 0, i32 2
-  store i32 1, ptr %35, align 8
-  br label %49
-
-36:                                               ; preds = %15
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.work_queue_tag, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.work_item_tag, ptr %40, i32 0, i32 0
-  store ptr %37, ptr %41, align 8
-  %42 = load ptr, ptr %6, align 8
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.work_queue_tag, ptr %43, i32 0, i32 1
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.work_queue_tag, ptr %45, i32 0, i32 2
-  %47 = load i32, ptr %46, align 8
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %46, align 8
-  br label %49
-
-49:                                               ; preds = %36, %28
+50:                                               ; preds = %37, %29
   store i32 1, ptr %3, align 4
-  br label %50
+  store i32 1, ptr %7, align 4
+  br label %51
 
-50:                                               ; preds = %49, %14, %9
-  %51 = load i32, ptr %3, align 4
-  ret i32 %51
+51:                                               ; preds = %50, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %52 = load i32, ptr %3, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @thrmgr_worker(ptr noundef %0) #0 {
@@ -2389,68 +2684,74 @@ define internal ptr @thrmgr_worker(ptr noundef %0) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.timespec, align 8
-  store ptr %0, ptr %2, align 8
-  %9 = load ptr, ptr %2, align 8
-  store ptr %9, ptr %3, align 8
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %7, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %9 = load ptr, ptr %2, align 8, !tbaa !63
+  store ptr %9, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 0, ptr %6, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 0, ptr %7, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #10
   br label %10
 
 10:                                               ; preds = %90, %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.threadpool_tag, ptr %11, i32 0, i32 0
-  %13 = call i32 @pthread_mutex_lock(ptr noundef %12) #8
+  %11 = load ptr, ptr %3, align 8, !tbaa !22
+  %12 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %11, i32 0, i32 0
+  %13 = call i32 @pthread_mutex_lock(ptr noundef %12) #10
   %14 = icmp ne i32 %13, 0
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
   %16 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.35)
-  call void @exit(i32 noundef -2) #10
+  call void @exit(i32 noundef -2) #12
   unreachable
 
 17:                                               ; preds = %10
-  %18 = load i32, ptr %7, align 4
+  %18 = load i32, ptr %7, align 4, !tbaa !4
   %19 = icmp ne i32 %18, 0
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !22
   call void @stats_init(ptr noundef %21)
-  store i32 1, ptr %7, align 4
+  store i32 1, ptr %7, align 4, !tbaa !4
   br label %22
 
 22:                                               ; preds = %20, %17
   call void @thrmgr_setactiveengine(ptr noundef null)
-  %23 = load ptr, ptr @IDLE_TASK, align 8
+  %23 = load ptr, ptr @IDLE_TASK, align 8, !tbaa !27
   call void @thrmgr_setactivetask(ptr noundef null, ptr noundef %23)
-  %24 = call i64 @time(ptr noundef null) #8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.threadpool_tag, ptr %25, i32 0, i32 12
-  %27 = load i32, ptr %26, align 8
+  %24 = call i64 @time(ptr noundef null) #10
+  %25 = load ptr, ptr %3, align 8, !tbaa !22
+  %26 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %25, i32 0, i32 12
+  %27 = load i32, ptr %26, align 8, !tbaa !32
   %28 = sext i32 %27 to i64
   %29 = add nsw i64 %24, %28
-  %30 = getelementptr inbounds %struct.timespec, ptr %8, i32 0, i32 0
-  store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds %struct.timespec, ptr %8, i32 0, i32 1
-  store i64 0, ptr %31, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.threadpool_tag, ptr %32, i32 0, i32 10
-  %34 = load i32, ptr %33, align 8
+  %30 = getelementptr inbounds nuw %struct.timespec, ptr %8, i32 0, i32 0
+  store i64 %29, ptr %30, align 8, !tbaa !78
+  %31 = getelementptr inbounds nuw %struct.timespec, ptr %8, i32 0, i32 1
+  store i64 0, ptr %31, align 8, !tbaa !80
+  %32 = load ptr, ptr %3, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %32, i32 0, i32 10
+  %34 = load i32, ptr %33, align 8, !tbaa !30
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %33, align 8
+  store i32 %35, ptr %33, align 8, !tbaa !30
   br label %36
 
 36:                                               ; preds = %59, %22
-  %37 = load ptr, ptr %3, align 8
+  %37 = load ptr, ptr %3, align 8, !tbaa !22
   %38 = call ptr @thrmgr_pop(ptr noundef %37)
-  store ptr %38, ptr %4, align 8
+  store ptr %38, ptr %4, align 8, !tbaa !63
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %36
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.threadpool_tag, ptr %41, i32 0, i32 6
-  %43 = load i32, ptr %42, align 8
+  %41 = load ptr, ptr %3, align 8, !tbaa !22
+  %42 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %41, i32 0, i32 6
+  %43 = load i32, ptr %42, align 8, !tbaa !23
   %44 = icmp ne i32 %43, 2
   br label %45
 
@@ -2459,69 +2760,69 @@ define internal ptr @thrmgr_worker(ptr noundef %0) #0 {
   br i1 %46, label %47, label %60
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.threadpool_tag, ptr %48, i32 0, i32 3
-  %50 = call i32 @pthread_cond_signal(ptr noundef %49) #8
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.threadpool_tag, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.threadpool_tag, ptr %53, i32 0, i32 0
+  %48 = load ptr, ptr %3, align 8, !tbaa !22
+  %49 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %48, i32 0, i32 3
+  %50 = call i32 @pthread_cond_signal(ptr noundef %49) #10
+  %51 = load ptr, ptr %3, align 8, !tbaa !22
+  %52 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %3, align 8, !tbaa !22
+  %54 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %53, i32 0, i32 0
   %55 = call i32 @pthread_cond_timedwait(ptr noundef %52, ptr noundef %54, ptr noundef %8)
-  store i32 %55, ptr %5, align 4
-  %56 = load i32, ptr %5, align 4
+  store i32 %55, ptr %5, align 4, !tbaa !4
+  %56 = load i32, ptr %5, align 4, !tbaa !4
   %57 = icmp eq i32 %56, 110
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %47
-  store i32 1, ptr %6, align 4
+  store i32 1, ptr %6, align 4, !tbaa !4
   br label %60
 
 59:                                               ; preds = %47
   br label %36
 
 60:                                               ; preds = %58, %45
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.threadpool_tag, ptr %61, i32 0, i32 10
-  %63 = load i32, ptr %62, align 8
+  %61 = load ptr, ptr %3, align 8, !tbaa !22
+  %62 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %61, i32 0, i32 10
+  %63 = load i32, ptr %62, align 8, !tbaa !30
   %64 = add nsw i32 %63, -1
-  store i32 %64, ptr %62, align 8
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds %struct.threadpool_tag, ptr %65, i32 0, i32 6
-  %67 = load i32, ptr %66, align 8
+  store i32 %64, ptr %62, align 8, !tbaa !30
+  %65 = load ptr, ptr %3, align 8, !tbaa !22
+  %66 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %65, i32 0, i32 6
+  %67 = load i32, ptr %66, align 8, !tbaa !23
   %68 = icmp eq i32 %67, 2
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %60
-  store i32 1, ptr %6, align 4
+  store i32 1, ptr %6, align 4, !tbaa !4
   br label %70
 
 70:                                               ; preds = %69, %60
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.threadpool_tag, ptr %71, i32 0, i32 0
-  %73 = call i32 @pthread_mutex_unlock(ptr noundef %72) #8
+  %71 = load ptr, ptr %3, align 8, !tbaa !22
+  %72 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %71, i32 0, i32 0
+  %73 = call i32 @pthread_mutex_unlock(ptr noundef %72) #10
   %74 = icmp ne i32 %73, 0
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %70
   %76 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.36)
-  call void @exit(i32 noundef -2) #10
+  call void @exit(i32 noundef -2) #12
   unreachable
 
 77:                                               ; preds = %70
-  %78 = load ptr, ptr %4, align 8
+  %78 = load ptr, ptr %4, align 8, !tbaa !63
   %79 = icmp ne ptr %78, null
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %77
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.threadpool_tag, ptr %81, i32 0, i32 14
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %4, align 8
+  %81 = load ptr, ptr %3, align 8, !tbaa !22
+  %82 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %81, i32 0, i32 14
+  %83 = load ptr, ptr %82, align 8, !tbaa !66
+  %84 = load ptr, ptr %4, align 8, !tbaa !63
   call void %83(ptr noundef %84)
   br label %90
 
 85:                                               ; preds = %77
-  %86 = load i32, ptr %6, align 4
+  %86 = load i32, ptr %6, align 4, !tbaa !4
   %87 = icmp ne i32 %86, 0
   br i1 %87, label %88, label %89
 
@@ -2535,50 +2836,56 @@ define internal ptr @thrmgr_worker(ptr noundef %0) #0 {
   br label %10
 
 91:                                               ; preds = %88
-  %92 = load ptr, ptr %3, align 8
-  %93 = getelementptr inbounds %struct.threadpool_tag, ptr %92, i32 0, i32 0
-  %94 = call i32 @pthread_mutex_lock(ptr noundef %93) #8
+  %92 = load ptr, ptr %3, align 8, !tbaa !22
+  %93 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %92, i32 0, i32 0
+  %94 = call i32 @pthread_mutex_lock(ptr noundef %93) #10
   %95 = icmp ne i32 %94, 0
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %91
   %97 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.35)
-  call void @exit(i32 noundef -2) #10
+  call void @exit(i32 noundef -2) #12
   unreachable
 
 98:                                               ; preds = %91
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.threadpool_tag, ptr %99, i32 0, i32 9
-  %101 = load i32, ptr %100, align 4
+  %99 = load ptr, ptr %3, align 8, !tbaa !22
+  %100 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %99, i32 0, i32 9
+  %101 = load i32, ptr %100, align 4, !tbaa !29
   %102 = add nsw i32 %101, -1
-  store i32 %102, ptr %100, align 4
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.threadpool_tag, ptr %103, i32 0, i32 9
-  %105 = load i32, ptr %104, align 4
+  store i32 %102, ptr %100, align 4, !tbaa !29
+  %103 = load ptr, ptr %3, align 8, !tbaa !22
+  %104 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %103, i32 0, i32 9
+  %105 = load i32, ptr %104, align 4, !tbaa !29
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %98
-  %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds %struct.threadpool_tag, ptr %108, i32 0, i32 1
-  %110 = call i32 @pthread_cond_broadcast(ptr noundef %109) #8
+  %108 = load ptr, ptr %3, align 8, !tbaa !22
+  %109 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %108, i32 0, i32 1
+  %110 = call i32 @pthread_cond_broadcast(ptr noundef %109) #10
   br label %111
 
 111:                                              ; preds = %107, %98
-  %112 = load ptr, ptr %3, align 8
+  %112 = load ptr, ptr %3, align 8, !tbaa !22
   call void @stats_destroy(ptr noundef %112)
-  %113 = load ptr, ptr %3, align 8
-  %114 = getelementptr inbounds %struct.threadpool_tag, ptr %113, i32 0, i32 0
-  %115 = call i32 @pthread_mutex_unlock(ptr noundef %114) #8
+  %113 = load ptr, ptr %3, align 8, !tbaa !22
+  %114 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %113, i32 0, i32 0
+  %115 = call i32 @pthread_mutex_unlock(ptr noundef %114) #10
   %116 = icmp ne i32 %115, 0
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %111
   %118 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.36)
-  call void @exit(i32 noundef -2) #10
+  call void @exit(i32 noundef -2) #12
   unreachable
 
 119:                                              ; preds = %111
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret ptr null
 }
 
@@ -2586,55 +2893,73 @@ define internal ptr @thrmgr_worker(ptr noundef %0) #0 {
 define internal void @stats_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 56) #12
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %8, label %7
-
-7:                                                ; preds = %1
-  br label %35
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 56) #14
+  store ptr %5, ptr %3, align 8, !tbaa !39
+  %6 = load ptr, ptr %3, align 8, !tbaa !39
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  %9 = call i32 @pthread_once(ptr noundef @stats_tls_key_once, ptr noundef @stats_tls_key_alloc)
-  %10 = load i32, ptr @stats_tls_key, align 4
-  %11 = load ptr, ptr %3, align 8
-  %12 = call i32 @pthread_setspecific(i32 noundef %10, ptr noundef %11) #8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.threadpool_tag, ptr %13, i32 0, i32 13
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %21, label %17
+  store i32 1, ptr %4, align 4
+  br label %37
 
-17:                                               ; preds = %8
-  %18 = load ptr, ptr %3, align 8
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.threadpool_tag, ptr %19, i32 0, i32 13
-  store ptr %18, ptr %20, align 8
-  br label %35
+9:                                                ; preds = %1
+  %10 = call i32 @pthread_once(ptr noundef @stats_tls_key_once, ptr noundef @stats_tls_key_alloc)
+  %11 = load i32, ptr @stats_tls_key, align 4, !tbaa !4
+  %12 = load ptr, ptr %3, align 8, !tbaa !39
+  %13 = call i32 @pthread_setspecific(i32 noundef %11, ptr noundef %12) #10
+  %14 = load ptr, ptr %2, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %14, i32 0, i32 13
+  %16 = load ptr, ptr %15, align 8, !tbaa !38
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %22, label %18
 
-21:                                               ; preds = %8
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.threadpool_tag, ptr %22, i32 0, i32 13
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.task_desc, ptr %25, i32 0, i32 4
-  store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.threadpool_tag, ptr %28, i32 0, i32 13
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.task_desc, ptr %30, i32 0, i32 3
-  store ptr %27, ptr %31, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.threadpool_tag, ptr %33, i32 0, i32 13
-  store ptr %32, ptr %34, align 8
-  br label %35
+18:                                               ; preds = %9
+  %19 = load ptr, ptr %3, align 8, !tbaa !39
+  %20 = load ptr, ptr %2, align 8, !tbaa !22
+  %21 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %20, i32 0, i32 13
+  store ptr %19, ptr %21, align 8, !tbaa !38
+  br label %36
 
-35:                                               ; preds = %21, %17, %7
+22:                                               ; preds = %9
+  %23 = load ptr, ptr %2, align 8, !tbaa !22
+  %24 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %23, i32 0, i32 13
+  %25 = load ptr, ptr %24, align 8, !tbaa !38
+  %26 = load ptr, ptr %3, align 8, !tbaa !39
+  %27 = getelementptr inbounds nuw %struct.task_desc, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8, !tbaa !53
+  %28 = load ptr, ptr %3, align 8, !tbaa !39
+  %29 = load ptr, ptr %2, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %29, i32 0, i32 13
+  %31 = load ptr, ptr %30, align 8, !tbaa !38
+  %32 = getelementptr inbounds nuw %struct.task_desc, ptr %31, i32 0, i32 3
+  store ptr %28, ptr %32, align 8, !tbaa !83
+  %33 = load ptr, ptr %3, align 8, !tbaa !39
+  %34 = load ptr, ptr %2, align 8, !tbaa !22
+  %35 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %34, i32 0, i32 13
+  store ptr %33, ptr %35, align 8, !tbaa !38
+  br label %36
+
+36:                                               ; preds = %22, %18
+  store i32 0, ptr %4, align 4
+  br label %37
+
+37:                                               ; preds = %36, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %38 = load i32, ptr %4, align 4
+  switch i32 %38, label %40 [
+    i32 0, label %39
+    i32 1, label %39
+  ]
+
+39:                                               ; preds = %37, %37
   ret void
+
+40:                                               ; preds = %37
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2644,88 +2969,92 @@ define internal ptr @thrmgr_pop(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.threadpool_tag, ptr %7, i32 0, i32 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.work_queue_tag, ptr %9, i32 0, i32 3
-  %11 = load i32, ptr %10, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %7 = load ptr, ptr %2, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %7, i32 0, i32 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %9, i32 0, i32 3
+  %11 = load i32, ptr %10, align 4, !tbaa !68
   %12 = icmp slt i32 %11, 4
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.threadpool_tag, ptr %14, i32 0, i32 16
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %4, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.threadpool_tag, ptr %17, i32 0, i32 15
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %5, align 8
-  store i32 4, ptr %6, align 4
+  %14 = load ptr, ptr %2, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %14, i32 0, i32 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !33
+  store ptr %16, ptr %4, align 8, !tbaa !54
+  %17 = load ptr, ptr %2, align 8, !tbaa !22
+  %18 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %17, i32 0, i32 15
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  store ptr %19, ptr %5, align 8, !tbaa !54
+  store i32 4, ptr %6, align 4, !tbaa !4
   br label %27
 
 20:                                               ; preds = %1
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.threadpool_tag, ptr %21, i32 0, i32 16
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %5, align 8
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.threadpool_tag, ptr %24, i32 0, i32 15
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %4, align 8
-  store i32 1, ptr %6, align 4
+  %21 = load ptr, ptr %2, align 8, !tbaa !22
+  %22 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %21, i32 0, i32 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !33
+  store ptr %23, ptr %5, align 8, !tbaa !54
+  %24 = load ptr, ptr %2, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %24, i32 0, i32 15
+  %26 = load ptr, ptr %25, align 8, !tbaa !37
+  store ptr %26, ptr %4, align 8, !tbaa !54
+  store i32 1, ptr %6, align 4, !tbaa !4
   br label %27
 
 27:                                               ; preds = %20, %13
-  %28 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %4, align 8, !tbaa !54
   %29 = call ptr @work_queue_pop(ptr noundef %28)
-  store ptr %29, ptr %3, align 8
-  %30 = load ptr, ptr %3, align 8
+  store ptr %29, ptr %3, align 8, !tbaa !63
+  %30 = load ptr, ptr %3, align 8, !tbaa !63
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.work_queue_tag, ptr %33, i32 0, i32 3
-  %35 = load i32, ptr %34, align 4
+  %33 = load ptr, ptr %4, align 8, !tbaa !54
+  %34 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4, !tbaa !68
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4
-  %37 = load i32, ptr %6, align 4
+  store i32 %36, ptr %34, align 4, !tbaa !68
+  %37 = load i32, ptr %6, align 4, !tbaa !4
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %32
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.work_queue_tag, ptr %40, i32 0, i32 3
-  store i32 0, ptr %41, align 4
+  %40 = load ptr, ptr %5, align 8, !tbaa !54
+  %41 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %40, i32 0, i32 3
+  store i32 0, ptr %41, align 4, !tbaa !68
   br label %42
 
 42:                                               ; preds = %39, %32
   br label %60
 
 43:                                               ; preds = %27
-  %44 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %5, align 8, !tbaa !54
   %45 = call ptr @work_queue_pop(ptr noundef %44)
-  store ptr %45, ptr %3, align 8
-  %46 = load ptr, ptr %3, align 8
+  store ptr %45, ptr %3, align 8, !tbaa !63
+  %46 = load ptr, ptr %3, align 8, !tbaa !63
   %47 = icmp ne ptr %46, null
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %43
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.work_queue_tag, ptr %49, i32 0, i32 3
-  %51 = load i32, ptr %50, align 4
+  %49 = load ptr, ptr %5, align 8, !tbaa !54
+  %50 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %49, i32 0, i32 3
+  %51 = load i32, ptr %50, align 4, !tbaa !68
   %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %50, align 4
-  %53 = load i32, ptr %6, align 4
+  store i32 %52, ptr %50, align 4, !tbaa !68
+  %53 = load i32, ptr %6, align 4, !tbaa !4
   %54 = icmp eq i32 %52, %53
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %48
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.work_queue_tag, ptr %56, i32 0, i32 3
-  store i32 0, ptr %57, align 4
+  %56 = load ptr, ptr %4, align 8, !tbaa !54
+  %57 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %56, i32 0, i32 3
+  store i32 0, ptr %57, align 4, !tbaa !68
   br label %58
 
 58:                                               ; preds = %55, %48
@@ -2735,33 +3064,37 @@ define internal ptr @thrmgr_pop(ptr noundef %0) #0 {
   br label %60
 
 60:                                               ; preds = %59, %42
-  %61 = load ptr, ptr %2, align 8
+  %61 = load ptr, ptr %2, align 8, !tbaa !22
   %62 = call i32 @thrmgr_contended(ptr noundef %61, i32 noundef 0)
   %63 = icmp ne i32 %62, 0
   br i1 %63, label %69, label %64
 
 64:                                               ; preds = %60
   %65 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.37)
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.threadpool_tag, ptr %66, i32 0, i32 4
-  %68 = call i32 @pthread_cond_signal(ptr noundef %67) #8
+  %66 = load ptr, ptr %2, align 8, !tbaa !22
+  %67 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %66, i32 0, i32 4
+  %68 = call i32 @pthread_cond_signal(ptr noundef %67) #10
   br label %69
 
 69:                                               ; preds = %64, %60
-  %70 = load ptr, ptr %2, align 8
+  %70 = load ptr, ptr %2, align 8, !tbaa !22
   %71 = call i32 @thrmgr_contended(ptr noundef %70, i32 noundef 1)
   %72 = icmp ne i32 %71, 0
   br i1 %72, label %78, label %73
 
 73:                                               ; preds = %69
   %74 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef @.str.38)
-  %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds %struct.threadpool_tag, ptr %75, i32 0, i32 5
-  %77 = call i32 @pthread_cond_signal(ptr noundef %76) #8
+  %75 = load ptr, ptr %2, align 8, !tbaa !22
+  %76 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %75, i32 0, i32 5
+  %77 = call i32 @pthread_cond_signal(ptr noundef %76) #10
   br label %78
 
 78:                                               ; preds = %73, %69
-  %79 = load ptr, ptr %3, align 8
+  %79 = load ptr, ptr %3, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret ptr %79
 }
 
@@ -2769,88 +3102,103 @@ define internal ptr @thrmgr_pop(ptr noundef %0) #0 {
 define internal void @stats_destroy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load i32, ptr @stats_tls_key, align 4
-  %5 = call ptr @pthread_getspecific(i32 noundef %4) #8
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %9, label %8
-
-8:                                                ; preds = %1
-  br label %53
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = load i32, ptr @stats_tls_key, align 4, !tbaa !4
+  %6 = call ptr @pthread_getspecific(i32 noundef %5) #10
+  store ptr %6, ptr %3, align 8, !tbaa !39
+  %7 = load ptr, ptr %3, align 8, !tbaa !39
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %10, label %9
 
 9:                                                ; preds = %1
-  %10 = call i32 @pthread_mutex_lock(ptr noundef @pools_lock) #8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.task_desc, ptr %11, i32 0, i32 3
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %23
+  store i32 1, ptr %4, align 4
+  br label %54
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.task_desc, ptr %16, i32 0, i32 4
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.task_desc, ptr %19, i32 0, i32 3
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.task_desc, ptr %21, i32 0, i32 4
-  store ptr %18, ptr %22, align 8
-  br label %23
+10:                                               ; preds = %1
+  %11 = call i32 @pthread_mutex_lock(ptr noundef @pools_lock) #10
+  %12 = load ptr, ptr %3, align 8, !tbaa !39
+  %13 = getelementptr inbounds nuw %struct.task_desc, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8, !tbaa !83
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %24
 
-23:                                               ; preds = %15, %9
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.task_desc, ptr %24, i32 0, i32 4
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %36
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %3, align 8, !tbaa !39
+  %18 = getelementptr inbounds nuw %struct.task_desc, ptr %17, i32 0, i32 4
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
+  %20 = load ptr, ptr %3, align 8, !tbaa !39
+  %21 = getelementptr inbounds nuw %struct.task_desc, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8, !tbaa !83
+  %23 = getelementptr inbounds nuw %struct.task_desc, ptr %22, i32 0, i32 4
+  store ptr %19, ptr %23, align 8, !tbaa !53
+  br label %24
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.task_desc, ptr %29, i32 0, i32 3
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.task_desc, ptr %32, i32 0, i32 4
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.task_desc, ptr %34, i32 0, i32 3
-  store ptr %31, ptr %35, align 8
-  br label %36
+24:                                               ; preds = %16, %10
+  %25 = load ptr, ptr %3, align 8, !tbaa !39
+  %26 = getelementptr inbounds nuw %struct.task_desc, ptr %25, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8, !tbaa !53
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %37
 
-36:                                               ; preds = %28, %23
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.threadpool_tag, ptr %37, i32 0, i32 13
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = icmp eq ptr %39, %40
-  br i1 %41, label %42, label %48
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %3, align 8, !tbaa !39
+  %31 = getelementptr inbounds nuw %struct.task_desc, ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8, !tbaa !83
+  %33 = load ptr, ptr %3, align 8, !tbaa !39
+  %34 = getelementptr inbounds nuw %struct.task_desc, ptr %33, i32 0, i32 4
+  %35 = load ptr, ptr %34, align 8, !tbaa !53
+  %36 = getelementptr inbounds nuw %struct.task_desc, ptr %35, i32 0, i32 3
+  store ptr %32, ptr %36, align 8, !tbaa !83
+  br label %37
 
-42:                                               ; preds = %36
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.task_desc, ptr %43, i32 0, i32 4
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.threadpool_tag, ptr %46, i32 0, i32 13
-  store ptr %45, ptr %47, align 8
-  br label %48
+37:                                               ; preds = %29, %24
+  %38 = load ptr, ptr %2, align 8, !tbaa !22
+  %39 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %38, i32 0, i32 13
+  %40 = load ptr, ptr %39, align 8, !tbaa !38
+  %41 = load ptr, ptr %3, align 8, !tbaa !39
+  %42 = icmp eq ptr %40, %41
+  br i1 %42, label %43, label %49
 
-48:                                               ; preds = %42, %36
-  %49 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %49) #8
-  %50 = load i32, ptr @stats_tls_key, align 4
-  %51 = call i32 @pthread_setspecific(i32 noundef %50, ptr noundef null) #8
-  %52 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #8
-  br label %53
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %3, align 8, !tbaa !39
+  %45 = getelementptr inbounds nuw %struct.task_desc, ptr %44, i32 0, i32 4
+  %46 = load ptr, ptr %45, align 8, !tbaa !53
+  %47 = load ptr, ptr %2, align 8, !tbaa !22
+  %48 = getelementptr inbounds nuw %struct.threadpool_tag, ptr %47, i32 0, i32 13
+  store ptr %46, ptr %48, align 8, !tbaa !38
+  br label %49
 
-53:                                               ; preds = %48, %8
+49:                                               ; preds = %43, %37
+  %50 = load ptr, ptr %3, align 8, !tbaa !39
+  call void @free(ptr noundef %50) #10
+  %51 = load i32, ptr @stats_tls_key, align 4, !tbaa !4
+  %52 = call i32 @pthread_setspecific(i32 noundef %51, ptr noundef null) #10
+  %53 = call i32 @pthread_mutex_unlock(ptr noundef @pools_lock) #10
+  store i32 0, ptr %4, align 4
+  br label %54
+
+54:                                               ; preds = %49, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %55 = load i32, ptr %4, align 4
+  switch i32 %55, label %57 [
+    i32 0, label %56
+    i32 1, label %56
+  ]
+
+56:                                               ; preds = %54, %54
   ret void
+
+57:                                               ; preds = %54
+  unreachable
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #7
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind
-declare i32 @pthread_setspecific(i32 noundef, ptr noundef) #1
+declare i32 @pthread_setspecific(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @work_queue_pop(ptr noundef %0) #0 {
@@ -2858,84 +3206,172 @@ define internal ptr @work_queue_pop(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %13
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load ptr, ptr %3, align 8, !tbaa !54
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %14
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.work_queue_tag, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %14, label %13
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !54
+  %11 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !57
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %8, %1
+14:                                               ; preds = %9, %1
   store ptr null, ptr %2, align 8
-  br label %40
+  store i32 1, ptr %6, align 4
+  br label %41
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.work_queue_tag, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %4, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.work_item_tag, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %5, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.work_item_tag, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.work_queue_tag, ptr %24, i32 0, i32 0
-  store ptr %23, ptr %25, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.work_queue_tag, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %33
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %3, align 8, !tbaa !54
+  %17 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !57
+  store ptr %18, ptr %4, align 8, !tbaa !58
+  %19 = load ptr, ptr %4, align 8, !tbaa !58
+  %20 = getelementptr inbounds nuw %struct.work_item_tag, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  store ptr %21, ptr %5, align 8, !tbaa !63
+  %22 = load ptr, ptr %4, align 8, !tbaa !58
+  %23 = getelementptr inbounds nuw %struct.work_item_tag, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !62
+  %25 = load ptr, ptr %3, align 8, !tbaa !54
+  %26 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %25, i32 0, i32 0
+  store ptr %24, ptr %26, align 8, !tbaa !57
+  %27 = load ptr, ptr %3, align 8, !tbaa !54
+  %28 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !57
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %34
 
-30:                                               ; preds = %14
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.work_queue_tag, ptr %31, i32 0, i32 1
-  store ptr null, ptr %32, align 8
-  br label %33
+31:                                               ; preds = %15
+  %32 = load ptr, ptr %3, align 8, !tbaa !54
+  %33 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %32, i32 0, i32 1
+  store ptr null, ptr %33, align 8, !tbaa !67
+  br label %34
 
-33:                                               ; preds = %30, %14
-  %34 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %34) #8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.work_queue_tag, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %36, align 8
-  %38 = add nsw i32 %37, -1
-  store i32 %38, ptr %36, align 8
-  %39 = load ptr, ptr %5, align 8
-  store ptr %39, ptr %2, align 8
-  br label %40
+34:                                               ; preds = %31, %15
+  %35 = load ptr, ptr %4, align 8, !tbaa !58
+  call void @free(ptr noundef %35) #10
+  %36 = load ptr, ptr %3, align 8, !tbaa !54
+  %37 = getelementptr inbounds nuw %struct.work_queue_tag, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 8, !tbaa !34
+  %39 = add nsw i32 %38, -1
+  store i32 %39, ptr %37, align 8, !tbaa !34
+  %40 = load ptr, ptr %5, align 8, !tbaa !63
+  store ptr %40, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %41
 
-40:                                               ; preds = %33, %13
-  %41 = load ptr, ptr %2, align 8
-  ret ptr %41
+41:                                               ; preds = %34, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %42 = load ptr, ptr %2, align 8
+  ret ptr %42
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind allocsize(1) }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { nounwind allocsize(0,1) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(1) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"float", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p2 _ZTS9cl_engine", !15, i64 0}
+!15 = !{!"any pointer", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS15threadpool_list", !15, i64 0}
+!18 = !{!19, !17, i64 8}
+!19 = !{!"threadpool_list", !20, i64 0, !17, i64 8}
+!20 = !{!"p1 _ZTS14threadpool_tag", !15, i64 0}
+!21 = !{!19, !20, i64 0}
+!22 = !{!20, !20, i64 0}
+!23 = !{!24, !5, i64 288}
+!24 = !{!"threadpool_tag", !6, i64 0, !6, i64 40, !6, i64 88, !6, i64 144, !6, i64 192, !6, i64 240, !5, i64 288, !5, i64 292, !5, i64 296, !5, i64 300, !5, i64 304, !5, i64 308, !5, i64 312, !25, i64 320, !15, i64 328, !26, i64 336, !26, i64 344}
+!25 = !{!"p1 _ZTS9task_desc", !15, i64 0}
+!26 = !{!"p1 _ZTS14work_queue_tag", !15, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 omnipotent char", !15, i64 0}
+!29 = !{!24, !5, i64 300}
+!30 = !{!24, !5, i64 304}
+!31 = !{!24, !5, i64 292}
+!32 = !{!24, !5, i64 312}
+!33 = !{!24, !26, i64 344}
+!34 = !{!35, !5, i64 16}
+!35 = !{!"work_queue_tag", !36, i64 0, !36, i64 8, !5, i64 16, !5, i64 20}
+!36 = !{!"p1 _ZTS13work_item_tag", !15, i64 0}
+!37 = !{!24, !26, i64 336}
+!38 = !{!24, !25, i64 320}
+!39 = !{!25, !25, i64 0}
+!40 = !{!41, !10, i64 8}
+!41 = !{!"timeval", !10, i64 0, !10, i64 8}
+!42 = !{!43, !10, i64 24}
+!43 = !{!"task_desc", !28, i64 0, !28, i64 8, !41, i64 16, !25, i64 32, !25, i64 40, !44, i64 48}
+!44 = !{!"p1 _ZTS9cl_engine", !15, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"double", !6, i64 0}
+!47 = !{!41, !10, i64 0}
+!48 = !{!43, !10, i64 16}
+!49 = !{!43, !28, i64 8}
+!50 = !{!43, !28, i64 0}
+!51 = !{!43, !44, i64 48}
+!52 = !{!44, !44, i64 0}
+!53 = !{!43, !25, i64 40}
+!54 = !{!26, !26, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS7timeval", !15, i64 0}
+!57 = !{!35, !36, i64 0}
+!58 = !{!36, !36, i64 0}
+!59 = !{!60, !10, i64 24}
+!60 = !{!"work_item_tag", !36, i64 0, !15, i64 8, !41, i64 16}
+!61 = !{!60, !10, i64 16}
+!62 = !{!60, !36, i64 0}
+!63 = !{!15, !15, i64 0}
+!64 = !{!24, !5, i64 296}
+!65 = !{!24, !5, i64 308}
+!66 = !{!24, !15, i64 328}
+!67 = !{!35, !36, i64 8}
+!68 = !{!35, !5, i64 20}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTS8jobgroup", !15, i64 0}
+!71 = !{!72, !5, i64 88}
+!72 = !{!"jobgroup", !6, i64 0, !6, i64 40, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104}
+!73 = !{!72, !5, i64 100}
+!74 = !{!72, !5, i64 92}
+!75 = !{!72, !5, i64 96}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 int", !15, i64 0}
+!78 = !{!79, !10, i64 0}
+!79 = !{!"timespec", !10, i64 0, !10, i64 8}
+!80 = !{!79, !10, i64 8}
+!81 = !{!72, !5, i64 104}
+!82 = !{!60, !15, i64 8}
+!83 = !{!43, !25, i64 32}

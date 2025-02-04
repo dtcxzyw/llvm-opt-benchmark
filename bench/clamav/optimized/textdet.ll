@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/textdet.c.ll'
-source_filename = "bench/clamav/original/textdet.c.ll"
+; ModuleID = 'bench/clamav/original/textdet.ll'
+source_filename = "bench/clamav/original/textdet.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -28,10 +28,10 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  %5 = load i8, ptr %4, align 1
+  %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = zext i8 %5 to i64
   %7 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1
+  %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.lr.ph.i11, label %3
 
@@ -40,11 +40,11 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
   br label %134
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i, %.loopexit.i
-  %.03046.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %.lr.ph.i ]
-  %.03245.i = phi i32 [ %45, %.loopexit.i ], [ 0, %.lr.ph.i ]
-  %10 = zext i32 %.03245.i to i64
+  %.03256.i = phi i32 [ %.2.i, %.loopexit.i ], [ 0, %.lr.ph.i ]
+  %.03455.i = phi i32 [ %45, %.loopexit.i ], [ 0, %.lr.ph.i ]
+  %10 = zext i32 %.03455.i to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
-  %12 = load i8, ptr %11, align 1
+  %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = zext i8 %12 to i32
   %14 = icmp sgt i8 %12, -1
   br i1 %14, label %15, label %19
@@ -52,9 +52,9 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
 15:                                               ; preds = %.lr.ph.i11
   %16 = zext nneg i8 %12 to i64
   %17 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1
-  %.not38.i = icmp eq i8 %18, 1
-  br i1 %.not38.i, label %.loopexit.i, label %td_isutf8.exit.thread
+  %18 = load i8, ptr %17, align 1, !tbaa !3
+  %.not45.i = icmp eq i8 %18, 1
+  br i1 %.not45.i, label %.loopexit.i, label %td_isutf8.exit.thread
 
 19:                                               ; preds = %.lr.ph.i11
   %20 = and i32 %13, 64
@@ -88,7 +88,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
 
 37:                                               ; preds = %34, %31, %28, %25, %22
   %.0.i = phi i32 [ 1, %22 ], [ 2, %25 ], [ 3, %28 ], [ 4, %31 ], [ 5, %34 ]
-  %38 = add i32 %.0.i, %.03245.i
+  %38 = add i32 %.0.i, %.03455.i
   %39 = zext i32 %38 to i64
   br label %41
 
@@ -104,20 +104,20 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
-  %44 = load i8, ptr %43, align 1
+  %44 = load i8, ptr %43, align 1, !tbaa !3
   %or.cond.i = icmp slt i8 %44, -64
-  br i1 %or.cond.i, label %40, label %td_isutf8.exit.thread.thread23
+  br i1 %or.cond.i, label %40, label %td_isutf8.exit.thread.thread22
 
 .loopexit.i:                                      ; preds = %40, %15
-  %.2.i = phi i32 [ %.03245.i, %15 ], [ %38, %40 ]
-  %.1.i = phi i32 [ %.03046.i, %15 ], [ 1, %40 ]
-  %45 = add nuw i32 %.2.i, 1
+  %.3.i = phi i32 [ %.03455.i, %15 ], [ %38, %40 ]
+  %.2.i = phi i32 [ %.03256.i, %15 ], [ 1, %40 ]
+  %45 = add nuw i32 %.3.i, 1
   %46 = icmp ult i32 %45, %1
   br i1 %46, label %.lr.ph.i11, label %td_isutf8.exit
 
 td_isutf8.exit:                                   ; preds = %.loopexit.i, %41
-  %.034.i = phi i32 [ %.03046.i, %41 ], [ %.1.i, %.loopexit.i ]
-  %.not9 = icmp eq i32 %.034.i, 0
+  %.138.i = phi i32 [ %.03256.i, %41 ], [ %.2.i, %.loopexit.i ]
+  %.not9 = icmp eq i32 %.138.i, 0
   br i1 %.not9, label %td_isutf8.exit.thread, label %47
 
 47:                                               ; preds = %td_isutf8.exit
@@ -126,24 +126,24 @@ td_isutf8.exit:                                   ; preds = %.loopexit.i, %41
 
 td_isutf8.exit.thread:                            ; preds = %34, %19, %15, %td_isutf8.exit
   %48 = icmp eq i32 %1, 1
-  br i1 %48, label %select.unfold, label %td_isutf8.exit.thread.thread23
+  br i1 %48, label %select.unfold, label %td_isutf8.exit.thread.thread22
 
-td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit.thread
-  %49 = load i8, ptr %0, align 1
+td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit.thread
+  %49 = load i8, ptr %0, align 1, !tbaa !3
   switch i8 %49, label %.thread [
     i8 -1, label %50
     i8 -2, label %54
   ]
 
-50:                                               ; preds = %td_isutf8.exit.thread.thread23
+50:                                               ; preds = %td_isutf8.exit.thread.thread22
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %52 = load i8, ptr %51, align 1
+  %52 = load i8, ptr %51, align 1, !tbaa !3
   %53 = icmp eq i8 %52, -2
   br i1 %53, label %.thread62.i, label %.thread
 
-54:                                               ; preds = %td_isutf8.exit.thread.thread23
+54:                                               ; preds = %td_isutf8.exit.thread.thread22
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %56 = load i8, ptr %55, align 1
+  %56 = load i8, ptr %55, align 1, !tbaa !3
   %57 = icmp eq i8 %56, -1
   br i1 %57, label %58, label %.thread
 
@@ -151,7 +151,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   %59 = icmp ugt i32 %1, 3
   br i1 %59, label %.lr.ph.split.split.us.i, label %._crit_edge.i
 
-.thread:                                          ; preds = %td_isutf8.exit.thread.thread23, %50, %54
+.thread:                                          ; preds = %td_isutf8.exit.thread.thread22, %50, %54
   %60 = icmp ugt i32 %1, 3
   br i1 %60, label %.lr.ph.split.split.i, label %td_isutf16.exit
 
@@ -165,11 +165,11 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   %.03143.us.us.i = phi i32 [ %82, %81 ], [ 2, %.thread62.i ]
   %63 = zext i32 %.03143.us.us.i to i64
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
-  %65 = load i8, ptr %64, align 1
+  %65 = load i8, ptr %64, align 1, !tbaa !3
   %66 = zext i8 %65 to i32
   %67 = zext i32 %62 to i64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 %67
-  %69 = load i8, ptr %68, align 1
+  %69 = load i8, ptr %68, align 1, !tbaa !3
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 8
   %72 = or disjoint i32 %71, %66
@@ -183,7 +183,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
 76:                                               ; preds = %74
   %77 = zext nneg i32 %72 to i64
   %78 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %77
-  %79 = load i8, ptr %78, align 1
+  %79 = load i8, ptr %78, align 1, !tbaa !3
   %.not39.us.us.i = icmp ne i8 %79, 1
   %80 = zext i1 %.not39.us.us.i to i32
   %spec.select.i = add i32 %.02844.us.us.i, %80
@@ -202,11 +202,11 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   %.03143.us48.i = phi i32 [ %105, %104 ], [ 2, %58 ]
   %86 = zext i32 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 %86
-  %88 = load i8, ptr %87, align 1
+  %88 = load i8, ptr %87, align 1, !tbaa !3
   %89 = zext i8 %88 to i32
   %90 = zext i32 %.03143.us48.i to i64
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 %90
-  %92 = load i8, ptr %91, align 1
+  %92 = load i8, ptr %91, align 1, !tbaa !3
   %93 = zext i8 %92 to i32
   %94 = shl nuw nsw i32 %93, 8
   %95 = or disjoint i32 %94, %89
@@ -220,7 +220,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
 99:                                               ; preds = %97
   %100 = zext nneg i32 %95 to i64
   %101 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 1
+  %102 = load i8, ptr %101, align 1, !tbaa !3
   %.not39.us49.i = icmp ne i8 %102, 1
   %103 = zext i1 %.not39.us49.i to i32
   %spec.select80.i = add i32 %.02844.us47.i, %103
@@ -238,11 +238,11 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   %.03143.i = phi i32 [ %127, %126 ], [ 2, %.thread ]
   %109 = zext i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 %109
-  %111 = load i8, ptr %110, align 1
+  %111 = load i8, ptr %110, align 1, !tbaa !3
   %112 = zext i8 %111 to i32
   %113 = zext i32 %.03143.i to i64
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
-  %115 = load i8, ptr %114, align 1
+  %115 = load i8, ptr %114, align 1, !tbaa !3
   %116 = zext i8 %115 to i32
   %117 = shl nuw nsw i32 %116, 8
   %118 = or disjoint i32 %117, %112
@@ -256,7 +256,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
 122:                                              ; preds = %120
   %123 = zext nneg i32 %118 to i64
   %124 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %123
-  %125 = load i8, ptr %124, align 1
+  %125 = load i8, ptr %124, align 1, !tbaa !3
   %.not39.i = icmp eq i8 %125, 1
   br i1 %.not39.i, label %126, label %select.unfold
 
@@ -274,8 +274,8 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   br i1 %.not37.i.not, label %td_isutf16.exit, label %select.unfold
 
 td_isutf16.exit:                                  ; preds = %126, %.thread, %._crit_edge.i
-  %.034.i16 = phi i32 [ %.03367.i, %._crit_edge.i ], [ 2, %.thread ], [ 2, %126 ]
-  %131 = icmp eq i32 %.034.i16, 1
+  %.034.i = phi i32 [ %.03367.i, %._crit_edge.i ], [ 2, %.thread ], [ 2, %126 ]
+  %131 = icmp eq i32 %.034.i, 1
   %132 = select i1 %131, ptr @.str.3, ptr @.str.4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %132) #2
   %133 = select i1 %131, i32 502, i32 503
@@ -292,13 +292,15 @@ select.unfold:                                    ; preds = %.lr.ph.split.split.
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}

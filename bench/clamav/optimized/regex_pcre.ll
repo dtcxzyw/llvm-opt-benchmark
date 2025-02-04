@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/regex_pcre.c.ll'
-source_filename = "bench/clamav/original/regex_pcre.c.ll"
+; ModuleID = 'bench/clamav/original/regex_pcre.ll'
+source_filename = "bench/clamav/original/regex_pcre.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -53,7 +53,7 @@ define range(i32 0, 28) i32 @cli_pcre_addoptions(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond, label %6, label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %1, align 8
+  %7 = load ptr, ptr %1, align 8, !tbaa !3
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -62,8 +62,8 @@ define range(i32 0, 28) i32 @cli_pcre_addoptions(ptr noundef %0, ptr noundef %1,
   br label %9
 
 9:                                                ; preds = %.preheader, %21
-  %10 = phi ptr [ %7, %.preheader ], [ %25, %21 ]
-  %11 = load i8, ptr %10, align 1
+  %10 = phi ptr [ %7, %.preheader ], [ %24, %21 ]
+  %11 = load i8, ptr %10, align 1, !tbaa !8
   switch i8 %11, label %18 [
     i8 0, label %.loopexit
     i8 105, label %21
@@ -104,12 +104,11 @@ define range(i32 0, 28) i32 @cli_pcre_addoptions(ptr noundef %0, ptr noundef %1,
 
 21:                                               ; preds = %9, %17, %16, %15, %14, %13, %12
   %.sink26 = phi i32 [ 262144, %17 ], [ 16, %16 ], [ -2147483648, %15 ], [ 128, %14 ], [ 1024, %13 ], [ 32, %12 ], [ 8, %9 ]
-  %22 = load i32, ptr %8, align 8
+  %22 = load i32, ptr %8, align 8, !tbaa !9
   %23 = or i32 %22, %.sink26
-  store i32 %23, ptr %8, align 8
-  %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  store ptr %25, ptr %1, align 8
+  store i32 %23, ptr %8, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store ptr %24, ptr %1, align 8, !tbaa !3
   br label %9
 
 .loopexit:                                        ; preds = %9, %18, %3, %6, %19
@@ -124,12 +123,14 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef %0, i64 noundef %1, i6
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca [256 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
   %.not33 = icmp eq ptr %11, null
   br i1 %.not33, label %12, label %13
 
@@ -158,34 +159,36 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef %0, i64 noundef %1, i6
 
 19:                                               ; preds = %16
   %.not36 = icmp eq i32 %4, 0
-  %20 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %10, align 8, !tbaa !14
   br i1 %.not36, label %21, label %24
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i32, ptr %22, align 8
+  %23 = load i32, ptr %22, align 8, !tbaa !9
   br label %24
 
 24:                                               ; preds = %19, %21
   %.sink = phi i32 [ %23, %21 ], [ %3, %19 ]
   %25 = call ptr @pcre2_compile_8(ptr noundef %20, i64 noundef -1, i32 noundef %.sink, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %17) #6
-  store ptr %25, ptr %0, align 8
+  store ptr %25, ptr %0, align 8, !tbaa !15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #6
+  %28 = load i32, ptr %6, align 4, !tbaa !16
   %29 = call i32 @pcre2_get_error_message_8(i32 noundef %28, ptr noundef nonnull %8, i64 noundef 256) #6
-  %30 = load i64, ptr %7, align 8
+  %30 = load i64, ptr %7, align 8, !tbaa !17
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4, i64 noundef %30, ptr noundef nonnull %8) #6
   call void @pcre2_compile_context_free_8(ptr noundef nonnull %17) #6
   call void @pcre2_general_context_free_8(ptr noundef nonnull %14) #6
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #6
   br label %41
 
 31:                                               ; preds = %24
   %32 = call ptr @pcre2_match_context_create_8(ptr noundef nonnull %14) #6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %32, ptr %33, align 8
+  store ptr %32, ptr %33, align 8, !tbaa !19
   %.not37 = icmp eq ptr %32, null
   br i1 %.not37, label %34, label %35
 
@@ -198,7 +201,7 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef %0, i64 noundef %1, i6
 35:                                               ; preds = %31
   %36 = trunc i64 %1 to i32
   %37 = call i32 @pcre2_set_match_limit_8(ptr noundef nonnull %32, i32 noundef %36) #6
-  %38 = load ptr, ptr %33, align 8
+  %38 = load ptr, ptr %33, align 8, !tbaa !19
   %39 = trunc i64 %2 to i32
   %40 = call i32 @pcre2_set_recursion_limit_8(ptr noundef %38, i32 noundef %39) #6
   call void @pcre2_compile_context_free_8(ptr noundef nonnull %17) #6
@@ -207,8 +210,13 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef %0, i64 noundef %1, i6
 
 41:                                               ; preds = %35, %34, %27, %18, %15, %12
   %.0 = phi i32 [ 4, %27 ], [ 0, %35 ], [ 20, %34 ], [ 20, %18 ], [ 20, %15 ], [ 2, %12 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare ptr @pcre2_general_context_create_8(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -222,6 +230,9 @@ declare i32 @pcre2_get_error_message_8(i32 noundef, ptr noundef, i64 noundef) lo
 
 declare void @pcre2_compile_context_free_8(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 declare ptr @pcre2_match_context_create_8(ptr noundef) local_unnamed_addr #1
 
 declare i32 @pcre2_set_match_limit_8(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -230,11 +241,11 @@ declare i32 @pcre2_set_recursion_limit_8(ptr noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %0, align 8
+  %7 = load ptr, ptr %0, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = tail call i32 @pcre2_match_8(ptr noundef %7, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %9, ptr noundef %11) #6
   %or.cond = icmp slt i32 %12, -1
   br i1 %or.cond, label %13, label %18
@@ -249,7 +260,7 @@ define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %
 
 14:                                               ; preds = %13
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.6) #6
-  store i32 20, ptr %5, align 8
+  store i32 20, ptr %5, align 8, !tbaa !23
   br label %33
 
 15:                                               ; preds = %13
@@ -262,7 +273,7 @@ define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %
 
 17:                                               ; preds = %13
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9, i32 noundef %12) #6
-  store i32 22, ptr %5, align 8
+  store i32 22, ptr %5, align 8, !tbaa !23
   br label %33
 
 18:                                               ; preds = %6
@@ -270,27 +281,27 @@ define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %8, align 8
+  %21 = load ptr, ptr %8, align 8, !tbaa !20
   %22 = tail call ptr @pcre2_get_ovector_pointer_8(ptr noundef %21) #6
-  %23 = load i64, ptr %22, align 8
+  %23 = load i64, ptr %22, align 8, !tbaa !17
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %24, ptr %25, align 4
+  store i32 %24, ptr %25, align 4, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %27 = load i64, ptr %26, align 8
+  %27 = load i64, ptr %26, align 8, !tbaa !17
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %28, ptr %29, align 4
+  store i32 %28, ptr %29, align 4, !tbaa !16
   br label %33
 
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %32, align 4
-  store i32 0, ptr %31, align 4
+  store i32 0, ptr %32, align 4, !tbaa !16
+  store i32 0, ptr %31, align 4, !tbaa !16
   br label %33
 
-33:                                               ; preds = %20, %30, %14, %15, %16, %17, %13
+33:                                               ; preds = %20, %30, %13, %14, %15, %16, %17
   ret i32 %12
 }
 
@@ -307,13 +318,14 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca [2057 x i8], align 16
   %10 = alloca [2057 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 2057, ptr nonnull %10) #6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = tail call ptr @pcre2_get_ovector_pointer_8(ptr noundef %12) #6
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #6
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !14
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, ptr noundef %15, i32 noundef %3) #6
   %16 = icmp sgt i32 %3, 0
   br i1 %16, label %.preheader.preheader, label %90
@@ -326,11 +338,11 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %39 ]
   %17 = shl nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds nuw i64, ptr %13, i64 %17
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %19 = load i64, ptr %18, align 8, !tbaa !17
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   %21 = or disjoint i64 %17, 1
   %22 = getelementptr inbounds nuw i64, ptr %13, i64 %21
-  %23 = load i64, ptr %22, align 8
+  %23 = load i64, ptr %22, align 8, !tbaa !17
   %24 = icmp ugt i64 %23, %2
   br i1 %24, label %25, label %26
 
@@ -351,7 +363,7 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 %29
   %31 = sub nuw nsw i64 2057, %29
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 %.03438
-  %33 = load i8, ptr %32, align 1
+  %33 = load i8, ptr %32, align 1, !tbaa !8
   %34 = sext i8 %33 to i32
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %30, i64 noundef %31, ptr noundef nonnull @.str.14, i32 noundef %34) #6
   %36 = add nuw i64 %.03438, 1
@@ -370,13 +382,13 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond41.not, label %40, label %.preheader
 
 40:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 2057, ptr nonnull %9)
-  %41 = load ptr, ptr %0, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(i64 2057, ptr nonnull %9) #6
+  %41 = load ptr, ptr %0, align 8, !tbaa !15
   %42 = call i32 @pcre2_pattern_info_8(ptr noundef %41, i32 noundef 17, ptr noundef nonnull %6) #6
-  %43 = load i32, ptr %6, align 4
+  %43 = load i32, ptr %6, align 4, !tbaa !16
   %44 = icmp slt i32 %43, 1
   br i1 %44, label %45, label %46
 
@@ -386,37 +398,37 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
 
 46:                                               ; preds = %40
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22) #6
-  %47 = load ptr, ptr %0, align 8
+  %47 = load ptr, ptr %0, align 8, !tbaa !15
   %48 = call i32 @pcre2_pattern_info_8(ptr noundef %47, i32 noundef 19, ptr noundef nonnull %8) #6
-  %49 = load ptr, ptr %0, align 8
+  %49 = load ptr, ptr %0, align 8, !tbaa !15
   %50 = call i32 @pcre2_pattern_info_8(ptr noundef %49, i32 noundef 18, ptr noundef nonnull %7) #6
-  %51 = load i32, ptr %6, align 4
+  %51 = load i32, ptr %6, align 4, !tbaa !16
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %.lr.ph34.preheader.i, label %named_substr_print.exit
 
 .lr.ph34.preheader.i:                             ; preds = %46
-  %53 = load ptr, ptr %8, align 8
+  %53 = load ptr, ptr %8, align 8, !tbaa !3
   br label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %._crit_edge.i, %.lr.ph34.preheader.i
   %.032.i = phi i32 [ %87, %._crit_edge.i ], [ 0, %.lr.ph34.preheader.i ]
   %.02631.i = phi ptr [ %86, %._crit_edge.i ], [ %53, %.lr.ph34.preheader.i ]
-  %54 = load i8, ptr %.02631.i, align 1
+  %54 = load i8, ptr %.02631.i, align 1, !tbaa !8
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
   %57 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 1
-  %58 = load i8, ptr %57, align 1
+  %58 = load i8, ptr %57, align 1, !tbaa !8
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
   %61 = shl nuw nsw i32 %60, 1
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw i64, ptr %13, i64 %62
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 %64
+  %64 = load i64, ptr %63, align 8, !tbaa !17
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 %64
   %66 = or disjoint i32 %61, 1
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds nuw i64, ptr %13, i64 %67
-  %69 = load i64, ptr %68, align 8
+  %69 = load i64, ptr %68, align 8, !tbaa !17
   %70 = sub i64 %69, %64
   %71 = icmp ult i64 %70, 1029
   %spec.select.i = select i1 %71, i64 %70, i64 1028
@@ -429,7 +441,7 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 %72
   %74 = sub nuw nsw i64 2057, %72
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 %.02730.i
-  %76 = load i8, ptr %75, align 1
+  %76 = load i8, ptr %75, align 1, !tbaa !8
   %77 = sext i8 %76 to i32
   %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %73, i64 noundef %74, ptr noundef nonnull @.str.14, i32 noundef %77) #6
   %79 = add nuw i64 %.02730.i, 1
@@ -437,24 +449,24 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph34.i
-  %80 = load i32, ptr %7, align 4
+  %80 = load i32, ptr %7, align 4, !tbaa !16
   %81 = add nsw i32 %80, -3
   %82 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %83 = select i1 %71, ptr @.str.17, ptr @.str.16
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, i32 noundef %60, i32 noundef %81, ptr noundef nonnull %82, ptr noundef nonnull %9, ptr noundef nonnull %83) #6
-  %84 = load i32, ptr %7, align 4
+  %84 = load i32, ptr %7, align 4, !tbaa !16
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %.02631.i, i64 %85
   %87 = add nuw nsw i32 %.032.i, 1
-  %88 = load i32, ptr %6, align 4
+  %88 = load i32, ptr %6, align 4, !tbaa !16
   %89 = icmp slt i32 %87, %88
   br i1 %89, label %.lr.ph34.i, label %named_substr_print.exit
 
 named_substr_print.exit:                          ; preds = %._crit_edge.i, %45, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 2057, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 2057, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
   br label %94
 
 90:                                               ; preds = %5
@@ -473,23 +485,24 @@ named_substr_print.exit:                          ; preds = %._crit_edge.i, %45,
 94:                                               ; preds = %92, %93, %named_substr_print.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #6
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #6
+  call void @llvm.lifetime.end.p0(i64 2057, ptr nonnull %10) #6
   ret void
 }
 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr noundef captures(none) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  store i32 0, ptr %0, align 8
+  store i32 0, ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %4, align 4
-  store i32 0, ptr %3, align 4
+  store i32 0, ptr %4, align 4, !tbaa !16
+  store i32 0, ptr %3, align 4, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
 
@@ -498,9 +511,9 @@ define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr noundef captures(none) i
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = load ptr, ptr %1, align 8
+  %9 = load ptr, ptr %1, align 8, !tbaa !15
   %10 = tail call ptr @pcre2_match_data_create_from_pattern_8(ptr noundef %9, ptr noundef null) #6
-  store ptr %10, ptr %5, align 8
+  store ptr %10, ptr %5, align 8, !tbaa !20
   %.not9 = icmp eq ptr %10, null
   %. = select i1 %.not9, i32 20, i32 0
   ret i32 %.
@@ -513,7 +526,7 @@ declare ptr @pcre2_match_data_create_from_pattern_8(ptr noundef, ptr noundef) lo
 ; Function Attrs: nounwind uwtable
 define void @cli_pcre_results_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -527,35 +540,35 @@ define void @cli_pcre_results_free(ptr noundef readonly captures(none) %0) local
 
 ; Function Attrs: nounwind uwtable
 define void @cli_pcre_free_single(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
   tail call void @pcre2_code_free_8(ptr noundef nonnull %2) #6
-  store ptr null, ptr %0, align 8
+  store ptr null, ptr %0, align 8, !tbaa !15
   br label %4
 
 4:                                                ; preds = %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   %.not11 = icmp eq ptr %6, null
   br i1 %.not11, label %8, label %7
 
 7:                                                ; preds = %4
   tail call void @pcre2_match_context_free_8(ptr noundef nonnull %6) #6
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !19
   br label %8
 
 8:                                                ; preds = %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %11
 
 11:                                               ; preds = %8
   tail call void @free(ptr noundef nonnull %10) #6
-  store ptr null, ptr %9, align 8
+  store ptr null, ptr %9, align 8, !tbaa !14
   br label %12
 
 12:                                               ; preds = %11, %8
@@ -568,23 +581,37 @@ declare void @pcre2_match_context_free_8(ptr noundef) local_unnamed_addr #1
 
 declare i32 @pcre2_pattern_info_8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = !{!10, !13, i64 16}
+!10 = !{!"cli_pcre_data", !11, i64 0, !12, i64 8, !13, i64 16, !4, i64 24, !13, i64 32}
+!11 = !{!"p1 _ZTS17pcre2_real_code_8", !5, i64 0}
+!12 = !{!"p1 _ZTS26pcre2_real_match_context_8", !5, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!10, !4, i64 24}
+!15 = !{!10, !11, i64 0}
+!16 = !{!13, !13, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!10, !12, i64 8}
+!20 = !{!21, !22, i64 16}
+!21 = !{!"cli_pcre_results", !13, i64 0, !6, i64 4, !22, i64 16}
+!22 = !{!"p1 _ZTS23pcre2_real_match_data_8", !5, i64 0}
+!23 = !{!21, !13, i64 0}

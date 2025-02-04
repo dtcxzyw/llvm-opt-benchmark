@@ -3,10 +3,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.cli_element = type { ptr, i64, i64 }
 %struct.cli_hashtable = type { ptr, i64, i64, i64 }
-%struct.codepage_entry = type { i16, ptr }
 %struct.entity_conv = type { [24 x i8] }
 %struct.m_area_tag = type { ptr, i64, i64, ptr }
 %struct.iconv_cache = type { ptr, i64, i64, %struct.cli_hashtable }
+%struct.codepage_entry = type { i16, ptr }
 
 @entities_htable_elements = internal global [2048 x %struct.cli_element] [%struct.cli_element { ptr @.str.20, i64 8250, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.21, i64 1050, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.22, i64 8196, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.23, i64 9827, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.24, i64 932, i64 3 }, %struct.cli_element { ptr @.str.25, i64 8780, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.26, i64 244, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.27, i64 933, i64 7 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.28, i64 8778, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.29, i64 8867, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.30, i64 8202, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.31, i64 982, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.32, i64 43, i64 4 }, %struct.cli_element { ptr @.str.33, i64 968, i64 3 }, %struct.cli_element { ptr @.str.34, i64 8531, i64 6 }, %struct.cli_element { ptr @.str.35, i64 8838, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.36, i64 940, i64 5 }, %struct.cli_element { ptr @.str.37, i64 8872, i64 5 }, %struct.cli_element { ptr @.str.38, i64 919, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.39, i64 9561, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.40, i64 8364, i64 4 }, %struct.cli_element { ptr @.str.41, i64 733, i64 5 }, %struct.cli_element { ptr @.str.42, i64 9824, i64 6 }, %struct.cli_element { ptr @.str.43, i64 8923, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.44, i64 8533, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.45, i64 904, i64 5 }, %struct.cli_element { ptr @.str.46, i64 8658, i64 4 }, %struct.cli_element { ptr @.str.47, i64 36, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.48, i64 194, i64 5 }, %struct.cli_element { ptr @.str.49, i64 8735, i64 5 }, %struct.cli_element { ptr @.str.50, i64 353, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.51, i64 1106, i64 4 }, %struct.cli_element { ptr @.str.52, i64 1083, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.53, i64 168, i64 3 }, %struct.cli_element { ptr @.str.54, i64 47, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.55, i64 9619, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.56, i64 8470, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.57, i64 8856, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.58, i64 160, i64 4 }, %struct.cli_element { ptr @.str.59, i64 8839, i64 4 }, %struct.cli_element { ptr @.str.60, i64 1034, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.61, i64 9839, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.62, i64 1075, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.63, i64 8739, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.64, i64 8972, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.65, i64 1097, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.66, i64 8764, i64 3 }, %struct.cli_element { ptr @.str.67, i64 8200, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.68, i64 964, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.69, i64 9556, i64 5 }, %struct.cli_element { ptr @.str.70, i64 224, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.71, i64 9567, i64 5 }, %struct.cli_element { ptr @.str.72, i64 197, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.73, i64 9555, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.74, i64 948, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.75, i64 8995, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.76, i64 8884, i64 5 }, %struct.cli_element { ptr @.str.77, i64 9577, i64 5 }, %struct.cli_element { ptr @.str.78, i64 8800, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.79, i64 8736, i64 3 }, %struct.cli_element { ptr @.str.80, i64 10927, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.81, i64 8782, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.82, i64 8756, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.83, i64 957, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.84, i64 952, i64 6 }, %struct.cli_element { ptr @.str.85, i64 1054, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.86, i64 8968, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.87, i64 106, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.88, i64 8783, i64 5 }, %struct.cli_element { ptr @.str.89, i64 8973, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.90, i64 8922, i64 3 }, %struct.cli_element { ptr @.str.91, i64 92, i64 4 }, %struct.cli_element { ptr @.str.92, i64 970, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.93, i64 9579, i64 5 }, %struct.cli_element { ptr @.str.94, i64 8852, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.95, i64 8503, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.96, i64 937, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.97, i64 965, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.98, i64 951, i64 3 }, %struct.cli_element { ptr @.str.99, i64 8540, i64 6 }, %struct.cli_element { ptr @.str.100, i64 954, i64 3 }, %struct.cli_element { ptr @.str.101, i64 212, i64 5 }, %struct.cli_element { ptr @.str.102, i64 1103, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.103, i64 8213, i64 6 }, %struct.cli_element { ptr @.str.104, i64 938, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.105, i64 8869, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.106, i64 8594, i64 4 }, %struct.cli_element { ptr @.str.107, i64 174, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.108, i64 9661, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.109, i64 921, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.110, i64 1041, i64 3 }, %struct.cli_element { ptr @.str.111, i64 8719, i64 4 }, %struct.cli_element { ptr @.str.112, i64 8927, i64 5 }, %struct.cli_element { ptr @.str.113, i64 8657, i64 4 }, %struct.cli_element { ptr @.str.114, i64 924, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.115, i64 9837, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.116, i64 180, i64 5 }, %struct.cli_element { ptr @.str.117, i64 8721, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.118, i64 1026, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.119, i64 201, i64 6 }, %struct.cli_element { ptr @.str.120, i64 8592, i64 4 }, %struct.cli_element { ptr @.str.121, i64 928, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.122, i64 8656, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.123, i64 9838, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.124, i64 203, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.125, i64 925, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.126, i64 8789, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.127, i64 10007, i64 5 }, %struct.cli_element { ptr @.str.128, i64 1113, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.129, i64 945, i64 5 }, %struct.cli_element { ptr @.str.130, i64 1109, i64 4 }, %struct.cli_element { ptr @.str.131, i64 8224, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.132, i64 920, i64 4 }, %struct.cli_element { ptr @.str.133, i64 8750, i64 6 }, %struct.cli_element { ptr @.str.134, i64 926, i64 2 }, %struct.cli_element { ptr @.str.135, i64 931, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.136, i64 8738, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.137, i64 9508, i64 5 }, %struct.cli_element { ptr @.str.138, i64 196, i64 4 }, %struct.cli_element { ptr @.str.139, i64 8218, i64 6 }, %struct.cli_element { ptr @.str.140, i64 9642, i64 4 }, %struct.cli_element { ptr @.str.141, i64 186, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.142, i64 1028, i64 5 }, %struct.cli_element { ptr @.str.143, i64 222, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.144, i64 9563, i64 5 }, %struct.cli_element { ptr @.str.145, i64 8242, i64 5 }, %struct.cli_element { ptr @.str.146, i64 184, i64 5 }, %struct.cli_element { ptr @.str.147, i64 1116, i64 4 }, %struct.cli_element { ptr @.str.148, i64 9829, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.149, i64 9651, i64 5 }, %struct.cli_element { ptr @.str.150, i64 1029, i64 4 }, %struct.cli_element { ptr @.str.151, i64 9675, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.152, i64 927, i64 7 }, %struct.cli_element { ptr @.str.153, i64 58, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.154, i64 8595, i64 4 }, %struct.cli_element { ptr @.str.155, i64 175, i64 4 }, %struct.cli_element { ptr @.str.156, i64 8846, i64 5 }, %struct.cli_element { ptr @.str.157, i64 8823, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.158, i64 10878, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.159, i64 206, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.160, i64 8981, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.161, i64 8492, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.162, i64 8536, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.163, i64 729, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.164, i64 1073, i64 3 }, %struct.cli_element { ptr @.str.165, i64 8467, i64 3 }, %struct.cli_element { ptr @.str.166, i64 8205, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.167, i64 211, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.168, i64 1072, i64 3 }, %struct.cli_element { ptr @.str.169, i64 8204, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.170, i64 8212, i64 5 }, %struct.cli_element { ptr @.str.171, i64 1042, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.172, i64 8229, i64 4 }, %struct.cli_element { ptr @.str.173, i64 8971, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.174, i64 917, i64 7 }, %struct.cli_element { ptr @.str.175, i64 928, i64 2 }, %struct.cli_element { ptr @.str.176, i64 124, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.177, i64 8918, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.178, i64 8868, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.179, i64 8706, i64 4 }, %struct.cli_element { ptr @.str.180, i64 8806, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.181, i64 40, i64 4 }, %struct.cli_element { ptr @.str.182, i64 941, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.183, i64 168, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.184, i64 959, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.185, i64 1014, i64 5 }, %struct.cli_element { ptr @.str.186, i64 9652, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.187, i64 1082, i64 3 }, %struct.cli_element { ptr @.str.188, i64 8858, i64 4 }, %struct.cli_element { ptr @.str.189, i64 164, i64 6 }, %struct.cli_element { ptr @.str.190, i64 8240, i64 6 }, %struct.cli_element { ptr @.str.191, i64 969, i64 5 }, %struct.cli_element { ptr @.str.192, i64 8786, i64 5 }, %struct.cli_element { ptr @.str.193, i64 8804, i64 2 }, %struct.cli_element { ptr @.str.194, i64 9608, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.195, i64 8861, i64 5 }, %struct.cli_element { ptr @.str.196, i64 8830, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.197, i64 8995, i64 5 }, %struct.cli_element { ptr @.str.198, i64 9711, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.199, i64 10901, i64 3 }, %struct.cli_element { ptr @.str.200, i64 929, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.201, i64 962, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.202, i64 915, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.203, i64 217, i64 6 }, %struct.cli_element { ptr @.str.204, i64 95, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.205, i64 8765, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.206, i64 200, i64 6 }, %struct.cli_element { ptr @.str.207, i64 8726, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.208, i64 173, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.209, i64 8903, i64 6 }, %struct.cli_element { ptr @.str.210, i64 9496, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.211, i64 64256, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.212, i64 246, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.213, i64 213, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.214, i64 181, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.215, i64 8901, i64 4 }, %struct.cli_element { ptr @.str.216, i64 9633, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.217, i64 946, i64 3 }, %struct.cli_element { ptr @.str.218, i64 918, i64 4 }, %struct.cli_element { ptr @.str.219, i64 64259, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.220, i64 8226, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.221, i64 9573, i64 5 }, %struct.cli_element { ptr @.str.222, i64 8822, i64 2 }, %struct.cli_element { ptr @.str.223, i64 962, i64 6 }, %struct.cli_element { ptr @.str.224, i64 1031, i64 4 }, %struct.cli_element { ptr @.str.225, i64 8254, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.226, i64 1114, i64 4 }, %struct.cli_element { ptr @.str.227, i64 960, i64 3 }, %struct.cli_element { ptr @.str.228, i64 183, i64 6 }, %struct.cli_element { ptr @.str.229, i64 959, i64 7 }, %struct.cli_element { ptr @.str.230, i64 1087, i64 3 }, %struct.cli_element { ptr @.str.231, i64 8776, i64 5 }, %struct.cli_element { ptr @.str.232, i64 9618, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.233, i64 216, i64 6 }, %struct.cli_element { ptr @.str.234, i64 59, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.235, i64 177, i64 6 }, %struct.cli_element { ptr @.str.236, i64 8727, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.237, i64 931, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.238, i64 247, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.239, i64 305, i64 6 }, %struct.cli_element { ptr @.str.240, i64 956, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.241, i64 8826, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.242, i64 8757, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.243, i64 8970, i64 6 }, %struct.cli_element { ptr @.str.244, i64 9633, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.245, i64 10877, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.246, i64 1084, i64 3 }, %struct.cli_element { ptr @.str.247, i64 62, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.248, i64 955, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.249, i64 242, i64 6 }, %struct.cli_element { ptr @.str.250, i64 913, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.251, i64 8214, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.252, i64 8744, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.253, i64 929, i64 3 }, %struct.cli_element { ptr @.str.254, i64 8720, i64 6 }, %struct.cli_element { ptr @.str.255, i64 190, i64 6 }, %struct.cli_element { ptr @.str.256, i64 8478, i64 2 }, %struct.cli_element { ptr @.str.257, i64 8208, i64 6 }, %struct.cli_element { ptr @.str.258, i64 10038, i64 4 }, %struct.cli_element { ptr @.str.259, i64 1092, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.260, i64 9524, i64 5 }, %struct.cli_element { ptr @.str.261, i64 9674, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.262, i64 936, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.263, i64 910, i64 5 }, %struct.cli_element { ptr @.str.264, i64 914, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.265, i64 1076, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.266, i64 237, i64 6 }, %struct.cli_element { ptr @.str.267, i64 8730, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.268, i64 926, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.269, i64 9794, i64 4 }, %struct.cli_element { ptr @.str.270, i64 8991, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.271, i64 205, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.272, i64 8994, i64 6 }, %struct.cli_element { ptr @.str.273, i64 8225, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.274, i64 1068, i64 6 }, %struct.cli_element { ptr @.str.275, i64 8745, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.276, i64 179, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.277, i64 942, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.278, i64 91, i64 4 }, %struct.cli_element { ptr @.str.279, i64 8596, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.280, i64 8914, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.281, i64 41, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.282, i64 8491, i64 5 }, %struct.cli_element { ptr @.str.283, i64 8465, i64 5 }, %struct.cli_element { ptr @.str.284, i64 207, i64 4 }, %struct.cli_element { ptr @.str.285, i64 9564, i64 5 }, %struct.cli_element { ptr @.str.286, i64 8812, i64 5 }, %struct.cli_element { ptr @.str.287, i64 8243, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.288, i64 376, i64 4 }, %struct.cli_element { ptr @.str.289, i64 949, i64 7 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.290, i64 918, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.291, i64 978, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.292, i64 946, i64 4 }, %struct.cli_element { ptr @.str.293, i64 731, i64 4 }, %struct.cli_element { ptr @.str.294, i64 1055, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.295, i64 8920, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.296, i64 1118, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.297, i64 8486, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.298, i64 189, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.299, i64 1099, i64 3 }, %struct.cli_element { ptr @.str.300, i64 182, i64 4 }, %struct.cli_element { ptr @.str.301, i64 8245, i64 6 }, %struct.cli_element { ptr @.str.302, i64 8784, i64 5 }, %struct.cli_element { ptr @.str.303, i64 1038, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.304, i64 9568, i64 5 }, %struct.cli_element { ptr @.str.305, i64 9570, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.306, i64 8836, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.307, i64 989, i64 6 }, %struct.cli_element { ptr @.str.308, i64 8453, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.309, i64 8221, i64 5 }, %struct.cli_element { ptr @.str.310, i64 243, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.311, i64 919, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.312, i64 912, i64 6 }, %struct.cli_element { ptr @.str.313, i64 1090, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.314, i64 8768, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.315, i64 9516, i64 5 }, %struct.cli_element { ptr @.str.316, i64 9663, i64 4 }, %struct.cli_element { ptr @.str.317, i64 64260, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.318, i64 8711, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.319, i64 1111, i64 4 }, %struct.cli_element { ptr @.str.320, i64 8257, i64 5 }, %struct.cli_element { ptr @.str.321, i64 8709, i64 5 }, %struct.cli_element { ptr @.str.322, i64 947, i64 5 }, %struct.cli_element { ptr @.str.323, i64 1053, i64 3 }, %struct.cli_element { ptr @.str.324, i64 968, i64 4 }, %struct.cli_element { ptr @.str.325, i64 961, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.326, i64 8660, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.327, i64 9554, i64 5 }, %struct.cli_element { ptr @.str.328, i64 9657, i64 4 }, %struct.cli_element { ptr @.str.329, i64 1058, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.330, i64 8534, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.331, i64 226, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.332, i64 925, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.333, i64 966, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.334, i64 8829, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.335, i64 9734, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.336, i64 225, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.337, i64 10016, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.338, i64 935, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.339, i64 44, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.340, i64 948, i64 5 }, %struct.cli_element { ptr @.str.341, i64 223, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.342, i64 9251, i64 5 }, %struct.cli_element { ptr @.str.343, i64 937, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.344, i64 8726, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.345, i64 8482, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.346, i64 8990, i64 6 }, %struct.cli_element { ptr @.str.347, i64 8207, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.348, i64 60, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.349, i64 9557, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.350, i64 1008, i64 6 }, %struct.cli_element { ptr @.str.351, i64 8905, i64 6 }, %struct.cli_element { ptr @.str.352, i64 219, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.353, i64 963, i64 3 }, %struct.cli_element { ptr @.str.354, i64 8869, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.355, i64 1096, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.356, i64 9472, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.357, i64 8713, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.358, i64 8796, i64 4 }, %struct.cli_element { ptr @.str.359, i64 8974, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.360, i64 198, i64 5 }, %struct.cli_element { ptr @.str.361, i64 9575, i64 5 }, %struct.cli_element { ptr @.str.362, i64 9571, i64 5 }, %struct.cli_element { ptr @.str.363, i64 8537, i64 6 }, %struct.cli_element { ptr @.str.364, i64 8660, i64 4 }, %struct.cli_element { ptr @.str.365, i64 1069, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.366, i64 8501, i64 5 }, %struct.cli_element { ptr @.str.367, i64 8218, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.368, i64 1049, i64 3 }, %struct.cli_element { ptr @.str.369, i64 1030, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.370, i64 238, i64 5 }, %struct.cli_element { ptr @.str.371, i64 8890, i64 6 }, %struct.cli_element { ptr @.str.372, i64 1119, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.373, i64 209, i64 6 }, %struct.cli_element { ptr @.str.374, i64 933, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.375, i64 38, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.376, i64 949, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.377, i64 8801, i64 5 }, %struct.cli_element { ptr @.str.378, i64 945, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.379, i64 9559, i64 5 }, %struct.cli_element { ptr @.str.380, i64 1110, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.381, i64 8854, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.382, i64 8704, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.383, i64 10950, i64 4 }, %struct.cli_element { ptr @.str.384, i64 953, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.385, i64 10644, i64 6 }, %struct.cli_element { ptr @.str.386, i64 962, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.387, i64 202, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.388, i64 1098, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.389, i64 8910, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.390, i64 10731, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.391, i64 9500, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.392, i64 9488, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.393, i64 8871, i64 6 }, %struct.cli_element { ptr @.str.394, i64 1025, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.395, i64 9532, i64 5 }, %struct.cli_element { ptr @.str.396, i64 8538, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.397, i64 9653, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.398, i64 221, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.399, i64 8593, i64 4 }, %struct.cli_element { ptr @.str.400, i64 9580, i64 5 }, %struct.cli_element { ptr @.str.401, i64 8788, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.402, i64 1070, i64 4 }, %struct.cli_element { ptr @.str.403, i64 8908, i64 6 }, %struct.cli_element { ptr @.str.404, i64 8629, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.405, i64 973, i64 5 }, %struct.cli_element { ptr @.str.406, i64 10815, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.407, i64 1032, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.408, i64 39, i64 4 }, %struct.cli_element { ptr @.str.409, i64 8828, i64 5 }, %struct.cli_element { ptr @.str.410, i64 10935, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.411, i64 1056, i64 3 }, %struct.cli_element { ptr @.str.412, i64 8201, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.413, i64 339, i64 5 }, %struct.cli_element { ptr @.str.414, i64 951, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.415, i64 8411, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.416, i64 10886, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.417, i64 1051, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.418, i64 236, i64 6 }, %struct.cli_element { ptr @.str.419, i64 1039, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.420, i64 9492, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.421, i64 9566, i64 5 }, %struct.cli_element { ptr @.str.422, i64 710, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.423, i64 8916, i64 4 }, %struct.cli_element { ptr @.str.424, i64 8921, i64 2 }, %struct.cli_element { ptr @.str.425, i64 1074, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.426, i64 228, i64 4 }, %struct.cli_element { ptr @.str.427, i64 950, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.428, i64 711, i64 5 }, %struct.cli_element { ptr @.str.429, i64 8915, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.430, i64 176, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.431, i64 8909, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.432, i64 8859, i64 4 }, %struct.cli_element { ptr @.str.433, i64 9569, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.434, i64 8764, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.435, i64 1112, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.436, i64 214, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.437, i64 8221, i64 6 }, %struct.cli_element { ptr @.str.438, i64 249, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.439, i64 240, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.440, i64 923, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.441, i64 961, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.442, i64 1040, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.443, i64 8715, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.444, i64 906, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.445, i64 1093, i64 4 }, %struct.cli_element { ptr @.str.446, i64 8776, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.447, i64 1095, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.448, i64 944, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.449, i64 8535, i64 6 }, %struct.cli_element { ptr @.str.450, i64 8819, i64 4 }, %struct.cli_element { ptr @.str.451, i64 338, i64 5 }, %struct.cli_element { ptr @.str.452, i64 187, i64 5 }, %struct.cli_element { ptr @.str.453, i64 9834, i64 4 }, %struct.cli_element { ptr @.str.454, i64 93, i64 4 }, %struct.cli_element { ptr @.str.455, i64 8260, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.456, i64 8244, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.457, i64 227, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.458, i64 966, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.459, i64 1105, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.460, i64 35, i64 3 }, %struct.cli_element { ptr @.str.461, i64 8907, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.462, i64 8912, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.463, i64 8412, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.464, i64 8902, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.465, i64 189, i64 6 }, %struct.cli_element { ptr @.str.466, i64 8975, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.467, i64 1107, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.468, i64 8966, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.469, i64 9562, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.470, i64 9576, i64 5 }, %struct.cli_element { ptr @.str.471, i64 1064, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.472, i64 195, i64 6 }, %struct.cli_element { ptr @.str.473, i64 10902, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.474, i64 8857, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.475, i64 977, i64 8 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.476, i64 902, i64 5 }, %struct.cli_element { ptr @.str.477, i64 8807, i64 2 }, %struct.cli_element { ptr @.str.478, i64 964, i64 3 }, %struct.cli_element { ptr @.str.479, i64 1115, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.480, i64 935, i64 4 }, %struct.cli_element { ptr @.str.481, i64 65128, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.482, i64 924, i64 2 }, %struct.cli_element { ptr @.str.483, i64 1108, i64 5 }, %struct.cli_element { ptr @.str.484, i64 1057, i64 3 }, %struct.cli_element { ptr @.str.485, i64 9572, i64 5 }, %struct.cli_element { ptr @.str.486, i64 8723, i64 6 }, %struct.cli_element { ptr @.str.487, i64 1091, i64 3 }, %struct.cli_element { ptr @.str.488, i64 37, i64 6 }, %struct.cli_element { ptr @.str.489, i64 252, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.490, i64 1102, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.491, i64 8982, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.492, i64 208, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.493, i64 1009, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.494, i64 955, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.495, i64 952, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.496, i64 1052, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.497, i64 9484, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.498, i64 178, i64 4 }, %struct.cli_element { ptr @.str.499, i64 9558, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.500, i64 9646, i64 6 }, %struct.cli_element { ptr @.str.501, i64 9002, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.502, i64 728, i64 5 }, %struct.cli_element { ptr @.str.503, i64 234, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.504, i64 960, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.505, i64 8659, i64 4 }, %struct.cli_element { ptr @.str.506, i64 8994, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.507, i64 8969, i64 5 }, %struct.cli_element { ptr @.str.508, i64 9617, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.509, i64 8848, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.510, i64 230, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.511, i64 958, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.512, i64 64258, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.513, i64 165, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.514, i64 8926, i64 5 }, %struct.cli_element { ptr @.str.515, i64 8217, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.516, i64 220, i64 4 }, %struct.cli_element { ptr @.str.517, i64 913, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.518, i64 253, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.519, i64 1048, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.520, i64 251, i64 5 }, %struct.cli_element { ptr @.str.521, i64 8885, i64 5 }, %struct.cli_element { ptr @.str.522, i64 232, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.523, i64 169, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.524, i64 8911, i64 5 }, %struct.cli_element { ptr @.str.525, i64 9733, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.526, i64 977, i64 6 }, %struct.cli_element { ptr @.str.527, i64 1047, i64 3 }, %struct.cli_element { ptr @.str.528, i64 923, i64 6 }, %struct.cli_element { ptr @.str.529, i64 969, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.530, i64 64257, i64 5 }, %struct.cli_element { ptr @.str.531, i64 949, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.532, i64 1077, i64 4 }, %struct.cli_element { ptr @.str.533, i64 8539, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.534, i64 8222, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.535, i64 9742, i64 5 }, %struct.cli_element { ptr @.str.536, i64 8249, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.537, i64 1033, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.538, i64 9662, i64 5 }, %struct.cli_element { ptr @.str.539, i64 8849, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.540, i64 1061, i64 4 }, %struct.cli_element { ptr @.str.541, i64 10949, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.542, i64 9565, i64 5 }, %struct.cli_element { ptr @.str.543, i64 34, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.544, i64 8499, i64 6 }, %struct.cli_element { ptr @.str.545, i64 9600, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.546, i64 965, i64 3 }, %struct.cli_element { ptr @.str.547, i64 167, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.548, i64 8942, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.549, i64 9560, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.550, i64 42, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.551, i64 46, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.552, i64 171, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.553, i64 8463, i64 6 }, %struct.cli_element { ptr @.str.554, i64 8720, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.555, i64 8739, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.556, i64 965, i64 7 }, %struct.cli_element { ptr @.str.557, i64 8733, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.558, i64 166, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.559, i64 8850, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.560, i64 8741, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.561, i64 1066, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.562, i64 8741, i64 3 }, %struct.cli_element { ptr @.str.563, i64 8785, i64 4 }, %struct.cli_element { ptr @.str.564, i64 8771, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.565, i64 971, i64 5 }, %struct.cli_element { ptr @.str.566, i64 947, i64 3 }, %struct.cli_element { ptr @.str.567, i64 8919, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.568, i64 927, i64 3 }, %struct.cli_element { ptr @.str.569, i64 123, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.570, i64 1013, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.571, i64 1071, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.572, i64 1089, i64 3 }, %struct.cli_element { ptr @.str.573, i64 193, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.574, i64 8259, i64 6 }, %struct.cli_element { ptr @.str.575, i64 8989, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.576, i64 1081, i64 3 }, %struct.cli_element { ptr @.str.577, i64 168, i64 3 }, %struct.cli_element { ptr @.str.578, i64 934, i64 4 }, %struct.cli_element { ptr @.str.579, i64 250, i64 6 }, %struct.cli_element { ptr @.str.580, i64 8206, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.581, i64 8466, i64 6 }, %struct.cli_element { ptr @.str.582, i64 956, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.583, i64 9553, i64 4 }, %struct.cli_element { ptr @.str.584, i64 730, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.585, i64 958, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.586, i64 8541, i64 6 }, %struct.cli_element { ptr @.str.587, i64 978, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.588, i64 8217, i64 6 }, %struct.cli_element { ptr @.str.589, i64 8197, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.590, i64 215, i64 5 }, %struct.cli_element { ptr @.str.591, i64 8851, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.592, i64 1078, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.593, i64 8216, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.594, i64 8208, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.595, i64 8906, i64 6 }, %struct.cli_element { ptr @.str.596, i64 10656, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.597, i64 939, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.598, i64 9792, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.599, i64 8724, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.600, i64 245, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.601, i64 125, i64 4 }, %struct.cli_element { ptr @.str.602, i64 8790, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.603, i64 8900, i64 4 }, %struct.cli_element { ptr @.str.604, i64 8793, i64 6 }, %struct.cli_element { ptr @.str.605, i64 8712, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.606, i64 8500, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.607, i64 1060, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.608, i64 1035, i64 5 }, %struct.cli_element { ptr @.str.609, i64 255, i64 4 }, %struct.cli_element { ptr @.str.610, i64 402, i64 4 }, %struct.cli_element { ptr @.str.611, i64 33, i64 4 }, %struct.cli_element { ptr @.str.612, i64 8864, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.613, i64 204, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.614, i64 9604, i64 5 }, %struct.cli_element { ptr @.str.615, i64 8988, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.616, i64 8747, i64 3 }, %struct.cli_element { ptr @.str.617, i64 9666, i64 5 }, %struct.cli_element { ptr @.str.618, i64 8811, i64 2 }, %struct.cli_element { ptr @.str.619, i64 8220, i64 5 }, %struct.cli_element { ptr @.str.620, i64 1036, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.621, i64 8835, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.622, i64 1043, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.623, i64 1046, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.624, i64 920, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.625, i64 8705, i64 4 }, %struct.cli_element { ptr @.str.626, i64 10928, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.627, i64 967, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.628, i64 922, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.629, i64 8874, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.630, i64 9474, i64 4 }, %struct.cli_element { ptr @.str.631, i64 1079, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.632, i64 8743, i64 3 }, %struct.cli_element { ptr @.str.633, i64 254, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.634, i64 8791, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.635, i64 61, i64 6 }, %struct.cli_element { ptr @.str.636, i64 1101, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.637, i64 1094, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.638, i64 9552, i64 4 }, %struct.cli_element { ptr @.str.639, i64 199, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.640, i64 1067, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.641, i64 932, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.642, i64 8532, i64 6 }, %struct.cli_element { ptr @.str.643, i64 8847, i64 5 }, %struct.cli_element { ptr @.str.644, i64 185, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.645, i64 8737, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.646, i64 1063, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.647, i64 1027, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.648, i64 908, i64 5 }, %struct.cli_element { ptr @.str.649, i64 911, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.650, i64 96, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.651, i64 218, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.652, i64 950, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.653, i64 8805, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.654, i64 8965, i64 6 }, %struct.cli_element { ptr @.str.655, i64 8195, i64 4 }, %struct.cli_element { ptr @.str.656, i64 974, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.657, i64 8810, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.658, i64 239, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.659, i64 8728, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.660, i64 966, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.661, i64 9656, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.662, i64 8904, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.663, i64 732, i64 5 }, %struct.cli_element { ptr @.str.664, i64 914, i64 4 }, %struct.cli_element { ptr @.str.665, i64 352, i64 6 }, %struct.cli_element { ptr @.str.666, i64 170, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.667, i64 233, i64 6 }, %struct.cli_element { ptr @.str.668, i64 8831, i64 5 }, %struct.cli_element { ptr @.str.669, i64 8733, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.670, i64 8855, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.671, i64 1044, i64 3 }, %struct.cli_element { ptr @.str.672, i64 8708, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.673, i64 64, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.674, i64 235, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.675, i64 210, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.676, i64 9830, i64 5 }, %struct.cli_element { ptr @.str.677, i64 8502, i64 4 }, %struct.cli_element { ptr @.str.678, i64 10936, i64 4 }, %struct.cli_element { ptr @.str.679, i64 188, i64 6 }, %struct.cli_element { ptr @.str.680, i64 921, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.681, i64 10003, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.682, i64 8863, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.683, i64 192, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.684, i64 8787, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.685, i64 10885, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.686, i64 1062, i64 4 }, %struct.cli_element { ptr @.str.687, i64 8242, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.688, i64 1065, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.689, i64 1013, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.690, i64 9001, i64 4 }, %struct.cli_element { ptr @.str.691, i64 9578, i64 5 }, %struct.cli_element { ptr @.str.692, i64 8734, i64 5 }, %struct.cli_element { ptr @.str.693, i64 8853, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.694, i64 957, i64 3 }, %struct.cli_element { ptr @.str.695, i64 163, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.696, i64 8542, i64 6 }, %struct.cli_element { ptr @.str.697, i64 972, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.698, i64 63, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.699, i64 981, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.700, i64 1085, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.701, i64 8194, i64 4 }, %struct.cli_element { ptr @.str.702, i64 10892, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.703, i64 8773, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.704, i64 8873, i64 5 }, %struct.cli_element { ptr @.str.705, i64 8882, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.706, i64 953, i64 4 }, %struct.cli_element { ptr @.str.707, i64 905, i64 6 }, %struct.cli_element { ptr @.str.708, i64 191, i64 6 }, %struct.cli_element { ptr @.str.709, i64 8913, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.710, i64 8459, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.711, i64 9416, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.712, i64 1086, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.713, i64 916, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.714, i64 916, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.715, i64 172, i64 3 }, %struct.cli_element { ptr @.str.716, i64 8211, i64 5 }, %struct.cli_element { ptr @.str.717, i64 8834, i64 3 }, %struct.cli_element { ptr @.str.718, i64 1100, i64 6 }, %struct.cli_element { ptr @.str.719, i64 8230, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.720, i64 8471, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.721, i64 943, i64 5 }, %struct.cli_element { ptr @.str.722, i64 1088, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.723, i64 8866, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.724, i64 8827, i64 2 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.725, i64 917, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.726, i64 8501, i64 7 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.727, i64 241, i64 6 }, %struct.cli_element { ptr @.str.728, i64 162, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.729, i64 8865, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.730, i64 8776, i64 2 }, %struct.cli_element { ptr @.str.731, i64 8818, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.732, i64 8504, i64 6 }, %struct.cli_element { ptr @.str.733, i64 8891, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.734, i64 9645, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.735, i64 229, i64 5 }, %struct.cli_element { ptr @.str.736, i64 1059, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.737, i64 8722, i64 5 }, %struct.cli_element { ptr @.str.738, i64 8230, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.739, i64 10891, i64 3 }, %struct.cli_element { ptr @.str.740, i64 161, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.741, i64 8199, i64 5 }, %struct.cli_element { ptr @.str.742, i64 248, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.743, i64 8476, i64 4 }, %struct.cli_element { ptr @.str.744, i64 922, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.745, i64 8472, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.746, i64 8883, i64 5 }, %struct.cli_element { ptr @.str.747, i64 8222, i64 5 }, %struct.cli_element { ptr @.str.748, i64 936, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.749, i64 8707, i64 5 }, %struct.cli_element { ptr @.str.750, i64 231, i64 6 }, %struct.cli_element { ptr @.str.751, i64 1080, i64 3 }, %struct.cli_element { ptr @.str.752, i64 954, i64 5 }, %struct.cli_element { ptr @.str.753, i64 8746, i64 3 }, %struct.cli_element { ptr @.str.754, i64 9667, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.755, i64 1045, i64 4 }, %struct.cli_element { ptr @.str.756, i64 934, i64 3 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.757, i64 9574, i64 5 }, %struct.cli_element { ptr @.str.758, i64 967, i64 4 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.759, i64 963, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.760, i64 915, i64 5 }, %struct.cli_element { ptr @.str.761, i64 952, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.762, i64 8862, i64 5 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer], align 16
 @entities_htable = constant %struct.cli_hashtable { ptr @entities_htable_elements, i64 2048, i64 743, i64 1638 }, align 8
@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [37 x i8] c"cli_codepage_to_utf8: Invalid args.\0A\00", align 1
 @.str.4 = private unnamed_addr constant [68 x i8] c"cli_codepage_to_utf8: Failure allocating buffer for utf8 filename.\0A\00", align 1
 @.str.5 = private unnamed_addr constant [87 x i8] c"cli_codepage_to_utf8: cleaning out %d bytes from incomplete utf-8 character length %d\0A\00", align 1
-@codepage_entries = internal constant [152 x %struct.codepage_entry] [%struct.codepage_entry { i16 37, ptr @.str.809 }, %struct.codepage_entry { i16 437, ptr @.str.810 }, %struct.codepage_entry { i16 500, ptr @.str.811 }, %struct.codepage_entry { i16 708, ptr @.str.812 }, %struct.codepage_entry { i16 709, ptr null }, %struct.codepage_entry { i16 710, ptr null }, %struct.codepage_entry { i16 720, ptr null }, %struct.codepage_entry { i16 737, ptr null }, %struct.codepage_entry { i16 775, ptr @.str.813 }, %struct.codepage_entry { i16 850, ptr @.str.814 }, %struct.codepage_entry { i16 852, ptr @.str.815 }, %struct.codepage_entry { i16 855, ptr @.str.816 }, %struct.codepage_entry { i16 857, ptr @.str.817 }, %struct.codepage_entry { i16 858, ptr null }, %struct.codepage_entry { i16 860, ptr @.str.818 }, %struct.codepage_entry { i16 861, ptr @.str.819 }, %struct.codepage_entry { i16 862, ptr null }, %struct.codepage_entry { i16 863, ptr @.str.820 }, %struct.codepage_entry { i16 864, ptr @.str.821 }, %struct.codepage_entry { i16 865, ptr @.str.822 }, %struct.codepage_entry { i16 866, ptr @.str.823 }, %struct.codepage_entry { i16 869, ptr @.str.824 }, %struct.codepage_entry { i16 870, ptr @.str.825 }, %struct.codepage_entry { i16 874, ptr @.str.826 }, %struct.codepage_entry { i16 875, ptr @.str.827 }, %struct.codepage_entry { i16 932, ptr @.str.828 }, %struct.codepage_entry { i16 936, ptr @.str.829 }, %struct.codepage_entry { i16 949, ptr @.str.830 }, %struct.codepage_entry { i16 950, ptr @.str.831 }, %struct.codepage_entry { i16 1026, ptr @.str.832 }, %struct.codepage_entry { i16 1047, ptr null }, %struct.codepage_entry { i16 1140, ptr null }, %struct.codepage_entry { i16 1141, ptr null }, %struct.codepage_entry { i16 1142, ptr null }, %struct.codepage_entry { i16 1143, ptr null }, %struct.codepage_entry { i16 1144, ptr null }, %struct.codepage_entry { i16 1145, ptr null }, %struct.codepage_entry { i16 1146, ptr null }, %struct.codepage_entry { i16 1147, ptr null }, %struct.codepage_entry { i16 1148, ptr null }, %struct.codepage_entry { i16 1149, ptr null }, %struct.codepage_entry { i16 1200, ptr @.str.764 }, %struct.codepage_entry { i16 1201, ptr @.str.768 }, %struct.codepage_entry { i16 1250, ptr @.str.833 }, %struct.codepage_entry { i16 1251, ptr @.str.834 }, %struct.codepage_entry { i16 1252, ptr @.str.835 }, %struct.codepage_entry { i16 1253, ptr @.str.836 }, %struct.codepage_entry { i16 1254, ptr @.str.837 }, %struct.codepage_entry { i16 1255, ptr @.str.838 }, %struct.codepage_entry { i16 1256, ptr @.str.839 }, %struct.codepage_entry { i16 1257, ptr @.str.840 }, %struct.codepage_entry { i16 1258, ptr @.str.841 }, %struct.codepage_entry { i16 1361, ptr @.str.842 }, %struct.codepage_entry { i16 10000, ptr @.str.843 }, %struct.codepage_entry { i16 10001, ptr null }, %struct.codepage_entry { i16 10002, ptr null }, %struct.codepage_entry { i16 10003, ptr null }, %struct.codepage_entry { i16 10004, ptr null }, %struct.codepage_entry { i16 10005, ptr null }, %struct.codepage_entry { i16 10006, ptr null }, %struct.codepage_entry { i16 10007, ptr null }, %struct.codepage_entry { i16 10008, ptr null }, %struct.codepage_entry { i16 10010, ptr null }, %struct.codepage_entry { i16 10017, ptr null }, %struct.codepage_entry { i16 10021, ptr null }, %struct.codepage_entry { i16 10029, ptr null }, %struct.codepage_entry { i16 10079, ptr null }, %struct.codepage_entry { i16 10081, ptr null }, %struct.codepage_entry { i16 10082, ptr null }, %struct.codepage_entry { i16 12000, ptr @.str.782 }, %struct.codepage_entry { i16 12001, ptr @.str.769 }, %struct.codepage_entry { i16 20000, ptr null }, %struct.codepage_entry { i16 20001, ptr null }, %struct.codepage_entry { i16 20002, ptr null }, %struct.codepage_entry { i16 20003, ptr null }, %struct.codepage_entry { i16 20004, ptr null }, %struct.codepage_entry { i16 20005, ptr null }, %struct.codepage_entry { i16 20105, ptr null }, %struct.codepage_entry { i16 20106, ptr null }, %struct.codepage_entry { i16 20107, ptr null }, %struct.codepage_entry { i16 20108, ptr null }, %struct.codepage_entry { i16 20127, ptr @.str.844 }, %struct.codepage_entry { i16 20261, ptr null }, %struct.codepage_entry { i16 20269, ptr null }, %struct.codepage_entry { i16 20273, ptr @.str.845 }, %struct.codepage_entry { i16 20277, ptr @.str.846 }, %struct.codepage_entry { i16 20278, ptr @.str.847 }, %struct.codepage_entry { i16 20280, ptr @.str.848 }, %struct.codepage_entry { i16 20284, ptr @.str.849 }, %struct.codepage_entry { i16 20285, ptr @.str.850 }, %struct.codepage_entry { i16 20290, ptr @.str.851 }, %struct.codepage_entry { i16 20297, ptr @.str.852 }, %struct.codepage_entry { i16 20420, ptr @.str.853 }, %struct.codepage_entry { i16 20423, ptr @.str.854 }, %struct.codepage_entry { i16 20424, ptr @.str.855 }, %struct.codepage_entry { i16 20833, ptr null }, %struct.codepage_entry { i16 20838, ptr null }, %struct.codepage_entry { i16 20866, ptr @.str.856 }, %struct.codepage_entry { i16 20871, ptr @.str.857 }, %struct.codepage_entry { i16 20880, ptr @.str.858 }, %struct.codepage_entry { i16 20905, ptr @.str.859 }, %struct.codepage_entry { i16 20924, ptr null }, %struct.codepage_entry { i16 20932, ptr @.str.860 }, %struct.codepage_entry { i16 20936, ptr null }, %struct.codepage_entry { i16 20949, ptr null }, %struct.codepage_entry { i16 21025, ptr @.str.861 }, %struct.codepage_entry { i16 21027, ptr null }, %struct.codepage_entry { i16 21866, ptr @.str.862 }, %struct.codepage_entry { i16 28591, ptr @.str.863 }, %struct.codepage_entry { i16 28592, ptr @.str.864 }, %struct.codepage_entry { i16 28593, ptr @.str.865 }, %struct.codepage_entry { i16 28594, ptr @.str.866 }, %struct.codepage_entry { i16 28595, ptr @.str.867 }, %struct.codepage_entry { i16 28596, ptr @.str.868 }, %struct.codepage_entry { i16 28597, ptr @.str.869 }, %struct.codepage_entry { i16 28598, ptr @.str.870 }, %struct.codepage_entry { i16 28599, ptr @.str.871 }, %struct.codepage_entry { i16 28603, ptr @.str.872 }, %struct.codepage_entry { i16 28605, ptr @.str.873 }, %struct.codepage_entry { i16 29001, ptr null }, %struct.codepage_entry { i16 -26938, ptr null }, %struct.codepage_entry { i16 -15316, ptr @.str.874 }, %struct.codepage_entry { i16 -15315, ptr @.str.875 }, %struct.codepage_entry { i16 -15314, ptr @.str.876 }, %struct.codepage_entry { i16 -15311, ptr @.str.877 }, %struct.codepage_entry { i16 -15309, ptr null }, %struct.codepage_entry { i16 -15307, ptr null }, %struct.codepage_entry { i16 -14606, ptr null }, %struct.codepage_entry { i16 -14605, ptr null }, %struct.codepage_entry { i16 -14603, ptr null }, %struct.codepage_entry { i16 -14601, ptr null }, %struct.codepage_entry { i16 -14600, ptr null }, %struct.codepage_entry { i16 -14599, ptr null }, %struct.codepage_entry { i16 -14597, ptr null }, %struct.codepage_entry { i16 -13604, ptr @.str.860 }, %struct.codepage_entry { i16 -13600, ptr @.str.878 }, %struct.codepage_entry { i16 -13587, ptr @.str.879 }, %struct.codepage_entry { i16 -13586, ptr null }, %struct.codepage_entry { i16 -12600, ptr null }, %struct.codepage_entry { i16 -10600, ptr @.str.880 }, %struct.codepage_entry { i16 -8534, ptr null }, %struct.codepage_entry { i16 -8533, ptr null }, %struct.codepage_entry { i16 -8532, ptr null }, %struct.codepage_entry { i16 -8531, ptr null }, %struct.codepage_entry { i16 -8530, ptr null }, %struct.codepage_entry { i16 -8529, ptr null }, %struct.codepage_entry { i16 -8528, ptr null }, %struct.codepage_entry { i16 -8527, ptr null }, %struct.codepage_entry { i16 -8526, ptr null }, %struct.codepage_entry { i16 -8525, ptr null }, %struct.codepage_entry { i16 -536, ptr @.str.881 }, %struct.codepage_entry { i16 -535, ptr @.str.9 }], align 16
 @.str.6 = private unnamed_addr constant [61 x i8] c"cli_codepage_to_utf8: Invalid codepage parameter passed in.\0A\00", align 1
 @.str.7 = private unnamed_addr constant [64 x i8] c"cli_codepage_to_utf8: Failure allocating buffer for utf8 data.\0A\00", align 1
 @.str.8 = private unnamed_addr constant [16 x i8] c"UTF-8//TRANSLIT\00", align 1
@@ -800,7 +799,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.785 = private unnamed_addr constant [13 x i8] c"10646-1:1993\00", align 1
 @.str.786 = private unnamed_addr constant [7 x i8] c"UTF-32\00", align 1
 @aliases_htable_elements = internal global <{ [51 x %struct.cli_element], [13 x %struct.cli_element] }> <{ [51 x %struct.cli_element] [%struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.763, i64 3, i64 7 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.764, i64 7, i64 8 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.765, i64 3, i64 7 }, %struct.cli_element { ptr @.str.766, i64 2, i64 7 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.767, i64 8, i64 14 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.768, i64 6, i64 8 }, %struct.cli_element { ptr @.str.769, i64 3, i64 8 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.770, i64 1, i64 4 }, %struct.cli_element { ptr @.str.771, i64 6, i64 7 }, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.772, i64 0, i64 5 }, %struct.cli_element { ptr @.str.773, i64 0, i64 5 }, %struct.cli_element { ptr @.str.774, i64 1, i64 6 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.775, i64 1, i64 14 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.9, i64 8, i64 5 }, %struct.cli_element { ptr @.str.776, i64 8, i64 15 }, %struct.cli_element { ptr @.str.777, i64 0, i64 4 }, %struct.cli_element { ptr @.str.778, i64 0, i64 17 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.779, i64 7, i64 7 }, %struct.cli_element { ptr @.str.780, i64 2, i64 7 }, %struct.cli_element { ptr @.str.781, i64 0, i64 9 }, %struct.cli_element { ptr @.str.782, i64 2, i64 8 }, %struct.cli_element { ptr @.str.783, i64 8, i64 4 }, %struct.cli_element { ptr @.str.784, i64 0, i64 14 }, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element zeroinitializer, %struct.cli_element { ptr @.str.785, i64 0, i64 12 }, %struct.cli_element { ptr @.str.786, i64 0, i64 6 }], [13 x %struct.cli_element] zeroinitializer }>, align 16
-@.str.788 = private unnamed_addr constant [49 x i8] c"u16_normalize must be called with positive limit\00", align 1
 @.str.789 = private unnamed_addr constant [64 x i8] c"limit > 0 && \22u16_normalize must be called with positive limit\22\00", align 1
 @.str.790 = private unnamed_addr constant [111 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/clamav/clamav/libclamav/entconv.c\00", align 1
 @__PRETTY_FUNCTION__.u16_normalize = private unnamed_addr constant [71 x i8] c"unsigned char *u16_normalize(uint16_t, unsigned char *, const ssize_t)\00", align 1
@@ -900,6 +898,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.879 = private unnamed_addr constant [7 x i8] c"EUC-KR\00", align 1
 @.str.880 = private unnamed_addr constant [8 x i8] c"GB18030\00", align 1
 @.str.881 = private unnamed_addr constant [6 x i8] c"UTF-7\00", align 1
+@codepage_entries = internal constant [152 x { i16, [6 x i8], ptr }] [{ i16, [6 x i8], ptr } { i16 37, [6 x i8] zeroinitializer, ptr @.str.809 }, { i16, [6 x i8], ptr } { i16 437, [6 x i8] zeroinitializer, ptr @.str.810 }, { i16, [6 x i8], ptr } { i16 500, [6 x i8] zeroinitializer, ptr @.str.811 }, { i16, [6 x i8], ptr } { i16 708, [6 x i8] zeroinitializer, ptr @.str.812 }, { i16, [6 x i8], ptr } { i16 709, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 710, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 720, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 737, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 775, [6 x i8] zeroinitializer, ptr @.str.813 }, { i16, [6 x i8], ptr } { i16 850, [6 x i8] zeroinitializer, ptr @.str.814 }, { i16, [6 x i8], ptr } { i16 852, [6 x i8] zeroinitializer, ptr @.str.815 }, { i16, [6 x i8], ptr } { i16 855, [6 x i8] zeroinitializer, ptr @.str.816 }, { i16, [6 x i8], ptr } { i16 857, [6 x i8] zeroinitializer, ptr @.str.817 }, { i16, [6 x i8], ptr } { i16 858, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 860, [6 x i8] zeroinitializer, ptr @.str.818 }, { i16, [6 x i8], ptr } { i16 861, [6 x i8] zeroinitializer, ptr @.str.819 }, { i16, [6 x i8], ptr } { i16 862, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 863, [6 x i8] zeroinitializer, ptr @.str.820 }, { i16, [6 x i8], ptr } { i16 864, [6 x i8] zeroinitializer, ptr @.str.821 }, { i16, [6 x i8], ptr } { i16 865, [6 x i8] zeroinitializer, ptr @.str.822 }, { i16, [6 x i8], ptr } { i16 866, [6 x i8] zeroinitializer, ptr @.str.823 }, { i16, [6 x i8], ptr } { i16 869, [6 x i8] zeroinitializer, ptr @.str.824 }, { i16, [6 x i8], ptr } { i16 870, [6 x i8] zeroinitializer, ptr @.str.825 }, { i16, [6 x i8], ptr } { i16 874, [6 x i8] zeroinitializer, ptr @.str.826 }, { i16, [6 x i8], ptr } { i16 875, [6 x i8] zeroinitializer, ptr @.str.827 }, { i16, [6 x i8], ptr } { i16 932, [6 x i8] zeroinitializer, ptr @.str.828 }, { i16, [6 x i8], ptr } { i16 936, [6 x i8] zeroinitializer, ptr @.str.829 }, { i16, [6 x i8], ptr } { i16 949, [6 x i8] zeroinitializer, ptr @.str.830 }, { i16, [6 x i8], ptr } { i16 950, [6 x i8] zeroinitializer, ptr @.str.831 }, { i16, [6 x i8], ptr } { i16 1026, [6 x i8] zeroinitializer, ptr @.str.832 }, { i16, [6 x i8], ptr } { i16 1047, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1140, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1141, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1142, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1143, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1144, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1145, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1146, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1147, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1148, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1149, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1200, [6 x i8] zeroinitializer, ptr @.str.764 }, { i16, [6 x i8], ptr } { i16 1201, [6 x i8] zeroinitializer, ptr @.str.768 }, { i16, [6 x i8], ptr } { i16 1250, [6 x i8] zeroinitializer, ptr @.str.833 }, { i16, [6 x i8], ptr } { i16 1251, [6 x i8] zeroinitializer, ptr @.str.834 }, { i16, [6 x i8], ptr } { i16 1252, [6 x i8] zeroinitializer, ptr @.str.835 }, { i16, [6 x i8], ptr } { i16 1253, [6 x i8] zeroinitializer, ptr @.str.836 }, { i16, [6 x i8], ptr } { i16 1254, [6 x i8] zeroinitializer, ptr @.str.837 }, { i16, [6 x i8], ptr } { i16 1255, [6 x i8] zeroinitializer, ptr @.str.838 }, { i16, [6 x i8], ptr } { i16 1256, [6 x i8] zeroinitializer, ptr @.str.839 }, { i16, [6 x i8], ptr } { i16 1257, [6 x i8] zeroinitializer, ptr @.str.840 }, { i16, [6 x i8], ptr } { i16 1258, [6 x i8] zeroinitializer, ptr @.str.841 }, { i16, [6 x i8], ptr } { i16 1361, [6 x i8] zeroinitializer, ptr @.str.842 }, { i16, [6 x i8], ptr } { i16 10000, [6 x i8] zeroinitializer, ptr @.str.843 }, { i16, [6 x i8], ptr } { i16 10001, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10002, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10003, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10004, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10005, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10006, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10007, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10008, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10010, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10017, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10021, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10029, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10079, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10081, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10082, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 12000, [6 x i8] zeroinitializer, ptr @.str.782 }, { i16, [6 x i8], ptr } { i16 12001, [6 x i8] zeroinitializer, ptr @.str.769 }, { i16, [6 x i8], ptr } { i16 20000, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20001, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20002, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20003, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20004, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20005, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20105, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20106, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20107, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20108, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20127, [6 x i8] zeroinitializer, ptr @.str.844 }, { i16, [6 x i8], ptr } { i16 20261, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20269, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20273, [6 x i8] zeroinitializer, ptr @.str.845 }, { i16, [6 x i8], ptr } { i16 20277, [6 x i8] zeroinitializer, ptr @.str.846 }, { i16, [6 x i8], ptr } { i16 20278, [6 x i8] zeroinitializer, ptr @.str.847 }, { i16, [6 x i8], ptr } { i16 20280, [6 x i8] zeroinitializer, ptr @.str.848 }, { i16, [6 x i8], ptr } { i16 20284, [6 x i8] zeroinitializer, ptr @.str.849 }, { i16, [6 x i8], ptr } { i16 20285, [6 x i8] zeroinitializer, ptr @.str.850 }, { i16, [6 x i8], ptr } { i16 20290, [6 x i8] zeroinitializer, ptr @.str.851 }, { i16, [6 x i8], ptr } { i16 20297, [6 x i8] zeroinitializer, ptr @.str.852 }, { i16, [6 x i8], ptr } { i16 20420, [6 x i8] zeroinitializer, ptr @.str.853 }, { i16, [6 x i8], ptr } { i16 20423, [6 x i8] zeroinitializer, ptr @.str.854 }, { i16, [6 x i8], ptr } { i16 20424, [6 x i8] zeroinitializer, ptr @.str.855 }, { i16, [6 x i8], ptr } { i16 20833, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20838, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20866, [6 x i8] zeroinitializer, ptr @.str.856 }, { i16, [6 x i8], ptr } { i16 20871, [6 x i8] zeroinitializer, ptr @.str.857 }, { i16, [6 x i8], ptr } { i16 20880, [6 x i8] zeroinitializer, ptr @.str.858 }, { i16, [6 x i8], ptr } { i16 20905, [6 x i8] zeroinitializer, ptr @.str.859 }, { i16, [6 x i8], ptr } { i16 20924, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20932, [6 x i8] zeroinitializer, ptr @.str.860 }, { i16, [6 x i8], ptr } { i16 20936, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20949, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 21025, [6 x i8] zeroinitializer, ptr @.str.861 }, { i16, [6 x i8], ptr } { i16 21027, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 21866, [6 x i8] zeroinitializer, ptr @.str.862 }, { i16, [6 x i8], ptr } { i16 28591, [6 x i8] zeroinitializer, ptr @.str.863 }, { i16, [6 x i8], ptr } { i16 28592, [6 x i8] zeroinitializer, ptr @.str.864 }, { i16, [6 x i8], ptr } { i16 28593, [6 x i8] zeroinitializer, ptr @.str.865 }, { i16, [6 x i8], ptr } { i16 28594, [6 x i8] zeroinitializer, ptr @.str.866 }, { i16, [6 x i8], ptr } { i16 28595, [6 x i8] zeroinitializer, ptr @.str.867 }, { i16, [6 x i8], ptr } { i16 28596, [6 x i8] zeroinitializer, ptr @.str.868 }, { i16, [6 x i8], ptr } { i16 28597, [6 x i8] zeroinitializer, ptr @.str.869 }, { i16, [6 x i8], ptr } { i16 28598, [6 x i8] zeroinitializer, ptr @.str.870 }, { i16, [6 x i8], ptr } { i16 28599, [6 x i8] zeroinitializer, ptr @.str.871 }, { i16, [6 x i8], ptr } { i16 28603, [6 x i8] zeroinitializer, ptr @.str.872 }, { i16, [6 x i8], ptr } { i16 28605, [6 x i8] zeroinitializer, ptr @.str.873 }, { i16, [6 x i8], ptr } { i16 29001, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -26938, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -15316, [6 x i8] zeroinitializer, ptr @.str.874 }, { i16, [6 x i8], ptr } { i16 -15315, [6 x i8] zeroinitializer, ptr @.str.875 }, { i16, [6 x i8], ptr } { i16 -15314, [6 x i8] zeroinitializer, ptr @.str.876 }, { i16, [6 x i8], ptr } { i16 -15311, [6 x i8] zeroinitializer, ptr @.str.877 }, { i16, [6 x i8], ptr } { i16 -15309, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -15307, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14606, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14605, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14603, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14601, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14600, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14599, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14597, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -13604, [6 x i8] zeroinitializer, ptr @.str.860 }, { i16, [6 x i8], ptr } { i16 -13600, [6 x i8] zeroinitializer, ptr @.str.878 }, { i16, [6 x i8], ptr } { i16 -13587, [6 x i8] zeroinitializer, ptr @.str.879 }, { i16, [6 x i8], ptr } { i16 -13586, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -12600, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -10600, [6 x i8] zeroinitializer, ptr @.str.880 }, { i16, [6 x i8], ptr } { i16 -8534, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8533, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8532, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8531, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8530, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8529, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8528, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8527, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8526, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8525, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -536, [6 x i8] zeroinitializer, ptr @.str.881 }, { i16, [6 x i8], ptr } { i16 -535, [6 x i8] zeroinitializer, ptr @.str.9 }], align 16
 
 ; Function Attrs: nounwind uwtable
 define ptr @u16_normalize_tobuffer(i16 noundef zeroext %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -908,197 +907,226 @@ define ptr @u16_normalize_tobuffer(i16 noundef zeroext %0, ptr noundef %1, i64 n
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  store i16 %0, ptr %5, align 2
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %9 = load i16, ptr %5, align 2
-  %10 = load ptr, ptr %6, align 8
-  %11 = load i64, ptr %7, align 8
-  %12 = sub i64 %11, 1
-  %13 = call ptr @u16_normalize(i16 noundef zeroext %9, ptr noundef %10, i64 noundef %12)
-  store ptr %13, ptr %8, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %20
+  %9 = alloca i32, align 4
+  store i16 %0, ptr %5, align 2, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %10 = load i16, ptr %5, align 2, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !7
+  %12 = load i64, ptr %7, align 8, !tbaa !10
+  %13 = sub i64 %12, 1
+  %14 = call ptr @u16_normalize(i16 noundef zeroext %10, ptr noundef %11, i64 noundef %13)
+  store ptr %14, ptr %8, align 8, !tbaa !7
+  %15 = load ptr, ptr %8, align 8, !tbaa !7
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %21
 
-16:                                               ; preds = %3
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i32 1
-  store ptr %18, ptr %8, align 8
-  store i8 0, ptr %17, align 1
-  %19 = load ptr, ptr %8, align 8
-  store ptr %19, ptr %4, align 8
-  br label %21
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %18, i32 1
+  store ptr %19, ptr %8, align 8, !tbaa !7
+  store i8 0, ptr %18, align 1, !tbaa !12
+  %20 = load ptr, ptr %8, align 8, !tbaa !7
+  store ptr %20, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %22
 
-20:                                               ; preds = %3
+21:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %21
+  store i32 1, ptr %9, align 4
+  br label %22
 
-21:                                               ; preds = %20, %16
-  %22 = load ptr, ptr %4, align 8
-  ret ptr %22
+22:                                               ; preds = %21, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %23 = load ptr, ptr %4, align 8
+  ret ptr %23
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @u16_normalize(i16 noundef zeroext %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @u16_normalize(i16 noundef zeroext %0, ptr noundef %1, i64 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store i16 %0, ptr %5, align 2
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %9 = load i64, ptr %7, align 8
-  %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %11, label %13
+  %9 = alloca i32, align 4
+  store i16 %0, ptr %5, align 2, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  %10 = load i64, ptr %7, align 8, !tbaa !10
+  %11 = icmp sgt i64 %10, 0
+  br i1 %11, label %12, label %14
 
-11:                                               ; preds = %3
-  br i1 true, label %12, label %13
+12:                                               ; preds = %3
+  br i1 true, label %13, label %14
 
-12:                                               ; preds = %11
-  br label %14
+13:                                               ; preds = %12
+  br label %15
 
-13:                                               ; preds = %11, %3
-  call void @__assert_fail(ptr noundef @.str.789, ptr noundef @.str.790, i32 noundef 68, ptr noundef @__PRETTY_FUNCTION__.u16_normalize) #9
+14:                                               ; preds = %12, %3
+  call void @__assert_fail(ptr noundef @.str.789, ptr noundef @.str.790, i32 noundef 68, ptr noundef @__PRETTY_FUNCTION__.u16_normalize) #12
   unreachable
 
-14:                                               ; preds = %12
-  %15 = load i16, ptr %5, align 2
-  %16 = icmp ne i16 %15, 0
-  br i1 %16, label %19, label %17
+15:                                               ; preds = %13
+  %16 = load i16, ptr %5, align 2, !tbaa !3
+  %17 = icmp ne i16 %16, 0
+  br i1 %17, label %20, label %18
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %6, align 8
-  store ptr %18, ptr %4, align 8
-  br label %89
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %19, ptr %4, align 8
+  br label %93
 
-19:                                               ; preds = %14
-  %20 = load i16, ptr %5, align 2
-  %21 = zext i16 %20 to i32
-  %22 = icmp slt i32 %21, 255
-  br i1 %22, label %23, label %35
+20:                                               ; preds = %15
+  %21 = load i16, ptr %5, align 2, !tbaa !3
+  %22 = zext i16 %21 to i32
+  %23 = icmp slt i32 %22, 255
+  br i1 %23, label %24, label %36
 
-23:                                               ; preds = %19
-  %24 = load i16, ptr %5, align 2
-  %25 = trunc i16 %24 to i8
-  %26 = zext i8 %25 to i32
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %20
+  %25 = load i16, ptr %5, align 2, !tbaa !3
+  %26 = trunc i16 %25 to i8
+  %27 = zext i8 %26 to i32
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %23
-  br label %30
+29:                                               ; preds = %24
+  br label %31
 
-29:                                               ; preds = %23
-  call void @__assert_fail(ptr noundef @.str.791, ptr noundef @.str.790, i32 noundef 75, ptr noundef @__PRETTY_FUNCTION__.u16_normalize) #9
+30:                                               ; preds = %24
+  call void @__assert_fail(ptr noundef @.str.791, ptr noundef @.str.790, i32 noundef 75, ptr noundef @__PRETTY_FUNCTION__.u16_normalize) #12
   unreachable
 
-30:                                               ; preds = %28
-  %31 = load i16, ptr %5, align 2
-  %32 = trunc i16 %31 to i8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i32 1
-  store ptr %34, ptr %6, align 8
-  store i8 %32, ptr %33, align 1
-  br label %87
+31:                                               ; preds = %29
+  %32 = load i16, ptr %5, align 2, !tbaa !3
+  %33 = trunc i16 %32 to i8
+  %34 = load ptr, ptr %6, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw i8, ptr %34, i32 1
+  store ptr %35, ptr %6, align 8, !tbaa !7
+  store i8 %33, ptr %34, align 1, !tbaa !12
+  br label %91
 
-35:                                               ; preds = %19
-  %36 = load i16, ptr %5, align 2
-  %37 = zext i16 %36 to i32
-  %38 = icmp eq i32 %37, 12290
-  br i1 %38, label %47, label %39
+36:                                               ; preds = %20
+  %37 = load i16, ptr %5, align 2, !tbaa !3
+  %38 = zext i16 %37 to i32
+  %39 = icmp eq i32 %38, 12290
+  br i1 %39, label %48, label %40
 
-39:                                               ; preds = %35
-  %40 = load i16, ptr %5, align 2
-  %41 = zext i16 %40 to i32
-  %42 = icmp eq i32 %41, 65294
-  br i1 %42, label %47, label %43
+40:                                               ; preds = %36
+  %41 = load i16, ptr %5, align 2, !tbaa !3
+  %42 = zext i16 %41 to i32
+  %43 = icmp eq i32 %42, 65294
+  br i1 %43, label %48, label %44
 
-43:                                               ; preds = %39
-  %44 = load i16, ptr %5, align 2
-  %45 = zext i16 %44 to i32
-  %46 = icmp eq i32 %45, 65106
-  br i1 %46, label %47, label %50
+44:                                               ; preds = %40
+  %45 = load i16, ptr %5, align 2, !tbaa !3
+  %46 = zext i16 %45 to i32
+  %47 = icmp eq i32 %46, 65106
+  br i1 %47, label %48, label %51
 
-47:                                               ; preds = %43, %39, %35
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i32 1
-  store ptr %49, ptr %6, align 8
-  store i8 46, ptr %48, align 1
-  br label %86
+48:                                               ; preds = %44, %40, %36
+  %49 = load ptr, ptr %6, align 8, !tbaa !7
+  %50 = getelementptr inbounds nuw i8, ptr %49, i32 1
+  store ptr %50, ptr %6, align 8, !tbaa !7
+  store i8 46, ptr %49, align 1, !tbaa !12
+  br label %90
 
-50:                                               ; preds = %43
-  %51 = load i64, ptr %7, align 8
-  %52 = icmp sle i64 %51, 8
-  br i1 %52, label %53, label %54
+51:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %52 = load i64, ptr %7, align 8, !tbaa !10
+  %53 = icmp sle i64 %52, 8
+  br i1 %53, label %54, label %55
 
-53:                                               ; preds = %50
+54:                                               ; preds = %51
   store ptr null, ptr %4, align 8
-  br label %89
-
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 0
-  store i8 38, ptr %56, align 1
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1
-  store i8 35, ptr %58, align 1
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 2
-  store i8 120, ptr %60, align 1
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 7
-  store i8 59, ptr %62, align 1
-  store i64 6, ptr %8, align 8
-  br label %63
-
-63:                                               ; preds = %80, %54
-  %64 = load i64, ptr %8, align 8
-  %65 = icmp uge i64 %64, 3
-  br i1 %65, label %66, label %83
-
-66:                                               ; preds = %63
-  %67 = load i16, ptr %5, align 2
-  %68 = zext i16 %67 to i32
-  %69 = and i32 %68, 15
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [16 x i8], ptr @tohex, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i64, ptr %8, align 8
-  %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  store i8 %72, ptr %75, align 1
-  %76 = load i16, ptr %5, align 2
-  %77 = zext i16 %76 to i32
-  %78 = ashr i32 %77, 4
-  %79 = trunc i32 %78 to i16
-  store i16 %79, ptr %5, align 2
-  br label %80
-
-80:                                               ; preds = %66
-  %81 = load i64, ptr %8, align 8
-  %82 = add i64 %81, -1
-  store i64 %82, ptr %8, align 8
-  br label %63
-
-83:                                               ; preds = %63
-  %84 = load ptr, ptr %6, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
-  store ptr %85, ptr %6, align 8
-  br label %86
-
-86:                                               ; preds = %83, %47
+  store i32 1, ptr %9, align 4
   br label %87
 
-87:                                               ; preds = %86, %30
-  %88 = load ptr, ptr %6, align 8
-  store ptr %88, ptr %4, align 8
-  br label %89
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %6, align 8, !tbaa !7
+  %57 = getelementptr inbounds i8, ptr %56, i64 0
+  store i8 38, ptr %57, align 1, !tbaa !12
+  %58 = load ptr, ptr %6, align 8, !tbaa !7
+  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  store i8 35, ptr %59, align 1, !tbaa !12
+  %60 = load ptr, ptr %6, align 8, !tbaa !7
+  %61 = getelementptr inbounds i8, ptr %60, i64 2
+  store i8 120, ptr %61, align 1, !tbaa !12
+  %62 = load ptr, ptr %6, align 8, !tbaa !7
+  %63 = getelementptr inbounds i8, ptr %62, i64 7
+  store i8 59, ptr %63, align 1, !tbaa !12
+  store i64 6, ptr %8, align 8, !tbaa !10
+  br label %64
 
-89:                                               ; preds = %87, %53, %17
-  %90 = load ptr, ptr %4, align 8
-  ret ptr %90
+64:                                               ; preds = %81, %55
+  %65 = load i64, ptr %8, align 8, !tbaa !10
+  %66 = icmp uge i64 %65, 3
+  br i1 %66, label %67, label %84
+
+67:                                               ; preds = %64
+  %68 = load i16, ptr %5, align 2, !tbaa !3
+  %69 = zext i16 %68 to i32
+  %70 = and i32 %69, 15
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds [16 x i8], ptr @tohex, i64 0, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !12
+  %74 = load ptr, ptr %6, align 8, !tbaa !7
+  %75 = load i64, ptr %8, align 8, !tbaa !10
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
+  store i8 %73, ptr %76, align 1, !tbaa !12
+  %77 = load i16, ptr %5, align 2, !tbaa !3
+  %78 = zext i16 %77 to i32
+  %79 = ashr i32 %78, 4
+  %80 = trunc i32 %79 to i16
+  store i16 %80, ptr %5, align 2, !tbaa !3
+  br label %81
+
+81:                                               ; preds = %67
+  %82 = load i64, ptr %8, align 8, !tbaa !10
+  %83 = add i64 %82, -1
+  store i64 %83, ptr %8, align 8, !tbaa !10
+  br label %64
+
+84:                                               ; preds = %64
+  %85 = load ptr, ptr %6, align 8, !tbaa !7
+  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  store ptr %86, ptr %6, align 8, !tbaa !7
+  store i32 0, ptr %9, align 4
+  br label %87
+
+87:                                               ; preds = %84, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %88 = load i32, ptr %9, align 4
+  switch i32 %88, label %95 [
+    i32 0, label %89
+    i32 1, label %93
+  ]
+
+89:                                               ; preds = %87
+  br label %90
+
+90:                                               ; preds = %89, %48
+  br label %91
+
+91:                                               ; preds = %90, %31
+  %92 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %92, ptr %4, align 8
+  br label %93
+
+93:                                               ; preds = %91, %87, %18
+  %94 = load ptr, ptr %4, align 8
+  ret ptr %94
+
+95:                                               ; preds = %87
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @entity_norm(ptr noundef %0, ptr noundef %1) #0 {
@@ -1107,65 +1135,82 @@ define ptr @entity_norm(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call i64 @strlen(ptr noundef %9) #10
-  %11 = call ptr @cli_hashtab_find(ptr noundef @entities_htable, ptr noundef %8, i64 noundef %10)
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %14, label %37
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load ptr, ptr %5, align 8, !tbaa !7
+  %11 = call i64 @strlen(ptr noundef %10) #13
+  %12 = call ptr @cli_hashtab_find(ptr noundef @entities_htable, ptr noundef %9, i64 noundef %11)
+  store ptr %12, ptr %6, align 8, !tbaa !15
+  %13 = load ptr, ptr %6, align 8, !tbaa !15
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %41
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.cli_element, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %37
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %6, align 8, !tbaa !15
+  %17 = getelementptr inbounds nuw %struct.cli_element, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %41
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.cli_element, ptr %20, i32 0, i32 1
-  %22 = load i64, ptr %21, align 8
-  %23 = trunc i64 %22 to i16
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.entity_conv, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds [24 x i8], ptr %25, i64 0, i64 0
-  %27 = call ptr @u16_normalize(i16 noundef zeroext %23, ptr noundef %26, i64 noundef 23)
-  store ptr %27, ptr %7, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %36
+20:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %21 = load ptr, ptr %6, align 8, !tbaa !15
+  %22 = getelementptr inbounds nuw %struct.cli_element, ptr %21, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %24 = trunc i64 %23 to i16
+  %25 = load ptr, ptr %4, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw %struct.entity_conv, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds [24 x i8], ptr %26, i64 0, i64 0
+  %28 = call ptr @u16_normalize(i16 noundef zeroext %24, ptr noundef %27, i64 noundef 23)
+  store ptr %28, ptr %7, align 8, !tbaa !7
+  %29 = load ptr, ptr %7, align 8, !tbaa !7
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %37
 
-30:                                               ; preds = %19
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i32 1
-  store ptr %32, ptr %7, align 8
-  store i8 0, ptr %31, align 1
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.entity_conv, ptr %33, i32 0, i32 0
-  %35 = getelementptr inbounds [24 x i8], ptr %34, i64 0, i64 0
-  store ptr %35, ptr %3, align 8
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %7, align 8, !tbaa !7
+  %33 = getelementptr inbounds nuw i8, ptr %32, i32 1
+  store ptr %33, ptr %7, align 8, !tbaa !7
+  store i8 0, ptr %32, align 1, !tbaa !12
+  %34 = load ptr, ptr %4, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.entity_conv, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds [24 x i8], ptr %35, i64 0, i64 0
+  store ptr %36, ptr %3, align 8
+  store i32 1, ptr %8, align 4
   br label %38
 
-36:                                               ; preds = %19
-  br label %37
+37:                                               ; preds = %20
+  store i32 0, ptr %8, align 4
+  br label %38
 
-37:                                               ; preds = %36, %14, %2
+38:                                               ; preds = %37, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  %39 = load i32, ptr %8, align 4
+  switch i32 %39, label %42 [
+    i32 0, label %40
+  ]
+
+40:                                               ; preds = %38
+  br label %41
+
+41:                                               ; preds = %40, %15, %2
   store ptr null, ptr %3, align 8
-  br label %38
+  store i32 1, ptr %8, align 4
+  br label %42
 
-38:                                               ; preds = %37, %30
-  %39 = load ptr, ptr %3, align 8
-  ret ptr %39
+42:                                               ; preds = %41, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %43 = load ptr, ptr %3, align 8
+  ret ptr %43
 }
 
-declare ptr @cli_hashtab_find(ptr noundef, ptr noundef, i64 noundef) #1
+declare ptr @cli_hashtab_find(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @encoding_detect_bom(ptr noundef %0, i64 noundef %1) #0 {
@@ -1175,59 +1220,71 @@ define ptr @encoding_detect_bom(ptr noundef %0, i64 noundef %1) #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %9 = load i64, ptr %5, align 8
-  %10 = icmp ult i64 %9, 4
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  store ptr null, ptr %3, align 8
-  br label %23
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %10 = load i64, ptr %5, align 8, !tbaa !10
+  %11 = icmp ult i64 %10, 4
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = call ptr @detect_encoding(ptr noundef %13, ptr noundef %6, ptr noundef %7)
-  store ptr %14, ptr %8, align 8
-  %15 = load i8, ptr %7, align 1
-  %16 = zext i8 %15 to i32
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %24
 
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %8, align 8
-  br label %21
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = call ptr @detect_encoding(ptr noundef %14, ptr noundef %6, ptr noundef %7)
+  store ptr %15, ptr %8, align 8, !tbaa !7
+  %16 = load i8, ptr %7, align 1, !tbaa !12
+  %17 = zext i8 %16 to i32
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %21
 
-20:                                               ; preds = %12
-  br label %21
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %8, align 8, !tbaa !7
+  br label %22
 
-21:                                               ; preds = %20, %18
-  %22 = phi ptr [ %19, %18 ], [ null, %20 ]
-  store ptr %22, ptr %3, align 8
-  br label %23
+21:                                               ; preds = %13
+  br label %22
 
-23:                                               ; preds = %21, %11
-  %24 = load ptr, ptr %3, align 8
-  ret ptr %24
+22:                                               ; preds = %21, %19
+  %23 = phi ptr [ %20, %19 ], [ null, %21 ]
+  store ptr %23, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %24
+
+24:                                               ; preds = %22, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #11
+  %25 = load ptr, ptr %3, align 8
+  ret ptr %25
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @detect_encoding(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @detect_encoding(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store ptr null, ptr %7, align 8
-  store i32 0, ptr %8, align 4
-  store i8 1, ptr %9, align 1
-  %10 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %2, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  store ptr null, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 0, ptr %8, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #11
+  store i8 1, ptr %9, align 1, !tbaa !12
+  %10 = load ptr, ptr %4, align 8, !tbaa !7
   %11 = getelementptr inbounds i8, ptr %10, i64 0
-  %12 = load i8, ptr %11, align 1
+  %12 = load i8, ptr %11, align 1, !tbaa !12
   %13 = zext i8 %12 to i32
   switch i32 %13, label %240 [
     i32 0, label %14
@@ -1239,97 +1296,97 @@ define internal ptr @detect_encoding(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
   %16 = getelementptr inbounds i8, ptr %15, i64 1
-  %17 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %16, align 1, !tbaa !12
   %18 = zext i8 %17 to i32
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %76
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
   %22 = getelementptr inbounds i8, ptr %21, i64 2
-  %23 = load i8, ptr %22, align 1
+  %23 = load i8, ptr %22, align 1, !tbaa !12
   %24 = zext i8 %23 to i32
   %25 = icmp eq i32 %24, 254
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
   %28 = getelementptr inbounds i8, ptr %27, i64 3
-  %29 = load i8, ptr %28, align 1
+  %29 = load i8, ptr %28, align 1, !tbaa !12
   %30 = zext i8 %29 to i32
   %31 = icmp eq i32 %30, 255
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %26
-  store ptr @.str.765, ptr %7, align 8
-  store i32 1, ptr %8, align 4
-  store i8 4, ptr %9, align 1
+  store ptr @.str.765, ptr %7, align 8, !tbaa !7
+  store i32 1, ptr %8, align 4, !tbaa !20
+  store i8 4, ptr %9, align 1, !tbaa !12
   br label %75
 
 33:                                               ; preds = %26, %20
-  %34 = load ptr, ptr %4, align 8
+  %34 = load ptr, ptr %4, align 8, !tbaa !7
   %35 = getelementptr inbounds i8, ptr %34, i64 2
-  %36 = load i8, ptr %35, align 1
+  %36 = load i8, ptr %35, align 1, !tbaa !12
   %37 = zext i8 %36 to i32
   %38 = icmp eq i32 %37, 255
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %33
-  %40 = load ptr, ptr %4, align 8
+  %40 = load ptr, ptr %4, align 8, !tbaa !7
   %41 = getelementptr inbounds i8, ptr %40, i64 3
-  %42 = load i8, ptr %41, align 1
+  %42 = load i8, ptr %41, align 1, !tbaa !12
   %43 = zext i8 %42 to i32
   %44 = icmp eq i32 %43, 254
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %39
-  store ptr @.str.777, ptr %7, align 8
-  store i32 1, ptr %8, align 4
-  store i8 4, ptr %9, align 1
+  store ptr @.str.777, ptr %7, align 8, !tbaa !7
+  store i32 1, ptr %8, align 4, !tbaa !20
+  store i8 4, ptr %9, align 1, !tbaa !12
   br label %74
 
 46:                                               ; preds = %39, %33
-  %47 = load ptr, ptr %4, align 8
+  %47 = load ptr, ptr %4, align 8, !tbaa !7
   %48 = getelementptr inbounds i8, ptr %47, i64 2
-  %49 = load i8, ptr %48, align 1
+  %49 = load i8, ptr %48, align 1, !tbaa !12
   %50 = zext i8 %49 to i32
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %46
-  %53 = load ptr, ptr %4, align 8
+  %53 = load ptr, ptr %4, align 8, !tbaa !7
   %54 = getelementptr inbounds i8, ptr %53, i64 3
-  %55 = load i8, ptr %54, align 1
+  %55 = load i8, ptr %54, align 1, !tbaa !12
   %56 = zext i8 %55 to i32
   %57 = icmp eq i32 %56, 60
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %52
-  store ptr @.str.765, ptr %7, align 8
-  store i8 4, ptr %9, align 1
+  store ptr @.str.765, ptr %7, align 8, !tbaa !7
+  store i8 4, ptr %9, align 1, !tbaa !12
   br label %73
 
 59:                                               ; preds = %52, %46
-  %60 = load ptr, ptr %4, align 8
+  %60 = load ptr, ptr %4, align 8, !tbaa !7
   %61 = getelementptr inbounds i8, ptr %60, i64 2
-  %62 = load i8, ptr %61, align 1
+  %62 = load i8, ptr %61, align 1, !tbaa !12
   %63 = zext i8 %62 to i32
   %64 = icmp eq i32 %63, 60
   br i1 %64, label %65, label %72
 
 65:                                               ; preds = %59
-  %66 = load ptr, ptr %4, align 8
+  %66 = load ptr, ptr %4, align 8, !tbaa !7
   %67 = getelementptr inbounds i8, ptr %66, i64 3
-  %68 = load i8, ptr %67, align 1
+  %68 = load i8, ptr %67, align 1, !tbaa !12
   %69 = zext i8 %68 to i32
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %65
-  store ptr @.str.777, ptr %7, align 8
-  store i8 4, ptr %9, align 1
+  store ptr @.str.777, ptr %7, align 8, !tbaa !7
+  store i8 4, ptr %9, align 1, !tbaa !12
   br label %72
 
 72:                                               ; preds = %71, %65, %59
@@ -1345,45 +1402,45 @@ define internal ptr @detect_encoding(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %106
 
 76:                                               ; preds = %14
-  %77 = load ptr, ptr %4, align 8
+  %77 = load ptr, ptr %4, align 8, !tbaa !7
   %78 = getelementptr inbounds i8, ptr %77, i64 1
-  %79 = load i8, ptr %78, align 1
+  %79 = load i8, ptr %78, align 1, !tbaa !12
   %80 = zext i8 %79 to i32
   %81 = icmp eq i32 %80, 60
   br i1 %81, label %82, label %105
 
 82:                                               ; preds = %76
-  %83 = load ptr, ptr %4, align 8
+  %83 = load ptr, ptr %4, align 8, !tbaa !7
   %84 = getelementptr inbounds i8, ptr %83, i64 2
-  %85 = load i8, ptr %84, align 1
+  %85 = load i8, ptr %84, align 1, !tbaa !12
   %86 = zext i8 %85 to i32
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %104
 
 88:                                               ; preds = %82
-  %89 = load ptr, ptr %4, align 8
+  %89 = load ptr, ptr %4, align 8, !tbaa !7
   %90 = getelementptr inbounds i8, ptr %89, i64 3
-  %91 = load i8, ptr %90, align 1
+  %91 = load i8, ptr %90, align 1, !tbaa !12
   %92 = zext i8 %91 to i32
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %88
-  store ptr @.str.773, ptr %7, align 8
-  store i8 4, ptr %9, align 1
+  store ptr @.str.773, ptr %7, align 8, !tbaa !7
+  store i8 4, ptr %9, align 1, !tbaa !12
   br label %103
 
 95:                                               ; preds = %88
-  %96 = load ptr, ptr %4, align 8
+  %96 = load ptr, ptr %4, align 8, !tbaa !7
   %97 = getelementptr inbounds i8, ptr %96, i64 3
-  %98 = load i8, ptr %97, align 1
+  %98 = load i8, ptr %97, align 1, !tbaa !12
   %99 = zext i8 %98 to i32
   %100 = icmp eq i32 %99, 63
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %95
-  store ptr @.str.768, ptr %7, align 8
-  store i8 2, ptr %9, align 1
+  store ptr @.str.768, ptr %7, align 8, !tbaa !7
+  store i8 2, ptr %9, align 1, !tbaa !12
   br label %102
 
 102:                                              ; preds = %101, %95
@@ -1402,39 +1459,39 @@ define internal ptr @detect_encoding(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %240
 
 107:                                              ; preds = %3
-  %108 = load ptr, ptr %4, align 8
+  %108 = load ptr, ptr %4, align 8, !tbaa !7
   %109 = getelementptr inbounds i8, ptr %108, i64 1
-  %110 = load i8, ptr %109, align 1
+  %110 = load i8, ptr %109, align 1, !tbaa !12
   %111 = zext i8 %110 to i32
   %112 = icmp eq i32 %111, 254
   br i1 %112, label %113, label %128
 
 113:                                              ; preds = %107
-  %114 = load ptr, ptr %4, align 8
+  %114 = load ptr, ptr %4, align 8, !tbaa !7
   %115 = getelementptr inbounds i8, ptr %114, i64 2
-  %116 = load i8, ptr %115, align 1
+  %116 = load i8, ptr %115, align 1, !tbaa !12
   %117 = zext i8 %116 to i32
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %126
 
 119:                                              ; preds = %113
-  %120 = load ptr, ptr %4, align 8
+  %120 = load ptr, ptr %4, align 8, !tbaa !7
   %121 = getelementptr inbounds i8, ptr %120, i64 3
-  %122 = load i8, ptr %121, align 1
+  %122 = load i8, ptr %121, align 1, !tbaa !12
   %123 = zext i8 %122 to i32
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %119
-  store ptr @.str.780, ptr %7, align 8
-  store i8 4, ptr %9, align 1
-  store i32 1, ptr %8, align 4
+  store ptr @.str.780, ptr %7, align 8, !tbaa !7
+  store i8 4, ptr %9, align 1, !tbaa !12
+  store i32 1, ptr %8, align 4, !tbaa !20
   br label %127
 
 126:                                              ; preds = %119, %113
-  store ptr @.str.764, ptr %7, align 8
-  store i32 1, ptr %8, align 4
-  store i8 2, ptr %9, align 1
+  store ptr @.str.764, ptr %7, align 8, !tbaa !7
+  store i32 1, ptr %8, align 4, !tbaa !20
+  store i8 2, ptr %9, align 1, !tbaa !12
   br label %127
 
 127:                                              ; preds = %126, %125
@@ -1444,39 +1501,39 @@ define internal ptr @detect_encoding(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %240
 
 129:                                              ; preds = %3
-  %130 = load ptr, ptr %4, align 8
+  %130 = load ptr, ptr %4, align 8, !tbaa !7
   %131 = getelementptr inbounds i8, ptr %130, i64 1
-  %132 = load i8, ptr %131, align 1
+  %132 = load i8, ptr %131, align 1, !tbaa !12
   %133 = zext i8 %132 to i32
   %134 = icmp eq i32 %133, 255
   br i1 %134, label %135, label %150
 
 135:                                              ; preds = %129
-  %136 = load ptr, ptr %4, align 8
+  %136 = load ptr, ptr %4, align 8, !tbaa !7
   %137 = getelementptr inbounds i8, ptr %136, i64 2
-  %138 = load i8, ptr %137, align 1
+  %138 = load i8, ptr %137, align 1, !tbaa !12
   %139 = zext i8 %138 to i32
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %148
 
 141:                                              ; preds = %135
-  %142 = load ptr, ptr %4, align 8
+  %142 = load ptr, ptr %4, align 8, !tbaa !7
   %143 = getelementptr inbounds i8, ptr %142, i64 3
-  %144 = load i8, ptr %143, align 1
+  %144 = load i8, ptr %143, align 1, !tbaa !12
   %145 = zext i8 %144 to i32
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %141
-  store ptr @.str.773, ptr %7, align 8
-  store i8 4, ptr %9, align 1
-  store i32 1, ptr %8, align 4
+  store ptr @.str.773, ptr %7, align 8, !tbaa !7
+  store i8 4, ptr %9, align 1, !tbaa !12
+  store i32 1, ptr %8, align 4, !tbaa !20
   br label %149
 
 148:                                              ; preds = %141, %135
-  store ptr @.str.768, ptr %7, align 8
-  store i32 1, ptr %8, align 4
-  store i8 2, ptr %9, align 1
+  store ptr @.str.768, ptr %7, align 8, !tbaa !7
+  store i32 1, ptr %8, align 4, !tbaa !20
+  store i8 2, ptr %9, align 1, !tbaa !12
   br label %149
 
 149:                                              ; preds = %148, %147
@@ -1486,77 +1543,77 @@ define internal ptr @detect_encoding(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %240
 
 151:                                              ; preds = %3
-  %152 = load ptr, ptr %4, align 8
+  %152 = load ptr, ptr %4, align 8, !tbaa !7
   %153 = getelementptr inbounds i8, ptr %152, i64 1
-  %154 = load i8, ptr %153, align 1
+  %154 = load i8, ptr %153, align 1, !tbaa !12
   %155 = zext i8 %154 to i32
   %156 = icmp eq i32 %155, 187
   br i1 %156, label %157, label %164
 
 157:                                              ; preds = %151
-  %158 = load ptr, ptr %4, align 8
+  %158 = load ptr, ptr %4, align 8, !tbaa !7
   %159 = getelementptr inbounds i8, ptr %158, i64 2
-  %160 = load i8, ptr %159, align 1
+  %160 = load i8, ptr %159, align 1, !tbaa !12
   %161 = zext i8 %160 to i32
   %162 = icmp eq i32 %161, 191
   br i1 %162, label %163, label %164
 
 163:                                              ; preds = %157
-  store ptr @.str.9, ptr %7, align 8
-  store i32 1, ptr %8, align 4
+  store ptr @.str.9, ptr %7, align 8, !tbaa !7
+  store i32 1, ptr %8, align 4, !tbaa !20
   br label %164
 
 164:                                              ; preds = %163, %157, %151
   br label %240
 
 165:                                              ; preds = %3
-  %166 = load ptr, ptr %4, align 8
+  %166 = load ptr, ptr %4, align 8, !tbaa !7
   %167 = getelementptr inbounds i8, ptr %166, i64 1
-  %168 = load i8, ptr %167, align 1
+  %168 = load i8, ptr %167, align 1, !tbaa !12
   %169 = zext i8 %168 to i32
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %171, label %199
 
 171:                                              ; preds = %165
-  %172 = load ptr, ptr %4, align 8
+  %172 = load ptr, ptr %4, align 8, !tbaa !7
   %173 = getelementptr inbounds i8, ptr %172, i64 2
-  %174 = load i8, ptr %173, align 1
+  %174 = load i8, ptr %173, align 1, !tbaa !12
   %175 = zext i8 %174 to i32
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %184
 
 177:                                              ; preds = %171
-  %178 = load ptr, ptr %4, align 8
+  %178 = load ptr, ptr %4, align 8, !tbaa !7
   %179 = getelementptr inbounds i8, ptr %178, i64 3
-  %180 = load i8, ptr %179, align 1
+  %180 = load i8, ptr %179, align 1, !tbaa !12
   %181 = zext i8 %180 to i32
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %177
-  store ptr @.str.780, ptr %7, align 8
-  store i8 4, ptr %9, align 1
+  store ptr @.str.780, ptr %7, align 8, !tbaa !7
+  store i8 4, ptr %9, align 1, !tbaa !12
   br label %198
 
 184:                                              ; preds = %177, %171
-  %185 = load ptr, ptr %4, align 8
+  %185 = load ptr, ptr %4, align 8, !tbaa !7
   %186 = getelementptr inbounds i8, ptr %185, i64 2
-  %187 = load i8, ptr %186, align 1
+  %187 = load i8, ptr %186, align 1, !tbaa !12
   %188 = zext i8 %187 to i32
   %189 = icmp eq i32 %188, 63
   br i1 %189, label %190, label %197
 
 190:                                              ; preds = %184
-  %191 = load ptr, ptr %4, align 8
+  %191 = load ptr, ptr %4, align 8, !tbaa !7
   %192 = getelementptr inbounds i8, ptr %191, i64 3
-  %193 = load i8, ptr %192, align 1
+  %193 = load i8, ptr %192, align 1, !tbaa !12
   %194 = zext i8 %193 to i32
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %197
 
 196:                                              ; preds = %190
-  store ptr @.str.764, ptr %7, align 8
-  store i8 2, ptr %9, align 1
+  store ptr @.str.764, ptr %7, align 8, !tbaa !7
+  store i8 2, ptr %9, align 1, !tbaa !12
   br label %197
 
 197:                                              ; preds = %196, %190, %184
@@ -1566,32 +1623,32 @@ define internal ptr @detect_encoding(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %219
 
 199:                                              ; preds = %165
-  %200 = load ptr, ptr %4, align 8
+  %200 = load ptr, ptr %4, align 8, !tbaa !7
   %201 = getelementptr inbounds i8, ptr %200, i64 1
-  %202 = load i8, ptr %201, align 1
+  %202 = load i8, ptr %201, align 1, !tbaa !12
   %203 = zext i8 %202 to i32
   %204 = icmp eq i32 %203, 63
   br i1 %204, label %205, label %218
 
 205:                                              ; preds = %199
-  %206 = load ptr, ptr %4, align 8
+  %206 = load ptr, ptr %4, align 8, !tbaa !7
   %207 = getelementptr inbounds i8, ptr %206, i64 2
-  %208 = load i8, ptr %207, align 1
+  %208 = load i8, ptr %207, align 1, !tbaa !12
   %209 = zext i8 %208 to i32
   %210 = icmp eq i32 %209, 120
   br i1 %210, label %211, label %218
 
 211:                                              ; preds = %205
-  %212 = load ptr, ptr %4, align 8
+  %212 = load ptr, ptr %4, align 8, !tbaa !7
   %213 = getelementptr inbounds i8, ptr %212, i64 3
-  %214 = load i8, ptr %213, align 1
+  %214 = load i8, ptr %213, align 1, !tbaa !12
   %215 = zext i8 %214 to i32
   %216 = icmp eq i32 %215, 109
   br i1 %216, label %217, label %218
 
 217:                                              ; preds = %211
-  store ptr null, ptr %7, align 8
-  store i8 1, ptr %9, align 1
+  store ptr null, ptr %7, align 8, !tbaa !7
+  store i8 1, ptr %9, align 1, !tbaa !12
   br label %218
 
 218:                                              ; preds = %217, %211, %205, %199
@@ -1601,47 +1658,50 @@ define internal ptr @detect_encoding(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %240
 
 220:                                              ; preds = %3
-  %221 = load ptr, ptr %4, align 8
+  %221 = load ptr, ptr %4, align 8, !tbaa !7
   %222 = getelementptr inbounds i8, ptr %221, i64 1
-  %223 = load i8, ptr %222, align 1
+  %223 = load i8, ptr %222, align 1, !tbaa !12
   %224 = zext i8 %223 to i32
   %225 = icmp eq i32 %224, 111
   br i1 %225, label %226, label %239
 
 226:                                              ; preds = %220
-  %227 = load ptr, ptr %4, align 8
+  %227 = load ptr, ptr %4, align 8, !tbaa !7
   %228 = getelementptr inbounds i8, ptr %227, i64 2
-  %229 = load i8, ptr %228, align 1
+  %229 = load i8, ptr %228, align 1, !tbaa !12
   %230 = zext i8 %229 to i32
   %231 = icmp eq i32 %230, 167
   br i1 %231, label %232, label %239
 
 232:                                              ; preds = %226
-  %233 = load ptr, ptr %4, align 8
+  %233 = load ptr, ptr %4, align 8, !tbaa !7
   %234 = getelementptr inbounds i8, ptr %233, i64 3
-  %235 = load i8, ptr %234, align 1
+  %235 = load i8, ptr %234, align 1, !tbaa !12
   %236 = zext i8 %235 to i32
   %237 = icmp eq i32 %236, 148
   br i1 %237, label %238, label %239
 
 238:                                              ; preds = %232
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.792)
-  store ptr null, ptr %7, align 8
-  store i8 1, ptr %9, align 1
+  store ptr null, ptr %7, align 8, !tbaa !7
+  store i8 1, ptr %9, align 1, !tbaa !12
   br label %239
 
 239:                                              ; preds = %238, %232, %226, %220
   br label %240
 
-240:                                              ; preds = %239, %219, %164, %150, %128, %106, %3
-  %241 = load i8, ptr %9, align 1
-  %242 = load ptr, ptr %6, align 8
-  store i8 %241, ptr %242, align 1
-  %243 = load i32, ptr %8, align 4
+240:                                              ; preds = %3, %239, %219, %164, %150, %128, %106
+  %241 = load i8, ptr %9, align 1, !tbaa !12
+  %242 = load ptr, ptr %6, align 8, !tbaa !7
+  store i8 %241, ptr %242, align 1, !tbaa !12
+  %243 = load i32, ptr %8, align 4, !tbaa !20
   %244 = trunc i32 %243 to i8
-  %245 = load ptr, ptr %5, align 8
-  store i8 %244, ptr %245, align 1
-  %246 = load ptr, ptr %7, align 8
+  %245 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %244, ptr %245, align 1, !tbaa !12
+  %246 = load ptr, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret ptr %246
 }
 
@@ -1655,132 +1715,146 @@ define i32 @encoding_normalize_toascii(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %21
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store ptr %2, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %14 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %22
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %21
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !22
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %7, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %22, label %21
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %7, align 8, !tbaa !22
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %18, %15, %3
+22:                                               ; preds = %19, %16, %3
   store i32 2, ptr %4, align 4
+  store i32 1, ptr %12, align 4
   br label %86
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %6, align 8
-  %24 = call ptr @normalize_encoding(ptr noundef %23)
-  store ptr %24, ptr %11, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %28, label %27
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %6, align 8, !tbaa !7
+  %25 = call ptr @normalize_encoding(ptr noundef %24)
+  store ptr %25, ptr %11, align 8, !tbaa !7
+  %26 = load ptr, ptr %11, align 8, !tbaa !7
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %29, label %28
 
-27:                                               ; preds = %22
+28:                                               ; preds = %23
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str)
   store i32 -1, ptr %4, align 4
+  store i32 1, ptr %12, align 4
   br label %86
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %11, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.1, ptr noundef %29)
-  %30 = load ptr, ptr %11, align 8
-  %31 = call ptr @iconv_open_cached(ptr noundef %30)
-  store ptr %31, ptr %8, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = inttoptr i64 -1 to ptr
-  %34 = icmp eq ptr %32, %33
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %11, align 8, !tbaa !7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.1, ptr noundef %30)
+  %31 = load ptr, ptr %11, align 8, !tbaa !7
+  %32 = call ptr @iconv_open_cached(ptr noundef %31)
+  store ptr %32, ptr %8, align 8, !tbaa !24
+  %33 = load ptr, ptr %8, align 8, !tbaa !24
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
   br i1 %34, label %35, label %38
 
-35:                                               ; preds = %28
-  %36 = load ptr, ptr %11, align 8
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %11, align 8, !tbaa !7
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.2, ptr noundef %36)
-  %37 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %11, align 8, !tbaa !7
   call void @free(ptr noundef %37) #11
   store i32 -1, ptr %4, align 4
+  store i32 1, ptr %12, align 4
   br label %86
 
-38:                                               ; preds = %28
-  %39 = load ptr, ptr %11, align 8
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %11, align 8, !tbaa !7
   call void @free(ptr noundef %39) #11
-  %40 = load ptr, ptr %5, align 8
-  %41 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %5, align 8, !tbaa !22
+  %41 = load ptr, ptr %7, align 8, !tbaa !22
   %42 = call i32 @in_iconv_u16(ptr noundef %40, ptr noundef %8, ptr noundef %41)
-  store i64 0, ptr %9, align 8
-  store i64 0, ptr %10, align 8
+  store i64 0, ptr %9, align 8, !tbaa !10
+  store i64 0, ptr %10, align 8, !tbaa !10
   br label %43
 
 43:                                               ; preds = %79, %38
-  %44 = load i64, ptr %9, align 8
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct.m_area_tag, ptr %45, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
+  %44 = load i64, ptr %9, align 8, !tbaa !10
+  %45 = load ptr, ptr %7, align 8, !tbaa !22
+  %46 = getelementptr inbounds nuw %struct.m_area_tag, ptr %45, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8, !tbaa !25
   %48 = icmp slt i64 %44, %47
   br i1 %48, label %49, label %82
 
 49:                                               ; preds = %43
-  %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds %struct.m_area_tag, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i64, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #11
+  %50 = load ptr, ptr %7, align 8, !tbaa !22
+  %51 = getelementptr inbounds nuw %struct.m_area_tag, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !28
+  %53 = load i64, ptr %9, align 8, !tbaa !10
   %54 = getelementptr inbounds i8, ptr %52, i64 %53
-  %55 = load i8, ptr %54, align 1
+  %55 = load i8, ptr %54, align 1, !tbaa !12
   %56 = zext i8 %55 to i32
   %57 = shl i32 %56, 4
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds %struct.m_area_tag, ptr %58, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i64, ptr %9, align 8
+  %58 = load ptr, ptr %7, align 8, !tbaa !22
+  %59 = getelementptr inbounds nuw %struct.m_area_tag, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !28
+  %61 = load i64, ptr %9, align 8, !tbaa !10
   %62 = add nsw i64 %61, 1
   %63 = getelementptr inbounds i8, ptr %60, i64 %62
-  %64 = load i8, ptr %63, align 1
+  %64 = load i8, ptr %63, align 1, !tbaa !12
   %65 = zext i8 %64 to i32
   %66 = add nsw i32 %57, %65
   %67 = trunc i32 %66 to i8
-  store i8 %67, ptr %12, align 1
-  %68 = load i8, ptr %12, align 1
+  store i8 %67, ptr %13, align 1, !tbaa !12
+  %68 = load i8, ptr %13, align 1, !tbaa !12
   %69 = icmp ne i8 %68, 0
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %49
-  %71 = load i8, ptr %12, align 1
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %struct.m_area_tag, ptr %72, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8
-  %75 = load i64, ptr %10, align 8
+  %71 = load i8, ptr %13, align 1, !tbaa !12
+  %72 = load ptr, ptr %7, align 8, !tbaa !22
+  %73 = getelementptr inbounds nuw %struct.m_area_tag, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8, !tbaa !28
+  %75 = load i64, ptr %10, align 8, !tbaa !10
   %76 = add nsw i64 %75, 1
-  store i64 %76, ptr %10, align 8
+  store i64 %76, ptr %10, align 8, !tbaa !10
   %77 = getelementptr inbounds i8, ptr %74, i64 %75
-  store i8 %71, ptr %77, align 1
+  store i8 %71, ptr %77, align 1, !tbaa !12
   br label %78
 
 78:                                               ; preds = %70, %49
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #11
   br label %79
 
 79:                                               ; preds = %78
-  %80 = load i64, ptr %9, align 8
+  %80 = load i64, ptr %9, align 8, !tbaa !10
   %81 = add nsw i64 %80, 2
-  store i64 %81, ptr %9, align 8
+  store i64 %81, ptr %9, align 8, !tbaa !10
   br label %43
 
 82:                                               ; preds = %43
-  %83 = load i64, ptr %10, align 8
-  %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %struct.m_area_tag, ptr %84, i32 0, i32 1
-  store i64 %83, ptr %85, align 8
+  %83 = load i64, ptr %10, align 8, !tbaa !10
+  %84 = load ptr, ptr %7, align 8, !tbaa !22
+  %85 = getelementptr inbounds nuw %struct.m_area_tag, ptr %84, i32 0, i32 1
+  store i64 %83, ptr %85, align 8, !tbaa !25
   store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
   br label %86
 
-86:                                               ; preds = %82, %35, %27, %21
+86:                                               ; preds = %82, %35, %28, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
   %87 = load i32, ptr %4, align 4
   ret i32 %87
 }
@@ -1792,119 +1866,143 @@ define internal ptr @normalize_encoding(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %10 = load ptr, ptr %3, align 8, !tbaa !7
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %13, label %12
 
-9:                                                ; preds = %1
+12:                                               ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %66
+  store i32 1, ptr %7, align 4
+  br label %75
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = call i64 @strlen(ptr noundef %11) #10
-  store i64 %12, ptr %6, align 8
-  %13 = load i64, ptr %6, align 8
-  %14 = icmp ugt i64 %13, 32
-  br i1 %14, label %15, label %16
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8, !tbaa !7
+  %15 = call i64 @strlen(ptr noundef %14) #13
+  store i64 %15, ptr %6, align 8, !tbaa !10
+  %16 = load i64, ptr %6, align 8, !tbaa !10
+  %17 = icmp ugt i64 %16, 32
+  br i1 %17, label %18, label %19
 
-15:                                               ; preds = %10
+18:                                               ; preds = %13
   store ptr null, ptr %2, align 8
-  br label %66
+  store i32 1, ptr %7, align 4
+  br label %75
 
-16:                                               ; preds = %10
-  store i64 0, ptr %5, align 8
-  br label %17
+19:                                               ; preds = %13
+  store i64 0, ptr %5, align 8, !tbaa !10
+  br label %20
 
-17:                                               ; preds = %32, %16
-  %18 = load i64, ptr %5, align 8
-  %19 = load i64, ptr %6, align 8
-  %20 = icmp ult i64 %18, %19
-  br i1 %20, label %21, label %35
+20:                                               ; preds = %35, %19
+  %21 = load i64, ptr %5, align 8, !tbaa !10
+  %22 = load i64, ptr %6, align 8, !tbaa !10
+  %23 = icmp ult i64 %21, %22
+  br i1 %23, label %24, label %38
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %3, align 8
-  %23 = load i64, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds [256 x i8], ptr @encname_chars, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = icmp ne i8 %28, 0
-  br i1 %29, label %31, label %30
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8, !tbaa !7
+  %26 = load i64, ptr %5, align 8, !tbaa !10
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !12
+  %29 = zext i8 %28 to i64
+  %30 = getelementptr inbounds nuw [256 x i8], ptr @encname_chars, i64 0, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !12
+  %32 = icmp ne i8 %31, 0
+  br i1 %32, label %34, label %33
 
-30:                                               ; preds = %21
+33:                                               ; preds = %24
   store ptr null, ptr %2, align 8
-  br label %66
+  store i32 1, ptr %7, align 4
+  br label %75
 
-31:                                               ; preds = %21
-  br label %32
+34:                                               ; preds = %24
+  br label %35
 
-32:                                               ; preds = %31
-  %33 = load i64, ptr %5, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %5, align 8
-  br label %17
-
-35:                                               ; preds = %17
-  %36 = load i64, ptr %6, align 8
+35:                                               ; preds = %34
+  %36 = load i64, ptr %5, align 8, !tbaa !10
   %37 = add i64 %36, 1
-  %38 = call ptr @cli_max_malloc(i64 noundef %37)
-  store ptr %38, ptr %4, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %42, label %41
+  store i64 %37, ptr %5, align 8, !tbaa !10
+  br label %20
 
-41:                                               ; preds = %35
+38:                                               ; preds = %20
+  %39 = load i64, ptr %6, align 8, !tbaa !10
+  %40 = add i64 %39, 1
+  %41 = call ptr @cli_max_malloc(i64 noundef %40)
+  store ptr %41, ptr %4, align 8, !tbaa !7
+  %42 = load ptr, ptr %4, align 8, !tbaa !7
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %38
   store ptr null, ptr %2, align 8
-  br label %66
+  store i32 1, ptr %7, align 4
+  br label %75
 
-42:                                               ; preds = %35
-  store i64 0, ptr %5, align 8
-  br label %43
+45:                                               ; preds = %38
+  store i64 0, ptr %5, align 8, !tbaa !10
+  br label %46
 
-43:                                               ; preds = %58, %42
-  %44 = load i64, ptr %5, align 8
-  %45 = load i64, ptr %6, align 8
-  %46 = icmp ult i64 %44, %45
-  br i1 %46, label %47, label %61
+46:                                               ; preds = %67, %45
+  %47 = load i64, ptr %5, align 8, !tbaa !10
+  %48 = load i64, ptr %6, align 8, !tbaa !10
+  %49 = icmp ult i64 %47, %48
+  br i1 %49, label %50, label %70
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %3, align 8
-  %49 = load i64, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = call i32 @toupper(i32 noundef %52) #10
-  %54 = trunc i32 %53 to i8
-  %55 = load ptr, ptr %4, align 8
-  %56 = load i64, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 %56
-  store i8 %54, ptr %57, align 1
-  br label %58
+50:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %51 = call ptr @__ctype_toupper_loc() #14
+  %52 = load ptr, ptr %51, align 8, !tbaa !29
+  %53 = load ptr, ptr %3, align 8, !tbaa !7
+  %54 = load i64, ptr %5, align 8, !tbaa !10
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !12
+  %57 = zext i8 %56 to i32
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i32, ptr %52, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !20
+  store i32 %60, ptr %8, align 4, !tbaa !20
+  %61 = load i32, ptr %8, align 4, !tbaa !20
+  store i32 %61, ptr %9, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  %62 = load i32, ptr %9, align 4, !tbaa !20
+  %63 = trunc i32 %62 to i8
+  %64 = load ptr, ptr %4, align 8, !tbaa !7
+  %65 = load i64, ptr %5, align 8, !tbaa !10
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
+  store i8 %63, ptr %66, align 1, !tbaa !12
+  br label %67
 
-58:                                               ; preds = %47
-  %59 = load i64, ptr %5, align 8
-  %60 = add i64 %59, 1
-  store i64 %60, ptr %5, align 8
-  br label %43
+67:                                               ; preds = %50
+  %68 = load i64, ptr %5, align 8, !tbaa !10
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %5, align 8, !tbaa !10
+  br label %46
 
-61:                                               ; preds = %43
-  %62 = load ptr, ptr %4, align 8
-  %63 = load i64, ptr %6, align 8
-  %64 = getelementptr inbounds i8, ptr %62, i64 %63
-  store i8 0, ptr %64, align 1
-  %65 = load ptr, ptr %4, align 8
-  store ptr %65, ptr %2, align 8
-  br label %66
+70:                                               ; preds = %46
+  %71 = load ptr, ptr %4, align 8, !tbaa !7
+  %72 = load i64, ptr %6, align 8, !tbaa !10
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 %72
+  store i8 0, ptr %73, align 1, !tbaa !12
+  %74 = load ptr, ptr %4, align 8, !tbaa !7
+  store ptr %74, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %75
 
-66:                                               ; preds = %61, %41, %30, %15, %9
-  %67 = load ptr, ptr %2, align 8
-  ret ptr %67
+75:                                               ; preds = %70, %44, %33, %18, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %76 = load ptr, ptr %2, align 8
+  ret ptr %76
 }
 
-declare void @cli_dbgmsg(ptr noundef, ...) #1
+declare void @cli_dbgmsg(ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @iconv_open_cached(ptr noundef %0) #0 {
@@ -1915,189 +2013,205 @@ define internal ptr @iconv_open_cached(ptr noundef %0) #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
+  %9 = alloca i32, align 4
   %10 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = call i64 @strlen(ptr noundef %11) #10
-  store i64 %12, ptr %6, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %12 = load ptr, ptr %3, align 8, !tbaa !7
+  %13 = call i64 @strlen(ptr noundef %12) #13
+  store i64 %13, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
   call void @init_iconv_pool_ifneeded()
-  %13 = call ptr @cache_get_tls_instance()
-  store ptr %13, ptr %4, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %19, label %16
+  %14 = call ptr @cache_get_tls_instance()
+  store ptr %14, ptr %4, align 8, !tbaa !31
+  %15 = load ptr, ptr %4, align 8, !tbaa !31
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %19, label %17
 
-16:                                               ; preds = %1
+17:                                               ; preds = %1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.794)
-  %17 = call ptr @__errno_location() #12
-  store i32 22, ptr %17, align 4
-  %18 = inttoptr i64 -1 to ptr
-  store ptr %18, ptr %2, align 8
-  br label %132
+  %18 = call ptr @__errno_location() #14
+  store i32 22, ptr %18, align 4, !tbaa !20
+  store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %129
 
 19:                                               ; preds = %1
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.iconv_cache, ptr %20, i32 0, i32 3
-  %22 = load ptr, ptr %3, align 8
-  %23 = load i64, ptr %6, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !31
+  %21 = getelementptr inbounds nuw %struct.iconv_cache, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %3, align 8, !tbaa !7
+  %23 = load i64, ptr %6, align 8, !tbaa !10
   %24 = call ptr @cli_hashtab_find(ptr noundef %21, ptr noundef %22, i64 noundef %23)
-  store ptr %24, ptr %7, align 8
-  %25 = load ptr, ptr %7, align 8
+  store ptr %24, ptr %7, align 8, !tbaa !15
+  %25 = load ptr, ptr %7, align 8, !tbaa !15
   %26 = icmp ne ptr %25, null
   br i1 %26, label %27, label %41
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct.cli_element, ptr %28, i32 0, i32 1
-  %30 = load i64, ptr %29, align 8
+  %28 = load ptr, ptr %7, align 8, !tbaa !15
+  %29 = getelementptr inbounds nuw %struct.cli_element, ptr %28, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8, !tbaa !19
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %40, label %32
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds %struct.cli_element, ptr %33, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.iconv_cache, ptr %36, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
+  %33 = load ptr, ptr %7, align 8, !tbaa !15
+  %34 = getelementptr inbounds nuw %struct.cli_element, ptr %33, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8, !tbaa !19
+  %36 = load ptr, ptr %4, align 8, !tbaa !31
+  %37 = getelementptr inbounds nuw %struct.iconv_cache, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8, !tbaa !33
   %39 = icmp ugt i64 %35, %38
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %32, %27
-  store ptr null, ptr %7, align 8
+  store ptr null, ptr %7, align 8, !tbaa !15
   br label %41
 
 41:                                               ; preds = %40, %32, %19
-  %42 = load ptr, ptr %7, align 8
+  %42 = load ptr, ptr %7, align 8, !tbaa !15
   %43 = icmp ne ptr %42, null
   br i1 %43, label %44, label %62
 
 44:                                               ; preds = %41
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.iconv_cache, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds %struct.cli_element, ptr %48, i32 0, i32 1
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds ptr, ptr %47, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i64 @iconv(ptr noundef %52, ptr noundef null, ptr noundef %9, ptr noundef null, ptr noundef %10)
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.iconv_cache, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds %struct.cli_element, ptr %57, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds ptr, ptr %56, i64 %59
-  %61 = load ptr, ptr %60, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %45 = load ptr, ptr %4, align 8, !tbaa !31
+  %46 = getelementptr inbounds nuw %struct.iconv_cache, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !36
+  %48 = load ptr, ptr %7, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw %struct.cli_element, ptr %48, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8, !tbaa !19
+  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = call i64 @iconv(ptr noundef %52, ptr noundef null, ptr noundef %10, ptr noundef null, ptr noundef %11)
+  %54 = load ptr, ptr %4, align 8, !tbaa !31
+  %55 = getelementptr inbounds nuw %struct.iconv_cache, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  %57 = load ptr, ptr %7, align 8, !tbaa !15
+  %58 = getelementptr inbounds nuw %struct.cli_element, ptr %57, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8, !tbaa !19
+  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !24
   store ptr %61, ptr %2, align 8
-  br label %132
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %129
 
 62:                                               ; preds = %41
-  %63 = load ptr, ptr %3, align 8
+  %63 = load ptr, ptr %3, align 8, !tbaa !7
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.795, ptr noundef %63)
-  %64 = load ptr, ptr %3, align 8
+  %64 = load ptr, ptr %3, align 8, !tbaa !7
   %65 = call ptr @iconv_open(ptr noundef @.str.768, ptr noundef %64)
-  store ptr %65, ptr %8, align 8
-  %66 = load ptr, ptr %8, align 8
-  %67 = inttoptr i64 -1 to ptr
-  %68 = icmp ne ptr %66, %67
-  br i1 %68, label %69, label %130
+  store ptr %65, ptr %8, align 8, !tbaa !24
+  %66 = load ptr, ptr %8, align 8, !tbaa !24
+  %67 = icmp ne ptr %66, inttoptr (i64 -1 to ptr)
+  br i1 %67, label %68, label %128
 
-69:                                               ; preds = %62
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.iconv_cache, ptr %70, i32 0, i32 2
-  %72 = load i64, ptr %71, align 8
-  %73 = add i64 %72, 1
-  store i64 %73, ptr %71, align 8
-  store i64 %72, ptr %5, align 8
-  %74 = load i64, ptr %5, align 8
-  %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds %struct.iconv_cache, ptr %75, i32 0, i32 1
-  %77 = load i64, ptr %76, align 8
-  %78 = icmp uge i64 %74, %77
-  br i1 %78, label %79, label %104
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %4, align 8, !tbaa !31
+  %70 = getelementptr inbounds nuw %struct.iconv_cache, ptr %69, i32 0, i32 2
+  %71 = load i64, ptr %70, align 8, !tbaa !37
+  %72 = add i64 %71, 1
+  store i64 %72, ptr %70, align 8, !tbaa !37
+  store i64 %71, ptr %5, align 8, !tbaa !10
+  %73 = load i64, ptr %5, align 8, !tbaa !10
+  %74 = load ptr, ptr %4, align 8, !tbaa !31
+  %75 = getelementptr inbounds nuw %struct.iconv_cache, ptr %74, i32 0, i32 1
+  %76 = load i64, ptr %75, align 8, !tbaa !33
+  %77 = icmp uge i64 %73, %76
+  br i1 %77, label %78, label %102
 
-79:                                               ; preds = %69
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.iconv_cache, ptr %80, i32 0, i32 1
-  %82 = load i64, ptr %81, align 8
-  %83 = add i64 %82, 16
-  store i64 %83, ptr %81, align 8
-  %84 = load ptr, ptr %4, align 8
-  %85 = getelementptr inbounds %struct.iconv_cache, ptr %84, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.iconv_cache, ptr %87, i32 0, i32 1
-  %89 = load i64, ptr %88, align 8
-  %90 = mul i64 %89, 8
-  %91 = call ptr @cli_max_realloc_or_free(ptr noundef %86, i64 noundef %90)
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds %struct.iconv_cache, ptr %92, i32 0, i32 0
-  store ptr %91, ptr %93, align 8
-  %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds %struct.iconv_cache, ptr %94, i32 0, i32 0
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %103, label %98
+78:                                               ; preds = %68
+  %79 = load ptr, ptr %4, align 8, !tbaa !31
+  %80 = getelementptr inbounds nuw %struct.iconv_cache, ptr %79, i32 0, i32 1
+  %81 = load i64, ptr %80, align 8, !tbaa !33
+  %82 = add i64 %81, 16
+  store i64 %82, ptr %80, align 8, !tbaa !33
+  %83 = load ptr, ptr %4, align 8, !tbaa !31
+  %84 = getelementptr inbounds nuw %struct.iconv_cache, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8, !tbaa !36
+  %86 = load ptr, ptr %4, align 8, !tbaa !31
+  %87 = getelementptr inbounds nuw %struct.iconv_cache, ptr %86, i32 0, i32 1
+  %88 = load i64, ptr %87, align 8, !tbaa !33
+  %89 = mul i64 %88, 8
+  %90 = call ptr @cli_max_realloc_or_free(ptr noundef %85, i64 noundef %89)
+  %91 = load ptr, ptr %4, align 8, !tbaa !31
+  %92 = getelementptr inbounds nuw %struct.iconv_cache, ptr %91, i32 0, i32 0
+  store ptr %90, ptr %92, align 8, !tbaa !36
+  %93 = load ptr, ptr %4, align 8, !tbaa !31
+  %94 = getelementptr inbounds nuw %struct.iconv_cache, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8, !tbaa !36
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %101, label %97
 
-98:                                               ; preds = %79
+97:                                               ; preds = %78
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.796)
-  %99 = call ptr @__errno_location() #12
-  store i32 12, ptr %99, align 4
-  %100 = load ptr, ptr %8, align 8
-  %101 = call i32 @iconv_close(ptr noundef %100)
-  %102 = inttoptr i64 -1 to ptr
-  store ptr %102, ptr %2, align 8
-  br label %132
+  %98 = call ptr @__errno_location() #14
+  store i32 12, ptr %98, align 4, !tbaa !20
+  %99 = load ptr, ptr %8, align 8, !tbaa !24
+  %100 = call i32 @iconv_close(ptr noundef %99)
+  store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %129
 
-103:                                              ; preds = %79
-  br label %104
+101:                                              ; preds = %78
+  br label %102
 
-104:                                              ; preds = %103, %69
-  %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds %struct.iconv_cache, ptr %105, i32 0, i32 3
-  %107 = load ptr, ptr %3, align 8
-  %108 = load i64, ptr %6, align 8
-  %109 = load i64, ptr %5, align 8
-  %110 = call ptr @cli_hashtab_insert(ptr noundef %106, ptr noundef %107, i64 noundef %108, i64 noundef %109)
-  %111 = load ptr, ptr %8, align 8
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds %struct.iconv_cache, ptr %112, i32 0, i32 0
-  %114 = load ptr, ptr %113, align 8
-  %115 = load i64, ptr %5, align 8
-  %116 = getelementptr inbounds ptr, ptr %114, i64 %115
-  store ptr %111, ptr %116, align 8
-  %117 = load ptr, ptr %3, align 8
-  %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds %struct.iconv_cache, ptr %118, i32 0, i32 0
-  %120 = load ptr, ptr %119, align 8
-  %121 = load i64, ptr %5, align 8
-  %122 = getelementptr inbounds ptr, ptr %120, i64 %121
-  %123 = load ptr, ptr %122, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.797, ptr noundef %117, ptr noundef %123)
-  %124 = load ptr, ptr %4, align 8
-  %125 = getelementptr inbounds %struct.iconv_cache, ptr %124, i32 0, i32 0
-  %126 = load ptr, ptr %125, align 8
-  %127 = load i64, ptr %5, align 8
-  %128 = getelementptr inbounds ptr, ptr %126, i64 %127
-  %129 = load ptr, ptr %128, align 8
-  store ptr %129, ptr %2, align 8
-  br label %132
+102:                                              ; preds = %101, %68
+  %103 = load ptr, ptr %4, align 8, !tbaa !31
+  %104 = getelementptr inbounds nuw %struct.iconv_cache, ptr %103, i32 0, i32 3
+  %105 = load ptr, ptr %3, align 8, !tbaa !7
+  %106 = load i64, ptr %6, align 8, !tbaa !10
+  %107 = load i64, ptr %5, align 8, !tbaa !10
+  %108 = call ptr @cli_hashtab_insert(ptr noundef %104, ptr noundef %105, i64 noundef %106, i64 noundef %107)
+  %109 = load ptr, ptr %8, align 8, !tbaa !24
+  %110 = load ptr, ptr %4, align 8, !tbaa !31
+  %111 = getelementptr inbounds nuw %struct.iconv_cache, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8, !tbaa !36
+  %113 = load i64, ptr %5, align 8, !tbaa !10
+  %114 = getelementptr inbounds nuw ptr, ptr %112, i64 %113
+  store ptr %109, ptr %114, align 8, !tbaa !24
+  %115 = load ptr, ptr %3, align 8, !tbaa !7
+  %116 = load ptr, ptr %4, align 8, !tbaa !31
+  %117 = getelementptr inbounds nuw %struct.iconv_cache, ptr %116, i32 0, i32 0
+  %118 = load ptr, ptr %117, align 8, !tbaa !36
+  %119 = load i64, ptr %5, align 8, !tbaa !10
+  %120 = getelementptr inbounds nuw ptr, ptr %118, i64 %119
+  %121 = load ptr, ptr %120, align 8, !tbaa !24
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.797, ptr noundef %115, ptr noundef %121)
+  %122 = load ptr, ptr %4, align 8, !tbaa !31
+  %123 = getelementptr inbounds nuw %struct.iconv_cache, ptr %122, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8, !tbaa !36
+  %125 = load i64, ptr %5, align 8, !tbaa !10
+  %126 = getelementptr inbounds nuw ptr, ptr %124, i64 %125
+  %127 = load ptr, ptr %126, align 8, !tbaa !24
+  store ptr %127, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %129
 
-130:                                              ; preds = %62
-  %131 = inttoptr i64 -1 to ptr
-  store ptr %131, ptr %2, align 8
-  br label %132
+128:                                              ; preds = %62
+  store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %129
 
-132:                                              ; preds = %130, %104, %98, %44, %16
-  %133 = load ptr, ptr %2, align 8
-  ret ptr %133
+129:                                              ; preds = %128, %102, %97, %44, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %130 = load ptr, ptr %2, align 8
+  ret ptr %130
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @in_iconv_u16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -2112,172 +2226,184 @@ define internal i32 @in_iconv_u16(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
   %14 = alloca ptr, align 8
-  %15 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.m_area_tag, ptr %16, i32 0, i32 1
-  %18 = load i64, ptr %17, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.m_area_tag, ptr %19, i32 0, i32 2
-  %21 = load i64, ptr %20, align 8
-  %22 = sub nsw i64 %18, %21
-  store i64 %22, ptr %9, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.m_area_tag, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.m_area_tag, ptr %26, i32 0, i32 2
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  store ptr %29, ptr %12, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.m_area_tag, ptr %30, i32 0, i32 1
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp sgt i64 %32, 0
-  br i1 %33, label %34, label %38
+  %15 = alloca i32, align 4
+  %16 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !24
+  store ptr %2, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %17 = load ptr, ptr %5, align 8, !tbaa !22
+  %18 = getelementptr inbounds nuw %struct.m_area_tag, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8, !tbaa !25
+  %20 = load ptr, ptr %5, align 8, !tbaa !22
+  %21 = getelementptr inbounds nuw %struct.m_area_tag, ptr %20, i32 0, i32 2
+  %22 = load i64, ptr %21, align 8, !tbaa !38
+  %23 = sub nsw i64 %19, %22
+  store i64 %23, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %24 = load ptr, ptr %5, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw %struct.m_area_tag, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %27 = load ptr, ptr %5, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw %struct.m_area_tag, ptr %27, i32 0, i32 2
+  %29 = load i64, ptr %28, align 8, !tbaa !38
+  %30 = getelementptr inbounds i8, ptr %26, i64 %29
+  store ptr %30, ptr %12, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %31 = load ptr, ptr %7, align 8, !tbaa !22
+  %32 = getelementptr inbounds nuw %struct.m_area_tag, ptr %31, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8, !tbaa !25
+  %34 = icmp sgt i64 %33, 0
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %3
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.m_area_tag, ptr %35, i32 0, i32 1
-  %37 = load i64, ptr %36, align 8
-  br label %39
+35:                                               ; preds = %3
+  %36 = load ptr, ptr %7, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.m_area_tag, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8, !tbaa !25
+  br label %40
 
-38:                                               ; preds = %3
-  br label %39
+39:                                               ; preds = %3
+  br label %40
 
-39:                                               ; preds = %38, %34
-  %40 = phi i64 [ %37, %34 ], [ 0, %38 ]
-  store i64 %40, ptr %13, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct.m_area_tag, ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %14, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.m_area_tag, ptr %44, i32 0, i32 2
-  store i64 0, ptr %45, align 8
-  %46 = load i64, ptr %9, align 8
-  %47 = icmp ne i64 %46, 0
-  br i1 %47, label %49, label %48
+40:                                               ; preds = %39, %35
+  %41 = phi i64 [ %38, %35 ], [ 0, %39 ]
+  store i64 %41, ptr %13, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %42 = load ptr, ptr %7, align 8, !tbaa !22
+  %43 = getelementptr inbounds nuw %struct.m_area_tag, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  store ptr %44, ptr %14, align 8, !tbaa !7
+  %45 = load ptr, ptr %7, align 8, !tbaa !22
+  %46 = getelementptr inbounds nuw %struct.m_area_tag, ptr %45, i32 0, i32 2
+  store i64 0, ptr %46, align 8, !tbaa !38
+  %47 = load i64, ptr %9, align 8, !tbaa !10
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %50, label %49
 
-48:                                               ; preds = %39
+49:                                               ; preds = %40
   store i32 0, ptr %4, align 4
-  br label %163
+  store i32 1, ptr %15, align 4
+  br label %165
 
-49:                                               ; preds = %39
-  %50 = load i64, ptr %9, align 8
-  %51 = urem i64 %50, 4
-  store i64 %51, ptr %11, align 8
-  %52 = load i64, ptr %11, align 8
-  %53 = load i64, ptr %9, align 8
-  %54 = sub i64 %53, %52
-  store i64 %54, ptr %9, align 8
-  %55 = load i64, ptr %11, align 8
-  %56 = icmp ne i64 %55, 0
-  br i1 %56, label %57, label %69
+50:                                               ; preds = %40
+  %51 = load i64, ptr %9, align 8, !tbaa !10
+  %52 = urem i64 %51, 4
+  store i64 %52, ptr %11, align 8, !tbaa !10
+  %53 = load i64, ptr %11, align 8, !tbaa !10
+  %54 = load i64, ptr %9, align 8, !tbaa !10
+  %55 = sub i64 %54, %53
+  store i64 %55, ptr %9, align 8, !tbaa !10
+  %56 = load i64, ptr %11, align 8, !tbaa !10
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %70
 
-57:                                               ; preds = %49
-  %58 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 1 %58, i8 0, i64 4, i1 false)
+58:                                               ; preds = %50
   %59 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
-  %60 = load ptr, ptr %12, align 8
-  %61 = load i64, ptr %9, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 %61
-  %63 = load i64, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 1 %62, i64 %63, i1 false)
-  %64 = load i64, ptr %9, align 8
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %68
+  call void @llvm.memset.p0.i64(ptr align 1 %59, i8 0, i64 4, i1 false)
+  %60 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
+  %61 = load ptr, ptr %12, align 8, !tbaa !7
+  %62 = load i64, ptr %9, align 8, !tbaa !10
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %62
+  %64 = load i64, ptr %11, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %63, i64 %64, i1 false)
+  %65 = load i64, ptr %9, align 8, !tbaa !10
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %57
-  store i64 4, ptr %9, align 8
-  %67 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
-  store ptr %67, ptr %12, align 8
-  store i64 0, ptr %11, align 8
-  br label %68
-
-68:                                               ; preds = %66, %57
+67:                                               ; preds = %58
+  store i64 4, ptr %9, align 8, !tbaa !10
+  %68 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
+  store ptr %68, ptr %12, align 8, !tbaa !7
+  store i64 0, ptr %11, align 8, !tbaa !10
   br label %69
 
-69:                                               ; preds = %68, %49
+69:                                               ; preds = %67, %58
   br label %70
 
-70:                                               ; preds = %136, %112, %104, %69
-  %71 = load i64, ptr %9, align 8
-  %72 = icmp ne i64 %71, 0
-  br i1 %72, label %73, label %76
+70:                                               ; preds = %69, %50
+  br label %71
 
-73:                                               ; preds = %70
-  %74 = load i64, ptr %13, align 8
-  %75 = icmp uge i64 %74, 2
-  br label %76
+71:                                               ; preds = %139, %70
+  %72 = load i64, ptr %9, align 8, !tbaa !10
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %77
 
-76:                                               ; preds = %73, %70
-  %77 = phi i1 [ false, %70 ], [ %75, %73 ]
-  br i1 %77, label %78, label %139
+74:                                               ; preds = %71
+  %75 = load i64, ptr %13, align 8, !tbaa !10
+  %76 = icmp uge i64 %75, 2
+  br label %77
 
-78:                                               ; preds = %76
-  %79 = load i64, ptr %13, align 8
-  store i64 %79, ptr %15, align 8
-  %80 = load ptr, ptr %6, align 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = inttoptr i64 -1 to ptr
-  %83 = icmp ne ptr %81, %82
+77:                                               ; preds = %74, %71
+  %78 = phi i1 [ false, %71 ], [ %76, %74 ]
+  br i1 %78, label %79, label %141
+
+79:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  %80 = load i64, ptr %13, align 8, !tbaa !10
+  store i64 %80, ptr %16, align 8, !tbaa !10
+  %81 = load ptr, ptr %6, align 8, !tbaa !24
+  %82 = load ptr, ptr %81, align 8, !tbaa !24
+  %83 = icmp ne ptr %82, inttoptr (i64 -1 to ptr)
   br i1 %83, label %84, label %85
 
-84:                                               ; preds = %78
+84:                                               ; preds = %79
   br label %86
 
-85:                                               ; preds = %78
-  call void @__assert_fail(ptr noundef @.str.804, ptr noundef @.str.790, i32 noundef 720, ptr noundef @__PRETTY_FUNCTION__.in_iconv_u16) #9
+85:                                               ; preds = %79
+  call void @__assert_fail(ptr noundef @.str.804, ptr noundef @.str.790, i32 noundef 720, ptr noundef @__PRETTY_FUNCTION__.in_iconv_u16) #12
   unreachable
 
 86:                                               ; preds = %84
-  %87 = load ptr, ptr %6, align 8
-  %88 = load ptr, ptr %87, align 8
+  %87 = load ptr, ptr %6, align 8, !tbaa !24
+  %88 = load ptr, ptr %87, align 8, !tbaa !24
   %89 = call i64 @iconv(ptr noundef %88, ptr noundef %12, ptr noundef %9, ptr noundef %14, ptr noundef %13)
-  store i64 %89, ptr %10, align 8
-  %90 = load i64, ptr %10, align 8
+  store i64 %89, ptr %10, align 8, !tbaa !10
+  %90 = load i64, ptr %10, align 8, !tbaa !10
   %91 = icmp eq i64 %90, -1
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %86
-  %93 = call ptr @__errno_location() #12
-  %94 = load i32, ptr %93, align 4
+  %93 = call ptr @__errno_location() #14
+  %94 = load i32, ptr %93, align 4, !tbaa !20
   %95 = icmp eq i32 %94, 7
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %92
+  store i32 3, ptr %15, align 4
   br label %139
 
 97:                                               ; preds = %92
   br label %115
 
 98:                                               ; preds = %86
-  %99 = load i64, ptr %9, align 8
+  %99 = load i64, ptr %9, align 8, !tbaa !10
   %100 = icmp eq i64 0, %99
   br i1 %100, label %101, label %107
 
 101:                                              ; preds = %98
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.805)
-  %102 = load i64, ptr %11, align 8
+  %102 = load i64, ptr %11, align 8, !tbaa !10
   %103 = icmp ne i64 %102, 0
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %101
-  store i64 4, ptr %9, align 8
+  store i64 4, ptr %9, align 8, !tbaa !10
   %105 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
-  store ptr %105, ptr %12, align 8
-  store i64 0, ptr %11, align 8
-  br label %70
+  store ptr %105, ptr %12, align 8, !tbaa !7
+  store i64 0, ptr %11, align 8, !tbaa !10
+  store i32 2, ptr %15, align 4
+  br label %139
 
 106:                                              ; preds = %101
+  store i32 3, ptr %15, align 4
   br label %139
 
 107:                                              ; preds = %98
-  %108 = load i64, ptr %13, align 8
-  %109 = load i64, ptr %15, align 8
+  %108 = load i64, ptr %13, align 8, !tbaa !10
+  %109 = load i64, ptr %16, align 8, !tbaa !10
   %110 = icmp eq i64 %108, %109
   br i1 %110, label %111, label %112
 
@@ -2286,7 +2412,8 @@ define internal i32 @in_iconv_u16(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %113
 
 112:                                              ; preds = %107
-  br label %70
+  store i32 2, ptr %15, align 4
+  br label %139
 
 113:                                              ; preds = %111
   br label %114
@@ -2295,457 +2422,508 @@ define internal i32 @in_iconv_u16(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %115
 
 115:                                              ; preds = %114, %97
-  %116 = load i64, ptr %13, align 8
+  %116 = load i64, ptr %13, align 8, !tbaa !10
   %117 = icmp ult i64 %116, 2
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %115
+  store i32 3, ptr %15, align 4
   br label %139
 
 119:                                              ; preds = %115
-  %120 = load i64, ptr %13, align 8
+  %120 = load i64, ptr %13, align 8, !tbaa !10
   %121 = sub i64 %120, 2
-  store i64 %121, ptr %13, align 8
-  %122 = load ptr, ptr %14, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i32 1
-  store ptr %123, ptr %14, align 8
-  store i8 0, ptr %122, align 1
-  %124 = load ptr, ptr %12, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i32 1
-  store ptr %125, ptr %12, align 8
-  %126 = load i8, ptr %124, align 1
-  %127 = load ptr, ptr %14, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i32 1
-  store ptr %128, ptr %14, align 8
-  store i8 %126, ptr %127, align 1
-  %129 = load i64, ptr %9, align 8
+  store i64 %121, ptr %13, align 8, !tbaa !10
+  %122 = load ptr, ptr %14, align 8, !tbaa !7
+  %123 = getelementptr inbounds nuw i8, ptr %122, i32 1
+  store ptr %123, ptr %14, align 8, !tbaa !7
+  store i8 0, ptr %122, align 1, !tbaa !12
+  %124 = load ptr, ptr %12, align 8, !tbaa !7
+  %125 = getelementptr inbounds nuw i8, ptr %124, i32 1
+  store ptr %125, ptr %12, align 8, !tbaa !7
+  %126 = load i8, ptr %124, align 1, !tbaa !12
+  %127 = load ptr, ptr %14, align 8, !tbaa !7
+  %128 = getelementptr inbounds nuw i8, ptr %127, i32 1
+  store ptr %128, ptr %14, align 8, !tbaa !7
+  store i8 %126, ptr %127, align 1, !tbaa !12
+  %129 = load i64, ptr %9, align 8, !tbaa !10
   %130 = add i64 %129, -1
-  store i64 %130, ptr %9, align 8
-  %131 = load i64, ptr %9, align 8
+  store i64 %130, ptr %9, align 8, !tbaa !10
+  %131 = load i64, ptr %9, align 8, !tbaa !10
   %132 = icmp eq i64 0, %131
   br i1 %132, label %133, label %138
 
 133:                                              ; preds = %119
-  %134 = load i64, ptr %11, align 8
+  %134 = load i64, ptr %11, align 8, !tbaa !10
   %135 = icmp ne i64 %134, 0
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %133
-  store i64 4, ptr %9, align 8
+  store i64 4, ptr %9, align 8, !tbaa !10
   %137 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
-  store ptr %137, ptr %12, align 8
-  store i64 0, ptr %11, align 8
-  br label %70
-
-138:                                              ; preds = %133, %119
+  store ptr %137, ptr %12, align 8, !tbaa !7
+  store i64 0, ptr %11, align 8, !tbaa !10
+  store i32 2, ptr %15, align 4
   br label %139
 
-139:                                              ; preds = %138, %118, %106, %96, %76
-  %140 = load i64, ptr %9, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.807, i64 noundef %140)
-  %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds %struct.m_area_tag, ptr %141, i32 0, i32 1
-  %143 = load i64, ptr %142, align 8
-  %144 = icmp sge i64 %143, 0
-  br i1 %144, label %145, label %157
+138:                                              ; preds = %133, %119
+  store i32 3, ptr %15, align 4
+  br label %139
 
-145:                                              ; preds = %139
-  %146 = load ptr, ptr %7, align 8
-  %147 = getelementptr inbounds %struct.m_area_tag, ptr %146, i32 0, i32 1
-  %148 = load i64, ptr %147, align 8
-  %149 = load i64, ptr %13, align 8
-  %150 = icmp sge i64 %148, %149
-  br i1 %150, label %151, label %157
+139:                                              ; preds = %138, %136, %118, %112, %106, %104, %96
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  %140 = load i32, ptr %15, align 4
+  switch i32 %140, label %167 [
+    i32 3, label %141
+    i32 2, label %71
+  ]
 
-151:                                              ; preds = %145
-  %152 = load i64, ptr %13, align 8
-  %153 = load ptr, ptr %7, align 8
-  %154 = getelementptr inbounds %struct.m_area_tag, ptr %153, i32 0, i32 1
-  %155 = load i64, ptr %154, align 8
-  %156 = sub nsw i64 %155, %152
-  store i64 %156, ptr %154, align 8
-  br label %160
+141:                                              ; preds = %139, %77
+  %142 = load i64, ptr %9, align 8, !tbaa !10
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.807, i64 noundef %142)
+  %143 = load ptr, ptr %7, align 8, !tbaa !22
+  %144 = getelementptr inbounds nuw %struct.m_area_tag, ptr %143, i32 0, i32 1
+  %145 = load i64, ptr %144, align 8, !tbaa !25
+  %146 = icmp sge i64 %145, 0
+  br i1 %146, label %147, label %159
 
-157:                                              ; preds = %145, %139
+147:                                              ; preds = %141
+  %148 = load ptr, ptr %7, align 8, !tbaa !22
+  %149 = getelementptr inbounds nuw %struct.m_area_tag, ptr %148, i32 0, i32 1
+  %150 = load i64, ptr %149, align 8, !tbaa !25
+  %151 = load i64, ptr %13, align 8, !tbaa !10
+  %152 = icmp sge i64 %150, %151
+  br i1 %152, label %153, label %159
+
+153:                                              ; preds = %147
+  %154 = load i64, ptr %13, align 8, !tbaa !10
+  %155 = load ptr, ptr %7, align 8, !tbaa !22
+  %156 = getelementptr inbounds nuw %struct.m_area_tag, ptr %155, i32 0, i32 1
+  %157 = load i64, ptr %156, align 8, !tbaa !25
+  %158 = sub nsw i64 %157, %154
+  store i64 %158, ptr %156, align 8, !tbaa !25
+  br label %162
+
+159:                                              ; preds = %147, %141
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.808)
-  %158 = load ptr, ptr %7, align 8
-  %159 = getelementptr inbounds %struct.m_area_tag, ptr %158, i32 0, i32 1
-  store i64 0, ptr %159, align 8
-  br label %160
+  %160 = load ptr, ptr %7, align 8, !tbaa !22
+  %161 = getelementptr inbounds nuw %struct.m_area_tag, ptr %160, i32 0, i32 1
+  store i64 0, ptr %161, align 8, !tbaa !25
+  br label %162
 
-160:                                              ; preds = %157, %151
-  %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds %struct.m_area_tag, ptr %161, i32 0, i32 2
-  store i64 0, ptr %162, align 8
+162:                                              ; preds = %159, %153
+  %163 = load ptr, ptr %7, align 8, !tbaa !22
+  %164 = getelementptr inbounds nuw %struct.m_area_tag, ptr %163, i32 0, i32 2
+  store i64 0, ptr %164, align 8, !tbaa !38
   store i32 0, ptr %4, align 4
-  br label %163
+  store i32 1, ptr %15, align 4
+  br label %165
 
-163:                                              ; preds = %160, %48
-  %164 = load i32, ptr %4, align 4
-  ret i32 %164
+165:                                              ; preds = %162, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  %166 = load i32, ptr %4, align 4
+  ret i32 %166
+
+167:                                              ; preds = %139
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = alloca ptr, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i16, align 2
-  %9 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i64, align 8
-  %14 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
   %15 = alloca ptr, align 8
-  %16 = alloca i32, align 4
+  %16 = alloca ptr, align 8
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca i64, align 8
-  %23 = alloca i64, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
   %24 = alloca i64, align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store i16 %2, ptr %8, align 2
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  store i32 22, ptr %11, align 4
-  store ptr null, ptr %12, align 8
-  store i64 0, ptr %13, align 8
-  %27 = inttoptr i64 -1 to ptr
-  store ptr %27, ptr %14, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = icmp eq ptr null, %28
-  br i1 %29, label %39, label %30
+  %25 = alloca i64, align 8
+  %26 = alloca i64, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !7
+  store i64 %1, ptr %8, align 8, !tbaa !10
+  store i16 %2, ptr %9, align 2, !tbaa !3
+  store ptr %3, ptr %10, align 8, !tbaa !39
+  store ptr %4, ptr %11, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  store i32 22, ptr %12, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  store ptr null, ptr %13, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  store i64 0, ptr %14, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  store ptr inttoptr (i64 -1 to ptr), ptr %15, align 8, !tbaa !24
+  %29 = load ptr, ptr %7, align 8, !tbaa !7
+  %30 = icmp eq ptr null, %29
+  br i1 %30, label %40, label %31
 
-30:                                               ; preds = %5
-  %31 = load i64, ptr %7, align 8
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %39, label %33
+31:                                               ; preds = %5
+  %32 = load i64, ptr %8, align 8, !tbaa !10
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %40, label %34
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %9, align 8
-  %35 = icmp eq ptr null, %34
-  br i1 %35, label %39, label %36
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %10, align 8, !tbaa !39
+  %36 = icmp eq ptr null, %35
+  br i1 %36, label %40, label %37
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %10, align 8
-  %38 = icmp eq ptr null, %37
-  br i1 %38, label %39, label %40
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %11, align 8, !tbaa !41
+  %39 = icmp eq ptr null, %38
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %36, %33, %30, %5
+40:                                               ; preds = %37, %34, %31, %5
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.3)
-  store i32 3, ptr %11, align 4
-  br label %243
+  store i32 3, ptr %12, align 4, !tbaa !20
+  br label %248
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %9, align 8
-  store ptr null, ptr %41, align 8
-  %42 = load ptr, ptr %10, align 8
-  store i64 0, ptr %42, align 8
-  %43 = load i16, ptr %8, align 2
-  %44 = zext i16 %43 to i32
-  switch i32 %44, label %125 [
-    i32 20127, label %45
-    i32 65001, label %45
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %10, align 8, !tbaa !39
+  store ptr null, ptr %42, align 8, !tbaa !7
+  %43 = load ptr, ptr %11, align 8, !tbaa !41
+  store i64 0, ptr %43, align 8, !tbaa !10
+  %44 = load i16, ptr %9, align 2, !tbaa !3
+  %45 = zext i16 %44 to i32
+  switch i32 %45, label %128 [
+    i32 20127, label %46
+    i32 65001, label %46
   ]
 
-45:                                               ; preds = %40, %40
-  %46 = load i64, ptr %7, align 8
-  store i64 %46, ptr %13, align 8
-  %47 = load i64, ptr %13, align 8
-  %48 = add i64 %47, 1
-  %49 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %48)
-  store ptr %49, ptr %12, align 8
-  %50 = load ptr, ptr %12, align 8
-  %51 = icmp eq ptr null, %50
-  br i1 %51, label %52, label %53
+46:                                               ; preds = %41, %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #11
+  %47 = load i64, ptr %8, align 8, !tbaa !10
+  store i64 %47, ptr %14, align 8, !tbaa !10
+  %48 = load i64, ptr %14, align 8, !tbaa !10
+  %49 = add i64 %48, 1
+  %50 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %49)
+  store ptr %50, ptr %13, align 8, !tbaa !7
+  %51 = load ptr, ptr %13, align 8, !tbaa !7
+  %52 = icmp eq ptr null, %51
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %45
+53:                                               ; preds = %46
   call void (ptr, ...) @cli_errmsg(ptr noundef @.str.4)
-  store i32 20, ptr %11, align 4
-  br label %243
+  store i32 20, ptr %12, align 4, !tbaa !20
+  store i32 2, ptr %19, align 4
+  br label %126
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %12, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %55, i64 %56, i1 false)
-  %57 = load ptr, ptr %12, align 8
-  %58 = load i64, ptr %7, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 -1
-  store ptr %60, ptr %15, align 8
-  %61 = load i16, ptr %8, align 2
-  %62 = zext i16 %61 to i32
-  %63 = icmp eq i32 %62, 65001
-  br i1 %63, label %64, label %124
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %13, align 8, !tbaa !7
+  %56 = load ptr, ptr %7, align 8, !tbaa !7
+  %57 = load i64, ptr %8, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 1 %56, i64 %57, i1 false)
+  %58 = load ptr, ptr %13, align 8, !tbaa !7
+  %59 = load i64, ptr %8, align 8, !tbaa !10
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
+  %61 = getelementptr inbounds i8, ptr %60, i64 -1
+  store ptr %61, ptr %16, align 8, !tbaa !7
+  %62 = load i16, ptr %9, align 2, !tbaa !3
+  %63 = zext i16 %62 to i32
+  %64 = icmp eq i32 %63, 65001
+  br i1 %64, label %65, label %125
 
-64:                                               ; preds = %53
-  %65 = load ptr, ptr %15, align 8
-  %66 = load i8, ptr %65, align 1
-  %67 = sext i8 %66 to i32
-  %68 = and i32 %67, 128
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %70, label %124
+65:                                               ; preds = %54
+  %66 = load ptr, ptr %16, align 8, !tbaa !7
+  %67 = load i8, ptr %66, align 1, !tbaa !12
+  %68 = sext i8 %67 to i32
+  %69 = and i32 %68, 128
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %125
 
-70:                                               ; preds = %64
-  store i32 1, ptr %16, align 4
-  br label %71
+71:                                               ; preds = %65
+  store i32 1, ptr %17, align 4, !tbaa !20
+  br label %72
 
-71:                                               ; preds = %83, %70
-  %72 = load ptr, ptr %15, align 8
-  %73 = load ptr, ptr %12, align 8
-  %74 = icmp ne ptr %72, %73
-  br i1 %74, label %75, label %88
+72:                                               ; preds = %84, %71
+  %73 = load ptr, ptr %16, align 8, !tbaa !7
+  %74 = load ptr, ptr %13, align 8, !tbaa !7
+  %75 = icmp ne ptr %73, %74
+  br i1 %75, label %76, label %89
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %15, align 8
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = and i32 %78, 192
-  %80 = icmp ne i32 %79, 128
-  br i1 %80, label %81, label %82
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %16, align 8, !tbaa !7
+  %78 = load i8, ptr %77, align 1, !tbaa !12
+  %79 = zext i8 %78 to i32
+  %80 = and i32 %79, 192
+  %81 = icmp ne i32 %80, 128
+  br i1 %81, label %82, label %83
 
-81:                                               ; preds = %75
-  br label %88
-
-82:                                               ; preds = %75
-  br label %83
-
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %15, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i32 -1
-  store ptr %85, ptr %15, align 8
-  %86 = load i32, ptr %16, align 4
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %16, align 4
-  br label %71
-
-88:                                               ; preds = %81, %71
-  store i32 0, ptr %17, align 4
+82:                                               ; preds = %76
   br label %89
 
-89:                                               ; preds = %102, %88
-  %90 = load i32, ptr %17, align 4
-  %91 = icmp slt i32 %90, 8
-  br i1 %91, label %92, label %105
+83:                                               ; preds = %76
+  br label %84
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %15, align 8
-  %94 = load i8, ptr %93, align 1
-  %95 = zext i8 %94 to i32
-  %96 = load i32, ptr %17, align 4
-  %97 = ashr i32 128, %96
-  %98 = and i32 %95, %97
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %101
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %16, align 8, !tbaa !7
+  %86 = getelementptr inbounds i8, ptr %85, i32 -1
+  store ptr %86, ptr %16, align 8, !tbaa !7
+  %87 = load i32, ptr %17, align 4, !tbaa !20
+  %88 = add nsw i32 %87, 1
+  store i32 %88, ptr %17, align 4, !tbaa !20
+  br label %72
 
-100:                                              ; preds = %92
-  br label %105
+89:                                               ; preds = %82, %72
+  store i32 0, ptr %18, align 4, !tbaa !20
+  br label %90
 
-101:                                              ; preds = %92
-  br label %102
+90:                                               ; preds = %103, %89
+  %91 = load i32, ptr %18, align 4, !tbaa !20
+  %92 = icmp slt i32 %91, 8
+  br i1 %92, label %93, label %106
 
-102:                                              ; preds = %101
-  %103 = load i32, ptr %17, align 4
-  %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %17, align 4
-  br label %89
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %16, align 8, !tbaa !7
+  %95 = load i8, ptr %94, align 1, !tbaa !12
+  %96 = zext i8 %95 to i32
+  %97 = load i32, ptr %18, align 4, !tbaa !20
+  %98 = ashr i32 128, %97
+  %99 = and i32 %96, %98
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %102
 
-105:                                              ; preds = %100, %89
-  %106 = load i32, ptr %16, align 4
-  %107 = load i32, ptr %17, align 4
-  %108 = icmp ne i32 %106, %107
-  br i1 %108, label %109, label %123
+101:                                              ; preds = %93
+  br label %106
 
-109:                                              ; preds = %105
-  %110 = load i32, ptr %16, align 4
-  %111 = load i32, ptr %17, align 4
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.5, i32 noundef %110, i32 noundef %111)
-  br label %112
+102:                                              ; preds = %93
+  br label %103
 
-112:                                              ; preds = %117, %109
-  %113 = load i32, ptr %16, align 4
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %115, label %122
+103:                                              ; preds = %102
+  %104 = load i32, ptr %18, align 4, !tbaa !20
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %18, align 4, !tbaa !20
+  br label %90
 
-115:                                              ; preds = %112
-  %116 = load ptr, ptr %15, align 8
-  store i8 0, ptr %116, align 1
-  br label %117
+106:                                              ; preds = %101, %90
+  %107 = load i32, ptr %17, align 4, !tbaa !20
+  %108 = load i32, ptr %18, align 4, !tbaa !20
+  %109 = icmp ne i32 %107, %108
+  br i1 %109, label %110, label %124
 
-117:                                              ; preds = %115
-  %118 = load i32, ptr %16, align 4
-  %119 = add nsw i32 %118, -1
-  store i32 %119, ptr %16, align 4
-  %120 = load ptr, ptr %15, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i32 1
-  store ptr %121, ptr %15, align 8
-  br label %112
+110:                                              ; preds = %106
+  %111 = load i32, ptr %17, align 4, !tbaa !20
+  %112 = load i32, ptr %18, align 4, !tbaa !20
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.5, i32 noundef %111, i32 noundef %112)
+  br label %113
 
-122:                                              ; preds = %112
-  br label %123
+113:                                              ; preds = %118, %110
+  %114 = load i32, ptr %17, align 4, !tbaa !20
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %116, label %123
 
-123:                                              ; preds = %122, %105
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %16, align 8, !tbaa !7
+  store i8 0, ptr %117, align 1, !tbaa !12
+  br label %118
+
+118:                                              ; preds = %116
+  %119 = load i32, ptr %17, align 4, !tbaa !20
+  %120 = add nsw i32 %119, -1
+  store i32 %120, ptr %17, align 4, !tbaa !20
+  %121 = load ptr, ptr %16, align 8, !tbaa !7
+  %122 = getelementptr inbounds nuw i8, ptr %121, i32 1
+  store ptr %122, ptr %16, align 8, !tbaa !7
+  br label %113
+
+123:                                              ; preds = %113
   br label %124
 
-124:                                              ; preds = %123, %64, %53
-  br label %238
+124:                                              ; preds = %123, %106
+  br label %125
 
-125:                                              ; preds = %40
-  store ptr null, ptr %20, align 8
-  store i32 0, ptr %19, align 4
+125:                                              ; preds = %124, %65, %54
+  store i32 3, ptr %19, align 4
   br label %126
 
-126:                                              ; preds = %159, %125
+126:                                              ; preds = %53, %125
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
   %127 = load i32, ptr %19, align 4
-  %128 = zext i32 %127 to i64
-  %129 = icmp ult i64 %128, 152
-  br i1 %129, label %130, label %162
+  switch i32 %127, label %265 [
+    i32 3, label %243
+    i32 2, label %248
+  ]
 
-130:                                              ; preds = %126
-  %131 = load i16, ptr %8, align 2
-  %132 = zext i16 %131 to i32
-  %133 = load i32, ptr %19, align 4
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %134
-  %136 = getelementptr inbounds %struct.codepage_entry, ptr %135, i32 0, i32 0
-  %137 = load i16, ptr %136, align 16
-  %138 = zext i16 %137 to i32
-  %139 = icmp eq i32 %132, %138
-  br i1 %139, label %140, label %146
+128:                                              ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #11
+  store ptr null, ptr %22, align 8, !tbaa !7
+  store i32 0, ptr %21, align 4, !tbaa !20
+  br label %129
 
-140:                                              ; preds = %130
-  %141 = load i32, ptr %19, align 4
-  %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %142
-  %144 = getelementptr inbounds %struct.codepage_entry, ptr %143, i32 0, i32 1
-  %145 = load ptr, ptr %144, align 8
-  store ptr %145, ptr %20, align 8
+129:                                              ; preds = %162, %128
+  %130 = load i32, ptr %21, align 4, !tbaa !20
+  %131 = zext i32 %130 to i64
+  %132 = icmp ult i64 %131, 152
+  br i1 %132, label %133, label %165
+
+133:                                              ; preds = %129
+  %134 = load i16, ptr %9, align 2, !tbaa !3
+  %135 = zext i16 %134 to i32
+  %136 = load i32, ptr %21, align 4, !tbaa !20
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %137
+  %139 = getelementptr inbounds nuw %struct.codepage_entry, ptr %138, i32 0, i32 0
+  %140 = load i16, ptr %139, align 16, !tbaa !43
+  %141 = zext i16 %140 to i32
+  %142 = icmp eq i32 %135, %141
+  br i1 %142, label %143, label %149
+
+143:                                              ; preds = %133
+  %144 = load i32, ptr %21, align 4, !tbaa !20
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds nuw [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %145
+  %147 = getelementptr inbounds nuw %struct.codepage_entry, ptr %146, i32 0, i32 1
+  %148 = load ptr, ptr %147, align 8, !tbaa !45
+  store ptr %148, ptr %22, align 8, !tbaa !7
+  br label %165
+
+149:                                              ; preds = %133
+  %150 = load i16, ptr %9, align 2, !tbaa !3
+  %151 = zext i16 %150 to i32
+  %152 = load i32, ptr %21, align 4, !tbaa !20
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds nuw [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %153
+  %155 = getelementptr inbounds nuw %struct.codepage_entry, ptr %154, i32 0, i32 0
+  %156 = load i16, ptr %155, align 16, !tbaa !43
+  %157 = zext i16 %156 to i32
+  %158 = icmp slt i32 %151, %157
+  br i1 %158, label %159, label %160
+
+159:                                              ; preds = %149
+  br label %165
+
+160:                                              ; preds = %149
+  br label %161
+
+161:                                              ; preds = %160
   br label %162
 
-146:                                              ; preds = %130
-  %147 = load i16, ptr %8, align 2
-  %148 = zext i16 %147 to i32
-  %149 = load i32, ptr %19, align 4
-  %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %150
-  %152 = getelementptr inbounds %struct.codepage_entry, ptr %151, i32 0, i32 0
-  %153 = load i16, ptr %152, align 16
-  %154 = zext i16 %153 to i32
-  %155 = icmp slt i32 %148, %154
-  br i1 %155, label %156, label %157
+162:                                              ; preds = %161
+  %163 = load i32, ptr %21, align 4, !tbaa !20
+  %164 = add i32 %163, 1
+  store i32 %164, ptr %21, align 4, !tbaa !20
+  br label %129
 
-156:                                              ; preds = %146
-  br label %162
+165:                                              ; preds = %159, %143, %129
+  %166 = load ptr, ptr %22, align 8, !tbaa !7
+  %167 = icmp eq ptr null, %166
+  br i1 %167, label %168, label %169
 
-157:                                              ; preds = %146
-  br label %158
-
-158:                                              ; preds = %157
-  br label %159
-
-159:                                              ; preds = %158
-  %160 = load i32, ptr %19, align 4
-  %161 = add i32 %160, 1
-  store i32 %161, ptr %19, align 4
-  br label %126
-
-162:                                              ; preds = %156, %140, %126
-  %163 = load ptr, ptr %20, align 8
-  %164 = icmp eq ptr null, %163
-  br i1 %164, label %165, label %166
-
-165:                                              ; preds = %162
+168:                                              ; preds = %165
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.6)
-  br label %243
+  store i32 2, ptr %19, align 4
+  br label %240
 
-166:                                              ; preds = %162
-  store i32 1, ptr %18, align 4
-  br label %167
+169:                                              ; preds = %165
+  store i32 1, ptr %20, align 4, !tbaa !20
+  br label %170
 
-167:                                              ; preds = %234, %166
-  %168 = load i32, ptr %18, align 4
-  %169 = icmp ule i32 %168, 3
-  br i1 %169, label %170, label %237
+170:                                              ; preds = %236, %169
+  %171 = load i32, ptr %20, align 4, !tbaa !20
+  %172 = icmp ule i32 %171, 3
+  br i1 %172, label %173, label %239
 
-170:                                              ; preds = %167
-  %171 = load ptr, ptr %6, align 8
-  store ptr %171, ptr %21, align 8
-  %172 = load i64, ptr %7, align 8
-  store i64 %172, ptr %22, align 8
-  store i64 -1, ptr %23, align 8
-  store i64 0, ptr %24, align 8
-  store ptr null, ptr %25, align 8
-  store ptr null, ptr %26, align 8
-  %173 = load i64, ptr %7, align 8
-  %174 = mul i64 %173, 2
-  %175 = load i32, ptr %18, align 4
-  %176 = zext i32 %175 to i64
-  %177 = mul i64 %174, %176
-  store i64 %177, ptr %13, align 8
-  %178 = load i64, ptr %13, align 8
-  store i64 %178, ptr %24, align 8
-  %179 = load i64, ptr %13, align 8
-  %180 = add i64 %179, 1
-  %181 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %180)
-  store ptr %181, ptr %12, align 8
-  %182 = load ptr, ptr %12, align 8
-  %183 = icmp eq ptr null, %182
-  br i1 %183, label %184, label %185
+173:                                              ; preds = %170
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #11
+  %174 = load ptr, ptr %7, align 8, !tbaa !7
+  store ptr %174, ptr %23, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #11
+  %175 = load i64, ptr %8, align 8, !tbaa !10
+  store i64 %175, ptr %24, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #11
+  store i64 -1, ptr %25, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #11
+  store i64 0, ptr %26, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #11
+  store ptr null, ptr %27, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #11
+  store ptr null, ptr %28, align 8, !tbaa !7
+  %176 = load i64, ptr %8, align 8, !tbaa !10
+  %177 = mul i64 %176, 2
+  %178 = load i32, ptr %20, align 4, !tbaa !20
+  %179 = zext i32 %178 to i64
+  %180 = mul i64 %177, %179
+  store i64 %180, ptr %14, align 8, !tbaa !10
+  %181 = load i64, ptr %14, align 8, !tbaa !10
+  store i64 %181, ptr %26, align 8, !tbaa !10
+  %182 = load i64, ptr %14, align 8, !tbaa !10
+  %183 = add i64 %182, 1
+  %184 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %183)
+  store ptr %184, ptr %13, align 8, !tbaa !7
+  %185 = load ptr, ptr %13, align 8, !tbaa !7
+  %186 = icmp eq ptr null, %185
+  br i1 %186, label %187, label %188
 
-184:                                              ; preds = %170
+187:                                              ; preds = %173
   call void (ptr, ...) @cli_errmsg(ptr noundef @.str.7)
-  store i32 20, ptr %11, align 4
-  br label %243
+  store i32 20, ptr %12, align 4, !tbaa !20
+  store i32 2, ptr %19, align 4
+  br label %234
 
-185:                                              ; preds = %170
-  %186 = load ptr, ptr %12, align 8
-  store ptr %186, ptr %26, align 8
-  %187 = load ptr, ptr %20, align 8
-  %188 = call ptr @iconv_open(ptr noundef @.str.8, ptr noundef %187)
-  store ptr %188, ptr %14, align 8
-  %189 = load ptr, ptr %14, align 8
-  %190 = inttoptr i64 -1 to ptr
-  %191 = icmp eq ptr %189, %190
-  br i1 %191, label %192, label %200
+188:                                              ; preds = %173
+  %189 = load ptr, ptr %13, align 8, !tbaa !7
+  store ptr %189, ptr %28, align 8, !tbaa !7
+  %190 = load ptr, ptr %22, align 8, !tbaa !7
+  %191 = call ptr @iconv_open(ptr noundef @.str.8, ptr noundef %190)
+  store ptr %191, ptr %15, align 8, !tbaa !24
+  %192 = load ptr, ptr %15, align 8, !tbaa !24
+  %193 = icmp eq ptr %192, inttoptr (i64 -1 to ptr)
+  br i1 %193, label %194, label %201
 
-192:                                              ; preds = %185
-  %193 = load ptr, ptr %20, align 8
-  %194 = call ptr @iconv_open(ptr noundef @.str.9, ptr noundef %193)
-  store ptr %194, ptr %14, align 8
-  %195 = load ptr, ptr %14, align 8
-  %196 = inttoptr i64 -1 to ptr
-  %197 = icmp eq ptr %195, %196
-  br i1 %197, label %198, label %199
+194:                                              ; preds = %188
+  %195 = load ptr, ptr %22, align 8, !tbaa !7
+  %196 = call ptr @iconv_open(ptr noundef @.str.9, ptr noundef %195)
+  store ptr %196, ptr %15, align 8, !tbaa !24
+  %197 = load ptr, ptr %15, align 8, !tbaa !24
+  %198 = icmp eq ptr %197, inttoptr (i64 -1 to ptr)
+  br i1 %198, label %199, label %200
 
-198:                                              ; preds = %192
+199:                                              ; preds = %194
   call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.10)
-  br label %243
+  store i32 2, ptr %19, align 4
+  br label %234
 
-199:                                              ; preds = %192
-  br label %200
+200:                                              ; preds = %194
+  br label %201
 
-200:                                              ; preds = %199, %185
-  %201 = load ptr, ptr %14, align 8
-  %202 = call i64 @iconv(ptr noundef %201, ptr noundef %21, ptr noundef %22, ptr noundef %26, ptr noundef %24)
-  store i64 %202, ptr %23, align 8
-  %203 = load ptr, ptr %14, align 8
-  %204 = call i32 @iconv_close(ptr noundef %203)
-  %205 = inttoptr i64 -1 to ptr
-  store ptr %205, ptr %14, align 8
-  %206 = load i64, ptr %23, align 8
+201:                                              ; preds = %200, %188
+  %202 = load ptr, ptr %15, align 8, !tbaa !24
+  %203 = call i64 @iconv(ptr noundef %202, ptr noundef %23, ptr noundef %24, ptr noundef %28, ptr noundef %26)
+  store i64 %203, ptr %25, align 8, !tbaa !10
+  %204 = load ptr, ptr %15, align 8, !tbaa !24
+  %205 = call i32 @iconv_close(ptr noundef %204)
+  store ptr inttoptr (i64 -1 to ptr), ptr %15, align 8, !tbaa !24
+  %206 = load i64, ptr %25, align 8, !tbaa !10
   %207 = icmp eq i64 -1, %206
   br i1 %207, label %208, label %219
 
-208:                                              ; preds = %200
-  %209 = call ptr @__errno_location() #12
-  %210 = load i32, ptr %209, align 4
+208:                                              ; preds = %201
+  %209 = call ptr @__errno_location() #14
+  %210 = load i32, ptr %209, align 4, !tbaa !20
   switch i32 %210, label %215 [
     i32 7, label %211
     i32 84, label %213
@@ -2754,9 +2932,10 @@ define i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 noundef zer
 
 211:                                              ; preds = %208
   call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.11)
-  %212 = load ptr, ptr %12, align 8
+  %212 = load ptr, ptr %13, align 8, !tbaa !7
   call void @free(ptr noundef %212) #11
-  store ptr null, ptr %12, align 8
+  store ptr null, ptr %13, align 8, !tbaa !7
+  store i32 18, ptr %19, align 4
   br label %234
 
 213:                                              ; preds = %208
@@ -2768,113 +2947,152 @@ define i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 noundef zer
   br label %218
 
 215:                                              ; preds = %208
-  %216 = call ptr @__errno_location() #12
-  %217 = load i32, ptr %216, align 4
+  %216 = call ptr @__errno_location() #14
+  %217 = load i32, ptr %216, align 4, !tbaa !20
   call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.14, i32 noundef %217)
   br label %218
 
 218:                                              ; preds = %215, %214, %213
-  store i32 27, ptr %11, align 4
-  br label %243
+  store i32 27, ptr %12, align 4, !tbaa !20
+  store i32 2, ptr %19, align 4
+  br label %234
 
-219:                                              ; preds = %200
-  %220 = load ptr, ptr %12, align 8
-  %221 = load i64, ptr %13, align 8
-  %222 = load i64, ptr %24, align 8
+219:                                              ; preds = %201
+  %220 = load ptr, ptr %13, align 8, !tbaa !7
+  %221 = load i64, ptr %14, align 8, !tbaa !10
+  %222 = load i64, ptr %26, align 8, !tbaa !10
   %223 = sub i64 %221, %222
   %224 = add i64 %223, 1
   %225 = call ptr @cli_max_realloc(ptr noundef %220, i64 noundef %224)
-  store ptr %225, ptr %25, align 8
-  %226 = load ptr, ptr %25, align 8
+  store ptr %225, ptr %27, align 8, !tbaa !7
+  %226 = load ptr, ptr %27, align 8, !tbaa !7
   %227 = icmp eq ptr null, %226
   br i1 %227, label %228, label %229
 
 228:                                              ; preds = %219
   call void (ptr, ...) @cli_errmsg(ptr noundef @.str.15)
-  store i32 20, ptr %11, align 4
-  br label %243
+  store i32 20, ptr %12, align 4, !tbaa !20
+  store i32 2, ptr %19, align 4
+  br label %234
 
 229:                                              ; preds = %219
-  %230 = load ptr, ptr %25, align 8
-  store ptr %230, ptr %12, align 8
-  %231 = load i64, ptr %13, align 8
-  %232 = load i64, ptr %24, align 8
+  %230 = load ptr, ptr %27, align 8, !tbaa !7
+  store ptr %230, ptr %13, align 8, !tbaa !7
+  %231 = load i64, ptr %14, align 8, !tbaa !10
+  %232 = load i64, ptr %26, align 8, !tbaa !10
   %233 = sub i64 %231, %232
-  store i64 %233, ptr %13, align 8
-  br label %237
+  store i64 %233, ptr %14, align 8, !tbaa !10
+  store i32 16, ptr %19, align 4
+  br label %234
 
-234:                                              ; preds = %211
-  %235 = load i32, ptr %18, align 4
-  %236 = add i32 %235, 1
-  store i32 %236, ptr %18, align 4
-  br label %167
+234:                                              ; preds = %228, %218, %199, %187, %229, %211
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #11
+  %235 = load i32, ptr %19, align 4
+  switch i32 %235, label %240 [
+    i32 18, label %236
+    i32 16, label %239
+  ]
 
-237:                                              ; preds = %229, %167
-  br label %238
+236:                                              ; preds = %234
+  %237 = load i32, ptr %20, align 4, !tbaa !20
+  %238 = add i32 %237, 1
+  store i32 %238, ptr %20, align 4, !tbaa !20
+  br label %170
 
-238:                                              ; preds = %237, %124
-  %239 = load ptr, ptr %12, align 8
-  %240 = load ptr, ptr %9, align 8
-  store ptr %239, ptr %240, align 8
-  %241 = load i64, ptr %13, align 8
-  %242 = load ptr, ptr %10, align 8
-  store i64 %241, ptr %242, align 8
-  store i32 0, ptr %11, align 4
+239:                                              ; preds = %234, %170
+  store i32 0, ptr %19, align 4
+  br label %240
+
+240:                                              ; preds = %168, %239, %234
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #11
+  %241 = load i32, ptr %19, align 4
+  switch i32 %241, label %265 [
+    i32 0, label %242
+    i32 2, label %248
+  ]
+
+242:                                              ; preds = %240
   br label %243
 
-243:                                              ; preds = %238, %228, %218, %198, %184, %165, %52, %39
-  %244 = load ptr, ptr %14, align 8
-  %245 = inttoptr i64 -1 to ptr
-  %246 = icmp ne ptr %244, %245
-  br i1 %246, label %247, label %250
+243:                                              ; preds = %242, %126
+  %244 = load ptr, ptr %13, align 8, !tbaa !7
+  %245 = load ptr, ptr %10, align 8, !tbaa !39
+  store ptr %244, ptr %245, align 8, !tbaa !7
+  %246 = load i64, ptr %14, align 8, !tbaa !10
+  %247 = load ptr, ptr %11, align 8, !tbaa !41
+  store i64 %246, ptr %247, align 8, !tbaa !10
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %248
 
-247:                                              ; preds = %243
-  %248 = load ptr, ptr %14, align 8
-  %249 = call i32 @iconv_close(ptr noundef %248)
-  br label %250
+248:                                              ; preds = %243, %240, %126, %40
+  %249 = load ptr, ptr %15, align 8, !tbaa !24
+  %250 = icmp ne ptr %249, inttoptr (i64 -1 to ptr)
+  br i1 %250, label %251, label %254
 
-250:                                              ; preds = %247, %243
-  %251 = load i32, ptr %11, align 4
-  %252 = icmp ne i32 0, %251
-  br i1 %252, label %253, label %259
+251:                                              ; preds = %248
+  %252 = load ptr, ptr %15, align 8, !tbaa !24
+  %253 = call i32 @iconv_close(ptr noundef %252)
+  br label %254
 
-253:                                              ; preds = %250
-  %254 = load ptr, ptr %12, align 8
-  %255 = icmp ne ptr null, %254
-  br i1 %255, label %256, label %258
+254:                                              ; preds = %251, %248
+  %255 = load i32, ptr %12, align 4, !tbaa !20
+  %256 = icmp ne i32 0, %255
+  br i1 %256, label %257, label %263
 
-256:                                              ; preds = %253
-  %257 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %257) #11
-  br label %258
+257:                                              ; preds = %254
+  %258 = load ptr, ptr %13, align 8, !tbaa !7
+  %259 = icmp ne ptr null, %258
+  br i1 %259, label %260, label %262
 
-258:                                              ; preds = %256, %253
-  br label %259
+260:                                              ; preds = %257
+  %261 = load ptr, ptr %13, align 8, !tbaa !7
+  call void @free(ptr noundef %261) #11
+  br label %262
 
-259:                                              ; preds = %258, %250
-  %260 = load i32, ptr %11, align 4
-  ret i32 %260
+262:                                              ; preds = %260, %257
+  br label %263
+
+263:                                              ; preds = %262, %254
+  %264 = load i32, ptr %12, align 4, !tbaa !20
+  store i32 %264, ptr %6, align 4
+  store i32 1, ptr %19, align 4
+  br label %265
+
+265:                                              ; preds = %263, %240, %126
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  %266 = load i32, ptr %6, align 4
+  ret i32 %266
 }
 
-declare ptr @cli_max_calloc(i64 noundef, i64 noundef) #1
+declare ptr @cli_max_calloc(i64 noundef, i64 noundef) #3
 
-declare void @cli_errmsg(ptr noundef, ...) #1
+declare void @cli_errmsg(ptr noundef, ...) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare ptr @iconv_open(ptr noundef, ptr noundef) #1
+declare ptr @iconv_open(ptr noundef, ptr noundef) #3
 
-declare void @cli_warnmsg(ptr noundef, ...) #1
+declare void @cli_warnmsg(ptr noundef, ...) #3
 
-declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @iconv_close(ptr noundef) #1
+declare i32 @iconv_close(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #5
+declare ptr @__errno_location() #7
 
-declare ptr @cli_max_realloc(ptr noundef, i64 noundef) #1
+declare ptr @cli_max_realloc(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @cli_utf16toascii(ptr noundef %0, i32 noundef %1) #0 {
@@ -2884,103 +3102,113 @@ define ptr @cli_utf16toascii(ptr noundef %0, i32 noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %9 = load i32, ptr %5, align 4
-  %10 = icmp ult i32 %9, 2
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.16)
-  store ptr null, ptr %3, align 8
-  br label %67
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %10 = load i32, ptr %5, align 4, !tbaa !20
+  %11 = icmp ult i32 %10, 2
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr %5, align 4
-  %14 = urem i32 %13, 2
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %19
-
-16:                                               ; preds = %12
-  %17 = load i32, ptr %5, align 4
-  %18 = add i32 %17, -1
-  store i32 %18, ptr %5, align 4
-  br label %19
-
-19:                                               ; preds = %16, %12
-  %20 = load i32, ptr %5, align 4
-  %21 = udiv i32 %20, 2
-  %22 = add i32 %21, 1
-  %23 = zext i32 %22 to i64
-  %24 = call ptr @cli_max_calloc(i64 noundef %23, i64 noundef 1)
-  store ptr %24, ptr %6, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %27, label %26
-
-26:                                               ; preds = %19
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.16)
   store ptr null, ptr %3, align 8
-  br label %67
+  store i32 1, ptr %9, align 4
+  br label %68
 
-27:                                               ; preds = %19
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  br label %28
+13:                                               ; preds = %2
+  %14 = load i32, ptr %5, align 4, !tbaa !20
+  %15 = urem i32 %14, 2
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %20
 
-28:                                               ; preds = %60, %27
-  %29 = load i32, ptr %7, align 4
-  %30 = load i32, ptr %5, align 4
-  %31 = icmp ult i32 %29, %30
-  br i1 %31, label %32, label %65
+17:                                               ; preds = %13
+  %18 = load i32, ptr %5, align 4, !tbaa !20
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %5, align 4, !tbaa !20
+  br label %20
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i32, ptr %7, align 4
-  %35 = add i32 %34, 1
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %33, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = shl i32 %39, 4
-  %41 = trunc i32 %40 to i8
-  %42 = load ptr, ptr %6, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %42, i64 %44
-  store i8 %41, ptr %45, align 1
-  %46 = load ptr, ptr %4, align 8
-  %47 = load i32, ptr %7, align 4
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %46, i64 %48
-  %50 = load i8, ptr %49, align 1
-  %51 = sext i8 %50 to i32
-  %52 = load ptr, ptr %6, align 8
-  %53 = load i32, ptr %8, align 4
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %52, i64 %54
-  %56 = load i8, ptr %55, align 1
-  %57 = sext i8 %56 to i32
-  %58 = add nsw i32 %57, %51
-  %59 = trunc i32 %58 to i8
-  store i8 %59, ptr %55, align 1
-  br label %60
+20:                                               ; preds = %17, %13
+  %21 = load i32, ptr %5, align 4, !tbaa !20
+  %22 = udiv i32 %21, 2
+  %23 = add i32 %22, 1
+  %24 = zext i32 %23 to i64
+  %25 = call ptr @cli_max_calloc(i64 noundef %24, i64 noundef 1)
+  store ptr %25, ptr %6, align 8, !tbaa !7
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %28, label %27
 
-60:                                               ; preds = %32
-  %61 = load i32, ptr %7, align 4
-  %62 = add i32 %61, 2
-  store i32 %62, ptr %7, align 4
-  %63 = load i32, ptr %8, align 4
-  %64 = add i32 %63, 1
-  store i32 %64, ptr %8, align 4
-  br label %28
+27:                                               ; preds = %20
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %68
 
-65:                                               ; preds = %28
-  %66 = load ptr, ptr %6, align 8
-  store ptr %66, ptr %3, align 8
-  br label %67
+28:                                               ; preds = %20
+  store i32 0, ptr %7, align 4, !tbaa !20
+  store i32 0, ptr %8, align 4, !tbaa !20
+  br label %29
 
-67:                                               ; preds = %65, %26, %11
-  %68 = load ptr, ptr %3, align 8
-  ret ptr %68
+29:                                               ; preds = %61, %28
+  %30 = load i32, ptr %7, align 4, !tbaa !20
+  %31 = load i32, ptr %5, align 4, !tbaa !20
+  %32 = icmp ult i32 %30, %31
+  br i1 %32, label %33, label %66
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %4, align 8, !tbaa !7
+  %35 = load i32, ptr %7, align 4, !tbaa !20
+  %36 = add i32 %35, 1
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !12
+  %40 = zext i8 %39 to i32
+  %41 = shl i32 %40, 4
+  %42 = trunc i32 %41 to i8
+  %43 = load ptr, ptr %6, align 8, !tbaa !7
+  %44 = load i32, ptr %8, align 4, !tbaa !20
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %45
+  store i8 %42, ptr %46, align 1, !tbaa !12
+  %47 = load ptr, ptr %4, align 8, !tbaa !7
+  %48 = load i32, ptr %7, align 4, !tbaa !20
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !12
+  %52 = sext i8 %51 to i32
+  %53 = load ptr, ptr %6, align 8, !tbaa !7
+  %54 = load i32, ptr %8, align 4, !tbaa !20
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %55
+  %57 = load i8, ptr %56, align 1, !tbaa !12
+  %58 = sext i8 %57 to i32
+  %59 = add nsw i32 %58, %52
+  %60 = trunc i32 %59 to i8
+  store i8 %60, ptr %56, align 1, !tbaa !12
+  br label %61
+
+61:                                               ; preds = %33
+  %62 = load i32, ptr %7, align 4, !tbaa !20
+  %63 = add i32 %62, 2
+  store i32 %63, ptr %7, align 4, !tbaa !20
+  %64 = load i32, ptr %8, align 4, !tbaa !20
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %8, align 4, !tbaa !20
+  br label %29
+
+66:                                               ; preds = %29
+  %67 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %67, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %68
+
+68:                                               ; preds = %66, %27, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %69 = load ptr, ptr %3, align 8
+  ret ptr %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2993,426 +3221,442 @@ define ptr @cli_utf16_to_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca i16, align 2
+  %12 = alloca i32, align 4
   %13 = alloca i16, align 2
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %14 = load i64, ptr %6, align 8
-  %15 = mul i64 %14, 3
-  %16 = udiv i64 %15, 2
-  %17 = add i64 %16, 2
-  store i64 %17, ptr %10, align 8
-  %18 = load i64, ptr %6, align 8
-  %19 = icmp ult i64 %18, 2
-  br i1 %19, label %20, label %22
+  %14 = alloca i16, align 2
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i64 %1, ptr %6, align 8, !tbaa !10
+  store i32 %2, ptr %7, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %15 = load i64, ptr %6, align 8, !tbaa !10
+  %16 = mul i64 %15, 3
+  %17 = udiv i64 %16, 2
+  %18 = add i64 %17, 2
+  store i64 %18, ptr %10, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %19 = load i64, ptr %6, align 8, !tbaa !10
+  %20 = icmp ult i64 %19, 2
+  br i1 %20, label %21, label %23
 
-20:                                               ; preds = %3
-  %21 = call ptr @cli_safer_strdup(ptr noundef @.str.17)
-  store ptr %21, ptr %4, align 8
-  br label %291
+21:                                               ; preds = %3
+  %22 = call ptr @cli_safer_strdup(ptr noundef @.str.17)
+  store ptr %22, ptr %4, align 8
+  store i32 1, ptr %12, align 4
+  br label %292
 
-22:                                               ; preds = %3
-  %23 = load i64, ptr %6, align 8
-  %24 = urem i64 %23, 2
-  %25 = icmp ne i64 %24, 0
-  br i1 %25, label %26, label %30
+23:                                               ; preds = %3
+  %24 = load i64, ptr %6, align 8, !tbaa !10
+  %25 = urem i64 %24, 2
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %31
 
-26:                                               ; preds = %22
-  %27 = load i64, ptr %6, align 8
-  call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.18, i64 noundef %27)
-  %28 = load i64, ptr %6, align 8
-  %29 = add i64 %28, -1
-  store i64 %29, ptr %6, align 8
-  br label %30
+27:                                               ; preds = %23
+  %28 = load i64, ptr %6, align 8, !tbaa !10
+  call void (ptr, ...) @cli_warnmsg(ptr noundef @.str.18, i64 noundef %28)
+  %29 = load i64, ptr %6, align 8, !tbaa !10
+  %30 = add i64 %29, -1
+  store i64 %30, ptr %6, align 8, !tbaa !10
+  br label %31
 
-30:                                               ; preds = %26, %22
-  %31 = load i64, ptr %10, align 8
-  %32 = call ptr @cli_max_malloc(i64 noundef %31)
-  store ptr %32, ptr %11, align 8
-  %33 = load ptr, ptr %11, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %36, label %35
+31:                                               ; preds = %27, %23
+  %32 = load i64, ptr %10, align 8, !tbaa !10
+  %33 = call ptr @cli_max_malloc(i64 noundef %32)
+  store ptr %33, ptr %11, align 8, !tbaa !7
+  %34 = load ptr, ptr %11, align 8, !tbaa !7
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %37, label %36
 
-35:                                               ; preds = %30
+36:                                               ; preds = %31
   store ptr null, ptr %4, align 8
-  br label %291
+  store i32 1, ptr %12, align 4
+  br label %292
 
-36:                                               ; preds = %30
-  store i64 0, ptr %8, align 8
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 0
-  %39 = load i8, ptr %38, align 1
-  %40 = sext i8 %39 to i32
-  %41 = icmp eq i32 %40, -1
-  br i1 %41, label %42, label %48
+37:                                               ; preds = %31
+  store i64 0, ptr %8, align 8, !tbaa !10
+  %38 = load ptr, ptr %5, align 8, !tbaa !7
+  %39 = getelementptr inbounds i8, ptr %38, i64 0
+  %40 = load i8, ptr %39, align 1, !tbaa !12
+  %41 = sext i8 %40 to i32
+  %42 = icmp eq i32 %41, -1
+  br i1 %42, label %43, label %49
 
-42:                                               ; preds = %36
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1
-  %45 = load i8, ptr %44, align 1
-  %46 = sext i8 %45 to i32
-  %47 = icmp eq i32 %46, -2
-  br i1 %47, label %60, label %48
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %5, align 8, !tbaa !7
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  %46 = load i8, ptr %45, align 1, !tbaa !12
+  %47 = sext i8 %46 to i32
+  %48 = icmp eq i32 %47, -2
+  br i1 %48, label %61, label %49
 
-48:                                               ; preds = %42, %36
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 0
-  %51 = load i8, ptr %50, align 1
-  %52 = sext i8 %51 to i32
-  %53 = icmp eq i32 %52, -2
-  br i1 %53, label %54, label %73
+49:                                               ; preds = %43, %37
+  %50 = load ptr, ptr %5, align 8, !tbaa !7
+  %51 = getelementptr inbounds i8, ptr %50, i64 0
+  %52 = load i8, ptr %51, align 1, !tbaa !12
+  %53 = sext i8 %52 to i32
+  %54 = icmp eq i32 %53, -2
+  br i1 %54, label %55, label %74
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = sext i8 %57 to i32
-  %59 = icmp eq i32 %58, -1
-  br i1 %59, label %60, label %73
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %5, align 8, !tbaa !7
+  %57 = getelementptr inbounds i8, ptr %56, i64 1
+  %58 = load i8, ptr %57, align 1, !tbaa !12
+  %59 = sext i8 %58 to i32
+  %60 = icmp eq i32 %59, -1
+  br i1 %60, label %61, label %74
 
-60:                                               ; preds = %54, %42
-  %61 = load i64, ptr %8, align 8
-  %62 = add i64 %61, 2
-  store i64 %62, ptr %8, align 8
-  %63 = load i32, ptr %7, align 4
-  %64 = icmp eq i32 %63, 1
-  br i1 %64, label %65, label %72
+61:                                               ; preds = %55, %43
+  %62 = load i64, ptr %8, align 8, !tbaa !10
+  %63 = add i64 %62, 2
+  store i64 %63, ptr %8, align 8, !tbaa !10
+  %64 = load i32, ptr %7, align 4, !tbaa !20
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %66, label %73
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 0
-  %68 = load i8, ptr %67, align 1
-  %69 = sext i8 %68 to i32
-  %70 = icmp eq i32 %69, -1
-  %71 = select i1 %70, i32 7, i32 6
-  store i32 %71, ptr %7, align 4
-  br label %72
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %5, align 8, !tbaa !7
+  %68 = getelementptr inbounds i8, ptr %67, i64 0
+  %69 = load i8, ptr %68, align 1, !tbaa !12
+  %70 = sext i8 %69 to i32
+  %71 = icmp eq i32 %70, -1
+  %72 = select i1 %71, i32 7, i32 6
+  store i32 %72, ptr %7, align 4, !tbaa !20
+  br label %73
 
-72:                                               ; preds = %65, %60
-  br label %78
-
-73:                                               ; preds = %54, %48
-  %74 = load i32, ptr %7, align 4
-  %75 = icmp eq i32 %74, 1
-  br i1 %75, label %76, label %77
-
-76:                                               ; preds = %73
-  store i32 6, ptr %7, align 4
-  br label %77
-
-77:                                               ; preds = %76, %73
-  br label %78
-
-78:                                               ; preds = %77, %72
-  store i64 0, ptr %9, align 8
+73:                                               ; preds = %66, %61
   br label %79
 
-79:                                               ; preds = %276, %78
-  %80 = load i64, ptr %8, align 8
-  %81 = load i64, ptr %6, align 8
-  %82 = icmp ult i64 %80, %81
-  br i1 %82, label %83, label %87
+74:                                               ; preds = %55, %49
+  %75 = load i32, ptr %7, align 4, !tbaa !20
+  %76 = icmp eq i32 %75, 1
+  br i1 %76, label %77, label %78
 
-83:                                               ; preds = %79
-  %84 = load i64, ptr %9, align 8
-  %85 = load i64, ptr %10, align 8
-  %86 = icmp ult i64 %84, %85
-  br label %87
+77:                                               ; preds = %74
+  store i32 6, ptr %7, align 4, !tbaa !20
+  br label %78
 
-87:                                               ; preds = %83, %79
-  %88 = phi i1 [ false, %79 ], [ %86, %83 ]
-  br i1 %88, label %89, label %279
+78:                                               ; preds = %77, %74
+  br label %79
 
-89:                                               ; preds = %87
-  %90 = load ptr, ptr %5, align 8
-  %91 = load i64, ptr %8, align 8
-  %92 = getelementptr inbounds i8, ptr %90, i64 %91
-  %93 = load i16, ptr %92, align 1
-  store i16 %93, ptr %12, align 2
-  %94 = load i32, ptr %7, align 4
-  %95 = icmp eq i32 %94, 6
-  br i1 %95, label %96, label %107
+79:                                               ; preds = %78, %73
+  store i64 0, ptr %9, align 8, !tbaa !10
+  br label %80
 
-96:                                               ; preds = %89
-  %97 = load i16, ptr %12, align 2
-  %98 = zext i16 %97 to i32
-  %99 = and i32 %98, 255
-  %100 = shl i32 %99, 8
-  %101 = load i16, ptr %12, align 2
-  %102 = zext i16 %101 to i32
-  %103 = ashr i32 %102, 8
-  %104 = and i32 %103, 255
-  %105 = or i32 %100, %104
-  %106 = trunc i32 %105 to i16
-  store i16 %106, ptr %12, align 2
-  br label %107
+80:                                               ; preds = %277, %79
+  %81 = load i64, ptr %8, align 8, !tbaa !10
+  %82 = load i64, ptr %6, align 8, !tbaa !10
+  %83 = icmp ult i64 %81, %82
+  br i1 %83, label %84, label %88
 
-107:                                              ; preds = %96, %89
-  %108 = load i16, ptr %12, align 2
-  %109 = zext i16 %108 to i32
-  %110 = icmp slt i32 %109, 128
-  br i1 %110, label %111, label %118
+84:                                               ; preds = %80
+  %85 = load i64, ptr %9, align 8, !tbaa !10
+  %86 = load i64, ptr %10, align 8, !tbaa !10
+  %87 = icmp ult i64 %85, %86
+  br label %88
 
-111:                                              ; preds = %107
-  %112 = load i16, ptr %12, align 2
-  %113 = trunc i16 %112 to i8
-  %114 = load ptr, ptr %11, align 8
-  %115 = load i64, ptr %9, align 8
-  %116 = add i64 %115, 1
-  store i64 %116, ptr %9, align 8
-  %117 = getelementptr inbounds i8, ptr %114, i64 %115
-  store i8 %113, ptr %117, align 1
-  br label %275
+88:                                               ; preds = %84, %80
+  %89 = phi i1 [ false, %80 ], [ %87, %84 ]
+  br i1 %89, label %90, label %280
 
-118:                                              ; preds = %107
-  %119 = load i16, ptr %12, align 2
-  %120 = zext i16 %119 to i32
-  %121 = icmp slt i32 %120, 2048
-  br i1 %121, label %122, label %142
+90:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #11
+  %91 = load ptr, ptr %5, align 8, !tbaa !7
+  %92 = load i64, ptr %8, align 8, !tbaa !10
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
+  %94 = load i16, ptr %93, align 1, !tbaa !12
+  store i16 %94, ptr %13, align 2, !tbaa !3
+  %95 = load i32, ptr %7, align 4, !tbaa !20
+  %96 = icmp eq i32 %95, 6
+  br i1 %96, label %97, label %108
 
-122:                                              ; preds = %118
-  %123 = load i16, ptr %12, align 2
-  %124 = zext i16 %123 to i32
-  %125 = ashr i32 %124, 6
-  %126 = or i32 192, %125
-  %127 = trunc i32 %126 to i8
-  %128 = load ptr, ptr %11, align 8
-  %129 = load i64, ptr %9, align 8
-  %130 = getelementptr inbounds i8, ptr %128, i64 %129
-  store i8 %127, ptr %130, align 1
-  %131 = load i16, ptr %12, align 2
-  %132 = zext i16 %131 to i32
-  %133 = and i32 %132, 63
-  %134 = or i32 128, %133
-  %135 = trunc i32 %134 to i8
-  %136 = load ptr, ptr %11, align 8
-  %137 = load i64, ptr %9, align 8
-  %138 = add i64 %137, 1
-  %139 = getelementptr inbounds i8, ptr %136, i64 %138
-  store i8 %135, ptr %139, align 1
-  %140 = load i64, ptr %9, align 8
-  %141 = add i64 %140, 2
-  store i64 %141, ptr %9, align 8
-  br label %274
+97:                                               ; preds = %90
+  %98 = load i16, ptr %13, align 2, !tbaa !3
+  %99 = zext i16 %98 to i32
+  %100 = and i32 %99, 255
+  %101 = shl i32 %100, 8
+  %102 = load i16, ptr %13, align 2, !tbaa !3
+  %103 = zext i16 %102 to i32
+  %104 = ashr i32 %103, 8
+  %105 = and i32 %104, 255
+  %106 = or i32 %101, %105
+  %107 = trunc i32 %106 to i16
+  store i16 %107, ptr %13, align 2, !tbaa !3
+  br label %108
 
-142:                                              ; preds = %118
-  %143 = load i16, ptr %12, align 2
-  %144 = zext i16 %143 to i32
-  %145 = icmp slt i32 %144, 55296
-  br i1 %145, label %150, label %146
+108:                                              ; preds = %97, %90
+  %109 = load i16, ptr %13, align 2, !tbaa !3
+  %110 = zext i16 %109 to i32
+  %111 = icmp slt i32 %110, 128
+  br i1 %111, label %112, label %119
 
-146:                                              ; preds = %142
-  %147 = load i16, ptr %12, align 2
-  %148 = zext i16 %147 to i32
-  %149 = icmp sge i32 %148, 57344
-  br i1 %149, label %150, label %180
-
-150:                                              ; preds = %146, %142
-  %151 = load i16, ptr %12, align 2
-  %152 = zext i16 %151 to i32
-  %153 = ashr i32 %152, 12
-  %154 = or i32 224, %153
-  %155 = trunc i32 %154 to i8
-  %156 = load ptr, ptr %11, align 8
-  %157 = load i64, ptr %9, align 8
-  %158 = getelementptr inbounds i8, ptr %156, i64 %157
-  store i8 %155, ptr %158, align 1
-  %159 = load i16, ptr %12, align 2
-  %160 = zext i16 %159 to i32
-  %161 = ashr i32 %160, 6
-  %162 = and i32 %161, 63
-  %163 = or i32 128, %162
-  %164 = trunc i32 %163 to i8
-  %165 = load ptr, ptr %11, align 8
-  %166 = load i64, ptr %9, align 8
-  %167 = add i64 %166, 1
-  %168 = getelementptr inbounds i8, ptr %165, i64 %167
-  store i8 %164, ptr %168, align 1
-  %169 = load i16, ptr %12, align 2
-  %170 = zext i16 %169 to i32
-  %171 = and i32 %170, 63
-  %172 = or i32 128, %171
-  %173 = trunc i32 %172 to i8
-  %174 = load ptr, ptr %11, align 8
-  %175 = load i64, ptr %9, align 8
-  %176 = add i64 %175, 2
-  %177 = getelementptr inbounds i8, ptr %174, i64 %176
-  store i8 %173, ptr %177, align 1
-  %178 = load i64, ptr %9, align 8
-  %179 = add i64 %178, 3
-  store i64 %179, ptr %9, align 8
-  br label %273
-
-180:                                              ; preds = %146
-  %181 = load i16, ptr %12, align 2
-  %182 = zext i16 %181 to i32
-  %183 = icmp slt i32 %182, 56320
-  br i1 %183, label %184, label %259
-
-184:                                              ; preds = %180
-  %185 = load i64, ptr %8, align 8
-  %186 = add i64 %185, 3
-  %187 = load i64, ptr %6, align 8
-  %188 = icmp ult i64 %186, %187
-  br i1 %188, label %189, label %259
-
-189:                                              ; preds = %184
-  %190 = load i16, ptr %12, align 2
-  %191 = zext i16 %190 to i32
-  %192 = sub nsw i32 %191, 55296
-  %193 = add nsw i32 %192, 64
-  %194 = trunc i32 %193 to i16
-  store i16 %194, ptr %12, align 2
-  %195 = load i64, ptr %8, align 8
-  %196 = add i64 %195, 3
-  %197 = load i64, ptr %6, align 8
-  %198 = icmp ult i64 %196, %197
-  br i1 %198, label %199, label %206
-
-199:                                              ; preds = %189
-  %200 = load ptr, ptr %5, align 8
-  %201 = load i64, ptr %8, align 8
-  %202 = add i64 %201, 2
-  %203 = getelementptr inbounds i8, ptr %200, i64 %202
-  %204 = load i16, ptr %203, align 1
-  %205 = sext i16 %204 to i32
-  br label %207
-
-206:                                              ; preds = %189
-  br label %207
-
-207:                                              ; preds = %206, %199
-  %208 = phi i32 [ %205, %199 ], [ 0, %206 ]
-  %209 = trunc i32 %208 to i16
-  store i16 %209, ptr %13, align 2
-  %210 = load i16, ptr %13, align 2
-  %211 = zext i16 %210 to i32
-  %212 = sub nsw i32 %211, 56320
-  %213 = trunc i32 %212 to i16
-  store i16 %213, ptr %13, align 2
-  %214 = load i16, ptr %12, align 2
-  %215 = zext i16 %214 to i32
-  %216 = ashr i32 %215, 8
-  %217 = or i32 240, %216
-  %218 = trunc i32 %217 to i8
-  %219 = load ptr, ptr %11, align 8
-  %220 = load i64, ptr %9, align 8
-  %221 = getelementptr inbounds i8, ptr %219, i64 %220
-  store i8 %218, ptr %221, align 1
-  %222 = load i16, ptr %12, align 2
-  %223 = zext i16 %222 to i32
-  %224 = ashr i32 %223, 2
-  %225 = and i32 %224, 63
-  %226 = or i32 128, %225
-  %227 = trunc i32 %226 to i8
-  %228 = load ptr, ptr %11, align 8
-  %229 = load i64, ptr %9, align 8
-  %230 = add i64 %229, 1
-  %231 = getelementptr inbounds i8, ptr %228, i64 %230
-  store i8 %227, ptr %231, align 1
-  %232 = load i16, ptr %12, align 2
-  %233 = zext i16 %232 to i32
-  %234 = and i32 %233, 3
-  %235 = shl i32 %234, 4
-  %236 = or i32 128, %235
-  %237 = load i16, ptr %13, align 2
-  %238 = zext i16 %237 to i32
-  %239 = ashr i32 %238, 6
-  %240 = or i32 %236, %239
-  %241 = trunc i32 %240 to i8
-  %242 = load ptr, ptr %11, align 8
-  %243 = load i64, ptr %9, align 8
-  %244 = add i64 %243, 2
-  %245 = getelementptr inbounds i8, ptr %242, i64 %244
-  store i8 %241, ptr %245, align 1
-  %246 = load i16, ptr %13, align 2
-  %247 = zext i16 %246 to i32
-  %248 = and i32 %247, 63
-  %249 = or i32 128, %248
-  %250 = trunc i32 %249 to i8
-  %251 = load ptr, ptr %11, align 8
-  %252 = load i64, ptr %9, align 8
-  %253 = add i64 %252, 3
-  %254 = getelementptr inbounds i8, ptr %251, i64 %253
-  store i8 %250, ptr %254, align 1
-  %255 = load i64, ptr %9, align 8
-  %256 = add i64 %255, 4
-  store i64 %256, ptr %9, align 8
-  %257 = load i64, ptr %8, align 8
-  %258 = add i64 %257, 2
-  store i64 %258, ptr %8, align 8
-  br label %272
-
-259:                                              ; preds = %184, %180
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.19)
-  %260 = load ptr, ptr %11, align 8
-  %261 = load i64, ptr %9, align 8
-  %262 = add i64 %261, 1
-  store i64 %262, ptr %9, align 8
-  %263 = getelementptr inbounds i8, ptr %260, i64 %261
-  store i8 -17, ptr %263, align 1
-  %264 = load ptr, ptr %11, align 8
-  %265 = load i64, ptr %9, align 8
-  %266 = add i64 %265, 1
-  store i64 %266, ptr %9, align 8
-  %267 = getelementptr inbounds i8, ptr %264, i64 %265
-  store i8 -65, ptr %267, align 1
-  %268 = load ptr, ptr %11, align 8
-  %269 = load i64, ptr %9, align 8
-  %270 = add i64 %269, 1
-  store i64 %270, ptr %9, align 8
-  %271 = getelementptr inbounds i8, ptr %268, i64 %269
-  store i8 -67, ptr %271, align 1
-  br label %272
-
-272:                                              ; preds = %259, %207
-  br label %273
-
-273:                                              ; preds = %272, %150
-  br label %274
-
-274:                                              ; preds = %273, %122
-  br label %275
-
-275:                                              ; preds = %274, %111
+112:                                              ; preds = %108
+  %113 = load i16, ptr %13, align 2, !tbaa !3
+  %114 = trunc i16 %113 to i8
+  %115 = load ptr, ptr %11, align 8, !tbaa !7
+  %116 = load i64, ptr %9, align 8, !tbaa !10
+  %117 = add i64 %116, 1
+  store i64 %117, ptr %9, align 8, !tbaa !10
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 %116
+  store i8 %114, ptr %118, align 1, !tbaa !12
   br label %276
 
-276:                                              ; preds = %275
-  %277 = load i64, ptr %8, align 8
-  %278 = add i64 %277, 2
-  store i64 %278, ptr %8, align 8
-  br label %79
+119:                                              ; preds = %108
+  %120 = load i16, ptr %13, align 2, !tbaa !3
+  %121 = zext i16 %120 to i32
+  %122 = icmp slt i32 %121, 2048
+  br i1 %122, label %123, label %143
 
-279:                                              ; preds = %87
-  %280 = load i64, ptr %9, align 8
-  %281 = load i64, ptr %10, align 8
-  %282 = icmp uge i64 %280, %281
-  br i1 %282, label %283, label %286
+123:                                              ; preds = %119
+  %124 = load i16, ptr %13, align 2, !tbaa !3
+  %125 = zext i16 %124 to i32
+  %126 = ashr i32 %125, 6
+  %127 = or i32 192, %126
+  %128 = trunc i32 %127 to i8
+  %129 = load ptr, ptr %11, align 8, !tbaa !7
+  %130 = load i64, ptr %9, align 8, !tbaa !10
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 %130
+  store i8 %128, ptr %131, align 1, !tbaa !12
+  %132 = load i16, ptr %13, align 2, !tbaa !3
+  %133 = zext i16 %132 to i32
+  %134 = and i32 %133, 63
+  %135 = or i32 128, %134
+  %136 = trunc i32 %135 to i8
+  %137 = load ptr, ptr %11, align 8, !tbaa !7
+  %138 = load i64, ptr %9, align 8, !tbaa !10
+  %139 = add i64 %138, 1
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 %139
+  store i8 %136, ptr %140, align 1, !tbaa !12
+  %141 = load i64, ptr %9, align 8, !tbaa !10
+  %142 = add i64 %141, 2
+  store i64 %142, ptr %9, align 8, !tbaa !10
+  br label %275
 
-283:                                              ; preds = %279
-  %284 = load i64, ptr %10, align 8
-  %285 = sub i64 %284, 1
-  store i64 %285, ptr %9, align 8
-  br label %286
+143:                                              ; preds = %119
+  %144 = load i16, ptr %13, align 2, !tbaa !3
+  %145 = zext i16 %144 to i32
+  %146 = icmp slt i32 %145, 55296
+  br i1 %146, label %151, label %147
 
-286:                                              ; preds = %283, %279
-  %287 = load ptr, ptr %11, align 8
-  %288 = load i64, ptr %9, align 8
-  %289 = getelementptr inbounds i8, ptr %287, i64 %288
-  store i8 0, ptr %289, align 1
-  %290 = load ptr, ptr %11, align 8
-  store ptr %290, ptr %4, align 8
-  br label %291
+147:                                              ; preds = %143
+  %148 = load i16, ptr %13, align 2, !tbaa !3
+  %149 = zext i16 %148 to i32
+  %150 = icmp sge i32 %149, 57344
+  br i1 %150, label %151, label %181
 
-291:                                              ; preds = %286, %35, %20
-  %292 = load ptr, ptr %4, align 8
-  ret ptr %292
+151:                                              ; preds = %147, %143
+  %152 = load i16, ptr %13, align 2, !tbaa !3
+  %153 = zext i16 %152 to i32
+  %154 = ashr i32 %153, 12
+  %155 = or i32 224, %154
+  %156 = trunc i32 %155 to i8
+  %157 = load ptr, ptr %11, align 8, !tbaa !7
+  %158 = load i64, ptr %9, align 8, !tbaa !10
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 %158
+  store i8 %156, ptr %159, align 1, !tbaa !12
+  %160 = load i16, ptr %13, align 2, !tbaa !3
+  %161 = zext i16 %160 to i32
+  %162 = ashr i32 %161, 6
+  %163 = and i32 %162, 63
+  %164 = or i32 128, %163
+  %165 = trunc i32 %164 to i8
+  %166 = load ptr, ptr %11, align 8, !tbaa !7
+  %167 = load i64, ptr %9, align 8, !tbaa !10
+  %168 = add i64 %167, 1
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 %168
+  store i8 %165, ptr %169, align 1, !tbaa !12
+  %170 = load i16, ptr %13, align 2, !tbaa !3
+  %171 = zext i16 %170 to i32
+  %172 = and i32 %171, 63
+  %173 = or i32 128, %172
+  %174 = trunc i32 %173 to i8
+  %175 = load ptr, ptr %11, align 8, !tbaa !7
+  %176 = load i64, ptr %9, align 8, !tbaa !10
+  %177 = add i64 %176, 2
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 %177
+  store i8 %174, ptr %178, align 1, !tbaa !12
+  %179 = load i64, ptr %9, align 8, !tbaa !10
+  %180 = add i64 %179, 3
+  store i64 %180, ptr %9, align 8, !tbaa !10
+  br label %274
+
+181:                                              ; preds = %147
+  %182 = load i16, ptr %13, align 2, !tbaa !3
+  %183 = zext i16 %182 to i32
+  %184 = icmp slt i32 %183, 56320
+  br i1 %184, label %185, label %260
+
+185:                                              ; preds = %181
+  %186 = load i64, ptr %8, align 8, !tbaa !10
+  %187 = add i64 %186, 3
+  %188 = load i64, ptr %6, align 8, !tbaa !10
+  %189 = icmp ult i64 %187, %188
+  br i1 %189, label %190, label %260
+
+190:                                              ; preds = %185
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #11
+  %191 = load i16, ptr %13, align 2, !tbaa !3
+  %192 = zext i16 %191 to i32
+  %193 = sub nsw i32 %192, 55296
+  %194 = add nsw i32 %193, 64
+  %195 = trunc i32 %194 to i16
+  store i16 %195, ptr %13, align 2, !tbaa !3
+  %196 = load i64, ptr %8, align 8, !tbaa !10
+  %197 = add i64 %196, 3
+  %198 = load i64, ptr %6, align 8, !tbaa !10
+  %199 = icmp ult i64 %197, %198
+  br i1 %199, label %200, label %207
+
+200:                                              ; preds = %190
+  %201 = load ptr, ptr %5, align 8, !tbaa !7
+  %202 = load i64, ptr %8, align 8, !tbaa !10
+  %203 = add i64 %202, 2
+  %204 = getelementptr inbounds nuw i8, ptr %201, i64 %203
+  %205 = load i16, ptr %204, align 1, !tbaa !12
+  %206 = sext i16 %205 to i32
+  br label %208
+
+207:                                              ; preds = %190
+  br label %208
+
+208:                                              ; preds = %207, %200
+  %209 = phi i32 [ %206, %200 ], [ 0, %207 ]
+  %210 = trunc i32 %209 to i16
+  store i16 %210, ptr %14, align 2, !tbaa !3
+  %211 = load i16, ptr %14, align 2, !tbaa !3
+  %212 = zext i16 %211 to i32
+  %213 = sub nsw i32 %212, 56320
+  %214 = trunc i32 %213 to i16
+  store i16 %214, ptr %14, align 2, !tbaa !3
+  %215 = load i16, ptr %13, align 2, !tbaa !3
+  %216 = zext i16 %215 to i32
+  %217 = ashr i32 %216, 8
+  %218 = or i32 240, %217
+  %219 = trunc i32 %218 to i8
+  %220 = load ptr, ptr %11, align 8, !tbaa !7
+  %221 = load i64, ptr %9, align 8, !tbaa !10
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 %221
+  store i8 %219, ptr %222, align 1, !tbaa !12
+  %223 = load i16, ptr %13, align 2, !tbaa !3
+  %224 = zext i16 %223 to i32
+  %225 = ashr i32 %224, 2
+  %226 = and i32 %225, 63
+  %227 = or i32 128, %226
+  %228 = trunc i32 %227 to i8
+  %229 = load ptr, ptr %11, align 8, !tbaa !7
+  %230 = load i64, ptr %9, align 8, !tbaa !10
+  %231 = add i64 %230, 1
+  %232 = getelementptr inbounds nuw i8, ptr %229, i64 %231
+  store i8 %228, ptr %232, align 1, !tbaa !12
+  %233 = load i16, ptr %13, align 2, !tbaa !3
+  %234 = zext i16 %233 to i32
+  %235 = and i32 %234, 3
+  %236 = shl i32 %235, 4
+  %237 = or i32 128, %236
+  %238 = load i16, ptr %14, align 2, !tbaa !3
+  %239 = zext i16 %238 to i32
+  %240 = ashr i32 %239, 6
+  %241 = or i32 %237, %240
+  %242 = trunc i32 %241 to i8
+  %243 = load ptr, ptr %11, align 8, !tbaa !7
+  %244 = load i64, ptr %9, align 8, !tbaa !10
+  %245 = add i64 %244, 2
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 %245
+  store i8 %242, ptr %246, align 1, !tbaa !12
+  %247 = load i16, ptr %14, align 2, !tbaa !3
+  %248 = zext i16 %247 to i32
+  %249 = and i32 %248, 63
+  %250 = or i32 128, %249
+  %251 = trunc i32 %250 to i8
+  %252 = load ptr, ptr %11, align 8, !tbaa !7
+  %253 = load i64, ptr %9, align 8, !tbaa !10
+  %254 = add i64 %253, 3
+  %255 = getelementptr inbounds nuw i8, ptr %252, i64 %254
+  store i8 %251, ptr %255, align 1, !tbaa !12
+  %256 = load i64, ptr %9, align 8, !tbaa !10
+  %257 = add i64 %256, 4
+  store i64 %257, ptr %9, align 8, !tbaa !10
+  %258 = load i64, ptr %8, align 8, !tbaa !10
+  %259 = add i64 %258, 2
+  store i64 %259, ptr %8, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #11
+  br label %273
+
+260:                                              ; preds = %185, %181
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.19)
+  %261 = load ptr, ptr %11, align 8, !tbaa !7
+  %262 = load i64, ptr %9, align 8, !tbaa !10
+  %263 = add i64 %262, 1
+  store i64 %263, ptr %9, align 8, !tbaa !10
+  %264 = getelementptr inbounds nuw i8, ptr %261, i64 %262
+  store i8 -17, ptr %264, align 1, !tbaa !12
+  %265 = load ptr, ptr %11, align 8, !tbaa !7
+  %266 = load i64, ptr %9, align 8, !tbaa !10
+  %267 = add i64 %266, 1
+  store i64 %267, ptr %9, align 8, !tbaa !10
+  %268 = getelementptr inbounds nuw i8, ptr %265, i64 %266
+  store i8 -65, ptr %268, align 1, !tbaa !12
+  %269 = load ptr, ptr %11, align 8, !tbaa !7
+  %270 = load i64, ptr %9, align 8, !tbaa !10
+  %271 = add i64 %270, 1
+  store i64 %271, ptr %9, align 8, !tbaa !10
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 %270
+  store i8 -67, ptr %272, align 1, !tbaa !12
+  br label %273
+
+273:                                              ; preds = %260, %208
+  br label %274
+
+274:                                              ; preds = %273, %151
+  br label %275
+
+275:                                              ; preds = %274, %123
+  br label %276
+
+276:                                              ; preds = %275, %112
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #11
+  br label %277
+
+277:                                              ; preds = %276
+  %278 = load i64, ptr %8, align 8, !tbaa !10
+  %279 = add i64 %278, 2
+  store i64 %279, ptr %8, align 8, !tbaa !10
+  br label %80
+
+280:                                              ; preds = %88
+  %281 = load i64, ptr %9, align 8, !tbaa !10
+  %282 = load i64, ptr %10, align 8, !tbaa !10
+  %283 = icmp uge i64 %281, %282
+  br i1 %283, label %284, label %287
+
+284:                                              ; preds = %280
+  %285 = load i64, ptr %10, align 8, !tbaa !10
+  %286 = sub i64 %285, 1
+  store i64 %286, ptr %9, align 8, !tbaa !10
+  br label %287
+
+287:                                              ; preds = %284, %280
+  %288 = load ptr, ptr %11, align 8, !tbaa !7
+  %289 = load i64, ptr %9, align 8, !tbaa !10
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 %289
+  store i8 0, ptr %290, align 1, !tbaa !12
+  %291 = load ptr, ptr %11, align 8, !tbaa !7
+  store ptr %291, ptr %4, align 8
+  store i32 1, ptr %12, align 4
+  br label %292
+
+292:                                              ; preds = %287, %36, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %293 = load ptr, ptr %4, align 8
+  ret ptr %293
 }
 
-declare ptr @cli_safer_strdup(ptr noundef) #1
+declare ptr @cli_safer_strdup(ptr noundef) #3
 
-declare ptr @cli_max_malloc(i64 noundef) #1
+declare ptr @cli_max_malloc(i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_isutf8(ptr noundef %0, i32 noundef %1) #0 {
@@ -3422,223 +3666,245 @@ define i32 @cli_isutf8(ptr noundef %0, i32 noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 0, ptr %6, align 4
-  br label %9
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 0, ptr %6, align 4, !tbaa !20
+  br label %10
 
-9:                                                ; preds = %125, %2
-  %10 = load i32, ptr %6, align 4
-  %11 = load i32, ptr %5, align 4
-  %12 = icmp ult i32 %10, %11
-  br i1 %12, label %13, label %128
+10:                                               ; preds = %129, %2
+  %11 = load i32, ptr %6, align 4, !tbaa !20
+  %12 = load i32, ptr %5, align 4, !tbaa !20
+  %13 = icmp ult i32 %11, %12
+  br i1 %13, label %14, label %132
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %4, align 8
-  %15 = load i32, ptr %6, align 4
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  %18 = load i8, ptr %17, align 1
-  %19 = sext i8 %18 to i32
-  %20 = and i32 %19, 128
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = load i32, ptr %6, align 4, !tbaa !20
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !12
+  %20 = sext i8 %19 to i32
+  %21 = and i32 %20, 128
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %13
-  br label %125
-
-23:                                               ; preds = %13
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %24, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = sext i8 %28 to i32
-  %30 = and i32 %29, 64
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %23
-  store i32 0, ptr %3, align 4
+23:                                               ; preds = %14
   br label %129
 
-33:                                               ; preds = %23
-  %34 = load ptr, ptr %4, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %34, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %39 = sext i8 %38 to i32
-  %40 = and i32 %39, 32
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %43
+24:                                               ; preds = %14
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = load i32, ptr %6, align 4, !tbaa !20
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !12
+  %30 = sext i8 %29 to i32
+  %31 = and i32 %30, 64
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %34
 
-42:                                               ; preds = %33
+33:                                               ; preds = %24
+  store i32 0, ptr %3, align 4
   store i32 1, ptr %8, align 4
-  br label %88
+  br label %133
 
-43:                                               ; preds = %33
-  %44 = load ptr, ptr %4, align 8
-  %45 = load i32, ptr %6, align 4
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %44, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = sext i8 %48 to i32
-  %50 = and i32 %49, 16
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %53
+34:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %35 = load ptr, ptr %4, align 8, !tbaa !7
+  %36 = load i32, ptr %6, align 4, !tbaa !20
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !12
+  %40 = sext i8 %39 to i32
+  %41 = and i32 %40, 32
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %44
 
-52:                                               ; preds = %43
-  store i32 2, ptr %8, align 4
-  br label %87
-
-53:                                               ; preds = %43
-  %54 = load ptr, ptr %4, align 8
-  %55 = load i32, ptr %6, align 4
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %54, i64 %56
-  %58 = load i8, ptr %57, align 1
-  %59 = sext i8 %58 to i32
-  %60 = and i32 %59, 8
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %63
-
-62:                                               ; preds = %53
-  store i32 3, ptr %8, align 4
-  br label %86
-
-63:                                               ; preds = %53
-  %64 = load ptr, ptr %4, align 8
-  %65 = load i32, ptr %6, align 4
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %64, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = sext i8 %68 to i32
-  %70 = and i32 %69, 4
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %73
-
-72:                                               ; preds = %63
-  store i32 4, ptr %8, align 4
-  br label %85
-
-73:                                               ; preds = %63
-  %74 = load ptr, ptr %4, align 8
-  %75 = load i32, ptr %6, align 4
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %74, i64 %76
-  %78 = load i8, ptr %77, align 1
-  %79 = sext i8 %78 to i32
-  %80 = and i32 %79, 2
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %83
-
-82:                                               ; preds = %73
-  store i32 5, ptr %8, align 4
-  br label %84
-
-83:                                               ; preds = %73
-  store i32 0, ptr %3, align 4
-  br label %129
-
-84:                                               ; preds = %82
-  br label %85
-
-85:                                               ; preds = %84, %72
-  br label %86
-
-86:                                               ; preds = %85, %62
-  br label %87
-
-87:                                               ; preds = %86, %52
-  br label %88
-
-88:                                               ; preds = %87, %42
-  store i32 0, ptr %7, align 4
+43:                                               ; preds = %34
+  store i32 1, ptr %9, align 4, !tbaa !20
   br label %89
 
-89:                                               ; preds = %119, %88
-  %90 = load i32, ptr %7, align 4
-  %91 = load i32, ptr %8, align 4
-  %92 = icmp ult i32 %90, %91
-  br i1 %92, label %93, label %122
+44:                                               ; preds = %34
+  %45 = load ptr, ptr %4, align 8, !tbaa !7
+  %46 = load i32, ptr %6, align 4, !tbaa !20
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !12
+  %50 = sext i8 %49 to i32
+  %51 = and i32 %50, 16
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %54
 
-93:                                               ; preds = %89
-  %94 = load i32, ptr %6, align 4
-  %95 = add i32 %94, 1
-  store i32 %95, ptr %6, align 4
-  %96 = load i32, ptr %5, align 4
-  %97 = icmp uge i32 %95, %96
-  br i1 %97, label %98, label %99
+53:                                               ; preds = %44
+  store i32 2, ptr %9, align 4, !tbaa !20
+  br label %88
 
-98:                                               ; preds = %93
+54:                                               ; preds = %44
+  %55 = load ptr, ptr %4, align 8, !tbaa !7
+  %56 = load i32, ptr %6, align 4, !tbaa !20
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !12
+  %60 = sext i8 %59 to i32
+  %61 = and i32 %60, 8
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %64
+
+63:                                               ; preds = %54
+  store i32 3, ptr %9, align 4, !tbaa !20
+  br label %87
+
+64:                                               ; preds = %54
+  %65 = load ptr, ptr %4, align 8, !tbaa !7
+  %66 = load i32, ptr %6, align 4, !tbaa !20
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %67
+  %69 = load i8, ptr %68, align 1, !tbaa !12
+  %70 = sext i8 %69 to i32
+  %71 = and i32 %70, 4
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %74
+
+73:                                               ; preds = %64
+  store i32 4, ptr %9, align 4, !tbaa !20
+  br label %86
+
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %4, align 8, !tbaa !7
+  %76 = load i32, ptr %6, align 4, !tbaa !20
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 %77
+  %79 = load i8, ptr %78, align 1, !tbaa !12
+  %80 = sext i8 %79 to i32
+  %81 = and i32 %80, 2
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %84
+
+83:                                               ; preds = %74
+  store i32 5, ptr %9, align 4, !tbaa !20
+  br label %85
+
+84:                                               ; preds = %74
   store i32 0, ptr %3, align 4
-  br label %129
-
-99:                                               ; preds = %93
-  %100 = load ptr, ptr %4, align 8
-  %101 = load i32, ptr %6, align 4
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds i8, ptr %100, i64 %102
-  %104 = load i8, ptr %103, align 1
-  %105 = sext i8 %104 to i32
-  %106 = and i32 %105, 128
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %117, label %108
-
-108:                                              ; preds = %99
-  %109 = load ptr, ptr %4, align 8
-  %110 = load i32, ptr %6, align 4
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %109, i64 %111
-  %113 = load i8, ptr %112, align 1
-  %114 = sext i8 %113 to i32
-  %115 = and i32 %114, 64
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %118
-
-117:                                              ; preds = %108, %99
-  store i32 0, ptr %3, align 4
-  br label %129
-
-118:                                              ; preds = %108
-  br label %119
-
-119:                                              ; preds = %118
-  %120 = load i32, ptr %7, align 4
-  %121 = add i32 %120, 1
-  store i32 %121, ptr %7, align 4
-  br label %89
-
-122:                                              ; preds = %89
-  br label %123
-
-123:                                              ; preds = %122
+  store i32 1, ptr %8, align 4
   br label %124
 
-124:                                              ; preds = %123
-  br label %125
+85:                                               ; preds = %83
+  br label %86
 
-125:                                              ; preds = %124, %22
-  %126 = load i32, ptr %6, align 4
-  %127 = add i32 %126, 1
-  store i32 %127, ptr %6, align 4
-  br label %9
+86:                                               ; preds = %85, %73
+  br label %87
 
-128:                                              ; preds = %9
-  store i32 1, ptr %3, align 4
+87:                                               ; preds = %86, %63
+  br label %88
+
+88:                                               ; preds = %87, %53
+  br label %89
+
+89:                                               ; preds = %88, %43
+  store i32 0, ptr %7, align 4, !tbaa !20
+  br label %90
+
+90:                                               ; preds = %120, %89
+  %91 = load i32, ptr %7, align 4, !tbaa !20
+  %92 = load i32, ptr %9, align 4, !tbaa !20
+  %93 = icmp ult i32 %91, %92
+  br i1 %93, label %94, label %123
+
+94:                                               ; preds = %90
+  %95 = load i32, ptr %6, align 4, !tbaa !20
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %6, align 4, !tbaa !20
+  %97 = load i32, ptr %5, align 4, !tbaa !20
+  %98 = icmp uge i32 %96, %97
+  br i1 %98, label %99, label %100
+
+99:                                               ; preds = %94
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %124
+
+100:                                              ; preds = %94
+  %101 = load ptr, ptr %4, align 8, !tbaa !7
+  %102 = load i32, ptr %6, align 4, !tbaa !20
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 %103
+  %105 = load i8, ptr %104, align 1, !tbaa !12
+  %106 = sext i8 %105 to i32
+  %107 = and i32 %106, 128
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %118, label %109
+
+109:                                              ; preds = %100
+  %110 = load ptr, ptr %4, align 8, !tbaa !7
+  %111 = load i32, ptr %6, align 4, !tbaa !20
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 %112
+  %114 = load i8, ptr %113, align 1, !tbaa !12
+  %115 = sext i8 %114 to i32
+  %116 = and i32 %115, 64
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %119
+
+118:                                              ; preds = %109, %100
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %124
+
+119:                                              ; preds = %109
+  br label %120
+
+120:                                              ; preds = %119
+  %121 = load i32, ptr %7, align 4, !tbaa !20
+  %122 = add i32 %121, 1
+  store i32 %122, ptr %7, align 4, !tbaa !20
+  br label %90
+
+123:                                              ; preds = %90
+  store i32 0, ptr %8, align 4
+  br label %124
+
+124:                                              ; preds = %123, %118, %99, %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  %125 = load i32, ptr %8, align 4
+  switch i32 %125, label %133 [
+    i32 0, label %126
+  ]
+
+126:                                              ; preds = %124
+  br label %127
+
+127:                                              ; preds = %126
+  br label %128
+
+128:                                              ; preds = %127
   br label %129
 
-129:                                              ; preds = %128, %117, %98, %83, %32
-  %130 = load i32, ptr %3, align 4
-  ret i32 %130
+129:                                              ; preds = %128, %23
+  %130 = load i32, ptr %6, align 4, !tbaa !20
+  %131 = add i32 %130, 1
+  store i32 %131, ptr %6, align 4, !tbaa !20
+  br label %10
+
+132:                                              ; preds = %10
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %133
+
+133:                                              ; preds = %132, %124, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  %134 = load i32, ptr %3, align 4
+  ret i32 %134
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #6
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #8
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @toupper(i32 noundef) #2
+; Function Attrs: nounwind willreturn memory(none)
+declare ptr @__ctype_toupper_loc() #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @init_iconv_pool_ifneeded() #0 {
@@ -3646,57 +3912,62 @@ define internal void @init_iconv_pool_ifneeded() #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @cache_get_tls_instance() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @cache_get_tls_instance() #2 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = load i32, ptr @iconv_pool_tls_key, align 4
-  %4 = call ptr @pthread_getspecific(i32 noundef %3) #11
-  store ptr %4, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %17, label %7
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %4 = load i32, ptr @iconv_pool_tls_key, align 4, !tbaa !20
+  %5 = call ptr @pthread_getspecific(i32 noundef %4) #11
+  store ptr %5, ptr %2, align 8, !tbaa !31
+  %6 = load ptr, ptr %2, align 8, !tbaa !31
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %18, label %8
 
-7:                                                ; preds = %0
-  %8 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 56) #13
-  store ptr %8, ptr %2, align 8
-  %9 = load ptr, ptr %2, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %12, label %11
+8:                                                ; preds = %0
+  %9 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 56) #15
+  store ptr %9, ptr %2, align 8, !tbaa !31
+  %10 = load ptr, ptr %2, align 8, !tbaa !31
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %7
+12:                                               ; preds = %8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.802)
   store ptr null, ptr %1, align 8
-  br label %19
+  store i32 1, ptr %3, align 4
+  br label %20
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %2, align 8
-  call void @iconv_cache_init(ptr noundef %13)
-  %14 = load i32, ptr @iconv_pool_tls_key, align 4
-  %15 = load ptr, ptr %2, align 8
-  %16 = call i32 @pthread_setspecific(i32 noundef %14, ptr noundef %15) #11
-  br label %17
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %2, align 8, !tbaa !31
+  call void @iconv_cache_init(ptr noundef %14)
+  %15 = load i32, ptr @iconv_pool_tls_key, align 4, !tbaa !20
+  %16 = load ptr, ptr %2, align 8, !tbaa !31
+  %17 = call i32 @pthread_setspecific(i32 noundef %15, ptr noundef %16) #11
+  br label %18
 
-17:                                               ; preds = %12, %0
-  %18 = load ptr, ptr %2, align 8
-  store ptr %18, ptr %1, align 8
-  br label %19
+18:                                               ; preds = %13, %0
+  %19 = load ptr, ptr %2, align 8, !tbaa !31
+  store ptr %19, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %20
 
-19:                                               ; preds = %17, %11
-  %20 = load ptr, ptr %1, align 8
-  ret ptr %20
+20:                                               ; preds = %18, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  %21 = load ptr, ptr %1, align 8
+  ret ptr %21
 }
 
-declare ptr @cli_max_realloc_or_free(ptr noundef, i64 noundef) #1
+declare ptr @cli_max_realloc_or_free(ptr noundef, i64 noundef) #3
 
-declare ptr @cli_hashtab_insert(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #1
+declare ptr @cli_hashtab_insert(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #3
 
-declare i32 @pthread_once(ptr noundef, ptr noundef) #1
+declare i32 @pthread_once(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @iconv_pool_tls_key_alloc() #0 {
   %1 = call i32 @pthread_key_create(ptr noundef @iconv_pool_tls_key, ptr noundef @iconv_pool_tls_instance_destroy) #11
-  %2 = load i32, ptr @cache_atexit_registered, align 4
+  %2 = load i32, ptr @cache_atexit_registered, align 4, !tbaa !20
   %3 = icmp ne i32 %2, 0
   br i1 %3, label %9, label %4
 
@@ -3711,7 +3982,7 @@ define internal void @iconv_pool_tls_key_alloc() #0 {
   br label %8
 
 8:                                                ; preds = %7, %4
-  store i32 1, ptr @cache_atexit_registered, align 4
+  store i32 1, ptr @cache_atexit_registered, align 4, !tbaa !20
   br label %9
 
 9:                                                ; preds = %8, %0
@@ -3719,18 +3990,18 @@ define internal void @iconv_pool_tls_key_alloc() #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_key_create(ptr noundef, ptr noundef) #3
+declare i32 @pthread_key_create(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @iconv_pool_tls_instance_destroy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !24
   call void @iconv_cache_destroy(ptr noundef %6)
   br label %7
 
@@ -3739,28 +4010,30 @@ define internal void @iconv_pool_tls_instance_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) #3
+declare i32 @atexit(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @iconv_cache_cleanup_main() #0 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr @iconv_pool_tls_key, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %2 = load i32, ptr @iconv_pool_tls_key, align 4, !tbaa !20
   %3 = call ptr @pthread_getspecific(i32 noundef %2) #11
-  store ptr %3, ptr %1, align 8
-  %4 = load ptr, ptr %1, align 8
+  store ptr %3, ptr %1, align 8, !tbaa !31
+  %4 = load ptr, ptr %1, align 8, !tbaa !31
   %5 = icmp ne ptr %4, null
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr %1, align 8
+  %7 = load ptr, ptr %1, align 8, !tbaa !31
   call void @iconv_pool_tls_instance_destroy(ptr noundef %7)
-  %8 = load i32, ptr @iconv_pool_tls_key, align 4
+  %8 = load i32, ptr @iconv_pool_tls_key, align 4, !tbaa !20
   %9 = call i32 @pthread_setspecific(i32 noundef %8, ptr noundef null) #11
   br label %10
 
 10:                                               ; preds = %6, %0
-  %11 = load i32, ptr @iconv_pool_tls_key, align 4
+  %11 = load i32, ptr @iconv_pool_tls_key, align 4, !tbaa !20
   %12 = call i32 @pthread_key_delete(i32 noundef %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret void
 }
 
@@ -3768,110 +4041,157 @@ define internal void @iconv_cache_cleanup_main() #0 {
 define internal void @iconv_cache_destroy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !31
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.800, ptr noundef %4)
-  store i64 0, ptr %3, align 8
+  store i64 0, ptr %3, align 8, !tbaa !10
   br label %5
 
 5:                                                ; preds = %25, %1
-  %6 = load i64, ptr %3, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.iconv_cache, ptr %7, i32 0, i32 2
-  %9 = load i64, ptr %8, align 8
+  %6 = load i64, ptr %3, align 8, !tbaa !10
+  %7 = load ptr, ptr %2, align 8, !tbaa !31
+  %8 = getelementptr inbounds nuw %struct.iconv_cache, ptr %7, i32 0, i32 2
+  %9 = load i64, ptr %8, align 8, !tbaa !37
   %10 = icmp ult i64 %6, %9
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.iconv_cache, ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = load i64, ptr %3, align 8
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
-  %17 = load ptr, ptr %16, align 8
+  %12 = load ptr, ptr %2, align 8, !tbaa !31
+  %13 = getelementptr inbounds nuw %struct.iconv_cache, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !36
+  %15 = load i64, ptr %3, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.801, ptr noundef %17)
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.iconv_cache, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %3, align 8
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
-  %23 = load ptr, ptr %22, align 8
+  %18 = load ptr, ptr %2, align 8, !tbaa !31
+  %19 = getelementptr inbounds nuw %struct.iconv_cache, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %21 = load i64, ptr %3, align 8, !tbaa !10
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = call i32 @iconv_close(ptr noundef %23)
   br label %25
 
 25:                                               ; preds = %11
-  %26 = load i64, ptr %3, align 8
+  %26 = load i64, ptr %3, align 8, !tbaa !10
   %27 = add i64 %26, 1
-  store i64 %27, ptr %3, align 8
+  store i64 %27, ptr %3, align 8, !tbaa !10
   br label %5
 
 28:                                               ; preds = %5
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.iconv_cache, ptr %29, i32 0, i32 3
+  %29 = load ptr, ptr %2, align 8, !tbaa !31
+  %30 = getelementptr inbounds nuw %struct.iconv_cache, ptr %29, i32 0, i32 3
   call void @cli_hashtab_clear(ptr noundef %30)
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.iconv_cache, ptr %31, i32 0, i32 3
-  %33 = getelementptr inbounds %struct.cli_hashtable, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
+  %31 = load ptr, ptr %2, align 8, !tbaa !31
+  %32 = getelementptr inbounds nuw %struct.iconv_cache, ptr %31, i32 0, i32 3
+  %33 = getelementptr inbounds nuw %struct.cli_hashtable, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !46
   call void @free(ptr noundef %34) #11
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.iconv_cache, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
+  %35 = load ptr, ptr %2, align 8, !tbaa !31
+  %36 = getelementptr inbounds nuw %struct.iconv_cache, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !36
   call void @free(ptr noundef %37) #11
-  %38 = load ptr, ptr %2, align 8
+  %38 = load ptr, ptr %2, align 8, !tbaa !31
   call void @free(ptr noundef %38) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
-declare void @cli_hashtab_clear(ptr noundef) #1
+declare void @cli_hashtab_clear(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare ptr @pthread_getspecific(i32 noundef) #3
+declare ptr @pthread_getspecific(i32 noundef) #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_setspecific(i32 noundef, ptr noundef) #3
+declare i32 @pthread_setspecific(i32 noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_key_delete(i32 noundef) #3
+declare i32 @pthread_key_delete(i32 noundef) #5
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #7
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @iconv_cache_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.803, ptr noundef %3)
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.iconv_cache, ptr %4, i32 0, i32 3
+  %4 = load ptr, ptr %2, align 8, !tbaa !31
+  %5 = getelementptr inbounds nuw %struct.iconv_cache, ptr %4, i32 0, i32 3
   %6 = call i32 @cli_hashtab_init(ptr noundef %5, i64 noundef 32)
   ret void
 }
 
-declare i32 @cli_hashtab_init(ptr noundef, i64 noundef) #1
+declare i32 @cli_hashtab_init(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { nounwind allocsize(0,1) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { nounwind allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"short", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !5, i64 0}
+!12 = !{!5, !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS11entity_conv", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS11cli_element", !9, i64 0}
+!17 = !{!18, !8, i64 0}
+!18 = !{!"cli_element", !8, i64 0, !11, i64 8, !11, i64 16}
+!19 = !{!18, !11, i64 8}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS10m_area_tag", !9, i64 0}
+!24 = !{!9, !9, i64 0}
+!25 = !{!26, !11, i64 8}
+!26 = !{!"m_area_tag", !8, i64 0, !11, i64 8, !11, i64 16, !27, i64 24}
+!27 = !{!"p1 _ZTS7cl_fmap", !9, i64 0}
+!28 = !{!26, !8, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 int", !9, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS11iconv_cache", !9, i64 0}
+!33 = !{!34, !11, i64 8}
+!34 = !{!"iconv_cache", !9, i64 0, !11, i64 8, !11, i64 16, !35, i64 24}
+!35 = !{!"cli_hashtable", !16, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
+!36 = !{!34, !9, i64 0}
+!37 = !{!34, !11, i64 16}
+!38 = !{!26, !11, i64 16}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p2 omnipotent char", !9, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 long", !9, i64 0}
+!43 = !{!44, !4, i64 0}
+!44 = !{!"codepage_entry", !4, i64 0, !8, i64 8}
+!45 = !{!44, !8, i64 8}
+!46 = !{!34, !16, i64 24}

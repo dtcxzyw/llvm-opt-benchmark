@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/BraIA64.c.ll'
-source_filename = "bench/clamav/original/BraIA64.c.ll"
+; ModuleID = 'bench/clamav/original/BraIA64.ll'
+source_filename = "bench/clamav/original/BraIA64.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -17,12 +17,12 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
 
 8:                                                ; preds = %6, %66
   %.06375 = phi i64 [ 0, %6 ], [ %67, %66 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %.06375
-  %10 = load i8, ptr %9, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.06375
+  %10 = load i8, ptr %9, align 1, !tbaa !3
   %11 = and i8 %10, 31
   %12 = zext nneg i8 %11 to i64
   %13 = getelementptr inbounds nuw [32 x i8], ptr @kBranchTable, i64 0, i64 %12
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = zext i8 %14 to i32
   %16 = trunc i64 %.06375 to i32
   %17 = add i32 %2, %16
@@ -50,7 +50,7 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
   %.05968 = phi i64 [ 0, %24 ], [ %33, %27 ]
   %28 = or disjoint i64 %.06375, %indvars.iv
   %gep = getelementptr i8, ptr %invariant.gep, i64 %28
-  %29 = load i8, ptr %gep, align 1
+  %29 = load i8, ptr %gep, align 1, !tbaa !3
   %30 = zext i8 %29 to i64
   %31 = shl nuw nsw i64 %indvars.iv, 3
   %32 = shl nuw nsw i64 %30, %31
@@ -100,7 +100,7 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
   %63 = trunc i64 %62 to i8
   %64 = or disjoint i64 %.06375, %indvars.iv78
   %gep71 = getelementptr i8, ptr %invariant.gep, i64 %64
-  store i8 %63, ptr %gep71, align 1
+  store i8 %63, ptr %gep71, align 1, !tbaa !3
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 6
   br i1 %exitcond81.not, label %.loopexit, label %60
@@ -121,11 +121,13 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
   ret i64 %.060
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}

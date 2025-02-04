@@ -11,107 +11,118 @@ define i32 @is_valid_hostid() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = call i64 @strlen(ptr noundef @hostid) #4
-  %5 = icmp ne i64 %4, 36
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %51
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  %5 = call i64 @strlen(ptr noundef @hostid) #6
+  %6 = icmp ne i64 %5, 36
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %0
-  store i32 0, ptr %2, align 4
-  store i32 0, ptr %3, align 4
-  br label %8
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %4, align 4
+  br label %48
 
-8:                                                ; preds = %22, %7
-  %9 = load i32, ptr %3, align 4
-  %10 = icmp slt i32 %9, 36
-  br i1 %10, label %11, label %25
+8:                                                ; preds = %0
+  store i32 0, ptr %2, align 4, !tbaa !3
+  store i32 0, ptr %3, align 4, !tbaa !3
+  br label %9
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr %3, align 4
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1
-  %16 = sext i8 %15 to i32
-  %17 = icmp eq i32 %16, 45
-  br i1 %17, label %18, label %21
+9:                                                ; preds = %23, %8
+  %10 = load i32, ptr %3, align 4, !tbaa !3
+  %11 = icmp slt i32 %10, 36
+  br i1 %11, label %12, label %26
 
-18:                                               ; preds = %11
-  %19 = load i32, ptr %2, align 4
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %2, align 4
-  br label %21
+12:                                               ; preds = %9
+  %13 = load i32, ptr %3, align 4, !tbaa !3
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !7
+  %17 = sext i8 %16 to i32
+  %18 = icmp eq i32 %17, 45
+  br i1 %18, label %19, label %22
 
-21:                                               ; preds = %18, %11
+19:                                               ; preds = %12
+  %20 = load i32, ptr %2, align 4, !tbaa !3
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %2, align 4, !tbaa !3
   br label %22
 
-22:                                               ; preds = %21
-  %23 = load i32, ptr %3, align 4
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %3, align 4
-  br label %8
+22:                                               ; preds = %19, %12
+  br label %23
 
-25:                                               ; preds = %8
-  %26 = load i32, ptr %2, align 4
-  %27 = icmp ne i32 %26, 4
-  br i1 %27, label %28, label %29
+23:                                               ; preds = %22
+  %24 = load i32, ptr %3, align 4, !tbaa !3
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %3, align 4, !tbaa !3
+  br label %9
 
-28:                                               ; preds = %25
+26:                                               ; preds = %9
+  %27 = load i32, ptr %2, align 4, !tbaa !3
+  %28 = icmp ne i32 %27, 4
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %26
   store i32 0, ptr %1, align 4
-  br label %51
+  store i32 1, ptr %4, align 4
+  br label %48
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 8
-  %31 = load i8, ptr %30, align 8
+30:                                               ; preds = %26
+  %31 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 8), align 8, !tbaa !7
   %32 = sext i8 %31 to i32
   %33 = icmp ne i32 %32, 45
-  br i1 %33, label %49, label %34
+  br i1 %33, label %46, label %34
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 13
-  %36 = load i8, ptr %35, align 1
-  %37 = sext i8 %36 to i32
-  %38 = icmp ne i32 %37, 45
-  br i1 %38, label %49, label %39
+34:                                               ; preds = %30
+  %35 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 13), align 1, !tbaa !7
+  %36 = sext i8 %35 to i32
+  %37 = icmp ne i32 %36, 45
+  br i1 %37, label %46, label %38
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 18
-  %41 = load i8, ptr %40, align 2
-  %42 = sext i8 %41 to i32
-  %43 = icmp ne i32 %42, 45
-  br i1 %43, label %49, label %44
+38:                                               ; preds = %34
+  %39 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 18), align 2, !tbaa !7
+  %40 = sext i8 %39 to i32
+  %41 = icmp ne i32 %40, 45
+  br i1 %41, label %46, label %42
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 23
-  %46 = load i8, ptr %45, align 1
-  %47 = sext i8 %46 to i32
-  %48 = icmp ne i32 %47, 45
-  br i1 %48, label %49, label %50
+42:                                               ; preds = %38
+  %43 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 23), align 1, !tbaa !7
+  %44 = sext i8 %43 to i32
+  %45 = icmp ne i32 %44, 45
+  br i1 %45, label %46, label %47
 
-49:                                               ; preds = %44, %39, %34, %29
+46:                                               ; preds = %42, %38, %34, %30
   store i32 0, ptr %1, align 4
-  br label %51
+  store i32 1, ptr %4, align 4
+  br label %48
 
-50:                                               ; preds = %44
+47:                                               ; preds = %42
   store i32 1, ptr %1, align 4
-  br label %51
+  store i32 1, ptr %4, align 4
+  br label %48
 
-51:                                               ; preds = %50, %49, %28, %6
-  %52 = load i32, ptr %1, align 4
-  ret i32 %52
+48:                                               ; preds = %47, %46, %29, %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #5
+  %49 = load i32, ptr %1, align 4
+  ret i32 %49
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #1
+declare i64 @strlen(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @get_hostid(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = call i32 @strcmp(ptr noundef @hostid, ptr noundef @.str) #4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = call i32 @strcmp(ptr noundef @hostid, ptr noundef @.str) #6
   %5 = icmp ne i32 %4, 0
   br i1 %5, label %7, label %6
 
@@ -141,23 +152,30 @@ define ptr @get_hostid(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #1
+declare i32 @strcmp(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare noalias ptr @strdup(ptr noundef) #2
+declare noalias ptr @strdup(ptr noundef) #3
 
-declare i32 @logg(i32 noundef, ptr noundef, ...) #3
+declare i32 @logg(i32 noundef, ptr noundef, ...) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}

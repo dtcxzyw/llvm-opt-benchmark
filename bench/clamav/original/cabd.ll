@@ -33,105 +33,113 @@ define ptr @mspack_create_cab_decompressor(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %9, label %7
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  store ptr null, ptr %4, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %10, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr @mspack_default_system, align 8
-  store ptr %8, ptr %3, align 8
-  br label %9
+8:                                                ; preds = %1
+  %9 = load ptr, ptr @mspack_default_system, align 8, !tbaa !3
+  store ptr %9, ptr %3, align 8, !tbaa !3
+  br label %10
 
-9:                                                ; preds = %7, %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = call i32 @mspack_valid_system(ptr noundef %10)
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %14, label %13
+10:                                               ; preds = %8, %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = call i32 @mspack_valid_system(ptr noundef %11)
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %9
+14:                                               ; preds = %10
   store ptr null, ptr %2, align 8
-  br label %63
+  store i32 1, ptr %5, align 4
+  br label %64
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.mspack_system, ptr %15, i32 0, i32 7
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = call ptr %17(ptr noundef %18, i64 noundef 104)
-  store ptr %19, ptr %4, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %61
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.mspack_system, ptr %16, i32 0, i32 7
+  %18 = load ptr, ptr %17, align 8, !tbaa !10
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %20 = call ptr %18(ptr noundef %19, i64 noundef 104)
+  store ptr %20, ptr %4, align 8, !tbaa !8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %62
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %22, i32 0, i32 0
-  %24 = getelementptr inbounds %struct.mscab_decompressor, ptr %23, i32 0, i32 0
-  store ptr @cabd_open, ptr %24, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %25, i32 0, i32 0
-  %27 = getelementptr inbounds %struct.mscab_decompressor, ptr %26, i32 0, i32 1
-  store ptr @cabd_close, ptr %27, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %28, i32 0, i32 0
-  %30 = getelementptr inbounds %struct.mscab_decompressor, ptr %29, i32 0, i32 2
-  store ptr @cabd_search, ptr %30, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %31, i32 0, i32 0
-  %33 = getelementptr inbounds %struct.mscab_decompressor, ptr %32, i32 0, i32 5
-  store ptr @cabd_extract, ptr %33, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.mscab_decompressor, ptr %35, i32 0, i32 4
-  store ptr @cabd_prepend, ptr %36, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %37, i32 0, i32 0
-  %39 = getelementptr inbounds %struct.mscab_decompressor, ptr %38, i32 0, i32 3
-  store ptr @cabd_append, ptr %39, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %40, i32 0, i32 0
-  %42 = getelementptr inbounds %struct.mscab_decompressor, ptr %41, i32 0, i32 6
-  store ptr @cabd_param, ptr %42, align 8
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %43, i32 0, i32 0
-  %45 = getelementptr inbounds %struct.mscab_decompressor, ptr %44, i32 0, i32 7
-  store ptr @cabd_error, ptr %45, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %47, i32 0, i32 2
-  store ptr %46, ptr %48, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %49, i32 0, i32 1
-  store ptr null, ptr %50, align 8
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %51, i32 0, i32 7
-  store i32 0, ptr %52, align 8
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %53, i32 0, i32 4
-  store i32 32768, ptr %54, align 4
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %55, i32 0, i32 5
-  store i32 0, ptr %56, align 8
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %57, i32 0, i32 3
-  store i32 4096, ptr %58, align 8
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %59, i32 0, i32 6
-  store i32 0, ptr %60, align 4
-  br label %61
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %4, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.mscab_decompressor, ptr %24, i32 0, i32 0
+  store ptr @cabd_open, ptr %25, align 8, !tbaa !12
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.mscab_decompressor, ptr %27, i32 0, i32 1
+  store ptr @cabd_close, ptr %28, align 8, !tbaa !17
+  %29 = load ptr, ptr %4, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.mscab_decompressor, ptr %30, i32 0, i32 2
+  store ptr @cabd_search, ptr %31, align 8, !tbaa !18
+  %32 = load ptr, ptr %4, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.mscab_decompressor, ptr %33, i32 0, i32 5
+  store ptr @cabd_extract, ptr %34, align 8, !tbaa !19
+  %35 = load ptr, ptr %4, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.mscab_decompressor, ptr %36, i32 0, i32 4
+  store ptr @cabd_prepend, ptr %37, align 8, !tbaa !20
+  %38 = load ptr, ptr %4, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.mscab_decompressor, ptr %39, i32 0, i32 3
+  store ptr @cabd_append, ptr %40, align 8, !tbaa !21
+  %41 = load ptr, ptr %4, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct.mscab_decompressor, ptr %42, i32 0, i32 6
+  store ptr @cabd_param, ptr %43, align 8, !tbaa !22
+  %44 = load ptr, ptr %4, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %44, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.mscab_decompressor, ptr %45, i32 0, i32 7
+  store ptr @cabd_error, ptr %46, align 8, !tbaa !23
+  %47 = load ptr, ptr %3, align 8, !tbaa !3
+  %48 = load ptr, ptr %4, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %48, i32 0, i32 2
+  store ptr %47, ptr %49, align 8, !tbaa !24
+  %50 = load ptr, ptr %4, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %50, i32 0, i32 1
+  store ptr null, ptr %51, align 8, !tbaa !25
+  %52 = load ptr, ptr %4, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %52, i32 0, i32 7
+  store i32 0, ptr %53, align 8, !tbaa !26
+  %54 = load ptr, ptr %4, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %54, i32 0, i32 4
+  store i32 32768, ptr %55, align 4, !tbaa !27
+  %56 = load ptr, ptr %4, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %56, i32 0, i32 5
+  store i32 0, ptr %57, align 8, !tbaa !28
+  %58 = load ptr, ptr %4, align 8, !tbaa !8
+  %59 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %58, i32 0, i32 3
+  store i32 4096, ptr %59, align 8, !tbaa !29
+  %60 = load ptr, ptr %4, align 8, !tbaa !8
+  %61 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %60, i32 0, i32 6
+  store i32 0, ptr %61, align 4, !tbaa !30
+  br label %62
 
-61:                                               ; preds = %21, %14
-  %62 = load ptr, ptr %4, align 8
-  store ptr %62, ptr %2, align 8
-  br label %63
+62:                                               ; preds = %22, %15
+  %63 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %63, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %64
 
-63:                                               ; preds = %61, %13
-  %64 = load ptr, ptr %2, align 8
-  ret ptr %64
+64:                                               ; preds = %62, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %65 = load ptr, ptr %2, align 8
+  ret ptr %65
 }
 
-declare i32 @mspack_valid_system(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @mspack_valid_system(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cabd_open(ptr noundef %0, ptr noundef %1) #0 {
@@ -143,104 +151,117 @@ define internal ptr @cabd_open(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  store ptr null, ptr %7, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %2
-  store ptr null, ptr %3, align 8
-  br label %67
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %12 = load ptr, ptr %4, align 8, !tbaa !31
+  store ptr %12, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  store ptr null, ptr %7, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %13 = load ptr, ptr %4, align 8, !tbaa !31
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %8, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.mspack_system, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = call ptr %21(ptr noundef %22, ptr noundef %23, i32 noundef 0)
-  store ptr %24, ptr %9, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %62
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %68
 
-26:                                               ; preds = %15
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.mspack_system, ptr %27, i32 0, i32 7
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = call ptr %29(ptr noundef %30, i64 noundef 128)
-  store ptr %31, ptr %7, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %54
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
+  store ptr %19, ptr %8, align 8, !tbaa !3
+  %20 = load ptr, ptr %8, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.mspack_system, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !37
+  %23 = load ptr, ptr %8, align 8, !tbaa !3
+  %24 = load ptr, ptr %5, align 8, !tbaa !33
+  %25 = call ptr %22(ptr noundef %23, ptr noundef %24, i32 noundef 0)
+  store ptr %25, ptr %9, align 8, !tbaa !38
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %63
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %35, i32 0, i32 0
-  %37 = getelementptr inbounds %struct.mscabd_cabinet, ptr %36, i32 0, i32 1
-  store ptr %34, ptr %37, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = load ptr, ptr %9, align 8
-  %40 = load ptr, ptr %7, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %41, i32 0, i32 6
-  %43 = load i32, ptr %42, align 4
-  %44 = call i32 @cabd_read_headers(ptr noundef %38, ptr noundef %39, ptr noundef %40, i64 noundef 0, i32 noundef %43, i32 noundef 0)
-  store i32 %44, ptr %10, align 4
-  %45 = load i32, ptr %10, align 4
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %50
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %8, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.mspack_system, ptr %28, i32 0, i32 7
+  %30 = load ptr, ptr %29, align 8, !tbaa !10
+  %31 = load ptr, ptr %8, align 8, !tbaa !3
+  %32 = call ptr %30(ptr noundef %31, i64 noundef 128)
+  store ptr %32, ptr %7, align 8, !tbaa !35
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %55
 
-47:                                               ; preds = %33
-  %48 = load ptr, ptr %4, align 8
-  %49 = load ptr, ptr %7, align 8
-  call void @cabd_close(ptr noundef %48, ptr noundef %49)
-  store ptr null, ptr %7, align 8
-  br label %50
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %5, align 8, !tbaa !33
+  %36 = load ptr, ptr %7, align 8, !tbaa !35
+  %37 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %37, i32 0, i32 1
+  store ptr %35, ptr %38, align 8, !tbaa !40
+  %39 = load ptr, ptr %8, align 8, !tbaa !3
+  %40 = load ptr, ptr %9, align 8, !tbaa !38
+  %41 = load ptr, ptr %7, align 8, !tbaa !35
+  %42 = load ptr, ptr %6, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %42, i32 0, i32 6
+  %44 = load i32, ptr %43, align 4, !tbaa !30
+  %45 = call i32 @cabd_read_headers(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef 0, i32 noundef %44, i32 noundef 0)
+  store i32 %45, ptr %10, align 4, !tbaa !48
+  %46 = load i32, ptr %10, align 4, !tbaa !48
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %51
 
-50:                                               ; preds = %47, %33
-  %51 = load i32, ptr %10, align 4
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %52, i32 0, i32 7
-  store i32 %51, ptr %53, align 8
-  br label %57
+48:                                               ; preds = %34
+  %49 = load ptr, ptr %4, align 8, !tbaa !31
+  %50 = load ptr, ptr %7, align 8, !tbaa !35
+  call void @cabd_close(ptr noundef %49, ptr noundef %50)
+  store ptr null, ptr %7, align 8, !tbaa !35
+  br label %51
 
-54:                                               ; preds = %26
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %55, i32 0, i32 7
-  store i32 6, ptr %56, align 8
-  br label %57
+51:                                               ; preds = %48, %34
+  %52 = load i32, ptr %10, align 4, !tbaa !48
+  %53 = load ptr, ptr %6, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %53, i32 0, i32 7
+  store i32 %52, ptr %54, align 8, !tbaa !26
+  br label %58
 
-57:                                               ; preds = %54, %50
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.mspack_system, ptr %58, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %9, align 8
-  call void %60(ptr noundef %61)
-  br label %65
+55:                                               ; preds = %27
+  %56 = load ptr, ptr %6, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %56, i32 0, i32 7
+  store i32 6, ptr %57, align 8, !tbaa !26
+  br label %58
 
-62:                                               ; preds = %15
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %63, i32 0, i32 7
-  store i32 2, ptr %64, align 8
-  br label %65
+58:                                               ; preds = %55, %51
+  %59 = load ptr, ptr %8, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.mspack_system, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8, !tbaa !49
+  %62 = load ptr, ptr %9, align 8, !tbaa !38
+  call void %61(ptr noundef %62)
+  br label %66
 
-65:                                               ; preds = %62, %57
-  %66 = load ptr, ptr %7, align 8
-  store ptr %66, ptr %3, align 8
-  br label %67
+63:                                               ; preds = %16
+  %64 = load ptr, ptr %6, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %64, i32 0, i32 7
+  store i32 2, ptr %65, align 8, !tbaa !26
+  br label %66
 
-67:                                               ; preds = %65, %14
-  %68 = load ptr, ptr %3, align 8
-  ret ptr %68
+66:                                               ; preds = %63, %58
+  %67 = load ptr, ptr %7, align 8, !tbaa !35
+  store ptr %67, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %68
+
+68:                                               ; preds = %66, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %69 = load ptr, ptr %3, align 8
+  ret ptr %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -257,317 +278,353 @@ define internal void @cabd_close(ptr noundef %0, ptr noundef %1) #0 {
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %15 = load ptr, ptr %3, align 8
-  store ptr %15, ptr %5, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %19, label %18
-
-18:                                               ; preds = %2
-  br label %219
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %16 = load ptr, ptr %3, align 8, !tbaa !31
+  store ptr %16, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %17 = load ptr, ptr %3, align 8, !tbaa !31
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %20, label %19
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %20, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %14, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %23, i32 0, i32 7
-  store i32 0, ptr %24, align 8
-  br label %25
+  store i32 1, ptr %15, align 4
+  br label %221
 
-25:                                               ; preds = %210, %19
-  %26 = load ptr, ptr %4, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %219
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %5, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
+  store ptr %23, ptr %14, align 8, !tbaa !3
+  %24 = load ptr, ptr %5, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %24, i32 0, i32 7
+  store i32 0, ptr %25, align 8, !tbaa !26
+  br label %26
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.mscabd_cabinet, ptr %29, i32 0, i32 10
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %12, align 8
-  br label %32
+26:                                               ; preds = %211, %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !50
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %220
 
-32:                                               ; preds = %49, %28
-  %33 = load ptr, ptr %12, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %51
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %4, align 8, !tbaa !50
+  %31 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %30, i32 0, i32 10
+  %32 = load ptr, ptr %31, align 8, !tbaa !51
+  store ptr %32, ptr %12, align 8, !tbaa !52
+  br label %33
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %12, align 8
-  %37 = getelementptr inbounds %struct.mscabd_file, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %13, align 8
-  %39 = load ptr, ptr %14, align 8
-  %40 = getelementptr inbounds %struct.mspack_system, ptr %39, i32 0, i32 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %12, align 8
-  %43 = getelementptr inbounds %struct.mscabd_file, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  call void %41(ptr noundef %44)
-  %45 = load ptr, ptr %14, align 8
-  %46 = getelementptr inbounds %struct.mspack_system, ptr %45, i32 0, i32 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %12, align 8
-  call void %47(ptr noundef %48)
-  br label %49
+33:                                               ; preds = %50, %29
+  %34 = load ptr, ptr %12, align 8, !tbaa !52
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %52
 
-49:                                               ; preds = %35
-  %50 = load ptr, ptr %13, align 8
-  store ptr %50, ptr %12, align 8
-  br label %32
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %12, align 8, !tbaa !52
+  %38 = getelementptr inbounds nuw %struct.mscabd_file, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !53
+  store ptr %39, ptr %13, align 8, !tbaa !52
+  %40 = load ptr, ptr %14, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.mspack_system, ptr %40, i32 0, i32 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !55
+  %43 = load ptr, ptr %12, align 8, !tbaa !52
+  %44 = getelementptr inbounds nuw %struct.mscabd_file, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !56
+  call void %42(ptr noundef %45)
+  %46 = load ptr, ptr %14, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.mspack_system, ptr %46, i32 0, i32 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !55
+  %49 = load ptr, ptr %12, align 8, !tbaa !52
+  call void %48(ptr noundef %49)
+  br label %50
 
-51:                                               ; preds = %32
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.mscabd_cabinet, ptr %52, i32 0, i32 11
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %10, align 8
-  br label %55
+50:                                               ; preds = %36
+  %51 = load ptr, ptr %13, align 8, !tbaa !52
+  store ptr %51, ptr %12, align 8, !tbaa !52
+  br label %33
 
-55:                                               ; preds = %123, %51
-  %56 = load ptr, ptr %10, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %125
+52:                                               ; preds = %33
+  %53 = load ptr, ptr %4, align 8, !tbaa !50
+  %54 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %53, i32 0, i32 11
+  %55 = load ptr, ptr %54, align 8, !tbaa !57
+  store ptr %55, ptr %10, align 8, !tbaa !58
+  br label %56
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds %struct.mscabd_folder, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr %11, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %62, i32 0, i32 1
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %100
+56:                                               ; preds = %124, %52
+  %57 = load ptr, ptr %10, align 8, !tbaa !58
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %126
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %10, align 8
-  %73 = icmp eq ptr %71, %72
-  br i1 %73, label %74, label %100
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %10, align 8, !tbaa !58
+  %61 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !59
+  store ptr %62, ptr %11, align 8, !tbaa !58
+  %63 = load ptr, ptr %5, align 8, !tbaa !8
+  %64 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8, !tbaa !25
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %101
 
-74:                                               ; preds = %66
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %77, i32 0, i32 10
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp ne ptr %79, null
-  br i1 %80, label %81, label %90
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %5, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !25
+  %71 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8, !tbaa !61
+  %73 = load ptr, ptr %10, align 8, !tbaa !58
+  %74 = icmp eq ptr %72, %73
+  br i1 %74, label %75, label %101
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %14, align 8
-  %83 = getelementptr inbounds %struct.mspack_system, ptr %82, i32 0, i32 1
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %85, i32 0, i32 1
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %87, i32 0, i32 10
-  %89 = load ptr, ptr %88, align 8
-  call void %84(ptr noundef %89)
-  br label %90
+75:                                               ; preds = %67
+  %76 = load ptr, ptr %5, align 8, !tbaa !8
+  %77 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8, !tbaa !25
+  %79 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %78, i32 0, i32 10
+  %80 = load ptr, ptr %79, align 8, !tbaa !65
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %91
 
-90:                                               ; preds = %81, %74
-  %91 = load ptr, ptr %5, align 8
-  call void @cabd_free_decomp(ptr noundef %91)
-  %92 = load ptr, ptr %14, align 8
-  %93 = getelementptr inbounds %struct.mspack_system, ptr %92, i32 0, i32 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %95, i32 0, i32 1
-  %97 = load ptr, ptr %96, align 8
-  call void %94(ptr noundef %97)
-  %98 = load ptr, ptr %5, align 8
-  %99 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %98, i32 0, i32 1
-  store ptr null, ptr %99, align 8
-  br label %100
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %14, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw %struct.mspack_system, ptr %83, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8, !tbaa !49
+  %86 = load ptr, ptr %5, align 8, !tbaa !8
+  %87 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %86, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8, !tbaa !25
+  %89 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %88, i32 0, i32 10
+  %90 = load ptr, ptr %89, align 8, !tbaa !65
+  call void %85(ptr noundef %90)
+  br label %91
 
-100:                                              ; preds = %90, %66, %58
-  %101 = load ptr, ptr %10, align 8
-  %102 = getelementptr inbounds %struct.mscabd_folder_p, ptr %101, i32 0, i32 1
-  %103 = getelementptr inbounds %struct.mscabd_folder_data, ptr %102, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  store ptr %104, ptr %6, align 8
-  br label %105
+91:                                               ; preds = %82, %75
+  %92 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @cabd_free_decomp(ptr noundef %92)
+  %93 = load ptr, ptr %14, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.mspack_system, ptr %93, i32 0, i32 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !55
+  %96 = load ptr, ptr %5, align 8, !tbaa !8
+  %97 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8, !tbaa !25
+  call void %95(ptr noundef %98)
+  %99 = load ptr, ptr %5, align 8, !tbaa !8
+  %100 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %99, i32 0, i32 1
+  store ptr null, ptr %100, align 8, !tbaa !25
+  br label %101
 
-105:                                              ; preds = %116, %100
-  %106 = load ptr, ptr %6, align 8
-  %107 = icmp ne ptr %106, null
-  br i1 %107, label %108, label %118
+101:                                              ; preds = %91, %67, %59
+  %102 = load ptr, ptr %10, align 8, !tbaa !58
+  %103 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %102, i32 0, i32 1
+  %104 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8, !tbaa !66
+  store ptr %105, ptr %6, align 8, !tbaa !69
+  br label %106
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct.mscabd_folder_data, ptr %109, i32 0, i32 0
-  %111 = load ptr, ptr %110, align 8
-  store ptr %111, ptr %7, align 8
-  %112 = load ptr, ptr %14, align 8
-  %113 = getelementptr inbounds %struct.mspack_system, ptr %112, i32 0, i32 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %6, align 8
-  call void %114(ptr noundef %115)
-  br label %116
+106:                                              ; preds = %117, %101
+  %107 = load ptr, ptr %6, align 8, !tbaa !69
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %109, label %119
 
-116:                                              ; preds = %108
-  %117 = load ptr, ptr %7, align 8
-  store ptr %117, ptr %6, align 8
-  br label %105
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %6, align 8, !tbaa !69
+  %111 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8, !tbaa !70
+  store ptr %112, ptr %7, align 8, !tbaa !69
+  %113 = load ptr, ptr %14, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.mspack_system, ptr %113, i32 0, i32 8
+  %115 = load ptr, ptr %114, align 8, !tbaa !55
+  %116 = load ptr, ptr %6, align 8, !tbaa !69
+  call void %115(ptr noundef %116)
+  br label %117
 
-118:                                              ; preds = %105
-  %119 = load ptr, ptr %14, align 8
-  %120 = getelementptr inbounds %struct.mspack_system, ptr %119, i32 0, i32 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr %10, align 8
-  call void %121(ptr noundef %122)
-  br label %123
+117:                                              ; preds = %109
+  %118 = load ptr, ptr %7, align 8, !tbaa !69
+  store ptr %118, ptr %6, align 8, !tbaa !69
+  br label %106
 
-123:                                              ; preds = %118
-  %124 = load ptr, ptr %11, align 8
-  store ptr %124, ptr %10, align 8
-  br label %55
+119:                                              ; preds = %106
+  %120 = load ptr, ptr %14, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw %struct.mspack_system, ptr %120, i32 0, i32 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !55
+  %123 = load ptr, ptr %10, align 8, !tbaa !58
+  call void %122(ptr noundef %123)
+  br label %124
 
-125:                                              ; preds = %55
-  %126 = load ptr, ptr %4, align 8
-  store ptr %126, ptr %8, align 8
-  br label %127
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %11, align 8, !tbaa !58
+  store ptr %125, ptr %10, align 8, !tbaa !58
+  br label %56
 
-127:                                              ; preds = %167, %125
-  %128 = load ptr, ptr %8, align 8
-  %129 = icmp ne ptr %128, null
-  br i1 %129, label %130, label %169
+126:                                              ; preds = %56
+  %127 = load ptr, ptr %4, align 8, !tbaa !50
+  store ptr %127, ptr %8, align 8, !tbaa !50
+  br label %128
 
-130:                                              ; preds = %127
-  %131 = load ptr, ptr %8, align 8
-  %132 = getelementptr inbounds %struct.mscabd_cabinet, ptr %131, i32 0, i32 4
-  %133 = load ptr, ptr %132, align 8
-  store ptr %133, ptr %9, align 8
-  %134 = load ptr, ptr %14, align 8
-  %135 = getelementptr inbounds %struct.mspack_system, ptr %134, i32 0, i32 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %8, align 8
-  %138 = getelementptr inbounds %struct.mscabd_cabinet, ptr %137, i32 0, i32 6
-  %139 = load ptr, ptr %138, align 8
-  call void %136(ptr noundef %139)
-  %140 = load ptr, ptr %14, align 8
-  %141 = getelementptr inbounds %struct.mspack_system, ptr %140, i32 0, i32 8
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr %8, align 8
-  %144 = getelementptr inbounds %struct.mscabd_cabinet, ptr %143, i32 0, i32 7
-  %145 = load ptr, ptr %144, align 8
-  call void %142(ptr noundef %145)
-  %146 = load ptr, ptr %14, align 8
-  %147 = getelementptr inbounds %struct.mspack_system, ptr %146, i32 0, i32 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = load ptr, ptr %8, align 8
-  %150 = getelementptr inbounds %struct.mscabd_cabinet, ptr %149, i32 0, i32 8
-  %151 = load ptr, ptr %150, align 8
-  call void %148(ptr noundef %151)
-  %152 = load ptr, ptr %14, align 8
-  %153 = getelementptr inbounds %struct.mspack_system, ptr %152, i32 0, i32 8
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %8, align 8
-  %156 = getelementptr inbounds %struct.mscabd_cabinet, ptr %155, i32 0, i32 9
-  %157 = load ptr, ptr %156, align 8
-  call void %154(ptr noundef %157)
-  %158 = load ptr, ptr %8, align 8
-  %159 = load ptr, ptr %4, align 8
-  %160 = icmp ne ptr %158, %159
-  br i1 %160, label %161, label %166
+128:                                              ; preds = %168, %126
+  %129 = load ptr, ptr %8, align 8, !tbaa !50
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %131, label %170
 
-161:                                              ; preds = %130
-  %162 = load ptr, ptr %14, align 8
-  %163 = getelementptr inbounds %struct.mspack_system, ptr %162, i32 0, i32 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = load ptr, ptr %8, align 8
-  call void %164(ptr noundef %165)
-  br label %166
+131:                                              ; preds = %128
+  %132 = load ptr, ptr %8, align 8, !tbaa !50
+  %133 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %132, i32 0, i32 4
+  %134 = load ptr, ptr %133, align 8, !tbaa !71
+  store ptr %134, ptr %9, align 8, !tbaa !50
+  %135 = load ptr, ptr %14, align 8, !tbaa !3
+  %136 = getelementptr inbounds nuw %struct.mspack_system, ptr %135, i32 0, i32 8
+  %137 = load ptr, ptr %136, align 8, !tbaa !55
+  %138 = load ptr, ptr %8, align 8, !tbaa !50
+  %139 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %138, i32 0, i32 6
+  %140 = load ptr, ptr %139, align 8, !tbaa !72
+  call void %137(ptr noundef %140)
+  %141 = load ptr, ptr %14, align 8, !tbaa !3
+  %142 = getelementptr inbounds nuw %struct.mspack_system, ptr %141, i32 0, i32 8
+  %143 = load ptr, ptr %142, align 8, !tbaa !55
+  %144 = load ptr, ptr %8, align 8, !tbaa !50
+  %145 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %144, i32 0, i32 7
+  %146 = load ptr, ptr %145, align 8, !tbaa !73
+  call void %143(ptr noundef %146)
+  %147 = load ptr, ptr %14, align 8, !tbaa !3
+  %148 = getelementptr inbounds nuw %struct.mspack_system, ptr %147, i32 0, i32 8
+  %149 = load ptr, ptr %148, align 8, !tbaa !55
+  %150 = load ptr, ptr %8, align 8, !tbaa !50
+  %151 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %150, i32 0, i32 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !74
+  call void %149(ptr noundef %152)
+  %153 = load ptr, ptr %14, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.mspack_system, ptr %153, i32 0, i32 8
+  %155 = load ptr, ptr %154, align 8, !tbaa !55
+  %156 = load ptr, ptr %8, align 8, !tbaa !50
+  %157 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %156, i32 0, i32 9
+  %158 = load ptr, ptr %157, align 8, !tbaa !75
+  call void %155(ptr noundef %158)
+  %159 = load ptr, ptr %8, align 8, !tbaa !50
+  %160 = load ptr, ptr %4, align 8, !tbaa !50
+  %161 = icmp ne ptr %159, %160
+  br i1 %161, label %162, label %167
 
-166:                                              ; preds = %161, %130
+162:                                              ; preds = %131
+  %163 = load ptr, ptr %14, align 8, !tbaa !3
+  %164 = getelementptr inbounds nuw %struct.mspack_system, ptr %163, i32 0, i32 8
+  %165 = load ptr, ptr %164, align 8, !tbaa !55
+  %166 = load ptr, ptr %8, align 8, !tbaa !50
+  call void %165(ptr noundef %166)
   br label %167
 
-167:                                              ; preds = %166
-  %168 = load ptr, ptr %9, align 8
-  store ptr %168, ptr %8, align 8
-  br label %127
+167:                                              ; preds = %162, %131
+  br label %168
 
-169:                                              ; preds = %127
-  %170 = load ptr, ptr %4, align 8
-  %171 = getelementptr inbounds %struct.mscabd_cabinet, ptr %170, i32 0, i32 5
-  %172 = load ptr, ptr %171, align 8
-  store ptr %172, ptr %8, align 8
-  br label %173
+168:                                              ; preds = %167
+  %169 = load ptr, ptr %9, align 8, !tbaa !50
+  store ptr %169, ptr %8, align 8, !tbaa !50
+  br label %128
 
-173:                                              ; preds = %208, %169
-  %174 = load ptr, ptr %8, align 8
-  %175 = icmp ne ptr %174, null
-  br i1 %175, label %176, label %210
+170:                                              ; preds = %128
+  %171 = load ptr, ptr %4, align 8, !tbaa !50
+  %172 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %171, i32 0, i32 5
+  %173 = load ptr, ptr %172, align 8, !tbaa !76
+  store ptr %173, ptr %8, align 8, !tbaa !50
+  br label %174
 
-176:                                              ; preds = %173
-  %177 = load ptr, ptr %8, align 8
-  %178 = getelementptr inbounds %struct.mscabd_cabinet, ptr %177, i32 0, i32 5
-  %179 = load ptr, ptr %178, align 8
-  store ptr %179, ptr %9, align 8
-  %180 = load ptr, ptr %14, align 8
-  %181 = getelementptr inbounds %struct.mspack_system, ptr %180, i32 0, i32 8
-  %182 = load ptr, ptr %181, align 8
-  %183 = load ptr, ptr %8, align 8
-  %184 = getelementptr inbounds %struct.mscabd_cabinet, ptr %183, i32 0, i32 6
-  %185 = load ptr, ptr %184, align 8
-  call void %182(ptr noundef %185)
-  %186 = load ptr, ptr %14, align 8
-  %187 = getelementptr inbounds %struct.mspack_system, ptr %186, i32 0, i32 8
-  %188 = load ptr, ptr %187, align 8
-  %189 = load ptr, ptr %8, align 8
-  %190 = getelementptr inbounds %struct.mscabd_cabinet, ptr %189, i32 0, i32 7
-  %191 = load ptr, ptr %190, align 8
-  call void %188(ptr noundef %191)
-  %192 = load ptr, ptr %14, align 8
-  %193 = getelementptr inbounds %struct.mspack_system, ptr %192, i32 0, i32 8
-  %194 = load ptr, ptr %193, align 8
-  %195 = load ptr, ptr %8, align 8
-  %196 = getelementptr inbounds %struct.mscabd_cabinet, ptr %195, i32 0, i32 8
-  %197 = load ptr, ptr %196, align 8
-  call void %194(ptr noundef %197)
-  %198 = load ptr, ptr %14, align 8
-  %199 = getelementptr inbounds %struct.mspack_system, ptr %198, i32 0, i32 8
-  %200 = load ptr, ptr %199, align 8
-  %201 = load ptr, ptr %8, align 8
-  %202 = getelementptr inbounds %struct.mscabd_cabinet, ptr %201, i32 0, i32 9
-  %203 = load ptr, ptr %202, align 8
-  call void %200(ptr noundef %203)
-  %204 = load ptr, ptr %14, align 8
-  %205 = getelementptr inbounds %struct.mspack_system, ptr %204, i32 0, i32 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = load ptr, ptr %8, align 8
-  call void %206(ptr noundef %207)
-  br label %208
+174:                                              ; preds = %209, %170
+  %175 = load ptr, ptr %8, align 8, !tbaa !50
+  %176 = icmp ne ptr %175, null
+  br i1 %176, label %177, label %211
 
-208:                                              ; preds = %176
-  %209 = load ptr, ptr %9, align 8
-  store ptr %209, ptr %8, align 8
-  br label %173
+177:                                              ; preds = %174
+  %178 = load ptr, ptr %8, align 8, !tbaa !50
+  %179 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %178, i32 0, i32 5
+  %180 = load ptr, ptr %179, align 8, !tbaa !76
+  store ptr %180, ptr %9, align 8, !tbaa !50
+  %181 = load ptr, ptr %14, align 8, !tbaa !3
+  %182 = getelementptr inbounds nuw %struct.mspack_system, ptr %181, i32 0, i32 8
+  %183 = load ptr, ptr %182, align 8, !tbaa !55
+  %184 = load ptr, ptr %8, align 8, !tbaa !50
+  %185 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %184, i32 0, i32 6
+  %186 = load ptr, ptr %185, align 8, !tbaa !72
+  call void %183(ptr noundef %186)
+  %187 = load ptr, ptr %14, align 8, !tbaa !3
+  %188 = getelementptr inbounds nuw %struct.mspack_system, ptr %187, i32 0, i32 8
+  %189 = load ptr, ptr %188, align 8, !tbaa !55
+  %190 = load ptr, ptr %8, align 8, !tbaa !50
+  %191 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %190, i32 0, i32 7
+  %192 = load ptr, ptr %191, align 8, !tbaa !73
+  call void %189(ptr noundef %192)
+  %193 = load ptr, ptr %14, align 8, !tbaa !3
+  %194 = getelementptr inbounds nuw %struct.mspack_system, ptr %193, i32 0, i32 8
+  %195 = load ptr, ptr %194, align 8, !tbaa !55
+  %196 = load ptr, ptr %8, align 8, !tbaa !50
+  %197 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %196, i32 0, i32 8
+  %198 = load ptr, ptr %197, align 8, !tbaa !74
+  call void %195(ptr noundef %198)
+  %199 = load ptr, ptr %14, align 8, !tbaa !3
+  %200 = getelementptr inbounds nuw %struct.mspack_system, ptr %199, i32 0, i32 8
+  %201 = load ptr, ptr %200, align 8, !tbaa !55
+  %202 = load ptr, ptr %8, align 8, !tbaa !50
+  %203 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %202, i32 0, i32 9
+  %204 = load ptr, ptr %203, align 8, !tbaa !75
+  call void %201(ptr noundef %204)
+  %205 = load ptr, ptr %14, align 8, !tbaa !3
+  %206 = getelementptr inbounds nuw %struct.mspack_system, ptr %205, i32 0, i32 8
+  %207 = load ptr, ptr %206, align 8, !tbaa !55
+  %208 = load ptr, ptr %8, align 8, !tbaa !50
+  call void %207(ptr noundef %208)
+  br label %209
 
-210:                                              ; preds = %173
-  %211 = load ptr, ptr %4, align 8
-  %212 = getelementptr inbounds %struct.mscabd_cabinet, ptr %211, i32 0, i32 0
-  %213 = load ptr, ptr %212, align 8
-  store ptr %213, ptr %8, align 8
-  %214 = load ptr, ptr %14, align 8
-  %215 = getelementptr inbounds %struct.mspack_system, ptr %214, i32 0, i32 8
-  %216 = load ptr, ptr %215, align 8
-  %217 = load ptr, ptr %4, align 8
-  call void %216(ptr noundef %217)
-  %218 = load ptr, ptr %8, align 8
-  store ptr %218, ptr %4, align 8
-  br label %25
+209:                                              ; preds = %177
+  %210 = load ptr, ptr %9, align 8, !tbaa !50
+  store ptr %210, ptr %8, align 8, !tbaa !50
+  br label %174
 
-219:                                              ; preds = %25, %18
+211:                                              ; preds = %174
+  %212 = load ptr, ptr %4, align 8, !tbaa !50
+  %213 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %212, i32 0, i32 0
+  %214 = load ptr, ptr %213, align 8, !tbaa !77
+  store ptr %214, ptr %8, align 8, !tbaa !50
+  %215 = load ptr, ptr %14, align 8, !tbaa !3
+  %216 = getelementptr inbounds nuw %struct.mspack_system, ptr %215, i32 0, i32 8
+  %217 = load ptr, ptr %216, align 8, !tbaa !55
+  %218 = load ptr, ptr %4, align 8, !tbaa !50
+  call void %217(ptr noundef %218)
+  %219 = load ptr, ptr %8, align 8, !tbaa !50
+  store ptr %219, ptr %4, align 8, !tbaa !50
+  br label %26
+
+220:                                              ; preds = %26
+  store i32 0, ptr %15, align 4
+  br label %221
+
+221:                                              ; preds = %220, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  %222 = load i32, ptr %15, align 4
+  switch i32 %222, label %224 [
+    i32 0, label %223
+    i32 1, label %223
+  ]
+
+223:                                              ; preds = %221, %221
   ret void
+
+224:                                              ; preds = %221
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -582,161 +639,179 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %6, align 8
-  store ptr null, ptr %7, align 8
-  store i64 0, ptr %12, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %17, label %16
-
-16:                                               ; preds = %2
-  store ptr null, ptr %3, align 8
-  br label %110
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %14 = load ptr, ptr %4, align 8, !tbaa !31
+  store ptr %14, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  store ptr null, ptr %7, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  store i64 0, ptr %12, align 8, !tbaa !78
+  %15 = load ptr, ptr %4, align 8, !tbaa !31
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %8, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.mspack_system, ptr %21, i32 0, i32 7
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %25, i32 0, i32 4
-  %27 = load i32, ptr %26, align 4
-  %28 = sext i32 %27 to i64
-  %29 = call ptr %23(ptr noundef %24, i64 noundef %28)
-  store ptr %29, ptr %9, align 8
-  %30 = load ptr, ptr %9, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %35, label %32
-
-32:                                               ; preds = %17
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %33, i32 0, i32 7
-  store i32 6, ptr %34, align 8
   store ptr null, ptr %3, align 8
-  br label %110
+  store i32 1, ptr %13, align 4
+  br label %111
 
-35:                                               ; preds = %17
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.mspack_system, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = call ptr %38(ptr noundef %39, ptr noundef %40, i32 noundef 0)
-  store ptr %41, ptr %10, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %101
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !24
+  store ptr %21, ptr %8, align 8, !tbaa !3
+  %22 = load ptr, ptr %8, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.mspack_system, ptr %22, i32 0, i32 7
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
+  %25 = load ptr, ptr %8, align 8, !tbaa !3
+  %26 = load ptr, ptr %6, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %26, i32 0, i32 4
+  %28 = load i32, ptr %27, align 4, !tbaa !27
+  %29 = sext i32 %28 to i64
+  %30 = call ptr %24(ptr noundef %25, i64 noundef %29)
+  store ptr %30, ptr %9, align 8, !tbaa !33
+  %31 = load ptr, ptr %9, align 8, !tbaa !33
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %36, label %33
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %8, align 8
-  %45 = load ptr, ptr %10, align 8
-  %46 = call i32 @mspack_sys_filelen(ptr noundef %44, ptr noundef %45, ptr noundef %11)
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %47, i32 0, i32 7
-  store i32 %46, ptr %48, align 8
-  %49 = icmp ne i32 %46, 0
-  br i1 %49, label %59, label %50
+33:                                               ; preds = %18
+  %34 = load ptr, ptr %6, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %34, i32 0, i32 7
+  store i32 6, ptr %35, align 8, !tbaa !26
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %13, align 4
+  br label %111
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %6, align 8
-  %52 = load ptr, ptr %9, align 8
-  %53 = load ptr, ptr %10, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = load i64, ptr %11, align 8
-  %56 = call i32 @cabd_find(ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, i64 noundef %55, ptr noundef %12, ptr noundef %7)
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %57, i32 0, i32 7
-  store i32 %56, ptr %58, align 8
-  br label %59
+36:                                               ; preds = %18
+  %37 = load ptr, ptr %8, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.mspack_system, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !37
+  %40 = load ptr, ptr %8, align 8, !tbaa !3
+  %41 = load ptr, ptr %5, align 8, !tbaa !33
+  %42 = call ptr %39(ptr noundef %40, ptr noundef %41, i32 noundef 0)
+  store ptr %42, ptr %10, align 8, !tbaa !38
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %102
 
-59:                                               ; preds = %50, %43
-  %60 = load i64, ptr %12, align 8
-  %61 = icmp ne i64 %60, 0
-  br i1 %61, label %62, label %96
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %8, align 8, !tbaa !3
+  %46 = load ptr, ptr %10, align 8, !tbaa !38
+  %47 = call i32 @mspack_sys_filelen(ptr noundef %45, ptr noundef %46, ptr noundef %11)
+  %48 = load ptr, ptr %6, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %48, i32 0, i32 7
+  store i32 %47, ptr %49, align 8, !tbaa !26
+  %50 = icmp ne i32 %47, 0
+  br i1 %50, label %60, label %51
 
-62:                                               ; preds = %59
-  %63 = load i64, ptr %12, align 8
-  %64 = load i64, ptr %11, align 8
-  %65 = icmp ne i64 %63, %64
-  br i1 %65, label %66, label %96
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %6, align 8, !tbaa !8
+  %53 = load ptr, ptr %9, align 8, !tbaa !33
+  %54 = load ptr, ptr %10, align 8, !tbaa !38
+  %55 = load ptr, ptr %5, align 8, !tbaa !33
+  %56 = load i64, ptr %11, align 8, !tbaa !78
+  %57 = call i32 @cabd_find(ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, i64 noundef %56, ptr noundef %12, ptr noundef %7)
+  %58 = load ptr, ptr %6, align 8, !tbaa !8
+  %59 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %58, i32 0, i32 7
+  store i32 %57, ptr %59, align 8, !tbaa !26
+  br label %60
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %7, align 8
-  %68 = icmp ne ptr %67, null
-  br i1 %68, label %69, label %75
+60:                                               ; preds = %51, %44
+  %61 = load i64, ptr %12, align 8, !tbaa !78
+  %62 = icmp ne i64 %61, 0
+  br i1 %62, label %63, label %97
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %70, i32 0, i32 0
-  %72 = getelementptr inbounds %struct.mscabd_cabinet, ptr %71, i32 0, i32 2
-  %73 = load i64, ptr %72, align 8
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %75, label %96
+63:                                               ; preds = %60
+  %64 = load i64, ptr %12, align 8, !tbaa !78
+  %65 = load i64, ptr %11, align 8, !tbaa !78
+  %66 = icmp ne i64 %64, %65
+  br i1 %66, label %67, label %97
 
-75:                                               ; preds = %69, %66
-  %76 = load i64, ptr %12, align 8
-  %77 = load i64, ptr %11, align 8
-  %78 = icmp slt i64 %76, %77
-  br i1 %78, label %79, label %87
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %7, align 8, !tbaa !35
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %76
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds %struct.mspack_system, ptr %80, i32 0, i32 6
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %10, align 8
-  %84 = load i64, ptr %11, align 8
-  %85 = load i64, ptr %12, align 8
-  %86 = sub nsw i64 %84, %85
-  call void (ptr, ptr, ...) %82(ptr noundef %83, ptr noundef @.str.4, i64 noundef %86)
-  br label %95
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %7, align 8, !tbaa !35
+  %72 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %71, i32 0, i32 0
+  %73 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %72, i32 0, i32 2
+  %74 = load i64, ptr %73, align 8, !tbaa !79
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %76, label %97
 
-87:                                               ; preds = %75
-  %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds %struct.mspack_system, ptr %88, i32 0, i32 6
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %10, align 8
-  %92 = load i64, ptr %12, align 8
-  %93 = load i64, ptr %11, align 8
-  %94 = sub nsw i64 %92, %93
-  call void (ptr, ptr, ...) %90(ptr noundef %91, ptr noundef @.str.5, i64 noundef %94)
-  br label %95
+76:                                               ; preds = %70, %67
+  %77 = load i64, ptr %12, align 8, !tbaa !78
+  %78 = load i64, ptr %11, align 8, !tbaa !78
+  %79 = icmp slt i64 %77, %78
+  br i1 %79, label %80, label %88
 
-95:                                               ; preds = %87, %79
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %8, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw %struct.mspack_system, ptr %81, i32 0, i32 6
+  %83 = load ptr, ptr %82, align 8, !tbaa !80
+  %84 = load ptr, ptr %10, align 8, !tbaa !38
+  %85 = load i64, ptr %11, align 8, !tbaa !78
+  %86 = load i64, ptr %12, align 8, !tbaa !78
+  %87 = sub nsw i64 %85, %86
+  call void (ptr, ptr, ...) %83(ptr noundef %84, ptr noundef @.str.4, i64 noundef %87)
   br label %96
 
-96:                                               ; preds = %95, %69, %62, %59
-  %97 = load ptr, ptr %8, align 8
-  %98 = getelementptr inbounds %struct.mspack_system, ptr %97, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr %10, align 8
-  call void %99(ptr noundef %100)
-  br label %104
+88:                                               ; preds = %76
+  %89 = load ptr, ptr %8, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw %struct.mspack_system, ptr %89, i32 0, i32 6
+  %91 = load ptr, ptr %90, align 8, !tbaa !80
+  %92 = load ptr, ptr %10, align 8, !tbaa !38
+  %93 = load i64, ptr %12, align 8, !tbaa !78
+  %94 = load i64, ptr %11, align 8, !tbaa !78
+  %95 = sub nsw i64 %93, %94
+  call void (ptr, ptr, ...) %91(ptr noundef %92, ptr noundef @.str.5, i64 noundef %95)
+  br label %96
 
-101:                                              ; preds = %35
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %102, i32 0, i32 7
-  store i32 2, ptr %103, align 8
-  br label %104
+96:                                               ; preds = %88, %80
+  br label %97
 
-104:                                              ; preds = %101, %96
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.mspack_system, ptr %105, i32 0, i32 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr %9, align 8
-  call void %107(ptr noundef %108)
-  %109 = load ptr, ptr %7, align 8
-  store ptr %109, ptr %3, align 8
-  br label %110
+97:                                               ; preds = %96, %70, %63, %60
+  %98 = load ptr, ptr %8, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.mspack_system, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8, !tbaa !49
+  %101 = load ptr, ptr %10, align 8, !tbaa !38
+  call void %100(ptr noundef %101)
+  br label %105
 
-110:                                              ; preds = %104, %32, %16
-  %111 = load ptr, ptr %3, align 8
-  ret ptr %111
+102:                                              ; preds = %36
+  %103 = load ptr, ptr %6, align 8, !tbaa !8
+  %104 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %103, i32 0, i32 7
+  store i32 2, ptr %104, align 8, !tbaa !26
+  br label %105
+
+105:                                              ; preds = %102, %97
+  %106 = load ptr, ptr %8, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.mspack_system, ptr %106, i32 0, i32 8
+  %108 = load ptr, ptr %107, align 8, !tbaa !55
+  %109 = load ptr, ptr %9, align 8, !tbaa !33
+  call void %108(ptr noundef %109)
+  %110 = load ptr, ptr %7, align 8, !tbaa !35
+  store ptr %110, ptr %3, align 8
+  store i32 1, ptr %13, align 4
+  br label %111
+
+111:                                              ; preds = %105, %33, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %112 = load ptr, ptr %3, align 8
+  ret ptr %112
 }
 
 ; Function Attrs: nounwind uwtable
@@ -751,606 +826,645 @@ define internal i32 @cabd_extract(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  %14 = alloca i64, align 8
-  %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %20, label %19
-
-19:                                               ; preds = %3
-  store i32 1, ptr %4, align 4
-  br label %441
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !31
+  store ptr %1, ptr %6, align 8, !tbaa !52
+  store ptr %2, ptr %7, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %17 = load ptr, ptr %5, align 8, !tbaa !31
+  store ptr %17, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %18 = load ptr, ptr %8, align 8, !tbaa !8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %21, label %20
 
 20:                                               ; preds = %3
-  %21 = load ptr, ptr %6, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %26, label %23
-
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %24, i32 0, i32 7
-  store i32 1, ptr %25, align 8
   store i32 1, ptr %4, align 4
-  br label %441
+  store i32 1, ptr %13, align 4
+  br label %445
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %10, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.mscabd_file, ptr %30, i32 0, i32 10
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %9, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.mscabd_file, ptr %33, i32 0, i32 11
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp ugt i32 %35, 2147450880
-  br i1 %36, label %37, label %40
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %6, align 8, !tbaa !52
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %27, label %24
 
-37:                                               ; preds = %26
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %38, i32 0, i32 7
-  store i32 8, ptr %39, align 8
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %25, i32 0, i32 7
+  store i32 1, ptr %26, align 8, !tbaa !26
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %445
+
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %8, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !24
+  store ptr %30, ptr %10, align 8, !tbaa !3
+  %31 = load ptr, ptr %6, align 8, !tbaa !52
+  %32 = getelementptr inbounds nuw %struct.mscabd_file, ptr %31, i32 0, i32 10
+  %33 = load ptr, ptr %32, align 8, !tbaa !81
+  store ptr %33, ptr %9, align 8, !tbaa !82
+  %34 = load ptr, ptr %6, align 8, !tbaa !52
+  %35 = getelementptr inbounds nuw %struct.mscabd_file, ptr %34, i32 0, i32 11
+  %36 = load i32, ptr %35, align 8, !tbaa !83
+  %37 = icmp ugt i32 %36, 2147450880
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %27
+  %39 = load ptr, ptr %8, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %39, i32 0, i32 7
+  store i32 8, ptr %40, align 8, !tbaa !26
   store i32 8, ptr %4, align 4
-  br label %441
+  store i32 1, ptr %13, align 4
+  br label %445
 
-40:                                               ; preds = %26
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.mscabd_file, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8
-  store i32 %43, ptr %12, align 4
-  %44 = load i32, ptr %12, align 4
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.mscabd_file, ptr %45, i32 0, i32 11
-  %47 = load i32, ptr %46, align 8
-  %48 = sub i32 2147450880, %47
-  %49 = icmp ugt i32 %44, %48
-  br i1 %49, label %50, label %64
+41:                                               ; preds = %27
+  %42 = load ptr, ptr %6, align 8, !tbaa !52
+  %43 = getelementptr inbounds nuw %struct.mscabd_file, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8, !tbaa !84
+  store i32 %44, ptr %12, align 4, !tbaa !48
+  %45 = load i32, ptr %12, align 4, !tbaa !48
+  %46 = load ptr, ptr %6, align 8, !tbaa !52
+  %47 = getelementptr inbounds nuw %struct.mscabd_file, ptr %46, i32 0, i32 11
+  %48 = load i32, ptr %47, align 8, !tbaa !83
+  %49 = sub i32 2147450880, %48
+  %50 = icmp ugt i32 %45, %49
+  br i1 %50, label %51, label %65
 
-50:                                               ; preds = %40
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %51, i32 0, i32 6
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %60
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %8, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %52, i32 0, i32 6
+  %54 = load i32, ptr %53, align 4, !tbaa !30
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %61
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds %struct.mscabd_file, ptr %56, i32 0, i32 11
-  %58 = load i32, ptr %57, align 8
-  %59 = sub i32 2147450880, %58
-  store i32 %59, ptr %12, align 4
-  br label %63
-
-60:                                               ; preds = %50
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %61, i32 0, i32 7
-  store i32 8, ptr %62, align 8
-  store i32 8, ptr %4, align 4
-  br label %441
-
-63:                                               ; preds = %55
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %6, align 8, !tbaa !52
+  %58 = getelementptr inbounds nuw %struct.mscabd_file, ptr %57, i32 0, i32 11
+  %59 = load i32, ptr %58, align 8, !tbaa !83
+  %60 = sub i32 2147450880, %59
+  store i32 %60, ptr %12, align 4, !tbaa !48
   br label %64
 
-64:                                               ; preds = %63, %40
-  %65 = load ptr, ptr %9, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %67, label %72
+61:                                               ; preds = %51
+  %62 = load ptr, ptr %8, align 8, !tbaa !8
+  %63 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %62, i32 0, i32 7
+  store i32 8, ptr %63, align 8, !tbaa !26
+  store i32 8, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %445
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %9, align 8
-  %69 = getelementptr inbounds %struct.mscabd_folder_p, ptr %68, i32 0, i32 2
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp ne ptr %70, null
-  br i1 %71, label %72, label %81
+64:                                               ; preds = %56
+  br label %65
 
-72:                                               ; preds = %67, %64
-  %73 = load ptr, ptr %10, align 8
-  %74 = getelementptr inbounds %struct.mspack_system, ptr %73, i32 0, i32 6
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.mscabd_file, ptr %76, i32 0, i32 1
-  %78 = load ptr, ptr %77, align 8
-  call void (ptr, ptr, ...) %75(ptr noundef null, ptr noundef @.str.10, ptr noundef %78)
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %79, i32 0, i32 7
-  store i32 11, ptr %80, align 8
+65:                                               ; preds = %64, %41
+  %66 = load ptr, ptr %9, align 8, !tbaa !82
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %73
+
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %9, align 8, !tbaa !82
+  %70 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8, !tbaa !85
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %73, label %82
+
+73:                                               ; preds = %68, %65
+  %74 = load ptr, ptr %10, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.mspack_system, ptr %74, i32 0, i32 6
+  %76 = load ptr, ptr %75, align 8, !tbaa !80
+  %77 = load ptr, ptr %6, align 8, !tbaa !52
+  %78 = getelementptr inbounds nuw %struct.mscabd_file, ptr %77, i32 0, i32 1
+  %79 = load ptr, ptr %78, align 8, !tbaa !56
+  call void (ptr, ptr, ...) %76(ptr noundef null, ptr noundef @.str.10, ptr noundef %79)
+  %80 = load ptr, ptr %8, align 8, !tbaa !8
+  %81 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %80, i32 0, i32 7
+  store i32 11, ptr %81, align 8, !tbaa !26
   store i32 11, ptr %4, align 4
-  br label %441
+  store i32 1, ptr %13, align 4
+  br label %445
 
-81:                                               ; preds = %67
-  %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %82, i32 0, i32 6
-  %84 = load i32, ptr %83, align 4
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %115, label %86
+82:                                               ; preds = %68
+  %83 = load ptr, ptr %8, align 8, !tbaa !8
+  %84 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %83, i32 0, i32 6
+  %85 = load i32, ptr %84, align 4, !tbaa !30
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %119, label %87
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %9, align 8
-  %88 = getelementptr inbounds %struct.mscabd_folder_p, ptr %87, i32 0, i32 0
-  %89 = getelementptr inbounds %struct.mscabd_folder, ptr %88, i32 0, i32 2
-  %90 = load i32, ptr %89, align 4
-  %91 = mul i32 %90, 32768
-  store i32 %91, ptr %13, align 4
-  %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds %struct.mscabd_file, ptr %92, i32 0, i32 11
-  %94 = load i32, ptr %93, align 8
-  %95 = load i32, ptr %13, align 4
-  %96 = icmp ugt i32 %94, %95
-  br i1 %96, label %105, label %97
+87:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  %88 = load ptr, ptr %9, align 8, !tbaa !82
+  %89 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %89, i32 0, i32 2
+  %91 = load i32, ptr %90, align 4, !tbaa !86
+  %92 = mul i32 %91, 32768
+  store i32 %92, ptr %14, align 4, !tbaa !48
+  %93 = load ptr, ptr %6, align 8, !tbaa !52
+  %94 = getelementptr inbounds nuw %struct.mscabd_file, ptr %93, i32 0, i32 11
+  %95 = load i32, ptr %94, align 8, !tbaa !83
+  %96 = load i32, ptr %14, align 4, !tbaa !48
+  %97 = icmp ugt i32 %95, %96
+  br i1 %97, label %106, label %98
 
-97:                                               ; preds = %86
-  %98 = load i32, ptr %12, align 4
-  %99 = load i32, ptr %13, align 4
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct.mscabd_file, ptr %100, i32 0, i32 11
-  %102 = load i32, ptr %101, align 8
-  %103 = sub i32 %99, %102
-  %104 = icmp ugt i32 %98, %103
-  br i1 %104, label %105, label %114
+98:                                               ; preds = %87
+  %99 = load i32, ptr %12, align 4, !tbaa !48
+  %100 = load i32, ptr %14, align 4, !tbaa !48
+  %101 = load ptr, ptr %6, align 8, !tbaa !52
+  %102 = getelementptr inbounds nuw %struct.mscabd_file, ptr %101, i32 0, i32 11
+  %103 = load i32, ptr %102, align 8, !tbaa !83
+  %104 = sub i32 %100, %103
+  %105 = icmp ugt i32 %99, %104
+  br i1 %105, label %106, label %115
 
-105:                                              ; preds = %97, %86
-  %106 = load ptr, ptr %10, align 8
-  %107 = getelementptr inbounds %struct.mspack_system, ptr %106, i32 0, i32 6
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct.mscabd_file, ptr %109, i32 0, i32 1
-  %111 = load ptr, ptr %110, align 8
-  call void (ptr, ptr, ...) %108(ptr noundef null, ptr noundef @.str.10, ptr noundef %111)
-  %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %112, i32 0, i32 7
-  store i32 11, ptr %113, align 8
+106:                                              ; preds = %98, %87
+  %107 = load ptr, ptr %10, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw %struct.mspack_system, ptr %107, i32 0, i32 6
+  %109 = load ptr, ptr %108, align 8, !tbaa !80
+  %110 = load ptr, ptr %6, align 8, !tbaa !52
+  %111 = getelementptr inbounds nuw %struct.mscabd_file, ptr %110, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8, !tbaa !56
+  call void (ptr, ptr, ...) %109(ptr noundef null, ptr noundef @.str.10, ptr noundef %112)
+  %113 = load ptr, ptr %8, align 8, !tbaa !8
+  %114 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %113, i32 0, i32 7
+  store i32 11, ptr %114, align 8, !tbaa !26
   store i32 11, ptr %4, align 4
-  br label %441
+  store i32 1, ptr %13, align 4
+  br label %116
 
-114:                                              ; preds = %97
-  br label %115
+115:                                              ; preds = %98
+  store i32 0, ptr %13, align 4
+  br label %116
 
-115:                                              ; preds = %114, %81
-  %116 = load ptr, ptr %8, align 8
-  %117 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %116, i32 0, i32 1
-  %118 = load ptr, ptr %117, align 8
-  %119 = icmp ne ptr %118, null
-  br i1 %119, label %171, label %120
+116:                                              ; preds = %115, %106
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  %117 = load i32, ptr %13, align 4
+  switch i32 %117, label %445 [
+    i32 0, label %118
+  ]
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %10, align 8
-  %122 = getelementptr inbounds %struct.mspack_system, ptr %121, i32 0, i32 7
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %10, align 8
-  %125 = call ptr %123(ptr noundef %124, i64 noundef 65720)
-  %126 = load ptr, ptr %8, align 8
-  %127 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %126, i32 0, i32 1
-  store ptr %125, ptr %127, align 8
-  %128 = load ptr, ptr %8, align 8
-  %129 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %128, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %135, label %132
+118:                                              ; preds = %116
+  br label %119
 
-132:                                              ; preds = %120
-  %133 = load ptr, ptr %8, align 8
-  %134 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %133, i32 0, i32 7
-  store i32 6, ptr %134, align 8
+119:                                              ; preds = %118, %82
+  %120 = load ptr, ptr %8, align 8, !tbaa !8
+  %121 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %120, i32 0, i32 1
+  %122 = load ptr, ptr %121, align 8, !tbaa !25
+  %123 = icmp ne ptr %122, null
+  br i1 %123, label %175, label %124
+
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %10, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw %struct.mspack_system, ptr %125, i32 0, i32 7
+  %127 = load ptr, ptr %126, align 8, !tbaa !10
+  %128 = load ptr, ptr %10, align 8, !tbaa !3
+  %129 = call ptr %127(ptr noundef %128, i64 noundef 65720)
+  %130 = load ptr, ptr %8, align 8, !tbaa !8
+  %131 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %130, i32 0, i32 1
+  store ptr %129, ptr %131, align 8, !tbaa !25
+  %132 = load ptr, ptr %8, align 8, !tbaa !8
+  %133 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %132, i32 0, i32 1
+  %134 = load ptr, ptr %133, align 8, !tbaa !25
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %139, label %136
+
+136:                                              ; preds = %124
+  %137 = load ptr, ptr %8, align 8, !tbaa !8
+  %138 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %137, i32 0, i32 7
+  store i32 6, ptr %138, align 8, !tbaa !26
   store i32 6, ptr %4, align 4
-  br label %441
+  store i32 1, ptr %13, align 4
+  br label %445
 
-135:                                              ; preds = %120
-  %136 = load ptr, ptr %8, align 8
-  %137 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %136, i32 0, i32 1
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %138, i32 0, i32 0
-  store ptr null, ptr %139, align 8
-  %140 = load ptr, ptr %8, align 8
-  %141 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %140, i32 0, i32 1
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %142, i32 0, i32 1
-  store ptr null, ptr %143, align 8
-  %144 = load ptr, ptr %8, align 8
-  %145 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %144, i32 0, i32 1
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %146, i32 0, i32 5
-  %148 = load ptr, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %147, ptr align 8 %148, i64 88, i1 false)
-  %149 = load ptr, ptr %8, align 8
-  %150 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %149, i32 0, i32 1
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %151, i32 0, i32 5
-  %153 = getelementptr inbounds %struct.mspack_system, ptr %152, i32 0, i32 2
-  store ptr @cabd_sys_read, ptr %153, align 8
-  %154 = load ptr, ptr %8, align 8
-  %155 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %154, i32 0, i32 1
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %156, i32 0, i32 5
-  %158 = getelementptr inbounds %struct.mspack_system, ptr %157, i32 0, i32 3
-  store ptr @cabd_sys_write, ptr %158, align 8
-  %159 = load ptr, ptr %8, align 8
-  %160 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %159, i32 0, i32 1
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %161, i32 0, i32 8
-  store ptr null, ptr %162, align 8
-  %163 = load ptr, ptr %8, align 8
-  %164 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %163, i32 0, i32 1
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %165, i32 0, i32 10
-  store ptr null, ptr %166, align 8
-  %167 = load ptr, ptr %8, align 8
-  %168 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %167, i32 0, i32 1
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %169, i32 0, i32 9
-  store ptr null, ptr %170, align 8
-  br label %171
+139:                                              ; preds = %124
+  %140 = load ptr, ptr %8, align 8, !tbaa !8
+  %141 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %140, i32 0, i32 1
+  %142 = load ptr, ptr %141, align 8, !tbaa !25
+  %143 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %142, i32 0, i32 0
+  store ptr null, ptr %143, align 8, !tbaa !61
+  %144 = load ptr, ptr %8, align 8, !tbaa !8
+  %145 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %144, i32 0, i32 1
+  %146 = load ptr, ptr %145, align 8, !tbaa !25
+  %147 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %146, i32 0, i32 1
+  store ptr null, ptr %147, align 8, !tbaa !87
+  %148 = load ptr, ptr %8, align 8, !tbaa !8
+  %149 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %148, i32 0, i32 1
+  %150 = load ptr, ptr %149, align 8, !tbaa !25
+  %151 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %150, i32 0, i32 5
+  %152 = load ptr, ptr %10, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %151, ptr align 8 %152, i64 88, i1 false), !tbaa.struct !88
+  %153 = load ptr, ptr %8, align 8, !tbaa !8
+  %154 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %154, align 8, !tbaa !25
+  %156 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %155, i32 0, i32 5
+  %157 = getelementptr inbounds nuw %struct.mspack_system, ptr %156, i32 0, i32 2
+  store ptr @cabd_sys_read, ptr %157, align 8, !tbaa !90
+  %158 = load ptr, ptr %8, align 8, !tbaa !8
+  %159 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %158, i32 0, i32 1
+  %160 = load ptr, ptr %159, align 8, !tbaa !25
+  %161 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %160, i32 0, i32 5
+  %162 = getelementptr inbounds nuw %struct.mspack_system, ptr %161, i32 0, i32 3
+  store ptr @cabd_sys_write, ptr %162, align 8, !tbaa !91
+  %163 = load ptr, ptr %8, align 8, !tbaa !8
+  %164 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %163, i32 0, i32 1
+  %165 = load ptr, ptr %164, align 8, !tbaa !25
+  %166 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %165, i32 0, i32 8
+  store ptr null, ptr %166, align 8, !tbaa !92
+  %167 = load ptr, ptr %8, align 8, !tbaa !8
+  %168 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %167, i32 0, i32 1
+  %169 = load ptr, ptr %168, align 8, !tbaa !25
+  %170 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %169, i32 0, i32 10
+  store ptr null, ptr %170, align 8, !tbaa !65
+  %171 = load ptr, ptr %8, align 8, !tbaa !8
+  %172 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %171, i32 0, i32 1
+  %173 = load ptr, ptr %172, align 8, !tbaa !25
+  %174 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %173, i32 0, i32 9
+  store ptr null, ptr %174, align 8, !tbaa !93
+  br label %175
 
-171:                                              ; preds = %135, %115
-  %172 = load ptr, ptr %8, align 8
-  %173 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %172, i32 0, i32 1
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %174, i32 0, i32 0
-  %176 = load ptr, ptr %175, align 8
-  %177 = load ptr, ptr %9, align 8
-  %178 = icmp ne ptr %176, %177
-  br i1 %178, label %196, label %179
+175:                                              ; preds = %139, %119
+  %176 = load ptr, ptr %8, align 8, !tbaa !8
+  %177 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %176, i32 0, i32 1
+  %178 = load ptr, ptr %177, align 8, !tbaa !25
+  %179 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %178, i32 0, i32 0
+  %180 = load ptr, ptr %179, align 8, !tbaa !61
+  %181 = load ptr, ptr %9, align 8, !tbaa !82
+  %182 = icmp ne ptr %180, %181
+  br i1 %182, label %200, label %183
 
-179:                                              ; preds = %171
-  %180 = load ptr, ptr %8, align 8
-  %181 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %180, i32 0, i32 1
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %182, i32 0, i32 2
-  %184 = load i32, ptr %183, align 8
-  %185 = load ptr, ptr %6, align 8
-  %186 = getelementptr inbounds %struct.mscabd_file, ptr %185, i32 0, i32 11
-  %187 = load i32, ptr %186, align 8
-  %188 = icmp ugt i32 %184, %187
-  br i1 %188, label %196, label %189
+183:                                              ; preds = %175
+  %184 = load ptr, ptr %8, align 8, !tbaa !8
+  %185 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %184, i32 0, i32 1
+  %186 = load ptr, ptr %185, align 8, !tbaa !25
+  %187 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %186, i32 0, i32 2
+  %188 = load i32, ptr %187, align 8, !tbaa !94
+  %189 = load ptr, ptr %6, align 8, !tbaa !52
+  %190 = getelementptr inbounds nuw %struct.mscabd_file, ptr %189, i32 0, i32 11
+  %191 = load i32, ptr %190, align 8, !tbaa !83
+  %192 = icmp ugt i32 %188, %191
+  br i1 %192, label %200, label %193
 
-189:                                              ; preds = %179
-  %190 = load ptr, ptr %8, align 8
-  %191 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %190, i32 0, i32 1
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %192, i32 0, i32 8
-  %194 = load ptr, ptr %193, align 8
-  %195 = icmp ne ptr %194, null
-  br i1 %195, label %335, label %196
+193:                                              ; preds = %183
+  %194 = load ptr, ptr %8, align 8, !tbaa !8
+  %195 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %194, i32 0, i32 1
+  %196 = load ptr, ptr %195, align 8, !tbaa !25
+  %197 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %196, i32 0, i32 8
+  %198 = load ptr, ptr %197, align 8, !tbaa !92
+  %199 = icmp ne ptr %198, null
+  br i1 %199, label %339, label %200
 
-196:                                              ; preds = %189, %179, %171
-  %197 = load ptr, ptr %8, align 8
-  call void @cabd_free_decomp(ptr noundef %197)
-  %198 = load ptr, ptr %8, align 8
-  %199 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %198, i32 0, i32 1
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %200, i32 0, i32 10
-  %202 = load ptr, ptr %201, align 8
-  %203 = icmp ne ptr %202, null
-  br i1 %203, label %204, label %215
+200:                                              ; preds = %193, %183, %175
+  %201 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @cabd_free_decomp(ptr noundef %201)
+  %202 = load ptr, ptr %8, align 8, !tbaa !8
+  %203 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %202, i32 0, i32 1
+  %204 = load ptr, ptr %203, align 8, !tbaa !25
+  %205 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %204, i32 0, i32 10
+  %206 = load ptr, ptr %205, align 8, !tbaa !65
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %219
 
-204:                                              ; preds = %196
-  %205 = load ptr, ptr %9, align 8
-  %206 = getelementptr inbounds %struct.mscabd_folder_p, ptr %205, i32 0, i32 1
-  %207 = getelementptr inbounds %struct.mscabd_folder_data, ptr %206, i32 0, i32 1
-  %208 = load ptr, ptr %207, align 8
-  %209 = load ptr, ptr %8, align 8
-  %210 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %209, i32 0, i32 1
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %211, i32 0, i32 9
-  %213 = load ptr, ptr %212, align 8
-  %214 = icmp ne ptr %208, %213
-  br i1 %214, label %215, label %266
+208:                                              ; preds = %200
+  %209 = load ptr, ptr %9, align 8, !tbaa !82
+  %210 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %209, i32 0, i32 1
+  %211 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %210, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8, !tbaa !95
+  %213 = load ptr, ptr %8, align 8, !tbaa !8
+  %214 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %213, i32 0, i32 1
+  %215 = load ptr, ptr %214, align 8, !tbaa !25
+  %216 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %215, i32 0, i32 9
+  %217 = load ptr, ptr %216, align 8, !tbaa !93
+  %218 = icmp ne ptr %212, %217
+  br i1 %218, label %219, label %270
 
-215:                                              ; preds = %204, %196
-  %216 = load ptr, ptr %8, align 8
-  %217 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %216, i32 0, i32 1
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %218, i32 0, i32 10
-  %220 = load ptr, ptr %219, align 8
-  %221 = icmp ne ptr %220, null
-  br i1 %221, label %222, label %231
+219:                                              ; preds = %208, %200
+  %220 = load ptr, ptr %8, align 8, !tbaa !8
+  %221 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %220, i32 0, i32 1
+  %222 = load ptr, ptr %221, align 8, !tbaa !25
+  %223 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %222, i32 0, i32 10
+  %224 = load ptr, ptr %223, align 8, !tbaa !65
+  %225 = icmp ne ptr %224, null
+  br i1 %225, label %226, label %235
 
-222:                                              ; preds = %215
-  %223 = load ptr, ptr %10, align 8
-  %224 = getelementptr inbounds %struct.mspack_system, ptr %223, i32 0, i32 1
-  %225 = load ptr, ptr %224, align 8
-  %226 = load ptr, ptr %8, align 8
-  %227 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %226, i32 0, i32 1
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %228, i32 0, i32 10
-  %230 = load ptr, ptr %229, align 8
-  call void %225(ptr noundef %230)
-  br label %231
+226:                                              ; preds = %219
+  %227 = load ptr, ptr %10, align 8, !tbaa !3
+  %228 = getelementptr inbounds nuw %struct.mspack_system, ptr %227, i32 0, i32 1
+  %229 = load ptr, ptr %228, align 8, !tbaa !49
+  %230 = load ptr, ptr %8, align 8, !tbaa !8
+  %231 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %230, i32 0, i32 1
+  %232 = load ptr, ptr %231, align 8, !tbaa !25
+  %233 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %232, i32 0, i32 10
+  %234 = load ptr, ptr %233, align 8, !tbaa !65
+  call void %229(ptr noundef %234)
+  br label %235
 
-231:                                              ; preds = %222, %215
-  %232 = load ptr, ptr %9, align 8
-  %233 = getelementptr inbounds %struct.mscabd_folder_p, ptr %232, i32 0, i32 1
-  %234 = getelementptr inbounds %struct.mscabd_folder_data, ptr %233, i32 0, i32 1
-  %235 = load ptr, ptr %234, align 8
-  %236 = load ptr, ptr %8, align 8
-  %237 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %236, i32 0, i32 1
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %238, i32 0, i32 9
-  store ptr %235, ptr %239, align 8
-  %240 = load ptr, ptr %10, align 8
-  %241 = getelementptr inbounds %struct.mspack_system, ptr %240, i32 0, i32 0
-  %242 = load ptr, ptr %241, align 8
-  %243 = load ptr, ptr %10, align 8
-  %244 = load ptr, ptr %9, align 8
-  %245 = getelementptr inbounds %struct.mscabd_folder_p, ptr %244, i32 0, i32 1
-  %246 = getelementptr inbounds %struct.mscabd_folder_data, ptr %245, i32 0, i32 1
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %247, i32 0, i32 0
-  %249 = getelementptr inbounds %struct.mscabd_cabinet, ptr %248, i32 0, i32 1
-  %250 = load ptr, ptr %249, align 8
-  %251 = call ptr %242(ptr noundef %243, ptr noundef %250, i32 noundef 0)
-  %252 = load ptr, ptr %8, align 8
-  %253 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %252, i32 0, i32 1
-  %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %254, i32 0, i32 10
-  store ptr %251, ptr %255, align 8
-  %256 = load ptr, ptr %8, align 8
-  %257 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %256, i32 0, i32 1
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %258, i32 0, i32 10
-  %260 = load ptr, ptr %259, align 8
-  %261 = icmp ne ptr %260, null
-  br i1 %261, label %265, label %262
+235:                                              ; preds = %226, %219
+  %236 = load ptr, ptr %9, align 8, !tbaa !82
+  %237 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %236, i32 0, i32 1
+  %238 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %237, i32 0, i32 1
+  %239 = load ptr, ptr %238, align 8, !tbaa !95
+  %240 = load ptr, ptr %8, align 8, !tbaa !8
+  %241 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %240, i32 0, i32 1
+  %242 = load ptr, ptr %241, align 8, !tbaa !25
+  %243 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %242, i32 0, i32 9
+  store ptr %239, ptr %243, align 8, !tbaa !93
+  %244 = load ptr, ptr %10, align 8, !tbaa !3
+  %245 = getelementptr inbounds nuw %struct.mspack_system, ptr %244, i32 0, i32 0
+  %246 = load ptr, ptr %245, align 8, !tbaa !37
+  %247 = load ptr, ptr %10, align 8, !tbaa !3
+  %248 = load ptr, ptr %9, align 8, !tbaa !82
+  %249 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %248, i32 0, i32 1
+  %250 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %249, i32 0, i32 1
+  %251 = load ptr, ptr %250, align 8, !tbaa !95
+  %252 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %251, i32 0, i32 0
+  %253 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %252, i32 0, i32 1
+  %254 = load ptr, ptr %253, align 8, !tbaa !40
+  %255 = call ptr %246(ptr noundef %247, ptr noundef %254, i32 noundef 0)
+  %256 = load ptr, ptr %8, align 8, !tbaa !8
+  %257 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %256, i32 0, i32 1
+  %258 = load ptr, ptr %257, align 8, !tbaa !25
+  %259 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %258, i32 0, i32 10
+  store ptr %255, ptr %259, align 8, !tbaa !65
+  %260 = load ptr, ptr %8, align 8, !tbaa !8
+  %261 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %260, i32 0, i32 1
+  %262 = load ptr, ptr %261, align 8, !tbaa !25
+  %263 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %262, i32 0, i32 10
+  %264 = load ptr, ptr %263, align 8, !tbaa !65
+  %265 = icmp ne ptr %264, null
+  br i1 %265, label %269, label %266
 
-262:                                              ; preds = %231
-  %263 = load ptr, ptr %8, align 8
-  %264 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %263, i32 0, i32 7
-  store i32 2, ptr %264, align 8
+266:                                              ; preds = %235
+  %267 = load ptr, ptr %8, align 8, !tbaa !8
+  %268 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %267, i32 0, i32 7
+  store i32 2, ptr %268, align 8, !tbaa !26
   store i32 2, ptr %4, align 4
-  br label %441
+  store i32 1, ptr %13, align 4
+  br label %445
 
-265:                                              ; preds = %231
-  br label %266
+269:                                              ; preds = %235
+  br label %270
 
-266:                                              ; preds = %265, %204
-  %267 = load ptr, ptr %10, align 8
-  %268 = getelementptr inbounds %struct.mspack_system, ptr %267, i32 0, i32 4
-  %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr %8, align 8
-  %271 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %270, i32 0, i32 1
-  %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %272, i32 0, i32 10
-  %274 = load ptr, ptr %273, align 8
-  %275 = load ptr, ptr %9, align 8
-  %276 = getelementptr inbounds %struct.mscabd_folder_p, ptr %275, i32 0, i32 1
-  %277 = getelementptr inbounds %struct.mscabd_folder_data, ptr %276, i32 0, i32 2
-  %278 = load i64, ptr %277, align 8
-  %279 = call i32 %269(ptr noundef %274, i64 noundef %278, i32 noundef 0)
-  %280 = icmp ne i32 %279, 0
-  br i1 %280, label %281, label %284
+270:                                              ; preds = %269, %208
+  %271 = load ptr, ptr %10, align 8, !tbaa !3
+  %272 = getelementptr inbounds nuw %struct.mspack_system, ptr %271, i32 0, i32 4
+  %273 = load ptr, ptr %272, align 8, !tbaa !96
+  %274 = load ptr, ptr %8, align 8, !tbaa !8
+  %275 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %274, i32 0, i32 1
+  %276 = load ptr, ptr %275, align 8, !tbaa !25
+  %277 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %276, i32 0, i32 10
+  %278 = load ptr, ptr %277, align 8, !tbaa !65
+  %279 = load ptr, ptr %9, align 8, !tbaa !82
+  %280 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %279, i32 0, i32 1
+  %281 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %280, i32 0, i32 2
+  %282 = load i64, ptr %281, align 8, !tbaa !97
+  %283 = call i32 %273(ptr noundef %278, i64 noundef %282, i32 noundef 0)
+  %284 = icmp ne i32 %283, 0
+  br i1 %284, label %285, label %288
 
-281:                                              ; preds = %266
-  %282 = load ptr, ptr %8, align 8
-  %283 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %282, i32 0, i32 7
-  store i32 5, ptr %283, align 8
+285:                                              ; preds = %270
+  %286 = load ptr, ptr %8, align 8, !tbaa !8
+  %287 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %286, i32 0, i32 7
+  store i32 5, ptr %287, align 8, !tbaa !26
   store i32 5, ptr %4, align 4
-  br label %441
+  store i32 1, ptr %13, align 4
+  br label %445
 
-284:                                              ; preds = %266
-  %285 = load ptr, ptr %8, align 8
-  %286 = load ptr, ptr %9, align 8
-  %287 = getelementptr inbounds %struct.mscabd_folder_p, ptr %286, i32 0, i32 0
-  %288 = getelementptr inbounds %struct.mscabd_folder, ptr %287, i32 0, i32 1
-  %289 = load i32, ptr %288, align 8
-  %290 = call i32 @cabd_init_decomp(ptr noundef %285, i32 noundef %289)
-  %291 = icmp ne i32 %290, 0
-  br i1 %291, label %292, label %296
+288:                                              ; preds = %270
+  %289 = load ptr, ptr %8, align 8, !tbaa !8
+  %290 = load ptr, ptr %9, align 8, !tbaa !82
+  %291 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %290, i32 0, i32 0
+  %292 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %291, i32 0, i32 1
+  %293 = load i32, ptr %292, align 8, !tbaa !98
+  %294 = call i32 @cabd_init_decomp(ptr noundef %289, i32 noundef %293)
+  %295 = icmp ne i32 %294, 0
+  br i1 %295, label %296, label %300
 
-292:                                              ; preds = %284
-  %293 = load ptr, ptr %8, align 8
-  %294 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %293, i32 0, i32 7
-  %295 = load i32, ptr %294, align 8
-  store i32 %295, ptr %4, align 4
-  br label %441
+296:                                              ; preds = %288
+  %297 = load ptr, ptr %8, align 8, !tbaa !8
+  %298 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %297, i32 0, i32 7
+  %299 = load i32, ptr %298, align 8, !tbaa !26
+  store i32 %299, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %445
 
-296:                                              ; preds = %284
-  %297 = load ptr, ptr %9, align 8
-  %298 = load ptr, ptr %8, align 8
-  %299 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %298, i32 0, i32 1
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %300, i32 0, i32 0
-  store ptr %297, ptr %301, align 8
-  %302 = load ptr, ptr %9, align 8
-  %303 = getelementptr inbounds %struct.mscabd_folder_p, ptr %302, i32 0, i32 1
-  %304 = load ptr, ptr %8, align 8
-  %305 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %304, i32 0, i32 1
-  %306 = load ptr, ptr %305, align 8
-  %307 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %306, i32 0, i32 1
-  store ptr %303, ptr %307, align 8
-  %308 = load ptr, ptr %8, align 8
-  %309 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %308, i32 0, i32 1
-  %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %310, i32 0, i32 2
-  store i32 0, ptr %311, align 8
-  %312 = load ptr, ptr %8, align 8
-  %313 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %312, i32 0, i32 1
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %314, i32 0, i32 3
-  store i32 0, ptr %315, align 4
-  %316 = load ptr, ptr %8, align 8
-  %317 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %316, i32 0, i32 1
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %318, i32 0, i32 4
-  store i64 0, ptr %319, align 8
-  %320 = load ptr, ptr %8, align 8
-  %321 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %320, i32 0, i32 1
-  %322 = load ptr, ptr %321, align 8
-  %323 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %322, i32 0, i32 14
-  %324 = getelementptr inbounds [65536 x i8], ptr %323, i64 0, i64 0
-  %325 = load ptr, ptr %8, align 8
-  %326 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %325, i32 0, i32 1
-  %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %327, i32 0, i32 13
-  store ptr %324, ptr %328, align 8
-  %329 = load ptr, ptr %8, align 8
-  %330 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %329, i32 0, i32 1
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %331, i32 0, i32 12
-  store ptr %324, ptr %332, align 8
-  %333 = load ptr, ptr %8, align 8
-  %334 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %333, i32 0, i32 8
-  store i32 0, ptr %334, align 4
-  br label %335
+300:                                              ; preds = %288
+  %301 = load ptr, ptr %9, align 8, !tbaa !82
+  %302 = load ptr, ptr %8, align 8, !tbaa !8
+  %303 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %302, i32 0, i32 1
+  %304 = load ptr, ptr %303, align 8, !tbaa !25
+  %305 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %304, i32 0, i32 0
+  store ptr %301, ptr %305, align 8, !tbaa !61
+  %306 = load ptr, ptr %9, align 8, !tbaa !82
+  %307 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %306, i32 0, i32 1
+  %308 = load ptr, ptr %8, align 8, !tbaa !8
+  %309 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %308, i32 0, i32 1
+  %310 = load ptr, ptr %309, align 8, !tbaa !25
+  %311 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %310, i32 0, i32 1
+  store ptr %307, ptr %311, align 8, !tbaa !87
+  %312 = load ptr, ptr %8, align 8, !tbaa !8
+  %313 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %312, i32 0, i32 1
+  %314 = load ptr, ptr %313, align 8, !tbaa !25
+  %315 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %314, i32 0, i32 2
+  store i32 0, ptr %315, align 8, !tbaa !94
+  %316 = load ptr, ptr %8, align 8, !tbaa !8
+  %317 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %316, i32 0, i32 1
+  %318 = load ptr, ptr %317, align 8, !tbaa !25
+  %319 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %318, i32 0, i32 3
+  store i32 0, ptr %319, align 4, !tbaa !99
+  %320 = load ptr, ptr %8, align 8, !tbaa !8
+  %321 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %320, i32 0, i32 1
+  %322 = load ptr, ptr %321, align 8, !tbaa !25
+  %323 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %322, i32 0, i32 4
+  store i64 0, ptr %323, align 8, !tbaa !100
+  %324 = load ptr, ptr %8, align 8, !tbaa !8
+  %325 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %324, i32 0, i32 1
+  %326 = load ptr, ptr %325, align 8, !tbaa !25
+  %327 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %326, i32 0, i32 14
+  %328 = getelementptr inbounds [65536 x i8], ptr %327, i64 0, i64 0
+  %329 = load ptr, ptr %8, align 8, !tbaa !8
+  %330 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %329, i32 0, i32 1
+  %331 = load ptr, ptr %330, align 8, !tbaa !25
+  %332 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %331, i32 0, i32 13
+  store ptr %328, ptr %332, align 8, !tbaa !101
+  %333 = load ptr, ptr %8, align 8, !tbaa !8
+  %334 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %333, i32 0, i32 1
+  %335 = load ptr, ptr %334, align 8, !tbaa !25
+  %336 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %335, i32 0, i32 12
+  store ptr %328, ptr %336, align 8, !tbaa !102
+  %337 = load ptr, ptr %8, align 8, !tbaa !8
+  %338 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %337, i32 0, i32 8
+  store i32 0, ptr %338, align 4, !tbaa !103
+  br label %339
 
-335:                                              ; preds = %296, %189
-  %336 = load ptr, ptr %10, align 8
-  %337 = getelementptr inbounds %struct.mspack_system, ptr %336, i32 0, i32 0
-  %338 = load ptr, ptr %337, align 8
-  %339 = load ptr, ptr %10, align 8
-  %340 = load ptr, ptr %7, align 8
-  %341 = call ptr %338(ptr noundef %339, ptr noundef %340, i32 noundef 1)
-  store ptr %341, ptr %11, align 8
-  %342 = icmp ne ptr %341, null
-  br i1 %342, label %346, label %343
+339:                                              ; preds = %300, %193
+  %340 = load ptr, ptr %10, align 8, !tbaa !3
+  %341 = getelementptr inbounds nuw %struct.mspack_system, ptr %340, i32 0, i32 0
+  %342 = load ptr, ptr %341, align 8, !tbaa !37
+  %343 = load ptr, ptr %10, align 8, !tbaa !3
+  %344 = load ptr, ptr %7, align 8, !tbaa !33
+  %345 = call ptr %342(ptr noundef %343, ptr noundef %344, i32 noundef 1)
+  store ptr %345, ptr %11, align 8, !tbaa !38
+  %346 = icmp ne ptr %345, null
+  br i1 %346, label %350, label %347
 
-343:                                              ; preds = %335
-  %344 = load ptr, ptr %8, align 8
-  %345 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %344, i32 0, i32 7
-  store i32 2, ptr %345, align 8
+347:                                              ; preds = %339
+  %348 = load ptr, ptr %8, align 8, !tbaa !8
+  %349 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %348, i32 0, i32 7
+  store i32 2, ptr %349, align 8, !tbaa !26
   store i32 2, ptr %4, align 4
-  br label %441
+  store i32 1, ptr %13, align 4
+  br label %445
 
-346:                                              ; preds = %335
-  %347 = load ptr, ptr %8, align 8
-  %348 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %347, i32 0, i32 7
-  store i32 0, ptr %348, align 8
-  %349 = load i32, ptr %12, align 4
-  %350 = icmp ne i32 %349, 0
-  br i1 %350, label %351, label %429
+350:                                              ; preds = %339
+  %351 = load ptr, ptr %8, align 8, !tbaa !8
+  %352 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %351, i32 0, i32 7
+  store i32 0, ptr %352, align 8, !tbaa !26
+  %353 = load i32, ptr %12, align 4, !tbaa !48
+  %354 = icmp ne i32 %353, 0
+  br i1 %354, label %355, label %433
 
-351:                                              ; preds = %346
-  %352 = load ptr, ptr %8, align 8
-  %353 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %352, i32 0, i32 1
-  %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %354, i32 0, i32 11
-  store ptr null, ptr %355, align 8
-  %356 = load ptr, ptr %6, align 8
-  %357 = getelementptr inbounds %struct.mscabd_file, ptr %356, i32 0, i32 11
-  %358 = load i32, ptr %357, align 8
-  %359 = load ptr, ptr %8, align 8
-  %360 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %359, i32 0, i32 1
-  %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %361, i32 0, i32 2
-  %363 = load i32, ptr %362, align 8
-  %364 = sub i32 %358, %363
-  %365 = zext i32 %364 to i64
-  store i64 %365, ptr %14, align 8
-  %366 = icmp ne i64 %365, 0
-  br i1 %366, label %367, label %392
+355:                                              ; preds = %350
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  %356 = load ptr, ptr %8, align 8, !tbaa !8
+  %357 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %356, i32 0, i32 1
+  %358 = load ptr, ptr %357, align 8, !tbaa !25
+  %359 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %358, i32 0, i32 11
+  store ptr null, ptr %359, align 8, !tbaa !104
+  %360 = load ptr, ptr %6, align 8, !tbaa !52
+  %361 = getelementptr inbounds nuw %struct.mscabd_file, ptr %360, i32 0, i32 11
+  %362 = load i32, ptr %361, align 8, !tbaa !83
+  %363 = load ptr, ptr %8, align 8, !tbaa !8
+  %364 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %363, i32 0, i32 1
+  %365 = load ptr, ptr %364, align 8, !tbaa !25
+  %366 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %365, i32 0, i32 2
+  %367 = load i32, ptr %366, align 8, !tbaa !94
+  %368 = sub i32 %362, %367
+  %369 = zext i32 %368 to i64
+  store i64 %369, ptr %15, align 8, !tbaa !78
+  %370 = icmp ne i64 %369, 0
+  br i1 %370, label %371, label %396
 
-367:                                              ; preds = %351
-  %368 = load ptr, ptr %8, align 8
-  %369 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %368, i32 0, i32 1
-  %370 = load ptr, ptr %369, align 8
-  %371 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %370, i32 0, i32 7
-  %372 = load ptr, ptr %371, align 8
-  %373 = load ptr, ptr %8, align 8
-  %374 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %373, i32 0, i32 1
-  %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %375, i32 0, i32 8
-  %377 = load ptr, ptr %376, align 8
-  %378 = load i64, ptr %14, align 8
-  %379 = call i32 %372(ptr noundef %377, i64 noundef %378)
-  store i32 %379, ptr %15, align 4
-  %380 = load i32, ptr %15, align 4
-  %381 = icmp eq i32 %380, 3
-  br i1 %381, label %382, label %386
+371:                                              ; preds = %355
+  %372 = load ptr, ptr %8, align 8, !tbaa !8
+  %373 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %372, i32 0, i32 1
+  %374 = load ptr, ptr %373, align 8, !tbaa !25
+  %375 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %374, i32 0, i32 7
+  %376 = load ptr, ptr %375, align 8, !tbaa !105
+  %377 = load ptr, ptr %8, align 8, !tbaa !8
+  %378 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %377, i32 0, i32 1
+  %379 = load ptr, ptr %378, align 8, !tbaa !25
+  %380 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %379, i32 0, i32 8
+  %381 = load ptr, ptr %380, align 8, !tbaa !92
+  %382 = load i64, ptr %15, align 8, !tbaa !78
+  %383 = call i32 %376(ptr noundef %381, i64 noundef %382)
+  store i32 %383, ptr %16, align 4, !tbaa !48
+  %384 = load i32, ptr %16, align 4, !tbaa !48
+  %385 = icmp eq i32 %384, 3
+  br i1 %385, label %386, label %390
 
-382:                                              ; preds = %367
-  %383 = load ptr, ptr %8, align 8
-  %384 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %383, i32 0, i32 8
-  %385 = load i32, ptr %384, align 4
-  br label %388
-
-386:                                              ; preds = %367
-  %387 = load i32, ptr %15, align 4
-  br label %388
-
-388:                                              ; preds = %386, %382
-  %389 = phi i32 [ %385, %382 ], [ %387, %386 ]
-  %390 = load ptr, ptr %8, align 8
-  %391 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %390, i32 0, i32 7
-  store i32 %389, ptr %391, align 8
+386:                                              ; preds = %371
+  %387 = load ptr, ptr %8, align 8, !tbaa !8
+  %388 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %387, i32 0, i32 8
+  %389 = load i32, ptr %388, align 4, !tbaa !103
   br label %392
 
-392:                                              ; preds = %388, %351
-  %393 = load ptr, ptr %8, align 8
-  %394 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %393, i32 0, i32 7
-  %395 = load i32, ptr %394, align 8
-  %396 = icmp ne i32 %395, 0
-  br i1 %396, label %428, label %397
+390:                                              ; preds = %371
+  %391 = load i32, ptr %16, align 4, !tbaa !48
+  br label %392
 
-397:                                              ; preds = %392
-  %398 = load ptr, ptr %11, align 8
-  %399 = load ptr, ptr %8, align 8
-  %400 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %399, i32 0, i32 1
-  %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %401, i32 0, i32 11
-  store ptr %398, ptr %402, align 8
-  %403 = load ptr, ptr %8, align 8
-  %404 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %403, i32 0, i32 1
-  %405 = load ptr, ptr %404, align 8
-  %406 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %405, i32 0, i32 7
-  %407 = load ptr, ptr %406, align 8
-  %408 = load ptr, ptr %8, align 8
-  %409 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %408, i32 0, i32 1
-  %410 = load ptr, ptr %409, align 8
-  %411 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %410, i32 0, i32 8
-  %412 = load ptr, ptr %411, align 8
-  %413 = load i32, ptr %12, align 4
-  %414 = zext i32 %413 to i64
-  %415 = call i32 %407(ptr noundef %412, i64 noundef %414)
-  store i32 %415, ptr %15, align 4
-  %416 = load i32, ptr %15, align 4
-  %417 = icmp eq i32 %416, 3
-  br i1 %417, label %418, label %422
+392:                                              ; preds = %390, %386
+  %393 = phi i32 [ %389, %386 ], [ %391, %390 ]
+  %394 = load ptr, ptr %8, align 8, !tbaa !8
+  %395 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %394, i32 0, i32 7
+  store i32 %393, ptr %395, align 8, !tbaa !26
+  br label %396
 
-418:                                              ; preds = %397
-  %419 = load ptr, ptr %8, align 8
-  %420 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %419, i32 0, i32 8
-  %421 = load i32, ptr %420, align 4
-  br label %424
+396:                                              ; preds = %392, %355
+  %397 = load ptr, ptr %8, align 8, !tbaa !8
+  %398 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %397, i32 0, i32 7
+  %399 = load i32, ptr %398, align 8, !tbaa !26
+  %400 = icmp ne i32 %399, 0
+  br i1 %400, label %432, label %401
 
-422:                                              ; preds = %397
-  %423 = load i32, ptr %15, align 4
-  br label %424
+401:                                              ; preds = %396
+  %402 = load ptr, ptr %11, align 8, !tbaa !38
+  %403 = load ptr, ptr %8, align 8, !tbaa !8
+  %404 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %403, i32 0, i32 1
+  %405 = load ptr, ptr %404, align 8, !tbaa !25
+  %406 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %405, i32 0, i32 11
+  store ptr %402, ptr %406, align 8, !tbaa !104
+  %407 = load ptr, ptr %8, align 8, !tbaa !8
+  %408 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %407, i32 0, i32 1
+  %409 = load ptr, ptr %408, align 8, !tbaa !25
+  %410 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %409, i32 0, i32 7
+  %411 = load ptr, ptr %410, align 8, !tbaa !105
+  %412 = load ptr, ptr %8, align 8, !tbaa !8
+  %413 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %412, i32 0, i32 1
+  %414 = load ptr, ptr %413, align 8, !tbaa !25
+  %415 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %414, i32 0, i32 8
+  %416 = load ptr, ptr %415, align 8, !tbaa !92
+  %417 = load i32, ptr %12, align 4, !tbaa !48
+  %418 = zext i32 %417 to i64
+  %419 = call i32 %411(ptr noundef %416, i64 noundef %418)
+  store i32 %419, ptr %16, align 4, !tbaa !48
+  %420 = load i32, ptr %16, align 4, !tbaa !48
+  %421 = icmp eq i32 %420, 3
+  br i1 %421, label %422, label %426
 
-424:                                              ; preds = %422, %418
-  %425 = phi i32 [ %421, %418 ], [ %423, %422 ]
-  %426 = load ptr, ptr %8, align 8
-  %427 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %426, i32 0, i32 7
-  store i32 %425, ptr %427, align 8
+422:                                              ; preds = %401
+  %423 = load ptr, ptr %8, align 8, !tbaa !8
+  %424 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %423, i32 0, i32 8
+  %425 = load i32, ptr %424, align 4, !tbaa !103
   br label %428
 
-428:                                              ; preds = %424, %392
-  br label %429
+426:                                              ; preds = %401
+  %427 = load i32, ptr %16, align 4, !tbaa !48
+  br label %428
 
-429:                                              ; preds = %428, %346
-  %430 = load ptr, ptr %10, align 8
-  %431 = getelementptr inbounds %struct.mspack_system, ptr %430, i32 0, i32 1
-  %432 = load ptr, ptr %431, align 8
-  %433 = load ptr, ptr %11, align 8
-  call void %432(ptr noundef %433)
-  %434 = load ptr, ptr %8, align 8
-  %435 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %434, i32 0, i32 1
-  %436 = load ptr, ptr %435, align 8
-  %437 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %436, i32 0, i32 11
-  store ptr null, ptr %437, align 8
-  %438 = load ptr, ptr %8, align 8
-  %439 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %438, i32 0, i32 7
-  %440 = load i32, ptr %439, align 8
-  store i32 %440, ptr %4, align 4
-  br label %441
+428:                                              ; preds = %426, %422
+  %429 = phi i32 [ %425, %422 ], [ %427, %426 ]
+  %430 = load ptr, ptr %8, align 8, !tbaa !8
+  %431 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %430, i32 0, i32 7
+  store i32 %429, ptr %431, align 8, !tbaa !26
+  br label %432
 
-441:                                              ; preds = %429, %343, %292, %281, %262, %132, %105, %72, %60, %37, %23, %19
-  %442 = load i32, ptr %4, align 4
-  ret i32 %442
+432:                                              ; preds = %428, %396
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  br label %433
+
+433:                                              ; preds = %432, %350
+  %434 = load ptr, ptr %10, align 8, !tbaa !3
+  %435 = getelementptr inbounds nuw %struct.mspack_system, ptr %434, i32 0, i32 1
+  %436 = load ptr, ptr %435, align 8, !tbaa !49
+  %437 = load ptr, ptr %11, align 8, !tbaa !38
+  call void %436(ptr noundef %437)
+  %438 = load ptr, ptr %8, align 8, !tbaa !8
+  %439 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %438, i32 0, i32 1
+  %440 = load ptr, ptr %439, align 8, !tbaa !25
+  %441 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %440, i32 0, i32 11
+  store ptr null, ptr %441, align 8, !tbaa !104
+  %442 = load ptr, ptr %8, align 8, !tbaa !8
+  %443 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %442, i32 0, i32 7
+  %444 = load i32, ptr %443, align 8, !tbaa !26
+  store i32 %444, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %445
+
+445:                                              ; preds = %433, %347, %296, %285, %266, %136, %116, %73, %61, %38, %24, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %446 = load i32, ptr %4, align 4
+  ret i32 %446
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1358,12 +1472,12 @@ define internal i32 @cabd_prepend(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  store ptr %2, ptr %6, align 8, !tbaa !50
+  %7 = load ptr, ptr %4, align 8, !tbaa !31
+  %8 = load ptr, ptr %6, align 8, !tbaa !50
+  %9 = load ptr, ptr %5, align 8, !tbaa !50
   %10 = call i32 @cabd_merge(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret i32 %10
 }
@@ -1373,12 +1487,12 @@ define internal i32 @cabd_append(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  store ptr %2, ptr %6, align 8, !tbaa !50
+  %7 = load ptr, ptr %4, align 8, !tbaa !31
+  %8 = load ptr, ptr %5, align 8, !tbaa !50
+  %9 = load ptr, ptr %6, align 8, !tbaa !50
   %10 = call i32 @cabd_merge(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret i32 %10
 }
@@ -1390,102 +1504,111 @@ define internal i32 @cabd_param(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = load ptr, ptr %8, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %3
-  store i32 1, ptr %4, align 4
-  br label %41
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !31
+  store i32 %1, ptr %6, align 4, !tbaa !48
+  store i32 %2, ptr %7, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load ptr, ptr %5, align 8, !tbaa !31
+  store ptr %10, ptr %8, align 8, !tbaa !8
+  %11 = load ptr, ptr %8, align 8, !tbaa !8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %3
-  %14 = load i32, ptr %6, align 4
-  switch i32 %14, label %39 [
-    i32 0, label %15
-    i32 1, label %23
-    i32 2, label %27
-    i32 3, label %35
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %42
+
+14:                                               ; preds = %3
+  %15 = load i32, ptr %6, align 4, !tbaa !48
+  switch i32 %15, label %40 [
+    i32 0, label %16
+    i32 1, label %24
+    i32 2, label %28
+    i32 3, label %36
   ]
 
-15:                                               ; preds = %13
-  %16 = load i32, ptr %7, align 4
-  %17 = icmp slt i32 %16, 4
-  br i1 %17, label %18, label %19
+16:                                               ; preds = %14
+  %17 = load i32, ptr %7, align 4, !tbaa !48
+  %18 = icmp slt i32 %17, 4
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %15
+19:                                               ; preds = %16
   store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %42
+
+20:                                               ; preds = %16
+  %21 = load i32, ptr %7, align 4, !tbaa !48
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %22, i32 0, i32 4
+  store i32 %21, ptr %23, align 4, !tbaa !27
   br label %41
 
-19:                                               ; preds = %15
-  %20 = load i32, ptr %7, align 4
-  %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %21, i32 0, i32 4
-  store i32 %20, ptr %22, align 4
-  br label %40
-
-23:                                               ; preds = %13
-  %24 = load i32, ptr %7, align 4
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %25, i32 0, i32 5
-  store i32 %24, ptr %26, align 8
-  br label %40
-
-27:                                               ; preds = %13
-  %28 = load i32, ptr %7, align 4
-  %29 = icmp slt i32 %28, 4
-  br i1 %29, label %30, label %31
-
-30:                                               ; preds = %27
-  store i32 1, ptr %4, align 4
+24:                                               ; preds = %14
+  %25 = load i32, ptr %7, align 4, !tbaa !48
+  %26 = load ptr, ptr %8, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %26, i32 0, i32 5
+  store i32 %25, ptr %27, align 8, !tbaa !28
   br label %41
 
-31:                                               ; preds = %27
-  %32 = load i32, ptr %7, align 4
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %33, i32 0, i32 3
-  store i32 %32, ptr %34, align 8
-  br label %40
+28:                                               ; preds = %14
+  %29 = load i32, ptr %7, align 4, !tbaa !48
+  %30 = icmp slt i32 %29, 4
+  br i1 %30, label %31, label %32
 
-35:                                               ; preds = %13
-  %36 = load i32, ptr %7, align 4
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %37, i32 0, i32 6
-  store i32 %36, ptr %38, align 4
-  br label %40
-
-39:                                               ; preds = %13
+31:                                               ; preds = %28
   store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %42
+
+32:                                               ; preds = %28
+  %33 = load i32, ptr %7, align 4, !tbaa !48
+  %34 = load ptr, ptr %8, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %34, i32 0, i32 3
+  store i32 %33, ptr %35, align 8, !tbaa !29
   br label %41
 
-40:                                               ; preds = %35, %31, %23, %19
+36:                                               ; preds = %14
+  %37 = load i32, ptr %7, align 4, !tbaa !48
+  %38 = load ptr, ptr %8, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %38, i32 0, i32 6
+  store i32 %37, ptr %39, align 4, !tbaa !30
+  br label %41
+
+40:                                               ; preds = %14
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %42
+
+41:                                               ; preds = %36, %32, %24, %20
   store i32 0, ptr %4, align 4
-  br label %41
+  store i32 1, ptr %9, align 4
+  br label %42
 
-41:                                               ; preds = %40, %39, %30, %18, %12
-  %42 = load i32, ptr %4, align 4
-  ret i32 %42
+42:                                               ; preds = %41, %40, %31, %19, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %43 = load i32, ptr %4, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cabd_error(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %4 = load ptr, ptr %2, align 8, !tbaa !31
+  store ptr %4, ptr %3, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %8, i32 0, i32 7
-  %10 = load i32, ptr %9, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %8, i32 0, i32 7
+  %10 = load i32, ptr %9, align 8, !tbaa !26
   br label %12
 
 11:                                               ; preds = %1
@@ -1493,98 +1616,106 @@ define internal i32 @cabd_error(ptr noundef %0) #0 {
 
 12:                                               ; preds = %11, %7
   %13 = phi i32 [ %10, %7 ], [ 1, %11 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret i32 %13
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @mspack_destroy_cab_decompressor(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %5 = load ptr, ptr %2, align 8, !tbaa !31
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
   %7 = icmp ne ptr %6, null
   br i1 %7, label %8, label %45
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %4, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  store ptr %11, ptr %4, align 8, !tbaa !3
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %40
 
 16:                                               ; preds = %8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %19, i32 0, i32 10
-  %21 = load ptr, ptr %20, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %19, i32 0, i32 10
+  %21 = load ptr, ptr %20, align 8, !tbaa !65
   %22 = icmp ne ptr %21, null
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %16
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.mspack_system, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %29, i32 0, i32 10
-  %31 = load ptr, ptr %30, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.mspack_system, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !49
+  %27 = load ptr, ptr %3, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
+  %30 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %29, i32 0, i32 10
+  %31 = load ptr, ptr %30, align 8, !tbaa !65
   call void %26(ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %23, %16
-  %33 = load ptr, ptr %3, align 8
+  %33 = load ptr, ptr %3, align 8, !tbaa !8
   call void @cabd_free_decomp(ptr noundef %33)
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.mspack_system, ptr %34, i32 0, i32 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.mspack_system, ptr %34, i32 0, i32 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !55
+  %37 = load ptr, ptr %3, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
   call void %36(ptr noundef %39)
   br label %40
 
 40:                                               ; preds = %32, %8
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.mspack_system, ptr %41, i32 0, i32 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.mspack_system, ptr %41, i32 0, i32 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !55
+  %44 = load ptr, ptr %3, align 8, !tbaa !8
   call void %43(ptr noundef %44)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
   br label %45
 
 45:                                               ; preds = %40, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cabd_free_decomp(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %6, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %13, i32 0, i32 8
-  %15 = load ptr, ptr %14, align 8
+  %11 = load ptr, ptr %2, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %13, i32 0, i32 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !92
   %16 = icmp ne ptr %15, null
   br i1 %16, label %18, label %17
 
@@ -1592,11 +1723,11 @@ define internal void @cabd_free_decomp(ptr noundef %0) #0 {
   br label %58
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %21, i32 0, i32 6
-  %23 = load i32, ptr %22, align 8
+  %19 = load ptr, ptr %2, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %22 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %21, i32 0, i32 6
+  %23 = load i32, ptr %22, align 8, !tbaa !106
   %24 = and i32 %23, 15
   switch i32 %24, label %49 [
     i32 0, label %25
@@ -1606,52 +1737,52 @@ define internal void @cabd_free_decomp(ptr noundef %0) #0 {
   ]
 
 25:                                               ; preds = %18
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %28, i32 0, i32 8
-  %30 = load ptr, ptr %29, align 8
+  %26 = load ptr, ptr %2, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  %29 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %28, i32 0, i32 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !92
   call void @noned_free(ptr noundef %30)
   br label %49
 
 31:                                               ; preds = %18
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %34, i32 0, i32 8
-  %36 = load ptr, ptr %35, align 8
+  %32 = load ptr, ptr %2, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  %35 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %34, i32 0, i32 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !92
   call void @mszipd_free(ptr noundef %36)
   br label %49
 
 37:                                               ; preds = %18
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %40, i32 0, i32 8
-  %42 = load ptr, ptr %41, align 8
+  %38 = load ptr, ptr %2, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !25
+  %41 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %40, i32 0, i32 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !92
   call void @qtmd_free(ptr noundef %42)
   br label %49
 
 43:                                               ; preds = %18
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %46, i32 0, i32 8
-  %48 = load ptr, ptr %47, align 8
+  %44 = load ptr, ptr %2, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !25
+  %47 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %46, i32 0, i32 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !92
   call void @lzxd_free(ptr noundef %48)
   br label %49
 
-49:                                               ; preds = %43, %37, %31, %25, %18
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %50, i32 0, i32 1
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %52, i32 0, i32 7
-  store ptr null, ptr %53, align 8
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %54, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %56, i32 0, i32 8
-  store ptr null, ptr %57, align 8
+49:                                               ; preds = %18, %43, %37, %31, %25
+  %50 = load ptr, ptr %2, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8, !tbaa !25
+  %53 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %52, i32 0, i32 7
+  store ptr null, ptr %53, align 8, !tbaa !105
+  %54 = load ptr, ptr %2, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !25
+  %57 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %56, i32 0, i32 8
+  store ptr null, ptr %57, align 8, !tbaa !92
   br label %58
 
 58:                                               ; preds = %49, %17
@@ -1679,1091 +1810,1139 @@ define internal i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, ptr nound
   %23 = alloca ptr, align 8
   %24 = alloca ptr, align 8
   %25 = alloca [64 x i8], align 16
-  %26 = alloca ptr, align 8
+  %26 = alloca i32, align 4
   %27 = alloca ptr, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store i64 %3, ptr %11, align 8
-  store i32 %4, ptr %12, align 4
-  store i32 %5, ptr %13, align 4
-  store ptr null, ptr %22, align 8
-  store ptr null, ptr %24, align 8
-  %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %28, i32 0, i32 0
-  %30 = getelementptr inbounds %struct.mscabd_cabinet, ptr %29, i32 0, i32 0
-  store ptr null, ptr %30, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %31, i32 0, i32 0
-  %33 = getelementptr inbounds %struct.mscabd_cabinet, ptr %32, i32 0, i32 10
-  store ptr null, ptr %33, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.mscabd_cabinet, ptr %35, i32 0, i32 11
-  store ptr null, ptr %36, align 8
-  %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %37, i32 0, i32 0
-  %39 = getelementptr inbounds %struct.mscabd_cabinet, ptr %38, i32 0, i32 5
-  store ptr null, ptr %39, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %40, i32 0, i32 0
-  %42 = getelementptr inbounds %struct.mscabd_cabinet, ptr %41, i32 0, i32 4
-  store ptr null, ptr %42, align 8
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %43, i32 0, i32 0
-  %45 = getelementptr inbounds %struct.mscabd_cabinet, ptr %44, i32 0, i32 7
-  store ptr null, ptr %45, align 8
-  %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %46, i32 0, i32 0
-  %48 = getelementptr inbounds %struct.mscabd_cabinet, ptr %47, i32 0, i32 6
-  store ptr null, ptr %48, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %49, i32 0, i32 0
-  %51 = getelementptr inbounds %struct.mscabd_cabinet, ptr %50, i32 0, i32 9
-  store ptr null, ptr %51, align 8
-  %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %52, i32 0, i32 0
-  %54 = getelementptr inbounds %struct.mscabd_cabinet, ptr %53, i32 0, i32 8
-  store ptr null, ptr %54, align 8
-  %55 = load i64, ptr %11, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.mscabd_cabinet, ptr %57, i32 0, i32 2
-  store i64 %55, ptr %58, align 8
-  %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds %struct.mspack_system, ptr %59, i32 0, i32 4
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %9, align 8
-  %63 = load i64, ptr %11, align 8
-  %64 = call i32 %61(ptr noundef %62, i64 noundef %63, i32 noundef 0)
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %67
-
-66:                                               ; preds = %6
-  store i32 5, ptr %7, align 4
-  br label %792
+  %28 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !38
+  store ptr %2, ptr %10, align 8, !tbaa !35
+  store i64 %3, ptr %11, align 8, !tbaa !78
+  store i32 %4, ptr %12, align 4, !tbaa !48
+  store i32 %5, ptr %13, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #4
+  store ptr null, ptr %22, align 8, !tbaa !82
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #4
+  store ptr null, ptr %24, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 64, ptr %25) #4
+  %29 = load ptr, ptr %10, align 8, !tbaa !35
+  %30 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %30, i32 0, i32 0
+  store ptr null, ptr %31, align 8, !tbaa !107
+  %32 = load ptr, ptr %10, align 8, !tbaa !35
+  %33 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %33, i32 0, i32 10
+  store ptr null, ptr %34, align 8, !tbaa !108
+  %35 = load ptr, ptr %10, align 8, !tbaa !35
+  %36 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %36, i32 0, i32 11
+  store ptr null, ptr %37, align 8, !tbaa !109
+  %38 = load ptr, ptr %10, align 8, !tbaa !35
+  %39 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %39, i32 0, i32 5
+  store ptr null, ptr %40, align 8, !tbaa !110
+  %41 = load ptr, ptr %10, align 8, !tbaa !35
+  %42 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %42, i32 0, i32 4
+  store ptr null, ptr %43, align 8, !tbaa !111
+  %44 = load ptr, ptr %10, align 8, !tbaa !35
+  %45 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %44, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %45, i32 0, i32 7
+  store ptr null, ptr %46, align 8, !tbaa !112
+  %47 = load ptr, ptr %10, align 8, !tbaa !35
+  %48 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %48, i32 0, i32 6
+  store ptr null, ptr %49, align 8, !tbaa !113
+  %50 = load ptr, ptr %10, align 8, !tbaa !35
+  %51 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %51, i32 0, i32 9
+  store ptr null, ptr %52, align 8, !tbaa !114
+  %53 = load ptr, ptr %10, align 8, !tbaa !35
+  %54 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %54, i32 0, i32 8
+  store ptr null, ptr %55, align 8, !tbaa !115
+  %56 = load i64, ptr %11, align 8, !tbaa !78
+  %57 = load ptr, ptr %10, align 8, !tbaa !35
+  %58 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %58, i32 0, i32 2
+  store i64 %56, ptr %59, align 8, !tbaa !79
+  %60 = load ptr, ptr %8, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.mspack_system, ptr %60, i32 0, i32 4
+  %62 = load ptr, ptr %61, align 8, !tbaa !96
+  %63 = load ptr, ptr %9, align 8, !tbaa !38
+  %64 = load i64, ptr %11, align 8, !tbaa !78
+  %65 = call i32 %62(ptr noundef %63, i64 noundef %64, i32 noundef 0)
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %68
 
 67:                                               ; preds = %6
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct.mspack_system, ptr %68, i32 0, i32 2
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %73 = call i32 %70(ptr noundef %71, ptr noundef %72, i32 noundef 36)
-  %74 = icmp ne i32 %73, 36
-  br i1 %74, label %75, label %76
+  store i32 5, ptr %7, align 4
+  store i32 1, ptr %26, align 4
+  br label %793
 
-75:                                               ; preds = %67
+68:                                               ; preds = %6
+  %69 = load ptr, ptr %8, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.mspack_system, ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8, !tbaa !116
+  %72 = load ptr, ptr %9, align 8, !tbaa !38
+  %73 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %74 = call i32 %71(ptr noundef %72, ptr noundef %73, i32 noundef 36)
+  %75 = icmp ne i32 %74, 36
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %68
   store i32 3, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-76:                                               ; preds = %67
-  %77 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %78 = getelementptr inbounds i8, ptr %77, i64 3
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = shl i32 %80, 24
-  %82 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %83 = getelementptr inbounds i8, ptr %82, i64 2
-  %84 = load i8, ptr %83, align 2
-  %85 = zext i8 %84 to i32
-  %86 = shl i32 %85, 16
-  %87 = or i32 %81, %86
-  %88 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = shl i32 %91, 8
-  %93 = or i32 %87, %92
-  %94 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %95 = getelementptr inbounds i8, ptr %94, i64 0
-  %96 = load i8, ptr %95, align 16
-  %97 = zext i8 %96 to i32
-  %98 = or i32 %93, %97
-  %99 = icmp ne i32 %98, 1178817357
-  br i1 %99, label %100, label %101
+77:                                               ; preds = %68
+  %78 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %79 = getelementptr inbounds i8, ptr %78, i64 3
+  %80 = load i8, ptr %79, align 1, !tbaa !117
+  %81 = zext i8 %80 to i32
+  %82 = shl i32 %81, 24
+  %83 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %84 = getelementptr inbounds i8, ptr %83, i64 2
+  %85 = load i8, ptr %84, align 2, !tbaa !117
+  %86 = zext i8 %85 to i32
+  %87 = shl i32 %86, 16
+  %88 = or i32 %82, %87
+  %89 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %90 = getelementptr inbounds i8, ptr %89, i64 1
+  %91 = load i8, ptr %90, align 1, !tbaa !117
+  %92 = zext i8 %91 to i32
+  %93 = shl i32 %92, 8
+  %94 = or i32 %88, %93
+  %95 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %96 = getelementptr inbounds i8, ptr %95, i64 0
+  %97 = load i8, ptr %96, align 16, !tbaa !117
+  %98 = zext i8 %97 to i32
+  %99 = or i32 %94, %98
+  %100 = icmp ne i32 %99, 1178817357
+  br i1 %100, label %101, label %102
 
-100:                                              ; preds = %76
+101:                                              ; preds = %77
   store i32 7, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-101:                                              ; preds = %76
-  %102 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 3
-  %104 = load i8, ptr %103, align 1
-  %105 = zext i8 %104 to i32
-  %106 = shl i32 %105, 24
-  %107 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 2
-  %109 = load i8, ptr %108, align 2
-  %110 = zext i8 %109 to i32
-  %111 = shl i32 %110, 16
-  %112 = or i32 %106, %111
-  %113 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 1
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = shl i32 %116, 8
-  %118 = or i32 %112, %117
-  %119 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 0
-  %121 = load i8, ptr %120, align 8
-  %122 = zext i8 %121 to i32
-  %123 = or i32 %118, %122
-  %124 = load ptr, ptr %10, align 8
-  %125 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %124, i32 0, i32 0
-  %126 = getelementptr inbounds %struct.mscabd_cabinet, ptr %125, i32 0, i32 3
-  store i32 %123, ptr %126, align 8
-  %127 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 32
-  %128 = getelementptr inbounds i8, ptr %127, i64 1
-  %129 = load i8, ptr %128, align 1
-  %130 = zext i8 %129 to i32
-  %131 = shl i32 %130, 8
-  %132 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 32
-  %133 = getelementptr inbounds i8, ptr %132, i64 0
-  %134 = load i8, ptr %133, align 16
-  %135 = zext i8 %134 to i32
-  %136 = or i32 %131, %135
-  %137 = trunc i32 %136 to i16
-  %138 = load ptr, ptr %10, align 8
-  %139 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %138, i32 0, i32 0
-  %140 = getelementptr inbounds %struct.mscabd_cabinet, ptr %139, i32 0, i32 12
-  store i16 %137, ptr %140, align 8
-  %141 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 34
-  %142 = getelementptr inbounds i8, ptr %141, i64 1
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i32
-  %145 = shl i32 %144, 8
-  %146 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 34
-  %147 = getelementptr inbounds i8, ptr %146, i64 0
-  %148 = load i8, ptr %147, align 2
-  %149 = zext i8 %148 to i32
-  %150 = or i32 %145, %149
-  %151 = trunc i32 %150 to i16
-  %152 = load ptr, ptr %10, align 8
-  %153 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %152, i32 0, i32 0
-  %154 = getelementptr inbounds %struct.mscabd_cabinet, ptr %153, i32 0, i32 13
-  store i16 %151, ptr %154, align 2
-  %155 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 26
-  %156 = getelementptr inbounds i8, ptr %155, i64 1
-  %157 = load i8, ptr %156, align 1
-  %158 = zext i8 %157 to i32
-  %159 = shl i32 %158, 8
-  %160 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 26
-  %161 = getelementptr inbounds i8, ptr %160, i64 0
-  %162 = load i8, ptr %161, align 2
-  %163 = zext i8 %162 to i32
-  %164 = or i32 %159, %163
-  store i32 %164, ptr %14, align 4
-  %165 = load i32, ptr %14, align 4
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %176
+102:                                              ; preds = %77
+  %103 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 3
+  %105 = load i8, ptr %104, align 1, !tbaa !117
+  %106 = zext i8 %105 to i32
+  %107 = shl i32 %106, 24
+  %108 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 2
+  %110 = load i8, ptr %109, align 2, !tbaa !117
+  %111 = zext i8 %110 to i32
+  %112 = shl i32 %111, 16
+  %113 = or i32 %107, %112
+  %114 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 1
+  %116 = load i8, ptr %115, align 1, !tbaa !117
+  %117 = zext i8 %116 to i32
+  %118 = shl i32 %117, 8
+  %119 = or i32 %113, %118
+  %120 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 0
+  %122 = load i8, ptr %121, align 8, !tbaa !117
+  %123 = zext i8 %122 to i32
+  %124 = or i32 %119, %123
+  %125 = load ptr, ptr %10, align 8, !tbaa !35
+  %126 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %125, i32 0, i32 0
+  %127 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %126, i32 0, i32 3
+  store i32 %124, ptr %127, align 8, !tbaa !118
+  %128 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 32
+  %129 = getelementptr inbounds i8, ptr %128, i64 1
+  %130 = load i8, ptr %129, align 1, !tbaa !117
+  %131 = zext i8 %130 to i32
+  %132 = shl i32 %131, 8
+  %133 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 32
+  %134 = getelementptr inbounds i8, ptr %133, i64 0
+  %135 = load i8, ptr %134, align 16, !tbaa !117
+  %136 = zext i8 %135 to i32
+  %137 = or i32 %132, %136
+  %138 = trunc i32 %137 to i16
+  %139 = load ptr, ptr %10, align 8, !tbaa !35
+  %140 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %139, i32 0, i32 0
+  %141 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %140, i32 0, i32 12
+  store i16 %138, ptr %141, align 8, !tbaa !119
+  %142 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 34
+  %143 = getelementptr inbounds i8, ptr %142, i64 1
+  %144 = load i8, ptr %143, align 1, !tbaa !117
+  %145 = zext i8 %144 to i32
+  %146 = shl i32 %145, 8
+  %147 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 34
+  %148 = getelementptr inbounds i8, ptr %147, i64 0
+  %149 = load i8, ptr %148, align 2, !tbaa !117
+  %150 = zext i8 %149 to i32
+  %151 = or i32 %146, %150
+  %152 = trunc i32 %151 to i16
+  %153 = load ptr, ptr %10, align 8, !tbaa !35
+  %154 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %153, i32 0, i32 0
+  %155 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %154, i32 0, i32 13
+  store i16 %152, ptr %155, align 2, !tbaa !120
+  %156 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 26
+  %157 = getelementptr inbounds i8, ptr %156, i64 1
+  %158 = load i8, ptr %157, align 1, !tbaa !117
+  %159 = zext i8 %158 to i32
+  %160 = shl i32 %159, 8
+  %161 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 26
+  %162 = getelementptr inbounds i8, ptr %161, i64 0
+  %163 = load i8, ptr %162, align 2, !tbaa !117
+  %164 = zext i8 %163 to i32
+  %165 = or i32 %160, %164
+  store i32 %165, ptr %14, align 4, !tbaa !48
+  %166 = load i32, ptr %14, align 4, !tbaa !48
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %177
 
-167:                                              ; preds = %101
-  %168 = load i32, ptr %13, align 4
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %175, label %170
+168:                                              ; preds = %102
+  %169 = load i32, ptr %13, align 4, !tbaa !48
+  %170 = icmp ne i32 %169, 0
+  br i1 %170, label %176, label %171
 
-170:                                              ; preds = %167
-  %171 = load ptr, ptr %8, align 8
-  %172 = getelementptr inbounds %struct.mspack_system, ptr %171, i32 0, i32 6
-  %173 = load ptr, ptr %172, align 8
-  %174 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) %173(ptr noundef %174, ptr noundef @.str)
-  br label %175
+171:                                              ; preds = %168
+  %172 = load ptr, ptr %8, align 8, !tbaa !3
+  %173 = getelementptr inbounds nuw %struct.mspack_system, ptr %172, i32 0, i32 6
+  %174 = load ptr, ptr %173, align 8, !tbaa !80
+  %175 = load ptr, ptr %9, align 8, !tbaa !38
+  call void (ptr, ptr, ...) %174(ptr noundef %175, ptr noundef @.str)
+  br label %176
 
-175:                                              ; preds = %170, %167
+176:                                              ; preds = %171, %168
   store i32 8, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-176:                                              ; preds = %101
-  %177 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 28
-  %178 = getelementptr inbounds i8, ptr %177, i64 1
-  %179 = load i8, ptr %178, align 1
-  %180 = zext i8 %179 to i32
-  %181 = shl i32 %180, 8
-  %182 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 28
-  %183 = getelementptr inbounds i8, ptr %182, i64 0
-  %184 = load i8, ptr %183, align 4
-  %185 = zext i8 %184 to i32
-  %186 = or i32 %181, %185
-  store i32 %186, ptr %15, align 4
-  %187 = load i32, ptr %15, align 4
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %189, label %198
+177:                                              ; preds = %102
+  %178 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 28
+  %179 = getelementptr inbounds i8, ptr %178, i64 1
+  %180 = load i8, ptr %179, align 1, !tbaa !117
+  %181 = zext i8 %180 to i32
+  %182 = shl i32 %181, 8
+  %183 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 28
+  %184 = getelementptr inbounds i8, ptr %183, i64 0
+  %185 = load i8, ptr %184, align 4, !tbaa !117
+  %186 = zext i8 %185 to i32
+  %187 = or i32 %182, %186
+  store i32 %187, ptr %15, align 4, !tbaa !48
+  %188 = load i32, ptr %15, align 4, !tbaa !48
+  %189 = icmp eq i32 %188, 0
+  br i1 %189, label %190, label %199
 
-189:                                              ; preds = %176
-  %190 = load i32, ptr %13, align 4
-  %191 = icmp ne i32 %190, 0
-  br i1 %191, label %197, label %192
+190:                                              ; preds = %177
+  %191 = load i32, ptr %13, align 4, !tbaa !48
+  %192 = icmp ne i32 %191, 0
+  br i1 %192, label %198, label %193
 
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %8, align 8
-  %194 = getelementptr inbounds %struct.mspack_system, ptr %193, i32 0, i32 6
-  %195 = load ptr, ptr %194, align 8
-  %196 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) %195(ptr noundef %196, ptr noundef @.str.1)
-  br label %197
+193:                                              ; preds = %190
+  %194 = load ptr, ptr %8, align 8, !tbaa !3
+  %195 = getelementptr inbounds nuw %struct.mspack_system, ptr %194, i32 0, i32 6
+  %196 = load ptr, ptr %195, align 8, !tbaa !80
+  %197 = load ptr, ptr %9, align 8, !tbaa !38
+  call void (ptr, ptr, ...) %196(ptr noundef %197, ptr noundef @.str.1)
+  br label %198
 
-197:                                              ; preds = %192, %189
+198:                                              ; preds = %193, %190
   store i32 8, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-198:                                              ; preds = %176
-  %199 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 25
-  %200 = load i8, ptr %199, align 1
-  %201 = zext i8 %200 to i32
-  %202 = icmp ne i32 %201, 1
-  br i1 %202, label %203, label %217
+199:                                              ; preds = %177
+  %200 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 25
+  %201 = load i8, ptr %200, align 1, !tbaa !117
+  %202 = zext i8 %201 to i32
+  %203 = icmp ne i32 %202, 1
+  br i1 %203, label %204, label %218
 
-203:                                              ; preds = %198
-  %204 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 24
-  %205 = load i8, ptr %204, align 8
-  %206 = zext i8 %205 to i32
-  %207 = icmp ne i32 %206, 3
-  br i1 %207, label %208, label %217
+204:                                              ; preds = %199
+  %205 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 24
+  %206 = load i8, ptr %205, align 8, !tbaa !117
+  %207 = zext i8 %206 to i32
+  %208 = icmp ne i32 %207, 3
+  br i1 %208, label %209, label %218
 
-208:                                              ; preds = %203
-  %209 = load i32, ptr %13, align 4
-  %210 = icmp ne i32 %209, 0
-  br i1 %210, label %216, label %211
+209:                                              ; preds = %204
+  %210 = load i32, ptr %13, align 4, !tbaa !48
+  %211 = icmp ne i32 %210, 0
+  br i1 %211, label %217, label %212
 
-211:                                              ; preds = %208
-  %212 = load ptr, ptr %8, align 8
-  %213 = getelementptr inbounds %struct.mspack_system, ptr %212, i32 0, i32 6
-  %214 = load ptr, ptr %213, align 8
-  %215 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) %214(ptr noundef %215, ptr noundef @.str.2)
-  br label %216
-
-216:                                              ; preds = %211, %208
+212:                                              ; preds = %209
+  %213 = load ptr, ptr %8, align 8, !tbaa !3
+  %214 = getelementptr inbounds nuw %struct.mspack_system, ptr %213, i32 0, i32 6
+  %215 = load ptr, ptr %214, align 8, !tbaa !80
+  %216 = load ptr, ptr %9, align 8, !tbaa !38
+  call void (ptr, ptr, ...) %215(ptr noundef %216, ptr noundef @.str.2)
   br label %217
 
-217:                                              ; preds = %216, %203, %198
-  %218 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 30
-  %219 = getelementptr inbounds i8, ptr %218, i64 1
-  %220 = load i8, ptr %219, align 1
-  %221 = zext i8 %220 to i32
-  %222 = shl i32 %221, 8
-  %223 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 30
-  %224 = getelementptr inbounds i8, ptr %223, i64 0
-  %225 = load i8, ptr %224, align 2
-  %226 = zext i8 %225 to i32
-  %227 = or i32 %222, %226
-  %228 = load ptr, ptr %10, align 8
-  %229 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %228, i32 0, i32 0
-  %230 = getelementptr inbounds %struct.mscabd_cabinet, ptr %229, i32 0, i32 15
-  store i32 %227, ptr %230, align 8
-  %231 = load ptr, ptr %10, align 8
-  %232 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %231, i32 0, i32 0
-  %233 = getelementptr inbounds %struct.mscabd_cabinet, ptr %232, i32 0, i32 15
-  %234 = load i32, ptr %233, align 8
-  %235 = and i32 %234, 4
-  %236 = icmp ne i32 %235, 0
-  br i1 %236, label %237, label %305
+217:                                              ; preds = %212, %209
+  br label %218
 
-237:                                              ; preds = %217
-  %238 = load ptr, ptr %8, align 8
-  %239 = getelementptr inbounds %struct.mspack_system, ptr %238, i32 0, i32 2
-  %240 = load ptr, ptr %239, align 8
-  %241 = load ptr, ptr %9, align 8
-  %242 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %243 = call i32 %240(ptr noundef %241, ptr noundef %242, i32 noundef 4)
-  %244 = icmp ne i32 %243, 4
-  br i1 %244, label %245, label %246
+218:                                              ; preds = %217, %204, %199
+  %219 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 30
+  %220 = getelementptr inbounds i8, ptr %219, i64 1
+  %221 = load i8, ptr %220, align 1, !tbaa !117
+  %222 = zext i8 %221 to i32
+  %223 = shl i32 %222, 8
+  %224 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 30
+  %225 = getelementptr inbounds i8, ptr %224, i64 0
+  %226 = load i8, ptr %225, align 2, !tbaa !117
+  %227 = zext i8 %226 to i32
+  %228 = or i32 %223, %227
+  %229 = load ptr, ptr %10, align 8, !tbaa !35
+  %230 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %229, i32 0, i32 0
+  %231 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %230, i32 0, i32 15
+  store i32 %228, ptr %231, align 8, !tbaa !121
+  %232 = load ptr, ptr %10, align 8, !tbaa !35
+  %233 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %232, i32 0, i32 0
+  %234 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %233, i32 0, i32 15
+  %235 = load i32, ptr %234, align 8, !tbaa !121
+  %236 = and i32 %235, 4
+  %237 = icmp ne i32 %236, 0
+  br i1 %237, label %238, label %306
 
-245:                                              ; preds = %237
+238:                                              ; preds = %218
+  %239 = load ptr, ptr %8, align 8, !tbaa !3
+  %240 = getelementptr inbounds nuw %struct.mspack_system, ptr %239, i32 0, i32 2
+  %241 = load ptr, ptr %240, align 8, !tbaa !116
+  %242 = load ptr, ptr %9, align 8, !tbaa !38
+  %243 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %244 = call i32 %241(ptr noundef %242, ptr noundef %243, i32 noundef 4)
+  %245 = icmp ne i32 %244, 4
+  br i1 %245, label %246, label %247
+
+246:                                              ; preds = %238
   store i32 3, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-246:                                              ; preds = %237
-  %247 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %248 = getelementptr inbounds i8, ptr %247, i64 1
-  %249 = load i8, ptr %248, align 1
-  %250 = zext i8 %249 to i32
-  %251 = shl i32 %250, 8
-  %252 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %253 = getelementptr inbounds i8, ptr %252, i64 0
-  %254 = load i8, ptr %253, align 16
-  %255 = zext i8 %254 to i32
-  %256 = or i32 %251, %255
-  %257 = trunc i32 %256 to i16
-  %258 = load ptr, ptr %10, align 8
-  %259 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %258, i32 0, i32 0
-  %260 = getelementptr inbounds %struct.mscabd_cabinet, ptr %259, i32 0, i32 14
-  store i16 %257, ptr %260, align 4
-  %261 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 2
-  %262 = load i8, ptr %261, align 2
-  %263 = zext i8 %262 to i32
-  store i32 %263, ptr %16, align 4
-  %264 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 3
-  %265 = load i8, ptr %264, align 1
-  %266 = zext i8 %265 to i32
-  %267 = load ptr, ptr %10, align 8
-  %268 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %267, i32 0, i32 2
-  store i32 %266, ptr %268, align 8
-  %269 = load ptr, ptr %10, align 8
-  %270 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %269, i32 0, i32 0
-  %271 = getelementptr inbounds %struct.mscabd_cabinet, ptr %270, i32 0, i32 14
-  %272 = load i16, ptr %271, align 4
-  %273 = zext i16 %272 to i32
-  %274 = icmp sgt i32 %273, 60000
-  br i1 %274, label %275, label %284
+247:                                              ; preds = %238
+  %248 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %249 = getelementptr inbounds i8, ptr %248, i64 1
+  %250 = load i8, ptr %249, align 1, !tbaa !117
+  %251 = zext i8 %250 to i32
+  %252 = shl i32 %251, 8
+  %253 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %254 = getelementptr inbounds i8, ptr %253, i64 0
+  %255 = load i8, ptr %254, align 16, !tbaa !117
+  %256 = zext i8 %255 to i32
+  %257 = or i32 %252, %256
+  %258 = trunc i32 %257 to i16
+  %259 = load ptr, ptr %10, align 8, !tbaa !35
+  %260 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %259, i32 0, i32 0
+  %261 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %260, i32 0, i32 14
+  store i16 %258, ptr %261, align 4, !tbaa !122
+  %262 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 2
+  %263 = load i8, ptr %262, align 2, !tbaa !117
+  %264 = zext i8 %263 to i32
+  store i32 %264, ptr %16, align 4, !tbaa !48
+  %265 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 3
+  %266 = load i8, ptr %265, align 1, !tbaa !117
+  %267 = zext i8 %266 to i32
+  %268 = load ptr, ptr %10, align 8, !tbaa !35
+  %269 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %268, i32 0, i32 2
+  store i32 %267, ptr %269, align 8, !tbaa !123
+  %270 = load ptr, ptr %10, align 8, !tbaa !35
+  %271 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %270, i32 0, i32 0
+  %272 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %271, i32 0, i32 14
+  %273 = load i16, ptr %272, align 4, !tbaa !122
+  %274 = zext i16 %273 to i32
+  %275 = icmp sgt i32 %274, 60000
+  br i1 %275, label %276, label %285
 
-275:                                              ; preds = %246
-  %276 = load i32, ptr %13, align 4
-  %277 = icmp ne i32 %276, 0
-  br i1 %277, label %283, label %278
+276:                                              ; preds = %247
+  %277 = load i32, ptr %13, align 4, !tbaa !48
+  %278 = icmp ne i32 %277, 0
+  br i1 %278, label %284, label %279
 
-278:                                              ; preds = %275
-  %279 = load ptr, ptr %8, align 8
-  %280 = getelementptr inbounds %struct.mspack_system, ptr %279, i32 0, i32 6
-  %281 = load ptr, ptr %280, align 8
-  %282 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) %281(ptr noundef %282, ptr noundef @.str.3)
-  br label %283
-
-283:                                              ; preds = %278, %275
+279:                                              ; preds = %276
+  %280 = load ptr, ptr %8, align 8, !tbaa !3
+  %281 = getelementptr inbounds nuw %struct.mspack_system, ptr %280, i32 0, i32 6
+  %282 = load ptr, ptr %281, align 8, !tbaa !80
+  %283 = load ptr, ptr %9, align 8, !tbaa !38
+  call void (ptr, ptr, ...) %282(ptr noundef %283, ptr noundef @.str.3)
   br label %284
 
-284:                                              ; preds = %283, %246
-  %285 = load ptr, ptr %10, align 8
-  %286 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %285, i32 0, i32 0
-  %287 = getelementptr inbounds %struct.mscabd_cabinet, ptr %286, i32 0, i32 14
-  %288 = load i16, ptr %287, align 4
-  %289 = icmp ne i16 %288, 0
-  br i1 %289, label %290, label %304
+284:                                              ; preds = %279, %276
+  br label %285
 
-290:                                              ; preds = %284
-  %291 = load ptr, ptr %8, align 8
-  %292 = getelementptr inbounds %struct.mspack_system, ptr %291, i32 0, i32 4
-  %293 = load ptr, ptr %292, align 8
-  %294 = load ptr, ptr %9, align 8
-  %295 = load ptr, ptr %10, align 8
-  %296 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %295, i32 0, i32 0
-  %297 = getelementptr inbounds %struct.mscabd_cabinet, ptr %296, i32 0, i32 14
-  %298 = load i16, ptr %297, align 4
-  %299 = zext i16 %298 to i64
-  %300 = call i32 %293(ptr noundef %294, i64 noundef %299, i32 noundef 1)
-  %301 = icmp ne i32 %300, 0
-  br i1 %301, label %302, label %303
+285:                                              ; preds = %284, %247
+  %286 = load ptr, ptr %10, align 8, !tbaa !35
+  %287 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %286, i32 0, i32 0
+  %288 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %287, i32 0, i32 14
+  %289 = load i16, ptr %288, align 4, !tbaa !122
+  %290 = icmp ne i16 %289, 0
+  br i1 %290, label %291, label %305
 
-302:                                              ; preds = %290
+291:                                              ; preds = %285
+  %292 = load ptr, ptr %8, align 8, !tbaa !3
+  %293 = getelementptr inbounds nuw %struct.mspack_system, ptr %292, i32 0, i32 4
+  %294 = load ptr, ptr %293, align 8, !tbaa !96
+  %295 = load ptr, ptr %9, align 8, !tbaa !38
+  %296 = load ptr, ptr %10, align 8, !tbaa !35
+  %297 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %296, i32 0, i32 0
+  %298 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %297, i32 0, i32 14
+  %299 = load i16, ptr %298, align 4, !tbaa !122
+  %300 = zext i16 %299 to i64
+  %301 = call i32 %294(ptr noundef %295, i64 noundef %300, i32 noundef 1)
+  %302 = icmp ne i32 %301, 0
+  br i1 %302, label %303, label %304
+
+303:                                              ; preds = %291
   store i32 5, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-303:                                              ; preds = %290
-  br label %304
+304:                                              ; preds = %291
+  br label %305
 
-304:                                              ; preds = %303, %284
-  br label %311
+305:                                              ; preds = %304, %285
+  br label %312
 
-305:                                              ; preds = %217
-  %306 = load ptr, ptr %10, align 8
-  %307 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %306, i32 0, i32 0
-  %308 = getelementptr inbounds %struct.mscabd_cabinet, ptr %307, i32 0, i32 14
-  store i16 0, ptr %308, align 4
-  store i32 0, ptr %16, align 4
-  %309 = load ptr, ptr %10, align 8
-  %310 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %309, i32 0, i32 2
-  store i32 0, ptr %310, align 8
-  br label %311
+306:                                              ; preds = %218
+  %307 = load ptr, ptr %10, align 8, !tbaa !35
+  %308 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %307, i32 0, i32 0
+  %309 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %308, i32 0, i32 14
+  store i16 0, ptr %309, align 4, !tbaa !122
+  store i32 0, ptr %16, align 4, !tbaa !48
+  %310 = load ptr, ptr %10, align 8, !tbaa !35
+  %311 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %310, i32 0, i32 2
+  store i32 0, ptr %311, align 8, !tbaa !123
+  br label %312
 
-311:                                              ; preds = %305, %304
-  %312 = load ptr, ptr %10, align 8
-  %313 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %312, i32 0, i32 0
-  %314 = getelementptr inbounds %struct.mscabd_cabinet, ptr %313, i32 0, i32 15
-  %315 = load i32, ptr %314, align 8
-  %316 = and i32 %315, 1
-  %317 = icmp ne i32 %316, 0
-  br i1 %317, label %318, label %341
+312:                                              ; preds = %306, %305
+  %313 = load ptr, ptr %10, align 8, !tbaa !35
+  %314 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %313, i32 0, i32 0
+  %315 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %314, i32 0, i32 15
+  %316 = load i32, ptr %315, align 8, !tbaa !121
+  %317 = and i32 %316, 1
+  %318 = icmp ne i32 %317, 0
+  br i1 %318, label %319, label %342
 
-318:                                              ; preds = %311
-  %319 = load ptr, ptr %8, align 8
-  %320 = load ptr, ptr %9, align 8
-  %321 = call ptr @cabd_read_string(ptr noundef %319, ptr noundef %320, i32 noundef 0, ptr noundef %19)
-  %322 = load ptr, ptr %10, align 8
-  %323 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %322, i32 0, i32 0
-  %324 = getelementptr inbounds %struct.mscabd_cabinet, ptr %323, i32 0, i32 6
-  store ptr %321, ptr %324, align 8
-  %325 = load i32, ptr %19, align 4
-  %326 = icmp ne i32 %325, 0
-  br i1 %326, label %327, label %329
+319:                                              ; preds = %312
+  %320 = load ptr, ptr %8, align 8, !tbaa !3
+  %321 = load ptr, ptr %9, align 8, !tbaa !38
+  %322 = call ptr @cabd_read_string(ptr noundef %320, ptr noundef %321, i32 noundef 0, ptr noundef %19)
+  %323 = load ptr, ptr %10, align 8, !tbaa !35
+  %324 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %323, i32 0, i32 0
+  %325 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %324, i32 0, i32 6
+  store ptr %322, ptr %325, align 8, !tbaa !113
+  %326 = load i32, ptr %19, align 4, !tbaa !48
+  %327 = icmp ne i32 %326, 0
+  br i1 %327, label %328, label %330
 
-327:                                              ; preds = %318
-  %328 = load i32, ptr %19, align 4
-  store i32 %328, ptr %7, align 4
-  br label %792
+328:                                              ; preds = %319
+  %329 = load i32, ptr %19, align 4, !tbaa !48
+  store i32 %329, ptr %7, align 4
+  store i32 1, ptr %26, align 4
+  br label %793
 
-329:                                              ; preds = %318
-  %330 = load ptr, ptr %8, align 8
-  %331 = load ptr, ptr %9, align 8
-  %332 = call ptr @cabd_read_string(ptr noundef %330, ptr noundef %331, i32 noundef 1, ptr noundef %19)
-  %333 = load ptr, ptr %10, align 8
-  %334 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %333, i32 0, i32 0
-  %335 = getelementptr inbounds %struct.mscabd_cabinet, ptr %334, i32 0, i32 8
-  store ptr %332, ptr %335, align 8
-  %336 = load i32, ptr %19, align 4
-  %337 = icmp ne i32 %336, 0
-  br i1 %337, label %338, label %340
+330:                                              ; preds = %319
+  %331 = load ptr, ptr %8, align 8, !tbaa !3
+  %332 = load ptr, ptr %9, align 8, !tbaa !38
+  %333 = call ptr @cabd_read_string(ptr noundef %331, ptr noundef %332, i32 noundef 1, ptr noundef %19)
+  %334 = load ptr, ptr %10, align 8, !tbaa !35
+  %335 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %334, i32 0, i32 0
+  %336 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %335, i32 0, i32 8
+  store ptr %333, ptr %336, align 8, !tbaa !115
+  %337 = load i32, ptr %19, align 4, !tbaa !48
+  %338 = icmp ne i32 %337, 0
+  br i1 %338, label %339, label %341
 
-338:                                              ; preds = %329
-  %339 = load i32, ptr %19, align 4
-  store i32 %339, ptr %7, align 4
-  br label %792
+339:                                              ; preds = %330
+  %340 = load i32, ptr %19, align 4, !tbaa !48
+  store i32 %340, ptr %7, align 4
+  store i32 1, ptr %26, align 4
+  br label %793
 
-340:                                              ; preds = %329
-  br label %341
+341:                                              ; preds = %330
+  br label %342
 
-341:                                              ; preds = %340, %311
-  %342 = load ptr, ptr %10, align 8
-  %343 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %342, i32 0, i32 0
-  %344 = getelementptr inbounds %struct.mscabd_cabinet, ptr %343, i32 0, i32 15
-  %345 = load i32, ptr %344, align 8
-  %346 = and i32 %345, 2
-  %347 = icmp ne i32 %346, 0
-  br i1 %347, label %348, label %371
+342:                                              ; preds = %341, %312
+  %343 = load ptr, ptr %10, align 8, !tbaa !35
+  %344 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %343, i32 0, i32 0
+  %345 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %344, i32 0, i32 15
+  %346 = load i32, ptr %345, align 8, !tbaa !121
+  %347 = and i32 %346, 2
+  %348 = icmp ne i32 %347, 0
+  br i1 %348, label %349, label %372
 
-348:                                              ; preds = %341
-  %349 = load ptr, ptr %8, align 8
-  %350 = load ptr, ptr %9, align 8
-  %351 = call ptr @cabd_read_string(ptr noundef %349, ptr noundef %350, i32 noundef 0, ptr noundef %19)
-  %352 = load ptr, ptr %10, align 8
-  %353 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %352, i32 0, i32 0
-  %354 = getelementptr inbounds %struct.mscabd_cabinet, ptr %353, i32 0, i32 7
-  store ptr %351, ptr %354, align 8
-  %355 = load i32, ptr %19, align 4
-  %356 = icmp ne i32 %355, 0
-  br i1 %356, label %357, label %359
+349:                                              ; preds = %342
+  %350 = load ptr, ptr %8, align 8, !tbaa !3
+  %351 = load ptr, ptr %9, align 8, !tbaa !38
+  %352 = call ptr @cabd_read_string(ptr noundef %350, ptr noundef %351, i32 noundef 0, ptr noundef %19)
+  %353 = load ptr, ptr %10, align 8, !tbaa !35
+  %354 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %353, i32 0, i32 0
+  %355 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %354, i32 0, i32 7
+  store ptr %352, ptr %355, align 8, !tbaa !112
+  %356 = load i32, ptr %19, align 4, !tbaa !48
+  %357 = icmp ne i32 %356, 0
+  br i1 %357, label %358, label %360
 
-357:                                              ; preds = %348
-  %358 = load i32, ptr %19, align 4
-  store i32 %358, ptr %7, align 4
-  br label %792
+358:                                              ; preds = %349
+  %359 = load i32, ptr %19, align 4, !tbaa !48
+  store i32 %359, ptr %7, align 4
+  store i32 1, ptr %26, align 4
+  br label %793
 
-359:                                              ; preds = %348
-  %360 = load ptr, ptr %8, align 8
-  %361 = load ptr, ptr %9, align 8
-  %362 = call ptr @cabd_read_string(ptr noundef %360, ptr noundef %361, i32 noundef 1, ptr noundef %19)
-  %363 = load ptr, ptr %10, align 8
-  %364 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %363, i32 0, i32 0
-  %365 = getelementptr inbounds %struct.mscabd_cabinet, ptr %364, i32 0, i32 9
-  store ptr %362, ptr %365, align 8
-  %366 = load i32, ptr %19, align 4
-  %367 = icmp ne i32 %366, 0
-  br i1 %367, label %368, label %370
+360:                                              ; preds = %349
+  %361 = load ptr, ptr %8, align 8, !tbaa !3
+  %362 = load ptr, ptr %9, align 8, !tbaa !38
+  %363 = call ptr @cabd_read_string(ptr noundef %361, ptr noundef %362, i32 noundef 1, ptr noundef %19)
+  %364 = load ptr, ptr %10, align 8, !tbaa !35
+  %365 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %364, i32 0, i32 0
+  %366 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %365, i32 0, i32 9
+  store ptr %363, ptr %366, align 8, !tbaa !114
+  %367 = load i32, ptr %19, align 4, !tbaa !48
+  %368 = icmp ne i32 %367, 0
+  br i1 %368, label %369, label %371
 
-368:                                              ; preds = %359
-  %369 = load i32, ptr %19, align 4
-  store i32 %369, ptr %7, align 4
-  br label %792
+369:                                              ; preds = %360
+  %370 = load i32, ptr %19, align 4, !tbaa !48
+  store i32 %370, ptr %7, align 4
+  store i32 1, ptr %26, align 4
+  br label %793
 
-370:                                              ; preds = %359
-  br label %371
-
-371:                                              ; preds = %370, %341
-  store i32 0, ptr %17, align 4
+371:                                              ; preds = %360
   br label %372
 
-372:                                              ; preds = %490, %371
-  %373 = load i32, ptr %17, align 4
-  %374 = load i32, ptr %14, align 4
-  %375 = icmp slt i32 %373, %374
-  br i1 %375, label %376, label %493
+372:                                              ; preds = %371, %342
+  store i32 0, ptr %17, align 4, !tbaa !48
+  br label %373
 
-376:                                              ; preds = %372
-  %377 = load ptr, ptr %8, align 8
-  %378 = getelementptr inbounds %struct.mspack_system, ptr %377, i32 0, i32 2
-  %379 = load ptr, ptr %378, align 8
-  %380 = load ptr, ptr %9, align 8
-  %381 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %382 = call i32 %379(ptr noundef %380, ptr noundef %381, i32 noundef 8)
-  %383 = icmp ne i32 %382, 8
-  br i1 %383, label %384, label %385
+373:                                              ; preds = %491, %372
+  %374 = load i32, ptr %17, align 4, !tbaa !48
+  %375 = load i32, ptr %14, align 4, !tbaa !48
+  %376 = icmp slt i32 %374, %375
+  br i1 %376, label %377, label %494
 
-384:                                              ; preds = %376
+377:                                              ; preds = %373
+  %378 = load ptr, ptr %8, align 8, !tbaa !3
+  %379 = getelementptr inbounds nuw %struct.mspack_system, ptr %378, i32 0, i32 2
+  %380 = load ptr, ptr %379, align 8, !tbaa !116
+  %381 = load ptr, ptr %9, align 8, !tbaa !38
+  %382 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %383 = call i32 %380(ptr noundef %381, ptr noundef %382, i32 noundef 8)
+  %384 = icmp ne i32 %383, 8
+  br i1 %384, label %385, label %386
+
+385:                                              ; preds = %377
   store i32 3, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-385:                                              ; preds = %376
-  %386 = load i32, ptr %16, align 4
-  %387 = icmp ne i32 %386, 0
-  br i1 %387, label %388, label %399
+386:                                              ; preds = %377
+  %387 = load i32, ptr %16, align 4, !tbaa !48
+  %388 = icmp ne i32 %387, 0
+  br i1 %388, label %389, label %400
 
-388:                                              ; preds = %385
-  %389 = load ptr, ptr %8, align 8
-  %390 = getelementptr inbounds %struct.mspack_system, ptr %389, i32 0, i32 4
-  %391 = load ptr, ptr %390, align 8
-  %392 = load ptr, ptr %9, align 8
-  %393 = load i32, ptr %16, align 4
-  %394 = sext i32 %393 to i64
-  %395 = call i32 %391(ptr noundef %392, i64 noundef %394, i32 noundef 1)
-  %396 = icmp ne i32 %395, 0
-  br i1 %396, label %397, label %398
+389:                                              ; preds = %386
+  %390 = load ptr, ptr %8, align 8, !tbaa !3
+  %391 = getelementptr inbounds nuw %struct.mspack_system, ptr %390, i32 0, i32 4
+  %392 = load ptr, ptr %391, align 8, !tbaa !96
+  %393 = load ptr, ptr %9, align 8, !tbaa !38
+  %394 = load i32, ptr %16, align 4, !tbaa !48
+  %395 = sext i32 %394 to i64
+  %396 = call i32 %392(ptr noundef %393, i64 noundef %395, i32 noundef 1)
+  %397 = icmp ne i32 %396, 0
+  br i1 %397, label %398, label %399
 
-397:                                              ; preds = %388
+398:                                              ; preds = %389
   store i32 5, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-398:                                              ; preds = %388
-  br label %399
+399:                                              ; preds = %389
+  br label %400
 
-399:                                              ; preds = %398, %385
-  %400 = load ptr, ptr %8, align 8
-  %401 = getelementptr inbounds %struct.mspack_system, ptr %400, i32 0, i32 7
-  %402 = load ptr, ptr %401, align 8
-  %403 = load ptr, ptr %8, align 8
-  %404 = call ptr %402(ptr noundef %403, i64 noundef 56)
-  store ptr %404, ptr %21, align 8
-  %405 = icmp ne ptr %404, null
-  br i1 %405, label %407, label %406
+400:                                              ; preds = %399, %386
+  %401 = load ptr, ptr %8, align 8, !tbaa !3
+  %402 = getelementptr inbounds nuw %struct.mspack_system, ptr %401, i32 0, i32 7
+  %403 = load ptr, ptr %402, align 8, !tbaa !10
+  %404 = load ptr, ptr %8, align 8, !tbaa !3
+  %405 = call ptr %403(ptr noundef %404, i64 noundef 56)
+  store ptr %405, ptr %21, align 8, !tbaa !82
+  %406 = icmp ne ptr %405, null
+  br i1 %406, label %408, label %407
 
-406:                                              ; preds = %399
+407:                                              ; preds = %400
   store i32 6, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-407:                                              ; preds = %399
-  %408 = load ptr, ptr %21, align 8
-  %409 = getelementptr inbounds %struct.mscabd_folder_p, ptr %408, i32 0, i32 0
-  %410 = getelementptr inbounds %struct.mscabd_folder, ptr %409, i32 0, i32 0
-  store ptr null, ptr %410, align 8
-  %411 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 6
-  %412 = getelementptr inbounds i8, ptr %411, i64 1
-  %413 = load i8, ptr %412, align 1
-  %414 = zext i8 %413 to i32
-  %415 = shl i32 %414, 8
-  %416 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 6
-  %417 = getelementptr inbounds i8, ptr %416, i64 0
-  %418 = load i8, ptr %417, align 2
-  %419 = zext i8 %418 to i32
-  %420 = or i32 %415, %419
-  %421 = load ptr, ptr %21, align 8
-  %422 = getelementptr inbounds %struct.mscabd_folder_p, ptr %421, i32 0, i32 0
-  %423 = getelementptr inbounds %struct.mscabd_folder, ptr %422, i32 0, i32 1
-  store i32 %420, ptr %423, align 8
-  %424 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
-  %425 = getelementptr inbounds i8, ptr %424, i64 1
-  %426 = load i8, ptr %425, align 1
-  %427 = zext i8 %426 to i32
-  %428 = shl i32 %427, 8
-  %429 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
-  %430 = getelementptr inbounds i8, ptr %429, i64 0
-  %431 = load i8, ptr %430, align 4
-  %432 = zext i8 %431 to i32
-  %433 = or i32 %428, %432
-  %434 = load ptr, ptr %21, align 8
-  %435 = getelementptr inbounds %struct.mscabd_folder_p, ptr %434, i32 0, i32 0
-  %436 = getelementptr inbounds %struct.mscabd_folder, ptr %435, i32 0, i32 2
-  store i32 %433, ptr %436, align 4
-  %437 = load ptr, ptr %21, align 8
-  %438 = getelementptr inbounds %struct.mscabd_folder_p, ptr %437, i32 0, i32 1
-  %439 = getelementptr inbounds %struct.mscabd_folder_data, ptr %438, i32 0, i32 0
-  store ptr null, ptr %439, align 8
-  %440 = load ptr, ptr %10, align 8
-  %441 = load ptr, ptr %21, align 8
-  %442 = getelementptr inbounds %struct.mscabd_folder_p, ptr %441, i32 0, i32 1
-  %443 = getelementptr inbounds %struct.mscabd_folder_data, ptr %442, i32 0, i32 1
-  store ptr %440, ptr %443, align 8
-  %444 = load i64, ptr %11, align 8
-  %445 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %446 = getelementptr inbounds i8, ptr %445, i64 3
-  %447 = load i8, ptr %446, align 1
-  %448 = zext i8 %447 to i32
-  %449 = shl i32 %448, 24
-  %450 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %451 = getelementptr inbounds i8, ptr %450, i64 2
-  %452 = load i8, ptr %451, align 2
-  %453 = zext i8 %452 to i32
-  %454 = shl i32 %453, 16
-  %455 = or i32 %449, %454
-  %456 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %457 = getelementptr inbounds i8, ptr %456, i64 1
-  %458 = load i8, ptr %457, align 1
-  %459 = zext i8 %458 to i32
-  %460 = shl i32 %459, 8
-  %461 = or i32 %455, %460
-  %462 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %463 = getelementptr inbounds i8, ptr %462, i64 0
-  %464 = load i8, ptr %463, align 16
-  %465 = zext i8 %464 to i32
-  %466 = or i32 %461, %465
-  %467 = zext i32 %466 to i64
-  %468 = add nsw i64 %444, %467
-  %469 = load ptr, ptr %21, align 8
-  %470 = getelementptr inbounds %struct.mscabd_folder_p, ptr %469, i32 0, i32 1
-  %471 = getelementptr inbounds %struct.mscabd_folder_data, ptr %470, i32 0, i32 2
-  store i64 %468, ptr %471, align 8
-  %472 = load ptr, ptr %21, align 8
-  %473 = getelementptr inbounds %struct.mscabd_folder_p, ptr %472, i32 0, i32 2
-  store ptr null, ptr %473, align 8
-  %474 = load ptr, ptr %21, align 8
-  %475 = getelementptr inbounds %struct.mscabd_folder_p, ptr %474, i32 0, i32 3
-  store ptr null, ptr %475, align 8
-  %476 = load ptr, ptr %22, align 8
-  %477 = icmp ne ptr %476, null
-  br i1 %477, label %483, label %478
+408:                                              ; preds = %400
+  %409 = load ptr, ptr %21, align 8, !tbaa !82
+  %410 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %409, i32 0, i32 0
+  %411 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %410, i32 0, i32 0
+  store ptr null, ptr %411, align 8, !tbaa !124
+  %412 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 6
+  %413 = getelementptr inbounds i8, ptr %412, i64 1
+  %414 = load i8, ptr %413, align 1, !tbaa !117
+  %415 = zext i8 %414 to i32
+  %416 = shl i32 %415, 8
+  %417 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 6
+  %418 = getelementptr inbounds i8, ptr %417, i64 0
+  %419 = load i8, ptr %418, align 2, !tbaa !117
+  %420 = zext i8 %419 to i32
+  %421 = or i32 %416, %420
+  %422 = load ptr, ptr %21, align 8, !tbaa !82
+  %423 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %422, i32 0, i32 0
+  %424 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %423, i32 0, i32 1
+  store i32 %421, ptr %424, align 8, !tbaa !98
+  %425 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
+  %426 = getelementptr inbounds i8, ptr %425, i64 1
+  %427 = load i8, ptr %426, align 1, !tbaa !117
+  %428 = zext i8 %427 to i32
+  %429 = shl i32 %428, 8
+  %430 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
+  %431 = getelementptr inbounds i8, ptr %430, i64 0
+  %432 = load i8, ptr %431, align 4, !tbaa !117
+  %433 = zext i8 %432 to i32
+  %434 = or i32 %429, %433
+  %435 = load ptr, ptr %21, align 8, !tbaa !82
+  %436 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %435, i32 0, i32 0
+  %437 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %436, i32 0, i32 2
+  store i32 %434, ptr %437, align 4, !tbaa !86
+  %438 = load ptr, ptr %21, align 8, !tbaa !82
+  %439 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %438, i32 0, i32 1
+  %440 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %439, i32 0, i32 0
+  store ptr null, ptr %440, align 8, !tbaa !66
+  %441 = load ptr, ptr %10, align 8, !tbaa !35
+  %442 = load ptr, ptr %21, align 8, !tbaa !82
+  %443 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %442, i32 0, i32 1
+  %444 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %443, i32 0, i32 1
+  store ptr %441, ptr %444, align 8, !tbaa !95
+  %445 = load i64, ptr %11, align 8, !tbaa !78
+  %446 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %447 = getelementptr inbounds i8, ptr %446, i64 3
+  %448 = load i8, ptr %447, align 1, !tbaa !117
+  %449 = zext i8 %448 to i32
+  %450 = shl i32 %449, 24
+  %451 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %452 = getelementptr inbounds i8, ptr %451, i64 2
+  %453 = load i8, ptr %452, align 2, !tbaa !117
+  %454 = zext i8 %453 to i32
+  %455 = shl i32 %454, 16
+  %456 = or i32 %450, %455
+  %457 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %458 = getelementptr inbounds i8, ptr %457, i64 1
+  %459 = load i8, ptr %458, align 1, !tbaa !117
+  %460 = zext i8 %459 to i32
+  %461 = shl i32 %460, 8
+  %462 = or i32 %456, %461
+  %463 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %464 = getelementptr inbounds i8, ptr %463, i64 0
+  %465 = load i8, ptr %464, align 16, !tbaa !117
+  %466 = zext i8 %465 to i32
+  %467 = or i32 %462, %466
+  %468 = zext i32 %467 to i64
+  %469 = add nsw i64 %445, %468
+  %470 = load ptr, ptr %21, align 8, !tbaa !82
+  %471 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %470, i32 0, i32 1
+  %472 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %471, i32 0, i32 2
+  store i64 %469, ptr %472, align 8, !tbaa !97
+  %473 = load ptr, ptr %21, align 8, !tbaa !82
+  %474 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %473, i32 0, i32 2
+  store ptr null, ptr %474, align 8, !tbaa !85
+  %475 = load ptr, ptr %21, align 8, !tbaa !82
+  %476 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %475, i32 0, i32 3
+  store ptr null, ptr %476, align 8, !tbaa !125
+  %477 = load ptr, ptr %22, align 8, !tbaa !82
+  %478 = icmp ne ptr %477, null
+  br i1 %478, label %484, label %479
 
-478:                                              ; preds = %407
-  %479 = load ptr, ptr %21, align 8
-  %480 = load ptr, ptr %10, align 8
-  %481 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %480, i32 0, i32 0
-  %482 = getelementptr inbounds %struct.mscabd_cabinet, ptr %481, i32 0, i32 11
-  store ptr %479, ptr %482, align 8
-  br label %488
+479:                                              ; preds = %408
+  %480 = load ptr, ptr %21, align 8, !tbaa !82
+  %481 = load ptr, ptr %10, align 8, !tbaa !35
+  %482 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %481, i32 0, i32 0
+  %483 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %482, i32 0, i32 11
+  store ptr %480, ptr %483, align 8, !tbaa !109
+  br label %489
 
-483:                                              ; preds = %407
-  %484 = load ptr, ptr %21, align 8
-  %485 = load ptr, ptr %22, align 8
-  %486 = getelementptr inbounds %struct.mscabd_folder_p, ptr %485, i32 0, i32 0
-  %487 = getelementptr inbounds %struct.mscabd_folder, ptr %486, i32 0, i32 0
-  store ptr %484, ptr %487, align 8
-  br label %488
+484:                                              ; preds = %408
+  %485 = load ptr, ptr %21, align 8, !tbaa !82
+  %486 = load ptr, ptr %22, align 8, !tbaa !82
+  %487 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %486, i32 0, i32 0
+  %488 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %487, i32 0, i32 0
+  store ptr %485, ptr %488, align 8, !tbaa !124
+  br label %489
 
-488:                                              ; preds = %483, %478
-  %489 = load ptr, ptr %21, align 8
-  store ptr %489, ptr %22, align 8
-  br label %490
+489:                                              ; preds = %484, %479
+  %490 = load ptr, ptr %21, align 8, !tbaa !82
+  store ptr %490, ptr %22, align 8, !tbaa !82
+  br label %491
 
-490:                                              ; preds = %488
-  %491 = load i32, ptr %17, align 4
-  %492 = add nsw i32 %491, 1
-  store i32 %492, ptr %17, align 4
-  br label %372
+491:                                              ; preds = %489
+  %492 = load i32, ptr %17, align 4, !tbaa !48
+  %493 = add nsw i32 %492, 1
+  store i32 %493, ptr %17, align 4, !tbaa !48
+  br label %373
 
-493:                                              ; preds = %372
-  store i32 0, ptr %17, align 4
-  br label %494
+494:                                              ; preds = %373
+  store i32 0, ptr %17, align 4, !tbaa !48
+  br label %495
 
-494:                                              ; preds = %781, %493
-  %495 = load i32, ptr %17, align 4
-  %496 = load i32, ptr %15, align 4
-  %497 = icmp slt i32 %495, %496
-  br i1 %497, label %498, label %784
+495:                                              ; preds = %782, %494
+  %496 = load i32, ptr %17, align 4, !tbaa !48
+  %497 = load i32, ptr %15, align 4, !tbaa !48
+  %498 = icmp slt i32 %496, %497
+  br i1 %498, label %499, label %785
 
-498:                                              ; preds = %494
-  %499 = load ptr, ptr %8, align 8
-  %500 = getelementptr inbounds %struct.mspack_system, ptr %499, i32 0, i32 2
-  %501 = load ptr, ptr %500, align 8
-  %502 = load ptr, ptr %9, align 8
-  %503 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %504 = call i32 %501(ptr noundef %502, ptr noundef %503, i32 noundef 16)
-  %505 = icmp ne i32 %504, 16
-  br i1 %505, label %506, label %507
+499:                                              ; preds = %495
+  %500 = load ptr, ptr %8, align 8, !tbaa !3
+  %501 = getelementptr inbounds nuw %struct.mspack_system, ptr %500, i32 0, i32 2
+  %502 = load ptr, ptr %501, align 8, !tbaa !116
+  %503 = load ptr, ptr %9, align 8, !tbaa !38
+  %504 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %505 = call i32 %502(ptr noundef %503, ptr noundef %504, i32 noundef 16)
+  %506 = icmp ne i32 %505, 16
+  br i1 %506, label %507, label %508
 
-506:                                              ; preds = %498
+507:                                              ; preds = %499
   store i32 3, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-507:                                              ; preds = %498
-  %508 = load ptr, ptr %8, align 8
-  %509 = getelementptr inbounds %struct.mspack_system, ptr %508, i32 0, i32 7
-  %510 = load ptr, ptr %509, align 8
-  %511 = load ptr, ptr %8, align 8
-  %512 = call ptr %510(ptr noundef %511, i64 noundef 56)
-  store ptr %512, ptr %23, align 8
-  %513 = icmp ne ptr %512, null
-  br i1 %513, label %515, label %514
+508:                                              ; preds = %499
+  %509 = load ptr, ptr %8, align 8, !tbaa !3
+  %510 = getelementptr inbounds nuw %struct.mspack_system, ptr %509, i32 0, i32 7
+  %511 = load ptr, ptr %510, align 8, !tbaa !10
+  %512 = load ptr, ptr %8, align 8, !tbaa !3
+  %513 = call ptr %511(ptr noundef %512, i64 noundef 56)
+  store ptr %513, ptr %23, align 8, !tbaa !52
+  %514 = icmp ne ptr %513, null
+  br i1 %514, label %516, label %515
 
-514:                                              ; preds = %507
+515:                                              ; preds = %508
   store i32 6, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-515:                                              ; preds = %507
-  %516 = load ptr, ptr %23, align 8
-  %517 = getelementptr inbounds %struct.mscabd_file, ptr %516, i32 0, i32 0
-  store ptr null, ptr %517, align 8
-  %518 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %519 = getelementptr inbounds i8, ptr %518, i64 3
-  %520 = load i8, ptr %519, align 1
-  %521 = zext i8 %520 to i32
-  %522 = shl i32 %521, 24
-  %523 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %524 = getelementptr inbounds i8, ptr %523, i64 2
-  %525 = load i8, ptr %524, align 2
-  %526 = zext i8 %525 to i32
-  %527 = shl i32 %526, 16
-  %528 = or i32 %522, %527
-  %529 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %530 = getelementptr inbounds i8, ptr %529, i64 1
-  %531 = load i8, ptr %530, align 1
-  %532 = zext i8 %531 to i32
-  %533 = shl i32 %532, 8
-  %534 = or i32 %528, %533
-  %535 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %536 = getelementptr inbounds i8, ptr %535, i64 0
-  %537 = load i8, ptr %536, align 16
-  %538 = zext i8 %537 to i32
-  %539 = or i32 %534, %538
-  %540 = load ptr, ptr %23, align 8
-  %541 = getelementptr inbounds %struct.mscabd_file, ptr %540, i32 0, i32 2
-  store i32 %539, ptr %541, align 8
-  %542 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 14
-  %543 = getelementptr inbounds i8, ptr %542, i64 1
-  %544 = load i8, ptr %543, align 1
-  %545 = zext i8 %544 to i32
-  %546 = shl i32 %545, 8
-  %547 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 14
-  %548 = getelementptr inbounds i8, ptr %547, i64 0
-  %549 = load i8, ptr %548, align 2
-  %550 = zext i8 %549 to i32
-  %551 = or i32 %546, %550
-  %552 = load ptr, ptr %23, align 8
-  %553 = getelementptr inbounds %struct.mscabd_file, ptr %552, i32 0, i32 3
-  store i32 %551, ptr %553, align 4
-  %554 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
-  %555 = getelementptr inbounds i8, ptr %554, i64 3
-  %556 = load i8, ptr %555, align 1
-  %557 = zext i8 %556 to i32
-  %558 = shl i32 %557, 24
-  %559 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
-  %560 = getelementptr inbounds i8, ptr %559, i64 2
-  %561 = load i8, ptr %560, align 2
-  %562 = zext i8 %561 to i32
-  %563 = shl i32 %562, 16
-  %564 = or i32 %558, %563
-  %565 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
-  %566 = getelementptr inbounds i8, ptr %565, i64 1
-  %567 = load i8, ptr %566, align 1
-  %568 = zext i8 %567 to i32
-  %569 = shl i32 %568, 8
-  %570 = or i32 %564, %569
-  %571 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
-  %572 = getelementptr inbounds i8, ptr %571, i64 0
-  %573 = load i8, ptr %572, align 4
-  %574 = zext i8 %573 to i32
-  %575 = or i32 %570, %574
-  %576 = load ptr, ptr %23, align 8
-  %577 = getelementptr inbounds %struct.mscabd_file, ptr %576, i32 0, i32 11
-  store i32 %575, ptr %577, align 8
-  %578 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
-  %579 = getelementptr inbounds i8, ptr %578, i64 1
-  %580 = load i8, ptr %579, align 1
-  %581 = zext i8 %580 to i32
-  %582 = shl i32 %581, 8
-  %583 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
-  %584 = getelementptr inbounds i8, ptr %583, i64 0
-  %585 = load i8, ptr %584, align 8
-  %586 = zext i8 %585 to i32
-  %587 = or i32 %582, %586
-  store i32 %587, ptr %20, align 4
-  %588 = load i32, ptr %20, align 4
-  %589 = icmp slt i32 %588, 65533
-  br i1 %589, label %590, label %619
+516:                                              ; preds = %508
+  %517 = load ptr, ptr %23, align 8, !tbaa !52
+  %518 = getelementptr inbounds nuw %struct.mscabd_file, ptr %517, i32 0, i32 0
+  store ptr null, ptr %518, align 8, !tbaa !53
+  %519 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %520 = getelementptr inbounds i8, ptr %519, i64 3
+  %521 = load i8, ptr %520, align 1, !tbaa !117
+  %522 = zext i8 %521 to i32
+  %523 = shl i32 %522, 24
+  %524 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %525 = getelementptr inbounds i8, ptr %524, i64 2
+  %526 = load i8, ptr %525, align 2, !tbaa !117
+  %527 = zext i8 %526 to i32
+  %528 = shl i32 %527, 16
+  %529 = or i32 %523, %528
+  %530 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %531 = getelementptr inbounds i8, ptr %530, i64 1
+  %532 = load i8, ptr %531, align 1, !tbaa !117
+  %533 = zext i8 %532 to i32
+  %534 = shl i32 %533, 8
+  %535 = or i32 %529, %534
+  %536 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %537 = getelementptr inbounds i8, ptr %536, i64 0
+  %538 = load i8, ptr %537, align 16, !tbaa !117
+  %539 = zext i8 %538 to i32
+  %540 = or i32 %535, %539
+  %541 = load ptr, ptr %23, align 8, !tbaa !52
+  %542 = getelementptr inbounds nuw %struct.mscabd_file, ptr %541, i32 0, i32 2
+  store i32 %540, ptr %542, align 8, !tbaa !84
+  %543 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 14
+  %544 = getelementptr inbounds i8, ptr %543, i64 1
+  %545 = load i8, ptr %544, align 1, !tbaa !117
+  %546 = zext i8 %545 to i32
+  %547 = shl i32 %546, 8
+  %548 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 14
+  %549 = getelementptr inbounds i8, ptr %548, i64 0
+  %550 = load i8, ptr %549, align 2, !tbaa !117
+  %551 = zext i8 %550 to i32
+  %552 = or i32 %547, %551
+  %553 = load ptr, ptr %23, align 8, !tbaa !52
+  %554 = getelementptr inbounds nuw %struct.mscabd_file, ptr %553, i32 0, i32 3
+  store i32 %552, ptr %554, align 4, !tbaa !126
+  %555 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
+  %556 = getelementptr inbounds i8, ptr %555, i64 3
+  %557 = load i8, ptr %556, align 1, !tbaa !117
+  %558 = zext i8 %557 to i32
+  %559 = shl i32 %558, 24
+  %560 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
+  %561 = getelementptr inbounds i8, ptr %560, i64 2
+  %562 = load i8, ptr %561, align 2, !tbaa !117
+  %563 = zext i8 %562 to i32
+  %564 = shl i32 %563, 16
+  %565 = or i32 %559, %564
+  %566 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
+  %567 = getelementptr inbounds i8, ptr %566, i64 1
+  %568 = load i8, ptr %567, align 1, !tbaa !117
+  %569 = zext i8 %568 to i32
+  %570 = shl i32 %569, 8
+  %571 = or i32 %565, %570
+  %572 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 4
+  %573 = getelementptr inbounds i8, ptr %572, i64 0
+  %574 = load i8, ptr %573, align 4, !tbaa !117
+  %575 = zext i8 %574 to i32
+  %576 = or i32 %571, %575
+  %577 = load ptr, ptr %23, align 8, !tbaa !52
+  %578 = getelementptr inbounds nuw %struct.mscabd_file, ptr %577, i32 0, i32 11
+  store i32 %576, ptr %578, align 8, !tbaa !83
+  %579 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
+  %580 = getelementptr inbounds i8, ptr %579, i64 1
+  %581 = load i8, ptr %580, align 1, !tbaa !117
+  %582 = zext i8 %581 to i32
+  %583 = shl i32 %582, 8
+  %584 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 8
+  %585 = getelementptr inbounds i8, ptr %584, i64 0
+  %586 = load i8, ptr %585, align 8, !tbaa !117
+  %587 = zext i8 %586 to i32
+  %588 = or i32 %583, %587
+  store i32 %588, ptr %20, align 4, !tbaa !48
+  %589 = load i32, ptr %20, align 4, !tbaa !48
+  %590 = icmp slt i32 %589, 65533
+  br i1 %590, label %591, label %620
 
-590:                                              ; preds = %515
-  %591 = load i32, ptr %20, align 4
-  %592 = load i32, ptr %14, align 4
-  %593 = icmp slt i32 %591, %592
-  br i1 %593, label %594, label %615
+591:                                              ; preds = %516
+  %592 = load i32, ptr %20, align 4, !tbaa !48
+  %593 = load i32, ptr %14, align 4, !tbaa !48
+  %594 = icmp slt i32 %592, %593
+  br i1 %594, label %595, label %616
 
-594:                                              ; preds = %590
-  %595 = load ptr, ptr %10, align 8
-  %596 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %595, i32 0, i32 0
-  %597 = getelementptr inbounds %struct.mscabd_cabinet, ptr %596, i32 0, i32 11
-  %598 = load ptr, ptr %597, align 8
-  store ptr %598, ptr %26, align 8
-  br label %599
+595:                                              ; preds = %591
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #4
+  %596 = load ptr, ptr %10, align 8, !tbaa !35
+  %597 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %596, i32 0, i32 0
+  %598 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %597, i32 0, i32 11
+  %599 = load ptr, ptr %598, align 8, !tbaa !109
+  store ptr %599, ptr %27, align 8, !tbaa !58
+  br label %600
 
-599:                                              ; preds = %610, %594
-  %600 = load i32, ptr %20, align 4
-  %601 = add nsw i32 %600, -1
-  store i32 %601, ptr %20, align 4
-  %602 = icmp ne i32 %600, 0
-  br i1 %602, label %603, label %611
+600:                                              ; preds = %611, %595
+  %601 = load i32, ptr %20, align 4, !tbaa !48
+  %602 = add nsw i32 %601, -1
+  store i32 %602, ptr %20, align 4, !tbaa !48
+  %603 = icmp ne i32 %601, 0
+  br i1 %603, label %604, label %612
 
-603:                                              ; preds = %599
-  %604 = load ptr, ptr %26, align 8
-  %605 = icmp ne ptr %604, null
-  br i1 %605, label %606, label %610
+604:                                              ; preds = %600
+  %605 = load ptr, ptr %27, align 8, !tbaa !58
+  %606 = icmp ne ptr %605, null
+  br i1 %606, label %607, label %611
 
-606:                                              ; preds = %603
-  %607 = load ptr, ptr %26, align 8
-  %608 = getelementptr inbounds %struct.mscabd_folder, ptr %607, i32 0, i32 0
-  %609 = load ptr, ptr %608, align 8
-  store ptr %609, ptr %26, align 8
-  br label %610
+607:                                              ; preds = %604
+  %608 = load ptr, ptr %27, align 8, !tbaa !58
+  %609 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %608, i32 0, i32 0
+  %610 = load ptr, ptr %609, align 8, !tbaa !59
+  store ptr %610, ptr %27, align 8, !tbaa !58
+  br label %611
 
-610:                                              ; preds = %606, %603
-  br label %599
+611:                                              ; preds = %607, %604
+  br label %600
 
-611:                                              ; preds = %599
-  %612 = load ptr, ptr %26, align 8
-  %613 = load ptr, ptr %23, align 8
-  %614 = getelementptr inbounds %struct.mscabd_file, ptr %613, i32 0, i32 10
-  store ptr %612, ptr %614, align 8
-  br label %618
+612:                                              ; preds = %600
+  %613 = load ptr, ptr %27, align 8, !tbaa !58
+  %614 = load ptr, ptr %23, align 8, !tbaa !52
+  %615 = getelementptr inbounds nuw %struct.mscabd_file, ptr %614, i32 0, i32 10
+  store ptr %613, ptr %615, align 8, !tbaa !81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #4
+  br label %619
 
-615:                                              ; preds = %590
-  %616 = load ptr, ptr %23, align 8
-  %617 = getelementptr inbounds %struct.mscabd_file, ptr %616, i32 0, i32 10
-  store ptr null, ptr %617, align 8
-  br label %618
+616:                                              ; preds = %591
+  %617 = load ptr, ptr %23, align 8, !tbaa !52
+  %618 = getelementptr inbounds nuw %struct.mscabd_file, ptr %617, i32 0, i32 10
+  store ptr null, ptr %618, align 8, !tbaa !81
+  br label %619
 
-618:                                              ; preds = %615, %611
-  br label %679
+619:                                              ; preds = %616, %612
+  br label %680
 
-619:                                              ; preds = %515
-  %620 = load i32, ptr %20, align 4
-  %621 = icmp eq i32 %620, 65534
-  br i1 %621, label %625, label %622
+620:                                              ; preds = %516
+  %621 = load i32, ptr %20, align 4, !tbaa !48
+  %622 = icmp eq i32 %621, 65534
+  br i1 %622, label %626, label %623
 
-622:                                              ; preds = %619
-  %623 = load i32, ptr %20, align 4
-  %624 = icmp eq i32 %623, 65535
-  br i1 %624, label %625, label %653
+623:                                              ; preds = %620
+  %624 = load i32, ptr %20, align 4, !tbaa !48
+  %625 = icmp eq i32 %624, 65535
+  br i1 %625, label %626, label %654
 
-625:                                              ; preds = %622, %619
-  %626 = load ptr, ptr %10, align 8
-  %627 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %626, i32 0, i32 0
-  %628 = getelementptr inbounds %struct.mscabd_cabinet, ptr %627, i32 0, i32 11
-  %629 = load ptr, ptr %628, align 8
-  store ptr %629, ptr %27, align 8
-  br label %630
+626:                                              ; preds = %623, %620
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #4
+  %627 = load ptr, ptr %10, align 8, !tbaa !35
+  %628 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %627, i32 0, i32 0
+  %629 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %628, i32 0, i32 11
+  %630 = load ptr, ptr %629, align 8, !tbaa !109
+  store ptr %630, ptr %28, align 8, !tbaa !58
+  br label %631
 
-630:                                              ; preds = %635, %625
-  %631 = load ptr, ptr %27, align 8
-  %632 = getelementptr inbounds %struct.mscabd_folder, ptr %631, i32 0, i32 0
-  %633 = load ptr, ptr %632, align 8
-  %634 = icmp ne ptr %633, null
-  br i1 %634, label %635, label %639
+631:                                              ; preds = %636, %626
+  %632 = load ptr, ptr %28, align 8, !tbaa !58
+  %633 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %632, i32 0, i32 0
+  %634 = load ptr, ptr %633, align 8, !tbaa !59
+  %635 = icmp ne ptr %634, null
+  br i1 %635, label %636, label %640
 
-635:                                              ; preds = %630
-  %636 = load ptr, ptr %27, align 8
-  %637 = getelementptr inbounds %struct.mscabd_folder, ptr %636, i32 0, i32 0
-  %638 = load ptr, ptr %637, align 8
-  store ptr %638, ptr %27, align 8
-  br label %630
+636:                                              ; preds = %631
+  %637 = load ptr, ptr %28, align 8, !tbaa !58
+  %638 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %637, i32 0, i32 0
+  %639 = load ptr, ptr %638, align 8, !tbaa !59
+  store ptr %639, ptr %28, align 8, !tbaa !58
+  br label %631
 
-639:                                              ; preds = %630
-  %640 = load ptr, ptr %27, align 8
-  %641 = load ptr, ptr %23, align 8
-  %642 = getelementptr inbounds %struct.mscabd_file, ptr %641, i32 0, i32 10
-  store ptr %640, ptr %642, align 8
-  %643 = load ptr, ptr %27, align 8
-  store ptr %643, ptr %21, align 8
-  %644 = load ptr, ptr %21, align 8
-  %645 = getelementptr inbounds %struct.mscabd_folder_p, ptr %644, i32 0, i32 3
-  %646 = load ptr, ptr %645, align 8
-  %647 = icmp ne ptr %646, null
-  br i1 %647, label %652, label %648
+640:                                              ; preds = %631
+  %641 = load ptr, ptr %28, align 8, !tbaa !58
+  %642 = load ptr, ptr %23, align 8, !tbaa !52
+  %643 = getelementptr inbounds nuw %struct.mscabd_file, ptr %642, i32 0, i32 10
+  store ptr %641, ptr %643, align 8, !tbaa !81
+  %644 = load ptr, ptr %28, align 8, !tbaa !58
+  store ptr %644, ptr %21, align 8, !tbaa !82
+  %645 = load ptr, ptr %21, align 8, !tbaa !82
+  %646 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %645, i32 0, i32 3
+  %647 = load ptr, ptr %646, align 8, !tbaa !125
+  %648 = icmp ne ptr %647, null
+  br i1 %648, label %653, label %649
 
-648:                                              ; preds = %639
-  %649 = load ptr, ptr %23, align 8
-  %650 = load ptr, ptr %21, align 8
-  %651 = getelementptr inbounds %struct.mscabd_folder_p, ptr %650, i32 0, i32 3
-  store ptr %649, ptr %651, align 8
-  br label %652
-
-652:                                              ; preds = %648, %639
+649:                                              ; preds = %640
+  %650 = load ptr, ptr %23, align 8, !tbaa !52
+  %651 = load ptr, ptr %21, align 8, !tbaa !82
+  %652 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %651, i32 0, i32 3
+  store ptr %650, ptr %652, align 8, !tbaa !125
   br label %653
 
-653:                                              ; preds = %652, %622
-  %654 = load i32, ptr %20, align 4
-  %655 = icmp eq i32 %654, 65533
-  br i1 %655, label %659, label %656
+653:                                              ; preds = %649, %640
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #4
+  br label %654
 
-656:                                              ; preds = %653
-  %657 = load i32, ptr %20, align 4
-  %658 = icmp eq i32 %657, 65535
-  br i1 %658, label %659, label %678
+654:                                              ; preds = %653, %623
+  %655 = load i32, ptr %20, align 4, !tbaa !48
+  %656 = icmp eq i32 %655, 65533
+  br i1 %656, label %660, label %657
 
-659:                                              ; preds = %656, %653
-  %660 = load ptr, ptr %10, align 8
-  %661 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %660, i32 0, i32 0
-  %662 = getelementptr inbounds %struct.mscabd_cabinet, ptr %661, i32 0, i32 11
-  %663 = load ptr, ptr %662, align 8
-  %664 = load ptr, ptr %23, align 8
-  %665 = getelementptr inbounds %struct.mscabd_file, ptr %664, i32 0, i32 10
-  store ptr %663, ptr %665, align 8
-  %666 = load ptr, ptr %23, align 8
-  %667 = getelementptr inbounds %struct.mscabd_file, ptr %666, i32 0, i32 10
-  %668 = load ptr, ptr %667, align 8
-  store ptr %668, ptr %21, align 8
-  %669 = load ptr, ptr %21, align 8
-  %670 = getelementptr inbounds %struct.mscabd_folder_p, ptr %669, i32 0, i32 2
-  %671 = load ptr, ptr %670, align 8
-  %672 = icmp ne ptr %671, null
-  br i1 %672, label %677, label %673
+657:                                              ; preds = %654
+  %658 = load i32, ptr %20, align 4, !tbaa !48
+  %659 = icmp eq i32 %658, 65535
+  br i1 %659, label %660, label %679
 
-673:                                              ; preds = %659
-  %674 = load ptr, ptr %23, align 8
-  %675 = load ptr, ptr %21, align 8
-  %676 = getelementptr inbounds %struct.mscabd_folder_p, ptr %675, i32 0, i32 2
-  store ptr %674, ptr %676, align 8
-  br label %677
+660:                                              ; preds = %657, %654
+  %661 = load ptr, ptr %10, align 8, !tbaa !35
+  %662 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %661, i32 0, i32 0
+  %663 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %662, i32 0, i32 11
+  %664 = load ptr, ptr %663, align 8, !tbaa !109
+  %665 = load ptr, ptr %23, align 8, !tbaa !52
+  %666 = getelementptr inbounds nuw %struct.mscabd_file, ptr %665, i32 0, i32 10
+  store ptr %664, ptr %666, align 8, !tbaa !81
+  %667 = load ptr, ptr %23, align 8, !tbaa !52
+  %668 = getelementptr inbounds nuw %struct.mscabd_file, ptr %667, i32 0, i32 10
+  %669 = load ptr, ptr %668, align 8, !tbaa !81
+  store ptr %669, ptr %21, align 8, !tbaa !82
+  %670 = load ptr, ptr %21, align 8, !tbaa !82
+  %671 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %670, i32 0, i32 2
+  %672 = load ptr, ptr %671, align 8, !tbaa !85
+  %673 = icmp ne ptr %672, null
+  br i1 %673, label %678, label %674
 
-677:                                              ; preds = %673, %659
+674:                                              ; preds = %660
+  %675 = load ptr, ptr %23, align 8, !tbaa !52
+  %676 = load ptr, ptr %21, align 8, !tbaa !82
+  %677 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %676, i32 0, i32 2
+  store ptr %675, ptr %677, align 8, !tbaa !85
   br label %678
 
-678:                                              ; preds = %677, %656
+678:                                              ; preds = %674, %660
   br label %679
 
-679:                                              ; preds = %678, %618
-  %680 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 12
-  %681 = getelementptr inbounds i8, ptr %680, i64 1
-  %682 = load i8, ptr %681, align 1
-  %683 = zext i8 %682 to i32
-  %684 = shl i32 %683, 8
-  %685 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 12
-  %686 = getelementptr inbounds i8, ptr %685, i64 0
-  %687 = load i8, ptr %686, align 4
-  %688 = zext i8 %687 to i32
-  %689 = or i32 %684, %688
-  store i32 %689, ptr %18, align 4
-  %690 = load i32, ptr %18, align 4
-  %691 = ashr i32 %690, 11
-  %692 = trunc i32 %691 to i8
-  %693 = load ptr, ptr %23, align 8
-  %694 = getelementptr inbounds %struct.mscabd_file, ptr %693, i32 0, i32 4
-  store i8 %692, ptr %694, align 8
-  %695 = load i32, ptr %18, align 4
-  %696 = ashr i32 %695, 5
-  %697 = and i32 %696, 63
-  %698 = trunc i32 %697 to i8
-  %699 = load ptr, ptr %23, align 8
-  %700 = getelementptr inbounds %struct.mscabd_file, ptr %699, i32 0, i32 5
-  store i8 %698, ptr %700, align 1
-  %701 = load i32, ptr %18, align 4
-  %702 = shl i32 %701, 1
-  %703 = and i32 %702, 62
-  %704 = trunc i32 %703 to i8
-  %705 = load ptr, ptr %23, align 8
-  %706 = getelementptr inbounds %struct.mscabd_file, ptr %705, i32 0, i32 6
-  store i8 %704, ptr %706, align 2
-  %707 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 10
-  %708 = getelementptr inbounds i8, ptr %707, i64 1
-  %709 = load i8, ptr %708, align 1
-  %710 = zext i8 %709 to i32
-  %711 = shl i32 %710, 8
-  %712 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 10
-  %713 = getelementptr inbounds i8, ptr %712, i64 0
-  %714 = load i8, ptr %713, align 2
-  %715 = zext i8 %714 to i32
-  %716 = or i32 %711, %715
-  store i32 %716, ptr %18, align 4
-  %717 = load i32, ptr %18, align 4
-  %718 = and i32 %717, 31
-  %719 = trunc i32 %718 to i8
-  %720 = load ptr, ptr %23, align 8
-  %721 = getelementptr inbounds %struct.mscabd_file, ptr %720, i32 0, i32 7
-  store i8 %719, ptr %721, align 1
-  %722 = load i32, ptr %18, align 4
-  %723 = ashr i32 %722, 5
-  %724 = and i32 %723, 15
-  %725 = trunc i32 %724 to i8
-  %726 = load ptr, ptr %23, align 8
-  %727 = getelementptr inbounds %struct.mscabd_file, ptr %726, i32 0, i32 8
-  store i8 %725, ptr %727, align 4
-  %728 = load i32, ptr %18, align 4
-  %729 = ashr i32 %728, 9
-  %730 = add nsw i32 %729, 1980
-  %731 = load ptr, ptr %23, align 8
-  %732 = getelementptr inbounds %struct.mscabd_file, ptr %731, i32 0, i32 9
-  store i32 %730, ptr %732, align 8
-  %733 = load ptr, ptr %8, align 8
-  %734 = load ptr, ptr %9, align 8
-  %735 = call ptr @cabd_read_string(ptr noundef %733, ptr noundef %734, i32 noundef 0, ptr noundef %19)
-  %736 = load ptr, ptr %23, align 8
-  %737 = getelementptr inbounds %struct.mscabd_file, ptr %736, i32 0, i32 1
-  store ptr %735, ptr %737, align 8
-  %738 = load i32, ptr %19, align 4
-  %739 = icmp ne i32 %738, 0
-  br i1 %739, label %745, label %740
+679:                                              ; preds = %678, %657
+  br label %680
 
-740:                                              ; preds = %679
-  %741 = load ptr, ptr %23, align 8
-  %742 = getelementptr inbounds %struct.mscabd_file, ptr %741, i32 0, i32 10
-  %743 = load ptr, ptr %742, align 8
-  %744 = icmp ne ptr %743, null
-  br i1 %744, label %767, label %745
+680:                                              ; preds = %679, %619
+  %681 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 12
+  %682 = getelementptr inbounds i8, ptr %681, i64 1
+  %683 = load i8, ptr %682, align 1, !tbaa !117
+  %684 = zext i8 %683 to i32
+  %685 = shl i32 %684, 8
+  %686 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 12
+  %687 = getelementptr inbounds i8, ptr %686, i64 0
+  %688 = load i8, ptr %687, align 4, !tbaa !117
+  %689 = zext i8 %688 to i32
+  %690 = or i32 %685, %689
+  store i32 %690, ptr %18, align 4, !tbaa !48
+  %691 = load i32, ptr %18, align 4, !tbaa !48
+  %692 = ashr i32 %691, 11
+  %693 = trunc i32 %692 to i8
+  %694 = load ptr, ptr %23, align 8, !tbaa !52
+  %695 = getelementptr inbounds nuw %struct.mscabd_file, ptr %694, i32 0, i32 4
+  store i8 %693, ptr %695, align 8, !tbaa !127
+  %696 = load i32, ptr %18, align 4, !tbaa !48
+  %697 = ashr i32 %696, 5
+  %698 = and i32 %697, 63
+  %699 = trunc i32 %698 to i8
+  %700 = load ptr, ptr %23, align 8, !tbaa !52
+  %701 = getelementptr inbounds nuw %struct.mscabd_file, ptr %700, i32 0, i32 5
+  store i8 %699, ptr %701, align 1, !tbaa !128
+  %702 = load i32, ptr %18, align 4, !tbaa !48
+  %703 = shl i32 %702, 1
+  %704 = and i32 %703, 62
+  %705 = trunc i32 %704 to i8
+  %706 = load ptr, ptr %23, align 8, !tbaa !52
+  %707 = getelementptr inbounds nuw %struct.mscabd_file, ptr %706, i32 0, i32 6
+  store i8 %705, ptr %707, align 2, !tbaa !129
+  %708 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 10
+  %709 = getelementptr inbounds i8, ptr %708, i64 1
+  %710 = load i8, ptr %709, align 1, !tbaa !117
+  %711 = zext i8 %710 to i32
+  %712 = shl i32 %711, 8
+  %713 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 10
+  %714 = getelementptr inbounds i8, ptr %713, i64 0
+  %715 = load i8, ptr %714, align 2, !tbaa !117
+  %716 = zext i8 %715 to i32
+  %717 = or i32 %712, %716
+  store i32 %717, ptr %18, align 4, !tbaa !48
+  %718 = load i32, ptr %18, align 4, !tbaa !48
+  %719 = and i32 %718, 31
+  %720 = trunc i32 %719 to i8
+  %721 = load ptr, ptr %23, align 8, !tbaa !52
+  %722 = getelementptr inbounds nuw %struct.mscabd_file, ptr %721, i32 0, i32 7
+  store i8 %720, ptr %722, align 1, !tbaa !130
+  %723 = load i32, ptr %18, align 4, !tbaa !48
+  %724 = ashr i32 %723, 5
+  %725 = and i32 %724, 15
+  %726 = trunc i32 %725 to i8
+  %727 = load ptr, ptr %23, align 8, !tbaa !52
+  %728 = getelementptr inbounds nuw %struct.mscabd_file, ptr %727, i32 0, i32 8
+  store i8 %726, ptr %728, align 4, !tbaa !131
+  %729 = load i32, ptr %18, align 4, !tbaa !48
+  %730 = ashr i32 %729, 9
+  %731 = add nsw i32 %730, 1980
+  %732 = load ptr, ptr %23, align 8, !tbaa !52
+  %733 = getelementptr inbounds nuw %struct.mscabd_file, ptr %732, i32 0, i32 9
+  store i32 %731, ptr %733, align 8, !tbaa !132
+  %734 = load ptr, ptr %8, align 8, !tbaa !3
+  %735 = load ptr, ptr %9, align 8, !tbaa !38
+  %736 = call ptr @cabd_read_string(ptr noundef %734, ptr noundef %735, i32 noundef 0, ptr noundef %19)
+  %737 = load ptr, ptr %23, align 8, !tbaa !52
+  %738 = getelementptr inbounds nuw %struct.mscabd_file, ptr %737, i32 0, i32 1
+  store ptr %736, ptr %738, align 8, !tbaa !56
+  %739 = load i32, ptr %19, align 4, !tbaa !48
+  %740 = icmp ne i32 %739, 0
+  br i1 %740, label %746, label %741
 
-745:                                              ; preds = %740, %679
-  %746 = load ptr, ptr %8, align 8
-  %747 = getelementptr inbounds %struct.mspack_system, ptr %746, i32 0, i32 8
-  %748 = load ptr, ptr %747, align 8
-  %749 = load ptr, ptr %23, align 8
-  %750 = getelementptr inbounds %struct.mscabd_file, ptr %749, i32 0, i32 1
-  %751 = load ptr, ptr %750, align 8
-  call void %748(ptr noundef %751)
-  %752 = load ptr, ptr %8, align 8
-  %753 = getelementptr inbounds %struct.mspack_system, ptr %752, i32 0, i32 8
-  %754 = load ptr, ptr %753, align 8
-  %755 = load ptr, ptr %23, align 8
-  call void %754(ptr noundef %755)
-  %756 = load i32, ptr %12, align 4
-  %757 = icmp ne i32 %756, 0
-  br i1 %757, label %758, label %759
+741:                                              ; preds = %680
+  %742 = load ptr, ptr %23, align 8, !tbaa !52
+  %743 = getelementptr inbounds nuw %struct.mscabd_file, ptr %742, i32 0, i32 10
+  %744 = load ptr, ptr %743, align 8, !tbaa !81
+  %745 = icmp ne ptr %744, null
+  br i1 %745, label %768, label %746
 
-758:                                              ; preds = %745
-  br label %781
+746:                                              ; preds = %741, %680
+  %747 = load ptr, ptr %8, align 8, !tbaa !3
+  %748 = getelementptr inbounds nuw %struct.mspack_system, ptr %747, i32 0, i32 8
+  %749 = load ptr, ptr %748, align 8, !tbaa !55
+  %750 = load ptr, ptr %23, align 8, !tbaa !52
+  %751 = getelementptr inbounds nuw %struct.mscabd_file, ptr %750, i32 0, i32 1
+  %752 = load ptr, ptr %751, align 8, !tbaa !56
+  call void %749(ptr noundef %752)
+  %753 = load ptr, ptr %8, align 8, !tbaa !3
+  %754 = getelementptr inbounds nuw %struct.mspack_system, ptr %753, i32 0, i32 8
+  %755 = load ptr, ptr %754, align 8, !tbaa !55
+  %756 = load ptr, ptr %23, align 8, !tbaa !52
+  call void %755(ptr noundef %756)
+  %757 = load i32, ptr %12, align 4, !tbaa !48
+  %758 = icmp ne i32 %757, 0
+  br i1 %758, label %759, label %760
 
-759:                                              ; preds = %745
-  %760 = load i32, ptr %19, align 4
-  %761 = icmp ne i32 %760, 0
-  br i1 %761, label %762, label %764
+759:                                              ; preds = %746
+  br label %782
 
-762:                                              ; preds = %759
-  %763 = load i32, ptr %19, align 4
-  br label %765
+760:                                              ; preds = %746
+  %761 = load i32, ptr %19, align 4, !tbaa !48
+  %762 = icmp ne i32 %761, 0
+  br i1 %762, label %763, label %765
 
-764:                                              ; preds = %759
-  br label %765
+763:                                              ; preds = %760
+  %764 = load i32, ptr %19, align 4, !tbaa !48
+  br label %766
 
-765:                                              ; preds = %764, %762
-  %766 = phi i32 [ %763, %762 ], [ 8, %764 ]
-  store i32 %766, ptr %7, align 4
-  br label %792
+765:                                              ; preds = %760
+  br label %766
 
-767:                                              ; preds = %740
-  %768 = load ptr, ptr %24, align 8
-  %769 = icmp ne ptr %768, null
-  br i1 %769, label %775, label %770
+766:                                              ; preds = %765, %763
+  %767 = phi i32 [ %764, %763 ], [ 8, %765 ]
+  store i32 %767, ptr %7, align 4
+  store i32 1, ptr %26, align 4
+  br label %793
 
-770:                                              ; preds = %767
-  %771 = load ptr, ptr %23, align 8
-  %772 = load ptr, ptr %10, align 8
-  %773 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %772, i32 0, i32 0
-  %774 = getelementptr inbounds %struct.mscabd_cabinet, ptr %773, i32 0, i32 10
-  store ptr %771, ptr %774, align 8
-  br label %779
+768:                                              ; preds = %741
+  %769 = load ptr, ptr %24, align 8, !tbaa !52
+  %770 = icmp ne ptr %769, null
+  br i1 %770, label %776, label %771
 
-775:                                              ; preds = %767
-  %776 = load ptr, ptr %23, align 8
-  %777 = load ptr, ptr %24, align 8
-  %778 = getelementptr inbounds %struct.mscabd_file, ptr %777, i32 0, i32 0
-  store ptr %776, ptr %778, align 8
-  br label %779
+771:                                              ; preds = %768
+  %772 = load ptr, ptr %23, align 8, !tbaa !52
+  %773 = load ptr, ptr %10, align 8, !tbaa !35
+  %774 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %773, i32 0, i32 0
+  %775 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %774, i32 0, i32 10
+  store ptr %772, ptr %775, align 8, !tbaa !108
+  br label %780
 
-779:                                              ; preds = %775, %770
-  %780 = load ptr, ptr %23, align 8
-  store ptr %780, ptr %24, align 8
-  br label %781
+776:                                              ; preds = %768
+  %777 = load ptr, ptr %23, align 8, !tbaa !52
+  %778 = load ptr, ptr %24, align 8, !tbaa !52
+  %779 = getelementptr inbounds nuw %struct.mscabd_file, ptr %778, i32 0, i32 0
+  store ptr %777, ptr %779, align 8, !tbaa !53
+  br label %780
 
-781:                                              ; preds = %779, %758
-  %782 = load i32, ptr %17, align 4
-  %783 = add nsw i32 %782, 1
-  store i32 %783, ptr %17, align 4
-  br label %494
+780:                                              ; preds = %776, %771
+  %781 = load ptr, ptr %23, align 8, !tbaa !52
+  store ptr %781, ptr %24, align 8, !tbaa !52
+  br label %782
 
-784:                                              ; preds = %494
-  %785 = load ptr, ptr %10, align 8
-  %786 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %785, i32 0, i32 0
-  %787 = getelementptr inbounds %struct.mscabd_cabinet, ptr %786, i32 0, i32 10
-  %788 = load ptr, ptr %787, align 8
-  %789 = icmp eq ptr %788, null
-  br i1 %789, label %790, label %791
+782:                                              ; preds = %780, %759
+  %783 = load i32, ptr %17, align 4, !tbaa !48
+  %784 = add nsw i32 %783, 1
+  store i32 %784, ptr %17, align 4, !tbaa !48
+  br label %495
 
-790:                                              ; preds = %784
+785:                                              ; preds = %495
+  %786 = load ptr, ptr %10, align 8, !tbaa !35
+  %787 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %786, i32 0, i32 0
+  %788 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %787, i32 0, i32 10
+  %789 = load ptr, ptr %788, align 8, !tbaa !108
+  %790 = icmp eq ptr %789, null
+  br i1 %790, label %791, label %792
+
+791:                                              ; preds = %785
   store i32 8, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-791:                                              ; preds = %784
+792:                                              ; preds = %785
   store i32 0, ptr %7, align 4
-  br label %792
+  store i32 1, ptr %26, align 4
+  br label %793
 
-792:                                              ; preds = %791, %790, %765, %514, %506, %406, %397, %384, %368, %357, %338, %327, %302, %245, %197, %175, %100, %75, %66
-  %793 = load i32, ptr %7, align 4
-  ret i32 %793
+793:                                              ; preds = %792, %791, %766, %515, %507, %407, %398, %385, %369, %358, %339, %328, %303, %246, %198, %176, %101, %76, %67
+  call void @llvm.lifetime.end.p0(i64 64, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  %794 = load i32, ptr %7, align 4
+  ret i32 %794
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2779,150 +2958,168 @@ define internal ptr @cabd_read_string(ptr noundef %0, ptr noundef %1, i32 nounde
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.mspack_system, ptr %16, i32 0, i32 5
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = call i64 %18(ptr noundef %19)
-  store i64 %20, ptr %10, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.mspack_system, ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 0
-  %26 = call i32 %23(ptr noundef %24, ptr noundef %25, i32 noundef 256)
-  store i32 %26, ptr %13, align 4
-  %27 = icmp sle i32 %26, 0
-  br i1 %27, label %28, label %30
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !38
+  store i32 %2, ptr %8, align 4, !tbaa !48
+  store ptr %3, ptr %9, align 8, !tbaa !133
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %17 = load ptr, ptr %6, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.mspack_system, ptr %17, i32 0, i32 5
+  %19 = load ptr, ptr %18, align 8, !tbaa !135
+  %20 = load ptr, ptr %7, align 8, !tbaa !38
+  %21 = call i64 %19(ptr noundef %20)
+  store i64 %21, ptr %10, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 256, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.mspack_system, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !116
+  %25 = load ptr, ptr %7, align 8, !tbaa !38
+  %26 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 0
+  %27 = call i32 %24(ptr noundef %25, ptr noundef %26, i32 noundef 256)
+  store i32 %27, ptr %13, align 4, !tbaa !48
+  %28 = icmp sle i32 %27, 0
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %4
-  %29 = load ptr, ptr %9, align 8
-  store i32 3, ptr %29, align 4
+29:                                               ; preds = %4
+  %30 = load ptr, ptr %9, align 8, !tbaa !133
+  store i32 3, ptr %30, align 4, !tbaa !48
   store ptr null, ptr %5, align 8
-  br label %94
+  store i32 1, ptr %16, align 4
+  br label %95
 
-30:                                               ; preds = %4
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  br label %31
+31:                                               ; preds = %4
+  store i32 0, ptr %14, align 4, !tbaa !48
+  store i32 0, ptr %15, align 4, !tbaa !48
+  br label %32
 
-31:                                               ; preds = %43, %30
-  %32 = load i32, ptr %14, align 4
-  %33 = load i32, ptr %13, align 4
-  %34 = icmp slt i32 %32, %33
-  br i1 %34, label %35, label %46
+32:                                               ; preds = %44, %31
+  %33 = load i32, ptr %14, align 4, !tbaa !48
+  %34 = load i32, ptr %13, align 4, !tbaa !48
+  %35 = icmp slt i32 %33, %34
+  br i1 %35, label %36, label %47
 
-35:                                               ; preds = %31
-  %36 = load i32, ptr %14, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 1
-  %40 = icmp ne i8 %39, 0
-  br i1 %40, label %42, label %41
+36:                                               ; preds = %32
+  %37 = load i32, ptr %14, align 4, !tbaa !48
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !117
+  %41 = icmp ne i8 %40, 0
+  br i1 %41, label %43, label %42
 
-41:                                               ; preds = %35
-  store i32 1, ptr %15, align 4
-  br label %46
+42:                                               ; preds = %36
+  store i32 1, ptr %15, align 4, !tbaa !48
+  br label %47
 
-42:                                               ; preds = %35
-  br label %43
+43:                                               ; preds = %36
+  br label %44
 
-43:                                               ; preds = %42
-  %44 = load i32, ptr %14, align 4
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %14, align 4
-  br label %31
+44:                                               ; preds = %43
+  %45 = load i32, ptr %14, align 4, !tbaa !48
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %14, align 4, !tbaa !48
+  br label %32
 
-46:                                               ; preds = %41, %31
-  %47 = load i32, ptr %14, align 4
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %53
+47:                                               ; preds = %42, %32
+  %48 = load i32, ptr %14, align 4, !tbaa !48
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %54
 
-49:                                               ; preds = %46
-  %50 = load i32, ptr %8, align 4
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %53, label %52
+50:                                               ; preds = %47
+  %51 = load i32, ptr %8, align 4, !tbaa !48
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %54, label %53
 
-52:                                               ; preds = %49
-  store i32 0, ptr %15, align 4
-  br label %53
+53:                                               ; preds = %50
+  store i32 0, ptr %15, align 4, !tbaa !48
+  br label %54
 
-53:                                               ; preds = %52, %49, %46
-  %54 = load i32, ptr %15, align 4
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %58, label %56
+54:                                               ; preds = %53, %50, %47
+  %55 = load i32, ptr %15, align 4, !tbaa !48
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %59, label %57
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %9, align 8
-  store i32 8, ptr %57, align 4
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %9, align 8, !tbaa !133
+  store i32 8, ptr %58, align 4, !tbaa !48
   store ptr null, ptr %5, align 8
-  br label %94
+  store i32 1, ptr %16, align 4
+  br label %95
 
-58:                                               ; preds = %53
-  %59 = load i32, ptr %14, align 4
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %13, align 4
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct.mspack_system, ptr %61, i32 0, i32 4
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %7, align 8
-  %65 = load i64, ptr %10, align 8
-  %66 = load i32, ptr %13, align 4
-  %67 = sext i32 %66 to i64
-  %68 = add nsw i64 %65, %67
-  %69 = call i32 %63(ptr noundef %64, i64 noundef %68, i32 noundef 0)
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %73
+59:                                               ; preds = %54
+  %60 = load i32, ptr %14, align 4, !tbaa !48
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %13, align 4, !tbaa !48
+  %62 = load ptr, ptr %6, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.mspack_system, ptr %62, i32 0, i32 4
+  %64 = load ptr, ptr %63, align 8, !tbaa !96
+  %65 = load ptr, ptr %7, align 8, !tbaa !38
+  %66 = load i64, ptr %10, align 8, !tbaa !78
+  %67 = load i32, ptr %13, align 4, !tbaa !48
+  %68 = sext i32 %67 to i64
+  %69 = add nsw i64 %66, %68
+  %70 = call i32 %64(ptr noundef %65, i64 noundef %69, i32 noundef 0)
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %58
-  %72 = load ptr, ptr %9, align 8
-  store i32 5, ptr %72, align 4
+72:                                               ; preds = %59
+  %73 = load ptr, ptr %9, align 8, !tbaa !133
+  store i32 5, ptr %73, align 4, !tbaa !48
   store ptr null, ptr %5, align 8
-  br label %94
+  store i32 1, ptr %16, align 4
+  br label %95
 
-73:                                               ; preds = %58
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct.mspack_system, ptr %74, i32 0, i32 7
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %6, align 8
-  %78 = load i32, ptr %13, align 4
-  %79 = sext i32 %78 to i64
-  %80 = call ptr %76(ptr noundef %77, i64 noundef %79)
-  store ptr %80, ptr %12, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %84, label %82
+74:                                               ; preds = %59
+  %75 = load ptr, ptr %6, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.mspack_system, ptr %75, i32 0, i32 7
+  %77 = load ptr, ptr %76, align 8, !tbaa !10
+  %78 = load ptr, ptr %6, align 8, !tbaa !3
+  %79 = load i32, ptr %13, align 4, !tbaa !48
+  %80 = sext i32 %79 to i64
+  %81 = call ptr %77(ptr noundef %78, i64 noundef %80)
+  store ptr %81, ptr %12, align 8, !tbaa !33
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %85, label %83
 
-82:                                               ; preds = %73
-  %83 = load ptr, ptr %9, align 8
-  store i32 6, ptr %83, align 4
+83:                                               ; preds = %74
+  %84 = load ptr, ptr %9, align 8, !tbaa !133
+  store i32 6, ptr %84, align 4, !tbaa !48
   store ptr null, ptr %5, align 8
-  br label %94
+  store i32 1, ptr %16, align 4
+  br label %95
 
-84:                                               ; preds = %73
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.mspack_system, ptr %85, i32 0, i32 9
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 0
-  %89 = load ptr, ptr %12, align 8
-  %90 = load i32, ptr %13, align 4
-  %91 = sext i32 %90 to i64
-  call void %87(ptr noundef %88, ptr noundef %89, i64 noundef %91)
-  %92 = load ptr, ptr %9, align 8
-  store i32 0, ptr %92, align 4
-  %93 = load ptr, ptr %12, align 8
-  store ptr %93, ptr %5, align 8
-  br label %94
+85:                                               ; preds = %74
+  %86 = load ptr, ptr %6, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.mspack_system, ptr %86, i32 0, i32 9
+  %88 = load ptr, ptr %87, align 8, !tbaa !136
+  %89 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 0
+  %90 = load ptr, ptr %12, align 8, !tbaa !33
+  %91 = load i32, ptr %13, align 4, !tbaa !48
+  %92 = sext i32 %91 to i64
+  call void %88(ptr noundef %89, ptr noundef %90, i64 noundef %92)
+  %93 = load ptr, ptr %9, align 8, !tbaa !133
+  store i32 0, ptr %93, align 4, !tbaa !48
+  %94 = load ptr, ptr %12, align 8, !tbaa !33
+  store ptr %94, ptr %5, align 8
+  store i32 1, ptr %16, align 4
+  br label %95
 
-94:                                               ; preds = %84, %82, %71, %56, %28
-  %95 = load ptr, ptr %5, align 8
-  ret ptr %95
+95:                                               ; preds = %85, %83, %72, %57, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 256, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %96 = load ptr, ptr %5, align 8
+  ret ptr %96
 }
 
-declare i32 @mspack_sys_filelen(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @mspack_sys_filelen(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cabd_find(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
@@ -2946,531 +3143,561 @@ define internal i32 @cabd_find(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %25 = alloca i32, align 4
   %26 = alloca i32, align 4
   %27 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  store i64 %4, ptr %13, align 8
-  store ptr %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  store ptr null, ptr %17, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %21, align 8
-  store i8 0, ptr %24, align 1
-  store i32 0, ptr %25, align 4
-  store i32 0, ptr %26, align 4
-  store i32 0, ptr %27, align 4
-  store i64 0, ptr %19, align 8
-  br label %31
+  %28 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !8
+  store ptr %1, ptr %10, align 8, !tbaa !33
+  store ptr %2, ptr %11, align 8, !tbaa !38
+  store ptr %3, ptr %12, align 8, !tbaa !33
+  store i64 %4, ptr %13, align 8, !tbaa !78
+  store ptr %5, ptr %14, align 8, !tbaa !137
+  store ptr %6, ptr %15, align 8, !tbaa !139
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  store ptr null, ptr %17, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #4
+  %29 = load ptr, ptr %9, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8, !tbaa !24
+  store ptr %31, ptr %21, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #4
+  store i8 0, ptr %24, align 1, !tbaa !117
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #4
+  store i32 0, ptr %25, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #4
+  store i32 0, ptr %26, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #4
+  store i32 0, ptr %27, align 4, !tbaa !48
+  store i64 0, ptr %19, align 8, !tbaa !78
+  br label %32
 
-31:                                               ; preds = %341, %7
-  %32 = load i64, ptr %19, align 8
-  %33 = load i64, ptr %13, align 8
-  %34 = icmp slt i64 %32, %33
-  br i1 %34, label %35, label %345
+32:                                               ; preds = %342, %7
+  %33 = load i64, ptr %19, align 8, !tbaa !78
+  %34 = load i64, ptr %13, align 8, !tbaa !78
+  %35 = icmp slt i64 %33, %34
+  br i1 %35, label %36, label %346
 
-35:                                               ; preds = %31
-  %36 = load i64, ptr %13, align 8
-  %37 = load i64, ptr %19, align 8
-  %38 = sub nsw i64 %36, %37
-  store i64 %38, ptr %20, align 8
-  %39 = load i64, ptr %20, align 8
-  %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %40, i32 0, i32 4
-  %42 = load i32, ptr %41, align 4
-  %43 = sext i32 %42 to i64
-  %44 = icmp sgt i64 %39, %43
-  br i1 %44, label %45, label %50
+36:                                               ; preds = %32
+  %37 = load i64, ptr %13, align 8, !tbaa !78
+  %38 = load i64, ptr %19, align 8, !tbaa !78
+  %39 = sub nsw i64 %37, %38
+  store i64 %39, ptr %20, align 8, !tbaa !78
+  %40 = load i64, ptr %20, align 8, !tbaa !78
+  %41 = load ptr, ptr %9, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %41, i32 0, i32 4
+  %43 = load i32, ptr %42, align 4, !tbaa !27
+  %44 = sext i32 %43 to i64
+  %45 = icmp sgt i64 %40, %44
+  br i1 %45, label %46, label %51
 
-45:                                               ; preds = %35
-  %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %46, i32 0, i32 4
-  %48 = load i32, ptr %47, align 4
-  %49 = sext i32 %48 to i64
-  store i64 %49, ptr %20, align 8
-  br label %50
+46:                                               ; preds = %36
+  %47 = load ptr, ptr %9, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %47, i32 0, i32 4
+  %49 = load i32, ptr %48, align 4, !tbaa !27
+  %50 = sext i32 %49 to i64
+  store i64 %50, ptr %20, align 8, !tbaa !78
+  br label %51
 
-50:                                               ; preds = %45, %35
-  %51 = load ptr, ptr %21, align 8
-  %52 = getelementptr inbounds %struct.mspack_system, ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %11, align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 0
-  %57 = load i64, ptr %20, align 8
-  %58 = trunc i64 %57 to i32
-  %59 = call i32 %53(ptr noundef %54, ptr noundef %56, i32 noundef %58)
-  %60 = load i64, ptr %20, align 8
-  %61 = trunc i64 %60 to i32
-  %62 = icmp ne i32 %59, %61
-  br i1 %62, label %63, label %64
+51:                                               ; preds = %46, %36
+  %52 = load ptr, ptr %21, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.mspack_system, ptr %52, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8, !tbaa !116
+  %55 = load ptr, ptr %11, align 8, !tbaa !38
+  %56 = load ptr, ptr %10, align 8, !tbaa !33
+  %57 = getelementptr inbounds i8, ptr %56, i64 0
+  %58 = load i64, ptr %20, align 8, !tbaa !78
+  %59 = trunc i64 %58 to i32
+  %60 = call i32 %54(ptr noundef %55, ptr noundef %57, i32 noundef %59)
+  %61 = load i64, ptr %20, align 8, !tbaa !78
+  %62 = trunc i64 %61 to i32
+  %63 = icmp ne i32 %60, %62
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %50
+64:                                               ; preds = %51
   store i32 3, ptr %8, align 4
-  br label %350
+  store i32 1, ptr %28, align 4
+  br label %351
 
-64:                                               ; preds = %50
-  %65 = load i64, ptr %19, align 8
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %100
+65:                                               ; preds = %51
+  %66 = load i64, ptr %19, align 8, !tbaa !78
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %68, label %101
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %10, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 0
-  %70 = getelementptr inbounds i8, ptr %69, i64 3
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = shl i32 %72, 24
-  %74 = load ptr, ptr %10, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 0
-  %76 = getelementptr inbounds i8, ptr %75, i64 2
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = shl i32 %78, 16
-  %80 = or i32 %73, %79
-  %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 0
-  %83 = getelementptr inbounds i8, ptr %82, i64 1
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = shl i32 %85, 8
-  %87 = or i32 %80, %86
-  %88 = load ptr, ptr %10, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 0
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %10, align 8, !tbaa !33
+  %70 = getelementptr inbounds i8, ptr %69, i64 0
+  %71 = getelementptr inbounds i8, ptr %70, i64 3
+  %72 = load i8, ptr %71, align 1, !tbaa !117
+  %73 = zext i8 %72 to i32
+  %74 = shl i32 %73, 24
+  %75 = load ptr, ptr %10, align 8, !tbaa !33
+  %76 = getelementptr inbounds i8, ptr %75, i64 0
+  %77 = getelementptr inbounds i8, ptr %76, i64 2
+  %78 = load i8, ptr %77, align 1, !tbaa !117
+  %79 = zext i8 %78 to i32
+  %80 = shl i32 %79, 16
+  %81 = or i32 %74, %80
+  %82 = load ptr, ptr %10, align 8, !tbaa !33
+  %83 = getelementptr inbounds i8, ptr %82, i64 0
+  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %85 = load i8, ptr %84, align 1, !tbaa !117
+  %86 = zext i8 %85 to i32
+  %87 = shl i32 %86, 8
+  %88 = or i32 %81, %87
+  %89 = load ptr, ptr %10, align 8, !tbaa !33
   %90 = getelementptr inbounds i8, ptr %89, i64 0
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = or i32 %87, %92
-  %94 = icmp eq i32 %93, 677598025
-  br i1 %94, label %95, label %100
+  %91 = getelementptr inbounds i8, ptr %90, i64 0
+  %92 = load i8, ptr %91, align 1, !tbaa !117
+  %93 = zext i8 %92 to i32
+  %94 = or i32 %88, %93
+  %95 = icmp eq i32 %94, 677598025
+  br i1 %95, label %96, label %101
 
-95:                                               ; preds = %67
-  %96 = load ptr, ptr %21, align 8
-  %97 = getelementptr inbounds %struct.mspack_system, ptr %96, i32 0, i32 6
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) %98(ptr noundef %99, ptr noundef @.str.6)
-  br label %100
+96:                                               ; preds = %68
+  %97 = load ptr, ptr %21, align 8, !tbaa !3
+  %98 = getelementptr inbounds nuw %struct.mspack_system, ptr %97, i32 0, i32 6
+  %99 = load ptr, ptr %98, align 8, !tbaa !80
+  %100 = load ptr, ptr %11, align 8, !tbaa !38
+  call void (ptr, ptr, ...) %99(ptr noundef %100, ptr noundef @.str.6)
+  br label %101
 
-100:                                              ; preds = %95, %67, %64
-  %101 = load ptr, ptr %10, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 0
-  store ptr %102, ptr %22, align 8
-  %103 = load ptr, ptr %10, align 8
-  %104 = load i64, ptr %20, align 8
-  %105 = getelementptr inbounds i8, ptr %103, i64 %104
-  store ptr %105, ptr %23, align 8
-  br label %106
+101:                                              ; preds = %96, %68, %65
+  %102 = load ptr, ptr %10, align 8, !tbaa !33
+  %103 = getelementptr inbounds i8, ptr %102, i64 0
+  store ptr %103, ptr %22, align 8, !tbaa !33
+  %104 = load ptr, ptr %10, align 8, !tbaa !33
+  %105 = load i64, ptr %20, align 8, !tbaa !78
+  %106 = getelementptr inbounds i8, ptr %104, i64 %105
+  store ptr %106, ptr %23, align 8, !tbaa !33
+  br label %107
 
-106:                                              ; preds = %339, %100
-  %107 = load ptr, ptr %22, align 8
-  %108 = load ptr, ptr %23, align 8
-  %109 = icmp ult ptr %107, %108
-  br i1 %109, label %110, label %340
+107:                                              ; preds = %340, %101
+  %108 = load ptr, ptr %22, align 8, !tbaa !33
+  %109 = load ptr, ptr %23, align 8, !tbaa !33
+  %110 = icmp ult ptr %108, %109
+  br i1 %110, label %111, label %341
 
-110:                                              ; preds = %106
-  %111 = load i8, ptr %24, align 1
-  %112 = zext i8 %111 to i32
-  switch i32 %112, label %334 [
-    i32 0, label %113
-    i32 1, label %135
-    i32 2, label %143
-    i32 3, label %151
-    i32 8, label %159
-    i32 9, label %166
-    i32 10, label %176
-    i32 11, label %186
-    i32 16, label %196
-    i32 17, label %203
-    i32 18, label %213
-    i32 19, label %223
+111:                                              ; preds = %107
+  %112 = load i8, ptr %24, align 1, !tbaa !117
+  %113 = zext i8 %112 to i32
+  switch i32 %113, label %335 [
+    i32 0, label %114
+    i32 1, label %136
+    i32 2, label %144
+    i32 3, label %152
+    i32 8, label %160
+    i32 9, label %167
+    i32 10, label %177
+    i32 11, label %187
+    i32 16, label %197
+    i32 17, label %204
+    i32 18, label %214
+    i32 19, label %224
   ]
 
-113:                                              ; preds = %110
-  br label %114
+114:                                              ; preds = %111
+  br label %115
 
-114:                                              ; preds = %125, %113
-  %115 = load ptr, ptr %22, align 8
-  %116 = load ptr, ptr %23, align 8
-  %117 = icmp ult ptr %115, %116
-  br i1 %117, label %118, label %123
+115:                                              ; preds = %126, %114
+  %116 = load ptr, ptr %22, align 8, !tbaa !33
+  %117 = load ptr, ptr %23, align 8, !tbaa !33
+  %118 = icmp ult ptr %116, %117
+  br i1 %118, label %119, label %124
 
-118:                                              ; preds = %114
-  %119 = load ptr, ptr %22, align 8
-  %120 = load i8, ptr %119, align 1
-  %121 = zext i8 %120 to i32
-  %122 = icmp ne i32 %121, 77
-  br label %123
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %22, align 8, !tbaa !33
+  %121 = load i8, ptr %120, align 1, !tbaa !117
+  %122 = zext i8 %121 to i32
+  %123 = icmp ne i32 %122, 77
+  br label %124
 
-123:                                              ; preds = %118, %114
-  %124 = phi i1 [ false, %114 ], [ %122, %118 ]
-  br i1 %124, label %125, label %128
+124:                                              ; preds = %119, %115
+  %125 = phi i1 [ false, %115 ], [ %123, %119 ]
+  br i1 %125, label %126, label %129
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr %22, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i32 1
-  store ptr %127, ptr %22, align 8
-  br label %114
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %22, align 8, !tbaa !33
+  %128 = getelementptr inbounds nuw i8, ptr %127, i32 1
+  store ptr %128, ptr %22, align 8, !tbaa !33
+  br label %115
 
-128:                                              ; preds = %123
-  %129 = load ptr, ptr %22, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i32 1
-  store ptr %130, ptr %22, align 8
-  %131 = load ptr, ptr %23, align 8
-  %132 = icmp ult ptr %129, %131
-  br i1 %132, label %133, label %134
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %22, align 8, !tbaa !33
+  %131 = getelementptr inbounds nuw i8, ptr %130, i32 1
+  store ptr %131, ptr %22, align 8, !tbaa !33
+  %132 = load ptr, ptr %23, align 8, !tbaa !33
+  %133 = icmp ult ptr %130, %132
+  br i1 %133, label %134, label %135
 
-133:                                              ; preds = %128
-  store i8 1, ptr %24, align 1
-  br label %134
+134:                                              ; preds = %129
+  store i8 1, ptr %24, align 1, !tbaa !117
+  br label %135
 
-134:                                              ; preds = %133, %128
-  br label %339
+135:                                              ; preds = %134, %129
+  br label %340
 
-135:                                              ; preds = %110
-  %136 = load ptr, ptr %22, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i32 1
-  store ptr %137, ptr %22, align 8
-  %138 = load i8, ptr %136, align 1
-  %139 = zext i8 %138 to i32
-  %140 = icmp eq i32 %139, 83
-  %141 = select i1 %140, i32 2, i32 0
-  %142 = trunc i32 %141 to i8
-  store i8 %142, ptr %24, align 1
-  br label %339
+136:                                              ; preds = %111
+  %137 = load ptr, ptr %22, align 8, !tbaa !33
+  %138 = getelementptr inbounds nuw i8, ptr %137, i32 1
+  store ptr %138, ptr %22, align 8, !tbaa !33
+  %139 = load i8, ptr %137, align 1, !tbaa !117
+  %140 = zext i8 %139 to i32
+  %141 = icmp eq i32 %140, 83
+  %142 = select i1 %141, i32 2, i32 0
+  %143 = trunc i32 %142 to i8
+  store i8 %143, ptr %24, align 1, !tbaa !117
+  br label %340
 
-143:                                              ; preds = %110
-  %144 = load ptr, ptr %22, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i32 1
-  store ptr %145, ptr %22, align 8
-  %146 = load i8, ptr %144, align 1
-  %147 = zext i8 %146 to i32
-  %148 = icmp eq i32 %147, 67
-  %149 = select i1 %148, i32 3, i32 0
-  %150 = trunc i32 %149 to i8
-  store i8 %150, ptr %24, align 1
-  br label %339
+144:                                              ; preds = %111
+  %145 = load ptr, ptr %22, align 8, !tbaa !33
+  %146 = getelementptr inbounds nuw i8, ptr %145, i32 1
+  store ptr %146, ptr %22, align 8, !tbaa !33
+  %147 = load i8, ptr %145, align 1, !tbaa !117
+  %148 = zext i8 %147 to i32
+  %149 = icmp eq i32 %148, 67
+  %150 = select i1 %149, i32 3, i32 0
+  %151 = trunc i32 %150 to i8
+  store i8 %151, ptr %24, align 1, !tbaa !117
+  br label %340
 
-151:                                              ; preds = %110
-  %152 = load ptr, ptr %22, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i32 1
-  store ptr %153, ptr %22, align 8
-  %154 = load i8, ptr %152, align 1
-  %155 = zext i8 %154 to i32
-  %156 = icmp eq i32 %155, 70
-  %157 = select i1 %156, i32 4, i32 0
-  %158 = trunc i32 %157 to i8
-  store i8 %158, ptr %24, align 1
-  br label %339
+152:                                              ; preds = %111
+  %153 = load ptr, ptr %22, align 8, !tbaa !33
+  %154 = getelementptr inbounds nuw i8, ptr %153, i32 1
+  store ptr %154, ptr %22, align 8, !tbaa !33
+  %155 = load i8, ptr %153, align 1, !tbaa !117
+  %156 = zext i8 %155 to i32
+  %157 = icmp eq i32 %156, 70
+  %158 = select i1 %157, i32 4, i32 0
+  %159 = trunc i32 %158 to i8
+  store i8 %159, ptr %24, align 1, !tbaa !117
+  br label %340
 
-159:                                              ; preds = %110
-  %160 = load ptr, ptr %22, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i32 1
-  store ptr %161, ptr %22, align 8
-  %162 = load i8, ptr %160, align 1
-  %163 = zext i8 %162 to i32
-  store i32 %163, ptr %25, align 4
-  %164 = load i8, ptr %24, align 1
-  %165 = add i8 %164, 1
-  store i8 %165, ptr %24, align 1
-  br label %339
+160:                                              ; preds = %111
+  %161 = load ptr, ptr %22, align 8, !tbaa !33
+  %162 = getelementptr inbounds nuw i8, ptr %161, i32 1
+  store ptr %162, ptr %22, align 8, !tbaa !33
+  %163 = load i8, ptr %161, align 1, !tbaa !117
+  %164 = zext i8 %163 to i32
+  store i32 %164, ptr %25, align 4, !tbaa !48
+  %165 = load i8, ptr %24, align 1, !tbaa !117
+  %166 = add i8 %165, 1
+  store i8 %166, ptr %24, align 1, !tbaa !117
+  br label %340
 
-166:                                              ; preds = %110
-  %167 = load ptr, ptr %22, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i32 1
-  store ptr %168, ptr %22, align 8
-  %169 = load i8, ptr %167, align 1
-  %170 = zext i8 %169 to i32
-  %171 = shl i32 %170, 8
-  %172 = load i32, ptr %25, align 4
-  %173 = or i32 %172, %171
-  store i32 %173, ptr %25, align 4
-  %174 = load i8, ptr %24, align 1
-  %175 = add i8 %174, 1
-  store i8 %175, ptr %24, align 1
-  br label %339
+167:                                              ; preds = %111
+  %168 = load ptr, ptr %22, align 8, !tbaa !33
+  %169 = getelementptr inbounds nuw i8, ptr %168, i32 1
+  store ptr %169, ptr %22, align 8, !tbaa !33
+  %170 = load i8, ptr %168, align 1, !tbaa !117
+  %171 = zext i8 %170 to i32
+  %172 = shl i32 %171, 8
+  %173 = load i32, ptr %25, align 4, !tbaa !48
+  %174 = or i32 %173, %172
+  store i32 %174, ptr %25, align 4, !tbaa !48
+  %175 = load i8, ptr %24, align 1, !tbaa !117
+  %176 = add i8 %175, 1
+  store i8 %176, ptr %24, align 1, !tbaa !117
+  br label %340
 
-176:                                              ; preds = %110
-  %177 = load ptr, ptr %22, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i32 1
-  store ptr %178, ptr %22, align 8
-  %179 = load i8, ptr %177, align 1
-  %180 = zext i8 %179 to i32
-  %181 = shl i32 %180, 16
-  %182 = load i32, ptr %25, align 4
-  %183 = or i32 %182, %181
-  store i32 %183, ptr %25, align 4
-  %184 = load i8, ptr %24, align 1
-  %185 = add i8 %184, 1
-  store i8 %185, ptr %24, align 1
-  br label %339
+177:                                              ; preds = %111
+  %178 = load ptr, ptr %22, align 8, !tbaa !33
+  %179 = getelementptr inbounds nuw i8, ptr %178, i32 1
+  store ptr %179, ptr %22, align 8, !tbaa !33
+  %180 = load i8, ptr %178, align 1, !tbaa !117
+  %181 = zext i8 %180 to i32
+  %182 = shl i32 %181, 16
+  %183 = load i32, ptr %25, align 4, !tbaa !48
+  %184 = or i32 %183, %182
+  store i32 %184, ptr %25, align 4, !tbaa !48
+  %185 = load i8, ptr %24, align 1, !tbaa !117
+  %186 = add i8 %185, 1
+  store i8 %186, ptr %24, align 1, !tbaa !117
+  br label %340
 
-186:                                              ; preds = %110
-  %187 = load ptr, ptr %22, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i32 1
-  store ptr %188, ptr %22, align 8
-  %189 = load i8, ptr %187, align 1
-  %190 = zext i8 %189 to i32
-  %191 = shl i32 %190, 24
-  %192 = load i32, ptr %25, align 4
-  %193 = or i32 %192, %191
-  store i32 %193, ptr %25, align 4
-  %194 = load i8, ptr %24, align 1
-  %195 = add i8 %194, 1
-  store i8 %195, ptr %24, align 1
-  br label %339
+187:                                              ; preds = %111
+  %188 = load ptr, ptr %22, align 8, !tbaa !33
+  %189 = getelementptr inbounds nuw i8, ptr %188, i32 1
+  store ptr %189, ptr %22, align 8, !tbaa !33
+  %190 = load i8, ptr %188, align 1, !tbaa !117
+  %191 = zext i8 %190 to i32
+  %192 = shl i32 %191, 24
+  %193 = load i32, ptr %25, align 4, !tbaa !48
+  %194 = or i32 %193, %192
+  store i32 %194, ptr %25, align 4, !tbaa !48
+  %195 = load i8, ptr %24, align 1, !tbaa !117
+  %196 = add i8 %195, 1
+  store i8 %196, ptr %24, align 1, !tbaa !117
+  br label %340
 
-196:                                              ; preds = %110
-  %197 = load ptr, ptr %22, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i32 1
-  store ptr %198, ptr %22, align 8
-  %199 = load i8, ptr %197, align 1
-  %200 = zext i8 %199 to i32
-  store i32 %200, ptr %26, align 4
-  %201 = load i8, ptr %24, align 1
-  %202 = add i8 %201, 1
-  store i8 %202, ptr %24, align 1
-  br label %339
+197:                                              ; preds = %111
+  %198 = load ptr, ptr %22, align 8, !tbaa !33
+  %199 = getelementptr inbounds nuw i8, ptr %198, i32 1
+  store ptr %199, ptr %22, align 8, !tbaa !33
+  %200 = load i8, ptr %198, align 1, !tbaa !117
+  %201 = zext i8 %200 to i32
+  store i32 %201, ptr %26, align 4, !tbaa !48
+  %202 = load i8, ptr %24, align 1, !tbaa !117
+  %203 = add i8 %202, 1
+  store i8 %203, ptr %24, align 1, !tbaa !117
+  br label %340
 
-203:                                              ; preds = %110
-  %204 = load ptr, ptr %22, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i32 1
-  store ptr %205, ptr %22, align 8
-  %206 = load i8, ptr %204, align 1
-  %207 = zext i8 %206 to i32
-  %208 = shl i32 %207, 8
-  %209 = load i32, ptr %26, align 4
-  %210 = or i32 %209, %208
-  store i32 %210, ptr %26, align 4
-  %211 = load i8, ptr %24, align 1
-  %212 = add i8 %211, 1
-  store i8 %212, ptr %24, align 1
-  br label %339
+204:                                              ; preds = %111
+  %205 = load ptr, ptr %22, align 8, !tbaa !33
+  %206 = getelementptr inbounds nuw i8, ptr %205, i32 1
+  store ptr %206, ptr %22, align 8, !tbaa !33
+  %207 = load i8, ptr %205, align 1, !tbaa !117
+  %208 = zext i8 %207 to i32
+  %209 = shl i32 %208, 8
+  %210 = load i32, ptr %26, align 4, !tbaa !48
+  %211 = or i32 %210, %209
+  store i32 %211, ptr %26, align 4, !tbaa !48
+  %212 = load i8, ptr %24, align 1, !tbaa !117
+  %213 = add i8 %212, 1
+  store i8 %213, ptr %24, align 1, !tbaa !117
+  br label %340
 
-213:                                              ; preds = %110
-  %214 = load ptr, ptr %22, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i32 1
-  store ptr %215, ptr %22, align 8
-  %216 = load i8, ptr %214, align 1
-  %217 = zext i8 %216 to i32
-  %218 = shl i32 %217, 16
-  %219 = load i32, ptr %26, align 4
-  %220 = or i32 %219, %218
-  store i32 %220, ptr %26, align 4
-  %221 = load i8, ptr %24, align 1
-  %222 = add i8 %221, 1
-  store i8 %222, ptr %24, align 1
-  br label %339
+214:                                              ; preds = %111
+  %215 = load ptr, ptr %22, align 8, !tbaa !33
+  %216 = getelementptr inbounds nuw i8, ptr %215, i32 1
+  store ptr %216, ptr %22, align 8, !tbaa !33
+  %217 = load i8, ptr %215, align 1, !tbaa !117
+  %218 = zext i8 %217 to i32
+  %219 = shl i32 %218, 16
+  %220 = load i32, ptr %26, align 4, !tbaa !48
+  %221 = or i32 %220, %219
+  store i32 %221, ptr %26, align 4, !tbaa !48
+  %222 = load i8, ptr %24, align 1, !tbaa !117
+  %223 = add i8 %222, 1
+  store i8 %223, ptr %24, align 1, !tbaa !117
+  br label %340
 
-223:                                              ; preds = %110
-  %224 = load ptr, ptr %22, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i32 1
-  store ptr %225, ptr %22, align 8
-  %226 = load i8, ptr %224, align 1
-  %227 = zext i8 %226 to i32
-  %228 = shl i32 %227, 24
-  %229 = load i32, ptr %26, align 4
-  %230 = or i32 %229, %228
-  store i32 %230, ptr %26, align 4
-  %231 = load i64, ptr %19, align 8
-  %232 = load ptr, ptr %22, align 8
-  %233 = load ptr, ptr %10, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 0
-  %235 = ptrtoint ptr %232 to i64
-  %236 = ptrtoint ptr %234 to i64
-  %237 = sub i64 %235, %236
-  %238 = add nsw i64 %231, %237
-  %239 = sub nsw i64 %238, 20
-  store i64 %239, ptr %18, align 8
-  %240 = load i64, ptr %18, align 8
-  %241 = add nsw i64 %240, 4
-  store i64 %241, ptr %19, align 8
-  %242 = load i64, ptr %18, align 8
-  %243 = icmp eq i64 %242, 0
-  br i1 %243, label %244, label %248
+224:                                              ; preds = %111
+  %225 = load ptr, ptr %22, align 8, !tbaa !33
+  %226 = getelementptr inbounds nuw i8, ptr %225, i32 1
+  store ptr %226, ptr %22, align 8, !tbaa !33
+  %227 = load i8, ptr %225, align 1, !tbaa !117
+  %228 = zext i8 %227 to i32
+  %229 = shl i32 %228, 24
+  %230 = load i32, ptr %26, align 4, !tbaa !48
+  %231 = or i32 %230, %229
+  store i32 %231, ptr %26, align 4, !tbaa !48
+  %232 = load i64, ptr %19, align 8, !tbaa !78
+  %233 = load ptr, ptr %22, align 8, !tbaa !33
+  %234 = load ptr, ptr %10, align 8, !tbaa !33
+  %235 = getelementptr inbounds i8, ptr %234, i64 0
+  %236 = ptrtoint ptr %233 to i64
+  %237 = ptrtoint ptr %235 to i64
+  %238 = sub i64 %236, %237
+  %239 = add nsw i64 %232, %238
+  %240 = sub nsw i64 %239, 20
+  store i64 %240, ptr %18, align 8, !tbaa !78
+  %241 = load i64, ptr %18, align 8, !tbaa !78
+  %242 = add nsw i64 %241, 4
+  store i64 %242, ptr %19, align 8, !tbaa !78
+  %243 = load i64, ptr %18, align 8, !tbaa !78
+  %244 = icmp eq i64 %243, 0
+  br i1 %244, label %245, label %249
 
-244:                                              ; preds = %223
-  %245 = load i32, ptr %25, align 4
-  %246 = zext i32 %245 to i64
-  %247 = load ptr, ptr %14, align 8
-  store i64 %246, ptr %247, align 8
-  br label %248
+245:                                              ; preds = %224
+  %246 = load i32, ptr %25, align 4, !tbaa !48
+  %247 = zext i32 %246 to i64
+  %248 = load ptr, ptr %14, align 8, !tbaa !137
+  store i64 %247, ptr %248, align 8, !tbaa !78
+  br label %249
 
-248:                                              ; preds = %244, %223
-  %249 = load i32, ptr %26, align 4
-  %250 = load i32, ptr %25, align 4
-  %251 = icmp ult i32 %249, %250
-  br i1 %251, label %252, label %318
+249:                                              ; preds = %245, %224
+  %250 = load i32, ptr %26, align 4, !tbaa !48
+  %251 = load i32, ptr %25, align 4, !tbaa !48
+  %252 = icmp ult i32 %250, %251
+  br i1 %252, label %253, label %319
 
-252:                                              ; preds = %248
-  %253 = load i64, ptr %18, align 8
-  %254 = load i32, ptr %26, align 4
-  %255 = zext i32 %254 to i64
-  %256 = add nsw i64 %253, %255
-  %257 = load i64, ptr %13, align 8
-  %258 = add nsw i64 %257, 32
-  %259 = icmp slt i64 %256, %258
-  br i1 %259, label %260, label %318
+253:                                              ; preds = %249
+  %254 = load i64, ptr %18, align 8, !tbaa !78
+  %255 = load i32, ptr %26, align 4, !tbaa !48
+  %256 = zext i32 %255 to i64
+  %257 = add nsw i64 %254, %256
+  %258 = load i64, ptr %13, align 8, !tbaa !78
+  %259 = add nsw i64 %258, 32
+  %260 = icmp slt i64 %257, %259
+  br i1 %260, label %261, label %319
 
-260:                                              ; preds = %252
-  %261 = load i64, ptr %18, align 8
-  %262 = load i32, ptr %25, align 4
-  %263 = zext i32 %262 to i64
-  %264 = add nsw i64 %261, %263
-  %265 = load i64, ptr %13, align 8
-  %266 = add nsw i64 %265, 32
-  %267 = icmp slt i64 %264, %266
-  br i1 %267, label %273, label %268
+261:                                              ; preds = %253
+  %262 = load i64, ptr %18, align 8, !tbaa !78
+  %263 = load i32, ptr %25, align 4, !tbaa !48
+  %264 = zext i32 %263 to i64
+  %265 = add nsw i64 %262, %264
+  %266 = load i64, ptr %13, align 8, !tbaa !78
+  %267 = add nsw i64 %266, 32
+  %268 = icmp slt i64 %265, %267
+  br i1 %268, label %274, label %269
 
-268:                                              ; preds = %260
-  %269 = load ptr, ptr %9, align 8
-  %270 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %269, i32 0, i32 6
-  %271 = load i32, ptr %270, align 4
-  %272 = icmp ne i32 %271, 0
-  br i1 %272, label %273, label %318
+269:                                              ; preds = %261
+  %270 = load ptr, ptr %9, align 8, !tbaa !8
+  %271 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %270, i32 0, i32 6
+  %272 = load i32, ptr %271, align 4, !tbaa !30
+  %273 = icmp ne i32 %272, 0
+  br i1 %273, label %274, label %319
 
-273:                                              ; preds = %268, %260
-  %274 = load ptr, ptr %21, align 8
-  %275 = getelementptr inbounds %struct.mspack_system, ptr %274, i32 0, i32 7
-  %276 = load ptr, ptr %275, align 8
-  %277 = load ptr, ptr %21, align 8
-  %278 = call ptr %276(ptr noundef %277, i64 noundef 128)
-  store ptr %278, ptr %16, align 8
-  %279 = icmp ne ptr %278, null
-  br i1 %279, label %281, label %280
+274:                                              ; preds = %269, %261
+  %275 = load ptr, ptr %21, align 8, !tbaa !3
+  %276 = getelementptr inbounds nuw %struct.mspack_system, ptr %275, i32 0, i32 7
+  %277 = load ptr, ptr %276, align 8, !tbaa !10
+  %278 = load ptr, ptr %21, align 8, !tbaa !3
+  %279 = call ptr %277(ptr noundef %278, i64 noundef 128)
+  store ptr %279, ptr %16, align 8, !tbaa !35
+  %280 = icmp ne ptr %279, null
+  br i1 %280, label %282, label %281
 
-280:                                              ; preds = %273
+281:                                              ; preds = %274
   store i32 6, ptr %8, align 4
-  br label %350
+  store i32 1, ptr %28, align 4
+  br label %351
 
-281:                                              ; preds = %273
-  %282 = load ptr, ptr %12, align 8
-  %283 = load ptr, ptr %16, align 8
-  %284 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %283, i32 0, i32 0
-  %285 = getelementptr inbounds %struct.mscabd_cabinet, ptr %284, i32 0, i32 1
-  store ptr %282, ptr %285, align 8
-  %286 = load ptr, ptr %21, align 8
-  %287 = load ptr, ptr %11, align 8
-  %288 = load ptr, ptr %16, align 8
-  %289 = load i64, ptr %18, align 8
-  %290 = load ptr, ptr %9, align 8
-  %291 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %290, i32 0, i32 6
-  %292 = load i32, ptr %291, align 4
-  %293 = call i32 @cabd_read_headers(ptr noundef %286, ptr noundef %287, ptr noundef %288, i64 noundef %289, i32 noundef %292, i32 noundef 1)
-  %294 = icmp ne i32 %293, 0
-  br i1 %294, label %295, label %300
+282:                                              ; preds = %274
+  %283 = load ptr, ptr %12, align 8, !tbaa !33
+  %284 = load ptr, ptr %16, align 8, !tbaa !35
+  %285 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %284, i32 0, i32 0
+  %286 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %285, i32 0, i32 1
+  store ptr %283, ptr %286, align 8, !tbaa !40
+  %287 = load ptr, ptr %21, align 8, !tbaa !3
+  %288 = load ptr, ptr %11, align 8, !tbaa !38
+  %289 = load ptr, ptr %16, align 8, !tbaa !35
+  %290 = load i64, ptr %18, align 8, !tbaa !78
+  %291 = load ptr, ptr %9, align 8, !tbaa !8
+  %292 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %291, i32 0, i32 6
+  %293 = load i32, ptr %292, align 4, !tbaa !30
+  %294 = call i32 @cabd_read_headers(ptr noundef %287, ptr noundef %288, ptr noundef %289, i64 noundef %290, i32 noundef %293, i32 noundef 1)
+  %295 = icmp ne i32 %294, 0
+  br i1 %295, label %296, label %301
 
-295:                                              ; preds = %281
-  %296 = load ptr, ptr %9, align 8
-  %297 = load ptr, ptr %16, align 8
-  call void @cabd_close(ptr noundef %296, ptr noundef %297)
-  %298 = load i32, ptr %27, align 4
-  %299 = add nsw i32 %298, 1
-  store i32 %299, ptr %27, align 4
-  br label %317
-
-300:                                              ; preds = %281
-  %301 = load ptr, ptr %17, align 8
-  %302 = icmp ne ptr %301, null
-  br i1 %302, label %306, label %303
-
-303:                                              ; preds = %300
-  %304 = load ptr, ptr %16, align 8
-  %305 = load ptr, ptr %15, align 8
-  store ptr %304, ptr %305, align 8
-  br label %311
-
-306:                                              ; preds = %300
-  %307 = load ptr, ptr %16, align 8
-  %308 = load ptr, ptr %17, align 8
-  %309 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %308, i32 0, i32 0
-  %310 = getelementptr inbounds %struct.mscabd_cabinet, ptr %309, i32 0, i32 0
-  store ptr %307, ptr %310, align 8
-  br label %311
-
-311:                                              ; preds = %306, %303
-  %312 = load ptr, ptr %16, align 8
-  store ptr %312, ptr %17, align 8
-  %313 = load i64, ptr %18, align 8
-  %314 = load i32, ptr %25, align 4
-  %315 = zext i32 %314 to i64
-  %316 = add nsw i64 %313, %315
-  store i64 %316, ptr %19, align 8
-  br label %317
-
-317:                                              ; preds = %311, %295
+296:                                              ; preds = %282
+  %297 = load ptr, ptr %9, align 8, !tbaa !8
+  %298 = load ptr, ptr %16, align 8, !tbaa !35
+  call void @cabd_close(ptr noundef %297, ptr noundef %298)
+  %299 = load i32, ptr %27, align 4, !tbaa !48
+  %300 = add nsw i32 %299, 1
+  store i32 %300, ptr %27, align 4, !tbaa !48
   br label %318
 
-318:                                              ; preds = %317, %268, %252, %248
-  %319 = load i64, ptr %19, align 8
-  %320 = load i64, ptr %13, align 8
-  %321 = icmp sge i64 %319, %320
-  br i1 %321, label %322, label %323
+301:                                              ; preds = %282
+  %302 = load ptr, ptr %17, align 8, !tbaa !35
+  %303 = icmp ne ptr %302, null
+  br i1 %303, label %307, label %304
 
-322:                                              ; preds = %318
+304:                                              ; preds = %301
+  %305 = load ptr, ptr %16, align 8, !tbaa !35
+  %306 = load ptr, ptr %15, align 8, !tbaa !139
+  store ptr %305, ptr %306, align 8, !tbaa !35
+  br label %312
+
+307:                                              ; preds = %301
+  %308 = load ptr, ptr %16, align 8, !tbaa !35
+  %309 = load ptr, ptr %17, align 8, !tbaa !35
+  %310 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %309, i32 0, i32 0
+  %311 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %310, i32 0, i32 0
+  store ptr %308, ptr %311, align 8, !tbaa !107
+  br label %312
+
+312:                                              ; preds = %307, %304
+  %313 = load ptr, ptr %16, align 8, !tbaa !35
+  store ptr %313, ptr %17, align 8, !tbaa !35
+  %314 = load i64, ptr %18, align 8, !tbaa !78
+  %315 = load i32, ptr %25, align 4, !tbaa !48
+  %316 = zext i32 %315 to i64
+  %317 = add nsw i64 %314, %316
+  store i64 %317, ptr %19, align 8, !tbaa !78
+  br label %318
+
+318:                                              ; preds = %312, %296
+  br label %319
+
+319:                                              ; preds = %318, %269, %253, %249
+  %320 = load i64, ptr %19, align 8, !tbaa !78
+  %321 = load i64, ptr %13, align 8, !tbaa !78
+  %322 = icmp sge i64 %320, %321
+  br i1 %322, label %323, label %324
+
+323:                                              ; preds = %319
   store i32 0, ptr %8, align 4
-  br label %350
+  store i32 1, ptr %28, align 4
+  br label %351
 
-323:                                              ; preds = %318
-  %324 = load ptr, ptr %21, align 8
-  %325 = getelementptr inbounds %struct.mspack_system, ptr %324, i32 0, i32 4
-  %326 = load ptr, ptr %325, align 8
-  %327 = load ptr, ptr %11, align 8
-  %328 = load i64, ptr %19, align 8
-  %329 = call i32 %326(ptr noundef %327, i64 noundef %328, i32 noundef 0)
-  %330 = icmp ne i32 %329, 0
-  br i1 %330, label %331, label %332
+324:                                              ; preds = %319
+  %325 = load ptr, ptr %21, align 8, !tbaa !3
+  %326 = getelementptr inbounds nuw %struct.mspack_system, ptr %325, i32 0, i32 4
+  %327 = load ptr, ptr %326, align 8, !tbaa !96
+  %328 = load ptr, ptr %11, align 8, !tbaa !38
+  %329 = load i64, ptr %19, align 8, !tbaa !78
+  %330 = call i32 %327(ptr noundef %328, i64 noundef %329, i32 noundef 0)
+  %331 = icmp ne i32 %330, 0
+  br i1 %331, label %332, label %333
 
-331:                                              ; preds = %323
+332:                                              ; preds = %324
   store i32 5, ptr %8, align 4
+  store i32 1, ptr %28, align 4
+  br label %351
+
+333:                                              ; preds = %324
+  store i64 0, ptr %20, align 8, !tbaa !78
+  %334 = load ptr, ptr %23, align 8, !tbaa !33
+  store ptr %334, ptr %22, align 8, !tbaa !33
+  store i8 0, ptr %24, align 1, !tbaa !117
+  br label %340
+
+335:                                              ; preds = %111
+  %336 = load ptr, ptr %22, align 8, !tbaa !33
+  %337 = getelementptr inbounds nuw i8, ptr %336, i32 1
+  store ptr %337, ptr %22, align 8, !tbaa !33
+  %338 = load i8, ptr %24, align 1, !tbaa !117
+  %339 = add i8 %338, 1
+  store i8 %339, ptr %24, align 1, !tbaa !117
+  br label %340
+
+340:                                              ; preds = %335, %333, %214, %204, %197, %187, %177, %167, %160, %152, %144, %136, %135
+  br label %107
+
+341:                                              ; preds = %107
+  br label %342
+
+342:                                              ; preds = %341
+  %343 = load i64, ptr %20, align 8, !tbaa !78
+  %344 = load i64, ptr %19, align 8, !tbaa !78
+  %345 = add nsw i64 %344, %343
+  store i64 %345, ptr %19, align 8, !tbaa !78
+  br label %32
+
+346:                                              ; preds = %32
+  %347 = load i32, ptr %27, align 4, !tbaa !48
+  %348 = icmp ne i32 %347, 0
+  br i1 %348, label %349, label %350
+
+349:                                              ; preds = %346
   br label %350
 
-332:                                              ; preds = %323
-  store i64 0, ptr %20, align 8
-  %333 = load ptr, ptr %23, align 8
-  store ptr %333, ptr %22, align 8
-  store i8 0, ptr %24, align 1
-  br label %339
-
-334:                                              ; preds = %110
-  %335 = load ptr, ptr %22, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i32 1
-  store ptr %336, ptr %22, align 8
-  %337 = load i8, ptr %24, align 1
-  %338 = add i8 %337, 1
-  store i8 %338, ptr %24, align 1
-  br label %339
-
-339:                                              ; preds = %334, %332, %213, %203, %196, %186, %176, %166, %159, %151, %143, %135, %134
-  br label %106
-
-340:                                              ; preds = %106
-  br label %341
-
-341:                                              ; preds = %340
-  %342 = load i64, ptr %20, align 8
-  %343 = load i64, ptr %19, align 8
-  %344 = add nsw i64 %343, %342
-  store i64 %344, ptr %19, align 8
-  br label %31
-
-345:                                              ; preds = %31
-  %346 = load i32, ptr %27, align 4
-  %347 = icmp ne i32 %346, 0
-  br i1 %347, label %348, label %349
-
-348:                                              ; preds = %345
-  br label %349
-
-349:                                              ; preds = %348, %345
+350:                                              ; preds = %349, %346
   store i32 0, ptr %8, align 4
-  br label %350
+  store i32 1, ptr %28, align 4
+  br label %351
 
-350:                                              ; preds = %349, %331, %322, %280, %63
-  %351 = load i32, ptr %8, align 4
-  ret i32 %351
+351:                                              ; preds = %350, %332, %323, %281, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  %352 = load i32, ptr %8, align 4
+  ret i32 %352
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3489,580 +3716,609 @@ define internal i32 @cabd_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %18 = load ptr, ptr %5, align 8
-  store ptr %18, ptr %8, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %22, label %21
-
-21:                                               ; preds = %3
-  store i32 1, ptr %4, align 4
-  br label %381
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !31
+  store ptr %1, ptr %6, align 8, !tbaa !50
+  store ptr %2, ptr %7, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %19 = load ptr, ptr %5, align 8, !tbaa !31
+  store ptr %19, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  %20 = load ptr, ptr %8, align 8, !tbaa !8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %23, label %22
 
 22:                                               ; preds = %3
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %23, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %17, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %35
-
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %7, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %35
-
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %6, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = icmp eq ptr %32, %33
-  br i1 %34, label %35, label %38
-
-35:                                               ; preds = %31, %28, %22
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %36, i32 0, i32 7
-  store i32 1, ptr %37, align 8
   store i32 1, ptr %4, align 4
-  br label %381
+  store i32 1, ptr %18, align 4
+  br label %382
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.mscabd_cabinet, ptr %39, i32 0, i32 5
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %48, label %43
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %8, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !24
+  store ptr %26, ptr %17, align 8, !tbaa !3
+  %27 = load ptr, ptr %6, align 8, !tbaa !50
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %36
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.mscabd_cabinet, ptr %44, i32 0, i32 4
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %51
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %7, align 8, !tbaa !50
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %36
 
-48:                                               ; preds = %43, %38
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %49, i32 0, i32 7
-  store i32 1, ptr %50, align 8
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %6, align 8, !tbaa !50
+  %34 = load ptr, ptr %7, align 8, !tbaa !50
+  %35 = icmp eq ptr %33, %34
+  br i1 %35, label %36, label %39
+
+36:                                               ; preds = %32, %29, %23
+  %37 = load ptr, ptr %8, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %37, i32 0, i32 7
+  store i32 1, ptr %38, align 8, !tbaa !26
   store i32 1, ptr %4, align 4
-  br label %381
+  store i32 1, ptr %18, align 4
+  br label %382
 
-51:                                               ; preds = %43
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.mscabd_cabinet, ptr %52, i32 0, i32 4
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %16, align 8
-  br label %55
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %6, align 8, !tbaa !50
+  %41 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %40, i32 0, i32 5
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %49, label %44
 
-55:                                               ; preds = %66, %51
-  %56 = load ptr, ptr %16, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %70
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %7, align 8, !tbaa !50
+  %46 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %45, i32 0, i32 4
+  %47 = load ptr, ptr %46, align 8, !tbaa !71
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %52
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %16, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = icmp eq ptr %59, %60
-  br i1 %61, label %62, label %65
-
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %63, i32 0, i32 7
-  store i32 1, ptr %64, align 8
+49:                                               ; preds = %44, %39
+  %50 = load ptr, ptr %8, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %50, i32 0, i32 7
+  store i32 1, ptr %51, align 8, !tbaa !26
   store i32 1, ptr %4, align 4
-  br label %381
+  store i32 1, ptr %18, align 4
+  br label %382
 
-65:                                               ; preds = %58
-  br label %66
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %6, align 8, !tbaa !50
+  %54 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %53, i32 0, i32 4
+  %55 = load ptr, ptr %54, align 8, !tbaa !71
+  store ptr %55, ptr %16, align 8, !tbaa !50
+  br label %56
 
-66:                                               ; preds = %65
-  %67 = load ptr, ptr %16, align 8
-  %68 = getelementptr inbounds %struct.mscabd_cabinet, ptr %67, i32 0, i32 4
-  %69 = load ptr, ptr %68, align 8
-  store ptr %69, ptr %16, align 8
-  br label %55
+56:                                               ; preds = %67, %52
+  %57 = load ptr, ptr %16, align 8, !tbaa !50
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %71
 
-70:                                               ; preds = %55
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct.mscabd_cabinet, ptr %71, i32 0, i32 5
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %16, align 8
-  br label %74
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %16, align 8, !tbaa !50
+  %61 = load ptr, ptr %7, align 8, !tbaa !50
+  %62 = icmp eq ptr %60, %61
+  br i1 %62, label %63, label %66
 
-74:                                               ; preds = %85, %70
-  %75 = load ptr, ptr %16, align 8
-  %76 = icmp ne ptr %75, null
-  br i1 %76, label %77, label %89
-
-77:                                               ; preds = %74
-  %78 = load ptr, ptr %16, align 8
-  %79 = load ptr, ptr %6, align 8
-  %80 = icmp eq ptr %78, %79
-  br i1 %80, label %81, label %84
-
-81:                                               ; preds = %77
-  %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %82, i32 0, i32 7
-  store i32 1, ptr %83, align 8
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %8, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %64, i32 0, i32 7
+  store i32 1, ptr %65, align 8, !tbaa !26
   store i32 1, ptr %4, align 4
-  br label %381
+  store i32 1, ptr %18, align 4
+  br label %382
 
-84:                                               ; preds = %77
-  br label %85
+66:                                               ; preds = %59
+  br label %67
 
-85:                                               ; preds = %84
-  %86 = load ptr, ptr %16, align 8
-  %87 = getelementptr inbounds %struct.mscabd_cabinet, ptr %86, i32 0, i32 5
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %16, align 8
-  br label %74
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %16, align 8, !tbaa !50
+  %69 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %68, i32 0, i32 4
+  %70 = load ptr, ptr %69, align 8, !tbaa !71
+  store ptr %70, ptr %16, align 8, !tbaa !50
+  br label %56
 
-89:                                               ; preds = %74
-  %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds %struct.mscabd_cabinet, ptr %90, i32 0, i32 12
-  %92 = load i16, ptr %91, align 8
-  %93 = zext i16 %92 to i32
-  %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds %struct.mscabd_cabinet, ptr %94, i32 0, i32 12
-  %96 = load i16, ptr %95, align 8
-  %97 = zext i16 %96 to i32
-  %98 = icmp ne i32 %93, %97
-  br i1 %98, label %99, label %103
+71:                                               ; preds = %56
+  %72 = load ptr, ptr %7, align 8, !tbaa !50
+  %73 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %72, i32 0, i32 5
+  %74 = load ptr, ptr %73, align 8, !tbaa !76
+  store ptr %74, ptr %16, align 8, !tbaa !50
+  br label %75
 
-99:                                               ; preds = %89
-  %100 = load ptr, ptr %17, align 8
-  %101 = getelementptr inbounds %struct.mspack_system, ptr %100, i32 0, i32 6
-  %102 = load ptr, ptr %101, align 8
-  call void (ptr, ptr, ...) %102(ptr noundef null, ptr noundef @.str.7)
-  br label %103
+75:                                               ; preds = %86, %71
+  %76 = load ptr, ptr %16, align 8, !tbaa !50
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %90
 
-103:                                              ; preds = %99, %89
-  %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds %struct.mscabd_cabinet, ptr %104, i32 0, i32 13
-  %106 = load i16, ptr %105, align 2
-  %107 = zext i16 %106 to i32
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %struct.mscabd_cabinet, ptr %108, i32 0, i32 13
-  %110 = load i16, ptr %109, align 2
-  %111 = zext i16 %110 to i32
-  %112 = icmp sgt i32 %107, %111
-  br i1 %112, label %113, label %117
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %16, align 8, !tbaa !50
+  %80 = load ptr, ptr %6, align 8, !tbaa !50
+  %81 = icmp eq ptr %79, %80
+  br i1 %81, label %82, label %85
 
-113:                                              ; preds = %103
-  %114 = load ptr, ptr %17, align 8
-  %115 = getelementptr inbounds %struct.mspack_system, ptr %114, i32 0, i32 6
-  %116 = load ptr, ptr %115, align 8
-  call void (ptr, ptr, ...) %116(ptr noundef null, ptr noundef @.str.8)
-  br label %117
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %8, align 8, !tbaa !8
+  %84 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %83, i32 0, i32 7
+  store i32 1, ptr %84, align 8, !tbaa !26
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %382
 
-117:                                              ; preds = %113, %103
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds %struct.mscabd_cabinet, ptr %118, i32 0, i32 11
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %11, align 8
-  %121 = load ptr, ptr %7, align 8
-  %122 = getelementptr inbounds %struct.mscabd_cabinet, ptr %121, i32 0, i32 11
-  %123 = load ptr, ptr %122, align 8
-  store ptr %123, ptr %12, align 8
-  br label %124
+85:                                               ; preds = %78
+  br label %86
 
-124:                                              ; preds = %130, %117
-  %125 = load ptr, ptr %11, align 8
-  %126 = getelementptr inbounds %struct.mscabd_folder_p, ptr %125, i32 0, i32 0
-  %127 = getelementptr inbounds %struct.mscabd_folder, ptr %126, i32 0, i32 0
-  %128 = load ptr, ptr %127, align 8
-  %129 = icmp ne ptr %128, null
-  br i1 %129, label %130, label %135
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %16, align 8, !tbaa !50
+  %88 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %87, i32 0, i32 5
+  %89 = load ptr, ptr %88, align 8, !tbaa !76
+  store ptr %89, ptr %16, align 8, !tbaa !50
+  br label %75
 
-130:                                              ; preds = %124
-  %131 = load ptr, ptr %11, align 8
-  %132 = getelementptr inbounds %struct.mscabd_folder_p, ptr %131, i32 0, i32 0
-  %133 = getelementptr inbounds %struct.mscabd_folder, ptr %132, i32 0, i32 0
-  %134 = load ptr, ptr %133, align 8
-  store ptr %134, ptr %11, align 8
-  br label %124
+90:                                               ; preds = %75
+  %91 = load ptr, ptr %6, align 8, !tbaa !50
+  %92 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %91, i32 0, i32 12
+  %93 = load i16, ptr %92, align 8, !tbaa !141
+  %94 = zext i16 %93 to i32
+  %95 = load ptr, ptr %7, align 8, !tbaa !50
+  %96 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %95, i32 0, i32 12
+  %97 = load i16, ptr %96, align 8, !tbaa !141
+  %98 = zext i16 %97 to i32
+  %99 = icmp ne i32 %94, %98
+  br i1 %99, label %100, label %104
 
-135:                                              ; preds = %124
-  %136 = load ptr, ptr %11, align 8
-  %137 = getelementptr inbounds %struct.mscabd_folder_p, ptr %136, i32 0, i32 3
-  %138 = load ptr, ptr %137, align 8
-  %139 = icmp ne ptr %138, null
-  br i1 %139, label %174, label %140
+100:                                              ; preds = %90
+  %101 = load ptr, ptr %17, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.mspack_system, ptr %101, i32 0, i32 6
+  %103 = load ptr, ptr %102, align 8, !tbaa !80
+  call void (ptr, ptr, ...) %103(ptr noundef null, ptr noundef @.str.7)
+  br label %104
 
-140:                                              ; preds = %135
-  %141 = load ptr, ptr %12, align 8
-  %142 = getelementptr inbounds %struct.mscabd_folder_p, ptr %141, i32 0, i32 2
-  %143 = load ptr, ptr %142, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %174, label %145
+104:                                              ; preds = %100, %90
+  %105 = load ptr, ptr %6, align 8, !tbaa !50
+  %106 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %105, i32 0, i32 13
+  %107 = load i16, ptr %106, align 2, !tbaa !142
+  %108 = zext i16 %107 to i32
+  %109 = load ptr, ptr %7, align 8, !tbaa !50
+  %110 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %109, i32 0, i32 13
+  %111 = load i16, ptr %110, align 2, !tbaa !142
+  %112 = zext i16 %111 to i32
+  %113 = icmp sgt i32 %108, %112
+  br i1 %113, label %114, label %118
 
-145:                                              ; preds = %140
-  %146 = load ptr, ptr %7, align 8
-  %147 = load ptr, ptr %6, align 8
-  %148 = getelementptr inbounds %struct.mscabd_cabinet, ptr %147, i32 0, i32 5
-  store ptr %146, ptr %148, align 8
-  %149 = load ptr, ptr %6, align 8
-  %150 = load ptr, ptr %7, align 8
-  %151 = getelementptr inbounds %struct.mscabd_cabinet, ptr %150, i32 0, i32 4
-  store ptr %149, ptr %151, align 8
-  %152 = load ptr, ptr %12, align 8
-  %153 = load ptr, ptr %11, align 8
-  %154 = getelementptr inbounds %struct.mscabd_folder_p, ptr %153, i32 0, i32 0
-  %155 = getelementptr inbounds %struct.mscabd_folder, ptr %154, i32 0, i32 0
-  store ptr %152, ptr %155, align 8
-  %156 = load ptr, ptr %6, align 8
-  %157 = getelementptr inbounds %struct.mscabd_cabinet, ptr %156, i32 0, i32 10
-  %158 = load ptr, ptr %157, align 8
-  store ptr %158, ptr %13, align 8
-  br label %159
+114:                                              ; preds = %104
+  %115 = load ptr, ptr %17, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw %struct.mspack_system, ptr %115, i32 0, i32 6
+  %117 = load ptr, ptr %116, align 8, !tbaa !80
+  call void (ptr, ptr, ...) %117(ptr noundef null, ptr noundef @.str.8)
+  br label %118
 
-159:                                              ; preds = %164, %145
-  %160 = load ptr, ptr %13, align 8
-  %161 = getelementptr inbounds %struct.mscabd_file, ptr %160, i32 0, i32 0
-  %162 = load ptr, ptr %161, align 8
-  %163 = icmp ne ptr %162, null
-  br i1 %163, label %164, label %168
+118:                                              ; preds = %114, %104
+  %119 = load ptr, ptr %6, align 8, !tbaa !50
+  %120 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %119, i32 0, i32 11
+  %121 = load ptr, ptr %120, align 8, !tbaa !57
+  store ptr %121, ptr %11, align 8, !tbaa !82
+  %122 = load ptr, ptr %7, align 8, !tbaa !50
+  %123 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %122, i32 0, i32 11
+  %124 = load ptr, ptr %123, align 8, !tbaa !57
+  store ptr %124, ptr %12, align 8, !tbaa !82
+  br label %125
 
-164:                                              ; preds = %159
-  %165 = load ptr, ptr %13, align 8
-  %166 = getelementptr inbounds %struct.mscabd_file, ptr %165, i32 0, i32 0
-  %167 = load ptr, ptr %166, align 8
-  store ptr %167, ptr %13, align 8
-  br label %159
+125:                                              ; preds = %131, %118
+  %126 = load ptr, ptr %11, align 8, !tbaa !82
+  %127 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %126, i32 0, i32 0
+  %128 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %127, i32 0, i32 0
+  %129 = load ptr, ptr %128, align 8, !tbaa !124
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %131, label %136
 
-168:                                              ; preds = %159
-  %169 = load ptr, ptr %7, align 8
-  %170 = getelementptr inbounds %struct.mscabd_cabinet, ptr %169, i32 0, i32 10
-  %171 = load ptr, ptr %170, align 8
-  %172 = load ptr, ptr %13, align 8
-  %173 = getelementptr inbounds %struct.mscabd_file, ptr %172, i32 0, i32 0
-  store ptr %171, ptr %173, align 8
-  br label %334
+131:                                              ; preds = %125
+  %132 = load ptr, ptr %11, align 8, !tbaa !82
+  %133 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %132, i32 0, i32 0
+  %134 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %133, i32 0, i32 0
+  %135 = load ptr, ptr %134, align 8, !tbaa !124
+  store ptr %135, ptr %11, align 8, !tbaa !82
+  br label %125
 
-174:                                              ; preds = %140, %135
-  %175 = load ptr, ptr %17, align 8
-  %176 = load ptr, ptr %11, align 8
-  %177 = load ptr, ptr %12, align 8
-  %178 = call i32 @cabd_can_merge_folders(ptr noundef %175, ptr noundef %176, ptr noundef %177)
-  %179 = icmp ne i32 %178, 0
-  br i1 %179, label %183, label %180
+136:                                              ; preds = %125
+  %137 = load ptr, ptr %11, align 8, !tbaa !82
+  %138 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %137, i32 0, i32 3
+  %139 = load ptr, ptr %138, align 8, !tbaa !125
+  %140 = icmp ne ptr %139, null
+  br i1 %140, label %175, label %141
 
-180:                                              ; preds = %174
-  %181 = load ptr, ptr %8, align 8
-  %182 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %181, i32 0, i32 7
-  store i32 8, ptr %182, align 8
+141:                                              ; preds = %136
+  %142 = load ptr, ptr %12, align 8, !tbaa !82
+  %143 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %142, i32 0, i32 2
+  %144 = load ptr, ptr %143, align 8, !tbaa !85
+  %145 = icmp ne ptr %144, null
+  br i1 %145, label %175, label %146
+
+146:                                              ; preds = %141
+  %147 = load ptr, ptr %7, align 8, !tbaa !50
+  %148 = load ptr, ptr %6, align 8, !tbaa !50
+  %149 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %148, i32 0, i32 5
+  store ptr %147, ptr %149, align 8, !tbaa !76
+  %150 = load ptr, ptr %6, align 8, !tbaa !50
+  %151 = load ptr, ptr %7, align 8, !tbaa !50
+  %152 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %151, i32 0, i32 4
+  store ptr %150, ptr %152, align 8, !tbaa !71
+  %153 = load ptr, ptr %12, align 8, !tbaa !82
+  %154 = load ptr, ptr %11, align 8, !tbaa !82
+  %155 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %154, i32 0, i32 0
+  %156 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %155, i32 0, i32 0
+  store ptr %153, ptr %156, align 8, !tbaa !124
+  %157 = load ptr, ptr %6, align 8, !tbaa !50
+  %158 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %157, i32 0, i32 10
+  %159 = load ptr, ptr %158, align 8, !tbaa !51
+  store ptr %159, ptr %13, align 8, !tbaa !52
+  br label %160
+
+160:                                              ; preds = %165, %146
+  %161 = load ptr, ptr %13, align 8, !tbaa !52
+  %162 = getelementptr inbounds nuw %struct.mscabd_file, ptr %161, i32 0, i32 0
+  %163 = load ptr, ptr %162, align 8, !tbaa !53
+  %164 = icmp ne ptr %163, null
+  br i1 %164, label %165, label %169
+
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %13, align 8, !tbaa !52
+  %167 = getelementptr inbounds nuw %struct.mscabd_file, ptr %166, i32 0, i32 0
+  %168 = load ptr, ptr %167, align 8, !tbaa !53
+  store ptr %168, ptr %13, align 8, !tbaa !52
+  br label %160
+
+169:                                              ; preds = %160
+  %170 = load ptr, ptr %7, align 8, !tbaa !50
+  %171 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %170, i32 0, i32 10
+  %172 = load ptr, ptr %171, align 8, !tbaa !51
+  %173 = load ptr, ptr %13, align 8, !tbaa !52
+  %174 = getelementptr inbounds nuw %struct.mscabd_file, ptr %173, i32 0, i32 0
+  store ptr %172, ptr %174, align 8, !tbaa !53
+  br label %335
+
+175:                                              ; preds = %141, %136
+  %176 = load ptr, ptr %17, align 8, !tbaa !3
+  %177 = load ptr, ptr %11, align 8, !tbaa !82
+  %178 = load ptr, ptr %12, align 8, !tbaa !82
+  %179 = call i32 @cabd_can_merge_folders(ptr noundef %176, ptr noundef %177, ptr noundef %178)
+  %180 = icmp ne i32 %179, 0
+  br i1 %180, label %184, label %181
+
+181:                                              ; preds = %175
+  %182 = load ptr, ptr %8, align 8, !tbaa !8
+  %183 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %182, i32 0, i32 7
+  store i32 8, ptr %183, align 8, !tbaa !26
   store i32 8, ptr %4, align 4
-  br label %381
+  store i32 1, ptr %18, align 4
+  br label %382
 
-183:                                              ; preds = %174
-  %184 = load ptr, ptr %17, align 8
-  %185 = getelementptr inbounds %struct.mspack_system, ptr %184, i32 0, i32 7
-  %186 = load ptr, ptr %185, align 8
-  %187 = load ptr, ptr %17, align 8
-  %188 = call ptr %186(ptr noundef %187, i64 noundef 24)
-  store ptr %188, ptr %9, align 8
-  %189 = icmp ne ptr %188, null
-  br i1 %189, label %193, label %190
+184:                                              ; preds = %175
+  %185 = load ptr, ptr %17, align 8, !tbaa !3
+  %186 = getelementptr inbounds nuw %struct.mspack_system, ptr %185, i32 0, i32 7
+  %187 = load ptr, ptr %186, align 8, !tbaa !10
+  %188 = load ptr, ptr %17, align 8, !tbaa !3
+  %189 = call ptr %187(ptr noundef %188, i64 noundef 24)
+  store ptr %189, ptr %9, align 8, !tbaa !69
+  %190 = icmp ne ptr %189, null
+  br i1 %190, label %194, label %191
 
-190:                                              ; preds = %183
-  %191 = load ptr, ptr %8, align 8
-  %192 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %191, i32 0, i32 7
-  store i32 6, ptr %192, align 8
+191:                                              ; preds = %184
+  %192 = load ptr, ptr %8, align 8, !tbaa !8
+  %193 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %192, i32 0, i32 7
+  store i32 6, ptr %193, align 8, !tbaa !26
   store i32 6, ptr %4, align 4
-  br label %381
+  store i32 1, ptr %18, align 4
+  br label %382
 
-193:                                              ; preds = %183
-  %194 = load ptr, ptr %7, align 8
-  %195 = load ptr, ptr %6, align 8
-  %196 = getelementptr inbounds %struct.mscabd_cabinet, ptr %195, i32 0, i32 5
-  store ptr %194, ptr %196, align 8
-  %197 = load ptr, ptr %6, align 8
-  %198 = load ptr, ptr %7, align 8
-  %199 = getelementptr inbounds %struct.mscabd_cabinet, ptr %198, i32 0, i32 4
-  store ptr %197, ptr %199, align 8
-  %200 = load ptr, ptr %11, align 8
-  %201 = getelementptr inbounds %struct.mscabd_folder_p, ptr %200, i32 0, i32 1
-  store ptr %201, ptr %10, align 8
-  br label %202
+194:                                              ; preds = %184
+  %195 = load ptr, ptr %7, align 8, !tbaa !50
+  %196 = load ptr, ptr %6, align 8, !tbaa !50
+  %197 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %196, i32 0, i32 5
+  store ptr %195, ptr %197, align 8, !tbaa !76
+  %198 = load ptr, ptr %6, align 8, !tbaa !50
+  %199 = load ptr, ptr %7, align 8, !tbaa !50
+  %200 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %199, i32 0, i32 4
+  store ptr %198, ptr %200, align 8, !tbaa !71
+  %201 = load ptr, ptr %11, align 8, !tbaa !82
+  %202 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %201, i32 0, i32 1
+  store ptr %202, ptr %10, align 8, !tbaa !69
+  br label %203
 
-202:                                              ; preds = %207, %193
-  %203 = load ptr, ptr %10, align 8
-  %204 = getelementptr inbounds %struct.mscabd_folder_data, ptr %203, i32 0, i32 0
-  %205 = load ptr, ptr %204, align 8
-  %206 = icmp ne ptr %205, null
-  br i1 %206, label %207, label %211
+203:                                              ; preds = %208, %194
+  %204 = load ptr, ptr %10, align 8, !tbaa !69
+  %205 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %204, i32 0, i32 0
+  %206 = load ptr, ptr %205, align 8, !tbaa !70
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %212
 
-207:                                              ; preds = %202
-  %208 = load ptr, ptr %10, align 8
-  %209 = getelementptr inbounds %struct.mscabd_folder_data, ptr %208, i32 0, i32 0
-  %210 = load ptr, ptr %209, align 8
-  store ptr %210, ptr %10, align 8
-  br label %202
+208:                                              ; preds = %203
+  %209 = load ptr, ptr %10, align 8, !tbaa !69
+  %210 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %209, i32 0, i32 0
+  %211 = load ptr, ptr %210, align 8, !tbaa !70
+  store ptr %211, ptr %10, align 8, !tbaa !69
+  br label %203
 
-211:                                              ; preds = %202
-  %212 = load ptr, ptr %9, align 8
-  %213 = load ptr, ptr %10, align 8
-  %214 = getelementptr inbounds %struct.mscabd_folder_data, ptr %213, i32 0, i32 0
-  store ptr %212, ptr %214, align 8
-  %215 = load ptr, ptr %9, align 8
-  %216 = load ptr, ptr %12, align 8
-  %217 = getelementptr inbounds %struct.mscabd_folder_p, ptr %216, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %215, ptr align 8 %217, i64 24, i1 false)
-  %218 = load ptr, ptr %12, align 8
-  %219 = getelementptr inbounds %struct.mscabd_folder_p, ptr %218, i32 0, i32 1
-  %220 = getelementptr inbounds %struct.mscabd_folder_data, ptr %219, i32 0, i32 0
-  store ptr null, ptr %220, align 8
-  %221 = load ptr, ptr %12, align 8
-  %222 = getelementptr inbounds %struct.mscabd_folder_p, ptr %221, i32 0, i32 0
-  %223 = getelementptr inbounds %struct.mscabd_folder, ptr %222, i32 0, i32 2
-  %224 = load i32, ptr %223, align 4
-  %225 = sub i32 %224, 1
-  %226 = load ptr, ptr %11, align 8
-  %227 = getelementptr inbounds %struct.mscabd_folder_p, ptr %226, i32 0, i32 0
-  %228 = getelementptr inbounds %struct.mscabd_folder, ptr %227, i32 0, i32 2
-  %229 = load i32, ptr %228, align 4
-  %230 = add i32 %229, %225
-  store i32 %230, ptr %228, align 4
-  %231 = load ptr, ptr %12, align 8
-  %232 = getelementptr inbounds %struct.mscabd_folder_p, ptr %231, i32 0, i32 3
-  %233 = load ptr, ptr %232, align 8
-  %234 = icmp eq ptr %233, null
-  br i1 %234, label %243, label %235
+212:                                              ; preds = %203
+  %213 = load ptr, ptr %9, align 8, !tbaa !69
+  %214 = load ptr, ptr %10, align 8, !tbaa !69
+  %215 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %214, i32 0, i32 0
+  store ptr %213, ptr %215, align 8, !tbaa !70
+  %216 = load ptr, ptr %9, align 8, !tbaa !69
+  %217 = load ptr, ptr %12, align 8, !tbaa !82
+  %218 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %217, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %216, ptr align 8 %218, i64 24, i1 false), !tbaa.struct !143
+  %219 = load ptr, ptr %12, align 8, !tbaa !82
+  %220 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %219, i32 0, i32 1
+  %221 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %220, i32 0, i32 0
+  store ptr null, ptr %221, align 8, !tbaa !66
+  %222 = load ptr, ptr %12, align 8, !tbaa !82
+  %223 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %222, i32 0, i32 0
+  %224 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %223, i32 0, i32 2
+  %225 = load i32, ptr %224, align 4, !tbaa !86
+  %226 = sub i32 %225, 1
+  %227 = load ptr, ptr %11, align 8, !tbaa !82
+  %228 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %227, i32 0, i32 0
+  %229 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %228, i32 0, i32 2
+  %230 = load i32, ptr %229, align 4, !tbaa !86
+  %231 = add i32 %230, %226
+  store i32 %231, ptr %229, align 4, !tbaa !86
+  %232 = load ptr, ptr %12, align 8, !tbaa !82
+  %233 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %232, i32 0, i32 3
+  %234 = load ptr, ptr %233, align 8, !tbaa !125
+  %235 = icmp eq ptr %234, null
+  br i1 %235, label %244, label %236
 
-235:                                              ; preds = %211
-  %236 = load ptr, ptr %12, align 8
-  %237 = getelementptr inbounds %struct.mscabd_folder_p, ptr %236, i32 0, i32 3
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds %struct.mscabd_file, ptr %238, i32 0, i32 10
-  %240 = load ptr, ptr %239, align 8
-  %241 = load ptr, ptr %12, align 8
-  %242 = icmp ne ptr %240, %241
-  br i1 %242, label %243, label %249
+236:                                              ; preds = %212
+  %237 = load ptr, ptr %12, align 8, !tbaa !82
+  %238 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %237, i32 0, i32 3
+  %239 = load ptr, ptr %238, align 8, !tbaa !125
+  %240 = getelementptr inbounds nuw %struct.mscabd_file, ptr %239, i32 0, i32 10
+  %241 = load ptr, ptr %240, align 8, !tbaa !81
+  %242 = load ptr, ptr %12, align 8, !tbaa !82
+  %243 = icmp ne ptr %241, %242
+  br i1 %243, label %244, label %250
 
-243:                                              ; preds = %235, %211
-  %244 = load ptr, ptr %12, align 8
-  %245 = getelementptr inbounds %struct.mscabd_folder_p, ptr %244, i32 0, i32 3
-  %246 = load ptr, ptr %245, align 8
-  %247 = load ptr, ptr %11, align 8
-  %248 = getelementptr inbounds %struct.mscabd_folder_p, ptr %247, i32 0, i32 3
-  store ptr %246, ptr %248, align 8
-  br label %249
-
-249:                                              ; preds = %243, %235
+244:                                              ; preds = %236, %212
+  %245 = load ptr, ptr %12, align 8, !tbaa !82
+  %246 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %245, i32 0, i32 3
+  %247 = load ptr, ptr %246, align 8, !tbaa !125
+  %248 = load ptr, ptr %11, align 8, !tbaa !82
+  %249 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %248, i32 0, i32 3
+  store ptr %247, ptr %249, align 8, !tbaa !125
   br label %250
 
-250:                                              ; preds = %256, %249
-  %251 = load ptr, ptr %11, align 8
-  %252 = getelementptr inbounds %struct.mscabd_folder_p, ptr %251, i32 0, i32 0
-  %253 = getelementptr inbounds %struct.mscabd_folder, ptr %252, i32 0, i32 0
-  %254 = load ptr, ptr %253, align 8
-  %255 = icmp ne ptr %254, null
-  br i1 %255, label %256, label %261
+250:                                              ; preds = %244, %236
+  br label %251
 
-256:                                              ; preds = %250
-  %257 = load ptr, ptr %11, align 8
-  %258 = getelementptr inbounds %struct.mscabd_folder_p, ptr %257, i32 0, i32 0
-  %259 = getelementptr inbounds %struct.mscabd_folder, ptr %258, i32 0, i32 0
-  %260 = load ptr, ptr %259, align 8
-  store ptr %260, ptr %11, align 8
-  br label %250
+251:                                              ; preds = %257, %250
+  %252 = load ptr, ptr %11, align 8, !tbaa !82
+  %253 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %252, i32 0, i32 0
+  %254 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %253, i32 0, i32 0
+  %255 = load ptr, ptr %254, align 8, !tbaa !124
+  %256 = icmp ne ptr %255, null
+  br i1 %256, label %257, label %262
 
-261:                                              ; preds = %250
-  %262 = load ptr, ptr %12, align 8
-  %263 = getelementptr inbounds %struct.mscabd_folder_p, ptr %262, i32 0, i32 0
-  %264 = getelementptr inbounds %struct.mscabd_folder, ptr %263, i32 0, i32 0
-  %265 = load ptr, ptr %264, align 8
-  %266 = load ptr, ptr %11, align 8
-  %267 = getelementptr inbounds %struct.mscabd_folder_p, ptr %266, i32 0, i32 0
-  %268 = getelementptr inbounds %struct.mscabd_folder, ptr %267, i32 0, i32 0
-  store ptr %265, ptr %268, align 8
-  %269 = load ptr, ptr %17, align 8
-  %270 = getelementptr inbounds %struct.mspack_system, ptr %269, i32 0, i32 8
-  %271 = load ptr, ptr %270, align 8
-  %272 = load ptr, ptr %12, align 8
-  call void %271(ptr noundef %272)
-  %273 = load ptr, ptr %6, align 8
-  %274 = getelementptr inbounds %struct.mscabd_cabinet, ptr %273, i32 0, i32 10
-  %275 = load ptr, ptr %274, align 8
-  store ptr %275, ptr %13, align 8
-  br label %276
+257:                                              ; preds = %251
+  %258 = load ptr, ptr %11, align 8, !tbaa !82
+  %259 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %258, i32 0, i32 0
+  %260 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %259, i32 0, i32 0
+  %261 = load ptr, ptr %260, align 8, !tbaa !124
+  store ptr %261, ptr %11, align 8, !tbaa !82
+  br label %251
 
-276:                                              ; preds = %281, %261
-  %277 = load ptr, ptr %13, align 8
-  %278 = getelementptr inbounds %struct.mscabd_file, ptr %277, i32 0, i32 0
-  %279 = load ptr, ptr %278, align 8
-  %280 = icmp ne ptr %279, null
-  br i1 %280, label %281, label %285
+262:                                              ; preds = %251
+  %263 = load ptr, ptr %12, align 8, !tbaa !82
+  %264 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %263, i32 0, i32 0
+  %265 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %264, i32 0, i32 0
+  %266 = load ptr, ptr %265, align 8, !tbaa !124
+  %267 = load ptr, ptr %11, align 8, !tbaa !82
+  %268 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %267, i32 0, i32 0
+  %269 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %268, i32 0, i32 0
+  store ptr %266, ptr %269, align 8, !tbaa !124
+  %270 = load ptr, ptr %17, align 8, !tbaa !3
+  %271 = getelementptr inbounds nuw %struct.mspack_system, ptr %270, i32 0, i32 8
+  %272 = load ptr, ptr %271, align 8, !tbaa !55
+  %273 = load ptr, ptr %12, align 8, !tbaa !82
+  call void %272(ptr noundef %273)
+  %274 = load ptr, ptr %6, align 8, !tbaa !50
+  %275 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %274, i32 0, i32 10
+  %276 = load ptr, ptr %275, align 8, !tbaa !51
+  store ptr %276, ptr %13, align 8, !tbaa !52
+  br label %277
 
-281:                                              ; preds = %276
-  %282 = load ptr, ptr %13, align 8
-  %283 = getelementptr inbounds %struct.mscabd_file, ptr %282, i32 0, i32 0
-  %284 = load ptr, ptr %283, align 8
-  store ptr %284, ptr %13, align 8
-  br label %276
+277:                                              ; preds = %282, %262
+  %278 = load ptr, ptr %13, align 8, !tbaa !52
+  %279 = getelementptr inbounds nuw %struct.mscabd_file, ptr %278, i32 0, i32 0
+  %280 = load ptr, ptr %279, align 8, !tbaa !53
+  %281 = icmp ne ptr %280, null
+  br i1 %281, label %282, label %286
 
-285:                                              ; preds = %276
-  %286 = load ptr, ptr %7, align 8
-  %287 = getelementptr inbounds %struct.mscabd_cabinet, ptr %286, i32 0, i32 10
-  %288 = load ptr, ptr %287, align 8
-  %289 = load ptr, ptr %13, align 8
-  %290 = getelementptr inbounds %struct.mscabd_file, ptr %289, i32 0, i32 0
-  store ptr %288, ptr %290, align 8
-  store ptr null, ptr %15, align 8
-  %291 = load ptr, ptr %6, align 8
-  %292 = getelementptr inbounds %struct.mscabd_cabinet, ptr %291, i32 0, i32 10
-  %293 = load ptr, ptr %292, align 8
-  store ptr %293, ptr %13, align 8
-  br label %294
+282:                                              ; preds = %277
+  %283 = load ptr, ptr %13, align 8, !tbaa !52
+  %284 = getelementptr inbounds nuw %struct.mscabd_file, ptr %283, i32 0, i32 0
+  %285 = load ptr, ptr %284, align 8, !tbaa !53
+  store ptr %285, ptr %13, align 8, !tbaa !52
+  br label %277
 
-294:                                              ; preds = %331, %285
-  %295 = load ptr, ptr %13, align 8
-  %296 = icmp ne ptr %295, null
-  br i1 %296, label %297, label %333
+286:                                              ; preds = %277
+  %287 = load ptr, ptr %7, align 8, !tbaa !50
+  %288 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %287, i32 0, i32 10
+  %289 = load ptr, ptr %288, align 8, !tbaa !51
+  %290 = load ptr, ptr %13, align 8, !tbaa !52
+  %291 = getelementptr inbounds nuw %struct.mscabd_file, ptr %290, i32 0, i32 0
+  store ptr %289, ptr %291, align 8, !tbaa !53
+  store ptr null, ptr %15, align 8, !tbaa !52
+  %292 = load ptr, ptr %6, align 8, !tbaa !50
+  %293 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %292, i32 0, i32 10
+  %294 = load ptr, ptr %293, align 8, !tbaa !51
+  store ptr %294, ptr %13, align 8, !tbaa !52
+  br label %295
 
-297:                                              ; preds = %294
-  %298 = load ptr, ptr %13, align 8
-  %299 = getelementptr inbounds %struct.mscabd_file, ptr %298, i32 0, i32 0
-  %300 = load ptr, ptr %299, align 8
-  store ptr %300, ptr %14, align 8
-  %301 = load ptr, ptr %13, align 8
-  %302 = getelementptr inbounds %struct.mscabd_file, ptr %301, i32 0, i32 10
-  %303 = load ptr, ptr %302, align 8
-  %304 = load ptr, ptr %12, align 8
-  %305 = icmp eq ptr %303, %304
-  br i1 %305, label %306, label %328
+295:                                              ; preds = %332, %286
+  %296 = load ptr, ptr %13, align 8, !tbaa !52
+  %297 = icmp ne ptr %296, null
+  br i1 %297, label %298, label %334
 
-306:                                              ; preds = %297
-  %307 = load ptr, ptr %15, align 8
-  %308 = icmp ne ptr %307, null
-  br i1 %308, label %309, label %313
+298:                                              ; preds = %295
+  %299 = load ptr, ptr %13, align 8, !tbaa !52
+  %300 = getelementptr inbounds nuw %struct.mscabd_file, ptr %299, i32 0, i32 0
+  %301 = load ptr, ptr %300, align 8, !tbaa !53
+  store ptr %301, ptr %14, align 8, !tbaa !52
+  %302 = load ptr, ptr %13, align 8, !tbaa !52
+  %303 = getelementptr inbounds nuw %struct.mscabd_file, ptr %302, i32 0, i32 10
+  %304 = load ptr, ptr %303, align 8, !tbaa !81
+  %305 = load ptr, ptr %12, align 8, !tbaa !82
+  %306 = icmp eq ptr %304, %305
+  br i1 %306, label %307, label %329
 
-309:                                              ; preds = %306
-  %310 = load ptr, ptr %14, align 8
-  %311 = load ptr, ptr %15, align 8
-  %312 = getelementptr inbounds %struct.mscabd_file, ptr %311, i32 0, i32 0
-  store ptr %310, ptr %312, align 8
-  br label %317
+307:                                              ; preds = %298
+  %308 = load ptr, ptr %15, align 8, !tbaa !52
+  %309 = icmp ne ptr %308, null
+  br i1 %309, label %310, label %314
 
-313:                                              ; preds = %306
-  %314 = load ptr, ptr %14, align 8
-  %315 = load ptr, ptr %6, align 8
-  %316 = getelementptr inbounds %struct.mscabd_cabinet, ptr %315, i32 0, i32 10
-  store ptr %314, ptr %316, align 8
-  br label %317
+310:                                              ; preds = %307
+  %311 = load ptr, ptr %14, align 8, !tbaa !52
+  %312 = load ptr, ptr %15, align 8, !tbaa !52
+  %313 = getelementptr inbounds nuw %struct.mscabd_file, ptr %312, i32 0, i32 0
+  store ptr %311, ptr %313, align 8, !tbaa !53
+  br label %318
 
-317:                                              ; preds = %313, %309
-  %318 = load ptr, ptr %17, align 8
-  %319 = getelementptr inbounds %struct.mspack_system, ptr %318, i32 0, i32 8
-  %320 = load ptr, ptr %319, align 8
-  %321 = load ptr, ptr %13, align 8
-  %322 = getelementptr inbounds %struct.mscabd_file, ptr %321, i32 0, i32 1
-  %323 = load ptr, ptr %322, align 8
-  call void %320(ptr noundef %323)
-  %324 = load ptr, ptr %17, align 8
-  %325 = getelementptr inbounds %struct.mspack_system, ptr %324, i32 0, i32 8
-  %326 = load ptr, ptr %325, align 8
-  %327 = load ptr, ptr %13, align 8
-  call void %326(ptr noundef %327)
-  br label %330
+314:                                              ; preds = %307
+  %315 = load ptr, ptr %14, align 8, !tbaa !52
+  %316 = load ptr, ptr %6, align 8, !tbaa !50
+  %317 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %316, i32 0, i32 10
+  store ptr %315, ptr %317, align 8, !tbaa !51
+  br label %318
 
-328:                                              ; preds = %297
-  %329 = load ptr, ptr %13, align 8
-  store ptr %329, ptr %15, align 8
-  br label %330
-
-330:                                              ; preds = %328, %317
+318:                                              ; preds = %314, %310
+  %319 = load ptr, ptr %17, align 8, !tbaa !3
+  %320 = getelementptr inbounds nuw %struct.mspack_system, ptr %319, i32 0, i32 8
+  %321 = load ptr, ptr %320, align 8, !tbaa !55
+  %322 = load ptr, ptr %13, align 8, !tbaa !52
+  %323 = getelementptr inbounds nuw %struct.mscabd_file, ptr %322, i32 0, i32 1
+  %324 = load ptr, ptr %323, align 8, !tbaa !56
+  call void %321(ptr noundef %324)
+  %325 = load ptr, ptr %17, align 8, !tbaa !3
+  %326 = getelementptr inbounds nuw %struct.mspack_system, ptr %325, i32 0, i32 8
+  %327 = load ptr, ptr %326, align 8, !tbaa !55
+  %328 = load ptr, ptr %13, align 8, !tbaa !52
+  call void %327(ptr noundef %328)
   br label %331
 
-331:                                              ; preds = %330
-  %332 = load ptr, ptr %14, align 8
-  store ptr %332, ptr %13, align 8
-  br label %294
+329:                                              ; preds = %298
+  %330 = load ptr, ptr %13, align 8, !tbaa !52
+  store ptr %330, ptr %15, align 8, !tbaa !52
+  br label %331
 
-333:                                              ; preds = %294
-  br label %334
+331:                                              ; preds = %329, %318
+  br label %332
 
-334:                                              ; preds = %333, %168
-  %335 = load ptr, ptr %6, align 8
-  %336 = getelementptr inbounds %struct.mscabd_cabinet, ptr %335, i32 0, i32 4
-  %337 = load ptr, ptr %336, align 8
-  store ptr %337, ptr %16, align 8
-  br label %338
+332:                                              ; preds = %331
+  %333 = load ptr, ptr %14, align 8, !tbaa !52
+  store ptr %333, ptr %13, align 8, !tbaa !52
+  br label %295
 
-338:                                              ; preds = %352, %334
-  %339 = load ptr, ptr %16, align 8
-  %340 = icmp ne ptr %339, null
-  br i1 %340, label %341, label %356
+334:                                              ; preds = %295
+  br label %335
 
-341:                                              ; preds = %338
-  %342 = load ptr, ptr %6, align 8
-  %343 = getelementptr inbounds %struct.mscabd_cabinet, ptr %342, i32 0, i32 10
-  %344 = load ptr, ptr %343, align 8
-  %345 = load ptr, ptr %16, align 8
-  %346 = getelementptr inbounds %struct.mscabd_cabinet, ptr %345, i32 0, i32 10
-  store ptr %344, ptr %346, align 8
-  %347 = load ptr, ptr %6, align 8
-  %348 = getelementptr inbounds %struct.mscabd_cabinet, ptr %347, i32 0, i32 11
-  %349 = load ptr, ptr %348, align 8
-  %350 = load ptr, ptr %16, align 8
-  %351 = getelementptr inbounds %struct.mscabd_cabinet, ptr %350, i32 0, i32 11
-  store ptr %349, ptr %351, align 8
-  br label %352
+335:                                              ; preds = %334, %169
+  %336 = load ptr, ptr %6, align 8, !tbaa !50
+  %337 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %336, i32 0, i32 4
+  %338 = load ptr, ptr %337, align 8, !tbaa !71
+  store ptr %338, ptr %16, align 8, !tbaa !50
+  br label %339
 
-352:                                              ; preds = %341
-  %353 = load ptr, ptr %16, align 8
-  %354 = getelementptr inbounds %struct.mscabd_cabinet, ptr %353, i32 0, i32 4
-  %355 = load ptr, ptr %354, align 8
-  store ptr %355, ptr %16, align 8
-  br label %338
+339:                                              ; preds = %353, %335
+  %340 = load ptr, ptr %16, align 8, !tbaa !50
+  %341 = icmp ne ptr %340, null
+  br i1 %341, label %342, label %357
 
-356:                                              ; preds = %338
-  %357 = load ptr, ptr %6, align 8
-  %358 = getelementptr inbounds %struct.mscabd_cabinet, ptr %357, i32 0, i32 5
-  %359 = load ptr, ptr %358, align 8
-  store ptr %359, ptr %16, align 8
-  br label %360
+342:                                              ; preds = %339
+  %343 = load ptr, ptr %6, align 8, !tbaa !50
+  %344 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %343, i32 0, i32 10
+  %345 = load ptr, ptr %344, align 8, !tbaa !51
+  %346 = load ptr, ptr %16, align 8, !tbaa !50
+  %347 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %346, i32 0, i32 10
+  store ptr %345, ptr %347, align 8, !tbaa !51
+  %348 = load ptr, ptr %6, align 8, !tbaa !50
+  %349 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %348, i32 0, i32 11
+  %350 = load ptr, ptr %349, align 8, !tbaa !57
+  %351 = load ptr, ptr %16, align 8, !tbaa !50
+  %352 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %351, i32 0, i32 11
+  store ptr %350, ptr %352, align 8, !tbaa !57
+  br label %353
 
-360:                                              ; preds = %374, %356
-  %361 = load ptr, ptr %16, align 8
-  %362 = icmp ne ptr %361, null
-  br i1 %362, label %363, label %378
+353:                                              ; preds = %342
+  %354 = load ptr, ptr %16, align 8, !tbaa !50
+  %355 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %354, i32 0, i32 4
+  %356 = load ptr, ptr %355, align 8, !tbaa !71
+  store ptr %356, ptr %16, align 8, !tbaa !50
+  br label %339
 
-363:                                              ; preds = %360
-  %364 = load ptr, ptr %6, align 8
-  %365 = getelementptr inbounds %struct.mscabd_cabinet, ptr %364, i32 0, i32 10
-  %366 = load ptr, ptr %365, align 8
-  %367 = load ptr, ptr %16, align 8
-  %368 = getelementptr inbounds %struct.mscabd_cabinet, ptr %367, i32 0, i32 10
-  store ptr %366, ptr %368, align 8
-  %369 = load ptr, ptr %6, align 8
-  %370 = getelementptr inbounds %struct.mscabd_cabinet, ptr %369, i32 0, i32 11
-  %371 = load ptr, ptr %370, align 8
-  %372 = load ptr, ptr %16, align 8
-  %373 = getelementptr inbounds %struct.mscabd_cabinet, ptr %372, i32 0, i32 11
-  store ptr %371, ptr %373, align 8
-  br label %374
+357:                                              ; preds = %339
+  %358 = load ptr, ptr %6, align 8, !tbaa !50
+  %359 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %358, i32 0, i32 5
+  %360 = load ptr, ptr %359, align 8, !tbaa !76
+  store ptr %360, ptr %16, align 8, !tbaa !50
+  br label %361
 
-374:                                              ; preds = %363
-  %375 = load ptr, ptr %16, align 8
-  %376 = getelementptr inbounds %struct.mscabd_cabinet, ptr %375, i32 0, i32 5
-  %377 = load ptr, ptr %376, align 8
-  store ptr %377, ptr %16, align 8
-  br label %360
+361:                                              ; preds = %375, %357
+  %362 = load ptr, ptr %16, align 8, !tbaa !50
+  %363 = icmp ne ptr %362, null
+  br i1 %363, label %364, label %379
 
-378:                                              ; preds = %360
-  %379 = load ptr, ptr %8, align 8
-  %380 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %379, i32 0, i32 7
-  store i32 0, ptr %380, align 8
+364:                                              ; preds = %361
+  %365 = load ptr, ptr %6, align 8, !tbaa !50
+  %366 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %365, i32 0, i32 10
+  %367 = load ptr, ptr %366, align 8, !tbaa !51
+  %368 = load ptr, ptr %16, align 8, !tbaa !50
+  %369 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %368, i32 0, i32 10
+  store ptr %367, ptr %369, align 8, !tbaa !51
+  %370 = load ptr, ptr %6, align 8, !tbaa !50
+  %371 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %370, i32 0, i32 11
+  %372 = load ptr, ptr %371, align 8, !tbaa !57
+  %373 = load ptr, ptr %16, align 8, !tbaa !50
+  %374 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %373, i32 0, i32 11
+  store ptr %372, ptr %374, align 8, !tbaa !57
+  br label %375
+
+375:                                              ; preds = %364
+  %376 = load ptr, ptr %16, align 8, !tbaa !50
+  %377 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %376, i32 0, i32 5
+  %378 = load ptr, ptr %377, align 8, !tbaa !76
+  store ptr %378, ptr %16, align 8, !tbaa !50
+  br label %361
+
+379:                                              ; preds = %361
+  %380 = load ptr, ptr %8, align 8, !tbaa !8
+  %381 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %380, i32 0, i32 7
+  store i32 0, ptr %381, align 8, !tbaa !26
   store i32 0, ptr %4, align 4
-  br label %381
+  store i32 1, ptr %18, align 4
+  br label %382
 
-381:                                              ; preds = %378, %190, %180, %81, %62, %48, %35, %21
-  %382 = load i32, ptr %4, align 4
-  ret i32 %382
+382:                                              ; preds = %379, %191, %181, %82, %63, %49, %36, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %383 = load i32, ptr %4, align 4
+  ret i32 %383
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4076,221 +4332,237 @@ define internal i32 @cabd_can_merge_folders(ptr noundef %0, ptr noundef %1, ptr 
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 1, ptr %12, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.mscabd_folder_p, ptr %13, i32 0, i32 0
-  %15 = getelementptr inbounds %struct.mscabd_folder, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct.mscabd_folder_p, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds %struct.mscabd_folder, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp ne i32 %16, %20
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %134
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !82
+  store ptr %2, ptr %7, align 8, !tbaa !82
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  store i32 1, ptr %12, align 4, !tbaa !48
+  %14 = load ptr, ptr %6, align 8, !tbaa !82
+  %15 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8, !tbaa !98
+  %18 = load ptr, ptr %7, align 8, !tbaa !82
+  %19 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 8, !tbaa !98
+  %22 = icmp ne i32 %17, %21
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %3
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.mscabd_folder_p, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.mscabd_folder, ptr %25, i32 0, i32 2
-  %27 = load i32, ptr %26, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct.mscabd_folder_p, ptr %28, i32 0, i32 0
-  %30 = getelementptr inbounds %struct.mscabd_folder, ptr %29, i32 0, i32 2
-  %31 = load i32, ptr %30, align 4
-  %32 = add i32 %27, %31
-  %33 = icmp ugt i32 %32, 65535
-  br i1 %33, label %34, label %35
-
-34:                                               ; preds = %23
   store i32 0, ptr %4, align 4
-  br label %134
+  store i32 1, ptr %13, align 4
+  br label %135
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.mscabd_folder_p, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %8, align 8
-  %39 = icmp ne ptr %38, null
-  br i1 %39, label %40, label %45
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %6, align 8, !tbaa !82
+  %26 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %26, i32 0, i32 2
+  %28 = load i32, ptr %27, align 4, !tbaa !86
+  %29 = load ptr, ptr %7, align 8, !tbaa !82
+  %30 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %30, i32 0, i32 2
+  %32 = load i32, ptr %31, align 4, !tbaa !86
+  %33 = add i32 %28, %32
+  %34 = icmp ugt i32 %33, 65535
+  br i1 %34, label %35, label %36
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct.mscabd_folder_p, ptr %41, i32 0, i32 2
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %9, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %46, label %45
-
-45:                                               ; preds = %40, %35
+35:                                               ; preds = %24
   store i32 0, ptr %4, align 4
-  br label %134
+  store i32 1, ptr %13, align 4
+  br label %135
 
-46:                                               ; preds = %40
-  %47 = load ptr, ptr %8, align 8
-  store ptr %47, ptr %10, align 8
-  %48 = load ptr, ptr %9, align 8
-  store ptr %48, ptr %11, align 8
-  br label %49
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %6, align 8, !tbaa !82
+  %38 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8, !tbaa !125
+  store ptr %39, ptr %8, align 8, !tbaa !52
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %46
 
-49:                                               ; preds = %73, %46
-  %50 = load ptr, ptr %10, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %80
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %7, align 8, !tbaa !82
+  %43 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %42, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8, !tbaa !85
+  store ptr %44, ptr %9, align 8, !tbaa !52
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %47, label %46
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %11, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %71
+46:                                               ; preds = %41, %36
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %135
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct.mscabd_file, ptr %56, i32 0, i32 11
-  %58 = load i32, ptr %57, align 8
-  %59 = load ptr, ptr %11, align 8
-  %60 = getelementptr inbounds %struct.mscabd_file, ptr %59, i32 0, i32 11
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp ne i32 %58, %61
-  br i1 %62, label %71, label %63
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %8, align 8, !tbaa !52
+  store ptr %48, ptr %10, align 8, !tbaa !52
+  %49 = load ptr, ptr %9, align 8, !tbaa !52
+  store ptr %49, ptr %11, align 8, !tbaa !52
+  br label %50
 
-63:                                               ; preds = %55
-  %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds %struct.mscabd_file, ptr %64, i32 0, i32 2
-  %66 = load i32, ptr %65, align 8
-  %67 = load ptr, ptr %11, align 8
-  %68 = getelementptr inbounds %struct.mscabd_file, ptr %67, i32 0, i32 2
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp ne i32 %66, %69
-  br i1 %70, label %71, label %72
+50:                                               ; preds = %74, %47
+  %51 = load ptr, ptr %10, align 8, !tbaa !52
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %81
 
-71:                                               ; preds = %63, %55, %52
-  store i32 0, ptr %12, align 4
-  br label %80
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %11, align 8, !tbaa !52
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %72
 
-72:                                               ; preds = %63
-  br label %73
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %10, align 8, !tbaa !52
+  %58 = getelementptr inbounds nuw %struct.mscabd_file, ptr %57, i32 0, i32 11
+  %59 = load i32, ptr %58, align 8, !tbaa !83
+  %60 = load ptr, ptr %11, align 8, !tbaa !52
+  %61 = getelementptr inbounds nuw %struct.mscabd_file, ptr %60, i32 0, i32 11
+  %62 = load i32, ptr %61, align 8, !tbaa !83
+  %63 = icmp ne i32 %59, %62
+  br i1 %63, label %72, label %64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %10, align 8
-  %75 = getelementptr inbounds %struct.mscabd_file, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  store ptr %76, ptr %10, align 8
-  %77 = load ptr, ptr %11, align 8
-  %78 = getelementptr inbounds %struct.mscabd_file, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  store ptr %79, ptr %11, align 8
-  br label %49
+64:                                               ; preds = %56
+  %65 = load ptr, ptr %10, align 8, !tbaa !52
+  %66 = getelementptr inbounds nuw %struct.mscabd_file, ptr %65, i32 0, i32 2
+  %67 = load i32, ptr %66, align 8, !tbaa !84
+  %68 = load ptr, ptr %11, align 8, !tbaa !52
+  %69 = getelementptr inbounds nuw %struct.mscabd_file, ptr %68, i32 0, i32 2
+  %70 = load i32, ptr %69, align 8, !tbaa !84
+  %71 = icmp ne i32 %67, %70
+  br i1 %71, label %72, label %73
 
-80:                                               ; preds = %71, %49
-  %81 = load i32, ptr %12, align 4
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %84
+72:                                               ; preds = %64, %56, %53
+  store i32 0, ptr %12, align 4, !tbaa !48
+  br label %81
 
-83:                                               ; preds = %80
+73:                                               ; preds = %64
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %10, align 8, !tbaa !52
+  %76 = getelementptr inbounds nuw %struct.mscabd_file, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8, !tbaa !53
+  store ptr %77, ptr %10, align 8, !tbaa !52
+  %78 = load ptr, ptr %11, align 8, !tbaa !52
+  %79 = getelementptr inbounds nuw %struct.mscabd_file, ptr %78, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8, !tbaa !53
+  store ptr %80, ptr %11, align 8, !tbaa !52
+  br label %50
+
+81:                                               ; preds = %72, %50
+  %82 = load i32, ptr %12, align 4, !tbaa !48
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %81
   store i32 1, ptr %4, align 4
-  br label %134
+  store i32 1, ptr %13, align 4
+  br label %135
 
-84:                                               ; preds = %80
-  store i32 0, ptr %12, align 4
-  %85 = load ptr, ptr %8, align 8
-  store ptr %85, ptr %10, align 8
-  br label %86
+85:                                               ; preds = %81
+  store i32 0, ptr %12, align 4, !tbaa !48
+  %86 = load ptr, ptr %8, align 8, !tbaa !52
+  store ptr %86, ptr %10, align 8, !tbaa !52
+  br label %87
 
-86:                                               ; preds = %128, %84
-  %87 = load ptr, ptr %10, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %89, label %132
+87:                                               ; preds = %129, %85
+  %88 = load ptr, ptr %10, align 8, !tbaa !52
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %133
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %9, align 8
-  store ptr %90, ptr %11, align 8
-  br label %91
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %9, align 8, !tbaa !52
+  store ptr %91, ptr %11, align 8, !tbaa !52
+  br label %92
 
-91:                                               ; preds = %112, %89
-  %92 = load ptr, ptr %11, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %116
+92:                                               ; preds = %113, %90
+  %93 = load ptr, ptr %11, align 8, !tbaa !52
+  %94 = icmp ne ptr %93, null
+  br i1 %94, label %95, label %117
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr %10, align 8
-  %96 = getelementptr inbounds %struct.mscabd_file, ptr %95, i32 0, i32 11
-  %97 = load i32, ptr %96, align 8
-  %98 = load ptr, ptr %11, align 8
-  %99 = getelementptr inbounds %struct.mscabd_file, ptr %98, i32 0, i32 11
-  %100 = load i32, ptr %99, align 8
-  %101 = icmp eq i32 %97, %100
-  br i1 %101, label %102, label %111
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %10, align 8, !tbaa !52
+  %97 = getelementptr inbounds nuw %struct.mscabd_file, ptr %96, i32 0, i32 11
+  %98 = load i32, ptr %97, align 8, !tbaa !83
+  %99 = load ptr, ptr %11, align 8, !tbaa !52
+  %100 = getelementptr inbounds nuw %struct.mscabd_file, ptr %99, i32 0, i32 11
+  %101 = load i32, ptr %100, align 8, !tbaa !83
+  %102 = icmp eq i32 %98, %101
+  br i1 %102, label %103, label %112
 
-102:                                              ; preds = %94
-  %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct.mscabd_file, ptr %103, i32 0, i32 2
-  %105 = load i32, ptr %104, align 8
-  %106 = load ptr, ptr %11, align 8
-  %107 = getelementptr inbounds %struct.mscabd_file, ptr %106, i32 0, i32 2
-  %108 = load i32, ptr %107, align 8
-  %109 = icmp eq i32 %105, %108
-  br i1 %109, label %110, label %111
+103:                                              ; preds = %95
+  %104 = load ptr, ptr %10, align 8, !tbaa !52
+  %105 = getelementptr inbounds nuw %struct.mscabd_file, ptr %104, i32 0, i32 2
+  %106 = load i32, ptr %105, align 8, !tbaa !84
+  %107 = load ptr, ptr %11, align 8, !tbaa !52
+  %108 = getelementptr inbounds nuw %struct.mscabd_file, ptr %107, i32 0, i32 2
+  %109 = load i32, ptr %108, align 8, !tbaa !84
+  %110 = icmp eq i32 %106, %109
+  br i1 %110, label %111, label %112
 
-110:                                              ; preds = %102
-  br label %116
+111:                                              ; preds = %103
+  br label %117
 
-111:                                              ; preds = %102, %94
-  br label %112
+112:                                              ; preds = %103, %95
+  br label %113
 
-112:                                              ; preds = %111
-  %113 = load ptr, ptr %11, align 8
-  %114 = getelementptr inbounds %struct.mscabd_file, ptr %113, i32 0, i32 0
-  %115 = load ptr, ptr %114, align 8
-  store ptr %115, ptr %11, align 8
-  br label %91
+113:                                              ; preds = %112
+  %114 = load ptr, ptr %11, align 8, !tbaa !52
+  %115 = getelementptr inbounds nuw %struct.mscabd_file, ptr %114, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8, !tbaa !53
+  store ptr %116, ptr %11, align 8, !tbaa !52
+  br label %92
 
-116:                                              ; preds = %110, %91
-  %117 = load ptr, ptr %11, align 8
-  %118 = icmp ne ptr %117, null
-  br i1 %118, label %119, label %120
+117:                                              ; preds = %111, %92
+  %118 = load ptr, ptr %11, align 8, !tbaa !52
+  %119 = icmp ne ptr %118, null
+  br i1 %119, label %120, label %121
 
-119:                                              ; preds = %116
-  store i32 1, ptr %12, align 4
-  br label %127
-
-120:                                              ; preds = %116
-  %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds %struct.mspack_system, ptr %121, i32 0, i32 6
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %10, align 8
-  %125 = getelementptr inbounds %struct.mscabd_file, ptr %124, i32 0, i32 1
-  %126 = load ptr, ptr %125, align 8
-  call void (ptr, ptr, ...) %123(ptr noundef null, ptr noundef @.str.9, ptr noundef %126)
-  br label %127
-
-127:                                              ; preds = %120, %119
+120:                                              ; preds = %117
+  store i32 1, ptr %12, align 4, !tbaa !48
   br label %128
 
-128:                                              ; preds = %127
-  %129 = load ptr, ptr %10, align 8
-  %130 = getelementptr inbounds %struct.mscabd_file, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %130, align 8
-  store ptr %131, ptr %10, align 8
-  br label %86
+121:                                              ; preds = %117
+  %122 = load ptr, ptr %5, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.mspack_system, ptr %122, i32 0, i32 6
+  %124 = load ptr, ptr %123, align 8, !tbaa !80
+  %125 = load ptr, ptr %10, align 8, !tbaa !52
+  %126 = getelementptr inbounds nuw %struct.mscabd_file, ptr %125, i32 0, i32 1
+  %127 = load ptr, ptr %126, align 8, !tbaa !56
+  call void (ptr, ptr, ...) %124(ptr noundef null, ptr noundef @.str.9, ptr noundef %127)
+  br label %128
 
-132:                                              ; preds = %86
-  %133 = load i32, ptr %12, align 4
-  store i32 %133, ptr %4, align 4
-  br label %134
+128:                                              ; preds = %121, %120
+  br label %129
 
-134:                                              ; preds = %132, %83, %45, %34, %22
-  %135 = load i32, ptr %4, align 4
-  ret i32 %135
+129:                                              ; preds = %128
+  %130 = load ptr, ptr %10, align 8, !tbaa !52
+  %131 = getelementptr inbounds nuw %struct.mscabd_file, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8, !tbaa !53
+  store ptr %132, ptr %10, align 8, !tbaa !52
+  br label %87
+
+133:                                              ; preds = %87
+  %134 = load i32, ptr %12, align 4, !tbaa !48
+  store i32 %134, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %135
+
+135:                                              ; preds = %133, %84, %46, %35, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %136 = load i32, ptr %4, align 4
+  ret i32 %136
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cabd_sys_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -4306,274 +4578,293 @@ define internal i32 @cabd_sys_read(ptr noundef %0, ptr noundef %1, i32 noundef %
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %9, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %10, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %21, i32 0, i32 6
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %40, label %25
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store ptr %1, ptr %6, align 8, !tbaa !89
+  store i32 %2, ptr %7, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %17 = load ptr, ptr %5, align 8, !tbaa !38
+  store ptr %17, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %18 = load ptr, ptr %6, align 8, !tbaa !89
+  store ptr %18, ptr %9, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %19 = load ptr, ptr %8, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !24
+  store ptr %21, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %22, i32 0, i32 6
+  %24 = load i32, ptr %23, align 4, !tbaa !30
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %41, label %26
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %26, i32 0, i32 5
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %38
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %8, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %27, i32 0, i32 5
+  %29 = load i32, ptr %28, align 8, !tbaa !28
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %39
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %33, i32 0, i32 6
-  %35 = load i32, ptr %34, align 8
-  %36 = and i32 %35, 15
-  %37 = icmp eq i32 %36, 1
-  br label %38
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %8, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  %35 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %34, i32 0, i32 6
+  %36 = load i32, ptr %35, align 8, !tbaa !106
+  %37 = and i32 %36, 15
+  %38 = icmp eq i32 %37, 1
+  br label %39
 
-38:                                               ; preds = %30, %25
-  %39 = phi i1 [ false, %25 ], [ %37, %30 ]
-  br label %40
+39:                                               ; preds = %31, %26
+  %40 = phi i1 [ false, %26 ], [ %38, %31 ]
+  br label %41
 
-40:                                               ; preds = %38, %3
-  %41 = phi i1 [ true, %3 ], [ %39, %38 ]
-  %42 = zext i1 %41 to i32
-  store i32 %42, ptr %14, align 4
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %43, i32 0, i32 6
-  %45 = load i32, ptr %44, align 4
-  store i32 %45, ptr %15, align 4
-  %46 = load i32, ptr %7, align 4
-  store i32 %46, ptr %12, align 4
-  br label %47
+41:                                               ; preds = %39, %3
+  %42 = phi i1 [ true, %3 ], [ %40, %39 ]
+  %43 = zext i1 %42 to i32
+  store i32 %43, ptr %14, align 4, !tbaa !48
+  %44 = load ptr, ptr %8, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %44, i32 0, i32 6
+  %46 = load i32, ptr %45, align 4, !tbaa !30
+  store i32 %46, ptr %15, align 4, !tbaa !48
+  %47 = load i32, ptr %7, align 4, !tbaa !48
+  store i32 %47, ptr %12, align 4, !tbaa !48
+  br label %48
 
-47:                                               ; preds = %200, %40
-  %48 = load i32, ptr %12, align 4
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %50, label %201
+48:                                               ; preds = %201, %41
+  %49 = load i32, ptr %12, align 4, !tbaa !48
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %202
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %53, i32 0, i32 13
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %58, i32 0, i32 12
-  %60 = load ptr, ptr %59, align 8
-  %61 = ptrtoint ptr %55 to i64
-  %62 = ptrtoint ptr %60 to i64
-  %63 = sub i64 %61, %62
-  %64 = trunc i64 %63 to i32
-  store i32 %64, ptr %11, align 4
-  %65 = load i32, ptr %11, align 4
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %100
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %8, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !25
+  %55 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %54, i32 0, i32 13
+  %56 = load ptr, ptr %55, align 8, !tbaa !101
+  %57 = load ptr, ptr %8, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8, !tbaa !25
+  %60 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %59, i32 0, i32 12
+  %61 = load ptr, ptr %60, align 8, !tbaa !102
+  %62 = ptrtoint ptr %56 to i64
+  %63 = ptrtoint ptr %61 to i64
+  %64 = sub i64 %62, %63
+  %65 = trunc i64 %64 to i32
+  store i32 %65, ptr %11, align 4, !tbaa !48
+  %66 = load i32, ptr %11, align 4, !tbaa !48
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %101
 
-67:                                               ; preds = %50
-  %68 = load i32, ptr %11, align 4
-  %69 = load i32, ptr %12, align 4
-  %70 = icmp sgt i32 %68, %69
-  br i1 %70, label %71, label %73
+68:                                               ; preds = %51
+  %69 = load i32, ptr %11, align 4, !tbaa !48
+  %70 = load i32, ptr %12, align 4, !tbaa !48
+  %71 = icmp sgt i32 %69, %70
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %67
-  %72 = load i32, ptr %12, align 4
-  store i32 %72, ptr %11, align 4
-  br label %73
+72:                                               ; preds = %68
+  %73 = load i32, ptr %12, align 4, !tbaa !48
+  store i32 %73, ptr %11, align 4, !tbaa !48
+  br label %74
 
-73:                                               ; preds = %71, %67
-  %74 = load ptr, ptr %10, align 8
-  %75 = getelementptr inbounds %struct.mspack_system, ptr %74, i32 0, i32 9
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %77, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %79, i32 0, i32 12
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %9, align 8
-  %83 = load i32, ptr %11, align 4
-  %84 = sext i32 %83 to i64
-  call void %76(ptr noundef %81, ptr noundef %82, i64 noundef %84)
-  %85 = load i32, ptr %11, align 4
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %88, i32 0, i32 12
-  %90 = load ptr, ptr %89, align 8
-  %91 = sext i32 %85 to i64
-  %92 = getelementptr inbounds i8, ptr %90, i64 %91
-  store ptr %92, ptr %89, align 8
-  %93 = load i32, ptr %11, align 4
-  %94 = load ptr, ptr %9, align 8
-  %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds i8, ptr %94, i64 %95
-  store ptr %96, ptr %9, align 8
-  %97 = load i32, ptr %11, align 4
-  %98 = load i32, ptr %12, align 4
-  %99 = sub nsw i32 %98, %97
-  store i32 %99, ptr %12, align 4
-  br label %200
-
-100:                                              ; preds = %50
-  %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %101, i32 0, i32 1
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %103, i32 0, i32 3
-  %105 = load i32, ptr %104, align 4
-  %106 = add i32 %105, 1
-  store i32 %106, ptr %104, align 4
-  %107 = load ptr, ptr %8, align 8
-  %108 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %107, i32 0, i32 1
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %109, i32 0, i32 0
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds %struct.mscabd_folder_p, ptr %111, i32 0, i32 0
-  %113 = getelementptr inbounds %struct.mscabd_folder, ptr %112, i32 0, i32 2
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp uge i32 %105, %114
-  br i1 %115, label %116, label %126
-
-116:                                              ; preds = %100
-  %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %117, i32 0, i32 6
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %124, label %121
-
-121:                                              ; preds = %116
-  %122 = load ptr, ptr %8, align 8
-  %123 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %122, i32 0, i32 8
-  store i32 8, ptr %123, align 4
-  br label %125
-
-124:                                              ; preds = %116
-  br label %125
-
-125:                                              ; preds = %124, %121
+74:                                               ; preds = %72, %68
+  %75 = load ptr, ptr %10, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.mspack_system, ptr %75, i32 0, i32 9
+  %77 = load ptr, ptr %76, align 8, !tbaa !136
+  %78 = load ptr, ptr %8, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8, !tbaa !25
+  %81 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %80, i32 0, i32 12
+  %82 = load ptr, ptr %81, align 8, !tbaa !102
+  %83 = load ptr, ptr %9, align 8, !tbaa !33
+  %84 = load i32, ptr %11, align 4, !tbaa !48
+  %85 = sext i32 %84 to i64
+  call void %77(ptr noundef %82, ptr noundef %83, i64 noundef %85)
+  %86 = load i32, ptr %11, align 4, !tbaa !48
+  %87 = load ptr, ptr %8, align 8, !tbaa !8
+  %88 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !25
+  %90 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %89, i32 0, i32 12
+  %91 = load ptr, ptr %90, align 8, !tbaa !102
+  %92 = sext i32 %86 to i64
+  %93 = getelementptr inbounds i8, ptr %91, i64 %92
+  store ptr %93, ptr %90, align 8, !tbaa !102
+  %94 = load i32, ptr %11, align 4, !tbaa !48
+  %95 = load ptr, ptr %9, align 8, !tbaa !33
+  %96 = sext i32 %94 to i64
+  %97 = getelementptr inbounds i8, ptr %95, i64 %96
+  store ptr %97, ptr %9, align 8, !tbaa !33
+  %98 = load i32, ptr %11, align 4, !tbaa !48
+  %99 = load i32, ptr %12, align 4, !tbaa !48
+  %100 = sub nsw i32 %99, %98
+  store i32 %100, ptr %12, align 4, !tbaa !48
   br label %201
 
-126:                                              ; preds = %100
-  %127 = load ptr, ptr %10, align 8
-  %128 = load ptr, ptr %8, align 8
-  %129 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %128, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  %131 = load i32, ptr %14, align 4
-  %132 = load i32, ptr %15, align 4
-  %133 = call i32 @cabd_sys_read_block(ptr noundef %127, ptr noundef %130, ptr noundef %13, i32 noundef %131, i32 noundef %132)
-  %134 = load ptr, ptr %8, align 8
-  %135 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %134, i32 0, i32 8
-  store i32 %133, ptr %135, align 4
-  %136 = load ptr, ptr %8, align 8
-  %137 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %136, i32 0, i32 8
-  %138 = load i32, ptr %137, align 4
-  %139 = icmp ne i32 %138, 0
-  br i1 %139, label %140, label %141
+101:                                              ; preds = %51
+  %102 = load ptr, ptr %8, align 8, !tbaa !8
+  %103 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %102, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8, !tbaa !25
+  %105 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %104, i32 0, i32 3
+  %106 = load i32, ptr %105, align 4, !tbaa !99
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %105, align 4, !tbaa !99
+  %108 = load ptr, ptr %8, align 8, !tbaa !8
+  %109 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %108, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8, !tbaa !25
+  %111 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8, !tbaa !61
+  %113 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %112, i32 0, i32 0
+  %114 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %113, i32 0, i32 2
+  %115 = load i32, ptr %114, align 4, !tbaa !86
+  %116 = icmp uge i32 %106, %115
+  br i1 %116, label %117, label %127
 
-140:                                              ; preds = %126
+117:                                              ; preds = %101
+  %118 = load ptr, ptr %8, align 8, !tbaa !8
+  %119 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %118, i32 0, i32 6
+  %120 = load i32, ptr %119, align 4, !tbaa !30
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %125, label %122
+
+122:                                              ; preds = %117
+  %123 = load ptr, ptr %8, align 8, !tbaa !8
+  %124 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %123, i32 0, i32 8
+  store i32 8, ptr %124, align 4, !tbaa !103
+  br label %126
+
+125:                                              ; preds = %117
+  br label %126
+
+126:                                              ; preds = %125, %122
+  br label %202
+
+127:                                              ; preds = %101
+  %128 = load ptr, ptr %10, align 8, !tbaa !3
+  %129 = load ptr, ptr %8, align 8, !tbaa !8
+  %130 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %129, i32 0, i32 1
+  %131 = load ptr, ptr %130, align 8, !tbaa !25
+  %132 = load i32, ptr %14, align 4, !tbaa !48
+  %133 = load i32, ptr %15, align 4, !tbaa !48
+  %134 = call i32 @cabd_sys_read_block(ptr noundef %128, ptr noundef %131, ptr noundef %13, i32 noundef %132, i32 noundef %133)
+  %135 = load ptr, ptr %8, align 8, !tbaa !8
+  %136 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %135, i32 0, i32 8
+  store i32 %134, ptr %136, align 4, !tbaa !103
+  %137 = load ptr, ptr %8, align 8, !tbaa !8
+  %138 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %137, i32 0, i32 8
+  %139 = load i32, ptr %138, align 4, !tbaa !103
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %142
+
+141:                                              ; preds = %127
   store i32 -1, ptr %4, align 4
-  br label %205
+  store i32 1, ptr %16, align 4
+  br label %206
 
-141:                                              ; preds = %126
-  %142 = load i32, ptr %13, align 4
-  %143 = sext i32 %142 to i64
-  %144 = load ptr, ptr %8, align 8
-  %145 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %144, i32 0, i32 1
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %146, i32 0, i32 4
-  %148 = load i64, ptr %147, align 8
-  %149 = add nsw i64 %148, %143
-  store i64 %149, ptr %147, align 8
-  %150 = load ptr, ptr %8, align 8
-  %151 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %150, i32 0, i32 1
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %152, i32 0, i32 6
-  %154 = load i32, ptr %153, align 8
-  %155 = and i32 %154, 15
-  %156 = icmp eq i32 %155, 2
-  br i1 %156, label %157, label %164
+142:                                              ; preds = %127
+  %143 = load i32, ptr %13, align 4, !tbaa !48
+  %144 = sext i32 %143 to i64
+  %145 = load ptr, ptr %8, align 8, !tbaa !8
+  %146 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %145, i32 0, i32 1
+  %147 = load ptr, ptr %146, align 8, !tbaa !25
+  %148 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %147, i32 0, i32 4
+  %149 = load i64, ptr %148, align 8, !tbaa !100
+  %150 = add nsw i64 %149, %144
+  store i64 %150, ptr %148, align 8, !tbaa !100
+  %151 = load ptr, ptr %8, align 8, !tbaa !8
+  %152 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %151, i32 0, i32 1
+  %153 = load ptr, ptr %152, align 8, !tbaa !25
+  %154 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %153, i32 0, i32 6
+  %155 = load i32, ptr %154, align 8, !tbaa !106
+  %156 = and i32 %155, 15
+  %157 = icmp eq i32 %156, 2
+  br i1 %157, label %158, label %165
 
-157:                                              ; preds = %141
-  %158 = load ptr, ptr %8, align 8
-  %159 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %158, i32 0, i32 1
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %160, i32 0, i32 13
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i32 1
-  store ptr %163, ptr %161, align 8
-  store i8 -1, ptr %162, align 1
-  br label %164
+158:                                              ; preds = %142
+  %159 = load ptr, ptr %8, align 8, !tbaa !8
+  %160 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %159, i32 0, i32 1
+  %161 = load ptr, ptr %160, align 8, !tbaa !25
+  %162 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %161, i32 0, i32 13
+  %163 = load ptr, ptr %162, align 8, !tbaa !101
+  %164 = getelementptr inbounds nuw i8, ptr %163, i32 1
+  store ptr %164, ptr %162, align 8, !tbaa !101
+  store i8 -1, ptr %163, align 1, !tbaa !117
+  br label %165
 
-164:                                              ; preds = %157, %141
-  %165 = load ptr, ptr %8, align 8
-  %166 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %165, i32 0, i32 1
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %167, i32 0, i32 3
-  %169 = load i32, ptr %168, align 4
-  %170 = load ptr, ptr %8, align 8
-  %171 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %170, i32 0, i32 1
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %172, i32 0, i32 0
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds %struct.mscabd_folder_p, ptr %174, i32 0, i32 0
-  %176 = getelementptr inbounds %struct.mscabd_folder, ptr %175, i32 0, i32 2
-  %177 = load i32, ptr %176, align 4
-  %178 = icmp uge i32 %169, %177
-  br i1 %178, label %179, label %199
+165:                                              ; preds = %158, %142
+  %166 = load ptr, ptr %8, align 8, !tbaa !8
+  %167 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %166, i32 0, i32 1
+  %168 = load ptr, ptr %167, align 8, !tbaa !25
+  %169 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %168, i32 0, i32 3
+  %170 = load i32, ptr %169, align 4, !tbaa !99
+  %171 = load ptr, ptr %8, align 8, !tbaa !8
+  %172 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %171, i32 0, i32 1
+  %173 = load ptr, ptr %172, align 8, !tbaa !25
+  %174 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %173, i32 0, i32 0
+  %175 = load ptr, ptr %174, align 8, !tbaa !61
+  %176 = getelementptr inbounds nuw %struct.mscabd_folder_p, ptr %175, i32 0, i32 0
+  %177 = getelementptr inbounds nuw %struct.mscabd_folder, ptr %176, i32 0, i32 2
+  %178 = load i32, ptr %177, align 4, !tbaa !86
+  %179 = icmp uge i32 %170, %178
+  br i1 %179, label %180, label %200
 
-179:                                              ; preds = %164
-  %180 = load ptr, ptr %8, align 8
-  %181 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %180, i32 0, i32 1
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %182, i32 0, i32 6
-  %184 = load i32, ptr %183, align 8
-  %185 = and i32 %184, 15
-  %186 = icmp eq i32 %185, 3
-  br i1 %186, label %187, label %198
+180:                                              ; preds = %165
+  %181 = load ptr, ptr %8, align 8, !tbaa !8
+  %182 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %181, i32 0, i32 1
+  %183 = load ptr, ptr %182, align 8, !tbaa !25
+  %184 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %183, i32 0, i32 6
+  %185 = load i32, ptr %184, align 8, !tbaa !106
+  %186 = and i32 %185, 15
+  %187 = icmp eq i32 %186, 3
+  br i1 %187, label %188, label %199
 
-187:                                              ; preds = %179
-  %188 = load ptr, ptr %8, align 8
-  %189 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %188, i32 0, i32 1
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %190, i32 0, i32 8
-  %192 = load ptr, ptr %191, align 8
-  %193 = load ptr, ptr %8, align 8
-  %194 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %193, i32 0, i32 1
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %195, i32 0, i32 4
-  %197 = load i64, ptr %196, align 8
-  call void @lzxd_set_output_length(ptr noundef %192, i64 noundef %197)
-  br label %198
-
-198:                                              ; preds = %187, %179
+188:                                              ; preds = %180
+  %189 = load ptr, ptr %8, align 8, !tbaa !8
+  %190 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %189, i32 0, i32 1
+  %191 = load ptr, ptr %190, align 8, !tbaa !25
+  %192 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %191, i32 0, i32 8
+  %193 = load ptr, ptr %192, align 8, !tbaa !92
+  %194 = load ptr, ptr %8, align 8, !tbaa !8
+  %195 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %194, i32 0, i32 1
+  %196 = load ptr, ptr %195, align 8, !tbaa !25
+  %197 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %196, i32 0, i32 4
+  %198 = load i64, ptr %197, align 8, !tbaa !100
+  call void @lzxd_set_output_length(ptr noundef %193, i64 noundef %198)
   br label %199
 
-199:                                              ; preds = %198, %164
+199:                                              ; preds = %188, %180
   br label %200
 
-200:                                              ; preds = %199, %73
-  br label %47
+200:                                              ; preds = %199, %165
+  br label %201
 
-201:                                              ; preds = %125, %47
-  %202 = load i32, ptr %7, align 4
-  %203 = load i32, ptr %12, align 4
-  %204 = sub nsw i32 %202, %203
-  store i32 %204, ptr %4, align 4
-  br label %205
+201:                                              ; preds = %200, %74
+  br label %48
 
-205:                                              ; preds = %201, %140
-  %206 = load i32, ptr %4, align 4
-  ret i32 %206
+202:                                              ; preds = %126, %48
+  %203 = load i32, ptr %7, align 4, !tbaa !48
+  %204 = load i32, ptr %12, align 4, !tbaa !48
+  %205 = sub nsw i32 %203, %204
+  store i32 %205, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %206
+
+206:                                              ; preds = %202, %141
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %207 = load i32, ptr %4, align 4
+  ret i32 %207
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4583,52 +4874,57 @@ define internal i32 @cabd_sys_write(ptr noundef %0, ptr noundef %1, i32 noundef 
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = load i32, ptr %7, align 4
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %13, i32 0, i32 2
-  %15 = load i32, ptr %14, align 8
-  %16 = add i32 %15, %10
-  store i32 %16, ptr %14, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %19, i32 0, i32 11
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %37
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store ptr %1, ptr %6, align 8, !tbaa !89
+  store i32 %2, ptr %7, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load ptr, ptr %5, align 8, !tbaa !38
+  store ptr %10, ptr %8, align 8, !tbaa !8
+  %11 = load i32, ptr %7, align 4, !tbaa !48
+  %12 = load ptr, ptr %8, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %14, i32 0, i32 2
+  %16 = load i32, ptr %15, align 8, !tbaa !94
+  %17 = add i32 %16, %11
+  store i32 %17, ptr %15, align 8, !tbaa !94
+  %18 = load ptr, ptr %8, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %21 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %20, i32 0, i32 11
+  %22 = load ptr, ptr %21, align 8, !tbaa !104
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %38
 
-23:                                               ; preds = %3
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %24, i32 0, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.mspack_system, ptr %26, i32 0, i32 3
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %29, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %31, i32 0, i32 11
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i32, ptr %7, align 4
-  %36 = call i32 %28(ptr noundef %33, ptr noundef %34, i32 noundef %35)
-  store i32 %36, ptr %4, align 4
-  br label %39
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %25, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !24
+  %28 = getelementptr inbounds nuw %struct.mspack_system, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8, !tbaa !144
+  %30 = load ptr, ptr %8, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !25
+  %33 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %32, i32 0, i32 11
+  %34 = load ptr, ptr %33, align 8, !tbaa !104
+  %35 = load ptr, ptr %6, align 8, !tbaa !89
+  %36 = load i32, ptr %7, align 4, !tbaa !48
+  %37 = call i32 %29(ptr noundef %34, ptr noundef %35, i32 noundef %36)
+  store i32 %37, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %40
 
-37:                                               ; preds = %3
-  %38 = load i32, ptr %7, align 4
-  store i32 %38, ptr %4, align 4
-  br label %39
+38:                                               ; preds = %3
+  %39 = load i32, ptr %7, align 4, !tbaa !48
+  store i32 %39, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %40
 
-39:                                               ; preds = %37, %23
-  %40 = load i32, ptr %4, align 4
-  ret i32 %40
+40:                                               ; preds = %38, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %41 = load i32, ptr %4, align 4
+  ret i32 %41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4637,150 +4933,155 @@ define internal i32 @cabd_init_decomp(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %11, i32 0, i32 6
-  store i32 %8, ptr %12, align 8
-  %13 = load i32, ptr %5, align 4
-  %14 = and i32 %13, 15
-  switch i32 %14, label %100 [
-    i32 0, label %15
-    i32 1, label %34
-    i32 2, label %56
-    i32 3, label %78
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %8, ptr %6, align 8, !tbaa !38
+  %9 = load i32, ptr %5, align 4, !tbaa !48
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %13 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %12, i32 0, i32 6
+  store i32 %9, ptr %13, align 8, !tbaa !106
+  %14 = load i32, ptr %5, align 4, !tbaa !48
+  %15 = and i32 %14, 15
+  switch i32 %15, label %101 [
+    i32 0, label %16
+    i32 1, label %35
+    i32 2, label %57
+    i32 3, label %79
   ]
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %18, i32 0, i32 7
-  store ptr @noned_decompress, ptr %19, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %22, i32 0, i32 5
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %26, i32 0, i32 3
-  %28 = load i32, ptr %27, align 8
-  %29 = call ptr @noned_init(ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %28)
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %32, i32 0, i32 8
-  store ptr %29, ptr %33, align 8
-  br label %103
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %19, i32 0, i32 7
+  store ptr @noned_decompress, ptr %20, align 8, !tbaa !105
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !25
+  %24 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %23, i32 0, i32 5
+  %25 = load ptr, ptr %6, align 8, !tbaa !38
+  %26 = load ptr, ptr %6, align 8, !tbaa !38
+  %27 = load ptr, ptr %4, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %27, i32 0, i32 3
+  %29 = load i32, ptr %28, align 8, !tbaa !29
+  %30 = call ptr @noned_init(ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %29)
+  %31 = load ptr, ptr %4, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !25
+  %34 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %33, i32 0, i32 8
+  store ptr %30, ptr %34, align 8, !tbaa !92
+  br label %104
 
-34:                                               ; preds = %2
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %37, i32 0, i32 7
-  store ptr @mszipd_decompress, ptr %38, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %39, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %41, i32 0, i32 5
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %6, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %45, i32 0, i32 3
-  %47 = load i32, ptr %46, align 8
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %48, i32 0, i32 5
-  %50 = load i32, ptr %49, align 8
-  %51 = call ptr @mszipd_init(ptr noundef %42, ptr noundef %43, ptr noundef %44, i32 noundef %47, i32 noundef %50)
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %52, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %54, i32 0, i32 8
-  store ptr %51, ptr %55, align 8
-  br label %103
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %4, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !25
+  %39 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %38, i32 0, i32 7
+  store ptr @mszipd_decompress, ptr %39, align 8, !tbaa !105
+  %40 = load ptr, ptr %4, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %43 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %42, i32 0, i32 5
+  %44 = load ptr, ptr %6, align 8, !tbaa !38
+  %45 = load ptr, ptr %6, align 8, !tbaa !38
+  %46 = load ptr, ptr %4, align 8, !tbaa !8
+  %47 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %46, i32 0, i32 3
+  %48 = load i32, ptr %47, align 8, !tbaa !29
+  %49 = load ptr, ptr %4, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %49, i32 0, i32 5
+  %51 = load i32, ptr %50, align 8, !tbaa !28
+  %52 = call ptr @mszipd_init(ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %48, i32 noundef %51)
+  %53 = load ptr, ptr %4, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8, !tbaa !25
+  %56 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %55, i32 0, i32 8
+  store ptr %52, ptr %56, align 8, !tbaa !92
+  br label %104
 
-56:                                               ; preds = %2
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %57, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %59, i32 0, i32 7
-  store ptr @qtmd_decompress, ptr %60, align 8
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %61, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %63, i32 0, i32 5
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = load i32, ptr %5, align 4
-  %68 = lshr i32 %67, 8
-  %69 = and i32 %68, 31
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %70, i32 0, i32 3
-  %72 = load i32, ptr %71, align 8
-  %73 = call ptr @qtmd_init(ptr noundef %64, ptr noundef %65, ptr noundef %66, i32 noundef %69, i32 noundef %72)
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %74, i32 0, i32 1
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %76, i32 0, i32 8
-  store ptr %73, ptr %77, align 8
-  br label %103
+57:                                               ; preds = %2
+  %58 = load ptr, ptr %4, align 8, !tbaa !8
+  %59 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !25
+  %61 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %60, i32 0, i32 7
+  store ptr @qtmd_decompress, ptr %61, align 8, !tbaa !105
+  %62 = load ptr, ptr %4, align 8, !tbaa !8
+  %63 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8, !tbaa !25
+  %65 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %64, i32 0, i32 5
+  %66 = load ptr, ptr %6, align 8, !tbaa !38
+  %67 = load ptr, ptr %6, align 8, !tbaa !38
+  %68 = load i32, ptr %5, align 4, !tbaa !48
+  %69 = lshr i32 %68, 8
+  %70 = and i32 %69, 31
+  %71 = load ptr, ptr %4, align 8, !tbaa !8
+  %72 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %71, i32 0, i32 3
+  %73 = load i32, ptr %72, align 8, !tbaa !29
+  %74 = call ptr @qtmd_init(ptr noundef %65, ptr noundef %66, ptr noundef %67, i32 noundef %70, i32 noundef %73)
+  %75 = load ptr, ptr %4, align 8, !tbaa !8
+  %76 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !25
+  %78 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %77, i32 0, i32 8
+  store ptr %74, ptr %78, align 8, !tbaa !92
+  br label %104
 
-78:                                               ; preds = %2
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %79, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %81, i32 0, i32 7
-  store ptr @lzxd_decompress, ptr %82, align 8
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %83, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %85, i32 0, i32 5
-  %87 = load ptr, ptr %6, align 8
-  %88 = load ptr, ptr %6, align 8
-  %89 = load i32, ptr %5, align 4
-  %90 = lshr i32 %89, 8
-  %91 = and i32 %90, 31
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %92, i32 0, i32 3
-  %94 = load i32, ptr %93, align 8
-  %95 = call ptr @lzxd_init(ptr noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %91, i32 noundef 0, i32 noundef %94, i64 noundef 0, i8 noundef signext 0)
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %96, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %98, i32 0, i32 8
-  store ptr %95, ptr %99, align 8
-  br label %103
+79:                                               ; preds = %2
+  %80 = load ptr, ptr %4, align 8, !tbaa !8
+  %81 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8, !tbaa !25
+  %83 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %82, i32 0, i32 7
+  store ptr @lzxd_decompress, ptr %83, align 8, !tbaa !105
+  %84 = load ptr, ptr %4, align 8, !tbaa !8
+  %85 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8, !tbaa !25
+  %87 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %86, i32 0, i32 5
+  %88 = load ptr, ptr %6, align 8, !tbaa !38
+  %89 = load ptr, ptr %6, align 8, !tbaa !38
+  %90 = load i32, ptr %5, align 4, !tbaa !48
+  %91 = lshr i32 %90, 8
+  %92 = and i32 %91, 31
+  %93 = load ptr, ptr %4, align 8, !tbaa !8
+  %94 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %93, i32 0, i32 3
+  %95 = load i32, ptr %94, align 8, !tbaa !29
+  %96 = call ptr @lzxd_init(ptr noundef %87, ptr noundef %88, ptr noundef %89, i32 noundef %92, i32 noundef 0, i32 noundef %95, i64 noundef 0, i8 noundef signext 0)
+  %97 = load ptr, ptr %4, align 8, !tbaa !8
+  %98 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8, !tbaa !25
+  %100 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %99, i32 0, i32 8
+  store ptr %96, ptr %100, align 8, !tbaa !92
+  br label %104
 
-100:                                              ; preds = %2
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %101, i32 0, i32 7
-  store i32 8, ptr %102, align 8
+101:                                              ; preds = %2
+  %102 = load ptr, ptr %4, align 8, !tbaa !8
+  %103 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %102, i32 0, i32 7
+  store i32 8, ptr %103, align 8, !tbaa !26
   store i32 8, ptr %3, align 4
-  br label %113
+  store i32 1, ptr %7, align 4
+  br label %114
 
-103:                                              ; preds = %78, %56, %34, %15
-  %104 = load ptr, ptr %4, align 8
-  %105 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %104, i32 0, i32 1
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %106, i32 0, i32 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp ne ptr %108, null
-  %110 = select i1 %109, i32 0, i32 6
-  %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds %struct.mscab_decompressor_p, ptr %111, i32 0, i32 7
-  store i32 %110, ptr %112, align 8
-  store i32 %110, ptr %3, align 4
-  br label %113
+104:                                              ; preds = %79, %57, %35, %16
+  %105 = load ptr, ptr %4, align 8, !tbaa !8
+  %106 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %105, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8, !tbaa !25
+  %108 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %107, i32 0, i32 8
+  %109 = load ptr, ptr %108, align 8, !tbaa !92
+  %110 = icmp ne ptr %109, null
+  %111 = select i1 %110, i32 0, i32 6
+  %112 = load ptr, ptr %4, align 8, !tbaa !8
+  %113 = getelementptr inbounds nuw %struct.mscab_decompressor_p, ptr %112, i32 0, i32 7
+  store i32 %111, ptr %113, align 8, !tbaa !26
+  store i32 %111, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %114
 
-113:                                              ; preds = %103, %100
-  %114 = load i32, ptr %3, align 4
-  ret i32 %114
+114:                                              ; preds = %104, %101
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %115 = load i32, ptr %3, align 4
+  ret i32 %115
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4796,354 +5097,386 @@ define internal i32 @cabd_sys_read_block(ptr noundef %0, ptr noundef %1, ptr nou
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store i32 %3, ptr %10, align 4
-  store i32 %4, ptr %11, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %17, i32 0, i32 14
-  %19 = getelementptr inbounds [65536 x i8], ptr %18, i64 0, i64 0
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %20, i32 0, i32 13
-  store ptr %19, ptr %21, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %22, i32 0, i32 12
-  store ptr %19, ptr %23, align 8
-  br label %24
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !145
+  store ptr %2, ptr %9, align 8, !tbaa !133
+  store i32 %3, ptr %10, align 4, !tbaa !48
+  store i32 %4, ptr %11, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  %18 = load ptr, ptr %8, align 8, !tbaa !145
+  %19 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %18, i32 0, i32 14
+  %20 = getelementptr inbounds [65536 x i8], ptr %19, i64 0, i64 0
+  %21 = load ptr, ptr %8, align 8, !tbaa !145
+  %22 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %21, i32 0, i32 13
+  store ptr %20, ptr %22, align 8, !tbaa !101
+  %23 = load ptr, ptr %8, align 8, !tbaa !145
+  %24 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %23, i32 0, i32 12
+  store ptr %20, ptr %24, align 8, !tbaa !102
+  br label %25
 
-24:                                               ; preds = %258, %5
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.mspack_system, ptr %25, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %28, i32 0, i32 10
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
-  %32 = call i32 %27(ptr noundef %30, ptr noundef %31, i32 noundef 8)
-  %33 = icmp ne i32 %32, 8
-  br i1 %33, label %34, label %35
+25:                                               ; preds = %262, %5
+  %26 = load ptr, ptr %7, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.mspack_system, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !116
+  %29 = load ptr, ptr %8, align 8, !tbaa !145
+  %30 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %29, i32 0, i32 10
+  %31 = load ptr, ptr %30, align 8, !tbaa !65
+  %32 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
+  %33 = call i32 %28(ptr noundef %31, ptr noundef %32, i32 noundef 8)
+  %34 = icmp ne i32 %33, 8
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %24
+35:                                               ; preds = %25
   store i32 3, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-35:                                               ; preds = %24
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.mscabd_folder_data, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %40, i32 0, i32 2
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %62
+36:                                               ; preds = %25
+  %37 = load ptr, ptr %8, align 8, !tbaa !145
+  %38 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !87
+  %40 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !146
+  %42 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 8, !tbaa !123
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %63
 
-44:                                               ; preds = %35
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct.mspack_system, ptr %45, i32 0, i32 4
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %48, i32 0, i32 10
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.mscabd_folder_data, ptr %53, i32 0, i32 1
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %55, i32 0, i32 2
-  %57 = load i32, ptr %56, align 8
-  %58 = sext i32 %57 to i64
-  %59 = call i32 %47(ptr noundef %50, i64 noundef %58, i32 noundef 1)
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %62
+45:                                               ; preds = %36
+  %46 = load ptr, ptr %7, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.mspack_system, ptr %46, i32 0, i32 4
+  %48 = load ptr, ptr %47, align 8, !tbaa !96
+  %49 = load ptr, ptr %8, align 8, !tbaa !145
+  %50 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %49, i32 0, i32 10
+  %51 = load ptr, ptr %50, align 8, !tbaa !65
+  %52 = load ptr, ptr %8, align 8, !tbaa !145
+  %53 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !87
+  %55 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !146
+  %57 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %56, i32 0, i32 2
+  %58 = load i32, ptr %57, align 8, !tbaa !123
+  %59 = sext i32 %58 to i64
+  %60 = call i32 %48(ptr noundef %51, i64 noundef %59, i32 noundef 1)
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %63
 
-61:                                               ; preds = %44
+62:                                               ; preds = %45
   store i32 5, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-62:                                               ; preds = %44, %35
-  %63 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 4
-  %64 = getelementptr inbounds i8, ptr %63, i64 1
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = shl i32 %66, 8
-  %68 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 4
-  %69 = getelementptr inbounds i8, ptr %68, i64 0
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  %72 = or i32 %67, %71
-  store i32 %72, ptr %14, align 4
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %73, i32 0, i32 13
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %76, i32 0, i32 12
-  %78 = load ptr, ptr %77, align 8
-  %79 = ptrtoint ptr %75 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = load i32, ptr %14, align 4
-  %83 = sext i32 %82 to i64
-  %84 = add nsw i64 %81, %83
-  %85 = trunc i64 %84 to i32
-  store i32 %85, ptr %15, align 4
-  %86 = load i32, ptr %15, align 4
-  %87 = icmp sgt i32 %86, 38912
-  br i1 %87, label %88, label %96
+63:                                               ; preds = %45, %36
+  %64 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 4
+  %65 = getelementptr inbounds i8, ptr %64, i64 1
+  %66 = load i8, ptr %65, align 1, !tbaa !117
+  %67 = zext i8 %66 to i32
+  %68 = shl i32 %67, 8
+  %69 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 4
+  %70 = getelementptr inbounds i8, ptr %69, i64 0
+  %71 = load i8, ptr %70, align 1, !tbaa !117
+  %72 = zext i8 %71 to i32
+  %73 = or i32 %68, %72
+  store i32 %73, ptr %14, align 4, !tbaa !48
+  %74 = load ptr, ptr %8, align 8, !tbaa !145
+  %75 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %74, i32 0, i32 13
+  %76 = load ptr, ptr %75, align 8, !tbaa !101
+  %77 = load ptr, ptr %8, align 8, !tbaa !145
+  %78 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %77, i32 0, i32 12
+  %79 = load ptr, ptr %78, align 8, !tbaa !102
+  %80 = ptrtoint ptr %76 to i64
+  %81 = ptrtoint ptr %79 to i64
+  %82 = sub i64 %80, %81
+  %83 = load i32, ptr %14, align 4, !tbaa !48
+  %84 = sext i32 %83 to i64
+  %85 = add nsw i64 %82, %84
+  %86 = trunc i64 %85 to i32
+  store i32 %86, ptr %15, align 4, !tbaa !48
+  %87 = load i32, ptr %15, align 4, !tbaa !48
+  %88 = icmp sgt i32 %87, 38912
+  br i1 %88, label %89, label %97
 
-88:                                               ; preds = %62
-  %89 = load i32, ptr %11, align 4
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %94
+89:                                               ; preds = %63
+  %90 = load i32, ptr %11, align 4, !tbaa !48
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %95
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr %15, align 4
-  %93 = icmp sgt i32 %92, 65535
-  br i1 %93, label %94, label %95
+92:                                               ; preds = %89
+  %93 = load i32, ptr %15, align 4, !tbaa !48
+  %94 = icmp sgt i32 %93, 65535
+  br i1 %94, label %95, label %96
 
-94:                                               ; preds = %91, %88
+95:                                               ; preds = %92, %89
   store i32 8, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-95:                                               ; preds = %91
-  br label %96
+96:                                               ; preds = %92
+  br label %97
 
-96:                                               ; preds = %95, %62
-  %97 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 6
-  %98 = getelementptr inbounds i8, ptr %97, i64 1
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i32
-  %101 = shl i32 %100, 8
-  %102 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 6
-  %103 = getelementptr inbounds i8, ptr %102, i64 0
-  %104 = load i8, ptr %103, align 1
-  %105 = zext i8 %104 to i32
-  %106 = or i32 %101, %105
-  %107 = icmp sgt i32 %106, 32768
-  br i1 %107, label %108, label %113
+97:                                               ; preds = %96, %63
+  %98 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 6
+  %99 = getelementptr inbounds i8, ptr %98, i64 1
+  %100 = load i8, ptr %99, align 1, !tbaa !117
+  %101 = zext i8 %100 to i32
+  %102 = shl i32 %101, 8
+  %103 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 6
+  %104 = getelementptr inbounds i8, ptr %103, i64 0
+  %105 = load i8, ptr %104, align 1, !tbaa !117
+  %106 = zext i8 %105 to i32
+  %107 = or i32 %102, %106
+  %108 = icmp sgt i32 %107, 32768
+  br i1 %108, label %109, label %114
 
-108:                                              ; preds = %96
-  %109 = load i32, ptr %11, align 4
-  %110 = icmp ne i32 %109, 0
-  br i1 %110, label %112, label %111
+109:                                              ; preds = %97
+  %110 = load i32, ptr %11, align 4, !tbaa !48
+  %111 = icmp ne i32 %110, 0
+  br i1 %111, label %113, label %112
 
-111:                                              ; preds = %108
+112:                                              ; preds = %109
   store i32 8, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-112:                                              ; preds = %108
-  br label %113
+113:                                              ; preds = %109
+  br label %114
 
-113:                                              ; preds = %112, %96
-  %114 = load ptr, ptr %7, align 8
-  %115 = getelementptr inbounds %struct.mspack_system, ptr %114, i32 0, i32 2
-  %116 = load ptr, ptr %115, align 8
-  %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %117, i32 0, i32 10
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %8, align 8
-  %121 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %120, i32 0, i32 13
-  %122 = load ptr, ptr %121, align 8
-  %123 = load i32, ptr %14, align 4
-  %124 = call i32 %116(ptr noundef %119, ptr noundef %122, i32 noundef %123)
-  %125 = load i32, ptr %14, align 4
-  %126 = icmp ne i32 %124, %125
-  br i1 %126, label %127, label %128
+114:                                              ; preds = %113, %97
+  %115 = load ptr, ptr %7, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw %struct.mspack_system, ptr %115, i32 0, i32 2
+  %117 = load ptr, ptr %116, align 8, !tbaa !116
+  %118 = load ptr, ptr %8, align 8, !tbaa !145
+  %119 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %118, i32 0, i32 10
+  %120 = load ptr, ptr %119, align 8, !tbaa !65
+  %121 = load ptr, ptr %8, align 8, !tbaa !145
+  %122 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %121, i32 0, i32 13
+  %123 = load ptr, ptr %122, align 8, !tbaa !101
+  %124 = load i32, ptr %14, align 4, !tbaa !48
+  %125 = call i32 %117(ptr noundef %120, ptr noundef %123, i32 noundef %124)
+  %126 = load i32, ptr %14, align 4, !tbaa !48
+  %127 = icmp ne i32 %125, %126
+  br i1 %127, label %128, label %129
 
-127:                                              ; preds = %113
+128:                                              ; preds = %114
   store i32 3, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-128:                                              ; preds = %113
-  %129 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
-  %130 = getelementptr inbounds i8, ptr %129, i64 3
-  %131 = load i8, ptr %130, align 1
-  %132 = zext i8 %131 to i32
-  %133 = shl i32 %132, 24
-  %134 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
-  %135 = getelementptr inbounds i8, ptr %134, i64 2
-  %136 = load i8, ptr %135, align 1
-  %137 = zext i8 %136 to i32
-  %138 = shl i32 %137, 16
-  %139 = or i32 %133, %138
-  %140 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
-  %141 = getelementptr inbounds i8, ptr %140, i64 1
-  %142 = load i8, ptr %141, align 1
-  %143 = zext i8 %142 to i32
-  %144 = shl i32 %143, 8
-  %145 = or i32 %139, %144
-  %146 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
-  %147 = getelementptr inbounds i8, ptr %146, i64 0
-  %148 = load i8, ptr %147, align 1
-  %149 = zext i8 %148 to i32
-  %150 = or i32 %145, %149
-  store i32 %150, ptr %13, align 4
-  %151 = icmp ne i32 %150, 0
-  br i1 %151, label %152, label %175
+129:                                              ; preds = %114
+  %130 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
+  %131 = getelementptr inbounds i8, ptr %130, i64 3
+  %132 = load i8, ptr %131, align 1, !tbaa !117
+  %133 = zext i8 %132 to i32
+  %134 = shl i32 %133, 24
+  %135 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
+  %136 = getelementptr inbounds i8, ptr %135, i64 2
+  %137 = load i8, ptr %136, align 1, !tbaa !117
+  %138 = zext i8 %137 to i32
+  %139 = shl i32 %138, 16
+  %140 = or i32 %134, %139
+  %141 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
+  %142 = getelementptr inbounds i8, ptr %141, i64 1
+  %143 = load i8, ptr %142, align 1, !tbaa !117
+  %144 = zext i8 %143 to i32
+  %145 = shl i32 %144, 8
+  %146 = or i32 %140, %145
+  %147 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 0
+  %148 = getelementptr inbounds i8, ptr %147, i64 0
+  %149 = load i8, ptr %148, align 1, !tbaa !117
+  %150 = zext i8 %149 to i32
+  %151 = or i32 %146, %150
+  store i32 %151, ptr %13, align 4, !tbaa !48
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %153, label %179
 
-152:                                              ; preds = %128
-  %153 = load ptr, ptr %8, align 8
-  %154 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %153, i32 0, i32 13
-  %155 = load ptr, ptr %154, align 8
-  %156 = load i32, ptr %14, align 4
-  %157 = call i32 @cabd_checksum(ptr noundef %155, i32 noundef %156, i32 noundef 0)
-  store i32 %157, ptr %16, align 4
-  %158 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 4
-  %159 = load i32, ptr %16, align 4
-  %160 = call i32 @cabd_checksum(ptr noundef %158, i32 noundef 4, i32 noundef %159)
-  %161 = load i32, ptr %13, align 4
-  %162 = icmp ne i32 %160, %161
-  br i1 %162, label %163, label %174
+153:                                              ; preds = %129
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  %154 = load ptr, ptr %8, align 8, !tbaa !145
+  %155 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %154, i32 0, i32 13
+  %156 = load ptr, ptr %155, align 8, !tbaa !101
+  %157 = load i32, ptr %14, align 4, !tbaa !48
+  %158 = call i32 @cabd_checksum(ptr noundef %156, i32 noundef %157, i32 noundef 0)
+  store i32 %158, ptr %17, align 4, !tbaa !48
+  %159 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 4
+  %160 = load i32, ptr %17, align 4, !tbaa !48
+  %161 = call i32 @cabd_checksum(ptr noundef %159, i32 noundef 4, i32 noundef %160)
+  %162 = load i32, ptr %13, align 4, !tbaa !48
+  %163 = icmp ne i32 %161, %162
+  br i1 %163, label %164, label %175
 
-163:                                              ; preds = %152
-  %164 = load i32, ptr %10, align 4
-  %165 = icmp ne i32 %164, 0
-  br i1 %165, label %167, label %166
+164:                                              ; preds = %153
+  %165 = load i32, ptr %10, align 4, !tbaa !48
+  %166 = icmp ne i32 %165, 0
+  br i1 %166, label %168, label %167
 
-166:                                              ; preds = %163
+167:                                              ; preds = %164
   store i32 9, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %176
 
-167:                                              ; preds = %163
-  %168 = load ptr, ptr %7, align 8
-  %169 = getelementptr inbounds %struct.mspack_system, ptr %168, i32 0, i32 6
-  %170 = load ptr, ptr %169, align 8
-  %171 = load ptr, ptr %8, align 8
-  %172 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %171, i32 0, i32 10
-  %173 = load ptr, ptr %172, align 8
-  call void (ptr, ptr, ...) %170(ptr noundef %173, ptr noundef @.str.11)
-  br label %174
-
-174:                                              ; preds = %167, %152
+168:                                              ; preds = %164
+  %169 = load ptr, ptr %7, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.mspack_system, ptr %169, i32 0, i32 6
+  %171 = load ptr, ptr %170, align 8, !tbaa !80
+  %172 = load ptr, ptr %8, align 8, !tbaa !145
+  %173 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %172, i32 0, i32 10
+  %174 = load ptr, ptr %173, align 8, !tbaa !65
+  call void (ptr, ptr, ...) %171(ptr noundef %174, ptr noundef @.str.11)
   br label %175
 
-175:                                              ; preds = %174, %128
-  %176 = load i32, ptr %14, align 4
-  %177 = load ptr, ptr %8, align 8
-  %178 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %177, i32 0, i32 13
-  %179 = load ptr, ptr %178, align 8
-  %180 = sext i32 %176 to i64
-  %181 = getelementptr inbounds i8, ptr %179, i64 %180
-  store ptr %181, ptr %178, align 8
-  %182 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 6
-  %183 = getelementptr inbounds i8, ptr %182, i64 1
-  %184 = load i8, ptr %183, align 1
-  %185 = zext i8 %184 to i32
-  %186 = shl i32 %185, 8
-  %187 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 6
-  %188 = getelementptr inbounds i8, ptr %187, i64 0
-  %189 = load i8, ptr %188, align 1
-  %190 = zext i8 %189 to i32
-  %191 = or i32 %186, %190
-  %192 = load ptr, ptr %9, align 8
-  store i32 %191, ptr %192, align 4
-  %193 = icmp ne i32 %191, 0
-  br i1 %193, label %194, label %195
+175:                                              ; preds = %168, %153
+  store i32 0, ptr %16, align 4
+  br label %176
 
-194:                                              ; preds = %175
+176:                                              ; preds = %175, %167
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  %177 = load i32, ptr %16, align 4
+  switch i32 %177, label %264 [
+    i32 0, label %178
+  ]
+
+178:                                              ; preds = %176
+  br label %179
+
+179:                                              ; preds = %178, %129
+  %180 = load i32, ptr %14, align 4, !tbaa !48
+  %181 = load ptr, ptr %8, align 8, !tbaa !145
+  %182 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %181, i32 0, i32 13
+  %183 = load ptr, ptr %182, align 8, !tbaa !101
+  %184 = sext i32 %180 to i64
+  %185 = getelementptr inbounds i8, ptr %183, i64 %184
+  store ptr %185, ptr %182, align 8, !tbaa !101
+  %186 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 6
+  %187 = getelementptr inbounds i8, ptr %186, i64 1
+  %188 = load i8, ptr %187, align 1, !tbaa !117
+  %189 = zext i8 %188 to i32
+  %190 = shl i32 %189, 8
+  %191 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 6
+  %192 = getelementptr inbounds i8, ptr %191, i64 0
+  %193 = load i8, ptr %192, align 1, !tbaa !117
+  %194 = zext i8 %193 to i32
+  %195 = or i32 %190, %194
+  %196 = load ptr, ptr %9, align 8, !tbaa !133
+  store i32 %195, ptr %196, align 4, !tbaa !48
+  %197 = icmp ne i32 %195, 0
+  br i1 %197, label %198, label %199
+
+198:                                              ; preds = %179
   store i32 0, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-195:                                              ; preds = %175
-  %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds %struct.mspack_system, ptr %196, i32 0, i32 1
-  %198 = load ptr, ptr %197, align 8
-  %199 = load ptr, ptr %8, align 8
-  %200 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %199, i32 0, i32 10
-  %201 = load ptr, ptr %200, align 8
-  call void %198(ptr noundef %201)
-  %202 = load ptr, ptr %8, align 8
-  %203 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %202, i32 0, i32 10
-  store ptr null, ptr %203, align 8
-  %204 = load ptr, ptr %8, align 8
-  %205 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %204, i32 0, i32 1
-  %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds %struct.mscabd_folder_data, ptr %206, i32 0, i32 0
-  %208 = load ptr, ptr %207, align 8
-  %209 = load ptr, ptr %8, align 8
-  %210 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %209, i32 0, i32 1
-  store ptr %208, ptr %210, align 8
-  %211 = icmp ne ptr %208, null
-  br i1 %211, label %219, label %212
+199:                                              ; preds = %179
+  %200 = load ptr, ptr %7, align 8, !tbaa !3
+  %201 = getelementptr inbounds nuw %struct.mspack_system, ptr %200, i32 0, i32 1
+  %202 = load ptr, ptr %201, align 8, !tbaa !49
+  %203 = load ptr, ptr %8, align 8, !tbaa !145
+  %204 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %203, i32 0, i32 10
+  %205 = load ptr, ptr %204, align 8, !tbaa !65
+  call void %202(ptr noundef %205)
+  %206 = load ptr, ptr %8, align 8, !tbaa !145
+  %207 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %206, i32 0, i32 10
+  store ptr null, ptr %207, align 8, !tbaa !65
+  %208 = load ptr, ptr %8, align 8, !tbaa !145
+  %209 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %208, i32 0, i32 1
+  %210 = load ptr, ptr %209, align 8, !tbaa !87
+  %211 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %210, i32 0, i32 0
+  %212 = load ptr, ptr %211, align 8, !tbaa !70
+  %213 = load ptr, ptr %8, align 8, !tbaa !145
+  %214 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %213, i32 0, i32 1
+  store ptr %212, ptr %214, align 8, !tbaa !87
+  %215 = icmp ne ptr %212, null
+  br i1 %215, label %223, label %216
 
-212:                                              ; preds = %195
-  %213 = load ptr, ptr %7, align 8
-  %214 = getelementptr inbounds %struct.mspack_system, ptr %213, i32 0, i32 6
-  %215 = load ptr, ptr %214, align 8
-  %216 = load ptr, ptr %8, align 8
-  %217 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %216, i32 0, i32 10
-  %218 = load ptr, ptr %217, align 8
-  call void (ptr, ptr, ...) %215(ptr noundef %218, ptr noundef @.str.12)
+216:                                              ; preds = %199
+  %217 = load ptr, ptr %7, align 8, !tbaa !3
+  %218 = getelementptr inbounds nuw %struct.mspack_system, ptr %217, i32 0, i32 6
+  %219 = load ptr, ptr %218, align 8, !tbaa !80
+  %220 = load ptr, ptr %8, align 8, !tbaa !145
+  %221 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %220, i32 0, i32 10
+  %222 = load ptr, ptr %221, align 8, !tbaa !65
+  call void (ptr, ptr, ...) %219(ptr noundef %222, ptr noundef @.str.12)
   store i32 8, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-219:                                              ; preds = %195
-  %220 = load ptr, ptr %8, align 8
-  %221 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %220, i32 0, i32 1
-  %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds %struct.mscabd_folder_data, ptr %222, i32 0, i32 1
-  %224 = load ptr, ptr %223, align 8
-  %225 = load ptr, ptr %8, align 8
-  %226 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %225, i32 0, i32 9
-  store ptr %224, ptr %226, align 8
-  %227 = load ptr, ptr %7, align 8
-  %228 = getelementptr inbounds %struct.mspack_system, ptr %227, i32 0, i32 0
-  %229 = load ptr, ptr %228, align 8
-  %230 = load ptr, ptr %7, align 8
-  %231 = load ptr, ptr %8, align 8
-  %232 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %231, i32 0, i32 9
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds %struct.mscabd_cabinet_p, ptr %233, i32 0, i32 0
-  %235 = getelementptr inbounds %struct.mscabd_cabinet, ptr %234, i32 0, i32 1
-  %236 = load ptr, ptr %235, align 8
-  %237 = call ptr %229(ptr noundef %230, ptr noundef %236, i32 noundef 0)
-  %238 = load ptr, ptr %8, align 8
-  %239 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %238, i32 0, i32 10
-  store ptr %237, ptr %239, align 8
-  %240 = icmp ne ptr %237, null
-  br i1 %240, label %242, label %241
+223:                                              ; preds = %199
+  %224 = load ptr, ptr %8, align 8, !tbaa !145
+  %225 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %224, i32 0, i32 1
+  %226 = load ptr, ptr %225, align 8, !tbaa !87
+  %227 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %226, i32 0, i32 1
+  %228 = load ptr, ptr %227, align 8, !tbaa !146
+  %229 = load ptr, ptr %8, align 8, !tbaa !145
+  %230 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %229, i32 0, i32 9
+  store ptr %228, ptr %230, align 8, !tbaa !93
+  %231 = load ptr, ptr %7, align 8, !tbaa !3
+  %232 = getelementptr inbounds nuw %struct.mspack_system, ptr %231, i32 0, i32 0
+  %233 = load ptr, ptr %232, align 8, !tbaa !37
+  %234 = load ptr, ptr %7, align 8, !tbaa !3
+  %235 = load ptr, ptr %8, align 8, !tbaa !145
+  %236 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %235, i32 0, i32 9
+  %237 = load ptr, ptr %236, align 8, !tbaa !93
+  %238 = getelementptr inbounds nuw %struct.mscabd_cabinet_p, ptr %237, i32 0, i32 0
+  %239 = getelementptr inbounds nuw %struct.mscabd_cabinet, ptr %238, i32 0, i32 1
+  %240 = load ptr, ptr %239, align 8, !tbaa !40
+  %241 = call ptr %233(ptr noundef %234, ptr noundef %240, i32 noundef 0)
+  %242 = load ptr, ptr %8, align 8, !tbaa !145
+  %243 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %242, i32 0, i32 10
+  store ptr %241, ptr %243, align 8, !tbaa !65
+  %244 = icmp ne ptr %241, null
+  br i1 %244, label %246, label %245
 
-241:                                              ; preds = %219
+245:                                              ; preds = %223
   store i32 2, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-242:                                              ; preds = %219
-  %243 = load ptr, ptr %7, align 8
-  %244 = getelementptr inbounds %struct.mspack_system, ptr %243, i32 0, i32 4
-  %245 = load ptr, ptr %244, align 8
-  %246 = load ptr, ptr %8, align 8
-  %247 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %246, i32 0, i32 10
-  %248 = load ptr, ptr %247, align 8
-  %249 = load ptr, ptr %8, align 8
-  %250 = getelementptr inbounds %struct.mscabd_decompress_state, ptr %249, i32 0, i32 1
-  %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds %struct.mscabd_folder_data, ptr %251, i32 0, i32 2
-  %253 = load i64, ptr %252, align 8
-  %254 = call i32 %245(ptr noundef %248, i64 noundef %253, i32 noundef 0)
-  %255 = icmp ne i32 %254, 0
-  br i1 %255, label %256, label %257
+246:                                              ; preds = %223
+  %247 = load ptr, ptr %7, align 8, !tbaa !3
+  %248 = getelementptr inbounds nuw %struct.mspack_system, ptr %247, i32 0, i32 4
+  %249 = load ptr, ptr %248, align 8, !tbaa !96
+  %250 = load ptr, ptr %8, align 8, !tbaa !145
+  %251 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %250, i32 0, i32 10
+  %252 = load ptr, ptr %251, align 8, !tbaa !65
+  %253 = load ptr, ptr %8, align 8, !tbaa !145
+  %254 = getelementptr inbounds nuw %struct.mscabd_decompress_state, ptr %253, i32 0, i32 1
+  %255 = load ptr, ptr %254, align 8, !tbaa !87
+  %256 = getelementptr inbounds nuw %struct.mscabd_folder_data, ptr %255, i32 0, i32 2
+  %257 = load i64, ptr %256, align 8, !tbaa !147
+  %258 = call i32 %249(ptr noundef %252, i64 noundef %257, i32 noundef 0)
+  %259 = icmp ne i32 %258, 0
+  br i1 %259, label %260, label %261
 
-256:                                              ; preds = %242
+260:                                              ; preds = %246
   store i32 5, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-257:                                              ; preds = %242
-  br label %258
+261:                                              ; preds = %246
+  br label %262
 
-258:                                              ; preds = %257
-  br i1 true, label %24, label %259
+262:                                              ; preds = %261
+  br i1 true, label %25, label %263
 
-259:                                              ; preds = %258
+263:                                              ; preds = %262
   store i32 0, ptr %6, align 4
-  br label %260
+  store i32 1, ptr %16, align 4
+  br label %264
 
-260:                                              ; preds = %259, %256, %241, %212, %194, %166, %127, %111, %94, %61, %34
-  %261 = load i32, ptr %6, align 4
-  ret i32 %261
+264:                                              ; preds = %263, %260, %245, %216, %198, %176, %128, %112, %95, %62, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  %265 = load i32, ptr %6, align 4
+  ret i32 %265
 }
 
-declare void @lzxd_set_output_length(ptr noundef, i64 noundef) #1
+declare void @lzxd_set_output_length(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cabd_checksum(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -5152,58 +5485,60 @@ define internal i32 @cabd_checksum(ptr noundef %0, i32 noundef %1, i32 noundef %
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  store i32 0, ptr %8, align 4
-  %9 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store i32 %1, ptr %5, align 4, !tbaa !48
+  store i32 %2, ptr %6, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 0, ptr %8, align 4, !tbaa !48
+  %9 = load i32, ptr %5, align 4, !tbaa !48
   %10 = lshr i32 %9, 2
-  store i32 %10, ptr %7, align 4
+  store i32 %10, ptr %7, align 4, !tbaa !48
   br label %11
 
 11:                                               ; preds = %40, %3
-  %12 = load i32, ptr %7, align 4
+  %12 = load i32, ptr %7, align 4, !tbaa !48
   %13 = add i32 %12, -1
-  store i32 %13, ptr %7, align 4
+  store i32 %13, ptr %7, align 4, !tbaa !48
   %14 = icmp ne i32 %12, 0
   br i1 %14, label %15, label %43
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %4, align 8, !tbaa !33
   %17 = getelementptr inbounds i8, ptr %16, i64 3
-  %18 = load i8, ptr %17, align 1
+  %18 = load i8, ptr %17, align 1, !tbaa !117
   %19 = zext i8 %18 to i32
   %20 = shl i32 %19, 24
-  %21 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8, !tbaa !33
   %22 = getelementptr inbounds i8, ptr %21, i64 2
-  %23 = load i8, ptr %22, align 1
+  %23 = load i8, ptr %22, align 1, !tbaa !117
   %24 = zext i8 %23 to i32
   %25 = shl i32 %24, 16
   %26 = or i32 %20, %25
-  %27 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8, !tbaa !33
   %28 = getelementptr inbounds i8, ptr %27, i64 1
-  %29 = load i8, ptr %28, align 1
+  %29 = load i8, ptr %28, align 1, !tbaa !117
   %30 = zext i8 %29 to i32
   %31 = shl i32 %30, 8
   %32 = or i32 %26, %31
-  %33 = load ptr, ptr %4, align 8
+  %33 = load ptr, ptr %4, align 8, !tbaa !33
   %34 = getelementptr inbounds i8, ptr %33, i64 0
-  %35 = load i8, ptr %34, align 1
+  %35 = load i8, ptr %34, align 1, !tbaa !117
   %36 = zext i8 %35 to i32
   %37 = or i32 %32, %36
-  %38 = load i32, ptr %6, align 4
+  %38 = load i32, ptr %6, align 4, !tbaa !48
   %39 = xor i32 %38, %37
-  store i32 %39, ptr %6, align 4
+  store i32 %39, ptr %6, align 4, !tbaa !48
   br label %40
 
 40:                                               ; preds = %15
-  %41 = load ptr, ptr %4, align 8
+  %41 = load ptr, ptr %4, align 8, !tbaa !33
   %42 = getelementptr inbounds i8, ptr %41, i64 4
-  store ptr %42, ptr %4, align 8
+  store ptr %42, ptr %4, align 8, !tbaa !33
   br label %11
 
 43:                                               ; preds = %11
-  %44 = load i32, ptr %5, align 4
+  %44 = load i32, ptr %5, align 4, !tbaa !48
   %45 = and i32 %44, 3
   switch i32 %45, label %68 [
     i32 3, label %46
@@ -5212,44 +5547,46 @@ define internal i32 @cabd_checksum(ptr noundef %0, i32 noundef %1, i32 noundef %
   ]
 
 46:                                               ; preds = %43
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i32 1
-  store ptr %48, ptr %4, align 8
-  %49 = load i8, ptr %47, align 1
+  %47 = load ptr, ptr %4, align 8, !tbaa !33
+  %48 = getelementptr inbounds nuw i8, ptr %47, i32 1
+  store ptr %48, ptr %4, align 8, !tbaa !33
+  %49 = load i8, ptr %47, align 1, !tbaa !117
   %50 = zext i8 %49 to i32
   %51 = shl i32 %50, 16
-  %52 = load i32, ptr %8, align 4
+  %52 = load i32, ptr %8, align 4, !tbaa !48
   %53 = or i32 %52, %51
-  store i32 %53, ptr %8, align 4
+  store i32 %53, ptr %8, align 4, !tbaa !48
   br label %54
 
-54:                                               ; preds = %46, %43
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i32 1
-  store ptr %56, ptr %4, align 8
-  %57 = load i8, ptr %55, align 1
+54:                                               ; preds = %43, %46
+  %55 = load ptr, ptr %4, align 8, !tbaa !33
+  %56 = getelementptr inbounds nuw i8, ptr %55, i32 1
+  store ptr %56, ptr %4, align 8, !tbaa !33
+  %57 = load i8, ptr %55, align 1, !tbaa !117
   %58 = zext i8 %57 to i32
   %59 = shl i32 %58, 8
-  %60 = load i32, ptr %8, align 4
+  %60 = load i32, ptr %8, align 4, !tbaa !48
   %61 = or i32 %60, %59
-  store i32 %61, ptr %8, align 4
+  store i32 %61, ptr %8, align 4, !tbaa !48
   br label %62
 
-62:                                               ; preds = %54, %43
-  %63 = load ptr, ptr %4, align 8
-  %64 = load i8, ptr %63, align 1
+62:                                               ; preds = %43, %54
+  %63 = load ptr, ptr %4, align 8, !tbaa !33
+  %64 = load i8, ptr %63, align 1, !tbaa !117
   %65 = zext i8 %64 to i32
-  %66 = load i32, ptr %8, align 4
+  %66 = load i32, ptr %8, align 4, !tbaa !48
   %67 = or i32 %66, %65
-  store i32 %67, ptr %8, align 4
+  store i32 %67, ptr %8, align 4, !tbaa !48
   br label %68
 
 68:                                               ; preds = %62, %43
-  %69 = load i32, ptr %8, align 4
-  %70 = load i32, ptr %6, align 4
+  %69 = load i32, ptr %8, align 4, !tbaa !48
+  %70 = load i32, ptr %6, align 4, !tbaa !48
   %71 = xor i32 %70, %69
-  store i32 %71, ptr %6, align 4
-  %72 = load i32, ptr %6, align 4
+  store i32 %71, ptr %6, align 4, !tbaa !48
+  %72 = load i32, ptr %6, align 4, !tbaa !48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %72
 }
 
@@ -5259,98 +5596,104 @@ define internal i32 @noned_decompress(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  br label %7
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !148
+  store i64 %1, ptr %5, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  br label %8
 
-7:                                                ; preds = %61, %2
-  %8 = load i64, ptr %5, align 8
-  %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %10, label %66
+8:                                                ; preds = %62, %2
+  %9 = load i64, ptr %5, align 8, !tbaa !78
+  %10 = icmp sgt i64 %9, 0
+  br i1 %10, label %11, label %67
 
-10:                                               ; preds = %7
-  %11 = load i64, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.noned_state, ptr %12, i32 0, i32 4
-  %14 = load i32, ptr %13, align 8
-  %15 = sext i32 %14 to i64
-  %16 = icmp sgt i64 %11, %15
-  br i1 %16, label %17, label %21
+11:                                               ; preds = %8
+  %12 = load i64, ptr %5, align 8, !tbaa !78
+  %13 = load ptr, ptr %4, align 8, !tbaa !148
+  %14 = getelementptr inbounds nuw %struct.noned_state, ptr %13, i32 0, i32 4
+  %15 = load i32, ptr %14, align 8, !tbaa !150
+  %16 = sext i32 %15 to i64
+  %17 = icmp sgt i64 %12, %16
+  br i1 %17, label %18, label %22
 
-17:                                               ; preds = %10
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.noned_state, ptr %18, i32 0, i32 4
-  %20 = load i32, ptr %19, align 8
-  br label %24
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %4, align 8, !tbaa !148
+  %20 = getelementptr inbounds nuw %struct.noned_state, ptr %19, i32 0, i32 4
+  %21 = load i32, ptr %20, align 8, !tbaa !150
+  br label %25
 
-21:                                               ; preds = %10
-  %22 = load i64, ptr %5, align 8
-  %23 = trunc i64 %22 to i32
-  br label %24
+22:                                               ; preds = %11
+  %23 = load i64, ptr %5, align 8, !tbaa !78
+  %24 = trunc i64 %23 to i32
+  br label %25
 
-24:                                               ; preds = %21, %17
-  %25 = phi i32 [ %20, %17 ], [ %23, %21 ]
-  store i32 %25, ptr %6, align 4
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.noned_state, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.mspack_system, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.noned_state, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.noned_state, ptr %34, i32 0, i32 3
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 0
-  %38 = load i32, ptr %6, align 4
-  %39 = call i32 %30(ptr noundef %33, ptr noundef %37, i32 noundef %38)
-  %40 = load i32, ptr %6, align 4
-  %41 = icmp ne i32 %39, %40
-  br i1 %41, label %42, label %43
+25:                                               ; preds = %22, %18
+  %26 = phi i32 [ %21, %18 ], [ %24, %22 ]
+  store i32 %26, ptr %6, align 4, !tbaa !48
+  %27 = load ptr, ptr %4, align 8, !tbaa !148
+  %28 = getelementptr inbounds nuw %struct.noned_state, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !152
+  %30 = getelementptr inbounds nuw %struct.mspack_system, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8, !tbaa !116
+  %32 = load ptr, ptr %4, align 8, !tbaa !148
+  %33 = getelementptr inbounds nuw %struct.noned_state, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !153
+  %35 = load ptr, ptr %4, align 8, !tbaa !148
+  %36 = getelementptr inbounds nuw %struct.noned_state, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8, !tbaa !154
+  %38 = getelementptr inbounds i8, ptr %37, i64 0
+  %39 = load i32, ptr %6, align 4, !tbaa !48
+  %40 = call i32 %31(ptr noundef %34, ptr noundef %38, i32 noundef %39)
+  %41 = load i32, ptr %6, align 4, !tbaa !48
+  %42 = icmp ne i32 %40, %41
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %24
+43:                                               ; preds = %25
   store i32 3, ptr %3, align 4
-  br label %67
+  store i32 1, ptr %7, align 4
+  br label %68
 
-43:                                               ; preds = %24
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.noned_state, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.mspack_system, ptr %46, i32 0, i32 3
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.noned_state, ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.noned_state, ptr %52, i32 0, i32 3
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 0
-  %56 = load i32, ptr %6, align 4
-  %57 = call i32 %48(ptr noundef %51, ptr noundef %55, i32 noundef %56)
-  %58 = load i32, ptr %6, align 4
-  %59 = icmp ne i32 %57, %58
-  br i1 %59, label %60, label %61
+44:                                               ; preds = %25
+  %45 = load ptr, ptr %4, align 8, !tbaa !148
+  %46 = getelementptr inbounds nuw %struct.noned_state, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !152
+  %48 = getelementptr inbounds nuw %struct.mspack_system, ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8, !tbaa !144
+  %50 = load ptr, ptr %4, align 8, !tbaa !148
+  %51 = getelementptr inbounds nuw %struct.noned_state, ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8, !tbaa !155
+  %53 = load ptr, ptr %4, align 8, !tbaa !148
+  %54 = getelementptr inbounds nuw %struct.noned_state, ptr %53, i32 0, i32 3
+  %55 = load ptr, ptr %54, align 8, !tbaa !154
+  %56 = getelementptr inbounds i8, ptr %55, i64 0
+  %57 = load i32, ptr %6, align 4, !tbaa !48
+  %58 = call i32 %49(ptr noundef %52, ptr noundef %56, i32 noundef %57)
+  %59 = load i32, ptr %6, align 4, !tbaa !48
+  %60 = icmp ne i32 %58, %59
+  br i1 %60, label %61, label %62
 
-60:                                               ; preds = %43
+61:                                               ; preds = %44
   store i32 4, ptr %3, align 4
-  br label %67
+  store i32 1, ptr %7, align 4
+  br label %68
 
-61:                                               ; preds = %43
-  %62 = load i32, ptr %6, align 4
-  %63 = sext i32 %62 to i64
-  %64 = load i64, ptr %5, align 8
-  %65 = sub nsw i64 %64, %63
-  store i64 %65, ptr %5, align 8
-  br label %7
+62:                                               ; preds = %44
+  %63 = load i32, ptr %6, align 4, !tbaa !48
+  %64 = sext i32 %63 to i64
+  %65 = load i64, ptr %5, align 8, !tbaa !78
+  %66 = sub nsw i64 %65, %64
+  store i64 %66, ptr %5, align 8, !tbaa !78
+  br label %8
 
-66:                                               ; preds = %7
+67:                                               ; preds = %8
   store i32 0, ptr %3, align 4
-  br label %67
+  store i32 1, ptr %7, align 4
+  br label %68
 
-67:                                               ; preds = %66, %60, %42
-  %68 = load i32, ptr %3, align 4
-  ret i32 %68
+68:                                               ; preds = %67, %61, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %69 = load i32, ptr %3, align 4
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5361,132 +5704,292 @@ define internal ptr @noned_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.mspack_system, ptr %11, i32 0, i32 7
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !38
+  store ptr %2, ptr %7, align 8, !tbaa !38
+  store i32 %3, ptr %8, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.mspack_system, ptr %11, i32 0, i32 7
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
   %15 = call ptr %13(ptr noundef %14, i64 noundef 40)
-  store ptr %15, ptr %9, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.mspack_system, ptr %16, i32 0, i32 7
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i32, ptr %8, align 4
+  store ptr %15, ptr %9, align 8, !tbaa !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.mspack_system, ptr %16, i32 0, i32 7
+  %18 = load ptr, ptr %17, align 8, !tbaa !10
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = load i32, ptr %8, align 4, !tbaa !48
   %21 = sext i32 %20 to i64
   %22 = call ptr %18(ptr noundef %19, i64 noundef %21)
-  store ptr %22, ptr %10, align 8
-  %23 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %10, align 8, !tbaa !33
+  %23 = load ptr, ptr %9, align 8, !tbaa !148
   %24 = icmp ne ptr %23, null
   br i1 %24, label %25, label %44
 
 25:                                               ; preds = %4
-  %26 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %10, align 8, !tbaa !33
   %27 = icmp ne ptr %26, null
   br i1 %27, label %28, label %44
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %5, align 8
-  %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds %struct.noned_state, ptr %30, i32 0, i32 0
-  store ptr %29, ptr %31, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds %struct.noned_state, ptr %33, i32 0, i32 1
-  store ptr %32, ptr %34, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds %struct.noned_state, ptr %36, i32 0, i32 2
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds %struct.noned_state, ptr %39, i32 0, i32 3
-  store ptr %38, ptr %40, align 8
-  %41 = load i32, ptr %8, align 4
-  %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds %struct.noned_state, ptr %42, i32 0, i32 4
-  store i32 %41, ptr %43, align 8
+  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %30 = load ptr, ptr %9, align 8, !tbaa !148
+  %31 = getelementptr inbounds nuw %struct.noned_state, ptr %30, i32 0, i32 0
+  store ptr %29, ptr %31, align 8, !tbaa !152
+  %32 = load ptr, ptr %6, align 8, !tbaa !38
+  %33 = load ptr, ptr %9, align 8, !tbaa !148
+  %34 = getelementptr inbounds nuw %struct.noned_state, ptr %33, i32 0, i32 1
+  store ptr %32, ptr %34, align 8, !tbaa !153
+  %35 = load ptr, ptr %7, align 8, !tbaa !38
+  %36 = load ptr, ptr %9, align 8, !tbaa !148
+  %37 = getelementptr inbounds nuw %struct.noned_state, ptr %36, i32 0, i32 2
+  store ptr %35, ptr %37, align 8, !tbaa !155
+  %38 = load ptr, ptr %10, align 8, !tbaa !33
+  %39 = load ptr, ptr %9, align 8, !tbaa !148
+  %40 = getelementptr inbounds nuw %struct.noned_state, ptr %39, i32 0, i32 3
+  store ptr %38, ptr %40, align 8, !tbaa !154
+  %41 = load i32, ptr %8, align 4, !tbaa !48
+  %42 = load ptr, ptr %9, align 8, !tbaa !148
+  %43 = getelementptr inbounds nuw %struct.noned_state, ptr %42, i32 0, i32 4
+  store i32 %41, ptr %43, align 8, !tbaa !150
   br label %53
 
 44:                                               ; preds = %25, %4
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.mspack_system, ptr %45, i32 0, i32 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %5, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.mspack_system, ptr %45, i32 0, i32 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !55
+  %48 = load ptr, ptr %10, align 8, !tbaa !33
   call void %47(ptr noundef %48)
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.mspack_system, ptr %49, i32 0, i32 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %9, align 8
+  %49 = load ptr, ptr %5, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.mspack_system, ptr %49, i32 0, i32 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !55
+  %52 = load ptr, ptr %9, align 8, !tbaa !148
   call void %51(ptr noundef %52)
-  store ptr null, ptr %9, align 8
+  store ptr null, ptr %9, align 8, !tbaa !148
   br label %53
 
 53:                                               ; preds = %44, %28
-  %54 = load ptr, ptr %9, align 8
+  %54 = load ptr, ptr %9, align 8, !tbaa !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret ptr %54
 }
 
-declare i32 @mszipd_decompress(ptr noundef, i64 noundef) #1
+declare i32 @mszipd_decompress(ptr noundef, i64 noundef) #2
 
-declare ptr @mszipd_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @mszipd_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @qtmd_decompress(ptr noundef, i64 noundef) #1
+declare i32 @qtmd_decompress(ptr noundef, i64 noundef) #2
 
-declare ptr @qtmd_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @qtmd_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @lzxd_decompress(ptr noundef, i64 noundef) #1
+declare i32 @lzxd_decompress(ptr noundef, i64 noundef) #2
 
-declare ptr @lzxd_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i8 noundef signext) #1
+declare ptr @lzxd_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i8 noundef signext) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @noned_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %4 = load ptr, ptr %2, align 8, !tbaa !148
   %5 = icmp ne ptr %4, null
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.noned_state, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %3, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.mspack_system, ptr %10, i32 0, i32 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.noned_state, ptr %13, i32 0, i32 3
-  %15 = load ptr, ptr %14, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !148
+  %8 = getelementptr inbounds nuw %struct.noned_state, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !152
+  store ptr %9, ptr %3, align 8, !tbaa !3
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.mspack_system, ptr %10, i32 0, i32 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %13 = load ptr, ptr %2, align 8, !tbaa !148
+  %14 = getelementptr inbounds nuw %struct.noned_state, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !154
   call void %12(ptr noundef %15)
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.mspack_system, ptr %16, i32 0, i32 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %2, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.mspack_system, ptr %16, i32 0, i32 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  %19 = load ptr, ptr %2, align 8, !tbaa !148
   call void %18(ptr noundef %19)
   br label %20
 
 20:                                               ; preds = %6, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret void
 }
 
-declare void @mszipd_free(ptr noundef) #1
+declare void @mszipd_free(ptr noundef) #2
 
-declare void @qtmd_free(ptr noundef) #1
+declare void @qtmd_free(ptr noundef) #2
 
-declare void @lzxd_free(ptr noundef) #1
+declare void @lzxd_free(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS13mspack_system", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS20mscab_decompressor_p", !5, i64 0}
+!10 = !{!11, !5, i64 56}
+!11 = !{!"mspack_system", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80}
+!12 = !{!13, !5, i64 0}
+!13 = !{!"mscab_decompressor_p", !14, i64 0, !15, i64 64, !4, i64 72, !16, i64 80, !16, i64 84, !16, i64 88, !16, i64 92, !16, i64 96, !16, i64 100}
+!14 = !{!"mscab_decompressor", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
+!15 = !{!"p1 _ZTS23mscabd_decompress_state", !5, i64 0}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!13, !5, i64 8}
+!18 = !{!13, !5, i64 16}
+!19 = !{!13, !5, i64 40}
+!20 = !{!13, !5, i64 32}
+!21 = !{!13, !5, i64 24}
+!22 = !{!13, !5, i64 48}
+!23 = !{!13, !5, i64 56}
+!24 = !{!13, !4, i64 72}
+!25 = !{!13, !15, i64 64}
+!26 = !{!13, !16, i64 96}
+!27 = !{!13, !16, i64 84}
+!28 = !{!13, !16, i64 88}
+!29 = !{!13, !16, i64 80}
+!30 = !{!13, !16, i64 92}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS18mscab_decompressor", !5, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 omnipotent char", !5, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS16mscabd_cabinet_p", !5, i64 0}
+!37 = !{!11, !5, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS11mspack_file", !5, i64 0}
+!40 = !{!41, !34, i64 8}
+!41 = !{!"mscabd_cabinet_p", !42, i64 0, !44, i64 112, !16, i64 120}
+!42 = !{!"mscabd_cabinet", !43, i64 0, !34, i64 8, !44, i64 16, !16, i64 24, !43, i64 32, !43, i64 40, !34, i64 48, !34, i64 56, !34, i64 64, !34, i64 72, !45, i64 80, !46, i64 88, !47, i64 96, !47, i64 98, !47, i64 100, !16, i64 104}
+!43 = !{!"p1 _ZTS14mscabd_cabinet", !5, i64 0}
+!44 = !{!"long", !6, i64 0}
+!45 = !{!"p1 _ZTS11mscabd_file", !5, i64 0}
+!46 = !{!"p1 _ZTS13mscabd_folder", !5, i64 0}
+!47 = !{!"short", !6, i64 0}
+!48 = !{!16, !16, i64 0}
+!49 = !{!11, !5, i64 8}
+!50 = !{!43, !43, i64 0}
+!51 = !{!42, !45, i64 80}
+!52 = !{!45, !45, i64 0}
+!53 = !{!54, !45, i64 0}
+!54 = !{!"mscabd_file", !45, i64 0, !34, i64 8, !16, i64 16, !16, i64 20, !6, i64 24, !6, i64 25, !6, i64 26, !6, i64 27, !6, i64 28, !16, i64 32, !46, i64 40, !16, i64 48}
+!55 = !{!11, !5, i64 64}
+!56 = !{!54, !34, i64 8}
+!57 = !{!42, !46, i64 88}
+!58 = !{!46, !46, i64 0}
+!59 = !{!60, !46, i64 0}
+!60 = !{!"mscabd_folder", !46, i64 0, !16, i64 8, !16, i64 12}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"mscabd_decompress_state", !63, i64 0, !64, i64 8, !16, i64 16, !16, i64 20, !44, i64 24, !11, i64 32, !16, i64 120, !5, i64 128, !5, i64 136, !36, i64 144, !39, i64 152, !39, i64 160, !34, i64 168, !34, i64 176, !6, i64 184}
+!63 = !{!"p1 _ZTS15mscabd_folder_p", !5, i64 0}
+!64 = !{!"p1 _ZTS18mscabd_folder_data", !5, i64 0}
+!65 = !{!62, !39, i64 152}
+!66 = !{!67, !64, i64 16}
+!67 = !{!"mscabd_folder_p", !60, i64 0, !68, i64 16, !45, i64 40, !45, i64 48}
+!68 = !{!"mscabd_folder_data", !64, i64 0, !36, i64 8, !44, i64 16}
+!69 = !{!64, !64, i64 0}
+!70 = !{!68, !64, i64 0}
+!71 = !{!42, !43, i64 32}
+!72 = !{!42, !34, i64 48}
+!73 = !{!42, !34, i64 56}
+!74 = !{!42, !34, i64 64}
+!75 = !{!42, !34, i64 72}
+!76 = !{!42, !43, i64 40}
+!77 = !{!42, !43, i64 0}
+!78 = !{!44, !44, i64 0}
+!79 = !{!41, !44, i64 16}
+!80 = !{!11, !5, i64 48}
+!81 = !{!54, !46, i64 40}
+!82 = !{!63, !63, i64 0}
+!83 = !{!54, !16, i64 48}
+!84 = !{!54, !16, i64 16}
+!85 = !{!67, !45, i64 40}
+!86 = !{!67, !16, i64 12}
+!87 = !{!62, !64, i64 8}
+!88 = !{i64 0, i64 8, !89, i64 8, i64 8, !89, i64 16, i64 8, !89, i64 24, i64 8, !89, i64 32, i64 8, !89, i64 40, i64 8, !89, i64 48, i64 8, !89, i64 56, i64 8, !89, i64 64, i64 8, !89, i64 72, i64 8, !89, i64 80, i64 8, !89}
+!89 = !{!5, !5, i64 0}
+!90 = !{!62, !5, i64 48}
+!91 = !{!62, !5, i64 56}
+!92 = !{!62, !5, i64 136}
+!93 = !{!62, !36, i64 144}
+!94 = !{!62, !16, i64 16}
+!95 = !{!67, !36, i64 24}
+!96 = !{!11, !5, i64 32}
+!97 = !{!67, !44, i64 32}
+!98 = !{!67, !16, i64 8}
+!99 = !{!62, !16, i64 20}
+!100 = !{!62, !44, i64 24}
+!101 = !{!62, !34, i64 176}
+!102 = !{!62, !34, i64 168}
+!103 = !{!13, !16, i64 100}
+!104 = !{!62, !39, i64 160}
+!105 = !{!62, !5, i64 128}
+!106 = !{!62, !16, i64 120}
+!107 = !{!41, !43, i64 0}
+!108 = !{!41, !45, i64 80}
+!109 = !{!41, !46, i64 88}
+!110 = !{!41, !43, i64 40}
+!111 = !{!41, !43, i64 32}
+!112 = !{!41, !34, i64 56}
+!113 = !{!41, !34, i64 48}
+!114 = !{!41, !34, i64 72}
+!115 = !{!41, !34, i64 64}
+!116 = !{!11, !5, i64 16}
+!117 = !{!6, !6, i64 0}
+!118 = !{!41, !16, i64 24}
+!119 = !{!41, !47, i64 96}
+!120 = !{!41, !47, i64 98}
+!121 = !{!41, !16, i64 104}
+!122 = !{!41, !47, i64 100}
+!123 = !{!41, !16, i64 120}
+!124 = !{!67, !46, i64 0}
+!125 = !{!67, !45, i64 48}
+!126 = !{!54, !16, i64 20}
+!127 = !{!54, !6, i64 24}
+!128 = !{!54, !6, i64 25}
+!129 = !{!54, !6, i64 26}
+!130 = !{!54, !6, i64 27}
+!131 = !{!54, !6, i64 28}
+!132 = !{!54, !16, i64 32}
+!133 = !{!134, !134, i64 0}
+!134 = !{!"p1 int", !5, i64 0}
+!135 = !{!11, !5, i64 40}
+!136 = !{!11, !5, i64 72}
+!137 = !{!138, !138, i64 0}
+!138 = !{!"p1 long", !5, i64 0}
+!139 = !{!140, !140, i64 0}
+!140 = !{!"p2 _ZTS16mscabd_cabinet_p", !5, i64 0}
+!141 = !{!42, !47, i64 96}
+!142 = !{!42, !47, i64 98}
+!143 = !{i64 0, i64 8, !69, i64 8, i64 8, !35, i64 16, i64 8, !78}
+!144 = !{!11, !5, i64 24}
+!145 = !{!15, !15, i64 0}
+!146 = !{!68, !36, i64 8}
+!147 = !{!68, !44, i64 16}
+!148 = !{!149, !149, i64 0}
+!149 = !{!"p1 _ZTS11noned_state", !5, i64 0}
+!150 = !{!151, !16, i64 32}
+!151 = !{!"noned_state", !4, i64 0, !39, i64 8, !39, i64 16, !34, i64 24, !16, i64 32}
+!152 = !{!151, !4, i64 0}
+!153 = !{!151, !39, i64 8}
+!154 = !{!151, !34, i64 24}
+!155 = !{!151, !39, i64 16}

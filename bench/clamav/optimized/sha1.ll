@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/sha1.cpp.ll'
-source_filename = "bench/clamav/original/sha1.cpp.ll"
+; ModuleID = 'bench/clamav/original/sha1.ll'
+source_filename = "bench/clamav/original/sha1.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -13,19 +13,19 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
 
 6:                                                ; preds = %4, %5
   %.0 = phi ptr [ %1, %5 ], [ %2, %4 ]
-  %7 = load i32, ptr %0, align 4
+  %7 = load i32, ptr %0, align 4, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = xor i32 %13, %11
   %17 = and i32 %16, %9
   %18 = xor i32 %17, %13
-  %19 = load i32, ptr %.0, align 4
+  %19 = load i32, ptr %.0, align 4, !tbaa !7
   %20 = tail call noundef i32 @llvm.bswap.i32(i32 %19)
   %21 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 5)
   %22 = add i32 %21, 1518500249
@@ -37,7 +37,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %28 = and i32 %27, %7
   %29 = xor i32 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !tbaa !7
   %32 = tail call noundef i32 @llvm.bswap.i32(i32 %31)
   %33 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 5)
   %34 = add i32 %13, 1518500249
@@ -49,7 +49,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %40 = and i32 %25, %39
   %41 = xor i32 %40, %26
   %42 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %43 = load i32, ptr %42, align 4
+  %43 = load i32, ptr %42, align 4, !tbaa !7
   %44 = tail call noundef i32 @llvm.bswap.i32(i32 %43)
   %45 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 5)
   %46 = add i32 %11, 1518500249
@@ -61,7 +61,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %52 = and i32 %37, %51
   %53 = xor i32 %52, %38
   %54 = getelementptr inbounds nuw i8, ptr %.0, i64 12
-  %55 = load i32, ptr %54, align 4
+  %55 = load i32, ptr %54, align 4, !tbaa !7
   %56 = tail call noundef i32 @llvm.bswap.i32(i32 %55)
   %57 = tail call i32 @llvm.fshl.i32(i32 %49, i32 %49, i32 5)
   %58 = add i32 %26, 1518500249
@@ -73,7 +73,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %64 = and i32 %49, %63
   %65 = xor i32 %64, %50
   %66 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %67 = load i32, ptr %66, align 4
+  %67 = load i32, ptr %66, align 4, !tbaa !7
   %68 = tail call noundef i32 @llvm.bswap.i32(i32 %67)
   %69 = tail call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 5)
   %70 = add i32 %38, 1518500249
@@ -85,7 +85,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %76 = and i32 %61, %75
   %77 = xor i32 %76, %62
   %78 = getelementptr inbounds nuw i8, ptr %.0, i64 20
-  %79 = load i32, ptr %78, align 4
+  %79 = load i32, ptr %78, align 4, !tbaa !7
   %80 = tail call noundef i32 @llvm.bswap.i32(i32 %79)
   %81 = tail call i32 @llvm.fshl.i32(i32 %73, i32 %73, i32 5)
   %82 = add i32 %50, 1518500249
@@ -97,7 +97,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %88 = and i32 %73, %87
   %89 = xor i32 %88, %74
   %90 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %91 = load i32, ptr %90, align 4
+  %91 = load i32, ptr %90, align 4, !tbaa !7
   %92 = tail call noundef i32 @llvm.bswap.i32(i32 %91)
   %93 = tail call i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 5)
   %94 = add i32 %62, 1518500249
@@ -109,7 +109,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %100 = and i32 %85, %99
   %101 = xor i32 %100, %86
   %102 = getelementptr inbounds nuw i8, ptr %.0, i64 28
-  %103 = load i32, ptr %102, align 4
+  %103 = load i32, ptr %102, align 4, !tbaa !7
   %104 = tail call noundef i32 @llvm.bswap.i32(i32 %103)
   %105 = tail call i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 5)
   %106 = add i32 %74, 1518500249
@@ -121,7 +121,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %112 = and i32 %97, %111
   %113 = xor i32 %112, %98
   %114 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %115 = load i32, ptr %114, align 4
+  %115 = load i32, ptr %114, align 4, !tbaa !7
   %116 = tail call noundef i32 @llvm.bswap.i32(i32 %115)
   %117 = tail call i32 @llvm.fshl.i32(i32 %109, i32 %109, i32 5)
   %118 = add i32 %86, 1518500249
@@ -133,7 +133,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %124 = and i32 %109, %123
   %125 = xor i32 %124, %110
   %126 = getelementptr inbounds nuw i8, ptr %.0, i64 36
-  %127 = load i32, ptr %126, align 4
+  %127 = load i32, ptr %126, align 4, !tbaa !7
   %128 = tail call noundef i32 @llvm.bswap.i32(i32 %127)
   %129 = tail call i32 @llvm.fshl.i32(i32 %121, i32 %121, i32 5)
   %130 = add i32 %98, 1518500249
@@ -145,7 +145,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %136 = and i32 %121, %135
   %137 = xor i32 %136, %122
   %138 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %139 = load i32, ptr %138, align 4
+  %139 = load i32, ptr %138, align 4, !tbaa !7
   %140 = tail call noundef i32 @llvm.bswap.i32(i32 %139)
   %141 = tail call i32 @llvm.fshl.i32(i32 %133, i32 %133, i32 5)
   %142 = add i32 %140, 1518500249
@@ -157,7 +157,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %148 = and i32 %133, %147
   %149 = xor i32 %148, %134
   %150 = getelementptr inbounds nuw i8, ptr %.0, i64 44
-  %151 = load i32, ptr %150, align 4
+  %151 = load i32, ptr %150, align 4, !tbaa !7
   %152 = tail call noundef i32 @llvm.bswap.i32(i32 %151)
   %153 = tail call i32 @llvm.fshl.i32(i32 %145, i32 %145, i32 5)
   %154 = add i32 %152, 1518500249
@@ -169,7 +169,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %160 = and i32 %145, %159
   %161 = xor i32 %160, %146
   %162 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %163 = load i32, ptr %162, align 4
+  %163 = load i32, ptr %162, align 4, !tbaa !7
   %164 = tail call noundef i32 @llvm.bswap.i32(i32 %163)
   %165 = tail call i32 @llvm.fshl.i32(i32 %157, i32 %157, i32 5)
   %166 = add i32 %164, 1518500249
@@ -181,7 +181,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %172 = and i32 %157, %171
   %173 = xor i32 %172, %158
   %174 = getelementptr inbounds nuw i8, ptr %.0, i64 52
-  %175 = load i32, ptr %174, align 4
+  %175 = load i32, ptr %174, align 4, !tbaa !7
   %176 = tail call noundef i32 @llvm.bswap.i32(i32 %175)
   %177 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 5)
   %178 = add i32 %176, 1518500249
@@ -193,7 +193,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %184 = and i32 %169, %183
   %185 = xor i32 %184, %170
   %186 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  %187 = load i32, ptr %186, align 4
+  %187 = load i32, ptr %186, align 4, !tbaa !7
   %188 = tail call noundef i32 @llvm.bswap.i32(i32 %187)
   %189 = tail call i32 @llvm.fshl.i32(i32 %181, i32 %181, i32 5)
   %190 = add i32 %188, 1518500249
@@ -205,7 +205,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %196 = and i32 %181, %195
   %197 = xor i32 %196, %182
   %198 = getelementptr inbounds nuw i8, ptr %.0, i64 60
-  %199 = load i32, ptr %198, align 4
+  %199 = load i32, ptr %198, align 4, !tbaa !7
   %200 = tail call noundef i32 @llvm.bswap.i32(i32 %199)
   %201 = tail call i32 @llvm.fshl.i32(i32 %193, i32 %193, i32 5)
   %202 = add i32 %200, 1518500249
@@ -839,7 +839,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %830 = xor i32 %829, %730
   %831 = xor i32 %830, %796
   %832 = tail call i32 @llvm.fshl.i32(i32 %831, i32 %831, i32 1)
-  store i32 %832, ptr %.0, align 4
+  store i32 %832, ptr %.0, align 4, !tbaa !7
   %833 = tail call i32 @llvm.fshl.i32(i32 %825, i32 %825, i32 5)
   %834 = add i32 %832, -899497514
   %835 = add i32 %834, %802
@@ -852,7 +852,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %842 = xor i32 %841, %744
   %843 = xor i32 %842, %808
   %844 = tail call i32 @llvm.fshl.i32(i32 %843, i32 %843, i32 1)
-  store i32 %844, ptr %30, align 4
+  store i32 %844, ptr %30, align 4, !tbaa !7
   %845 = tail call i32 @llvm.fshl.i32(i32 %837, i32 %837, i32 5)
   %846 = add i32 %844, -899497514
   %847 = add i32 %846, %814
@@ -865,7 +865,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %854 = xor i32 %853, %758
   %855 = xor i32 %854, %820
   %856 = tail call i32 @llvm.fshl.i32(i32 %855, i32 %855, i32 1)
-  store i32 %856, ptr %42, align 4
+  store i32 %856, ptr %42, align 4, !tbaa !7
   %857 = tail call i32 @llvm.fshl.i32(i32 %849, i32 %849, i32 5)
   %858 = add i32 %856, -899497514
   %859 = add i32 %858, %826
@@ -878,7 +878,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %866 = xor i32 %865, %772
   %867 = xor i32 %866, %832
   %868 = tail call i32 @llvm.fshl.i32(i32 %867, i32 %867, i32 1)
-  store i32 %868, ptr %54, align 4
+  store i32 %868, ptr %54, align 4, !tbaa !7
   %869 = tail call i32 @llvm.fshl.i32(i32 %861, i32 %861, i32 5)
   %870 = add i32 %868, -899497514
   %871 = add i32 %870, %838
@@ -891,7 +891,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %878 = xor i32 %877, %784
   %879 = xor i32 %878, %844
   %880 = tail call i32 @llvm.fshl.i32(i32 %879, i32 %879, i32 1)
-  store i32 %880, ptr %66, align 4
+  store i32 %880, ptr %66, align 4, !tbaa !7
   %881 = tail call i32 @llvm.fshl.i32(i32 %873, i32 %873, i32 5)
   %882 = add i32 %880, -899497514
   %883 = add i32 %882, %850
@@ -904,7 +904,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %890 = xor i32 %889, %796
   %891 = xor i32 %890, %856
   %892 = tail call i32 @llvm.fshl.i32(i32 %891, i32 %891, i32 1)
-  store i32 %892, ptr %78, align 4
+  store i32 %892, ptr %78, align 4, !tbaa !7
   %893 = tail call i32 @llvm.fshl.i32(i32 %885, i32 %885, i32 5)
   %894 = add i32 %892, -899497514
   %895 = add i32 %894, %862
@@ -917,7 +917,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %902 = xor i32 %901, %808
   %903 = xor i32 %902, %868
   %904 = tail call i32 @llvm.fshl.i32(i32 %903, i32 %903, i32 1)
-  store i32 %904, ptr %90, align 4
+  store i32 %904, ptr %90, align 4, !tbaa !7
   %905 = tail call i32 @llvm.fshl.i32(i32 %897, i32 %897, i32 5)
   %906 = add i32 %904, -899497514
   %907 = add i32 %906, %874
@@ -930,7 +930,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %914 = xor i32 %913, %820
   %915 = xor i32 %914, %880
   %916 = tail call i32 @llvm.fshl.i32(i32 %915, i32 %915, i32 1)
-  store i32 %916, ptr %102, align 4
+  store i32 %916, ptr %102, align 4, !tbaa !7
   %917 = tail call i32 @llvm.fshl.i32(i32 %909, i32 %909, i32 5)
   %918 = add i32 %916, -899497514
   %919 = add i32 %918, %886
@@ -943,7 +943,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %926 = xor i32 %925, %832
   %927 = xor i32 %926, %892
   %928 = tail call i32 @llvm.fshl.i32(i32 %927, i32 %927, i32 1)
-  store i32 %928, ptr %114, align 4
+  store i32 %928, ptr %114, align 4, !tbaa !7
   %929 = tail call i32 @llvm.fshl.i32(i32 %921, i32 %921, i32 5)
   %930 = add i32 %928, -899497514
   %931 = add i32 %930, %898
@@ -956,7 +956,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %938 = xor i32 %937, %844
   %939 = xor i32 %938, %904
   %940 = tail call i32 @llvm.fshl.i32(i32 %939, i32 %939, i32 1)
-  store i32 %940, ptr %126, align 4
+  store i32 %940, ptr %126, align 4, !tbaa !7
   %941 = tail call i32 @llvm.fshl.i32(i32 %933, i32 %933, i32 5)
   %942 = add i32 %940, -899497514
   %943 = add i32 %942, %910
@@ -969,7 +969,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %950 = xor i32 %949, %856
   %951 = xor i32 %950, %916
   %952 = tail call i32 @llvm.fshl.i32(i32 %951, i32 %951, i32 1)
-  store i32 %952, ptr %138, align 4
+  store i32 %952, ptr %138, align 4, !tbaa !7
   %953 = tail call i32 @llvm.fshl.i32(i32 %945, i32 %945, i32 5)
   %954 = add i32 %952, -899497514
   %955 = add i32 %954, %922
@@ -982,7 +982,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %962 = xor i32 %961, %868
   %963 = xor i32 %962, %928
   %964 = tail call i32 @llvm.fshl.i32(i32 %963, i32 %963, i32 1)
-  store i32 %964, ptr %150, align 4
+  store i32 %964, ptr %150, align 4, !tbaa !7
   %965 = tail call i32 @llvm.fshl.i32(i32 %957, i32 %957, i32 5)
   %966 = add i32 %964, -899497514
   %967 = add i32 %966, %934
@@ -995,7 +995,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %974 = xor i32 %973, %880
   %975 = xor i32 %974, %940
   %976 = tail call i32 @llvm.fshl.i32(i32 %975, i32 %975, i32 1)
-  store i32 %976, ptr %162, align 4
+  store i32 %976, ptr %162, align 4, !tbaa !7
   %977 = tail call i32 @llvm.fshl.i32(i32 %969, i32 %969, i32 5)
   %978 = add i32 %976, -899497514
   %979 = add i32 %978, %946
@@ -1008,7 +1008,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %986 = xor i32 %985, %892
   %987 = xor i32 %986, %952
   %988 = tail call i32 @llvm.fshl.i32(i32 %987, i32 %987, i32 1)
-  store i32 %988, ptr %174, align 4
+  store i32 %988, ptr %174, align 4, !tbaa !7
   %989 = tail call i32 @llvm.fshl.i32(i32 %981, i32 %981, i32 5)
   %990 = add i32 %988, -899497514
   %991 = add i32 %990, %958
@@ -1021,7 +1021,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %998 = xor i32 %997, %904
   %999 = xor i32 %998, %964
   %1000 = tail call i32 @llvm.fshl.i32(i32 %999, i32 %999, i32 1)
-  store i32 %1000, ptr %186, align 4
+  store i32 %1000, ptr %186, align 4, !tbaa !7
   %1001 = tail call i32 @llvm.fshl.i32(i32 %993, i32 %993, i32 5)
   %1002 = add i32 %1000, -899497514
   %1003 = add i32 %1002, %970
@@ -1034,154 +1034,173 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr nounde
   %1010 = xor i32 %1009, %916
   %1011 = xor i32 %1010, %976
   %1012 = tail call i32 @llvm.fshl.i32(i32 %1011, i32 %1011, i32 1)
-  store i32 %1012, ptr %198, align 4
+  store i32 %1012, ptr %198, align 4, !tbaa !7
   %1013 = tail call i32 @llvm.fshl.i32(i32 %1005, i32 %1005, i32 5)
   %1014 = tail call i32 @llvm.fshl.i32(i32 %993, i32 %993, i32 30)
-  %1015 = load i32, ptr %0, align 4
+  %1015 = load i32, ptr %0, align 4, !tbaa !3
   %1016 = add i32 %1015, -899497514
   %1017 = add i32 %1016, %1012
   %1018 = add i32 %1017, %982
   %1019 = add i32 %1018, %1008
   %1020 = add i32 %1019, %1013
-  store i32 %1020, ptr %0, align 4
-  %1021 = load i32, ptr %8, align 4
+  store i32 %1020, ptr %0, align 4, !tbaa !3
+  %1021 = load i32, ptr %8, align 4, !tbaa !3
   %1022 = add i32 %1005, %1021
-  store i32 %1022, ptr %8, align 4
-  %1023 = load i32, ptr %10, align 4
+  store i32 %1022, ptr %8, align 4, !tbaa !3
+  %1023 = load i32, ptr %10, align 4, !tbaa !3
   %1024 = add i32 %1014, %1023
-  store i32 %1024, ptr %10, align 4
-  %1025 = load i32, ptr %12, align 4
+  store i32 %1024, ptr %10, align 4, !tbaa !3
+  %1025 = load i32, ptr %12, align 4, !tbaa !3
   %1026 = add i32 %1006, %1025
-  store i32 %1026, ptr %12, align 4
-  %1027 = load i32, ptr %14, align 4
+  store i32 %1026, ptr %12, align 4, !tbaa !3
+  %1027 = load i32, ptr %14, align 4, !tbaa !3
   %1028 = add i32 %994, %1027
-  store i32 %1028, ptr %14, align 4
+  store i32 %1028, ptr %14, align 4, !tbaa !3
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z9sha1_initP12sha1_context(ptr noundef writeonly captures(none) initializes((0, 20), (24, 32)) %0) local_unnamed_addr #2 {
+define void @_Z9sha1_initP12sha1_context(ptr noundef writeonly captures(none) initializes((0, 20), (24, 32)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %2, align 8
-  store i32 1732584193, ptr %0, align 8
+  store i64 0, ptr %2, align 8, !tbaa !8
+  store i32 1732584193, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %3, align 4
+  store i32 -271733879, ptr %3, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %4, align 8
+  store i32 -1732584194, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %5, align 4
+  store i32 271733878, ptr %5, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %6, align 8
+  store i32 -1009589776, ptr %6, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z12sha1_processP12sha1_contextPKhm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @_Z12sha1_processP12sha1_contextPKhm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [16 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !8
   %7 = and i64 %6, 63
   %8 = add i64 %6, %2
-  store i64 %8, ptr %5, align 8
+  store i64 %8, ptr %5, align 8, !tbaa !8
   %9 = add i64 %7, %2
   %10 = icmp ugt i64 %9, 63
-  br i1 %10, label %11, label %.loopexit
+  br i1 %10, label %11, label %21
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
   %14 = sub nuw nsw i64 64, %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %14, i1 false)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %12, i1 noundef zeroext true)
   %15 = xor i64 %7, 127
   %16 = icmp ult i64 %15, %2
-  br i1 %16, label %.lr.ph, label %.loopexit
+  br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.02426 = phi i64 [ %18, %.lr.ph ], [ %14, %11 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 %.02426
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.02426
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %17, i1 noundef zeroext false)
   %18 = add i64 %.02426, 64
   %19 = add i64 %.02426, 127
   %20 = icmp ult i64 %19, %2
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !4
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.lr.ph, %11, %3
-  %.1 = phi i64 [ 0, %3 ], [ %14, %11 ], [ %18, %.lr.ph ]
-  %.0 = phi i64 [ %7, %3 ], [ 0, %11 ], [ 0, %.lr.ph ]
-  %21 = icmp ugt i64 %2, %.1
-  br i1 %21, label %22, label %27
+._crit_edge:                                      ; preds = %.lr.ph, %11
+  %.024.lcssa = phi i64 [ %14, %11 ], [ %18, %.lr.ph ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
+  br label %21
 
-22:                                               ; preds = %.loopexit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.0
-  %25 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %26 = sub nuw i64 %2, %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %25, i64 %26, i1 false)
-  br label %27
+21:                                               ; preds = %3, %._crit_edge
+  %.1 = phi i64 [ %.024.lcssa, %._crit_edge ], [ 0, %3 ]
+  %.0 = phi i64 [ 0, %._crit_edge ], [ %7, %3 ]
+  %22 = icmp ugt i64 %2, %.1
+  br i1 %22, label %23, label %28
 
-27:                                               ; preds = %22, %.loopexit
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.0
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
+  %27 = sub nuw i64 %2, %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %26, i64 %27, i1 false)
+  br label %28
+
+28:                                               ; preds = %23, %21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [16 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !8
   %7 = and i64 %6, 63
   %8 = add i64 %6, %2
-  store i64 %8, ptr %5, align 8
+  store i64 %8, ptr %5, align 8, !tbaa !8
   %9 = add i64 %7, %2
   %10 = icmp ugt i64 %9, 63
-  br i1 %10, label %11, label %.loopexit
+  br i1 %10, label %11, label %20
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
   %14 = sub nuw nsw i64 64, %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %14, i1 false)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %12, i1 noundef zeroext true)
   %15 = xor i64 %7, 127
   %16 = icmp ult i64 %15, %2
-  br i1 %16, label %.lr.ph, label %.loopexit
+  br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.03134 = phi i64 [ %17, %.lr.ph ], [ %14, %11 ]
   %scevgep = getelementptr i8, ptr %1, i64 %.03134
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %scevgep, i1 noundef zeroext false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %scevgep, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %scevgep, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false), !tbaa !3
   %17 = add i64 %.03134, 64
   %18 = add i64 %.03134, 127
   %19 = icmp ult i64 %18, %2
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-.loopexit:                                        ; preds = %.lr.ph, %11, %3
-  %.1 = phi i64 [ 0, %3 ], [ %14, %11 ], [ %17, %.lr.ph ]
-  %.030 = phi i64 [ %7, %3 ], [ 0, %11 ], [ 0, %.lr.ph ]
-  %20 = icmp ugt i64 %2, %.1
-  br i1 %20, label %21, label %26
+._crit_edge:                                      ; preds = %.lr.ph, %11
+  %.031.lcssa = phi i64 [ %14, %11 ], [ %17, %.lr.ph ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
+  br label %20
 
-21:                                               ; preds = %.loopexit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.030
-  %24 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %25 = sub nuw i64 %2, %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %24, i64 %25, i1 false)
-  br label %26
+20:                                               ; preds = %3, %._crit_edge
+  %.1 = phi i64 [ %.031.lcssa, %._crit_edge ], [ 0, %3 ]
+  %.030 = phi i64 [ 0, %._crit_edge ], [ %7, %3 ]
+  %21 = icmp ugt i64 %2, %.1
+  br i1 %21, label %22, label %27
 
-26:                                               ; preds = %21, %.loopexit
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.030
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
+  %26 = sub nuw i64 %2, %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %25, i64 %26, i1 false)
+  br label %27
+
+27:                                               ; preds = %22, %20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z9sha1_doneP12sha1_contextPj(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
+define void @_Z9sha1_doneP12sha1_contextPj(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca [16 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !8
   %6 = shl i64 %5, 3
   %7 = trunc i64 %5 to i32
   %8 = and i32 %7, 63
@@ -1189,7 +1208,7 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr noundef captures(none) %0, ptr no
   %10 = add nuw nsw i32 %8, 1
   %11 = and i64 %5, 63
   %12 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %11
-  store i8 -128, ptr %12, align 1
+  store i8 -128, ptr %12, align 1, !tbaa !7
   %.not = icmp eq i32 %10, 56
   br i1 %.not, label %23, label %13
 
@@ -1207,7 +1226,7 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr noundef captures(none) %0, ptr no
   %scevgep = getelementptr i8, ptr %16, i64 33
   %narrow = xor i32 %8, 63
   %17 = zext nneg i32 %narrow to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %17, i1 false), !tbaa !7
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader
@@ -1228,62 +1247,72 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr noundef captures(none) %0, ptr no
   %25 = trunc nuw i64 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = tail call i32 @llvm.bswap.i32(i32 %25)
-  store i32 %27, ptr %26, align 4
+  store i32 %27, ptr %26, align 4, !tbaa !3
   %28 = trunc i64 %6 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %30 = tail call i32 @llvm.bswap.i32(i32 %28)
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 4, !tbaa !3
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %9, i1 noundef zeroext true)
-  br label %31
+  br label %36
 
-31:                                               ; preds = %23, %31
-  %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %indvars.iv
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  store i32 %33, ptr %34, align 4
+31:                                               ; preds = %36
+  store i64 0, ptr %4, align 8, !tbaa !8
+  store i32 1732584193, ptr %0, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 -271733879, ptr %32, align 4, !tbaa !3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %33, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 271733878, ptr %34, align 4, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 -1009589776, ptr %35, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #8
+  ret void
+
+36:                                               ; preds = %23, %36
+  %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %36 ]
+  %37 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %38 = load i32, ptr %37, align 4, !tbaa !3
+  %39 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  store i32 %38, ptr %39, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %35, label %31, !llvm.loop !7
-
-35:                                               ; preds = %31
-  store i64 0, ptr %4, align 8
-  store i32 1732584193, ptr %0, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %39, align 8
-  ret void
+  br i1 %exitcond.not, label %31, label %36, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #5
+declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #6
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = !{!9, !10, i64 24}
+!9 = !{!"_ZTS12sha1_context", !5, i64 0, !10, i64 24, !5, i64 32}
+!10 = !{!"long", !5, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}

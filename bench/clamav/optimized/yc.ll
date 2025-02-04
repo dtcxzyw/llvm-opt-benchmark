@@ -1,5 +1,5 @@
-; ModuleID = 'bench/clamav/original/yc.c.ll'
-source_filename = "bench/clamav/original/yc.c.ll"
+; ModuleID = 'bench/clamav/original/yc.ll'
+source_filename = "bench/clamav/original/yc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -19,13 +19,13 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %10 = zext i32 %4 to i64
   %11 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = sext i16 %8 to i32
   %15 = add i32 %13, %14
   %16 = zext i32 %5 to i64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %19 = load i16, ptr %18, align 4
+  %19 = load i16, ptr %18, align 4, !tbaa !8
   %20 = zext i16 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -37,19 +37,19 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 198
   %27 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %7, i32 noundef %7)
   switch i32 %27, label %29 [
-    i32 2, label %.loopexit
+    i32 2, label %.thread
     i32 1, label %28
   ]
 
 28:                                               ; preds = %9
-  br label %.loopexit
+  br label %.thread
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !tbaa !11
   %32 = sub i32 %2, %31
-  %.not95 = icmp eq i32 %4, 0
-  br i1 %.not95, label %._crit_edge, label %.lr.ph
+  %.not100 = icmp eq i32 %4, 0
+  br i1 %.not100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %33 = icmp eq i16 %8, -24
@@ -61,7 +61,7 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %37 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load i32, ptr %38, align 4
+  %39 = load i32, ptr %38, align 4, !tbaa !3
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %78, label %40
 
@@ -69,9 +69,9 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %41 = mul i64 %indvars.iv, 40
   %42 = and i64 %41, 4294967288
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 %42
-  %44 = load i32, ptr %43, align 1
+  %44 = load i32, ptr %43, align 1, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 4, !tbaa !13
   %47 = icmp eq i32 %46, 0
   %48 = icmp eq i32 %44, 1668445042
   %49 = icmp eq i32 %44, 1920168494
@@ -97,27 +97,27 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
 66:                                               ; preds = %40
   %67 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i32 noundef %67) #3
-  %68 = load i32, ptr %38, align 4
+  %68 = load i32, ptr %38, align 4, !tbaa !3
   %69 = sub i32 %32, %68
   %70 = icmp ugt i32 %68, %32
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %66
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %69) #3
-  br label %.loopexit
+  br label %.thread
 
 72:                                               ; preds = %66
   %73 = zext i32 %68 to i64
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %76 = load i32, ptr %75, align 4
+  %76 = load i32, ptr %75, align 4, !tbaa !11
   %77 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %35, ptr noundef %74, i32 noundef %76, i32 noundef %69)
   switch i32 %77, label %78 [
-    i32 2, label %.loopexit.loopexit
-    i32 1, label %.loopexit
+    i32 2, label %.thread.loopexit
+    i32 1, label %.thread
   ]
 
-78:                                               ; preds = %72, %36, %40
+78:                                               ; preds = %72, %40, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge, label %36
@@ -125,33 +125,33 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
 ._crit_edge:                                      ; preds = %78, %29
   %79 = trunc i32 %4 to i16
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 6
-  store i16 %79, ptr %80, align 2
+  store i16 %79, ptr %80, align 2, !tbaa !14
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 128
   store i64 0, ptr %81, align 1
   %82 = getelementptr inbounds nuw i8, ptr %24, i64 2575
-  %83 = load i32, ptr %82, align 1
+  %83 = load i32, ptr %82, align 1, !tbaa !12
   %84 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 %83, ptr %84, align 1
+  store i32 %83, ptr %84, align 1, !tbaa !12
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %86 = load i32, ptr %85, align 1
+  %86 = load i32, ptr %85, align 1, !tbaa !12
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %88 = load i32, ptr %87, align 4
+  %88 = load i32, ptr %87, align 4, !tbaa !15
   %89 = sub i32 %86, %88
-  store i32 %89, ptr %85, align 1
+  store i32 %89, ptr %85, align 1, !tbaa !12
   %90 = zext i32 %32 to i64
   %91 = tail call i64 @cli_writen(i32 noundef %6, ptr noundef %1, i64 noundef %90) #3
   %92 = icmp eq i64 %91, -1
-  br i1 %92, label %93, label %.loopexit
+  br i1 %92, label %93, label %.thread
 
 93:                                               ; preds = %._crit_edge
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
-  br label %.loopexit
+  br label %.thread
 
-.loopexit.loopexit:                               ; preds = %72
-  br label %.loopexit
+.thread.loopexit:                                 ; preds = %72
+  br label %.thread
 
-.loopexit:                                        ; preds = %72, %.loopexit.loopexit, %._crit_edge, %9, %93, %71, %28
-  %.0 = phi i32 [ 1, %71 ], [ 7, %93 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %.loopexit.loopexit ], [ 7, %72 ]
+.thread:                                          ; preds = %72, %.thread.loopexit, %71, %._crit_edge, %9, %93, %28
+  %.0 = phi i32 [ 7, %93 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %71 ], [ 1, %.thread.loopexit ], [ 7, %72 ]
   ret i32 %.0
 }
 
@@ -187,7 +187,7 @@ yc_bounds_check.exit:                             ; preds = %10
   br label %.loopexit
 
 18:                                               ; preds = %10
-  %19 = load i8, ptr %12, align 1
+  %19 = load i8, ptr %12, align 1, !tbaa !12
   br label %20
 
 20:                                               ; preds = %18, %133
@@ -208,7 +208,7 @@ yc_bounds_check.exit157:                          ; preds = %20
   br label %.loopexit
 
 28:                                               ; preds = %20
-  %29 = load i8, ptr %22, align 1
+  %29 = load i8, ptr %22, align 1, !tbaa !12
   switch i8 %29, label %yc_bounds_check.exit175 [
     i8 -21, label %30
     i8 -2, label %44
@@ -246,7 +246,7 @@ yc_bounds_check.exit159:                          ; preds = %30
 
 39:                                               ; preds = %yc_bounds_check.exit159
   %40 = add i32 %.1239, -1
-  %41 = load i8, ptr %33, align 1
+  %41 = load i8, ptr %33, align 1, !tbaa !12
   %42 = sext i8 %41 to i32
   %43 = add nsw i32 %31, %42
   br label %133
@@ -287,7 +287,7 @@ yc_bounds_check.exit161:                          ; preds = %56
   br label %.loopexit
 
 65:                                               ; preds = %56
-  %66 = load i8, ptr %59, align 1
+  %66 = load i8, ptr %59, align 1, !tbaa !12
   %67 = add i8 %66, %.0141237
   br label %133
 
@@ -307,7 +307,7 @@ yc_bounds_check.exit163:                          ; preds = %68
   br label %.loopexit
 
 77:                                               ; preds = %68
-  %78 = load i8, ptr %71, align 1
+  %78 = load i8, ptr %71, align 1, !tbaa !12
   %79 = xor i8 %78, %.0141237
   br label %133
 
@@ -327,7 +327,7 @@ yc_bounds_check.exit165:                          ; preds = %80
   br label %.loopexit
 
 89:                                               ; preds = %80
-  %90 = load i8, ptr %83, align 1
+  %90 = load i8, ptr %83, align 1, !tbaa !12
   %91 = sub i8 %.0141237, %90
   br label %133
 
@@ -345,7 +345,7 @@ yc_bounds_check.exit167:                          ; preds = %92
   br label %.loopexit
 
 98:                                               ; preds = %92
-  %99 = load i8, ptr %gep236, align 1
+  %99 = load i8, ptr %gep236, align 1, !tbaa !12
   %100 = icmp eq i8 %99, -64
   %101 = add nuw nsw i32 %.0138238, 2
   %102 = zext nneg i32 %101 to i64
@@ -365,7 +365,7 @@ yc_bounds_check.exit169:                          ; preds = %108
   br label %.loopexit
 
 110:                                              ; preds = %108
-  %111 = load i8, ptr %103, align 1
+  %111 = load i8, ptr %103, align 1, !tbaa !12
   %112 = tail call i8 @llvm.fshl.i8(i8 %.0141237, i8 %.0141237, i8 %111)
   br label %133
 
@@ -378,7 +378,7 @@ yc_bounds_check.exit171:                          ; preds = %113
   br label %.loopexit
 
 115:                                              ; preds = %113
-  %116 = load i8, ptr %103, align 1
+  %116 = load i8, ptr %103, align 1, !tbaa !12
   %117 = tail call i8 @llvm.fshr.i8(i8 %.0141237, i8 %.0141237, i8 %116)
   br label %133
 
@@ -396,7 +396,7 @@ yc_bounds_check.exit173:                          ; preds = %118
   br label %.loopexit
 
 124:                                              ; preds = %118
-  %125 = load i8, ptr %gep, align 1
+  %125 = load i8, ptr %gep, align 1, !tbaa !12
   %126 = icmp eq i8 %125, -56
   %127 = add nuw nsw i32 %.0138238, 2
   br i1 %126, label %128, label %130
@@ -424,7 +424,7 @@ yc_bounds_check.exit175:                          ; preds = %28
 
 136:                                              ; preds = %133
   %137 = add i8 %.0140240, -1
-  store i8 %.1142, ptr %12, align 1
+  store i8 %.1142, ptr %12, align 1, !tbaa !12
   %138 = add nuw i32 %.0137241, 1
   %exitcond.not = icmp eq i32 %138, %invariant.umin
   br i1 %exitcond.not, label %.loopexit, label %10
@@ -447,14 +447,26 @@ declare i8 @llvm.fshr.i8(i8, i8, i8) #2
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 8}
+!4 = !{!"cli_exe_section", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !10, i64 20}
+!9 = !{!"pe_image_file_hdr", !5, i64 0, !10, i64 4, !10, i64 6, !5, i64 8, !5, i64 12, !5, i64 16, !10, i64 20, !10, i64 22}
+!10 = !{!"short", !6, i64 0}
+!11 = !{!4, !5, i64 32}
+!12 = !{!6, !6, i64 0}
+!13 = !{!4, !5, i64 12}
+!14 = !{!9, !10, i64 6}
+!15 = !{!4, !5, i64 4}

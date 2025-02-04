@@ -16,96 +16,107 @@ define i32 @Ppmd7z_RangeDec_Init(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %5, i32 0, i32 2
-  store i32 0, ptr %6, align 4
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %7, i32 0, i32 1
-  store i32 -1, ptr %8, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %9, i32 0, i32 3
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.IByteIn, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %14, i32 0, i32 3
-  %16 = load ptr, ptr %15, align 8
-  %17 = call zeroext i8 %13(ptr noundef %16)
-  %18 = zext i8 %17 to i32
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %52
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %6, i32 0, i32 2
+  store i32 0, ptr %7, align 4, !tbaa !7
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %8, i32 0, i32 1
+  store i32 -1, ptr %9, align 8, !tbaa !11
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %10, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8, !tbaa !12
+  %13 = getelementptr inbounds nuw %struct.IByteIn, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !13
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = call zeroext i8 %14(ptr noundef %17)
+  %19 = zext i8 %18 to i32
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %1
-  store i32 0, ptr %4, align 4
-  br label %22
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %53
 
-22:                                               ; preds = %43, %21
-  %23 = load i32, ptr %4, align 4
-  %24 = icmp ult i32 %23, 4
-  br i1 %24, label %25, label %46
+22:                                               ; preds = %1
+  store i32 0, ptr %4, align 4, !tbaa !15
+  br label %23
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %26, i32 0, i32 2
-  %28 = load i32, ptr %27, align 4
-  %29 = shl i32 %28, 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %30, i32 0, i32 3
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.IByteIn, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %35, i32 0, i32 3
-  %37 = load ptr, ptr %36, align 8
-  %38 = call zeroext i8 %34(ptr noundef %37)
-  %39 = zext i8 %38 to i32
-  %40 = or i32 %29, %39
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %41, i32 0, i32 2
-  store i32 %40, ptr %42, align 4
-  br label %43
+23:                                               ; preds = %44, %22
+  %24 = load i32, ptr %4, align 4, !tbaa !15
+  %25 = icmp ult i32 %24, 4
+  br i1 %25, label %26, label %47
 
-43:                                               ; preds = %25
-  %44 = load i32, ptr %4, align 4
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %4, align 4
-  br label %22
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %3, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %27, i32 0, i32 2
+  %29 = load i32, ptr %28, align 4, !tbaa !7
+  %30 = shl i32 %29, 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8, !tbaa !12
+  %34 = getelementptr inbounds nuw %struct.IByteIn, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !13
+  %36 = load ptr, ptr %3, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8, !tbaa !12
+  %39 = call zeroext i8 %35(ptr noundef %38)
+  %40 = zext i8 %39 to i32
+  %41 = or i32 %30, %40
+  %42 = load ptr, ptr %3, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %42, i32 0, i32 2
+  store i32 %41, ptr %43, align 4, !tbaa !7
+  br label %44
 
-46:                                               ; preds = %22
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %47, i32 0, i32 2
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp ult i32 %49, -1
-  %51 = zext i1 %50 to i32
-  store i32 %51, ptr %2, align 4
-  br label %52
+44:                                               ; preds = %26
+  %45 = load i32, ptr %4, align 4, !tbaa !15
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %4, align 4, !tbaa !15
+  br label %23
 
-52:                                               ; preds = %46, %20
-  %53 = load i32, ptr %2, align 4
-  ret i32 %53
+47:                                               ; preds = %23
+  %48 = load ptr, ptr %3, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %48, i32 0, i32 2
+  %50 = load i32, ptr %49, align 4, !tbaa !7
+  %51 = icmp ult i32 %50, -1
+  %52 = zext i1 %51 to i32
+  store i32 %52, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %53
+
+53:                                               ; preds = %47, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %54 = load i32, ptr %2, align 4
+  ret i32 %54
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @Ppmd7z_RangeDec_CreateVTable(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %4, i32 0, i32 0
-  store ptr @Range_GetThreshold, ptr %5, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %7, i32 0, i32 1
-  store ptr @Range_Decode, ptr %8, align 8
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %9, i32 0, i32 0
-  %11 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %10, i32 0, i32 2
-  store ptr @Range_DecodeBit, ptr %11, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %4, i32 0, i32 0
+  store ptr @Range_GetThreshold, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %7, i32 0, i32 1
+  store ptr @Range_Decode, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %10, i32 0, i32 2
+  store ptr @Range_DecodeBit, ptr %11, align 8, !tbaa !18
   ret void
 }
 
@@ -114,20 +125,22 @@ define internal i32 @Range_GetThreshold(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %7, i32 0, i32 2
-  %9 = load i32, ptr %8, align 4
-  %10 = load i32, ptr %4, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %6, ptr %5, align 8, !tbaa !3
+  %7 = load ptr, ptr %5, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %7, i32 0, i32 2
+  %9 = load i32, ptr %8, align 4, !tbaa !7
+  %10 = load i32, ptr %4, align 4, !tbaa !15
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8, !tbaa !11
   %14 = udiv i32 %13, %10
-  store i32 %14, ptr %12, align 8
+  store i32 %14, ptr %12, align 8, !tbaa !11
   %15 = udiv i32 %9, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret i32 %15
 }
 
@@ -137,29 +150,31 @@ define internal void @Range_Decode(ptr noundef %0, i32 noundef %1, i32 noundef %
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %8 = load ptr, ptr %4, align 8
-  store ptr %8, ptr %7, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !15
+  store i32 %2, ptr %6, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %8, ptr %7, align 8, !tbaa !3
+  %9 = load i32, ptr %5, align 4, !tbaa !15
+  %10 = load ptr, ptr %7, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8, !tbaa !11
   %13 = mul i32 %9, %12
-  %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 4
+  %14 = load ptr, ptr %7, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %14, i32 0, i32 2
+  %16 = load i32, ptr %15, align 4, !tbaa !7
   %17 = sub i32 %16, %13
-  store i32 %17, ptr %15, align 4
-  %18 = load i32, ptr %6, align 4
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 8
+  store i32 %17, ptr %15, align 4, !tbaa !7
+  %18 = load i32, ptr %6, align 4, !tbaa !15
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 8, !tbaa !11
   %22 = mul i32 %21, %18
-  store i32 %22, ptr %20, align 8
-  %23 = load ptr, ptr %7, align 8
+  store i32 %22, ptr %20, align 8, !tbaa !11
+  %23 = load ptr, ptr %7, align 8, !tbaa !3
   call void @Range_Normalize(ptr noundef %23)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret void
 }
 
@@ -170,52 +185,58 @@ define internal i32 @Range_DecodeBit(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %8 = load ptr, ptr %3, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %10, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %8, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8, !tbaa !11
   %12 = lshr i32 %11, 14
-  %13 = load i32, ptr %4, align 4
+  %13 = load i32, ptr %4, align 4, !tbaa !15
   %14 = mul i32 %12, %13
-  store i32 %14, ptr %6, align 4
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 4
-  %18 = load i32, ptr %6, align 4
+  store i32 %14, ptr %6, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4, !tbaa !7
+  %18 = load i32, ptr %6, align 4, !tbaa !15
   %19 = icmp ult i32 %17, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %2
-  store i32 0, ptr %7, align 4
-  %21 = load i32, ptr %6, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %22, i32 0, i32 1
-  store i32 %21, ptr %23, align 8
+  store i32 0, ptr %7, align 4, !tbaa !15
+  %21 = load i32, ptr %6, align 4, !tbaa !15
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %22, i32 0, i32 1
+  store i32 %21, ptr %23, align 8, !tbaa !11
   br label %35
 
 24:                                               ; preds = %2
-  store i32 1, ptr %7, align 4
-  %25 = load i32, ptr %6, align 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %26, i32 0, i32 2
-  %28 = load i32, ptr %27, align 4
+  store i32 1, ptr %7, align 4, !tbaa !15
+  %25 = load i32, ptr %6, align 4, !tbaa !15
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %26, i32 0, i32 2
+  %28 = load i32, ptr %27, align 4, !tbaa !7
   %29 = sub i32 %28, %25
-  store i32 %29, ptr %27, align 4
-  %30 = load i32, ptr %6, align 4
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 8
+  store i32 %29, ptr %27, align 4, !tbaa !7
+  %30 = load i32, ptr %6, align 4, !tbaa !15
+  %31 = load ptr, ptr %5, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8, !tbaa !11
   %34 = sub i32 %33, %30
-  store i32 %34, ptr %32, align 8
+  store i32 %34, ptr %32, align 8, !tbaa !11
   br label %35
 
 35:                                               ; preds = %24, %20
-  %36 = load ptr, ptr %5, align 8
+  %36 = load ptr, ptr %5, align 8, !tbaa !3
   call void @Range_Normalize(ptr noundef %36)
-  %37 = load i32, ptr %7, align 4
+  %37 = load i32, ptr %7, align 4, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret i32 %37
 }
 
@@ -230,894 +251,978 @@ define i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
-  %12 = alloca i8, align 1
-  %13 = alloca i32, align 4
-  %14 = alloca ptr, align 8
-  %15 = alloca i8, align 1
-  %16 = alloca i32, align 4
-  %17 = alloca [256 x ptr], align 16
-  %18 = alloca ptr, align 8
-  %19 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i8, align 1
+  %17 = alloca i32, align 4
+  %18 = alloca [256 x ptr], align 16
+  %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
-  %22 = alloca ptr, align 8
-  %23 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca ptr, align 8
   %24 = alloca i32, align 4
   %25 = alloca i32, align 4
   %26 = alloca i32, align 4
-  %27 = alloca i8, align 1
-  %28 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.CPpmd7, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %31, i32 0, i32 0
-  %33 = load i16, ptr %32, align 4
-  %34 = zext i16 %33 to i32
-  %35 = icmp ne i32 %34, 1
-  br i1 %35, label %36, label %234
+  %27 = alloca i32, align 4
+  %28 = alloca i8, align 1
+  %29 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 256, ptr %6) #3
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.CPpmd7, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !19
+  %33 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %32, i32 0, i32 0
+  %34 = load i16, ptr %33, align 4, !tbaa !25
+  %35 = zext i16 %34 to i32
+  %36 = icmp ne i32 %35, 1
+  br i1 %36, label %37, label %238
 
-36:                                               ; preds = %2
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.CPpmd7, ptr %37, i32 0, i32 12
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.CPpmd7, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %42, i32 0, i32 2
-  %44 = load i32, ptr %43, align 4
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %39, i64 %45
-  store ptr %46, ptr %7, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.CPpmd7, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %53, i32 0, i32 1
-  %55 = load i16, ptr %54, align 2
-  %56 = zext i16 %55 to i32
-  %57 = call i32 %49(ptr noundef %50, i32 noundef %56)
-  store i32 %57, ptr %9, align 4
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds %struct.CPpmd_State, ptr %58, i32 0, i32 1
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  store i32 %61, ptr %10, align 4
-  %62 = icmp ult i32 %57, %61
-  br i1 %62, label %63, label %81
+37:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.CPpmd7, ptr %38, i32 0, i32 12
+  %40 = load ptr, ptr %39, align 8, !tbaa !27
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.CPpmd7, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8, !tbaa !19
+  %44 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %43, i32 0, i32 2
+  %45 = load i32, ptr %44, align 4, !tbaa !28
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 %46
+  store ptr %47, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %48 = load ptr, ptr %5, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !29
+  %51 = load ptr, ptr %5, align 8, !tbaa !3
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.CPpmd7, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !19
+  %55 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %54, i32 0, i32 1
+  %56 = load i16, ptr %55, align 2, !tbaa !30
+  %57 = zext i16 %56 to i32
+  %58 = call i32 %50(ptr noundef %51, i32 noundef %57)
+  store i32 %58, ptr %9, align 4, !tbaa !15
+  %59 = load ptr, ptr %7, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %59, i32 0, i32 1
+  %61 = load i8, ptr %60, align 1, !tbaa !31
+  %62 = zext i8 %61 to i32
+  store i32 %62, ptr %10, align 4, !tbaa !15
+  %63 = icmp ult i32 %58, %62
+  br i1 %63, label %64, label %82
 
-63:                                               ; preds = %36
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.CPpmd_State, ptr %68, i32 0, i32 1
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  call void %66(ptr noundef %67, i32 noundef 0, i32 noundef %71)
-  %72 = load ptr, ptr %7, align 8
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct.CPpmd7, ptr %73, i32 0, i32 2
-  store ptr %72, ptr %74, align 8
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %struct.CPpmd_State, ptr %75, i32 0, i32 0
-  %77 = load i8, ptr %76, align 2
-  store i8 %77, ptr %11, align 1
-  %78 = load ptr, ptr %4, align 8
-  call void @Ppmd7_Update1_0(ptr noundef %78)
-  %79 = load i8, ptr %11, align 1
-  %80 = zext i8 %79 to i32
-  store i32 %80, ptr %3, align 4
-  br label %629
+64:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  %65 = load ptr, ptr %5, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8, !tbaa !33
+  %68 = load ptr, ptr %5, align 8, !tbaa !3
+  %69 = load ptr, ptr %7, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %69, i32 0, i32 1
+  %71 = load i8, ptr %70, align 1, !tbaa !31
+  %72 = zext i8 %71 to i32
+  call void %67(ptr noundef %68, i32 noundef 0, i32 noundef %72)
+  %73 = load ptr, ptr %7, align 8, !tbaa !3
+  %74 = load ptr, ptr %4, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.CPpmd7, ptr %74, i32 0, i32 2
+  store ptr %73, ptr %75, align 8, !tbaa !34
+  %76 = load ptr, ptr %7, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %76, i32 0, i32 0
+  %78 = load i8, ptr %77, align 2, !tbaa !35
+  store i8 %78, ptr %11, align 1, !tbaa !36
+  %79 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @Ppmd7_Update1_0(ptr noundef %79)
+  %80 = load i8, ptr %11, align 1, !tbaa !36
+  %81 = zext i8 %80 to i32
+  store i32 %81, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  br label %235
 
-81:                                               ; preds = %36
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.CPpmd7, ptr %82, i32 0, i32 5
-  store i32 0, ptr %83, align 8
-  %84 = load ptr, ptr %4, align 8
-  %85 = getelementptr inbounds %struct.CPpmd7, ptr %84, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %86, i32 0, i32 0
-  %88 = load i16, ptr %87, align 4
-  %89 = zext i16 %88 to i32
-  %90 = sub nsw i32 %89, 1
-  store i32 %90, ptr %8, align 4
-  br label %91
+82:                                               ; preds = %37
+  %83 = load ptr, ptr %4, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw %struct.CPpmd7, ptr %83, i32 0, i32 5
+  store i32 0, ptr %84, align 8, !tbaa !37
+  %85 = load ptr, ptr %4, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %struct.CPpmd7, ptr %85, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8, !tbaa !19
+  %88 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %87, i32 0, i32 0
+  %89 = load i16, ptr %88, align 4, !tbaa !25
+  %90 = zext i16 %89 to i32
+  %91 = sub nsw i32 %90, 1
+  store i32 %91, ptr %8, align 4, !tbaa !15
+  br label %92
 
-91:                                               ; preds = %126, %81
-  %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds %struct.CPpmd_State, ptr %92, i32 1
-  store ptr %93, ptr %7, align 8
-  %94 = getelementptr inbounds %struct.CPpmd_State, ptr %93, i32 0, i32 1
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = load i32, ptr %10, align 4
-  %98 = add i32 %97, %96
-  store i32 %98, ptr %10, align 4
-  %99 = load i32, ptr %9, align 4
-  %100 = icmp ugt i32 %98, %99
-  br i1 %100, label %101, label %125
+92:                                               ; preds = %127, %82
+  %93 = load ptr, ptr %7, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %93, i32 1
+  store ptr %94, ptr %7, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %94, i32 0, i32 1
+  %96 = load i8, ptr %95, align 1, !tbaa !31
+  %97 = zext i8 %96 to i32
+  %98 = load i32, ptr %10, align 4, !tbaa !15
+  %99 = add i32 %98, %97
+  store i32 %99, ptr %10, align 4, !tbaa !15
+  %100 = load i32, ptr %9, align 4, !tbaa !15
+  %101 = icmp ugt i32 %99, %100
+  br i1 %101, label %102, label %126
 
-101:                                              ; preds = %91
-  %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %102, i32 0, i32 1
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %5, align 8
-  %106 = load i32, ptr %10, align 4
-  %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds %struct.CPpmd_State, ptr %107, i32 0, i32 1
-  %109 = load i8, ptr %108, align 1
-  %110 = zext i8 %109 to i32
-  %111 = sub i32 %106, %110
-  %112 = load ptr, ptr %7, align 8
-  %113 = getelementptr inbounds %struct.CPpmd_State, ptr %112, i32 0, i32 1
-  %114 = load i8, ptr %113, align 1
-  %115 = zext i8 %114 to i32
-  call void %104(ptr noundef %105, i32 noundef %111, i32 noundef %115)
-  %116 = load ptr, ptr %7, align 8
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %struct.CPpmd7, ptr %117, i32 0, i32 2
-  store ptr %116, ptr %118, align 8
-  %119 = load ptr, ptr %7, align 8
-  %120 = getelementptr inbounds %struct.CPpmd_State, ptr %119, i32 0, i32 0
-  %121 = load i8, ptr %120, align 2
-  store i8 %121, ptr %12, align 1
-  %122 = load ptr, ptr %4, align 8
-  call void @Ppmd7_Update1(ptr noundef %122)
-  %123 = load i8, ptr %12, align 1
-  %124 = zext i8 %123 to i32
-  store i32 %124, ptr %3, align 4
-  br label %629
+102:                                              ; preds = %92
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  %103 = load ptr, ptr %5, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %103, i32 0, i32 1
+  %105 = load ptr, ptr %104, align 8, !tbaa !33
+  %106 = load ptr, ptr %5, align 8, !tbaa !3
+  %107 = load i32, ptr %10, align 4, !tbaa !15
+  %108 = load ptr, ptr %7, align 8, !tbaa !3
+  %109 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %108, i32 0, i32 1
+  %110 = load i8, ptr %109, align 1, !tbaa !31
+  %111 = zext i8 %110 to i32
+  %112 = sub i32 %107, %111
+  %113 = load ptr, ptr %7, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %113, i32 0, i32 1
+  %115 = load i8, ptr %114, align 1, !tbaa !31
+  %116 = zext i8 %115 to i32
+  call void %105(ptr noundef %106, i32 noundef %112, i32 noundef %116)
+  %117 = load ptr, ptr %7, align 8, !tbaa !3
+  %118 = load ptr, ptr %4, align 8, !tbaa !3
+  %119 = getelementptr inbounds nuw %struct.CPpmd7, ptr %118, i32 0, i32 2
+  store ptr %117, ptr %119, align 8, !tbaa !34
+  %120 = load ptr, ptr %7, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %120, i32 0, i32 0
+  %122 = load i8, ptr %121, align 2, !tbaa !35
+  store i8 %122, ptr %13, align 1, !tbaa !36
+  %123 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @Ppmd7_Update1(ptr noundef %123)
+  %124 = load i8, ptr %13, align 1, !tbaa !36
+  %125 = zext i8 %124 to i32
+  store i32 %125, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  br label %235
 
-125:                                              ; preds = %91
-  br label %126
+126:                                              ; preds = %92
+  br label %127
 
-126:                                              ; preds = %125
-  %127 = load i32, ptr %8, align 4
-  %128 = add i32 %127, -1
-  store i32 %128, ptr %8, align 4
-  %129 = icmp ne i32 %128, 0
-  br i1 %129, label %91, label %130
+127:                                              ; preds = %126
+  %128 = load i32, ptr %8, align 4, !tbaa !15
+  %129 = add i32 %128, -1
+  store i32 %129, ptr %8, align 4, !tbaa !15
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %92, label %131
 
-130:                                              ; preds = %126
-  %131 = load i32, ptr %9, align 4
-  %132 = load ptr, ptr %4, align 8
-  %133 = getelementptr inbounds %struct.CPpmd7, ptr %132, i32 0, i32 0
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %134, i32 0, i32 1
-  %136 = load i16, ptr %135, align 2
-  %137 = zext i16 %136 to i32
-  %138 = icmp uge i32 %131, %137
-  br i1 %138, label %139, label %140
+131:                                              ; preds = %127
+  %132 = load i32, ptr %9, align 4, !tbaa !15
+  %133 = load ptr, ptr %4, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct.CPpmd7, ptr %133, i32 0, i32 0
+  %135 = load ptr, ptr %134, align 8, !tbaa !19
+  %136 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %135, i32 0, i32 1
+  %137 = load i16, ptr %136, align 2, !tbaa !30
+  %138 = zext i16 %137 to i32
+  %139 = icmp uge i32 %132, %138
+  br i1 %139, label %140, label %141
 
-139:                                              ; preds = %130
+140:                                              ; preds = %131
   store i32 -2, ptr %3, align 4
-  br label %629
+  store i32 1, ptr %12, align 4
+  br label %235
 
-140:                                              ; preds = %130
-  %141 = load ptr, ptr %4, align 8
-  %142 = getelementptr inbounds %struct.CPpmd7, ptr %141, i32 0, i32 23
-  %143 = load ptr, ptr %4, align 8
-  %144 = getelementptr inbounds %struct.CPpmd7, ptr %143, i32 0, i32 2
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %struct.CPpmd_State, ptr %145, i32 0, i32 0
-  %147 = load i8, ptr %146, align 2
-  %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds [256 x i8], ptr %142, i64 0, i64 %148
-  %150 = load i8, ptr %149, align 1
-  %151 = zext i8 %150 to i32
-  %152 = load ptr, ptr %4, align 8
-  %153 = getelementptr inbounds %struct.CPpmd7, ptr %152, i32 0, i32 7
-  store i32 %151, ptr %153, align 8
-  %154 = load ptr, ptr %5, align 8
-  %155 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %154, i32 0, i32 1
-  %156 = load ptr, ptr %155, align 8
-  %157 = load ptr, ptr %5, align 8
-  %158 = load i32, ptr %10, align 4
-  %159 = load ptr, ptr %4, align 8
-  %160 = getelementptr inbounds %struct.CPpmd7, ptr %159, i32 0, i32 0
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %161, i32 0, i32 1
-  %163 = load i16, ptr %162, align 2
-  %164 = zext i16 %163 to i32
-  %165 = load i32, ptr %10, align 4
-  %166 = sub i32 %164, %165
-  call void %156(ptr noundef %157, i32 noundef %158, i32 noundef %166)
-  store i32 0, ptr %13, align 4
-  br label %167
+141:                                              ; preds = %131
+  %142 = load ptr, ptr %4, align 8, !tbaa !3
+  %143 = getelementptr inbounds nuw %struct.CPpmd7, ptr %142, i32 0, i32 23
+  %144 = load ptr, ptr %4, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw %struct.CPpmd7, ptr %144, i32 0, i32 2
+  %146 = load ptr, ptr %145, align 8, !tbaa !34
+  %147 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %146, i32 0, i32 0
+  %148 = load i8, ptr %147, align 2, !tbaa !35
+  %149 = zext i8 %148 to i64
+  %150 = getelementptr inbounds nuw [256 x i8], ptr %143, i64 0, i64 %149
+  %151 = load i8, ptr %150, align 1, !tbaa !36
+  %152 = zext i8 %151 to i32
+  %153 = load ptr, ptr %4, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.CPpmd7, ptr %153, i32 0, i32 7
+  store i32 %152, ptr %154, align 8, !tbaa !38
+  %155 = load ptr, ptr %5, align 8, !tbaa !3
+  %156 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %155, i32 0, i32 1
+  %157 = load ptr, ptr %156, align 8, !tbaa !33
+  %158 = load ptr, ptr %5, align 8, !tbaa !3
+  %159 = load i32, ptr %10, align 4, !tbaa !15
+  %160 = load ptr, ptr %4, align 8, !tbaa !3
+  %161 = getelementptr inbounds nuw %struct.CPpmd7, ptr %160, i32 0, i32 0
+  %162 = load ptr, ptr %161, align 8, !tbaa !19
+  %163 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %162, i32 0, i32 1
+  %164 = load i16, ptr %163, align 2, !tbaa !30
+  %165 = zext i16 %164 to i32
+  %166 = load i32, ptr %10, align 4, !tbaa !15
+  %167 = sub i32 %165, %166
+  call void %157(ptr noundef %158, i32 noundef %159, i32 noundef %167)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  store i32 0, ptr %14, align 4, !tbaa !15
+  br label %168
 
-167:                                              ; preds = %204, %140
-  %168 = load i32, ptr %13, align 4
-  %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %169, 32
-  br i1 %170, label %171, label %207
+168:                                              ; preds = %205, %141
+  %169 = load i32, ptr %14, align 4, !tbaa !15
+  %170 = zext i32 %169 to i64
+  %171 = icmp ult i64 %170, 32
+  br i1 %171, label %172, label %208
 
-171:                                              ; preds = %167
-  %172 = load i32, ptr %13, align 4
-  %173 = add i32 %172, 0
-  %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %174
-  store i64 -1, ptr %175, align 8
-  %176 = load i32, ptr %13, align 4
-  %177 = add i32 %176, 1
-  %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %178
-  store i64 -1, ptr %179, align 8
-  %180 = load i32, ptr %13, align 4
-  %181 = add i32 %180, 2
-  %182 = zext i32 %181 to i64
-  %183 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %182
-  store i64 -1, ptr %183, align 8
-  %184 = load i32, ptr %13, align 4
-  %185 = add i32 %184, 3
-  %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %186
-  store i64 -1, ptr %187, align 8
-  %188 = load i32, ptr %13, align 4
-  %189 = add i32 %188, 4
-  %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %190
-  store i64 -1, ptr %191, align 8
-  %192 = load i32, ptr %13, align 4
-  %193 = add i32 %192, 5
-  %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %194
-  store i64 -1, ptr %195, align 8
-  %196 = load i32, ptr %13, align 4
-  %197 = add i32 %196, 6
-  %198 = zext i32 %197 to i64
-  %199 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %198
-  store i64 -1, ptr %199, align 8
-  %200 = load i32, ptr %13, align 4
-  %201 = add i32 %200, 7
-  %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %202
-  store i64 -1, ptr %203, align 8
-  br label %204
+172:                                              ; preds = %168
+  %173 = load i32, ptr %14, align 4, !tbaa !15
+  %174 = add i32 %173, 0
+  %175 = zext i32 %174 to i64
+  %176 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %175
+  store i64 -1, ptr %176, align 8, !tbaa !39
+  %177 = load i32, ptr %14, align 4, !tbaa !15
+  %178 = add i32 %177, 1
+  %179 = zext i32 %178 to i64
+  %180 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %179
+  store i64 -1, ptr %180, align 8, !tbaa !39
+  %181 = load i32, ptr %14, align 4, !tbaa !15
+  %182 = add i32 %181, 2
+  %183 = zext i32 %182 to i64
+  %184 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %183
+  store i64 -1, ptr %184, align 8, !tbaa !39
+  %185 = load i32, ptr %14, align 4, !tbaa !15
+  %186 = add i32 %185, 3
+  %187 = zext i32 %186 to i64
+  %188 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %187
+  store i64 -1, ptr %188, align 8, !tbaa !39
+  %189 = load i32, ptr %14, align 4, !tbaa !15
+  %190 = add i32 %189, 4
+  %191 = zext i32 %190 to i64
+  %192 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %191
+  store i64 -1, ptr %192, align 8, !tbaa !39
+  %193 = load i32, ptr %14, align 4, !tbaa !15
+  %194 = add i32 %193, 5
+  %195 = zext i32 %194 to i64
+  %196 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %195
+  store i64 -1, ptr %196, align 8, !tbaa !39
+  %197 = load i32, ptr %14, align 4, !tbaa !15
+  %198 = add i32 %197, 6
+  %199 = zext i32 %198 to i64
+  %200 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %199
+  store i64 -1, ptr %200, align 8, !tbaa !39
+  %201 = load i32, ptr %14, align 4, !tbaa !15
+  %202 = add i32 %201, 7
+  %203 = zext i32 %202 to i64
+  %204 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %203
+  store i64 -1, ptr %204, align 8, !tbaa !39
+  br label %205
 
-204:                                              ; preds = %171
-  %205 = load i32, ptr %13, align 4
-  %206 = add i32 %205, 8
-  store i32 %206, ptr %13, align 4
-  br label %167
+205:                                              ; preds = %172
+  %206 = load i32, ptr %14, align 4, !tbaa !15
+  %207 = add i32 %206, 8
+  store i32 %207, ptr %14, align 4, !tbaa !15
+  br label %168
 
-207:                                              ; preds = %167
-  %208 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
-  %209 = load ptr, ptr %7, align 8
-  %210 = getelementptr inbounds %struct.CPpmd_State, ptr %209, i32 0, i32 0
-  %211 = load i8, ptr %210, align 2
-  %212 = zext i8 %211 to i64
-  %213 = getelementptr inbounds i8, ptr %208, i64 %212
-  store i8 0, ptr %213, align 1
-  %214 = load ptr, ptr %4, align 8
-  %215 = getelementptr inbounds %struct.CPpmd7, ptr %214, i32 0, i32 0
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %216, i32 0, i32 0
-  %218 = load i16, ptr %217, align 4
-  %219 = zext i16 %218 to i32
-  %220 = sub nsw i32 %219, 1
-  store i32 %220, ptr %8, align 4
-  br label %221
+208:                                              ; preds = %168
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  %209 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
+  %210 = load ptr, ptr %7, align 8, !tbaa !3
+  %211 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %210, i32 0, i32 0
+  %212 = load i8, ptr %211, align 2, !tbaa !35
+  %213 = zext i8 %212 to i64
+  %214 = getelementptr inbounds nuw i8, ptr %209, i64 %213
+  store i8 0, ptr %214, align 1, !tbaa !36
+  %215 = load ptr, ptr %4, align 8, !tbaa !3
+  %216 = getelementptr inbounds nuw %struct.CPpmd7, ptr %215, i32 0, i32 0
+  %217 = load ptr, ptr %216, align 8, !tbaa !19
+  %218 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %217, i32 0, i32 0
+  %219 = load i16, ptr %218, align 4, !tbaa !25
+  %220 = zext i16 %219 to i32
+  %221 = sub nsw i32 %220, 1
+  store i32 %221, ptr %8, align 4, !tbaa !15
+  br label %222
 
-221:                                              ; preds = %229, %207
-  %222 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
-  %223 = load ptr, ptr %7, align 8
-  %224 = getelementptr inbounds %struct.CPpmd_State, ptr %223, i32 -1
-  store ptr %224, ptr %7, align 8
-  %225 = getelementptr inbounds %struct.CPpmd_State, ptr %224, i32 0, i32 0
-  %226 = load i8, ptr %225, align 2
-  %227 = zext i8 %226 to i64
-  %228 = getelementptr inbounds i8, ptr %222, i64 %227
-  store i8 0, ptr %228, align 1
-  br label %229
+222:                                              ; preds = %230, %208
+  %223 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
+  %224 = load ptr, ptr %7, align 8, !tbaa !3
+  %225 = getelementptr inbounds %struct.CPpmd_State, ptr %224, i32 -1
+  store ptr %225, ptr %7, align 8, !tbaa !3
+  %226 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %225, i32 0, i32 0
+  %227 = load i8, ptr %226, align 2, !tbaa !35
+  %228 = zext i8 %227 to i64
+  %229 = getelementptr inbounds nuw i8, ptr %223, i64 %228
+  store i8 0, ptr %229, align 1, !tbaa !36
+  br label %230
 
-229:                                              ; preds = %221
-  %230 = load i32, ptr %8, align 4
-  %231 = add i32 %230, -1
-  store i32 %231, ptr %8, align 4
-  %232 = icmp ne i32 %231, 0
-  br i1 %232, label %221, label %233
+230:                                              ; preds = %222
+  %231 = load i32, ptr %8, align 4, !tbaa !15
+  %232 = add i32 %231, -1
+  store i32 %232, ptr %8, align 4, !tbaa !15
+  %233 = icmp ne i32 %232, 0
+  br i1 %233, label %222, label %234
 
-233:                                              ; preds = %229
-  br label %414
+234:                                              ; preds = %230
+  store i32 0, ptr %12, align 4
+  br label %235
 
-234:                                              ; preds = %2
-  %235 = load ptr, ptr %4, align 8
-  %236 = getelementptr inbounds %struct.CPpmd7, ptr %235, i32 0, i32 26
-  %237 = load ptr, ptr %4, align 8
-  %238 = getelementptr inbounds %struct.CPpmd7, ptr %237, i32 0, i32 0
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %239, i32 0, i32 1
-  %241 = getelementptr inbounds %struct.CPpmd_State, ptr %240, i32 0, i32 1
-  %242 = load i8, ptr %241, align 1
-  %243 = zext i8 %242 to i32
-  %244 = sub nsw i32 %243, 1
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds [128 x [64 x i16]], ptr %236, i64 0, i64 %245
-  %247 = load ptr, ptr %4, align 8
-  %248 = getelementptr inbounds %struct.CPpmd7, ptr %247, i32 0, i32 5
-  %249 = load i32, ptr %248, align 8
-  %250 = load ptr, ptr %4, align 8
-  %251 = getelementptr inbounds %struct.CPpmd7, ptr %250, i32 0, i32 22
-  %252 = load ptr, ptr %4, align 8
-  %253 = getelementptr inbounds %struct.CPpmd7, ptr %252, i32 0, i32 12
-  %254 = load ptr, ptr %253, align 8
-  %255 = load ptr, ptr %4, align 8
-  %256 = getelementptr inbounds %struct.CPpmd7, ptr %255, i32 0, i32 0
-  %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %257, i32 0, i32 3
-  %259 = load i32, ptr %258, align 4
-  %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds i8, ptr %254, i64 %260
-  %262 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %261, i32 0, i32 0
-  %263 = load i16, ptr %262, align 4
-  %264 = zext i16 %263 to i32
-  %265 = sub nsw i32 %264, 1
-  %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds [256 x i8], ptr %251, i64 0, i64 %266
-  %268 = load i8, ptr %267, align 1
-  %269 = zext i8 %268 to i32
-  %270 = add i32 %249, %269
-  %271 = load ptr, ptr %4, align 8
-  %272 = getelementptr inbounds %struct.CPpmd7, ptr %271, i32 0, i32 23
-  %273 = load ptr, ptr %4, align 8
-  %274 = getelementptr inbounds %struct.CPpmd7, ptr %273, i32 0, i32 2
-  %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds %struct.CPpmd_State, ptr %275, i32 0, i32 0
-  %277 = load i8, ptr %276, align 2
-  %278 = zext i8 %277 to i64
-  %279 = getelementptr inbounds [256 x i8], ptr %272, i64 0, i64 %278
-  %280 = load i8, ptr %279, align 1
-  %281 = zext i8 %280 to i32
-  %282 = load ptr, ptr %4, align 8
-  %283 = getelementptr inbounds %struct.CPpmd7, ptr %282, i32 0, i32 7
-  store i32 %281, ptr %283, align 8
-  %284 = add i32 %270, %281
-  %285 = load ptr, ptr %4, align 8
-  %286 = getelementptr inbounds %struct.CPpmd7, ptr %285, i32 0, i32 23
-  %287 = load ptr, ptr %4, align 8
-  %288 = getelementptr inbounds %struct.CPpmd7, ptr %287, i32 0, i32 0
-  %289 = load ptr, ptr %288, align 8
-  %290 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %289, i32 0, i32 1
-  %291 = getelementptr inbounds %struct.CPpmd_State, ptr %290, i32 0, i32 0
-  %292 = load i8, ptr %291, align 2
-  %293 = zext i8 %292 to i64
-  %294 = getelementptr inbounds [256 x i8], ptr %286, i64 0, i64 %293
-  %295 = load i8, ptr %294, align 1
-  %296 = zext i8 %295 to i32
-  %297 = mul nsw i32 2, %296
-  %298 = add i32 %284, %297
-  %299 = load ptr, ptr %4, align 8
-  %300 = getelementptr inbounds %struct.CPpmd7, ptr %299, i32 0, i32 8
-  %301 = load i32, ptr %300, align 4
-  %302 = ashr i32 %301, 26
-  %303 = and i32 %302, 32
-  %304 = add i32 %298, %303
-  %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds [64 x i16], ptr %246, i64 0, i64 %305
-  store ptr %306, ptr %14, align 8
-  %307 = load ptr, ptr %5, align 8
-  %308 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %307, i32 0, i32 2
-  %309 = load ptr, ptr %308, align 8
-  %310 = load ptr, ptr %5, align 8
-  %311 = load ptr, ptr %14, align 8
-  %312 = load i16, ptr %311, align 2
-  %313 = zext i16 %312 to i32
-  %314 = call i32 %309(ptr noundef %310, i32 noundef %313)
-  %315 = icmp eq i32 %314, 0
-  br i1 %315, label %316, label %340
+235:                                              ; preds = %234, %140, %102, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  %236 = load i32, ptr %12, align 4
+  switch i32 %236, label %639 [
+    i32 0, label %237
+  ]
 
-316:                                              ; preds = %234
-  %317 = load ptr, ptr %14, align 8
-  %318 = load i16, ptr %317, align 2
-  %319 = zext i16 %318 to i32
-  %320 = add nsw i32 %319, 128
-  %321 = load ptr, ptr %14, align 8
-  %322 = load i16, ptr %321, align 2
+237:                                              ; preds = %235
+  br label %421
+
+238:                                              ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %239 = load ptr, ptr %4, align 8, !tbaa !3
+  %240 = getelementptr inbounds nuw %struct.CPpmd7, ptr %239, i32 0, i32 26
+  %241 = load ptr, ptr %4, align 8, !tbaa !3
+  %242 = getelementptr inbounds nuw %struct.CPpmd7, ptr %241, i32 0, i32 0
+  %243 = load ptr, ptr %242, align 8, !tbaa !19
+  %244 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %243, i32 0, i32 1
+  %245 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %244, i32 0, i32 1
+  %246 = load i8, ptr %245, align 1, !tbaa !31
+  %247 = zext i8 %246 to i32
+  %248 = sub nsw i32 %247, 1
+  %249 = sext i32 %248 to i64
+  %250 = getelementptr inbounds [128 x [64 x i16]], ptr %240, i64 0, i64 %249
+  %251 = load ptr, ptr %4, align 8, !tbaa !3
+  %252 = getelementptr inbounds nuw %struct.CPpmd7, ptr %251, i32 0, i32 5
+  %253 = load i32, ptr %252, align 8, !tbaa !37
+  %254 = load ptr, ptr %4, align 8, !tbaa !3
+  %255 = getelementptr inbounds nuw %struct.CPpmd7, ptr %254, i32 0, i32 22
+  %256 = load ptr, ptr %4, align 8, !tbaa !3
+  %257 = getelementptr inbounds nuw %struct.CPpmd7, ptr %256, i32 0, i32 12
+  %258 = load ptr, ptr %257, align 8, !tbaa !27
+  %259 = load ptr, ptr %4, align 8, !tbaa !3
+  %260 = getelementptr inbounds nuw %struct.CPpmd7, ptr %259, i32 0, i32 0
+  %261 = load ptr, ptr %260, align 8, !tbaa !19
+  %262 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %261, i32 0, i32 3
+  %263 = load i32, ptr %262, align 4, !tbaa !41
+  %264 = zext i32 %263 to i64
+  %265 = getelementptr inbounds nuw i8, ptr %258, i64 %264
+  %266 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %265, i32 0, i32 0
+  %267 = load i16, ptr %266, align 4, !tbaa !25
+  %268 = zext i16 %267 to i32
+  %269 = sub nsw i32 %268, 1
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr inbounds [256 x i8], ptr %255, i64 0, i64 %270
+  %272 = load i8, ptr %271, align 1, !tbaa !36
+  %273 = zext i8 %272 to i32
+  %274 = add i32 %253, %273
+  %275 = load ptr, ptr %4, align 8, !tbaa !3
+  %276 = getelementptr inbounds nuw %struct.CPpmd7, ptr %275, i32 0, i32 23
+  %277 = load ptr, ptr %4, align 8, !tbaa !3
+  %278 = getelementptr inbounds nuw %struct.CPpmd7, ptr %277, i32 0, i32 2
+  %279 = load ptr, ptr %278, align 8, !tbaa !34
+  %280 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %279, i32 0, i32 0
+  %281 = load i8, ptr %280, align 2, !tbaa !35
+  %282 = zext i8 %281 to i64
+  %283 = getelementptr inbounds nuw [256 x i8], ptr %276, i64 0, i64 %282
+  %284 = load i8, ptr %283, align 1, !tbaa !36
+  %285 = zext i8 %284 to i32
+  %286 = load ptr, ptr %4, align 8, !tbaa !3
+  %287 = getelementptr inbounds nuw %struct.CPpmd7, ptr %286, i32 0, i32 7
+  store i32 %285, ptr %287, align 8, !tbaa !38
+  %288 = add i32 %274, %285
+  %289 = load ptr, ptr %4, align 8, !tbaa !3
+  %290 = getelementptr inbounds nuw %struct.CPpmd7, ptr %289, i32 0, i32 23
+  %291 = load ptr, ptr %4, align 8, !tbaa !3
+  %292 = getelementptr inbounds nuw %struct.CPpmd7, ptr %291, i32 0, i32 0
+  %293 = load ptr, ptr %292, align 8, !tbaa !19
+  %294 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %293, i32 0, i32 1
+  %295 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %294, i32 0, i32 0
+  %296 = load i8, ptr %295, align 2, !tbaa !35
+  %297 = zext i8 %296 to i64
+  %298 = getelementptr inbounds nuw [256 x i8], ptr %290, i64 0, i64 %297
+  %299 = load i8, ptr %298, align 1, !tbaa !36
+  %300 = zext i8 %299 to i32
+  %301 = mul nsw i32 2, %300
+  %302 = add i32 %288, %301
+  %303 = load ptr, ptr %4, align 8, !tbaa !3
+  %304 = getelementptr inbounds nuw %struct.CPpmd7, ptr %303, i32 0, i32 8
+  %305 = load i32, ptr %304, align 4, !tbaa !42
+  %306 = ashr i32 %305, 26
+  %307 = and i32 %306, 32
+  %308 = add i32 %302, %307
+  %309 = zext i32 %308 to i64
+  %310 = getelementptr inbounds nuw [64 x i16], ptr %250, i64 0, i64 %309
+  store ptr %310, ptr %15, align 8, !tbaa !43
+  %311 = load ptr, ptr %5, align 8, !tbaa !3
+  %312 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %311, i32 0, i32 2
+  %313 = load ptr, ptr %312, align 8, !tbaa !45
+  %314 = load ptr, ptr %5, align 8, !tbaa !3
+  %315 = load ptr, ptr %15, align 8, !tbaa !43
+  %316 = load i16, ptr %315, align 2, !tbaa !46
+  %317 = zext i16 %316 to i32
+  %318 = call i32 %313(ptr noundef %314, i32 noundef %317)
+  %319 = icmp eq i32 %318, 0
+  br i1 %319, label %320, label %344
+
+320:                                              ; preds = %238
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #3
+  %321 = load ptr, ptr %15, align 8, !tbaa !43
+  %322 = load i16, ptr %321, align 2, !tbaa !46
   %323 = zext i16 %322 to i32
-  %324 = add nsw i32 %323, 32
-  %325 = ashr i32 %324, 7
-  %326 = sub nsw i32 %320, %325
-  %327 = trunc i32 %326 to i16
-  %328 = load ptr, ptr %14, align 8
-  store i16 %327, ptr %328, align 2
-  %329 = load ptr, ptr %4, align 8
-  %330 = getelementptr inbounds %struct.CPpmd7, ptr %329, i32 0, i32 0
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %331, i32 0, i32 1
-  %333 = load ptr, ptr %4, align 8
-  %334 = getelementptr inbounds %struct.CPpmd7, ptr %333, i32 0, i32 2
-  store ptr %332, ptr %334, align 8
-  %335 = getelementptr inbounds %struct.CPpmd_State, ptr %332, i32 0, i32 0
-  %336 = load i8, ptr %335, align 2
-  store i8 %336, ptr %15, align 1
-  %337 = load ptr, ptr %4, align 8
-  call void @Ppmd7_UpdateBin(ptr noundef %337)
-  %338 = load i8, ptr %15, align 1
-  %339 = zext i8 %338 to i32
-  store i32 %339, ptr %3, align 4
-  br label %629
+  %324 = add nsw i32 %323, 128
+  %325 = load ptr, ptr %15, align 8, !tbaa !43
+  %326 = load i16, ptr %325, align 2, !tbaa !46
+  %327 = zext i16 %326 to i32
+  %328 = add nsw i32 %327, 32
+  %329 = ashr i32 %328, 7
+  %330 = sub nsw i32 %324, %329
+  %331 = trunc i32 %330 to i16
+  %332 = load ptr, ptr %15, align 8, !tbaa !43
+  store i16 %331, ptr %332, align 2, !tbaa !46
+  %333 = load ptr, ptr %4, align 8, !tbaa !3
+  %334 = getelementptr inbounds nuw %struct.CPpmd7, ptr %333, i32 0, i32 0
+  %335 = load ptr, ptr %334, align 8, !tbaa !19
+  %336 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %335, i32 0, i32 1
+  %337 = load ptr, ptr %4, align 8, !tbaa !3
+  %338 = getelementptr inbounds nuw %struct.CPpmd7, ptr %337, i32 0, i32 2
+  store ptr %336, ptr %338, align 8, !tbaa !34
+  %339 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %336, i32 0, i32 0
+  %340 = load i8, ptr %339, align 2, !tbaa !35
+  store i8 %340, ptr %16, align 1, !tbaa !36
+  %341 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @Ppmd7_UpdateBin(ptr noundef %341)
+  %342 = load i8, ptr %16, align 1, !tbaa !36
+  %343 = zext i8 %342 to i32
+  store i32 %343, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #3
+  br label %418
 
-340:                                              ; preds = %234
-  %341 = load ptr, ptr %14, align 8
-  %342 = load i16, ptr %341, align 2
-  %343 = zext i16 %342 to i32
-  %344 = load ptr, ptr %14, align 8
-  %345 = load i16, ptr %344, align 2
-  %346 = zext i16 %345 to i32
-  %347 = add nsw i32 %346, 32
-  %348 = ashr i32 %347, 7
-  %349 = sub nsw i32 %343, %348
-  %350 = trunc i32 %349 to i16
-  %351 = load ptr, ptr %14, align 8
-  store i16 %350, ptr %351, align 2
-  %352 = load ptr, ptr %14, align 8
-  %353 = load i16, ptr %352, align 2
-  %354 = zext i16 %353 to i32
-  %355 = ashr i32 %354, 10
-  %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds [16 x i8], ptr @PPMD7_kExpEscape, i64 0, i64 %356
-  %358 = load i8, ptr %357, align 1
-  %359 = zext i8 %358 to i32
-  %360 = load ptr, ptr %4, align 8
-  %361 = getelementptr inbounds %struct.CPpmd7, ptr %360, i32 0, i32 4
-  store i32 %359, ptr %361, align 4
-  store i32 0, ptr %16, align 4
-  br label %362
+344:                                              ; preds = %238
+  %345 = load ptr, ptr %15, align 8, !tbaa !43
+  %346 = load i16, ptr %345, align 2, !tbaa !46
+  %347 = zext i16 %346 to i32
+  %348 = load ptr, ptr %15, align 8, !tbaa !43
+  %349 = load i16, ptr %348, align 2, !tbaa !46
+  %350 = zext i16 %349 to i32
+  %351 = add nsw i32 %350, 32
+  %352 = ashr i32 %351, 7
+  %353 = sub nsw i32 %347, %352
+  %354 = trunc i32 %353 to i16
+  %355 = load ptr, ptr %15, align 8, !tbaa !43
+  store i16 %354, ptr %355, align 2, !tbaa !46
+  %356 = load ptr, ptr %15, align 8, !tbaa !43
+  %357 = load i16, ptr %356, align 2, !tbaa !46
+  %358 = zext i16 %357 to i32
+  %359 = ashr i32 %358, 10
+  %360 = sext i32 %359 to i64
+  %361 = getelementptr inbounds [16 x i8], ptr @PPMD7_kExpEscape, i64 0, i64 %360
+  %362 = load i8, ptr %361, align 1, !tbaa !36
+  %363 = zext i8 %362 to i32
+  %364 = load ptr, ptr %4, align 8, !tbaa !3
+  %365 = getelementptr inbounds nuw %struct.CPpmd7, ptr %364, i32 0, i32 4
+  store i32 %363, ptr %365, align 4, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  store i32 0, ptr %17, align 4, !tbaa !15
+  br label %366
 
-362:                                              ; preds = %399, %340
-  %363 = load i32, ptr %16, align 4
-  %364 = zext i32 %363 to i64
-  %365 = icmp ult i64 %364, 32
-  br i1 %365, label %366, label %402
+366:                                              ; preds = %403, %344
+  %367 = load i32, ptr %17, align 4, !tbaa !15
+  %368 = zext i32 %367 to i64
+  %369 = icmp ult i64 %368, 32
+  br i1 %369, label %370, label %406
 
-366:                                              ; preds = %362
-  %367 = load i32, ptr %16, align 4
-  %368 = add i32 %367, 0
-  %369 = zext i32 %368 to i64
-  %370 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %369
-  store i64 -1, ptr %370, align 8
-  %371 = load i32, ptr %16, align 4
-  %372 = add i32 %371, 1
+370:                                              ; preds = %366
+  %371 = load i32, ptr %17, align 4, !tbaa !15
+  %372 = add i32 %371, 0
   %373 = zext i32 %372 to i64
-  %374 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %373
-  store i64 -1, ptr %374, align 8
-  %375 = load i32, ptr %16, align 4
-  %376 = add i32 %375, 2
+  %374 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %373
+  store i64 -1, ptr %374, align 8, !tbaa !39
+  %375 = load i32, ptr %17, align 4, !tbaa !15
+  %376 = add i32 %375, 1
   %377 = zext i32 %376 to i64
-  %378 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %377
-  store i64 -1, ptr %378, align 8
-  %379 = load i32, ptr %16, align 4
-  %380 = add i32 %379, 3
+  %378 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %377
+  store i64 -1, ptr %378, align 8, !tbaa !39
+  %379 = load i32, ptr %17, align 4, !tbaa !15
+  %380 = add i32 %379, 2
   %381 = zext i32 %380 to i64
-  %382 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %381
-  store i64 -1, ptr %382, align 8
-  %383 = load i32, ptr %16, align 4
-  %384 = add i32 %383, 4
+  %382 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %381
+  store i64 -1, ptr %382, align 8, !tbaa !39
+  %383 = load i32, ptr %17, align 4, !tbaa !15
+  %384 = add i32 %383, 3
   %385 = zext i32 %384 to i64
-  %386 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %385
-  store i64 -1, ptr %386, align 8
-  %387 = load i32, ptr %16, align 4
-  %388 = add i32 %387, 5
+  %386 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %385
+  store i64 -1, ptr %386, align 8, !tbaa !39
+  %387 = load i32, ptr %17, align 4, !tbaa !15
+  %388 = add i32 %387, 4
   %389 = zext i32 %388 to i64
-  %390 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %389
-  store i64 -1, ptr %390, align 8
-  %391 = load i32, ptr %16, align 4
-  %392 = add i32 %391, 6
+  %390 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %389
+  store i64 -1, ptr %390, align 8, !tbaa !39
+  %391 = load i32, ptr %17, align 4, !tbaa !15
+  %392 = add i32 %391, 5
   %393 = zext i32 %392 to i64
-  %394 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %393
-  store i64 -1, ptr %394, align 8
-  %395 = load i32, ptr %16, align 4
-  %396 = add i32 %395, 7
+  %394 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %393
+  store i64 -1, ptr %394, align 8, !tbaa !39
+  %395 = load i32, ptr %17, align 4, !tbaa !15
+  %396 = add i32 %395, 6
   %397 = zext i32 %396 to i64
-  %398 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %397
-  store i64 -1, ptr %398, align 8
-  br label %399
+  %398 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %397
+  store i64 -1, ptr %398, align 8, !tbaa !39
+  %399 = load i32, ptr %17, align 4, !tbaa !15
+  %400 = add i32 %399, 7
+  %401 = zext i32 %400 to i64
+  %402 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %401
+  store i64 -1, ptr %402, align 8, !tbaa !39
+  br label %403
 
-399:                                              ; preds = %366
-  %400 = load i32, ptr %16, align 4
-  %401 = add i32 %400, 8
-  store i32 %401, ptr %16, align 4
-  br label %362
+403:                                              ; preds = %370
+  %404 = load i32, ptr %17, align 4, !tbaa !15
+  %405 = add i32 %404, 8
+  store i32 %405, ptr %17, align 4, !tbaa !15
+  br label %366
 
-402:                                              ; preds = %362
-  %403 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
-  %404 = load ptr, ptr %4, align 8
-  %405 = getelementptr inbounds %struct.CPpmd7, ptr %404, i32 0, i32 0
-  %406 = load ptr, ptr %405, align 8
-  %407 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %406, i32 0, i32 1
-  %408 = getelementptr inbounds %struct.CPpmd_State, ptr %407, i32 0, i32 0
-  %409 = load i8, ptr %408, align 2
-  %410 = zext i8 %409 to i64
-  %411 = getelementptr inbounds i8, ptr %403, i64 %410
-  store i8 0, ptr %411, align 1
-  %412 = load ptr, ptr %4, align 8
-  %413 = getelementptr inbounds %struct.CPpmd7, ptr %412, i32 0, i32 5
-  store i32 0, ptr %413, align 8
-  br label %414
+406:                                              ; preds = %366
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  %407 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
+  %408 = load ptr, ptr %4, align 8, !tbaa !3
+  %409 = getelementptr inbounds nuw %struct.CPpmd7, ptr %408, i32 0, i32 0
+  %410 = load ptr, ptr %409, align 8, !tbaa !19
+  %411 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %410, i32 0, i32 1
+  %412 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %411, i32 0, i32 0
+  %413 = load i8, ptr %412, align 2, !tbaa !35
+  %414 = zext i8 %413 to i64
+  %415 = getelementptr inbounds nuw i8, ptr %407, i64 %414
+  store i8 0, ptr %415, align 1, !tbaa !36
+  %416 = load ptr, ptr %4, align 8, !tbaa !3
+  %417 = getelementptr inbounds nuw %struct.CPpmd7, ptr %416, i32 0, i32 5
+  store i32 0, ptr %417, align 8, !tbaa !37
+  store i32 0, ptr %12, align 4
+  br label %418
 
-414:                                              ; preds = %402, %233
-  br label %415
+418:                                              ; preds = %406, %320
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  %419 = load i32, ptr %12, align 4
+  switch i32 %419, label %639 [
+    i32 0, label %420
+  ]
 
-415:                                              ; preds = %628, %414
-  %416 = load ptr, ptr %4, align 8
-  %417 = getelementptr inbounds %struct.CPpmd7, ptr %416, i32 0, i32 0
-  %418 = load ptr, ptr %417, align 8
-  %419 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %418, i32 0, i32 0
-  %420 = load i16, ptr %419, align 4
-  %421 = zext i16 %420 to i32
-  store i32 %421, ptr %25, align 4
+420:                                              ; preds = %418
+  br label %421
+
+421:                                              ; preds = %420, %237
   br label %422
 
-422:                                              ; preds = %447, %415
-  %423 = load ptr, ptr %4, align 8
-  %424 = getelementptr inbounds %struct.CPpmd7, ptr %423, i32 0, i32 3
-  %425 = load i32, ptr %424, align 8
-  %426 = add i32 %425, 1
-  store i32 %426, ptr %424, align 8
-  %427 = load ptr, ptr %4, align 8
-  %428 = getelementptr inbounds %struct.CPpmd7, ptr %427, i32 0, i32 0
-  %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %429, i32 0, i32 3
-  %431 = load i32, ptr %430, align 4
-  %432 = icmp ne i32 %431, 0
-  br i1 %432, label %434, label %433
+422:                                              ; preds = %638, %421
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  %423 = load ptr, ptr %4, align 8, !tbaa !3
+  %424 = getelementptr inbounds nuw %struct.CPpmd7, ptr %423, i32 0, i32 0
+  %425 = load ptr, ptr %424, align 8, !tbaa !19
+  %426 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %425, i32 0, i32 0
+  %427 = load i16, ptr %426, align 4, !tbaa !25
+  %428 = zext i16 %427 to i32
+  store i32 %428, ptr %26, align 4, !tbaa !15
+  br label %429
 
-433:                                              ; preds = %422
+429:                                              ; preds = %454, %422
+  %430 = load ptr, ptr %4, align 8, !tbaa !3
+  %431 = getelementptr inbounds nuw %struct.CPpmd7, ptr %430, i32 0, i32 3
+  %432 = load i32, ptr %431, align 8, !tbaa !48
+  %433 = add i32 %432, 1
+  store i32 %433, ptr %431, align 8, !tbaa !48
+  %434 = load ptr, ptr %4, align 8, !tbaa !3
+  %435 = getelementptr inbounds nuw %struct.CPpmd7, ptr %434, i32 0, i32 0
+  %436 = load ptr, ptr %435, align 8, !tbaa !19
+  %437 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %436, i32 0, i32 3
+  %438 = load i32, ptr %437, align 4, !tbaa !41
+  %439 = icmp ne i32 %438, 0
+  br i1 %439, label %441, label %440
+
+440:                                              ; preds = %429
   store i32 -1, ptr %3, align 4
-  br label %629
+  store i32 1, ptr %12, align 4
+  br label %636
 
-434:                                              ; preds = %422
-  %435 = load ptr, ptr %4, align 8
-  %436 = getelementptr inbounds %struct.CPpmd7, ptr %435, i32 0, i32 12
-  %437 = load ptr, ptr %436, align 8
-  %438 = load ptr, ptr %4, align 8
-  %439 = getelementptr inbounds %struct.CPpmd7, ptr %438, i32 0, i32 0
-  %440 = load ptr, ptr %439, align 8
-  %441 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %440, i32 0, i32 3
-  %442 = load i32, ptr %441, align 4
-  %443 = zext i32 %442 to i64
-  %444 = getelementptr inbounds i8, ptr %437, i64 %443
-  %445 = load ptr, ptr %4, align 8
-  %446 = getelementptr inbounds %struct.CPpmd7, ptr %445, i32 0, i32 0
-  store ptr %444, ptr %446, align 8
-  br label %447
+441:                                              ; preds = %429
+  %442 = load ptr, ptr %4, align 8, !tbaa !3
+  %443 = getelementptr inbounds nuw %struct.CPpmd7, ptr %442, i32 0, i32 12
+  %444 = load ptr, ptr %443, align 8, !tbaa !27
+  %445 = load ptr, ptr %4, align 8, !tbaa !3
+  %446 = getelementptr inbounds nuw %struct.CPpmd7, ptr %445, i32 0, i32 0
+  %447 = load ptr, ptr %446, align 8, !tbaa !19
+  %448 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %447, i32 0, i32 3
+  %449 = load i32, ptr %448, align 4, !tbaa !41
+  %450 = zext i32 %449 to i64
+  %451 = getelementptr inbounds nuw i8, ptr %444, i64 %450
+  %452 = load ptr, ptr %4, align 8, !tbaa !3
+  %453 = getelementptr inbounds nuw %struct.CPpmd7, ptr %452, i32 0, i32 0
+  store ptr %451, ptr %453, align 8, !tbaa !19
+  br label %454
 
-447:                                              ; preds = %434
-  %448 = load ptr, ptr %4, align 8
-  %449 = getelementptr inbounds %struct.CPpmd7, ptr %448, i32 0, i32 0
-  %450 = load ptr, ptr %449, align 8
-  %451 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %450, i32 0, i32 0
-  %452 = load i16, ptr %451, align 4
-  %453 = zext i16 %452 to i32
-  %454 = load i32, ptr %25, align 4
-  %455 = icmp eq i32 %453, %454
-  br i1 %455, label %422, label %456
+454:                                              ; preds = %441
+  %455 = load ptr, ptr %4, align 8, !tbaa !3
+  %456 = getelementptr inbounds nuw %struct.CPpmd7, ptr %455, i32 0, i32 0
+  %457 = load ptr, ptr %456, align 8, !tbaa !19
+  %458 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %457, i32 0, i32 0
+  %459 = load i16, ptr %458, align 4, !tbaa !25
+  %460 = zext i16 %459 to i32
+  %461 = load i32, ptr %26, align 4, !tbaa !15
+  %462 = icmp eq i32 %460, %461
+  br i1 %462, label %429, label %463
 
-456:                                              ; preds = %447
-  store i32 0, ptr %21, align 4
-  %457 = load ptr, ptr %4, align 8
-  %458 = getelementptr inbounds %struct.CPpmd7, ptr %457, i32 0, i32 12
-  %459 = load ptr, ptr %458, align 8
-  %460 = load ptr, ptr %4, align 8
-  %461 = getelementptr inbounds %struct.CPpmd7, ptr %460, i32 0, i32 0
-  %462 = load ptr, ptr %461, align 8
-  %463 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %462, i32 0, i32 2
-  %464 = load i32, ptr %463, align 4
-  %465 = zext i32 %464 to i64
-  %466 = getelementptr inbounds i8, ptr %459, i64 %465
-  store ptr %466, ptr %18, align 8
-  store i32 0, ptr %23, align 4
-  %467 = load ptr, ptr %4, align 8
-  %468 = getelementptr inbounds %struct.CPpmd7, ptr %467, i32 0, i32 0
-  %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds %struct.CPpmd7_Context_, ptr %469, i32 0, i32 0
-  %471 = load i16, ptr %470, align 4
-  %472 = zext i16 %471 to i32
-  %473 = load i32, ptr %25, align 4
-  %474 = sub i32 %472, %473
-  store i32 %474, ptr %24, align 4
-  br label %475
+463:                                              ; preds = %454
+  store i32 0, ptr %22, align 4, !tbaa !15
+  %464 = load ptr, ptr %4, align 8, !tbaa !3
+  %465 = getelementptr inbounds nuw %struct.CPpmd7, ptr %464, i32 0, i32 12
+  %466 = load ptr, ptr %465, align 8, !tbaa !27
+  %467 = load ptr, ptr %4, align 8, !tbaa !3
+  %468 = getelementptr inbounds nuw %struct.CPpmd7, ptr %467, i32 0, i32 0
+  %469 = load ptr, ptr %468, align 8, !tbaa !19
+  %470 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %469, i32 0, i32 2
+  %471 = load i32, ptr %470, align 4, !tbaa !28
+  %472 = zext i32 %471 to i64
+  %473 = getelementptr inbounds nuw i8, ptr %466, i64 %472
+  store ptr %473, ptr %19, align 8, !tbaa !3
+  store i32 0, ptr %24, align 4, !tbaa !15
+  %474 = load ptr, ptr %4, align 8, !tbaa !3
+  %475 = getelementptr inbounds nuw %struct.CPpmd7, ptr %474, i32 0, i32 0
+  %476 = load ptr, ptr %475, align 8, !tbaa !19
+  %477 = getelementptr inbounds nuw %struct.CPpmd7_Context_, ptr %476, i32 0, i32 0
+  %478 = load i16, ptr %477, align 4, !tbaa !25
+  %479 = zext i16 %478 to i32
+  %480 = load i32, ptr %26, align 4, !tbaa !15
+  %481 = sub i32 %479, %480
+  store i32 %481, ptr %25, align 4, !tbaa !15
+  br label %482
 
-475:                                              ; preds = %500, %456
-  %476 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
-  %477 = load ptr, ptr %18, align 8
-  %478 = getelementptr inbounds %struct.CPpmd_State, ptr %477, i32 0, i32 0
-  %479 = load i8, ptr %478, align 2
-  %480 = zext i8 %479 to i64
-  %481 = getelementptr inbounds i8, ptr %476, i64 %480
-  %482 = load i8, ptr %481, align 1
-  %483 = sext i8 %482 to i32
-  store i32 %483, ptr %26, align 4
-  %484 = load ptr, ptr %18, align 8
-  %485 = getelementptr inbounds %struct.CPpmd_State, ptr %484, i32 0, i32 1
-  %486 = load i8, ptr %485, align 1
-  %487 = zext i8 %486 to i32
-  %488 = load i32, ptr %26, align 4
-  %489 = and i32 %487, %488
-  %490 = load i32, ptr %21, align 4
-  %491 = add i32 %490, %489
-  store i32 %491, ptr %21, align 4
-  %492 = load ptr, ptr %18, align 8
-  %493 = getelementptr inbounds %struct.CPpmd_State, ptr %492, i32 1
-  store ptr %493, ptr %18, align 8
-  %494 = load i32, ptr %23, align 4
-  %495 = zext i32 %494 to i64
-  %496 = getelementptr inbounds [256 x ptr], ptr %17, i64 0, i64 %495
-  store ptr %492, ptr %496, align 8
-  %497 = load i32, ptr %26, align 4
-  %498 = load i32, ptr %23, align 4
-  %499 = sub i32 %498, %497
-  store i32 %499, ptr %23, align 4
-  br label %500
+482:                                              ; preds = %507, %463
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  %483 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
+  %484 = load ptr, ptr %19, align 8, !tbaa !3
+  %485 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %484, i32 0, i32 0
+  %486 = load i8, ptr %485, align 2, !tbaa !35
+  %487 = zext i8 %486 to i64
+  %488 = getelementptr inbounds nuw i8, ptr %483, i64 %487
+  %489 = load i8, ptr %488, align 1, !tbaa !36
+  %490 = sext i8 %489 to i32
+  store i32 %490, ptr %27, align 4, !tbaa !15
+  %491 = load ptr, ptr %19, align 8, !tbaa !3
+  %492 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %491, i32 0, i32 1
+  %493 = load i8, ptr %492, align 1, !tbaa !31
+  %494 = zext i8 %493 to i32
+  %495 = load i32, ptr %27, align 4, !tbaa !15
+  %496 = and i32 %494, %495
+  %497 = load i32, ptr %22, align 4, !tbaa !15
+  %498 = add i32 %497, %496
+  store i32 %498, ptr %22, align 4, !tbaa !15
+  %499 = load ptr, ptr %19, align 8, !tbaa !3
+  %500 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %499, i32 1
+  store ptr %500, ptr %19, align 8, !tbaa !3
+  %501 = load i32, ptr %24, align 4, !tbaa !15
+  %502 = zext i32 %501 to i64
+  %503 = getelementptr inbounds nuw [256 x ptr], ptr %18, i64 0, i64 %502
+  store ptr %499, ptr %503, align 8, !tbaa !3
+  %504 = load i32, ptr %27, align 4, !tbaa !15
+  %505 = load i32, ptr %24, align 4, !tbaa !15
+  %506 = sub i32 %505, %504
+  store i32 %506, ptr %24, align 4, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  br label %507
 
-500:                                              ; preds = %475
-  %501 = load i32, ptr %23, align 4
-  %502 = load i32, ptr %24, align 4
-  %503 = icmp ne i32 %501, %502
-  br i1 %503, label %475, label %504
+507:                                              ; preds = %482
+  %508 = load i32, ptr %24, align 4, !tbaa !15
+  %509 = load i32, ptr %25, align 4, !tbaa !15
+  %510 = icmp ne i32 %508, %509
+  br i1 %510, label %482, label %511
 
-504:                                              ; preds = %500
-  %505 = load ptr, ptr %4, align 8
-  %506 = load i32, ptr %25, align 4
-  %507 = call ptr @Ppmd7_MakeEscFreq(ptr noundef %505, i32 noundef %506, ptr noundef %19)
-  store ptr %507, ptr %22, align 8
-  %508 = load i32, ptr %21, align 4
-  %509 = load i32, ptr %19, align 4
-  %510 = add i32 %509, %508
-  store i32 %510, ptr %19, align 4
-  %511 = load ptr, ptr %5, align 8
-  %512 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %511, i32 0, i32 0
-  %513 = load ptr, ptr %512, align 8
-  %514 = load ptr, ptr %5, align 8
-  %515 = load i32, ptr %19, align 4
-  %516 = call i32 %513(ptr noundef %514, i32 noundef %515)
-  store i32 %516, ptr %20, align 4
-  %517 = load i32, ptr %20, align 4
-  %518 = load i32, ptr %21, align 4
-  %519 = icmp ult i32 %517, %518
-  br i1 %519, label %520, label %591
+511:                                              ; preds = %507
+  %512 = load ptr, ptr %4, align 8, !tbaa !3
+  %513 = load i32, ptr %26, align 4, !tbaa !15
+  %514 = call ptr @Ppmd7_MakeEscFreq(ptr noundef %512, i32 noundef %513, ptr noundef %20)
+  store ptr %514, ptr %23, align 8, !tbaa !3
+  %515 = load i32, ptr %22, align 4, !tbaa !15
+  %516 = load i32, ptr %20, align 4, !tbaa !15
+  %517 = add i32 %516, %515
+  store i32 %517, ptr %20, align 4, !tbaa !15
+  %518 = load ptr, ptr %5, align 8, !tbaa !3
+  %519 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %518, i32 0, i32 0
+  %520 = load ptr, ptr %519, align 8, !tbaa !29
+  %521 = load ptr, ptr %5, align 8, !tbaa !3
+  %522 = load i32, ptr %20, align 4, !tbaa !15
+  %523 = call i32 %520(ptr noundef %521, i32 noundef %522)
+  store i32 %523, ptr %21, align 4, !tbaa !15
+  %524 = load i32, ptr %21, align 4, !tbaa !15
+  %525 = load i32, ptr %22, align 4, !tbaa !15
+  %526 = icmp ult i32 %524, %525
+  br i1 %526, label %527, label %598
 
-520:                                              ; preds = %504
-  %521 = getelementptr inbounds [256 x ptr], ptr %17, i64 0, i64 0
-  store ptr %521, ptr %28, align 8
-  store i32 0, ptr %21, align 4
-  br label %522
+527:                                              ; preds = %511
+  call void @llvm.lifetime.start.p0(i64 1, ptr %28) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #3
+  %528 = getelementptr inbounds [256 x ptr], ptr %18, i64 0, i64 0
+  store ptr %528, ptr %29, align 8, !tbaa !3
+  store i32 0, ptr %22, align 4, !tbaa !15
+  br label %529
 
-522:                                              ; preds = %533, %520
-  %523 = load ptr, ptr %28, align 8
-  %524 = load ptr, ptr %523, align 8
-  %525 = getelementptr inbounds %struct.CPpmd_State, ptr %524, i32 0, i32 1
-  %526 = load i8, ptr %525, align 1
-  %527 = zext i8 %526 to i32
-  %528 = load i32, ptr %21, align 4
-  %529 = add i32 %528, %527
-  store i32 %529, ptr %21, align 4
-  %530 = load i32, ptr %20, align 4
-  %531 = icmp ule i32 %529, %530
-  br i1 %531, label %532, label %536
+529:                                              ; preds = %540, %527
+  %530 = load ptr, ptr %29, align 8, !tbaa !3
+  %531 = load ptr, ptr %530, align 8, !tbaa !3
+  %532 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %531, i32 0, i32 1
+  %533 = load i8, ptr %532, align 1, !tbaa !31
+  %534 = zext i8 %533 to i32
+  %535 = load i32, ptr %22, align 4, !tbaa !15
+  %536 = add i32 %535, %534
+  store i32 %536, ptr %22, align 4, !tbaa !15
+  %537 = load i32, ptr %21, align 4, !tbaa !15
+  %538 = icmp ule i32 %536, %537
+  br i1 %538, label %539, label %543
 
-532:                                              ; preds = %522
-  br label %533
+539:                                              ; preds = %529
+  br label %540
 
-533:                                              ; preds = %532
-  %534 = load ptr, ptr %28, align 8
-  %535 = getelementptr inbounds ptr, ptr %534, i32 1
-  store ptr %535, ptr %28, align 8
-  br label %522
+540:                                              ; preds = %539
+  %541 = load ptr, ptr %29, align 8, !tbaa !3
+  %542 = getelementptr inbounds nuw ptr, ptr %541, i32 1
+  store ptr %542, ptr %29, align 8, !tbaa !3
+  br label %529
 
-536:                                              ; preds = %522
-  %537 = load ptr, ptr %28, align 8
-  %538 = load ptr, ptr %537, align 8
-  store ptr %538, ptr %18, align 8
-  %539 = load ptr, ptr %5, align 8
-  %540 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %539, i32 0, i32 1
-  %541 = load ptr, ptr %540, align 8
-  %542 = load ptr, ptr %5, align 8
-  %543 = load i32, ptr %21, align 4
-  %544 = load ptr, ptr %18, align 8
-  %545 = getelementptr inbounds %struct.CPpmd_State, ptr %544, i32 0, i32 1
-  %546 = load i8, ptr %545, align 1
-  %547 = zext i8 %546 to i32
-  %548 = sub i32 %543, %547
-  %549 = load ptr, ptr %18, align 8
-  %550 = getelementptr inbounds %struct.CPpmd_State, ptr %549, i32 0, i32 1
-  %551 = load i8, ptr %550, align 1
-  %552 = zext i8 %551 to i32
-  call void %541(ptr noundef %542, i32 noundef %548, i32 noundef %552)
-  %553 = load ptr, ptr %22, align 8
-  %554 = getelementptr inbounds %struct.CPpmd_See, ptr %553, i32 0, i32 1
-  %555 = load i8, ptr %554, align 2
-  %556 = zext i8 %555 to i32
-  %557 = icmp slt i32 %556, 7
-  br i1 %557, label %558, label %581
-
-558:                                              ; preds = %536
-  %559 = load ptr, ptr %22, align 8
-  %560 = getelementptr inbounds %struct.CPpmd_See, ptr %559, i32 0, i32 2
-  %561 = load i8, ptr %560, align 1
-  %562 = add i8 %561, -1
-  store i8 %562, ptr %560, align 1
+543:                                              ; preds = %529
+  %544 = load ptr, ptr %29, align 8, !tbaa !3
+  %545 = load ptr, ptr %544, align 8, !tbaa !3
+  store ptr %545, ptr %19, align 8, !tbaa !3
+  %546 = load ptr, ptr %5, align 8, !tbaa !3
+  %547 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %546, i32 0, i32 1
+  %548 = load ptr, ptr %547, align 8, !tbaa !33
+  %549 = load ptr, ptr %5, align 8, !tbaa !3
+  %550 = load i32, ptr %22, align 4, !tbaa !15
+  %551 = load ptr, ptr %19, align 8, !tbaa !3
+  %552 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %551, i32 0, i32 1
+  %553 = load i8, ptr %552, align 1, !tbaa !31
+  %554 = zext i8 %553 to i32
+  %555 = sub i32 %550, %554
+  %556 = load ptr, ptr %19, align 8, !tbaa !3
+  %557 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %556, i32 0, i32 1
+  %558 = load i8, ptr %557, align 1, !tbaa !31
+  %559 = zext i8 %558 to i32
+  call void %548(ptr noundef %549, i32 noundef %555, i32 noundef %559)
+  %560 = load ptr, ptr %23, align 8, !tbaa !3
+  %561 = getelementptr inbounds nuw %struct.CPpmd_See, ptr %560, i32 0, i32 1
+  %562 = load i8, ptr %561, align 2, !tbaa !49
   %563 = zext i8 %562 to i32
-  %564 = icmp eq i32 %563, 0
-  br i1 %564, label %565, label %581
+  %564 = icmp slt i32 %563, 7
+  br i1 %564, label %565, label %588
 
-565:                                              ; preds = %558
-  %566 = load ptr, ptr %22, align 8
-  %567 = getelementptr inbounds %struct.CPpmd_See, ptr %566, i32 0, i32 0
-  %568 = load i16, ptr %567, align 2
-  %569 = zext i16 %568 to i32
-  %570 = shl i32 %569, 1
-  %571 = trunc i32 %570 to i16
-  store i16 %571, ptr %567, align 2
-  %572 = load ptr, ptr %22, align 8
-  %573 = getelementptr inbounds %struct.CPpmd_See, ptr %572, i32 0, i32 1
-  %574 = load i8, ptr %573, align 2
-  %575 = add i8 %574, 1
-  store i8 %575, ptr %573, align 2
-  %576 = zext i8 %574 to i32
-  %577 = shl i32 3, %576
-  %578 = trunc i32 %577 to i8
-  %579 = load ptr, ptr %22, align 8
-  %580 = getelementptr inbounds %struct.CPpmd_See, ptr %579, i32 0, i32 2
-  store i8 %578, ptr %580, align 1
-  br label %581
+565:                                              ; preds = %543
+  %566 = load ptr, ptr %23, align 8, !tbaa !3
+  %567 = getelementptr inbounds nuw %struct.CPpmd_See, ptr %566, i32 0, i32 2
+  %568 = load i8, ptr %567, align 1, !tbaa !50
+  %569 = add i8 %568, -1
+  store i8 %569, ptr %567, align 1, !tbaa !50
+  %570 = zext i8 %569 to i32
+  %571 = icmp eq i32 %570, 0
+  br i1 %571, label %572, label %588
 
-581:                                              ; preds = %565, %558, %536
-  %582 = load ptr, ptr %18, align 8
-  %583 = load ptr, ptr %4, align 8
-  %584 = getelementptr inbounds %struct.CPpmd7, ptr %583, i32 0, i32 2
-  store ptr %582, ptr %584, align 8
-  %585 = load ptr, ptr %18, align 8
-  %586 = getelementptr inbounds %struct.CPpmd_State, ptr %585, i32 0, i32 0
-  %587 = load i8, ptr %586, align 2
-  store i8 %587, ptr %27, align 1
-  %588 = load ptr, ptr %4, align 8
-  call void @Ppmd7_Update2(ptr noundef %588)
-  %589 = load i8, ptr %27, align 1
-  %590 = zext i8 %589 to i32
-  store i32 %590, ptr %3, align 4
-  br label %629
+572:                                              ; preds = %565
+  %573 = load ptr, ptr %23, align 8, !tbaa !3
+  %574 = getelementptr inbounds nuw %struct.CPpmd_See, ptr %573, i32 0, i32 0
+  %575 = load i16, ptr %574, align 2, !tbaa !51
+  %576 = zext i16 %575 to i32
+  %577 = shl i32 %576, 1
+  %578 = trunc i32 %577 to i16
+  store i16 %578, ptr %574, align 2, !tbaa !51
+  %579 = load ptr, ptr %23, align 8, !tbaa !3
+  %580 = getelementptr inbounds nuw %struct.CPpmd_See, ptr %579, i32 0, i32 1
+  %581 = load i8, ptr %580, align 2, !tbaa !49
+  %582 = add i8 %581, 1
+  store i8 %582, ptr %580, align 2, !tbaa !49
+  %583 = zext i8 %581 to i32
+  %584 = shl i32 3, %583
+  %585 = trunc i32 %584 to i8
+  %586 = load ptr, ptr %23, align 8, !tbaa !3
+  %587 = getelementptr inbounds nuw %struct.CPpmd_See, ptr %586, i32 0, i32 2
+  store i8 %585, ptr %587, align 1, !tbaa !50
+  br label %588
 
-591:                                              ; preds = %504
-  %592 = load i32, ptr %20, align 4
-  %593 = load i32, ptr %19, align 4
-  %594 = icmp uge i32 %592, %593
-  br i1 %594, label %595, label %596
+588:                                              ; preds = %572, %565, %543
+  %589 = load ptr, ptr %19, align 8, !tbaa !3
+  %590 = load ptr, ptr %4, align 8, !tbaa !3
+  %591 = getelementptr inbounds nuw %struct.CPpmd7, ptr %590, i32 0, i32 2
+  store ptr %589, ptr %591, align 8, !tbaa !34
+  %592 = load ptr, ptr %19, align 8, !tbaa !3
+  %593 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %592, i32 0, i32 0
+  %594 = load i8, ptr %593, align 2, !tbaa !35
+  store i8 %594, ptr %28, align 1, !tbaa !36
+  %595 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @Ppmd7_Update2(ptr noundef %595)
+  %596 = load i8, ptr %28, align 1, !tbaa !36
+  %597 = zext i8 %596 to i32
+  store i32 %597, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %28) #3
+  br label %636
 
-595:                                              ; preds = %591
+598:                                              ; preds = %511
+  %599 = load i32, ptr %21, align 4, !tbaa !15
+  %600 = load i32, ptr %20, align 4, !tbaa !15
+  %601 = icmp uge i32 %599, %600
+  br i1 %601, label %602, label %603
+
+602:                                              ; preds = %598
   store i32 -2, ptr %3, align 4
-  br label %629
+  store i32 1, ptr %12, align 4
+  br label %636
 
-596:                                              ; preds = %591
-  %597 = load ptr, ptr %5, align 8
-  %598 = getelementptr inbounds %struct.IPpmd7_RangeDec, ptr %597, i32 0, i32 1
-  %599 = load ptr, ptr %598, align 8
-  %600 = load ptr, ptr %5, align 8
-  %601 = load i32, ptr %21, align 4
-  %602 = load i32, ptr %19, align 4
-  %603 = load i32, ptr %21, align 4
-  %604 = sub i32 %602, %603
-  call void %599(ptr noundef %600, i32 noundef %601, i32 noundef %604)
-  %605 = load ptr, ptr %22, align 8
-  %606 = getelementptr inbounds %struct.CPpmd_See, ptr %605, i32 0, i32 0
-  %607 = load i16, ptr %606, align 2
-  %608 = zext i16 %607 to i32
-  %609 = load i32, ptr %19, align 4
-  %610 = add i32 %608, %609
-  %611 = trunc i32 %610 to i16
-  %612 = load ptr, ptr %22, align 8
-  %613 = getelementptr inbounds %struct.CPpmd_See, ptr %612, i32 0, i32 0
-  store i16 %611, ptr %613, align 2
-  br label %614
+603:                                              ; preds = %598
+  %604 = load ptr, ptr %5, align 8, !tbaa !3
+  %605 = getelementptr inbounds nuw %struct.IPpmd7_RangeDec, ptr %604, i32 0, i32 1
+  %606 = load ptr, ptr %605, align 8, !tbaa !33
+  %607 = load ptr, ptr %5, align 8, !tbaa !3
+  %608 = load i32, ptr %22, align 4, !tbaa !15
+  %609 = load i32, ptr %20, align 4, !tbaa !15
+  %610 = load i32, ptr %22, align 4, !tbaa !15
+  %611 = sub i32 %609, %610
+  call void %606(ptr noundef %607, i32 noundef %608, i32 noundef %611)
+  %612 = load ptr, ptr %23, align 8, !tbaa !3
+  %613 = getelementptr inbounds nuw %struct.CPpmd_See, ptr %612, i32 0, i32 0
+  %614 = load i16, ptr %613, align 2, !tbaa !51
+  %615 = zext i16 %614 to i32
+  %616 = load i32, ptr %20, align 4, !tbaa !15
+  %617 = add i32 %615, %616
+  %618 = trunc i32 %617 to i16
+  %619 = load ptr, ptr %23, align 8, !tbaa !3
+  %620 = getelementptr inbounds nuw %struct.CPpmd_See, ptr %619, i32 0, i32 0
+  store i16 %618, ptr %620, align 2, !tbaa !51
+  br label %621
 
-614:                                              ; preds = %625, %596
-  %615 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
-  %616 = load i32, ptr %23, align 4
-  %617 = add i32 %616, -1
-  store i32 %617, ptr %23, align 4
-  %618 = zext i32 %617 to i64
-  %619 = getelementptr inbounds [256 x ptr], ptr %17, i64 0, i64 %618
-  %620 = load ptr, ptr %619, align 8
-  %621 = getelementptr inbounds %struct.CPpmd_State, ptr %620, i32 0, i32 0
-  %622 = load i8, ptr %621, align 2
-  %623 = zext i8 %622 to i64
-  %624 = getelementptr inbounds i8, ptr %615, i64 %623
-  store i8 0, ptr %624, align 1
-  br label %625
+621:                                              ; preds = %632, %603
+  %622 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 0
+  %623 = load i32, ptr %24, align 4, !tbaa !15
+  %624 = add i32 %623, -1
+  store i32 %624, ptr %24, align 4, !tbaa !15
+  %625 = zext i32 %624 to i64
+  %626 = getelementptr inbounds nuw [256 x ptr], ptr %18, i64 0, i64 %625
+  %627 = load ptr, ptr %626, align 8, !tbaa !3
+  %628 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %627, i32 0, i32 0
+  %629 = load i8, ptr %628, align 2, !tbaa !35
+  %630 = zext i8 %629 to i64
+  %631 = getelementptr inbounds nuw i8, ptr %622, i64 %630
+  store i8 0, ptr %631, align 1, !tbaa !36
+  br label %632
 
-625:                                              ; preds = %614
-  %626 = load i32, ptr %23, align 4
-  %627 = icmp ne i32 %626, 0
-  br i1 %627, label %614, label %628
+632:                                              ; preds = %621
+  %633 = load i32, ptr %24, align 4, !tbaa !15
+  %634 = icmp ne i32 %633, 0
+  br i1 %634, label %621, label %635
 
-628:                                              ; preds = %625
-  br label %415
+635:                                              ; preds = %632
+  store i32 0, ptr %12, align 4
+  br label %636
 
-629:                                              ; preds = %595, %581, %433, %316, %139, %101, %63
-  %630 = load i32, ptr %3, align 4
-  ret i32 %630
+636:                                              ; preds = %635, %602, %588, %440
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %18) #3
+  %637 = load i32, ptr %12, align 4
+  switch i32 %637, label %639 [
+    i32 0, label %638
+  ]
+
+638:                                              ; preds = %636
+  br label %422
+
+639:                                              ; preds = %636, %418, %235
+  call void @llvm.lifetime.end.p0(i64 256, ptr %6) #3
+  %640 = load i32, ptr %3, align 4
+  ret i32 %640
 }
 
-declare void @Ppmd7_Update1_0(ptr noundef) #1
+declare void @Ppmd7_Update1_0(ptr noundef) #2
 
-declare void @Ppmd7_Update1(ptr noundef) #1
+declare void @Ppmd7_Update1(ptr noundef) #2
 
-declare void @Ppmd7_UpdateBin(ptr noundef) #1
+declare void @Ppmd7_UpdateBin(ptr noundef) #2
 
-declare ptr @Ppmd7_MakeEscFreq(ptr noundef, i32 noundef, ptr noundef) #1
+declare ptr @Ppmd7_MakeEscFreq(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @Ppmd7_Update2(ptr noundef) #1
+declare void @Ppmd7_Update2(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @Range_Normalize(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !11
   %6 = icmp ult i32 %5, 16777216
   br i1 %6, label %7, label %56
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %8, i32 0, i32 2
-  %10 = load i32, ptr %9, align 4
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %8, i32 0, i32 2
+  %10 = load i32, ptr %9, align 4, !tbaa !7
   %11 = shl i32 %10, 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %12, i32 0, i32 3
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.IByteIn, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %17, i32 0, i32 3
-  %19 = load ptr, ptr %18, align 8
+  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw %struct.IByteIn, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !13
+  %17 = load ptr, ptr %2, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %17, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8, !tbaa !12
   %20 = call zeroext i8 %16(ptr noundef %19)
   %21 = zext i8 %20 to i32
   %22 = or i32 %11, %21
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %23, i32 0, i32 2
-  store i32 %22, ptr %24, align 4
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %25, i32 0, i32 1
-  %27 = load i32, ptr %26, align 8
+  %23 = load ptr, ptr %2, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %23, i32 0, i32 2
+  store i32 %22, ptr %24, align 4, !tbaa !7
+  %25 = load ptr, ptr %2, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 8, !tbaa !11
   %28 = shl i32 %27, 8
-  store i32 %28, ptr %26, align 8
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 8
+  store i32 %28, ptr %26, align 8, !tbaa !11
+  %29 = load ptr, ptr %2, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8, !tbaa !11
   %32 = icmp ult i32 %31, 16777216
   br i1 %32, label %33, label %55
 
 33:                                               ; preds = %7
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %34, i32 0, i32 2
-  %36 = load i32, ptr %35, align 4
+  %34 = load ptr, ptr %2, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %34, i32 0, i32 2
+  %36 = load i32, ptr %35, align 4, !tbaa !7
   %37 = shl i32 %36, 8
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %38, i32 0, i32 3
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.IByteIn, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %43, i32 0, i32 3
-  %45 = load ptr, ptr %44, align 8
+  %38 = load ptr, ptr %2, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %38, i32 0, i32 3
+  %40 = load ptr, ptr %39, align 8, !tbaa !12
+  %41 = getelementptr inbounds nuw %struct.IByteIn, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !13
+  %43 = load ptr, ptr %2, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %43, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8, !tbaa !12
   %46 = call zeroext i8 %42(ptr noundef %45)
   %47 = zext i8 %46 to i32
   %48 = or i32 %37, %47
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %49, i32 0, i32 2
-  store i32 %48, ptr %50, align 4
-  %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.CPpmd7z_RangeDec, ptr %51, i32 0, i32 1
-  %53 = load i32, ptr %52, align 8
+  %49 = load ptr, ptr %2, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %49, i32 0, i32 2
+  store i32 %48, ptr %50, align 4, !tbaa !7
+  %51 = load ptr, ptr %2, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.CPpmd7z_RangeDec, ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 8, !tbaa !11
   %54 = shl i32 %53, 8
-  store i32 %54, ptr %52, align 8
+  store i32 %54, ptr %52, align 8, !tbaa !11
   br label %55
 
 55:                                               ; preds = %33, %7
@@ -1127,12 +1232,62 @@ define internal void @Range_Normalize(ptr noundef %0) #0 {
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !10, i64 28}
+!8 = !{!"", !9, i64 0, !10, i64 24, !10, i64 28, !4, i64 32}
+!9 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16}
+!10 = !{!"int", !5, i64 0}
+!11 = !{!8, !10, i64 24}
+!12 = !{!8, !4, i64 32}
+!13 = !{!14, !4, i64 0}
+!14 = !{!"", !4, i64 0}
+!15 = !{!10, !10, i64 0}
+!16 = !{!8, !4, i64 0}
+!17 = !{!8, !4, i64 8}
+!18 = !{!8, !4, i64 16}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"", !21, i64 0, !21, i64 8, !4, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56, !22, i64 64, !22, i64 72, !22, i64 80, !22, i64 88, !22, i64 96, !10, i64 104, !5, i64 108, !5, i64 146, !5, i64 276, !5, i64 428, !5, i64 684, !5, i64 940, !23, i64 1196, !5, i64 1200, !5, i64 2800}
+!21 = !{!"p1 _ZTS15CPpmd7_Context_", !4, i64 0}
+!22 = !{!"p1 omnipotent char", !4, i64 0}
+!23 = !{!"", !24, i64 0, !5, i64 2, !5, i64 3}
+!24 = !{!"short", !5, i64 0}
+!25 = !{!26, !24, i64 0}
+!26 = !{!"CPpmd7_Context_", !24, i64 0, !24, i64 2, !10, i64 4, !10, i64 8}
+!27 = !{!20, !22, i64 64}
+!28 = !{!26, !10, i64 4}
+!29 = !{!9, !4, i64 0}
+!30 = !{!26, !24, i64 2}
+!31 = !{!32, !5, i64 1}
+!32 = !{!"", !5, i64 0, !5, i64 1, !24, i64 2, !24, i64 4}
+!33 = !{!9, !4, i64 8}
+!34 = !{!20, !4, i64 16}
+!35 = !{!32, !5, i64 0}
+!36 = !{!5, !5, i64 0}
+!37 = !{!20, !10, i64 32}
+!38 = !{!20, !10, i64 40}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"long", !5, i64 0}
+!41 = !{!26, !10, i64 8}
+!42 = !{!20, !10, i64 44}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 short", !4, i64 0}
+!45 = !{!9, !4, i64 16}
+!46 = !{!24, !24, i64 0}
+!47 = !{!20, !10, i64 28}
+!48 = !{!20, !10, i64 24}
+!49 = !{!23, !5, i64 2}
+!50 = !{!23, !5, i64 3}
+!51 = !{!23, !24, i64 0}

@@ -32,3306 +32,3410 @@ define i32 @nsis_inflate(ptr noundef %0) #0 {
   %6 = alloca %struct.anon.6, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = alloca i8, align 1
-  %10 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
   %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  %19 = alloca ptr, align 8
+  %19 = alloca i32, align 4
   %20 = alloca ptr, align 8
-  %21 = alloca i32, align 4
+  %21 = alloca ptr, align 8
   %22 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %23, i32 0, i32 5
-  store ptr %24, ptr %4, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.inflate_blocks_state, ptr %25, i32 0, i32 2
-  %27 = getelementptr inbounds %struct.anon.2, ptr %26, i32 0, i32 0
-  store ptr %27, ptr %5, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  store ptr %30, ptr %31, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  store i32 %34, ptr %35, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.inflate_blocks_state, ptr %36, i32 0, i32 5
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  store i64 %38, ptr %39, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.inflate_blocks_state, ptr %40, i32 0, i32 4
-  %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  store i32 %42, ptr %43, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.inflate_blocks_state, ptr %44, i32 0, i32 10
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.inflate_blocks_state, ptr %50, i32 0, i32 9
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp ult ptr %49, %52
-  br i1 %53, label %54, label %64
+  %23 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %24, i32 0, i32 5
+  store ptr %25, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %26, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %struct.anon.2, ptr %27, i32 0, i32 0
+  store ptr %28, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 80, ptr %6) #3
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !12
+  %32 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  store ptr %31, ptr %32, align 8, !tbaa !20
+  %33 = load ptr, ptr %3, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  store i32 %35, ptr %36, align 8, !tbaa !23
+  %37 = load ptr, ptr %4, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %37, i32 0, i32 5
+  %39 = load i64, ptr %38, align 8, !tbaa !24
+  %40 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  store i64 %39, ptr %40, align 8, !tbaa !25
+  %41 = load ptr, ptr %4, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %41, i32 0, i32 4
+  %43 = load i32, ptr %42, align 4, !tbaa !26
+  %44 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  store i32 %43, ptr %44, align 8, !tbaa !27
+  %45 = load ptr, ptr %4, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %45, i32 0, i32 10
+  %47 = load ptr, ptr %46, align 8, !tbaa !28
+  %48 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %47, ptr %48, align 8, !tbaa !29
+  %49 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %50 = load ptr, ptr %49, align 8, !tbaa !29
+  %51 = load ptr, ptr %4, align 8, !tbaa !8
+  %52 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %51, i32 0, i32 9
+  %53 = load ptr, ptr %52, align 8, !tbaa !30
+  %54 = icmp ult ptr %50, %53
+  br i1 %54, label %55, label %65
 
-54:                                               ; preds = %1
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %struct.inflate_blocks_state, ptr %55, i32 0, i32 9
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %59 = load ptr, ptr %58, align 8
-  %60 = ptrtoint ptr %57 to i64
-  %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  %63 = sub nsw i64 %62, 1
-  br label %73
+55:                                               ; preds = %1
+  %56 = load ptr, ptr %4, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %56, i32 0, i32 9
+  %58 = load ptr, ptr %57, align 8, !tbaa !30
+  %59 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %60 = load ptr, ptr %59, align 8, !tbaa !29
+  %61 = ptrtoint ptr %58 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %64 = sub nsw i64 %63, 1
+  br label %74
 
-64:                                               ; preds = %1
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.inflate_blocks_state, ptr %65, i32 0, i32 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %69 = load ptr, ptr %68, align 8
-  %70 = ptrtoint ptr %67 to i64
-  %71 = ptrtoint ptr %69 to i64
-  %72 = sub i64 %70, %71
-  br label %73
+65:                                               ; preds = %1
+  %66 = load ptr, ptr %4, align 8, !tbaa !8
+  %67 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %66, i32 0, i32 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !31
+  %69 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %70 = load ptr, ptr %69, align 8, !tbaa !29
+  %71 = ptrtoint ptr %68 to i64
+  %72 = ptrtoint ptr %70 to i64
+  %73 = sub i64 %71, %72
+  br label %74
 
-73:                                               ; preds = %64, %54
-  %74 = phi i64 [ %63, %54 ], [ %72, %64 ]
-  %75 = trunc i64 %74 to i32
-  %76 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %75, ptr %76, align 8
-  br label %77
+74:                                               ; preds = %65, %55
+  %75 = phi i64 [ %64, %55 ], [ %73, %65 ]
+  %76 = trunc i64 %75 to i32
+  %77 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %76, ptr %77, align 8, !tbaa !32
+  br label %78
 
-77:                                               ; preds = %2431, %73
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.inflate_blocks_state, ptr %78, i32 0, i32 1
-  %80 = load i32, ptr %79, align 8
-  switch i32 %80, label %2406 [
-    i32 8, label %81
-    i32 9, label %308
-    i32 10, label %380
-    i32 11, label %649
-    i32 12, label %754
-    i32 13, label %905
-    i32 0, label %1331
-    i32 1, label %1347
-    i32 2, label %1514
-    i32 3, label %1612
-    i32 4, label %1758
-    i32 5, label %1844
-    i32 6, label %2099
-    i32 7, label %2284
-    i32 15, label %2299
+78:                                               ; preds = %2443, %74
+  %79 = load ptr, ptr %4, align 8, !tbaa !8
+  %80 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %79, i32 0, i32 1
+  %81 = load i32, ptr %80, align 8, !tbaa !33
+  switch i32 %81, label %2418 [
+    i32 8, label %82
+    i32 9, label %309
+    i32 10, label %381
+    i32 11, label %652
+    i32 12, label %757
+    i32 13, label %911
+    i32 0, label %1343
+    i32 1, label %1359
+    i32 2, label %1526
+    i32 3, label %1624
+    i32 4, label %1770
+    i32 5, label %1856
+    i32 6, label %2111
+    i32 7, label %2296
+    i32 15, label %2311
   ]
 
-81:                                               ; preds = %77
-  br label %82
+82:                                               ; preds = %78
+  br label %83
 
-82:                                               ; preds = %112, %81
-  %83 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %84 = load i32, ptr %83, align 8
-  %85 = icmp ult i32 %84, 3
-  br i1 %85, label %86, label %131
+83:                                               ; preds = %113, %82
+  %84 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %85 = load i32, ptr %84, align 8, !tbaa !27
+  %86 = icmp ult i32 %85, 3
+  br i1 %86, label %87, label %132
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp ne i32 %88, 0
-  br i1 %89, label %112, label %90
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %89 = load i32, ptr %88, align 8, !tbaa !23
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %113, label %91
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %92 = load i64, ptr %91, align 8
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds %struct.inflate_blocks_state, ptr %93, i32 0, i32 5
-  store i64 %92, ptr %94, align 8
-  %95 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %96 = load i32, ptr %95, align 8
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %struct.inflate_blocks_state, ptr %97, i32 0, i32 4
-  store i32 %96, ptr %98, align 4
-  %99 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %100 = load i32, ptr %99, align 8
-  %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %101, i32 0, i32 1
-  store i32 %100, ptr %102, align 8
-  %103 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %105, i32 0, i32 0
-  store ptr %104, ptr %106, align 8
-  %107 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds %struct.inflate_blocks_state, ptr %109, i32 0, i32 10
-  store ptr %108, ptr %110, align 8
-  %111 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %111)
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %93 = load i64, ptr %92, align 8, !tbaa !25
+  %94 = load ptr, ptr %4, align 8, !tbaa !8
+  %95 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %94, i32 0, i32 5
+  store i64 %93, ptr %95, align 8, !tbaa !24
+  %96 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %97 = load i32, ptr %96, align 8, !tbaa !27
+  %98 = load ptr, ptr %4, align 8, !tbaa !8
+  %99 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %98, i32 0, i32 4
+  store i32 %97, ptr %99, align 4, !tbaa !26
+  %100 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %101 = load i32, ptr %100, align 8, !tbaa !23
+  %102 = load ptr, ptr %3, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %102, i32 0, i32 1
+  store i32 %101, ptr %103, align 8, !tbaa !22
+  %104 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %105 = load ptr, ptr %104, align 8, !tbaa !20
+  %106 = load ptr, ptr %3, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %106, i32 0, i32 0
+  store ptr %105, ptr %107, align 8, !tbaa !12
+  %108 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %109 = load ptr, ptr %108, align 8, !tbaa !29
+  %110 = load ptr, ptr %4, align 8, !tbaa !8
+  %111 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %110, i32 0, i32 10
+  store ptr %109, ptr %111, align 8, !tbaa !28
+  %112 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %112)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-112:                                              ; preds = %86
-  %113 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %114 = load i32, ptr %113, align 8
-  %115 = add i32 %114, -1
-  store i32 %115, ptr %113, align 8
-  %116 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i32 1
-  store ptr %118, ptr %116, align 8
-  %119 = load i8, ptr %117, align 1
-  %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %122 = load i32, ptr %121, align 8
-  %123 = zext i32 %122 to i64
-  %124 = shl i64 %120, %123
-  %125 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %126 = load i64, ptr %125, align 8
-  %127 = or i64 %126, %124
-  store i64 %127, ptr %125, align 8
-  %128 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %129 = load i32, ptr %128, align 8
-  %130 = add i32 %129, 8
-  store i32 %130, ptr %128, align 8
-  br label %82
+113:                                              ; preds = %87
+  %114 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %115 = load i32, ptr %114, align 8, !tbaa !23
+  %116 = add i32 %115, -1
+  store i32 %116, ptr %114, align 8, !tbaa !23
+  %117 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %118 = load ptr, ptr %117, align 8, !tbaa !20
+  %119 = getelementptr inbounds nuw i8, ptr %118, i32 1
+  store ptr %119, ptr %117, align 8, !tbaa !20
+  %120 = load i8, ptr %118, align 1, !tbaa !34
+  %121 = zext i8 %120 to i64
+  %122 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %123 = load i32, ptr %122, align 8, !tbaa !27
+  %124 = zext i32 %123 to i64
+  %125 = shl i64 %121, %124
+  %126 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %127 = load i64, ptr %126, align 8, !tbaa !25
+  %128 = or i64 %127, %125
+  store i64 %128, ptr %126, align 8, !tbaa !25
+  %129 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %130 = load i32, ptr %129, align 8, !tbaa !27
+  %131 = add i32 %130, 8
+  store i32 %131, ptr %129, align 8, !tbaa !27
+  br label %83
 
-131:                                              ; preds = %82
-  %132 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %133 = load i64, ptr %132, align 8
-  %134 = trunc i64 %133 to i32
-  %135 = and i32 %134, 7
-  %136 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %135, ptr %136, align 8
-  %137 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %138 = load i64, ptr %137, align 8
-  %139 = lshr i64 %138, 3
-  store i64 %139, ptr %137, align 8
-  %140 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %141 = load i32, ptr %140, align 8
-  %142 = sub i32 %141, 3
-  store i32 %142, ptr %140, align 8
-  %143 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %144 = load i32, ptr %143, align 8
-  %145 = and i32 %144, 1
-  %146 = icmp ne i32 %145, 0
-  %147 = select i1 %146, i32 15, i32 8
-  %148 = load ptr, ptr %4, align 8
-  %149 = getelementptr inbounds %struct.inflate_blocks_state, ptr %148, i32 0, i32 3
-  store i32 %147, ptr %149, align 8
-  %150 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %151 = load i32, ptr %150, align 8
-  %152 = lshr i32 %151, 1
-  switch i32 %152, label %307 [
-    i32 0, label %153
-    i32 1, label %169
-    i32 2, label %303
-    i32 3, label %306
+132:                                              ; preds = %83
+  %133 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %134 = load i64, ptr %133, align 8, !tbaa !25
+  %135 = trunc i64 %134 to i32
+  %136 = and i32 %135, 7
+  %137 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %136, ptr %137, align 8, !tbaa !35
+  %138 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %139 = load i64, ptr %138, align 8, !tbaa !25
+  %140 = lshr i64 %139, 3
+  store i64 %140, ptr %138, align 8, !tbaa !25
+  %141 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %142 = load i32, ptr %141, align 8, !tbaa !27
+  %143 = sub i32 %142, 3
+  store i32 %143, ptr %141, align 8, !tbaa !27
+  %144 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %145 = load i32, ptr %144, align 8, !tbaa !35
+  %146 = and i32 %145, 1
+  %147 = icmp ne i32 %146, 0
+  %148 = select i1 %147, i32 15, i32 8
+  %149 = load ptr, ptr %4, align 8, !tbaa !8
+  %150 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %149, i32 0, i32 3
+  store i32 %148, ptr %150, align 8, !tbaa !36
+  %151 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %152 = load i32, ptr %151, align 8, !tbaa !35
+  %153 = lshr i32 %152, 1
+  switch i32 %153, label %308 [
+    i32 0, label %154
+    i32 1, label %170
+    i32 2, label %304
+    i32 3, label %307
   ]
 
-153:                                              ; preds = %131
-  %154 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %155 = load i32, ptr %154, align 8
-  %156 = and i32 %155, 7
-  %157 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %158 = load i64, ptr %157, align 8
-  %159 = zext i32 %156 to i64
-  %160 = lshr i64 %158, %159
-  store i64 %160, ptr %157, align 8
-  %161 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %162 = load i32, ptr %161, align 8
-  %163 = and i32 %162, 7
-  %164 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %165 = load i32, ptr %164, align 8
-  %166 = sub i32 %165, %163
-  store i32 %166, ptr %164, align 8
-  %167 = load ptr, ptr %4, align 8
-  %168 = getelementptr inbounds %struct.inflate_blocks_state, ptr %167, i32 0, i32 1
-  store i32 9, ptr %168, align 8
-  br label %307
+154:                                              ; preds = %132
+  %155 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %156 = load i32, ptr %155, align 8, !tbaa !27
+  %157 = and i32 %156, 7
+  %158 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %159 = load i64, ptr %158, align 8, !tbaa !25
+  %160 = zext i32 %157 to i64
+  %161 = lshr i64 %159, %160
+  store i64 %161, ptr %158, align 8, !tbaa !25
+  %162 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %163 = load i32, ptr %162, align 8, !tbaa !27
+  %164 = and i32 %163, 7
+  %165 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %166 = load i32, ptr %165, align 8, !tbaa !27
+  %167 = sub i32 %166, %164
+  store i32 %167, ptr %165, align 8, !tbaa !27
+  %168 = load ptr, ptr %4, align 8, !tbaa !8
+  %169 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %168, i32 0, i32 1
+  store i32 9, ptr %169, align 8, !tbaa !33
+  br label %308
 
-169:                                              ; preds = %131
-  %170 = load ptr, ptr %4, align 8
-  %171 = getelementptr inbounds %struct.inflate_blocks_state, ptr %170, i32 0, i32 0
-  %172 = getelementptr inbounds %struct.z_stuff, ptr %171, i32 0, i32 0
-  %173 = load i8, ptr %172, align 8
-  %174 = icmp ne i8 %173, 0
-  br i1 %174, label %266, label %175
+170:                                              ; preds = %132
+  %171 = load ptr, ptr %4, align 8, !tbaa !8
+  %172 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %171, i32 0, i32 0
+  %173 = getelementptr inbounds nuw %struct.z_stuff, ptr %172, i32 0, i32 0
+  %174 = load i8, ptr %173, align 8, !tbaa !37
+  %175 = icmp ne i8 %174, 0
+  br i1 %175, label %267, label %176
 
-175:                                              ; preds = %169
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %7, align 4
-  br label %176
+176:                                              ; preds = %170
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  store i32 0, ptr %9, align 4, !tbaa !38
+  store i32 0, ptr %8, align 4, !tbaa !38
+  br label %177
 
-176:                                              ; preds = %205, %175
-  %177 = load i32, ptr %7, align 4
-  %178 = icmp slt i32 %177, 288
-  br i1 %178, label %179, label %208
+177:                                              ; preds = %206, %176
+  %178 = load i32, ptr %8, align 4, !tbaa !38
+  %179 = icmp slt i32 %178, 288
+  br i1 %179, label %180, label %209
 
-179:                                              ; preds = %176
-  store i8 8, ptr %9, align 1
-  %180 = load i32, ptr %7, align 4
-  %181 = icmp sgt i32 %180, 143
-  br i1 %181, label %182, label %196
+180:                                              ; preds = %177
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  store i8 8, ptr %10, align 1, !tbaa !34
+  %181 = load i32, ptr %8, align 4, !tbaa !38
+  %182 = icmp sgt i32 %181, 143
+  br i1 %182, label %183, label %197
 
-182:                                              ; preds = %179
-  %183 = load i32, ptr %7, align 4
-  %184 = icmp slt i32 %183, 256
-  br i1 %184, label %185, label %188
+183:                                              ; preds = %180
+  %184 = load i32, ptr %8, align 4, !tbaa !38
+  %185 = icmp slt i32 %184, 256
+  br i1 %185, label %186, label %189
 
-185:                                              ; preds = %182
-  %186 = load i8, ptr %9, align 1
-  %187 = add i8 %186, 1
-  store i8 %187, ptr %9, align 1
-  br label %195
-
-188:                                              ; preds = %182
-  %189 = load i32, ptr %7, align 4
-  %190 = icmp slt i32 %189, 280
-  br i1 %190, label %191, label %194
-
-191:                                              ; preds = %188
-  %192 = load i8, ptr %9, align 1
-  %193 = add i8 %192, -1
-  store i8 %193, ptr %9, align 1
-  br label %194
-
-194:                                              ; preds = %191, %188
-  br label %195
-
-195:                                              ; preds = %194, %185
+186:                                              ; preds = %183
+  %187 = load i8, ptr %10, align 1, !tbaa !34
+  %188 = add i8 %187, 1
+  store i8 %188, ptr %10, align 1, !tbaa !34
   br label %196
 
-196:                                              ; preds = %195, %179
-  %197 = load i8, ptr %9, align 1
-  %198 = sext i8 %197 to i32
-  %199 = load ptr, ptr %4, align 8
-  %200 = getelementptr inbounds %struct.inflate_blocks_state, ptr %199, i32 0, i32 0
-  %201 = getelementptr inbounds %struct.z_stuff, ptr %200, i32 0, i32 7
-  %202 = load i32, ptr %7, align 4
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds [288 x i32], ptr %201, i64 0, i64 %203
-  store i32 %198, ptr %204, align 4
-  br label %205
+189:                                              ; preds = %183
+  %190 = load i32, ptr %8, align 4, !tbaa !38
+  %191 = icmp slt i32 %190, 280
+  br i1 %191, label %192, label %195
 
-205:                                              ; preds = %196
-  %206 = load i32, ptr %7, align 4
-  %207 = add nsw i32 %206, 1
-  store i32 %207, ptr %7, align 4
-  br label %176
+192:                                              ; preds = %189
+  %193 = load i8, ptr %10, align 1, !tbaa !34
+  %194 = add i8 %193, -1
+  store i8 %194, ptr %10, align 1, !tbaa !34
+  br label %195
 
-208:                                              ; preds = %176
-  %209 = load ptr, ptr %4, align 8
-  %210 = getelementptr inbounds %struct.inflate_blocks_state, ptr %209, i32 0, i32 0
-  %211 = getelementptr inbounds %struct.z_stuff, ptr %210, i32 0, i32 7
-  %212 = getelementptr inbounds [288 x i32], ptr %211, i64 0, i64 0
-  %213 = load ptr, ptr %4, align 8
-  %214 = getelementptr inbounds %struct.inflate_blocks_state, ptr %213, i32 0, i32 0
-  %215 = getelementptr inbounds %struct.z_stuff, ptr %214, i32 0, i32 4
-  %216 = load ptr, ptr %4, align 8
-  %217 = getelementptr inbounds %struct.inflate_blocks_state, ptr %216, i32 0, i32 0
-  %218 = getelementptr inbounds %struct.z_stuff, ptr %217, i32 0, i32 2
-  %219 = load ptr, ptr %4, align 8
-  %220 = getelementptr inbounds %struct.inflate_blocks_state, ptr %219, i32 0, i32 0
-  %221 = getelementptr inbounds %struct.z_stuff, ptr %220, i32 0, i32 1
-  %222 = getelementptr inbounds [544 x %struct.inflate_huft_s], ptr %221, i64 0, i64 0
-  %223 = load ptr, ptr %4, align 8
-  %224 = getelementptr inbounds %struct.inflate_blocks_state, ptr %223, i32 0, i32 0
-  %225 = getelementptr inbounds %struct.z_stuff, ptr %224, i32 0, i32 6
-  %226 = getelementptr inbounds [288 x i32], ptr %225, i64 0, i64 0
-  %227 = call i32 @huft_build(ptr noundef %212, i32 noundef 288, i32 noundef 257, ptr noundef @cplens, ptr noundef @cplext, ptr noundef %215, ptr noundef %218, ptr noundef %222, ptr noundef %8, ptr noundef %226)
-  store i32 0, ptr %7, align 4
-  br label %228
+195:                                              ; preds = %192, %189
+  br label %196
 
-228:                                              ; preds = %238, %208
-  %229 = load i32, ptr %7, align 4
-  %230 = icmp slt i32 %229, 30
-  br i1 %230, label %231, label %241
+196:                                              ; preds = %195, %186
+  br label %197
 
-231:                                              ; preds = %228
-  %232 = load ptr, ptr %4, align 8
-  %233 = getelementptr inbounds %struct.inflate_blocks_state, ptr %232, i32 0, i32 0
-  %234 = getelementptr inbounds %struct.z_stuff, ptr %233, i32 0, i32 7
-  %235 = load i32, ptr %7, align 4
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds [288 x i32], ptr %234, i64 0, i64 %236
-  store i32 5, ptr %237, align 4
-  br label %238
+197:                                              ; preds = %196, %180
+  %198 = load i8, ptr %10, align 1, !tbaa !34
+  %199 = sext i8 %198 to i32
+  %200 = load ptr, ptr %4, align 8, !tbaa !8
+  %201 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %200, i32 0, i32 0
+  %202 = getelementptr inbounds nuw %struct.z_stuff, ptr %201, i32 0, i32 7
+  %203 = load i32, ptr %8, align 4, !tbaa !38
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds [288 x i32], ptr %202, i64 0, i64 %204
+  store i32 %199, ptr %205, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  br label %206
 
-238:                                              ; preds = %231
-  %239 = load i32, ptr %7, align 4
-  %240 = add nsw i32 %239, 1
-  store i32 %240, ptr %7, align 4
-  br label %228
+206:                                              ; preds = %197
+  %207 = load i32, ptr %8, align 4, !tbaa !38
+  %208 = add nsw i32 %207, 1
+  store i32 %208, ptr %8, align 4, !tbaa !38
+  br label %177
 
-241:                                              ; preds = %228
-  %242 = load ptr, ptr %4, align 8
-  %243 = getelementptr inbounds %struct.inflate_blocks_state, ptr %242, i32 0, i32 0
-  %244 = getelementptr inbounds %struct.z_stuff, ptr %243, i32 0, i32 7
-  %245 = getelementptr inbounds [288 x i32], ptr %244, i64 0, i64 0
-  %246 = load ptr, ptr %4, align 8
-  %247 = getelementptr inbounds %struct.inflate_blocks_state, ptr %246, i32 0, i32 0
-  %248 = getelementptr inbounds %struct.z_stuff, ptr %247, i32 0, i32 5
-  %249 = load ptr, ptr %4, align 8
-  %250 = getelementptr inbounds %struct.inflate_blocks_state, ptr %249, i32 0, i32 0
-  %251 = getelementptr inbounds %struct.z_stuff, ptr %250, i32 0, i32 3
-  %252 = load ptr, ptr %4, align 8
-  %253 = getelementptr inbounds %struct.inflate_blocks_state, ptr %252, i32 0, i32 0
-  %254 = getelementptr inbounds %struct.z_stuff, ptr %253, i32 0, i32 1
-  %255 = getelementptr inbounds [544 x %struct.inflate_huft_s], ptr %254, i64 0, i64 0
-  %256 = load ptr, ptr %4, align 8
-  %257 = getelementptr inbounds %struct.inflate_blocks_state, ptr %256, i32 0, i32 0
-  %258 = getelementptr inbounds %struct.z_stuff, ptr %257, i32 0, i32 6
-  %259 = getelementptr inbounds [288 x i32], ptr %258, i64 0, i64 0
-  %260 = call i32 @huft_build(ptr noundef %245, i32 noundef 30, i32 noundef 0, ptr noundef @cpdist, ptr noundef @cpdext, ptr noundef %248, ptr noundef %251, ptr noundef %255, ptr noundef %8, ptr noundef %259)
-  %261 = load ptr, ptr %4, align 8
-  %262 = getelementptr inbounds %struct.inflate_blocks_state, ptr %261, i32 0, i32 0
-  %263 = getelementptr inbounds %struct.z_stuff, ptr %262, i32 0, i32 0
-  %264 = load i8, ptr %263, align 8
-  %265 = add i8 %264, 1
-  store i8 %265, ptr %263, align 8
-  br label %266
+209:                                              ; preds = %177
+  %210 = load ptr, ptr %4, align 8, !tbaa !8
+  %211 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %210, i32 0, i32 0
+  %212 = getelementptr inbounds nuw %struct.z_stuff, ptr %211, i32 0, i32 7
+  %213 = getelementptr inbounds [288 x i32], ptr %212, i64 0, i64 0
+  %214 = load ptr, ptr %4, align 8, !tbaa !8
+  %215 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %214, i32 0, i32 0
+  %216 = getelementptr inbounds nuw %struct.z_stuff, ptr %215, i32 0, i32 4
+  %217 = load ptr, ptr %4, align 8, !tbaa !8
+  %218 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %217, i32 0, i32 0
+  %219 = getelementptr inbounds nuw %struct.z_stuff, ptr %218, i32 0, i32 2
+  %220 = load ptr, ptr %4, align 8, !tbaa !8
+  %221 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %220, i32 0, i32 0
+  %222 = getelementptr inbounds nuw %struct.z_stuff, ptr %221, i32 0, i32 1
+  %223 = getelementptr inbounds [544 x %struct.inflate_huft_s], ptr %222, i64 0, i64 0
+  %224 = load ptr, ptr %4, align 8, !tbaa !8
+  %225 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %224, i32 0, i32 0
+  %226 = getelementptr inbounds nuw %struct.z_stuff, ptr %225, i32 0, i32 6
+  %227 = getelementptr inbounds [288 x i32], ptr %226, i64 0, i64 0
+  %228 = call i32 @huft_build(ptr noundef %213, i32 noundef 288, i32 noundef 257, ptr noundef @cplens, ptr noundef @cplext, ptr noundef %216, ptr noundef %219, ptr noundef %223, ptr noundef %9, ptr noundef %227)
+  store i32 0, ptr %8, align 4, !tbaa !38
+  br label %229
 
-266:                                              ; preds = %241, %169
-  %267 = load ptr, ptr %4, align 8
-  %268 = getelementptr inbounds %struct.inflate_blocks_state, ptr %267, i32 0, i32 0
-  %269 = getelementptr inbounds %struct.z_stuff, ptr %268, i32 0, i32 2
-  %270 = load i32, ptr %269, align 4
-  %271 = trunc i32 %270 to i8
-  %272 = load ptr, ptr %4, align 8
-  %273 = getelementptr inbounds %struct.inflate_blocks_state, ptr %272, i32 0, i32 2
-  %274 = getelementptr inbounds %struct.anon.2, ptr %273, i32 0, i32 0
-  %275 = getelementptr inbounds %struct.inflate_codes_state, ptr %274, i32 0, i32 2
-  store i8 %271, ptr %275, align 8
-  %276 = load ptr, ptr %4, align 8
-  %277 = getelementptr inbounds %struct.inflate_blocks_state, ptr %276, i32 0, i32 0
-  %278 = getelementptr inbounds %struct.z_stuff, ptr %277, i32 0, i32 3
-  %279 = load i32, ptr %278, align 8
-  %280 = trunc i32 %279 to i8
-  %281 = load ptr, ptr %4, align 8
-  %282 = getelementptr inbounds %struct.inflate_blocks_state, ptr %281, i32 0, i32 2
-  %283 = getelementptr inbounds %struct.anon.2, ptr %282, i32 0, i32 0
-  %284 = getelementptr inbounds %struct.inflate_codes_state, ptr %283, i32 0, i32 3
-  store i8 %280, ptr %284, align 1
-  %285 = load ptr, ptr %4, align 8
-  %286 = getelementptr inbounds %struct.inflate_blocks_state, ptr %285, i32 0, i32 0
-  %287 = getelementptr inbounds %struct.z_stuff, ptr %286, i32 0, i32 4
-  %288 = load ptr, ptr %287, align 8
-  %289 = load ptr, ptr %4, align 8
-  %290 = getelementptr inbounds %struct.inflate_blocks_state, ptr %289, i32 0, i32 2
-  %291 = getelementptr inbounds %struct.anon.2, ptr %290, i32 0, i32 0
-  %292 = getelementptr inbounds %struct.inflate_codes_state, ptr %291, i32 0, i32 4
-  store ptr %288, ptr %292, align 8
-  %293 = load ptr, ptr %4, align 8
-  %294 = getelementptr inbounds %struct.inflate_blocks_state, ptr %293, i32 0, i32 0
-  %295 = getelementptr inbounds %struct.z_stuff, ptr %294, i32 0, i32 5
-  %296 = load ptr, ptr %295, align 8
-  %297 = load ptr, ptr %4, align 8
-  %298 = getelementptr inbounds %struct.inflate_blocks_state, ptr %297, i32 0, i32 2
-  %299 = getelementptr inbounds %struct.anon.2, ptr %298, i32 0, i32 0
-  %300 = getelementptr inbounds %struct.inflate_codes_state, ptr %299, i32 0, i32 5
-  store ptr %296, ptr %300, align 8
-  %301 = load ptr, ptr %4, align 8
-  %302 = getelementptr inbounds %struct.inflate_blocks_state, ptr %301, i32 0, i32 1
-  store i32 0, ptr %302, align 8
-  br label %307
+229:                                              ; preds = %239, %209
+  %230 = load i32, ptr %8, align 4, !tbaa !38
+  %231 = icmp slt i32 %230, 30
+  br i1 %231, label %232, label %242
 
-303:                                              ; preds = %131
-  %304 = load ptr, ptr %4, align 8
-  %305 = getelementptr inbounds %struct.inflate_blocks_state, ptr %304, i32 0, i32 1
-  store i32 11, ptr %305, align 8
-  br label %307
+232:                                              ; preds = %229
+  %233 = load ptr, ptr %4, align 8, !tbaa !8
+  %234 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %233, i32 0, i32 0
+  %235 = getelementptr inbounds nuw %struct.z_stuff, ptr %234, i32 0, i32 7
+  %236 = load i32, ptr %8, align 4, !tbaa !38
+  %237 = sext i32 %236 to i64
+  %238 = getelementptr inbounds [288 x i32], ptr %235, i64 0, i64 %237
+  store i32 5, ptr %238, align 4, !tbaa !38
+  br label %239
 
-306:                                              ; preds = %131
-  br label %2407
+239:                                              ; preds = %232
+  %240 = load i32, ptr %8, align 4, !tbaa !38
+  %241 = add nsw i32 %240, 1
+  store i32 %241, ptr %8, align 4, !tbaa !38
+  br label %229
 
-307:                                              ; preds = %303, %266, %153, %131
-  br label %2431
+242:                                              ; preds = %229
+  %243 = load ptr, ptr %4, align 8, !tbaa !8
+  %244 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %243, i32 0, i32 0
+  %245 = getelementptr inbounds nuw %struct.z_stuff, ptr %244, i32 0, i32 7
+  %246 = getelementptr inbounds [288 x i32], ptr %245, i64 0, i64 0
+  %247 = load ptr, ptr %4, align 8, !tbaa !8
+  %248 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %247, i32 0, i32 0
+  %249 = getelementptr inbounds nuw %struct.z_stuff, ptr %248, i32 0, i32 5
+  %250 = load ptr, ptr %4, align 8, !tbaa !8
+  %251 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %250, i32 0, i32 0
+  %252 = getelementptr inbounds nuw %struct.z_stuff, ptr %251, i32 0, i32 3
+  %253 = load ptr, ptr %4, align 8, !tbaa !8
+  %254 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %253, i32 0, i32 0
+  %255 = getelementptr inbounds nuw %struct.z_stuff, ptr %254, i32 0, i32 1
+  %256 = getelementptr inbounds [544 x %struct.inflate_huft_s], ptr %255, i64 0, i64 0
+  %257 = load ptr, ptr %4, align 8, !tbaa !8
+  %258 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %257, i32 0, i32 0
+  %259 = getelementptr inbounds nuw %struct.z_stuff, ptr %258, i32 0, i32 6
+  %260 = getelementptr inbounds [288 x i32], ptr %259, i64 0, i64 0
+  %261 = call i32 @huft_build(ptr noundef %246, i32 noundef 30, i32 noundef 0, ptr noundef @cpdist, ptr noundef @cpdext, ptr noundef %249, ptr noundef %252, ptr noundef %256, ptr noundef %9, ptr noundef %260)
+  %262 = load ptr, ptr %4, align 8, !tbaa !8
+  %263 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %262, i32 0, i32 0
+  %264 = getelementptr inbounds nuw %struct.z_stuff, ptr %263, i32 0, i32 0
+  %265 = load i8, ptr %264, align 8, !tbaa !37
+  %266 = add i8 %265, 1
+  store i8 %266, ptr %264, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  br label %267
 
-308:                                              ; preds = %77
-  br label %309
+267:                                              ; preds = %242, %170
+  %268 = load ptr, ptr %4, align 8, !tbaa !8
+  %269 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %268, i32 0, i32 0
+  %270 = getelementptr inbounds nuw %struct.z_stuff, ptr %269, i32 0, i32 2
+  %271 = load i32, ptr %270, align 4, !tbaa !39
+  %272 = trunc i32 %271 to i8
+  %273 = load ptr, ptr %4, align 8, !tbaa !8
+  %274 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %273, i32 0, i32 2
+  %275 = getelementptr inbounds nuw %struct.anon.2, ptr %274, i32 0, i32 0
+  %276 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %275, i32 0, i32 2
+  store i8 %272, ptr %276, align 8, !tbaa !34
+  %277 = load ptr, ptr %4, align 8, !tbaa !8
+  %278 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %277, i32 0, i32 0
+  %279 = getelementptr inbounds nuw %struct.z_stuff, ptr %278, i32 0, i32 3
+  %280 = load i32, ptr %279, align 8, !tbaa !40
+  %281 = trunc i32 %280 to i8
+  %282 = load ptr, ptr %4, align 8, !tbaa !8
+  %283 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %282, i32 0, i32 2
+  %284 = getelementptr inbounds nuw %struct.anon.2, ptr %283, i32 0, i32 0
+  %285 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %284, i32 0, i32 3
+  store i8 %281, ptr %285, align 1, !tbaa !34
+  %286 = load ptr, ptr %4, align 8, !tbaa !8
+  %287 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %286, i32 0, i32 0
+  %288 = getelementptr inbounds nuw %struct.z_stuff, ptr %287, i32 0, i32 4
+  %289 = load ptr, ptr %288, align 8, !tbaa !41
+  %290 = load ptr, ptr %4, align 8, !tbaa !8
+  %291 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %290, i32 0, i32 2
+  %292 = getelementptr inbounds nuw %struct.anon.2, ptr %291, i32 0, i32 0
+  %293 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %292, i32 0, i32 4
+  store ptr %289, ptr %293, align 8, !tbaa !34
+  %294 = load ptr, ptr %4, align 8, !tbaa !8
+  %295 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %294, i32 0, i32 0
+  %296 = getelementptr inbounds nuw %struct.z_stuff, ptr %295, i32 0, i32 5
+  %297 = load ptr, ptr %296, align 8, !tbaa !42
+  %298 = load ptr, ptr %4, align 8, !tbaa !8
+  %299 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %298, i32 0, i32 2
+  %300 = getelementptr inbounds nuw %struct.anon.2, ptr %299, i32 0, i32 0
+  %301 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %300, i32 0, i32 5
+  store ptr %297, ptr %301, align 8, !tbaa !34
+  %302 = load ptr, ptr %4, align 8, !tbaa !8
+  %303 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %302, i32 0, i32 1
+  store i32 0, ptr %303, align 8, !tbaa !33
+  br label %308
 
-309:                                              ; preds = %339, %308
-  %310 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %311 = load i32, ptr %310, align 8
-  %312 = icmp ult i32 %311, 16
-  br i1 %312, label %313, label %358
+304:                                              ; preds = %132
+  %305 = load ptr, ptr %4, align 8, !tbaa !8
+  %306 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %305, i32 0, i32 1
+  store i32 11, ptr %306, align 8, !tbaa !33
+  br label %308
 
-313:                                              ; preds = %309
-  %314 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %315 = load i32, ptr %314, align 8
-  %316 = icmp ne i32 %315, 0
-  br i1 %316, label %339, label %317
+307:                                              ; preds = %132
+  br label %2419
 
-317:                                              ; preds = %313
-  %318 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %319 = load i64, ptr %318, align 8
-  %320 = load ptr, ptr %4, align 8
-  %321 = getelementptr inbounds %struct.inflate_blocks_state, ptr %320, i32 0, i32 5
-  store i64 %319, ptr %321, align 8
-  %322 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %323 = load i32, ptr %322, align 8
-  %324 = load ptr, ptr %4, align 8
-  %325 = getelementptr inbounds %struct.inflate_blocks_state, ptr %324, i32 0, i32 4
-  store i32 %323, ptr %325, align 4
-  %326 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %327 = load i32, ptr %326, align 8
-  %328 = load ptr, ptr %3, align 8
-  %329 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %328, i32 0, i32 1
-  store i32 %327, ptr %329, align 8
-  %330 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %331 = load ptr, ptr %330, align 8
-  %332 = load ptr, ptr %3, align 8
-  %333 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %332, i32 0, i32 0
-  store ptr %331, ptr %333, align 8
-  %334 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %335 = load ptr, ptr %334, align 8
-  %336 = load ptr, ptr %4, align 8
-  %337 = getelementptr inbounds %struct.inflate_blocks_state, ptr %336, i32 0, i32 10
-  store ptr %335, ptr %337, align 8
-  %338 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %338)
+308:                                              ; preds = %132, %304, %267, %154
+  br label %2443
+
+309:                                              ; preds = %78
+  br label %310
+
+310:                                              ; preds = %340, %309
+  %311 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %312 = load i32, ptr %311, align 8, !tbaa !27
+  %313 = icmp ult i32 %312, 16
+  br i1 %313, label %314, label %359
+
+314:                                              ; preds = %310
+  %315 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %316 = load i32, ptr %315, align 8, !tbaa !23
+  %317 = icmp ne i32 %316, 0
+  br i1 %317, label %340, label %318
+
+318:                                              ; preds = %314
+  %319 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %320 = load i64, ptr %319, align 8, !tbaa !25
+  %321 = load ptr, ptr %4, align 8, !tbaa !8
+  %322 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %321, i32 0, i32 5
+  store i64 %320, ptr %322, align 8, !tbaa !24
+  %323 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %324 = load i32, ptr %323, align 8, !tbaa !27
+  %325 = load ptr, ptr %4, align 8, !tbaa !8
+  %326 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %325, i32 0, i32 4
+  store i32 %324, ptr %326, align 4, !tbaa !26
+  %327 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %328 = load i32, ptr %327, align 8, !tbaa !23
+  %329 = load ptr, ptr %3, align 8, !tbaa !3
+  %330 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %329, i32 0, i32 1
+  store i32 %328, ptr %330, align 8, !tbaa !22
+  %331 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %332 = load ptr, ptr %331, align 8, !tbaa !20
+  %333 = load ptr, ptr %3, align 8, !tbaa !3
+  %334 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %333, i32 0, i32 0
+  store ptr %332, ptr %334, align 8, !tbaa !12
+  %335 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %336 = load ptr, ptr %335, align 8, !tbaa !29
+  %337 = load ptr, ptr %4, align 8, !tbaa !8
+  %338 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %337, i32 0, i32 10
+  store ptr %336, ptr %338, align 8, !tbaa !28
+  %339 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %339)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-339:                                              ; preds = %313
-  %340 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %341 = load i32, ptr %340, align 8
-  %342 = add i32 %341, -1
-  store i32 %342, ptr %340, align 8
-  %343 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i32 1
-  store ptr %345, ptr %343, align 8
-  %346 = load i8, ptr %344, align 1
-  %347 = zext i8 %346 to i64
-  %348 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %349 = load i32, ptr %348, align 8
-  %350 = zext i32 %349 to i64
-  %351 = shl i64 %347, %350
-  %352 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %353 = load i64, ptr %352, align 8
-  %354 = or i64 %353, %351
-  store i64 %354, ptr %352, align 8
-  %355 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %356 = load i32, ptr %355, align 8
-  %357 = add i32 %356, 8
-  store i32 %357, ptr %355, align 8
-  br label %309
+340:                                              ; preds = %314
+  %341 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %342 = load i32, ptr %341, align 8, !tbaa !23
+  %343 = add i32 %342, -1
+  store i32 %343, ptr %341, align 8, !tbaa !23
+  %344 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %345 = load ptr, ptr %344, align 8, !tbaa !20
+  %346 = getelementptr inbounds nuw i8, ptr %345, i32 1
+  store ptr %346, ptr %344, align 8, !tbaa !20
+  %347 = load i8, ptr %345, align 1, !tbaa !34
+  %348 = zext i8 %347 to i64
+  %349 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %350 = load i32, ptr %349, align 8, !tbaa !27
+  %351 = zext i32 %350 to i64
+  %352 = shl i64 %348, %351
+  %353 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %354 = load i64, ptr %353, align 8, !tbaa !25
+  %355 = or i64 %354, %352
+  store i64 %355, ptr %353, align 8, !tbaa !25
+  %356 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %357 = load i32, ptr %356, align 8, !tbaa !27
+  %358 = add i32 %357, 8
+  store i32 %358, ptr %356, align 8, !tbaa !27
+  br label %310
 
-358:                                              ; preds = %309
-  %359 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %360 = load i64, ptr %359, align 8
-  %361 = trunc i64 %360 to i32
-  %362 = and i32 %361, 65535
-  %363 = load ptr, ptr %4, align 8
-  %364 = getelementptr inbounds %struct.inflate_blocks_state, ptr %363, i32 0, i32 2
-  store i32 %362, ptr %364, align 8
-  %365 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  store i32 0, ptr %365, align 8
-  %366 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  store i64 0, ptr %366, align 8
-  %367 = load ptr, ptr %4, align 8
-  %368 = getelementptr inbounds %struct.inflate_blocks_state, ptr %367, i32 0, i32 2
-  %369 = load i32, ptr %368, align 8
-  %370 = icmp ne i32 %369, 0
-  br i1 %370, label %371, label %372
+359:                                              ; preds = %310
+  %360 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %361 = load i64, ptr %360, align 8, !tbaa !25
+  %362 = trunc i64 %361 to i32
+  %363 = and i32 %362, 65535
+  %364 = load ptr, ptr %4, align 8, !tbaa !8
+  %365 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %364, i32 0, i32 2
+  store i32 %363, ptr %365, align 8, !tbaa !34
+  %366 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  store i32 0, ptr %366, align 8, !tbaa !27
+  %367 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  store i64 0, ptr %367, align 8, !tbaa !25
+  %368 = load ptr, ptr %4, align 8, !tbaa !8
+  %369 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %368, i32 0, i32 2
+  %370 = load i32, ptr %369, align 8, !tbaa !34
+  %371 = icmp ne i32 %370, 0
+  br i1 %371, label %372, label %373
 
-371:                                              ; preds = %358
-  br label %376
+372:                                              ; preds = %359
+  br label %377
 
-372:                                              ; preds = %358
-  %373 = load ptr, ptr %4, align 8
-  %374 = getelementptr inbounds %struct.inflate_blocks_state, ptr %373, i32 0, i32 3
-  %375 = load i32, ptr %374, align 8
-  br label %376
+373:                                              ; preds = %359
+  %374 = load ptr, ptr %4, align 8, !tbaa !8
+  %375 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %374, i32 0, i32 3
+  %376 = load i32, ptr %375, align 8, !tbaa !36
+  br label %377
 
-376:                                              ; preds = %372, %371
-  %377 = phi i32 [ 10, %371 ], [ %375, %372 ]
-  %378 = load ptr, ptr %4, align 8
-  %379 = getelementptr inbounds %struct.inflate_blocks_state, ptr %378, i32 0, i32 1
-  store i32 %377, ptr %379, align 8
-  br label %2431
+377:                                              ; preds = %373, %372
+  %378 = phi i32 [ 10, %372 ], [ %376, %373 ]
+  %379 = load ptr, ptr %4, align 8, !tbaa !8
+  %380 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %379, i32 0, i32 1
+  store i32 %378, ptr %380, align 8, !tbaa !33
+  br label %2443
 
-380:                                              ; preds = %77
-  %381 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %382 = load i32, ptr %381, align 8
-  %383 = icmp eq i32 %382, 0
-  br i1 %383, label %384, label %406
+381:                                              ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %382 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %383 = load i32, ptr %382, align 8, !tbaa !23
+  %384 = icmp eq i32 %383, 0
+  br i1 %384, label %385, label %407
 
-384:                                              ; preds = %380
-  %385 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %386 = load i64, ptr %385, align 8
-  %387 = load ptr, ptr %4, align 8
-  %388 = getelementptr inbounds %struct.inflate_blocks_state, ptr %387, i32 0, i32 5
-  store i64 %386, ptr %388, align 8
-  %389 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %390 = load i32, ptr %389, align 8
-  %391 = load ptr, ptr %4, align 8
-  %392 = getelementptr inbounds %struct.inflate_blocks_state, ptr %391, i32 0, i32 4
-  store i32 %390, ptr %392, align 4
-  %393 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %394 = load i32, ptr %393, align 8
-  %395 = load ptr, ptr %3, align 8
-  %396 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %395, i32 0, i32 1
-  store i32 %394, ptr %396, align 8
-  %397 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %398 = load ptr, ptr %397, align 8
-  %399 = load ptr, ptr %3, align 8
-  %400 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %399, i32 0, i32 0
-  store ptr %398, ptr %400, align 8
-  %401 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %402 = load ptr, ptr %401, align 8
-  %403 = load ptr, ptr %4, align 8
-  %404 = getelementptr inbounds %struct.inflate_blocks_state, ptr %403, i32 0, i32 10
-  store ptr %402, ptr %404, align 8
-  %405 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %405)
+385:                                              ; preds = %381
+  %386 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %387 = load i64, ptr %386, align 8, !tbaa !25
+  %388 = load ptr, ptr %4, align 8, !tbaa !8
+  %389 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %388, i32 0, i32 5
+  store i64 %387, ptr %389, align 8, !tbaa !24
+  %390 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %391 = load i32, ptr %390, align 8, !tbaa !27
+  %392 = load ptr, ptr %4, align 8, !tbaa !8
+  %393 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %392, i32 0, i32 4
+  store i32 %391, ptr %393, align 4, !tbaa !26
+  %394 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %395 = load i32, ptr %394, align 8, !tbaa !23
+  %396 = load ptr, ptr %3, align 8, !tbaa !3
+  %397 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %396, i32 0, i32 1
+  store i32 %395, ptr %397, align 8, !tbaa !22
+  %398 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %399 = load ptr, ptr %398, align 8, !tbaa !20
+  %400 = load ptr, ptr %3, align 8, !tbaa !3
+  %401 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %400, i32 0, i32 0
+  store ptr %399, ptr %401, align 8, !tbaa !12
+  %402 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %403 = load ptr, ptr %402, align 8, !tbaa !29
+  %404 = load ptr, ptr %4, align 8, !tbaa !8
+  %405 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %404, i32 0, i32 10
+  store ptr %403, ptr %405, align 8, !tbaa !28
+  %406 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %406)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %650
 
-406:                                              ; preds = %380
-  %407 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %408 = load i32, ptr %407, align 8
-  %409 = icmp eq i32 %408, 0
-  br i1 %409, label %410, label %578
+407:                                              ; preds = %381
+  %408 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %409 = load i32, ptr %408, align 8, !tbaa !32
+  %410 = icmp eq i32 %409, 0
+  br i1 %410, label %411, label %579
 
-410:                                              ; preds = %406
-  %411 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %412 = load ptr, ptr %411, align 8
-  %413 = load ptr, ptr %4, align 8
-  %414 = getelementptr inbounds %struct.inflate_blocks_state, ptr %413, i32 0, i32 8
-  %415 = load ptr, ptr %414, align 8
-  %416 = icmp eq ptr %412, %415
-  br i1 %416, label %417, label %459
+411:                                              ; preds = %407
+  %412 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %413 = load ptr, ptr %412, align 8, !tbaa !29
+  %414 = load ptr, ptr %4, align 8, !tbaa !8
+  %415 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %414, i32 0, i32 8
+  %416 = load ptr, ptr %415, align 8, !tbaa !31
+  %417 = icmp eq ptr %413, %416
+  br i1 %417, label %418, label %460
 
-417:                                              ; preds = %410
-  %418 = load ptr, ptr %4, align 8
-  %419 = getelementptr inbounds %struct.inflate_blocks_state, ptr %418, i32 0, i32 9
-  %420 = load ptr, ptr %419, align 8
-  %421 = load ptr, ptr %4, align 8
-  %422 = getelementptr inbounds %struct.inflate_blocks_state, ptr %421, i32 0, i32 7
-  %423 = getelementptr inbounds [32768 x i8], ptr %422, i64 0, i64 0
-  %424 = icmp ne ptr %420, %423
-  br i1 %424, label %425, label %459
+418:                                              ; preds = %411
+  %419 = load ptr, ptr %4, align 8, !tbaa !8
+  %420 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %419, i32 0, i32 9
+  %421 = load ptr, ptr %420, align 8, !tbaa !30
+  %422 = load ptr, ptr %4, align 8, !tbaa !8
+  %423 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %422, i32 0, i32 7
+  %424 = getelementptr inbounds [32768 x i8], ptr %423, i64 0, i64 0
+  %425 = icmp ne ptr %421, %424
+  br i1 %425, label %426, label %460
 
-425:                                              ; preds = %417
-  %426 = load ptr, ptr %4, align 8
-  %427 = getelementptr inbounds %struct.inflate_blocks_state, ptr %426, i32 0, i32 7
-  %428 = getelementptr inbounds [32768 x i8], ptr %427, i64 0, i64 0
-  %429 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %428, ptr %429, align 8
-  %430 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %431 = load ptr, ptr %430, align 8
-  %432 = load ptr, ptr %4, align 8
-  %433 = getelementptr inbounds %struct.inflate_blocks_state, ptr %432, i32 0, i32 9
-  %434 = load ptr, ptr %433, align 8
-  %435 = icmp ult ptr %431, %434
-  br i1 %435, label %436, label %446
+426:                                              ; preds = %418
+  %427 = load ptr, ptr %4, align 8, !tbaa !8
+  %428 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %427, i32 0, i32 7
+  %429 = getelementptr inbounds [32768 x i8], ptr %428, i64 0, i64 0
+  %430 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %429, ptr %430, align 8, !tbaa !29
+  %431 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %432 = load ptr, ptr %431, align 8, !tbaa !29
+  %433 = load ptr, ptr %4, align 8, !tbaa !8
+  %434 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %433, i32 0, i32 9
+  %435 = load ptr, ptr %434, align 8, !tbaa !30
+  %436 = icmp ult ptr %432, %435
+  br i1 %436, label %437, label %447
 
-436:                                              ; preds = %425
-  %437 = load ptr, ptr %4, align 8
-  %438 = getelementptr inbounds %struct.inflate_blocks_state, ptr %437, i32 0, i32 9
-  %439 = load ptr, ptr %438, align 8
-  %440 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %441 = load ptr, ptr %440, align 8
-  %442 = ptrtoint ptr %439 to i64
-  %443 = ptrtoint ptr %441 to i64
-  %444 = sub i64 %442, %443
-  %445 = sub nsw i64 %444, 1
-  br label %455
+437:                                              ; preds = %426
+  %438 = load ptr, ptr %4, align 8, !tbaa !8
+  %439 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %438, i32 0, i32 9
+  %440 = load ptr, ptr %439, align 8, !tbaa !30
+  %441 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %442 = load ptr, ptr %441, align 8, !tbaa !29
+  %443 = ptrtoint ptr %440 to i64
+  %444 = ptrtoint ptr %442 to i64
+  %445 = sub i64 %443, %444
+  %446 = sub nsw i64 %445, 1
+  br label %456
 
-446:                                              ; preds = %425
-  %447 = load ptr, ptr %4, align 8
-  %448 = getelementptr inbounds %struct.inflate_blocks_state, ptr %447, i32 0, i32 8
-  %449 = load ptr, ptr %448, align 8
-  %450 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %451 = load ptr, ptr %450, align 8
-  %452 = ptrtoint ptr %449 to i64
-  %453 = ptrtoint ptr %451 to i64
-  %454 = sub i64 %452, %453
-  br label %455
+447:                                              ; preds = %426
+  %448 = load ptr, ptr %4, align 8, !tbaa !8
+  %449 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %448, i32 0, i32 8
+  %450 = load ptr, ptr %449, align 8, !tbaa !31
+  %451 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %452 = load ptr, ptr %451, align 8, !tbaa !29
+  %453 = ptrtoint ptr %450 to i64
+  %454 = ptrtoint ptr %452 to i64
+  %455 = sub i64 %453, %454
+  br label %456
 
-455:                                              ; preds = %446, %436
-  %456 = phi i64 [ %445, %436 ], [ %454, %446 ]
-  %457 = trunc i64 %456 to i32
-  %458 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %457, ptr %458, align 8
-  br label %459
+456:                                              ; preds = %447, %437
+  %457 = phi i64 [ %446, %437 ], [ %455, %447 ]
+  %458 = trunc i64 %457 to i32
+  %459 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %458, ptr %459, align 8, !tbaa !32
+  br label %460
 
-459:                                              ; preds = %455, %417, %410
-  %460 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %461 = load i32, ptr %460, align 8
-  %462 = icmp eq i32 %461, 0
-  br i1 %462, label %463, label %577
+460:                                              ; preds = %456, %418, %411
+  %461 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %462 = load i32, ptr %461, align 8, !tbaa !32
+  %463 = icmp eq i32 %462, 0
+  br i1 %463, label %464, label %578
 
-463:                                              ; preds = %459
-  %464 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %465 = load ptr, ptr %464, align 8
-  %466 = load ptr, ptr %4, align 8
-  %467 = getelementptr inbounds %struct.inflate_blocks_state, ptr %466, i32 0, i32 10
-  store ptr %465, ptr %467, align 8
-  %468 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %468)
-  %469 = load ptr, ptr %4, align 8
-  %470 = getelementptr inbounds %struct.inflate_blocks_state, ptr %469, i32 0, i32 10
-  %471 = load ptr, ptr %470, align 8
-  %472 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %471, ptr %472, align 8
-  %473 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %474 = load ptr, ptr %473, align 8
-  %475 = load ptr, ptr %4, align 8
-  %476 = getelementptr inbounds %struct.inflate_blocks_state, ptr %475, i32 0, i32 9
-  %477 = load ptr, ptr %476, align 8
-  %478 = icmp ult ptr %474, %477
-  br i1 %478, label %479, label %489
+464:                                              ; preds = %460
+  %465 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %466 = load ptr, ptr %465, align 8, !tbaa !29
+  %467 = load ptr, ptr %4, align 8, !tbaa !8
+  %468 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %467, i32 0, i32 10
+  store ptr %466, ptr %468, align 8, !tbaa !28
+  %469 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %469)
+  %470 = load ptr, ptr %4, align 8, !tbaa !8
+  %471 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %470, i32 0, i32 10
+  %472 = load ptr, ptr %471, align 8, !tbaa !28
+  %473 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %472, ptr %473, align 8, !tbaa !29
+  %474 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %475 = load ptr, ptr %474, align 8, !tbaa !29
+  %476 = load ptr, ptr %4, align 8, !tbaa !8
+  %477 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %476, i32 0, i32 9
+  %478 = load ptr, ptr %477, align 8, !tbaa !30
+  %479 = icmp ult ptr %475, %478
+  br i1 %479, label %480, label %490
 
-479:                                              ; preds = %463
-  %480 = load ptr, ptr %4, align 8
-  %481 = getelementptr inbounds %struct.inflate_blocks_state, ptr %480, i32 0, i32 9
-  %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %484 = load ptr, ptr %483, align 8
-  %485 = ptrtoint ptr %482 to i64
-  %486 = ptrtoint ptr %484 to i64
-  %487 = sub i64 %485, %486
-  %488 = sub nsw i64 %487, 1
-  br label %498
+480:                                              ; preds = %464
+  %481 = load ptr, ptr %4, align 8, !tbaa !8
+  %482 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %481, i32 0, i32 9
+  %483 = load ptr, ptr %482, align 8, !tbaa !30
+  %484 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %485 = load ptr, ptr %484, align 8, !tbaa !29
+  %486 = ptrtoint ptr %483 to i64
+  %487 = ptrtoint ptr %485 to i64
+  %488 = sub i64 %486, %487
+  %489 = sub nsw i64 %488, 1
+  br label %499
 
-489:                                              ; preds = %463
-  %490 = load ptr, ptr %4, align 8
-  %491 = getelementptr inbounds %struct.inflate_blocks_state, ptr %490, i32 0, i32 8
-  %492 = load ptr, ptr %491, align 8
-  %493 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %494 = load ptr, ptr %493, align 8
-  %495 = ptrtoint ptr %492 to i64
-  %496 = ptrtoint ptr %494 to i64
-  %497 = sub i64 %495, %496
-  br label %498
+490:                                              ; preds = %464
+  %491 = load ptr, ptr %4, align 8, !tbaa !8
+  %492 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %491, i32 0, i32 8
+  %493 = load ptr, ptr %492, align 8, !tbaa !31
+  %494 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %495 = load ptr, ptr %494, align 8, !tbaa !29
+  %496 = ptrtoint ptr %493 to i64
+  %497 = ptrtoint ptr %495 to i64
+  %498 = sub i64 %496, %497
+  br label %499
 
-498:                                              ; preds = %489, %479
-  %499 = phi i64 [ %488, %479 ], [ %497, %489 ]
-  %500 = trunc i64 %499 to i32
-  %501 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %500, ptr %501, align 8
-  %502 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %503 = load ptr, ptr %502, align 8
-  %504 = load ptr, ptr %4, align 8
-  %505 = getelementptr inbounds %struct.inflate_blocks_state, ptr %504, i32 0, i32 8
-  %506 = load ptr, ptr %505, align 8
-  %507 = icmp eq ptr %503, %506
-  br i1 %507, label %508, label %550
+499:                                              ; preds = %490, %480
+  %500 = phi i64 [ %489, %480 ], [ %498, %490 ]
+  %501 = trunc i64 %500 to i32
+  %502 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %501, ptr %502, align 8, !tbaa !32
+  %503 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %504 = load ptr, ptr %503, align 8, !tbaa !29
+  %505 = load ptr, ptr %4, align 8, !tbaa !8
+  %506 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %505, i32 0, i32 8
+  %507 = load ptr, ptr %506, align 8, !tbaa !31
+  %508 = icmp eq ptr %504, %507
+  br i1 %508, label %509, label %551
 
-508:                                              ; preds = %498
-  %509 = load ptr, ptr %4, align 8
-  %510 = getelementptr inbounds %struct.inflate_blocks_state, ptr %509, i32 0, i32 9
-  %511 = load ptr, ptr %510, align 8
-  %512 = load ptr, ptr %4, align 8
-  %513 = getelementptr inbounds %struct.inflate_blocks_state, ptr %512, i32 0, i32 7
-  %514 = getelementptr inbounds [32768 x i8], ptr %513, i64 0, i64 0
-  %515 = icmp ne ptr %511, %514
-  br i1 %515, label %516, label %550
+509:                                              ; preds = %499
+  %510 = load ptr, ptr %4, align 8, !tbaa !8
+  %511 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %510, i32 0, i32 9
+  %512 = load ptr, ptr %511, align 8, !tbaa !30
+  %513 = load ptr, ptr %4, align 8, !tbaa !8
+  %514 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %513, i32 0, i32 7
+  %515 = getelementptr inbounds [32768 x i8], ptr %514, i64 0, i64 0
+  %516 = icmp ne ptr %512, %515
+  br i1 %516, label %517, label %551
 
-516:                                              ; preds = %508
-  %517 = load ptr, ptr %4, align 8
-  %518 = getelementptr inbounds %struct.inflate_blocks_state, ptr %517, i32 0, i32 7
-  %519 = getelementptr inbounds [32768 x i8], ptr %518, i64 0, i64 0
-  %520 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %519, ptr %520, align 8
-  %521 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %522 = load ptr, ptr %521, align 8
-  %523 = load ptr, ptr %4, align 8
-  %524 = getelementptr inbounds %struct.inflate_blocks_state, ptr %523, i32 0, i32 9
-  %525 = load ptr, ptr %524, align 8
-  %526 = icmp ult ptr %522, %525
-  br i1 %526, label %527, label %537
+517:                                              ; preds = %509
+  %518 = load ptr, ptr %4, align 8, !tbaa !8
+  %519 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %518, i32 0, i32 7
+  %520 = getelementptr inbounds [32768 x i8], ptr %519, i64 0, i64 0
+  %521 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %520, ptr %521, align 8, !tbaa !29
+  %522 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %523 = load ptr, ptr %522, align 8, !tbaa !29
+  %524 = load ptr, ptr %4, align 8, !tbaa !8
+  %525 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %524, i32 0, i32 9
+  %526 = load ptr, ptr %525, align 8, !tbaa !30
+  %527 = icmp ult ptr %523, %526
+  br i1 %527, label %528, label %538
 
-527:                                              ; preds = %516
-  %528 = load ptr, ptr %4, align 8
-  %529 = getelementptr inbounds %struct.inflate_blocks_state, ptr %528, i32 0, i32 9
-  %530 = load ptr, ptr %529, align 8
-  %531 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %532 = load ptr, ptr %531, align 8
-  %533 = ptrtoint ptr %530 to i64
-  %534 = ptrtoint ptr %532 to i64
-  %535 = sub i64 %533, %534
-  %536 = sub nsw i64 %535, 1
-  br label %546
+528:                                              ; preds = %517
+  %529 = load ptr, ptr %4, align 8, !tbaa !8
+  %530 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %529, i32 0, i32 9
+  %531 = load ptr, ptr %530, align 8, !tbaa !30
+  %532 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %533 = load ptr, ptr %532, align 8, !tbaa !29
+  %534 = ptrtoint ptr %531 to i64
+  %535 = ptrtoint ptr %533 to i64
+  %536 = sub i64 %534, %535
+  %537 = sub nsw i64 %536, 1
+  br label %547
 
-537:                                              ; preds = %516
-  %538 = load ptr, ptr %4, align 8
-  %539 = getelementptr inbounds %struct.inflate_blocks_state, ptr %538, i32 0, i32 8
-  %540 = load ptr, ptr %539, align 8
-  %541 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %542 = load ptr, ptr %541, align 8
-  %543 = ptrtoint ptr %540 to i64
-  %544 = ptrtoint ptr %542 to i64
-  %545 = sub i64 %543, %544
-  br label %546
+538:                                              ; preds = %517
+  %539 = load ptr, ptr %4, align 8, !tbaa !8
+  %540 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %539, i32 0, i32 8
+  %541 = load ptr, ptr %540, align 8, !tbaa !31
+  %542 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %543 = load ptr, ptr %542, align 8, !tbaa !29
+  %544 = ptrtoint ptr %541 to i64
+  %545 = ptrtoint ptr %543 to i64
+  %546 = sub i64 %544, %545
+  br label %547
 
-546:                                              ; preds = %537, %527
-  %547 = phi i64 [ %536, %527 ], [ %545, %537 ]
-  %548 = trunc i64 %547 to i32
-  %549 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %548, ptr %549, align 8
-  br label %550
+547:                                              ; preds = %538, %528
+  %548 = phi i64 [ %537, %528 ], [ %546, %538 ]
+  %549 = trunc i64 %548 to i32
+  %550 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %549, ptr %550, align 8, !tbaa !32
+  br label %551
 
-550:                                              ; preds = %546, %508, %498
-  %551 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %552 = load i32, ptr %551, align 8
-  %553 = icmp eq i32 %552, 0
-  br i1 %553, label %554, label %576
+551:                                              ; preds = %547, %509, %499
+  %552 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %553 = load i32, ptr %552, align 8, !tbaa !32
+  %554 = icmp eq i32 %553, 0
+  br i1 %554, label %555, label %577
 
-554:                                              ; preds = %550
-  %555 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %556 = load i64, ptr %555, align 8
-  %557 = load ptr, ptr %4, align 8
-  %558 = getelementptr inbounds %struct.inflate_blocks_state, ptr %557, i32 0, i32 5
-  store i64 %556, ptr %558, align 8
-  %559 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %560 = load i32, ptr %559, align 8
-  %561 = load ptr, ptr %4, align 8
-  %562 = getelementptr inbounds %struct.inflate_blocks_state, ptr %561, i32 0, i32 4
-  store i32 %560, ptr %562, align 4
-  %563 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %564 = load i32, ptr %563, align 8
-  %565 = load ptr, ptr %3, align 8
-  %566 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %565, i32 0, i32 1
-  store i32 %564, ptr %566, align 8
-  %567 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %568 = load ptr, ptr %567, align 8
-  %569 = load ptr, ptr %3, align 8
-  %570 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %569, i32 0, i32 0
-  store ptr %568, ptr %570, align 8
-  %571 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %572 = load ptr, ptr %571, align 8
-  %573 = load ptr, ptr %4, align 8
-  %574 = getelementptr inbounds %struct.inflate_blocks_state, ptr %573, i32 0, i32 10
-  store ptr %572, ptr %574, align 8
-  %575 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %575)
+555:                                              ; preds = %551
+  %556 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %557 = load i64, ptr %556, align 8, !tbaa !25
+  %558 = load ptr, ptr %4, align 8, !tbaa !8
+  %559 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %558, i32 0, i32 5
+  store i64 %557, ptr %559, align 8, !tbaa !24
+  %560 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %561 = load i32, ptr %560, align 8, !tbaa !27
+  %562 = load ptr, ptr %4, align 8, !tbaa !8
+  %563 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %562, i32 0, i32 4
+  store i32 %561, ptr %563, align 4, !tbaa !26
+  %564 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %565 = load i32, ptr %564, align 8, !tbaa !23
+  %566 = load ptr, ptr %3, align 8, !tbaa !3
+  %567 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %566, i32 0, i32 1
+  store i32 %565, ptr %567, align 8, !tbaa !22
+  %568 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %569 = load ptr, ptr %568, align 8, !tbaa !20
+  %570 = load ptr, ptr %3, align 8, !tbaa !3
+  %571 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %570, i32 0, i32 0
+  store ptr %569, ptr %571, align 8, !tbaa !12
+  %572 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %573 = load ptr, ptr %572, align 8, !tbaa !29
+  %574 = load ptr, ptr %4, align 8, !tbaa !8
+  %575 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %574, i32 0, i32 10
+  store ptr %573, ptr %575, align 8, !tbaa !28
+  %576 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %576)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %650
 
-576:                                              ; preds = %550
-  br label %577
-
-577:                                              ; preds = %576, %459
+577:                                              ; preds = %551
   br label %578
 
-578:                                              ; preds = %577, %406
-  %579 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %580 = load i32, ptr %579, align 8
-  %581 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %582 = load i32, ptr %581, align 8
-  %583 = icmp ult i32 %580, %582
-  br i1 %583, label %584, label %587
+578:                                              ; preds = %577, %460
+  br label %579
 
-584:                                              ; preds = %578
-  %585 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %586 = load i32, ptr %585, align 8
-  br label %590
+579:                                              ; preds = %578, %407
+  %580 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %581 = load i32, ptr %580, align 8, !tbaa !32
+  %582 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %583 = load i32, ptr %582, align 8, !tbaa !23
+  %584 = icmp ult i32 %581, %583
+  br i1 %584, label %585, label %588
 
-587:                                              ; preds = %578
-  %588 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %589 = load i32, ptr %588, align 8
-  br label %590
+585:                                              ; preds = %579
+  %586 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %587 = load i32, ptr %586, align 8, !tbaa !32
+  br label %591
 
-590:                                              ; preds = %587, %584
-  %591 = phi i32 [ %586, %584 ], [ %589, %587 ]
-  store i32 %591, ptr %10, align 4
-  %592 = load ptr, ptr %4, align 8
-  %593 = getelementptr inbounds %struct.inflate_blocks_state, ptr %592, i32 0, i32 2
-  %594 = load i32, ptr %593, align 8
-  %595 = load i32, ptr %10, align 4
-  %596 = icmp ult i32 %594, %595
-  br i1 %596, label %597, label %601
+588:                                              ; preds = %579
+  %589 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %590 = load i32, ptr %589, align 8, !tbaa !23
+  br label %591
 
-597:                                              ; preds = %590
-  %598 = load ptr, ptr %4, align 8
-  %599 = getelementptr inbounds %struct.inflate_blocks_state, ptr %598, i32 0, i32 2
-  %600 = load i32, ptr %599, align 8
-  br label %603
+591:                                              ; preds = %588, %585
+  %592 = phi i32 [ %587, %585 ], [ %590, %588 ]
+  store i32 %592, ptr %11, align 4, !tbaa !38
+  %593 = load ptr, ptr %4, align 8, !tbaa !8
+  %594 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %593, i32 0, i32 2
+  %595 = load i32, ptr %594, align 8, !tbaa !34
+  %596 = load i32, ptr %11, align 4, !tbaa !38
+  %597 = icmp ult i32 %595, %596
+  br i1 %597, label %598, label %602
 
-601:                                              ; preds = %590
-  %602 = load i32, ptr %10, align 4
-  br label %603
+598:                                              ; preds = %591
+  %599 = load ptr, ptr %4, align 8, !tbaa !8
+  %600 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %599, i32 0, i32 2
+  %601 = load i32, ptr %600, align 8, !tbaa !34
+  br label %604
 
-603:                                              ; preds = %601, %597
-  %604 = phi i32 [ %600, %597 ], [ %602, %601 ]
-  %605 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %604, ptr %605, align 8
-  %606 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %607 = load ptr, ptr %606, align 8
-  %608 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %609 = load ptr, ptr %608, align 8
-  %610 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %611 = load i32, ptr %610, align 8
-  %612 = zext i32 %611 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %607, ptr align 1 %609, i64 %612, i1 false)
-  %613 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %614 = load i32, ptr %613, align 8
-  %615 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %616 = load ptr, ptr %615, align 8
-  %617 = zext i32 %614 to i64
-  %618 = getelementptr inbounds i8, ptr %616, i64 %617
-  store ptr %618, ptr %615, align 8
-  %619 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %620 = load i32, ptr %619, align 8
-  %621 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %622 = load i32, ptr %621, align 8
-  %623 = sub i32 %622, %620
-  store i32 %623, ptr %621, align 8
-  %624 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %625 = load i32, ptr %624, align 8
-  %626 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %627 = load ptr, ptr %626, align 8
-  %628 = zext i32 %625 to i64
-  %629 = getelementptr inbounds i8, ptr %627, i64 %628
-  store ptr %629, ptr %626, align 8
-  %630 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %631 = load i32, ptr %630, align 8
-  %632 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %633 = load i32, ptr %632, align 8
-  %634 = sub i32 %633, %631
-  store i32 %634, ptr %632, align 8
-  %635 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %636 = load i32, ptr %635, align 8
-  %637 = load ptr, ptr %4, align 8
-  %638 = getelementptr inbounds %struct.inflate_blocks_state, ptr %637, i32 0, i32 2
-  %639 = load i32, ptr %638, align 8
-  %640 = sub i32 %639, %636
-  store i32 %640, ptr %638, align 8
-  %641 = icmp ne i32 %640, 0
-  br i1 %641, label %648, label %642
+602:                                              ; preds = %591
+  %603 = load i32, ptr %11, align 4, !tbaa !38
+  br label %604
 
-642:                                              ; preds = %603
-  %643 = load ptr, ptr %4, align 8
-  %644 = getelementptr inbounds %struct.inflate_blocks_state, ptr %643, i32 0, i32 3
-  %645 = load i32, ptr %644, align 8
-  %646 = load ptr, ptr %4, align 8
-  %647 = getelementptr inbounds %struct.inflate_blocks_state, ptr %646, i32 0, i32 1
-  store i32 %645, ptr %647, align 8
-  br label %648
+604:                                              ; preds = %602, %598
+  %605 = phi i32 [ %601, %598 ], [ %603, %602 ]
+  %606 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %605, ptr %606, align 8, !tbaa !35
+  %607 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %608 = load ptr, ptr %607, align 8, !tbaa !29
+  %609 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %610 = load ptr, ptr %609, align 8, !tbaa !20
+  %611 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %612 = load i32, ptr %611, align 8, !tbaa !35
+  %613 = zext i32 %612 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %608, ptr align 1 %610, i64 %613, i1 false)
+  %614 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %615 = load i32, ptr %614, align 8, !tbaa !35
+  %616 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %617 = load ptr, ptr %616, align 8, !tbaa !20
+  %618 = zext i32 %615 to i64
+  %619 = getelementptr inbounds nuw i8, ptr %617, i64 %618
+  store ptr %619, ptr %616, align 8, !tbaa !20
+  %620 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %621 = load i32, ptr %620, align 8, !tbaa !35
+  %622 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %623 = load i32, ptr %622, align 8, !tbaa !23
+  %624 = sub i32 %623, %621
+  store i32 %624, ptr %622, align 8, !tbaa !23
+  %625 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %626 = load i32, ptr %625, align 8, !tbaa !35
+  %627 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %628 = load ptr, ptr %627, align 8, !tbaa !29
+  %629 = zext i32 %626 to i64
+  %630 = getelementptr inbounds nuw i8, ptr %628, i64 %629
+  store ptr %630, ptr %627, align 8, !tbaa !29
+  %631 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %632 = load i32, ptr %631, align 8, !tbaa !35
+  %633 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %634 = load i32, ptr %633, align 8, !tbaa !32
+  %635 = sub i32 %634, %632
+  store i32 %635, ptr %633, align 8, !tbaa !32
+  %636 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %637 = load i32, ptr %636, align 8, !tbaa !35
+  %638 = load ptr, ptr %4, align 8, !tbaa !8
+  %639 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %638, i32 0, i32 2
+  %640 = load i32, ptr %639, align 8, !tbaa !34
+  %641 = sub i32 %640, %637
+  store i32 %641, ptr %639, align 8, !tbaa !34
+  %642 = icmp ne i32 %641, 0
+  br i1 %642, label %649, label %643
 
-648:                                              ; preds = %642, %603
-  br label %2431
+643:                                              ; preds = %604
+  %644 = load ptr, ptr %4, align 8, !tbaa !8
+  %645 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %644, i32 0, i32 3
+  %646 = load i32, ptr %645, align 8, !tbaa !36
+  %647 = load ptr, ptr %4, align 8, !tbaa !8
+  %648 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %647, i32 0, i32 1
+  store i32 %646, ptr %648, align 8, !tbaa !33
+  br label %649
 
-649:                                              ; preds = %77
+649:                                              ; preds = %643, %604
+  store i32 4, ptr %7, align 4
   br label %650
 
-650:                                              ; preds = %680, %649
-  %651 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %652 = load i32, ptr %651, align 8
-  %653 = icmp ult i32 %652, 14
-  br i1 %653, label %654, label %699
+650:                                              ; preds = %649, %555, %385
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  %651 = load i32, ptr %7, align 4
+  switch i32 %651, label %2444 [
+    i32 4, label %2443
+  ]
 
-654:                                              ; preds = %650
-  %655 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %656 = load i32, ptr %655, align 8
-  %657 = icmp ne i32 %656, 0
-  br i1 %657, label %680, label %658
+652:                                              ; preds = %78
+  br label %653
 
-658:                                              ; preds = %654
-  %659 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %660 = load i64, ptr %659, align 8
-  %661 = load ptr, ptr %4, align 8
-  %662 = getelementptr inbounds %struct.inflate_blocks_state, ptr %661, i32 0, i32 5
-  store i64 %660, ptr %662, align 8
-  %663 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %664 = load i32, ptr %663, align 8
-  %665 = load ptr, ptr %4, align 8
-  %666 = getelementptr inbounds %struct.inflate_blocks_state, ptr %665, i32 0, i32 4
-  store i32 %664, ptr %666, align 4
-  %667 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %668 = load i32, ptr %667, align 8
-  %669 = load ptr, ptr %3, align 8
-  %670 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %669, i32 0, i32 1
-  store i32 %668, ptr %670, align 8
-  %671 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %672 = load ptr, ptr %671, align 8
-  %673 = load ptr, ptr %3, align 8
-  %674 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %673, i32 0, i32 0
-  store ptr %672, ptr %674, align 8
-  %675 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %676 = load ptr, ptr %675, align 8
-  %677 = load ptr, ptr %4, align 8
-  %678 = getelementptr inbounds %struct.inflate_blocks_state, ptr %677, i32 0, i32 10
-  store ptr %676, ptr %678, align 8
-  %679 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %679)
+653:                                              ; preds = %683, %652
+  %654 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %655 = load i32, ptr %654, align 8, !tbaa !27
+  %656 = icmp ult i32 %655, 14
+  br i1 %656, label %657, label %702
+
+657:                                              ; preds = %653
+  %658 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %659 = load i32, ptr %658, align 8, !tbaa !23
+  %660 = icmp ne i32 %659, 0
+  br i1 %660, label %683, label %661
+
+661:                                              ; preds = %657
+  %662 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %663 = load i64, ptr %662, align 8, !tbaa !25
+  %664 = load ptr, ptr %4, align 8, !tbaa !8
+  %665 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %664, i32 0, i32 5
+  store i64 %663, ptr %665, align 8, !tbaa !24
+  %666 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %667 = load i32, ptr %666, align 8, !tbaa !27
+  %668 = load ptr, ptr %4, align 8, !tbaa !8
+  %669 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %668, i32 0, i32 4
+  store i32 %667, ptr %669, align 4, !tbaa !26
+  %670 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %671 = load i32, ptr %670, align 8, !tbaa !23
+  %672 = load ptr, ptr %3, align 8, !tbaa !3
+  %673 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %672, i32 0, i32 1
+  store i32 %671, ptr %673, align 8, !tbaa !22
+  %674 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %675 = load ptr, ptr %674, align 8, !tbaa !20
+  %676 = load ptr, ptr %3, align 8, !tbaa !3
+  %677 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %676, i32 0, i32 0
+  store ptr %675, ptr %677, align 8, !tbaa !12
+  %678 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %679 = load ptr, ptr %678, align 8, !tbaa !29
+  %680 = load ptr, ptr %4, align 8, !tbaa !8
+  %681 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %680, i32 0, i32 10
+  store ptr %679, ptr %681, align 8, !tbaa !28
+  %682 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %682)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-680:                                              ; preds = %654
-  %681 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %682 = load i32, ptr %681, align 8
-  %683 = add i32 %682, -1
-  store i32 %683, ptr %681, align 8
-  %684 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %685 = load ptr, ptr %684, align 8
-  %686 = getelementptr inbounds i8, ptr %685, i32 1
-  store ptr %686, ptr %684, align 8
-  %687 = load i8, ptr %685, align 1
-  %688 = zext i8 %687 to i64
-  %689 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %690 = load i32, ptr %689, align 8
-  %691 = zext i32 %690 to i64
-  %692 = shl i64 %688, %691
-  %693 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %694 = load i64, ptr %693, align 8
-  %695 = or i64 %694, %692
-  store i64 %695, ptr %693, align 8
-  %696 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %697 = load i32, ptr %696, align 8
-  %698 = add i32 %697, 8
-  store i32 %698, ptr %696, align 8
-  br label %650
+683:                                              ; preds = %657
+  %684 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %685 = load i32, ptr %684, align 8, !tbaa !23
+  %686 = add i32 %685, -1
+  store i32 %686, ptr %684, align 8, !tbaa !23
+  %687 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %688 = load ptr, ptr %687, align 8, !tbaa !20
+  %689 = getelementptr inbounds nuw i8, ptr %688, i32 1
+  store ptr %689, ptr %687, align 8, !tbaa !20
+  %690 = load i8, ptr %688, align 1, !tbaa !34
+  %691 = zext i8 %690 to i64
+  %692 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %693 = load i32, ptr %692, align 8, !tbaa !27
+  %694 = zext i32 %693 to i64
+  %695 = shl i64 %691, %694
+  %696 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %697 = load i64, ptr %696, align 8, !tbaa !25
+  %698 = or i64 %697, %695
+  store i64 %698, ptr %696, align 8, !tbaa !25
+  %699 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %700 = load i32, ptr %699, align 8, !tbaa !27
+  %701 = add i32 %700, 8
+  store i32 %701, ptr %699, align 8, !tbaa !27
+  br label %653
 
-699:                                              ; preds = %650
-  %700 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %701 = load i64, ptr %700, align 8
-  %702 = trunc i64 %701 to i32
-  %703 = and i32 %702, 16383
-  %704 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %703, ptr %704, align 8
-  %705 = load ptr, ptr %4, align 8
-  %706 = getelementptr inbounds %struct.inflate_blocks_state, ptr %705, i32 0, i32 2
-  %707 = getelementptr inbounds %struct.anon.1, ptr %706, i32 0, i32 0
-  store i32 %703, ptr %707, align 8
-  %708 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %709 = load i32, ptr %708, align 8
-  %710 = and i32 %709, 31
-  %711 = icmp ugt i32 %710, 29
-  br i1 %711, label %718, label %712
+702:                                              ; preds = %653
+  %703 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %704 = load i64, ptr %703, align 8, !tbaa !25
+  %705 = trunc i64 %704 to i32
+  %706 = and i32 %705, 16383
+  %707 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %706, ptr %707, align 8, !tbaa !35
+  %708 = load ptr, ptr %4, align 8, !tbaa !8
+  %709 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %708, i32 0, i32 2
+  %710 = getelementptr inbounds nuw %struct.anon.1, ptr %709, i32 0, i32 0
+  store i32 %706, ptr %710, align 8, !tbaa !34
+  %711 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %712 = load i32, ptr %711, align 8, !tbaa !35
+  %713 = and i32 %712, 31
+  %714 = icmp ugt i32 %713, 29
+  br i1 %714, label %721, label %715
 
-712:                                              ; preds = %699
-  %713 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %714 = load i32, ptr %713, align 8
-  %715 = lshr i32 %714, 5
-  %716 = and i32 %715, 31
-  %717 = icmp ugt i32 %716, 29
-  br i1 %717, label %718, label %742
+715:                                              ; preds = %702
+  %716 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %717 = load i32, ptr %716, align 8, !tbaa !35
+  %718 = lshr i32 %717, 5
+  %719 = and i32 %718, 31
+  %720 = icmp ugt i32 %719, 29
+  br i1 %720, label %721, label %745
 
-718:                                              ; preds = %712, %699
-  %719 = load ptr, ptr %4, align 8
-  %720 = getelementptr inbounds %struct.inflate_blocks_state, ptr %719, i32 0, i32 1
-  store i32 17, ptr %720, align 8
-  %721 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %722 = load i64, ptr %721, align 8
-  %723 = load ptr, ptr %4, align 8
-  %724 = getelementptr inbounds %struct.inflate_blocks_state, ptr %723, i32 0, i32 5
-  store i64 %722, ptr %724, align 8
-  %725 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %726 = load i32, ptr %725, align 8
-  %727 = load ptr, ptr %4, align 8
-  %728 = getelementptr inbounds %struct.inflate_blocks_state, ptr %727, i32 0, i32 4
-  store i32 %726, ptr %728, align 4
-  %729 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %730 = load i32, ptr %729, align 8
-  %731 = load ptr, ptr %3, align 8
-  %732 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %731, i32 0, i32 1
-  store i32 %730, ptr %732, align 8
-  %733 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %734 = load ptr, ptr %733, align 8
-  %735 = load ptr, ptr %3, align 8
-  %736 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %735, i32 0, i32 0
-  store ptr %734, ptr %736, align 8
-  %737 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %738 = load ptr, ptr %737, align 8
-  %739 = load ptr, ptr %4, align 8
-  %740 = getelementptr inbounds %struct.inflate_blocks_state, ptr %739, i32 0, i32 10
-  store ptr %738, ptr %740, align 8
-  %741 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %741)
+721:                                              ; preds = %715, %702
+  %722 = load ptr, ptr %4, align 8, !tbaa !8
+  %723 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %722, i32 0, i32 1
+  store i32 17, ptr %723, align 8, !tbaa !33
+  %724 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %725 = load i64, ptr %724, align 8, !tbaa !25
+  %726 = load ptr, ptr %4, align 8, !tbaa !8
+  %727 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %726, i32 0, i32 5
+  store i64 %725, ptr %727, align 8, !tbaa !24
+  %728 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %729 = load i32, ptr %728, align 8, !tbaa !27
+  %730 = load ptr, ptr %4, align 8, !tbaa !8
+  %731 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %730, i32 0, i32 4
+  store i32 %729, ptr %731, align 4, !tbaa !26
+  %732 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %733 = load i32, ptr %732, align 8, !tbaa !23
+  %734 = load ptr, ptr %3, align 8, !tbaa !3
+  %735 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %734, i32 0, i32 1
+  store i32 %733, ptr %735, align 8, !tbaa !22
+  %736 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %737 = load ptr, ptr %736, align 8, !tbaa !20
+  %738 = load ptr, ptr %3, align 8, !tbaa !3
+  %739 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %738, i32 0, i32 0
+  store ptr %737, ptr %739, align 8, !tbaa !12
+  %740 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %741 = load ptr, ptr %740, align 8, !tbaa !29
+  %742 = load ptr, ptr %4, align 8, !tbaa !8
+  %743 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %742, i32 0, i32 10
+  store ptr %741, ptr %743, align 8, !tbaa !28
+  %744 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %744)
   store i32 -3, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-742:                                              ; preds = %712
-  %743 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %744 = load i64, ptr %743, align 8
-  %745 = lshr i64 %744, 14
-  store i64 %745, ptr %743, align 8
-  %746 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %747 = load i32, ptr %746, align 8
-  %748 = sub i32 %747, 14
-  store i32 %748, ptr %746, align 8
-  %749 = load ptr, ptr %4, align 8
-  %750 = getelementptr inbounds %struct.inflate_blocks_state, ptr %749, i32 0, i32 2
-  %751 = getelementptr inbounds %struct.anon.1, ptr %750, i32 0, i32 1
-  store i32 0, ptr %751, align 4
-  %752 = load ptr, ptr %4, align 8
-  %753 = getelementptr inbounds %struct.inflate_blocks_state, ptr %752, i32 0, i32 1
-  store i32 12, ptr %753, align 8
-  br label %754
+745:                                              ; preds = %715
+  %746 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %747 = load i64, ptr %746, align 8, !tbaa !25
+  %748 = lshr i64 %747, 14
+  store i64 %748, ptr %746, align 8, !tbaa !25
+  %749 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %750 = load i32, ptr %749, align 8, !tbaa !27
+  %751 = sub i32 %750, 14
+  store i32 %751, ptr %749, align 8, !tbaa !27
+  %752 = load ptr, ptr %4, align 8, !tbaa !8
+  %753 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %752, i32 0, i32 2
+  %754 = getelementptr inbounds nuw %struct.anon.1, ptr %753, i32 0, i32 1
+  store i32 0, ptr %754, align 4, !tbaa !34
+  %755 = load ptr, ptr %4, align 8, !tbaa !8
+  %756 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %755, i32 0, i32 1
+  store i32 12, ptr %756, align 8, !tbaa !33
+  br label %757
 
-754:                                              ; preds = %742, %77
-  br label %755
+757:                                              ; preds = %78, %745
+  br label %758
 
-755:                                              ; preds = %817, %754
-  %756 = load ptr, ptr %4, align 8
-  %757 = getelementptr inbounds %struct.inflate_blocks_state, ptr %756, i32 0, i32 2
-  %758 = getelementptr inbounds %struct.anon.1, ptr %757, i32 0, i32 1
-  %759 = load i32, ptr %758, align 4
-  %760 = load ptr, ptr %4, align 8
-  %761 = getelementptr inbounds %struct.inflate_blocks_state, ptr %760, i32 0, i32 2
-  %762 = getelementptr inbounds %struct.anon.1, ptr %761, i32 0, i32 0
-  %763 = load i32, ptr %762, align 8
-  %764 = lshr i32 %763, 10
-  %765 = add i32 4, %764
-  %766 = icmp ult i32 %759, %765
-  br i1 %766, label %767, label %842
+758:                                              ; preds = %820, %757
+  %759 = load ptr, ptr %4, align 8, !tbaa !8
+  %760 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %759, i32 0, i32 2
+  %761 = getelementptr inbounds nuw %struct.anon.1, ptr %760, i32 0, i32 1
+  %762 = load i32, ptr %761, align 4, !tbaa !34
+  %763 = load ptr, ptr %4, align 8, !tbaa !8
+  %764 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %763, i32 0, i32 2
+  %765 = getelementptr inbounds nuw %struct.anon.1, ptr %764, i32 0, i32 0
+  %766 = load i32, ptr %765, align 8, !tbaa !34
+  %767 = lshr i32 %766, 10
+  %768 = add i32 4, %767
+  %769 = icmp ult i32 %762, %768
+  br i1 %769, label %770, label %845
 
-767:                                              ; preds = %755
-  br label %768
+770:                                              ; preds = %758
+  br label %771
 
-768:                                              ; preds = %798, %767
-  %769 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %770 = load i32, ptr %769, align 8
-  %771 = icmp ult i32 %770, 3
-  br i1 %771, label %772, label %817
+771:                                              ; preds = %801, %770
+  %772 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %773 = load i32, ptr %772, align 8, !tbaa !27
+  %774 = icmp ult i32 %773, 3
+  br i1 %774, label %775, label %820
 
-772:                                              ; preds = %768
-  %773 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %774 = load i32, ptr %773, align 8
-  %775 = icmp ne i32 %774, 0
-  br i1 %775, label %798, label %776
+775:                                              ; preds = %771
+  %776 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %777 = load i32, ptr %776, align 8, !tbaa !23
+  %778 = icmp ne i32 %777, 0
+  br i1 %778, label %801, label %779
 
-776:                                              ; preds = %772
-  %777 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %778 = load i64, ptr %777, align 8
-  %779 = load ptr, ptr %4, align 8
-  %780 = getelementptr inbounds %struct.inflate_blocks_state, ptr %779, i32 0, i32 5
-  store i64 %778, ptr %780, align 8
-  %781 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %782 = load i32, ptr %781, align 8
-  %783 = load ptr, ptr %4, align 8
-  %784 = getelementptr inbounds %struct.inflate_blocks_state, ptr %783, i32 0, i32 4
-  store i32 %782, ptr %784, align 4
-  %785 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %786 = load i32, ptr %785, align 8
-  %787 = load ptr, ptr %3, align 8
-  %788 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %787, i32 0, i32 1
-  store i32 %786, ptr %788, align 8
-  %789 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %790 = load ptr, ptr %789, align 8
-  %791 = load ptr, ptr %3, align 8
-  %792 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %791, i32 0, i32 0
-  store ptr %790, ptr %792, align 8
-  %793 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %794 = load ptr, ptr %793, align 8
-  %795 = load ptr, ptr %4, align 8
-  %796 = getelementptr inbounds %struct.inflate_blocks_state, ptr %795, i32 0, i32 10
-  store ptr %794, ptr %796, align 8
-  %797 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %797)
+779:                                              ; preds = %775
+  %780 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %781 = load i64, ptr %780, align 8, !tbaa !25
+  %782 = load ptr, ptr %4, align 8, !tbaa !8
+  %783 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %782, i32 0, i32 5
+  store i64 %781, ptr %783, align 8, !tbaa !24
+  %784 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %785 = load i32, ptr %784, align 8, !tbaa !27
+  %786 = load ptr, ptr %4, align 8, !tbaa !8
+  %787 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %786, i32 0, i32 4
+  store i32 %785, ptr %787, align 4, !tbaa !26
+  %788 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %789 = load i32, ptr %788, align 8, !tbaa !23
+  %790 = load ptr, ptr %3, align 8, !tbaa !3
+  %791 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %790, i32 0, i32 1
+  store i32 %789, ptr %791, align 8, !tbaa !22
+  %792 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %793 = load ptr, ptr %792, align 8, !tbaa !20
+  %794 = load ptr, ptr %3, align 8, !tbaa !3
+  %795 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %794, i32 0, i32 0
+  store ptr %793, ptr %795, align 8, !tbaa !12
+  %796 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %797 = load ptr, ptr %796, align 8, !tbaa !29
+  %798 = load ptr, ptr %4, align 8, !tbaa !8
+  %799 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %798, i32 0, i32 10
+  store ptr %797, ptr %799, align 8, !tbaa !28
+  %800 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %800)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-798:                                              ; preds = %772
-  %799 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %800 = load i32, ptr %799, align 8
-  %801 = add i32 %800, -1
-  store i32 %801, ptr %799, align 8
-  %802 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %803 = load ptr, ptr %802, align 8
-  %804 = getelementptr inbounds i8, ptr %803, i32 1
-  store ptr %804, ptr %802, align 8
-  %805 = load i8, ptr %803, align 1
-  %806 = zext i8 %805 to i64
-  %807 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %808 = load i32, ptr %807, align 8
-  %809 = zext i32 %808 to i64
-  %810 = shl i64 %806, %809
-  %811 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %812 = load i64, ptr %811, align 8
-  %813 = or i64 %812, %810
-  store i64 %813, ptr %811, align 8
-  %814 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %815 = load i32, ptr %814, align 8
-  %816 = add i32 %815, 8
-  store i32 %816, ptr %814, align 8
-  br label %768
+801:                                              ; preds = %775
+  %802 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %803 = load i32, ptr %802, align 8, !tbaa !23
+  %804 = add i32 %803, -1
+  store i32 %804, ptr %802, align 8, !tbaa !23
+  %805 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %806 = load ptr, ptr %805, align 8, !tbaa !20
+  %807 = getelementptr inbounds nuw i8, ptr %806, i32 1
+  store ptr %807, ptr %805, align 8, !tbaa !20
+  %808 = load i8, ptr %806, align 1, !tbaa !34
+  %809 = zext i8 %808 to i64
+  %810 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %811 = load i32, ptr %810, align 8, !tbaa !27
+  %812 = zext i32 %811 to i64
+  %813 = shl i64 %809, %812
+  %814 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %815 = load i64, ptr %814, align 8, !tbaa !25
+  %816 = or i64 %815, %813
+  store i64 %816, ptr %814, align 8, !tbaa !25
+  %817 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %818 = load i32, ptr %817, align 8, !tbaa !27
+  %819 = add i32 %818, 8
+  store i32 %819, ptr %817, align 8, !tbaa !27
+  br label %771
 
-817:                                              ; preds = %768
-  %818 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %819 = load i64, ptr %818, align 8
-  %820 = trunc i64 %819 to i32
-  %821 = and i32 %820, 7
-  %822 = load ptr, ptr %4, align 8
-  %823 = getelementptr inbounds %struct.inflate_blocks_state, ptr %822, i32 0, i32 2
-  %824 = getelementptr inbounds %struct.anon.1, ptr %823, i32 0, i32 2
-  %825 = load ptr, ptr %4, align 8
-  %826 = getelementptr inbounds %struct.inflate_blocks_state, ptr %825, i32 0, i32 2
-  %827 = getelementptr inbounds %struct.anon.1, ptr %826, i32 0, i32 1
-  %828 = load i32, ptr %827, align 4
-  %829 = add i32 %828, 1
-  store i32 %829, ptr %827, align 4
-  %830 = zext i32 %828 to i64
-  %831 = getelementptr inbounds [19 x i8], ptr @border, i64 0, i64 %830
-  %832 = load i8, ptr %831, align 1
-  %833 = sext i8 %832 to i32
-  %834 = sext i32 %833 to i64
-  %835 = getelementptr inbounds [320 x i32], ptr %824, i64 0, i64 %834
-  store i32 %821, ptr %835, align 4
-  %836 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %837 = load i64, ptr %836, align 8
-  %838 = lshr i64 %837, 3
-  store i64 %838, ptr %836, align 8
-  %839 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %840 = load i32, ptr %839, align 8
-  %841 = sub i32 %840, 3
-  store i32 %841, ptr %839, align 8
-  br label %755
+820:                                              ; preds = %771
+  %821 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %822 = load i64, ptr %821, align 8, !tbaa !25
+  %823 = trunc i64 %822 to i32
+  %824 = and i32 %823, 7
+  %825 = load ptr, ptr %4, align 8, !tbaa !8
+  %826 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %825, i32 0, i32 2
+  %827 = getelementptr inbounds nuw %struct.anon.1, ptr %826, i32 0, i32 2
+  %828 = load ptr, ptr %4, align 8, !tbaa !8
+  %829 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %828, i32 0, i32 2
+  %830 = getelementptr inbounds nuw %struct.anon.1, ptr %829, i32 0, i32 1
+  %831 = load i32, ptr %830, align 4, !tbaa !34
+  %832 = add i32 %831, 1
+  store i32 %832, ptr %830, align 4, !tbaa !34
+  %833 = zext i32 %831 to i64
+  %834 = getelementptr inbounds nuw [19 x i8], ptr @border, i64 0, i64 %833
+  %835 = load i8, ptr %834, align 1, !tbaa !34
+  %836 = sext i8 %835 to i32
+  %837 = sext i32 %836 to i64
+  %838 = getelementptr inbounds [320 x i32], ptr %827, i64 0, i64 %837
+  store i32 %824, ptr %838, align 4, !tbaa !34
+  %839 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %840 = load i64, ptr %839, align 8, !tbaa !25
+  %841 = lshr i64 %840, 3
+  store i64 %841, ptr %839, align 8, !tbaa !25
+  %842 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %843 = load i32, ptr %842, align 8, !tbaa !27
+  %844 = sub i32 %843, 3
+  store i32 %844, ptr %842, align 8, !tbaa !27
+  br label %758
 
-842:                                              ; preds = %755
-  br label %843
+845:                                              ; preds = %758
+  br label %846
 
-843:                                              ; preds = %849, %842
-  %844 = load ptr, ptr %4, align 8
-  %845 = getelementptr inbounds %struct.inflate_blocks_state, ptr %844, i32 0, i32 2
-  %846 = getelementptr inbounds %struct.anon.1, ptr %845, i32 0, i32 1
-  %847 = load i32, ptr %846, align 4
-  %848 = icmp ult i32 %847, 19
-  br i1 %848, label %849, label %864
+846:                                              ; preds = %852, %845
+  %847 = load ptr, ptr %4, align 8, !tbaa !8
+  %848 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %847, i32 0, i32 2
+  %849 = getelementptr inbounds nuw %struct.anon.1, ptr %848, i32 0, i32 1
+  %850 = load i32, ptr %849, align 4, !tbaa !34
+  %851 = icmp ult i32 %850, 19
+  br i1 %851, label %852, label %867
 
-849:                                              ; preds = %843
-  %850 = load ptr, ptr %4, align 8
-  %851 = getelementptr inbounds %struct.inflate_blocks_state, ptr %850, i32 0, i32 2
-  %852 = getelementptr inbounds %struct.anon.1, ptr %851, i32 0, i32 2
-  %853 = load ptr, ptr %4, align 8
-  %854 = getelementptr inbounds %struct.inflate_blocks_state, ptr %853, i32 0, i32 2
-  %855 = getelementptr inbounds %struct.anon.1, ptr %854, i32 0, i32 1
-  %856 = load i32, ptr %855, align 4
-  %857 = add i32 %856, 1
-  store i32 %857, ptr %855, align 4
-  %858 = zext i32 %856 to i64
-  %859 = getelementptr inbounds [19 x i8], ptr @border, i64 0, i64 %858
-  %860 = load i8, ptr %859, align 1
-  %861 = sext i8 %860 to i32
-  %862 = sext i32 %861 to i64
-  %863 = getelementptr inbounds [320 x i32], ptr %852, i64 0, i64 %862
-  store i32 0, ptr %863, align 4
-  br label %843
+852:                                              ; preds = %846
+  %853 = load ptr, ptr %4, align 8, !tbaa !8
+  %854 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %853, i32 0, i32 2
+  %855 = getelementptr inbounds nuw %struct.anon.1, ptr %854, i32 0, i32 2
+  %856 = load ptr, ptr %4, align 8, !tbaa !8
+  %857 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %856, i32 0, i32 2
+  %858 = getelementptr inbounds nuw %struct.anon.1, ptr %857, i32 0, i32 1
+  %859 = load i32, ptr %858, align 4, !tbaa !34
+  %860 = add i32 %859, 1
+  store i32 %860, ptr %858, align 4, !tbaa !34
+  %861 = zext i32 %859 to i64
+  %862 = getelementptr inbounds nuw [19 x i8], ptr @border, i64 0, i64 %861
+  %863 = load i8, ptr %862, align 1, !tbaa !34
+  %864 = sext i8 %863 to i32
+  %865 = sext i32 %864 to i64
+  %866 = getelementptr inbounds [320 x i32], ptr %855, i64 0, i64 %865
+  store i32 0, ptr %866, align 4, !tbaa !34
+  br label %846
 
-864:                                              ; preds = %843
-  %865 = load ptr, ptr %4, align 8
-  %866 = getelementptr inbounds %struct.inflate_blocks_state, ptr %865, i32 0, i32 2
-  %867 = getelementptr inbounds %struct.anon.1, ptr %866, i32 0, i32 3
-  store i32 7, ptr %867, align 8
-  store i32 0, ptr %11, align 4
-  %868 = load ptr, ptr %4, align 8
-  %869 = getelementptr inbounds %struct.inflate_blocks_state, ptr %868, i32 0, i32 2
-  %870 = getelementptr inbounds %struct.anon.1, ptr %869, i32 0, i32 2
-  %871 = getelementptr inbounds [320 x i32], ptr %870, i64 0, i64 0
-  %872 = load ptr, ptr %4, align 8
-  %873 = getelementptr inbounds %struct.inflate_blocks_state, ptr %872, i32 0, i32 2
-  %874 = getelementptr inbounds %struct.anon.1, ptr %873, i32 0, i32 4
-  %875 = load ptr, ptr %4, align 8
-  %876 = getelementptr inbounds %struct.inflate_blocks_state, ptr %875, i32 0, i32 2
-  %877 = getelementptr inbounds %struct.anon.1, ptr %876, i32 0, i32 3
-  %878 = load ptr, ptr %4, align 8
-  %879 = getelementptr inbounds %struct.inflate_blocks_state, ptr %878, i32 0, i32 6
-  %880 = getelementptr inbounds [1440 x %struct.inflate_huft_s], ptr %879, i64 0, i64 0
-  %881 = load ptr, ptr %4, align 8
-  %882 = getelementptr inbounds %struct.inflate_blocks_state, ptr %881, i32 0, i32 0
-  %883 = getelementptr inbounds %struct.z_stuff, ptr %882, i32 0, i32 6
-  %884 = getelementptr inbounds [288 x i32], ptr %883, i64 0, i64 0
-  %885 = call i32 @huft_build(ptr noundef %871, i32 noundef 19, i32 noundef 19, ptr noundef null, ptr noundef null, ptr noundef %874, ptr noundef %877, ptr noundef %880, ptr noundef %11, ptr noundef %884)
-  %886 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %885, ptr %886, align 8
-  %887 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %888 = load i32, ptr %887, align 8
-  %889 = icmp ne i32 %888, 0
-  br i1 %889, label %896, label %890
+867:                                              ; preds = %846
+  %868 = load ptr, ptr %4, align 8, !tbaa !8
+  %869 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %868, i32 0, i32 2
+  %870 = getelementptr inbounds nuw %struct.anon.1, ptr %869, i32 0, i32 3
+  store i32 7, ptr %870, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  store i32 0, ptr %12, align 4, !tbaa !38
+  %871 = load ptr, ptr %4, align 8, !tbaa !8
+  %872 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %871, i32 0, i32 2
+  %873 = getelementptr inbounds nuw %struct.anon.1, ptr %872, i32 0, i32 2
+  %874 = getelementptr inbounds [320 x i32], ptr %873, i64 0, i64 0
+  %875 = load ptr, ptr %4, align 8, !tbaa !8
+  %876 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %875, i32 0, i32 2
+  %877 = getelementptr inbounds nuw %struct.anon.1, ptr %876, i32 0, i32 4
+  %878 = load ptr, ptr %4, align 8, !tbaa !8
+  %879 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %878, i32 0, i32 2
+  %880 = getelementptr inbounds nuw %struct.anon.1, ptr %879, i32 0, i32 3
+  %881 = load ptr, ptr %4, align 8, !tbaa !8
+  %882 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %881, i32 0, i32 6
+  %883 = getelementptr inbounds [1440 x %struct.inflate_huft_s], ptr %882, i64 0, i64 0
+  %884 = load ptr, ptr %4, align 8, !tbaa !8
+  %885 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %884, i32 0, i32 0
+  %886 = getelementptr inbounds nuw %struct.z_stuff, ptr %885, i32 0, i32 6
+  %887 = getelementptr inbounds [288 x i32], ptr %886, i64 0, i64 0
+  %888 = call i32 @huft_build(ptr noundef %874, i32 noundef 19, i32 noundef 19, ptr noundef null, ptr noundef null, ptr noundef %877, ptr noundef %880, ptr noundef %883, ptr noundef %12, ptr noundef %887)
+  %889 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %888, ptr %889, align 8, !tbaa !35
+  %890 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %891 = load i32, ptr %890, align 8, !tbaa !35
+  %892 = icmp ne i32 %891, 0
+  br i1 %892, label %899, label %893
 
-890:                                              ; preds = %864
-  %891 = load ptr, ptr %4, align 8
-  %892 = getelementptr inbounds %struct.inflate_blocks_state, ptr %891, i32 0, i32 2
-  %893 = getelementptr inbounds %struct.anon.1, ptr %892, i32 0, i32 3
-  %894 = load i32, ptr %893, align 8
-  %895 = icmp ne i32 %894, 0
-  br i1 %895, label %899, label %896
+893:                                              ; preds = %867
+  %894 = load ptr, ptr %4, align 8, !tbaa !8
+  %895 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %894, i32 0, i32 2
+  %896 = getelementptr inbounds nuw %struct.anon.1, ptr %895, i32 0, i32 3
+  %897 = load i32, ptr %896, align 8, !tbaa !34
+  %898 = icmp ne i32 %897, 0
+  br i1 %898, label %902, label %899
 
-896:                                              ; preds = %890, %864
-  %897 = load ptr, ptr %4, align 8
-  %898 = getelementptr inbounds %struct.inflate_blocks_state, ptr %897, i32 0, i32 1
-  store i32 17, ptr %898, align 8
-  br label %2431
+899:                                              ; preds = %893, %867
+  %900 = load ptr, ptr %4, align 8, !tbaa !8
+  %901 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %900, i32 0, i32 1
+  store i32 17, ptr %901, align 8, !tbaa !33
+  store i32 4, ptr %7, align 4
+  br label %903
 
-899:                                              ; preds = %890
-  %900 = load ptr, ptr %4, align 8
-  %901 = getelementptr inbounds %struct.inflate_blocks_state, ptr %900, i32 0, i32 2
-  %902 = getelementptr inbounds %struct.anon.1, ptr %901, i32 0, i32 1
-  store i32 0, ptr %902, align 4
-  %903 = load ptr, ptr %4, align 8
-  %904 = getelementptr inbounds %struct.inflate_blocks_state, ptr %903, i32 0, i32 1
-  store i32 13, ptr %904, align 8
-  br label %905
+902:                                              ; preds = %893
+  store i32 0, ptr %7, align 4
+  br label %903
 
-905:                                              ; preds = %899, %77
-  br label %906
+903:                                              ; preds = %902, %899
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %904 = load i32, ptr %7, align 4
+  switch i32 %904, label %2446 [
+    i32 0, label %905
+    i32 4, label %2443
+  ]
 
-906:                                              ; preds = %1213, %905
-  %907 = load ptr, ptr %4, align 8
-  %908 = getelementptr inbounds %struct.inflate_blocks_state, ptr %907, i32 0, i32 2
-  %909 = getelementptr inbounds %struct.anon.1, ptr %908, i32 0, i32 0
-  %910 = load i32, ptr %909, align 8
-  %911 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %910, ptr %911, align 8
-  %912 = load ptr, ptr %4, align 8
-  %913 = getelementptr inbounds %struct.inflate_blocks_state, ptr %912, i32 0, i32 2
-  %914 = getelementptr inbounds %struct.anon.1, ptr %913, i32 0, i32 1
-  %915 = load i32, ptr %914, align 4
-  %916 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %917 = load i32, ptr %916, align 8
-  %918 = and i32 %917, 31
-  %919 = add i32 258, %918
-  %920 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %921 = load i32, ptr %920, align 8
-  %922 = lshr i32 %921, 5
-  %923 = and i32 %922, 31
-  %924 = add i32 %919, %923
-  %925 = icmp ult i32 %915, %924
-  br i1 %925, label %926, label %1214
+905:                                              ; preds = %903
+  %906 = load ptr, ptr %4, align 8, !tbaa !8
+  %907 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %906, i32 0, i32 2
+  %908 = getelementptr inbounds nuw %struct.anon.1, ptr %907, i32 0, i32 1
+  store i32 0, ptr %908, align 4, !tbaa !34
+  %909 = load ptr, ptr %4, align 8, !tbaa !8
+  %910 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %909, i32 0, i32 1
+  store i32 13, ptr %910, align 8, !tbaa !33
+  br label %911
 
-926:                                              ; preds = %906
-  %927 = load ptr, ptr %4, align 8
-  %928 = getelementptr inbounds %struct.inflate_blocks_state, ptr %927, i32 0, i32 2
-  %929 = getelementptr inbounds %struct.anon.1, ptr %928, i32 0, i32 3
-  %930 = load i32, ptr %929, align 8
-  %931 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %930, ptr %931, align 8
-  br label %932
+911:                                              ; preds = %78, %905
+  br label %912
 
-932:                                              ; preds = %964, %926
-  %933 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %934 = load i32, ptr %933, align 8
-  %935 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %936 = load i32, ptr %935, align 8
-  %937 = icmp ult i32 %934, %936
-  br i1 %937, label %938, label %983
+912:                                              ; preds = %1222, %911
+  %913 = load ptr, ptr %4, align 8, !tbaa !8
+  %914 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %913, i32 0, i32 2
+  %915 = getelementptr inbounds nuw %struct.anon.1, ptr %914, i32 0, i32 0
+  %916 = load i32, ptr %915, align 8, !tbaa !34
+  %917 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %916, ptr %917, align 8, !tbaa !35
+  %918 = load ptr, ptr %4, align 8, !tbaa !8
+  %919 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %918, i32 0, i32 2
+  %920 = getelementptr inbounds nuw %struct.anon.1, ptr %919, i32 0, i32 1
+  %921 = load i32, ptr %920, align 4, !tbaa !34
+  %922 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %923 = load i32, ptr %922, align 8, !tbaa !35
+  %924 = and i32 %923, 31
+  %925 = add i32 258, %924
+  %926 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %927 = load i32, ptr %926, align 8, !tbaa !35
+  %928 = lshr i32 %927, 5
+  %929 = and i32 %928, 31
+  %930 = add i32 %925, %929
+  %931 = icmp ult i32 %921, %930
+  br i1 %931, label %932, label %1223
 
-938:                                              ; preds = %932
-  %939 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %940 = load i32, ptr %939, align 8
-  %941 = icmp ne i32 %940, 0
-  br i1 %941, label %964, label %942
+932:                                              ; preds = %912
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %933 = load ptr, ptr %4, align 8, !tbaa !8
+  %934 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %933, i32 0, i32 2
+  %935 = getelementptr inbounds nuw %struct.anon.1, ptr %934, i32 0, i32 3
+  %936 = load i32, ptr %935, align 8, !tbaa !34
+  %937 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %936, ptr %937, align 8, !tbaa !35
+  br label %938
 
-942:                                              ; preds = %938
-  %943 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %944 = load i64, ptr %943, align 8
-  %945 = load ptr, ptr %4, align 8
-  %946 = getelementptr inbounds %struct.inflate_blocks_state, ptr %945, i32 0, i32 5
-  store i64 %944, ptr %946, align 8
-  %947 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %948 = load i32, ptr %947, align 8
-  %949 = load ptr, ptr %4, align 8
-  %950 = getelementptr inbounds %struct.inflate_blocks_state, ptr %949, i32 0, i32 4
-  store i32 %948, ptr %950, align 4
-  %951 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %952 = load i32, ptr %951, align 8
-  %953 = load ptr, ptr %3, align 8
-  %954 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %953, i32 0, i32 1
-  store i32 %952, ptr %954, align 8
-  %955 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %956 = load ptr, ptr %955, align 8
-  %957 = load ptr, ptr %3, align 8
-  %958 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %957, i32 0, i32 0
-  store ptr %956, ptr %958, align 8
-  %959 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %960 = load ptr, ptr %959, align 8
-  %961 = load ptr, ptr %4, align 8
-  %962 = getelementptr inbounds %struct.inflate_blocks_state, ptr %961, i32 0, i32 10
-  store ptr %960, ptr %962, align 8
-  %963 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %963)
+938:                                              ; preds = %970, %932
+  %939 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %940 = load i32, ptr %939, align 8, !tbaa !27
+  %941 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %942 = load i32, ptr %941, align 8, !tbaa !35
+  %943 = icmp ult i32 %940, %942
+  br i1 %943, label %944, label %989
+
+944:                                              ; preds = %938
+  %945 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %946 = load i32, ptr %945, align 8, !tbaa !23
+  %947 = icmp ne i32 %946, 0
+  br i1 %947, label %970, label %948
+
+948:                                              ; preds = %944
+  %949 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %950 = load i64, ptr %949, align 8, !tbaa !25
+  %951 = load ptr, ptr %4, align 8, !tbaa !8
+  %952 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %951, i32 0, i32 5
+  store i64 %950, ptr %952, align 8, !tbaa !24
+  %953 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %954 = load i32, ptr %953, align 8, !tbaa !27
+  %955 = load ptr, ptr %4, align 8, !tbaa !8
+  %956 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %955, i32 0, i32 4
+  store i32 %954, ptr %956, align 4, !tbaa !26
+  %957 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %958 = load i32, ptr %957, align 8, !tbaa !23
+  %959 = load ptr, ptr %3, align 8, !tbaa !3
+  %960 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %959, i32 0, i32 1
+  store i32 %958, ptr %960, align 8, !tbaa !22
+  %961 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %962 = load ptr, ptr %961, align 8, !tbaa !20
+  %963 = load ptr, ptr %3, align 8, !tbaa !3
+  %964 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %963, i32 0, i32 0
+  store ptr %962, ptr %964, align 8, !tbaa !12
+  %965 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %966 = load ptr, ptr %965, align 8, !tbaa !29
+  %967 = load ptr, ptr %4, align 8, !tbaa !8
+  %968 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %967, i32 0, i32 10
+  store ptr %966, ptr %968, align 8, !tbaa !28
+  %969 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %969)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %1220
 
-964:                                              ; preds = %938
-  %965 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %966 = load i32, ptr %965, align 8
-  %967 = add i32 %966, -1
-  store i32 %967, ptr %965, align 8
-  %968 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %969 = load ptr, ptr %968, align 8
-  %970 = getelementptr inbounds i8, ptr %969, i32 1
-  store ptr %970, ptr %968, align 8
-  %971 = load i8, ptr %969, align 1
-  %972 = zext i8 %971 to i64
-  %973 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %974 = load i32, ptr %973, align 8
-  %975 = zext i32 %974 to i64
-  %976 = shl i64 %972, %975
-  %977 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %978 = load i64, ptr %977, align 8
-  %979 = or i64 %978, %976
-  store i64 %979, ptr %977, align 8
-  %980 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %981 = load i32, ptr %980, align 8
-  %982 = add i32 %981, 8
-  store i32 %982, ptr %980, align 8
-  br label %932
+970:                                              ; preds = %944
+  %971 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %972 = load i32, ptr %971, align 8, !tbaa !23
+  %973 = add i32 %972, -1
+  store i32 %973, ptr %971, align 8, !tbaa !23
+  %974 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %975 = load ptr, ptr %974, align 8, !tbaa !20
+  %976 = getelementptr inbounds nuw i8, ptr %975, i32 1
+  store ptr %976, ptr %974, align 8, !tbaa !20
+  %977 = load i8, ptr %975, align 1, !tbaa !34
+  %978 = zext i8 %977 to i64
+  %979 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %980 = load i32, ptr %979, align 8, !tbaa !27
+  %981 = zext i32 %980 to i64
+  %982 = shl i64 %978, %981
+  %983 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %984 = load i64, ptr %983, align 8, !tbaa !25
+  %985 = or i64 %984, %982
+  store i64 %985, ptr %983, align 8, !tbaa !25
+  %986 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %987 = load i32, ptr %986, align 8, !tbaa !27
+  %988 = add i32 %987, 8
+  store i32 %988, ptr %986, align 8, !tbaa !27
+  br label %938
 
-983:                                              ; preds = %932
-  %984 = load ptr, ptr %4, align 8
-  %985 = getelementptr inbounds %struct.inflate_blocks_state, ptr %984, i32 0, i32 2
-  %986 = getelementptr inbounds %struct.anon.1, ptr %985, i32 0, i32 4
-  %987 = load ptr, ptr %986, align 8
-  %988 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %989 = load i64, ptr %988, align 8
-  %990 = trunc i64 %989 to i32
-  %991 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %992 = load i32, ptr %991, align 8
-  %993 = zext i32 %992 to i64
-  %994 = getelementptr inbounds [17 x i16], ptr @inflate_mask, i64 0, i64 %993
-  %995 = load i16, ptr %994, align 2
-  %996 = zext i16 %995 to i32
-  %997 = and i32 %990, %996
-  %998 = zext i32 %997 to i64
-  %999 = getelementptr inbounds %struct.inflate_huft_s, ptr %987, i64 %998
-  store ptr %999, ptr %12, align 8
-  %1000 = load ptr, ptr %12, align 8
-  %1001 = getelementptr inbounds %struct.inflate_huft_s, ptr %1000, i32 0, i32 0
-  %1002 = getelementptr inbounds %struct.anon, ptr %1001, i32 0, i32 1
-  %1003 = load i8, ptr %1002, align 1
-  %1004 = zext i8 %1003 to i32
-  %1005 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %1004, ptr %1005, align 8
-  %1006 = load ptr, ptr %12, align 8
-  %1007 = getelementptr inbounds %struct.inflate_huft_s, ptr %1006, i32 0, i32 1
-  %1008 = load i16, ptr %1007, align 2
-  %1009 = zext i16 %1008 to i32
-  store i32 %1009, ptr %15, align 4
-  %1010 = load i32, ptr %15, align 4
-  %1011 = icmp ult i32 %1010, 16
-  br i1 %1011, label %1012, label %1035
+989:                                              ; preds = %938
+  %990 = load ptr, ptr %4, align 8, !tbaa !8
+  %991 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %990, i32 0, i32 2
+  %992 = getelementptr inbounds nuw %struct.anon.1, ptr %991, i32 0, i32 4
+  %993 = load ptr, ptr %992, align 8, !tbaa !34
+  %994 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %995 = load i64, ptr %994, align 8, !tbaa !25
+  %996 = trunc i64 %995 to i32
+  %997 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %998 = load i32, ptr %997, align 8, !tbaa !35
+  %999 = zext i32 %998 to i64
+  %1000 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %999
+  %1001 = load i16, ptr %1000, align 2, !tbaa !43
+  %1002 = zext i16 %1001 to i32
+  %1003 = and i32 %996, %1002
+  %1004 = zext i32 %1003 to i64
+  %1005 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %993, i64 %1004
+  store ptr %1005, ptr %13, align 8, !tbaa !45
+  %1006 = load ptr, ptr %13, align 8, !tbaa !45
+  %1007 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1006, i32 0, i32 0
+  %1008 = getelementptr inbounds nuw %struct.anon, ptr %1007, i32 0, i32 1
+  %1009 = load i8, ptr %1008, align 1, !tbaa !34
+  %1010 = zext i8 %1009 to i32
+  %1011 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %1010, ptr %1011, align 8, !tbaa !35
+  %1012 = load ptr, ptr %13, align 8, !tbaa !45
+  %1013 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1012, i32 0, i32 1
+  %1014 = load i16, ptr %1013, align 2, !tbaa !46
+  %1015 = zext i16 %1014 to i32
+  store i32 %1015, ptr %16, align 4, !tbaa !38
+  %1016 = load i32, ptr %16, align 4, !tbaa !38
+  %1017 = icmp ult i32 %1016, 16
+  br i1 %1017, label %1018, label %1041
 
-1012:                                             ; preds = %983
-  %1013 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1014 = load i32, ptr %1013, align 8
-  %1015 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1016 = load i64, ptr %1015, align 8
-  %1017 = zext i32 %1014 to i64
-  %1018 = lshr i64 %1016, %1017
-  store i64 %1018, ptr %1015, align 8
-  %1019 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1020 = load i32, ptr %1019, align 8
-  %1021 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1022 = load i32, ptr %1021, align 8
-  %1023 = sub i32 %1022, %1020
-  store i32 %1023, ptr %1021, align 8
-  %1024 = load i32, ptr %15, align 4
-  %1025 = load ptr, ptr %4, align 8
-  %1026 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1025, i32 0, i32 2
-  %1027 = getelementptr inbounds %struct.anon.1, ptr %1026, i32 0, i32 2
-  %1028 = load ptr, ptr %4, align 8
-  %1029 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1028, i32 0, i32 2
-  %1030 = getelementptr inbounds %struct.anon.1, ptr %1029, i32 0, i32 1
-  %1031 = load i32, ptr %1030, align 4
-  %1032 = add i32 %1031, 1
-  store i32 %1032, ptr %1030, align 4
-  %1033 = zext i32 %1031 to i64
-  %1034 = getelementptr inbounds [320 x i32], ptr %1027, i64 0, i64 %1033
-  store i32 %1024, ptr %1034, align 4
-  br label %1213
+1018:                                             ; preds = %989
+  %1019 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1020 = load i32, ptr %1019, align 8, !tbaa !35
+  %1021 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1022 = load i64, ptr %1021, align 8, !tbaa !25
+  %1023 = zext i32 %1020 to i64
+  %1024 = lshr i64 %1022, %1023
+  store i64 %1024, ptr %1021, align 8, !tbaa !25
+  %1025 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1026 = load i32, ptr %1025, align 8, !tbaa !35
+  %1027 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1028 = load i32, ptr %1027, align 8, !tbaa !27
+  %1029 = sub i32 %1028, %1026
+  store i32 %1029, ptr %1027, align 8, !tbaa !27
+  %1030 = load i32, ptr %16, align 4, !tbaa !38
+  %1031 = load ptr, ptr %4, align 8, !tbaa !8
+  %1032 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1031, i32 0, i32 2
+  %1033 = getelementptr inbounds nuw %struct.anon.1, ptr %1032, i32 0, i32 2
+  %1034 = load ptr, ptr %4, align 8, !tbaa !8
+  %1035 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1034, i32 0, i32 2
+  %1036 = getelementptr inbounds nuw %struct.anon.1, ptr %1035, i32 0, i32 1
+  %1037 = load i32, ptr %1036, align 4, !tbaa !34
+  %1038 = add i32 %1037, 1
+  store i32 %1038, ptr %1036, align 4, !tbaa !34
+  %1039 = zext i32 %1037 to i64
+  %1040 = getelementptr inbounds nuw [320 x i32], ptr %1033, i64 0, i64 %1039
+  store i32 %1030, ptr %1040, align 4, !tbaa !34
+  br label %1219
 
-1035:                                             ; preds = %983
-  %1036 = load i32, ptr %15, align 4
-  %1037 = icmp eq i32 %1036, 18
-  br i1 %1037, label %1038, label %1039
+1041:                                             ; preds = %989
+  %1042 = load i32, ptr %16, align 4, !tbaa !38
+  %1043 = icmp eq i32 %1042, 18
+  br i1 %1043, label %1044, label %1045
 
-1038:                                             ; preds = %1035
-  store i32 7, ptr %13, align 4
-  store i32 11, ptr %14, align 4
-  br label %1042
+1044:                                             ; preds = %1041
+  store i32 7, ptr %14, align 4, !tbaa !38
+  store i32 11, ptr %15, align 4, !tbaa !38
+  br label %1048
 
-1039:                                             ; preds = %1035
-  %1040 = load i32, ptr %15, align 4
-  %1041 = sub i32 %1040, 14
-  store i32 %1041, ptr %13, align 4
-  store i32 3, ptr %14, align 4
-  br label %1042
+1045:                                             ; preds = %1041
+  %1046 = load i32, ptr %16, align 4, !tbaa !38
+  %1047 = sub i32 %1046, 14
+  store i32 %1047, ptr %14, align 4, !tbaa !38
+  store i32 3, ptr %15, align 4, !tbaa !38
+  br label %1048
 
-1042:                                             ; preds = %1039, %1038
-  br label %1043
+1048:                                             ; preds = %1045, %1044
+  br label %1049
 
-1043:                                             ; preds = %1077, %1042
-  %1044 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1045 = load i32, ptr %1044, align 8
-  %1046 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1047 = load i32, ptr %1046, align 8
-  %1048 = load i32, ptr %13, align 4
-  %1049 = add i32 %1047, %1048
-  %1050 = icmp ult i32 %1045, %1049
-  br i1 %1050, label %1051, label %1096
+1049:                                             ; preds = %1083, %1048
+  %1050 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1051 = load i32, ptr %1050, align 8, !tbaa !27
+  %1052 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1053 = load i32, ptr %1052, align 8, !tbaa !35
+  %1054 = load i32, ptr %14, align 4, !tbaa !38
+  %1055 = add i32 %1053, %1054
+  %1056 = icmp ult i32 %1051, %1055
+  br i1 %1056, label %1057, label %1102
 
-1051:                                             ; preds = %1043
-  %1052 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1053 = load i32, ptr %1052, align 8
-  %1054 = icmp ne i32 %1053, 0
-  br i1 %1054, label %1077, label %1055
+1057:                                             ; preds = %1049
+  %1058 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1059 = load i32, ptr %1058, align 8, !tbaa !23
+  %1060 = icmp ne i32 %1059, 0
+  br i1 %1060, label %1083, label %1061
 
-1055:                                             ; preds = %1051
-  %1056 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1057 = load i64, ptr %1056, align 8
-  %1058 = load ptr, ptr %4, align 8
-  %1059 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1058, i32 0, i32 5
-  store i64 %1057, ptr %1059, align 8
-  %1060 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1061 = load i32, ptr %1060, align 8
-  %1062 = load ptr, ptr %4, align 8
-  %1063 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1062, i32 0, i32 4
-  store i32 %1061, ptr %1063, align 4
-  %1064 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1065 = load i32, ptr %1064, align 8
-  %1066 = load ptr, ptr %3, align 8
-  %1067 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1066, i32 0, i32 1
-  store i32 %1065, ptr %1067, align 8
-  %1068 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1069 = load ptr, ptr %1068, align 8
-  %1070 = load ptr, ptr %3, align 8
-  %1071 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1070, i32 0, i32 0
-  store ptr %1069, ptr %1071, align 8
-  %1072 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1073 = load ptr, ptr %1072, align 8
-  %1074 = load ptr, ptr %4, align 8
-  %1075 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1074, i32 0, i32 10
-  store ptr %1073, ptr %1075, align 8
-  %1076 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %1076)
+1061:                                             ; preds = %1057
+  %1062 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1063 = load i64, ptr %1062, align 8, !tbaa !25
+  %1064 = load ptr, ptr %4, align 8, !tbaa !8
+  %1065 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1064, i32 0, i32 5
+  store i64 %1063, ptr %1065, align 8, !tbaa !24
+  %1066 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1067 = load i32, ptr %1066, align 8, !tbaa !27
+  %1068 = load ptr, ptr %4, align 8, !tbaa !8
+  %1069 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1068, i32 0, i32 4
+  store i32 %1067, ptr %1069, align 4, !tbaa !26
+  %1070 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1071 = load i32, ptr %1070, align 8, !tbaa !23
+  %1072 = load ptr, ptr %3, align 8, !tbaa !3
+  %1073 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1072, i32 0, i32 1
+  store i32 %1071, ptr %1073, align 8, !tbaa !22
+  %1074 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1075 = load ptr, ptr %1074, align 8, !tbaa !20
+  %1076 = load ptr, ptr %3, align 8, !tbaa !3
+  %1077 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1076, i32 0, i32 0
+  store ptr %1075, ptr %1077, align 8, !tbaa !12
+  %1078 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1079 = load ptr, ptr %1078, align 8, !tbaa !29
+  %1080 = load ptr, ptr %4, align 8, !tbaa !8
+  %1081 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1080, i32 0, i32 10
+  store ptr %1079, ptr %1081, align 8, !tbaa !28
+  %1082 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %1082)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %1220
 
-1077:                                             ; preds = %1051
-  %1078 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1079 = load i32, ptr %1078, align 8
-  %1080 = add i32 %1079, -1
-  store i32 %1080, ptr %1078, align 8
-  %1081 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1082 = load ptr, ptr %1081, align 8
-  %1083 = getelementptr inbounds i8, ptr %1082, i32 1
-  store ptr %1083, ptr %1081, align 8
-  %1084 = load i8, ptr %1082, align 1
-  %1085 = zext i8 %1084 to i64
-  %1086 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1087 = load i32, ptr %1086, align 8
-  %1088 = zext i32 %1087 to i64
-  %1089 = shl i64 %1085, %1088
-  %1090 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1091 = load i64, ptr %1090, align 8
-  %1092 = or i64 %1091, %1089
-  store i64 %1092, ptr %1090, align 8
-  %1093 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1094 = load i32, ptr %1093, align 8
-  %1095 = add i32 %1094, 8
-  store i32 %1095, ptr %1093, align 8
-  br label %1043
+1083:                                             ; preds = %1057
+  %1084 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1085 = load i32, ptr %1084, align 8, !tbaa !23
+  %1086 = add i32 %1085, -1
+  store i32 %1086, ptr %1084, align 8, !tbaa !23
+  %1087 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1088 = load ptr, ptr %1087, align 8, !tbaa !20
+  %1089 = getelementptr inbounds nuw i8, ptr %1088, i32 1
+  store ptr %1089, ptr %1087, align 8, !tbaa !20
+  %1090 = load i8, ptr %1088, align 1, !tbaa !34
+  %1091 = zext i8 %1090 to i64
+  %1092 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1093 = load i32, ptr %1092, align 8, !tbaa !27
+  %1094 = zext i32 %1093 to i64
+  %1095 = shl i64 %1091, %1094
+  %1096 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1097 = load i64, ptr %1096, align 8, !tbaa !25
+  %1098 = or i64 %1097, %1095
+  store i64 %1098, ptr %1096, align 8, !tbaa !25
+  %1099 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1100 = load i32, ptr %1099, align 8, !tbaa !27
+  %1101 = add i32 %1100, 8
+  store i32 %1101, ptr %1099, align 8, !tbaa !27
+  br label %1049
 
-1096:                                             ; preds = %1043
-  %1097 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1098 = load i32, ptr %1097, align 8
-  %1099 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1100 = load i64, ptr %1099, align 8
-  %1101 = zext i32 %1098 to i64
-  %1102 = lshr i64 %1100, %1101
-  store i64 %1102, ptr %1099, align 8
-  %1103 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1104 = load i32, ptr %1103, align 8
-  %1105 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1106 = load i32, ptr %1105, align 8
-  %1107 = sub i32 %1106, %1104
-  store i32 %1107, ptr %1105, align 8
-  %1108 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1109 = load i64, ptr %1108, align 8
-  %1110 = trunc i64 %1109 to i32
-  %1111 = load i32, ptr %13, align 4
-  %1112 = zext i32 %1111 to i64
-  %1113 = getelementptr inbounds [17 x i16], ptr @inflate_mask, i64 0, i64 %1112
-  %1114 = load i16, ptr %1113, align 2
-  %1115 = zext i16 %1114 to i32
-  %1116 = and i32 %1110, %1115
-  %1117 = load i32, ptr %14, align 4
-  %1118 = add i32 %1117, %1116
-  store i32 %1118, ptr %14, align 4
-  %1119 = load i32, ptr %13, align 4
-  %1120 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1121 = load i64, ptr %1120, align 8
-  %1122 = zext i32 %1119 to i64
-  %1123 = lshr i64 %1121, %1122
-  store i64 %1123, ptr %1120, align 8
-  %1124 = load i32, ptr %13, align 4
-  %1125 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1126 = load i32, ptr %1125, align 8
-  %1127 = sub i32 %1126, %1124
-  store i32 %1127, ptr %1125, align 8
-  %1128 = load ptr, ptr %4, align 8
-  %1129 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1128, i32 0, i32 2
-  %1130 = getelementptr inbounds %struct.anon.1, ptr %1129, i32 0, i32 1
-  %1131 = load i32, ptr %1130, align 4
-  store i32 %1131, ptr %13, align 4
-  %1132 = load ptr, ptr %4, align 8
-  %1133 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1132, i32 0, i32 2
-  %1134 = getelementptr inbounds %struct.anon.1, ptr %1133, i32 0, i32 0
-  %1135 = load i32, ptr %1134, align 8
-  %1136 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %1135, ptr %1136, align 8
-  %1137 = load i32, ptr %13, align 4
-  %1138 = load i32, ptr %14, align 4
-  %1139 = add i32 %1137, %1138
-  %1140 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1141 = load i32, ptr %1140, align 8
-  %1142 = and i32 %1141, 31
-  %1143 = add i32 258, %1142
-  %1144 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1145 = load i32, ptr %1144, align 8
-  %1146 = lshr i32 %1145, 5
-  %1147 = and i32 %1146, 31
-  %1148 = add i32 %1143, %1147
-  %1149 = icmp ugt i32 %1139, %1148
-  br i1 %1149, label %1156, label %1150
+1102:                                             ; preds = %1049
+  %1103 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1104 = load i32, ptr %1103, align 8, !tbaa !35
+  %1105 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1106 = load i64, ptr %1105, align 8, !tbaa !25
+  %1107 = zext i32 %1104 to i64
+  %1108 = lshr i64 %1106, %1107
+  store i64 %1108, ptr %1105, align 8, !tbaa !25
+  %1109 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1110 = load i32, ptr %1109, align 8, !tbaa !35
+  %1111 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1112 = load i32, ptr %1111, align 8, !tbaa !27
+  %1113 = sub i32 %1112, %1110
+  store i32 %1113, ptr %1111, align 8, !tbaa !27
+  %1114 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1115 = load i64, ptr %1114, align 8, !tbaa !25
+  %1116 = trunc i64 %1115 to i32
+  %1117 = load i32, ptr %14, align 4, !tbaa !38
+  %1118 = zext i32 %1117 to i64
+  %1119 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %1118
+  %1120 = load i16, ptr %1119, align 2, !tbaa !43
+  %1121 = zext i16 %1120 to i32
+  %1122 = and i32 %1116, %1121
+  %1123 = load i32, ptr %15, align 4, !tbaa !38
+  %1124 = add i32 %1123, %1122
+  store i32 %1124, ptr %15, align 4, !tbaa !38
+  %1125 = load i32, ptr %14, align 4, !tbaa !38
+  %1126 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1127 = load i64, ptr %1126, align 8, !tbaa !25
+  %1128 = zext i32 %1125 to i64
+  %1129 = lshr i64 %1127, %1128
+  store i64 %1129, ptr %1126, align 8, !tbaa !25
+  %1130 = load i32, ptr %14, align 4, !tbaa !38
+  %1131 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1132 = load i32, ptr %1131, align 8, !tbaa !27
+  %1133 = sub i32 %1132, %1130
+  store i32 %1133, ptr %1131, align 8, !tbaa !27
+  %1134 = load ptr, ptr %4, align 8, !tbaa !8
+  %1135 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1134, i32 0, i32 2
+  %1136 = getelementptr inbounds nuw %struct.anon.1, ptr %1135, i32 0, i32 1
+  %1137 = load i32, ptr %1136, align 4, !tbaa !34
+  store i32 %1137, ptr %14, align 4, !tbaa !38
+  %1138 = load ptr, ptr %4, align 8, !tbaa !8
+  %1139 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1138, i32 0, i32 2
+  %1140 = getelementptr inbounds nuw %struct.anon.1, ptr %1139, i32 0, i32 0
+  %1141 = load i32, ptr %1140, align 8, !tbaa !34
+  %1142 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %1141, ptr %1142, align 8, !tbaa !35
+  %1143 = load i32, ptr %14, align 4, !tbaa !38
+  %1144 = load i32, ptr %15, align 4, !tbaa !38
+  %1145 = add i32 %1143, %1144
+  %1146 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1147 = load i32, ptr %1146, align 8, !tbaa !35
+  %1148 = and i32 %1147, 31
+  %1149 = add i32 258, %1148
+  %1150 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1151 = load i32, ptr %1150, align 8, !tbaa !35
+  %1152 = lshr i32 %1151, 5
+  %1153 = and i32 %1152, 31
+  %1154 = add i32 %1149, %1153
+  %1155 = icmp ugt i32 %1145, %1154
+  br i1 %1155, label %1162, label %1156
 
-1150:                                             ; preds = %1096
-  %1151 = load i32, ptr %15, align 4
-  %1152 = icmp eq i32 %1151, 16
-  br i1 %1152, label %1153, label %1180
+1156:                                             ; preds = %1102
+  %1157 = load i32, ptr %16, align 4, !tbaa !38
+  %1158 = icmp eq i32 %1157, 16
+  br i1 %1158, label %1159, label %1186
 
-1153:                                             ; preds = %1150
-  %1154 = load i32, ptr %13, align 4
-  %1155 = icmp ult i32 %1154, 1
-  br i1 %1155, label %1156, label %1180
+1159:                                             ; preds = %1156
+  %1160 = load i32, ptr %14, align 4, !tbaa !38
+  %1161 = icmp ult i32 %1160, 1
+  br i1 %1161, label %1162, label %1186
 
-1156:                                             ; preds = %1153, %1096
-  %1157 = load ptr, ptr %4, align 8
-  %1158 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1157, i32 0, i32 1
-  store i32 17, ptr %1158, align 8
-  %1159 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1160 = load i64, ptr %1159, align 8
-  %1161 = load ptr, ptr %4, align 8
-  %1162 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1161, i32 0, i32 5
-  store i64 %1160, ptr %1162, align 8
-  %1163 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1164 = load i32, ptr %1163, align 8
-  %1165 = load ptr, ptr %4, align 8
-  %1166 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1165, i32 0, i32 4
-  store i32 %1164, ptr %1166, align 4
-  %1167 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1168 = load i32, ptr %1167, align 8
-  %1169 = load ptr, ptr %3, align 8
-  %1170 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1169, i32 0, i32 1
-  store i32 %1168, ptr %1170, align 8
-  %1171 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1172 = load ptr, ptr %1171, align 8
-  %1173 = load ptr, ptr %3, align 8
-  %1174 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1173, i32 0, i32 0
-  store ptr %1172, ptr %1174, align 8
-  %1175 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1176 = load ptr, ptr %1175, align 8
-  %1177 = load ptr, ptr %4, align 8
-  %1178 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1177, i32 0, i32 10
-  store ptr %1176, ptr %1178, align 8
-  %1179 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %1179)
+1162:                                             ; preds = %1159, %1102
+  %1163 = load ptr, ptr %4, align 8, !tbaa !8
+  %1164 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1163, i32 0, i32 1
+  store i32 17, ptr %1164, align 8, !tbaa !33
+  %1165 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1166 = load i64, ptr %1165, align 8, !tbaa !25
+  %1167 = load ptr, ptr %4, align 8, !tbaa !8
+  %1168 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1167, i32 0, i32 5
+  store i64 %1166, ptr %1168, align 8, !tbaa !24
+  %1169 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1170 = load i32, ptr %1169, align 8, !tbaa !27
+  %1171 = load ptr, ptr %4, align 8, !tbaa !8
+  %1172 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1171, i32 0, i32 4
+  store i32 %1170, ptr %1172, align 4, !tbaa !26
+  %1173 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1174 = load i32, ptr %1173, align 8, !tbaa !23
+  %1175 = load ptr, ptr %3, align 8, !tbaa !3
+  %1176 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1175, i32 0, i32 1
+  store i32 %1174, ptr %1176, align 8, !tbaa !22
+  %1177 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1178 = load ptr, ptr %1177, align 8, !tbaa !20
+  %1179 = load ptr, ptr %3, align 8, !tbaa !3
+  %1180 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1179, i32 0, i32 0
+  store ptr %1178, ptr %1180, align 8, !tbaa !12
+  %1181 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1182 = load ptr, ptr %1181, align 8, !tbaa !29
+  %1183 = load ptr, ptr %4, align 8, !tbaa !8
+  %1184 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1183, i32 0, i32 10
+  store ptr %1182, ptr %1184, align 8, !tbaa !28
+  %1185 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %1185)
   store i32 -3, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %1220
 
-1180:                                             ; preds = %1153, %1150
-  %1181 = load i32, ptr %15, align 4
-  %1182 = icmp eq i32 %1181, 16
-  br i1 %1182, label %1183, label %1192
+1186:                                             ; preds = %1159, %1156
+  %1187 = load i32, ptr %16, align 4, !tbaa !38
+  %1188 = icmp eq i32 %1187, 16
+  br i1 %1188, label %1189, label %1198
 
-1183:                                             ; preds = %1180
-  %1184 = load ptr, ptr %4, align 8
-  %1185 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1184, i32 0, i32 2
-  %1186 = getelementptr inbounds %struct.anon.1, ptr %1185, i32 0, i32 2
-  %1187 = load i32, ptr %13, align 4
-  %1188 = sub i32 %1187, 1
-  %1189 = zext i32 %1188 to i64
-  %1190 = getelementptr inbounds [320 x i32], ptr %1186, i64 0, i64 %1189
-  %1191 = load i32, ptr %1190, align 4
-  br label %1193
+1189:                                             ; preds = %1186
+  %1190 = load ptr, ptr %4, align 8, !tbaa !8
+  %1191 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1190, i32 0, i32 2
+  %1192 = getelementptr inbounds nuw %struct.anon.1, ptr %1191, i32 0, i32 2
+  %1193 = load i32, ptr %14, align 4, !tbaa !38
+  %1194 = sub i32 %1193, 1
+  %1195 = zext i32 %1194 to i64
+  %1196 = getelementptr inbounds nuw [320 x i32], ptr %1192, i64 0, i64 %1195
+  %1197 = load i32, ptr %1196, align 4, !tbaa !34
+  br label %1199
 
-1192:                                             ; preds = %1180
-  br label %1193
+1198:                                             ; preds = %1186
+  br label %1199
 
-1193:                                             ; preds = %1192, %1183
-  %1194 = phi i32 [ %1191, %1183 ], [ 0, %1192 ]
-  store i32 %1194, ptr %15, align 4
-  br label %1195
+1199:                                             ; preds = %1198, %1189
+  %1200 = phi i32 [ %1197, %1189 ], [ 0, %1198 ]
+  store i32 %1200, ptr %16, align 4, !tbaa !38
+  br label %1201
 
-1195:                                             ; preds = %1204, %1193
-  %1196 = load i32, ptr %15, align 4
-  %1197 = load ptr, ptr %4, align 8
-  %1198 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1197, i32 0, i32 2
-  %1199 = getelementptr inbounds %struct.anon.1, ptr %1198, i32 0, i32 2
-  %1200 = load i32, ptr %13, align 4
-  %1201 = add i32 %1200, 1
-  store i32 %1201, ptr %13, align 4
-  %1202 = zext i32 %1200 to i64
-  %1203 = getelementptr inbounds [320 x i32], ptr %1199, i64 0, i64 %1202
-  store i32 %1196, ptr %1203, align 4
-  br label %1204
+1201:                                             ; preds = %1210, %1199
+  %1202 = load i32, ptr %16, align 4, !tbaa !38
+  %1203 = load ptr, ptr %4, align 8, !tbaa !8
+  %1204 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1203, i32 0, i32 2
+  %1205 = getelementptr inbounds nuw %struct.anon.1, ptr %1204, i32 0, i32 2
+  %1206 = load i32, ptr %14, align 4, !tbaa !38
+  %1207 = add i32 %1206, 1
+  store i32 %1207, ptr %14, align 4, !tbaa !38
+  %1208 = zext i32 %1206 to i64
+  %1209 = getelementptr inbounds nuw [320 x i32], ptr %1205, i64 0, i64 %1208
+  store i32 %1202, ptr %1209, align 4, !tbaa !34
+  br label %1210
 
-1204:                                             ; preds = %1195
-  %1205 = load i32, ptr %14, align 4
-  %1206 = add i32 %1205, -1
-  store i32 %1206, ptr %14, align 4
-  %1207 = icmp ne i32 %1206, 0
-  br i1 %1207, label %1195, label %1208
+1210:                                             ; preds = %1201
+  %1211 = load i32, ptr %15, align 4, !tbaa !38
+  %1212 = add i32 %1211, -1
+  store i32 %1212, ptr %15, align 4, !tbaa !38
+  %1213 = icmp ne i32 %1212, 0
+  br i1 %1213, label %1201, label %1214
 
-1208:                                             ; preds = %1204
-  %1209 = load i32, ptr %13, align 4
-  %1210 = load ptr, ptr %4, align 8
-  %1211 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1210, i32 0, i32 2
-  %1212 = getelementptr inbounds %struct.anon.1, ptr %1211, i32 0, i32 1
-  store i32 %1209, ptr %1212, align 4
-  br label %1213
+1214:                                             ; preds = %1210
+  %1215 = load i32, ptr %14, align 4, !tbaa !38
+  %1216 = load ptr, ptr %4, align 8, !tbaa !8
+  %1217 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1216, i32 0, i32 2
+  %1218 = getelementptr inbounds nuw %struct.anon.1, ptr %1217, i32 0, i32 1
+  store i32 %1215, ptr %1218, align 4, !tbaa !34
+  br label %1219
 
-1213:                                             ; preds = %1208, %1012
-  br label %906
+1219:                                             ; preds = %1214, %1018
+  store i32 0, ptr %7, align 4
+  br label %1220
 
-1214:                                             ; preds = %906
-  %1215 = load ptr, ptr %4, align 8
-  %1216 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1215, i32 0, i32 2
-  %1217 = getelementptr inbounds %struct.anon.1, ptr %1216, i32 0, i32 4
-  store ptr null, ptr %1217, align 8
-  store i32 0, ptr %16, align 4
-  %1218 = load ptr, ptr %4, align 8
-  %1219 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1218, i32 0, i32 2
-  %1220 = getelementptr inbounds %struct.anon.1, ptr %1219, i32 0, i32 0
-  %1221 = load i32, ptr %1220, align 8
-  %1222 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %1221, ptr %1222, align 8
-  %1223 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1224 = load i32, ptr %1223, align 8
-  %1225 = and i32 %1224, 31
-  %1226 = add i32 257, %1225
-  store i32 %1226, ptr %21, align 4
-  %1227 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1228 = load i32, ptr %1227, align 8
-  %1229 = lshr i32 %1228, 5
-  %1230 = and i32 %1229, 31
-  %1231 = add i32 1, %1230
-  store i32 %1231, ptr %22, align 4
-  store i32 9, ptr %17, align 4
-  store i32 6, ptr %18, align 4
-  %1232 = load ptr, ptr %4, align 8
-  %1233 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1232, i32 0, i32 2
-  %1234 = getelementptr inbounds %struct.anon.1, ptr %1233, i32 0, i32 2
-  %1235 = getelementptr inbounds [320 x i32], ptr %1234, i64 0, i64 0
-  %1236 = load i32, ptr %21, align 4
-  %1237 = load ptr, ptr %4, align 8
-  %1238 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1237, i32 0, i32 6
-  %1239 = getelementptr inbounds [1440 x %struct.inflate_huft_s], ptr %1238, i64 0, i64 0
-  %1240 = load ptr, ptr %4, align 8
-  %1241 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1240, i32 0, i32 0
-  %1242 = getelementptr inbounds %struct.z_stuff, ptr %1241, i32 0, i32 6
-  %1243 = getelementptr inbounds [288 x i32], ptr %1242, i64 0, i64 0
-  %1244 = call i32 @huft_build(ptr noundef %1235, i32 noundef %1236, i32 noundef 257, ptr noundef @cplens, ptr noundef @cplext, ptr noundef %19, ptr noundef %17, ptr noundef %1239, ptr noundef %16, ptr noundef %1243)
-  %1245 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %1244, ptr %1245, align 8
-  %1246 = load i32, ptr %17, align 4
-  %1247 = icmp eq i32 %1246, 0
-  br i1 %1247, label %1248, label %1250
+1220:                                             ; preds = %1219, %1162, %1061, %948
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  %1221 = load i32, ptr %7, align 4
+  switch i32 %1221, label %2444 [
+    i32 0, label %1222
+  ]
 
-1248:                                             ; preds = %1214
-  %1249 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 -3, ptr %1249, align 8
-  br label %1250
+1222:                                             ; preds = %1220
+  br label %912
 
-1250:                                             ; preds = %1248, %1214
-  %1251 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1252 = load i32, ptr %1251, align 8
-  %1253 = icmp eq i32 %1252, 0
-  br i1 %1253, label %1254, label %1272
+1223:                                             ; preds = %912
+  %1224 = load ptr, ptr %4, align 8, !tbaa !8
+  %1225 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1224, i32 0, i32 2
+  %1226 = getelementptr inbounds nuw %struct.anon.1, ptr %1225, i32 0, i32 4
+  store ptr null, ptr %1226, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  store i32 0, ptr %17, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
+  %1227 = load ptr, ptr %4, align 8, !tbaa !8
+  %1228 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1227, i32 0, i32 2
+  %1229 = getelementptr inbounds nuw %struct.anon.1, ptr %1228, i32 0, i32 0
+  %1230 = load i32, ptr %1229, align 8, !tbaa !34
+  %1231 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %1230, ptr %1231, align 8, !tbaa !35
+  %1232 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1233 = load i32, ptr %1232, align 8, !tbaa !35
+  %1234 = and i32 %1233, 31
+  %1235 = add i32 257, %1234
+  store i32 %1235, ptr %22, align 4, !tbaa !38
+  %1236 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1237 = load i32, ptr %1236, align 8, !tbaa !35
+  %1238 = lshr i32 %1237, 5
+  %1239 = and i32 %1238, 31
+  %1240 = add i32 1, %1239
+  store i32 %1240, ptr %23, align 4, !tbaa !38
+  store i32 9, ptr %18, align 4, !tbaa !38
+  store i32 6, ptr %19, align 4, !tbaa !38
+  %1241 = load ptr, ptr %4, align 8, !tbaa !8
+  %1242 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1241, i32 0, i32 2
+  %1243 = getelementptr inbounds nuw %struct.anon.1, ptr %1242, i32 0, i32 2
+  %1244 = getelementptr inbounds [320 x i32], ptr %1243, i64 0, i64 0
+  %1245 = load i32, ptr %22, align 4, !tbaa !38
+  %1246 = load ptr, ptr %4, align 8, !tbaa !8
+  %1247 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1246, i32 0, i32 6
+  %1248 = getelementptr inbounds [1440 x %struct.inflate_huft_s], ptr %1247, i64 0, i64 0
+  %1249 = load ptr, ptr %4, align 8, !tbaa !8
+  %1250 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1249, i32 0, i32 0
+  %1251 = getelementptr inbounds nuw %struct.z_stuff, ptr %1250, i32 0, i32 6
+  %1252 = getelementptr inbounds [288 x i32], ptr %1251, i64 0, i64 0
+  %1253 = call i32 @huft_build(ptr noundef %1244, i32 noundef %1245, i32 noundef 257, ptr noundef @cplens, ptr noundef @cplext, ptr noundef %20, ptr noundef %18, ptr noundef %1248, ptr noundef %17, ptr noundef %1252)
+  %1254 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %1253, ptr %1254, align 8, !tbaa !35
+  %1255 = load i32, ptr %18, align 4, !tbaa !38
+  %1256 = icmp eq i32 %1255, 0
+  br i1 %1256, label %1257, label %1259
 
-1254:                                             ; preds = %1250
-  %1255 = load ptr, ptr %4, align 8
-  %1256 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1255, i32 0, i32 2
-  %1257 = getelementptr inbounds %struct.anon.1, ptr %1256, i32 0, i32 2
-  %1258 = getelementptr inbounds [320 x i32], ptr %1257, i64 0, i64 0
-  %1259 = load i32, ptr %21, align 4
-  %1260 = sext i32 %1259 to i64
-  %1261 = getelementptr inbounds i32, ptr %1258, i64 %1260
-  %1262 = load i32, ptr %22, align 4
-  %1263 = load ptr, ptr %4, align 8
-  %1264 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1263, i32 0, i32 6
-  %1265 = getelementptr inbounds [1440 x %struct.inflate_huft_s], ptr %1264, i64 0, i64 0
-  %1266 = load ptr, ptr %4, align 8
-  %1267 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1266, i32 0, i32 0
-  %1268 = getelementptr inbounds %struct.z_stuff, ptr %1267, i32 0, i32 6
-  %1269 = getelementptr inbounds [288 x i32], ptr %1268, i64 0, i64 0
-  %1270 = call i32 @huft_build(ptr noundef %1261, i32 noundef %1262, i32 noundef 0, ptr noundef @cpdist, ptr noundef @cpdext, ptr noundef %20, ptr noundef %18, ptr noundef %1265, ptr noundef %16, ptr noundef %1269)
-  %1271 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %1270, ptr %1271, align 8
-  br label %1272
+1257:                                             ; preds = %1223
+  %1258 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 -3, ptr %1258, align 8, !tbaa !35
+  br label %1259
 
-1272:                                             ; preds = %1254, %1250
-  %1273 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1274 = load i32, ptr %1273, align 8
-  %1275 = icmp ne i32 %1274, 0
-  br i1 %1275, label %1282, label %1276
+1259:                                             ; preds = %1257, %1223
+  %1260 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1261 = load i32, ptr %1260, align 8, !tbaa !35
+  %1262 = icmp eq i32 %1261, 0
+  br i1 %1262, label %1263, label %1281
 
-1276:                                             ; preds = %1272
-  %1277 = load i32, ptr %18, align 4
-  %1278 = icmp eq i32 %1277, 0
-  br i1 %1278, label %1279, label %1306
+1263:                                             ; preds = %1259
+  %1264 = load ptr, ptr %4, align 8, !tbaa !8
+  %1265 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1264, i32 0, i32 2
+  %1266 = getelementptr inbounds nuw %struct.anon.1, ptr %1265, i32 0, i32 2
+  %1267 = getelementptr inbounds [320 x i32], ptr %1266, i64 0, i64 0
+  %1268 = load i32, ptr %22, align 4, !tbaa !38
+  %1269 = sext i32 %1268 to i64
+  %1270 = getelementptr inbounds i32, ptr %1267, i64 %1269
+  %1271 = load i32, ptr %23, align 4, !tbaa !38
+  %1272 = load ptr, ptr %4, align 8, !tbaa !8
+  %1273 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1272, i32 0, i32 6
+  %1274 = getelementptr inbounds [1440 x %struct.inflate_huft_s], ptr %1273, i64 0, i64 0
+  %1275 = load ptr, ptr %4, align 8, !tbaa !8
+  %1276 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1275, i32 0, i32 0
+  %1277 = getelementptr inbounds nuw %struct.z_stuff, ptr %1276, i32 0, i32 6
+  %1278 = getelementptr inbounds [288 x i32], ptr %1277, i64 0, i64 0
+  %1279 = call i32 @huft_build(ptr noundef %1270, i32 noundef %1271, i32 noundef 0, ptr noundef @cpdist, ptr noundef @cpdext, ptr noundef %21, ptr noundef %19, ptr noundef %1274, ptr noundef %17, ptr noundef %1278)
+  %1280 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %1279, ptr %1280, align 8, !tbaa !35
+  br label %1281
 
-1279:                                             ; preds = %1276
-  %1280 = load i32, ptr %21, align 4
-  %1281 = icmp sgt i32 %1280, 257
-  br i1 %1281, label %1282, label %1306
+1281:                                             ; preds = %1263, %1259
+  %1282 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1283 = load i32, ptr %1282, align 8, !tbaa !35
+  %1284 = icmp ne i32 %1283, 0
+  br i1 %1284, label %1291, label %1285
 
-1282:                                             ; preds = %1279, %1272
-  %1283 = load ptr, ptr %4, align 8
-  %1284 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1283, i32 0, i32 1
-  store i32 17, ptr %1284, align 8
-  %1285 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1286 = load i64, ptr %1285, align 8
-  %1287 = load ptr, ptr %4, align 8
-  %1288 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1287, i32 0, i32 5
-  store i64 %1286, ptr %1288, align 8
-  %1289 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1290 = load i32, ptr %1289, align 8
-  %1291 = load ptr, ptr %4, align 8
-  %1292 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1291, i32 0, i32 4
-  store i32 %1290, ptr %1292, align 4
-  %1293 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1294 = load i32, ptr %1293, align 8
-  %1295 = load ptr, ptr %3, align 8
-  %1296 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1295, i32 0, i32 1
-  store i32 %1294, ptr %1296, align 8
-  %1297 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1298 = load ptr, ptr %1297, align 8
-  %1299 = load ptr, ptr %3, align 8
-  %1300 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1299, i32 0, i32 0
-  store ptr %1298, ptr %1300, align 8
-  %1301 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1302 = load ptr, ptr %1301, align 8
-  %1303 = load ptr, ptr %4, align 8
-  %1304 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1303, i32 0, i32 10
-  store ptr %1302, ptr %1304, align 8
-  %1305 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %1305)
+1285:                                             ; preds = %1281
+  %1286 = load i32, ptr %19, align 4, !tbaa !38
+  %1287 = icmp eq i32 %1286, 0
+  br i1 %1287, label %1288, label %1315
+
+1288:                                             ; preds = %1285
+  %1289 = load i32, ptr %22, align 4, !tbaa !38
+  %1290 = icmp sgt i32 %1289, 257
+  br i1 %1290, label %1291, label %1315
+
+1291:                                             ; preds = %1288, %1281
+  %1292 = load ptr, ptr %4, align 8, !tbaa !8
+  %1293 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1292, i32 0, i32 1
+  store i32 17, ptr %1293, align 8, !tbaa !33
+  %1294 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1295 = load i64, ptr %1294, align 8, !tbaa !25
+  %1296 = load ptr, ptr %4, align 8, !tbaa !8
+  %1297 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1296, i32 0, i32 5
+  store i64 %1295, ptr %1297, align 8, !tbaa !24
+  %1298 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1299 = load i32, ptr %1298, align 8, !tbaa !27
+  %1300 = load ptr, ptr %4, align 8, !tbaa !8
+  %1301 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1300, i32 0, i32 4
+  store i32 %1299, ptr %1301, align 4, !tbaa !26
+  %1302 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1303 = load i32, ptr %1302, align 8, !tbaa !23
+  %1304 = load ptr, ptr %3, align 8, !tbaa !3
+  %1305 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1304, i32 0, i32 1
+  store i32 %1303, ptr %1305, align 8, !tbaa !22
+  %1306 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1307 = load ptr, ptr %1306, align 8, !tbaa !20
+  %1308 = load ptr, ptr %3, align 8, !tbaa !3
+  %1309 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1308, i32 0, i32 0
+  store ptr %1307, ptr %1309, align 8, !tbaa !12
+  %1310 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1311 = load ptr, ptr %1310, align 8, !tbaa !29
+  %1312 = load ptr, ptr %4, align 8, !tbaa !8
+  %1313 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1312, i32 0, i32 10
+  store ptr %1311, ptr %1313, align 8, !tbaa !28
+  %1314 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %1314)
   store i32 -3, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %1338
 
-1306:                                             ; preds = %1279, %1276
-  %1307 = load i32, ptr %17, align 4
-  %1308 = trunc i32 %1307 to i8
-  %1309 = load ptr, ptr %4, align 8
-  %1310 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1309, i32 0, i32 2
-  %1311 = getelementptr inbounds %struct.anon.2, ptr %1310, i32 0, i32 0
-  %1312 = getelementptr inbounds %struct.inflate_codes_state, ptr %1311, i32 0, i32 2
-  store i8 %1308, ptr %1312, align 8
-  %1313 = load i32, ptr %18, align 4
-  %1314 = trunc i32 %1313 to i8
-  %1315 = load ptr, ptr %4, align 8
-  %1316 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1315, i32 0, i32 2
-  %1317 = getelementptr inbounds %struct.anon.2, ptr %1316, i32 0, i32 0
-  %1318 = getelementptr inbounds %struct.inflate_codes_state, ptr %1317, i32 0, i32 3
-  store i8 %1314, ptr %1318, align 1
-  %1319 = load ptr, ptr %19, align 8
-  %1320 = load ptr, ptr %4, align 8
-  %1321 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1320, i32 0, i32 2
-  %1322 = getelementptr inbounds %struct.anon.2, ptr %1321, i32 0, i32 0
-  %1323 = getelementptr inbounds %struct.inflate_codes_state, ptr %1322, i32 0, i32 4
-  store ptr %1319, ptr %1323, align 8
-  %1324 = load ptr, ptr %20, align 8
-  %1325 = load ptr, ptr %4, align 8
-  %1326 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1325, i32 0, i32 2
-  %1327 = getelementptr inbounds %struct.anon.2, ptr %1326, i32 0, i32 0
-  %1328 = getelementptr inbounds %struct.inflate_codes_state, ptr %1327, i32 0, i32 5
-  store ptr %1324, ptr %1328, align 8
-  %1329 = load ptr, ptr %4, align 8
-  %1330 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1329, i32 0, i32 1
-  store i32 0, ptr %1330, align 8
-  br label %1331
+1315:                                             ; preds = %1288, %1285
+  %1316 = load i32, ptr %18, align 4, !tbaa !38
+  %1317 = trunc i32 %1316 to i8
+  %1318 = load ptr, ptr %4, align 8, !tbaa !8
+  %1319 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1318, i32 0, i32 2
+  %1320 = getelementptr inbounds nuw %struct.anon.2, ptr %1319, i32 0, i32 0
+  %1321 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1320, i32 0, i32 2
+  store i8 %1317, ptr %1321, align 8, !tbaa !34
+  %1322 = load i32, ptr %19, align 4, !tbaa !38
+  %1323 = trunc i32 %1322 to i8
+  %1324 = load ptr, ptr %4, align 8, !tbaa !8
+  %1325 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1324, i32 0, i32 2
+  %1326 = getelementptr inbounds nuw %struct.anon.2, ptr %1325, i32 0, i32 0
+  %1327 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1326, i32 0, i32 3
+  store i8 %1323, ptr %1327, align 1, !tbaa !34
+  %1328 = load ptr, ptr %20, align 8, !tbaa !45
+  %1329 = load ptr, ptr %4, align 8, !tbaa !8
+  %1330 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1329, i32 0, i32 2
+  %1331 = getelementptr inbounds nuw %struct.anon.2, ptr %1330, i32 0, i32 0
+  %1332 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1331, i32 0, i32 4
+  store ptr %1328, ptr %1332, align 8, !tbaa !34
+  %1333 = load ptr, ptr %21, align 8, !tbaa !45
+  %1334 = load ptr, ptr %4, align 8, !tbaa !8
+  %1335 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1334, i32 0, i32 2
+  %1336 = getelementptr inbounds nuw %struct.anon.2, ptr %1335, i32 0, i32 0
+  %1337 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1336, i32 0, i32 5
+  store ptr %1333, ptr %1337, align 8, !tbaa !34
+  store i32 0, ptr %7, align 4
+  br label %1338
 
-1331:                                             ; preds = %1306, %77
-  %1332 = load ptr, ptr %5, align 8
-  %1333 = getelementptr inbounds %struct.inflate_codes_state, ptr %1332, i32 0, i32 2
-  %1334 = load i8, ptr %1333, align 8
-  %1335 = zext i8 %1334 to i32
-  %1336 = load ptr, ptr %5, align 8
-  %1337 = getelementptr inbounds %struct.inflate_codes_state, ptr %1336, i32 0, i32 1
-  %1338 = getelementptr inbounds %struct.anon.4, ptr %1337, i32 0, i32 1
-  store i32 %1335, ptr %1338, align 8
-  %1339 = load ptr, ptr %5, align 8
-  %1340 = getelementptr inbounds %struct.inflate_codes_state, ptr %1339, i32 0, i32 4
-  %1341 = load ptr, ptr %1340, align 8
-  %1342 = load ptr, ptr %5, align 8
-  %1343 = getelementptr inbounds %struct.inflate_codes_state, ptr %1342, i32 0, i32 1
-  %1344 = getelementptr inbounds %struct.anon.4, ptr %1343, i32 0, i32 0
-  store ptr %1341, ptr %1344, align 8
-  %1345 = load ptr, ptr %4, align 8
-  %1346 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1345, i32 0, i32 1
-  store i32 1, ptr %1346, align 8
-  br label %1347
+1338:                                             ; preds = %1315, %1291
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  %1339 = load i32, ptr %7, align 4
+  switch i32 %1339, label %2444 [
+    i32 0, label %1340
+  ]
 
-1347:                                             ; preds = %1331, %77
-  %1348 = load ptr, ptr %5, align 8
-  %1349 = getelementptr inbounds %struct.inflate_codes_state, ptr %1348, i32 0, i32 1
-  %1350 = getelementptr inbounds %struct.anon.4, ptr %1349, i32 0, i32 1
-  %1351 = load i32, ptr %1350, align 8
-  %1352 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %1351, ptr %1352, align 8
-  br label %1353
+1340:                                             ; preds = %1338
+  %1341 = load ptr, ptr %4, align 8, !tbaa !8
+  %1342 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1341, i32 0, i32 1
+  store i32 0, ptr %1342, align 8, !tbaa !33
+  br label %1343
 
-1353:                                             ; preds = %1385, %1347
-  %1354 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1355 = load i32, ptr %1354, align 8
-  %1356 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1357 = load i32, ptr %1356, align 8
-  %1358 = icmp ult i32 %1355, %1357
-  br i1 %1358, label %1359, label %1404
+1343:                                             ; preds = %78, %1340
+  %1344 = load ptr, ptr %5, align 8, !tbaa !10
+  %1345 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1344, i32 0, i32 2
+  %1346 = load i8, ptr %1345, align 8, !tbaa !48
+  %1347 = zext i8 %1346 to i32
+  %1348 = load ptr, ptr %5, align 8, !tbaa !10
+  %1349 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1348, i32 0, i32 1
+  %1350 = getelementptr inbounds nuw %struct.anon.4, ptr %1349, i32 0, i32 1
+  store i32 %1347, ptr %1350, align 8, !tbaa !34
+  %1351 = load ptr, ptr %5, align 8, !tbaa !10
+  %1352 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1351, i32 0, i32 4
+  %1353 = load ptr, ptr %1352, align 8, !tbaa !50
+  %1354 = load ptr, ptr %5, align 8, !tbaa !10
+  %1355 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1354, i32 0, i32 1
+  %1356 = getelementptr inbounds nuw %struct.anon.4, ptr %1355, i32 0, i32 0
+  store ptr %1353, ptr %1356, align 8, !tbaa !34
+  %1357 = load ptr, ptr %4, align 8, !tbaa !8
+  %1358 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1357, i32 0, i32 1
+  store i32 1, ptr %1358, align 8, !tbaa !33
+  br label %1359
 
-1359:                                             ; preds = %1353
-  %1360 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1361 = load i32, ptr %1360, align 8
-  %1362 = icmp ne i32 %1361, 0
-  br i1 %1362, label %1385, label %1363
+1359:                                             ; preds = %78, %1343
+  %1360 = load ptr, ptr %5, align 8, !tbaa !10
+  %1361 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1360, i32 0, i32 1
+  %1362 = getelementptr inbounds nuw %struct.anon.4, ptr %1361, i32 0, i32 1
+  %1363 = load i32, ptr %1362, align 8, !tbaa !34
+  %1364 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %1363, ptr %1364, align 8, !tbaa !35
+  br label %1365
 
-1363:                                             ; preds = %1359
-  %1364 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1365 = load i64, ptr %1364, align 8
-  %1366 = load ptr, ptr %4, align 8
-  %1367 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1366, i32 0, i32 5
-  store i64 %1365, ptr %1367, align 8
-  %1368 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1369 = load i32, ptr %1368, align 8
-  %1370 = load ptr, ptr %4, align 8
-  %1371 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1370, i32 0, i32 4
-  store i32 %1369, ptr %1371, align 4
-  %1372 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1373 = load i32, ptr %1372, align 8
-  %1374 = load ptr, ptr %3, align 8
-  %1375 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1374, i32 0, i32 1
-  store i32 %1373, ptr %1375, align 8
-  %1376 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1377 = load ptr, ptr %1376, align 8
-  %1378 = load ptr, ptr %3, align 8
-  %1379 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1378, i32 0, i32 0
-  store ptr %1377, ptr %1379, align 8
-  %1380 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1381 = load ptr, ptr %1380, align 8
-  %1382 = load ptr, ptr %4, align 8
-  %1383 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1382, i32 0, i32 10
-  store ptr %1381, ptr %1383, align 8
-  %1384 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %1384)
+1365:                                             ; preds = %1397, %1359
+  %1366 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1367 = load i32, ptr %1366, align 8, !tbaa !27
+  %1368 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1369 = load i32, ptr %1368, align 8, !tbaa !35
+  %1370 = icmp ult i32 %1367, %1369
+  br i1 %1370, label %1371, label %1416
+
+1371:                                             ; preds = %1365
+  %1372 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1373 = load i32, ptr %1372, align 8, !tbaa !23
+  %1374 = icmp ne i32 %1373, 0
+  br i1 %1374, label %1397, label %1375
+
+1375:                                             ; preds = %1371
+  %1376 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1377 = load i64, ptr %1376, align 8, !tbaa !25
+  %1378 = load ptr, ptr %4, align 8, !tbaa !8
+  %1379 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1378, i32 0, i32 5
+  store i64 %1377, ptr %1379, align 8, !tbaa !24
+  %1380 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1381 = load i32, ptr %1380, align 8, !tbaa !27
+  %1382 = load ptr, ptr %4, align 8, !tbaa !8
+  %1383 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1382, i32 0, i32 4
+  store i32 %1381, ptr %1383, align 4, !tbaa !26
+  %1384 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1385 = load i32, ptr %1384, align 8, !tbaa !23
+  %1386 = load ptr, ptr %3, align 8, !tbaa !3
+  %1387 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1386, i32 0, i32 1
+  store i32 %1385, ptr %1387, align 8, !tbaa !22
+  %1388 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1389 = load ptr, ptr %1388, align 8, !tbaa !20
+  %1390 = load ptr, ptr %3, align 8, !tbaa !3
+  %1391 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1390, i32 0, i32 0
+  store ptr %1389, ptr %1391, align 8, !tbaa !12
+  %1392 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1393 = load ptr, ptr %1392, align 8, !tbaa !29
+  %1394 = load ptr, ptr %4, align 8, !tbaa !8
+  %1395 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1394, i32 0, i32 10
+  store ptr %1393, ptr %1395, align 8, !tbaa !28
+  %1396 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %1396)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-1385:                                             ; preds = %1359
-  %1386 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1387 = load i32, ptr %1386, align 8
-  %1388 = add i32 %1387, -1
-  store i32 %1388, ptr %1386, align 8
-  %1389 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1390 = load ptr, ptr %1389, align 8
-  %1391 = getelementptr inbounds i8, ptr %1390, i32 1
-  store ptr %1391, ptr %1389, align 8
-  %1392 = load i8, ptr %1390, align 1
-  %1393 = zext i8 %1392 to i64
-  %1394 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1395 = load i32, ptr %1394, align 8
-  %1396 = zext i32 %1395 to i64
-  %1397 = shl i64 %1393, %1396
-  %1398 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1399 = load i64, ptr %1398, align 8
-  %1400 = or i64 %1399, %1397
-  store i64 %1400, ptr %1398, align 8
-  %1401 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1402 = load i32, ptr %1401, align 8
-  %1403 = add i32 %1402, 8
-  store i32 %1403, ptr %1401, align 8
-  br label %1353
+1397:                                             ; preds = %1371
+  %1398 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1399 = load i32, ptr %1398, align 8, !tbaa !23
+  %1400 = add i32 %1399, -1
+  store i32 %1400, ptr %1398, align 8, !tbaa !23
+  %1401 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1402 = load ptr, ptr %1401, align 8, !tbaa !20
+  %1403 = getelementptr inbounds nuw i8, ptr %1402, i32 1
+  store ptr %1403, ptr %1401, align 8, !tbaa !20
+  %1404 = load i8, ptr %1402, align 1, !tbaa !34
+  %1405 = zext i8 %1404 to i64
+  %1406 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1407 = load i32, ptr %1406, align 8, !tbaa !27
+  %1408 = zext i32 %1407 to i64
+  %1409 = shl i64 %1405, %1408
+  %1410 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1411 = load i64, ptr %1410, align 8, !tbaa !25
+  %1412 = or i64 %1411, %1409
+  store i64 %1412, ptr %1410, align 8, !tbaa !25
+  %1413 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1414 = load i32, ptr %1413, align 8, !tbaa !27
+  %1415 = add i32 %1414, 8
+  store i32 %1415, ptr %1413, align 8, !tbaa !27
+  br label %1365
 
-1404:                                             ; preds = %1353
-  %1405 = load ptr, ptr %5, align 8
-  %1406 = getelementptr inbounds %struct.inflate_codes_state, ptr %1405, i32 0, i32 1
-  %1407 = getelementptr inbounds %struct.anon.4, ptr %1406, i32 0, i32 0
-  %1408 = load ptr, ptr %1407, align 8
-  %1409 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1410 = load i64, ptr %1409, align 8
-  %1411 = trunc i64 %1410 to i32
-  %1412 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1413 = load i32, ptr %1412, align 8
-  %1414 = zext i32 %1413 to i64
-  %1415 = getelementptr inbounds [17 x i16], ptr @inflate_mask, i64 0, i64 %1414
-  %1416 = load i16, ptr %1415, align 2
-  %1417 = zext i16 %1416 to i32
-  %1418 = and i32 %1411, %1417
-  %1419 = zext i32 %1418 to i64
-  %1420 = getelementptr inbounds %struct.inflate_huft_s, ptr %1408, i64 %1419
-  %1421 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  store ptr %1420, ptr %1421, align 8
-  %1422 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1423 = load ptr, ptr %1422, align 8
-  %1424 = getelementptr inbounds %struct.inflate_huft_s, ptr %1423, i32 0, i32 0
-  %1425 = getelementptr inbounds %struct.anon, ptr %1424, i32 0, i32 1
-  %1426 = load i8, ptr %1425, align 1
-  %1427 = zext i8 %1426 to i32
-  %1428 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1429 = load i64, ptr %1428, align 8
-  %1430 = zext i32 %1427 to i64
-  %1431 = lshr i64 %1429, %1430
-  store i64 %1431, ptr %1428, align 8
-  %1432 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1433 = load ptr, ptr %1432, align 8
-  %1434 = getelementptr inbounds %struct.inflate_huft_s, ptr %1433, i32 0, i32 0
-  %1435 = getelementptr inbounds %struct.anon, ptr %1434, i32 0, i32 1
-  %1436 = load i8, ptr %1435, align 1
-  %1437 = zext i8 %1436 to i32
-  %1438 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1439 = load i32, ptr %1438, align 8
-  %1440 = sub i32 %1439, %1437
-  store i32 %1440, ptr %1438, align 8
-  %1441 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1442 = load ptr, ptr %1441, align 8
-  %1443 = getelementptr inbounds %struct.inflate_huft_s, ptr %1442, i32 0, i32 0
-  %1444 = getelementptr inbounds %struct.anon, ptr %1443, i32 0, i32 0
-  %1445 = load i8, ptr %1444, align 2
-  %1446 = zext i8 %1445 to i32
-  %1447 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  store i32 %1446, ptr %1447, align 8
-  %1448 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1449 = load i32, ptr %1448, align 8
-  %1450 = icmp eq i32 %1449, 0
-  br i1 %1450, label %1451, label %1461
+1416:                                             ; preds = %1365
+  %1417 = load ptr, ptr %5, align 8, !tbaa !10
+  %1418 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1417, i32 0, i32 1
+  %1419 = getelementptr inbounds nuw %struct.anon.4, ptr %1418, i32 0, i32 0
+  %1420 = load ptr, ptr %1419, align 8, !tbaa !34
+  %1421 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1422 = load i64, ptr %1421, align 8, !tbaa !25
+  %1423 = trunc i64 %1422 to i32
+  %1424 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1425 = load i32, ptr %1424, align 8, !tbaa !35
+  %1426 = zext i32 %1425 to i64
+  %1427 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %1426
+  %1428 = load i16, ptr %1427, align 2, !tbaa !43
+  %1429 = zext i16 %1428 to i32
+  %1430 = and i32 %1423, %1429
+  %1431 = zext i32 %1430 to i64
+  %1432 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1420, i64 %1431
+  %1433 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  store ptr %1432, ptr %1433, align 8, !tbaa !51
+  %1434 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1435 = load ptr, ptr %1434, align 8, !tbaa !51
+  %1436 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1435, i32 0, i32 0
+  %1437 = getelementptr inbounds nuw %struct.anon, ptr %1436, i32 0, i32 1
+  %1438 = load i8, ptr %1437, align 1, !tbaa !34
+  %1439 = zext i8 %1438 to i32
+  %1440 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1441 = load i64, ptr %1440, align 8, !tbaa !25
+  %1442 = zext i32 %1439 to i64
+  %1443 = lshr i64 %1441, %1442
+  store i64 %1443, ptr %1440, align 8, !tbaa !25
+  %1444 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1445 = load ptr, ptr %1444, align 8, !tbaa !51
+  %1446 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1445, i32 0, i32 0
+  %1447 = getelementptr inbounds nuw %struct.anon, ptr %1446, i32 0, i32 1
+  %1448 = load i8, ptr %1447, align 1, !tbaa !34
+  %1449 = zext i8 %1448 to i32
+  %1450 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1451 = load i32, ptr %1450, align 8, !tbaa !27
+  %1452 = sub i32 %1451, %1449
+  store i32 %1452, ptr %1450, align 8, !tbaa !27
+  %1453 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1454 = load ptr, ptr %1453, align 8, !tbaa !51
+  %1455 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1454, i32 0, i32 0
+  %1456 = getelementptr inbounds nuw %struct.anon, ptr %1455, i32 0, i32 0
+  %1457 = load i8, ptr %1456, align 2, !tbaa !34
+  %1458 = zext i8 %1457 to i32
+  %1459 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  store i32 %1458, ptr %1459, align 8, !tbaa !52
+  %1460 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1461 = load i32, ptr %1460, align 8, !tbaa !52
+  %1462 = icmp eq i32 %1461, 0
+  br i1 %1462, label %1463, label %1473
 
-1451:                                             ; preds = %1404
-  %1452 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1453 = load ptr, ptr %1452, align 8
-  %1454 = getelementptr inbounds %struct.inflate_huft_s, ptr %1453, i32 0, i32 1
-  %1455 = load i16, ptr %1454, align 2
-  %1456 = zext i16 %1455 to i32
-  %1457 = load ptr, ptr %5, align 8
-  %1458 = getelementptr inbounds %struct.inflate_codes_state, ptr %1457, i32 0, i32 1
-  store i32 %1456, ptr %1458, align 8
-  %1459 = load ptr, ptr %4, align 8
-  %1460 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1459, i32 0, i32 1
-  store i32 6, ptr %1460, align 8
-  br label %2431
+1463:                                             ; preds = %1416
+  %1464 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1465 = load ptr, ptr %1464, align 8, !tbaa !51
+  %1466 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1465, i32 0, i32 1
+  %1467 = load i16, ptr %1466, align 2, !tbaa !46
+  %1468 = zext i16 %1467 to i32
+  %1469 = load ptr, ptr %5, align 8, !tbaa !10
+  %1470 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1469, i32 0, i32 1
+  store i32 %1468, ptr %1470, align 8, !tbaa !34
+  %1471 = load ptr, ptr %4, align 8, !tbaa !8
+  %1472 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1471, i32 0, i32 1
+  store i32 6, ptr %1472, align 8, !tbaa !33
+  br label %2443
 
-1461:                                             ; preds = %1404
-  %1462 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1463 = load i32, ptr %1462, align 8
-  %1464 = and i32 %1463, 16
-  %1465 = icmp ne i32 %1464, 0
-  br i1 %1465, label %1466, label %1482
+1473:                                             ; preds = %1416
+  %1474 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1475 = load i32, ptr %1474, align 8, !tbaa !52
+  %1476 = and i32 %1475, 16
+  %1477 = icmp ne i32 %1476, 0
+  br i1 %1477, label %1478, label %1494
 
-1466:                                             ; preds = %1461
-  %1467 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1468 = load i32, ptr %1467, align 8
-  %1469 = and i32 %1468, 15
-  %1470 = load ptr, ptr %5, align 8
-  %1471 = getelementptr inbounds %struct.inflate_codes_state, ptr %1470, i32 0, i32 1
-  %1472 = getelementptr inbounds %struct.anon.5, ptr %1471, i32 0, i32 0
-  store i32 %1469, ptr %1472, align 8
-  %1473 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1474 = load ptr, ptr %1473, align 8
-  %1475 = getelementptr inbounds %struct.inflate_huft_s, ptr %1474, i32 0, i32 1
-  %1476 = load i16, ptr %1475, align 2
-  %1477 = zext i16 %1476 to i32
-  %1478 = load ptr, ptr %5, align 8
-  %1479 = getelementptr inbounds %struct.inflate_codes_state, ptr %1478, i32 0, i32 0
-  store i32 %1477, ptr %1479, align 8
-  %1480 = load ptr, ptr %4, align 8
-  %1481 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1480, i32 0, i32 1
-  store i32 2, ptr %1481, align 8
-  br label %2431
+1478:                                             ; preds = %1473
+  %1479 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1480 = load i32, ptr %1479, align 8, !tbaa !52
+  %1481 = and i32 %1480, 15
+  %1482 = load ptr, ptr %5, align 8, !tbaa !10
+  %1483 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1482, i32 0, i32 1
+  %1484 = getelementptr inbounds nuw %struct.anon.5, ptr %1483, i32 0, i32 0
+  store i32 %1481, ptr %1484, align 8, !tbaa !34
+  %1485 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1486 = load ptr, ptr %1485, align 8, !tbaa !51
+  %1487 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1486, i32 0, i32 1
+  %1488 = load i16, ptr %1487, align 2, !tbaa !46
+  %1489 = zext i16 %1488 to i32
+  %1490 = load ptr, ptr %5, align 8, !tbaa !10
+  %1491 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1490, i32 0, i32 0
+  store i32 %1489, ptr %1491, align 8, !tbaa !53
+  %1492 = load ptr, ptr %4, align 8, !tbaa !8
+  %1493 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1492, i32 0, i32 1
+  store i32 2, ptr %1493, align 8, !tbaa !33
+  br label %2443
 
-1482:                                             ; preds = %1461
-  %1483 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1484 = load i32, ptr %1483, align 8
-  %1485 = and i32 %1484, 64
-  %1486 = icmp eq i32 %1485, 0
-  br i1 %1486, label %1487, label %1505
+1494:                                             ; preds = %1473
+  %1495 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1496 = load i32, ptr %1495, align 8, !tbaa !52
+  %1497 = and i32 %1496, 64
+  %1498 = icmp eq i32 %1497, 0
+  br i1 %1498, label %1499, label %1517
 
-1487:                                             ; preds = %1482
-  %1488 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1489 = load i32, ptr %1488, align 8
-  %1490 = load ptr, ptr %5, align 8
-  %1491 = getelementptr inbounds %struct.inflate_codes_state, ptr %1490, i32 0, i32 1
-  %1492 = getelementptr inbounds %struct.anon.4, ptr %1491, i32 0, i32 1
-  store i32 %1489, ptr %1492, align 8
-  %1493 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1494 = load ptr, ptr %1493, align 8
-  %1495 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1496 = load ptr, ptr %1495, align 8
-  %1497 = getelementptr inbounds %struct.inflate_huft_s, ptr %1496, i32 0, i32 1
-  %1498 = load i16, ptr %1497, align 2
-  %1499 = zext i16 %1498 to i32
-  %1500 = sext i32 %1499 to i64
-  %1501 = getelementptr inbounds %struct.inflate_huft_s, ptr %1494, i64 %1500
-  %1502 = load ptr, ptr %5, align 8
-  %1503 = getelementptr inbounds %struct.inflate_codes_state, ptr %1502, i32 0, i32 1
-  %1504 = getelementptr inbounds %struct.anon.4, ptr %1503, i32 0, i32 0
-  store ptr %1501, ptr %1504, align 8
-  br label %2431
+1499:                                             ; preds = %1494
+  %1500 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1501 = load i32, ptr %1500, align 8, !tbaa !52
+  %1502 = load ptr, ptr %5, align 8, !tbaa !10
+  %1503 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1502, i32 0, i32 1
+  %1504 = getelementptr inbounds nuw %struct.anon.4, ptr %1503, i32 0, i32 1
+  store i32 %1501, ptr %1504, align 8, !tbaa !34
+  %1505 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1506 = load ptr, ptr %1505, align 8, !tbaa !51
+  %1507 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1508 = load ptr, ptr %1507, align 8, !tbaa !51
+  %1509 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1508, i32 0, i32 1
+  %1510 = load i16, ptr %1509, align 2, !tbaa !46
+  %1511 = zext i16 %1510 to i32
+  %1512 = sext i32 %1511 to i64
+  %1513 = getelementptr inbounds %struct.inflate_huft_s, ptr %1506, i64 %1512
+  %1514 = load ptr, ptr %5, align 8, !tbaa !10
+  %1515 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1514, i32 0, i32 1
+  %1516 = getelementptr inbounds nuw %struct.anon.4, ptr %1515, i32 0, i32 0
+  store ptr %1513, ptr %1516, align 8, !tbaa !34
+  br label %2443
 
-1505:                                             ; preds = %1482
-  %1506 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1507 = load i32, ptr %1506, align 8
-  %1508 = and i32 %1507, 32
-  %1509 = icmp ne i32 %1508, 0
-  br i1 %1509, label %1510, label %1513
+1517:                                             ; preds = %1494
+  %1518 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1519 = load i32, ptr %1518, align 8, !tbaa !52
+  %1520 = and i32 %1519, 32
+  %1521 = icmp ne i32 %1520, 0
+  br i1 %1521, label %1522, label %1525
 
-1510:                                             ; preds = %1505
-  %1511 = load ptr, ptr %4, align 8
-  %1512 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1511, i32 0, i32 1
-  store i32 7, ptr %1512, align 8
-  br label %2431
+1522:                                             ; preds = %1517
+  %1523 = load ptr, ptr %4, align 8, !tbaa !8
+  %1524 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1523, i32 0, i32 1
+  store i32 7, ptr %1524, align 8, !tbaa !33
+  br label %2443
 
-1513:                                             ; preds = %1505
-  br label %2407
+1525:                                             ; preds = %1517
+  br label %2419
 
-1514:                                             ; preds = %77
-  %1515 = load ptr, ptr %5, align 8
-  %1516 = getelementptr inbounds %struct.inflate_codes_state, ptr %1515, i32 0, i32 1
-  %1517 = getelementptr inbounds %struct.anon.5, ptr %1516, i32 0, i32 0
-  %1518 = load i32, ptr %1517, align 8
-  %1519 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %1518, ptr %1519, align 8
-  br label %1520
+1526:                                             ; preds = %78
+  %1527 = load ptr, ptr %5, align 8, !tbaa !10
+  %1528 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1527, i32 0, i32 1
+  %1529 = getelementptr inbounds nuw %struct.anon.5, ptr %1528, i32 0, i32 0
+  %1530 = load i32, ptr %1529, align 8, !tbaa !34
+  %1531 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %1530, ptr %1531, align 8, !tbaa !35
+  br label %1532
 
-1520:                                             ; preds = %1552, %1514
-  %1521 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1522 = load i32, ptr %1521, align 8
-  %1523 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1524 = load i32, ptr %1523, align 8
-  %1525 = icmp ult i32 %1522, %1524
-  br i1 %1525, label %1526, label %1571
+1532:                                             ; preds = %1564, %1526
+  %1533 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1534 = load i32, ptr %1533, align 8, !tbaa !27
+  %1535 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1536 = load i32, ptr %1535, align 8, !tbaa !35
+  %1537 = icmp ult i32 %1534, %1536
+  br i1 %1537, label %1538, label %1583
 
-1526:                                             ; preds = %1520
-  %1527 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1528 = load i32, ptr %1527, align 8
-  %1529 = icmp ne i32 %1528, 0
-  br i1 %1529, label %1552, label %1530
+1538:                                             ; preds = %1532
+  %1539 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1540 = load i32, ptr %1539, align 8, !tbaa !23
+  %1541 = icmp ne i32 %1540, 0
+  br i1 %1541, label %1564, label %1542
 
-1530:                                             ; preds = %1526
-  %1531 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1532 = load i64, ptr %1531, align 8
-  %1533 = load ptr, ptr %4, align 8
-  %1534 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1533, i32 0, i32 5
-  store i64 %1532, ptr %1534, align 8
-  %1535 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1536 = load i32, ptr %1535, align 8
-  %1537 = load ptr, ptr %4, align 8
-  %1538 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1537, i32 0, i32 4
-  store i32 %1536, ptr %1538, align 4
-  %1539 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1540 = load i32, ptr %1539, align 8
-  %1541 = load ptr, ptr %3, align 8
-  %1542 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1541, i32 0, i32 1
-  store i32 %1540, ptr %1542, align 8
-  %1543 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1544 = load ptr, ptr %1543, align 8
-  %1545 = load ptr, ptr %3, align 8
-  %1546 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1545, i32 0, i32 0
-  store ptr %1544, ptr %1546, align 8
-  %1547 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1548 = load ptr, ptr %1547, align 8
-  %1549 = load ptr, ptr %4, align 8
-  %1550 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1549, i32 0, i32 10
-  store ptr %1548, ptr %1550, align 8
-  %1551 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %1551)
+1542:                                             ; preds = %1538
+  %1543 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1544 = load i64, ptr %1543, align 8, !tbaa !25
+  %1545 = load ptr, ptr %4, align 8, !tbaa !8
+  %1546 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1545, i32 0, i32 5
+  store i64 %1544, ptr %1546, align 8, !tbaa !24
+  %1547 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1548 = load i32, ptr %1547, align 8, !tbaa !27
+  %1549 = load ptr, ptr %4, align 8, !tbaa !8
+  %1550 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1549, i32 0, i32 4
+  store i32 %1548, ptr %1550, align 4, !tbaa !26
+  %1551 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1552 = load i32, ptr %1551, align 8, !tbaa !23
+  %1553 = load ptr, ptr %3, align 8, !tbaa !3
+  %1554 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1553, i32 0, i32 1
+  store i32 %1552, ptr %1554, align 8, !tbaa !22
+  %1555 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1556 = load ptr, ptr %1555, align 8, !tbaa !20
+  %1557 = load ptr, ptr %3, align 8, !tbaa !3
+  %1558 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1557, i32 0, i32 0
+  store ptr %1556, ptr %1558, align 8, !tbaa !12
+  %1559 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1560 = load ptr, ptr %1559, align 8, !tbaa !29
+  %1561 = load ptr, ptr %4, align 8, !tbaa !8
+  %1562 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1561, i32 0, i32 10
+  store ptr %1560, ptr %1562, align 8, !tbaa !28
+  %1563 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %1563)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-1552:                                             ; preds = %1526
-  %1553 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1554 = load i32, ptr %1553, align 8
-  %1555 = add i32 %1554, -1
-  store i32 %1555, ptr %1553, align 8
-  %1556 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1557 = load ptr, ptr %1556, align 8
-  %1558 = getelementptr inbounds i8, ptr %1557, i32 1
-  store ptr %1558, ptr %1556, align 8
-  %1559 = load i8, ptr %1557, align 1
-  %1560 = zext i8 %1559 to i64
-  %1561 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1562 = load i32, ptr %1561, align 8
-  %1563 = zext i32 %1562 to i64
-  %1564 = shl i64 %1560, %1563
-  %1565 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1566 = load i64, ptr %1565, align 8
-  %1567 = or i64 %1566, %1564
-  store i64 %1567, ptr %1565, align 8
-  %1568 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1569 = load i32, ptr %1568, align 8
-  %1570 = add i32 %1569, 8
-  store i32 %1570, ptr %1568, align 8
-  br label %1520
+1564:                                             ; preds = %1538
+  %1565 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1566 = load i32, ptr %1565, align 8, !tbaa !23
+  %1567 = add i32 %1566, -1
+  store i32 %1567, ptr %1565, align 8, !tbaa !23
+  %1568 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1569 = load ptr, ptr %1568, align 8, !tbaa !20
+  %1570 = getelementptr inbounds nuw i8, ptr %1569, i32 1
+  store ptr %1570, ptr %1568, align 8, !tbaa !20
+  %1571 = load i8, ptr %1569, align 1, !tbaa !34
+  %1572 = zext i8 %1571 to i64
+  %1573 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1574 = load i32, ptr %1573, align 8, !tbaa !27
+  %1575 = zext i32 %1574 to i64
+  %1576 = shl i64 %1572, %1575
+  %1577 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1578 = load i64, ptr %1577, align 8, !tbaa !25
+  %1579 = or i64 %1578, %1576
+  store i64 %1579, ptr %1577, align 8, !tbaa !25
+  %1580 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1581 = load i32, ptr %1580, align 8, !tbaa !27
+  %1582 = add i32 %1581, 8
+  store i32 %1582, ptr %1580, align 8, !tbaa !27
+  br label %1532
 
-1571:                                             ; preds = %1520
-  %1572 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1573 = load i64, ptr %1572, align 8
-  %1574 = trunc i64 %1573 to i32
-  %1575 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1576 = load i32, ptr %1575, align 8
-  %1577 = zext i32 %1576 to i64
-  %1578 = getelementptr inbounds [17 x i16], ptr @inflate_mask, i64 0, i64 %1577
-  %1579 = load i16, ptr %1578, align 2
-  %1580 = zext i16 %1579 to i32
-  %1581 = and i32 %1574, %1580
-  %1582 = load ptr, ptr %5, align 8
-  %1583 = getelementptr inbounds %struct.inflate_codes_state, ptr %1582, i32 0, i32 0
-  %1584 = load i32, ptr %1583, align 8
-  %1585 = add i32 %1584, %1581
-  store i32 %1585, ptr %1583, align 8
-  %1586 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1587 = load i32, ptr %1586, align 8
-  %1588 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1589 = load i64, ptr %1588, align 8
-  %1590 = zext i32 %1587 to i64
-  %1591 = lshr i64 %1589, %1590
-  store i64 %1591, ptr %1588, align 8
-  %1592 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1593 = load i32, ptr %1592, align 8
-  %1594 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1595 = load i32, ptr %1594, align 8
-  %1596 = sub i32 %1595, %1593
-  store i32 %1596, ptr %1594, align 8
-  %1597 = load ptr, ptr %5, align 8
-  %1598 = getelementptr inbounds %struct.inflate_codes_state, ptr %1597, i32 0, i32 3
-  %1599 = load i8, ptr %1598, align 1
-  %1600 = zext i8 %1599 to i32
-  %1601 = load ptr, ptr %5, align 8
-  %1602 = getelementptr inbounds %struct.inflate_codes_state, ptr %1601, i32 0, i32 1
-  %1603 = getelementptr inbounds %struct.anon.4, ptr %1602, i32 0, i32 1
-  store i32 %1600, ptr %1603, align 8
-  %1604 = load ptr, ptr %5, align 8
-  %1605 = getelementptr inbounds %struct.inflate_codes_state, ptr %1604, i32 0, i32 5
-  %1606 = load ptr, ptr %1605, align 8
-  %1607 = load ptr, ptr %5, align 8
-  %1608 = getelementptr inbounds %struct.inflate_codes_state, ptr %1607, i32 0, i32 1
-  %1609 = getelementptr inbounds %struct.anon.4, ptr %1608, i32 0, i32 0
-  store ptr %1606, ptr %1609, align 8
-  %1610 = load ptr, ptr %4, align 8
-  %1611 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1610, i32 0, i32 1
-  store i32 3, ptr %1611, align 8
-  br label %1612
+1583:                                             ; preds = %1532
+  %1584 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1585 = load i64, ptr %1584, align 8, !tbaa !25
+  %1586 = trunc i64 %1585 to i32
+  %1587 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1588 = load i32, ptr %1587, align 8, !tbaa !35
+  %1589 = zext i32 %1588 to i64
+  %1590 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %1589
+  %1591 = load i16, ptr %1590, align 2, !tbaa !43
+  %1592 = zext i16 %1591 to i32
+  %1593 = and i32 %1586, %1592
+  %1594 = load ptr, ptr %5, align 8, !tbaa !10
+  %1595 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1594, i32 0, i32 0
+  %1596 = load i32, ptr %1595, align 8, !tbaa !53
+  %1597 = add i32 %1596, %1593
+  store i32 %1597, ptr %1595, align 8, !tbaa !53
+  %1598 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1599 = load i32, ptr %1598, align 8, !tbaa !35
+  %1600 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1601 = load i64, ptr %1600, align 8, !tbaa !25
+  %1602 = zext i32 %1599 to i64
+  %1603 = lshr i64 %1601, %1602
+  store i64 %1603, ptr %1600, align 8, !tbaa !25
+  %1604 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1605 = load i32, ptr %1604, align 8, !tbaa !35
+  %1606 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1607 = load i32, ptr %1606, align 8, !tbaa !27
+  %1608 = sub i32 %1607, %1605
+  store i32 %1608, ptr %1606, align 8, !tbaa !27
+  %1609 = load ptr, ptr %5, align 8, !tbaa !10
+  %1610 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1609, i32 0, i32 3
+  %1611 = load i8, ptr %1610, align 1, !tbaa !54
+  %1612 = zext i8 %1611 to i32
+  %1613 = load ptr, ptr %5, align 8, !tbaa !10
+  %1614 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1613, i32 0, i32 1
+  %1615 = getelementptr inbounds nuw %struct.anon.4, ptr %1614, i32 0, i32 1
+  store i32 %1612, ptr %1615, align 8, !tbaa !34
+  %1616 = load ptr, ptr %5, align 8, !tbaa !10
+  %1617 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1616, i32 0, i32 5
+  %1618 = load ptr, ptr %1617, align 8, !tbaa !55
+  %1619 = load ptr, ptr %5, align 8, !tbaa !10
+  %1620 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1619, i32 0, i32 1
+  %1621 = getelementptr inbounds nuw %struct.anon.4, ptr %1620, i32 0, i32 0
+  store ptr %1618, ptr %1621, align 8, !tbaa !34
+  %1622 = load ptr, ptr %4, align 8, !tbaa !8
+  %1623 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1622, i32 0, i32 1
+  store i32 3, ptr %1623, align 8, !tbaa !33
+  br label %1624
 
-1612:                                             ; preds = %1571, %77
-  %1613 = load ptr, ptr %5, align 8
-  %1614 = getelementptr inbounds %struct.inflate_codes_state, ptr %1613, i32 0, i32 1
-  %1615 = getelementptr inbounds %struct.anon.4, ptr %1614, i32 0, i32 1
-  %1616 = load i32, ptr %1615, align 8
-  %1617 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %1616, ptr %1617, align 8
-  br label %1618
+1624:                                             ; preds = %78, %1583
+  %1625 = load ptr, ptr %5, align 8, !tbaa !10
+  %1626 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1625, i32 0, i32 1
+  %1627 = getelementptr inbounds nuw %struct.anon.4, ptr %1626, i32 0, i32 1
+  %1628 = load i32, ptr %1627, align 8, !tbaa !34
+  %1629 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %1628, ptr %1629, align 8, !tbaa !35
+  br label %1630
 
-1618:                                             ; preds = %1650, %1612
-  %1619 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1620 = load i32, ptr %1619, align 8
-  %1621 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1622 = load i32, ptr %1621, align 8
-  %1623 = icmp ult i32 %1620, %1622
-  br i1 %1623, label %1624, label %1669
+1630:                                             ; preds = %1662, %1624
+  %1631 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1632 = load i32, ptr %1631, align 8, !tbaa !27
+  %1633 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1634 = load i32, ptr %1633, align 8, !tbaa !35
+  %1635 = icmp ult i32 %1632, %1634
+  br i1 %1635, label %1636, label %1681
 
-1624:                                             ; preds = %1618
-  %1625 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1626 = load i32, ptr %1625, align 8
-  %1627 = icmp ne i32 %1626, 0
-  br i1 %1627, label %1650, label %1628
+1636:                                             ; preds = %1630
+  %1637 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1638 = load i32, ptr %1637, align 8, !tbaa !23
+  %1639 = icmp ne i32 %1638, 0
+  br i1 %1639, label %1662, label %1640
 
-1628:                                             ; preds = %1624
-  %1629 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1630 = load i64, ptr %1629, align 8
-  %1631 = load ptr, ptr %4, align 8
-  %1632 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1631, i32 0, i32 5
-  store i64 %1630, ptr %1632, align 8
-  %1633 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1634 = load i32, ptr %1633, align 8
-  %1635 = load ptr, ptr %4, align 8
-  %1636 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1635, i32 0, i32 4
-  store i32 %1634, ptr %1636, align 4
-  %1637 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1638 = load i32, ptr %1637, align 8
-  %1639 = load ptr, ptr %3, align 8
-  %1640 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1639, i32 0, i32 1
-  store i32 %1638, ptr %1640, align 8
-  %1641 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1642 = load ptr, ptr %1641, align 8
-  %1643 = load ptr, ptr %3, align 8
-  %1644 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1643, i32 0, i32 0
-  store ptr %1642, ptr %1644, align 8
-  %1645 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1646 = load ptr, ptr %1645, align 8
-  %1647 = load ptr, ptr %4, align 8
-  %1648 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1647, i32 0, i32 10
-  store ptr %1646, ptr %1648, align 8
-  %1649 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %1649)
+1640:                                             ; preds = %1636
+  %1641 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1642 = load i64, ptr %1641, align 8, !tbaa !25
+  %1643 = load ptr, ptr %4, align 8, !tbaa !8
+  %1644 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1643, i32 0, i32 5
+  store i64 %1642, ptr %1644, align 8, !tbaa !24
+  %1645 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1646 = load i32, ptr %1645, align 8, !tbaa !27
+  %1647 = load ptr, ptr %4, align 8, !tbaa !8
+  %1648 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1647, i32 0, i32 4
+  store i32 %1646, ptr %1648, align 4, !tbaa !26
+  %1649 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1650 = load i32, ptr %1649, align 8, !tbaa !23
+  %1651 = load ptr, ptr %3, align 8, !tbaa !3
+  %1652 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1651, i32 0, i32 1
+  store i32 %1650, ptr %1652, align 8, !tbaa !22
+  %1653 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1654 = load ptr, ptr %1653, align 8, !tbaa !20
+  %1655 = load ptr, ptr %3, align 8, !tbaa !3
+  %1656 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1655, i32 0, i32 0
+  store ptr %1654, ptr %1656, align 8, !tbaa !12
+  %1657 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1658 = load ptr, ptr %1657, align 8, !tbaa !29
+  %1659 = load ptr, ptr %4, align 8, !tbaa !8
+  %1660 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1659, i32 0, i32 10
+  store ptr %1658, ptr %1660, align 8, !tbaa !28
+  %1661 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %1661)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-1650:                                             ; preds = %1624
-  %1651 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1652 = load i32, ptr %1651, align 8
-  %1653 = add i32 %1652, -1
-  store i32 %1653, ptr %1651, align 8
-  %1654 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1655 = load ptr, ptr %1654, align 8
-  %1656 = getelementptr inbounds i8, ptr %1655, i32 1
-  store ptr %1656, ptr %1654, align 8
-  %1657 = load i8, ptr %1655, align 1
-  %1658 = zext i8 %1657 to i64
-  %1659 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1660 = load i32, ptr %1659, align 8
-  %1661 = zext i32 %1660 to i64
-  %1662 = shl i64 %1658, %1661
-  %1663 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1664 = load i64, ptr %1663, align 8
-  %1665 = or i64 %1664, %1662
-  store i64 %1665, ptr %1663, align 8
-  %1666 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1667 = load i32, ptr %1666, align 8
-  %1668 = add i32 %1667, 8
-  store i32 %1668, ptr %1666, align 8
-  br label %1618
+1662:                                             ; preds = %1636
+  %1663 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1664 = load i32, ptr %1663, align 8, !tbaa !23
+  %1665 = add i32 %1664, -1
+  store i32 %1665, ptr %1663, align 8, !tbaa !23
+  %1666 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1667 = load ptr, ptr %1666, align 8, !tbaa !20
+  %1668 = getelementptr inbounds nuw i8, ptr %1667, i32 1
+  store ptr %1668, ptr %1666, align 8, !tbaa !20
+  %1669 = load i8, ptr %1667, align 1, !tbaa !34
+  %1670 = zext i8 %1669 to i64
+  %1671 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1672 = load i32, ptr %1671, align 8, !tbaa !27
+  %1673 = zext i32 %1672 to i64
+  %1674 = shl i64 %1670, %1673
+  %1675 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1676 = load i64, ptr %1675, align 8, !tbaa !25
+  %1677 = or i64 %1676, %1674
+  store i64 %1677, ptr %1675, align 8, !tbaa !25
+  %1678 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1679 = load i32, ptr %1678, align 8, !tbaa !27
+  %1680 = add i32 %1679, 8
+  store i32 %1680, ptr %1678, align 8, !tbaa !27
+  br label %1630
 
-1669:                                             ; preds = %1618
-  %1670 = load ptr, ptr %5, align 8
-  %1671 = getelementptr inbounds %struct.inflate_codes_state, ptr %1670, i32 0, i32 1
-  %1672 = getelementptr inbounds %struct.anon.4, ptr %1671, i32 0, i32 0
-  %1673 = load ptr, ptr %1672, align 8
-  %1674 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1675 = load i64, ptr %1674, align 8
-  %1676 = trunc i64 %1675 to i32
-  %1677 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1678 = load i32, ptr %1677, align 8
-  %1679 = zext i32 %1678 to i64
-  %1680 = getelementptr inbounds [17 x i16], ptr @inflate_mask, i64 0, i64 %1679
-  %1681 = load i16, ptr %1680, align 2
-  %1682 = zext i16 %1681 to i32
-  %1683 = and i32 %1676, %1682
-  %1684 = zext i32 %1683 to i64
-  %1685 = getelementptr inbounds %struct.inflate_huft_s, ptr %1673, i64 %1684
-  %1686 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  store ptr %1685, ptr %1686, align 8
-  %1687 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1688 = load ptr, ptr %1687, align 8
-  %1689 = getelementptr inbounds %struct.inflate_huft_s, ptr %1688, i32 0, i32 0
-  %1690 = getelementptr inbounds %struct.anon, ptr %1689, i32 0, i32 1
-  %1691 = load i8, ptr %1690, align 1
-  %1692 = zext i8 %1691 to i32
-  %1693 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1694 = load i64, ptr %1693, align 8
-  %1695 = zext i32 %1692 to i64
-  %1696 = lshr i64 %1694, %1695
-  store i64 %1696, ptr %1693, align 8
-  %1697 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1698 = load ptr, ptr %1697, align 8
-  %1699 = getelementptr inbounds %struct.inflate_huft_s, ptr %1698, i32 0, i32 0
-  %1700 = getelementptr inbounds %struct.anon, ptr %1699, i32 0, i32 1
-  %1701 = load i8, ptr %1700, align 1
-  %1702 = zext i8 %1701 to i32
-  %1703 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1704 = load i32, ptr %1703, align 8
-  %1705 = sub i32 %1704, %1702
-  store i32 %1705, ptr %1703, align 8
-  %1706 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1707 = load ptr, ptr %1706, align 8
-  %1708 = getelementptr inbounds %struct.inflate_huft_s, ptr %1707, i32 0, i32 0
-  %1709 = getelementptr inbounds %struct.anon, ptr %1708, i32 0, i32 0
-  %1710 = load i8, ptr %1709, align 2
-  %1711 = zext i8 %1710 to i32
-  %1712 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  store i32 %1711, ptr %1712, align 8
-  %1713 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1714 = load i32, ptr %1713, align 8
-  %1715 = and i32 %1714, 16
-  %1716 = icmp ne i32 %1715, 0
-  br i1 %1716, label %1717, label %1734
+1681:                                             ; preds = %1630
+  %1682 = load ptr, ptr %5, align 8, !tbaa !10
+  %1683 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1682, i32 0, i32 1
+  %1684 = getelementptr inbounds nuw %struct.anon.4, ptr %1683, i32 0, i32 0
+  %1685 = load ptr, ptr %1684, align 8, !tbaa !34
+  %1686 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1687 = load i64, ptr %1686, align 8, !tbaa !25
+  %1688 = trunc i64 %1687 to i32
+  %1689 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1690 = load i32, ptr %1689, align 8, !tbaa !35
+  %1691 = zext i32 %1690 to i64
+  %1692 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %1691
+  %1693 = load i16, ptr %1692, align 2, !tbaa !43
+  %1694 = zext i16 %1693 to i32
+  %1695 = and i32 %1688, %1694
+  %1696 = zext i32 %1695 to i64
+  %1697 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1685, i64 %1696
+  %1698 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  store ptr %1697, ptr %1698, align 8, !tbaa !51
+  %1699 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1700 = load ptr, ptr %1699, align 8, !tbaa !51
+  %1701 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1700, i32 0, i32 0
+  %1702 = getelementptr inbounds nuw %struct.anon, ptr %1701, i32 0, i32 1
+  %1703 = load i8, ptr %1702, align 1, !tbaa !34
+  %1704 = zext i8 %1703 to i32
+  %1705 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1706 = load i64, ptr %1705, align 8, !tbaa !25
+  %1707 = zext i32 %1704 to i64
+  %1708 = lshr i64 %1706, %1707
+  store i64 %1708, ptr %1705, align 8, !tbaa !25
+  %1709 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1710 = load ptr, ptr %1709, align 8, !tbaa !51
+  %1711 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1710, i32 0, i32 0
+  %1712 = getelementptr inbounds nuw %struct.anon, ptr %1711, i32 0, i32 1
+  %1713 = load i8, ptr %1712, align 1, !tbaa !34
+  %1714 = zext i8 %1713 to i32
+  %1715 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1716 = load i32, ptr %1715, align 8, !tbaa !27
+  %1717 = sub i32 %1716, %1714
+  store i32 %1717, ptr %1715, align 8, !tbaa !27
+  %1718 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1719 = load ptr, ptr %1718, align 8, !tbaa !51
+  %1720 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1719, i32 0, i32 0
+  %1721 = getelementptr inbounds nuw %struct.anon, ptr %1720, i32 0, i32 0
+  %1722 = load i8, ptr %1721, align 2, !tbaa !34
+  %1723 = zext i8 %1722 to i32
+  %1724 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  store i32 %1723, ptr %1724, align 8, !tbaa !52
+  %1725 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1726 = load i32, ptr %1725, align 8, !tbaa !52
+  %1727 = and i32 %1726, 16
+  %1728 = icmp ne i32 %1727, 0
+  br i1 %1728, label %1729, label %1746
 
-1717:                                             ; preds = %1669
-  %1718 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1719 = load i32, ptr %1718, align 8
-  %1720 = and i32 %1719, 15
-  %1721 = load ptr, ptr %5, align 8
-  %1722 = getelementptr inbounds %struct.inflate_codes_state, ptr %1721, i32 0, i32 1
-  %1723 = getelementptr inbounds %struct.anon.5, ptr %1722, i32 0, i32 0
-  store i32 %1720, ptr %1723, align 8
-  %1724 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1725 = load ptr, ptr %1724, align 8
-  %1726 = getelementptr inbounds %struct.inflate_huft_s, ptr %1725, i32 0, i32 1
-  %1727 = load i16, ptr %1726, align 2
-  %1728 = zext i16 %1727 to i32
-  %1729 = load ptr, ptr %5, align 8
-  %1730 = getelementptr inbounds %struct.inflate_codes_state, ptr %1729, i32 0, i32 1
-  %1731 = getelementptr inbounds %struct.anon.5, ptr %1730, i32 0, i32 1
-  store i32 %1728, ptr %1731, align 4
-  %1732 = load ptr, ptr %4, align 8
-  %1733 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1732, i32 0, i32 1
-  store i32 4, ptr %1733, align 8
-  br label %2431
+1729:                                             ; preds = %1681
+  %1730 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1731 = load i32, ptr %1730, align 8, !tbaa !52
+  %1732 = and i32 %1731, 15
+  %1733 = load ptr, ptr %5, align 8, !tbaa !10
+  %1734 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1733, i32 0, i32 1
+  %1735 = getelementptr inbounds nuw %struct.anon.5, ptr %1734, i32 0, i32 0
+  store i32 %1732, ptr %1735, align 8, !tbaa !34
+  %1736 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1737 = load ptr, ptr %1736, align 8, !tbaa !51
+  %1738 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1737, i32 0, i32 1
+  %1739 = load i16, ptr %1738, align 2, !tbaa !46
+  %1740 = zext i16 %1739 to i32
+  %1741 = load ptr, ptr %5, align 8, !tbaa !10
+  %1742 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1741, i32 0, i32 1
+  %1743 = getelementptr inbounds nuw %struct.anon.5, ptr %1742, i32 0, i32 1
+  store i32 %1740, ptr %1743, align 4, !tbaa !34
+  %1744 = load ptr, ptr %4, align 8, !tbaa !8
+  %1745 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1744, i32 0, i32 1
+  store i32 4, ptr %1745, align 8, !tbaa !33
+  br label %2443
 
-1734:                                             ; preds = %1669
-  %1735 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1736 = load i32, ptr %1735, align 8
-  %1737 = and i32 %1736, 64
-  %1738 = icmp eq i32 %1737, 0
-  br i1 %1738, label %1739, label %1757
+1746:                                             ; preds = %1681
+  %1747 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1748 = load i32, ptr %1747, align 8, !tbaa !52
+  %1749 = and i32 %1748, 64
+  %1750 = icmp eq i32 %1749, 0
+  br i1 %1750, label %1751, label %1769
 
-1739:                                             ; preds = %1734
-  %1740 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 8
-  %1741 = load i32, ptr %1740, align 8
-  %1742 = load ptr, ptr %5, align 8
-  %1743 = getelementptr inbounds %struct.inflate_codes_state, ptr %1742, i32 0, i32 1
-  %1744 = getelementptr inbounds %struct.anon.4, ptr %1743, i32 0, i32 1
-  store i32 %1741, ptr %1744, align 8
-  %1745 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1746 = load ptr, ptr %1745, align 8
-  %1747 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 7
-  %1748 = load ptr, ptr %1747, align 8
-  %1749 = getelementptr inbounds %struct.inflate_huft_s, ptr %1748, i32 0, i32 1
-  %1750 = load i16, ptr %1749, align 2
-  %1751 = zext i16 %1750 to i32
-  %1752 = sext i32 %1751 to i64
-  %1753 = getelementptr inbounds %struct.inflate_huft_s, ptr %1746, i64 %1752
-  %1754 = load ptr, ptr %5, align 8
-  %1755 = getelementptr inbounds %struct.inflate_codes_state, ptr %1754, i32 0, i32 1
-  %1756 = getelementptr inbounds %struct.anon.4, ptr %1755, i32 0, i32 0
-  store ptr %1753, ptr %1756, align 8
-  br label %2431
+1751:                                             ; preds = %1746
+  %1752 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 8
+  %1753 = load i32, ptr %1752, align 8, !tbaa !52
+  %1754 = load ptr, ptr %5, align 8, !tbaa !10
+  %1755 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1754, i32 0, i32 1
+  %1756 = getelementptr inbounds nuw %struct.anon.4, ptr %1755, i32 0, i32 1
+  store i32 %1753, ptr %1756, align 8, !tbaa !34
+  %1757 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1758 = load ptr, ptr %1757, align 8, !tbaa !51
+  %1759 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 7
+  %1760 = load ptr, ptr %1759, align 8, !tbaa !51
+  %1761 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %1760, i32 0, i32 1
+  %1762 = load i16, ptr %1761, align 2, !tbaa !46
+  %1763 = zext i16 %1762 to i32
+  %1764 = sext i32 %1763 to i64
+  %1765 = getelementptr inbounds %struct.inflate_huft_s, ptr %1758, i64 %1764
+  %1766 = load ptr, ptr %5, align 8, !tbaa !10
+  %1767 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1766, i32 0, i32 1
+  %1768 = getelementptr inbounds nuw %struct.anon.4, ptr %1767, i32 0, i32 0
+  store ptr %1765, ptr %1768, align 8, !tbaa !34
+  br label %2443
 
-1757:                                             ; preds = %1734
-  br label %2407
+1769:                                             ; preds = %1746
+  br label %2419
 
-1758:                                             ; preds = %77
-  %1759 = load ptr, ptr %5, align 8
-  %1760 = getelementptr inbounds %struct.inflate_codes_state, ptr %1759, i32 0, i32 1
-  %1761 = getelementptr inbounds %struct.anon.5, ptr %1760, i32 0, i32 0
-  %1762 = load i32, ptr %1761, align 8
-  %1763 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  store i32 %1762, ptr %1763, align 8
-  br label %1764
+1770:                                             ; preds = %78
+  %1771 = load ptr, ptr %5, align 8, !tbaa !10
+  %1772 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1771, i32 0, i32 1
+  %1773 = getelementptr inbounds nuw %struct.anon.5, ptr %1772, i32 0, i32 0
+  %1774 = load i32, ptr %1773, align 8, !tbaa !34
+  %1775 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  store i32 %1774, ptr %1775, align 8, !tbaa !35
+  br label %1776
 
-1764:                                             ; preds = %1796, %1758
-  %1765 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1766 = load i32, ptr %1765, align 8
-  %1767 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1768 = load i32, ptr %1767, align 8
-  %1769 = icmp ult i32 %1766, %1768
-  br i1 %1769, label %1770, label %1815
+1776:                                             ; preds = %1808, %1770
+  %1777 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1778 = load i32, ptr %1777, align 8, !tbaa !27
+  %1779 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1780 = load i32, ptr %1779, align 8, !tbaa !35
+  %1781 = icmp ult i32 %1778, %1780
+  br i1 %1781, label %1782, label %1827
 
-1770:                                             ; preds = %1764
-  %1771 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1772 = load i32, ptr %1771, align 8
-  %1773 = icmp ne i32 %1772, 0
-  br i1 %1773, label %1796, label %1774
+1782:                                             ; preds = %1776
+  %1783 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1784 = load i32, ptr %1783, align 8, !tbaa !23
+  %1785 = icmp ne i32 %1784, 0
+  br i1 %1785, label %1808, label %1786
 
-1774:                                             ; preds = %1770
-  %1775 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1776 = load i64, ptr %1775, align 8
-  %1777 = load ptr, ptr %4, align 8
-  %1778 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1777, i32 0, i32 5
-  store i64 %1776, ptr %1778, align 8
-  %1779 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1780 = load i32, ptr %1779, align 8
-  %1781 = load ptr, ptr %4, align 8
-  %1782 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1781, i32 0, i32 4
-  store i32 %1780, ptr %1782, align 4
-  %1783 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1784 = load i32, ptr %1783, align 8
-  %1785 = load ptr, ptr %3, align 8
-  %1786 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1785, i32 0, i32 1
-  store i32 %1784, ptr %1786, align 8
-  %1787 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1788 = load ptr, ptr %1787, align 8
-  %1789 = load ptr, ptr %3, align 8
-  %1790 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %1789, i32 0, i32 0
-  store ptr %1788, ptr %1790, align 8
-  %1791 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1792 = load ptr, ptr %1791, align 8
-  %1793 = load ptr, ptr %4, align 8
-  %1794 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1793, i32 0, i32 10
-  store ptr %1792, ptr %1794, align 8
-  %1795 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %1795)
+1786:                                             ; preds = %1782
+  %1787 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1788 = load i64, ptr %1787, align 8, !tbaa !25
+  %1789 = load ptr, ptr %4, align 8, !tbaa !8
+  %1790 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1789, i32 0, i32 5
+  store i64 %1788, ptr %1790, align 8, !tbaa !24
+  %1791 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1792 = load i32, ptr %1791, align 8, !tbaa !27
+  %1793 = load ptr, ptr %4, align 8, !tbaa !8
+  %1794 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1793, i32 0, i32 4
+  store i32 %1792, ptr %1794, align 4, !tbaa !26
+  %1795 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1796 = load i32, ptr %1795, align 8, !tbaa !23
+  %1797 = load ptr, ptr %3, align 8, !tbaa !3
+  %1798 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1797, i32 0, i32 1
+  store i32 %1796, ptr %1798, align 8, !tbaa !22
+  %1799 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1800 = load ptr, ptr %1799, align 8, !tbaa !20
+  %1801 = load ptr, ptr %3, align 8, !tbaa !3
+  %1802 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %1801, i32 0, i32 0
+  store ptr %1800, ptr %1802, align 8, !tbaa !12
+  %1803 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1804 = load ptr, ptr %1803, align 8, !tbaa !29
+  %1805 = load ptr, ptr %4, align 8, !tbaa !8
+  %1806 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1805, i32 0, i32 10
+  store ptr %1804, ptr %1806, align 8, !tbaa !28
+  %1807 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %1807)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-1796:                                             ; preds = %1770
-  %1797 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %1798 = load i32, ptr %1797, align 8
-  %1799 = add i32 %1798, -1
-  store i32 %1799, ptr %1797, align 8
-  %1800 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %1801 = load ptr, ptr %1800, align 8
-  %1802 = getelementptr inbounds i8, ptr %1801, i32 1
-  store ptr %1802, ptr %1800, align 8
-  %1803 = load i8, ptr %1801, align 1
-  %1804 = zext i8 %1803 to i64
-  %1805 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1806 = load i32, ptr %1805, align 8
-  %1807 = zext i32 %1806 to i64
-  %1808 = shl i64 %1804, %1807
-  %1809 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1810 = load i64, ptr %1809, align 8
-  %1811 = or i64 %1810, %1808
-  store i64 %1811, ptr %1809, align 8
-  %1812 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1813 = load i32, ptr %1812, align 8
-  %1814 = add i32 %1813, 8
-  store i32 %1814, ptr %1812, align 8
-  br label %1764
+1808:                                             ; preds = %1782
+  %1809 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %1810 = load i32, ptr %1809, align 8, !tbaa !23
+  %1811 = add i32 %1810, -1
+  store i32 %1811, ptr %1809, align 8, !tbaa !23
+  %1812 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %1813 = load ptr, ptr %1812, align 8, !tbaa !20
+  %1814 = getelementptr inbounds nuw i8, ptr %1813, i32 1
+  store ptr %1814, ptr %1812, align 8, !tbaa !20
+  %1815 = load i8, ptr %1813, align 1, !tbaa !34
+  %1816 = zext i8 %1815 to i64
+  %1817 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1818 = load i32, ptr %1817, align 8, !tbaa !27
+  %1819 = zext i32 %1818 to i64
+  %1820 = shl i64 %1816, %1819
+  %1821 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1822 = load i64, ptr %1821, align 8, !tbaa !25
+  %1823 = or i64 %1822, %1820
+  store i64 %1823, ptr %1821, align 8, !tbaa !25
+  %1824 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1825 = load i32, ptr %1824, align 8, !tbaa !27
+  %1826 = add i32 %1825, 8
+  store i32 %1826, ptr %1824, align 8, !tbaa !27
+  br label %1776
 
-1815:                                             ; preds = %1764
-  %1816 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1817 = load i64, ptr %1816, align 8
-  %1818 = trunc i64 %1817 to i32
-  %1819 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1820 = load i32, ptr %1819, align 8
-  %1821 = zext i32 %1820 to i64
-  %1822 = getelementptr inbounds [17 x i16], ptr @inflate_mask, i64 0, i64 %1821
-  %1823 = load i16, ptr %1822, align 2
-  %1824 = zext i16 %1823 to i32
-  %1825 = and i32 %1818, %1824
-  %1826 = load ptr, ptr %5, align 8
-  %1827 = getelementptr inbounds %struct.inflate_codes_state, ptr %1826, i32 0, i32 1
-  %1828 = getelementptr inbounds %struct.anon.5, ptr %1827, i32 0, i32 1
-  %1829 = load i32, ptr %1828, align 4
-  %1830 = add i32 %1829, %1825
-  store i32 %1830, ptr %1828, align 4
-  %1831 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1832 = load i32, ptr %1831, align 8
-  %1833 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %1834 = load i64, ptr %1833, align 8
-  %1835 = zext i32 %1832 to i64
-  %1836 = lshr i64 %1834, %1835
-  store i64 %1836, ptr %1833, align 8
-  %1837 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 0
-  %1838 = load i32, ptr %1837, align 8
-  %1839 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %1840 = load i32, ptr %1839, align 8
-  %1841 = sub i32 %1840, %1838
-  store i32 %1841, ptr %1839, align 8
-  %1842 = load ptr, ptr %4, align 8
-  %1843 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1842, i32 0, i32 1
-  store i32 5, ptr %1843, align 8
-  br label %1844
+1827:                                             ; preds = %1776
+  %1828 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1829 = load i64, ptr %1828, align 8, !tbaa !25
+  %1830 = trunc i64 %1829 to i32
+  %1831 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1832 = load i32, ptr %1831, align 8, !tbaa !35
+  %1833 = zext i32 %1832 to i64
+  %1834 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %1833
+  %1835 = load i16, ptr %1834, align 2, !tbaa !43
+  %1836 = zext i16 %1835 to i32
+  %1837 = and i32 %1830, %1836
+  %1838 = load ptr, ptr %5, align 8, !tbaa !10
+  %1839 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1838, i32 0, i32 1
+  %1840 = getelementptr inbounds nuw %struct.anon.5, ptr %1839, i32 0, i32 1
+  %1841 = load i32, ptr %1840, align 4, !tbaa !34
+  %1842 = add i32 %1841, %1837
+  store i32 %1842, ptr %1840, align 4, !tbaa !34
+  %1843 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1844 = load i32, ptr %1843, align 8, !tbaa !35
+  %1845 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %1846 = load i64, ptr %1845, align 8, !tbaa !25
+  %1847 = zext i32 %1844 to i64
+  %1848 = lshr i64 %1846, %1847
+  store i64 %1848, ptr %1845, align 8, !tbaa !25
+  %1849 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 0
+  %1850 = load i32, ptr %1849, align 8, !tbaa !35
+  %1851 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %1852 = load i32, ptr %1851, align 8, !tbaa !27
+  %1853 = sub i32 %1852, %1850
+  store i32 %1853, ptr %1851, align 8, !tbaa !27
+  %1854 = load ptr, ptr %4, align 8, !tbaa !8
+  %1855 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1854, i32 0, i32 1
+  store i32 5, ptr %1855, align 8, !tbaa !33
+  br label %1856
 
-1844:                                             ; preds = %1815, %77
-  %1845 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1846 = load ptr, ptr %1845, align 8
-  %1847 = load ptr, ptr %4, align 8
-  %1848 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1847, i32 0, i32 7
-  %1849 = getelementptr inbounds [32768 x i8], ptr %1848, i64 0, i64 0
-  %1850 = ptrtoint ptr %1846 to i64
-  %1851 = ptrtoint ptr %1849 to i64
-  %1852 = sub i64 %1850, %1851
-  %1853 = trunc i64 %1852 to i32
-  %1854 = load ptr, ptr %5, align 8
-  %1855 = getelementptr inbounds %struct.inflate_codes_state, ptr %1854, i32 0, i32 1
-  %1856 = getelementptr inbounds %struct.anon.5, ptr %1855, i32 0, i32 1
-  %1857 = load i32, ptr %1856, align 4
-  %1858 = icmp ult i32 %1853, %1857
-  br i1 %1858, label %1859, label %1879
+1856:                                             ; preds = %78, %1827
+  %1857 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1858 = load ptr, ptr %1857, align 8, !tbaa !29
+  %1859 = load ptr, ptr %4, align 8, !tbaa !8
+  %1860 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1859, i32 0, i32 7
+  %1861 = getelementptr inbounds [32768 x i8], ptr %1860, i64 0, i64 0
+  %1862 = ptrtoint ptr %1858 to i64
+  %1863 = ptrtoint ptr %1861 to i64
+  %1864 = sub i64 %1862, %1863
+  %1865 = trunc i64 %1864 to i32
+  %1866 = load ptr, ptr %5, align 8, !tbaa !10
+  %1867 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1866, i32 0, i32 1
+  %1868 = getelementptr inbounds nuw %struct.anon.5, ptr %1867, i32 0, i32 1
+  %1869 = load i32, ptr %1868, align 4, !tbaa !34
+  %1870 = icmp ult i32 %1865, %1869
+  br i1 %1870, label %1871, label %1891
 
-1859:                                             ; preds = %1844
-  %1860 = load ptr, ptr %4, align 8
-  %1861 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1860, i32 0, i32 8
-  %1862 = load ptr, ptr %1861, align 8
-  %1863 = load ptr, ptr %5, align 8
-  %1864 = getelementptr inbounds %struct.inflate_codes_state, ptr %1863, i32 0, i32 1
-  %1865 = getelementptr inbounds %struct.anon.5, ptr %1864, i32 0, i32 1
-  %1866 = load i32, ptr %1865, align 4
-  %1867 = zext i32 %1866 to i64
-  %1868 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1869 = load ptr, ptr %1868, align 8
-  %1870 = load ptr, ptr %4, align 8
-  %1871 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1870, i32 0, i32 7
-  %1872 = getelementptr inbounds [32768 x i8], ptr %1871, i64 0, i64 0
-  %1873 = ptrtoint ptr %1869 to i64
-  %1874 = ptrtoint ptr %1872 to i64
-  %1875 = sub i64 %1873, %1874
-  %1876 = sub nsw i64 %1867, %1875
-  %1877 = sub i64 0, %1876
-  %1878 = getelementptr inbounds i8, ptr %1862, i64 %1877
-  br label %1889
+1871:                                             ; preds = %1856
+  %1872 = load ptr, ptr %4, align 8, !tbaa !8
+  %1873 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1872, i32 0, i32 8
+  %1874 = load ptr, ptr %1873, align 8, !tbaa !31
+  %1875 = load ptr, ptr %5, align 8, !tbaa !10
+  %1876 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1875, i32 0, i32 1
+  %1877 = getelementptr inbounds nuw %struct.anon.5, ptr %1876, i32 0, i32 1
+  %1878 = load i32, ptr %1877, align 4, !tbaa !34
+  %1879 = zext i32 %1878 to i64
+  %1880 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1881 = load ptr, ptr %1880, align 8, !tbaa !29
+  %1882 = load ptr, ptr %4, align 8, !tbaa !8
+  %1883 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1882, i32 0, i32 7
+  %1884 = getelementptr inbounds [32768 x i8], ptr %1883, i64 0, i64 0
+  %1885 = ptrtoint ptr %1881 to i64
+  %1886 = ptrtoint ptr %1884 to i64
+  %1887 = sub i64 %1885, %1886
+  %1888 = sub nsw i64 %1879, %1887
+  %1889 = sub i64 0, %1888
+  %1890 = getelementptr inbounds i8, ptr %1874, i64 %1889
+  br label %1901
 
-1879:                                             ; preds = %1844
-  %1880 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1881 = load ptr, ptr %1880, align 8
-  %1882 = load ptr, ptr %5, align 8
-  %1883 = getelementptr inbounds %struct.inflate_codes_state, ptr %1882, i32 0, i32 1
-  %1884 = getelementptr inbounds %struct.anon.5, ptr %1883, i32 0, i32 1
-  %1885 = load i32, ptr %1884, align 4
-  %1886 = zext i32 %1885 to i64
-  %1887 = sub i64 0, %1886
-  %1888 = getelementptr inbounds i8, ptr %1881, i64 %1887
-  br label %1889
+1891:                                             ; preds = %1856
+  %1892 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1893 = load ptr, ptr %1892, align 8, !tbaa !29
+  %1894 = load ptr, ptr %5, align 8, !tbaa !10
+  %1895 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1894, i32 0, i32 1
+  %1896 = getelementptr inbounds nuw %struct.anon.5, ptr %1895, i32 0, i32 1
+  %1897 = load i32, ptr %1896, align 4, !tbaa !34
+  %1898 = zext i32 %1897 to i64
+  %1899 = sub i64 0, %1898
+  %1900 = getelementptr inbounds i8, ptr %1893, i64 %1899
+  br label %1901
 
-1889:                                             ; preds = %1879, %1859
-  %1890 = phi ptr [ %1878, %1859 ], [ %1888, %1879 ]
-  %1891 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 9
-  store ptr %1890, ptr %1891, align 8
-  br label %1892
+1901:                                             ; preds = %1891, %1871
+  %1902 = phi ptr [ %1890, %1871 ], [ %1900, %1891 ]
+  %1903 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 9
+  store ptr %1902, ptr %1903, align 8, !tbaa !56
+  br label %1904
 
-1892:                                             ; preds = %2091, %1889
-  %1893 = load ptr, ptr %5, align 8
-  %1894 = getelementptr inbounds %struct.inflate_codes_state, ptr %1893, i32 0, i32 0
-  %1895 = load i32, ptr %1894, align 8
-  %1896 = icmp ne i32 %1895, 0
-  br i1 %1896, label %1897, label %2096
+1904:                                             ; preds = %2103, %1901
+  %1905 = load ptr, ptr %5, align 8, !tbaa !10
+  %1906 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %1905, i32 0, i32 0
+  %1907 = load i32, ptr %1906, align 8, !tbaa !53
+  %1908 = icmp ne i32 %1907, 0
+  br i1 %1908, label %1909, label %2108
 
-1897:                                             ; preds = %1892
-  %1898 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %1899 = load i32, ptr %1898, align 8
-  %1900 = icmp eq i32 %1899, 0
-  br i1 %1900, label %1901, label %2069
+1909:                                             ; preds = %1904
+  %1910 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %1911 = load i32, ptr %1910, align 8, !tbaa !32
+  %1912 = icmp eq i32 %1911, 0
+  br i1 %1912, label %1913, label %2081
 
-1901:                                             ; preds = %1897
-  %1902 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1903 = load ptr, ptr %1902, align 8
-  %1904 = load ptr, ptr %4, align 8
-  %1905 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1904, i32 0, i32 8
-  %1906 = load ptr, ptr %1905, align 8
-  %1907 = icmp eq ptr %1903, %1906
-  br i1 %1907, label %1908, label %1950
+1913:                                             ; preds = %1909
+  %1914 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1915 = load ptr, ptr %1914, align 8, !tbaa !29
+  %1916 = load ptr, ptr %4, align 8, !tbaa !8
+  %1917 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1916, i32 0, i32 8
+  %1918 = load ptr, ptr %1917, align 8, !tbaa !31
+  %1919 = icmp eq ptr %1915, %1918
+  br i1 %1919, label %1920, label %1962
 
-1908:                                             ; preds = %1901
-  %1909 = load ptr, ptr %4, align 8
-  %1910 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1909, i32 0, i32 9
-  %1911 = load ptr, ptr %1910, align 8
-  %1912 = load ptr, ptr %4, align 8
-  %1913 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1912, i32 0, i32 7
-  %1914 = getelementptr inbounds [32768 x i8], ptr %1913, i64 0, i64 0
-  %1915 = icmp ne ptr %1911, %1914
-  br i1 %1915, label %1916, label %1950
+1920:                                             ; preds = %1913
+  %1921 = load ptr, ptr %4, align 8, !tbaa !8
+  %1922 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1921, i32 0, i32 9
+  %1923 = load ptr, ptr %1922, align 8, !tbaa !30
+  %1924 = load ptr, ptr %4, align 8, !tbaa !8
+  %1925 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1924, i32 0, i32 7
+  %1926 = getelementptr inbounds [32768 x i8], ptr %1925, i64 0, i64 0
+  %1927 = icmp ne ptr %1923, %1926
+  br i1 %1927, label %1928, label %1962
 
-1916:                                             ; preds = %1908
-  %1917 = load ptr, ptr %4, align 8
-  %1918 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1917, i32 0, i32 7
-  %1919 = getelementptr inbounds [32768 x i8], ptr %1918, i64 0, i64 0
-  %1920 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %1919, ptr %1920, align 8
-  %1921 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1922 = load ptr, ptr %1921, align 8
-  %1923 = load ptr, ptr %4, align 8
-  %1924 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1923, i32 0, i32 9
-  %1925 = load ptr, ptr %1924, align 8
-  %1926 = icmp ult ptr %1922, %1925
-  br i1 %1926, label %1927, label %1937
+1928:                                             ; preds = %1920
+  %1929 = load ptr, ptr %4, align 8, !tbaa !8
+  %1930 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1929, i32 0, i32 7
+  %1931 = getelementptr inbounds [32768 x i8], ptr %1930, i64 0, i64 0
+  %1932 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %1931, ptr %1932, align 8, !tbaa !29
+  %1933 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1934 = load ptr, ptr %1933, align 8, !tbaa !29
+  %1935 = load ptr, ptr %4, align 8, !tbaa !8
+  %1936 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1935, i32 0, i32 9
+  %1937 = load ptr, ptr %1936, align 8, !tbaa !30
+  %1938 = icmp ult ptr %1934, %1937
+  br i1 %1938, label %1939, label %1949
 
-1927:                                             ; preds = %1916
-  %1928 = load ptr, ptr %4, align 8
-  %1929 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1928, i32 0, i32 9
-  %1930 = load ptr, ptr %1929, align 8
-  %1931 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1932 = load ptr, ptr %1931, align 8
-  %1933 = ptrtoint ptr %1930 to i64
-  %1934 = ptrtoint ptr %1932 to i64
-  %1935 = sub i64 %1933, %1934
-  %1936 = sub nsw i64 %1935, 1
-  br label %1946
+1939:                                             ; preds = %1928
+  %1940 = load ptr, ptr %4, align 8, !tbaa !8
+  %1941 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1940, i32 0, i32 9
+  %1942 = load ptr, ptr %1941, align 8, !tbaa !30
+  %1943 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1944 = load ptr, ptr %1943, align 8, !tbaa !29
+  %1945 = ptrtoint ptr %1942 to i64
+  %1946 = ptrtoint ptr %1944 to i64
+  %1947 = sub i64 %1945, %1946
+  %1948 = sub nsw i64 %1947, 1
+  br label %1958
 
-1937:                                             ; preds = %1916
-  %1938 = load ptr, ptr %4, align 8
-  %1939 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1938, i32 0, i32 8
-  %1940 = load ptr, ptr %1939, align 8
-  %1941 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1942 = load ptr, ptr %1941, align 8
-  %1943 = ptrtoint ptr %1940 to i64
-  %1944 = ptrtoint ptr %1942 to i64
-  %1945 = sub i64 %1943, %1944
-  br label %1946
+1949:                                             ; preds = %1928
+  %1950 = load ptr, ptr %4, align 8, !tbaa !8
+  %1951 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1950, i32 0, i32 8
+  %1952 = load ptr, ptr %1951, align 8, !tbaa !31
+  %1953 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1954 = load ptr, ptr %1953, align 8, !tbaa !29
+  %1955 = ptrtoint ptr %1952 to i64
+  %1956 = ptrtoint ptr %1954 to i64
+  %1957 = sub i64 %1955, %1956
+  br label %1958
 
-1946:                                             ; preds = %1937, %1927
-  %1947 = phi i64 [ %1936, %1927 ], [ %1945, %1937 ]
-  %1948 = trunc i64 %1947 to i32
-  %1949 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %1948, ptr %1949, align 8
-  br label %1950
+1958:                                             ; preds = %1949, %1939
+  %1959 = phi i64 [ %1948, %1939 ], [ %1957, %1949 ]
+  %1960 = trunc i64 %1959 to i32
+  %1961 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %1960, ptr %1961, align 8, !tbaa !32
+  br label %1962
 
-1950:                                             ; preds = %1946, %1908, %1901
-  %1951 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %1952 = load i32, ptr %1951, align 8
-  %1953 = icmp eq i32 %1952, 0
-  br i1 %1953, label %1954, label %2068
+1962:                                             ; preds = %1958, %1920, %1913
+  %1963 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %1964 = load i32, ptr %1963, align 8, !tbaa !32
+  %1965 = icmp eq i32 %1964, 0
+  br i1 %1965, label %1966, label %2080
 
-1954:                                             ; preds = %1950
-  %1955 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1956 = load ptr, ptr %1955, align 8
-  %1957 = load ptr, ptr %4, align 8
-  %1958 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1957, i32 0, i32 10
-  store ptr %1956, ptr %1958, align 8
-  %1959 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %1959)
-  %1960 = load ptr, ptr %4, align 8
-  %1961 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1960, i32 0, i32 10
-  %1962 = load ptr, ptr %1961, align 8
-  %1963 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %1962, ptr %1963, align 8
-  %1964 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1965 = load ptr, ptr %1964, align 8
-  %1966 = load ptr, ptr %4, align 8
-  %1967 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1966, i32 0, i32 9
-  %1968 = load ptr, ptr %1967, align 8
-  %1969 = icmp ult ptr %1965, %1968
-  br i1 %1969, label %1970, label %1980
+1966:                                             ; preds = %1962
+  %1967 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1968 = load ptr, ptr %1967, align 8, !tbaa !29
+  %1969 = load ptr, ptr %4, align 8, !tbaa !8
+  %1970 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1969, i32 0, i32 10
+  store ptr %1968, ptr %1970, align 8, !tbaa !28
+  %1971 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %1971)
+  %1972 = load ptr, ptr %4, align 8, !tbaa !8
+  %1973 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1972, i32 0, i32 10
+  %1974 = load ptr, ptr %1973, align 8, !tbaa !28
+  %1975 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %1974, ptr %1975, align 8, !tbaa !29
+  %1976 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1977 = load ptr, ptr %1976, align 8, !tbaa !29
+  %1978 = load ptr, ptr %4, align 8, !tbaa !8
+  %1979 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1978, i32 0, i32 9
+  %1980 = load ptr, ptr %1979, align 8, !tbaa !30
+  %1981 = icmp ult ptr %1977, %1980
+  br i1 %1981, label %1982, label %1992
 
-1970:                                             ; preds = %1954
-  %1971 = load ptr, ptr %4, align 8
-  %1972 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1971, i32 0, i32 9
-  %1973 = load ptr, ptr %1972, align 8
-  %1974 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1975 = load ptr, ptr %1974, align 8
-  %1976 = ptrtoint ptr %1973 to i64
-  %1977 = ptrtoint ptr %1975 to i64
-  %1978 = sub i64 %1976, %1977
-  %1979 = sub nsw i64 %1978, 1
-  br label %1989
+1982:                                             ; preds = %1966
+  %1983 = load ptr, ptr %4, align 8, !tbaa !8
+  %1984 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1983, i32 0, i32 9
+  %1985 = load ptr, ptr %1984, align 8, !tbaa !30
+  %1986 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1987 = load ptr, ptr %1986, align 8, !tbaa !29
+  %1988 = ptrtoint ptr %1985 to i64
+  %1989 = ptrtoint ptr %1987 to i64
+  %1990 = sub i64 %1988, %1989
+  %1991 = sub nsw i64 %1990, 1
+  br label %2001
 
-1980:                                             ; preds = %1954
-  %1981 = load ptr, ptr %4, align 8
-  %1982 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1981, i32 0, i32 8
-  %1983 = load ptr, ptr %1982, align 8
-  %1984 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1985 = load ptr, ptr %1984, align 8
-  %1986 = ptrtoint ptr %1983 to i64
-  %1987 = ptrtoint ptr %1985 to i64
-  %1988 = sub i64 %1986, %1987
-  br label %1989
+1992:                                             ; preds = %1966
+  %1993 = load ptr, ptr %4, align 8, !tbaa !8
+  %1994 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %1993, i32 0, i32 8
+  %1995 = load ptr, ptr %1994, align 8, !tbaa !31
+  %1996 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %1997 = load ptr, ptr %1996, align 8, !tbaa !29
+  %1998 = ptrtoint ptr %1995 to i64
+  %1999 = ptrtoint ptr %1997 to i64
+  %2000 = sub i64 %1998, %1999
+  br label %2001
 
-1989:                                             ; preds = %1980, %1970
-  %1990 = phi i64 [ %1979, %1970 ], [ %1988, %1980 ]
-  %1991 = trunc i64 %1990 to i32
-  %1992 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %1991, ptr %1992, align 8
-  %1993 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %1994 = load ptr, ptr %1993, align 8
-  %1995 = load ptr, ptr %4, align 8
-  %1996 = getelementptr inbounds %struct.inflate_blocks_state, ptr %1995, i32 0, i32 8
-  %1997 = load ptr, ptr %1996, align 8
-  %1998 = icmp eq ptr %1994, %1997
-  br i1 %1998, label %1999, label %2041
+2001:                                             ; preds = %1992, %1982
+  %2002 = phi i64 [ %1991, %1982 ], [ %2000, %1992 ]
+  %2003 = trunc i64 %2002 to i32
+  %2004 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %2003, ptr %2004, align 8, !tbaa !32
+  %2005 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2006 = load ptr, ptr %2005, align 8, !tbaa !29
+  %2007 = load ptr, ptr %4, align 8, !tbaa !8
+  %2008 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2007, i32 0, i32 8
+  %2009 = load ptr, ptr %2008, align 8, !tbaa !31
+  %2010 = icmp eq ptr %2006, %2009
+  br i1 %2010, label %2011, label %2053
 
-1999:                                             ; preds = %1989
-  %2000 = load ptr, ptr %4, align 8
-  %2001 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2000, i32 0, i32 9
-  %2002 = load ptr, ptr %2001, align 8
-  %2003 = load ptr, ptr %4, align 8
-  %2004 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2003, i32 0, i32 7
-  %2005 = getelementptr inbounds [32768 x i8], ptr %2004, i64 0, i64 0
-  %2006 = icmp ne ptr %2002, %2005
-  br i1 %2006, label %2007, label %2041
+2011:                                             ; preds = %2001
+  %2012 = load ptr, ptr %4, align 8, !tbaa !8
+  %2013 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2012, i32 0, i32 9
+  %2014 = load ptr, ptr %2013, align 8, !tbaa !30
+  %2015 = load ptr, ptr %4, align 8, !tbaa !8
+  %2016 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2015, i32 0, i32 7
+  %2017 = getelementptr inbounds [32768 x i8], ptr %2016, i64 0, i64 0
+  %2018 = icmp ne ptr %2014, %2017
+  br i1 %2018, label %2019, label %2053
 
-2007:                                             ; preds = %1999
-  %2008 = load ptr, ptr %4, align 8
-  %2009 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2008, i32 0, i32 7
-  %2010 = getelementptr inbounds [32768 x i8], ptr %2009, i64 0, i64 0
-  %2011 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %2010, ptr %2011, align 8
-  %2012 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2013 = load ptr, ptr %2012, align 8
-  %2014 = load ptr, ptr %4, align 8
-  %2015 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2014, i32 0, i32 9
-  %2016 = load ptr, ptr %2015, align 8
-  %2017 = icmp ult ptr %2013, %2016
-  br i1 %2017, label %2018, label %2028
+2019:                                             ; preds = %2011
+  %2020 = load ptr, ptr %4, align 8, !tbaa !8
+  %2021 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2020, i32 0, i32 7
+  %2022 = getelementptr inbounds [32768 x i8], ptr %2021, i64 0, i64 0
+  %2023 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %2022, ptr %2023, align 8, !tbaa !29
+  %2024 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2025 = load ptr, ptr %2024, align 8, !tbaa !29
+  %2026 = load ptr, ptr %4, align 8, !tbaa !8
+  %2027 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2026, i32 0, i32 9
+  %2028 = load ptr, ptr %2027, align 8, !tbaa !30
+  %2029 = icmp ult ptr %2025, %2028
+  br i1 %2029, label %2030, label %2040
 
-2018:                                             ; preds = %2007
-  %2019 = load ptr, ptr %4, align 8
-  %2020 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2019, i32 0, i32 9
-  %2021 = load ptr, ptr %2020, align 8
-  %2022 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2023 = load ptr, ptr %2022, align 8
-  %2024 = ptrtoint ptr %2021 to i64
-  %2025 = ptrtoint ptr %2023 to i64
-  %2026 = sub i64 %2024, %2025
-  %2027 = sub nsw i64 %2026, 1
-  br label %2037
+2030:                                             ; preds = %2019
+  %2031 = load ptr, ptr %4, align 8, !tbaa !8
+  %2032 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2031, i32 0, i32 9
+  %2033 = load ptr, ptr %2032, align 8, !tbaa !30
+  %2034 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2035 = load ptr, ptr %2034, align 8, !tbaa !29
+  %2036 = ptrtoint ptr %2033 to i64
+  %2037 = ptrtoint ptr %2035 to i64
+  %2038 = sub i64 %2036, %2037
+  %2039 = sub nsw i64 %2038, 1
+  br label %2049
 
-2028:                                             ; preds = %2007
-  %2029 = load ptr, ptr %4, align 8
-  %2030 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2029, i32 0, i32 8
-  %2031 = load ptr, ptr %2030, align 8
-  %2032 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2033 = load ptr, ptr %2032, align 8
-  %2034 = ptrtoint ptr %2031 to i64
-  %2035 = ptrtoint ptr %2033 to i64
-  %2036 = sub i64 %2034, %2035
-  br label %2037
+2040:                                             ; preds = %2019
+  %2041 = load ptr, ptr %4, align 8, !tbaa !8
+  %2042 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2041, i32 0, i32 8
+  %2043 = load ptr, ptr %2042, align 8, !tbaa !31
+  %2044 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2045 = load ptr, ptr %2044, align 8, !tbaa !29
+  %2046 = ptrtoint ptr %2043 to i64
+  %2047 = ptrtoint ptr %2045 to i64
+  %2048 = sub i64 %2046, %2047
+  br label %2049
 
-2037:                                             ; preds = %2028, %2018
-  %2038 = phi i64 [ %2027, %2018 ], [ %2036, %2028 ]
-  %2039 = trunc i64 %2038 to i32
-  %2040 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %2039, ptr %2040, align 8
-  br label %2041
+2049:                                             ; preds = %2040, %2030
+  %2050 = phi i64 [ %2039, %2030 ], [ %2048, %2040 ]
+  %2051 = trunc i64 %2050 to i32
+  %2052 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %2051, ptr %2052, align 8, !tbaa !32
+  br label %2053
 
-2041:                                             ; preds = %2037, %1999, %1989
-  %2042 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %2043 = load i32, ptr %2042, align 8
-  %2044 = icmp eq i32 %2043, 0
-  br i1 %2044, label %2045, label %2067
+2053:                                             ; preds = %2049, %2011, %2001
+  %2054 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %2055 = load i32, ptr %2054, align 8, !tbaa !32
+  %2056 = icmp eq i32 %2055, 0
+  br i1 %2056, label %2057, label %2079
 
-2045:                                             ; preds = %2041
-  %2046 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %2047 = load i64, ptr %2046, align 8
-  %2048 = load ptr, ptr %4, align 8
-  %2049 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2048, i32 0, i32 5
-  store i64 %2047, ptr %2049, align 8
-  %2050 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %2051 = load i32, ptr %2050, align 8
-  %2052 = load ptr, ptr %4, align 8
-  %2053 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2052, i32 0, i32 4
-  store i32 %2051, ptr %2053, align 4
-  %2054 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %2055 = load i32, ptr %2054, align 8
-  %2056 = load ptr, ptr %3, align 8
-  %2057 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2056, i32 0, i32 1
-  store i32 %2055, ptr %2057, align 8
-  %2058 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %2059 = load ptr, ptr %2058, align 8
-  %2060 = load ptr, ptr %3, align 8
-  %2061 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2060, i32 0, i32 0
-  store ptr %2059, ptr %2061, align 8
-  %2062 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2063 = load ptr, ptr %2062, align 8
-  %2064 = load ptr, ptr %4, align 8
-  %2065 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2064, i32 0, i32 10
-  store ptr %2063, ptr %2065, align 8
-  %2066 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %2066)
+2057:                                             ; preds = %2053
+  %2058 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %2059 = load i64, ptr %2058, align 8, !tbaa !25
+  %2060 = load ptr, ptr %4, align 8, !tbaa !8
+  %2061 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2060, i32 0, i32 5
+  store i64 %2059, ptr %2061, align 8, !tbaa !24
+  %2062 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %2063 = load i32, ptr %2062, align 8, !tbaa !27
+  %2064 = load ptr, ptr %4, align 8, !tbaa !8
+  %2065 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2064, i32 0, i32 4
+  store i32 %2063, ptr %2065, align 4, !tbaa !26
+  %2066 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %2067 = load i32, ptr %2066, align 8, !tbaa !23
+  %2068 = load ptr, ptr %3, align 8, !tbaa !3
+  %2069 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2068, i32 0, i32 1
+  store i32 %2067, ptr %2069, align 8, !tbaa !22
+  %2070 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %2071 = load ptr, ptr %2070, align 8, !tbaa !20
+  %2072 = load ptr, ptr %3, align 8, !tbaa !3
+  %2073 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2072, i32 0, i32 0
+  store ptr %2071, ptr %2073, align 8, !tbaa !12
+  %2074 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2075 = load ptr, ptr %2074, align 8, !tbaa !29
+  %2076 = load ptr, ptr %4, align 8, !tbaa !8
+  %2077 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2076, i32 0, i32 10
+  store ptr %2075, ptr %2077, align 8, !tbaa !28
+  %2078 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %2078)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-2067:                                             ; preds = %2041
-  br label %2068
+2079:                                             ; preds = %2053
+  br label %2080
 
-2068:                                             ; preds = %2067, %1950
-  br label %2069
+2080:                                             ; preds = %2079, %1962
+  br label %2081
 
-2069:                                             ; preds = %2068, %1897
-  %2070 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 9
-  %2071 = load ptr, ptr %2070, align 8
-  %2072 = getelementptr inbounds i8, ptr %2071, i32 1
-  store ptr %2072, ptr %2070, align 8
-  %2073 = load i8, ptr %2071, align 1
-  %2074 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2075 = load ptr, ptr %2074, align 8
-  %2076 = getelementptr inbounds i8, ptr %2075, i32 1
-  store ptr %2076, ptr %2074, align 8
-  store i8 %2073, ptr %2075, align 1
-  %2077 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %2078 = load i32, ptr %2077, align 8
-  %2079 = add i32 %2078, -1
-  store i32 %2079, ptr %2077, align 8
-  %2080 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 9
-  %2081 = load ptr, ptr %2080, align 8
-  %2082 = load ptr, ptr %4, align 8
-  %2083 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2082, i32 0, i32 8
-  %2084 = load ptr, ptr %2083, align 8
-  %2085 = icmp eq ptr %2081, %2084
-  br i1 %2085, label %2086, label %2091
+2081:                                             ; preds = %2080, %1909
+  %2082 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 9
+  %2083 = load ptr, ptr %2082, align 8, !tbaa !56
+  %2084 = getelementptr inbounds nuw i8, ptr %2083, i32 1
+  store ptr %2084, ptr %2082, align 8, !tbaa !56
+  %2085 = load i8, ptr %2083, align 1, !tbaa !34
+  %2086 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2087 = load ptr, ptr %2086, align 8, !tbaa !29
+  %2088 = getelementptr inbounds nuw i8, ptr %2087, i32 1
+  store ptr %2088, ptr %2086, align 8, !tbaa !29
+  store i8 %2085, ptr %2087, align 1, !tbaa !34
+  %2089 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %2090 = load i32, ptr %2089, align 8, !tbaa !32
+  %2091 = add i32 %2090, -1
+  store i32 %2091, ptr %2089, align 8, !tbaa !32
+  %2092 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 9
+  %2093 = load ptr, ptr %2092, align 8, !tbaa !56
+  %2094 = load ptr, ptr %4, align 8, !tbaa !8
+  %2095 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2094, i32 0, i32 8
+  %2096 = load ptr, ptr %2095, align 8, !tbaa !31
+  %2097 = icmp eq ptr %2093, %2096
+  br i1 %2097, label %2098, label %2103
 
-2086:                                             ; preds = %2069
-  %2087 = load ptr, ptr %4, align 8
-  %2088 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2087, i32 0, i32 7
-  %2089 = getelementptr inbounds [32768 x i8], ptr %2088, i64 0, i64 0
-  %2090 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 9
-  store ptr %2089, ptr %2090, align 8
-  br label %2091
+2098:                                             ; preds = %2081
+  %2099 = load ptr, ptr %4, align 8, !tbaa !8
+  %2100 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2099, i32 0, i32 7
+  %2101 = getelementptr inbounds [32768 x i8], ptr %2100, i64 0, i64 0
+  %2102 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 9
+  store ptr %2101, ptr %2102, align 8, !tbaa !56
+  br label %2103
 
-2091:                                             ; preds = %2086, %2069
-  %2092 = load ptr, ptr %5, align 8
-  %2093 = getelementptr inbounds %struct.inflate_codes_state, ptr %2092, i32 0, i32 0
-  %2094 = load i32, ptr %2093, align 8
-  %2095 = add i32 %2094, -1
-  store i32 %2095, ptr %2093, align 8
-  br label %1892
+2103:                                             ; preds = %2098, %2081
+  %2104 = load ptr, ptr %5, align 8, !tbaa !10
+  %2105 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %2104, i32 0, i32 0
+  %2106 = load i32, ptr %2105, align 8, !tbaa !53
+  %2107 = add i32 %2106, -1
+  store i32 %2107, ptr %2105, align 8, !tbaa !53
+  br label %1904
 
-2096:                                             ; preds = %1892
-  %2097 = load ptr, ptr %4, align 8
-  %2098 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2097, i32 0, i32 1
-  store i32 0, ptr %2098, align 8
-  br label %2431
+2108:                                             ; preds = %1904
+  %2109 = load ptr, ptr %4, align 8, !tbaa !8
+  %2110 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2109, i32 0, i32 1
+  store i32 0, ptr %2110, align 8, !tbaa !33
+  br label %2443
 
-2099:                                             ; preds = %77
-  %2100 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %2101 = load i32, ptr %2100, align 8
-  %2102 = icmp eq i32 %2101, 0
-  br i1 %2102, label %2103, label %2271
+2111:                                             ; preds = %78
+  %2112 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %2113 = load i32, ptr %2112, align 8, !tbaa !32
+  %2114 = icmp eq i32 %2113, 0
+  br i1 %2114, label %2115, label %2283
 
-2103:                                             ; preds = %2099
-  %2104 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2105 = load ptr, ptr %2104, align 8
-  %2106 = load ptr, ptr %4, align 8
-  %2107 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2106, i32 0, i32 8
-  %2108 = load ptr, ptr %2107, align 8
-  %2109 = icmp eq ptr %2105, %2108
-  br i1 %2109, label %2110, label %2152
+2115:                                             ; preds = %2111
+  %2116 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2117 = load ptr, ptr %2116, align 8, !tbaa !29
+  %2118 = load ptr, ptr %4, align 8, !tbaa !8
+  %2119 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2118, i32 0, i32 8
+  %2120 = load ptr, ptr %2119, align 8, !tbaa !31
+  %2121 = icmp eq ptr %2117, %2120
+  br i1 %2121, label %2122, label %2164
 
-2110:                                             ; preds = %2103
-  %2111 = load ptr, ptr %4, align 8
-  %2112 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2111, i32 0, i32 9
-  %2113 = load ptr, ptr %2112, align 8
-  %2114 = load ptr, ptr %4, align 8
-  %2115 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2114, i32 0, i32 7
-  %2116 = getelementptr inbounds [32768 x i8], ptr %2115, i64 0, i64 0
-  %2117 = icmp ne ptr %2113, %2116
-  br i1 %2117, label %2118, label %2152
+2122:                                             ; preds = %2115
+  %2123 = load ptr, ptr %4, align 8, !tbaa !8
+  %2124 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2123, i32 0, i32 9
+  %2125 = load ptr, ptr %2124, align 8, !tbaa !30
+  %2126 = load ptr, ptr %4, align 8, !tbaa !8
+  %2127 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2126, i32 0, i32 7
+  %2128 = getelementptr inbounds [32768 x i8], ptr %2127, i64 0, i64 0
+  %2129 = icmp ne ptr %2125, %2128
+  br i1 %2129, label %2130, label %2164
 
-2118:                                             ; preds = %2110
-  %2119 = load ptr, ptr %4, align 8
-  %2120 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2119, i32 0, i32 7
-  %2121 = getelementptr inbounds [32768 x i8], ptr %2120, i64 0, i64 0
-  %2122 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %2121, ptr %2122, align 8
-  %2123 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2124 = load ptr, ptr %2123, align 8
-  %2125 = load ptr, ptr %4, align 8
-  %2126 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2125, i32 0, i32 9
-  %2127 = load ptr, ptr %2126, align 8
-  %2128 = icmp ult ptr %2124, %2127
-  br i1 %2128, label %2129, label %2139
+2130:                                             ; preds = %2122
+  %2131 = load ptr, ptr %4, align 8, !tbaa !8
+  %2132 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2131, i32 0, i32 7
+  %2133 = getelementptr inbounds [32768 x i8], ptr %2132, i64 0, i64 0
+  %2134 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %2133, ptr %2134, align 8, !tbaa !29
+  %2135 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2136 = load ptr, ptr %2135, align 8, !tbaa !29
+  %2137 = load ptr, ptr %4, align 8, !tbaa !8
+  %2138 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2137, i32 0, i32 9
+  %2139 = load ptr, ptr %2138, align 8, !tbaa !30
+  %2140 = icmp ult ptr %2136, %2139
+  br i1 %2140, label %2141, label %2151
 
-2129:                                             ; preds = %2118
-  %2130 = load ptr, ptr %4, align 8
-  %2131 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2130, i32 0, i32 9
-  %2132 = load ptr, ptr %2131, align 8
-  %2133 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2134 = load ptr, ptr %2133, align 8
-  %2135 = ptrtoint ptr %2132 to i64
-  %2136 = ptrtoint ptr %2134 to i64
-  %2137 = sub i64 %2135, %2136
-  %2138 = sub nsw i64 %2137, 1
-  br label %2148
+2141:                                             ; preds = %2130
+  %2142 = load ptr, ptr %4, align 8, !tbaa !8
+  %2143 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2142, i32 0, i32 9
+  %2144 = load ptr, ptr %2143, align 8, !tbaa !30
+  %2145 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2146 = load ptr, ptr %2145, align 8, !tbaa !29
+  %2147 = ptrtoint ptr %2144 to i64
+  %2148 = ptrtoint ptr %2146 to i64
+  %2149 = sub i64 %2147, %2148
+  %2150 = sub nsw i64 %2149, 1
+  br label %2160
 
-2139:                                             ; preds = %2118
-  %2140 = load ptr, ptr %4, align 8
-  %2141 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2140, i32 0, i32 8
-  %2142 = load ptr, ptr %2141, align 8
-  %2143 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2144 = load ptr, ptr %2143, align 8
-  %2145 = ptrtoint ptr %2142 to i64
-  %2146 = ptrtoint ptr %2144 to i64
-  %2147 = sub i64 %2145, %2146
-  br label %2148
+2151:                                             ; preds = %2130
+  %2152 = load ptr, ptr %4, align 8, !tbaa !8
+  %2153 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2152, i32 0, i32 8
+  %2154 = load ptr, ptr %2153, align 8, !tbaa !31
+  %2155 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2156 = load ptr, ptr %2155, align 8, !tbaa !29
+  %2157 = ptrtoint ptr %2154 to i64
+  %2158 = ptrtoint ptr %2156 to i64
+  %2159 = sub i64 %2157, %2158
+  br label %2160
 
-2148:                                             ; preds = %2139, %2129
-  %2149 = phi i64 [ %2138, %2129 ], [ %2147, %2139 ]
-  %2150 = trunc i64 %2149 to i32
-  %2151 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %2150, ptr %2151, align 8
-  br label %2152
+2160:                                             ; preds = %2151, %2141
+  %2161 = phi i64 [ %2150, %2141 ], [ %2159, %2151 ]
+  %2162 = trunc i64 %2161 to i32
+  %2163 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %2162, ptr %2163, align 8, !tbaa !32
+  br label %2164
 
-2152:                                             ; preds = %2148, %2110, %2103
-  %2153 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %2154 = load i32, ptr %2153, align 8
-  %2155 = icmp eq i32 %2154, 0
-  br i1 %2155, label %2156, label %2270
+2164:                                             ; preds = %2160, %2122, %2115
+  %2165 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %2166 = load i32, ptr %2165, align 8, !tbaa !32
+  %2167 = icmp eq i32 %2166, 0
+  br i1 %2167, label %2168, label %2282
 
-2156:                                             ; preds = %2152
-  %2157 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2158 = load ptr, ptr %2157, align 8
-  %2159 = load ptr, ptr %4, align 8
-  %2160 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2159, i32 0, i32 10
-  store ptr %2158, ptr %2160, align 8
-  %2161 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %2161)
-  %2162 = load ptr, ptr %4, align 8
-  %2163 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2162, i32 0, i32 10
-  %2164 = load ptr, ptr %2163, align 8
-  %2165 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %2164, ptr %2165, align 8
-  %2166 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2167 = load ptr, ptr %2166, align 8
-  %2168 = load ptr, ptr %4, align 8
-  %2169 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2168, i32 0, i32 9
-  %2170 = load ptr, ptr %2169, align 8
-  %2171 = icmp ult ptr %2167, %2170
-  br i1 %2171, label %2172, label %2182
+2168:                                             ; preds = %2164
+  %2169 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2170 = load ptr, ptr %2169, align 8, !tbaa !29
+  %2171 = load ptr, ptr %4, align 8, !tbaa !8
+  %2172 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2171, i32 0, i32 10
+  store ptr %2170, ptr %2172, align 8, !tbaa !28
+  %2173 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %2173)
+  %2174 = load ptr, ptr %4, align 8, !tbaa !8
+  %2175 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2174, i32 0, i32 10
+  %2176 = load ptr, ptr %2175, align 8, !tbaa !28
+  %2177 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %2176, ptr %2177, align 8, !tbaa !29
+  %2178 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2179 = load ptr, ptr %2178, align 8, !tbaa !29
+  %2180 = load ptr, ptr %4, align 8, !tbaa !8
+  %2181 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2180, i32 0, i32 9
+  %2182 = load ptr, ptr %2181, align 8, !tbaa !30
+  %2183 = icmp ult ptr %2179, %2182
+  br i1 %2183, label %2184, label %2194
 
-2172:                                             ; preds = %2156
-  %2173 = load ptr, ptr %4, align 8
-  %2174 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2173, i32 0, i32 9
-  %2175 = load ptr, ptr %2174, align 8
-  %2176 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2177 = load ptr, ptr %2176, align 8
-  %2178 = ptrtoint ptr %2175 to i64
-  %2179 = ptrtoint ptr %2177 to i64
-  %2180 = sub i64 %2178, %2179
-  %2181 = sub nsw i64 %2180, 1
-  br label %2191
+2184:                                             ; preds = %2168
+  %2185 = load ptr, ptr %4, align 8, !tbaa !8
+  %2186 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2185, i32 0, i32 9
+  %2187 = load ptr, ptr %2186, align 8, !tbaa !30
+  %2188 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2189 = load ptr, ptr %2188, align 8, !tbaa !29
+  %2190 = ptrtoint ptr %2187 to i64
+  %2191 = ptrtoint ptr %2189 to i64
+  %2192 = sub i64 %2190, %2191
+  %2193 = sub nsw i64 %2192, 1
+  br label %2203
 
-2182:                                             ; preds = %2156
-  %2183 = load ptr, ptr %4, align 8
-  %2184 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2183, i32 0, i32 8
-  %2185 = load ptr, ptr %2184, align 8
-  %2186 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2187 = load ptr, ptr %2186, align 8
-  %2188 = ptrtoint ptr %2185 to i64
-  %2189 = ptrtoint ptr %2187 to i64
-  %2190 = sub i64 %2188, %2189
-  br label %2191
+2194:                                             ; preds = %2168
+  %2195 = load ptr, ptr %4, align 8, !tbaa !8
+  %2196 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2195, i32 0, i32 8
+  %2197 = load ptr, ptr %2196, align 8, !tbaa !31
+  %2198 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2199 = load ptr, ptr %2198, align 8, !tbaa !29
+  %2200 = ptrtoint ptr %2197 to i64
+  %2201 = ptrtoint ptr %2199 to i64
+  %2202 = sub i64 %2200, %2201
+  br label %2203
 
-2191:                                             ; preds = %2182, %2172
-  %2192 = phi i64 [ %2181, %2172 ], [ %2190, %2182 ]
-  %2193 = trunc i64 %2192 to i32
-  %2194 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %2193, ptr %2194, align 8
-  %2195 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2196 = load ptr, ptr %2195, align 8
-  %2197 = load ptr, ptr %4, align 8
-  %2198 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2197, i32 0, i32 8
-  %2199 = load ptr, ptr %2198, align 8
-  %2200 = icmp eq ptr %2196, %2199
-  br i1 %2200, label %2201, label %2243
+2203:                                             ; preds = %2194, %2184
+  %2204 = phi i64 [ %2193, %2184 ], [ %2202, %2194 ]
+  %2205 = trunc i64 %2204 to i32
+  %2206 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %2205, ptr %2206, align 8, !tbaa !32
+  %2207 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2208 = load ptr, ptr %2207, align 8, !tbaa !29
+  %2209 = load ptr, ptr %4, align 8, !tbaa !8
+  %2210 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2209, i32 0, i32 8
+  %2211 = load ptr, ptr %2210, align 8, !tbaa !31
+  %2212 = icmp eq ptr %2208, %2211
+  br i1 %2212, label %2213, label %2255
 
-2201:                                             ; preds = %2191
-  %2202 = load ptr, ptr %4, align 8
-  %2203 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2202, i32 0, i32 9
-  %2204 = load ptr, ptr %2203, align 8
-  %2205 = load ptr, ptr %4, align 8
-  %2206 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2205, i32 0, i32 7
-  %2207 = getelementptr inbounds [32768 x i8], ptr %2206, i64 0, i64 0
-  %2208 = icmp ne ptr %2204, %2207
-  br i1 %2208, label %2209, label %2243
+2213:                                             ; preds = %2203
+  %2214 = load ptr, ptr %4, align 8, !tbaa !8
+  %2215 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2214, i32 0, i32 9
+  %2216 = load ptr, ptr %2215, align 8, !tbaa !30
+  %2217 = load ptr, ptr %4, align 8, !tbaa !8
+  %2218 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2217, i32 0, i32 7
+  %2219 = getelementptr inbounds [32768 x i8], ptr %2218, i64 0, i64 0
+  %2220 = icmp ne ptr %2216, %2219
+  br i1 %2220, label %2221, label %2255
 
-2209:                                             ; preds = %2201
-  %2210 = load ptr, ptr %4, align 8
-  %2211 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2210, i32 0, i32 7
-  %2212 = getelementptr inbounds [32768 x i8], ptr %2211, i64 0, i64 0
-  %2213 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %2212, ptr %2213, align 8
-  %2214 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2215 = load ptr, ptr %2214, align 8
-  %2216 = load ptr, ptr %4, align 8
-  %2217 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2216, i32 0, i32 9
-  %2218 = load ptr, ptr %2217, align 8
-  %2219 = icmp ult ptr %2215, %2218
-  br i1 %2219, label %2220, label %2230
+2221:                                             ; preds = %2213
+  %2222 = load ptr, ptr %4, align 8, !tbaa !8
+  %2223 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2222, i32 0, i32 7
+  %2224 = getelementptr inbounds [32768 x i8], ptr %2223, i64 0, i64 0
+  %2225 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %2224, ptr %2225, align 8, !tbaa !29
+  %2226 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2227 = load ptr, ptr %2226, align 8, !tbaa !29
+  %2228 = load ptr, ptr %4, align 8, !tbaa !8
+  %2229 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2228, i32 0, i32 9
+  %2230 = load ptr, ptr %2229, align 8, !tbaa !30
+  %2231 = icmp ult ptr %2227, %2230
+  br i1 %2231, label %2232, label %2242
 
-2220:                                             ; preds = %2209
-  %2221 = load ptr, ptr %4, align 8
-  %2222 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2221, i32 0, i32 9
-  %2223 = load ptr, ptr %2222, align 8
-  %2224 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2225 = load ptr, ptr %2224, align 8
-  %2226 = ptrtoint ptr %2223 to i64
-  %2227 = ptrtoint ptr %2225 to i64
-  %2228 = sub i64 %2226, %2227
-  %2229 = sub nsw i64 %2228, 1
-  br label %2239
+2232:                                             ; preds = %2221
+  %2233 = load ptr, ptr %4, align 8, !tbaa !8
+  %2234 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2233, i32 0, i32 9
+  %2235 = load ptr, ptr %2234, align 8, !tbaa !30
+  %2236 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2237 = load ptr, ptr %2236, align 8, !tbaa !29
+  %2238 = ptrtoint ptr %2235 to i64
+  %2239 = ptrtoint ptr %2237 to i64
+  %2240 = sub i64 %2238, %2239
+  %2241 = sub nsw i64 %2240, 1
+  br label %2251
 
-2230:                                             ; preds = %2209
-  %2231 = load ptr, ptr %4, align 8
-  %2232 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2231, i32 0, i32 8
-  %2233 = load ptr, ptr %2232, align 8
-  %2234 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2235 = load ptr, ptr %2234, align 8
-  %2236 = ptrtoint ptr %2233 to i64
-  %2237 = ptrtoint ptr %2235 to i64
-  %2238 = sub i64 %2236, %2237
-  br label %2239
+2242:                                             ; preds = %2221
+  %2243 = load ptr, ptr %4, align 8, !tbaa !8
+  %2244 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2243, i32 0, i32 8
+  %2245 = load ptr, ptr %2244, align 8, !tbaa !31
+  %2246 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2247 = load ptr, ptr %2246, align 8, !tbaa !29
+  %2248 = ptrtoint ptr %2245 to i64
+  %2249 = ptrtoint ptr %2247 to i64
+  %2250 = sub i64 %2248, %2249
+  br label %2251
 
-2239:                                             ; preds = %2230, %2220
-  %2240 = phi i64 [ %2229, %2220 ], [ %2238, %2230 ]
-  %2241 = trunc i64 %2240 to i32
-  %2242 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %2241, ptr %2242, align 8
-  br label %2243
+2251:                                             ; preds = %2242, %2232
+  %2252 = phi i64 [ %2241, %2232 ], [ %2250, %2242 ]
+  %2253 = trunc i64 %2252 to i32
+  %2254 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %2253, ptr %2254, align 8, !tbaa !32
+  br label %2255
 
-2243:                                             ; preds = %2239, %2201, %2191
-  %2244 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %2245 = load i32, ptr %2244, align 8
-  %2246 = icmp eq i32 %2245, 0
-  br i1 %2246, label %2247, label %2269
+2255:                                             ; preds = %2251, %2213, %2203
+  %2256 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %2257 = load i32, ptr %2256, align 8, !tbaa !32
+  %2258 = icmp eq i32 %2257, 0
+  br i1 %2258, label %2259, label %2281
 
-2247:                                             ; preds = %2243
-  %2248 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %2249 = load i64, ptr %2248, align 8
-  %2250 = load ptr, ptr %4, align 8
-  %2251 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2250, i32 0, i32 5
-  store i64 %2249, ptr %2251, align 8
-  %2252 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %2253 = load i32, ptr %2252, align 8
-  %2254 = load ptr, ptr %4, align 8
-  %2255 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2254, i32 0, i32 4
-  store i32 %2253, ptr %2255, align 4
-  %2256 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %2257 = load i32, ptr %2256, align 8
-  %2258 = load ptr, ptr %3, align 8
-  %2259 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2258, i32 0, i32 1
-  store i32 %2257, ptr %2259, align 8
-  %2260 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %2261 = load ptr, ptr %2260, align 8
-  %2262 = load ptr, ptr %3, align 8
-  %2263 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2262, i32 0, i32 0
-  store ptr %2261, ptr %2263, align 8
-  %2264 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2265 = load ptr, ptr %2264, align 8
-  %2266 = load ptr, ptr %4, align 8
-  %2267 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2266, i32 0, i32 10
-  store ptr %2265, ptr %2267, align 8
-  %2268 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %2268)
+2259:                                             ; preds = %2255
+  %2260 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %2261 = load i64, ptr %2260, align 8, !tbaa !25
+  %2262 = load ptr, ptr %4, align 8, !tbaa !8
+  %2263 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2262, i32 0, i32 5
+  store i64 %2261, ptr %2263, align 8, !tbaa !24
+  %2264 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %2265 = load i32, ptr %2264, align 8, !tbaa !27
+  %2266 = load ptr, ptr %4, align 8, !tbaa !8
+  %2267 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2266, i32 0, i32 4
+  store i32 %2265, ptr %2267, align 4, !tbaa !26
+  %2268 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %2269 = load i32, ptr %2268, align 8, !tbaa !23
+  %2270 = load ptr, ptr %3, align 8, !tbaa !3
+  %2271 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2270, i32 0, i32 1
+  store i32 %2269, ptr %2271, align 8, !tbaa !22
+  %2272 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %2273 = load ptr, ptr %2272, align 8, !tbaa !20
+  %2274 = load ptr, ptr %3, align 8, !tbaa !3
+  %2275 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2274, i32 0, i32 0
+  store ptr %2273, ptr %2275, align 8, !tbaa !12
+  %2276 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2277 = load ptr, ptr %2276, align 8, !tbaa !29
+  %2278 = load ptr, ptr %4, align 8, !tbaa !8
+  %2279 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2278, i32 0, i32 10
+  store ptr %2277, ptr %2279, align 8, !tbaa !28
+  %2280 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %2280)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-2269:                                             ; preds = %2243
-  br label %2270
+2281:                                             ; preds = %2255
+  br label %2282
 
-2270:                                             ; preds = %2269, %2152
-  br label %2271
+2282:                                             ; preds = %2281, %2164
+  br label %2283
 
-2271:                                             ; preds = %2270, %2099
-  %2272 = load ptr, ptr %5, align 8
-  %2273 = getelementptr inbounds %struct.inflate_codes_state, ptr %2272, i32 0, i32 1
-  %2274 = load i32, ptr %2273, align 8
-  %2275 = trunc i32 %2274 to i8
-  %2276 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2277 = load ptr, ptr %2276, align 8
-  %2278 = getelementptr inbounds i8, ptr %2277, i32 1
-  store ptr %2278, ptr %2276, align 8
-  store i8 %2275, ptr %2277, align 1
-  %2279 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  %2280 = load i32, ptr %2279, align 8
-  %2281 = add i32 %2280, -1
-  store i32 %2281, ptr %2279, align 8
-  %2282 = load ptr, ptr %4, align 8
-  %2283 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2282, i32 0, i32 1
-  store i32 0, ptr %2283, align 8
-  br label %2431
+2283:                                             ; preds = %2282, %2111
+  %2284 = load ptr, ptr %5, align 8, !tbaa !10
+  %2285 = getelementptr inbounds nuw %struct.inflate_codes_state, ptr %2284, i32 0, i32 1
+  %2286 = load i32, ptr %2285, align 8, !tbaa !34
+  %2287 = trunc i32 %2286 to i8
+  %2288 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2289 = load ptr, ptr %2288, align 8, !tbaa !29
+  %2290 = getelementptr inbounds nuw i8, ptr %2289, i32 1
+  store ptr %2290, ptr %2288, align 8, !tbaa !29
+  store i8 %2287, ptr %2289, align 1, !tbaa !34
+  %2291 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  %2292 = load i32, ptr %2291, align 8, !tbaa !32
+  %2293 = add i32 %2292, -1
+  store i32 %2293, ptr %2291, align 8, !tbaa !32
+  %2294 = load ptr, ptr %4, align 8, !tbaa !8
+  %2295 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2294, i32 0, i32 1
+  store i32 0, ptr %2295, align 8, !tbaa !33
+  br label %2443
 
-2284:                                             ; preds = %77
-  %2285 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %2286 = load i32, ptr %2285, align 8
-  %2287 = icmp ugt i32 %2286, 7
-  br i1 %2287, label %2288, label %2298
+2296:                                             ; preds = %78
+  %2297 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %2298 = load i32, ptr %2297, align 8, !tbaa !27
+  %2299 = icmp ugt i32 %2298, 7
+  br i1 %2299, label %2300, label %2310
 
-2288:                                             ; preds = %2284
-  %2289 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %2290 = load i32, ptr %2289, align 8
-  %2291 = sub i32 %2290, 8
-  store i32 %2291, ptr %2289, align 8
-  %2292 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %2293 = load i32, ptr %2292, align 8
-  %2294 = add i32 %2293, 1
-  store i32 %2294, ptr %2292, align 8
-  %2295 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %2296 = load ptr, ptr %2295, align 8
-  %2297 = getelementptr inbounds i8, ptr %2296, i32 -1
-  store ptr %2297, ptr %2295, align 8
-  br label %2298
+2300:                                             ; preds = %2296
+  %2301 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %2302 = load i32, ptr %2301, align 8, !tbaa !27
+  %2303 = sub i32 %2302, 8
+  store i32 %2303, ptr %2301, align 8, !tbaa !27
+  %2304 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %2305 = load i32, ptr %2304, align 8, !tbaa !23
+  %2306 = add i32 %2305, 1
+  store i32 %2306, ptr %2304, align 8, !tbaa !23
+  %2307 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %2308 = load ptr, ptr %2307, align 8, !tbaa !20
+  %2309 = getelementptr inbounds i8, ptr %2308, i32 -1
+  store ptr %2309, ptr %2307, align 8, !tbaa !20
+  br label %2310
 
-2298:                                             ; preds = %2288, %2284
-  br label %2299
+2310:                                             ; preds = %2300, %2296
+  br label %2311
 
-2299:                                             ; preds = %2298, %77
-  %2300 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2301 = load ptr, ptr %2300, align 8
-  %2302 = load ptr, ptr %4, align 8
-  %2303 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2302, i32 0, i32 10
-  store ptr %2301, ptr %2303, align 8
-  %2304 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %2304)
-  %2305 = load ptr, ptr %4, align 8
-  %2306 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2305, i32 0, i32 10
-  %2307 = load ptr, ptr %2306, align 8
-  %2308 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  store ptr %2307, ptr %2308, align 8
-  %2309 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2310 = load ptr, ptr %2309, align 8
-  %2311 = load ptr, ptr %4, align 8
-  %2312 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2311, i32 0, i32 9
-  %2313 = load ptr, ptr %2312, align 8
-  %2314 = icmp ult ptr %2310, %2313
-  br i1 %2314, label %2315, label %2325
+2311:                                             ; preds = %78, %2310
+  %2312 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2313 = load ptr, ptr %2312, align 8, !tbaa !29
+  %2314 = load ptr, ptr %4, align 8, !tbaa !8
+  %2315 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2314, i32 0, i32 10
+  store ptr %2313, ptr %2315, align 8, !tbaa !28
+  %2316 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %2316)
+  %2317 = load ptr, ptr %4, align 8, !tbaa !8
+  %2318 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2317, i32 0, i32 10
+  %2319 = load ptr, ptr %2318, align 8, !tbaa !28
+  %2320 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  store ptr %2319, ptr %2320, align 8, !tbaa !29
+  %2321 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2322 = load ptr, ptr %2321, align 8, !tbaa !29
+  %2323 = load ptr, ptr %4, align 8, !tbaa !8
+  %2324 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2323, i32 0, i32 9
+  %2325 = load ptr, ptr %2324, align 8, !tbaa !30
+  %2326 = icmp ult ptr %2322, %2325
+  br i1 %2326, label %2327, label %2337
 
-2315:                                             ; preds = %2299
-  %2316 = load ptr, ptr %4, align 8
-  %2317 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2316, i32 0, i32 9
-  %2318 = load ptr, ptr %2317, align 8
-  %2319 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2320 = load ptr, ptr %2319, align 8
-  %2321 = ptrtoint ptr %2318 to i64
-  %2322 = ptrtoint ptr %2320 to i64
-  %2323 = sub i64 %2321, %2322
-  %2324 = sub nsw i64 %2323, 1
-  br label %2334
+2327:                                             ; preds = %2311
+  %2328 = load ptr, ptr %4, align 8, !tbaa !8
+  %2329 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2328, i32 0, i32 9
+  %2330 = load ptr, ptr %2329, align 8, !tbaa !30
+  %2331 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2332 = load ptr, ptr %2331, align 8, !tbaa !29
+  %2333 = ptrtoint ptr %2330 to i64
+  %2334 = ptrtoint ptr %2332 to i64
+  %2335 = sub i64 %2333, %2334
+  %2336 = sub nsw i64 %2335, 1
+  br label %2346
 
-2325:                                             ; preds = %2299
-  %2326 = load ptr, ptr %4, align 8
-  %2327 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2326, i32 0, i32 8
-  %2328 = load ptr, ptr %2327, align 8
-  %2329 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2330 = load ptr, ptr %2329, align 8
-  %2331 = ptrtoint ptr %2328 to i64
-  %2332 = ptrtoint ptr %2330 to i64
-  %2333 = sub i64 %2331, %2332
-  br label %2334
+2337:                                             ; preds = %2311
+  %2338 = load ptr, ptr %4, align 8, !tbaa !8
+  %2339 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2338, i32 0, i32 8
+  %2340 = load ptr, ptr %2339, align 8, !tbaa !31
+  %2341 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2342 = load ptr, ptr %2341, align 8, !tbaa !29
+  %2343 = ptrtoint ptr %2340 to i64
+  %2344 = ptrtoint ptr %2342 to i64
+  %2345 = sub i64 %2343, %2344
+  br label %2346
 
-2334:                                             ; preds = %2325, %2315
-  %2335 = phi i64 [ %2324, %2315 ], [ %2333, %2325 ]
-  %2336 = trunc i64 %2335 to i32
-  %2337 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 6
-  store i32 %2336, ptr %2337, align 8
-  %2338 = load ptr, ptr %4, align 8
-  %2339 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2338, i32 0, i32 10
-  %2340 = load ptr, ptr %2339, align 8
-  %2341 = load ptr, ptr %4, align 8
-  %2342 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2341, i32 0, i32 9
-  %2343 = load ptr, ptr %2342, align 8
-  %2344 = icmp ne ptr %2340, %2343
-  br i1 %2344, label %2345, label %2367
+2346:                                             ; preds = %2337, %2327
+  %2347 = phi i64 [ %2336, %2327 ], [ %2345, %2337 ]
+  %2348 = trunc i64 %2347 to i32
+  %2349 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 6
+  store i32 %2348, ptr %2349, align 8, !tbaa !32
+  %2350 = load ptr, ptr %4, align 8, !tbaa !8
+  %2351 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2350, i32 0, i32 10
+  %2352 = load ptr, ptr %2351, align 8, !tbaa !28
+  %2353 = load ptr, ptr %4, align 8, !tbaa !8
+  %2354 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2353, i32 0, i32 9
+  %2355 = load ptr, ptr %2354, align 8, !tbaa !30
+  %2356 = icmp ne ptr %2352, %2355
+  br i1 %2356, label %2357, label %2379
 
-2345:                                             ; preds = %2334
-  %2346 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %2347 = load i64, ptr %2346, align 8
-  %2348 = load ptr, ptr %4, align 8
-  %2349 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2348, i32 0, i32 5
-  store i64 %2347, ptr %2349, align 8
-  %2350 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %2351 = load i32, ptr %2350, align 8
-  %2352 = load ptr, ptr %4, align 8
-  %2353 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2352, i32 0, i32 4
-  store i32 %2351, ptr %2353, align 4
-  %2354 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %2355 = load i32, ptr %2354, align 8
-  %2356 = load ptr, ptr %3, align 8
-  %2357 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2356, i32 0, i32 1
-  store i32 %2355, ptr %2357, align 8
-  %2358 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %2359 = load ptr, ptr %2358, align 8
-  %2360 = load ptr, ptr %3, align 8
-  %2361 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2360, i32 0, i32 0
-  store ptr %2359, ptr %2361, align 8
-  %2362 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2363 = load ptr, ptr %2362, align 8
-  %2364 = load ptr, ptr %4, align 8
-  %2365 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2364, i32 0, i32 10
-  store ptr %2363, ptr %2365, align 8
-  %2366 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %2366)
+2357:                                             ; preds = %2346
+  %2358 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %2359 = load i64, ptr %2358, align 8, !tbaa !25
+  %2360 = load ptr, ptr %4, align 8, !tbaa !8
+  %2361 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2360, i32 0, i32 5
+  store i64 %2359, ptr %2361, align 8, !tbaa !24
+  %2362 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %2363 = load i32, ptr %2362, align 8, !tbaa !27
+  %2364 = load ptr, ptr %4, align 8, !tbaa !8
+  %2365 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2364, i32 0, i32 4
+  store i32 %2363, ptr %2365, align 4, !tbaa !26
+  %2366 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %2367 = load i32, ptr %2366, align 8, !tbaa !23
+  %2368 = load ptr, ptr %3, align 8, !tbaa !3
+  %2369 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2368, i32 0, i32 1
+  store i32 %2367, ptr %2369, align 8, !tbaa !22
+  %2370 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %2371 = load ptr, ptr %2370, align 8, !tbaa !20
+  %2372 = load ptr, ptr %3, align 8, !tbaa !3
+  %2373 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2372, i32 0, i32 0
+  store ptr %2371, ptr %2373, align 8, !tbaa !12
+  %2374 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2375 = load ptr, ptr %2374, align 8, !tbaa !29
+  %2376 = load ptr, ptr %4, align 8, !tbaa !8
+  %2377 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2376, i32 0, i32 10
+  store ptr %2375, ptr %2377, align 8, !tbaa !28
+  %2378 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %2378)
   store i32 0, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-2367:                                             ; preds = %2334
-  %2368 = load ptr, ptr %4, align 8
-  %2369 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2368, i32 0, i32 1
-  %2370 = load i32, ptr %2369, align 8
-  %2371 = icmp eq i32 %2370, 7
-  br i1 %2371, label %2372, label %2373
+2379:                                             ; preds = %2346
+  %2380 = load ptr, ptr %4, align 8, !tbaa !8
+  %2381 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2380, i32 0, i32 1
+  %2382 = load i32, ptr %2381, align 8, !tbaa !33
+  %2383 = icmp eq i32 %2382, 7
+  br i1 %2383, label %2384, label %2385
 
-2372:                                             ; preds = %2367
-  br label %2373
+2384:                                             ; preds = %2379
+  br label %2385
 
-2373:                                             ; preds = %2372, %2367
-  %2374 = load ptr, ptr %4, align 8
-  %2375 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2374, i32 0, i32 3
-  %2376 = load i32, ptr %2375, align 8
-  %2377 = load ptr, ptr %4, align 8
-  %2378 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2377, i32 0, i32 1
-  store i32 %2376, ptr %2378, align 8
-  %2379 = load ptr, ptr %4, align 8
-  %2380 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2379, i32 0, i32 1
-  %2381 = load i32, ptr %2380, align 8
-  %2382 = icmp eq i32 %2381, 8
-  br i1 %2382, label %2383, label %2384
+2385:                                             ; preds = %2384, %2379
+  %2386 = load ptr, ptr %4, align 8, !tbaa !8
+  %2387 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2386, i32 0, i32 3
+  %2388 = load i32, ptr %2387, align 8, !tbaa !36
+  %2389 = load ptr, ptr %4, align 8, !tbaa !8
+  %2390 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2389, i32 0, i32 1
+  store i32 %2388, ptr %2390, align 8, !tbaa !33
+  %2391 = load ptr, ptr %4, align 8, !tbaa !8
+  %2392 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2391, i32 0, i32 1
+  %2393 = load i32, ptr %2392, align 8, !tbaa !33
+  %2394 = icmp eq i32 %2393, 8
+  br i1 %2394, label %2395, label %2396
 
-2383:                                             ; preds = %2373
-  br label %2431
+2395:                                             ; preds = %2385
+  br label %2443
 
-2384:                                             ; preds = %2373
-  %2385 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %2386 = load i64, ptr %2385, align 8
-  %2387 = load ptr, ptr %4, align 8
-  %2388 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2387, i32 0, i32 5
-  store i64 %2386, ptr %2388, align 8
-  %2389 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %2390 = load i32, ptr %2389, align 8
-  %2391 = load ptr, ptr %4, align 8
-  %2392 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2391, i32 0, i32 4
-  store i32 %2390, ptr %2392, align 4
-  %2393 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %2394 = load i32, ptr %2393, align 8
-  %2395 = load ptr, ptr %3, align 8
-  %2396 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2395, i32 0, i32 1
-  store i32 %2394, ptr %2396, align 8
-  %2397 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %2398 = load ptr, ptr %2397, align 8
-  %2399 = load ptr, ptr %3, align 8
-  %2400 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2399, i32 0, i32 0
-  store ptr %2398, ptr %2400, align 8
-  %2401 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2402 = load ptr, ptr %2401, align 8
-  %2403 = load ptr, ptr %4, align 8
-  %2404 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2403, i32 0, i32 10
-  store ptr %2402, ptr %2404, align 8
-  %2405 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %2405)
+2396:                                             ; preds = %2385
+  %2397 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %2398 = load i64, ptr %2397, align 8, !tbaa !25
+  %2399 = load ptr, ptr %4, align 8, !tbaa !8
+  %2400 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2399, i32 0, i32 5
+  store i64 %2398, ptr %2400, align 8, !tbaa !24
+  %2401 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %2402 = load i32, ptr %2401, align 8, !tbaa !27
+  %2403 = load ptr, ptr %4, align 8, !tbaa !8
+  %2404 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2403, i32 0, i32 4
+  store i32 %2402, ptr %2404, align 4, !tbaa !26
+  %2405 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %2406 = load i32, ptr %2405, align 8, !tbaa !23
+  %2407 = load ptr, ptr %3, align 8, !tbaa !3
+  %2408 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2407, i32 0, i32 1
+  store i32 %2406, ptr %2408, align 8, !tbaa !22
+  %2409 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %2410 = load ptr, ptr %2409, align 8, !tbaa !20
+  %2411 = load ptr, ptr %3, align 8, !tbaa !3
+  %2412 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2411, i32 0, i32 0
+  store ptr %2410, ptr %2412, align 8, !tbaa !12
+  %2413 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2414 = load ptr, ptr %2413, align 8, !tbaa !29
+  %2415 = load ptr, ptr %4, align 8, !tbaa !8
+  %2416 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2415, i32 0, i32 10
+  store ptr %2414, ptr %2416, align 8, !tbaa !28
+  %2417 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %2417)
   store i32 1, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-2406:                                             ; preds = %77
-  br label %2407
+2418:                                             ; preds = %78
+  br label %2419
 
-2407:                                             ; preds = %2406, %1757, %1513, %306
-  %2408 = load ptr, ptr %4, align 8
-  %2409 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2408, i32 0, i32 1
-  store i32 17, ptr %2409, align 8
-  %2410 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 1
-  %2411 = load i64, ptr %2410, align 8
-  %2412 = load ptr, ptr %4, align 8
-  %2413 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2412, i32 0, i32 5
-  store i64 %2411, ptr %2413, align 8
-  %2414 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 2
-  %2415 = load i32, ptr %2414, align 8
-  %2416 = load ptr, ptr %4, align 8
-  %2417 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2416, i32 0, i32 4
-  store i32 %2415, ptr %2417, align 4
-  %2418 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 4
-  %2419 = load i32, ptr %2418, align 8
-  %2420 = load ptr, ptr %3, align 8
-  %2421 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2420, i32 0, i32 1
-  store i32 %2419, ptr %2421, align 8
-  %2422 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 3
-  %2423 = load ptr, ptr %2422, align 8
-  %2424 = load ptr, ptr %3, align 8
-  %2425 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %2424, i32 0, i32 0
-  store ptr %2423, ptr %2425, align 8
-  %2426 = getelementptr inbounds %struct.anon.6, ptr %6, i32 0, i32 5
-  %2427 = load ptr, ptr %2426, align 8
-  %2428 = load ptr, ptr %4, align 8
-  %2429 = getelementptr inbounds %struct.inflate_blocks_state, ptr %2428, i32 0, i32 10
-  store ptr %2427, ptr %2429, align 8
-  %2430 = load ptr, ptr %3, align 8
-  call void @inflate_flush(ptr noundef %2430)
+2419:                                             ; preds = %2418, %1769, %1525, %307
+  %2420 = load ptr, ptr %4, align 8, !tbaa !8
+  %2421 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2420, i32 0, i32 1
+  store i32 17, ptr %2421, align 8, !tbaa !33
+  %2422 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 1
+  %2423 = load i64, ptr %2422, align 8, !tbaa !25
+  %2424 = load ptr, ptr %4, align 8, !tbaa !8
+  %2425 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2424, i32 0, i32 5
+  store i64 %2423, ptr %2425, align 8, !tbaa !24
+  %2426 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 2
+  %2427 = load i32, ptr %2426, align 8, !tbaa !27
+  %2428 = load ptr, ptr %4, align 8, !tbaa !8
+  %2429 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2428, i32 0, i32 4
+  store i32 %2427, ptr %2429, align 4, !tbaa !26
+  %2430 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 4
+  %2431 = load i32, ptr %2430, align 8, !tbaa !23
+  %2432 = load ptr, ptr %3, align 8, !tbaa !3
+  %2433 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2432, i32 0, i32 1
+  store i32 %2431, ptr %2433, align 8, !tbaa !22
+  %2434 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 3
+  %2435 = load ptr, ptr %2434, align 8, !tbaa !20
+  %2436 = load ptr, ptr %3, align 8, !tbaa !3
+  %2437 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %2436, i32 0, i32 0
+  store ptr %2435, ptr %2437, align 8, !tbaa !12
+  %2438 = getelementptr inbounds nuw %struct.anon.6, ptr %6, i32 0, i32 5
+  %2439 = load ptr, ptr %2438, align 8, !tbaa !29
+  %2440 = load ptr, ptr %4, align 8, !tbaa !8
+  %2441 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %2440, i32 0, i32 10
+  store ptr %2439, ptr %2441, align 8, !tbaa !28
+  %2442 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @inflate_flush(ptr noundef %2442)
   store i32 -2, ptr %2, align 4
-  br label %2432
+  store i32 1, ptr %7, align 4
+  br label %2444
 
-2431:                                             ; preds = %2383, %2271, %2096, %1739, %1717, %1510, %1487, %1466, %1451, %896, %648, %376, %307
-  br label %77
+2443:                                             ; preds = %2395, %2283, %2108, %1751, %1729, %1522, %1499, %1478, %1463, %903, %650, %377, %308
+  br label %78
 
-2432:                                             ; preds = %2407, %2384, %2345, %2247, %2045, %1774, %1628, %1530, %1363, %1282, %1156, %1055, %942, %776, %718, %658, %554, %384, %317, %90
-  %2433 = load i32, ptr %2, align 4
-  ret i32 %2433
+2444:                                             ; preds = %2419, %2396, %2357, %2259, %2057, %1786, %1640, %1542, %1375, %1338, %1220, %779, %721, %661, %650, %318, %91
+  call void @llvm.lifetime.end.p0(i64 80, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  %2445 = load i32, ptr %2, align 4
+  ret i32 %2445
+
+2446:                                             ; preds = %903
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @inflate_flush(ptr noundef %0) #0 {
@@ -3339,129 +3443,138 @@ define internal void @inflate_flush(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %6, i32 0, i32 5
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.inflate_blocks_state, ptr %8, i32 0, i32 9
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %5, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %6, i32 0, i32 5
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %8, i32 0, i32 9
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  store ptr %10, ptr %5, align 8, !tbaa !57
   br label %11
 
 11:                                               ; preds = %88, %1
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.inflate_blocks_state, ptr %13, i32 0, i32 10
-  %15 = load ptr, ptr %14, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !57
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %13, i32 0, i32 10
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = icmp ule ptr %12, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.inflate_blocks_state, ptr %18, i32 0, i32 10
-  %20 = load ptr, ptr %19, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %18, i32 0, i32 10
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
   br label %25
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.inflate_blocks_state, ptr %22, i32 0, i32 8
-  %24 = load ptr, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %22, i32 0, i32 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
   br label %25
 
 25:                                               ; preds = %21, %17
   %26 = phi ptr [ %20, %17 ], [ %24, %21 ]
-  %27 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %5, align 8, !tbaa !57
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = trunc i64 %30 to i32
-  store i32 %31, ptr %4, align 4
-  %32 = load i32, ptr %4, align 4
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %33, i32 0, i32 4
-  %35 = load i32, ptr %34, align 8
+  store i32 %31, ptr %4, align 4, !tbaa !38
+  %32 = load i32, ptr %4, align 4, !tbaa !38
+  %33 = load ptr, ptr %2, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %33, i32 0, i32 4
+  %35 = load i32, ptr %34, align 8, !tbaa !58
   %36 = icmp ult i32 %32, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %25
-  %38 = load i32, ptr %4, align 4
+  %38 = load i32, ptr %4, align 4, !tbaa !38
   br label %43
 
 39:                                               ; preds = %25
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %40, i32 0, i32 4
-  %42 = load i32, ptr %41, align 8
+  %40 = load ptr, ptr %2, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %40, i32 0, i32 4
+  %42 = load i32, ptr %41, align 8, !tbaa !58
   br label %43
 
 43:                                               ; preds = %39, %37
   %44 = phi i32 [ %38, %37 ], [ %42, %39 ]
-  store i32 %44, ptr %4, align 4
-  %45 = load i32, ptr %4, align 4
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %46, i32 0, i32 4
-  %48 = load i32, ptr %47, align 8
+  store i32 %44, ptr %4, align 4, !tbaa !38
+  %45 = load i32, ptr %4, align 4, !tbaa !38
+  %46 = load ptr, ptr %2, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %46, i32 0, i32 4
+  %48 = load i32, ptr %47, align 8, !tbaa !58
   %49 = sub i32 %48, %45
-  store i32 %49, ptr %47, align 8
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %50, i32 0, i32 3
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %5, align 8
-  %54 = load i32, ptr %4, align 4
+  store i32 %49, ptr %47, align 8, !tbaa !58
+  %50 = load ptr, ptr %2, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %50, i32 0, i32 3
+  %52 = load ptr, ptr %51, align 8, !tbaa !59
+  %53 = load ptr, ptr %5, align 8, !tbaa !57
+  %54 = load i32, ptr %4, align 4, !tbaa !38
   %55 = zext i32 %54 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %53, i64 %55, i1 false)
-  %56 = load i32, ptr %4, align 4
-  %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds %struct.nsis_z_stream_s, ptr %57, i32 0, i32 3
-  %59 = load ptr, ptr %58, align 8
+  %56 = load i32, ptr %4, align 4, !tbaa !38
+  %57 = load ptr, ptr %2, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.nsis_z_stream_s, ptr %57, i32 0, i32 3
+  %59 = load ptr, ptr %58, align 8, !tbaa !59
   %60 = zext i32 %56 to i64
-  %61 = getelementptr inbounds i8, ptr %59, i64 %60
-  store ptr %61, ptr %58, align 8
-  %62 = load i32, ptr %4, align 4
-  %63 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
+  store ptr %61, ptr %58, align 8, !tbaa !59
+  %62 = load i32, ptr %4, align 4, !tbaa !38
+  %63 = load ptr, ptr %5, align 8, !tbaa !57
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds i8, ptr %63, i64 %64
-  store ptr %65, ptr %5, align 8
-  %66 = load ptr, ptr %5, align 8
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.inflate_blocks_state, ptr %67, i32 0, i32 8
-  %69 = load ptr, ptr %68, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %64
+  store ptr %65, ptr %5, align 8, !tbaa !57
+  %66 = load ptr, ptr %5, align 8, !tbaa !57
+  %67 = load ptr, ptr %3, align 8, !tbaa !8
+  %68 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %67, i32 0, i32 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !31
   %70 = icmp eq ptr %66, %69
   br i1 %70, label %71, label %89
 
 71:                                               ; preds = %43
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.inflate_blocks_state, ptr %72, i32 0, i32 7
+  %72 = load ptr, ptr %3, align 8, !tbaa !8
+  %73 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %72, i32 0, i32 7
   %74 = getelementptr inbounds [32768 x i8], ptr %73, i64 0, i64 0
-  store ptr %74, ptr %5, align 8
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.inflate_blocks_state, ptr %75, i32 0, i32 10
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.inflate_blocks_state, ptr %78, i32 0, i32 8
-  %80 = load ptr, ptr %79, align 8
+  store ptr %74, ptr %5, align 8, !tbaa !57
+  %75 = load ptr, ptr %3, align 8, !tbaa !8
+  %76 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %75, i32 0, i32 10
+  %77 = load ptr, ptr %76, align 8, !tbaa !28
+  %78 = load ptr, ptr %3, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %78, i32 0, i32 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !31
   %81 = icmp eq ptr %77, %80
   br i1 %81, label %82, label %88
 
 82:                                               ; preds = %71
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.inflate_blocks_state, ptr %83, i32 0, i32 7
+  %83 = load ptr, ptr %3, align 8, !tbaa !8
+  %84 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %83, i32 0, i32 7
   %85 = getelementptr inbounds [32768 x i8], ptr %84, i64 0, i64 0
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.inflate_blocks_state, ptr %86, i32 0, i32 10
-  store ptr %85, ptr %87, align 8
+  %86 = load ptr, ptr %3, align 8, !tbaa !8
+  %87 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %86, i32 0, i32 10
+  store ptr %85, ptr %87, align 8, !tbaa !28
   br label %88
 
 88:                                               ; preds = %82, %71
   br label %11
 
 89:                                               ; preds = %43
-  %90 = load ptr, ptr %5, align 8
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.inflate_blocks_state, ptr %91, i32 0, i32 9
-  store ptr %90, ptr %92, align 8
+  %90 = load ptr, ptr %5, align 8, !tbaa !57
+  %91 = load ptr, ptr %3, align 8, !tbaa !8
+  %92 = getelementptr inbounds nuw %struct.inflate_blocks_state, ptr %91, i32 0, i32 9
+  store ptr %90, ptr %92, align 8, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @huft_build(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
@@ -3495,755 +3608,874 @@ define internal i32 @huft_build(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %38 = alloca i32, align 4
   %39 = alloca i32, align 4
   %40 = alloca i32, align 4
-  store ptr %0, ptr %12, align 8
-  store i32 %1, ptr %13, align 4
-  store i32 %2, ptr %14, align 4
-  store ptr %3, ptr %15, align 8
-  store ptr %4, ptr %16, align 8
-  store ptr %5, ptr %17, align 8
-  store ptr %6, ptr %18, align 8
-  store ptr %7, ptr %19, align 8
-  store ptr %8, ptr %20, align 8
-  store ptr %9, ptr %21, align 8
-  %41 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 0
-  store ptr %41, ptr %31, align 8
-  store i32 16, ptr %38, align 4
-  br label %42
+  %41 = alloca i32, align 4
+  store ptr %0, ptr %12, align 8, !tbaa !60
+  store i32 %1, ptr %13, align 4, !tbaa !38
+  store i32 %2, ptr %14, align 4, !tbaa !38
+  store ptr %3, ptr %15, align 8, !tbaa !62
+  store ptr %4, ptr %16, align 8, !tbaa !62
+  store ptr %5, ptr %17, align 8, !tbaa !64
+  store ptr %6, ptr %18, align 8, !tbaa !60
+  store ptr %7, ptr %19, align 8, !tbaa !45
+  store ptr %8, ptr %20, align 8, !tbaa !60
+  store ptr %9, ptr %21, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 64, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #3
+  call void @llvm.lifetime.start.p0(i64 120, ptr %34) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #3
+  call void @llvm.lifetime.start.p0(i64 64, ptr %36) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #3
+  %42 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 0
+  store ptr %42, ptr %31, align 8, !tbaa !60
+  store i32 16, ptr %38, align 4, !tbaa !38
+  br label %43
 
-42:                                               ; preds = %46, %10
-  %43 = load i32, ptr %38, align 4
-  %44 = add nsw i32 %43, -1
-  store i32 %44, ptr %38, align 4
-  %45 = icmp ne i32 %43, 0
-  br i1 %45, label %46, label %49
+43:                                               ; preds = %47, %10
+  %44 = load i32, ptr %38, align 4, !tbaa !38
+  %45 = add nsw i32 %44, -1
+  store i32 %45, ptr %38, align 4, !tbaa !38
+  %46 = icmp ne i32 %44, 0
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %31, align 8
-  %48 = getelementptr inbounds i32, ptr %47, i32 1
-  store ptr %48, ptr %31, align 8
-  store i32 0, ptr %47, align 4
-  br label %42
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %31, align 8, !tbaa !60
+  %49 = getelementptr inbounds nuw i32, ptr %48, i32 1
+  store ptr %49, ptr %31, align 8, !tbaa !60
+  store i32 0, ptr %48, align 4, !tbaa !38
+  br label %43
 
-49:                                               ; preds = %42
-  %50 = load ptr, ptr %12, align 8
-  store ptr %50, ptr %31, align 8
-  %51 = load i32, ptr %13, align 4
-  store i32 %51, ptr %27, align 4
-  br label %52
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %12, align 8, !tbaa !60
+  store ptr %51, ptr %31, align 8, !tbaa !60
+  %52 = load i32, ptr %13, align 4, !tbaa !38
+  store i32 %52, ptr %27, align 4, !tbaa !38
+  br label %53
 
-52:                                               ; preds = %60, %49
-  %53 = load ptr, ptr %31, align 8
-  %54 = getelementptr inbounds i32, ptr %53, i32 1
-  store ptr %54, ptr %31, align 8
-  %55 = load i32, ptr %53, align 4
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = add i32 %58, 1
-  store i32 %59, ptr %57, align 4
-  br label %60
+53:                                               ; preds = %61, %50
+  %54 = load ptr, ptr %31, align 8, !tbaa !60
+  %55 = getelementptr inbounds nuw i32, ptr %54, i32 1
+  store ptr %55, ptr %31, align 8, !tbaa !60
+  %56 = load i32, ptr %54, align 4, !tbaa !38
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw [16 x i32], ptr %23, i64 0, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !38
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %58, align 4, !tbaa !38
+  br label %61
 
-60:                                               ; preds = %52
-  %61 = load i32, ptr %27, align 4
-  %62 = add i32 %61, -1
-  store i32 %62, ptr %27, align 4
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %52, label %64
+61:                                               ; preds = %53
+  %62 = load i32, ptr %27, align 4, !tbaa !38
+  %63 = add i32 %62, -1
+  store i32 %63, ptr %27, align 4, !tbaa !38
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %53, label %65
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 0
-  %66 = load i32, ptr %65, align 16
-  %67 = load i32, ptr %13, align 4
-  %68 = icmp eq i32 %66, %67
-  br i1 %68, label %69, label %72
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 0
+  %67 = load i32, ptr %66, align 16, !tbaa !38
+  %68 = load i32, ptr %13, align 4, !tbaa !38
+  %69 = icmp eq i32 %67, %68
+  br i1 %69, label %70, label %73
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr %17, align 8
-  store ptr null, ptr %70, align 8
-  %71 = load ptr, ptr %18, align 8
-  store i32 0, ptr %71, align 4
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %17, align 8, !tbaa !64
+  store ptr null, ptr %71, align 8, !tbaa !45
+  %72 = load ptr, ptr %18, align 8, !tbaa !60
+  store i32 0, ptr %72, align 4, !tbaa !38
   store i32 0, ptr %11, align 4
-  br label %487
+  store i32 1, ptr %40, align 4
+  br label %491
 
-72:                                               ; preds = %64
-  %73 = load ptr, ptr %18, align 8
-  %74 = load i32, ptr %73, align 4
-  store i32 %74, ptr %30, align 4
-  store i32 1, ptr %28, align 4
-  br label %75
+73:                                               ; preds = %65
+  %74 = load ptr, ptr %18, align 8, !tbaa !60
+  %75 = load i32, ptr %74, align 4, !tbaa !38
+  store i32 %75, ptr %30, align 4, !tbaa !38
+  store i32 1, ptr %28, align 4, !tbaa !38
+  br label %76
 
-75:                                               ; preds = %86, %72
-  %76 = load i32, ptr %28, align 4
-  %77 = icmp ule i32 %76, 15
-  br i1 %77, label %78, label %89
+76:                                               ; preds = %87, %73
+  %77 = load i32, ptr %28, align 4, !tbaa !38
+  %78 = icmp ule i32 %77, 15
+  br i1 %78, label %79, label %90
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr %28, align 4
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %84, label %85
+79:                                               ; preds = %76
+  %80 = load i32, ptr %28, align 4, !tbaa !38
+  %81 = zext i32 %80 to i64
+  %82 = getelementptr inbounds nuw [16 x i32], ptr %23, i64 0, i64 %81
+  %83 = load i32, ptr %82, align 4, !tbaa !38
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %86
 
-84:                                               ; preds = %78
-  br label %89
+85:                                               ; preds = %79
+  br label %90
 
-85:                                               ; preds = %78
-  br label %86
+86:                                               ; preds = %79
+  br label %87
 
-86:                                               ; preds = %85
-  %87 = load i32, ptr %28, align 4
-  %88 = add i32 %87, 1
-  store i32 %88, ptr %28, align 4
-  br label %75
+87:                                               ; preds = %86
+  %88 = load i32, ptr %28, align 4, !tbaa !38
+  %89 = add i32 %88, 1
+  store i32 %89, ptr %28, align 4, !tbaa !38
+  br label %76
 
-89:                                               ; preds = %84, %75
-  %90 = load i32, ptr %28, align 4
-  store i32 %90, ptr %29, align 4
-  %91 = load i32, ptr %30, align 4
-  %92 = load i32, ptr %28, align 4
-  %93 = icmp ult i32 %91, %92
-  br i1 %93, label %94, label %96
+90:                                               ; preds = %85, %76
+  %91 = load i32, ptr %28, align 4, !tbaa !38
+  store i32 %91, ptr %29, align 4, !tbaa !38
+  %92 = load i32, ptr %30, align 4, !tbaa !38
+  %93 = load i32, ptr %28, align 4, !tbaa !38
+  %94 = icmp ult i32 %92, %93
+  br i1 %94, label %95, label %97
 
-94:                                               ; preds = %89
-  %95 = load i32, ptr %28, align 4
-  store i32 %95, ptr %30, align 4
-  br label %96
-
-96:                                               ; preds = %94, %89
-  store i32 15, ptr %27, align 4
+95:                                               ; preds = %90
+  %96 = load i32, ptr %28, align 4, !tbaa !38
+  store i32 %96, ptr %30, align 4, !tbaa !38
   br label %97
 
-97:                                               ; preds = %108, %96
-  %98 = load i32, ptr %27, align 4
-  %99 = icmp ne i32 %98, 0
-  br i1 %99, label %100, label %111
+97:                                               ; preds = %95, %90
+  store i32 15, ptr %27, align 4, !tbaa !38
+  br label %98
 
-100:                                              ; preds = %97
-  %101 = load i32, ptr %27, align 4
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %102
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp ne i32 %104, 0
-  br i1 %105, label %106, label %107
+98:                                               ; preds = %109, %97
+  %99 = load i32, ptr %27, align 4, !tbaa !38
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %112
 
-106:                                              ; preds = %100
-  br label %111
+101:                                              ; preds = %98
+  %102 = load i32, ptr %27, align 4, !tbaa !38
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds nuw [16 x i32], ptr %23, i64 0, i64 %103
+  %105 = load i32, ptr %104, align 4, !tbaa !38
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %108
 
-107:                                              ; preds = %100
-  br label %108
+107:                                              ; preds = %101
+  br label %112
 
-108:                                              ; preds = %107
-  %109 = load i32, ptr %27, align 4
-  %110 = add i32 %109, -1
-  store i32 %110, ptr %27, align 4
-  br label %97
+108:                                              ; preds = %101
+  br label %109
 
-111:                                              ; preds = %106, %97
-  %112 = load i32, ptr %27, align 4
-  store i32 %112, ptr %25, align 4
-  %113 = load i32, ptr %30, align 4
-  %114 = load i32, ptr %27, align 4
-  %115 = icmp ugt i32 %113, %114
-  br i1 %115, label %116, label %118
+109:                                              ; preds = %108
+  %110 = load i32, ptr %27, align 4, !tbaa !38
+  %111 = add i32 %110, -1
+  store i32 %111, ptr %27, align 4, !tbaa !38
+  br label %98
 
-116:                                              ; preds = %111
-  %117 = load i32, ptr %27, align 4
-  store i32 %117, ptr %30, align 4
-  br label %118
+112:                                              ; preds = %107, %98
+  %113 = load i32, ptr %27, align 4, !tbaa !38
+  store i32 %113, ptr %25, align 4, !tbaa !38
+  %114 = load i32, ptr %30, align 4, !tbaa !38
+  %115 = load i32, ptr %27, align 4, !tbaa !38
+  %116 = icmp ugt i32 %114, %115
+  br i1 %116, label %117, label %119
 
-118:                                              ; preds = %116, %111
-  %119 = load i32, ptr %30, align 4
-  %120 = load ptr, ptr %18, align 8
-  store i32 %119, ptr %120, align 4
-  %121 = load i32, ptr %28, align 4
-  %122 = shl i32 1, %121
-  store i32 %122, ptr %38, align 4
-  br label %123
+117:                                              ; preds = %112
+  %118 = load i32, ptr %27, align 4, !tbaa !38
+  store i32 %118, ptr %30, align 4, !tbaa !38
+  br label %119
 
-123:                                              ; preds = %137, %118
-  %124 = load i32, ptr %28, align 4
-  %125 = load i32, ptr %27, align 4
-  %126 = icmp ult i32 %124, %125
-  br i1 %126, label %127, label %142
+119:                                              ; preds = %117, %112
+  %120 = load i32, ptr %30, align 4, !tbaa !38
+  %121 = load ptr, ptr %18, align 8, !tbaa !60
+  store i32 %120, ptr %121, align 4, !tbaa !38
+  %122 = load i32, ptr %28, align 4, !tbaa !38
+  %123 = shl i32 1, %122
+  store i32 %123, ptr %38, align 4, !tbaa !38
+  br label %124
 
-127:                                              ; preds = %123
-  %128 = load i32, ptr %28, align 4
-  %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %129
-  %131 = load i32, ptr %130, align 4
-  %132 = load i32, ptr %38, align 4
-  %133 = sub i32 %132, %131
-  store i32 %133, ptr %38, align 4
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %135, label %136
+124:                                              ; preds = %138, %119
+  %125 = load i32, ptr %28, align 4, !tbaa !38
+  %126 = load i32, ptr %27, align 4, !tbaa !38
+  %127 = icmp ult i32 %125, %126
+  br i1 %127, label %128, label %143
 
-135:                                              ; preds = %127
+128:                                              ; preds = %124
+  %129 = load i32, ptr %28, align 4, !tbaa !38
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds nuw [16 x i32], ptr %23, i64 0, i64 %130
+  %132 = load i32, ptr %131, align 4, !tbaa !38
+  %133 = load i32, ptr %38, align 4, !tbaa !38
+  %134 = sub i32 %133, %132
+  store i32 %134, ptr %38, align 4, !tbaa !38
+  %135 = icmp slt i32 %134, 0
+  br i1 %135, label %136, label %137
+
+136:                                              ; preds = %128
   store i32 -3, ptr %11, align 4
-  br label %487
+  store i32 1, ptr %40, align 4
+  br label %491
 
-136:                                              ; preds = %127
-  br label %137
+137:                                              ; preds = %128
+  br label %138
 
-137:                                              ; preds = %136
-  %138 = load i32, ptr %28, align 4
-  %139 = add i32 %138, 1
-  store i32 %139, ptr %28, align 4
-  %140 = load i32, ptr %38, align 4
-  %141 = shl i32 %140, 1
-  store i32 %141, ptr %38, align 4
-  br label %123
+138:                                              ; preds = %137
+  %139 = load i32, ptr %28, align 4, !tbaa !38
+  %140 = add i32 %139, 1
+  store i32 %140, ptr %28, align 4, !tbaa !38
+  %141 = load i32, ptr %38, align 4, !tbaa !38
+  %142 = shl i32 %141, 1
+  store i32 %142, ptr %38, align 4, !tbaa !38
+  br label %124
 
-142:                                              ; preds = %123
-  %143 = load i32, ptr %27, align 4
-  %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %144
-  %146 = load i32, ptr %145, align 4
-  %147 = load i32, ptr %38, align 4
-  %148 = sub i32 %147, %146
-  store i32 %148, ptr %38, align 4
-  %149 = icmp slt i32 %148, 0
-  br i1 %149, label %150, label %151
+143:                                              ; preds = %124
+  %144 = load i32, ptr %27, align 4, !tbaa !38
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds nuw [16 x i32], ptr %23, i64 0, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !38
+  %148 = load i32, ptr %38, align 4, !tbaa !38
+  %149 = sub i32 %148, %147
+  store i32 %149, ptr %38, align 4, !tbaa !38
+  %150 = icmp slt i32 %149, 0
+  br i1 %150, label %151, label %152
 
-150:                                              ; preds = %142
+151:                                              ; preds = %143
   store i32 -3, ptr %11, align 4
-  br label %487
+  store i32 1, ptr %40, align 4
+  br label %491
 
-151:                                              ; preds = %142
-  %152 = load i32, ptr %38, align 4
-  %153 = load i32, ptr %27, align 4
-  %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %154
-  %156 = load i32, ptr %155, align 4
-  %157 = add i32 %156, %152
-  store i32 %157, ptr %155, align 4
-  store i32 0, ptr %28, align 4
-  %158 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 1
-  store i32 0, ptr %158, align 4
-  %159 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 0
-  %160 = getelementptr inbounds i32, ptr %159, i64 1
-  store ptr %160, ptr %31, align 8
-  %161 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 0
-  %162 = getelementptr inbounds i32, ptr %161, i64 2
-  store ptr %162, ptr %37, align 8
-  br label %163
+152:                                              ; preds = %143
+  %153 = load i32, ptr %38, align 4, !tbaa !38
+  %154 = load i32, ptr %27, align 4, !tbaa !38
+  %155 = zext i32 %154 to i64
+  %156 = getelementptr inbounds nuw [16 x i32], ptr %23, i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4, !tbaa !38
+  %158 = add i32 %157, %153
+  store i32 %158, ptr %156, align 4, !tbaa !38
+  store i32 0, ptr %28, align 4, !tbaa !38
+  %159 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 1
+  store i32 0, ptr %159, align 4, !tbaa !38
+  %160 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 0
+  %161 = getelementptr inbounds i32, ptr %160, i64 1
+  store ptr %161, ptr %31, align 8, !tbaa !60
+  %162 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 0
+  %163 = getelementptr inbounds i32, ptr %162, i64 2
+  store ptr %163, ptr %37, align 8, !tbaa !60
+  br label %164
 
-163:                                              ; preds = %167, %151
-  %164 = load i32, ptr %27, align 4
-  %165 = add i32 %164, -1
-  store i32 %165, ptr %27, align 4
-  %166 = icmp ne i32 %165, 0
-  br i1 %166, label %167, label %175
+164:                                              ; preds = %168, %152
+  %165 = load i32, ptr %27, align 4, !tbaa !38
+  %166 = add i32 %165, -1
+  store i32 %166, ptr %27, align 4, !tbaa !38
+  %167 = icmp ne i32 %166, 0
+  br i1 %167, label %168, label %176
 
-167:                                              ; preds = %163
-  %168 = load ptr, ptr %31, align 8
-  %169 = getelementptr inbounds i32, ptr %168, i32 1
-  store ptr %169, ptr %31, align 8
-  %170 = load i32, ptr %168, align 4
-  %171 = load i32, ptr %28, align 4
-  %172 = add i32 %171, %170
-  store i32 %172, ptr %28, align 4
-  %173 = load ptr, ptr %37, align 8
-  %174 = getelementptr inbounds i32, ptr %173, i32 1
-  store ptr %174, ptr %37, align 8
-  store i32 %172, ptr %173, align 4
-  br label %163
+168:                                              ; preds = %164
+  %169 = load ptr, ptr %31, align 8, !tbaa !60
+  %170 = getelementptr inbounds nuw i32, ptr %169, i32 1
+  store ptr %170, ptr %31, align 8, !tbaa !60
+  %171 = load i32, ptr %169, align 4, !tbaa !38
+  %172 = load i32, ptr %28, align 4, !tbaa !38
+  %173 = add i32 %172, %171
+  store i32 %173, ptr %28, align 4, !tbaa !38
+  %174 = load ptr, ptr %37, align 8, !tbaa !60
+  %175 = getelementptr inbounds nuw i32, ptr %174, i32 1
+  store ptr %175, ptr %37, align 8, !tbaa !60
+  store i32 %173, ptr %174, align 4, !tbaa !38
+  br label %164
 
-175:                                              ; preds = %163
-  %176 = load ptr, ptr %12, align 8
-  store ptr %176, ptr %31, align 8
-  store i32 0, ptr %27, align 4
-  br label %177
+176:                                              ; preds = %164
+  %177 = load ptr, ptr %12, align 8, !tbaa !60
+  store ptr %177, ptr %31, align 8, !tbaa !60
+  store i32 0, ptr %27, align 4, !tbaa !38
+  br label %178
 
-177:                                              ; preds = %193, %175
-  %178 = load ptr, ptr %31, align 8
-  %179 = getelementptr inbounds i32, ptr %178, i32 1
-  store ptr %179, ptr %31, align 8
-  %180 = load i32, ptr %178, align 4
-  store i32 %180, ptr %28, align 4
-  %181 = icmp ne i32 %180, 0
-  br i1 %181, label %182, label %192
+178:                                              ; preds = %194, %176
+  %179 = load ptr, ptr %31, align 8, !tbaa !60
+  %180 = getelementptr inbounds nuw i32, ptr %179, i32 1
+  store ptr %180, ptr %31, align 8, !tbaa !60
+  %181 = load i32, ptr %179, align 4, !tbaa !38
+  store i32 %181, ptr %28, align 4, !tbaa !38
+  %182 = icmp ne i32 %181, 0
+  br i1 %182, label %183, label %193
 
-182:                                              ; preds = %177
-  %183 = load i32, ptr %27, align 4
-  %184 = load ptr, ptr %21, align 8
-  %185 = load i32, ptr %28, align 4
-  %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 %186
-  %188 = load i32, ptr %187, align 4
-  %189 = add i32 %188, 1
-  store i32 %189, ptr %187, align 4
-  %190 = zext i32 %188 to i64
-  %191 = getelementptr inbounds i32, ptr %184, i64 %190
-  store i32 %183, ptr %191, align 4
-  br label %192
-
-192:                                              ; preds = %182, %177
+183:                                              ; preds = %178
+  %184 = load i32, ptr %27, align 4, !tbaa !38
+  %185 = load ptr, ptr %21, align 8, !tbaa !60
+  %186 = load i32, ptr %28, align 4, !tbaa !38
+  %187 = zext i32 %186 to i64
+  %188 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %187
+  %189 = load i32, ptr %188, align 4, !tbaa !38
+  %190 = add i32 %189, 1
+  store i32 %190, ptr %188, align 4, !tbaa !38
+  %191 = zext i32 %189 to i64
+  %192 = getelementptr inbounds nuw i32, ptr %185, i64 %191
+  store i32 %184, ptr %192, align 4, !tbaa !38
   br label %193
 
-193:                                              ; preds = %192
-  %194 = load i32, ptr %27, align 4
-  %195 = add i32 %194, 1
-  store i32 %195, ptr %27, align 4
-  %196 = load i32, ptr %13, align 4
-  %197 = icmp ult i32 %195, %196
-  br i1 %197, label %177, label %198
+193:                                              ; preds = %183, %178
+  br label %194
 
-198:                                              ; preds = %193
-  %199 = load i32, ptr %25, align 4
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 %200
-  %202 = load i32, ptr %201, align 4
-  store i32 %202, ptr %13, align 4
-  store i32 0, ptr %27, align 4
-  %203 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 0
-  store i32 0, ptr %203, align 16
-  %204 = load ptr, ptr %21, align 8
-  store ptr %204, ptr %31, align 8
-  store i32 -1, ptr %26, align 4
-  %205 = load i32, ptr %30, align 4
-  %206 = sub nsw i32 0, %205
-  store i32 %206, ptr %35, align 4
-  %207 = getelementptr inbounds [15 x ptr], ptr %34, i64 0, i64 0
-  store ptr null, ptr %207, align 16
-  store ptr null, ptr %32, align 8
-  store i32 0, ptr %39, align 4
-  %208 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 1
-  store i16 0, ptr %208, align 2
-  br label %209
+194:                                              ; preds = %193
+  %195 = load i32, ptr %27, align 4, !tbaa !38
+  %196 = add i32 %195, 1
+  store i32 %196, ptr %27, align 4, !tbaa !38
+  %197 = load i32, ptr %13, align 4, !tbaa !38
+  %198 = icmp ult i32 %196, %197
+  br i1 %198, label %178, label %199
 
-209:                                              ; preds = %475, %198
-  %210 = load i32, ptr %29, align 4
-  %211 = load i32, ptr %25, align 4
-  %212 = icmp sle i32 %210, %211
-  br i1 %212, label %213, label %478
+199:                                              ; preds = %194
+  %200 = load i32, ptr %25, align 4, !tbaa !38
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 %201
+  %203 = load i32, ptr %202, align 4, !tbaa !38
+  store i32 %203, ptr %13, align 4, !tbaa !38
+  store i32 0, ptr %27, align 4, !tbaa !38
+  %204 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 0
+  store i32 0, ptr %204, align 16, !tbaa !38
+  %205 = load ptr, ptr %21, align 8, !tbaa !60
+  store ptr %205, ptr %31, align 8, !tbaa !60
+  store i32 -1, ptr %26, align 4, !tbaa !38
+  %206 = load i32, ptr %30, align 4, !tbaa !38
+  %207 = sub nsw i32 0, %206
+  store i32 %207, ptr %35, align 4, !tbaa !38
+  %208 = getelementptr inbounds [15 x ptr], ptr %34, i64 0, i64 0
+  store ptr null, ptr %208, align 16, !tbaa !45
+  store ptr null, ptr %32, align 8, !tbaa !45
+  store i32 0, ptr %39, align 4, !tbaa !38
+  %209 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 1
+  store i16 0, ptr %209, align 2, !tbaa !46
+  br label %210
 
-213:                                              ; preds = %209
-  %214 = load i32, ptr %29, align 4
-  %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %215
-  %217 = load i32, ptr %216, align 4
-  store i32 %217, ptr %22, align 4
-  br label %218
+210:                                              ; preds = %479, %199
+  %211 = load i32, ptr %29, align 4, !tbaa !38
+  %212 = load i32, ptr %25, align 4, !tbaa !38
+  %213 = icmp sle i32 %211, %212
+  br i1 %213, label %214, label %482
 
-218:                                              ; preds = %473, %213
-  %219 = load i32, ptr %22, align 4
-  %220 = add i32 %219, -1
-  store i32 %220, ptr %22, align 4
-  %221 = icmp ne i32 %219, 0
-  br i1 %221, label %222, label %474
+214:                                              ; preds = %210
+  %215 = load i32, ptr %29, align 4, !tbaa !38
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %216
+  %218 = load i32, ptr %217, align 4, !tbaa !38
+  store i32 %218, ptr %22, align 4, !tbaa !38
+  br label %219
 
-222:                                              ; preds = %218
-  %223 = load i32, ptr %35, align 4
-  store i32 %223, ptr %40, align 4
-  br label %224
+219:                                              ; preds = %477, %214
+  %220 = load i32, ptr %22, align 4, !tbaa !38
+  %221 = add i32 %220, -1
+  store i32 %221, ptr %22, align 4, !tbaa !38
+  %222 = icmp ne i32 %220, 0
+  br i1 %222, label %223, label %478
 
-224:                                              ; preds = %353, %222
-  %225 = load i32, ptr %29, align 4
-  %226 = load i32, ptr %35, align 4
-  %227 = load i32, ptr %30, align 4
-  %228 = add nsw i32 %226, %227
-  store i32 %228, ptr %40, align 4
-  %229 = icmp sgt i32 %225, %228
-  br i1 %229, label %230, label %355
+223:                                              ; preds = %219
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #3
+  %224 = load i32, ptr %35, align 4, !tbaa !38
+  store i32 %224, ptr %41, align 4, !tbaa !38
+  br label %225
 
-230:                                              ; preds = %224
-  %231 = load i32, ptr %26, align 4
-  %232 = add nsw i32 %231, 1
-  store i32 %232, ptr %26, align 4
-  %233 = load i32, ptr %25, align 4
-  %234 = load i32, ptr %40, align 4
-  %235 = sub nsw i32 %233, %234
-  store i32 %235, ptr %39, align 4
-  %236 = load i32, ptr %39, align 4
-  %237 = load i32, ptr %30, align 4
-  %238 = icmp ugt i32 %236, %237
-  br i1 %238, label %239, label %241
+225:                                              ; preds = %354, %223
+  %226 = load i32, ptr %29, align 4, !tbaa !38
+  %227 = load i32, ptr %35, align 4, !tbaa !38
+  %228 = load i32, ptr %30, align 4, !tbaa !38
+  %229 = add nsw i32 %227, %228
+  store i32 %229, ptr %41, align 4, !tbaa !38
+  %230 = icmp sgt i32 %226, %229
+  br i1 %230, label %231, label %356
 
-239:                                              ; preds = %230
-  %240 = load i32, ptr %30, align 4
-  br label %243
+231:                                              ; preds = %225
+  %232 = load i32, ptr %26, align 4, !tbaa !38
+  %233 = add nsw i32 %232, 1
+  store i32 %233, ptr %26, align 4, !tbaa !38
+  %234 = load i32, ptr %25, align 4, !tbaa !38
+  %235 = load i32, ptr %41, align 4, !tbaa !38
+  %236 = sub nsw i32 %234, %235
+  store i32 %236, ptr %39, align 4, !tbaa !38
+  %237 = load i32, ptr %39, align 4, !tbaa !38
+  %238 = load i32, ptr %30, align 4, !tbaa !38
+  %239 = icmp ugt i32 %237, %238
+  br i1 %239, label %240, label %242
 
-241:                                              ; preds = %230
-  %242 = load i32, ptr %39, align 4
-  br label %243
+240:                                              ; preds = %231
+  %241 = load i32, ptr %30, align 4, !tbaa !38
+  br label %244
 
-243:                                              ; preds = %241, %239
-  %244 = phi i32 [ %240, %239 ], [ %242, %241 ]
-  store i32 %244, ptr %39, align 4
-  %245 = load i32, ptr %29, align 4
-  %246 = load i32, ptr %40, align 4
-  %247 = sub nsw i32 %245, %246
-  store i32 %247, ptr %28, align 4
-  %248 = shl i32 1, %247
-  store i32 %248, ptr %24, align 4
-  %249 = load i32, ptr %22, align 4
-  %250 = add i32 %249, 1
-  %251 = icmp ugt i32 %248, %250
-  br i1 %251, label %252, label %286
+242:                                              ; preds = %231
+  %243 = load i32, ptr %39, align 4, !tbaa !38
+  br label %244
 
-252:                                              ; preds = %243
-  %253 = load i32, ptr %22, align 4
-  %254 = add i32 %253, 1
-  %255 = load i32, ptr %24, align 4
-  %256 = sub i32 %255, %254
-  store i32 %256, ptr %24, align 4
-  %257 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 0
-  %258 = load i32, ptr %29, align 4
-  %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds i32, ptr %257, i64 %259
-  store ptr %260, ptr %37, align 8
-  %261 = load i32, ptr %28, align 4
-  %262 = load i32, ptr %39, align 4
-  %263 = icmp ult i32 %261, %262
-  br i1 %263, label %264, label %285
+244:                                              ; preds = %242, %240
+  %245 = phi i32 [ %241, %240 ], [ %243, %242 ]
+  store i32 %245, ptr %39, align 4, !tbaa !38
+  %246 = load i32, ptr %29, align 4, !tbaa !38
+  %247 = load i32, ptr %41, align 4, !tbaa !38
+  %248 = sub nsw i32 %246, %247
+  store i32 %248, ptr %28, align 4, !tbaa !38
+  %249 = shl i32 1, %248
+  store i32 %249, ptr %24, align 4, !tbaa !38
+  %250 = load i32, ptr %22, align 4, !tbaa !38
+  %251 = add i32 %250, 1
+  %252 = icmp ugt i32 %249, %251
+  br i1 %252, label %253, label %287
 
-264:                                              ; preds = %252
-  br label %265
+253:                                              ; preds = %244
+  %254 = load i32, ptr %22, align 4, !tbaa !38
+  %255 = add i32 %254, 1
+  %256 = load i32, ptr %24, align 4, !tbaa !38
+  %257 = sub i32 %256, %255
+  store i32 %257, ptr %24, align 4, !tbaa !38
+  %258 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 0
+  %259 = load i32, ptr %29, align 4, !tbaa !38
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr inbounds i32, ptr %258, i64 %260
+  store ptr %261, ptr %37, align 8, !tbaa !60
+  %262 = load i32, ptr %28, align 4, !tbaa !38
+  %263 = load i32, ptr %39, align 4, !tbaa !38
+  %264 = icmp ult i32 %262, %263
+  br i1 %264, label %265, label %286
 
-265:                                              ; preds = %279, %264
-  %266 = load i32, ptr %28, align 4
-  %267 = add i32 %266, 1
-  store i32 %267, ptr %28, align 4
-  %268 = load i32, ptr %39, align 4
-  %269 = icmp ult i32 %267, %268
-  br i1 %269, label %270, label %277
+265:                                              ; preds = %253
+  br label %266
 
-270:                                              ; preds = %265
-  %271 = load i32, ptr %24, align 4
-  %272 = shl i32 %271, 1
-  store i32 %272, ptr %24, align 4
-  %273 = load ptr, ptr %37, align 8
-  %274 = getelementptr inbounds i32, ptr %273, i32 1
-  store ptr %274, ptr %37, align 8
-  %275 = load i32, ptr %274, align 4
-  %276 = icmp ugt i32 %272, %275
-  br label %277
+266:                                              ; preds = %280, %265
+  %267 = load i32, ptr %28, align 4, !tbaa !38
+  %268 = add i32 %267, 1
+  store i32 %268, ptr %28, align 4, !tbaa !38
+  %269 = load i32, ptr %39, align 4, !tbaa !38
+  %270 = icmp ult i32 %268, %269
+  br i1 %270, label %271, label %278
 
-277:                                              ; preds = %270, %265
-  %278 = phi i1 [ false, %265 ], [ %276, %270 ]
-  br i1 %278, label %279, label %284
+271:                                              ; preds = %266
+  %272 = load i32, ptr %24, align 4, !tbaa !38
+  %273 = shl i32 %272, 1
+  store i32 %273, ptr %24, align 4, !tbaa !38
+  %274 = load ptr, ptr %37, align 8, !tbaa !60
+  %275 = getelementptr inbounds nuw i32, ptr %274, i32 1
+  store ptr %275, ptr %37, align 8, !tbaa !60
+  %276 = load i32, ptr %275, align 4, !tbaa !38
+  %277 = icmp ugt i32 %273, %276
+  br label %278
 
-279:                                              ; preds = %277
-  %280 = load ptr, ptr %37, align 8
-  %281 = load i32, ptr %280, align 4
-  %282 = load i32, ptr %24, align 4
-  %283 = sub i32 %282, %281
-  store i32 %283, ptr %24, align 4
-  br label %265
+278:                                              ; preds = %271, %266
+  %279 = phi i1 [ false, %266 ], [ %277, %271 ]
+  br i1 %279, label %280, label %285
 
-284:                                              ; preds = %277
-  br label %285
+280:                                              ; preds = %278
+  %281 = load ptr, ptr %37, align 8, !tbaa !60
+  %282 = load i32, ptr %281, align 4, !tbaa !38
+  %283 = load i32, ptr %24, align 4, !tbaa !38
+  %284 = sub i32 %283, %282
+  store i32 %284, ptr %24, align 4, !tbaa !38
+  br label %266
 
-285:                                              ; preds = %284, %252
+285:                                              ; preds = %278
   br label %286
 
-286:                                              ; preds = %285, %243
-  %287 = load i32, ptr %28, align 4
-  %288 = shl i32 1, %287
-  store i32 %288, ptr %39, align 4
-  %289 = load ptr, ptr %20, align 8
-  %290 = load i32, ptr %289, align 4
-  %291 = load i32, ptr %39, align 4
-  %292 = add i32 %290, %291
-  %293 = icmp ugt i32 %292, 1440
-  br i1 %293, label %294, label %295
+286:                                              ; preds = %285, %253
+  br label %287
 
-294:                                              ; preds = %286
+287:                                              ; preds = %286, %244
+  %288 = load i32, ptr %28, align 4, !tbaa !38
+  %289 = shl i32 1, %288
+  store i32 %289, ptr %39, align 4, !tbaa !38
+  %290 = load ptr, ptr %20, align 8, !tbaa !60
+  %291 = load i32, ptr %290, align 4, !tbaa !38
+  %292 = load i32, ptr %39, align 4, !tbaa !38
+  %293 = add i32 %291, %292
+  %294 = icmp ugt i32 %293, 1440
+  br i1 %294, label %295, label %296
+
+295:                                              ; preds = %287
   store i32 -4, ptr %11, align 4
-  br label %487
-
-295:                                              ; preds = %286
-  %296 = load ptr, ptr %19, align 8
-  %297 = load ptr, ptr %20, align 8
-  %298 = load i32, ptr %297, align 4
-  %299 = zext i32 %298 to i64
-  %300 = getelementptr inbounds %struct.inflate_huft_s, ptr %296, i64 %299
-  store ptr %300, ptr %32, align 8
-  %301 = load i32, ptr %26, align 4
-  %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds [15 x ptr], ptr %34, i64 0, i64 %302
-  store ptr %300, ptr %303, align 8
-  %304 = load i32, ptr %39, align 4
-  %305 = load ptr, ptr %20, align 8
-  %306 = load i32, ptr %305, align 4
-  %307 = add i32 %306, %304
-  store i32 %307, ptr %305, align 4
-  %308 = load i32, ptr %26, align 4
-  %309 = icmp ne i32 %308, 0
-  br i1 %309, label %310, label %350
-
-310:                                              ; preds = %295
-  %311 = load i32, ptr %27, align 4
-  %312 = load i32, ptr %26, align 4
-  %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 %313
-  store i32 %311, ptr %314, align 4
-  %315 = load i32, ptr %30, align 4
-  %316 = trunc i32 %315 to i8
-  %317 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 0
-  %318 = getelementptr inbounds %struct.anon, ptr %317, i32 0, i32 1
-  store i8 %316, ptr %318, align 1
-  %319 = load i32, ptr %28, align 4
-  %320 = trunc i32 %319 to i8
-  %321 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 0
-  %322 = getelementptr inbounds %struct.anon, ptr %321, i32 0, i32 0
-  store i8 %320, ptr %322, align 2
-  %323 = load i32, ptr %27, align 4
-  %324 = load i32, ptr %35, align 4
-  %325 = lshr i32 %323, %324
-  store i32 %325, ptr %28, align 4
-  %326 = load ptr, ptr %32, align 8
-  %327 = load i32, ptr %26, align 4
-  %328 = sub nsw i32 %327, 1
-  %329 = sext i32 %328 to i64
-  %330 = getelementptr inbounds [15 x ptr], ptr %34, i64 0, i64 %329
-  %331 = load ptr, ptr %330, align 8
-  %332 = ptrtoint ptr %326 to i64
-  %333 = ptrtoint ptr %331 to i64
-  %334 = sub i64 %332, %333
-  %335 = sdiv exact i64 %334, 4
-  %336 = load i32, ptr %28, align 4
-  %337 = zext i32 %336 to i64
-  %338 = sub nsw i64 %335, %337
-  %339 = trunc i64 %338 to i32
-  %340 = trunc i32 %339 to i16
-  %341 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 1
-  store i16 %340, ptr %341, align 2
-  %342 = load i32, ptr %26, align 4
-  %343 = sub nsw i32 %342, 1
-  %344 = sext i32 %343 to i64
-  %345 = getelementptr inbounds [15 x ptr], ptr %34, i64 0, i64 %344
-  %346 = load ptr, ptr %345, align 8
-  %347 = load i32, ptr %28, align 4
-  %348 = zext i32 %347 to i64
-  %349 = getelementptr inbounds %struct.inflate_huft_s, ptr %346, i64 %348
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %349, ptr align 2 %33, i64 4, i1 false)
-  br label %353
-
-350:                                              ; preds = %295
-  %351 = load ptr, ptr %32, align 8
-  %352 = load ptr, ptr %17, align 8
-  store ptr %351, ptr %352, align 8
-  br label %353
-
-353:                                              ; preds = %350, %310
-  %354 = load i32, ptr %40, align 4
-  store i32 %354, ptr %35, align 4
-  br label %224
-
-355:                                              ; preds = %224
-  %356 = load i32, ptr %29, align 4
-  %357 = load i32, ptr %35, align 4
-  %358 = sub nsw i32 %356, %357
-  %359 = trunc i32 %358 to i8
-  %360 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 0
-  %361 = getelementptr inbounds %struct.anon, ptr %360, i32 0, i32 1
-  store i8 %359, ptr %361, align 1
-  %362 = load ptr, ptr %31, align 8
-  %363 = load ptr, ptr %21, align 8
-  %364 = load i32, ptr %13, align 4
-  %365 = zext i32 %364 to i64
-  %366 = getelementptr inbounds i32, ptr %363, i64 %365
-  %367 = icmp uge ptr %362, %366
-  br i1 %367, label %368, label %371
-
-368:                                              ; preds = %355
-  %369 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 0
-  %370 = getelementptr inbounds %struct.anon, ptr %369, i32 0, i32 0
-  store i8 -64, ptr %370, align 2
-  br label %415
-
-371:                                              ; preds = %355
-  %372 = load ptr, ptr %31, align 8
-  %373 = load i32, ptr %372, align 4
-  %374 = load i32, ptr %14, align 4
-  %375 = icmp ult i32 %373, %374
-  br i1 %375, label %376, label %389
-
-376:                                              ; preds = %371
-  %377 = load ptr, ptr %31, align 8
-  %378 = load i32, ptr %377, align 4
-  %379 = icmp ult i32 %378, 256
-  %380 = select i1 %379, i32 0, i32 96
-  %381 = trunc i32 %380 to i8
-  %382 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 0
-  %383 = getelementptr inbounds %struct.anon, ptr %382, i32 0, i32 0
-  store i8 %381, ptr %383, align 2
-  %384 = load ptr, ptr %31, align 8
-  %385 = getelementptr inbounds i32, ptr %384, i32 1
-  store ptr %385, ptr %31, align 8
-  %386 = load i32, ptr %384, align 4
-  %387 = trunc i32 %386 to i16
-  %388 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 1
-  store i16 %387, ptr %388, align 2
-  br label %414
-
-389:                                              ; preds = %371
-  %390 = load ptr, ptr %16, align 8
-  %391 = load ptr, ptr %31, align 8
-  %392 = load i32, ptr %391, align 4
-  %393 = load i32, ptr %14, align 4
-  %394 = sub i32 %392, %393
-  %395 = zext i32 %394 to i64
-  %396 = getelementptr inbounds i16, ptr %390, i64 %395
-  %397 = load i16, ptr %396, align 2
-  %398 = zext i16 %397 to i32
-  %399 = add nsw i32 %398, 16
-  %400 = add nsw i32 %399, 64
-  %401 = trunc i32 %400 to i8
-  %402 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 0
-  %403 = getelementptr inbounds %struct.anon, ptr %402, i32 0, i32 0
-  store i8 %401, ptr %403, align 2
-  %404 = load ptr, ptr %15, align 8
-  %405 = load ptr, ptr %31, align 8
-  %406 = getelementptr inbounds i32, ptr %405, i32 1
-  store ptr %406, ptr %31, align 8
-  %407 = load i32, ptr %405, align 4
-  %408 = load i32, ptr %14, align 4
-  %409 = sub i32 %407, %408
-  %410 = zext i32 %409 to i64
-  %411 = getelementptr inbounds i16, ptr %404, i64 %410
-  %412 = load i16, ptr %411, align 2
-  %413 = getelementptr inbounds %struct.inflate_huft_s, ptr %33, i32 0, i32 1
-  store i16 %412, ptr %413, align 2
-  br label %414
-
-414:                                              ; preds = %389, %376
-  br label %415
-
-415:                                              ; preds = %414, %368
-  %416 = load i32, ptr %29, align 4
-  %417 = load i32, ptr %35, align 4
-  %418 = sub nsw i32 %416, %417
-  %419 = shl i32 1, %418
-  store i32 %419, ptr %24, align 4
-  %420 = load i32, ptr %27, align 4
-  %421 = load i32, ptr %35, align 4
-  %422 = lshr i32 %420, %421
-  store i32 %422, ptr %28, align 4
-  br label %423
-
-423:                                              ; preds = %432, %415
-  %424 = load i32, ptr %28, align 4
-  %425 = load i32, ptr %39, align 4
-  %426 = icmp ult i32 %424, %425
-  br i1 %426, label %427, label %436
-
-427:                                              ; preds = %423
-  %428 = load ptr, ptr %32, align 8
-  %429 = load i32, ptr %28, align 4
-  %430 = zext i32 %429 to i64
-  %431 = getelementptr inbounds %struct.inflate_huft_s, ptr %428, i64 %430
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %431, ptr align 2 %33, i64 4, i1 false)
-  br label %432
-
-432:                                              ; preds = %427
-  %433 = load i32, ptr %24, align 4
-  %434 = load i32, ptr %28, align 4
-  %435 = add i32 %434, %433
-  store i32 %435, ptr %28, align 4
-  br label %423
-
-436:                                              ; preds = %423
-  %437 = load i32, ptr %29, align 4
-  %438 = sub nsw i32 %437, 1
-  %439 = shl i32 1, %438
-  store i32 %439, ptr %28, align 4
-  br label %440
-
-440:                                              ; preds = %449, %436
-  %441 = load i32, ptr %27, align 4
-  %442 = load i32, ptr %28, align 4
-  %443 = and i32 %441, %442
-  %444 = icmp ne i32 %443, 0
-  br i1 %444, label %445, label %452
-
-445:                                              ; preds = %440
-  %446 = load i32, ptr %28, align 4
-  %447 = load i32, ptr %27, align 4
-  %448 = xor i32 %447, %446
-  store i32 %448, ptr %27, align 4
-  br label %449
-
-449:                                              ; preds = %445
-  %450 = load i32, ptr %28, align 4
-  %451 = lshr i32 %450, 1
-  store i32 %451, ptr %28, align 4
-  br label %440
-
-452:                                              ; preds = %440
-  %453 = load i32, ptr %28, align 4
-  %454 = load i32, ptr %27, align 4
-  %455 = xor i32 %454, %453
-  store i32 %455, ptr %27, align 4
-  br label %456
-
-456:                                              ; preds = %467, %452
-  %457 = load i32, ptr %27, align 4
-  %458 = load i32, ptr %35, align 4
-  %459 = shl i32 1, %458
-  %460 = sub nsw i32 %459, 1
-  %461 = and i32 %457, %460
-  %462 = load i32, ptr %26, align 4
-  %463 = sext i32 %462 to i64
-  %464 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 %463
-  %465 = load i32, ptr %464, align 4
-  %466 = icmp ne i32 %461, %465
-  br i1 %466, label %467, label %473
-
-467:                                              ; preds = %456
-  %468 = load i32, ptr %26, align 4
-  %469 = add nsw i32 %468, -1
-  store i32 %469, ptr %26, align 4
-  %470 = load i32, ptr %30, align 4
-  %471 = load i32, ptr %35, align 4
-  %472 = sub nsw i32 %471, %470
-  store i32 %472, ptr %35, align 4
-  br label %456
-
-473:                                              ; preds = %456
-  br label %218
-
-474:                                              ; preds = %218
+  store i32 1, ptr %40, align 4
   br label %475
 
-475:                                              ; preds = %474
-  %476 = load i32, ptr %29, align 4
-  %477 = add nsw i32 %476, 1
-  store i32 %477, ptr %29, align 4
-  br label %209
+296:                                              ; preds = %287
+  %297 = load ptr, ptr %19, align 8, !tbaa !45
+  %298 = load ptr, ptr %20, align 8, !tbaa !60
+  %299 = load i32, ptr %298, align 4, !tbaa !38
+  %300 = zext i32 %299 to i64
+  %301 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %297, i64 %300
+  store ptr %301, ptr %32, align 8, !tbaa !45
+  %302 = load i32, ptr %26, align 4, !tbaa !38
+  %303 = sext i32 %302 to i64
+  %304 = getelementptr inbounds [15 x ptr], ptr %34, i64 0, i64 %303
+  store ptr %301, ptr %304, align 8, !tbaa !45
+  %305 = load i32, ptr %39, align 4, !tbaa !38
+  %306 = load ptr, ptr %20, align 8, !tbaa !60
+  %307 = load i32, ptr %306, align 4, !tbaa !38
+  %308 = add i32 %307, %305
+  store i32 %308, ptr %306, align 4, !tbaa !38
+  %309 = load i32, ptr %26, align 4, !tbaa !38
+  %310 = icmp ne i32 %309, 0
+  br i1 %310, label %311, label %351
 
-478:                                              ; preds = %209
-  %479 = load i32, ptr %38, align 4
-  %480 = icmp ne i32 %479, 0
-  br i1 %480, label %481, label %484
+311:                                              ; preds = %296
+  %312 = load i32, ptr %27, align 4, !tbaa !38
+  %313 = load i32, ptr %26, align 4, !tbaa !38
+  %314 = sext i32 %313 to i64
+  %315 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 %314
+  store i32 %312, ptr %315, align 4, !tbaa !38
+  %316 = load i32, ptr %30, align 4, !tbaa !38
+  %317 = trunc i32 %316 to i8
+  %318 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 0
+  %319 = getelementptr inbounds nuw %struct.anon, ptr %318, i32 0, i32 1
+  store i8 %317, ptr %319, align 1, !tbaa !34
+  %320 = load i32, ptr %28, align 4, !tbaa !38
+  %321 = trunc i32 %320 to i8
+  %322 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 0
+  %323 = getelementptr inbounds nuw %struct.anon, ptr %322, i32 0, i32 0
+  store i8 %321, ptr %323, align 2, !tbaa !34
+  %324 = load i32, ptr %27, align 4, !tbaa !38
+  %325 = load i32, ptr %35, align 4, !tbaa !38
+  %326 = lshr i32 %324, %325
+  store i32 %326, ptr %28, align 4, !tbaa !38
+  %327 = load ptr, ptr %32, align 8, !tbaa !45
+  %328 = load i32, ptr %26, align 4, !tbaa !38
+  %329 = sub nsw i32 %328, 1
+  %330 = sext i32 %329 to i64
+  %331 = getelementptr inbounds [15 x ptr], ptr %34, i64 0, i64 %330
+  %332 = load ptr, ptr %331, align 8, !tbaa !45
+  %333 = ptrtoint ptr %327 to i64
+  %334 = ptrtoint ptr %332 to i64
+  %335 = sub i64 %333, %334
+  %336 = sdiv exact i64 %335, 4
+  %337 = load i32, ptr %28, align 4, !tbaa !38
+  %338 = zext i32 %337 to i64
+  %339 = sub nsw i64 %336, %338
+  %340 = trunc i64 %339 to i32
+  %341 = trunc i32 %340 to i16
+  %342 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 1
+  store i16 %341, ptr %342, align 2, !tbaa !46
+  %343 = load i32, ptr %26, align 4, !tbaa !38
+  %344 = sub nsw i32 %343, 1
+  %345 = sext i32 %344 to i64
+  %346 = getelementptr inbounds [15 x ptr], ptr %34, i64 0, i64 %345
+  %347 = load ptr, ptr %346, align 8, !tbaa !45
+  %348 = load i32, ptr %28, align 4, !tbaa !38
+  %349 = zext i32 %348 to i64
+  %350 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %347, i64 %349
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %350, ptr align 2 %33, i64 4, i1 false), !tbaa.struct !66
+  br label %354
 
-481:                                              ; preds = %478
-  %482 = load i32, ptr %25, align 4
-  %483 = icmp ne i32 %482, 1
-  br label %484
+351:                                              ; preds = %296
+  %352 = load ptr, ptr %32, align 8, !tbaa !45
+  %353 = load ptr, ptr %17, align 8, !tbaa !64
+  store ptr %352, ptr %353, align 8, !tbaa !45
+  br label %354
 
-484:                                              ; preds = %481, %478
-  %485 = phi i1 [ false, %478 ], [ %483, %481 ]
-  %486 = select i1 %485, i32 -5, i32 0
-  store i32 %486, ptr %11, align 4
-  br label %487
+354:                                              ; preds = %351, %311
+  %355 = load i32, ptr %41, align 4, !tbaa !38
+  store i32 %355, ptr %35, align 4, !tbaa !38
+  br label %225
 
-487:                                              ; preds = %484, %294, %150, %135, %69
-  %488 = load i32, ptr %11, align 4
-  ret i32 %488
+356:                                              ; preds = %225
+  %357 = load i32, ptr %29, align 4, !tbaa !38
+  %358 = load i32, ptr %35, align 4, !tbaa !38
+  %359 = sub nsw i32 %357, %358
+  %360 = trunc i32 %359 to i8
+  %361 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 0
+  %362 = getelementptr inbounds nuw %struct.anon, ptr %361, i32 0, i32 1
+  store i8 %360, ptr %362, align 1, !tbaa !34
+  %363 = load ptr, ptr %31, align 8, !tbaa !60
+  %364 = load ptr, ptr %21, align 8, !tbaa !60
+  %365 = load i32, ptr %13, align 4, !tbaa !38
+  %366 = zext i32 %365 to i64
+  %367 = getelementptr inbounds nuw i32, ptr %364, i64 %366
+  %368 = icmp uge ptr %363, %367
+  br i1 %368, label %369, label %372
+
+369:                                              ; preds = %356
+  %370 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 0
+  %371 = getelementptr inbounds nuw %struct.anon, ptr %370, i32 0, i32 0
+  store i8 -64, ptr %371, align 2, !tbaa !34
+  br label %416
+
+372:                                              ; preds = %356
+  %373 = load ptr, ptr %31, align 8, !tbaa !60
+  %374 = load i32, ptr %373, align 4, !tbaa !38
+  %375 = load i32, ptr %14, align 4, !tbaa !38
+  %376 = icmp ult i32 %374, %375
+  br i1 %376, label %377, label %390
+
+377:                                              ; preds = %372
+  %378 = load ptr, ptr %31, align 8, !tbaa !60
+  %379 = load i32, ptr %378, align 4, !tbaa !38
+  %380 = icmp ult i32 %379, 256
+  %381 = select i1 %380, i32 0, i32 96
+  %382 = trunc i32 %381 to i8
+  %383 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 0
+  %384 = getelementptr inbounds nuw %struct.anon, ptr %383, i32 0, i32 0
+  store i8 %382, ptr %384, align 2, !tbaa !34
+  %385 = load ptr, ptr %31, align 8, !tbaa !60
+  %386 = getelementptr inbounds nuw i32, ptr %385, i32 1
+  store ptr %386, ptr %31, align 8, !tbaa !60
+  %387 = load i32, ptr %385, align 4, !tbaa !38
+  %388 = trunc i32 %387 to i16
+  %389 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 1
+  store i16 %388, ptr %389, align 2, !tbaa !46
+  br label %415
+
+390:                                              ; preds = %372
+  %391 = load ptr, ptr %16, align 8, !tbaa !62
+  %392 = load ptr, ptr %31, align 8, !tbaa !60
+  %393 = load i32, ptr %392, align 4, !tbaa !38
+  %394 = load i32, ptr %14, align 4, !tbaa !38
+  %395 = sub i32 %393, %394
+  %396 = zext i32 %395 to i64
+  %397 = getelementptr inbounds nuw i16, ptr %391, i64 %396
+  %398 = load i16, ptr %397, align 2, !tbaa !43
+  %399 = zext i16 %398 to i32
+  %400 = add nsw i32 %399, 16
+  %401 = add nsw i32 %400, 64
+  %402 = trunc i32 %401 to i8
+  %403 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 0
+  %404 = getelementptr inbounds nuw %struct.anon, ptr %403, i32 0, i32 0
+  store i8 %402, ptr %404, align 2, !tbaa !34
+  %405 = load ptr, ptr %15, align 8, !tbaa !62
+  %406 = load ptr, ptr %31, align 8, !tbaa !60
+  %407 = getelementptr inbounds nuw i32, ptr %406, i32 1
+  store ptr %407, ptr %31, align 8, !tbaa !60
+  %408 = load i32, ptr %406, align 4, !tbaa !38
+  %409 = load i32, ptr %14, align 4, !tbaa !38
+  %410 = sub i32 %408, %409
+  %411 = zext i32 %410 to i64
+  %412 = getelementptr inbounds nuw i16, ptr %405, i64 %411
+  %413 = load i16, ptr %412, align 2, !tbaa !43
+  %414 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %33, i32 0, i32 1
+  store i16 %413, ptr %414, align 2, !tbaa !46
+  br label %415
+
+415:                                              ; preds = %390, %377
+  br label %416
+
+416:                                              ; preds = %415, %369
+  %417 = load i32, ptr %29, align 4, !tbaa !38
+  %418 = load i32, ptr %35, align 4, !tbaa !38
+  %419 = sub nsw i32 %417, %418
+  %420 = shl i32 1, %419
+  store i32 %420, ptr %24, align 4, !tbaa !38
+  %421 = load i32, ptr %27, align 4, !tbaa !38
+  %422 = load i32, ptr %35, align 4, !tbaa !38
+  %423 = lshr i32 %421, %422
+  store i32 %423, ptr %28, align 4, !tbaa !38
+  br label %424
+
+424:                                              ; preds = %433, %416
+  %425 = load i32, ptr %28, align 4, !tbaa !38
+  %426 = load i32, ptr %39, align 4, !tbaa !38
+  %427 = icmp ult i32 %425, %426
+  br i1 %427, label %428, label %437
+
+428:                                              ; preds = %424
+  %429 = load ptr, ptr %32, align 8, !tbaa !45
+  %430 = load i32, ptr %28, align 4, !tbaa !38
+  %431 = zext i32 %430 to i64
+  %432 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %429, i64 %431
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %432, ptr align 2 %33, i64 4, i1 false), !tbaa.struct !66
+  br label %433
+
+433:                                              ; preds = %428
+  %434 = load i32, ptr %24, align 4, !tbaa !38
+  %435 = load i32, ptr %28, align 4, !tbaa !38
+  %436 = add i32 %435, %434
+  store i32 %436, ptr %28, align 4, !tbaa !38
+  br label %424
+
+437:                                              ; preds = %424
+  %438 = load i32, ptr %29, align 4, !tbaa !38
+  %439 = sub nsw i32 %438, 1
+  %440 = shl i32 1, %439
+  store i32 %440, ptr %28, align 4, !tbaa !38
+  br label %441
+
+441:                                              ; preds = %450, %437
+  %442 = load i32, ptr %27, align 4, !tbaa !38
+  %443 = load i32, ptr %28, align 4, !tbaa !38
+  %444 = and i32 %442, %443
+  %445 = icmp ne i32 %444, 0
+  br i1 %445, label %446, label %453
+
+446:                                              ; preds = %441
+  %447 = load i32, ptr %28, align 4, !tbaa !38
+  %448 = load i32, ptr %27, align 4, !tbaa !38
+  %449 = xor i32 %448, %447
+  store i32 %449, ptr %27, align 4, !tbaa !38
+  br label %450
+
+450:                                              ; preds = %446
+  %451 = load i32, ptr %28, align 4, !tbaa !38
+  %452 = lshr i32 %451, 1
+  store i32 %452, ptr %28, align 4, !tbaa !38
+  br label %441
+
+453:                                              ; preds = %441
+  %454 = load i32, ptr %28, align 4, !tbaa !38
+  %455 = load i32, ptr %27, align 4, !tbaa !38
+  %456 = xor i32 %455, %454
+  store i32 %456, ptr %27, align 4, !tbaa !38
+  br label %457
+
+457:                                              ; preds = %468, %453
+  %458 = load i32, ptr %27, align 4, !tbaa !38
+  %459 = load i32, ptr %35, align 4, !tbaa !38
+  %460 = shl i32 1, %459
+  %461 = sub nsw i32 %460, 1
+  %462 = and i32 %458, %461
+  %463 = load i32, ptr %26, align 4, !tbaa !38
+  %464 = sext i32 %463 to i64
+  %465 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 %464
+  %466 = load i32, ptr %465, align 4, !tbaa !38
+  %467 = icmp ne i32 %462, %466
+  br i1 %467, label %468, label %474
+
+468:                                              ; preds = %457
+  %469 = load i32, ptr %26, align 4, !tbaa !38
+  %470 = add nsw i32 %469, -1
+  store i32 %470, ptr %26, align 4, !tbaa !38
+  %471 = load i32, ptr %30, align 4, !tbaa !38
+  %472 = load i32, ptr %35, align 4, !tbaa !38
+  %473 = sub nsw i32 %472, %471
+  store i32 %473, ptr %35, align 4, !tbaa !38
+  br label %457
+
+474:                                              ; preds = %457
+  store i32 0, ptr %40, align 4
+  br label %475
+
+475:                                              ; preds = %474, %295
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #3
+  %476 = load i32, ptr %40, align 4
+  switch i32 %476, label %491 [
+    i32 0, label %477
+  ]
+
+477:                                              ; preds = %475
+  br label %219
+
+478:                                              ; preds = %219
+  br label %479
+
+479:                                              ; preds = %478
+  %480 = load i32, ptr %29, align 4, !tbaa !38
+  %481 = add nsw i32 %480, 1
+  store i32 %481, ptr %29, align 4, !tbaa !38
+  br label %210
+
+482:                                              ; preds = %210
+  %483 = load i32, ptr %38, align 4, !tbaa !38
+  %484 = icmp ne i32 %483, 0
+  br i1 %484, label %485, label %488
+
+485:                                              ; preds = %482
+  %486 = load i32, ptr %25, align 4, !tbaa !38
+  %487 = icmp ne i32 %486, 1
+  br label %488
+
+488:                                              ; preds = %485, %482
+  %489 = phi i1 [ false, %482 ], [ %487, %485 ]
+  %490 = select i1 %489, i32 -5, i32 0
+  store i32 %490, ptr %11, align 4
+  store i32 1, ptr %40, align 4
+  br label %491
+
+491:                                              ; preds = %488, %475, %151, %136, %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #3
+  call void @llvm.lifetime.end.p0(i64 64, ptr %36) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #3
+  call void @llvm.lifetime.end.p0(i64 120, ptr %34) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 64, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  %492 = load i32, ptr %11, align 4
+  ret i32 %492
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS15nsis_z_stream_s", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS20inflate_blocks_state", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS19inflate_codes_state", !5, i64 0}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"nsis_z_stream_s", !14, i64 0, !15, i64 8, !16, i64 16, !14, i64 24, !15, i64 32, !17, i64 40}
+!14 = !{!"p1 omnipotent char", !5, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!"inflate_blocks_state", !18, i64 0, !15, i64 4512, !6, i64 4520, !15, i64 5824, !15, i64 5828, !16, i64 5832, !6, i64 5840, !6, i64 11600, !14, i64 44368, !14, i64 44376, !14, i64 44384, !16, i64 44392}
+!18 = !{!"z_stuff", !6, i64 0, !6, i64 2, !15, i64 2180, !15, i64 2184, !19, i64 2192, !19, i64 2200, !6, i64 2208, !6, i64 3360}
+!19 = !{!"p1 _ZTS14inflate_huft_s", !5, i64 0}
+!20 = !{!21, !14, i64 24}
+!21 = !{!"", !15, i64 0, !16, i64 8, !15, i64 16, !14, i64 24, !15, i64 32, !14, i64 40, !15, i64 48, !19, i64 56, !15, i64 64, !14, i64 72}
+!22 = !{!13, !15, i64 8}
+!23 = !{!21, !15, i64 32}
+!24 = !{!17, !16, i64 5832}
+!25 = !{!21, !16, i64 8}
+!26 = !{!17, !15, i64 5828}
+!27 = !{!21, !15, i64 16}
+!28 = !{!17, !14, i64 44384}
+!29 = !{!21, !14, i64 40}
+!30 = !{!17, !14, i64 44376}
+!31 = !{!17, !14, i64 44368}
+!32 = !{!21, !15, i64 48}
+!33 = !{!17, !15, i64 4512}
+!34 = !{!6, !6, i64 0}
+!35 = !{!21, !15, i64 0}
+!36 = !{!17, !15, i64 5824}
+!37 = !{!17, !6, i64 0}
+!38 = !{!15, !15, i64 0}
+!39 = !{!17, !15, i64 2180}
+!40 = !{!17, !15, i64 2184}
+!41 = !{!17, !19, i64 2192}
+!42 = !{!17, !19, i64 2200}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"short", !6, i64 0}
+!45 = !{!19, !19, i64 0}
+!46 = !{!47, !44, i64 2}
+!47 = !{!"inflate_huft_s", !6, i64 0, !44, i64 2}
+!48 = !{!49, !6, i64 24}
+!49 = !{!"inflate_codes_state", !15, i64 0, !6, i64 8, !6, i64 24, !6, i64 25, !19, i64 32, !19, i64 40}
+!50 = !{!49, !19, i64 32}
+!51 = !{!21, !19, i64 56}
+!52 = !{!21, !15, i64 64}
+!53 = !{!49, !15, i64 0}
+!54 = !{!49, !6, i64 25}
+!55 = !{!49, !19, i64 40}
+!56 = !{!21, !14, i64 72}
+!57 = !{!14, !14, i64 0}
+!58 = !{!13, !15, i64 32}
+!59 = !{!13, !14, i64 24}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 int", !5, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 short", !5, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p2 _ZTS14inflate_huft_s", !5, i64 0}
+!66 = !{i64 0, i64 2, !34, i64 2, i64 2, !43}

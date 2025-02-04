@@ -1,12 +1,12 @@
-; ModuleID = 'bench/clamav/original/msdoc.c.ll'
-source_filename = "bench/clamav/original/msdoc.c.ll"
+; ModuleID = 'bench/clamav/original/msdoc.ll'
+source_filename = "bench/clamav/original/msdoc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.codepage_entry = type { i16, ptr }
 %struct.summary_ctx = type { ptr, i32, ptr, ptr, i64, i32, i32, i16, i32, ptr, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
+%struct.codepage_entry = type { i16, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"in cli_ole2_summary_json\0A\00", align 1
 @.str.1 = private unnamed_addr constant [44 x i8] c"ole2_summary_json: invalid file descriptor\0A\00", align 1
@@ -101,7 +101,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.90 = private unnamed_addr constant [71 x i8] c"ole2_process_property: unhandled property type 0x%04x for %s property\0A\00", align 1
 @.str.92 = private unnamed_addr constant [43 x i8] c"ole2_convert_utf: converting empty string\0A\00", align 1
 @.str.93 = private unnamed_addr constant [85 x i8] c"ole2_convert_utf: cleaning out %zu bytes from incomplete utf-8 character length %zu\0A\00", align 1
-@codepage_entries = internal unnamed_addr constant [152 x %struct.codepage_entry] [%struct.codepage_entry { i16 37, ptr @.str.101 }, %struct.codepage_entry { i16 437, ptr @.str.102 }, %struct.codepage_entry { i16 500, ptr @.str.103 }, %struct.codepage_entry { i16 708, ptr @.str.104 }, %struct.codepage_entry { i16 709, ptr null }, %struct.codepage_entry { i16 710, ptr null }, %struct.codepage_entry { i16 720, ptr null }, %struct.codepage_entry { i16 737, ptr null }, %struct.codepage_entry { i16 775, ptr @.str.105 }, %struct.codepage_entry { i16 850, ptr @.str.106 }, %struct.codepage_entry { i16 852, ptr @.str.107 }, %struct.codepage_entry { i16 855, ptr @.str.108 }, %struct.codepage_entry { i16 857, ptr @.str.109 }, %struct.codepage_entry { i16 858, ptr null }, %struct.codepage_entry { i16 860, ptr @.str.110 }, %struct.codepage_entry { i16 861, ptr @.str.111 }, %struct.codepage_entry { i16 862, ptr null }, %struct.codepage_entry { i16 863, ptr @.str.112 }, %struct.codepage_entry { i16 864, ptr @.str.113 }, %struct.codepage_entry { i16 865, ptr @.str.114 }, %struct.codepage_entry { i16 866, ptr @.str.115 }, %struct.codepage_entry { i16 869, ptr @.str.116 }, %struct.codepage_entry { i16 870, ptr @.str.117 }, %struct.codepage_entry { i16 874, ptr @.str.118 }, %struct.codepage_entry { i16 875, ptr @.str.119 }, %struct.codepage_entry { i16 932, ptr @.str.120 }, %struct.codepage_entry { i16 936, ptr @.str.121 }, %struct.codepage_entry { i16 949, ptr @.str.122 }, %struct.codepage_entry { i16 950, ptr @.str.123 }, %struct.codepage_entry { i16 1026, ptr @.str.124 }, %struct.codepage_entry { i16 1047, ptr null }, %struct.codepage_entry { i16 1140, ptr null }, %struct.codepage_entry { i16 1141, ptr null }, %struct.codepage_entry { i16 1142, ptr null }, %struct.codepage_entry { i16 1143, ptr null }, %struct.codepage_entry { i16 1144, ptr null }, %struct.codepage_entry { i16 1145, ptr null }, %struct.codepage_entry { i16 1146, ptr null }, %struct.codepage_entry { i16 1147, ptr null }, %struct.codepage_entry { i16 1148, ptr null }, %struct.codepage_entry { i16 1149, ptr null }, %struct.codepage_entry { i16 1200, ptr @.str.88 }, %struct.codepage_entry { i16 1201, ptr @.str.125 }, %struct.codepage_entry { i16 1250, ptr @.str.126 }, %struct.codepage_entry { i16 1251, ptr @.str.127 }, %struct.codepage_entry { i16 1252, ptr @.str.128 }, %struct.codepage_entry { i16 1253, ptr @.str.129 }, %struct.codepage_entry { i16 1254, ptr @.str.130 }, %struct.codepage_entry { i16 1255, ptr @.str.131 }, %struct.codepage_entry { i16 1256, ptr @.str.132 }, %struct.codepage_entry { i16 1257, ptr @.str.133 }, %struct.codepage_entry { i16 1258, ptr @.str.134 }, %struct.codepage_entry { i16 1361, ptr @.str.135 }, %struct.codepage_entry { i16 10000, ptr @.str.136 }, %struct.codepage_entry { i16 10001, ptr null }, %struct.codepage_entry { i16 10002, ptr null }, %struct.codepage_entry { i16 10003, ptr null }, %struct.codepage_entry { i16 10004, ptr null }, %struct.codepage_entry { i16 10005, ptr null }, %struct.codepage_entry { i16 10006, ptr null }, %struct.codepage_entry { i16 10007, ptr null }, %struct.codepage_entry { i16 10008, ptr null }, %struct.codepage_entry { i16 10010, ptr null }, %struct.codepage_entry { i16 10017, ptr null }, %struct.codepage_entry { i16 10021, ptr null }, %struct.codepage_entry { i16 10029, ptr null }, %struct.codepage_entry { i16 10079, ptr null }, %struct.codepage_entry { i16 10081, ptr null }, %struct.codepage_entry { i16 10082, ptr null }, %struct.codepage_entry { i16 12000, ptr @.str.137 }, %struct.codepage_entry { i16 12001, ptr @.str.138 }, %struct.codepage_entry { i16 20000, ptr null }, %struct.codepage_entry { i16 20001, ptr null }, %struct.codepage_entry { i16 20002, ptr null }, %struct.codepage_entry { i16 20003, ptr null }, %struct.codepage_entry { i16 20004, ptr null }, %struct.codepage_entry { i16 20005, ptr null }, %struct.codepage_entry { i16 20105, ptr null }, %struct.codepage_entry { i16 20106, ptr null }, %struct.codepage_entry { i16 20107, ptr null }, %struct.codepage_entry { i16 20108, ptr null }, %struct.codepage_entry { i16 20127, ptr @.str.139 }, %struct.codepage_entry { i16 20261, ptr null }, %struct.codepage_entry { i16 20269, ptr null }, %struct.codepage_entry { i16 20273, ptr @.str.140 }, %struct.codepage_entry { i16 20277, ptr @.str.141 }, %struct.codepage_entry { i16 20278, ptr @.str.142 }, %struct.codepage_entry { i16 20280, ptr @.str.143 }, %struct.codepage_entry { i16 20284, ptr @.str.144 }, %struct.codepage_entry { i16 20285, ptr @.str.145 }, %struct.codepage_entry { i16 20290, ptr @.str.146 }, %struct.codepage_entry { i16 20297, ptr @.str.147 }, %struct.codepage_entry { i16 20420, ptr @.str.148 }, %struct.codepage_entry { i16 20423, ptr @.str.149 }, %struct.codepage_entry { i16 20424, ptr @.str.150 }, %struct.codepage_entry { i16 20833, ptr null }, %struct.codepage_entry { i16 20838, ptr null }, %struct.codepage_entry { i16 20866, ptr @.str.151 }, %struct.codepage_entry { i16 20871, ptr @.str.152 }, %struct.codepage_entry { i16 20880, ptr @.str.153 }, %struct.codepage_entry { i16 20905, ptr @.str.154 }, %struct.codepage_entry { i16 20924, ptr null }, %struct.codepage_entry { i16 20932, ptr @.str.155 }, %struct.codepage_entry { i16 20936, ptr null }, %struct.codepage_entry { i16 20949, ptr null }, %struct.codepage_entry { i16 21025, ptr @.str.156 }, %struct.codepage_entry { i16 21027, ptr null }, %struct.codepage_entry { i16 21866, ptr @.str.157 }, %struct.codepage_entry { i16 28591, ptr @.str.158 }, %struct.codepage_entry { i16 28592, ptr @.str.159 }, %struct.codepage_entry { i16 28593, ptr @.str.160 }, %struct.codepage_entry { i16 28594, ptr @.str.161 }, %struct.codepage_entry { i16 28595, ptr @.str.162 }, %struct.codepage_entry { i16 28596, ptr @.str.163 }, %struct.codepage_entry { i16 28597, ptr @.str.164 }, %struct.codepage_entry { i16 28598, ptr @.str.165 }, %struct.codepage_entry { i16 28599, ptr @.str.166 }, %struct.codepage_entry { i16 28603, ptr @.str.167 }, %struct.codepage_entry { i16 28605, ptr @.str.168 }, %struct.codepage_entry { i16 29001, ptr null }, %struct.codepage_entry { i16 -26938, ptr null }, %struct.codepage_entry { i16 -15316, ptr @.str.169 }, %struct.codepage_entry { i16 -15315, ptr @.str.170 }, %struct.codepage_entry { i16 -15314, ptr @.str.171 }, %struct.codepage_entry { i16 -15311, ptr @.str.172 }, %struct.codepage_entry { i16 -15309, ptr null }, %struct.codepage_entry { i16 -15307, ptr null }, %struct.codepage_entry { i16 -14606, ptr null }, %struct.codepage_entry { i16 -14605, ptr null }, %struct.codepage_entry { i16 -14603, ptr null }, %struct.codepage_entry { i16 -14601, ptr null }, %struct.codepage_entry { i16 -14600, ptr null }, %struct.codepage_entry { i16 -14599, ptr null }, %struct.codepage_entry { i16 -14597, ptr null }, %struct.codepage_entry { i16 -13604, ptr @.str.155 }, %struct.codepage_entry { i16 -13600, ptr @.str.173 }, %struct.codepage_entry { i16 -13587, ptr @.str.174 }, %struct.codepage_entry { i16 -13586, ptr null }, %struct.codepage_entry { i16 -12600, ptr null }, %struct.codepage_entry { i16 -10600, ptr @.str.175 }, %struct.codepage_entry { i16 -8534, ptr null }, %struct.codepage_entry { i16 -8533, ptr null }, %struct.codepage_entry { i16 -8532, ptr null }, %struct.codepage_entry { i16 -8531, ptr null }, %struct.codepage_entry { i16 -8530, ptr null }, %struct.codepage_entry { i16 -8529, ptr null }, %struct.codepage_entry { i16 -8528, ptr null }, %struct.codepage_entry { i16 -8527, ptr null }, %struct.codepage_entry { i16 -8526, ptr null }, %struct.codepage_entry { i16 -8525, ptr null }, %struct.codepage_entry { i16 -536, ptr @.str.176 }, %struct.codepage_entry { i16 -535, ptr @.str.95 }], align 16
 @.str.94 = private unnamed_addr constant [61 x i8] c"ole2_convert_utf: could not locate codepage encoding for %d\0A\00", align 1
 @.str.95 = private unnamed_addr constant [6 x i8] c"UTF-8\00", align 1
 @.str.96 = private unnamed_addr constant [66 x i8] c"ole2_convert_utf: could not initialize iconv for encoding %s: %s\0A\00", align 1
@@ -185,11 +184,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.174 = private unnamed_addr constant [7 x i8] c"EUC-KR\00", align 1
 @.str.175 = private unnamed_addr constant [8 x i8] c"GB18030\00", align 1
 @.str.176 = private unnamed_addr constant [6 x i8] c"UTF-7\00", align 1
+@codepage_entries = internal unnamed_addr constant [152 x { i16, [6 x i8], ptr }] [{ i16, [6 x i8], ptr } { i16 37, [6 x i8] zeroinitializer, ptr @.str.101 }, { i16, [6 x i8], ptr } { i16 437, [6 x i8] zeroinitializer, ptr @.str.102 }, { i16, [6 x i8], ptr } { i16 500, [6 x i8] zeroinitializer, ptr @.str.103 }, { i16, [6 x i8], ptr } { i16 708, [6 x i8] zeroinitializer, ptr @.str.104 }, { i16, [6 x i8], ptr } { i16 709, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 710, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 720, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 737, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 775, [6 x i8] zeroinitializer, ptr @.str.105 }, { i16, [6 x i8], ptr } { i16 850, [6 x i8] zeroinitializer, ptr @.str.106 }, { i16, [6 x i8], ptr } { i16 852, [6 x i8] zeroinitializer, ptr @.str.107 }, { i16, [6 x i8], ptr } { i16 855, [6 x i8] zeroinitializer, ptr @.str.108 }, { i16, [6 x i8], ptr } { i16 857, [6 x i8] zeroinitializer, ptr @.str.109 }, { i16, [6 x i8], ptr } { i16 858, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 860, [6 x i8] zeroinitializer, ptr @.str.110 }, { i16, [6 x i8], ptr } { i16 861, [6 x i8] zeroinitializer, ptr @.str.111 }, { i16, [6 x i8], ptr } { i16 862, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 863, [6 x i8] zeroinitializer, ptr @.str.112 }, { i16, [6 x i8], ptr } { i16 864, [6 x i8] zeroinitializer, ptr @.str.113 }, { i16, [6 x i8], ptr } { i16 865, [6 x i8] zeroinitializer, ptr @.str.114 }, { i16, [6 x i8], ptr } { i16 866, [6 x i8] zeroinitializer, ptr @.str.115 }, { i16, [6 x i8], ptr } { i16 869, [6 x i8] zeroinitializer, ptr @.str.116 }, { i16, [6 x i8], ptr } { i16 870, [6 x i8] zeroinitializer, ptr @.str.117 }, { i16, [6 x i8], ptr } { i16 874, [6 x i8] zeroinitializer, ptr @.str.118 }, { i16, [6 x i8], ptr } { i16 875, [6 x i8] zeroinitializer, ptr @.str.119 }, { i16, [6 x i8], ptr } { i16 932, [6 x i8] zeroinitializer, ptr @.str.120 }, { i16, [6 x i8], ptr } { i16 936, [6 x i8] zeroinitializer, ptr @.str.121 }, { i16, [6 x i8], ptr } { i16 949, [6 x i8] zeroinitializer, ptr @.str.122 }, { i16, [6 x i8], ptr } { i16 950, [6 x i8] zeroinitializer, ptr @.str.123 }, { i16, [6 x i8], ptr } { i16 1026, [6 x i8] zeroinitializer, ptr @.str.124 }, { i16, [6 x i8], ptr } { i16 1047, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1140, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1141, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1142, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1143, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1144, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1145, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1146, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1147, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1148, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1149, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 1200, [6 x i8] zeroinitializer, ptr @.str.88 }, { i16, [6 x i8], ptr } { i16 1201, [6 x i8] zeroinitializer, ptr @.str.125 }, { i16, [6 x i8], ptr } { i16 1250, [6 x i8] zeroinitializer, ptr @.str.126 }, { i16, [6 x i8], ptr } { i16 1251, [6 x i8] zeroinitializer, ptr @.str.127 }, { i16, [6 x i8], ptr } { i16 1252, [6 x i8] zeroinitializer, ptr @.str.128 }, { i16, [6 x i8], ptr } { i16 1253, [6 x i8] zeroinitializer, ptr @.str.129 }, { i16, [6 x i8], ptr } { i16 1254, [6 x i8] zeroinitializer, ptr @.str.130 }, { i16, [6 x i8], ptr } { i16 1255, [6 x i8] zeroinitializer, ptr @.str.131 }, { i16, [6 x i8], ptr } { i16 1256, [6 x i8] zeroinitializer, ptr @.str.132 }, { i16, [6 x i8], ptr } { i16 1257, [6 x i8] zeroinitializer, ptr @.str.133 }, { i16, [6 x i8], ptr } { i16 1258, [6 x i8] zeroinitializer, ptr @.str.134 }, { i16, [6 x i8], ptr } { i16 1361, [6 x i8] zeroinitializer, ptr @.str.135 }, { i16, [6 x i8], ptr } { i16 10000, [6 x i8] zeroinitializer, ptr @.str.136 }, { i16, [6 x i8], ptr } { i16 10001, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10002, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10003, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10004, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10005, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10006, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10007, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10008, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10010, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10017, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10021, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10029, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10079, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10081, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 10082, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 12000, [6 x i8] zeroinitializer, ptr @.str.137 }, { i16, [6 x i8], ptr } { i16 12001, [6 x i8] zeroinitializer, ptr @.str.138 }, { i16, [6 x i8], ptr } { i16 20000, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20001, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20002, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20003, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20004, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20005, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20105, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20106, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20107, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20108, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20127, [6 x i8] zeroinitializer, ptr @.str.139 }, { i16, [6 x i8], ptr } { i16 20261, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20269, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20273, [6 x i8] zeroinitializer, ptr @.str.140 }, { i16, [6 x i8], ptr } { i16 20277, [6 x i8] zeroinitializer, ptr @.str.141 }, { i16, [6 x i8], ptr } { i16 20278, [6 x i8] zeroinitializer, ptr @.str.142 }, { i16, [6 x i8], ptr } { i16 20280, [6 x i8] zeroinitializer, ptr @.str.143 }, { i16, [6 x i8], ptr } { i16 20284, [6 x i8] zeroinitializer, ptr @.str.144 }, { i16, [6 x i8], ptr } { i16 20285, [6 x i8] zeroinitializer, ptr @.str.145 }, { i16, [6 x i8], ptr } { i16 20290, [6 x i8] zeroinitializer, ptr @.str.146 }, { i16, [6 x i8], ptr } { i16 20297, [6 x i8] zeroinitializer, ptr @.str.147 }, { i16, [6 x i8], ptr } { i16 20420, [6 x i8] zeroinitializer, ptr @.str.148 }, { i16, [6 x i8], ptr } { i16 20423, [6 x i8] zeroinitializer, ptr @.str.149 }, { i16, [6 x i8], ptr } { i16 20424, [6 x i8] zeroinitializer, ptr @.str.150 }, { i16, [6 x i8], ptr } { i16 20833, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20838, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20866, [6 x i8] zeroinitializer, ptr @.str.151 }, { i16, [6 x i8], ptr } { i16 20871, [6 x i8] zeroinitializer, ptr @.str.152 }, { i16, [6 x i8], ptr } { i16 20880, [6 x i8] zeroinitializer, ptr @.str.153 }, { i16, [6 x i8], ptr } { i16 20905, [6 x i8] zeroinitializer, ptr @.str.154 }, { i16, [6 x i8], ptr } { i16 20924, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20932, [6 x i8] zeroinitializer, ptr @.str.155 }, { i16, [6 x i8], ptr } { i16 20936, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 20949, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 21025, [6 x i8] zeroinitializer, ptr @.str.156 }, { i16, [6 x i8], ptr } { i16 21027, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 21866, [6 x i8] zeroinitializer, ptr @.str.157 }, { i16, [6 x i8], ptr } { i16 28591, [6 x i8] zeroinitializer, ptr @.str.158 }, { i16, [6 x i8], ptr } { i16 28592, [6 x i8] zeroinitializer, ptr @.str.159 }, { i16, [6 x i8], ptr } { i16 28593, [6 x i8] zeroinitializer, ptr @.str.160 }, { i16, [6 x i8], ptr } { i16 28594, [6 x i8] zeroinitializer, ptr @.str.161 }, { i16, [6 x i8], ptr } { i16 28595, [6 x i8] zeroinitializer, ptr @.str.162 }, { i16, [6 x i8], ptr } { i16 28596, [6 x i8] zeroinitializer, ptr @.str.163 }, { i16, [6 x i8], ptr } { i16 28597, [6 x i8] zeroinitializer, ptr @.str.164 }, { i16, [6 x i8], ptr } { i16 28598, [6 x i8] zeroinitializer, ptr @.str.165 }, { i16, [6 x i8], ptr } { i16 28599, [6 x i8] zeroinitializer, ptr @.str.166 }, { i16, [6 x i8], ptr } { i16 28603, [6 x i8] zeroinitializer, ptr @.str.167 }, { i16, [6 x i8], ptr } { i16 28605, [6 x i8] zeroinitializer, ptr @.str.168 }, { i16, [6 x i8], ptr } { i16 29001, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -26938, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -15316, [6 x i8] zeroinitializer, ptr @.str.169 }, { i16, [6 x i8], ptr } { i16 -15315, [6 x i8] zeroinitializer, ptr @.str.170 }, { i16, [6 x i8], ptr } { i16 -15314, [6 x i8] zeroinitializer, ptr @.str.171 }, { i16, [6 x i8], ptr } { i16 -15311, [6 x i8] zeroinitializer, ptr @.str.172 }, { i16, [6 x i8], ptr } { i16 -15309, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -15307, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14606, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14605, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14603, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14601, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14600, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14599, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -14597, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -13604, [6 x i8] zeroinitializer, ptr @.str.155 }, { i16, [6 x i8], ptr } { i16 -13600, [6 x i8] zeroinitializer, ptr @.str.173 }, { i16, [6 x i8], ptr } { i16 -13587, [6 x i8] zeroinitializer, ptr @.str.174 }, { i16, [6 x i8], ptr } { i16 -13586, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -12600, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -10600, [6 x i8] zeroinitializer, ptr @.str.175 }, { i16, [6 x i8], ptr } { i16 -8534, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8533, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8532, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8531, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8530, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8529, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8528, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8527, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8526, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -8525, [6 x i8] zeroinitializer, ptr null }, { i16, [6 x i8], ptr } { i16 -536, [6 x i8] zeroinitializer, ptr @.str.176 }, { i16, [6 x i8], ptr } { i16 -535, [6 x i8] zeroinitializer, ptr @.str.95 }], align 16
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.summary_ctx, align 8
   %5 = alloca %struct.stat, align 8
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #10
   %6 = icmp eq ptr %0, null
   br i1 %6, label %83, label %7
@@ -213,9 +215,9 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 64, i1 false)
-  store ptr %0, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %2, ptr %14, align 8
+  store i32 %2, ptr %14, align 8, !tbaa !15
   %15 = call i32 @fstat(i32 noundef %1, ptr noundef nonnull %5) #10
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %18
@@ -226,10 +228,10 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %20 = load i64, ptr %19, align 8
+  %20 = load i64, ptr %19, align 8, !tbaa !16
   %21 = tail call ptr @fmap(i32 noundef %1, i64 noundef 0, i64 noundef %20, ptr noundef null) #10
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %21, ptr %22, align 8
+  store ptr %21, ptr %22, align 8, !tbaa !19
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %23, label %24
 
@@ -239,19 +241,19 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  %26 = load i64, ptr %25, align 8
+  %26 = load i64, ptr %25, align 8, !tbaa !20
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %26, ptr %27, align 8
+  store i64 %26, ptr %27, align 8, !tbaa !24
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i64 noundef %26) #10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %switch.selectcmp = icmp eq i32 %2, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.7, ptr @.str.8
   %switch.selectcmp50 = icmp eq i32 %2, 1
   %switch.select51 = select i1 %switch.selectcmp50, ptr @.str.6, ptr %switch.select
   %31 = tail call ptr @cli_jsonobj(ptr noundef %29, ptr noundef nonnull %switch.select51) #10
-  store ptr %31, ptr %30, align 8
+  store ptr %31, ptr %30, align 8, !tbaa !35
   %.not45 = icmp eq ptr %31, null
   br i1 %.not45, label %32, label %34
 
@@ -262,35 +264,35 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i16 0, ptr %35, align 8
+  store i16 0, ptr %35, align 8, !tbaa !36
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 0, ptr %36, align 4
+  store i32 0, ptr %36, align 4, !tbaa !37
   %37 = icmp ult i64 %26, 28
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 1, ptr %39, align 8
+  store i32 1, ptr %39, align 8, !tbaa !38
   %40 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %43 = load ptr, ptr %42, align 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !39
   %44 = tail call ptr %43(ptr noundef nonnull %21, i64 noundef 0, i64 noundef 28, i32 noundef 0) #10
   %.not46 = icmp eq ptr %44, null
   br i1 %.not46, label %45, label %48
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 4, ptr %46, align 8
+  store i32 4, ptr %46, align 8, !tbaa !38
   %47 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 12)
   br label %83
 
 48:                                               ; preds = %41
   %.sroa.06.0.copyload = load i16, ptr %44, align 1
-  %.sroa.1010.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %.sroa.1010.0.copyload = load i32, ptr %.sroa.1010.0..sroa_idx, align 1
+  %.sroa.1210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %.sroa.1210.0.copyload = load i32, ptr %.sroa.1210.0..sroa_idx, align 1
   %.not47 = icmp eq i16 %.sroa.06.0.copyload, -2
   br i1 %.not47, label %53, label %49
 
@@ -298,51 +300,51 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %50 = zext i16 %.sroa.06.0.copyload to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i32 noundef %50) #10
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 8, ptr %51, align 8
+  store i32 8, ptr %51, align 8, !tbaa !38
   %52 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
 
 53:                                               ; preds = %48
-  %54 = add i32 %.sroa.1010.0.copyload, -3
+  %54 = add i32 %.sroa.1210.0.copyload, -3
   %or.cond4 = icmp ult i32 %54, -2
   br i1 %or.cond4, label %55, label %58
 
 55:                                               ; preds = %53
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #10
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 8, ptr %56, align 8
+  store i32 8, ptr %56, align 8, !tbaa !38
   %57 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
 
 58:                                               ; preds = %53
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i32 noundef 65534) #10
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %.sroa.1010.0.copyload) #10
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %.sroa.1210.0.copyload) #10
   %59 = add i64 %26, -28
   %60 = icmp ult i64 %59, 20
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 1, ptr %62, align 8
+  store i32 1, ptr %62, align 8, !tbaa !38
   %63 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
 
 64:                                               ; preds = %58
-  %65 = load ptr, ptr %42, align 8
+  %65 = load ptr, ptr %42, align 8, !tbaa !39
   %66 = tail call ptr %65(ptr noundef nonnull %21, i64 noundef 28, i64 noundef 20, i32 noundef 0) #10
   %.not48 = icmp eq ptr %66, null
   br i1 %.not48, label %67, label %70
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 4, ptr %68, align 8
+  store i32 4, ptr %68, align 8, !tbaa !38
   %69 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 12)
   br label %83
 
 70:                                               ; preds = %64
-  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 1
-  %71 = zext i32 %.sroa.1.0.copyload to i64
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
+  %71 = zext i32 %.sroa.3.0.copyload to i64
   %72 = call fastcc i32 @ole2_summary_propset_json(ptr noundef %4, i64 noundef %71)
   %.not49 = icmp eq i32 %72, 0
   br i1 %.not49, label %75, label %73
@@ -352,12 +354,12 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %83
 
 75:                                               ; preds = %70
-  %76 = icmp eq i32 %.sroa.1010.0.copyload, 2
+  %76 = icmp eq i32 %.sroa.1210.0.copyload, 2
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %79 = load ptr, ptr %78, align 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !25
   %80 = call i32 @cli_jsonbool(ptr noundef %79, ptr noundef nonnull @.str.14, i32 noundef 1) #10
   br label %81
 
@@ -367,56 +369,61 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 83:                                               ; preds = %3, %81, %73, %67, %61, %55, %49, %45, %38, %32, %23, %17, %11, %9
   %.0 = phi i32 [ 2, %9 ], [ 2, %11 ], [ 11, %17 ], [ 26, %38 ], [ 26, %49 ], [ 26, %55 ], [ 26, %61 ], [ %72, %73 ], [ 0, %81 ], [ 12, %67 ], [ 12, %45 ], [ 20, %32 ], [ 19, %23 ], [ 2, %3 ]
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #10
   ret i32 %.0
 }
 
-declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
-declare ptr @fmap(i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @fmap(i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @cli_jsonobj(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @cli_jsonobj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull readonly captures(none) %0, i32 noundef returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i32, ptr %3, align 8
+  %4 = load i32, ptr %3, align 8, !tbaa !38
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
   tail call void %9(ptr noundef nonnull %6) #10
   br label %10
 
 10:                                               ; preds = %7, %2
-  %11 = load i32, ptr %3, align 8
+  %11 = load i32, ptr %3, align 8, !tbaa !38
   %.not36 = icmp eq i32 %11, 0
   br i1 %.not36, label %.thread, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !35
   %15 = tail call ptr @cli_jsonarray(ptr noundef %14, ptr noundef nonnull @.str.16) #10
-  %16 = load i32, ptr %3, align 8
+  %16 = load i32, ptr %3, align 8, !tbaa !38
   %17 = and i32 %16, 1
   %.not37 = icmp eq i32 %17, 0
   br i1 %.not37, label %20, label %18
 
 18:                                               ; preds = %12
   %19 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.17) #10
-  %.pre = load i32, ptr %3, align 8
+  %.pre = load i32, ptr %3, align 8, !tbaa !38
   br label %20
 
 20:                                               ; preds = %18, %12
@@ -427,7 +434,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 23:                                               ; preds = %20
   %24 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.18) #10
-  %.pre52 = load i32, ptr %3, align 8
+  %.pre52 = load i32, ptr %3, align 8, !tbaa !38
   br label %25
 
 25:                                               ; preds = %23, %20
@@ -438,7 +445,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 28:                                               ; preds = %25
   %29 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.19) #10
-  %.pre53 = load i32, ptr %3, align 8
+  %.pre53 = load i32, ptr %3, align 8, !tbaa !38
   br label %30
 
 30:                                               ; preds = %28, %25
@@ -449,7 +456,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 33:                                               ; preds = %30
   %34 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.20) #10
-  %.pre54 = load i32, ptr %3, align 8
+  %.pre54 = load i32, ptr %3, align 8, !tbaa !38
   br label %35
 
 35:                                               ; preds = %33, %30
@@ -460,7 +467,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 38:                                               ; preds = %35
   %39 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.21) #10
-  %.pre55 = load i32, ptr %3, align 8
+  %.pre55 = load i32, ptr %3, align 8, !tbaa !38
   br label %40
 
 40:                                               ; preds = %38, %35
@@ -471,7 +478,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 43:                                               ; preds = %40
   %44 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.22) #10
-  %.pre56 = load i32, ptr %3, align 8
+  %.pre56 = load i32, ptr %3, align 8, !tbaa !38
   br label %45
 
 45:                                               ; preds = %43, %40
@@ -482,7 +489,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 48:                                               ; preds = %45
   %49 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.23) #10
-  %.pre57 = load i32, ptr %3, align 8
+  %.pre57 = load i32, ptr %3, align 8, !tbaa !38
   br label %50
 
 50:                                               ; preds = %48, %45
@@ -493,7 +500,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 53:                                               ; preds = %50
   %54 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.24) #10
-  %.pre58 = load i32, ptr %3, align 8
+  %.pre58 = load i32, ptr %3, align 8, !tbaa !38
   br label %55
 
 55:                                               ; preds = %53, %50
@@ -504,7 +511,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 58:                                               ; preds = %55
   %59 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.25) #10
-  %.pre59 = load i32, ptr %3, align 8
+  %.pre59 = load i32, ptr %3, align 8, !tbaa !38
   br label %60
 
 60:                                               ; preds = %58, %55
@@ -515,7 +522,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 63:                                               ; preds = %60
   %64 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.26) #10
-  %.pre60 = load i32, ptr %3, align 8
+  %.pre60 = load i32, ptr %3, align 8, !tbaa !38
   br label %65
 
 65:                                               ; preds = %63, %60
@@ -526,7 +533,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 68:                                               ; preds = %65
   %69 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.27) #10
-  %.pre61 = load i32, ptr %3, align 8
+  %.pre61 = load i32, ptr %3, align 8, !tbaa !38
   br label %70
 
 70:                                               ; preds = %68, %65
@@ -537,7 +544,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 73:                                               ; preds = %70
   %74 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.28) #10
-  %.pre62 = load i32, ptr %3, align 8
+  %.pre62 = load i32, ptr %3, align 8, !tbaa !38
   br label %75
 
 75:                                               ; preds = %73, %70
@@ -548,7 +555,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 78:                                               ; preds = %75
   %79 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.29) #10
-  %.pre63 = load i32, ptr %3, align 8
+  %.pre63 = load i32, ptr %3, align 8, !tbaa !38
   br label %80
 
 80:                                               ; preds = %78, %75
@@ -559,7 +566,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 
 83:                                               ; preds = %80
   %84 = tail call i32 @cli_jsonstr(ptr noundef %15, ptr noundef null, ptr noundef nonnull @.str.30) #10
-  %.pre64 = load i32, ptr %3, align 8
+  %.pre64 = load i32, ptr %3, align 8, !tbaa !38
   %.pre65 = and i32 %.pre64, 8192
   %85 = icmp eq i32 %.pre65, 0
   br i1 %85, label %.thread, label %86
@@ -573,7 +580,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull initializes((48, 50), (52, 64)) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
@@ -581,85 +588,85 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull initia
   %4 = alloca [256 x i8], align 16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 0, ptr %5, align 8
+  store i16 0, ptr %5, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 4, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %7, align 8
+  store ptr null, ptr %7, align 8, !tbaa !41
   %8 = add nuw nsw i64 %1, 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !24
   %11 = icmp ugt i64 %8, %10
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !38
   %15 = or i32 %14, 1
-  store i32 %15, ptr %13, align 8
-  br label %.loopexit
+  store i32 %15, ptr %13, align 8, !tbaa !38
+  br label %.thread
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = tail call ptr %20(ptr noundef %18, i64 noundef range(i64 0, 4294967296) %1, i64 noundef 8, i32 noundef 0) #10
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %26
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load i32, ptr %23, align 8
+  %24 = load i32, ptr %23, align 8, !tbaa !38
   %25 = or i32 %24, 4
-  store i32 %25, ptr %23, align 8
-  br label %.loopexit
+  store i32 %25, ptr %23, align 8, !tbaa !38
+  br label %.thread
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %28 = load i32, ptr %21, align 1
   store i32 %28, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %.0.copyload24 = load i32, ptr %29, align 1
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33, i32 noundef %28, i32 noundef %.0.copyload24) #10
-  %30 = icmp ugt i32 %.0.copyload24, 25
+  %.0.copyload26 = load i32, ptr %29, align 1
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33, i32 noundef %28, i32 noundef %.0.copyload26) #10
+  %30 = icmp ugt i32 %.0.copyload26, 25
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load i32, ptr %32, align 8
+  %33 = load i32, ptr %32, align 8, !tbaa !38
   %34 = or i32 %33, 16
-  store i32 %34, ptr %32, align 8
+  store i32 %34, ptr %32, align 8, !tbaa !38
   br label %35
 
 35:                                               ; preds = %26, %31
-  %.067 = phi i32 [ 25, %31 ], [ %.0.copyload24, %26 ]
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %.067, i32 noundef %.0.copyload24, i32 noundef 25) #10
-  %36 = load i32, ptr %27, align 4
+  %.071 = phi i32 [ 25, %31 ], [ %.0.copyload26, %26 ]
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %.071, i32 noundef %.0.copyload26, i32 noundef 25) #10
+  %36 = load i32, ptr %27, align 4, !tbaa !42
   %37 = zext i32 %36 to i64
   %38 = add nuw nsw i64 %1, %37
-  %39 = load i64, ptr %9, align 8
+  %39 = load i64, ptr %9, align 8, !tbaa !24
   %40 = icmp ugt i64 %38, %39
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = load i32, ptr %42, align 8
+  %43 = load i32, ptr %42, align 8, !tbaa !38
   %44 = or i32 %43, 1
-  store i32 %44, ptr %42, align 8
-  br label %.loopexit
+  store i32 %44, ptr %42, align 8, !tbaa !38
+  br label %.thread
 
 45:                                               ; preds = %35
-  %46 = load ptr, ptr %17, align 8
+  %46 = load ptr, ptr %17, align 8, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 104
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !39
   %49 = tail call ptr %48(ptr noundef %46, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %37, i32 noundef 0) #10
-  %.not72 = icmp eq ptr %49, null
-  br i1 %.not72, label %54, label %.preheader
+  %.not76 = icmp eq ptr %49, null
+  br i1 %.not76, label %54, label %.preheader
 
 .preheader:                                       ; preds = %45
-  %.not94 = icmp eq i32 %.067, 0
-  br i1 %.not94, label %.loopexit, label %.lr.ph
+  %.not105 = icmp eq i32 %.071, 0
+  br i1 %.not105, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -670,849 +677,853 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull initia
 
 54:                                               ; preds = %45
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %56 = load i32, ptr %55, align 8
+  %56 = load i32, ptr %55, align 8, !tbaa !38
   %57 = or i32 %56, 4
-  store i32 %57, ptr %55, align 8
-  br label %.loopexit
+  store i32 %57, ptr %55, align 8, !tbaa !38
+  br label %.thread
 
-58:                                               ; preds = %.lr.ph, %414
-  %.092 = phi i32 [ 0, %.lr.ph ], [ %415, %414 ]
-  %.06691 = phi i64 [ 8, %.lr.ph ], [ %59, %414 ]
-  %59 = add nuw nsw i64 %.06691, 8
-  %60 = load i32, ptr %27, align 4
+58:                                               ; preds = %.lr.ph, %ole2_process_property.exit.thread83
+  %.06799 = phi i32 [ 0, %.lr.ph ], [ %394, %ole2_process_property.exit.thread83 ]
+  %.06998 = phi i64 [ 8, %.lr.ph ], [ %59, %ole2_process_property.exit.thread83 ]
+  %59 = add nuw nsw i64 %.06998, 8
+  %60 = load i32, ptr %27, align 4, !tbaa !42
   %61 = zext i32 %60 to i64
   %62 = icmp samesign ugt i64 %59, %61
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %58
-  %64 = load i32, ptr %51, align 8
+  %64 = load i32, ptr %51, align 8, !tbaa !38
   %65 = or i32 %64, 2
-  store i32 %65, ptr %51, align 8
-  br label %.loopexit
+  store i32 %65, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
 66:                                               ; preds = %58
-  %67 = or disjoint i64 %.06691, 4
-  %68 = getelementptr inbounds nuw i8, ptr %49, i64 %.06691
-  %.0.copyload3 = load i32, ptr %68, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %49, i64 %67
-  %.0.copyload = load i32, ptr %69, align 1
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35, i32 noundef %.0.copyload3, i32 noundef %.0.copyload) #10
-  store ptr null, ptr %7, align 8
-  store i32 0, ptr %6, align 4
-  %70 = load i32, ptr %50, align 8
-  %cond = icmp eq i32 %70, 1
-  br i1 %cond, label %71, label %98
+  %67 = getelementptr inbounds nuw i8, ptr %49, i64 %.06998
+  %.0.copyload4 = load i32, ptr %67, align 1
+  %68 = getelementptr i8, ptr %67, i64 4
+  %.0.copyload = load i32, ptr %68, align 1
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35, i32 noundef %.0.copyload4, i32 noundef %.0.copyload) #10
+  store ptr null, ptr %7, align 8, !tbaa !41
+  store i32 0, ptr %6, align 4, !tbaa !37
+  %69 = load i32, ptr %50, align 8, !tbaa !15
+  %cond = icmp eq i32 %69, 1
+  br i1 %cond, label %70, label %97
 
-71:                                               ; preds = %66
-  switch i32 %.0.copyload3, label %ole2_translate_docsummary_propid.exit [
-    i32 1, label %72
+70:                                               ; preds = %66
+  switch i32 %.0.copyload4, label %ole2_translate_docsummary_propid.exit [
+    i32 1, label %71
     i32 2, label %ole2_translate_docsummary_propid.exit.thread.sink.split
-    i32 3, label %73
-    i32 4, label %74
-    i32 5, label %75
-    i32 6, label %76
-    i32 7, label %77
-    i32 8, label %78
-    i32 9, label %79
-    i32 10, label %80
-    i32 11, label %81
-    i32 12, label %82
-    i32 13, label %83
-    i32 14, label %84
-    i32 15, label %85
-    i32 16, label %86
-    i32 17, label %87
-    i32 19, label %88
-    i32 20, label %89
-    i32 21, label %90
-    i32 22, label %91
-    i32 23, label %92
-    i32 24, label %93
-    i32 26, label %94
-    i32 27, label %95
-    i32 28, label %96
-    i32 29, label %97
+    i32 3, label %72
+    i32 4, label %73
+    i32 5, label %74
+    i32 6, label %75
+    i32 7, label %76
+    i32 8, label %77
+    i32 9, label %78
+    i32 10, label %79
+    i32 11, label %80
+    i32 12, label %81
+    i32 13, label %82
+    i32 14, label %83
+    i32 15, label %84
+    i32 16, label %85
+    i32 17, label %86
+    i32 19, label %87
+    i32 20, label %88
+    i32 21, label %89
+    i32 22, label %90
+    i32 23, label %91
+    i32 24, label %92
+    i32 26, label %93
+    i32 27, label %94
+    i32 28, label %95
+    i32 29, label %96
   ]
 
-72:                                               ; preds = %71
-  store i32 1, ptr %6, align 4
+71:                                               ; preds = %70
+  store i32 1, ptr %6, align 4, !tbaa !37
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-73:                                               ; preds = %71
+72:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-74:                                               ; preds = %71
+73:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-75:                                               ; preds = %71
+74:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-76:                                               ; preds = %71
+75:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-77:                                               ; preds = %71
+76:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-78:                                               ; preds = %71
+77:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-79:                                               ; preds = %71
+78:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-80:                                               ; preds = %71
+79:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-81:                                               ; preds = %71
+80:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-82:                                               ; preds = %71
+81:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-83:                                               ; preds = %71
+82:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-84:                                               ; preds = %71
+83:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-85:                                               ; preds = %71
+84:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-86:                                               ; preds = %71
+85:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-87:                                               ; preds = %71
+86:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-88:                                               ; preds = %71
+87:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-89:                                               ; preds = %71
+88:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-90:                                               ; preds = %71
+89:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-91:                                               ; preds = %71
+90:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-92:                                               ; preds = %71
+91:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-93:                                               ; preds = %71
+92:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-94:                                               ; preds = %71
+93:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-95:                                               ; preds = %71
+94:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-96:                                               ; preds = %71
+95:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-97:                                               ; preds = %71
+96:                                               ; preds = %70
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-98:                                               ; preds = %66
-  switch i32 %.0.copyload3, label %ole2_translate_docsummary_propid.exit [
-    i32 1, label %99
+97:                                               ; preds = %66
+  switch i32 %.0.copyload4, label %ole2_translate_docsummary_propid.exit [
+    i32 1, label %98
     i32 2, label %ole2_translate_docsummary_propid.exit.thread.sink.split
-    i32 3, label %100
-    i32 4, label %101
-    i32 5, label %102
-    i32 6, label %103
-    i32 7, label %104
-    i32 8, label %105
-    i32 9, label %106
-    i32 10, label %107
-    i32 11, label %108
-    i32 12, label %109
-    i32 13, label %110
-    i32 14, label %111
-    i32 15, label %112
-    i32 16, label %113
-    i32 17, label %114
-    i32 18, label %115
-    i32 19, label %116
+    i32 3, label %99
+    i32 4, label %100
+    i32 5, label %101
+    i32 6, label %102
+    i32 7, label %103
+    i32 8, label %104
+    i32 9, label %105
+    i32 10, label %106
+    i32 11, label %107
+    i32 12, label %108
+    i32 13, label %109
+    i32 14, label %110
+    i32 15, label %111
+    i32 16, label %112
+    i32 17, label %113
+    i32 18, label %114
+    i32 19, label %115
   ]
 
-99:                                               ; preds = %98
-  store i32 1, ptr %6, align 4
+98:                                               ; preds = %97
+  store i32 1, ptr %6, align 4, !tbaa !37
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-100:                                              ; preds = %98
+99:                                               ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-101:                                              ; preds = %98
+100:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-102:                                              ; preds = %98
+101:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-103:                                              ; preds = %98
+102:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-104:                                              ; preds = %98
+103:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-105:                                              ; preds = %98
+104:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-106:                                              ; preds = %98
+105:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-107:                                              ; preds = %98
+106:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-108:                                              ; preds = %98
+107:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-109:                                              ; preds = %98
+108:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-110:                                              ; preds = %98
+109:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-111:                                              ; preds = %98
+110:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-112:                                              ; preds = %98
+111:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-113:                                              ; preds = %98
+112:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-114:                                              ; preds = %98
+113:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-115:                                              ; preds = %98
+114:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-116:                                              ; preds = %98
+115:                                              ; preds = %97
   br label %ole2_translate_docsummary_propid.exit.thread.sink.split
 
-ole2_translate_docsummary_propid.exit:            ; preds = %98, %71
-  %.str.82.sink = phi ptr [ @.str.63, %71 ], [ @.str.82, %98 ]
+ole2_translate_docsummary_propid.exit:            ; preds = %97, %70
+  %.str.82.sink = phi ptr [ @.str.63, %70 ], [ @.str.82, %97 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.82.sink) #10
-  %storemerge.in = load i32, ptr %51, align 8
+  %storemerge.in = load i32, ptr %51, align 8, !tbaa !38
   %storemerge = or i32 %storemerge.in, 128
-  store i32 %storemerge, ptr %51, align 8
-  %.pr = load ptr, ptr %7, align 8
-  %.not73 = icmp eq ptr %.pr, null
-  br i1 %.not73, label %414, label %ole2_translate_docsummary_propid.exit.thread
+  store i32 %storemerge, ptr %51, align 8, !tbaa !38
+  %.pr = load ptr, ptr %7, align 8, !tbaa !41
+  %.not77 = icmp eq ptr %.pr, null
+  br i1 %.not77, label %ole2_process_property.exit.thread83, label %ole2_translate_docsummary_propid.exit.thread
 
-ole2_translate_docsummary_propid.exit.thread.sink.split: ; preds = %98, %71, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72
-  %.str.36.sink = phi ptr [ @.str.36, %72 ], [ @.str.38, %73 ], [ @.str.39, %74 ], [ @.str.40, %75 ], [ @.str.41, %76 ], [ @.str.42, %77 ], [ @.str.43, %78 ], [ @.str.44, %79 ], [ @.str.45, %80 ], [ @.str.46, %81 ], [ @.str.47, %82 ], [ @.str.48, %83 ], [ @.str.49, %84 ], [ @.str.50, %85 ], [ @.str.51, %86 ], [ @.str.52, %87 ], [ @.str.53, %88 ], [ @.str.54, %89 ], [ @.str.55, %90 ], [ @.str.56, %91 ], [ @.str.57, %92 ], [ @.str.58, %93 ], [ @.str.59, %94 ], [ @.str.60, %95 ], [ @.str.61, %96 ], [ @.str.62, %97 ], [ @.str.36, %99 ], [ @.str.65, %100 ], [ @.str.66, %101 ], [ @.str.67, %102 ], [ @.str.68, %103 ], [ @.str.69, %104 ], [ @.str.70, %105 ], [ @.str.71, %106 ], [ @.str.72, %107 ], [ @.str.73, %108 ], [ @.str.74, %109 ], [ @.str.75, %110 ], [ @.str.76, %111 ], [ @.str.77, %112 ], [ @.str.78, %113 ], [ @.str.79, %114 ], [ @.str.80, %115 ], [ @.str.81, %116 ], [ @.str.37, %71 ], [ @.str.64, %98 ]
-  store ptr %.str.36.sink, ptr %7, align 8
+ole2_translate_docsummary_propid.exit.thread.sink.split: ; preds = %97, %70, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71
+  %.str.36.sink = phi ptr [ @.str.36, %71 ], [ @.str.38, %72 ], [ @.str.39, %73 ], [ @.str.40, %74 ], [ @.str.41, %75 ], [ @.str.42, %76 ], [ @.str.43, %77 ], [ @.str.44, %78 ], [ @.str.45, %79 ], [ @.str.46, %80 ], [ @.str.47, %81 ], [ @.str.48, %82 ], [ @.str.49, %83 ], [ @.str.50, %84 ], [ @.str.51, %85 ], [ @.str.52, %86 ], [ @.str.53, %87 ], [ @.str.54, %88 ], [ @.str.55, %89 ], [ @.str.56, %90 ], [ @.str.57, %91 ], [ @.str.58, %92 ], [ @.str.59, %93 ], [ @.str.60, %94 ], [ @.str.61, %95 ], [ @.str.62, %96 ], [ @.str.36, %98 ], [ @.str.65, %99 ], [ @.str.66, %100 ], [ @.str.67, %101 ], [ @.str.68, %102 ], [ @.str.69, %103 ], [ @.str.70, %104 ], [ @.str.71, %105 ], [ @.str.72, %106 ], [ @.str.73, %107 ], [ @.str.74, %108 ], [ @.str.75, %109 ], [ @.str.76, %110 ], [ @.str.77, %111 ], [ @.str.78, %112 ], [ @.str.79, %113 ], [ @.str.80, %114 ], [ @.str.81, %115 ], [ @.str.37, %70 ], [ @.str.64, %97 ]
+  store ptr %.str.36.sink, ptr %7, align 8, !tbaa !41
   br label %ole2_translate_docsummary_propid.exit.thread
 
 ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docsummary_propid.exit.thread.sink.split, %ole2_translate_docsummary_propid.exit
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
-  %117 = load ptr, ptr %0, align 8
-  %118 = call i32 @cli_json_timeout_cycle_check(ptr noundef %117, ptr noundef nonnull %52) #10
-  %.not.i = icmp eq i32 %118, 0
-  br i1 %.not.i, label %122, label %119
+  %116 = load ptr, ptr %0, align 8, !tbaa !3
+  %117 = call i32 @cli_json_timeout_cycle_check(ptr noundef %116, ptr noundef nonnull %52) #10
+  %.not.i = icmp eq i32 %117, 0
+  br i1 %.not.i, label %121, label %118
 
-119:                                              ; preds = %ole2_translate_docsummary_propid.exit.thread
-  %120 = load i32, ptr %51, align 8
-  %121 = or i32 %120, 32
-  store i32 %121, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+118:                                              ; preds = %ole2_translate_docsummary_propid.exit.thread
+  %119 = load i32, ptr %51, align 8, !tbaa !38
+  %120 = or i32 %119, 32
+  store i32 %120, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-122:                                              ; preds = %ole2_translate_docsummary_propid.exit.thread
-  %123 = zext i32 %.0.copyload to i64
-  %124 = add nuw nsw i64 %123, 4
-  %125 = load i32, ptr %27, align 4
-  %126 = zext i32 %125 to i64
-  %127 = icmp samesign ugt i64 %124, %126
-  br i1 %127, label %128, label %131
+121:                                              ; preds = %ole2_translate_docsummary_propid.exit.thread
+  %122 = zext i32 %.0.copyload to i64
+  %123 = add nuw nsw i64 %122, 4
+  %124 = load i32, ptr %27, align 4, !tbaa !42
+  %125 = zext i32 %124 to i64
+  %126 = icmp samesign ugt i64 %123, %125
+  br i1 %126, label %127, label %130
 
-128:                                              ; preds = %122
-  %129 = load i32, ptr %51, align 8
-  %130 = or i32 %129, 2
-  store i32 %130, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+127:                                              ; preds = %121
+  %128 = load i32, ptr %51, align 8, !tbaa !38
+  %129 = or i32 %128, 2
+  store i32 %129, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-131:                                              ; preds = %122
-  %132 = add i32 %.0.copyload, 2
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw i8, ptr %49, i64 %133
-  %.0.copyload89.i = load i16, ptr %134, align 1
-  %135 = add i32 %.0.copyload, 4
-  %.not272.i = icmp eq i16 %.0.copyload89.i, 0
-  br i1 %.not272.i, label %139, label %136
+130:                                              ; preds = %121
+  %131 = add i32 %.0.copyload, 2
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr inbounds nuw i8, ptr %49, i64 %132
+  %.0.copyload120.i = load i16, ptr %133, align 1
+  %134 = add i32 %.0.copyload, 4
+  %.not339.i = icmp eq i16 %.0.copyload120.i, 0
+  br i1 %.not339.i, label %138, label %135
 
-136:                                              ; preds = %131
+135:                                              ; preds = %130
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.83) #10
-  %137 = load i32, ptr %51, align 8
-  %138 = or i32 %137, 8
-  store i32 %138, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+  %136 = load i32, ptr %51, align 8, !tbaa !38
+  %137 = or i32 %136, 8
+  store i32 %137, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-139:                                              ; preds = %131
-  %140 = getelementptr inbounds nuw i8, ptr %49, i64 %123
-  %.0.copyload91.i = load i16, ptr %140, align 1
-  switch i16 %.0.copyload91.i, label %409 [
-    i16 0, label %141
-    i16 1, label %141
-    i16 2, label %145
-    i16 3, label %165
-    i16 22, label %165
-    i16 4, label %177
-    i16 7, label %191
-    i16 5, label %191
-    i16 11, label %205
-    i16 16, label %218
-    i16 17, label %229
-    i16 18, label %240
-    i16 19, label %256
-    i16 23, label %256
-    i16 20, label %268
-    i16 21, label %280
-    i16 8, label %292
-    i16 30, label %292
-    i16 31, label %341
-    i16 64, label %385
+138:                                              ; preds = %130
+  %139 = getelementptr inbounds nuw i8, ptr %49, i64 %122
+  %.0.copyload122.i = load i16, ptr %139, align 1
+  switch i16 %.0.copyload122.i, label %389 [
+    i16 0, label %140
+    i16 1, label %140
+    i16 2, label %144
+    i16 3, label %163
+    i16 22, label %163
+    i16 4, label %173
+    i16 7, label %185
+    i16 5, label %185
+    i16 11, label %197
+    i16 16, label %208
+    i16 17, label %218
+    i16 18, label %228
+    i16 19, label %242
+    i16 23, label %242
+    i16 20, label %252
+    i16 21, label %262
+    i16 8, label %272
+    i16 30, label %272
+    i16 31, label %322
+    i16 64, label %366
   ]
 
-141:                                              ; preds = %139, %139
-  %142 = load ptr, ptr %53, align 8
-  %143 = load ptr, ptr %7, align 8
-  %144 = call i32 @cli_jsonnull(ptr noundef %142, ptr noundef %143) #10
+140:                                              ; preds = %138, %138
+  %141 = load ptr, ptr %53, align 8, !tbaa !35
+  %142 = load ptr, ptr %7, align 8, !tbaa !41
+  %143 = call i32 @cli_jsonnull(ptr noundef %141, ptr noundef %142) #10
   br label %ole2_process_property.exit
 
-145:                                              ; preds = %139
-  %146 = zext i32 %135 to i64
-  %147 = add nuw nsw i64 %146, 2
-  %148 = icmp samesign ugt i64 %147, %126
-  br i1 %148, label %149, label %152
+144:                                              ; preds = %138
+  %145 = zext i32 %134 to i64
+  %146 = add nuw nsw i64 %145, 2
+  %.not362.i = icmp samesign ugt i64 %146, %125
+  br i1 %.not362.i, label %160, label %147
 
-149:                                              ; preds = %145
-  %150 = load i32, ptr %51, align 8
-  %151 = or i32 %150, 2
-  store i32 %151, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+147:                                              ; preds = %144
+  %148 = getelementptr inbounds nuw i8, ptr %49, i64 %145
+  %.0.copyload95.i = load i16, ptr %148, align 1
+  %149 = load i32, ptr %6, align 4, !tbaa !37
+  %.not361.i = icmp eq i32 %149, 0
+  br i1 %.not361.i, label %155, label %150
 
-152:                                              ; preds = %145
-  %153 = getelementptr inbounds nuw i8, ptr %49, i64 %146
-  %.0.copyload80.i = load i16, ptr %153, align 1
-  %154 = load i32, ptr %6, align 4
-  %.not285.i = icmp eq i32 %154, 0
-  br i1 %.not285.i, label %160, label %155
+150:                                              ; preds = %147
+  store i16 %.0.copyload95.i, ptr %5, align 8, !tbaa !36
+  %151 = load ptr, ptr %53, align 8, !tbaa !35
+  %152 = load ptr, ptr %7, align 8, !tbaa !41
+  %153 = zext i16 %.0.copyload95.i to i32
+  %154 = call i32 @cli_jsonint(ptr noundef %151, ptr noundef %152, i32 noundef %153) #10
+  br label %ole2_process_property.exit
 
-155:                                              ; preds = %152
-  store i16 %.0.copyload80.i, ptr %5, align 8
-  %156 = load ptr, ptr %53, align 8
-  %157 = load ptr, ptr %7, align 8
-  %158 = zext i16 %.0.copyload80.i to i32
+155:                                              ; preds = %147
+  %156 = load ptr, ptr %53, align 8, !tbaa !35
+  %157 = load ptr, ptr %7, align 8, !tbaa !41
+  %158 = sext i16 %.0.copyload95.i to i32
   %159 = call i32 @cli_jsonint(ptr noundef %156, ptr noundef %157, i32 noundef %158) #10
   br label %ole2_process_property.exit
 
-160:                                              ; preds = %152
-  %161 = load ptr, ptr %53, align 8
-  %162 = load ptr, ptr %7, align 8
-  %163 = sext i16 %.0.copyload80.i to i32
-  %164 = call i32 @cli_jsonint(ptr noundef %161, ptr noundef %162, i32 noundef %163) #10
+160:                                              ; preds = %144
+  %161 = load i32, ptr %51, align 8, !tbaa !38
+  %162 = or i32 %161, 2
+  store i32 %162, ptr %51, align 8, !tbaa !38
+  br label %.thread
+
+163:                                              ; preds = %138, %138
+  %164 = zext i32 %134 to i64
+  %165 = add nuw nsw i64 %164, 4
+  %.not360.i = icmp samesign ugt i64 %165, %125
+  br i1 %.not360.i, label %.thread364.i, label %168
+
+.thread364.i:                                     ; preds = %163
+  %166 = load i32, ptr %51, align 8, !tbaa !38
+  %167 = or i32 %166, 2
+  store i32 %167, ptr %51, align 8, !tbaa !38
+  br label %.thread
+
+168:                                              ; preds = %163
+  %169 = getelementptr inbounds nuw i8, ptr %49, i64 %164
+  %.0.copyload92.i = load i32, ptr %169, align 1
+  %170 = load ptr, ptr %53, align 8, !tbaa !35
+  %171 = load ptr, ptr %7, align 8, !tbaa !41
+  %172 = call i32 @cli_jsonint(ptr noundef %170, ptr noundef %171, i32 noundef %.0.copyload92.i) #10
   br label %ole2_process_property.exit
 
-165:                                              ; preds = %139, %139
-  %166 = zext i32 %135 to i64
-  %167 = add nuw nsw i64 %166, 4
-  %168 = icmp samesign ugt i64 %167, %126
-  br i1 %168, label %169, label %172
+173:                                              ; preds = %138
+  %174 = zext i32 %134 to i64
+  %175 = add nuw nsw i64 %174, 4
+  %.not359.i = icmp samesign ugt i64 %175, %125
+  br i1 %.not359.i, label %.thread366.i, label %178
 
-169:                                              ; preds = %165
-  %170 = load i32, ptr %51, align 8
-  %171 = or i32 %170, 2
-  store i32 %171, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+.thread366.i:                                     ; preds = %173
+  %176 = load i32, ptr %51, align 8, !tbaa !38
+  %177 = or i32 %176, 2
+  store i32 %177, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-172:                                              ; preds = %165
-  %173 = getelementptr inbounds nuw i8, ptr %49, i64 %166
-  %.0.copyload77.i = load i32, ptr %173, align 1
-  %174 = load ptr, ptr %53, align 8
-  %175 = load ptr, ptr %7, align 8
-  %176 = call i32 @cli_jsonint(ptr noundef %174, ptr noundef %175, i32 noundef %.0.copyload77.i) #10
+178:                                              ; preds = %173
+  %179 = getelementptr inbounds nuw i8, ptr %49, i64 %174
+  %.0.copyload91.i = load float, ptr %179, align 1
+  %180 = fptoui float %.0.copyload91.i to i32
+  %181 = load ptr, ptr %53, align 8, !tbaa !35
+  %182 = load ptr, ptr %7, align 8, !tbaa !41
+  %183 = uitofp i32 %180 to double
+  %184 = call i32 @cli_jsondouble(ptr noundef %181, ptr noundef %182, double noundef %183) #10
   br label %ole2_process_property.exit
 
-177:                                              ; preds = %139
-  %178 = zext i32 %135 to i64
-  %179 = add nuw nsw i64 %178, 4
-  %180 = icmp samesign ugt i64 %179, %126
-  br i1 %180, label %181, label %184
+185:                                              ; preds = %138, %138
+  %186 = zext i32 %134 to i64
+  %187 = add nuw nsw i64 %186, 8
+  %.not358.i = icmp samesign ugt i64 %187, %125
+  br i1 %.not358.i, label %.thread368.i, label %190
 
-181:                                              ; preds = %177
-  %182 = load i32, ptr %51, align 8
-  %183 = or i32 %182, 2
-  store i32 %183, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+.thread368.i:                                     ; preds = %185
+  %188 = load i32, ptr %51, align 8, !tbaa !38
+  %189 = or i32 %188, 2
+  store i32 %189, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-184:                                              ; preds = %177
-  %185 = getelementptr inbounds nuw i8, ptr %49, i64 %178
-  %.0.copyload76.i = load float, ptr %185, align 1
-  %186 = fptoui float %.0.copyload76.i to i32
-  %187 = load ptr, ptr %53, align 8
-  %188 = load ptr, ptr %7, align 8
-  %189 = uitofp i32 %186 to double
-  %190 = call i32 @cli_jsondouble(ptr noundef %187, ptr noundef %188, double noundef %189) #10
+190:                                              ; preds = %185
+  %191 = getelementptr inbounds nuw i8, ptr %49, i64 %186
+  %.0.copyload88.i = load double, ptr %191, align 1
+  %192 = fptoui double %.0.copyload88.i to i64
+  %193 = uitofp i64 %192 to double
+  %194 = load ptr, ptr %53, align 8, !tbaa !35
+  %195 = load ptr, ptr %7, align 8, !tbaa !41
+  %196 = call i32 @cli_jsondouble(ptr noundef %194, ptr noundef %195, double noundef %193) #10
   br label %ole2_process_property.exit
 
-191:                                              ; preds = %139, %139
-  %192 = zext i32 %135 to i64
-  %193 = add nuw nsw i64 %192, 8
-  %194 = icmp samesign ugt i64 %193, %126
-  br i1 %194, label %195, label %198
+197:                                              ; preds = %138
+  %198 = zext i32 %134 to i64
+  %199 = add nuw nsw i64 %198, 2
+  %.not357.i = icmp samesign ugt i64 %199, %125
+  br i1 %.not357.i, label %.thread370.i, label %202
 
-195:                                              ; preds = %191
-  %196 = load i32, ptr %51, align 8
-  %197 = or i32 %196, 2
-  store i32 %197, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+.thread370.i:                                     ; preds = %197
+  %200 = load i32, ptr %51, align 8, !tbaa !38
+  %201 = or i32 %200, 2
+  store i32 %201, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-198:                                              ; preds = %191
-  %199 = getelementptr inbounds nuw i8, ptr %49, i64 %192
-  %.0.copyload73.i = load double, ptr %199, align 1
-  %200 = fptoui double %.0.copyload73.i to i64
-  %201 = uitofp i64 %200 to double
-  %202 = load ptr, ptr %53, align 8
-  %203 = load ptr, ptr %7, align 8
-  %204 = call i32 @cli_jsondouble(ptr noundef %202, ptr noundef %203, double noundef %201) #10
+202:                                              ; preds = %197
+  %203 = getelementptr inbounds nuw i8, ptr %49, i64 %198
+  %.0.copyload84.i = load i16, ptr %203, align 1
+  %204 = load ptr, ptr %53, align 8, !tbaa !35
+  %205 = load ptr, ptr %7, align 8, !tbaa !41
+  %206 = zext i16 %.0.copyload84.i to i32
+  %207 = call i32 @cli_jsonbool(ptr noundef %204, ptr noundef %205, i32 noundef %206) #10
   br label %ole2_process_property.exit
 
-205:                                              ; preds = %139
-  %206 = zext i32 %135 to i64
-  %207 = add nuw nsw i64 %206, 2
-  %208 = icmp samesign ugt i64 %207, %126
-  br i1 %208, label %209, label %212
+208:                                              ; preds = %138
+  %.not356.i = icmp ult i32 %134, %124
+  br i1 %.not356.i, label %.thread372.i, label %215
 
-209:                                              ; preds = %205
-  %210 = load i32, ptr %51, align 8
-  %211 = or i32 %210, 2
-  store i32 %211, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
-
-212:                                              ; preds = %205
-  %213 = getelementptr inbounds nuw i8, ptr %49, i64 %206
-  %.0.copyload69.i = load i16, ptr %213, align 1
-  %214 = load ptr, ptr %53, align 8
-  %215 = load ptr, ptr %7, align 8
-  %216 = zext i16 %.0.copyload69.i to i32
-  %217 = call i32 @cli_jsonbool(ptr noundef %214, ptr noundef %215, i32 noundef %216) #10
+.thread372.i:                                     ; preds = %208
+  %209 = zext i32 %134 to i64
+  %210 = getelementptr inbounds nuw i8, ptr %49, i64 %209
+  %.0.copyload82.i = load i8, ptr %210, align 1
+  %211 = load ptr, ptr %53, align 8, !tbaa !35
+  %212 = load ptr, ptr %7, align 8, !tbaa !41
+  %213 = sext i8 %.0.copyload82.i to i32
+  %214 = call i32 @cli_jsonint(ptr noundef %211, ptr noundef %212, i32 noundef %213) #10
   br label %ole2_process_property.exit
 
-218:                                              ; preds = %139
-  %.not284.i = icmp ult i32 %135, %125
-  br i1 %.not284.i, label %222, label %219
+215:                                              ; preds = %208
+  %216 = load i32, ptr %51, align 8, !tbaa !38
+  %217 = or i32 %216, 2
+  store i32 %217, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-219:                                              ; preds = %218
-  %220 = load i32, ptr %51, align 8
-  %221 = or i32 %220, 2
-  store i32 %221, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+218:                                              ; preds = %138
+  %.not355.i = icmp ult i32 %134, %124
+  br i1 %.not355.i, label %.thread374.i, label %225
 
-222:                                              ; preds = %218
-  %223 = zext i32 %135 to i64
-  %224 = getelementptr inbounds nuw i8, ptr %49, i64 %223
-  %.0.copyload67.i = load i8, ptr %224, align 1
-  %225 = load ptr, ptr %53, align 8
-  %226 = load ptr, ptr %7, align 8
-  %227 = sext i8 %.0.copyload67.i to i32
-  %228 = call i32 @cli_jsonint(ptr noundef %225, ptr noundef %226, i32 noundef %227) #10
+.thread374.i:                                     ; preds = %218
+  %219 = zext i32 %134 to i64
+  %220 = getelementptr inbounds nuw i8, ptr %49, i64 %219
+  %.0.copyload80.i = load i8, ptr %220, align 1
+  %221 = load ptr, ptr %53, align 8, !tbaa !35
+  %222 = load ptr, ptr %7, align 8, !tbaa !41
+  %223 = zext i8 %.0.copyload80.i to i32
+  %224 = call i32 @cli_jsonint(ptr noundef %221, ptr noundef %222, i32 noundef %223) #10
   br label %ole2_process_property.exit
 
-229:                                              ; preds = %139
-  %.not283.i = icmp ult i32 %135, %125
-  br i1 %.not283.i, label %233, label %230
+225:                                              ; preds = %218
+  %226 = load i32, ptr %51, align 8, !tbaa !38
+  %227 = or i32 %226, 2
+  store i32 %227, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-230:                                              ; preds = %229
-  %231 = load i32, ptr %51, align 8
+228:                                              ; preds = %138
+  %229 = zext i32 %134 to i64
+  %230 = add nuw nsw i64 %229, 2
+  %.not354.i = icmp samesign ugt i64 %230, %125
+  br i1 %.not354.i, label %.thread376.i, label %233
+
+.thread376.i:                                     ; preds = %228
+  %231 = load i32, ptr %51, align 8, !tbaa !38
   %232 = or i32 %231, 2
-  store i32 %232, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+  store i32 %232, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-233:                                              ; preds = %229
-  %234 = zext i32 %135 to i64
-  %235 = getelementptr inbounds nuw i8, ptr %49, i64 %234
-  %.0.copyload65.i = load i8, ptr %235, align 1
-  %236 = load ptr, ptr %53, align 8
-  %237 = load ptr, ptr %7, align 8
-  %238 = zext i8 %.0.copyload65.i to i32
-  %239 = call i32 @cli_jsonint(ptr noundef %236, ptr noundef %237, i32 noundef %238) #10
+233:                                              ; preds = %228
+  %234 = getelementptr inbounds nuw i8, ptr %49, i64 %229
+  %.0.copyload76.i = load i16, ptr %234, align 1
+  %235 = load i32, ptr %6, align 4, !tbaa !37
+  %.not353.i = icmp eq i32 %235, 0
+  br i1 %.not353.i, label %237, label %236
+
+236:                                              ; preds = %233
+  store i16 %.0.copyload76.i, ptr %5, align 8, !tbaa !36
+  br label %237
+
+237:                                              ; preds = %236, %233
+  %238 = load ptr, ptr %53, align 8, !tbaa !35
+  %239 = load ptr, ptr %7, align 8, !tbaa !41
+  %240 = zext i16 %.0.copyload76.i to i32
+  %241 = call i32 @cli_jsonint(ptr noundef %238, ptr noundef %239, i32 noundef %240) #10
   br label %ole2_process_property.exit
 
-240:                                              ; preds = %139
-  %241 = zext i32 %135 to i64
-  %242 = add nuw nsw i64 %241, 2
-  %243 = icmp samesign ugt i64 %242, %126
-  br i1 %243, label %244, label %247
+242:                                              ; preds = %138, %138
+  %243 = zext i32 %134 to i64
+  %244 = add nuw nsw i64 %243, 4
+  %.not352.i = icmp samesign ugt i64 %244, %125
+  br i1 %.not352.i, label %.thread378.i, label %247
 
-244:                                              ; preds = %240
-  %245 = load i32, ptr %51, align 8
+.thread378.i:                                     ; preds = %242
+  %245 = load i32, ptr %51, align 8, !tbaa !38
   %246 = or i32 %245, 2
-  store i32 %246, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+  store i32 %246, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-247:                                              ; preds = %240
-  %248 = getelementptr inbounds nuw i8, ptr %49, i64 %241
-  %.0.copyload61.i = load i16, ptr %248, align 1
-  %249 = load i32, ptr %6, align 4
-  %.not282.i = icmp eq i32 %249, 0
-  br i1 %.not282.i, label %251, label %250
-
-250:                                              ; preds = %247
-  store i16 %.0.copyload61.i, ptr %5, align 8
-  br label %251
-
-251:                                              ; preds = %250, %247
-  %252 = load ptr, ptr %53, align 8
-  %253 = load ptr, ptr %7, align 8
-  %254 = zext i16 %.0.copyload61.i to i32
-  %255 = call i32 @cli_jsonint(ptr noundef %252, ptr noundef %253, i32 noundef %254) #10
+247:                                              ; preds = %242
+  %248 = getelementptr inbounds nuw i8, ptr %49, i64 %243
+  %.0.copyload73.i = load i32, ptr %248, align 1
+  %249 = load ptr, ptr %53, align 8, !tbaa !35
+  %250 = load ptr, ptr %7, align 8, !tbaa !41
+  %251 = call i32 @cli_jsonint(ptr noundef %249, ptr noundef %250, i32 noundef %.0.copyload73.i) #10
   br label %ole2_process_property.exit
 
-256:                                              ; preds = %139, %139
-  %257 = zext i32 %135 to i64
-  %258 = add nuw nsw i64 %257, 4
-  %259 = icmp samesign ugt i64 %258, %126
-  br i1 %259, label %260, label %263
+252:                                              ; preds = %138
+  %253 = zext i32 %134 to i64
+  %254 = add nuw nsw i64 %253, 8
+  %.not351.i = icmp samesign ugt i64 %254, %125
+  br i1 %.not351.i, label %.thread380.i, label %257
 
-260:                                              ; preds = %256
-  %261 = load i32, ptr %51, align 8
-  %262 = or i32 %261, 2
-  store i32 %262, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+.thread380.i:                                     ; preds = %252
+  %255 = load i32, ptr %51, align 8, !tbaa !38
+  %256 = or i32 %255, 2
+  store i32 %256, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-263:                                              ; preds = %256
-  %264 = getelementptr inbounds nuw i8, ptr %49, i64 %257
-  %.0.copyload58.i = load i32, ptr %264, align 1
-  %265 = load ptr, ptr %53, align 8
-  %266 = load ptr, ptr %7, align 8
-  %267 = call i32 @cli_jsonint(ptr noundef %265, ptr noundef %266, i32 noundef %.0.copyload58.i) #10
+257:                                              ; preds = %252
+  %258 = getelementptr inbounds nuw i8, ptr %49, i64 %253
+  %.0.copyload70.i = load i64, ptr %258, align 1
+  %259 = load ptr, ptr %53, align 8, !tbaa !35
+  %260 = load ptr, ptr %7, align 8, !tbaa !41
+  %261 = call i32 @cli_jsonint64(ptr noundef %259, ptr noundef %260, i64 noundef %.0.copyload70.i) #10
   br label %ole2_process_property.exit
 
-268:                                              ; preds = %139
-  %269 = zext i32 %135 to i64
-  %270 = add nuw nsw i64 %269, 8
-  %271 = icmp samesign ugt i64 %270, %126
-  br i1 %271, label %272, label %275
+262:                                              ; preds = %138
+  %263 = zext i32 %134 to i64
+  %264 = add nuw nsw i64 %263, 8
+  %.not350.i = icmp samesign ugt i64 %264, %125
+  br i1 %.not350.i, label %.thread382.i, label %267
 
-272:                                              ; preds = %268
-  %273 = load i32, ptr %51, align 8
-  %274 = or i32 %273, 2
-  store i32 %274, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+.thread382.i:                                     ; preds = %262
+  %265 = load i32, ptr %51, align 8, !tbaa !38
+  %266 = or i32 %265, 2
+  store i32 %266, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-275:                                              ; preds = %268
-  %276 = getelementptr inbounds nuw i8, ptr %49, i64 %269
-  %.0.copyload55.i = load i64, ptr %276, align 1
-  %277 = load ptr, ptr %53, align 8
-  %278 = load ptr, ptr %7, align 8
-  %279 = call i32 @cli_jsonint64(ptr noundef %277, ptr noundef %278, i64 noundef %.0.copyload55.i) #10
+267:                                              ; preds = %262
+  %268 = getelementptr inbounds nuw i8, ptr %49, i64 %263
+  %.0.copyload67.i = load i64, ptr %268, align 1
+  %269 = load ptr, ptr %53, align 8, !tbaa !35
+  %270 = load ptr, ptr %7, align 8, !tbaa !41
+  %271 = call i32 @cli_jsonint64(ptr noundef %269, ptr noundef %270, i64 noundef %.0.copyload67.i) #10
   br label %ole2_process_property.exit
 
-280:                                              ; preds = %139
-  %281 = zext i32 %135 to i64
-  %282 = add nuw nsw i64 %281, 8
-  %283 = icmp samesign ugt i64 %282, %126
-  br i1 %283, label %284, label %287
+272:                                              ; preds = %138, %138
+  %273 = load i16, ptr %5, align 8, !tbaa !36
+  %274 = icmp eq i16 %273, 0
+  br i1 %274, label %275, label %278
 
-284:                                              ; preds = %280
-  %285 = load i32, ptr %51, align 8
-  %286 = or i32 %285, 2
-  store i32 %286, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
-
-287:                                              ; preds = %280
-  %288 = getelementptr inbounds nuw i8, ptr %49, i64 %281
-  %.0.copyload52.i = load i64, ptr %288, align 1
-  %289 = load ptr, ptr %53, align 8
-  %290 = load ptr, ptr %7, align 8
-  %291 = call i32 @cli_jsonint64(ptr noundef %289, ptr noundef %290, i64 noundef %.0.copyload52.i) #10
-  br label %ole2_process_property.exit
-
-292:                                              ; preds = %139, %139
-  %293 = load i16, ptr %5, align 8
-  %294 = icmp eq i16 %293, 0
-  br i1 %294, label %295, label %298
-
-295:                                              ; preds = %292
+275:                                              ; preds = %272
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.84) #10
-  %296 = load i32, ptr %51, align 8
-  %297 = or i32 %296, 64
-  store i32 %297, ptr %51, align 8
-  br label %ole2_process_property.exit.thread79
+  %276 = load i32, ptr %51, align 8, !tbaa !38
+  %277 = or i32 %276, 64
+  store i32 %277, ptr %51, align 8, !tbaa !38
+  br label %ole2_process_property.exit.thread83
 
-298:                                              ; preds = %292
-  %299 = zext i32 %135 to i64
-  %300 = add nuw nsw i64 %299, 4
-  %301 = icmp samesign ugt i64 %300, %126
-  br i1 %301, label %302, label %305
+278:                                              ; preds = %272
+  %279 = zext i32 %134 to i64
+  %280 = add nuw nsw i64 %279, 4
+  %281 = icmp samesign ugt i64 %280, %125
+  br i1 %281, label %282, label %285
 
-302:                                              ; preds = %298
-  %303 = load i32, ptr %51, align 8
-  %304 = or i32 %303, 2
-  store i32 %304, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+282:                                              ; preds = %278
+  %283 = load i32, ptr %51, align 8, !tbaa !38
+  %284 = or i32 %283, 2
+  store i32 %284, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-305:                                              ; preds = %298
-  %306 = getelementptr inbounds nuw i8, ptr %49, i64 %299
-  %.0.copyload43.i = load i32, ptr %306, align 1
-  %307 = trunc nuw i64 %300 to i32
-  %308 = add i32 %.0.copyload43.i, %307
-  %309 = icmp ugt i32 %308, %125
-  br i1 %309, label %310, label %313
+285:                                              ; preds = %278
+  %286 = getelementptr inbounds nuw i8, ptr %49, i64 %279
+  %.0.copyload58.i = load i32, ptr %286, align 1
+  %287 = trunc nuw i64 %280 to i32
+  %288 = add i32 %.0.copyload58.i, %287
+  %289 = icmp ugt i32 %288, %124
+  br i1 %289, label %290, label %293
 
-310:                                              ; preds = %305
-  %311 = load i32, ptr %51, align 8
-  %312 = or i32 %311, 2
-  store i32 %312, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+290:                                              ; preds = %285
+  %291 = load i32, ptr %51, align 8, !tbaa !38
+  %292 = or i32 %291, 2
+  store i32 %292, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-313:                                              ; preds = %305
-  %314 = icmp ugt i32 %.0.copyload43.i, 256
-  br i1 %314, label %315, label %319
+293:                                              ; preds = %285
+  %294 = icmp ugt i32 %.0.copyload58.i, 256
+  br i1 %294, label %295, label %299
 
-315:                                              ; preds = %313
-  %316 = zext i32 %.0.copyload43.i to i64
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.85, i64 noundef %316, i64 noundef 256) #10
-  %317 = load i32, ptr %51, align 8
-  %318 = or i32 %317, 512
-  store i32 %318, ptr %51, align 8
-  br label %319
+295:                                              ; preds = %293
+  %296 = zext i32 %.0.copyload58.i to i64
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.85, i64 noundef %296, i64 noundef 256) #10
+  %297 = load i32, ptr %51, align 8, !tbaa !38
+  %298 = or i32 %297, 512
+  store i32 %298, ptr %51, align 8, !tbaa !38
+  br label %299
 
-319:                                              ; preds = %315, %313
-  %.0259.i = phi i32 [ 256, %315 ], [ %.0.copyload43.i, %313 ]
-  %320 = add nuw nsw i32 %.0259.i, 1
-  %321 = zext nneg i32 %320 to i64
-  %322 = call ptr @cli_max_calloc(i64 noundef %321, i64 noundef 1) #10
-  %.not278.i = icmp eq ptr %322, null
-  br i1 %.not278.i, label %ole2_process_property.exit.thread, label %323
+299:                                              ; preds = %295, %293
+  %.0308.i = phi i32 [ 256, %295 ], [ %.0.copyload58.i, %293 ]
+  %300 = add nuw nsw i32 %.0308.i, 1
+  %301 = zext nneg i32 %300 to i64
+  %302 = call ptr @cli_max_calloc(i64 noundef %301, i64 noundef 1) #10
+  %.not346.i = icmp eq ptr %302, null
+  br i1 %.not346.i, label %.thread, label %303
 
-323:                                              ; preds = %319
-  %324 = getelementptr inbounds nuw i8, ptr %49, i64 %300
-  %325 = zext nneg i32 %.0259.i to i64
-  %326 = call ptr @strncpy(ptr noundef nonnull %322, ptr noundef nonnull readonly %324, i64 noundef %325) #10
-  %327 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef %322, i64 noundef %325, ptr noundef null)
-  %.not279.i = icmp eq ptr %327, null
-  br i1 %.not279.i, label %328, label %337
+303:                                              ; preds = %299
+  %304 = getelementptr inbounds nuw i8, ptr %49, i64 %280
+  %305 = zext nneg i32 %.0308.i to i64
+  %306 = call ptr @strncpy(ptr noundef nonnull %302, ptr noundef nonnull readonly %304, i64 noundef %305) #10
+  %307 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef %302, i64 noundef %305, ptr noundef null)
+  %.not347.i = icmp eq ptr %307, null
+  br i1 %.not347.i, label %308, label %318
 
-328:                                              ; preds = %323
-  %329 = call ptr @cl_base64_encode(ptr noundef nonnull %322, i64 noundef %325) #10
-  %.not280.i = icmp eq ptr %329, null
-  br i1 %.not280.i, label %330, label %331
+308:                                              ; preds = %303
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #10
+  %309 = call ptr @cl_base64_encode(ptr noundef nonnull %302, i64 noundef %305) #10
+  %.not348.i = icmp eq ptr %309, null
+  br i1 %.not348.i, label %310, label %311
 
-330:                                              ; preds = %328
+310:                                              ; preds = %308
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.86) #10
-  call void @free(ptr noundef nonnull %322) #10
-  br label %ole2_process_property.exit.thread
+  br label %.thread385.i
 
-331:                                              ; preds = %328
-  %332 = load ptr, ptr %7, align 8
-  %333 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.87, ptr noundef %332) #10
-  %334 = load ptr, ptr %53, align 8
-  %335 = call i32 @cli_jsonbool(ptr noundef %334, ptr noundef nonnull %3, i32 noundef 1) #10
-  %.not281.i = icmp eq i32 %335, 0
-  br i1 %.not281.i, label %337, label %336
+311:                                              ; preds = %308
+  %312 = load ptr, ptr %7, align 8, !tbaa !41
+  %313 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.87, ptr noundef %312) #10
+  %314 = load ptr, ptr %53, align 8, !tbaa !35
+  %315 = call i32 @cli_jsonbool(ptr noundef %314, ptr noundef nonnull %3, i32 noundef 1) #10
+  %.not349.i = icmp eq i32 %315, 0
+  br i1 %.not349.i, label %317, label %316
 
-336:                                              ; preds = %331
-  call void @free(ptr noundef nonnull %322) #10
-  call void @free(ptr noundef nonnull %329) #10
-  br label %ole2_process_property.exit.thread
+316:                                              ; preds = %311
+  call void @free(ptr noundef nonnull %302) #10
+  br label %.thread385.i
 
-337:                                              ; preds = %331, %323
-  %.0257.i = phi ptr [ %327, %323 ], [ %329, %331 ]
-  %338 = load ptr, ptr %53, align 8
-  %339 = load ptr, ptr %7, align 8
-  %340 = call i32 @cli_jsonstr(ptr noundef %338, ptr noundef %339, ptr noundef nonnull %.0257.i) #10
-  call void @free(ptr noundef nonnull %322) #10
-  call void @free(ptr noundef nonnull %.0257.i) #10
+.thread385.i:                                     ; preds = %316, %310
+  %.lcssa122.sink = phi ptr [ %309, %316 ], [ %302, %310 ]
+  %.14.ph.i = phi i32 [ %315, %316 ], [ 20, %310 ]
+  call void @free(ptr noundef nonnull %.lcssa122.sink) #10
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #10
+  br label %.thread
+
+317:                                              ; preds = %311
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #10
+  br label %318
+
+318:                                              ; preds = %317, %303
+  %.0288.i = phi ptr [ %307, %303 ], [ %309, %317 ]
+  %319 = load ptr, ptr %53, align 8, !tbaa !35
+  %320 = load ptr, ptr %7, align 8, !tbaa !41
+  %321 = call i32 @cli_jsonstr(ptr noundef %319, ptr noundef %320, ptr noundef nonnull %.0288.i) #10
+  call void @free(ptr noundef nonnull %302) #10
+  call void @free(ptr noundef nonnull %.0288.i) #10
   br label %ole2_process_property.exit
 
-341:                                              ; preds = %139
-  %342 = zext i32 %135 to i64
-  %343 = add nuw nsw i64 %342, 4
-  %344 = icmp samesign ugt i64 %343, %126
-  br i1 %344, label %345, label %348
+322:                                              ; preds = %138
+  %323 = zext i32 %134 to i64
+  %324 = add nuw nsw i64 %323, 4
+  %325 = icmp samesign ugt i64 %324, %125
+  br i1 %325, label %326, label %329
 
-345:                                              ; preds = %341
-  %346 = load i32, ptr %51, align 8
-  %347 = or i32 %346, 2
-  store i32 %347, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+326:                                              ; preds = %322
+  %327 = load i32, ptr %51, align 8, !tbaa !38
+  %328 = or i32 %327, 2
+  store i32 %328, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-348:                                              ; preds = %341
-  %349 = getelementptr inbounds nuw i8, ptr %49, i64 %342
-  %.0.copyload22.i = load i32, ptr %349, align 1
-  %350 = trunc nuw i64 %343 to i32
-  %351 = shl i32 %.0.copyload22.i, 1
-  %352 = icmp ugt i32 %351, 512
-  br i1 %352, label %353, label %357
+329:                                              ; preds = %322
+  %330 = getelementptr inbounds nuw i8, ptr %49, i64 %323
+  %.0.copyload37.i = load i32, ptr %330, align 1
+  %331 = trunc nuw i64 %324 to i32
+  %332 = shl i32 %.0.copyload37.i, 1
+  %333 = icmp ugt i32 %332, 512
+  br i1 %333, label %334, label %338
 
-353:                                              ; preds = %348
-  %354 = zext i32 %351 to i64
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.85, i64 noundef %354, i64 noundef 512) #10
-  %355 = load i32, ptr %51, align 8
-  %356 = or i32 %355, 512
-  store i32 %356, ptr %51, align 8
-  %.pre.i = load i32, ptr %27, align 4
-  br label %357
+334:                                              ; preds = %329
+  %335 = zext i32 %332 to i64
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.85, i64 noundef %335, i64 noundef 512) #10
+  %336 = load i32, ptr %51, align 8, !tbaa !38
+  %337 = or i32 %336, 512
+  store i32 %337, ptr %51, align 8, !tbaa !38
+  %.pre.i = load i32, ptr %27, align 4, !tbaa !42
+  br label %338
 
-357:                                              ; preds = %353, %348
-  %358 = phi i32 [ %.pre.i, %353 ], [ %125, %348 ]
-  %.0256.i = phi i32 [ 512, %353 ], [ %351, %348 ]
-  %359 = add i32 %.0256.i, %350
-  %360 = icmp ugt i32 %359, %358
-  br i1 %360, label %361, label %364
+338:                                              ; preds = %334, %329
+  %339 = phi i32 [ %.pre.i, %334 ], [ %124, %329 ]
+  %.0287.i = phi i32 [ 512, %334 ], [ %332, %329 ]
+  %340 = add i32 %.0287.i, %331
+  %341 = icmp ugt i32 %340, %339
+  br i1 %341, label %342, label %345
 
-361:                                              ; preds = %357
-  %362 = load i32, ptr %51, align 8
-  %363 = or i32 %362, 2
-  store i32 %363, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+342:                                              ; preds = %338
+  %343 = load i32, ptr %51, align 8, !tbaa !38
+  %344 = or i32 %343, 2
+  store i32 %344, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-364:                                              ; preds = %357
-  %365 = add nuw nsw i32 %.0256.i, 2
-  %366 = zext nneg i32 %365 to i64
-  %367 = call ptr @cli_max_calloc(i64 noundef %366, i64 noundef 1) #10
-  %.not274.i = icmp eq ptr %367, null
-  br i1 %.not274.i, label %ole2_process_property.exit.thread, label %368
+345:                                              ; preds = %338
+  %346 = add nuw nsw i32 %.0287.i, 2
+  %347 = zext nneg i32 %346 to i64
+  %348 = call ptr @cli_max_calloc(i64 noundef %347, i64 noundef 1) #10
+  %.not342.i = icmp eq ptr %348, null
+  br i1 %.not342.i, label %.thread, label %349
 
-368:                                              ; preds = %364
-  %369 = getelementptr inbounds nuw i8, ptr %49, i64 %343
-  %370 = zext nneg i32 %.0256.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %367, ptr nonnull readonly align 1 %369, i64 %370, i1 false)
-  %371 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef %367, i64 noundef %370, ptr noundef nonnull @.str.88)
-  %.not275.i = icmp eq ptr %371, null
-  br i1 %.not275.i, label %372, label %381
+349:                                              ; preds = %345
+  %350 = getelementptr inbounds nuw i8, ptr %49, i64 %324
+  %351 = zext nneg i32 %.0287.i to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %348, ptr nonnull readonly align 1 %350, i64 %351, i1 false)
+  %352 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef %348, i64 noundef %351, ptr noundef nonnull @.str.88)
+  %.not343.i = icmp eq ptr %352, null
+  br i1 %.not343.i, label %353, label %362
 
-372:                                              ; preds = %368
-  %373 = call ptr @cl_base64_encode(ptr noundef nonnull %367, i64 noundef %370) #10
-  %.not276.i = icmp eq ptr %373, null
-  br i1 %.not276.i, label %374, label %375
+353:                                              ; preds = %349
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #10
+  %354 = call ptr @cl_base64_encode(ptr noundef nonnull %348, i64 noundef %351) #10
+  %.not344.i = icmp eq ptr %354, null
+  br i1 %.not344.i, label %.thread395.i, label %355
 
-374:                                              ; preds = %372
-  call void @free(ptr noundef nonnull %367) #10
-  br label %ole2_process_property.exit.thread
+355:                                              ; preds = %353
+  %356 = load ptr, ptr %7, align 8, !tbaa !41
+  %357 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.87, ptr noundef %356) #10
+  %358 = load ptr, ptr %53, align 8, !tbaa !35
+  %359 = call i32 @cli_jsonbool(ptr noundef %358, ptr noundef nonnull %4, i32 noundef 1) #10
+  %.not345.i = icmp eq i32 %359, 0
+  br i1 %.not345.i, label %361, label %360
 
-375:                                              ; preds = %372
-  %376 = load ptr, ptr %7, align 8
-  %377 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.87, ptr noundef %376) #10
-  %378 = load ptr, ptr %53, align 8
-  %379 = call i32 @cli_jsonbool(ptr noundef %378, ptr noundef nonnull %4, i32 noundef 1) #10
-  %.not277.i = icmp eq i32 %379, 0
-  br i1 %.not277.i, label %381, label %380
+360:                                              ; preds = %355
+  call void @free(ptr noundef nonnull %348) #10
+  br label %.thread395.i
 
-380:                                              ; preds = %375
-  call void @free(ptr noundef nonnull %367) #10
-  call void @free(ptr noundef nonnull %373) #10
-  br label %ole2_process_property.exit.thread
+.thread395.i:                                     ; preds = %353, %360
+  %.lcssa117.sink = phi ptr [ %354, %360 ], [ %348, %353 ]
+  %.17.ph.i = phi i32 [ %359, %360 ], [ 20, %353 ]
+  call void @free(ptr noundef nonnull %.lcssa117.sink) #10
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #10
+  br label %.thread
 
-381:                                              ; preds = %375, %368
-  %.0255.i = phi ptr [ %371, %368 ], [ %373, %375 ]
-  %382 = load ptr, ptr %53, align 8
-  %383 = load ptr, ptr %7, align 8
-  %384 = call i32 @cli_jsonstr(ptr noundef %382, ptr noundef %383, ptr noundef nonnull %.0255.i) #10
-  call void @free(ptr noundef nonnull %367) #10
-  call void @free(ptr noundef nonnull %.0255.i) #10
+361:                                              ; preds = %355
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #10
+  br label %362
+
+362:                                              ; preds = %361, %349
+  %.0286.i = phi ptr [ %352, %349 ], [ %354, %361 ]
+  %363 = load ptr, ptr %53, align 8, !tbaa !35
+  %364 = load ptr, ptr %7, align 8, !tbaa !41
+  %365 = call i32 @cli_jsonstr(ptr noundef %363, ptr noundef %364, ptr noundef nonnull %.0286.i) #10
+  call void @free(ptr noundef nonnull %348) #10
+  call void @free(ptr noundef nonnull %.0286.i) #10
   br label %ole2_process_property.exit
 
-385:                                              ; preds = %139
-  %386 = zext i32 %135 to i64
-  %387 = add nuw nsw i64 %386, 8
-  %388 = icmp samesign ugt i64 %387, %126
-  br i1 %388, label %389, label %392
+366:                                              ; preds = %138
+  %367 = zext i32 %134 to i64
+  %368 = add nuw nsw i64 %367, 8
+  %.not341.i = icmp samesign ugt i64 %368, %125
+  br i1 %.not341.i, label %386, label %369
 
-389:                                              ; preds = %385
-  %390 = load i32, ptr %51, align 8
-  %391 = or i32 %390, 2
-  store i32 %391, ptr %51, align 8
-  br label %ole2_process_property.exit.thread
+369:                                              ; preds = %366
+  %370 = add i32 %.0.copyload, 8
+  %371 = getelementptr inbounds nuw i8, ptr %49, i64 %367
+  %.0.copyload23.i = load i32, ptr %371, align 1
+  %372 = zext i32 %370 to i64
+  %373 = getelementptr inbounds nuw i8, ptr %49, i64 %372
+  %.0.copyload.i = load i32, ptr %373, align 1
+  %374 = zext i32 %.0.copyload.i to i64
+  %375 = shl nuw i64 %374, 32
+  %376 = zext i32 %.0.copyload23.i to i64
+  %377 = or disjoint i64 %375, %376
+  %378 = udiv i64 %377, 10000000
+  %379 = add nsw i64 %378, -11644473600
+  %.not340.i = icmp ult i64 %379, 4294967296
+  br i1 %.not340.i, label %381, label %380
 
-392:                                              ; preds = %385
-  %393 = add i32 %.0.copyload, 8
-  %394 = getelementptr inbounds nuw i8, ptr %49, i64 %386
-  %.0.copyload8.i = load i32, ptr %394, align 1
-  %395 = zext i32 %393 to i64
-  %396 = getelementptr inbounds nuw i8, ptr %49, i64 %395
-  %.0.copyload.i = load i32, ptr %396, align 1
-  %397 = zext i32 %.0.copyload.i to i64
-  %398 = shl nuw i64 %397, 32
-  %399 = zext i32 %.0.copyload8.i to i64
-  %400 = or disjoint i64 %398, %399
-  %401 = udiv i64 %400, 10000000
-  %402 = add nsw i64 %401, -11644473600
-  %.not273.i = icmp ult i64 %402, 4294967296
-  br i1 %.not273.i, label %404, label %403
-
-403:                                              ; preds = %392
+380:                                              ; preds = %369
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.89) #10
-  br label %ole2_process_property.exit.thread79
+  br label %ole2_process_property.exit.thread83
 
-404:                                              ; preds = %392
-  %405 = load ptr, ptr %53, align 8
-  %406 = load ptr, ptr %7, align 8
-  %407 = trunc nuw i64 %402 to i32
-  %408 = call i32 @cli_jsonint(ptr noundef %405, ptr noundef %406, i32 noundef %407) #10
+381:                                              ; preds = %369
+  %382 = load ptr, ptr %53, align 8, !tbaa !35
+  %383 = load ptr, ptr %7, align 8, !tbaa !41
+  %384 = trunc nuw i64 %379 to i32
+  %385 = call i32 @cli_jsonint(ptr noundef %382, ptr noundef %383, i32 noundef %384) #10
   br label %ole2_process_property.exit
 
-409:                                              ; preds = %139
-  %410 = zext i16 %.0.copyload91.i to i32
-  %411 = load ptr, ptr %7, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.90, i32 noundef %410, ptr noundef %411) #10
-  %412 = load i32, ptr %51, align 8
-  %413 = or i32 %412, 256
-  store i32 %413, ptr %51, align 8
-  br label %ole2_process_property.exit.thread79
+386:                                              ; preds = %366
+  %387 = load i32, ptr %51, align 8, !tbaa !38
+  %388 = or i32 %387, 2
+  store i32 %388, ptr %51, align 8, !tbaa !38
+  br label %.thread
 
-ole2_process_property.exit.thread:                ; preds = %319, %364, %119, %128, %136, %389, %345, %361, %380, %374, %302, %310, %336, %330, %284, %272, %260, %244, %230, %219, %209, %195, %181, %169, %149
-  %.0.i.ph = phi i32 [ 26, %149 ], [ 26, %169 ], [ 26, %181 ], [ 26, %195 ], [ 26, %209 ], [ 26, %219 ], [ 26, %230 ], [ 26, %244 ], [ 26, %260 ], [ 26, %272 ], [ 26, %284 ], [ 20, %330 ], [ %335, %336 ], [ 26, %310 ], [ 26, %302 ], [ 20, %374 ], [ %379, %380 ], [ 26, %361 ], [ 26, %345 ], [ 26, %389 ], [ 26, %136 ], [ 26, %128 ], [ 21, %119 ], [ 20, %364 ], [ 20, %319 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  br label %.loopexit
+389:                                              ; preds = %138
+  %390 = zext i16 %.0.copyload122.i to i32
+  %391 = load ptr, ptr %7, align 8, !tbaa !41
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.90, i32 noundef %390, ptr noundef %391) #10
+  %392 = load i32, ptr %51, align 8, !tbaa !38
+  %393 = or i32 %392, 256
+  store i32 %393, ptr %51, align 8, !tbaa !38
+  br label %ole2_process_property.exit.thread83
 
-ole2_process_property.exit.thread79:              ; preds = %409, %403, %295
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  br label %414
+ole2_process_property.exit:                       ; preds = %140, %150, %155, %168, %178, %190, %202, %.thread372.i, %.thread374.i, %237, %247, %257, %267, %318, %362, %381
+  %.0.i = phi i32 [ %365, %362 ], [ %321, %318 ], [ %271, %267 ], [ %261, %257 ], [ %251, %247 ], [ %241, %237 ], [ %207, %202 ], [ %196, %190 ], [ %184, %178 ], [ %172, %168 ], [ %143, %140 ], [ %214, %.thread372.i ], [ %224, %.thread374.i ], [ %159, %155 ], [ %154, %150 ], [ %385, %381 ]
+  %.not78 = icmp eq i32 %.0.i, 0
+  br i1 %.not78, label %ole2_process_property.exit.thread83, label %.thread
 
-ole2_process_property.exit:                       ; preds = %141, %155, %160, %172, %184, %198, %212, %222, %233, %251, %263, %275, %287, %337, %381, %404
-  %.0.i = phi i32 [ %408, %404 ], [ %384, %381 ], [ %340, %337 ], [ %291, %287 ], [ %279, %275 ], [ %267, %263 ], [ %255, %251 ], [ %239, %233 ], [ %228, %222 ], [ %217, %212 ], [ %204, %198 ], [ %190, %184 ], [ %176, %172 ], [ %159, %155 ], [ %164, %160 ], [ %144, %141 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  %.not74 = icmp eq i32 %.0.i, 0
-  br i1 %.not74, label %414, label %.loopexit
+ole2_process_property.exit.thread83:              ; preds = %380, %275, %389, %ole2_translate_docsummary_propid.exit, %ole2_process_property.exit
+  %394 = add nuw nsw i32 %.06799, 1
+  %exitcond.not = icmp eq i32 %394, %.071
+  br i1 %exitcond.not, label %.thread, label %58
 
-414:                                              ; preds = %ole2_process_property.exit.thread79, %ole2_process_property.exit, %ole2_translate_docsummary_propid.exit
-  %415 = add nuw nsw i32 %.092, 1
-  %exitcond.not = icmp eq i32 %415, %.067
-  br i1 %exitcond.not, label %.loopexit, label %58
-
-.loopexit:                                        ; preds = %ole2_process_property.exit, %414, %.preheader, %ole2_process_property.exit.thread, %63, %54, %41, %22, %12
-  %.065 = phi i32 [ 26, %12 ], [ 26, %41 ], [ 26, %63 ], [ 12, %54 ], [ 12, %22 ], [ %.0.i.ph, %ole2_process_property.exit.thread ], [ 0, %.preheader ], [ %.0.i, %ole2_process_property.exit ], [ 0, %414 ]
-  ret i32 %.065
+.thread:                                          ; preds = %ole2_process_property.exit.thread83, %ole2_process_property.exit, %299, %345, %.preheader, %326, %342, %.thread395.i, %282, %290, %.thread385.i, %.thread382.i, %.thread380.i, %.thread378.i, %.thread376.i, %.thread370.i, %.thread368.i, %.thread366.i, %.thread364.i, %160, %215, %225, %386, %135, %127, %118, %63, %54, %41, %22, %12
+  %.068 = phi i32 [ 26, %12 ], [ 26, %41 ], [ 12, %54 ], [ 12, %22 ], [ 26, %63 ], [ 26, %326 ], [ 26, %342 ], [ %.17.ph.i, %.thread395.i ], [ 26, %282 ], [ 26, %290 ], [ %.14.ph.i, %.thread385.i ], [ 26, %.thread382.i ], [ 26, %.thread380.i ], [ 26, %.thread378.i ], [ 26, %.thread376.i ], [ 26, %.thread370.i ], [ 26, %.thread368.i ], [ 26, %.thread366.i ], [ 26, %.thread364.i ], [ 26, %160 ], [ 26, %215 ], [ 26, %225 ], [ 26, %386 ], [ 26, %135 ], [ 26, %127 ], [ 21, %118 ], [ 0, %.preheader ], [ 0, %ole2_process_property.exit.thread83 ], [ %.0.i, %ole2_process_property.exit ], [ 20, %299 ], [ 20, %345 ]
+  ret i32 %.068
 }
 
-declare i32 @cli_jsonbool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @cli_jsonbool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @cli_jsonarray(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @cli_jsonstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @cli_jsonarray(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @cli_jsonstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @cli_jsonnull(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @cli_jsonint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @cli_jsonnull(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @cli_jsondouble(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #1
+declare i32 @cli_jsonint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @cli_jsonint64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @cli_jsondouble(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
 
-declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @cli_jsonint64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 0, 513) %2, ptr noundef %3) unnamed_addr #0 {
@@ -1521,17 +1532,21 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca [128 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.92) #10
   %12 = tail call noalias dereferenceable_or_null(1) ptr @calloc(i64 noundef 1, i64 noundef 1) #11
-  br label %.loopexit126
+  br label %.loopexit127
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load i16, ptr %14, align 8
+  %15 = load i16, ptr %14, align 8, !tbaa !36
   switch i16 %15, label %39 [
     i16 20127, label %16
     i16 -535, label %16
@@ -1540,104 +1555,104 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
 16:                                               ; preds = %13, %13
   %17 = add nuw nsw i64 %2, 1
   %18 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %17) #10
-  %.not119 = icmp eq ptr %18, null
-  br i1 %.not119, label %.loopexit126, label %19
+  %.not120 = icmp eq ptr %18, null
+  br i1 %.not120, label %.loopexit127, label %19
 
 19:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %20 = load i16, ptr %14, align 8
+  %20 = load i16, ptr %14, align 8, !tbaa !36
   %21 = icmp eq i16 %20, -535
-  br i1 %21, label %22, label %.loopexit126
+  br i1 %21, label %22, label %.loopexit127
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 %2
   %24 = getelementptr inbounds i8, ptr %23, i64 -1
-  %25 = load i8, ptr %24, align 1
-  %.not120 = icmp sgt i8 %25, -1
-  br i1 %.not120, label %.loopexit126, label %.preheader127
+  %25 = load i8, ptr %24, align 1, !tbaa !43
+  %.not121 = icmp sgt i8 %25, -1
+  br i1 %.not121, label %.loopexit127, label %.preheader128
 
-.preheader127:                                    ; preds = %22
-  %.not121135 = icmp eq ptr %24, %18
-  br i1 %.not121135, label %._crit_edge, label %.lr.ph.preheader
+.preheader128:                                    ; preds = %22
+  %.not122136 = icmp eq ptr %24, %18
+  br i1 %.not122136, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader127
-  %.not122195 = icmp slt i8 %25, -64
-  br i1 %.not122195, label %.lr.ph198, label %._crit_edge
+.lr.ph.preheader:                                 ; preds = %.preheader128
+  %.not123196 = icmp slt i8 %25, -64
+  br i1 %.not123196, label %.lr.ph199, label %._crit_edge
 
-.lr.phthread-pre-split:                           ; preds = %.lr.ph198
-  %26 = add i64 %.086137196, 1
-  %.pr = load i8, ptr %27, align 1
-  %.not122 = icmp slt i8 %.pr, -64
-  br i1 %.not122, label %.lr.ph198, label %._crit_edge
+.lr.phthread-pre-split:                           ; preds = %.lr.ph199
+  %26 = add i64 %.086138197, 1
+  %.pr = load i8, ptr %27, align 1, !tbaa !43
+  %.not123 = icmp slt i8 %.pr, -64
+  br i1 %.not123, label %.lr.ph199, label %._crit_edge
 
-.lr.ph198:                                        ; preds = %.lr.ph.preheader, %.lr.phthread-pre-split
-  %.087136197 = phi ptr [ %27, %.lr.phthread-pre-split ], [ %24, %.lr.ph.preheader ]
-  %.086137196 = phi i64 [ %26, %.lr.phthread-pre-split ], [ 1, %.lr.ph.preheader ]
-  %27 = getelementptr inbounds i8, ptr %.087136197, i64 -1
-  %.not121 = icmp eq ptr %27, %18
-  br i1 %.not121, label %._crit_edge, label %.lr.phthread-pre-split
+.lr.ph199:                                        ; preds = %.lr.ph.preheader, %.lr.phthread-pre-split
+  %.087137198 = phi ptr [ %27, %.lr.phthread-pre-split ], [ %24, %.lr.ph.preheader ]
+  %.086138197 = phi i64 [ %26, %.lr.phthread-pre-split ], [ 1, %.lr.ph.preheader ]
+  %27 = getelementptr inbounds i8, ptr %.087137198, i64 -1
+  %.not122 = icmp eq ptr %27, %18
+  br i1 %.not122, label %._crit_edge, label %.lr.phthread-pre-split
 
-._crit_edge:                                      ; preds = %.lr.phthread-pre-split, %.lr.ph198, %.lr.ph.preheader, %.preheader127
-  %.087.lcssa = phi ptr [ %18, %.preheader127 ], [ %24, %.lr.ph.preheader ], [ %18, %.lr.ph198 ], [ %27, %.lr.phthread-pre-split ]
-  %.086.lcssa = phi i64 [ 1, %.preheader127 ], [ 1, %.lr.ph.preheader ], [ %2, %.lr.ph198 ], [ %26, %.lr.phthread-pre-split ]
-  %28 = load i8, ptr %.087.lcssa, align 1
+._crit_edge:                                      ; preds = %.lr.phthread-pre-split, %.lr.ph199, %.lr.ph.preheader, %.preheader128
+  %.087.lcssa = phi ptr [ %18, %.preheader128 ], [ %24, %.lr.ph.preheader ], [ %18, %.lr.ph199 ], [ %27, %.lr.phthread-pre-split ]
+  %.086.lcssa = phi i64 [ 1, %.preheader128 ], [ 1, %.lr.ph.preheader ], [ %2, %.lr.ph199 ], [ %26, %.lr.phthread-pre-split ]
+  %28 = load i8, ptr %.087.lcssa, align 1, !tbaa !43
   %29 = zext i8 %28 to i32
   br label %30
 
 30:                                               ; preds = %._crit_edge, %35
-  %.0142 = phi i64 [ 0, %._crit_edge ], [ %36, %35 ]
-  %31 = trunc nuw nsw i64 %.0142 to i32
+  %.0143 = phi i64 [ 0, %._crit_edge ], [ %36, %35 ]
+  %31 = trunc nuw nsw i64 %.0143 to i32
   %32 = lshr exact i32 128, %31
   %33 = and i32 %32, %29
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %30
-  %36 = add nuw nsw i64 %.0142, 1
+  %36 = add nuw nsw i64 %.0143, 1
   %exitcond.not = icmp eq i64 %36, 8
   br i1 %exitcond.not, label %37, label %30
 
 37:                                               ; preds = %30, %35
-  %.0.lcssa = phi i64 [ %.0142, %30 ], [ 8, %35 ]
-  %.not123 = icmp eq i64 %.086.lcssa, %.0.lcssa
-  br i1 %.not123, label %.loopexit126, label %38
+  %.0.lcssa = phi i64 [ %.0143, %30 ], [ 8, %35 ]
+  %.not124 = icmp eq i64 %.086.lcssa, %.0.lcssa
+  br i1 %.not124, label %.loopexit127, label %38
 
 38:                                               ; preds = %37
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.93, i64 noundef %.086.lcssa, i64 noundef %.0.lcssa) #10
-  %.not124143 = icmp eq i64 %.086.lcssa, 0
-  br i1 %.not124143, label %.loopexit126, label %.lr.ph147.preheader
+  %.not125144 = icmp eq i64 %.086.lcssa, 0
+  br i1 %.not125144, label %.loopexit127, label %.lr.ph148.preheader
 
-.lr.ph147.preheader:                              ; preds = %38
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.087.lcssa, i8 0, i64 %.086.lcssa, i1 false)
-  br label %.loopexit126
+.lr.ph148.preheader:                              ; preds = %38
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.087.lcssa, i8 0, i64 %.086.lcssa, i1 false), !tbaa !43
+  br label %.loopexit127
 
 39:                                               ; preds = %13
   %40 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %2) #10
-  store ptr %40, ptr %5, align 8
+  store ptr %40, ptr %5, align 8, !tbaa !44
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %.loopexit126, label %41
+  br i1 %.not, label %.loopexit127, label %41
 
 41:                                               ; preds = %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %1, i64 %2, i1 false)
-  store i64 %2, ptr %7, align 8
-  %.not115 = icmp eq ptr %3, null
-  br i1 %.not115, label %.preheader125, label %60
+  store i64 %2, ptr %7, align 8, !tbaa !45
+  %.not116 = icmp eq ptr %3, null
+  br i1 %.not116, label %.preheader126, label %60
 
-.preheader125:                                    ; preds = %41
-  %42 = load i16, ptr %14, align 8
+.preheader126:                                    ; preds = %41
+  %42 = load i16, ptr %14, align 8, !tbaa !36
   br label %43
 
-43:                                               ; preds = %.preheader125, %52
-  %.091149 = phi i64 [ 0, %.preheader125 ], [ %53, %52 ]
-  %.198148 = phi ptr [ null, %.preheader125 ], [ %.2, %52 ]
-  %44 = getelementptr inbounds nuw [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %.091149
-  %45 = load i16, ptr %44, align 16
+43:                                               ; preds = %.preheader126, %52
+  %.092150 = phi i64 [ 0, %.preheader126 ], [ %53, %52 ]
+  %.199149 = phi ptr [ null, %.preheader126 ], [ %.2, %52 ]
+  %44 = getelementptr inbounds nuw [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %.092150
+  %45 = load i16, ptr %44, align 16, !tbaa !46
   %46 = icmp eq i16 %42, %45
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %49 = load ptr, ptr %48, align 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !48
   br label %52
 
 50:                                               ; preds = %43
@@ -1645,29 +1660,29 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %47, %50
-  %.2 = phi ptr [ %49, %47 ], [ %.198148, %50 ]
-  %53 = add nuw nsw i64 %.091149, 1
-  %exitcond163.not = icmp eq i64 %53, 152
-  br i1 %exitcond163.not, label %54, label %43
+  %.2 = phi ptr [ %49, %47 ], [ %.199149, %50 ]
+  %53 = add nuw nsw i64 %.092150, 1
+  %exitcond164.not = icmp eq i64 %53, 152
+  br i1 %exitcond164.not, label %54, label %43
 
 54:                                               ; preds = %50, %52
-  %.198.lcssa = phi ptr [ %.198148, %50 ], [ %.2, %52 ]
-  %.not116 = icmp eq ptr %.198.lcssa, null
-  br i1 %.not116, label %55, label %60
+  %.199.lcssa = phi ptr [ %.199149, %50 ], [ %.2, %52 ]
+  %.not117 = icmp eq ptr %.199.lcssa, null
+  br i1 %.not117, label %55, label %60
 
 55:                                               ; preds = %54
   %56 = zext i16 %42 to i32
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.94, i32 noundef %56) #10
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %58 = load i32, ptr %57, align 8
+  %58 = load i32, ptr %57, align 8, !tbaa !38
   %59 = or i32 %58, 1024
-  store i32 %59, ptr %57, align 8
+  store i32 %59, ptr %57, align 8, !tbaa !38
   tail call void @free(ptr noundef %40) #10
-  br label %.loopexit126
+  br label %.loopexit127
 
 60:                                               ; preds = %54, %41
-  %.097 = phi ptr [ %3, %41 ], [ %.198.lcssa, %54 ]
-  %61 = tail call ptr @iconv_open(ptr noundef nonnull @.str.95, ptr noundef nonnull %.097) #10
+  %.098 = phi ptr [ %3, %41 ], [ %.199.lcssa, %54 ]
+  %61 = tail call ptr @iconv_open(ptr noundef nonnull @.str.95, ptr noundef nonnull %.098) #10
   %62 = icmp eq ptr %61, inttoptr (i64 -1 to ptr)
   br i1 %62, label %66, label %.preheader.preheader
 
@@ -1675,38 +1690,40 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   %63 = shl nuw nsw i64 %2, 1
   %64 = or disjoint i64 %63, 1
   %65 = tail call ptr @cli_max_realloc(ptr noundef null, i64 noundef %64) #10
-  %.not117202 = icmp eq ptr %65, null
-  br i1 %.not117202, label %.preheader._crit_edge, label %.lr.ph
+  %.not118203 = icmp eq ptr %65, null
+  br i1 %.not118203, label %.preheader._crit_edge, label %.lr.ph
 
 66:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #10
   %67 = tail call ptr @__errno_location() #12
-  %68 = load i32, ptr %67, align 4
+  %68 = load i32, ptr %67, align 4, !tbaa !49
   %69 = call ptr @cli_strerror(i32 noundef %68, ptr noundef nonnull %9, i64 noundef 128) #10
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull %.097, ptr noundef nonnull %9) #10
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull %.098, ptr noundef nonnull %9) #10
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %71 = load i32, ptr %70, align 8
+  %71 = load i32, ptr %70, align 8, !tbaa !38
   %72 = or i32 %71, 2048
-  store i32 %72, ptr %70, align 8
+  store i32 %72, ptr %70, align 8, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #10
   br label %111
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   call void @free(ptr noundef %40) #10
   %73 = call i32 @iconv_close(ptr noundef %61) #10
-  br label %.loopexit126
+  br label %.loopexit127
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
   %74 = phi ptr [ %96, %.preheader ], [ %65, %.preheader.preheader ]
   %75 = phi i64 [ %94, %.preheader ], [ %63, %.preheader.preheader ]
   %76 = phi i64 [ %93, %.preheader ], [ 2, %.preheader.preheader ]
-  %.096151204 = phi i64 [ %90, %.preheader ], [ 0, %.preheader.preheader ]
-  %indvars.iv203 = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %.preheader.preheader ]
-  %77 = sub i64 %75, %.096151204
-  store i64 %77, ptr %8, align 8
-  %78 = getelementptr inbounds i8, ptr %74, i64 %.096151204
-  store ptr %78, ptr %6, align 8
+  %.097152205 = phi i64 [ %90, %.preheader ], [ 0, %.preheader.preheader ]
+  %indvars.iv204 = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %.preheader.preheader ]
+  %77 = sub i64 %75, %.097152205
+  store i64 %77, ptr %8, align 8, !tbaa !45
+  %78 = getelementptr inbounds i8, ptr %74, i64 %.097152205
+  store ptr %78, ptr %6, align 8, !tbaa !44
   %79 = call i64 @iconv(ptr noundef %61, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
   %80 = tail call ptr @__errno_location() #12
-  %81 = load i32, ptr %80, align 4
+  %81 = load i32, ptr %80, align 4, !tbaa !49
   %82 = icmp eq i32 %81, 84
   br i1 %82, label %.loopexit.sink.split, label %83
 
@@ -1717,120 +1734,164 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   br i1 %or.cond, label %.loopexit.sink.split, label %86
 
 86:                                               ; preds = %83
-  %87 = load i64, ptr %7, align 8
+  %87 = load i64, ptr %7, align 8, !tbaa !45
   %88 = icmp eq i64 %87, 0
-  %.not118 = icmp eq i64 %indvars.iv203, 3
-  %or.cond205 = or i1 %88, %.not118
-  br i1 %or.cond205, label %.loopexit, label %.preheader
+  %.not119 = icmp eq i64 %indvars.iv204, 3
+  %or.cond206 = or i1 %88, %.not119
+  br i1 %or.cond206, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %86
-  %89 = load i64, ptr %8, align 8
+  %89 = load i64, ptr %8, align 8, !tbaa !45
   %90 = sub i64 %75, %89
   %91 = add nuw nsw i64 %76, 2
   %92 = mul nuw nsw i64 %2, %91
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.99, i64 noundef %75, i64 noundef %92) #10
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv203, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv204, 1
   %93 = shl nuw nsw i64 %indvars.iv.next, 1
   %94 = mul nuw nsw i64 %2, %93
   %95 = or disjoint i64 %94, 1
   %96 = call ptr @cli_max_realloc(ptr noundef nonnull %74, i64 noundef %95) #10
-  %.not117 = icmp eq ptr %96, null
-  br i1 %.not117, label %.preheader._crit_edge, label %.lr.ph
+  %.not118 = icmp eq ptr %96, null
+  br i1 %.not118, label %.preheader._crit_edge, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %83, %.lr.ph
   %.str.98.sink = phi ptr [ @.str.97, %.lr.ph ], [ @.str.98, %83 ]
-  %.sink185 = phi i32 [ 4096, %.lr.ph ], [ 8192, %83 ]
-  %.195.ph = phi i64 [ %79, %.lr.ph ], [ -1, %83 ]
+  %.sink186 = phi i32 [ 4096, %.lr.ph ], [ 8192, %83 ]
+  %.196.ph = phi i64 [ %79, %.lr.ph ], [ -1, %83 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.98.sink) #10
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %98 = load i32, ptr %97, align 8
-  %99 = or i32 %98, %.sink185
-  store i32 %99, ptr %97, align 8
+  %98 = load i32, ptr %97, align 8, !tbaa !38
+  %99 = or i32 %98, %.sink186
+  store i32 %99, ptr %97, align 8, !tbaa !38
   br label %.loopexit
 
 .loopexit:                                        ; preds = %86, %.loopexit.sink.split
-  %.195 = phi i64 [ %.195.ph, %.loopexit.sink.split ], [ %79, %86 ]
-  %100 = load i32, ptr %80, align 4
+  %.196 = phi i64 [ %.196.ph, %.loopexit.sink.split ], [ %79, %86 ]
+  %100 = load i32, ptr %80, align 4, !tbaa !49
   %101 = icmp eq i32 %100, 7
-  %102 = icmp eq i64 %.195, -1
+  %102 = icmp eq i64 %.196, -1
   %or.cond3 = select i1 %101, i1 %102, i1 false
   br i1 %or.cond3, label %103, label %107
 
 103:                                              ; preds = %.loopexit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.100) #10
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %105 = load i32, ptr %104, align 8
+  %105 = load i32, ptr %104, align 8, !tbaa !38
   %106 = or i32 %105, 8192
-  store i32 %106, ptr %104, align 8
+  store i32 %106, ptr %104, align 8, !tbaa !38
   br label %107
 
 107:                                              ; preds = %103, %.loopexit
-  %108 = load i64, ptr %8, align 8
+  %108 = load i64, ptr %8, align 8, !tbaa !45
   %109 = sub i64 %75, %108
-  %110 = getelementptr inbounds i8, ptr %74, i64 %109
-  store i8 0, ptr %110, align 1
+  %110 = getelementptr inbounds nuw i8, ptr %74, i64 %109
+  store i8 0, ptr %110, align 1, !tbaa !43
   br label %111
 
 111:                                              ; preds = %107, %66
-  %.099 = phi ptr [ null, %66 ], [ %74, %107 ]
+  %.0100 = phi ptr [ null, %66 ], [ %74, %107 ]
   %112 = call i32 @iconv_close(ptr noundef %61) #10
   call void @free(ptr noundef %40) #10
-  br label %.loopexit126
+  br label %.loopexit127
 
-.loopexit126:                                     ; preds = %.lr.ph147.preheader, %38, %39, %19, %22, %37, %16, %111, %.preheader._crit_edge, %55, %11
-  %.089 = phi ptr [ %12, %11 ], [ %.099, %111 ], [ null, %.preheader._crit_edge ], [ null, %55 ], [ null, %16 ], [ %18, %37 ], [ %18, %22 ], [ %18, %19 ], [ null, %39 ], [ %18, %38 ], [ %18, %.lr.ph147.preheader ]
+.loopexit127:                                     ; preds = %.lr.ph148.preheader, %38, %39, %16, %37, %22, %19, %111, %.preheader._crit_edge, %55, %11
+  %.089 = phi ptr [ %12, %11 ], [ %.0100, %111 ], [ null, %.preheader._crit_edge ], [ null, %55 ], [ null, %16 ], [ %18, %37 ], [ %18, %22 ], [ %18, %19 ], [ null, %39 ], [ %18, %38 ], [ %18, %.lr.ph148.preheader ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   ret ptr %.089
 }
 
-declare ptr @cl_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @cl_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
+declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @cli_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @cli_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #9
 
-declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @iconv_close(ptr noundef) local_unnamed_addr #1
+declare i32 @iconv_close(ptr noundef) local_unnamed_addr #2
 
-declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"summary_ctx", !5, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !12, i64 32, !9, i64 40, !9, i64 44, !13, i64 48, !9, i64 52, !14, i64 56, !9, i64 64}
+!5 = !{!"p1 _ZTS11cli_ctx_tag", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!"p1 _ZTS7cl_fmap", !6, i64 0}
+!11 = !{!"p1 _ZTS11json_object", !6, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!"short", !7, i64 0}
+!14 = !{!"p1 omnipotent char", !6, i64 0}
+!15 = !{!4, !9, i64 8}
+!16 = !{!17, !12, i64 48}
+!17 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !18, i64 72, !18, i64 88, !18, i64 104, !7, i64 120}
+!18 = !{!"timespec", !12, i64 0, !12, i64 8}
+!19 = !{!4, !10, i64 16}
+!20 = !{!21, !12, i64 88}
+!21 = !{!"cl_fmap", !6, i64 0, !6, i64 8, !6, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !22, i64 56, !22, i64 57, !22, i64 58, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !22, i64 152, !7, i64 153, !22, i64 169, !7, i64 170, !22, i64 190, !7, i64 191, !23, i64 224, !14, i64 232}
+!22 = !{!"_Bool", !7, i64 0}
+!23 = !{!"p1 long", !6, i64 0}
+!24 = !{!4, !12, i64 32}
+!25 = !{!26, !11, i64 160}
+!26 = !{!"cli_ctx_tag", !14, i64 0, !14, i64 8, !14, i64 16, !6, i64 24, !23, i64 32, !27, i64 40, !28, i64 48, !12, i64 56, !29, i64 64, !9, i64 72, !9, i64 76, !30, i64 80, !9, i64 88, !9, i64 92, !10, i64 96, !7, i64 104, !31, i64 120, !32, i64 128, !6, i64 136, !33, i64 144, !11, i64 152, !11, i64 160, !34, i64 168, !22, i64 184, !22, i64 185}
+!27 = !{!"p1 _ZTS11cli_matcher", !6, i64 0}
+!28 = !{!"p1 _ZTS9cl_engine", !6, i64 0}
+!29 = !{!"p1 _ZTS15cl_scan_options", !6, i64 0}
+!30 = !{!"p1 _ZTS19recursion_level_tag", !6, i64 0}
+!31 = !{!"p1 _ZTS9cli_dconf", !6, i64 0}
+!32 = !{!"p1 _ZTS10bitset_tag", !6, i64 0}
+!33 = !{!"p1 _ZTS10cli_events", !6, i64 0}
+!34 = !{!"timeval", !12, i64 0, !12, i64 8}
+!35 = !{!4, !11, i64 24}
+!36 = !{!4, !13, i64 48}
+!37 = !{!4, !9, i64 52}
+!38 = !{!4, !9, i64 40}
+!39 = !{!21, !6, i64 104}
+!40 = !{!21, !6, i64 96}
+!41 = !{!4, !14, i64 56}
+!42 = !{!4, !9, i64 44}
+!43 = !{!7, !7, i64 0}
+!44 = !{!14, !14, i64 0}
+!45 = !{!12, !12, i64 0}
+!46 = !{!47, !13, i64 0}
+!47 = !{!"codepage_entry", !13, i64 0, !14, i64 8}
+!48 = !{!47, !14, i64 8}
+!49 = !{!9, !9, i64 0}
