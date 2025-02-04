@@ -1,798 +1,813 @@
-; ModuleID = 'bench/brotli/original/huffman.c.ll'
-source_filename = "bench/brotli/original/huffman.c.ll"
+; ModuleID = 'bench/brotli/original/huffman.ll'
+source_filename = "bench/brotli/original/huffman.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.HuffmanCode = type { i8, i16 }
 
 @kReverseBits = internal unnamed_addr constant [256 x i8] c"\00\80@\C0 \A0`\E0\10\90P\D00\B0p\F0\08\88H\C8(\A8h\E8\18\98X\D88\B8x\F8\04\84D\C4$\A4d\E4\14\94T\D44\B4t\F4\0C\8CL\CC,\ACl\EC\1C\9C\\\DC<\BC|\FC\02\82B\C2\22\A2b\E2\12\92R\D22\B2r\F2\0A\8AJ\CA*\AAj\EA\1A\9AZ\DA:\BAz\FA\06\86F\C6&\A6f\E6\16\96V\D66\B6v\F6\0E\8EN\CE.\AEn\EE\1E\9E^\DE>\BE~\FE\01\81A\C1!\A1a\E1\11\91Q\D11\B1q\F1\09\89I\C9)\A9i\E9\19\99Y\D99\B9y\F9\05\85E\C5%\A5e\E5\15\95U\D55\B5u\F5\0D\8DM\CD-\ADm\ED\1D\9D]\DD=\BD}\FD\03\83C\C3#\A3c\E3\13\93S\D33\B3s\F3\0B\8BK\CB+\ABk\EB\1B\9B[\DB;\BB{\FB\07\87G\C7'\A7g\E7\17\97W\D77\B7w\F7\0F\8FO\CF/\AFo\EF\1F\9F_\DF?\BF\7F\FF", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef writeonly captures(none) %table, ptr noundef readonly captures(none) %code_lengths, ptr noundef readonly captures(none) %count) local_unnamed_addr #0 {
-entry:
-  %sorted = alloca [18 x i32], align 16
-  %offset = alloca [6 x i32], align 16
-  %arrayidx = getelementptr inbounds nuw i8, ptr %count, i64 2
-  %0 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %0 to i32
-  %add = add nsw i32 %conv, -1
-  %arrayidx2 = getelementptr inbounds nuw i8, ptr %offset, i64 4
-  store i32 %add, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %count, i64 4
-  %1 = load i16, ptr %arrayidx4, align 2
-  %conv5 = zext i16 %1 to i32
-  %add6 = add nsw i32 %add, %conv5
-  %arrayidx8 = getelementptr inbounds nuw i8, ptr %offset, i64 8
-  store i32 %add6, ptr %arrayidx8, align 8
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %count, i64 6
-  %2 = load i16, ptr %arrayidx11, align 2
-  %conv12 = zext i16 %2 to i32
-  %add13 = add nsw i32 %add6, %conv12
-  %arrayidx15 = getelementptr inbounds nuw i8, ptr %offset, i64 12
-  store i32 %add13, ptr %arrayidx15, align 4
-  %arrayidx18 = getelementptr inbounds nuw i8, ptr %count, i64 8
-  %3 = load i16, ptr %arrayidx18, align 2
-  %conv19 = zext i16 %3 to i32
-  %add20 = add nsw i32 %add13, %conv19
-  %arrayidx22 = getelementptr inbounds nuw i8, ptr %offset, i64 16
-  store i32 %add20, ptr %arrayidx22, align 16
-  %arrayidx25 = getelementptr inbounds nuw i8, ptr %count, i64 10
-  %4 = load i16, ptr %arrayidx25, align 2
-  %conv26 = zext i16 %4 to i32
-  %add27 = add nsw i32 %add20, %conv26
-  %arrayidx29 = getelementptr inbounds nuw i8, ptr %offset, i64 20
-  store i32 %add27, ptr %arrayidx29, align 4
-  store i32 17, ptr %offset, align 16
-  br label %do.body
+define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+  %4 = alloca [18 x i32], align 16
+  %5 = alloca [6 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %7 = load i16, ptr %6, align 2, !tbaa !3
+  %8 = zext i16 %7 to i32
+  %9 = add nsw i32 %8, -1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %9, ptr %10, align 4, !tbaa !7
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %12 = load i16, ptr %11, align 2, !tbaa !3
+  %13 = zext i16 %12 to i32
+  %14 = add nsw i32 %9, %13
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %14, ptr %15, align 8, !tbaa !7
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %17 = load i16, ptr %16, align 2, !tbaa !3
+  %18 = zext i16 %17 to i32
+  %19 = add nsw i32 %14, %18
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %19, ptr %20, align 4, !tbaa !7
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %22 = load i16, ptr %21, align 2, !tbaa !3
+  %23 = zext i16 %22 to i32
+  %24 = add nsw i32 %19, %23
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %24, ptr %25, align 16, !tbaa !7
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %27 = load i16, ptr %26, align 2, !tbaa !3
+  %28 = zext i16 %27 to i32
+  %29 = add nsw i32 %24, %28
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 %29, ptr %30, align 4, !tbaa !7
+  store i32 17, ptr %5, align 16, !tbaa !7
+  br label %31
 
-do.body:                                          ; preds = %do.body, %entry
-  %indvars.iv = phi i64 [ %indvars.iv.next, %do.body ], [ 18, %entry ]
-  %5 = add nsw i64 %indvars.iv, -1
-  %arrayidx33 = getelementptr inbounds i8, ptr %code_lengths, i64 %5
-  %6 = load i8, ptr %arrayidx33, align 1
-  %idxprom34 = zext i8 %6 to i64
-  %arrayidx35 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom34
-  %7 = load i32, ptr %arrayidx35, align 4
-  %dec36 = add nsw i32 %7, -1
-  store i32 %dec36, ptr %arrayidx35, align 4
-  %idxprom37 = sext i32 %7 to i64
-  %arrayidx38 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom37
-  %8 = trunc nuw nsw i64 %5 to i32
-  store i32 %8, ptr %arrayidx38, align 4
-  %9 = add nsw i64 %indvars.iv, -2
-  %arrayidx41 = getelementptr inbounds i8, ptr %code_lengths, i64 %9
-  %10 = load i8, ptr %arrayidx41, align 1
-  %idxprom42 = zext i8 %10 to i64
-  %arrayidx43 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom42
-  %11 = load i32, ptr %arrayidx43, align 4
-  %dec44 = add nsw i32 %11, -1
-  store i32 %dec44, ptr %arrayidx43, align 4
-  %idxprom45 = sext i32 %11 to i64
-  %arrayidx46 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom45
-  %12 = trunc nuw nsw i64 %9 to i32
-  store i32 %12, ptr %arrayidx46, align 4
-  %13 = add nsw i64 %indvars.iv, -3
-  %arrayidx49 = getelementptr inbounds i8, ptr %code_lengths, i64 %13
-  %14 = load i8, ptr %arrayidx49, align 1
-  %idxprom50 = zext i8 %14 to i64
-  %arrayidx51 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom50
-  %15 = load i32, ptr %arrayidx51, align 4
-  %dec52 = add nsw i32 %15, -1
-  store i32 %dec52, ptr %arrayidx51, align 4
-  %idxprom53 = sext i32 %15 to i64
-  %arrayidx54 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom53
-  %16 = trunc nuw nsw i64 %13 to i32
-  store i32 %16, ptr %arrayidx54, align 4
-  %17 = add nsw i64 %indvars.iv, -4
-  %arrayidx57 = getelementptr inbounds i8, ptr %code_lengths, i64 %17
-  %18 = load i8, ptr %arrayidx57, align 1
-  %idxprom58 = zext i8 %18 to i64
-  %arrayidx59 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom58
-  %19 = load i32, ptr %arrayidx59, align 4
-  %dec60 = add nsw i32 %19, -1
-  store i32 %dec60, ptr %arrayidx59, align 4
-  %idxprom61 = sext i32 %19 to i64
-  %arrayidx62 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom61
-  %20 = trunc nuw nsw i64 %17 to i32
-  store i32 %20, ptr %arrayidx62, align 4
-  %21 = add nsw i64 %indvars.iv, -5
-  %arrayidx65 = getelementptr inbounds i8, ptr %code_lengths, i64 %21
-  %22 = load i8, ptr %arrayidx65, align 1
-  %idxprom66 = zext i8 %22 to i64
-  %arrayidx67 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom66
-  %23 = load i32, ptr %arrayidx67, align 4
-  %dec68 = add nsw i32 %23, -1
-  store i32 %dec68, ptr %arrayidx67, align 4
-  %idxprom69 = sext i32 %23 to i64
-  %arrayidx70 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom69
-  %24 = trunc nuw nsw i64 %21 to i32
-  store i32 %24, ptr %arrayidx70, align 4
+31:                                               ; preds = %31, %3
+  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 18, %3 ]
+  %32 = add nsw i64 %indvars.iv, -1
+  %33 = getelementptr inbounds i8, ptr %1, i64 %32
+  %34 = load i8, ptr %33, align 1, !tbaa !9
+  %35 = zext i8 %34 to i64
+  %36 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !7
+  %38 = add nsw i32 %37, -1
+  store i32 %38, ptr %36, align 4, !tbaa !7
+  %39 = sext i32 %37 to i64
+  %40 = getelementptr inbounds [18 x i32], ptr %4, i64 0, i64 %39
+  %41 = trunc nuw nsw i64 %32 to i32
+  store i32 %41, ptr %40, align 4, !tbaa !7
+  %42 = add nsw i64 %indvars.iv, -2
+  %43 = getelementptr inbounds i8, ptr %1, i64 %42
+  %44 = load i8, ptr %43, align 1, !tbaa !9
+  %45 = zext i8 %44 to i64
+  %46 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !7
+  %48 = add nsw i32 %47, -1
+  store i32 %48, ptr %46, align 4, !tbaa !7
+  %49 = sext i32 %47 to i64
+  %50 = getelementptr inbounds [18 x i32], ptr %4, i64 0, i64 %49
+  %51 = trunc nuw nsw i64 %42 to i32
+  store i32 %51, ptr %50, align 4, !tbaa !7
+  %52 = add nsw i64 %indvars.iv, -3
+  %53 = getelementptr inbounds i8, ptr %1, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !9
+  %55 = zext i8 %54 to i64
+  %56 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %55
+  %57 = load i32, ptr %56, align 4, !tbaa !7
+  %58 = add nsw i32 %57, -1
+  store i32 %58, ptr %56, align 4, !tbaa !7
+  %59 = sext i32 %57 to i64
+  %60 = getelementptr inbounds [18 x i32], ptr %4, i64 0, i64 %59
+  %61 = trunc nuw nsw i64 %52 to i32
+  store i32 %61, ptr %60, align 4, !tbaa !7
+  %62 = add nsw i64 %indvars.iv, -4
+  %63 = getelementptr inbounds i8, ptr %1, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !9
+  %65 = zext i8 %64 to i64
+  %66 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %65
+  %67 = load i32, ptr %66, align 4, !tbaa !7
+  %68 = add nsw i32 %67, -1
+  store i32 %68, ptr %66, align 4, !tbaa !7
+  %69 = sext i32 %67 to i64
+  %70 = getelementptr inbounds [18 x i32], ptr %4, i64 0, i64 %69
+  %71 = trunc nuw nsw i64 %62 to i32
+  store i32 %71, ptr %70, align 4, !tbaa !7
+  %72 = add nsw i64 %indvars.iv, -5
+  %73 = getelementptr inbounds i8, ptr %1, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !9
+  %75 = zext i8 %74 to i64
+  %76 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !7
+  %78 = add nsw i32 %77, -1
+  store i32 %78, ptr %76, align 4, !tbaa !7
+  %79 = sext i32 %77 to i64
+  %80 = getelementptr inbounds [18 x i32], ptr %4, i64 0, i64 %79
+  %81 = trunc nuw nsw i64 %72 to i32
+  store i32 %81, ptr %80, align 4, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, -6
-  %arrayidx73 = getelementptr inbounds i8, ptr %code_lengths, i64 %indvars.iv.next
-  %25 = load i8, ptr %arrayidx73, align 1
-  %idxprom74 = zext i8 %25 to i64
-  %arrayidx75 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom74
-  %26 = load i32, ptr %arrayidx75, align 4
-  %dec76 = add nsw i32 %26, -1
-  store i32 %dec76, ptr %arrayidx75, align 4
-  %idxprom77 = sext i32 %26 to i64
-  %arrayidx78 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom77
-  %27 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %27, ptr %arrayidx78, align 4
-  %cmp.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !4
+  %82 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
+  %83 = load i8, ptr %82, align 1, !tbaa !9
+  %84 = zext i8 %83 to i64
+  %85 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4, !tbaa !7
+  %87 = add nsw i32 %86, -1
+  store i32 %87, ptr %85, align 4, !tbaa !7
+  %88 = sext i32 %86 to i64
+  %89 = getelementptr inbounds [18 x i32], ptr %4, i64 0, i64 %88
+  %90 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %90, ptr %89, align 4, !tbaa !7
+  %.not = icmp eq i64 %indvars.iv.next, 0
+  br i1 %.not, label %91, label %31, !llvm.loop !10
 
-do.end:                                           ; preds = %do.body
-  %28 = load i32, ptr %offset, align 16
-  %cmp81 = icmp eq i32 %28, 0
-  br i1 %cmp81, label %if.then, label %do.body90
+91:                                               ; preds = %31
+  %92 = load i32, ptr %5, align 16, !tbaa !7
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %.preheader
 
-if.then:                                          ; preds = %do.end
-  %29 = load i32, ptr %sorted, align 16
-  %retval.i116.sroa.267.0.insert.ext = shl i32 %29, 16
-  br label %for.body
+94:                                               ; preds = %91
+  %95 = load i32, ptr %4, align 16, !tbaa !7
+  %.sroa.22.0.insert.ext.i = shl i32 %95, 16
+  br label %96
 
-for.body:                                         ; preds = %if.then, %for.body
-  %key.076 = phi i64 [ 0, %if.then ], [ %inc89, %for.body ]
-  %arrayidx88 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table, i64 %key.076
-  store i32 %retval.i116.sroa.267.0.insert.ext, ptr %arrayidx88, align 2
-  %inc89 = add nuw nsw i64 %key.076, 1
-  %exitcond95.not = icmp eq i64 %inc89, 32
-  br i1 %exitcond95.not, label %do.end115, label %for.body, !llvm.loop !6
+96:                                               ; preds = %94, %96
+  %.07893 = phi i64 [ 0, %94 ], [ %98, %96 ]
+  %97 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %.07893
+  store i32 %.sroa.22.0.insert.ext.i, ptr %97, align 2
+  %98 = add nuw nsw i64 %.07893, 1
+  %exitcond107.not = icmp eq i64 %98, 32
+  br i1 %exitcond107.not, label %.loopexit, label %96, !llvm.loop !12
 
-do.body90:                                        ; preds = %do.end, %for.end110
-  %indvars.iv91 = phi i64 [ %indvars.iv.next92, %for.end110 ], [ 1, %do.end ]
-  %key.1 = phi i64 [ %key.2.lcssa, %for.end110 ], [ 0, %do.end ]
-  %key_step.0 = phi i64 [ %shr, %for.end110 ], [ 128, %do.end ]
-  %step.0 = phi i32 [ %shl, %for.end110 ], [ 2, %do.end ]
-  %symbol.1 = phi i32 [ %symbol.2.lcssa, %for.end110 ], [ 0, %do.end ]
-  %arrayidx92 = getelementptr inbounds nuw i16, ptr %count, i64 %indvars.iv91
-  %30 = load i16, ptr %arrayidx92, align 2
-  %cmp95.not71 = icmp eq i16 %30, 0
-  br i1 %cmp95.not71, label %for.end110, label %for.body97.lr.ph
+.preheader:                                       ; preds = %91, %._crit_edge
+  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %._crit_edge ], [ 1, %91 ]
+  %.082 = phi i64 [ %122, %._crit_edge ], [ 128, %91 ]
+  %.081 = phi i32 [ %121, %._crit_edge ], [ 2, %91 ]
+  %.179 = phi i64 [ %.280.lcssa, %._crit_edge ], [ 0, %91 ]
+  %.1 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 0, %91 ]
+  %99 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv103
+  %100 = load i16, ptr %99, align 2, !tbaa !3
+  %.not8488 = icmp eq i16 %100, 0
+  br i1 %.not8488, label %._crit_edge, label %.lr.ph
 
-for.body97.lr.ph:                                 ; preds = %do.body90
-  %conv93 = zext i16 %30 to i32
-  %31 = sub nsw i32 0, %step.0
-  %32 = sext i32 %31 to i64
-  %33 = sext i32 %step.0 to i64
-  %34 = sext i32 %symbol.1 to i64
-  %35 = trunc nuw nsw i64 %indvars.iv91 to i32
-  br label %for.body97
+.lr.ph:                                           ; preds = %.preheader
+  %101 = zext i16 %100 to i32
+  %102 = sub nsw i32 0, %.081
+  %103 = sext i32 %102 to i64
+  %104 = sext i32 %.081 to i64
+  %105 = sext i32 %.1 to i64
+  %106 = trunc nuw nsw i64 %indvars.iv103 to i32
+  br label %107
 
-for.body97:                                       ; preds = %for.body97.lr.ph, %ReplicateValue.exit
-  %indvars.iv88 = phi i64 [ %34, %for.body97.lr.ph ], [ %indvars.iv.next89, %ReplicateValue.exit ]
-  %bits_count.074 = phi i32 [ %conv93, %for.body97.lr.ph ], [ %dec109, %ReplicateValue.exit ]
-  %key.272 = phi i64 [ %key.1, %for.body97.lr.ph ], [ %add107, %ReplicateValue.exit ]
-  %arrayidx102 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %indvars.iv88
-  %36 = load i32, ptr %arrayidx102, align 4
-  %retval.i.sroa.266.0.insert.ext = shl i32 %36, 16
-  %retval.i.sroa.0.0.insert.insert = or disjoint i32 %retval.i.sroa.266.0.insert.ext, %35
-  %arrayidx.i120 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.272
-  %37 = load i8, ptr %arrayidx.i120, align 1
-  %conv.i = zext i8 %37 to i64
-  %arrayidx106 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table, i64 %conv.i
-  br label %do.body.i
+107:                                              ; preds = %.lr.ph, %ReplicateValue.exit
+  %indvars.iv100 = phi i64 [ %105, %.lr.ph ], [ %indvars.iv.next101, %ReplicateValue.exit ]
+  %.07690 = phi i32 [ %101, %.lr.ph ], [ %119, %ReplicateValue.exit ]
+  %.28089 = phi i64 [ %.179, %.lr.ph ], [ %118, %ReplicateValue.exit ]
+  %108 = getelementptr inbounds [18 x i32], ptr %4, i64 0, i64 %indvars.iv100
+  %109 = load i32, ptr %108, align 4, !tbaa !7
+  %.sroa.22.0.insert.ext.i85 = shl i32 %109, 16
+  %.sroa.0.0.insert.insert.i = or disjoint i32 %.sroa.22.0.insert.ext.i85, %106
+  %110 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %.28089
+  %111 = load i8, ptr %110, align 1, !tbaa !9
+  %112 = zext i8 %111 to i64
+  %113 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %112
+  br label %114
 
-do.body.i:                                        ; preds = %do.body.i, %for.body97
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %do.body.i ], [ 32, %for.body97 ]
-  %38 = sub nsw i64 %indvars.iv84, %33
-  %indvars.iv.next85 = add nsw i64 %indvars.iv84, %32
-  %arrayidx.i = getelementptr inbounds %struct.HuffmanCode, ptr %arrayidx106, i64 %38
-  store i32 %retval.i.sroa.0.0.insert.insert, ptr %arrayidx.i, align 2
-  %cmp.i = icmp sgt i64 %38, 0
-  br i1 %cmp.i, label %do.body.i, label %ReplicateValue.exit, !llvm.loop !7
+114:                                              ; preds = %114, %107
+  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %114 ], [ 32, %107 ]
+  %115 = sub nsw i64 %indvars.iv97, %104
+  %indvars.iv.next98 = add nsw i64 %indvars.iv97, %103
+  %116 = getelementptr inbounds %struct.HuffmanCode, ptr %113, i64 %115
+  store i32 %.sroa.0.0.insert.insert.i, ptr %116, align 2
+  %117 = icmp sgt i64 %115, 0
+  br i1 %117, label %114, label %ReplicateValue.exit, !llvm.loop !13
 
-ReplicateValue.exit:                              ; preds = %do.body.i
-  %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
-  %add107 = add i64 %key.272, %key_step.0
-  %dec109 = add nsw i32 %bits_count.074, -1
-  %cmp95.not = icmp eq i32 %dec109, 0
-  br i1 %cmp95.not, label %for.end110.loopexit, label %for.body97, !llvm.loop !8
+ReplicateValue.exit:                              ; preds = %114
+  %indvars.iv.next101 = add nsw i64 %indvars.iv100, 1
+  %118 = add i64 %.28089, %.082
+  %119 = add nsw i32 %.07690, -1
+  %.not84 = icmp eq i32 %119, 0
+  br i1 %.not84, label %._crit_edge.loopexit, label %107, !llvm.loop !14
 
-for.end110.loopexit:                              ; preds = %ReplicateValue.exit
-  %39 = trunc nsw i64 %indvars.iv.next89 to i32
-  br label %for.end110
+._crit_edge.loopexit:                             ; preds = %ReplicateValue.exit
+  %120 = trunc nsw i64 %indvars.iv.next101 to i32
+  br label %._crit_edge
 
-for.end110:                                       ; preds = %for.end110.loopexit, %do.body90
-  %key.2.lcssa = phi i64 [ %key.1, %do.body90 ], [ %add107, %for.end110.loopexit ]
-  %symbol.2.lcssa = phi i32 [ %symbol.1, %do.body90 ], [ %39, %for.end110.loopexit ]
-  %shl = shl i32 %step.0, 1
-  %shr = lshr i64 %key_step.0, 1
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next92, 6
-  br i1 %exitcond.not, label %do.end115, label %do.body90, !llvm.loop !9
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.280.lcssa = phi i64 [ %.179, %.preheader ], [ %118, %._crit_edge.loopexit ]
+  %.2.lcssa = phi i32 [ %.1, %.preheader ], [ %120, %._crit_edge.loopexit ]
+  %121 = shl i32 %.081, 1
+  %122 = lshr i64 %.082, 1
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next104, 6
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
-do.end115:                                        ; preds = %for.end110, %for.body
+.loopexit:                                        ; preds = %._crit_edge, %96
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #4
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %root_table, i32 noundef %root_bits, ptr noundef readonly captures(none) %symbol_lists, ptr noundef captures(none) %count) local_unnamed_addr #0 {
-entry:
-  br label %while.cond
+define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+  br label %5
 
-while.cond:                                       ; preds = %while.cond, %entry
-  %indvars.iv141 = phi i32 [ %indvars.iv.next142, %while.cond ], [ 15, %entry ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %while.cond ], [ -1, %entry ]
-  %arrayidx = getelementptr inbounds i16, ptr %symbol_lists, i64 %indvars.iv
-  %0 = load i16, ptr %arrayidx, align 2
-  %cmp = icmp eq i16 %0, -1
+5:                                                ; preds = %5, %4
+  %indvars.iv198 = phi i32 [ %indvars.iv.next199, %5 ], [ 15, %4 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ -1, %4 ]
+  %6 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %7 = load i16, ptr %6, align 2, !tbaa !3
+  %8 = icmp eq i16 %7, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %indvars.iv.next142 = add i32 %indvars.iv141, -1
-  br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !10
+  %indvars.iv.next199 = add i32 %indvars.iv198, -1
+  br i1 %8, label %5, label %9, !llvm.loop !16
 
-while.end:                                        ; preds = %while.cond
-  %1 = trunc nsw i64 %indvars.iv to i32
-  %add = add nsw i32 %1, 16
-  %shl = shl nuw i32 1, %root_bits
-  %cmp2 = icmp sgt i32 %root_bits, %add
-  %shl4 = shl nuw i32 1, %add
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %root_bits, i32 %add)
-  %spec.select79 = select i1 %cmp2, i32 %shl4, i32 %shl
-  %2 = sext i32 %spec.select to i64
-  br label %do.body
+9:                                                ; preds = %5
+  %10 = trunc nsw i64 %indvars.iv to i32
+  %11 = add nsw i32 %10, 16
+  %12 = shl nuw i32 1, %1
+  %13 = icmp sgt i32 %1, %11
+  %14 = shl nuw i32 1, %11
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %11)
+  %spec.select117 = select i1 %13, i32 %14, i32 %12
+  %15 = sext i32 %spec.select to i64
+  br label %16
 
-do.body:                                          ; preds = %for.end, %while.end
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %for.end ], [ 1, %while.end ]
-  %key.0 = phi i64 [ %key.1.lcssa, %for.end ], [ 0, %while.end ]
-  %key_step.0 = phi i64 [ %shr, %for.end ], [ 128, %while.end ]
-  %step.0 = phi i32 [ %shl19, %for.end ], [ 2, %while.end ]
-  %arrayidx6 = getelementptr inbounds nuw i16, ptr %count, i64 %indvars.iv124
-  %3 = load i16, ptr %arrayidx6, align 2
-  %cmp8.not80 = icmp eq i16 %3, 0
-  br i1 %cmp8.not80, label %for.end, label %for.body.lr.ph
+16:                                               ; preds = %._crit_edge, %9
+  %indvars.iv186 = phi i64 [ %indvars.iv.next187, %._crit_edge ], [ 1, %9 ]
+  %.0102 = phi i64 [ %.1103.lcssa, %._crit_edge ], [ 0, %9 ]
+  %.0101 = phi i64 [ %40, %._crit_edge ], [ 128, %9 ]
+  %.095 = phi i32 [ %39, %._crit_edge ], [ 2, %9 ]
+  %17 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv186
+  %18 = load i16, ptr %17, align 2, !tbaa !3
+  %.not129 = icmp eq i16 %18, 0
+  br i1 %.not129, label %._crit_edge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %do.body
-  %conv7 = zext i16 %3 to i32
-  %4 = trunc i64 %indvars.iv124 to i32
-  %5 = add i32 %4, -16
-  %6 = trunc nuw nsw i64 %indvars.iv124 to i32
-  br label %for.body
+.lr.ph:                                           ; preds = %16
+  %19 = zext i16 %18 to i32
+  %20 = trunc i64 %indvars.iv186 to i32
+  %21 = add i32 %20, -16
+  %22 = trunc nuw nsw i64 %indvars.iv186 to i32
+  br label %23
 
-for.body:                                         ; preds = %for.body.lr.ph, %ReplicateValue.exit101
-  %bits_count.083 = phi i32 [ %conv7, %for.body.lr.ph ], [ %dec18, %ReplicateValue.exit101 ]
-  %key.182 = phi i64 [ %key.0, %for.body.lr.ph ], [ %add17, %ReplicateValue.exit101 ]
-  %symbol.081 = phi i32 [ %5, %for.body.lr.ph ], [ %conv12, %ReplicateValue.exit101 ]
-  %idxprom10 = sext i32 %symbol.081 to i64
-  %arrayidx11 = getelementptr inbounds i16, ptr %symbol_lists, i64 %idxprom10
-  %7 = load i16, ptr %arrayidx11, align 2
-  %conv12 = zext i16 %7 to i32
-  %retval.i88.sroa.267.0.insert.shift = shl nuw i32 %conv12, 16
-  %retval.i88.sroa.0.0.insert.insert = or disjoint i32 %retval.i88.sroa.267.0.insert.shift, %6
-  %arrayidx.i107 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.182
-  %8 = load i8, ptr %arrayidx.i107, align 1
-  %conv.i108 = zext i8 %8 to i64
-  %arrayidx16 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %root_table, i64 %conv.i108
-  br label %do.body.i96
+23:                                               ; preds = %.lr.ph, %ReplicateValue.exit127
+  %.085132 = phi i32 [ %19, %.lr.ph ], [ %38, %ReplicateValue.exit127 ]
+  %.1103131 = phi i64 [ %.0102, %.lr.ph ], [ %37, %ReplicateValue.exit127 ]
+  %.0107130 = phi i32 [ %21, %.lr.ph ], [ %27, %ReplicateValue.exit127 ]
+  %24 = sext i32 %.0107130 to i64
+  %25 = getelementptr inbounds i16, ptr %2, i64 %24
+  %26 = load i16, ptr %25, align 2, !tbaa !3
+  %27 = zext i16 %26 to i32
+  %.sroa.22.0.insert.shift.i123 = shl nuw i32 %27, 16
+  %.sroa.0.0.insert.insert.i125 = or disjoint i32 %.sroa.22.0.insert.shift.i123, %22
+  %28 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %.1103131
+  %29 = load i8, ptr %28, align 1, !tbaa !9
+  %30 = zext i8 %29 to i64
+  %31 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %30
+  br label %32
 
-do.body.i96:                                      ; preds = %do.body.i96, %for.body
-  %end.addr.i95.0 = phi i32 [ %spec.select79, %for.body ], [ %sub.i97, %do.body.i96 ]
-  %sub.i97 = sub nsw i32 %end.addr.i95.0, %step.0
-  %idxprom.i98 = sext i32 %sub.i97 to i64
-  %arrayidx.i99 = getelementptr inbounds %struct.HuffmanCode, ptr %arrayidx16, i64 %idxprom.i98
-  store i32 %retval.i88.sroa.0.0.insert.insert, ptr %arrayidx.i99, align 2
-  %cmp.i100 = icmp sgt i32 %sub.i97, 0
-  br i1 %cmp.i100, label %do.body.i96, label %ReplicateValue.exit101, !llvm.loop !7
+32:                                               ; preds = %32, %23
+  %.0.i126 = phi i32 [ %spec.select117, %23 ], [ %33, %32 ]
+  %33 = sub nsw i32 %.0.i126, %.095
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds %struct.HuffmanCode, ptr %31, i64 %34
+  store i32 %.sroa.0.0.insert.insert.i125, ptr %35, align 2
+  %36 = icmp sgt i32 %33, 0
+  br i1 %36, label %32, label %ReplicateValue.exit127, !llvm.loop !13
 
-ReplicateValue.exit101:                           ; preds = %do.body.i96
-  %add17 = add i64 %key.182, %key_step.0
-  %dec18 = add nsw i32 %bits_count.083, -1
-  %cmp8.not = icmp eq i32 %dec18, 0
-  br i1 %cmp8.not, label %for.end, label %for.body, !llvm.loop !11
+ReplicateValue.exit127:                           ; preds = %32
+  %37 = add i64 %.1103131, %.0101
+  %38 = add nsw i32 %.085132, -1
+  %.not = icmp eq i32 %38, 0
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !17
 
-for.end:                                          ; preds = %ReplicateValue.exit101, %do.body
-  %key.1.lcssa = phi i64 [ %key.0, %do.body ], [ %add17, %ReplicateValue.exit101 ]
-  %shl19 = shl i32 %step.0, 1
-  %shr = lshr i64 %key_step.0, 1
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %cmp20.not.not = icmp slt i64 %indvars.iv124, %2
-  br i1 %cmp20.not.not, label %do.body, label %while.cond22.preheader, !llvm.loop !12
+._crit_edge:                                      ; preds = %ReplicateValue.exit127, %16
+  %.1103.lcssa = phi i64 [ %.0102, %16 ], [ %37, %ReplicateValue.exit127 ]
+  %39 = shl i32 %.095, 1
+  %40 = lshr i64 %.0101, 1
+  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
+  %.not113.not = icmp slt i64 %indvars.iv186, %15
+  br i1 %.not113.not, label %16, label %.preheader, !llvm.loop !18
 
-while.cond22.preheader:                           ; preds = %for.end
-  %cmp23.not84 = icmp eq i32 %shl, %spec.select79
-  br i1 %cmp23.not84, label %while.end31, label %while.body25
+.preheader:                                       ; preds = %._crit_edge
+  %.not114133 = icmp eq i32 %12, %spec.select117
+  br i1 %.not114133, label %._crit_edge136, label %.lr.ph135
 
-while.body25:                                     ; preds = %while.cond22.preheader, %while.body25
-  %table_size.185 = phi i32 [ %shl30, %while.body25 ], [ %spec.select79, %while.cond22.preheader ]
-  %idxprom26 = sext i32 %table_size.185 to i64
-  %arrayidx27 = getelementptr inbounds %struct.HuffmanCode, ptr %root_table, i64 %idxprom26
-  %mul = shl nsw i64 %idxprom26, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arrayidx27, ptr align 2 %root_table, i64 %mul, i1 false)
-  %shl30 = shl i32 %table_size.185, 1
-  %cmp23.not = icmp eq i32 %shl, %shl30
-  br i1 %cmp23.not, label %while.end31, label %while.body25, !llvm.loop !13
+.lr.ph135:                                        ; preds = %.preheader, %.lr.ph135
+  %.192134 = phi i32 [ %44, %.lr.ph135 ], [ %spec.select117, %.preheader ]
+  %41 = sext i32 %.192134 to i64
+  %42 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %41
+  %43 = shl nsw i64 %41, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %42, ptr align 2 %0, i64 %43, i1 false)
+  %44 = shl i32 %.192134, 1
+  %.not114 = icmp eq i32 %12, %44
+  br i1 %.not114, label %._crit_edge136, label %.lr.ph135, !llvm.loop !19
 
-while.end31:                                      ; preds = %while.body25, %while.cond22.preheader
-  %sub32 = add nsw i32 %root_bits, -1
-  %sh_prom = zext nneg i32 %sub32 to i64
-  %shr33 = lshr i64 128, %sh_prom
-  %cmp36.not.not109 = icmp slt i32 %root_bits, %add
-  br i1 %cmp36.not.not109, label %for.body38.lr.ph, label %for.end83
+._crit_edge136:                                   ; preds = %.lr.ph135, %.preheader
+  %45 = add nsw i32 %1, -1
+  %46 = zext nneg i32 %45 to i64
+  %47 = lshr i64 128, %46
+  %.not115.not165 = icmp slt i32 %1, %11
+  br i1 %.not115.not165, label %.lr.ph178, label %._crit_edge179
 
-for.body38.lr.ph:                                 ; preds = %while.end31
-  %sub.ptr.rhs.cast = ptrtoint ptr %root_table to i64
-  %9 = sext i32 %root_bits to i64
-  %wide.trip.count = sext i32 %indvars.iv141 to i64
-  br label %for.body38
+.lr.ph178:                                        ; preds = %._crit_edge136
+  %48 = ptrtoint ptr %0 to i64
+  %49 = sext i32 %1 to i64
+  %wide.trip.count = sext i32 %indvars.iv198 to i64
+  br label %50
 
-for.body38:                                       ; preds = %for.body38.lr.ph, %for.end78
-  %indvars.iv134 = phi i64 [ %9, %for.body38.lr.ph ], [ %indvars.iv.next135, %for.end78 ]
-  %indvars.iv129.in = phi i64 [ %9, %for.body38.lr.ph ], [ %indvars.iv129, %for.end78 ]
-  %total_size.0119 = phi i32 [ %shl, %for.body38.lr.ph ], [ %total_size.1.lcssa, %for.end78 ]
-  %table_size.2118 = phi i32 [ %shl, %for.body38.lr.ph ], [ %table_size.3.lcssa, %for.end78 ]
-  %step.1116 = phi i32 [ 2, %for.body38.lr.ph ], [ %shl79, %for.end78 ]
-  %sub_key_step.0114 = phi i64 [ 128, %for.body38.lr.ph ], [ %shr80, %for.end78 ]
-  %sub_key.0113 = phi i64 [ 256, %for.body38.lr.ph ], [ %sub_key.1.lcssa, %for.end78 ]
-  %key.2112 = phi i64 [ %key.1.lcssa, %for.body38.lr.ph ], [ %key.3.lcssa, %for.end78 ]
-  %table.0110 = phi ptr [ %root_table, %for.body38.lr.ph ], [ %table.1.lcssa, %for.end78 ]
-  %indvars.iv129 = add nsw i64 %indvars.iv129.in, 1
-  %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
-  %10 = add nsw i64 %indvars.iv134, -15
-  %arrayidx42 = getelementptr inbounds i16, ptr %count, i64 %indvars.iv.next135
-  %11 = load i16, ptr %arrayidx42, align 2
-  %cmp44.not92 = icmp eq i16 %11, 0
-  br i1 %cmp44.not92, label %for.end78, label %for.body46.lr.ph
+50:                                               ; preds = %.lr.ph178, %._crit_edge154
+  %indvars.iv195 = phi i64 [ %49, %.lr.ph178 ], [ %indvars.iv.next196, %._crit_edge154 ]
+  %indvars.iv190.in = phi i64 [ %49, %.lr.ph178 ], [ %indvars.iv190, %._crit_edge154 ]
+  %.0175 = phi ptr [ %0, %.lr.ph178 ], [ %.1.lcssa, %._crit_edge154 ]
+  %.088173 = phi i32 [ %12, %.lr.ph178 ], [ %.189.lcssa, %._crit_edge154 ]
+  %.293172 = phi i32 [ %12, %.lr.ph178 ], [ %.3.lcssa, %._crit_edge154 ]
+  %.196170 = phi i32 [ 2, %.lr.ph178 ], [ %136, %._crit_edge154 ]
+  %.097168 = phi i64 [ 128, %.lr.ph178 ], [ %137, %._crit_edge154 ]
+  %.098167 = phi i64 [ 256, %.lr.ph178 ], [ %.199.lcssa, %._crit_edge154 ]
+  %.2104166 = phi i64 [ %.1103.lcssa, %.lr.ph178 ], [ %.3105.lcssa, %._crit_edge154 ]
+  %indvars.iv190 = add nsw i64 %indvars.iv190.in, 1
+  %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
+  %51 = add nsw i64 %indvars.iv195, -15
+  %52 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.next196
+  %53 = load i16, ptr %52, align 2, !tbaa !3
+  %.not116145 = icmp eq i16 %53, 0
+  br i1 %.not116145, label %._crit_edge154, label %.lr.ph153
 
-for.body46.lr.ph:                                 ; preds = %for.body38
-  %12 = trunc i64 %indvars.iv.next135 to i32
-  %13 = sub i32 %12, %root_bits
-  %shl.i = shl nuw i32 1, %13
-  %cmp.i11087 = icmp slt i64 %indvars.iv134, 14
-  %retval.i.sroa.0.0.insert.ext = and i32 %13, 255
-  br i1 %cmp.i11087, label %for.body46.us.preheader, label %for.body46.lr.ph.split
+.lr.ph153:                                        ; preds = %50
+  %54 = trunc i64 %indvars.iv.next196 to i32
+  %55 = sub i32 %54, %1
+  %56 = shl nuw i32 1, %55
+  %57 = icmp slt i64 %indvars.iv195, 14
+  %.sroa.0.0.insert.ext.i = and i32 %55, 255
+  br i1 %57, label %.lr.ph153.split.us.preheader, label %.lr.ph153.split
 
-for.body46.us.preheader:                          ; preds = %for.body46.lr.ph
-  %14 = trunc nsw i64 %10 to i32
-  br label %for.body46.us
+.lr.ph153.split.us.preheader:                     ; preds = %.lr.ph153
+  %58 = trunc nsw i64 %51 to i32
+  br label %.lr.ph153.split.us
 
-for.body46.us:                                    ; preds = %for.body46.us.preheader, %ReplicateValue.exit.us
-  %total_size.198.us = phi i32 [ %total_size.2.us, %ReplicateValue.exit.us ], [ %total_size.0119, %for.body46.us.preheader ]
-  %table_size.397.us = phi i32 [ %table_size.4.us, %ReplicateValue.exit.us ], [ %table_size.2118, %for.body46.us.preheader ]
-  %sub_key.196.us = phi i64 [ %add73.us, %ReplicateValue.exit.us ], [ %sub_key.0113, %for.body46.us.preheader ]
-  %key.395.us = phi i64 [ %key.4.us, %ReplicateValue.exit.us ], [ %key.2112, %for.body46.us.preheader ]
-  %symbol.194.us = phi i32 [ %conv65.us, %ReplicateValue.exit.us ], [ %14, %for.body46.us.preheader ]
-  %table.193.us = phi ptr [ %table.2.us, %ReplicateValue.exit.us ], [ %table.0110, %for.body46.us.preheader ]
-  %cmp47.us = icmp eq i64 %sub_key.196.us, 256
-  br i1 %cmp47.us, label %if.then49.us, label %if.end62.us
+.lr.ph153.split.us:                               ; preds = %.lr.ph153.split.us.preheader, %ReplicateValue.exit.us
+  %.1151.us = phi ptr [ %.2.us, %ReplicateValue.exit.us ], [ %.0175, %.lr.ph153.split.us.preheader ]
+  %.189150.us = phi i32 [ %.290.us, %ReplicateValue.exit.us ], [ %.088173, %.lr.ph153.split.us.preheader ]
+  %.3149.us = phi i32 [ %.4.us, %ReplicateValue.exit.us ], [ %.293172, %.lr.ph153.split.us.preheader ]
+  %.199148.us = phi i64 [ %99, %ReplicateValue.exit.us ], [ %.098167, %.lr.ph153.split.us.preheader ]
+  %.3105147.us = phi i64 [ %.4106.us, %ReplicateValue.exit.us ], [ %.2104166, %.lr.ph153.split.us.preheader ]
+  %.1108146.us = phi i32 [ %89, %ReplicateValue.exit.us ], [ %58, %.lr.ph153.split.us.preheader ]
+  %59 = icmp eq i64 %.199148.us, 256
+  br i1 %59, label %.lr.ph141.us, label %85
 
-if.then49.us:                                     ; preds = %for.body46.us
-  %idx.ext.us = sext i32 %table_size.397.us to i64
-  %add.ptr.us = getelementptr inbounds %struct.HuffmanCode, ptr %table.193.us, i64 %idx.ext.us
-  br label %while.body.i.us
+.lr.ph141.us:                                     ; preds = %.lr.ph153.split.us
+  %60 = sext i32 %.3149.us to i64
+  %61 = getelementptr inbounds %struct.HuffmanCode, ptr %.1151.us, i64 %60
+  br label %62
 
-while.body.i.us:                                  ; preds = %if.then49.us, %if.end.i.us
-  %indvars.iv131 = phi i64 [ %indvars.iv129, %if.then49.us ], [ %indvars.iv.next132, %if.end.i.us ]
-  %left.i.088.us = phi i32 [ %shl.i, %if.then49.us ], [ %shl4.i.us, %if.end.i.us ]
-  %arrayidx.i112.us = getelementptr inbounds i16, ptr %count, i64 %indvars.iv131
-  %15 = load i16, ptr %arrayidx.i112.us, align 2
-  %conv.i113.us = zext i16 %15 to i32
-  %sub1.i.us = sub nsw i32 %left.i.088.us, %conv.i113.us
-  %cmp2.i.us = icmp slt i32 %sub1.i.us, 1
-  br i1 %cmp2.i.us, label %NextTableBitSize.exit.us.split.loop.exit145, label %if.end.i.us
+62:                                               ; preds = %.lr.ph141.us, %68
+  %indvars.iv192 = phi i64 [ %indvars.iv190, %.lr.ph141.us ], [ %indvars.iv.next193, %68 ]
+  %.0.i128139.us = phi i32 [ %56, %.lr.ph141.us ], [ %69, %68 ]
+  %63 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv192
+  %64 = load i16, ptr %63, align 2, !tbaa !3
+  %65 = zext i16 %64 to i32
+  %66 = sub nsw i32 %.0.i128139.us, %65
+  %67 = icmp slt i32 %66, 1
+  br i1 %67, label %NextTableBitSize.exit.us.split.loop.exit, label %68
 
-if.end.i.us:                                      ; preds = %while.body.i.us
-  %indvars.iv.next132 = add nsw i64 %indvars.iv131, 1
-  %shl4.i.us = shl nuw i32 %sub1.i.us, 1
-  %16 = and i64 %indvars.iv.next132, 4294967295
-  %exitcond.not = icmp eq i64 %16, 15
-  br i1 %exitcond.not, label %NextTableBitSize.exit.us, label %while.body.i.us, !llvm.loop !14
+68:                                               ; preds = %62
+  %indvars.iv.next193 = add nsw i64 %indvars.iv192, 1
+  %69 = shl nuw i32 %66, 1
+  %70 = and i64 %indvars.iv.next193, 4294967295
+  %exitcond.not = icmp eq i64 %70, 15
+  br i1 %exitcond.not, label %NextTableBitSize.exit.us, label %62, !llvm.loop !20
 
-NextTableBitSize.exit.us.split.loop.exit145:      ; preds = %while.body.i.us
-  %17 = trunc nsw i64 %indvars.iv131 to i32
+NextTableBitSize.exit.us.split.loop.exit:         ; preds = %62
+  %71 = trunc nsw i64 %indvars.iv192 to i32
   br label %NextTableBitSize.exit.us
 
-NextTableBitSize.exit.us:                         ; preds = %if.end.i.us, %NextTableBitSize.exit.us.split.loop.exit145
-  %len.addr.i.0.lcssa.us = phi i32 [ %17, %NextTableBitSize.exit.us.split.loop.exit145 ], [ 15, %if.end.i.us ]
-  %sub5.i.us = sub nsw i32 %len.addr.i.0.lcssa.us, %root_bits
-  %shl51.us = shl nuw i32 1, %sub5.i.us
-  %add52.us = add nsw i32 %shl51.us, %total_size.198.us
-  %arrayidx.i104.us = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.395.us
-  %18 = load i8, ptr %arrayidx.i104.us, align 1
-  %conv.i105.us = zext i8 %18 to i64
-  %add54.us = add i64 %key.395.us, %shr33
-  %arrayidx55.us = getelementptr inbounds nuw %struct.HuffmanCode, ptr %root_table, i64 %conv.i105.us
-  %sub.ptr.lhs.cast.us = ptrtoint ptr %add.ptr.us to i64
-  %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast.us, %sub.ptr.rhs.cast
-  %sub.ptr.div.us = lshr exact i64 %sub.ptr.sub.us, 2
-  %sub59.us = sub nsw i64 %sub.ptr.div.us, %conv.i105.us
-  %conv60.us = trunc i64 %sub59.us to i32
-  %retval.i84.sroa.266.0.insert.ext.us = shl i32 %conv60.us, 16
-  %retval.i84.sroa.0.0.insert.ext.us = and i32 %len.addr.i.0.lcssa.us, 255
-  %retval.i84.sroa.0.0.insert.insert.us = or disjoint i32 %retval.i84.sroa.266.0.insert.ext.us, %retval.i84.sroa.0.0.insert.ext.us
-  store i32 %retval.i84.sroa.0.0.insert.insert.us, ptr %arrayidx55.us, align 2
-  br label %if.end62.us
+NextTableBitSize.exit.us:                         ; preds = %68, %NextTableBitSize.exit.us.split.loop.exit
+  %.010.i.lcssa.us = phi i32 [ %71, %NextTableBitSize.exit.us.split.loop.exit ], [ 15, %68 ]
+  %72 = sub nsw i32 %.010.i.lcssa.us, %1
+  %73 = shl nuw i32 1, %72
+  %74 = add nsw i32 %73, %.189150.us
+  %75 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %.3105147.us
+  %76 = load i8, ptr %75, align 1, !tbaa !9
+  %77 = zext i8 %76 to i64
+  %78 = add i64 %.3105147.us, %47
+  %79 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %77
+  %80 = ptrtoint ptr %61 to i64
+  %81 = sub i64 %80, %48
+  %82 = lshr exact i64 %81, 2
+  %83 = sub nsw i64 %82, %77
+  %84 = trunc i64 %83 to i32
+  %.sroa.22.0.insert.ext.i118.us = shl i32 %84, 16
+  %.sroa.0.0.insert.ext.i120.us = and i32 %.010.i.lcssa.us, 255
+  %.sroa.0.0.insert.insert.i121.us = or disjoint i32 %.sroa.22.0.insert.ext.i118.us, %.sroa.0.0.insert.ext.i120.us
+  store i32 %.sroa.0.0.insert.insert.i121.us, ptr %79, align 2
+  br label %85
 
-if.end62.us:                                      ; preds = %NextTableBitSize.exit.us, %for.body46.us
-  %table.2.us = phi ptr [ %add.ptr.us, %NextTableBitSize.exit.us ], [ %table.193.us, %for.body46.us ]
-  %key.4.us = phi i64 [ %add54.us, %NextTableBitSize.exit.us ], [ %key.395.us, %for.body46.us ]
-  %sub_key.2.us = phi i64 [ 0, %NextTableBitSize.exit.us ], [ %sub_key.196.us, %for.body46.us ]
-  %table_size.4.us = phi i32 [ %shl51.us, %NextTableBitSize.exit.us ], [ %table_size.397.us, %for.body46.us ]
-  %total_size.2.us = phi i32 [ %add52.us, %NextTableBitSize.exit.us ], [ %total_size.198.us, %for.body46.us ]
-  %idxprom63.us = sext i32 %symbol.194.us to i64
-  %arrayidx64.us = getelementptr inbounds i16, ptr %symbol_lists, i64 %idxprom63.us
-  %19 = load i16, ptr %arrayidx64.us, align 2
-  %conv65.us = zext i16 %19 to i32
-  %retval.i.sroa.265.0.insert.shift.us = shl nuw i32 %conv65.us, 16
-  %retval.i.sroa.0.0.insert.insert.us = or disjoint i32 %retval.i.sroa.265.0.insert.shift.us, %retval.i.sroa.0.0.insert.ext
-  %arrayidx.i102.us = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %sub_key.2.us
-  %20 = load i8, ptr %arrayidx.i102.us, align 1
-  %conv.i.us = zext i8 %20 to i64
-  %arrayidx72.us = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table.2.us, i64 %conv.i.us
-  br label %do.body.i.us
+85:                                               ; preds = %NextTableBitSize.exit.us, %.lr.ph153.split.us
+  %.4106.us = phi i64 [ %78, %NextTableBitSize.exit.us ], [ %.3105147.us, %.lr.ph153.split.us ]
+  %.2100.us = phi i64 [ 0, %NextTableBitSize.exit.us ], [ %.199148.us, %.lr.ph153.split.us ]
+  %.4.us = phi i32 [ %73, %NextTableBitSize.exit.us ], [ %.3149.us, %.lr.ph153.split.us ]
+  %.290.us = phi i32 [ %74, %NextTableBitSize.exit.us ], [ %.189150.us, %.lr.ph153.split.us ]
+  %.2.us = phi ptr [ %61, %NextTableBitSize.exit.us ], [ %.1151.us, %.lr.ph153.split.us ]
+  %86 = sext i32 %.1108146.us to i64
+  %87 = getelementptr inbounds i16, ptr %2, i64 %86
+  %88 = load i16, ptr %87, align 2, !tbaa !3
+  %89 = zext i16 %88 to i32
+  %.sroa.22.0.insert.shift.i.us = shl nuw i32 %89, 16
+  %.sroa.0.0.insert.insert.i.us = or disjoint i32 %.sroa.22.0.insert.shift.i.us, %.sroa.0.0.insert.ext.i
+  %90 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %.2100.us
+  %91 = load i8, ptr %90, align 1, !tbaa !9
+  %92 = zext i8 %91 to i64
+  %93 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2.us, i64 %92
+  br label %94
 
-do.body.i.us:                                     ; preds = %do.body.i.us, %if.end62.us
-  %end.addr.i.0.us = phi i32 [ %table_size.4.us, %if.end62.us ], [ %sub.i.us, %do.body.i.us ]
-  %sub.i.us = sub nsw i32 %end.addr.i.0.us, %step.1116
-  %idxprom.i.us = sext i32 %sub.i.us to i64
-  %arrayidx.i.us = getelementptr inbounds %struct.HuffmanCode, ptr %arrayidx72.us, i64 %idxprom.i.us
-  store i32 %retval.i.sroa.0.0.insert.insert.us, ptr %arrayidx.i.us, align 2
-  %cmp.i.us = icmp sgt i32 %sub.i.us, 0
-  br i1 %cmp.i.us, label %do.body.i.us, label %ReplicateValue.exit.us, !llvm.loop !7
+94:                                               ; preds = %94, %85
+  %.0.i.us = phi i32 [ %.4.us, %85 ], [ %95, %94 ]
+  %95 = sub nsw i32 %.0.i.us, %.196170
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds %struct.HuffmanCode, ptr %93, i64 %96
+  store i32 %.sroa.0.0.insert.insert.i.us, ptr %97, align 2
+  %98 = icmp sgt i32 %95, 0
+  br i1 %98, label %94, label %ReplicateValue.exit.us, !llvm.loop !13
 
-ReplicateValue.exit.us:                           ; preds = %do.body.i.us
-  %add73.us = add i64 %sub_key.2.us, %sub_key_step.0114
-  %21 = load i16, ptr %arrayidx42, align 2
-  %dec77.us = add i16 %21, -1
-  store i16 %dec77.us, ptr %arrayidx42, align 2
-  %cmp44.not.us = icmp eq i16 %dec77.us, 0
-  br i1 %cmp44.not.us, label %for.end78, label %for.body46.us, !llvm.loop !15
+ReplicateValue.exit.us:                           ; preds = %94
+  %99 = add i64 %.2100.us, %.097168
+  %100 = load i16, ptr %52, align 2, !tbaa !3
+  %101 = add i16 %100, -1
+  store i16 %101, ptr %52, align 2, !tbaa !3
+  %.not116.us = icmp eq i16 %101, 0
+  br i1 %.not116.us, label %._crit_edge154, label %.lr.ph153.split.us, !llvm.loop !21
 
-for.body46.lr.ph.split:                           ; preds = %for.body46.lr.ph
-  %22 = trunc nuw nsw i64 %indvars.iv.next135 to i32
-  %retval.i84.sroa.0.0.insert.ext = and i32 %22, 255
-  %23 = trunc nsw i64 %10 to i32
-  br label %for.body46
+.lr.ph153.split:                                  ; preds = %.lr.ph153
+  %102 = trunc nuw nsw i64 %indvars.iv.next196 to i32
+  %.sroa.0.0.insert.ext.i120 = and i32 %102, 255
+  %103 = trunc nsw i64 %51 to i32
+  br label %104
 
-for.body46:                                       ; preds = %for.body46.lr.ph.split, %ReplicateValue.exit
-  %total_size.198 = phi i32 [ %total_size.0119, %for.body46.lr.ph.split ], [ %total_size.2, %ReplicateValue.exit ]
-  %table_size.397 = phi i32 [ %table_size.2118, %for.body46.lr.ph.split ], [ %table_size.4, %ReplicateValue.exit ]
-  %sub_key.196 = phi i64 [ %sub_key.0113, %for.body46.lr.ph.split ], [ %add73, %ReplicateValue.exit ]
-  %key.395 = phi i64 [ %key.2112, %for.body46.lr.ph.split ], [ %key.4, %ReplicateValue.exit ]
-  %symbol.194 = phi i32 [ %23, %for.body46.lr.ph.split ], [ %conv65, %ReplicateValue.exit ]
-  %table.193 = phi ptr [ %table.0110, %for.body46.lr.ph.split ], [ %table.2, %ReplicateValue.exit ]
-  %cmp47 = icmp eq i64 %sub_key.196, 256
-  br i1 %cmp47, label %if.then49, label %if.end62
+104:                                              ; preds = %.lr.ph153.split, %ReplicateValue.exit
+  %.1151 = phi ptr [ %.0175, %.lr.ph153.split ], [ %.2, %ReplicateValue.exit ]
+  %.189150 = phi i32 [ %.088173, %.lr.ph153.split ], [ %.290, %ReplicateValue.exit ]
+  %.3149 = phi i32 [ %.293172, %.lr.ph153.split ], [ %.4, %ReplicateValue.exit ]
+  %.199148 = phi i64 [ %.098167, %.lr.ph153.split ], [ %133, %ReplicateValue.exit ]
+  %.3105147 = phi i64 [ %.2104166, %.lr.ph153.split ], [ %.4106, %ReplicateValue.exit ]
+  %.1108146 = phi i32 [ %103, %.lr.ph153.split ], [ %123, %ReplicateValue.exit ]
+  %105 = icmp eq i64 %.199148, 256
+  br i1 %105, label %NextTableBitSize.exit, label %119
 
-if.then49:                                        ; preds = %for.body46
-  %idx.ext = sext i32 %table_size.397 to i64
-  %add.ptr = getelementptr inbounds %struct.HuffmanCode, ptr %table.193, i64 %idx.ext
-  %add52 = add nsw i32 %shl.i, %total_size.198
-  %arrayidx.i104 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.395
-  %24 = load i8, ptr %arrayidx.i104, align 1
-  %conv.i105 = zext i8 %24 to i64
-  %add54 = add i64 %key.395, %shr33
-  %arrayidx55 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %root_table, i64 %conv.i105
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 2
-  %sub59 = sub nsw i64 %sub.ptr.div, %conv.i105
-  %conv60 = trunc i64 %sub59 to i32
-  %retval.i84.sroa.266.0.insert.ext = shl i32 %conv60, 16
-  %retval.i84.sroa.0.0.insert.insert = or disjoint i32 %retval.i84.sroa.266.0.insert.ext, %retval.i84.sroa.0.0.insert.ext
-  store i32 %retval.i84.sroa.0.0.insert.insert, ptr %arrayidx55, align 2
-  br label %if.end62
+NextTableBitSize.exit:                            ; preds = %104
+  %106 = sext i32 %.3149 to i64
+  %107 = getelementptr inbounds %struct.HuffmanCode, ptr %.1151, i64 %106
+  %108 = add nsw i32 %56, %.189150
+  %109 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %.3105147
+  %110 = load i8, ptr %109, align 1, !tbaa !9
+  %111 = zext i8 %110 to i64
+  %112 = add i64 %.3105147, %47
+  %113 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %111
+  %114 = ptrtoint ptr %107 to i64
+  %115 = sub i64 %114, %48
+  %116 = lshr exact i64 %115, 2
+  %117 = sub nsw i64 %116, %111
+  %118 = trunc i64 %117 to i32
+  %.sroa.22.0.insert.ext.i118 = shl i32 %118, 16
+  %.sroa.0.0.insert.insert.i121 = or disjoint i32 %.sroa.22.0.insert.ext.i118, %.sroa.0.0.insert.ext.i120
+  store i32 %.sroa.0.0.insert.insert.i121, ptr %113, align 2
+  br label %119
 
-if.end62:                                         ; preds = %if.then49, %for.body46
-  %table.2 = phi ptr [ %add.ptr, %if.then49 ], [ %table.193, %for.body46 ]
-  %key.4 = phi i64 [ %add54, %if.then49 ], [ %key.395, %for.body46 ]
-  %sub_key.2 = phi i64 [ 0, %if.then49 ], [ %sub_key.196, %for.body46 ]
-  %table_size.4 = phi i32 [ %shl.i, %if.then49 ], [ %table_size.397, %for.body46 ]
-  %total_size.2 = phi i32 [ %add52, %if.then49 ], [ %total_size.198, %for.body46 ]
-  %idxprom63 = sext i32 %symbol.194 to i64
-  %arrayidx64 = getelementptr inbounds i16, ptr %symbol_lists, i64 %idxprom63
-  %25 = load i16, ptr %arrayidx64, align 2
-  %conv65 = zext i16 %25 to i32
-  %retval.i.sroa.265.0.insert.shift = shl nuw i32 %conv65, 16
-  %retval.i.sroa.0.0.insert.insert = or disjoint i32 %retval.i.sroa.265.0.insert.shift, %retval.i.sroa.0.0.insert.ext
-  %arrayidx.i102 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %sub_key.2
-  %26 = load i8, ptr %arrayidx.i102, align 1
-  %conv.i = zext i8 %26 to i64
-  %arrayidx72 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table.2, i64 %conv.i
-  br label %do.body.i
+119:                                              ; preds = %NextTableBitSize.exit, %104
+  %.4106 = phi i64 [ %112, %NextTableBitSize.exit ], [ %.3105147, %104 ]
+  %.2100 = phi i64 [ 0, %NextTableBitSize.exit ], [ %.199148, %104 ]
+  %.4 = phi i32 [ %56, %NextTableBitSize.exit ], [ %.3149, %104 ]
+  %.290 = phi i32 [ %108, %NextTableBitSize.exit ], [ %.189150, %104 ]
+  %.2 = phi ptr [ %107, %NextTableBitSize.exit ], [ %.1151, %104 ]
+  %120 = sext i32 %.1108146 to i64
+  %121 = getelementptr inbounds i16, ptr %2, i64 %120
+  %122 = load i16, ptr %121, align 2, !tbaa !3
+  %123 = zext i16 %122 to i32
+  %.sroa.22.0.insert.shift.i = shl nuw i32 %123, 16
+  %.sroa.0.0.insert.insert.i = or disjoint i32 %.sroa.22.0.insert.shift.i, %.sroa.0.0.insert.ext.i
+  %124 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %.2100
+  %125 = load i8, ptr %124, align 1, !tbaa !9
+  %126 = zext i8 %125 to i64
+  %127 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2, i64 %126
+  br label %128
 
-do.body.i:                                        ; preds = %do.body.i, %if.end62
-  %end.addr.i.0 = phi i32 [ %table_size.4, %if.end62 ], [ %sub.i, %do.body.i ]
-  %sub.i = sub nsw i32 %end.addr.i.0, %step.1116
-  %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.HuffmanCode, ptr %arrayidx72, i64 %idxprom.i
-  store i32 %retval.i.sroa.0.0.insert.insert, ptr %arrayidx.i, align 2
-  %cmp.i = icmp sgt i32 %sub.i, 0
-  br i1 %cmp.i, label %do.body.i, label %ReplicateValue.exit, !llvm.loop !7
+128:                                              ; preds = %128, %119
+  %.0.i = phi i32 [ %.4, %119 ], [ %129, %128 ]
+  %129 = sub nsw i32 %.0.i, %.196170
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds %struct.HuffmanCode, ptr %127, i64 %130
+  store i32 %.sroa.0.0.insert.insert.i, ptr %131, align 2
+  %132 = icmp sgt i32 %129, 0
+  br i1 %132, label %128, label %ReplicateValue.exit, !llvm.loop !13
 
-ReplicateValue.exit:                              ; preds = %do.body.i
-  %add73 = add i64 %sub_key.2, %sub_key_step.0114
-  %27 = load i16, ptr %arrayidx42, align 2
-  %dec77 = add i16 %27, -1
-  store i16 %dec77, ptr %arrayidx42, align 2
-  %cmp44.not = icmp eq i16 %dec77, 0
-  br i1 %cmp44.not, label %for.end78, label %for.body46, !llvm.loop !15
+ReplicateValue.exit:                              ; preds = %128
+  %133 = add i64 %.2100, %.097168
+  %134 = load i16, ptr %52, align 2, !tbaa !3
+  %135 = add i16 %134, -1
+  store i16 %135, ptr %52, align 2, !tbaa !3
+  %.not116 = icmp eq i16 %135, 0
+  br i1 %.not116, label %._crit_edge154, label %104, !llvm.loop !21
 
-for.end78:                                        ; preds = %ReplicateValue.exit, %ReplicateValue.exit.us, %for.body38
-  %table.1.lcssa = phi ptr [ %table.0110, %for.body38 ], [ %table.2.us, %ReplicateValue.exit.us ], [ %table.2, %ReplicateValue.exit ]
-  %key.3.lcssa = phi i64 [ %key.2112, %for.body38 ], [ %key.4.us, %ReplicateValue.exit.us ], [ %key.4, %ReplicateValue.exit ]
-  %sub_key.1.lcssa = phi i64 [ %sub_key.0113, %for.body38 ], [ %add73.us, %ReplicateValue.exit.us ], [ %add73, %ReplicateValue.exit ]
-  %table_size.3.lcssa = phi i32 [ %table_size.2118, %for.body38 ], [ %table_size.4.us, %ReplicateValue.exit.us ], [ %table_size.4, %ReplicateValue.exit ]
-  %total_size.1.lcssa = phi i32 [ %total_size.0119, %for.body38 ], [ %total_size.2.us, %ReplicateValue.exit.us ], [ %total_size.2, %ReplicateValue.exit ]
-  %shl79 = shl i32 %step.1116, 1
-  %shr80 = lshr i64 %sub_key_step.0114, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count
-  br i1 %exitcond143.not, label %for.end83, label %for.body38, !llvm.loop !16
+._crit_edge154:                                   ; preds = %ReplicateValue.exit, %ReplicateValue.exit.us, %50
+  %.3105.lcssa = phi i64 [ %.2104166, %50 ], [ %.4106.us, %ReplicateValue.exit.us ], [ %.4106, %ReplicateValue.exit ]
+  %.199.lcssa = phi i64 [ %.098167, %50 ], [ %99, %ReplicateValue.exit.us ], [ %133, %ReplicateValue.exit ]
+  %.3.lcssa = phi i32 [ %.293172, %50 ], [ %.4.us, %ReplicateValue.exit.us ], [ %.4, %ReplicateValue.exit ]
+  %.189.lcssa = phi i32 [ %.088173, %50 ], [ %.290.us, %ReplicateValue.exit.us ], [ %.290, %ReplicateValue.exit ]
+  %.1.lcssa = phi ptr [ %.0175, %50 ], [ %.2.us, %ReplicateValue.exit.us ], [ %.2, %ReplicateValue.exit ]
+  %136 = shl i32 %.196170, 1
+  %137 = lshr i64 %.097168, 1
+  %exitcond200.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count
+  br i1 %exitcond200.not, label %._crit_edge179, label %50, !llvm.loop !22
 
-for.end83:                                        ; preds = %for.end78, %while.end31
-  %total_size.0.lcssa = phi i32 [ %shl, %while.end31 ], [ %total_size.1.lcssa, %for.end78 ]
-  ret i32 %total_size.0.lcssa
+._crit_edge179:                                   ; preds = %._crit_edge154, %._crit_edge136
+  %.088.lcssa = phi i32 [ %12, %._crit_edge136 ], [ %.189.lcssa, %._crit_edge154 ]
+  ret i32 %.088.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr noundef captures(none) %table, i32 noundef %root_bits, ptr noundef captures(none) %val, i32 noundef %num_symbols) local_unnamed_addr #0 {
-entry:
-  %shl = shl nuw i32 1, %root_bits
-  switch i32 %num_symbols, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb23
-    i32 3, label %for.body63.lr.ph
-    i32 4, label %sw.bb100
+define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = shl nuw i32 1, %1
+  switch i32 %3, label %77 [
+    i32 0, label %6
+    i32 1, label %8
+    i32 2, label %18
+    i32 3, label %.lr.ph
+    i32 4, label %53
   ]
 
-sw.bb:                                            ; preds = %entry
-  %0 = load i16, ptr %val, align 2
-  %retval.i237.sroa.298.0.insert.ext = zext i16 %0 to i32
-  %retval.i237.sroa.298.0.insert.shift = shl nuw i32 %retval.i237.sroa.298.0.insert.ext, 16
-  store i32 %retval.i237.sroa.298.0.insert.shift, ptr %table, align 2
-  br label %sw.epilog
+6:                                                ; preds = %4
+  %7 = load i16, ptr %2, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i172 = zext i16 %7 to i32
+  %.sroa.22.0.insert.shift.i173 = shl nuw i32 %.sroa.22.0.insert.ext.i172, 16
+  store i32 %.sroa.22.0.insert.shift.i173, ptr %0, align 2
+  br label %77
 
-sw.bb2:                                           ; preds = %entry
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %val, i64 2
-  %1 = load i16, ptr %arrayidx3, align 2
-  %2 = load i16, ptr %val, align 2
-  %cmp = icmp ugt i16 %1, %2
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %table, i64 4
-  br i1 %cmp, label %if.then, label %if.else
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %10 = load i16, ptr %9, align 2, !tbaa !3
+  %11 = load i16, ptr %2, align 2, !tbaa !3
+  %12 = icmp ugt i16 %10, %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  br i1 %12, label %14, label %16
 
-if.then:                                          ; preds = %sw.bb2
-  %conv5 = zext i16 %2 to i32
-  %retval.i233.sroa.297.0.insert.shift = shl nuw i32 %conv5, 16
-  %retval.i233.sroa.0.0.insert.insert = or disjoint i32 %retval.i233.sroa.297.0.insert.shift, 1
-  store i32 %retval.i233.sroa.0.0.insert.insert, ptr %table, align 2
-  %3 = load i16, ptr %arrayidx3, align 2
-  %retval.i229.sroa.296.0.insert.ext = zext i16 %3 to i32
-  %retval.i229.sroa.296.0.insert.shift = shl nuw i32 %retval.i229.sroa.296.0.insert.ext, 16
-  %retval.i229.sroa.0.0.insert.insert = or disjoint i32 %retval.i229.sroa.296.0.insert.shift, 1
-  store i32 %retval.i229.sroa.0.0.insert.insert, ptr %arrayidx11, align 2
-  br label %sw.epilog
+14:                                               ; preds = %8
+  %.sroa.22.0.insert.ext.i169 = zext i16 %11 to i32
+  %.sroa.22.0.insert.shift.i170 = shl nuw i32 %.sroa.22.0.insert.ext.i169, 16
+  %.sroa.0.0.insert.insert.i171 = or disjoint i32 %.sroa.22.0.insert.shift.i170, 1
+  store i32 %.sroa.0.0.insert.insert.i171, ptr %0, align 2
+  %15 = load i16, ptr %9, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i166 = zext i16 %15 to i32
+  %.sroa.22.0.insert.shift.i167 = shl nuw i32 %.sroa.22.0.insert.ext.i166, 16
+  %.sroa.0.0.insert.insert.i168 = or disjoint i32 %.sroa.22.0.insert.shift.i167, 1
+  store i32 %.sroa.0.0.insert.insert.i168, ptr %13, align 2
+  br label %77
 
-if.else:                                          ; preds = %sw.bb2
-  %conv = zext i16 %1 to i32
-  %retval.i225.sroa.295.0.insert.shift = shl nuw i32 %conv, 16
-  %retval.i225.sroa.0.0.insert.insert = or disjoint i32 %retval.i225.sroa.295.0.insert.shift, 1
-  store i32 %retval.i225.sroa.0.0.insert.insert, ptr %table, align 2
-  %4 = load i16, ptr %val, align 2
-  %retval.i221.sroa.294.0.insert.ext = zext i16 %4 to i32
-  %retval.i221.sroa.294.0.insert.shift = shl nuw i32 %retval.i221.sroa.294.0.insert.ext, 16
-  %retval.i221.sroa.0.0.insert.insert = or disjoint i32 %retval.i221.sroa.294.0.insert.shift, 1
-  store i32 %retval.i221.sroa.0.0.insert.insert, ptr %arrayidx11, align 2
-  br label %sw.epilog
+16:                                               ; preds = %8
+  %.sroa.22.0.insert.ext.i163 = zext i16 %10 to i32
+  %.sroa.22.0.insert.shift.i164 = shl nuw i32 %.sroa.22.0.insert.ext.i163, 16
+  %.sroa.0.0.insert.insert.i165 = or disjoint i32 %.sroa.22.0.insert.shift.i164, 1
+  store i32 %.sroa.0.0.insert.insert.i165, ptr %0, align 2
+  %17 = load i16, ptr %2, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i160 = zext i16 %17 to i32
+  %.sroa.22.0.insert.shift.i161 = shl nuw i32 %.sroa.22.0.insert.ext.i160, 16
+  %.sroa.0.0.insert.insert.i162 = or disjoint i32 %.sroa.22.0.insert.shift.i161, 1
+  store i32 %.sroa.0.0.insert.insert.i162, ptr %13, align 2
+  br label %77
 
-sw.bb23:                                          ; preds = %entry
-  %5 = load i16, ptr %val, align 2
-  %retval.i217.sroa.293.0.insert.ext = zext i16 %5 to i32
-  %retval.i217.sroa.293.0.insert.shift = shl nuw i32 %retval.i217.sroa.293.0.insert.ext, 16
-  %retval.i217.sroa.0.0.insert.insert = or disjoint i32 %retval.i217.sroa.293.0.insert.shift, 1
-  store i32 %retval.i217.sroa.0.0.insert.insert, ptr %table, align 2
-  %arrayidx28 = getelementptr inbounds nuw i8, ptr %table, i64 8
-  %6 = load i16, ptr %val, align 2
-  %retval.i213.sroa.292.0.insert.ext = zext i16 %6 to i32
-  %retval.i213.sroa.292.0.insert.shift = shl nuw i32 %retval.i213.sroa.292.0.insert.ext, 16
-  %retval.i213.sroa.0.0.insert.insert = or disjoint i32 %retval.i213.sroa.292.0.insert.shift, 1
-  store i32 %retval.i213.sroa.0.0.insert.insert, ptr %arrayidx28, align 2
-  %arrayidx32 = getelementptr inbounds nuw i8, ptr %val, i64 4
-  %7 = load i16, ptr %arrayidx32, align 2
-  %arrayidx34 = getelementptr inbounds nuw i8, ptr %val, i64 2
-  %8 = load i16, ptr %arrayidx34, align 2
-  %cmp36 = icmp ugt i16 %7, %8
-  %arrayidx39 = getelementptr inbounds nuw i8, ptr %table, i64 4
-  %arrayidx43 = getelementptr inbounds nuw i8, ptr %table, i64 12
-  br i1 %cmp36, label %if.then38, label %if.else47
+18:                                               ; preds = %4
+  %19 = load i16, ptr %2, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i157 = zext i16 %19 to i32
+  %.sroa.22.0.insert.shift.i158 = shl nuw i32 %.sroa.22.0.insert.ext.i157, 16
+  %.sroa.0.0.insert.insert.i159 = or disjoint i32 %.sroa.22.0.insert.shift.i158, 1
+  store i32 %.sroa.0.0.insert.insert.i159, ptr %0, align 2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = load i16, ptr %2, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i154 = zext i16 %21 to i32
+  %.sroa.22.0.insert.shift.i155 = shl nuw i32 %.sroa.22.0.insert.ext.i154, 16
+  %.sroa.0.0.insert.insert.i156 = or disjoint i32 %.sroa.22.0.insert.shift.i155, 1
+  store i32 %.sroa.0.0.insert.insert.i156, ptr %20, align 2
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %23 = load i16, ptr %22, align 2, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %25 = load i16, ptr %24, align 2, !tbaa !3
+  %26 = icmp ugt i16 %23, %25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br i1 %26, label %29, label %31
 
-if.then38:                                        ; preds = %sw.bb23
-  %conv35 = zext i16 %8 to i32
-  %retval.i209.sroa.291.0.insert.shift = shl nuw i32 %conv35, 16
-  %retval.i209.sroa.0.0.insert.insert = or disjoint i32 %retval.i209.sroa.291.0.insert.shift, 2
-  store i32 %retval.i209.sroa.0.0.insert.insert, ptr %arrayidx39, align 2
-  %9 = load i16, ptr %arrayidx32, align 2
-  %retval.i205.sroa.290.0.insert.ext = zext i16 %9 to i32
-  %retval.i205.sroa.290.0.insert.shift = shl nuw i32 %retval.i205.sroa.290.0.insert.ext, 16
-  %retval.i205.sroa.0.0.insert.insert = or disjoint i32 %retval.i205.sroa.290.0.insert.shift, 2
-  store i32 %retval.i205.sroa.0.0.insert.insert, ptr %arrayidx43, align 2
-  br label %sw.epilog
+29:                                               ; preds = %18
+  %.sroa.22.0.insert.ext.i151 = zext i16 %25 to i32
+  %.sroa.22.0.insert.shift.i152 = shl nuw i32 %.sroa.22.0.insert.ext.i151, 16
+  %.sroa.0.0.insert.insert.i153 = or disjoint i32 %.sroa.22.0.insert.shift.i152, 2
+  store i32 %.sroa.0.0.insert.insert.i153, ptr %27, align 2
+  %30 = load i16, ptr %22, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i148 = zext i16 %30 to i32
+  %.sroa.22.0.insert.shift.i149 = shl nuw i32 %.sroa.22.0.insert.ext.i148, 16
+  %.sroa.0.0.insert.insert.i150 = or disjoint i32 %.sroa.22.0.insert.shift.i149, 2
+  store i32 %.sroa.0.0.insert.insert.i150, ptr %28, align 2
+  br label %77
 
-if.else47:                                        ; preds = %sw.bb23
-  %conv33 = zext i16 %7 to i32
-  %retval.i201.sroa.289.0.insert.shift = shl nuw i32 %conv33, 16
-  %retval.i201.sroa.0.0.insert.insert = or disjoint i32 %retval.i201.sroa.289.0.insert.shift, 2
-  store i32 %retval.i201.sroa.0.0.insert.insert, ptr %arrayidx39, align 2
-  %10 = load i16, ptr %arrayidx34, align 2
-  %retval.i197.sroa.288.0.insert.ext = zext i16 %10 to i32
-  %retval.i197.sroa.288.0.insert.shift = shl nuw i32 %retval.i197.sroa.288.0.insert.ext, 16
-  %retval.i197.sroa.0.0.insert.insert = or disjoint i32 %retval.i197.sroa.288.0.insert.shift, 2
-  store i32 %retval.i197.sroa.0.0.insert.insert, ptr %arrayidx43, align 2
-  br label %sw.epilog
+31:                                               ; preds = %18
+  %.sroa.22.0.insert.ext.i145 = zext i16 %23 to i32
+  %.sroa.22.0.insert.shift.i146 = shl nuw i32 %.sroa.22.0.insert.ext.i145, 16
+  %.sroa.0.0.insert.insert.i147 = or disjoint i32 %.sroa.22.0.insert.shift.i146, 2
+  store i32 %.sroa.0.0.insert.insert.i147, ptr %27, align 2
+  %32 = load i16, ptr %24, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i142 = zext i16 %32 to i32
+  %.sroa.22.0.insert.shift.i143 = shl nuw i32 %.sroa.22.0.insert.ext.i142, 16
+  %.sroa.0.0.insert.insert.i144 = or disjoint i32 %.sroa.22.0.insert.shift.i143, 2
+  store i32 %.sroa.0.0.insert.insert.i144, ptr %28, align 2
+  br label %77
 
-for.cond.loopexit:                                ; preds = %for.inc
+.loopexit:                                        ; preds = %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond110.not = icmp eq i64 %indvars.iv.next108, 3
-  br i1 %exitcond110.not, label %for.end83, label %for.body63.lr.ph, !llvm.loop !17
+  %exitcond186.not = icmp eq i64 %indvars.iv.next184, 3
+  br i1 %exitcond186.not, label %42, label %.lr.ph, !llvm.loop !23
 
-for.body63.lr.ph:                                 ; preds = %entry, %for.cond.loopexit
-  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %for.cond.loopexit ], [ 0, %entry ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond.loopexit ], [ 1, %entry ]
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %arrayidx67 = getelementptr inbounds nuw i16, ptr %val, i64 %indvars.iv107
-  %.pre = load i16, ptr %arrayidx67, align 2
-  br label %for.body63
+.lr.ph:                                           ; preds = %4, %.loopexit
+  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.loopexit ], [ 0, %4 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 1, %4 ]
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
+  %33 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv183
+  %.pre = load i16, ptr %33, align 2, !tbaa !3
+  br label %34
 
-for.body63:                                       ; preds = %for.body63.lr.ph, %for.inc
-  %11 = phi i16 [ %.pre, %for.body63.lr.ph ], [ %13, %for.inc ]
-  %indvars.iv104 = phi i64 [ %indvars.iv, %for.body63.lr.ph ], [ %indvars.iv.next105, %for.inc ]
-  %arrayidx64 = getelementptr inbounds nuw i16, ptr %val, i64 %indvars.iv104
-  %12 = load i16, ptr %arrayidx64, align 2
-  %cmp69 = icmp ult i16 %12, %11
-  br i1 %cmp69, label %if.then71, label %for.inc
+34:                                               ; preds = %.lr.ph, %40
+  %35 = phi i16 [ %.pre, %.lr.ph ], [ %41, %40 ]
+  %indvars.iv180 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next181, %40 ]
+  %36 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv180
+  %37 = load i16, ptr %36, align 2, !tbaa !3
+  %38 = icmp ult i16 %37, %35
+  br i1 %38, label %39, label %40
 
-if.then71:                                        ; preds = %for.body63
-  store i16 %11, ptr %arrayidx64, align 2
-  store i16 %12, ptr %arrayidx67, align 2
-  br label %for.inc
+39:                                               ; preds = %34
+  store i16 %35, ptr %36, align 2, !tbaa !3
+  store i16 %37, ptr %33, align 2, !tbaa !3
+  br label %40
 
-for.inc:                                          ; preds = %for.body63, %if.then71
-  %13 = phi i16 [ %11, %for.body63 ], [ %12, %if.then71 ]
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next105, 4
-  br i1 %exitcond.not, label %for.cond.loopexit, label %for.body63, !llvm.loop !18
+40:                                               ; preds = %34, %39
+  %41 = phi i16 [ %35, %34 ], [ %37, %39 ]
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next181, 4
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !24
 
-for.end83:                                        ; preds = %for.cond.loopexit
-  %14 = load i16, ptr %val, align 2
-  %retval.i193.sroa.287.0.insert.ext = zext i16 %14 to i32
-  %retval.i193.sroa.287.0.insert.shift = shl nuw i32 %retval.i193.sroa.287.0.insert.ext, 16
-  %retval.i193.sroa.0.0.insert.insert = or disjoint i32 %retval.i193.sroa.287.0.insert.shift, 2
-  store i32 %retval.i193.sroa.0.0.insert.insert, ptr %table, align 2
-  %arrayidx88 = getelementptr inbounds nuw i8, ptr %table, i64 8
-  %arrayidx90 = getelementptr inbounds nuw i8, ptr %val, i64 2
-  %15 = load i16, ptr %arrayidx90, align 2
-  %retval.i189.sroa.286.0.insert.ext = zext i16 %15 to i32
-  %retval.i189.sroa.286.0.insert.shift = shl nuw i32 %retval.i189.sroa.286.0.insert.ext, 16
-  %retval.i189.sroa.0.0.insert.insert = or disjoint i32 %retval.i189.sroa.286.0.insert.shift, 2
-  store i32 %retval.i189.sroa.0.0.insert.insert, ptr %arrayidx88, align 2
-  %arrayidx92 = getelementptr inbounds nuw i8, ptr %table, i64 4
-  %arrayidx94 = getelementptr inbounds nuw i8, ptr %val, i64 4
-  %16 = load i16, ptr %arrayidx94, align 2
-  %retval.i185.sroa.285.0.insert.ext = zext i16 %16 to i32
-  %retval.i185.sroa.285.0.insert.shift = shl nuw i32 %retval.i185.sroa.285.0.insert.ext, 16
-  %retval.i185.sroa.0.0.insert.insert = or disjoint i32 %retval.i185.sroa.285.0.insert.shift, 2
-  store i32 %retval.i185.sroa.0.0.insert.insert, ptr %arrayidx92, align 2
-  %arrayidx96 = getelementptr inbounds nuw i8, ptr %table, i64 12
-  %arrayidx98 = getelementptr inbounds nuw i8, ptr %val, i64 6
-  %17 = load i16, ptr %arrayidx98, align 2
-  %retval.i181.sroa.284.0.insert.ext = zext i16 %17 to i32
-  %retval.i181.sroa.284.0.insert.shift = shl nuw i32 %retval.i181.sroa.284.0.insert.ext, 16
-  %retval.i181.sroa.0.0.insert.insert = or disjoint i32 %retval.i181.sroa.284.0.insert.shift, 2
-  store i32 %retval.i181.sroa.0.0.insert.insert, ptr %arrayidx96, align 2
-  br label %sw.epilog
+42:                                               ; preds = %.loopexit
+  %43 = load i16, ptr %2, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i139 = zext i16 %43 to i32
+  %.sroa.22.0.insert.shift.i140 = shl nuw i32 %.sroa.22.0.insert.ext.i139, 16
+  %.sroa.0.0.insert.insert.i141 = or disjoint i32 %.sroa.22.0.insert.shift.i140, 2
+  store i32 %.sroa.0.0.insert.insert.i141, ptr %0, align 2
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %46 = load i16, ptr %45, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i136 = zext i16 %46 to i32
+  %.sroa.22.0.insert.shift.i137 = shl nuw i32 %.sroa.22.0.insert.ext.i136, 16
+  %.sroa.0.0.insert.insert.i138 = or disjoint i32 %.sroa.22.0.insert.shift.i137, 2
+  store i32 %.sroa.0.0.insert.insert.i138, ptr %44, align 2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %49 = load i16, ptr %48, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i133 = zext i16 %49 to i32
+  %.sroa.22.0.insert.shift.i134 = shl nuw i32 %.sroa.22.0.insert.ext.i133, 16
+  %.sroa.0.0.insert.insert.i135 = or disjoint i32 %.sroa.22.0.insert.shift.i134, 2
+  store i32 %.sroa.0.0.insert.insert.i135, ptr %47, align 2
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %52 = load i16, ptr %51, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i130 = zext i16 %52 to i32
+  %.sroa.22.0.insert.shift.i131 = shl nuw i32 %.sroa.22.0.insert.ext.i130, 16
+  %.sroa.0.0.insert.insert.i132 = or disjoint i32 %.sroa.22.0.insert.shift.i131, 2
+  store i32 %.sroa.0.0.insert.insert.i132, ptr %50, align 2
+  br label %77
 
-sw.bb100:                                         ; preds = %entry
-  %arrayidx101 = getelementptr inbounds nuw i8, ptr %val, i64 6
-  %18 = load i16, ptr %arrayidx101, align 2
-  %arrayidx103 = getelementptr inbounds nuw i8, ptr %val, i64 4
-  %19 = load i16, ptr %arrayidx103, align 2
-  %cmp105 = icmp ult i16 %18, %19
-  br i1 %cmp105, label %if.then107, label %if.end113
+53:                                               ; preds = %4
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %55 = load i16, ptr %54, align 2, !tbaa !3
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %57 = load i16, ptr %56, align 2, !tbaa !3
+  %58 = icmp ult i16 %55, %57
+  br i1 %58, label %59, label %60
 
-if.then107:                                       ; preds = %sw.bb100
-  store i16 %19, ptr %arrayidx101, align 2
-  store i16 %18, ptr %arrayidx103, align 2
-  br label %if.end113
+59:                                               ; preds = %53
+  store i16 %57, ptr %54, align 2, !tbaa !3
+  store i16 %55, ptr %56, align 2, !tbaa !3
+  br label %60
 
-if.end113:                                        ; preds = %if.then107, %sw.bb100
-  %20 = load i16, ptr %val, align 2
-  %retval.i177.sroa.283.0.insert.ext = zext i16 %20 to i32
-  %retval.i177.sroa.283.0.insert.shift = shl nuw i32 %retval.i177.sroa.283.0.insert.ext, 16
-  %retval.i177.sroa.0.0.insert.insert = or disjoint i32 %retval.i177.sroa.283.0.insert.shift, 1
-  store i32 %retval.i177.sroa.0.0.insert.insert, ptr %table, align 2
-  %arrayidx118 = getelementptr inbounds nuw i8, ptr %table, i64 4
-  %arrayidx120 = getelementptr inbounds nuw i8, ptr %val, i64 2
-  %21 = load i16, ptr %arrayidx120, align 2
-  %retval.i173.sroa.282.0.insert.ext = zext i16 %21 to i32
-  %retval.i173.sroa.282.0.insert.shift = shl nuw i32 %retval.i173.sroa.282.0.insert.ext, 16
-  %retval.i173.sroa.0.0.insert.insert = or disjoint i32 %retval.i173.sroa.282.0.insert.shift, 2
-  store i32 %retval.i173.sroa.0.0.insert.insert, ptr %arrayidx118, align 2
-  %arrayidx122 = getelementptr inbounds nuw i8, ptr %table, i64 8
-  %22 = load i16, ptr %val, align 2
-  %retval.i169.sroa.281.0.insert.ext = zext i16 %22 to i32
-  %retval.i169.sroa.281.0.insert.shift = shl nuw i32 %retval.i169.sroa.281.0.insert.ext, 16
-  %retval.i169.sroa.0.0.insert.insert = or disjoint i32 %retval.i169.sroa.281.0.insert.shift, 1
-  store i32 %retval.i169.sroa.0.0.insert.insert, ptr %arrayidx122, align 2
-  %arrayidx126 = getelementptr inbounds nuw i8, ptr %table, i64 12
-  %23 = load i16, ptr %arrayidx103, align 2
-  %retval.i165.sroa.280.0.insert.ext = zext i16 %23 to i32
-  %retval.i165.sroa.280.0.insert.shift = shl nuw i32 %retval.i165.sroa.280.0.insert.ext, 16
-  %retval.i165.sroa.0.0.insert.insert = or disjoint i32 %retval.i165.sroa.280.0.insert.shift, 3
-  store i32 %retval.i165.sroa.0.0.insert.insert, ptr %arrayidx126, align 2
-  %arrayidx130 = getelementptr inbounds nuw i8, ptr %table, i64 16
-  %24 = load i16, ptr %val, align 2
-  %retval.i161.sroa.279.0.insert.ext = zext i16 %24 to i32
-  %retval.i161.sroa.279.0.insert.shift = shl nuw i32 %retval.i161.sroa.279.0.insert.ext, 16
-  %retval.i161.sroa.0.0.insert.insert = or disjoint i32 %retval.i161.sroa.279.0.insert.shift, 1
-  store i32 %retval.i161.sroa.0.0.insert.insert, ptr %arrayidx130, align 2
-  %arrayidx134 = getelementptr inbounds nuw i8, ptr %table, i64 20
-  %25 = load i16, ptr %arrayidx120, align 2
-  %retval.i157.sroa.278.0.insert.ext = zext i16 %25 to i32
-  %retval.i157.sroa.278.0.insert.shift = shl nuw i32 %retval.i157.sroa.278.0.insert.ext, 16
-  %retval.i157.sroa.0.0.insert.insert = or disjoint i32 %retval.i157.sroa.278.0.insert.shift, 2
-  store i32 %retval.i157.sroa.0.0.insert.insert, ptr %arrayidx134, align 2
-  %arrayidx138 = getelementptr inbounds nuw i8, ptr %table, i64 24
-  %26 = load i16, ptr %val, align 2
-  %retval.i153.sroa.277.0.insert.ext = zext i16 %26 to i32
-  %retval.i153.sroa.277.0.insert.shift = shl nuw i32 %retval.i153.sroa.277.0.insert.ext, 16
-  %retval.i153.sroa.0.0.insert.insert = or disjoint i32 %retval.i153.sroa.277.0.insert.shift, 1
-  store i32 %retval.i153.sroa.0.0.insert.insert, ptr %arrayidx138, align 2
-  %arrayidx142 = getelementptr inbounds nuw i8, ptr %table, i64 28
-  %27 = load i16, ptr %arrayidx101, align 2
-  %retval.i.sroa.276.0.insert.ext = zext i16 %27 to i32
-  %retval.i.sroa.276.0.insert.shift = shl nuw i32 %retval.i.sroa.276.0.insert.ext, 16
-  %retval.i.sroa.0.0.insert.insert = or disjoint i32 %retval.i.sroa.276.0.insert.shift, 3
-  store i32 %retval.i.sroa.0.0.insert.insert, ptr %arrayidx142, align 2
-  br label %sw.epilog
+60:                                               ; preds = %59, %53
+  %61 = load i16, ptr %2, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i127 = zext i16 %61 to i32
+  %.sroa.22.0.insert.shift.i128 = shl nuw i32 %.sroa.22.0.insert.ext.i127, 16
+  %.sroa.0.0.insert.insert.i129 = or disjoint i32 %.sroa.22.0.insert.shift.i128, 1
+  store i32 %.sroa.0.0.insert.insert.i129, ptr %0, align 2
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %64 = load i16, ptr %63, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i124 = zext i16 %64 to i32
+  %.sroa.22.0.insert.shift.i125 = shl nuw i32 %.sroa.22.0.insert.ext.i124, 16
+  %.sroa.0.0.insert.insert.i126 = or disjoint i32 %.sroa.22.0.insert.shift.i125, 2
+  store i32 %.sroa.0.0.insert.insert.i126, ptr %62, align 2
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = load i16, ptr %2, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i121 = zext i16 %66 to i32
+  %.sroa.22.0.insert.shift.i122 = shl nuw i32 %.sroa.22.0.insert.ext.i121, 16
+  %.sroa.0.0.insert.insert.i123 = or disjoint i32 %.sroa.22.0.insert.shift.i122, 1
+  store i32 %.sroa.0.0.insert.insert.i123, ptr %65, align 2
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %68 = load i16, ptr %56, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i118 = zext i16 %68 to i32
+  %.sroa.22.0.insert.shift.i119 = shl nuw i32 %.sroa.22.0.insert.ext.i118, 16
+  %.sroa.0.0.insert.insert.i120 = or disjoint i32 %.sroa.22.0.insert.shift.i119, 3
+  store i32 %.sroa.0.0.insert.insert.i120, ptr %67, align 2
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %70 = load i16, ptr %2, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i115 = zext i16 %70 to i32
+  %.sroa.22.0.insert.shift.i116 = shl nuw i32 %.sroa.22.0.insert.ext.i115, 16
+  %.sroa.0.0.insert.insert.i117 = or disjoint i32 %.sroa.22.0.insert.shift.i116, 1
+  store i32 %.sroa.0.0.insert.insert.i117, ptr %69, align 2
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %72 = load i16, ptr %63, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i112 = zext i16 %72 to i32
+  %.sroa.22.0.insert.shift.i113 = shl nuw i32 %.sroa.22.0.insert.ext.i112, 16
+  %.sroa.0.0.insert.insert.i114 = or disjoint i32 %.sroa.22.0.insert.shift.i113, 2
+  store i32 %.sroa.0.0.insert.insert.i114, ptr %71, align 2
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %74 = load i16, ptr %2, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i109 = zext i16 %74 to i32
+  %.sroa.22.0.insert.shift.i110 = shl nuw i32 %.sroa.22.0.insert.ext.i109, 16
+  %.sroa.0.0.insert.insert.i111 = or disjoint i32 %.sroa.22.0.insert.shift.i110, 1
+  store i32 %.sroa.0.0.insert.insert.i111, ptr %73, align 2
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %76 = load i16, ptr %54, align 2, !tbaa !3
+  %.sroa.22.0.insert.ext.i = zext i16 %76 to i32
+  %.sroa.22.0.insert.shift.i = shl nuw i32 %.sroa.22.0.insert.ext.i, 16
+  %.sroa.0.0.insert.insert.i = or disjoint i32 %.sroa.22.0.insert.shift.i, 3
+  store i32 %.sroa.0.0.insert.insert.i, ptr %75, align 2
+  br label %77
 
-sw.epilog:                                        ; preds = %if.then38, %if.else47, %if.then, %if.else, %if.end113, %for.end83, %sw.bb, %entry
-  %table_size.0 = phi i32 [ 1, %entry ], [ 8, %if.end113 ], [ 4, %for.end83 ], [ 1, %sw.bb ], [ 2, %if.else ], [ 2, %if.then ], [ 4, %if.else47 ], [ 4, %if.then38 ]
-  %cmp146.not102 = icmp eq i32 %table_size.0, %shl
-  br i1 %cmp146.not102, label %while.end, label %while.body
+77:                                               ; preds = %29, %31, %14, %16, %60, %42, %6, %4
+  %.0 = phi i32 [ 1, %4 ], [ 8, %60 ], [ 4, %42 ], [ 1, %6 ], [ 2, %16 ], [ 2, %14 ], [ 4, %31 ], [ 4, %29 ]
+  %.not177 = icmp eq i32 %.0, %5
+  br i1 %.not177, label %._crit_edge, label %.lr.ph179
 
-while.body:                                       ; preds = %sw.epilog, %while.body
-  %table_size.1103 = phi i32 [ %shl152, %while.body ], [ %table_size.0, %sw.epilog ]
-  %idxprom148 = zext i32 %table_size.1103 to i64
-  %arrayidx149 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table, i64 %idxprom148
-  %mul = shl nuw nsw i64 %idxprom148, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arrayidx149, ptr align 2 %table, i64 %mul, i1 false)
-  %shl152 = shl i32 %table_size.1103, 1
-  %cmp146.not = icmp eq i32 %shl152, %shl
-  br i1 %cmp146.not, label %while.end, label %while.body, !llvm.loop !19
+.lr.ph179:                                        ; preds = %77, %.lr.ph179
+  %.1178 = phi i32 [ %81, %.lr.ph179 ], [ %.0, %77 ]
+  %78 = zext i32 %.1178 to i64
+  %79 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %78
+  %80 = shl nuw nsw i64 %78, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %79, ptr align 2 %0, i64 %80, i1 false)
+  %81 = shl i32 %.1178, 1
+  %.not = icmp eq i32 %81, %5
+  br i1 %.not, label %._crit_edge, label %.lr.ph179, !llvm.loop !25
 
-while.end:                                        ; preds = %while.body, %sw.epilog
-  ret i32 %shl
+._crit_edge:                                      ; preds = %.lr.ph179, %77
+  ret i32 %5
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #2
+declare i32 @llvm.smin.i32(i32, i32) #3
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"short", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!5, !5, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11}

@@ -1,167 +1,168 @@
-; ModuleID = 'bench/brotli/original/utf8_util.c.ll'
-source_filename = "bench/brotli/original/utf8_util.c.ll"
+; ModuleID = 'bench/brotli/original/utf8_util.ll'
+source_filename = "bench/brotli/original/utf8_util.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @BrotliIsMostlyUTF8(ptr noundef readonly captures(none) %data, i64 noundef %pos, i64 noundef %mask, i64 noundef %length, double noundef %min_fraction) local_unnamed_addr #0 {
-entry:
-  %cmp9.not = icmp eq i64 %length, 0
-  br i1 %cmp9.not, label %while.end, label %while.body
+define hidden range(i32 0, 2) i32 @BrotliIsMostlyUTF8(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4) local_unnamed_addr #0 {
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-while.body:                                       ; preds = %entry, %BrotliParseAsUTF8.exit
-  %size_utf8.011 = phi i64 [ %spec.select, %BrotliParseAsUTF8.exit ], [ 0, %entry ]
-  %i.010 = phi i64 [ %add1, %BrotliParseAsUTF8.exit ], [ 0, %entry ]
-  %add = add i64 %i.010, %pos
-  %and = and i64 %add, %mask
-  %arrayidx = getelementptr inbounds i8, ptr %data, i64 %and
-  %sub = sub nuw i64 %length, %i.010
-  %0 = load i8, ptr %arrayidx, align 1
-  %conv.i = zext i8 %0 to i32
-  %or.cond = icmp slt i8 %0, 1
-  br i1 %or.cond, label %if.end7.i, label %BrotliParseAsUTF8.exit
+.lr.ph:                                           ; preds = %5, %BrotliParseAsUTF8.exit
+  %.021 = phi i64 [ %spec.select, %BrotliParseAsUTF8.exit ], [ 0, %5 ]
+  %.01420 = phi i64 [ %86, %BrotliParseAsUTF8.exit ], [ 0, %5 ]
+  %6 = add i64 %.01420, %1
+  %7 = and i64 %6, %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %9 = sub nuw i64 %3, %.01420
+  %10 = load i8, ptr %8, align 1, !tbaa !3
+  %11 = zext i8 %10 to i32
+  %or.cond = icmp slt i8 %10, 1
+  br i1 %or.cond, label %._crit_edge.i, label %BrotliParseAsUTF8.exit
 
-if.end7.i:                                        ; preds = %while.body
-  %cmp8.i = icmp ugt i64 %sub, 1
-  br i1 %cmp8.i, label %land.lhs.true.i, label %if.end124.i
+._crit_edge.i:                                    ; preds = %.lr.ph
+  %12 = icmp ugt i64 %9, 1
+  br i1 %12, label %13, label %.thread35.i
 
-land.lhs.true.i:                                  ; preds = %if.end7.i
-  %and12.i = and i32 %conv.i, 224
-  %cmp13.i = icmp eq i32 %and12.i, 192
-  br i1 %cmp13.i, label %land.lhs.true15.i, label %if.end32.i
+13:                                               ; preds = %._crit_edge.i
+  %14 = and i32 %11, 224
+  %15 = icmp eq i32 %14, 192
+  br i1 %15, label %16, label %._crit_edge41.i
 
-land.lhs.true15.i:                                ; preds = %land.lhs.true.i
-  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
-  %1 = load i8, ptr %arrayidx16.i, align 1
-  %conv17.i = zext i8 %1 to i32
-  %and18.i = and i32 %conv17.i, 192
-  %cmp19.i = icmp eq i32 %and18.i, 128
-  br i1 %cmp19.i, label %if.then21.i, label %if.end32.i
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %18 = load i8, ptr %17, align 1, !tbaa !3
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 192
+  %21 = icmp eq i32 %20, 128
+  br i1 %21, label %22, label %._crit_edge41.i
 
-if.then21.i:                                      ; preds = %land.lhs.true15.i
-  %and24.i = shl nuw nsw i32 %conv.i, 6
-  %shl.i = and i32 %and24.i, 1984
-  %and27.i = and i32 %conv17.i, 63
-  %or.i = or disjoint i32 %and27.i, %shl.i
-  %cmp28.i = icmp samesign ugt i32 %shl.i, 127
-  br i1 %cmp28.i, label %BrotliParseAsUTF8.exit, label %if.end32.i
+22:                                               ; preds = %16
+  %23 = shl nuw nsw i32 %11, 6
+  %24 = and i32 %23, 1984
+  %25 = and i32 %19, 63
+  %26 = or disjoint i32 %25, %24
+  %27 = icmp samesign ugt i32 %24, 127
+  br i1 %27, label %BrotliParseAsUTF8.exit, label %._crit_edge41.i
 
-if.end32.i:                                       ; preds = %if.then21.i, %land.lhs.true15.i, %land.lhs.true.i
-  %cmp33.not.i = icmp eq i64 %sub, 2
-  br i1 %cmp33.not.i, label %if.end124.i, label %land.lhs.true35.i
+._crit_edge41.i:                                  ; preds = %22, %16, %13
+  %.not36.i = icmp eq i64 %9, 2
+  br i1 %.not36.i, label %.thread35.i, label %28
 
-land.lhs.true35.i:                                ; preds = %if.end32.i
-  %and38.i = and i32 %conv.i, 240
-  %cmp39.i = icmp eq i32 %and38.i, 224
-  br i1 %cmp39.i, label %land.lhs.true41.i, label %if.end71.i
+28:                                               ; preds = %._crit_edge41.i
+  %29 = and i32 %11, 240
+  %30 = icmp eq i32 %29, 224
+  br i1 %30, label %31, label %._crit_edge43.i
 
-land.lhs.true41.i:                                ; preds = %land.lhs.true35.i
-  %arrayidx42.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
-  %2 = load i8, ptr %arrayidx42.i, align 1
-  %conv43.i = zext i8 %2 to i32
-  %and44.i = and i32 %conv43.i, 192
-  %cmp45.i = icmp eq i32 %and44.i, 128
-  br i1 %cmp45.i, label %land.lhs.true47.i, label %if.end71.i
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %33 = load i8, ptr %32, align 1, !tbaa !3
+  %34 = zext i8 %33 to i32
+  %35 = and i32 %34, 192
+  %36 = icmp eq i32 %35, 128
+  br i1 %36, label %37, label %._crit_edge43.i
 
-land.lhs.true47.i:                                ; preds = %land.lhs.true41.i
-  %arrayidx48.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
-  %3 = load i8, ptr %arrayidx48.i, align 1
-  %conv49.i = zext i8 %3 to i32
-  %and50.i = and i32 %conv49.i, 192
-  %cmp51.i = icmp eq i32 %and50.i, 128
-  br i1 %cmp51.i, label %if.then53.i, label %if.end71.i
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %39 = load i8, ptr %38, align 1, !tbaa !3
+  %40 = zext i8 %39 to i32
+  %41 = and i32 %40, 192
+  %42 = icmp eq i32 %41, 128
+  br i1 %42, label %43, label %._crit_edge43.i
 
-if.then53.i:                                      ; preds = %land.lhs.true47.i
-  %and56.i = shl nuw nsw i32 %conv.i, 12
-  %shl57.i = and i32 %and56.i, 61440
-  %and60.i = shl nuw nsw i32 %conv43.i, 6
-  %shl61.i = and i32 %and60.i, 4032
-  %or62.i = or disjoint i32 %shl61.i, %shl57.i
-  %and65.i = and i32 %conv49.i, 63
-  %or66.i = or disjoint i32 %and65.i, %or62.i
-  %cmp67.i = icmp samesign ugt i32 %or62.i, 2047
-  br i1 %cmp67.i, label %BrotliParseAsUTF8.exit, label %if.end71.i
+43:                                               ; preds = %37
+  %44 = shl nuw nsw i32 %11, 12
+  %45 = and i32 %44, 61440
+  %46 = shl nuw nsw i32 %34, 6
+  %47 = and i32 %46, 4032
+  %48 = or disjoint i32 %47, %45
+  %49 = and i32 %40, 63
+  %50 = or disjoint i32 %49, %48
+  %51 = icmp samesign ugt i32 %48, 2047
+  br i1 %51, label %BrotliParseAsUTF8.exit, label %._crit_edge43.i
 
-if.end71.i:                                       ; preds = %if.then53.i, %land.lhs.true47.i, %land.lhs.true41.i, %land.lhs.true35.i
-  %cmp72.i = icmp ugt i64 %sub, 3
-  %and77.i = and i32 %conv.i, 248
-  %cmp78.i = icmp eq i32 %and77.i, 240
-  %or.cond8 = and i1 %cmp72.i, %cmp78.i
-  br i1 %or.cond8, label %land.lhs.true80.i, label %if.end124.i
+._crit_edge43.i:                                  ; preds = %43, %37, %31, %28
+  %52 = icmp ugt i64 %9, 3
+  %53 = and i32 %11, 248
+  %54 = icmp eq i32 %53, 240
+  %or.cond19 = and i1 %52, %54
+  br i1 %or.cond19, label %55, label %.thread35.i
 
-land.lhs.true80.i:                                ; preds = %if.end71.i
-  %arrayidx81.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
-  %4 = load i8, ptr %arrayidx81.i, align 1
-  %conv82.i = zext i8 %4 to i32
-  %and83.i = and i32 %conv82.i, 192
-  %cmp84.i = icmp eq i32 %and83.i, 128
-  br i1 %cmp84.i, label %land.lhs.true86.i, label %if.end124.i
+55:                                               ; preds = %._crit_edge43.i
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !3
+  %58 = zext i8 %57 to i32
+  %59 = and i32 %58, 192
+  %60 = icmp eq i32 %59, 128
+  br i1 %60, label %61, label %.thread35.i
 
-land.lhs.true86.i:                                ; preds = %land.lhs.true80.i
-  %arrayidx87.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
-  %5 = load i8, ptr %arrayidx87.i, align 1
-  %conv88.i = zext i8 %5 to i32
-  %and89.i = and i32 %conv88.i, 192
-  %cmp90.i = icmp eq i32 %and89.i, 128
-  br i1 %cmp90.i, label %land.lhs.true92.i, label %if.end124.i
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %63 = load i8, ptr %62, align 1, !tbaa !3
+  %64 = zext i8 %63 to i32
+  %65 = and i32 %64, 192
+  %66 = icmp eq i32 %65, 128
+  br i1 %66, label %67, label %.thread35.i
 
-land.lhs.true92.i:                                ; preds = %land.lhs.true86.i
-  %arrayidx93.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 3
-  %6 = load i8, ptr %arrayidx93.i, align 1
-  %conv94.i = zext i8 %6 to i32
-  %and95.i = and i32 %conv94.i, 192
-  %cmp96.i = icmp eq i32 %and95.i, 128
-  br i1 %cmp96.i, label %if.then98.i, label %if.end124.i
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %69 = load i8, ptr %68, align 1, !tbaa !3
+  %70 = zext i8 %69 to i32
+  %71 = and i32 %70, 192
+  %72 = icmp eq i32 %71, 128
+  br i1 %72, label %73, label %.thread35.i
 
-if.then98.i:                                      ; preds = %land.lhs.true92.i
-  %and101.i = shl nuw nsw i32 %conv.i, 18
-  %shl102.i = and i32 %and101.i, 1835008
-  %and105.i = shl nuw nsw i32 %conv82.i, 12
-  %shl106.i = and i32 %and105.i, 258048
-  %or107.i = or disjoint i32 %shl106.i, %shl102.i
-  %and110.i = shl nuw nsw i32 %conv88.i, 6
-  %shl111.i = and i32 %and110.i, 4032
-  %and115.i = and i32 %conv94.i, 63
-  %7 = or disjoint i32 %shl111.i, %and115.i
-  %or116.i = or disjoint i32 %7, %or107.i
-  %8 = add nsw i32 %or107.i, -65536
-  %or.cond.i = icmp ult i32 %8, 1048576
-  br i1 %or.cond.i, label %BrotliParseAsUTF8.exit, label %if.end124.i
+73:                                               ; preds = %67
+  %74 = shl nuw nsw i32 %11, 18
+  %75 = and i32 %74, 1835008
+  %76 = shl nuw nsw i32 %58, 12
+  %77 = and i32 %76, 258048
+  %78 = or disjoint i32 %77, %75
+  %79 = shl nuw nsw i32 %64, 6
+  %80 = and i32 %79, 4032
+  %81 = and i32 %70, 63
+  %82 = or disjoint i32 %80, %81
+  %83 = or disjoint i32 %82, %78
+  %84 = add nsw i32 %78, -65536
+  %or.cond.i = icmp ult i32 %84, 1048576
+  br i1 %or.cond.i, label %BrotliParseAsUTF8.exit, label %.thread35.i
 
-if.end124.i:                                      ; preds = %if.then98.i, %land.lhs.true92.i, %land.lhs.true86.i, %land.lhs.true80.i, %if.end71.i, %if.end32.i, %if.end7.i
-  %or127.i = or disjoint i32 %conv.i, 1114112
+.thread35.i:                                      ; preds = %73, %67, %61, %55, %._crit_edge43.i, %._crit_edge41.i, %._crit_edge.i
+  %85 = or disjoint i32 %11, 1114112
   br label %BrotliParseAsUTF8.exit
 
-BrotliParseAsUTF8.exit:                           ; preds = %while.body, %if.then21.i, %if.then53.i, %if.then98.i, %if.end124.i
-  %symbol.0 = phi i32 [ %or.i, %if.then21.i ], [ %or127.i, %if.end124.i ], [ %or66.i, %if.then53.i ], [ %or116.i, %if.then98.i ], [ %conv.i, %while.body ]
-  %retval.0.i = phi i64 [ 2, %if.then21.i ], [ 1, %if.end124.i ], [ 3, %if.then53.i ], [ 4, %if.then98.i ], [ 1, %while.body ]
-  %add1 = add i64 %retval.0.i, %i.010
-  %cmp2 = icmp samesign ult i32 %symbol.0, 1114112
-  %add3 = select i1 %cmp2, i64 %retval.0.i, i64 0
-  %spec.select = add i64 %add3, %size_utf8.011
-  %cmp = icmp ult i64 %add1, %length
-  br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !4
+BrotliParseAsUTF8.exit:                           ; preds = %.lr.ph, %22, %43, %73, %.thread35.i
+  %.017 = phi i32 [ %26, %22 ], [ %85, %.thread35.i ], [ %50, %43 ], [ %83, %73 ], [ %11, %.lr.ph ]
+  %.0.i = phi i64 [ 2, %22 ], [ 1, %.thread35.i ], [ 3, %43 ], [ 4, %73 ], [ 1, %.lr.ph ]
+  %86 = add i64 %.0.i, %.01420
+  %87 = icmp samesign ult i32 %.017, 1114112
+  %88 = select i1 %87, i64 %.0.i, i64 0
+  %spec.select = add i64 %88, %.021
+  %89 = icmp ult i64 %86, %3
+  br i1 %89, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
-while.end.loopexit:                               ; preds = %BrotliParseAsUTF8.exit
-  %9 = uitofp i64 %spec.select to double
-  br label %while.end
+._crit_edge.loopexit:                             ; preds = %BrotliParseAsUTF8.exit
+  %90 = uitofp i64 %spec.select to double
+  br label %._crit_edge
 
-while.end:                                        ; preds = %while.end.loopexit, %entry
-  %size_utf8.0.lcssa = phi double [ 0.000000e+00, %entry ], [ %9, %while.end.loopexit ]
-  %conv4 = uitofp i64 %length to double
-  %mul = fmul double %min_fraction, %conv4
-  %cmp5 = fcmp olt double %mul, %size_utf8.0.lcssa
-  %cond = zext i1 %cmp5 to i32
-  ret i32 %cond
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
+  %.0.lcssa = phi double [ 0.000000e+00, %5 ], [ %90, %._crit_edge.loopexit ]
+  %91 = uitofp i64 %3 to double
+  %92 = fmul double %4, %91
+  %93 = fcmp olt double %92, %.0.lcssa
+  %94 = zext i1 %93 to i32
+  ret i32 %94
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

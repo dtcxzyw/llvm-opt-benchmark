@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.BlockSplitIterator = type { ptr, i64, i64, i64 }
 %struct.Command = type { i32, i32, i32, i16, i16 }
@@ -11,445 +11,550 @@ target triple = "x86_64-unknown-linux-gnu"
 @_kBrotliContextLookupTable = external constant [2048 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliBuildHistogramsWithContext(ptr noundef %cmds, i64 noundef %num_commands, ptr noundef %literal_split, ptr noundef %insert_and_copy_split, ptr noundef %dist_split, ptr noundef %ringbuffer, i64 noundef %start_pos, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, ptr noundef %context_modes, ptr noundef %literal_histograms, ptr noundef %insert_and_copy_histograms, ptr noundef %copy_dist_histograms) #0 {
-entry:
-  %self.addr.i65 = alloca ptr, align 8
-  %val.addr.i66 = alloca i64, align 8
-  %retval.i = alloca i32, align 4
-  %self.addr.i63 = alloca ptr, align 8
-  %r.i = alloca i32, align 4
-  %c.i = alloca i32, align 4
-  %self.addr.i60 = alloca ptr, align 8
-  %self.addr.i59 = alloca ptr, align 8
-  %self.addr.i53 = alloca ptr, align 8
-  %val.addr.i54 = alloca i64, align 8
-  %self.addr.i = alloca ptr, align 8
-  %val.addr.i = alloca i64, align 8
-  %cmds.addr = alloca ptr, align 8
-  %num_commands.addr = alloca i64, align 8
-  %literal_split.addr = alloca ptr, align 8
-  %insert_and_copy_split.addr = alloca ptr, align 8
-  %dist_split.addr = alloca ptr, align 8
-  %ringbuffer.addr = alloca ptr, align 8
-  %start_pos.addr = alloca i64, align 8
-  %mask.addr = alloca i64, align 8
-  %prev_byte.addr = alloca i8, align 1
-  %prev_byte2.addr = alloca i8, align 1
-  %context_modes.addr = alloca ptr, align 8
-  %literal_histograms.addr = alloca ptr, align 8
-  %insert_and_copy_histograms.addr = alloca ptr, align 8
-  %copy_dist_histograms.addr = alloca ptr, align 8
-  %pos = alloca i64, align 8
-  %literal_it = alloca %struct.BlockSplitIterator, align 8
-  %insert_and_copy_it = alloca %struct.BlockSplitIterator, align 8
-  %dist_it = alloca %struct.BlockSplitIterator, align 8
-  %i = alloca i64, align 8
-  %cmd = alloca ptr, align 8
-  %j = alloca i64, align 8
-  %context = alloca i64, align 8
-  %lut = alloca ptr, align 8
-  %context38 = alloca i64, align 8
-  store ptr %cmds, ptr %cmds.addr, align 8
-  store i64 %num_commands, ptr %num_commands.addr, align 8
-  store ptr %literal_split, ptr %literal_split.addr, align 8
-  store ptr %insert_and_copy_split, ptr %insert_and_copy_split.addr, align 8
-  store ptr %dist_split, ptr %dist_split.addr, align 8
-  store ptr %ringbuffer, ptr %ringbuffer.addr, align 8
-  store i64 %start_pos, ptr %start_pos.addr, align 8
-  store i64 %mask, ptr %mask.addr, align 8
-  store i8 %prev_byte, ptr %prev_byte.addr, align 1
-  store i8 %prev_byte2, ptr %prev_byte2.addr, align 1
-  store ptr %context_modes, ptr %context_modes.addr, align 8
-  store ptr %literal_histograms, ptr %literal_histograms.addr, align 8
-  store ptr %insert_and_copy_histograms, ptr %insert_and_copy_histograms.addr, align 8
-  store ptr %copy_dist_histograms, ptr %copy_dist_histograms.addr, align 8
-  %0 = load i64, ptr %start_pos.addr, align 8
-  store i64 %0, ptr %pos, align 8
-  %1 = load ptr, ptr %literal_split.addr, align 8
-  call void @InitBlockSplitIterator(ptr noundef %literal_it, ptr noundef %1)
-  %2 = load ptr, ptr %insert_and_copy_split.addr, align 8
-  call void @InitBlockSplitIterator(ptr noundef %insert_and_copy_it, ptr noundef %2)
-  %3 = load ptr, ptr %dist_split.addr, align 8
-  call void @InitBlockSplitIterator(ptr noundef %dist_it, ptr noundef %3)
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define hidden void @BrotliBuildHistogramsWithContext(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7, i8 noundef zeroext %8, i8 noundef zeroext %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) #0 {
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i8, align 1
+  %24 = alloca i8, align 1
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca i64, align 8
+  %30 = alloca %struct.BlockSplitIterator, align 8
+  %31 = alloca %struct.BlockSplitIterator, align 8
+  %32 = alloca %struct.BlockSplitIterator, align 8
+  %33 = alloca i64, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca i64, align 8
+  %36 = alloca i64, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca i64, align 8
+  store ptr %0, ptr %15, align 8, !tbaa !3
+  store i64 %1, ptr %16, align 8, !tbaa !8
+  store ptr %2, ptr %17, align 8, !tbaa !10
+  store ptr %3, ptr %18, align 8, !tbaa !10
+  store ptr %4, ptr %19, align 8, !tbaa !10
+  store ptr %5, ptr %20, align 8, !tbaa !12
+  store i64 %6, ptr %21, align 8, !tbaa !8
+  store i64 %7, ptr %22, align 8, !tbaa !8
+  store i8 %8, ptr %23, align 1, !tbaa !14
+  store i8 %9, ptr %24, align 1, !tbaa !14
+  store ptr %10, ptr %25, align 8, !tbaa !15
+  store ptr %11, ptr %26, align 8, !tbaa !16
+  store ptr %12, ptr %27, align 8, !tbaa !18
+  store ptr %13, ptr %28, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #3
+  %39 = load i64, ptr %21, align 8, !tbaa !8
+  store i64 %39, ptr %29, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %30) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %31) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %32) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #3
+  %40 = load ptr, ptr %17, align 8, !tbaa !10
+  call void @InitBlockSplitIterator(ptr noundef %30, ptr noundef %40)
+  %41 = load ptr, ptr %18, align 8, !tbaa !10
+  call void @InitBlockSplitIterator(ptr noundef %31, ptr noundef %41)
+  %42 = load ptr, ptr %19, align 8, !tbaa !10
+  call void @InitBlockSplitIterator(ptr noundef %32, ptr noundef %42)
+  store i64 0, ptr %33, align 8, !tbaa !8
+  br label %43
 
-for.cond:                                         ; preds = %for.inc50, %entry
-  %4 = load i64, ptr %i, align 8
-  %5 = load i64, ptr %num_commands.addr, align 8
-  %cmp = icmp ult i64 %4, %5
-  br i1 %cmp, label %for.body, label %for.end52
+43:                                               ; preds = %168, %14
+  %44 = load i64, ptr %33, align 8, !tbaa !8
+  %45 = load i64, ptr %16, align 8, !tbaa !8
+  %46 = icmp ult i64 %44, %45
+  br i1 %46, label %47, label %171
 
-for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %cmds.addr, align 8
-  %7 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds %struct.Command, ptr %6, i64 %7
-  store ptr %arrayidx, ptr %cmd, align 8
-  call void @BlockSplitIteratorNext(ptr noundef %insert_and_copy_it)
-  %8 = load ptr, ptr %insert_and_copy_histograms.addr, align 8
-  %type_ = getelementptr inbounds %struct.BlockSplitIterator, ptr %insert_and_copy_it, i32 0, i32 2
-  %9 = load i64, ptr %type_, align 8
-  %arrayidx1 = getelementptr inbounds %struct.HistogramCommand, ptr %8, i64 %9
-  %10 = load ptr, ptr %cmd, align 8
-  %cmd_prefix_ = getelementptr inbounds %struct.Command, ptr %10, i32 0, i32 3
-  %11 = load i16, ptr %cmd_prefix_, align 4
-  %conv = zext i16 %11 to i64
-  store ptr %arrayidx1, ptr %self.addr.i, align 8
-  store i64 %conv, ptr %val.addr.i, align 8
-  %12 = load ptr, ptr %self.addr.i, align 8
-  %13 = load i64, ptr %val.addr.i, align 8
-  %arrayidx.i = getelementptr inbounds [704 x i32], ptr %12, i64 0, i64 %13
-  %14 = load i32, ptr %arrayidx.i, align 4
-  %inc.i = add i32 %14, 1
-  store i32 %inc.i, ptr %arrayidx.i, align 4
-  %15 = load ptr, ptr %self.addr.i, align 8
-  %total_count_.i = getelementptr inbounds %struct.HistogramCommand, ptr %15, i32 0, i32 1
-  %16 = load i64, ptr %total_count_.i, align 8
-  %inc1.i = add i64 %16, 1
-  store i64 %inc1.i, ptr %total_count_.i, align 8
-  %17 = load ptr, ptr %cmd, align 8
-  %insert_len_ = getelementptr inbounds %struct.Command, ptr %17, i32 0, i32 0
-  %18 = load i32, ptr %insert_len_, align 4
-  %conv2 = zext i32 %18 to i64
-  store i64 %conv2, ptr %j, align 8
-  br label %for.cond3
+47:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #3
+  %48 = load ptr, ptr %15, align 8, !tbaa !3
+  %49 = load i64, ptr %33, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.Command, ptr %48, i64 %49
+  store ptr %50, ptr %34, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #3
+  call void @BlockSplitIteratorNext(ptr noundef %31)
+  %51 = load ptr, ptr %27, align 8, !tbaa !18
+  %52 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %31, i32 0, i32 2
+  %53 = load i64, ptr %52, align 8, !tbaa !22
+  %54 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %51, i64 %53
+  %55 = load ptr, ptr %34, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.Command, ptr %55, i32 0, i32 3
+  %57 = load i16, ptr %56, align 4, !tbaa !24
+  %58 = zext i16 %57 to i64
+  call void @HistogramAddCommand(ptr noundef %54, i64 noundef %58)
+  %59 = load ptr, ptr %34, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.Command, ptr %59, i32 0, i32 0
+  %61 = load i32, ptr %60, align 4, !tbaa !28
+  %62 = zext i32 %61 to i64
+  store i64 %62, ptr %35, align 8, !tbaa !8
+  br label %63
 
-for.cond3:                                        ; preds = %for.inc, %for.body
-  %19 = load i64, ptr %j, align 8
-  %cmp4 = icmp ne i64 %19, 0
-  br i1 %cmp4, label %for.body6, label %for.end
+63:                                               ; preds = %117, %47
+  %64 = load i64, ptr %35, align 8, !tbaa !8
+  %65 = icmp ne i64 %64, 0
+  br i1 %65, label %66, label %120
 
-for.body6:                                        ; preds = %for.cond3
-  call void @BlockSplitIteratorNext(ptr noundef %literal_it)
-  %type_7 = getelementptr inbounds %struct.BlockSplitIterator, ptr %literal_it, i32 0, i32 2
-  %20 = load i64, ptr %type_7, align 8
-  store i64 %20, ptr %context, align 8
-  %21 = load ptr, ptr %context_modes.addr, align 8
-  %tobool = icmp ne ptr %21, null
-  br i1 %tobool, label %if.then, label %if.end
+66:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #3
+  call void @BlockSplitIteratorNext(ptr noundef %30)
+  %67 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %30, i32 0, i32 2
+  %68 = load i64, ptr %67, align 8, !tbaa !22
+  store i64 %68, ptr %36, align 8, !tbaa !8
+  %69 = load ptr, ptr %25, align 8, !tbaa !15
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %97
 
-if.then:                                          ; preds = %for.body6
-  %22 = load ptr, ptr %context_modes.addr, align 8
-  %23 = load i64, ptr %context, align 8
-  %arrayidx8 = getelementptr inbounds i32, ptr %22, i64 %23
-  %24 = load i32, ptr %arrayidx8, align 4
-  %shl = shl i32 %24, 9
-  %idxprom = zext i32 %shl to i64
-  %arrayidx9 = getelementptr inbounds [2048 x i8], ptr @_kBrotliContextLookupTable, i64 0, i64 %idxprom
-  store ptr %arrayidx9, ptr %lut, align 8
-  %25 = load i64, ptr %context, align 8
-  %shl10 = shl i64 %25, 6
-  %26 = load ptr, ptr %lut, align 8
-  %27 = load i8, ptr %prev_byte.addr, align 1
-  %idxprom11 = zext i8 %27 to i64
-  %arrayidx12 = getelementptr inbounds i8, ptr %26, i64 %idxprom11
-  %28 = load i8, ptr %arrayidx12, align 1
-  %conv13 = zext i8 %28 to i32
-  %29 = load ptr, ptr %lut, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %29, i64 256
-  %30 = load i8, ptr %prev_byte2.addr, align 1
-  %idxprom14 = zext i8 %30 to i64
-  %arrayidx15 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom14
-  %31 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %31 to i32
-  %or = or i32 %conv13, %conv16
-  %conv17 = sext i32 %or to i64
-  %add = add i64 %shl10, %conv17
-  store i64 %add, ptr %context, align 8
-  br label %if.end
+71:                                               ; preds = %66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #3
+  %72 = load ptr, ptr %25, align 8, !tbaa !15
+  %73 = load i64, ptr %36, align 8, !tbaa !8
+  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %75 = load i32, ptr %74, align 4, !tbaa !29
+  %76 = shl i32 %75, 9
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw [2048 x i8], ptr @_kBrotliContextLookupTable, i64 0, i64 %77
+  store ptr %78, ptr %37, align 8, !tbaa !12
+  %79 = load i64, ptr %36, align 8, !tbaa !8
+  %80 = shl i64 %79, 6
+  %81 = load ptr, ptr %37, align 8, !tbaa !12
+  %82 = load i8, ptr %23, align 1, !tbaa !14
+  %83 = zext i8 %82 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %83
+  %85 = load i8, ptr %84, align 1, !tbaa !14
+  %86 = zext i8 %85 to i32
+  %87 = load ptr, ptr %37, align 8, !tbaa !12
+  %88 = getelementptr inbounds i8, ptr %87, i64 256
+  %89 = load i8, ptr %24, align 1, !tbaa !14
+  %90 = zext i8 %89 to i64
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %90
+  %92 = load i8, ptr %91, align 1, !tbaa !14
+  %93 = zext i8 %92 to i32
+  %94 = or i32 %86, %93
+  %95 = sext i32 %94 to i64
+  %96 = add i64 %80, %95
+  store i64 %96, ptr %36, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #3
+  br label %97
 
-if.end:                                           ; preds = %if.then, %for.body6
-  %32 = load ptr, ptr %literal_histograms.addr, align 8
-  %33 = load i64, ptr %context, align 8
-  %arrayidx18 = getelementptr inbounds %struct.HistogramLiteral, ptr %32, i64 %33
-  %34 = load ptr, ptr %ringbuffer.addr, align 8
-  %35 = load i64, ptr %pos, align 8
-  %36 = load i64, ptr %mask.addr, align 8
-  %and = and i64 %35, %36
-  %arrayidx19 = getelementptr inbounds i8, ptr %34, i64 %and
-  %37 = load i8, ptr %arrayidx19, align 1
-  %conv20 = zext i8 %37 to i64
-  store ptr %arrayidx18, ptr %self.addr.i53, align 8
-  store i64 %conv20, ptr %val.addr.i54, align 8
-  %38 = load ptr, ptr %self.addr.i53, align 8
-  %39 = load i64, ptr %val.addr.i54, align 8
-  %arrayidx.i55 = getelementptr inbounds [256 x i32], ptr %38, i64 0, i64 %39
-  %40 = load i32, ptr %arrayidx.i55, align 4
-  %inc.i56 = add i32 %40, 1
-  store i32 %inc.i56, ptr %arrayidx.i55, align 4
-  %41 = load ptr, ptr %self.addr.i53, align 8
-  %total_count_.i57 = getelementptr inbounds %struct.HistogramLiteral, ptr %41, i32 0, i32 1
-  %42 = load i64, ptr %total_count_.i57, align 8
-  %inc1.i58 = add i64 %42, 1
-  store i64 %inc1.i58, ptr %total_count_.i57, align 8
-  %43 = load i8, ptr %prev_byte.addr, align 1
-  store i8 %43, ptr %prev_byte2.addr, align 1
-  %44 = load ptr, ptr %ringbuffer.addr, align 8
-  %45 = load i64, ptr %pos, align 8
-  %46 = load i64, ptr %mask.addr, align 8
-  %and21 = and i64 %45, %46
-  %arrayidx22 = getelementptr inbounds i8, ptr %44, i64 %and21
-  %47 = load i8, ptr %arrayidx22, align 1
-  store i8 %47, ptr %prev_byte.addr, align 1
-  %48 = load i64, ptr %pos, align 8
-  %inc = add i64 %48, 1
-  store i64 %inc, ptr %pos, align 8
-  br label %for.inc
+97:                                               ; preds = %71, %66
+  %98 = load ptr, ptr %26, align 8, !tbaa !16
+  %99 = load i64, ptr %36, align 8, !tbaa !8
+  %100 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %98, i64 %99
+  %101 = load ptr, ptr %20, align 8, !tbaa !12
+  %102 = load i64, ptr %29, align 8, !tbaa !8
+  %103 = load i64, ptr %22, align 8, !tbaa !8
+  %104 = and i64 %102, %103
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !14
+  %107 = zext i8 %106 to i64
+  call void @HistogramAddLiteral(ptr noundef %100, i64 noundef %107)
+  %108 = load i8, ptr %23, align 1, !tbaa !14
+  store i8 %108, ptr %24, align 1, !tbaa !14
+  %109 = load ptr, ptr %20, align 8, !tbaa !12
+  %110 = load i64, ptr %29, align 8, !tbaa !8
+  %111 = load i64, ptr %22, align 8, !tbaa !8
+  %112 = and i64 %110, %111
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 %112
+  %114 = load i8, ptr %113, align 1, !tbaa !14
+  store i8 %114, ptr %23, align 1, !tbaa !14
+  %115 = load i64, ptr %29, align 8, !tbaa !8
+  %116 = add i64 %115, 1
+  store i64 %116, ptr %29, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #3
+  br label %117
 
-for.inc:                                          ; preds = %if.end
-  %49 = load i64, ptr %j, align 8
-  %dec = add i64 %49, -1
-  store i64 %dec, ptr %j, align 8
-  br label %for.cond3, !llvm.loop !4
+117:                                              ; preds = %97
+  %118 = load i64, ptr %35, align 8, !tbaa !8
+  %119 = add i64 %118, -1
+  store i64 %119, ptr %35, align 8, !tbaa !8
+  br label %63, !llvm.loop !30
 
-for.end:                                          ; preds = %for.cond3
-  %50 = load ptr, ptr %cmd, align 8
-  store ptr %50, ptr %self.addr.i60, align 8
-  %51 = load ptr, ptr %self.addr.i60, align 8
-  %copy_len_.i61 = getelementptr inbounds %struct.Command, ptr %51, i32 0, i32 1
-  %52 = load i32, ptr %copy_len_.i61, align 4
-  %and.i62 = and i32 %52, 33554431
-  %conv23 = zext i32 %and.i62 to i64
-  %53 = load i64, ptr %pos, align 8
-  %add24 = add i64 %53, %conv23
-  store i64 %add24, ptr %pos, align 8
-  %54 = load ptr, ptr %cmd, align 8
-  store ptr %54, ptr %self.addr.i59, align 8
-  %55 = load ptr, ptr %self.addr.i59, align 8
-  %copy_len_.i = getelementptr inbounds %struct.Command, ptr %55, i32 0, i32 1
-  %56 = load i32, ptr %copy_len_.i, align 4
-  %and.i = and i32 %56, 33554431
-  %tobool26 = icmp ne i32 %and.i, 0
-  br i1 %tobool26, label %if.then27, label %if.end49
+120:                                              ; preds = %63
+  %121 = load ptr, ptr %34, align 8, !tbaa !3
+  %122 = call i32 @CommandCopyLen(ptr noundef %121)
+  %123 = zext i32 %122 to i64
+  %124 = load i64, ptr %29, align 8, !tbaa !8
+  %125 = add i64 %124, %123
+  store i64 %125, ptr %29, align 8, !tbaa !8
+  %126 = load ptr, ptr %34, align 8, !tbaa !3
+  %127 = call i32 @CommandCopyLen(ptr noundef %126)
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %167
 
-if.then27:                                        ; preds = %for.end
-  %57 = load ptr, ptr %ringbuffer.addr, align 8
-  %58 = load i64, ptr %pos, align 8
-  %sub = sub i64 %58, 2
-  %59 = load i64, ptr %mask.addr, align 8
-  %and28 = and i64 %sub, %59
-  %arrayidx29 = getelementptr inbounds i8, ptr %57, i64 %and28
-  %60 = load i8, ptr %arrayidx29, align 1
-  store i8 %60, ptr %prev_byte2.addr, align 1
-  %61 = load ptr, ptr %ringbuffer.addr, align 8
-  %62 = load i64, ptr %pos, align 8
-  %sub30 = sub i64 %62, 1
-  %63 = load i64, ptr %mask.addr, align 8
-  %and31 = and i64 %sub30, %63
-  %arrayidx32 = getelementptr inbounds i8, ptr %61, i64 %and31
-  %64 = load i8, ptr %arrayidx32, align 1
-  store i8 %64, ptr %prev_byte.addr, align 1
-  %65 = load ptr, ptr %cmd, align 8
-  %cmd_prefix_33 = getelementptr inbounds %struct.Command, ptr %65, i32 0, i32 3
-  %66 = load i16, ptr %cmd_prefix_33, align 4
-  %conv34 = zext i16 %66 to i32
-  %cmp35 = icmp sge i32 %conv34, 128
-  br i1 %cmp35, label %if.then37, label %if.end48
+129:                                              ; preds = %120
+  %130 = load ptr, ptr %20, align 8, !tbaa !12
+  %131 = load i64, ptr %29, align 8, !tbaa !8
+  %132 = sub i64 %131, 2
+  %133 = load i64, ptr %22, align 8, !tbaa !8
+  %134 = and i64 %132, %133
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 %134
+  %136 = load i8, ptr %135, align 1, !tbaa !14
+  store i8 %136, ptr %24, align 1, !tbaa !14
+  %137 = load ptr, ptr %20, align 8, !tbaa !12
+  %138 = load i64, ptr %29, align 8, !tbaa !8
+  %139 = sub i64 %138, 1
+  %140 = load i64, ptr %22, align 8, !tbaa !8
+  %141 = and i64 %139, %140
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 %141
+  %143 = load i8, ptr %142, align 1, !tbaa !14
+  store i8 %143, ptr %23, align 1, !tbaa !14
+  %144 = load ptr, ptr %34, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw %struct.Command, ptr %144, i32 0, i32 3
+  %146 = load i16, ptr %145, align 4, !tbaa !24
+  %147 = zext i16 %146 to i32
+  %148 = icmp sge i32 %147, 128
+  br i1 %148, label %149, label %166
 
-if.then37:                                        ; preds = %if.then27
-  call void @BlockSplitIteratorNext(ptr noundef %dist_it)
-  %type_39 = getelementptr inbounds %struct.BlockSplitIterator, ptr %dist_it, i32 0, i32 2
-  %67 = load i64, ptr %type_39, align 8
-  %shl40 = shl i64 %67, 2
-  %68 = load ptr, ptr %cmd, align 8
-  store ptr %68, ptr %self.addr.i63, align 8
-  %69 = load ptr, ptr %self.addr.i63, align 8
-  %cmd_prefix_.i = getelementptr inbounds %struct.Command, ptr %69, i32 0, i32 3
-  %70 = load i16, ptr %cmd_prefix_.i, align 4
-  %conv.i = zext i16 %70 to i32
-  %shr.i = ashr i32 %conv.i, 6
-  store i32 %shr.i, ptr %r.i, align 4
-  %71 = load ptr, ptr %self.addr.i63, align 8
-  %cmd_prefix_1.i = getelementptr inbounds %struct.Command, ptr %71, i32 0, i32 3
-  %72 = load i16, ptr %cmd_prefix_1.i, align 4
-  %conv2.i = zext i16 %72 to i32
-  %and.i64 = and i32 %conv2.i, 7
-  store i32 %and.i64, ptr %c.i, align 4
-  %73 = load i32, ptr %r.i, align 4
-  %cmp.i = icmp eq i32 %73, 0
-  br i1 %cmp.i, label %land.lhs.true.i, label %lor.lhs.false.i
+149:                                              ; preds = %129
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #3
+  call void @BlockSplitIteratorNext(ptr noundef %32)
+  %150 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %32, i32 0, i32 2
+  %151 = load i64, ptr %150, align 8, !tbaa !22
+  %152 = shl i64 %151, 2
+  %153 = load ptr, ptr %34, align 8, !tbaa !3
+  %154 = call i32 @CommandDistanceContext(ptr noundef %153)
+  %155 = zext i32 %154 to i64
+  %156 = add i64 %152, %155
+  store i64 %156, ptr %38, align 8, !tbaa !8
+  %157 = load ptr, ptr %28, align 8, !tbaa !20
+  %158 = load i64, ptr %38, align 8, !tbaa !8
+  %159 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %157, i64 %158
+  %160 = load ptr, ptr %34, align 8, !tbaa !3
+  %161 = getelementptr inbounds nuw %struct.Command, ptr %160, i32 0, i32 4
+  %162 = load i16, ptr %161, align 2, !tbaa !32
+  %163 = zext i16 %162 to i32
+  %164 = and i32 %163, 1023
+  %165 = sext i32 %164 to i64
+  call void @HistogramAddDistance(ptr noundef %159, i64 noundef %165)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #3
+  br label %166
 
-lor.lhs.false.i:                                  ; preds = %if.then37
-  %74 = load i32, ptr %r.i, align 4
-  %cmp4.i = icmp eq i32 %74, 2
-  br i1 %cmp4.i, label %land.lhs.true.i, label %lor.lhs.false6.i
+166:                                              ; preds = %149, %129
+  br label %167
 
-lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
-  %75 = load i32, ptr %r.i, align 4
-  %cmp7.i = icmp eq i32 %75, 4
-  br i1 %cmp7.i, label %land.lhs.true.i, label %lor.lhs.false9.i
+167:                                              ; preds = %166, %120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #3
+  br label %168
 
-lor.lhs.false9.i:                                 ; preds = %lor.lhs.false6.i
-  %76 = load i32, ptr %r.i, align 4
-  %cmp10.i = icmp eq i32 %76, 7
-  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end.i
+168:                                              ; preds = %167
+  %169 = load i64, ptr %33, align 8, !tbaa !8
+  %170 = add i64 %169, 1
+  store i64 %170, ptr %33, align 8, !tbaa !8
+  br label %43, !llvm.loop !33
 
-land.lhs.true.i:                                  ; preds = %lor.lhs.false9.i, %lor.lhs.false6.i, %lor.lhs.false.i, %if.then37
-  %77 = load i32, ptr %c.i, align 4
-  %cmp12.i = icmp ule i32 %77, 2
-  br i1 %cmp12.i, label %if.then.i, label %if.end.i
+171:                                              ; preds = %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %32) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %31) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %30) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #3
+  ret void
+}
 
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %78 = load i32, ptr %c.i, align 4
-  store i32 %78, ptr %retval.i, align 4
-  br label %CommandDistanceContext.exit
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-if.end.i:                                         ; preds = %land.lhs.true.i, %lor.lhs.false9.i
-  store i32 3, ptr %retval.i, align 4
-  br label %CommandDistanceContext.exit
+; Function Attrs: nounwind uwtable
+define internal void @InitBlockSplitIterator(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !34
+  %7 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %6, i32 0, i32 0
+  store ptr %5, ptr %7, align 8, !tbaa !36
+  %8 = load ptr, ptr %3, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %8, i32 0, i32 1
+  store i64 0, ptr %9, align 8, !tbaa !37
+  %10 = load ptr, ptr %3, align 8, !tbaa !34
+  %11 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %10, i32 0, i32 2
+  store i64 0, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %4, align 8, !tbaa !10
+  %13 = getelementptr inbounds nuw %struct.BlockSplit, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8, !tbaa !38
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %22
 
-CommandDistanceContext.exit:                      ; preds = %if.end.i, %if.then.i
-  %79 = load i32, ptr %retval.i, align 4
-  %conv42 = zext i32 %79 to i64
-  %add43 = add i64 %shl40, %conv42
-  store i64 %add43, ptr %context38, align 8
-  %80 = load ptr, ptr %copy_dist_histograms.addr, align 8
-  %81 = load i64, ptr %context38, align 8
-  %arrayidx44 = getelementptr inbounds %struct.HistogramDistance, ptr %80, i64 %81
-  %82 = load ptr, ptr %cmd, align 8
-  %dist_prefix_ = getelementptr inbounds %struct.Command, ptr %82, i32 0, i32 4
-  %83 = load i16, ptr %dist_prefix_, align 2
-  %conv45 = zext i16 %83 to i32
-  %and46 = and i32 %conv45, 1023
-  %conv47 = sext i32 %and46 to i64
-  store ptr %arrayidx44, ptr %self.addr.i65, align 8
-  store i64 %conv47, ptr %val.addr.i66, align 8
-  %84 = load ptr, ptr %self.addr.i65, align 8
-  %85 = load i64, ptr %val.addr.i66, align 8
-  %arrayidx.i67 = getelementptr inbounds [544 x i32], ptr %84, i64 0, i64 %85
-  %86 = load i32, ptr %arrayidx.i67, align 4
-  %inc.i68 = add i32 %86, 1
-  store i32 %inc.i68, ptr %arrayidx.i67, align 4
-  %87 = load ptr, ptr %self.addr.i65, align 8
-  %total_count_.i69 = getelementptr inbounds %struct.HistogramDistance, ptr %87, i32 0, i32 1
-  %88 = load i64, ptr %total_count_.i69, align 8
-  %inc1.i70 = add i64 %88, 1
-  store i64 %inc1.i70, ptr %total_count_.i69, align 8
-  br label %if.end48
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw %struct.BlockSplit, ptr %17, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
+  %20 = getelementptr inbounds i32, ptr %19, i64 0
+  %21 = load i32, ptr %20, align 4, !tbaa !29
+  br label %23
 
-if.end48:                                         ; preds = %CommandDistanceContext.exit, %if.then27
-  br label %if.end49
+22:                                               ; preds = %2
+  br label %23
 
-if.end49:                                         ; preds = %if.end48, %for.end
-  br label %for.inc50
-
-for.inc50:                                        ; preds = %if.end49
-  %89 = load i64, ptr %i, align 8
-  %inc51 = add i64 %89, 1
-  store i64 %inc51, ptr %i, align 8
-  br label %for.cond, !llvm.loop !6
-
-for.end52:                                        ; preds = %for.cond
+23:                                               ; preds = %22, %16
+  %24 = phi i32 [ %21, %16 ], [ 0, %22 ]
+  %25 = zext i32 %24 to i64
+  %26 = load ptr, ptr %3, align 8, !tbaa !34
+  %27 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %26, i32 0, i32 3
+  store i64 %25, ptr %27, align 8, !tbaa !41
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @InitBlockSplitIterator(ptr noundef %self, ptr noundef %split) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %split.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %split, ptr %split.addr, align 8
-  %0 = load ptr, ptr %split.addr, align 8
-  %1 = load ptr, ptr %self.addr, align 8
-  %split_ = getelementptr inbounds %struct.BlockSplitIterator, ptr %1, i32 0, i32 0
-  store ptr %0, ptr %split_, align 8
-  %2 = load ptr, ptr %self.addr, align 8
-  %idx_ = getelementptr inbounds %struct.BlockSplitIterator, ptr %2, i32 0, i32 1
-  store i64 0, ptr %idx_, align 8
-  %3 = load ptr, ptr %self.addr, align 8
-  %type_ = getelementptr inbounds %struct.BlockSplitIterator, ptr %3, i32 0, i32 2
-  store i64 0, ptr %type_, align 8
-  %4 = load ptr, ptr %split.addr, align 8
-  %lengths = getelementptr inbounds %struct.BlockSplit, ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %lengths, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define internal void @BlockSplitIteratorNext(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %4 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %3, i32 0, i32 3
+  %5 = load i64, ptr %4, align 8, !tbaa !41
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %38
 
-cond.true:                                        ; preds = %entry
-  %6 = load ptr, ptr %split.addr, align 8
-  %lengths1 = getelementptr inbounds %struct.BlockSplit, ptr %6, i32 0, i32 3
-  %7 = load ptr, ptr %lengths1, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %7, i64 0
-  %8 = load i32, ptr %arrayidx, align 4
-  br label %cond.end
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %8, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !37
+  %11 = add i64 %10, 1
+  store i64 %11, ptr %9, align 8, !tbaa !37
+  %12 = load ptr, ptr %2, align 8, !tbaa !34
+  %13 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !36
+  %15 = getelementptr inbounds nuw %struct.BlockSplit, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
+  %17 = load ptr, ptr %2, align 8, !tbaa !34
+  %18 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8, !tbaa !37
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !14
+  %22 = zext i8 %21 to i64
+  %23 = load ptr, ptr %2, align 8, !tbaa !34
+  %24 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %23, i32 0, i32 2
+  store i64 %22, ptr %24, align 8, !tbaa !22
+  %25 = load ptr, ptr %2, align 8, !tbaa !34
+  %26 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !36
+  %28 = getelementptr inbounds nuw %struct.BlockSplit, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8, !tbaa !38
+  %30 = load ptr, ptr %2, align 8, !tbaa !34
+  %31 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %30, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8, !tbaa !37
+  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !29
+  %35 = zext i32 %34 to i64
+  %36 = load ptr, ptr %2, align 8, !tbaa !34
+  %37 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %36, i32 0, i32 3
+  store i64 %35, ptr %37, align 8, !tbaa !41
+  br label %38
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %8, %cond.true ], [ 0, %cond.false ]
-  %conv = zext i32 %cond to i64
-  %9 = load ptr, ptr %self.addr, align 8
-  %length_ = getelementptr inbounds %struct.BlockSplitIterator, ptr %9, i32 0, i32 3
-  store i64 %conv, ptr %length_, align 8
+38:                                               ; preds = %7, %1
+  %39 = load ptr, ptr %2, align 8, !tbaa !34
+  %40 = getelementptr inbounds nuw %struct.BlockSplitIterator, ptr %39, i32 0, i32 3
+  %41 = load i64, ptr %40, align 8, !tbaa !41
+  %42 = add i64 %41, -1
+  store i64 %42, ptr %40, align 8, !tbaa !41
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @BlockSplitIteratorNext(ptr noundef %self) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %length_ = getelementptr inbounds %struct.BlockSplitIterator, ptr %0, i32 0, i32 3
-  %1 = load i64, ptr %length_, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %self.addr, align 8
-  %idx_ = getelementptr inbounds %struct.BlockSplitIterator, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %idx_, align 8
-  %inc = add i64 %3, 1
-  store i64 %inc, ptr %idx_, align 8
-  %4 = load ptr, ptr %self.addr, align 8
-  %split_ = getelementptr inbounds %struct.BlockSplitIterator, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %split_, align 8
-  %types = getelementptr inbounds %struct.BlockSplit, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %types, align 8
-  %7 = load ptr, ptr %self.addr, align 8
-  %idx_1 = getelementptr inbounds %struct.BlockSplitIterator, ptr %7, i32 0, i32 1
-  %8 = load i64, ptr %idx_1, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %6, i64 %8
-  %9 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %9 to i64
-  %10 = load ptr, ptr %self.addr, align 8
-  %type_ = getelementptr inbounds %struct.BlockSplitIterator, ptr %10, i32 0, i32 2
-  store i64 %conv, ptr %type_, align 8
-  %11 = load ptr, ptr %self.addr, align 8
-  %split_2 = getelementptr inbounds %struct.BlockSplitIterator, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %split_2, align 8
-  %lengths = getelementptr inbounds %struct.BlockSplit, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %lengths, align 8
-  %14 = load ptr, ptr %self.addr, align 8
-  %idx_3 = getelementptr inbounds %struct.BlockSplitIterator, ptr %14, i32 0, i32 1
-  %15 = load i64, ptr %idx_3, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %13, i64 %15
-  %16 = load i32, ptr %arrayidx4, align 4
-  %conv5 = zext i32 %16 to i64
-  %17 = load ptr, ptr %self.addr, align 8
-  %length_6 = getelementptr inbounds %struct.BlockSplitIterator, ptr %17, i32 0, i32 3
-  store i64 %conv5, ptr %length_6, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %18 = load ptr, ptr %self.addr, align 8
-  %length_7 = getelementptr inbounds %struct.BlockSplitIterator, ptr %18, i32 0, i32 3
-  %19 = load i64, ptr %length_7, align 8
-  %dec = add i64 %19, -1
-  store i64 %dec, ptr %length_7, align 8
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @HistogramAddCommand(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !18
+  %6 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw [704 x i32], ptr %6, i64 0, i64 %7
+  %9 = load i32, ptr %8, align 4, !tbaa !29
+  %10 = add i32 %9, 1
+  store i32 %10, ptr %8, align 4, !tbaa !29
+  %11 = load ptr, ptr %3, align 8, !tbaa !18
+  %12 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !43
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %12, align 8, !tbaa !43
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @HistogramAddLiteral(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !16
+  %6 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %7
+  %9 = load i32, ptr %8, align 4, !tbaa !29
+  %10 = add i32 %9, 1
+  store i32 %10, ptr %8, align 4, !tbaa !29
+  %11 = load ptr, ptr %3, align 8, !tbaa !16
+  %12 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !46
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %12, align 8, !tbaa !46
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @CommandCopyLen(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Command, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !48
+  %6 = and i32 %5, 33554431
+  ret i32 %6
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @CommandDistanceContext(ptr noundef %0) #2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.Command, ptr %7, i32 0, i32 3
+  %9 = load i16, ptr %8, align 4, !tbaa !24
+  %10 = zext i16 %9 to i32
+  %11 = ashr i32 %10, 6
+  store i32 %11, ptr %4, align 4, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.Command, ptr %12, i32 0, i32 3
+  %14 = load i16, ptr %13, align 4, !tbaa !24
+  %15 = zext i16 %14 to i32
+  %16 = and i32 %15, 7
+  store i32 %16, ptr %5, align 4, !tbaa !29
+  %17 = load i32, ptr %4, align 4, !tbaa !29
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %28, label %19
+
+19:                                               ; preds = %1
+  %20 = load i32, ptr %4, align 4, !tbaa !29
+  %21 = icmp eq i32 %20, 2
+  br i1 %21, label %28, label %22
+
+22:                                               ; preds = %19
+  %23 = load i32, ptr %4, align 4, !tbaa !29
+  %24 = icmp eq i32 %23, 4
+  br i1 %24, label %28, label %25
+
+25:                                               ; preds = %22
+  %26 = load i32, ptr %4, align 4, !tbaa !29
+  %27 = icmp eq i32 %26, 7
+  br i1 %27, label %28, label %33
+
+28:                                               ; preds = %25, %22, %19, %1
+  %29 = load i32, ptr %5, align 4, !tbaa !29
+  %30 = icmp ule i32 %29, 2
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %28
+  %32 = load i32, ptr %5, align 4, !tbaa !29
+  store i32 %32, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %34
+
+33:                                               ; preds = %28, %25
+  store i32 3, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %34
+
+34:                                               ; preds = %33, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %35 = load i32, ptr %2, align 4
+  ret i32 %35
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @HistogramAddDistance(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw [544 x i32], ptr %6, i64 0, i64 %7
+  %9 = load i32, ptr %8, align 4, !tbaa !29
+  %10 = add i32 %9, 1
+  store i32 %10, ptr %8, align 4, !tbaa !29
+  %11 = load ptr, ptr %3, align 8, !tbaa !20
+  %12 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !49
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %12, align 8, !tbaa !49
+  ret void
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS7Command", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS10BlockSplit", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!6, !6, i64 0}
+!15 = !{!5, !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS16HistogramLiteral", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS16HistogramCommand", !5, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS17HistogramDistance", !5, i64 0}
+!22 = !{!23, !9, i64 16}
+!23 = !{!"BlockSplitIterator", !11, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!24 = !{!25, !27, i64 12}
+!25 = !{!"Command", !26, i64 0, !26, i64 4, !26, i64 8, !27, i64 12, !27, i64 14}
+!26 = !{!"int", !6, i64 0}
+!27 = !{!"short", !6, i64 0}
+!28 = !{!25, !26, i64 0}
+!29 = !{!26, !26, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = !{!25, !27, i64 14}
+!33 = distinct !{!33, !31}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS18BlockSplitIterator", !5, i64 0}
+!36 = !{!23, !11, i64 0}
+!37 = !{!23, !9, i64 8}
+!38 = !{!39, !40, i64 24}
+!39 = !{!"BlockSplit", !9, i64 0, !9, i64 8, !13, i64 16, !40, i64 24, !9, i64 32, !9, i64 40}
+!40 = !{!"p1 int", !5, i64 0}
+!41 = !{!23, !9, i64 24}
+!42 = !{!39, !13, i64 16}
+!43 = !{!44, !9, i64 2816}
+!44 = !{!"HistogramCommand", !6, i64 0, !9, i64 2816, !45, i64 2824}
+!45 = !{!"double", !6, i64 0}
+!46 = !{!47, !9, i64 1024}
+!47 = !{!"HistogramLiteral", !6, i64 0, !9, i64 1024, !45, i64 1032}
+!48 = !{!25, !26, i64 4}
+!49 = !{!50, !9, i64 2176}
+!50 = !{!"HistogramDistance", !6, i64 0, !9, i64 2176, !45, i64 2184}

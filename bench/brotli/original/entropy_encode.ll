@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.HuffmanTree = type { i32, i16, i16 }
 
@@ -7,2235 +7,2453 @@ target triple = "x86_64-unknown-linux-gnu"
 @BrotliReverseBits.kLut = internal constant [16 x i64] [i64 0, i64 8, i64 4, i64 12, i64 2, i64 10, i64 6, i64 14, i64 1, i64 9, i64 5, i64 13, i64 3, i64 11, i64 7, i64 15], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BrotliSetDepth(i32 noundef %p0, ptr noundef %pool, ptr noundef %depth, i32 noundef %max_depth) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %p0.addr = alloca i32, align 4
-  %pool.addr = alloca ptr, align 8
-  %depth.addr = alloca ptr, align 8
-  %max_depth.addr = alloca i32, align 4
-  %stack = alloca [16 x i32], align 16
-  %level = alloca i32, align 4
-  %p = alloca i32, align 4
-  store i32 %p0, ptr %p0.addr, align 4
-  store ptr %pool, ptr %pool.addr, align 8
-  store ptr %depth, ptr %depth.addr, align 8
-  store i32 %max_depth, ptr %max_depth.addr, align 4
-  store i32 0, ptr %level, align 4
-  %0 = load i32, ptr %p0.addr, align 4
-  store i32 %0, ptr %p, align 4
-  %arrayidx = getelementptr inbounds [16 x i32], ptr %stack, i64 0, i64 0
-  store i32 -1, ptr %arrayidx, align 16
-  br label %while.body
+define hidden i32 @BrotliSetDepth(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca [16 x i32], align 16
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !7
+  store ptr %2, ptr %8, align 8, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 64, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 0, ptr %11, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  %14 = load i32, ptr %6, align 4, !tbaa !3
+  store i32 %14, ptr %12, align 4, !tbaa !3
+  %15 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 0
+  store i32 -1, ptr %15, align 16, !tbaa !3
+  br label %16
 
-while.body:                                       ; preds = %if.end33, %if.end, %entry
-  %1 = load ptr, ptr %pool.addr, align 8
-  %2 = load i32, ptr %p, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx1 = getelementptr inbounds %struct.HuffmanTree, ptr %1, i64 %idxprom
-  %index_left_ = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx1, i32 0, i32 1
-  %3 = load i16, ptr %index_left_, align 4
-  %conv = sext i16 %3 to i32
-  %cmp = icmp sge i32 %conv, 0
-  br i1 %cmp, label %if.then, label %if.else
+16:                                               ; preds = %82, %33, %4
+  br label %17
 
-if.then:                                          ; preds = %while.body
-  %4 = load i32, ptr %level, align 4
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %level, align 4
-  %5 = load i32, ptr %level, align 4
-  %6 = load i32, ptr %max_depth.addr, align 4
-  %cmp3 = icmp sgt i32 %5, %6
-  br i1 %cmp3, label %if.then5, label %if.end
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !7
+  %19 = load i32, ptr %12, align 4, !tbaa !3
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds %struct.HuffmanTree, ptr %18, i64 %20
+  %22 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %21, i32 0, i32 1
+  %23 = load i16, ptr %22, align 4, !tbaa !12
+  %24 = sext i16 %23 to i32
+  %25 = icmp sge i32 %24, 0
+  br i1 %25, label %26, label %51
 
-if.then5:                                         ; preds = %if.then
-  store i32 0, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %17
+  %27 = load i32, ptr %11, align 4, !tbaa !3
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %11, align 4, !tbaa !3
+  %29 = load i32, ptr %11, align 4, !tbaa !3
+  %30 = load i32, ptr %9, align 4, !tbaa !3
+  %31 = icmp sgt i32 %29, %30
+  br i1 %31, label %32, label %33
 
-if.end:                                           ; preds = %if.then
-  %7 = load ptr, ptr %pool.addr, align 8
-  %8 = load i32, ptr %p, align 4
-  %idxprom6 = sext i32 %8 to i64
-  %arrayidx7 = getelementptr inbounds %struct.HuffmanTree, ptr %7, i64 %idxprom6
-  %index_right_or_value_ = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx7, i32 0, i32 2
-  %9 = load i16, ptr %index_right_or_value_, align 2
-  %conv8 = sext i16 %9 to i32
-  %10 = load i32, ptr %level, align 4
-  %idxprom9 = sext i32 %10 to i64
-  %arrayidx10 = getelementptr inbounds [16 x i32], ptr %stack, i64 0, i64 %idxprom9
-  store i32 %conv8, ptr %arrayidx10, align 4
-  %11 = load ptr, ptr %pool.addr, align 8
-  %12 = load i32, ptr %p, align 4
-  %idxprom11 = sext i32 %12 to i64
-  %arrayidx12 = getelementptr inbounds %struct.HuffmanTree, ptr %11, i64 %idxprom11
-  %index_left_13 = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx12, i32 0, i32 1
-  %13 = load i16, ptr %index_left_13, align 4
-  %conv14 = sext i16 %13 to i32
-  store i32 %conv14, ptr %p, align 4
-  br label %while.body
+32:                                               ; preds = %26
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %90
 
-if.else:                                          ; preds = %while.body
-  %14 = load i32, ptr %level, align 4
-  %conv15 = trunc i32 %14 to i8
-  %15 = load ptr, ptr %depth.addr, align 8
-  %16 = load ptr, ptr %pool.addr, align 8
-  %17 = load i32, ptr %p, align 4
-  %idxprom16 = sext i32 %17 to i64
-  %arrayidx17 = getelementptr inbounds %struct.HuffmanTree, ptr %16, i64 %idxprom16
-  %index_right_or_value_18 = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx17, i32 0, i32 2
-  %18 = load i16, ptr %index_right_or_value_18, align 2
-  %idxprom19 = sext i16 %18 to i64
-  %arrayidx20 = getelementptr inbounds i8, ptr %15, i64 %idxprom19
-  store i8 %conv15, ptr %arrayidx20, align 1
-  br label %if.end21
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %7, align 8, !tbaa !7
+  %35 = load i32, ptr %12, align 4, !tbaa !3
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %struct.HuffmanTree, ptr %34, i64 %36
+  %38 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %37, i32 0, i32 2
+  %39 = load i16, ptr %38, align 2, !tbaa !15
+  %40 = sext i16 %39 to i32
+  %41 = load i32, ptr %11, align 4, !tbaa !3
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 %42
+  store i32 %40, ptr %43, align 4, !tbaa !3
+  %44 = load ptr, ptr %7, align 8, !tbaa !7
+  %45 = load i32, ptr %12, align 4, !tbaa !3
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %struct.HuffmanTree, ptr %44, i64 %46
+  %48 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %47, i32 0, i32 1
+  %49 = load i16, ptr %48, align 4, !tbaa !12
+  %50 = sext i16 %49 to i32
+  store i32 %50, ptr %12, align 4, !tbaa !3
+  br label %16
 
-if.end21:                                         ; preds = %if.else
-  br label %while.cond22
+51:                                               ; preds = %17
+  %52 = load i32, ptr %11, align 4, !tbaa !3
+  %53 = trunc i32 %52 to i8
+  %54 = load ptr, ptr %8, align 8, !tbaa !10
+  %55 = load ptr, ptr %7, align 8, !tbaa !7
+  %56 = load i32, ptr %12, align 4, !tbaa !3
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds %struct.HuffmanTree, ptr %55, i64 %57
+  %59 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %58, i32 0, i32 2
+  %60 = load i16, ptr %59, align 2, !tbaa !15
+  %61 = sext i16 %60 to i64
+  %62 = getelementptr inbounds i8, ptr %54, i64 %61
+  store i8 %53, ptr %62, align 1, !tbaa !16
+  br label %63
 
-while.cond22:                                     ; preds = %while.body29, %if.end21
-  %19 = load i32, ptr %level, align 4
-  %cmp23 = icmp sge i32 %19, 0
-  br i1 %cmp23, label %land.rhs, label %land.end
+63:                                               ; preds = %51
+  br label %64
 
-land.rhs:                                         ; preds = %while.cond22
-  %20 = load i32, ptr %level, align 4
-  %idxprom25 = sext i32 %20 to i64
-  %arrayidx26 = getelementptr inbounds [16 x i32], ptr %stack, i64 0, i64 %idxprom25
-  %21 = load i32, ptr %arrayidx26, align 4
-  %cmp27 = icmp eq i32 %21, -1
-  br label %land.end
+64:                                               ; preds = %75, %63
+  %65 = load i32, ptr %11, align 4, !tbaa !3
+  %66 = icmp sge i32 %65, 0
+  br i1 %66, label %67, label %73
 
-land.end:                                         ; preds = %land.rhs, %while.cond22
-  %22 = phi i1 [ false, %while.cond22 ], [ %cmp27, %land.rhs ]
-  br i1 %22, label %while.body29, label %while.end
+67:                                               ; preds = %64
+  %68 = load i32, ptr %11, align 4, !tbaa !3
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 %69
+  %71 = load i32, ptr %70, align 4, !tbaa !3
+  %72 = icmp eq i32 %71, -1
+  br label %73
 
-while.body29:                                     ; preds = %land.end
-  %23 = load i32, ptr %level, align 4
-  %dec = add nsw i32 %23, -1
-  store i32 %dec, ptr %level, align 4
-  br label %while.cond22, !llvm.loop !4
+73:                                               ; preds = %67, %64
+  %74 = phi i1 [ false, %64 ], [ %72, %67 ]
+  br i1 %74, label %75, label %78
 
-while.end:                                        ; preds = %land.end
-  %24 = load i32, ptr %level, align 4
-  %cmp30 = icmp slt i32 %24, 0
-  br i1 %cmp30, label %if.then32, label %if.end33
+75:                                               ; preds = %73
+  %76 = load i32, ptr %11, align 4, !tbaa !3
+  %77 = add nsw i32 %76, -1
+  store i32 %77, ptr %11, align 4, !tbaa !3
+  br label %64, !llvm.loop !17
 
-if.then32:                                        ; preds = %while.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+78:                                               ; preds = %73
+  %79 = load i32, ptr %11, align 4, !tbaa !3
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %81, label %82
 
-if.end33:                                         ; preds = %while.end
-  %25 = load i32, ptr %level, align 4
-  %idxprom34 = sext i32 %25 to i64
-  %arrayidx35 = getelementptr inbounds [16 x i32], ptr %stack, i64 0, i64 %idxprom34
-  %26 = load i32, ptr %arrayidx35, align 4
-  store i32 %26, ptr %p, align 4
-  %27 = load i32, ptr %level, align 4
-  %idxprom36 = sext i32 %27 to i64
-  %arrayidx37 = getelementptr inbounds [16 x i32], ptr %stack, i64 0, i64 %idxprom36
-  store i32 -1, ptr %arrayidx37, align 4
-  br label %while.body
+81:                                               ; preds = %78
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %90
 
-return:                                           ; preds = %if.then32, %if.then5
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+82:                                               ; preds = %78
+  %83 = load i32, ptr %11, align 4, !tbaa !3
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4, !tbaa !3
+  store i32 %86, ptr %12, align 4, !tbaa !3
+  %87 = load i32, ptr %11, align 4, !tbaa !3
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 %88
+  store i32 -1, ptr %89, align 4, !tbaa !3
+  br label %16
+
+90:                                               ; preds = %81, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr %10) #5
+  %91 = load i32, ptr %5, align 4
+  ret i32 %91
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliCreateHuffmanTree(ptr noundef %data, i64 noundef %length, i32 noundef %tree_limit, ptr noundef %tree, ptr noundef %depth) #0 {
-entry:
-  %items.addr.i = alloca ptr, align 8
-  %n.addr.i = alloca i64, align 8
-  %comparator.addr.i = alloca ptr, align 8
-  %i.i = alloca i64, align 8
-  %tmp.i = alloca %struct.HuffmanTree, align 4
-  %k.i = alloca i64, align 8
-  %j.i = alloca i64, align 8
-  %g.i = alloca i32, align 4
-  %gap.i = alloca i64, align 8
-  %i13.i = alloca i64, align 8
-  %j17.i = alloca i64, align 8
-  %tmp18.i = alloca %struct.HuffmanTree, align 4
-  %a.addr.i = alloca i32, align 4
-  %b.addr.i = alloca i32, align 4
-  %self.addr.i65 = alloca ptr, align 8
-  %count.addr.i66 = alloca i32, align 4
-  %left.addr.i67 = alloca i16, align 2
-  %right.addr.i68 = alloca i16, align 2
-  %self.addr.i = alloca ptr, align 8
-  %count.addr.i = alloca i32, align 4
-  %left.addr.i = alloca i16, align 2
-  %right.addr.i = alloca i16, align 2
-  %data.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %tree_limit.addr = alloca i32, align 4
-  %tree.addr = alloca ptr, align 8
-  %depth.addr = alloca ptr, align 8
-  %count_limit = alloca i32, align 4
-  %sentinel = alloca %struct.HuffmanTree, align 4
-  %n = alloca i64, align 8
-  %i = alloca i64, align 8
-  %j = alloca i64, align 8
-  %k = alloca i64, align 8
-  %count = alloca i32, align 4
-  %left = alloca i64, align 8
-  %right = alloca i64, align 8
-  %j_end = alloca i64, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store i32 %tree_limit, ptr %tree_limit.addr, align 4
-  store ptr %tree, ptr %tree.addr, align 8
-  store ptr %depth, ptr %depth.addr, align 8
-  store ptr %sentinel, ptr %self.addr.i65, align 8
-  store i32 -1, ptr %count.addr.i66, align 4
-  store i16 -1, ptr %left.addr.i67, align 2
-  store i16 -1, ptr %right.addr.i68, align 2
-  %0 = load i32, ptr %count.addr.i66, align 4
-  %1 = load ptr, ptr %self.addr.i65, align 8
-  store i32 %0, ptr %1, align 4
-  %2 = load i16, ptr %left.addr.i67, align 2
-  %3 = load ptr, ptr %self.addr.i65, align 8
-  %index_left_.i69 = getelementptr inbounds %struct.HuffmanTree, ptr %3, i32 0, i32 1
-  store i16 %2, ptr %index_left_.i69, align 4
-  %4 = load i16, ptr %right.addr.i68, align 2
-  %5 = load ptr, ptr %self.addr.i65, align 8
-  %index_right_or_value_.i70 = getelementptr inbounds %struct.HuffmanTree, ptr %5, i32 0, i32 2
-  store i16 %4, ptr %index_right_or_value_.i70, align 2
-  store i32 1, ptr %count_limit, align 4
-  br label %for.cond
+define hidden void @BrotliCreateHuffmanTree(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %struct.HuffmanTree, align 4
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !19
+  store i64 %1, ptr %7, align 8, !tbaa !21
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !7
+  store ptr %4, ptr %10, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @InitHuffmanTree(ptr noundef %12, i32 noundef -1, i16 noundef signext -1, i16 noundef signext -1)
+  store i32 1, ptr %11, align 4, !tbaa !3
+  br label %22
 
-for.cond:                                         ; preds = %for.inc62, %entry
-  store i64 0, ptr %n, align 8
-  %6 = load i64, ptr %length.addr, align 8
-  store i64 %6, ptr %i, align 8
-  br label %for.cond1
+22:                                               ; preds = %173, %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  store i64 0, ptr %13, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %23 = load i64, ptr %7, align 8, !tbaa !21
+  store i64 %23, ptr %14, align 8, !tbaa !21
+  br label %24
 
-for.cond1:                                        ; preds = %if.end, %for.cond
-  %7 = load i64, ptr %i, align 8
-  %cmp = icmp ne i64 %7, 0
-  br i1 %cmp, label %for.body, label %for.end
+24:                                               ; preds = %49, %22
+  %25 = load i64, ptr %14, align 8, !tbaa !21
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %50
 
-for.body:                                         ; preds = %for.cond1
-  %8 = load i64, ptr %i, align 8
-  %dec = add i64 %8, -1
-  store i64 %dec, ptr %i, align 8
-  %9 = load ptr, ptr %data.addr, align 8
-  %10 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %9, i64 %10
-  %11 = load i32, ptr %arrayidx, align 4
-  %tobool = icmp ne i32 %11, 0
-  br i1 %tobool, label %if.then, label %if.end
+27:                                               ; preds = %24
+  %28 = load i64, ptr %14, align 8, !tbaa !21
+  %29 = add i64 %28, -1
+  store i64 %29, ptr %14, align 8, !tbaa !21
+  %30 = load ptr, ptr %6, align 8, !tbaa !19
+  %31 = load i64, ptr %14, align 8, !tbaa !21
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !3
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %49
 
-if.then:                                          ; preds = %for.body
-  %12 = load ptr, ptr %data.addr, align 8
-  %13 = load i64, ptr %i, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %12, i64 %13
-  %14 = load i32, ptr %arrayidx2, align 4
-  %15 = load i32, ptr %count_limit, align 4
-  store i32 %14, ptr %a.addr.i, align 4
-  store i32 %15, ptr %b.addr.i, align 4
-  %16 = load i32, ptr %a.addr.i, align 4
-  %17 = load i32, ptr %b.addr.i, align 4
-  %cmp.i = icmp ugt i32 %16, %17
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
+35:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  %36 = load ptr, ptr %6, align 8, !tbaa !19
+  %37 = load i64, ptr %14, align 8, !tbaa !21
+  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !3
+  %40 = load i32, ptr %11, align 4, !tbaa !3
+  %41 = call i32 @brotli_max_uint32_t(i32 noundef %39, i32 noundef %40)
+  store i32 %41, ptr %17, align 4, !tbaa !3
+  %42 = load ptr, ptr %9, align 8, !tbaa !7
+  %43 = load i64, ptr %13, align 8, !tbaa !21
+  %44 = add i64 %43, 1
+  store i64 %44, ptr %13, align 8, !tbaa !21
+  %45 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %42, i64 %43
+  %46 = load i32, ptr %17, align 4, !tbaa !3
+  %47 = load i64, ptr %14, align 8, !tbaa !21
+  %48 = trunc i64 %47 to i16
+  call void @InitHuffmanTree(ptr noundef %45, i32 noundef %46, i16 noundef signext -1, i16 noundef signext %48)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  br label %49
 
-cond.true.i:                                      ; preds = %if.then
-  %18 = load i32, ptr %a.addr.i, align 4
-  br label %brotli_max_uint32_t.exit
+49:                                               ; preds = %35, %27
+  br label %24, !llvm.loop !23
 
-cond.false.i:                                     ; preds = %if.then
-  %19 = load i32, ptr %b.addr.i, align 4
-  br label %brotli_max_uint32_t.exit
+50:                                               ; preds = %24
+  %51 = load i64, ptr %13, align 8, !tbaa !21
+  %52 = icmp eq i64 %51, 1
+  br i1 %52, label %53, label %61
 
-brotli_max_uint32_t.exit:                         ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i32 [ %18, %cond.true.i ], [ %19, %cond.false.i ]
-  store i32 %cond.i, ptr %count, align 4
-  %20 = load ptr, ptr %tree.addr, align 8
-  %21 = load i64, ptr %n, align 8
-  %inc = add i64 %21, 1
-  store i64 %inc, ptr %n, align 8
-  %arrayidx3 = getelementptr inbounds %struct.HuffmanTree, ptr %20, i64 %21
-  %22 = load i32, ptr %count, align 4
-  %23 = load i64, ptr %i, align 8
-  %conv = trunc i64 %23 to i16
-  store ptr %arrayidx3, ptr %self.addr.i, align 8
-  store i32 %22, ptr %count.addr.i, align 4
-  store i16 -1, ptr %left.addr.i, align 2
-  store i16 %conv, ptr %right.addr.i, align 2
-  %24 = load i32, ptr %count.addr.i, align 4
-  %25 = load ptr, ptr %self.addr.i, align 8
-  store i32 %24, ptr %25, align 4
-  %26 = load i16, ptr %left.addr.i, align 2
-  %27 = load ptr, ptr %self.addr.i, align 8
-  %index_left_.i = getelementptr inbounds %struct.HuffmanTree, ptr %27, i32 0, i32 1
-  store i16 %26, ptr %index_left_.i, align 4
-  %28 = load i16, ptr %right.addr.i, align 2
-  %29 = load ptr, ptr %self.addr.i, align 8
-  %index_right_or_value_.i = getelementptr inbounds %struct.HuffmanTree, ptr %29, i32 0, i32 2
-  store i16 %28, ptr %index_right_or_value_.i, align 2
-  br label %if.end
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %10, align 8, !tbaa !10
+  %55 = load ptr, ptr %9, align 8, !tbaa !7
+  %56 = getelementptr inbounds %struct.HuffmanTree, ptr %55, i64 0
+  %57 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %56, i32 0, i32 2
+  %58 = load i16, ptr %57, align 2, !tbaa !15
+  %59 = sext i16 %58 to i64
+  %60 = getelementptr inbounds i8, ptr %54, i64 %59
+  store i8 1, ptr %60, align 1, !tbaa !16
+  store i32 2, ptr %18, align 4
+  br label %170
 
-if.end:                                           ; preds = %brotli_max_uint32_t.exit, %for.body
-  br label %for.cond1, !llvm.loop !6
+61:                                               ; preds = %50
+  %62 = load ptr, ptr %9, align 8, !tbaa !7
+  %63 = load i64, ptr %13, align 8, !tbaa !21
+  call void @SortHuffmanTreeItems(ptr noundef %62, i64 noundef %63, ptr noundef @SortHuffmanTree)
+  %64 = load ptr, ptr %9, align 8, !tbaa !7
+  %65 = load i64, ptr %13, align 8, !tbaa !21
+  %66 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %64, i64 %65
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %66, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !24
+  %67 = load ptr, ptr %9, align 8, !tbaa !7
+  %68 = load i64, ptr %13, align 8, !tbaa !21
+  %69 = add i64 %68, 1
+  %70 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %67, i64 %69
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %70, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !24
+  store i64 0, ptr %14, align 8, !tbaa !21
+  %71 = load i64, ptr %13, align 8, !tbaa !21
+  %72 = add i64 %71, 1
+  store i64 %72, ptr %15, align 8, !tbaa !21
+  %73 = load i64, ptr %13, align 8, !tbaa !21
+  %74 = sub i64 %73, 1
+  store i64 %74, ptr %16, align 8, !tbaa !21
+  br label %75
 
-for.end:                                          ; preds = %for.cond1
-  %30 = load i64, ptr %n, align 8
-  %cmp4 = icmp eq i64 %30, 1
-  br i1 %cmp4, label %if.then6, label %if.end9
+75:                                               ; preds = %154, %61
+  %76 = load i64, ptr %16, align 8, !tbaa !21
+  %77 = icmp ne i64 %76, 0
+  br i1 %77, label %78, label %157
 
-if.then6:                                         ; preds = %for.end
-  %31 = load ptr, ptr %depth.addr, align 8
-  %32 = load ptr, ptr %tree.addr, align 8
-  %arrayidx7 = getelementptr inbounds %struct.HuffmanTree, ptr %32, i64 0
-  %index_right_or_value_ = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx7, i32 0, i32 2
-  %33 = load i16, ptr %index_right_or_value_, align 2
-  %idxprom = sext i16 %33 to i64
-  %arrayidx8 = getelementptr inbounds i8, ptr %31, i64 %idxprom
-  store i8 1, ptr %arrayidx8, align 1
-  br label %for.end64
+78:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  %79 = load ptr, ptr %9, align 8, !tbaa !7
+  %80 = load i64, ptr %14, align 8, !tbaa !21
+  %81 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %79, i64 %80
+  %82 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %81, i32 0, i32 0
+  %83 = load i32, ptr %82, align 4, !tbaa !26
+  %84 = load ptr, ptr %9, align 8, !tbaa !7
+  %85 = load i64, ptr %15, align 8, !tbaa !21
+  %86 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %84, i64 %85
+  %87 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %86, i32 0, i32 0
+  %88 = load i32, ptr %87, align 4, !tbaa !26
+  %89 = icmp ule i32 %83, %88
+  br i1 %89, label %90, label %94
 
-if.end9:                                          ; preds = %for.end
-  %34 = load ptr, ptr %tree.addr, align 8
-  %35 = load i64, ptr %n, align 8
-  store ptr %34, ptr %items.addr.i, align 8
-  store i64 %35, ptr %n.addr.i, align 8
-  store ptr @SortHuffmanTree, ptr %comparator.addr.i, align 8
-  %36 = load i64, ptr %n.addr.i, align 8
-  %cmp.i71 = icmp ult i64 %36, 13
-  br i1 %cmp.i71, label %if.then.i, label %if.else.i
+90:                                               ; preds = %78
+  %91 = load i64, ptr %14, align 8, !tbaa !21
+  store i64 %91, ptr %19, align 8, !tbaa !21
+  %92 = load i64, ptr %14, align 8, !tbaa !21
+  %93 = add i64 %92, 1
+  store i64 %93, ptr %14, align 8, !tbaa !21
+  br label %98
 
-if.then.i:                                        ; preds = %if.end9
-  store i64 1, ptr %i.i, align 8
-  br label %for.cond.i
+94:                                               ; preds = %78
+  %95 = load i64, ptr %15, align 8, !tbaa !21
+  store i64 %95, ptr %19, align 8, !tbaa !21
+  %96 = load i64, ptr %15, align 8, !tbaa !21
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %15, align 8, !tbaa !21
+  br label %98
 
-for.cond.i:                                       ; preds = %while.end.i, %if.then.i
-  %37 = load i64, ptr %i.i, align 8
-  %38 = load i64, ptr %n.addr.i, align 8
-  %cmp1.i = icmp ult i64 %37, %38
-  br i1 %cmp1.i, label %for.body.i, label %for.end.i
+98:                                               ; preds = %94, %90
+  %99 = load ptr, ptr %9, align 8, !tbaa !7
+  %100 = load i64, ptr %14, align 8, !tbaa !21
+  %101 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %99, i64 %100
+  %102 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %101, i32 0, i32 0
+  %103 = load i32, ptr %102, align 4, !tbaa !26
+  %104 = load ptr, ptr %9, align 8, !tbaa !7
+  %105 = load i64, ptr %15, align 8, !tbaa !21
+  %106 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %104, i64 %105
+  %107 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %106, i32 0, i32 0
+  %108 = load i32, ptr %107, align 4, !tbaa !26
+  %109 = icmp ule i32 %103, %108
+  br i1 %109, label %110, label %114
 
-for.body.i:                                       ; preds = %for.cond.i
-  %39 = load ptr, ptr %items.addr.i, align 8
-  %40 = load i64, ptr %i.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.HuffmanTree, ptr %39, i64 %40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %tmp.i, ptr align 4 %arrayidx.i, i64 8, i1 false)
-  %41 = load i64, ptr %i.i, align 8
-  store i64 %41, ptr %k.i, align 8
-  %42 = load i64, ptr %i.i, align 8
-  %sub.i = sub i64 %42, 1
-  store i64 %sub.i, ptr %j.i, align 8
-  br label %while.cond.i
+110:                                              ; preds = %98
+  %111 = load i64, ptr %14, align 8, !tbaa !21
+  store i64 %111, ptr %20, align 8, !tbaa !21
+  %112 = load i64, ptr %14, align 8, !tbaa !21
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %14, align 8, !tbaa !21
+  br label %118
 
-while.cond.i:                                     ; preds = %if.end.i, %for.body.i
-  %43 = load ptr, ptr %comparator.addr.i, align 8
-  %44 = load ptr, ptr %items.addr.i, align 8
-  %45 = load i64, ptr %j.i, align 8
-  %arrayidx2.i = getelementptr inbounds %struct.HuffmanTree, ptr %44, i64 %45
-  %call.i = call i32 %43(ptr noundef %tmp.i, ptr noundef %arrayidx2.i) #4
-  %tobool.i = icmp ne i32 %call.i, 0
-  br i1 %tobool.i, label %while.body.i, label %while.end.i
+114:                                              ; preds = %98
+  %115 = load i64, ptr %15, align 8, !tbaa !21
+  store i64 %115, ptr %20, align 8, !tbaa !21
+  %116 = load i64, ptr %15, align 8, !tbaa !21
+  %117 = add i64 %116, 1
+  store i64 %117, ptr %15, align 8, !tbaa !21
+  br label %118
 
-while.body.i:                                     ; preds = %while.cond.i
-  %46 = load ptr, ptr %items.addr.i, align 8
-  %47 = load i64, ptr %k.i, align 8
-  %arrayidx3.i = getelementptr inbounds %struct.HuffmanTree, ptr %46, i64 %47
-  %48 = load ptr, ptr %items.addr.i, align 8
-  %49 = load i64, ptr %j.i, align 8
-  %arrayidx4.i = getelementptr inbounds %struct.HuffmanTree, ptr %48, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx3.i, ptr align 4 %arrayidx4.i, i64 8, i1 false)
-  %50 = load i64, ptr %j.i, align 8
-  store i64 %50, ptr %k.i, align 8
-  %51 = load i64, ptr %j.i, align 8
-  %dec.i = add i64 %51, -1
-  store i64 %dec.i, ptr %j.i, align 8
-  %tobool5.i = icmp ne i64 %51, 0
-  br i1 %tobool5.i, label %if.end.i, label %if.then6.i
+118:                                              ; preds = %114, %110
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  %119 = load i64, ptr %13, align 8, !tbaa !21
+  %120 = mul i64 2, %119
+  %121 = load i64, ptr %16, align 8, !tbaa !21
+  %122 = sub i64 %120, %121
+  store i64 %122, ptr %21, align 8, !tbaa !21
+  %123 = load ptr, ptr %9, align 8, !tbaa !7
+  %124 = load i64, ptr %19, align 8, !tbaa !21
+  %125 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %123, i64 %124
+  %126 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %125, i32 0, i32 0
+  %127 = load i32, ptr %126, align 4, !tbaa !26
+  %128 = load ptr, ptr %9, align 8, !tbaa !7
+  %129 = load i64, ptr %20, align 8, !tbaa !21
+  %130 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %128, i64 %129
+  %131 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %130, i32 0, i32 0
+  %132 = load i32, ptr %131, align 4, !tbaa !26
+  %133 = add i32 %127, %132
+  %134 = load ptr, ptr %9, align 8, !tbaa !7
+  %135 = load i64, ptr %21, align 8, !tbaa !21
+  %136 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %134, i64 %135
+  %137 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %136, i32 0, i32 0
+  store i32 %133, ptr %137, align 4, !tbaa !26
+  %138 = load i64, ptr %19, align 8, !tbaa !21
+  %139 = trunc i64 %138 to i16
+  %140 = load ptr, ptr %9, align 8, !tbaa !7
+  %141 = load i64, ptr %21, align 8, !tbaa !21
+  %142 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %140, i64 %141
+  %143 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %142, i32 0, i32 1
+  store i16 %139, ptr %143, align 4, !tbaa !12
+  %144 = load i64, ptr %20, align 8, !tbaa !21
+  %145 = trunc i64 %144 to i16
+  %146 = load ptr, ptr %9, align 8, !tbaa !7
+  %147 = load i64, ptr %21, align 8, !tbaa !21
+  %148 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %146, i64 %147
+  %149 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %148, i32 0, i32 2
+  store i16 %145, ptr %149, align 2, !tbaa !15
+  %150 = load ptr, ptr %9, align 8, !tbaa !7
+  %151 = load i64, ptr %21, align 8, !tbaa !21
+  %152 = add i64 %151, 1
+  %153 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %150, i64 %152
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %153, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  br label %154
 
-if.then6.i:                                       ; preds = %while.body.i
-  br label %while.end.i
+154:                                              ; preds = %118
+  %155 = load i64, ptr %16, align 8, !tbaa !21
+  %156 = add i64 %155, -1
+  store i64 %156, ptr %16, align 8, !tbaa !21
+  br label %75, !llvm.loop !27
 
-if.end.i:                                         ; preds = %while.body.i
-  br label %while.cond.i, !llvm.loop !7
+157:                                              ; preds = %75
+  %158 = load i64, ptr %13, align 8, !tbaa !21
+  %159 = mul i64 2, %158
+  %160 = sub i64 %159, 1
+  %161 = trunc i64 %160 to i32
+  %162 = load ptr, ptr %9, align 8, !tbaa !7
+  %163 = getelementptr inbounds %struct.HuffmanTree, ptr %162, i64 0
+  %164 = load ptr, ptr %10, align 8, !tbaa !10
+  %165 = load i32, ptr %8, align 4, !tbaa !3
+  %166 = call i32 @BrotliSetDepth(i32 noundef %161, ptr noundef %163, ptr noundef %164, i32 noundef %165)
+  %167 = icmp ne i32 %166, 0
+  br i1 %167, label %168, label %169
 
-while.end.i:                                      ; preds = %if.then6.i, %while.cond.i
-  %52 = load ptr, ptr %items.addr.i, align 8
-  %53 = load i64, ptr %k.i, align 8
-  %arrayidx7.i = getelementptr inbounds %struct.HuffmanTree, ptr %52, i64 %53
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx7.i, ptr align 4 %tmp.i, i64 8, i1 false)
-  %54 = load i64, ptr %i.i, align 8
-  %inc.i = add i64 %54, 1
-  store i64 %inc.i, ptr %i.i, align 8
-  br label %for.cond.i, !llvm.loop !8
+168:                                              ; preds = %157
+  store i32 2, ptr %18, align 4
+  br label %170
 
-for.end.i:                                        ; preds = %for.cond.i
-  br label %SortHuffmanTreeItems.exit
+169:                                              ; preds = %157
+  store i32 0, ptr %18, align 4
+  br label %170
 
-if.else.i:                                        ; preds = %if.end9
-  %55 = load i64, ptr %n.addr.i, align 8
-  %cmp8.i = icmp ult i64 %55, 57
-  %cond.i72 = select i1 %cmp8.i, i32 2, i32 0
-  store i32 %cond.i72, ptr %g.i, align 4
-  br label %for.cond9.i
+170:                                              ; preds = %169, %168, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  %171 = load i32, ptr %18, align 4
+  switch i32 %171, label %177 [
+    i32 0, label %172
+    i32 2, label %176
+  ]
 
-for.cond9.i:                                      ; preds = %for.end36.i, %if.else.i
-  %56 = load i32, ptr %g.i, align 4
-  %cmp10.i = icmp slt i32 %56, 6
-  br i1 %cmp10.i, label %for.body11.i, label %for.end39.i
+172:                                              ; preds = %170
+  br label %173
 
-for.body11.i:                                     ; preds = %for.cond9.i
-  %57 = load i32, ptr %g.i, align 4
-  %idxprom.i = sext i32 %57 to i64
-  %arrayidx12.i = getelementptr inbounds [6 x i64], ptr @kBrotliShellGaps, i64 0, i64 %idxprom.i
-  %58 = load i64, ptr %arrayidx12.i, align 8
-  store i64 %58, ptr %gap.i, align 8
-  %59 = load i64, ptr %gap.i, align 8
-  store i64 %59, ptr %i13.i, align 8
-  br label %for.cond14.i
+173:                                              ; preds = %172
+  %174 = load i32, ptr %11, align 4, !tbaa !3
+  %175 = mul i32 %174, 2
+  store i32 %175, ptr %11, align 4, !tbaa !3
+  br label %22
 
-for.cond14.i:                                     ; preds = %for.end32.i, %for.body11.i
-  %60 = load i64, ptr %i13.i, align 8
-  %61 = load i64, ptr %n.addr.i, align 8
-  %cmp15.i = icmp ult i64 %60, %61
-  br i1 %cmp15.i, label %for.body16.i, label %for.end36.i
+176:                                              ; preds = %170
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  ret void
 
-for.body16.i:                                     ; preds = %for.cond14.i
-  %62 = load i64, ptr %i13.i, align 8
-  store i64 %62, ptr %j17.i, align 8
-  %63 = load ptr, ptr %items.addr.i, align 8
-  %64 = load i64, ptr %i13.i, align 8
-  %arrayidx19.i = getelementptr inbounds %struct.HuffmanTree, ptr %63, i64 %64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %tmp18.i, ptr align 4 %arrayidx19.i, i64 8, i1 false)
-  br label %for.cond20.i
+177:                                              ; preds = %170
+  unreachable
+}
 
-for.cond20.i:                                     ; preds = %for.body26.i, %for.body16.i
-  %65 = load i64, ptr %j17.i, align 8
-  %66 = load i64, ptr %gap.i, align 8
-  %cmp21.i = icmp uge i64 %65, %66
-  br i1 %cmp21.i, label %land.rhs.i, label %land.end.i
-
-land.rhs.i:                                       ; preds = %for.cond20.i
-  %67 = load ptr, ptr %comparator.addr.i, align 8
-  %68 = load ptr, ptr %items.addr.i, align 8
-  %69 = load i64, ptr %j17.i, align 8
-  %70 = load i64, ptr %gap.i, align 8
-  %sub22.i = sub i64 %69, %70
-  %arrayidx23.i = getelementptr inbounds %struct.HuffmanTree, ptr %68, i64 %sub22.i
-  %call24.i = call i32 %67(ptr noundef %tmp18.i, ptr noundef %arrayidx23.i) #4
-  %tobool25.i = icmp ne i32 %call24.i, 0
-  br label %land.end.i
-
-land.end.i:                                       ; preds = %land.rhs.i, %for.cond20.i
-  %71 = phi i1 [ false, %for.cond20.i ], [ %tobool25.i, %land.rhs.i ]
-  br i1 %71, label %for.body26.i, label %for.end32.i
-
-for.body26.i:                                     ; preds = %land.end.i
-  %72 = load ptr, ptr %items.addr.i, align 8
-  %73 = load i64, ptr %j17.i, align 8
-  %arrayidx27.i = getelementptr inbounds %struct.HuffmanTree, ptr %72, i64 %73
-  %74 = load ptr, ptr %items.addr.i, align 8
-  %75 = load i64, ptr %j17.i, align 8
-  %76 = load i64, ptr %gap.i, align 8
-  %sub28.i = sub i64 %75, %76
-  %arrayidx29.i = getelementptr inbounds %struct.HuffmanTree, ptr %74, i64 %sub28.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx27.i, ptr align 4 %arrayidx29.i, i64 8, i1 false)
-  %77 = load i64, ptr %gap.i, align 8
-  %78 = load i64, ptr %j17.i, align 8
-  %sub31.i = sub i64 %78, %77
-  store i64 %sub31.i, ptr %j17.i, align 8
-  br label %for.cond20.i, !llvm.loop !9
-
-for.end32.i:                                      ; preds = %land.end.i
-  %79 = load ptr, ptr %items.addr.i, align 8
-  %80 = load i64, ptr %j17.i, align 8
-  %arrayidx33.i = getelementptr inbounds %struct.HuffmanTree, ptr %79, i64 %80
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx33.i, ptr align 4 %tmp18.i, i64 8, i1 false)
-  %81 = load i64, ptr %i13.i, align 8
-  %inc35.i = add i64 %81, 1
-  store i64 %inc35.i, ptr %i13.i, align 8
-  br label %for.cond14.i, !llvm.loop !10
-
-for.end36.i:                                      ; preds = %for.cond14.i
-  %82 = load i32, ptr %g.i, align 4
-  %inc38.i = add nsw i32 %82, 1
-  store i32 %inc38.i, ptr %g.i, align 4
-  br label %for.cond9.i, !llvm.loop !11
-
-for.end39.i:                                      ; preds = %for.cond9.i
-  br label %SortHuffmanTreeItems.exit
-
-SortHuffmanTreeItems.exit:                        ; preds = %for.end39.i, %for.end.i
-  %83 = load ptr, ptr %tree.addr, align 8
-  %84 = load i64, ptr %n, align 8
-  %arrayidx10 = getelementptr inbounds %struct.HuffmanTree, ptr %83, i64 %84
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx10, ptr align 4 %sentinel, i64 8, i1 false)
-  %85 = load ptr, ptr %tree.addr, align 8
-  %86 = load i64, ptr %n, align 8
-  %add = add i64 %86, 1
-  %arrayidx11 = getelementptr inbounds %struct.HuffmanTree, ptr %85, i64 %add
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx11, ptr align 4 %sentinel, i64 8, i1 false)
-  store i64 0, ptr %i, align 8
-  %87 = load i64, ptr %n, align 8
-  %add12 = add i64 %87, 1
-  store i64 %add12, ptr %j, align 8
-  %88 = load i64, ptr %n, align 8
-  %sub = sub i64 %88, 1
-  store i64 %sub, ptr %k, align 8
-  br label %for.cond13
-
-for.cond13:                                       ; preds = %for.inc, %SortHuffmanTreeItems.exit
-  %89 = load i64, ptr %k, align 8
-  %cmp14 = icmp ne i64 %89, 0
-  br i1 %cmp14, label %for.body16, label %for.end53
-
-for.body16:                                       ; preds = %for.cond13
-  %90 = load ptr, ptr %tree.addr, align 8
-  %91 = load i64, ptr %i, align 8
-  %arrayidx17 = getelementptr inbounds %struct.HuffmanTree, ptr %90, i64 %91
-  %total_count_ = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx17, i32 0, i32 0
-  %92 = load i32, ptr %total_count_, align 4
-  %93 = load ptr, ptr %tree.addr, align 8
-  %94 = load i64, ptr %j, align 8
-  %arrayidx18 = getelementptr inbounds %struct.HuffmanTree, ptr %93, i64 %94
-  %total_count_19 = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx18, i32 0, i32 0
-  %95 = load i32, ptr %total_count_19, align 4
-  %cmp20 = icmp ule i32 %92, %95
-  br i1 %cmp20, label %if.then22, label %if.else
-
-if.then22:                                        ; preds = %for.body16
-  %96 = load i64, ptr %i, align 8
-  store i64 %96, ptr %left, align 8
-  %97 = load i64, ptr %i, align 8
-  %inc23 = add i64 %97, 1
-  store i64 %inc23, ptr %i, align 8
-  br label %if.end25
-
-if.else:                                          ; preds = %for.body16
-  %98 = load i64, ptr %j, align 8
-  store i64 %98, ptr %left, align 8
-  %99 = load i64, ptr %j, align 8
-  %inc24 = add i64 %99, 1
-  store i64 %inc24, ptr %j, align 8
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.else, %if.then22
-  %100 = load ptr, ptr %tree.addr, align 8
-  %101 = load i64, ptr %i, align 8
-  %arrayidx26 = getelementptr inbounds %struct.HuffmanTree, ptr %100, i64 %101
-  %total_count_27 = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx26, i32 0, i32 0
-  %102 = load i32, ptr %total_count_27, align 4
-  %103 = load ptr, ptr %tree.addr, align 8
-  %104 = load i64, ptr %j, align 8
-  %arrayidx28 = getelementptr inbounds %struct.HuffmanTree, ptr %103, i64 %104
-  %total_count_29 = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx28, i32 0, i32 0
-  %105 = load i32, ptr %total_count_29, align 4
-  %cmp30 = icmp ule i32 %102, %105
-  br i1 %cmp30, label %if.then32, label %if.else34
-
-if.then32:                                        ; preds = %if.end25
-  %106 = load i64, ptr %i, align 8
-  store i64 %106, ptr %right, align 8
-  %107 = load i64, ptr %i, align 8
-  %inc33 = add i64 %107, 1
-  store i64 %inc33, ptr %i, align 8
-  br label %if.end36
-
-if.else34:                                        ; preds = %if.end25
-  %108 = load i64, ptr %j, align 8
-  store i64 %108, ptr %right, align 8
-  %109 = load i64, ptr %j, align 8
-  %inc35 = add i64 %109, 1
-  store i64 %inc35, ptr %j, align 8
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.else34, %if.then32
-  %110 = load i64, ptr %n, align 8
-  %mul = mul i64 2, %110
-  %111 = load i64, ptr %k, align 8
-  %sub37 = sub i64 %mul, %111
-  store i64 %sub37, ptr %j_end, align 8
-  %112 = load ptr, ptr %tree.addr, align 8
-  %113 = load i64, ptr %left, align 8
-  %arrayidx38 = getelementptr inbounds %struct.HuffmanTree, ptr %112, i64 %113
-  %total_count_39 = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx38, i32 0, i32 0
-  %114 = load i32, ptr %total_count_39, align 4
-  %115 = load ptr, ptr %tree.addr, align 8
-  %116 = load i64, ptr %right, align 8
-  %arrayidx40 = getelementptr inbounds %struct.HuffmanTree, ptr %115, i64 %116
-  %total_count_41 = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx40, i32 0, i32 0
-  %117 = load i32, ptr %total_count_41, align 4
-  %add42 = add i32 %114, %117
-  %118 = load ptr, ptr %tree.addr, align 8
-  %119 = load i64, ptr %j_end, align 8
-  %arrayidx43 = getelementptr inbounds %struct.HuffmanTree, ptr %118, i64 %119
-  %total_count_44 = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx43, i32 0, i32 0
-  store i32 %add42, ptr %total_count_44, align 4
-  %120 = load i64, ptr %left, align 8
-  %conv45 = trunc i64 %120 to i16
-  %121 = load ptr, ptr %tree.addr, align 8
-  %122 = load i64, ptr %j_end, align 8
-  %arrayidx46 = getelementptr inbounds %struct.HuffmanTree, ptr %121, i64 %122
-  %index_left_ = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx46, i32 0, i32 1
-  store i16 %conv45, ptr %index_left_, align 4
-  %123 = load i64, ptr %right, align 8
-  %conv47 = trunc i64 %123 to i16
-  %124 = load ptr, ptr %tree.addr, align 8
-  %125 = load i64, ptr %j_end, align 8
-  %arrayidx48 = getelementptr inbounds %struct.HuffmanTree, ptr %124, i64 %125
-  %index_right_or_value_49 = getelementptr inbounds %struct.HuffmanTree, ptr %arrayidx48, i32 0, i32 2
-  store i16 %conv47, ptr %index_right_or_value_49, align 2
-  %126 = load ptr, ptr %tree.addr, align 8
-  %127 = load i64, ptr %j_end, align 8
-  %add50 = add i64 %127, 1
-  %arrayidx51 = getelementptr inbounds %struct.HuffmanTree, ptr %126, i64 %add50
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx51, ptr align 4 %sentinel, i64 8, i1 false)
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end36
-  %128 = load i64, ptr %k, align 8
-  %dec52 = add i64 %128, -1
-  store i64 %dec52, ptr %k, align 8
-  br label %for.cond13, !llvm.loop !12
-
-for.end53:                                        ; preds = %for.cond13
-  %129 = load i64, ptr %n, align 8
-  %mul54 = mul i64 2, %129
-  %sub55 = sub i64 %mul54, 1
-  %conv56 = trunc i64 %sub55 to i32
-  %130 = load ptr, ptr %tree.addr, align 8
-  %arrayidx57 = getelementptr inbounds %struct.HuffmanTree, ptr %130, i64 0
-  %131 = load ptr, ptr %depth.addr, align 8
-  %132 = load i32, ptr %tree_limit.addr, align 4
-  %call58 = call i32 @BrotliSetDepth(i32 noundef %conv56, ptr noundef %arrayidx57, ptr noundef %131, i32 noundef %132)
-  %tobool59 = icmp ne i32 %call58, 0
-  br i1 %tobool59, label %if.then60, label %if.end61
-
-if.then60:                                        ; preds = %for.end53
-  br label %for.end64
-
-if.end61:                                         ; preds = %for.end53
-  br label %for.inc62
-
-for.inc62:                                        ; preds = %if.end61
-  %133 = load i32, ptr %count_limit, align 4
-  %mul63 = mul i32 %133, 2
-  store i32 %mul63, ptr %count_limit, align 4
-  br label %for.cond
-
-for.end64:                                        ; preds = %if.then60, %if.then6
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @InitHuffmanTree(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, i16 noundef signext %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i16, align 2
+  %8 = alloca i16, align 2
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i16 %2, ptr %7, align 2, !tbaa !25
+  store i16 %3, ptr %8, align 2, !tbaa !25
+  %9 = load i32, ptr %6, align 4, !tbaa !3
+  %10 = load ptr, ptr %5, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %10, i32 0, i32 0
+  store i32 %9, ptr %11, align 4, !tbaa !26
+  %12 = load i16, ptr %7, align 2, !tbaa !25
+  %13 = load ptr, ptr %5, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %13, i32 0, i32 1
+  store i16 %12, ptr %14, align 4, !tbaa !12
+  %15 = load i16, ptr %8, align 2, !tbaa !25
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %16, i32 0, i32 2
+  store i16 %15, ptr %17, align 2, !tbaa !15
   ret void
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal i32 @SortHuffmanTree(ptr noundef %v0, ptr noundef %v1) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %v0.addr = alloca ptr, align 8
-  %v1.addr = alloca ptr, align 8
-  store ptr %v0, ptr %v0.addr, align 8
-  store ptr %v1, ptr %v1.addr, align 8
-  %0 = load ptr, ptr %v0.addr, align 8
-  %total_count_ = getelementptr inbounds %struct.HuffmanTree, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %total_count_, align 4
-  %2 = load ptr, ptr %v1.addr, align 8
-  %total_count_1 = getelementptr inbounds %struct.HuffmanTree, ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %total_count_1, align 4
-  %cmp = icmp ne i32 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @brotli_max_uint32_t(i32 noundef %0, i32 noundef %1) #2 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load i32, ptr %4, align 4, !tbaa !3
+  %7 = icmp ugt i32 %5, %6
+  br i1 %7, label %8, label %10
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %v0.addr, align 8
-  %total_count_2 = getelementptr inbounds %struct.HuffmanTree, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %total_count_2, align 4
-  %6 = load ptr, ptr %v1.addr, align 8
-  %total_count_3 = getelementptr inbounds %struct.HuffmanTree, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %total_count_3, align 4
-  %cmp4 = icmp ult i32 %5, %7
-  %lnot = xor i1 %cmp4, true
-  %lnot5 = xor i1 %lnot, true
-  %cond = select i1 %lnot5, i32 1, i32 0
-  store i32 %cond, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %2
+  %9 = load i32, ptr %3, align 4, !tbaa !3
+  br label %12
 
-if.end:                                           ; preds = %entry
-  %8 = load ptr, ptr %v0.addr, align 8
-  %index_right_or_value_ = getelementptr inbounds %struct.HuffmanTree, ptr %8, i32 0, i32 2
-  %9 = load i16, ptr %index_right_or_value_, align 2
-  %conv = sext i16 %9 to i32
-  %10 = load ptr, ptr %v1.addr, align 8
-  %index_right_or_value_6 = getelementptr inbounds %struct.HuffmanTree, ptr %10, i32 0, i32 2
-  %11 = load i16, ptr %index_right_or_value_6, align 2
-  %conv7 = sext i16 %11 to i32
-  %cmp8 = icmp sgt i32 %conv, %conv7
-  %lnot10 = xor i1 %cmp8, true
-  %lnot11 = xor i1 %lnot10, true
-  %cond12 = select i1 %lnot11, i32 1, i32 0
-  store i32 %cond12, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %2
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  br label %12
 
-return:                                           ; preds = %if.end, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+12:                                               ; preds = %10, %8
+  %13 = phi i32 [ %9, %8 ], [ %11, %10 ]
+  ret i32 %13
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @SortHuffmanTreeItems(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct.HuffmanTree, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca %struct.HuffmanTree, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %16 = load i64, ptr %5, align 8, !tbaa !21
+  %17 = icmp ult i64 %16, 13
+  br i1 %17, label %18, label %58
+
+18:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  store i64 1, ptr %7, align 8, !tbaa !21
+  br label %19
+
+19:                                               ; preds = %54, %18
+  %20 = load i64, ptr %7, align 8, !tbaa !21
+  %21 = load i64, ptr %5, align 8, !tbaa !21
+  %22 = icmp ult i64 %20, %21
+  br i1 %22, label %23, label %57
+
+23:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %24 = load ptr, ptr %4, align 8, !tbaa !7
+  %25 = load i64, ptr %7, align 8, !tbaa !21
+  %26 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %24, i64 %25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %26, i64 8, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %27 = load i64, ptr %7, align 8, !tbaa !21
+  store i64 %27, ptr %9, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %28 = load i64, ptr %7, align 8, !tbaa !21
+  %29 = sub i64 %28, 1
+  store i64 %29, ptr %10, align 8, !tbaa !21
+  br label %30
+
+30:                                               ; preds = %49, %23
+  %31 = load ptr, ptr %6, align 8, !tbaa !28
+  %32 = load ptr, ptr %4, align 8, !tbaa !7
+  %33 = load i64, ptr %10, align 8, !tbaa !21
+  %34 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %32, i64 %33
+  %35 = call i32 %31(ptr noundef %8, ptr noundef %34)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %50
+
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %4, align 8, !tbaa !7
+  %39 = load i64, ptr %9, align 8, !tbaa !21
+  %40 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %38, i64 %39
+  %41 = load ptr, ptr %4, align 8, !tbaa !7
+  %42 = load i64, ptr %10, align 8, !tbaa !21
+  %43 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %41, i64 %42
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %43, i64 8, i1 false), !tbaa.struct !24
+  %44 = load i64, ptr %10, align 8, !tbaa !21
+  store i64 %44, ptr %9, align 8, !tbaa !21
+  %45 = load i64, ptr %10, align 8, !tbaa !21
+  %46 = add i64 %45, -1
+  store i64 %46, ptr %10, align 8, !tbaa !21
+  %47 = icmp ne i64 %45, 0
+  br i1 %47, label %49, label %48
+
+48:                                               ; preds = %37
+  br label %50
+
+49:                                               ; preds = %37
+  br label %30, !llvm.loop !29
+
+50:                                               ; preds = %48, %30
+  %51 = load ptr, ptr %4, align 8, !tbaa !7
+  %52 = load i64, ptr %9, align 8, !tbaa !21
+  %53 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %51, i64 %52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %53, ptr align 4 %8, i64 8, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %54
+
+54:                                               ; preds = %50
+  %55 = load i64, ptr %7, align 8, !tbaa !21
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %7, align 8, !tbaa !21
+  br label %19, !llvm.loop !30
+
+57:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  br label %120
+
+58:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %59 = load i64, ptr %5, align 8, !tbaa !21
+  %60 = icmp ult i64 %59, 57
+  %61 = select i1 %60, i32 2, i32 0
+  store i32 %61, ptr %11, align 4, !tbaa !3
+  br label %62
+
+62:                                               ; preds = %116, %58
+  %63 = load i32, ptr %11, align 4, !tbaa !3
+  %64 = icmp slt i32 %63, 6
+  br i1 %64, label %65, label %119
+
+65:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %66 = load i32, ptr %11, align 4, !tbaa !3
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds [6 x i64], ptr @kBrotliShellGaps, i64 0, i64 %67
+  %69 = load i64, ptr %68, align 8, !tbaa !21
+  store i64 %69, ptr %12, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %70 = load i64, ptr %12, align 8, !tbaa !21
+  store i64 %70, ptr %13, align 8, !tbaa !21
+  br label %71
+
+71:                                               ; preds = %112, %65
+  %72 = load i64, ptr %13, align 8, !tbaa !21
+  %73 = load i64, ptr %5, align 8, !tbaa !21
+  %74 = icmp ult i64 %72, %73
+  br i1 %74, label %75, label %115
+
+75:                                               ; preds = %71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %76 = load i64, ptr %13, align 8, !tbaa !21
+  store i64 %76, ptr %14, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %77 = load ptr, ptr %4, align 8, !tbaa !7
+  %78 = load i64, ptr %13, align 8, !tbaa !21
+  %79 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %77, i64 %78
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 %79, i64 8, i1 false), !tbaa.struct !24
+  br label %80
+
+80:                                               ; preds = %104, %75
+  %81 = load i64, ptr %14, align 8, !tbaa !21
+  %82 = load i64, ptr %12, align 8, !tbaa !21
+  %83 = icmp uge i64 %81, %82
+  br i1 %83, label %84, label %93
+
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %6, align 8, !tbaa !28
+  %86 = load ptr, ptr %4, align 8, !tbaa !7
+  %87 = load i64, ptr %14, align 8, !tbaa !21
+  %88 = load i64, ptr %12, align 8, !tbaa !21
+  %89 = sub i64 %87, %88
+  %90 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %86, i64 %89
+  %91 = call i32 %85(ptr noundef %15, ptr noundef %90)
+  %92 = icmp ne i32 %91, 0
+  br label %93
+
+93:                                               ; preds = %84, %80
+  %94 = phi i1 [ false, %80 ], [ %92, %84 ]
+  br i1 %94, label %95, label %108
+
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %4, align 8, !tbaa !7
+  %97 = load i64, ptr %14, align 8, !tbaa !21
+  %98 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %96, i64 %97
+  %99 = load ptr, ptr %4, align 8, !tbaa !7
+  %100 = load i64, ptr %14, align 8, !tbaa !21
+  %101 = load i64, ptr %12, align 8, !tbaa !21
+  %102 = sub i64 %100, %101
+  %103 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %99, i64 %102
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %98, ptr align 4 %103, i64 8, i1 false), !tbaa.struct !24
+  br label %104
+
+104:                                              ; preds = %95
+  %105 = load i64, ptr %12, align 8, !tbaa !21
+  %106 = load i64, ptr %14, align 8, !tbaa !21
+  %107 = sub i64 %106, %105
+  store i64 %107, ptr %14, align 8, !tbaa !21
+  br label %80, !llvm.loop !31
+
+108:                                              ; preds = %93
+  %109 = load ptr, ptr %4, align 8, !tbaa !7
+  %110 = load i64, ptr %14, align 8, !tbaa !21
+  %111 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %109, i64 %110
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %111, ptr align 4 %15, i64 8, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  br label %112
+
+112:                                              ; preds = %108
+  %113 = load i64, ptr %13, align 8, !tbaa !21
+  %114 = add i64 %113, 1
+  store i64 %114, ptr %13, align 8, !tbaa !21
+  br label %71, !llvm.loop !32
+
+115:                                              ; preds = %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = load i32, ptr %11, align 4, !tbaa !3
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr %11, align 4, !tbaa !3
+  br label %62, !llvm.loop !33
+
+119:                                              ; preds = %62
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  br label %120
+
+120:                                              ; preds = %57, %119
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @SortHuffmanTree(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 4, !tbaa !26
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %10, align 4, !tbaa !26
+  %12 = icmp ne i32 %8, %11
+  br i1 %12, label %13, label %24
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 4, !tbaa !26
+  %17 = load ptr, ptr %5, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 4, !tbaa !26
+  %20 = icmp ult i32 %16, %19
+  %21 = xor i1 %20, true
+  %22 = xor i1 %21, true
+  %23 = select i1 %22, i32 1, i32 0
+  store i32 %23, ptr %3, align 4
+  br label %37
+
+24:                                               ; preds = %2
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %25, i32 0, i32 2
+  %27 = load i16, ptr %26, align 2, !tbaa !15
+  %28 = sext i16 %27 to i32
+  %29 = load ptr, ptr %5, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %29, i32 0, i32 2
+  %31 = load i16, ptr %30, align 2, !tbaa !15
+  %32 = sext i16 %31 to i32
+  %33 = icmp sgt i32 %28, %32
+  %34 = xor i1 %33, true
+  %35 = xor i1 %34, true
+  %36 = select i1 %35, i32 1, i32 0
+  store i32 %36, ptr %3, align 4
+  br label %37
+
+37:                                               ; preds = %24, %13
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %length, ptr noundef %counts, ptr noundef %good_for_rle) #0 {
-entry:
-  %length.addr = alloca i64, align 8
-  %counts.addr = alloca ptr, align 8
-  %good_for_rle.addr = alloca ptr, align 8
-  %nonzero_count = alloca i64, align 8
-  %stride = alloca i64, align 8
-  %limit = alloca i64, align 8
-  %sum = alloca i64, align 8
-  %streak_limit = alloca i64, align 8
-  %i = alloca i64, align 8
-  %nonzeros = alloca i64, align 8
-  %smallest_nonzero = alloca i32, align 4
-  %zeros = alloca i64, align 8
-  %symbol = alloca i32, align 4
-  %step = alloca i64, align 8
-  %k = alloca i64, align 8
-  %k135 = alloca i64, align 8
-  %count = alloca i64, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store ptr %counts, ptr %counts.addr, align 8
-  store ptr %good_for_rle, ptr %good_for_rle.addr, align 8
-  store i64 0, ptr %nonzero_count, align 8
-  store i64 1240, ptr %streak_limit, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr %length.addr, align 8
-  %cmp = icmp ult i64 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %counts.addr, align 8
-  %3 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 %3
-  %4 = load i32, ptr %arrayidx, align 4
-  %tobool = icmp ne i32 %4, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %5 = load i64, ptr %nonzero_count, align 8
-  %inc = add i64 %5, 1
-  store i64 %inc, ptr %nonzero_count, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %6 = load i64, ptr %i, align 8
-  %inc1 = add i64 %6, 1
-  store i64 %inc1, ptr %i, align 8
-  br label %for.cond, !llvm.loop !13
-
-for.end:                                          ; preds = %for.cond
-  %7 = load i64, ptr %nonzero_count, align 8
-  %cmp2 = icmp ult i64 %7, 16
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %for.end
-  br label %for.end208
-
-if.end4:                                          ; preds = %for.end
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end4
-  %8 = load i64, ptr %length.addr, align 8
-  %cmp5 = icmp ne i64 %8, 0
-  br i1 %cmp5, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %9 = load ptr, ptr %counts.addr, align 8
-  %10 = load i64, ptr %length.addr, align 8
-  %sub = sub i64 %10, 1
-  %arrayidx6 = getelementptr inbounds i32, ptr %9, i64 %sub
-  %11 = load i32, ptr %arrayidx6, align 4
-  %cmp7 = icmp eq i32 %11, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %12 = phi i1 [ false, %while.cond ], [ %cmp7, %land.rhs ]
-  br i1 %12, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %13 = load i64, ptr %length.addr, align 8
-  %dec = add i64 %13, -1
-  store i64 %dec, ptr %length.addr, align 8
-  br label %while.cond, !llvm.loop !14
-
-while.end:                                        ; preds = %land.end
-  %14 = load i64, ptr %length.addr, align 8
-  %cmp8 = icmp eq i64 %14, 0
-  br i1 %cmp8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %while.end
-  br label %for.end208
-
-if.end10:                                         ; preds = %while.end
-  store i64 0, ptr %nonzeros, align 8
-  store i32 1073741824, ptr %smallest_nonzero, align 4
-  store i64 0, ptr %i, align 8
-  br label %for.cond11
-
-for.cond11:                                       ; preds = %for.inc24, %if.end10
-  %15 = load i64, ptr %i, align 8
-  %16 = load i64, ptr %length.addr, align 8
-  %cmp12 = icmp ult i64 %15, %16
-  br i1 %cmp12, label %for.body13, label %for.end26
-
-for.body13:                                       ; preds = %for.cond11
-  %17 = load ptr, ptr %counts.addr, align 8
-  %18 = load i64, ptr %i, align 8
-  %arrayidx14 = getelementptr inbounds i32, ptr %17, i64 %18
-  %19 = load i32, ptr %arrayidx14, align 4
-  %cmp15 = icmp ne i32 %19, 0
-  br i1 %cmp15, label %if.then16, label %if.end23
-
-if.then16:                                        ; preds = %for.body13
-  %20 = load i64, ptr %nonzeros, align 8
-  %inc17 = add i64 %20, 1
-  store i64 %inc17, ptr %nonzeros, align 8
-  %21 = load i32, ptr %smallest_nonzero, align 4
-  %22 = load ptr, ptr %counts.addr, align 8
-  %23 = load i64, ptr %i, align 8
-  %arrayidx18 = getelementptr inbounds i32, ptr %22, i64 %23
-  %24 = load i32, ptr %arrayidx18, align 4
-  %cmp19 = icmp ugt i32 %21, %24
-  br i1 %cmp19, label %if.then20, label %if.end22
-
-if.then20:                                        ; preds = %if.then16
-  %25 = load ptr, ptr %counts.addr, align 8
-  %26 = load i64, ptr %i, align 8
-  %arrayidx21 = getelementptr inbounds i32, ptr %25, i64 %26
-  %27 = load i32, ptr %arrayidx21, align 4
-  store i32 %27, ptr %smallest_nonzero, align 4
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.then20, %if.then16
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.end22, %for.body13
-  br label %for.inc24
-
-for.inc24:                                        ; preds = %if.end23
-  %28 = load i64, ptr %i, align 8
-  %inc25 = add i64 %28, 1
-  store i64 %inc25, ptr %i, align 8
-  br label %for.cond11, !llvm.loop !15
-
-for.end26:                                        ; preds = %for.cond11
-  %29 = load i64, ptr %nonzeros, align 8
-  %cmp27 = icmp ult i64 %29, 5
-  br i1 %cmp27, label %if.then28, label %if.end29
-
-if.then28:                                        ; preds = %for.end26
-  br label %for.end208
-
-if.end29:                                         ; preds = %for.end26
-  %30 = load i32, ptr %smallest_nonzero, align 4
-  %cmp30 = icmp ult i32 %30, 4
-  br i1 %cmp30, label %if.then31, label %if.end54
-
-if.then31:                                        ; preds = %if.end29
-  %31 = load i64, ptr %length.addr, align 8
-  %32 = load i64, ptr %nonzeros, align 8
-  %sub32 = sub i64 %31, %32
-  store i64 %sub32, ptr %zeros, align 8
-  %33 = load i64, ptr %zeros, align 8
-  %cmp33 = icmp ult i64 %33, 6
-  br i1 %cmp33, label %if.then34, label %if.end53
-
-if.then34:                                        ; preds = %if.then31
-  store i64 1, ptr %i, align 8
-  br label %for.cond35
-
-for.cond35:                                       ; preds = %for.inc50, %if.then34
-  %34 = load i64, ptr %i, align 8
-  %35 = load i64, ptr %length.addr, align 8
-  %sub36 = sub i64 %35, 1
-  %cmp37 = icmp ult i64 %34, %sub36
-  br i1 %cmp37, label %for.body38, label %for.end52
-
-for.body38:                                       ; preds = %for.cond35
-  %36 = load ptr, ptr %counts.addr, align 8
-  %37 = load i64, ptr %i, align 8
-  %sub39 = sub i64 %37, 1
-  %arrayidx40 = getelementptr inbounds i32, ptr %36, i64 %sub39
-  %38 = load i32, ptr %arrayidx40, align 4
-  %cmp41 = icmp ne i32 %38, 0
-  br i1 %cmp41, label %land.lhs.true, label %if.end49
-
-land.lhs.true:                                    ; preds = %for.body38
-  %39 = load ptr, ptr %counts.addr, align 8
-  %40 = load i64, ptr %i, align 8
-  %arrayidx42 = getelementptr inbounds i32, ptr %39, i64 %40
-  %41 = load i32, ptr %arrayidx42, align 4
-  %cmp43 = icmp eq i32 %41, 0
-  br i1 %cmp43, label %land.lhs.true44, label %if.end49
-
-land.lhs.true44:                                  ; preds = %land.lhs.true
-  %42 = load ptr, ptr %counts.addr, align 8
-  %43 = load i64, ptr %i, align 8
-  %add = add i64 %43, 1
-  %arrayidx45 = getelementptr inbounds i32, ptr %42, i64 %add
-  %44 = load i32, ptr %arrayidx45, align 4
-  %cmp46 = icmp ne i32 %44, 0
-  br i1 %cmp46, label %if.then47, label %if.end49
-
-if.then47:                                        ; preds = %land.lhs.true44
-  %45 = load ptr, ptr %counts.addr, align 8
-  %46 = load i64, ptr %i, align 8
-  %arrayidx48 = getelementptr inbounds i32, ptr %45, i64 %46
-  store i32 1, ptr %arrayidx48, align 4
-  br label %if.end49
-
-if.end49:                                         ; preds = %if.then47, %land.lhs.true44, %land.lhs.true, %for.body38
-  br label %for.inc50
-
-for.inc50:                                        ; preds = %if.end49
-  %47 = load i64, ptr %i, align 8
-  %inc51 = add i64 %47, 1
-  store i64 %inc51, ptr %i, align 8
-  br label %for.cond35, !llvm.loop !16
-
-for.end52:                                        ; preds = %for.cond35
-  br label %if.end53
-
-if.end53:                                         ; preds = %for.end52, %if.then31
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.end53, %if.end29
-  %48 = load i64, ptr %nonzeros, align 8
-  %cmp55 = icmp ult i64 %48, 28
-  br i1 %cmp55, label %if.then56, label %if.end57
-
-if.then56:                                        ; preds = %if.end54
-  br label %for.end208
-
-if.end57:                                         ; preds = %if.end54
-  %49 = load ptr, ptr %good_for_rle.addr, align 8
-  %50 = load i64, ptr %length.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %49, i8 0, i64 %50, i1 false)
-  %51 = load ptr, ptr %counts.addr, align 8
-  %arrayidx58 = getelementptr inbounds i32, ptr %51, i64 0
-  %52 = load i32, ptr %arrayidx58, align 4
-  store i32 %52, ptr %symbol, align 4
-  store i64 0, ptr %step, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond59
-
-for.cond59:                                       ; preds = %for.inc90, %if.end57
-  %53 = load i64, ptr %i, align 8
-  %54 = load i64, ptr %length.addr, align 8
-  %cmp60 = icmp ule i64 %53, %54
-  br i1 %cmp60, label %for.body61, label %for.end92
-
-for.body61:                                       ; preds = %for.cond59
-  %55 = load i64, ptr %i, align 8
-  %56 = load i64, ptr %length.addr, align 8
-  %cmp62 = icmp eq i64 %55, %56
-  br i1 %cmp62, label %if.then65, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %for.body61
-  %57 = load ptr, ptr %counts.addr, align 8
-  %58 = load i64, ptr %i, align 8
-  %arrayidx63 = getelementptr inbounds i32, ptr %57, i64 %58
-  %59 = load i32, ptr %arrayidx63, align 4
-  %60 = load i32, ptr %symbol, align 4
-  %cmp64 = icmp ne i32 %59, %60
-  br i1 %cmp64, label %if.then65, label %if.else
-
-if.then65:                                        ; preds = %lor.lhs.false, %for.body61
-  %61 = load i32, ptr %symbol, align 4
-  %cmp66 = icmp eq i32 %61, 0
-  br i1 %cmp66, label %land.lhs.true67, label %lor.lhs.false69
-
-land.lhs.true67:                                  ; preds = %if.then65
-  %62 = load i64, ptr %step, align 8
-  %cmp68 = icmp uge i64 %62, 5
-  br i1 %cmp68, label %if.then73, label %lor.lhs.false69
-
-lor.lhs.false69:                                  ; preds = %land.lhs.true67, %if.then65
-  %63 = load i32, ptr %symbol, align 4
-  %cmp70 = icmp ne i32 %63, 0
-  br i1 %cmp70, label %land.lhs.true71, label %if.end83
-
-land.lhs.true71:                                  ; preds = %lor.lhs.false69
-  %64 = load i64, ptr %step, align 8
-  %cmp72 = icmp uge i64 %64, 7
-  br i1 %cmp72, label %if.then73, label %if.end83
-
-if.then73:                                        ; preds = %land.lhs.true71, %land.lhs.true67
-  store i64 0, ptr %k, align 8
-  br label %for.cond74
-
-for.cond74:                                       ; preds = %for.inc80, %if.then73
-  %65 = load i64, ptr %k, align 8
-  %66 = load i64, ptr %step, align 8
-  %cmp75 = icmp ult i64 %65, %66
-  br i1 %cmp75, label %for.body76, label %for.end82
-
-for.body76:                                       ; preds = %for.cond74
-  %67 = load ptr, ptr %good_for_rle.addr, align 8
-  %68 = load i64, ptr %i, align 8
-  %69 = load i64, ptr %k, align 8
-  %sub77 = sub i64 %68, %69
-  %sub78 = sub i64 %sub77, 1
-  %arrayidx79 = getelementptr inbounds i8, ptr %67, i64 %sub78
-  store i8 1, ptr %arrayidx79, align 1
-  br label %for.inc80
-
-for.inc80:                                        ; preds = %for.body76
-  %70 = load i64, ptr %k, align 8
-  %inc81 = add i64 %70, 1
-  store i64 %inc81, ptr %k, align 8
-  br label %for.cond74, !llvm.loop !17
-
-for.end82:                                        ; preds = %for.cond74
-  br label %if.end83
-
-if.end83:                                         ; preds = %for.end82, %land.lhs.true71, %lor.lhs.false69
-  store i64 1, ptr %step, align 8
-  %71 = load i64, ptr %i, align 8
-  %72 = load i64, ptr %length.addr, align 8
-  %cmp84 = icmp ne i64 %71, %72
-  br i1 %cmp84, label %if.then85, label %if.end87
-
-if.then85:                                        ; preds = %if.end83
-  %73 = load ptr, ptr %counts.addr, align 8
-  %74 = load i64, ptr %i, align 8
-  %arrayidx86 = getelementptr inbounds i32, ptr %73, i64 %74
-  %75 = load i32, ptr %arrayidx86, align 4
-  store i32 %75, ptr %symbol, align 4
-  br label %if.end87
-
-if.end87:                                         ; preds = %if.then85, %if.end83
-  br label %if.end89
-
-if.else:                                          ; preds = %lor.lhs.false
-  %76 = load i64, ptr %step, align 8
-  %inc88 = add i64 %76, 1
-  store i64 %inc88, ptr %step, align 8
-  br label %if.end89
-
-if.end89:                                         ; preds = %if.else, %if.end87
-  br label %for.inc90
-
-for.inc90:                                        ; preds = %if.end89
-  %77 = load i64, ptr %i, align 8
-  %inc91 = add i64 %77, 1
-  store i64 %inc91, ptr %i, align 8
-  br label %for.cond59, !llvm.loop !18
-
-for.end92:                                        ; preds = %for.cond59
-  store i64 0, ptr %stride, align 8
-  %78 = load ptr, ptr %counts.addr, align 8
-  %arrayidx93 = getelementptr inbounds i32, ptr %78, i64 0
-  %79 = load i32, ptr %arrayidx93, align 4
-  %80 = load ptr, ptr %counts.addr, align 8
-  %arrayidx94 = getelementptr inbounds i32, ptr %80, i64 1
-  %81 = load i32, ptr %arrayidx94, align 4
-  %add95 = add i32 %79, %81
-  %82 = load ptr, ptr %counts.addr, align 8
-  %arrayidx96 = getelementptr inbounds i32, ptr %82, i64 2
-  %83 = load i32, ptr %arrayidx96, align 4
-  %add97 = add i32 %add95, %83
-  %mul = mul i32 256, %add97
-  %div = udiv i32 %mul, 3
-  %add98 = add i32 %div, 420
-  %conv = zext i32 %add98 to i64
-  store i64 %conv, ptr %limit, align 8
-  store i64 0, ptr %sum, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond99
-
-for.cond99:                                       ; preds = %for.inc206, %for.end92
-  %84 = load i64, ptr %i, align 8
-  %85 = load i64, ptr %length.addr, align 8
-  %cmp100 = icmp ule i64 %84, %85
-  br i1 %cmp100, label %for.body102, label %for.end208
-
-for.body102:                                      ; preds = %for.cond99
-  %86 = load i64, ptr %i, align 8
-  %87 = load i64, ptr %length.addr, align 8
-  %cmp103 = icmp eq i64 %86, %87
-  br i1 %cmp103, label %if.then125, label %lor.lhs.false105
-
-lor.lhs.false105:                                 ; preds = %for.body102
-  %88 = load ptr, ptr %good_for_rle.addr, align 8
-  %89 = load i64, ptr %i, align 8
-  %arrayidx106 = getelementptr inbounds i8, ptr %88, i64 %89
-  %90 = load i8, ptr %arrayidx106, align 1
-  %conv107 = zext i8 %90 to i32
-  %tobool108 = icmp ne i32 %conv107, 0
-  br i1 %tobool108, label %if.then125, label %lor.lhs.false109
-
-lor.lhs.false109:                                 ; preds = %lor.lhs.false105
-  %91 = load i64, ptr %i, align 8
-  %cmp110 = icmp ne i64 %91, 0
-  br i1 %cmp110, label %land.lhs.true112, label %lor.lhs.false117
-
-land.lhs.true112:                                 ; preds = %lor.lhs.false109
-  %92 = load ptr, ptr %good_for_rle.addr, align 8
-  %93 = load i64, ptr %i, align 8
-  %sub113 = sub i64 %93, 1
-  %arrayidx114 = getelementptr inbounds i8, ptr %92, i64 %sub113
-  %94 = load i8, ptr %arrayidx114, align 1
-  %conv115 = zext i8 %94 to i32
-  %tobool116 = icmp ne i32 %conv115, 0
-  br i1 %tobool116, label %if.then125, label %lor.lhs.false117
-
-lor.lhs.false117:                                 ; preds = %land.lhs.true112, %lor.lhs.false109
-  %95 = load ptr, ptr %counts.addr, align 8
-  %96 = load i64, ptr %i, align 8
-  %arrayidx118 = getelementptr inbounds i32, ptr %95, i64 %96
-  %97 = load i32, ptr %arrayidx118, align 4
-  %mul119 = mul i32 256, %97
-  %conv120 = zext i32 %mul119 to i64
-  %98 = load i64, ptr %limit, align 8
-  %sub121 = sub i64 %conv120, %98
-  %add122 = add i64 %sub121, 1240
-  %cmp123 = icmp uge i64 %add122, 2480
-  br i1 %cmp123, label %if.then125, label %if.end184
-
-if.then125:                                       ; preds = %lor.lhs.false117, %land.lhs.true112, %lor.lhs.false105, %for.body102
-  %99 = load i64, ptr %stride, align 8
-  %cmp126 = icmp uge i64 %99, 4
-  br i1 %cmp126, label %if.then134, label %lor.lhs.false128
-
-lor.lhs.false128:                                 ; preds = %if.then125
-  %100 = load i64, ptr %stride, align 8
-  %cmp129 = icmp uge i64 %100, 3
-  br i1 %cmp129, label %land.lhs.true131, label %if.end158
-
-land.lhs.true131:                                 ; preds = %lor.lhs.false128
-  %101 = load i64, ptr %sum, align 8
-  %cmp132 = icmp eq i64 %101, 0
-  br i1 %cmp132, label %if.then134, label %if.end158
-
-if.then134:                                       ; preds = %land.lhs.true131, %if.then125
-  %102 = load i64, ptr %sum, align 8
-  %103 = load i64, ptr %stride, align 8
-  %div136 = udiv i64 %103, 2
-  %add137 = add i64 %102, %div136
-  %104 = load i64, ptr %stride, align 8
-  %div138 = udiv i64 %add137, %104
-  store i64 %div138, ptr %count, align 8
-  %105 = load i64, ptr %count, align 8
-  %cmp139 = icmp eq i64 %105, 0
-  br i1 %cmp139, label %if.then141, label %if.end142
-
-if.then141:                                       ; preds = %if.then134
-  store i64 1, ptr %count, align 8
-  br label %if.end142
-
-if.end142:                                        ; preds = %if.then141, %if.then134
-  %106 = load i64, ptr %sum, align 8
-  %cmp143 = icmp eq i64 %106, 0
-  br i1 %cmp143, label %if.then145, label %if.end146
-
-if.then145:                                       ; preds = %if.end142
-  store i64 0, ptr %count, align 8
-  br label %if.end146
-
-if.end146:                                        ; preds = %if.then145, %if.end142
-  store i64 0, ptr %k135, align 8
-  br label %for.cond147
-
-for.cond147:                                      ; preds = %for.inc155, %if.end146
-  %107 = load i64, ptr %k135, align 8
-  %108 = load i64, ptr %stride, align 8
-  %cmp148 = icmp ult i64 %107, %108
-  br i1 %cmp148, label %for.body150, label %for.end157
-
-for.body150:                                      ; preds = %for.cond147
-  %109 = load i64, ptr %count, align 8
-  %conv151 = trunc i64 %109 to i32
-  %110 = load ptr, ptr %counts.addr, align 8
-  %111 = load i64, ptr %i, align 8
-  %112 = load i64, ptr %k135, align 8
-  %sub152 = sub i64 %111, %112
-  %sub153 = sub i64 %sub152, 1
-  %arrayidx154 = getelementptr inbounds i32, ptr %110, i64 %sub153
-  store i32 %conv151, ptr %arrayidx154, align 4
-  br label %for.inc155
-
-for.inc155:                                       ; preds = %for.body150
-  %113 = load i64, ptr %k135, align 8
-  %inc156 = add i64 %113, 1
-  store i64 %inc156, ptr %k135, align 8
-  br label %for.cond147, !llvm.loop !19
-
-for.end157:                                       ; preds = %for.cond147
-  br label %if.end158
-
-if.end158:                                        ; preds = %for.end157, %land.lhs.true131, %lor.lhs.false128
-  store i64 0, ptr %stride, align 8
-  store i64 0, ptr %sum, align 8
-  %114 = load i64, ptr %i, align 8
-  %115 = load i64, ptr %length.addr, align 8
-  %sub159 = sub i64 %115, 2
-  %cmp160 = icmp ult i64 %114, %sub159
-  br i1 %cmp160, label %if.then162, label %if.else174
-
-if.then162:                                       ; preds = %if.end158
-  %116 = load ptr, ptr %counts.addr, align 8
-  %117 = load i64, ptr %i, align 8
-  %arrayidx163 = getelementptr inbounds i32, ptr %116, i64 %117
-  %118 = load i32, ptr %arrayidx163, align 4
-  %119 = load ptr, ptr %counts.addr, align 8
-  %120 = load i64, ptr %i, align 8
-  %add164 = add i64 %120, 1
-  %arrayidx165 = getelementptr inbounds i32, ptr %119, i64 %add164
-  %121 = load i32, ptr %arrayidx165, align 4
-  %add166 = add i32 %118, %121
-  %122 = load ptr, ptr %counts.addr, align 8
-  %123 = load i64, ptr %i, align 8
-  %add167 = add i64 %123, 2
-  %arrayidx168 = getelementptr inbounds i32, ptr %122, i64 %add167
-  %124 = load i32, ptr %arrayidx168, align 4
-  %add169 = add i32 %add166, %124
-  %mul170 = mul i32 256, %add169
-  %div171 = udiv i32 %mul170, 3
-  %add172 = add i32 %div171, 420
-  %conv173 = zext i32 %add172 to i64
-  store i64 %conv173, ptr %limit, align 8
-  br label %if.end183
-
-if.else174:                                       ; preds = %if.end158
-  %125 = load i64, ptr %i, align 8
-  %126 = load i64, ptr %length.addr, align 8
-  %cmp175 = icmp ult i64 %125, %126
-  br i1 %cmp175, label %if.then177, label %if.else181
-
-if.then177:                                       ; preds = %if.else174
-  %127 = load ptr, ptr %counts.addr, align 8
-  %128 = load i64, ptr %i, align 8
-  %arrayidx178 = getelementptr inbounds i32, ptr %127, i64 %128
-  %129 = load i32, ptr %arrayidx178, align 4
-  %mul179 = mul i32 256, %129
-  %conv180 = zext i32 %mul179 to i64
-  store i64 %conv180, ptr %limit, align 8
-  br label %if.end182
-
-if.else181:                                       ; preds = %if.else174
-  store i64 0, ptr %limit, align 8
-  br label %if.end182
-
-if.end182:                                        ; preds = %if.else181, %if.then177
-  br label %if.end183
-
-if.end183:                                        ; preds = %if.end182, %if.then162
-  br label %if.end184
-
-if.end184:                                        ; preds = %if.end183, %lor.lhs.false117
-  %130 = load i64, ptr %stride, align 8
-  %inc185 = add i64 %130, 1
-  store i64 %inc185, ptr %stride, align 8
-  %131 = load i64, ptr %i, align 8
-  %132 = load i64, ptr %length.addr, align 8
-  %cmp186 = icmp ne i64 %131, %132
-  br i1 %cmp186, label %if.then188, label %if.end205
-
-if.then188:                                       ; preds = %if.end184
-  %133 = load ptr, ptr %counts.addr, align 8
-  %134 = load i64, ptr %i, align 8
-  %arrayidx189 = getelementptr inbounds i32, ptr %133, i64 %134
-  %135 = load i32, ptr %arrayidx189, align 4
-  %conv190 = zext i32 %135 to i64
-  %136 = load i64, ptr %sum, align 8
-  %add191 = add i64 %136, %conv190
-  store i64 %add191, ptr %sum, align 8
-  %137 = load i64, ptr %stride, align 8
-  %cmp192 = icmp uge i64 %137, 4
-  br i1 %cmp192, label %if.then194, label %if.end199
-
-if.then194:                                       ; preds = %if.then188
-  %138 = load i64, ptr %sum, align 8
-  %mul195 = mul i64 256, %138
-  %139 = load i64, ptr %stride, align 8
-  %div196 = udiv i64 %139, 2
-  %add197 = add i64 %mul195, %div196
-  %140 = load i64, ptr %stride, align 8
-  %div198 = udiv i64 %add197, %140
-  store i64 %div198, ptr %limit, align 8
-  br label %if.end199
-
-if.end199:                                        ; preds = %if.then194, %if.then188
-  %141 = load i64, ptr %stride, align 8
-  %cmp200 = icmp eq i64 %141, 4
-  br i1 %cmp200, label %if.then202, label %if.end204
-
-if.then202:                                       ; preds = %if.end199
-  %142 = load i64, ptr %limit, align 8
-  %add203 = add i64 %142, 120
-  store i64 %add203, ptr %limit, align 8
-  br label %if.end204
-
-if.end204:                                        ; preds = %if.then202, %if.end199
-  br label %if.end205
-
-if.end205:                                        ; preds = %if.end204, %if.end184
-  br label %for.inc206
-
-for.inc206:                                       ; preds = %if.end205
-  %143 = load i64, ptr %i, align 8
-  %inc207 = add i64 %143, 1
-  store i64 %inc207, ptr %i, align 8
-  br label %for.cond99, !llvm.loop !20
-
-for.end208:                                       ; preds = %for.cond99, %if.then56, %if.then28, %if.then9, %if.then3
+define hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i64, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  store i64 0, ptr %7, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  store i64 1240, ptr %11, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  store i64 0, ptr %12, align 8, !tbaa !21
+  br label %22
+
+22:                                               ; preds = %36, %3
+  %23 = load i64, ptr %12, align 8, !tbaa !21
+  %24 = load i64, ptr %4, align 8, !tbaa !21
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %26, label %39
+
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %5, align 8, !tbaa !19
+  %28 = load i64, ptr %12, align 8, !tbaa !21
+  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !3
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %35
+
+32:                                               ; preds = %26
+  %33 = load i64, ptr %7, align 8, !tbaa !21
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %7, align 8, !tbaa !21
+  br label %35
+
+35:                                               ; preds = %32, %26
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i64, ptr %12, align 8, !tbaa !21
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %12, align 8, !tbaa !21
+  br label %22, !llvm.loop !34
+
+39:                                               ; preds = %22
+  %40 = load i64, ptr %7, align 8, !tbaa !21
+  %41 = icmp ult i64 %40, 16
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %39
+  store i32 1, ptr %13, align 4
+  br label %385
+
+43:                                               ; preds = %39
+  br label %44
+
+44:                                               ; preds = %56, %43
+  %45 = load i64, ptr %4, align 8, !tbaa !21
+  %46 = icmp ne i64 %45, 0
+  br i1 %46, label %47, label %54
+
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %5, align 8, !tbaa !19
+  %49 = load i64, ptr %4, align 8, !tbaa !21
+  %50 = sub i64 %49, 1
+  %51 = getelementptr inbounds nuw i32, ptr %48, i64 %50
+  %52 = load i32, ptr %51, align 4, !tbaa !3
+  %53 = icmp eq i32 %52, 0
+  br label %54
+
+54:                                               ; preds = %47, %44
+  %55 = phi i1 [ false, %44 ], [ %53, %47 ]
+  br i1 %55, label %56, label %59
+
+56:                                               ; preds = %54
+  %57 = load i64, ptr %4, align 8, !tbaa !21
+  %58 = add i64 %57, -1
+  store i64 %58, ptr %4, align 8, !tbaa !21
+  br label %44, !llvm.loop !35
+
+59:                                               ; preds = %54
+  %60 = load i64, ptr %4, align 8, !tbaa !21
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %59
+  store i32 1, ptr %13, align 4
+  br label %385
+
+63:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  store i64 0, ptr %14, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  store i32 1073741824, ptr %15, align 4, !tbaa !3
+  store i64 0, ptr %12, align 8, !tbaa !21
+  br label %64
+
+64:                                               ; preds = %90, %63
+  %65 = load i64, ptr %12, align 8, !tbaa !21
+  %66 = load i64, ptr %4, align 8, !tbaa !21
+  %67 = icmp ult i64 %65, %66
+  br i1 %67, label %68, label %93
+
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %5, align 8, !tbaa !19
+  %70 = load i64, ptr %12, align 8, !tbaa !21
+  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !3
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %89
+
+74:                                               ; preds = %68
+  %75 = load i64, ptr %14, align 8, !tbaa !21
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %14, align 8, !tbaa !21
+  %77 = load i32, ptr %15, align 4, !tbaa !3
+  %78 = load ptr, ptr %5, align 8, !tbaa !19
+  %79 = load i64, ptr %12, align 8, !tbaa !21
+  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %81 = load i32, ptr %80, align 4, !tbaa !3
+  %82 = icmp ugt i32 %77, %81
+  br i1 %82, label %83, label %88
+
+83:                                               ; preds = %74
+  %84 = load ptr, ptr %5, align 8, !tbaa !19
+  %85 = load i64, ptr %12, align 8, !tbaa !21
+  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !3
+  store i32 %87, ptr %15, align 4, !tbaa !3
+  br label %88
+
+88:                                               ; preds = %83, %74
+  br label %89
+
+89:                                               ; preds = %88, %68
+  br label %90
+
+90:                                               ; preds = %89
+  %91 = load i64, ptr %12, align 8, !tbaa !21
+  %92 = add i64 %91, 1
+  store i64 %92, ptr %12, align 8, !tbaa !21
+  br label %64, !llvm.loop !36
+
+93:                                               ; preds = %64
+  %94 = load i64, ptr %14, align 8, !tbaa !21
+  %95 = icmp ult i64 %94, 5
+  br i1 %95, label %96, label %97
+
+96:                                               ; preds = %93
+  store i32 1, ptr %13, align 4
+  br label %147
+
+97:                                               ; preds = %93
+  %98 = load i32, ptr %15, align 4, !tbaa !3
+  %99 = icmp ult i32 %98, 4
+  br i1 %99, label %100, label %142
+
+100:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %101 = load i64, ptr %4, align 8, !tbaa !21
+  %102 = load i64, ptr %14, align 8, !tbaa !21
+  %103 = sub i64 %101, %102
+  store i64 %103, ptr %16, align 8, !tbaa !21
+  %104 = load i64, ptr %16, align 8, !tbaa !21
+  %105 = icmp ult i64 %104, 6
+  br i1 %105, label %106, label %141
+
+106:                                              ; preds = %100
+  store i64 1, ptr %12, align 8, !tbaa !21
+  br label %107
+
+107:                                              ; preds = %137, %106
+  %108 = load i64, ptr %12, align 8, !tbaa !21
+  %109 = load i64, ptr %4, align 8, !tbaa !21
+  %110 = sub i64 %109, 1
+  %111 = icmp ult i64 %108, %110
+  br i1 %111, label %112, label %140
+
+112:                                              ; preds = %107
+  %113 = load ptr, ptr %5, align 8, !tbaa !19
+  %114 = load i64, ptr %12, align 8, !tbaa !21
+  %115 = sub i64 %114, 1
+  %116 = getelementptr inbounds nuw i32, ptr %113, i64 %115
+  %117 = load i32, ptr %116, align 4, !tbaa !3
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %136
+
+119:                                              ; preds = %112
+  %120 = load ptr, ptr %5, align 8, !tbaa !19
+  %121 = load i64, ptr %12, align 8, !tbaa !21
+  %122 = getelementptr inbounds nuw i32, ptr %120, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !3
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %136
+
+125:                                              ; preds = %119
+  %126 = load ptr, ptr %5, align 8, !tbaa !19
+  %127 = load i64, ptr %12, align 8, !tbaa !21
+  %128 = add i64 %127, 1
+  %129 = getelementptr inbounds nuw i32, ptr %126, i64 %128
+  %130 = load i32, ptr %129, align 4, !tbaa !3
+  %131 = icmp ne i32 %130, 0
+  br i1 %131, label %132, label %136
+
+132:                                              ; preds = %125
+  %133 = load ptr, ptr %5, align 8, !tbaa !19
+  %134 = load i64, ptr %12, align 8, !tbaa !21
+  %135 = getelementptr inbounds nuw i32, ptr %133, i64 %134
+  store i32 1, ptr %135, align 4, !tbaa !3
+  br label %136
+
+136:                                              ; preds = %132, %125, %119, %112
+  br label %137
+
+137:                                              ; preds = %136
+  %138 = load i64, ptr %12, align 8, !tbaa !21
+  %139 = add i64 %138, 1
+  store i64 %139, ptr %12, align 8, !tbaa !21
+  br label %107, !llvm.loop !37
+
+140:                                              ; preds = %107
+  br label %141
+
+141:                                              ; preds = %140, %100
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  br label %142
+
+142:                                              ; preds = %141, %97
+  %143 = load i64, ptr %14, align 8, !tbaa !21
+  %144 = icmp ult i64 %143, 28
+  br i1 %144, label %145, label %146
+
+145:                                              ; preds = %142
+  store i32 1, ptr %13, align 4
+  br label %147
+
+146:                                              ; preds = %142
+  store i32 0, ptr %13, align 4
+  br label %147
+
+147:                                              ; preds = %146, %145, %96
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  %148 = load i32, ptr %13, align 4
+  switch i32 %148, label %385 [
+    i32 0, label %149
+  ]
+
+149:                                              ; preds = %147
+  %150 = load ptr, ptr %6, align 8, !tbaa !10
+  %151 = load i64, ptr %4, align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr align 1 %150, i8 0, i64 %151, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  %152 = load ptr, ptr %5, align 8, !tbaa !19
+  %153 = getelementptr inbounds i32, ptr %152, i64 0
+  %154 = load i32, ptr %153, align 4, !tbaa !3
+  store i32 %154, ptr %17, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  store i64 0, ptr %18, align 8, !tbaa !21
+  store i64 0, ptr %12, align 8, !tbaa !21
+  br label %155
+
+155:                                              ; preds = %212, %149
+  %156 = load i64, ptr %12, align 8, !tbaa !21
+  %157 = load i64, ptr %4, align 8, !tbaa !21
+  %158 = icmp ule i64 %156, %157
+  br i1 %158, label %159, label %215
+
+159:                                              ; preds = %155
+  %160 = load i64, ptr %12, align 8, !tbaa !21
+  %161 = load i64, ptr %4, align 8, !tbaa !21
+  %162 = icmp eq i64 %160, %161
+  br i1 %162, label %170, label %163
+
+163:                                              ; preds = %159
+  %164 = load ptr, ptr %5, align 8, !tbaa !19
+  %165 = load i64, ptr %12, align 8, !tbaa !21
+  %166 = getelementptr inbounds nuw i32, ptr %164, i64 %165
+  %167 = load i32, ptr %166, align 4, !tbaa !3
+  %168 = load i32, ptr %17, align 4, !tbaa !3
+  %169 = icmp ne i32 %167, %168
+  br i1 %169, label %170, label %208
+
+170:                                              ; preds = %163, %159
+  %171 = load i32, ptr %17, align 4, !tbaa !3
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %176
+
+173:                                              ; preds = %170
+  %174 = load i64, ptr %18, align 8, !tbaa !21
+  %175 = icmp uge i64 %174, 5
+  br i1 %175, label %182, label %176
+
+176:                                              ; preds = %173, %170
+  %177 = load i32, ptr %17, align 4, !tbaa !3
+  %178 = icmp ne i32 %177, 0
+  br i1 %178, label %179, label %198
+
+179:                                              ; preds = %176
+  %180 = load i64, ptr %18, align 8, !tbaa !21
+  %181 = icmp uge i64 %180, 7
+  br i1 %181, label %182, label %198
+
+182:                                              ; preds = %179, %173
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  store i64 0, ptr %19, align 8, !tbaa !21
+  br label %183
+
+183:                                              ; preds = %194, %182
+  %184 = load i64, ptr %19, align 8, !tbaa !21
+  %185 = load i64, ptr %18, align 8, !tbaa !21
+  %186 = icmp ult i64 %184, %185
+  br i1 %186, label %187, label %197
+
+187:                                              ; preds = %183
+  %188 = load ptr, ptr %6, align 8, !tbaa !10
+  %189 = load i64, ptr %12, align 8, !tbaa !21
+  %190 = load i64, ptr %19, align 8, !tbaa !21
+  %191 = sub i64 %189, %190
+  %192 = sub i64 %191, 1
+  %193 = getelementptr inbounds nuw i8, ptr %188, i64 %192
+  store i8 1, ptr %193, align 1, !tbaa !16
+  br label %194
+
+194:                                              ; preds = %187
+  %195 = load i64, ptr %19, align 8, !tbaa !21
+  %196 = add i64 %195, 1
+  store i64 %196, ptr %19, align 8, !tbaa !21
+  br label %183, !llvm.loop !38
+
+197:                                              ; preds = %183
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  br label %198
+
+198:                                              ; preds = %197, %179, %176
+  store i64 1, ptr %18, align 8, !tbaa !21
+  %199 = load i64, ptr %12, align 8, !tbaa !21
+  %200 = load i64, ptr %4, align 8, !tbaa !21
+  %201 = icmp ne i64 %199, %200
+  br i1 %201, label %202, label %207
+
+202:                                              ; preds = %198
+  %203 = load ptr, ptr %5, align 8, !tbaa !19
+  %204 = load i64, ptr %12, align 8, !tbaa !21
+  %205 = getelementptr inbounds nuw i32, ptr %203, i64 %204
+  %206 = load i32, ptr %205, align 4, !tbaa !3
+  store i32 %206, ptr %17, align 4, !tbaa !3
+  br label %207
+
+207:                                              ; preds = %202, %198
+  br label %211
+
+208:                                              ; preds = %163
+  %209 = load i64, ptr %18, align 8, !tbaa !21
+  %210 = add i64 %209, 1
+  store i64 %210, ptr %18, align 8, !tbaa !21
+  br label %211
+
+211:                                              ; preds = %208, %207
+  br label %212
+
+212:                                              ; preds = %211
+  %213 = load i64, ptr %12, align 8, !tbaa !21
+  %214 = add i64 %213, 1
+  store i64 %214, ptr %12, align 8, !tbaa !21
+  br label %155, !llvm.loop !39
+
+215:                                              ; preds = %155
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  store i64 0, ptr %8, align 8, !tbaa !21
+  %216 = load ptr, ptr %5, align 8, !tbaa !19
+  %217 = getelementptr inbounds i32, ptr %216, i64 0
+  %218 = load i32, ptr %217, align 4, !tbaa !3
+  %219 = load ptr, ptr %5, align 8, !tbaa !19
+  %220 = getelementptr inbounds i32, ptr %219, i64 1
+  %221 = load i32, ptr %220, align 4, !tbaa !3
+  %222 = add i32 %218, %221
+  %223 = load ptr, ptr %5, align 8, !tbaa !19
+  %224 = getelementptr inbounds i32, ptr %223, i64 2
+  %225 = load i32, ptr %224, align 4, !tbaa !3
+  %226 = add i32 %222, %225
+  %227 = mul i32 256, %226
+  %228 = udiv i32 %227, 3
+  %229 = add i32 %228, 420
+  %230 = zext i32 %229 to i64
+  store i64 %230, ptr %9, align 8, !tbaa !21
+  store i64 0, ptr %10, align 8, !tbaa !21
+  store i64 0, ptr %12, align 8, !tbaa !21
+  br label %231
+
+231:                                              ; preds = %381, %215
+  %232 = load i64, ptr %12, align 8, !tbaa !21
+  %233 = load i64, ptr %4, align 8, !tbaa !21
+  %234 = icmp ule i64 %232, %233
+  br i1 %234, label %235, label %384
+
+235:                                              ; preds = %231
+  %236 = load i64, ptr %12, align 8, !tbaa !21
+  %237 = load i64, ptr %4, align 8, !tbaa !21
+  %238 = icmp eq i64 %236, %237
+  br i1 %238, label %268, label %239
+
+239:                                              ; preds = %235
+  %240 = load ptr, ptr %6, align 8, !tbaa !10
+  %241 = load i64, ptr %12, align 8, !tbaa !21
+  %242 = getelementptr inbounds nuw i8, ptr %240, i64 %241
+  %243 = load i8, ptr %242, align 1, !tbaa !16
+  %244 = zext i8 %243 to i32
+  %245 = icmp ne i32 %244, 0
+  br i1 %245, label %268, label %246
+
+246:                                              ; preds = %239
+  %247 = load i64, ptr %12, align 8, !tbaa !21
+  %248 = icmp ne i64 %247, 0
+  br i1 %248, label %249, label %257
+
+249:                                              ; preds = %246
+  %250 = load ptr, ptr %6, align 8, !tbaa !10
+  %251 = load i64, ptr %12, align 8, !tbaa !21
+  %252 = sub i64 %251, 1
+  %253 = getelementptr inbounds nuw i8, ptr %250, i64 %252
+  %254 = load i8, ptr %253, align 1, !tbaa !16
+  %255 = zext i8 %254 to i32
+  %256 = icmp ne i32 %255, 0
+  br i1 %256, label %268, label %257
+
+257:                                              ; preds = %249, %246
+  %258 = load ptr, ptr %5, align 8, !tbaa !19
+  %259 = load i64, ptr %12, align 8, !tbaa !21
+  %260 = getelementptr inbounds nuw i32, ptr %258, i64 %259
+  %261 = load i32, ptr %260, align 4, !tbaa !3
+  %262 = mul i32 256, %261
+  %263 = zext i32 %262 to i64
+  %264 = load i64, ptr %9, align 8, !tbaa !21
+  %265 = sub i64 %263, %264
+  %266 = add i64 %265, 1240
+  %267 = icmp uge i64 %266, 2480
+  br i1 %267, label %268, label %349
+
+268:                                              ; preds = %257, %249, %239, %235
+  %269 = load i64, ptr %8, align 8, !tbaa !21
+  %270 = icmp uge i64 %269, 4
+  br i1 %270, label %277, label %271
+
+271:                                              ; preds = %268
+  %272 = load i64, ptr %8, align 8, !tbaa !21
+  %273 = icmp uge i64 %272, 3
+  br i1 %273, label %274, label %309
+
+274:                                              ; preds = %271
+  %275 = load i64, ptr %10, align 8, !tbaa !21
+  %276 = icmp eq i64 %275, 0
+  br i1 %276, label %277, label %309
+
+277:                                              ; preds = %274, %268
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  %278 = load i64, ptr %10, align 8, !tbaa !21
+  %279 = load i64, ptr %8, align 8, !tbaa !21
+  %280 = udiv i64 %279, 2
+  %281 = add i64 %278, %280
+  %282 = load i64, ptr %8, align 8, !tbaa !21
+  %283 = udiv i64 %281, %282
+  store i64 %283, ptr %21, align 8, !tbaa !21
+  %284 = load i64, ptr %21, align 8, !tbaa !21
+  %285 = icmp eq i64 %284, 0
+  br i1 %285, label %286, label %287
+
+286:                                              ; preds = %277
+  store i64 1, ptr %21, align 8, !tbaa !21
+  br label %287
+
+287:                                              ; preds = %286, %277
+  %288 = load i64, ptr %10, align 8, !tbaa !21
+  %289 = icmp eq i64 %288, 0
+  br i1 %289, label %290, label %291
+
+290:                                              ; preds = %287
+  store i64 0, ptr %21, align 8, !tbaa !21
+  br label %291
+
+291:                                              ; preds = %290, %287
+  store i64 0, ptr %20, align 8, !tbaa !21
+  br label %292
+
+292:                                              ; preds = %305, %291
+  %293 = load i64, ptr %20, align 8, !tbaa !21
+  %294 = load i64, ptr %8, align 8, !tbaa !21
+  %295 = icmp ult i64 %293, %294
+  br i1 %295, label %296, label %308
+
+296:                                              ; preds = %292
+  %297 = load i64, ptr %21, align 8, !tbaa !21
+  %298 = trunc i64 %297 to i32
+  %299 = load ptr, ptr %5, align 8, !tbaa !19
+  %300 = load i64, ptr %12, align 8, !tbaa !21
+  %301 = load i64, ptr %20, align 8, !tbaa !21
+  %302 = sub i64 %300, %301
+  %303 = sub i64 %302, 1
+  %304 = getelementptr inbounds nuw i32, ptr %299, i64 %303
+  store i32 %298, ptr %304, align 4, !tbaa !3
+  br label %305
+
+305:                                              ; preds = %296
+  %306 = load i64, ptr %20, align 8, !tbaa !21
+  %307 = add i64 %306, 1
+  store i64 %307, ptr %20, align 8, !tbaa !21
+  br label %292, !llvm.loop !40
+
+308:                                              ; preds = %292
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  br label %309
+
+309:                                              ; preds = %308, %274, %271
+  store i64 0, ptr %8, align 8, !tbaa !21
+  store i64 0, ptr %10, align 8, !tbaa !21
+  %310 = load i64, ptr %12, align 8, !tbaa !21
+  %311 = load i64, ptr %4, align 8, !tbaa !21
+  %312 = sub i64 %311, 2
+  %313 = icmp ult i64 %310, %312
+  br i1 %313, label %314, label %335
+
+314:                                              ; preds = %309
+  %315 = load ptr, ptr %5, align 8, !tbaa !19
+  %316 = load i64, ptr %12, align 8, !tbaa !21
+  %317 = getelementptr inbounds nuw i32, ptr %315, i64 %316
+  %318 = load i32, ptr %317, align 4, !tbaa !3
+  %319 = load ptr, ptr %5, align 8, !tbaa !19
+  %320 = load i64, ptr %12, align 8, !tbaa !21
+  %321 = add i64 %320, 1
+  %322 = getelementptr inbounds nuw i32, ptr %319, i64 %321
+  %323 = load i32, ptr %322, align 4, !tbaa !3
+  %324 = add i32 %318, %323
+  %325 = load ptr, ptr %5, align 8, !tbaa !19
+  %326 = load i64, ptr %12, align 8, !tbaa !21
+  %327 = add i64 %326, 2
+  %328 = getelementptr inbounds nuw i32, ptr %325, i64 %327
+  %329 = load i32, ptr %328, align 4, !tbaa !3
+  %330 = add i32 %324, %329
+  %331 = mul i32 256, %330
+  %332 = udiv i32 %331, 3
+  %333 = add i32 %332, 420
+  %334 = zext i32 %333 to i64
+  store i64 %334, ptr %9, align 8, !tbaa !21
+  br label %348
+
+335:                                              ; preds = %309
+  %336 = load i64, ptr %12, align 8, !tbaa !21
+  %337 = load i64, ptr %4, align 8, !tbaa !21
+  %338 = icmp ult i64 %336, %337
+  br i1 %338, label %339, label %346
+
+339:                                              ; preds = %335
+  %340 = load ptr, ptr %5, align 8, !tbaa !19
+  %341 = load i64, ptr %12, align 8, !tbaa !21
+  %342 = getelementptr inbounds nuw i32, ptr %340, i64 %341
+  %343 = load i32, ptr %342, align 4, !tbaa !3
+  %344 = mul i32 256, %343
+  %345 = zext i32 %344 to i64
+  store i64 %345, ptr %9, align 8, !tbaa !21
+  br label %347
+
+346:                                              ; preds = %335
+  store i64 0, ptr %9, align 8, !tbaa !21
+  br label %347
+
+347:                                              ; preds = %346, %339
+  br label %348
+
+348:                                              ; preds = %347, %314
+  br label %349
+
+349:                                              ; preds = %348, %257
+  %350 = load i64, ptr %8, align 8, !tbaa !21
+  %351 = add i64 %350, 1
+  store i64 %351, ptr %8, align 8, !tbaa !21
+  %352 = load i64, ptr %12, align 8, !tbaa !21
+  %353 = load i64, ptr %4, align 8, !tbaa !21
+  %354 = icmp ne i64 %352, %353
+  br i1 %354, label %355, label %380
+
+355:                                              ; preds = %349
+  %356 = load ptr, ptr %5, align 8, !tbaa !19
+  %357 = load i64, ptr %12, align 8, !tbaa !21
+  %358 = getelementptr inbounds nuw i32, ptr %356, i64 %357
+  %359 = load i32, ptr %358, align 4, !tbaa !3
+  %360 = zext i32 %359 to i64
+  %361 = load i64, ptr %10, align 8, !tbaa !21
+  %362 = add i64 %361, %360
+  store i64 %362, ptr %10, align 8, !tbaa !21
+  %363 = load i64, ptr %8, align 8, !tbaa !21
+  %364 = icmp uge i64 %363, 4
+  br i1 %364, label %365, label %373
+
+365:                                              ; preds = %355
+  %366 = load i64, ptr %10, align 8, !tbaa !21
+  %367 = mul i64 256, %366
+  %368 = load i64, ptr %8, align 8, !tbaa !21
+  %369 = udiv i64 %368, 2
+  %370 = add i64 %367, %369
+  %371 = load i64, ptr %8, align 8, !tbaa !21
+  %372 = udiv i64 %370, %371
+  store i64 %372, ptr %9, align 8, !tbaa !21
+  br label %373
+
+373:                                              ; preds = %365, %355
+  %374 = load i64, ptr %8, align 8, !tbaa !21
+  %375 = icmp eq i64 %374, 4
+  br i1 %375, label %376, label %379
+
+376:                                              ; preds = %373
+  %377 = load i64, ptr %9, align 8, !tbaa !21
+  %378 = add i64 %377, 120
+  store i64 %378, ptr %9, align 8, !tbaa !21
+  br label %379
+
+379:                                              ; preds = %376, %373
+  br label %380
+
+380:                                              ; preds = %379, %349
+  br label %381
+
+381:                                              ; preds = %380
+  %382 = load i64, ptr %12, align 8, !tbaa !21
+  %383 = add i64 %382, 1
+  store i64 %383, ptr %12, align 8, !tbaa !21
+  br label %231, !llvm.loop !41
+
+384:                                              ; preds = %231
+  store i32 0, ptr %13, align 4
+  br label %385
+
+385:                                              ; preds = %384, %147, %62, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  %386 = load i32, ptr %13, align 4
+  switch i32 %386, label %388 [
+    i32 0, label %387
+    i32 1, label %387
+  ]
+
+387:                                              ; preds = %385, %385
   ret void
+
+388:                                              ; preds = %385
+  unreachable
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliWriteHuffmanTree(ptr noundef %depth, i64 noundef %length, ptr noundef %tree_size, ptr noundef %tree, ptr noundef %extra_bits_data) #0 {
-entry:
-  %depth.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %tree_size.addr = alloca ptr, align 8
-  %tree.addr = alloca ptr, align 8
-  %extra_bits_data.addr = alloca ptr, align 8
-  %previous_value = alloca i8, align 1
-  %i = alloca i64, align 8
-  %use_rle_for_non_zero = alloca i32, align 4
-  %use_rle_for_zero = alloca i32, align 4
-  %new_length = alloca i64, align 8
-  %value = alloca i8, align 1
-  %reps = alloca i64, align 8
-  %k = alloca i64, align 8
-  store ptr %depth, ptr %depth.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store ptr %tree_size, ptr %tree_size.addr, align 8
-  store ptr %tree, ptr %tree.addr, align 8
-  store ptr %extra_bits_data, ptr %extra_bits_data.addr, align 8
-  store i8 8, ptr %previous_value, align 1
-  store i32 0, ptr %use_rle_for_non_zero, align 4
-  store i32 0, ptr %use_rle_for_zero, align 4
-  %0 = load i64, ptr %length.addr, align 8
-  store i64 %0, ptr %new_length, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define hidden void @BrotliWriteHuffmanTree(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i8, align 1
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !10
+  store i64 %1, ptr %7, align 8, !tbaa !21
+  store ptr %2, ptr %8, align 8, !tbaa !42
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  store ptr %4, ptr %10, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #5
+  store i8 8, ptr %11, align 1, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  store i32 0, ptr %13, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  store i32 0, ptr %14, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %19 = load i64, ptr %7, align 8, !tbaa !21
+  store i64 %19, ptr %15, align 8, !tbaa !21
+  store i64 0, ptr %12, align 8, !tbaa !21
+  br label %20
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i64, ptr %i, align 8
-  %2 = load i64, ptr %length.addr, align 8
-  %cmp = icmp ult i64 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+20:                                               ; preds = %39, %5
+  %21 = load i64, ptr %12, align 8, !tbaa !21
+  %22 = load i64, ptr %7, align 8, !tbaa !21
+  %23 = icmp ult i64 %21, %22
+  br i1 %23, label %24, label %42
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %depth.addr, align 8
-  %4 = load i64, ptr %length.addr, align 8
-  %5 = load i64, ptr %i, align 8
-  %sub = sub i64 %4, %5
-  %sub1 = sub i64 %sub, 1
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %sub1
-  %6 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %6 to i32
-  %cmp2 = icmp eq i32 %conv, 0
-  br i1 %cmp2, label %if.then, label %if.else
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %6, align 8, !tbaa !10
+  %26 = load i64, ptr %7, align 8, !tbaa !21
+  %27 = load i64, ptr %12, align 8, !tbaa !21
+  %28 = sub i64 %26, %27
+  %29 = sub i64 %28, 1
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !16
+  %32 = zext i8 %31 to i32
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %37
 
-if.then:                                          ; preds = %for.body
-  %7 = load i64, ptr %new_length, align 8
-  %dec = add i64 %7, -1
-  store i64 %dec, ptr %new_length, align 8
-  br label %if.end
+34:                                               ; preds = %24
+  %35 = load i64, ptr %15, align 8, !tbaa !21
+  %36 = add i64 %35, -1
+  store i64 %36, ptr %15, align 8, !tbaa !21
+  br label %38
 
-if.else:                                          ; preds = %for.body
-  br label %for.end
+37:                                               ; preds = %24
+  br label %42
 
-if.end:                                           ; preds = %if.then
-  br label %for.inc
+38:                                               ; preds = %34
+  br label %39
 
-for.inc:                                          ; preds = %if.end
-  %8 = load i64, ptr %i, align 8
-  %inc = add i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !21
+39:                                               ; preds = %38
+  %40 = load i64, ptr %12, align 8, !tbaa !21
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %12, align 8, !tbaa !21
+  br label %20, !llvm.loop !44
 
-for.end:                                          ; preds = %if.else, %for.cond
-  %9 = load i64, ptr %length.addr, align 8
-  %cmp4 = icmp ugt i64 %9, 50
-  br i1 %cmp4, label %if.then6, label %if.end7
+42:                                               ; preds = %37, %20
+  %43 = load i64, ptr %7, align 8, !tbaa !21
+  %44 = icmp ugt i64 %43, 50
+  br i1 %44, label %45, label %48
 
-if.then6:                                         ; preds = %for.end
-  %10 = load ptr, ptr %depth.addr, align 8
-  %11 = load i64, ptr %new_length, align 8
-  call void @DecideOverRleUse(ptr noundef %10, i64 noundef %11, ptr noundef %use_rle_for_non_zero, ptr noundef %use_rle_for_zero)
-  br label %if.end7
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %6, align 8, !tbaa !10
+  %47 = load i64, ptr %15, align 8, !tbaa !21
+  call void @DecideOverRleUse(ptr noundef %46, i64 noundef %47, ptr noundef %13, ptr noundef %14)
+  br label %48
 
-if.end7:                                          ; preds = %if.then6, %for.end
-  store i64 0, ptr %i, align 8
-  br label %for.cond8
+48:                                               ; preds = %45, %42
+  store i64 0, ptr %12, align 8, !tbaa !21
+  br label %49
 
-for.cond8:                                        ; preds = %if.end41, %if.end7
-  %12 = load i64, ptr %i, align 8
-  %13 = load i64, ptr %new_length, align 8
-  %cmp9 = icmp ult i64 %12, %13
-  br i1 %cmp9, label %for.body11, label %for.end43
+49:                                               ; preds = %113, %48
+  %50 = load i64, ptr %12, align 8, !tbaa !21
+  %51 = load i64, ptr %15, align 8, !tbaa !21
+  %52 = icmp ult i64 %50, %51
+  br i1 %52, label %53, label %117
 
-for.body11:                                       ; preds = %for.cond8
-  %14 = load ptr, ptr %depth.addr, align 8
-  %15 = load i64, ptr %i, align 8
-  %arrayidx12 = getelementptr inbounds i8, ptr %14, i64 %15
-  %16 = load i8, ptr %arrayidx12, align 1
-  store i8 %16, ptr %value, align 1
-  store i64 1, ptr %reps, align 8
-  %17 = load i8, ptr %value, align 1
-  %conv13 = zext i8 %17 to i32
-  %cmp14 = icmp ne i32 %conv13, 0
-  br i1 %cmp14, label %land.lhs.true, label %lor.lhs.false
+53:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #5
+  %54 = load ptr, ptr %6, align 8, !tbaa !10
+  %55 = load i64, ptr %12, align 8, !tbaa !21
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
+  %57 = load i8, ptr %56, align 1, !tbaa !16
+  store i8 %57, ptr %16, align 1, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  store i64 1, ptr %17, align 8, !tbaa !21
+  %58 = load i8, ptr %16, align 1, !tbaa !16
+  %59 = zext i8 %58 to i32
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %64
 
-land.lhs.true:                                    ; preds = %for.body11
-  %18 = load i32, ptr %use_rle_for_non_zero, align 4
-  %tobool = icmp ne i32 %18, 0
-  br i1 %tobool, label %if.then21, label %lor.lhs.false
+61:                                               ; preds = %53
+  %62 = load i32, ptr %13, align 4, !tbaa !3
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %71, label %64
 
-lor.lhs.false:                                    ; preds = %land.lhs.true, %for.body11
-  %19 = load i8, ptr %value, align 1
-  %conv16 = zext i8 %19 to i32
-  %cmp17 = icmp eq i32 %conv16, 0
-  br i1 %cmp17, label %land.lhs.true19, label %if.end35
+64:                                               ; preds = %61, %53
+  %65 = load i8, ptr %16, align 1, !tbaa !16
+  %66 = zext i8 %65 to i32
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %96
 
-land.lhs.true19:                                  ; preds = %lor.lhs.false
-  %20 = load i32, ptr %use_rle_for_zero, align 4
-  %tobool20 = icmp ne i32 %20, 0
-  br i1 %tobool20, label %if.then21, label %if.end35
+68:                                               ; preds = %64
+  %69 = load i32, ptr %14, align 4, !tbaa !3
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %96
 
-if.then21:                                        ; preds = %land.lhs.true19, %land.lhs.true
-  %21 = load i64, ptr %i, align 8
-  %add = add i64 %21, 1
-  store i64 %add, ptr %k, align 8
-  br label %for.cond22
+71:                                               ; preds = %68, %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  %72 = load i64, ptr %12, align 8, !tbaa !21
+  %73 = add i64 %72, 1
+  store i64 %73, ptr %18, align 8, !tbaa !21
+  br label %74
 
-for.cond22:                                       ; preds = %for.inc32, %if.then21
-  %22 = load i64, ptr %k, align 8
-  %23 = load i64, ptr %new_length, align 8
-  %cmp23 = icmp ult i64 %22, %23
-  br i1 %cmp23, label %land.rhs, label %land.end
+74:                                               ; preds = %92, %71
+  %75 = load i64, ptr %18, align 8, !tbaa !21
+  %76 = load i64, ptr %15, align 8, !tbaa !21
+  %77 = icmp ult i64 %75, %76
+  br i1 %77, label %78, label %87
 
-land.rhs:                                         ; preds = %for.cond22
-  %24 = load ptr, ptr %depth.addr, align 8
-  %25 = load i64, ptr %k, align 8
-  %arrayidx25 = getelementptr inbounds i8, ptr %24, i64 %25
-  %26 = load i8, ptr %arrayidx25, align 1
-  %conv26 = zext i8 %26 to i32
-  %27 = load i8, ptr %value, align 1
-  %conv27 = zext i8 %27 to i32
-  %cmp28 = icmp eq i32 %conv26, %conv27
-  br label %land.end
+78:                                               ; preds = %74
+  %79 = load ptr, ptr %6, align 8, !tbaa !10
+  %80 = load i64, ptr %18, align 8, !tbaa !21
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !16
+  %83 = zext i8 %82 to i32
+  %84 = load i8, ptr %16, align 1, !tbaa !16
+  %85 = zext i8 %84 to i32
+  %86 = icmp eq i32 %83, %85
+  br label %87
 
-land.end:                                         ; preds = %land.rhs, %for.cond22
-  %28 = phi i1 [ false, %for.cond22 ], [ %cmp28, %land.rhs ]
-  br i1 %28, label %for.body30, label %for.end34
+87:                                               ; preds = %78, %74
+  %88 = phi i1 [ false, %74 ], [ %86, %78 ]
+  br i1 %88, label %89, label %95
 
-for.body30:                                       ; preds = %land.end
-  %29 = load i64, ptr %reps, align 8
-  %inc31 = add i64 %29, 1
-  store i64 %inc31, ptr %reps, align 8
-  br label %for.inc32
+89:                                               ; preds = %87
+  %90 = load i64, ptr %17, align 8, !tbaa !21
+  %91 = add i64 %90, 1
+  store i64 %91, ptr %17, align 8, !tbaa !21
+  br label %92
 
-for.inc32:                                        ; preds = %for.body30
-  %30 = load i64, ptr %k, align 8
-  %inc33 = add i64 %30, 1
-  store i64 %inc33, ptr %k, align 8
-  br label %for.cond22, !llvm.loop !22
+92:                                               ; preds = %89
+  %93 = load i64, ptr %18, align 8, !tbaa !21
+  %94 = add i64 %93, 1
+  store i64 %94, ptr %18, align 8, !tbaa !21
+  br label %74, !llvm.loop !45
 
-for.end34:                                        ; preds = %land.end
-  br label %if.end35
+95:                                               ; preds = %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  br label %96
 
-if.end35:                                         ; preds = %for.end34, %land.lhs.true19, %lor.lhs.false
-  %31 = load i8, ptr %value, align 1
-  %conv36 = zext i8 %31 to i32
-  %cmp37 = icmp eq i32 %conv36, 0
-  br i1 %cmp37, label %if.then39, label %if.else40
+96:                                               ; preds = %95, %68, %64
+  %97 = load i8, ptr %16, align 1, !tbaa !16
+  %98 = zext i8 %97 to i32
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %105
 
-if.then39:                                        ; preds = %if.end35
-  %32 = load i64, ptr %reps, align 8
-  %33 = load ptr, ptr %tree_size.addr, align 8
-  %34 = load ptr, ptr %tree.addr, align 8
-  %35 = load ptr, ptr %extra_bits_data.addr, align 8
-  call void @BrotliWriteHuffmanTreeRepetitionsZeros(i64 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35)
-  br label %if.end41
+100:                                              ; preds = %96
+  %101 = load i64, ptr %17, align 8, !tbaa !21
+  %102 = load ptr, ptr %8, align 8, !tbaa !42
+  %103 = load ptr, ptr %9, align 8, !tbaa !10
+  %104 = load ptr, ptr %10, align 8, !tbaa !10
+  call void @BrotliWriteHuffmanTreeRepetitionsZeros(i64 noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104)
+  br label %113
 
-if.else40:                                        ; preds = %if.end35
-  %36 = load i8, ptr %previous_value, align 1
-  %37 = load i8, ptr %value, align 1
-  %38 = load i64, ptr %reps, align 8
-  %39 = load ptr, ptr %tree_size.addr, align 8
-  %40 = load ptr, ptr %tree.addr, align 8
-  %41 = load ptr, ptr %extra_bits_data.addr, align 8
-  call void @BrotliWriteHuffmanTreeRepetitions(i8 noundef zeroext %36, i8 noundef zeroext %37, i64 noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41)
-  %42 = load i8, ptr %value, align 1
-  store i8 %42, ptr %previous_value, align 1
-  br label %if.end41
+105:                                              ; preds = %96
+  %106 = load i8, ptr %11, align 1, !tbaa !16
+  %107 = load i8, ptr %16, align 1, !tbaa !16
+  %108 = load i64, ptr %17, align 8, !tbaa !21
+  %109 = load ptr, ptr %8, align 8, !tbaa !42
+  %110 = load ptr, ptr %9, align 8, !tbaa !10
+  %111 = load ptr, ptr %10, align 8, !tbaa !10
+  call void @BrotliWriteHuffmanTreeRepetitions(i8 noundef zeroext %106, i8 noundef zeroext %107, i64 noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111)
+  %112 = load i8, ptr %16, align 1, !tbaa !16
+  store i8 %112, ptr %11, align 1, !tbaa !16
+  br label %113
 
-if.end41:                                         ; preds = %if.else40, %if.then39
-  %43 = load i64, ptr %reps, align 8
-  %44 = load i64, ptr %i, align 8
-  %add42 = add i64 %44, %43
-  store i64 %add42, ptr %i, align 8
-  br label %for.cond8, !llvm.loop !23
+113:                                              ; preds = %105, %100
+  %114 = load i64, ptr %17, align 8, !tbaa !21
+  %115 = load i64, ptr %12, align 8, !tbaa !21
+  %116 = add i64 %115, %114
+  store i64 %116, ptr %12, align 8, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #5
+  br label %49, !llvm.loop !46
 
-for.end43:                                        ; preds = %for.cond8
+117:                                              ; preds = %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @DecideOverRleUse(ptr noundef %depth, i64 noundef %length, ptr noundef %use_rle_for_non_zero, ptr noundef %use_rle_for_zero) #0 {
-entry:
-  %depth.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %use_rle_for_non_zero.addr = alloca ptr, align 8
-  %use_rle_for_zero.addr = alloca ptr, align 8
-  %total_reps_zero = alloca i64, align 8
-  %total_reps_non_zero = alloca i64, align 8
-  %count_reps_zero = alloca i64, align 8
-  %count_reps_non_zero = alloca i64, align 8
-  %i = alloca i64, align 8
-  %value = alloca i8, align 1
-  %reps = alloca i64, align 8
-  %k = alloca i64, align 8
-  store ptr %depth, ptr %depth.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store ptr %use_rle_for_non_zero, ptr %use_rle_for_non_zero.addr, align 8
-  store ptr %use_rle_for_zero, ptr %use_rle_for_zero.addr, align 8
-  store i64 0, ptr %total_reps_zero, align 8
-  store i64 0, ptr %total_reps_non_zero, align 8
-  store i64 1, ptr %count_reps_zero, align 8
-  store i64 1, ptr %count_reps_non_zero, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define internal void @DecideOverRleUse(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !10
+  store i64 %1, ptr %6, align 8, !tbaa !21
+  store ptr %2, ptr %7, align 8, !tbaa !19
+  store ptr %3, ptr %8, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store i64 0, ptr %9, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  store i64 0, ptr %10, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  store i64 1, ptr %11, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  store i64 1, ptr %12, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  store i64 0, ptr %13, align 8, !tbaa !21
+  br label %17
 
-for.cond:                                         ; preds = %if.end25, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr %length.addr, align 8
-  %cmp = icmp ult i64 %0, %1
-  br i1 %cmp, label %for.body, label %for.end27
+17:                                               ; preds = %75, %4
+  %18 = load i64, ptr %13, align 8, !tbaa !21
+  %19 = load i64, ptr %6, align 8, !tbaa !21
+  %20 = icmp ult i64 %18, %19
+  br i1 %20, label %21, label %79
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %depth.addr, align 8
-  %3 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %3
-  %4 = load i8, ptr %arrayidx, align 1
-  store i8 %4, ptr %value, align 1
-  store i64 1, ptr %reps, align 8
-  %5 = load i64, ptr %i, align 8
-  %add = add i64 %5, 1
-  store i64 %add, ptr %k, align 8
-  br label %for.cond1
+21:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #5
+  %22 = load ptr, ptr %5, align 8, !tbaa !10
+  %23 = load i64, ptr %13, align 8, !tbaa !21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !16
+  store i8 %25, ptr %14, align 1, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  store i64 1, ptr %15, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %26 = load i64, ptr %13, align 8, !tbaa !21
+  %27 = add i64 %26, 1
+  store i64 %27, ptr %16, align 8, !tbaa !21
+  br label %28
 
-for.cond1:                                        ; preds = %for.inc, %for.body
-  %6 = load i64, ptr %k, align 8
-  %7 = load i64, ptr %length.addr, align 8
-  %cmp2 = icmp ult i64 %6, %7
-  br i1 %cmp2, label %land.rhs, label %land.end
+28:                                               ; preds = %46, %21
+  %29 = load i64, ptr %16, align 8, !tbaa !21
+  %30 = load i64, ptr %6, align 8, !tbaa !21
+  %31 = icmp ult i64 %29, %30
+  br i1 %31, label %32, label %41
 
-land.rhs:                                         ; preds = %for.cond1
-  %8 = load ptr, ptr %depth.addr, align 8
-  %9 = load i64, ptr %k, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %8, i64 %9
-  %10 = load i8, ptr %arrayidx3, align 1
-  %conv = zext i8 %10 to i32
-  %11 = load i8, ptr %value, align 1
-  %conv4 = zext i8 %11 to i32
-  %cmp5 = icmp eq i32 %conv, %conv4
-  br label %land.end
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8, !tbaa !10
+  %34 = load i64, ptr %16, align 8, !tbaa !21
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !16
+  %37 = zext i8 %36 to i32
+  %38 = load i8, ptr %14, align 1, !tbaa !16
+  %39 = zext i8 %38 to i32
+  %40 = icmp eq i32 %37, %39
+  br label %41
 
-land.end:                                         ; preds = %land.rhs, %for.cond1
-  %12 = phi i1 [ false, %for.cond1 ], [ %cmp5, %land.rhs ]
-  br i1 %12, label %for.body7, label %for.end
+41:                                               ; preds = %32, %28
+  %42 = phi i1 [ false, %28 ], [ %40, %32 ]
+  br i1 %42, label %43, label %49
 
-for.body7:                                        ; preds = %land.end
-  %13 = load i64, ptr %reps, align 8
-  %inc = add i64 %13, 1
-  store i64 %inc, ptr %reps, align 8
-  br label %for.inc
+43:                                               ; preds = %41
+  %44 = load i64, ptr %15, align 8, !tbaa !21
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %15, align 8, !tbaa !21
+  br label %46
 
-for.inc:                                          ; preds = %for.body7
-  %14 = load i64, ptr %k, align 8
-  %inc8 = add i64 %14, 1
-  store i64 %inc8, ptr %k, align 8
-  br label %for.cond1, !llvm.loop !24
+46:                                               ; preds = %43
+  %47 = load i64, ptr %16, align 8, !tbaa !21
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %16, align 8, !tbaa !21
+  br label %28, !llvm.loop !47
 
-for.end:                                          ; preds = %land.end
-  %15 = load i64, ptr %reps, align 8
-  %cmp9 = icmp uge i64 %15, 3
-  br i1 %cmp9, label %land.lhs.true, label %if.end
+49:                                               ; preds = %41
+  %50 = load i64, ptr %15, align 8, !tbaa !21
+  %51 = icmp uge i64 %50, 3
+  br i1 %51, label %52, label %62
 
-land.lhs.true:                                    ; preds = %for.end
-  %16 = load i8, ptr %value, align 1
-  %conv11 = zext i8 %16 to i32
-  %cmp12 = icmp eq i32 %conv11, 0
-  br i1 %cmp12, label %if.then, label %if.end
+52:                                               ; preds = %49
+  %53 = load i8, ptr %14, align 1, !tbaa !16
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %62
 
-if.then:                                          ; preds = %land.lhs.true
-  %17 = load i64, ptr %reps, align 8
-  %18 = load i64, ptr %total_reps_zero, align 8
-  %add14 = add i64 %18, %17
-  store i64 %add14, ptr %total_reps_zero, align 8
-  %19 = load i64, ptr %count_reps_zero, align 8
-  %inc15 = add i64 %19, 1
-  store i64 %inc15, ptr %count_reps_zero, align 8
-  br label %if.end
+56:                                               ; preds = %52
+  %57 = load i64, ptr %15, align 8, !tbaa !21
+  %58 = load i64, ptr %9, align 8, !tbaa !21
+  %59 = add i64 %58, %57
+  store i64 %59, ptr %9, align 8, !tbaa !21
+  %60 = load i64, ptr %11, align 8, !tbaa !21
+  %61 = add i64 %60, 1
+  store i64 %61, ptr %11, align 8, !tbaa !21
+  br label %62
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %for.end
-  %20 = load i64, ptr %reps, align 8
-  %cmp16 = icmp uge i64 %20, 4
-  br i1 %cmp16, label %land.lhs.true18, label %if.end25
+62:                                               ; preds = %56, %52, %49
+  %63 = load i64, ptr %15, align 8, !tbaa !21
+  %64 = icmp uge i64 %63, 4
+  br i1 %64, label %65, label %75
 
-land.lhs.true18:                                  ; preds = %if.end
-  %21 = load i8, ptr %value, align 1
-  %conv19 = zext i8 %21 to i32
-  %cmp20 = icmp ne i32 %conv19, 0
-  br i1 %cmp20, label %if.then22, label %if.end25
+65:                                               ; preds = %62
+  %66 = load i8, ptr %14, align 1, !tbaa !16
+  %67 = zext i8 %66 to i32
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %75
 
-if.then22:                                        ; preds = %land.lhs.true18
-  %22 = load i64, ptr %reps, align 8
-  %23 = load i64, ptr %total_reps_non_zero, align 8
-  %add23 = add i64 %23, %22
-  store i64 %add23, ptr %total_reps_non_zero, align 8
-  %24 = load i64, ptr %count_reps_non_zero, align 8
-  %inc24 = add i64 %24, 1
-  store i64 %inc24, ptr %count_reps_non_zero, align 8
-  br label %if.end25
+69:                                               ; preds = %65
+  %70 = load i64, ptr %15, align 8, !tbaa !21
+  %71 = load i64, ptr %10, align 8, !tbaa !21
+  %72 = add i64 %71, %70
+  store i64 %72, ptr %10, align 8, !tbaa !21
+  %73 = load i64, ptr %12, align 8, !tbaa !21
+  %74 = add i64 %73, 1
+  store i64 %74, ptr %12, align 8, !tbaa !21
+  br label %75
 
-if.end25:                                         ; preds = %if.then22, %land.lhs.true18, %if.end
-  %25 = load i64, ptr %reps, align 8
-  %26 = load i64, ptr %i, align 8
-  %add26 = add i64 %26, %25
-  store i64 %add26, ptr %i, align 8
-  br label %for.cond, !llvm.loop !25
+75:                                               ; preds = %69, %65, %62
+  %76 = load i64, ptr %15, align 8, !tbaa !21
+  %77 = load i64, ptr %13, align 8, !tbaa !21
+  %78 = add i64 %77, %76
+  store i64 %78, ptr %13, align 8, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #5
+  br label %17, !llvm.loop !48
 
-for.end27:                                        ; preds = %for.cond
-  %27 = load i64, ptr %total_reps_non_zero, align 8
-  %28 = load i64, ptr %count_reps_non_zero, align 8
-  %mul = mul i64 %28, 2
-  %cmp28 = icmp ugt i64 %27, %mul
-  %lnot = xor i1 %cmp28, true
-  %lnot30 = xor i1 %lnot, true
-  %cond = select i1 %lnot30, i32 1, i32 0
-  %29 = load ptr, ptr %use_rle_for_non_zero.addr, align 8
-  store i32 %cond, ptr %29, align 4
-  %30 = load i64, ptr %total_reps_zero, align 8
-  %31 = load i64, ptr %count_reps_zero, align 8
-  %mul31 = mul i64 %31, 2
-  %cmp32 = icmp ugt i64 %30, %mul31
-  %lnot34 = xor i1 %cmp32, true
-  %lnot35 = xor i1 %lnot34, true
-  %cond36 = select i1 %lnot35, i32 1, i32 0
-  %32 = load ptr, ptr %use_rle_for_zero.addr, align 8
-  store i32 %cond36, ptr %32, align 4
+79:                                               ; preds = %17
+  %80 = load i64, ptr %10, align 8, !tbaa !21
+  %81 = load i64, ptr %12, align 8, !tbaa !21
+  %82 = mul i64 %81, 2
+  %83 = icmp ugt i64 %80, %82
+  %84 = xor i1 %83, true
+  %85 = xor i1 %84, true
+  %86 = select i1 %85, i32 1, i32 0
+  %87 = load ptr, ptr %7, align 8, !tbaa !19
+  store i32 %86, ptr %87, align 4, !tbaa !3
+  %88 = load i64, ptr %9, align 8, !tbaa !21
+  %89 = load i64, ptr %11, align 8, !tbaa !21
+  %90 = mul i64 %89, 2
+  %91 = icmp ugt i64 %88, %90
+  %92 = xor i1 %91, true
+  %93 = xor i1 %92, true
+  %94 = select i1 %93, i32 1, i32 0
+  %95 = load ptr, ptr %8, align 8, !tbaa !19
+  store i32 %94, ptr %95, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @BrotliWriteHuffmanTreeRepetitionsZeros(i64 noundef %repetitions, ptr noundef %tree_size, ptr noundef %tree, ptr noundef %extra_bits_data) #0 {
-entry:
-  %repetitions.addr = alloca i64, align 8
-  %tree_size.addr = alloca ptr, align 8
-  %tree.addr = alloca ptr, align 8
-  %extra_bits_data.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %start = alloca i64, align 8
-  store i64 %repetitions, ptr %repetitions.addr, align 8
-  store ptr %tree_size, ptr %tree_size.addr, align 8
-  store ptr %tree, ptr %tree.addr, align 8
-  store ptr %extra_bits_data, ptr %extra_bits_data.addr, align 8
-  %0 = load i64, ptr %repetitions.addr, align 8
-  %cmp = icmp eq i64 %0, 11
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @BrotliWriteHuffmanTreeRepetitionsZeros(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store i64 %0, ptr %5, align 8, !tbaa !21
+  store ptr %1, ptr %6, align 8, !tbaa !42
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %11 = load i64, ptr %5, align 8, !tbaa !21
+  %12 = icmp eq i64 %11, 11
+  br i1 %12, label %13, label %27
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %tree.addr, align 8
-  %2 = load ptr, ptr %tree_size.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %3
-  store i8 0, ptr %arrayidx, align 1
-  %4 = load ptr, ptr %extra_bits_data.addr, align 8
-  %5 = load ptr, ptr %tree_size.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %4, i64 %6
-  store i8 0, ptr %arrayidx1, align 1
-  %7 = load ptr, ptr %tree_size.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %inc = add i64 %8, 1
-  store i64 %inc, ptr %7, align 8
-  %9 = load i64, ptr %repetitions.addr, align 8
-  %dec = add i64 %9, -1
-  store i64 %dec, ptr %repetitions.addr, align 8
-  br label %if.end
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %7, align 8, !tbaa !10
+  %15 = load ptr, ptr %6, align 8, !tbaa !42
+  %16 = load i64, ptr %15, align 8, !tbaa !21
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %16
+  store i8 0, ptr %17, align 1, !tbaa !16
+  %18 = load ptr, ptr %8, align 8, !tbaa !10
+  %19 = load ptr, ptr %6, align 8, !tbaa !42
+  %20 = load i64, ptr %19, align 8, !tbaa !21
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
+  store i8 0, ptr %21, align 1, !tbaa !16
+  %22 = load ptr, ptr %6, align 8, !tbaa !42
+  %23 = load i64, ptr %22, align 8, !tbaa !21
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %22, align 8, !tbaa !21
+  %25 = load i64, ptr %5, align 8, !tbaa !21
+  %26 = add i64 %25, -1
+  store i64 %26, ptr %5, align 8, !tbaa !21
+  br label %27
 
-if.end:                                           ; preds = %if.then, %entry
-  %10 = load i64, ptr %repetitions.addr, align 8
-  %cmp2 = icmp ult i64 %10, 3
-  br i1 %cmp2, label %if.then3, label %if.else
+27:                                               ; preds = %13, %4
+  %28 = load i64, ptr %5, align 8, !tbaa !21
+  %29 = icmp ult i64 %28, 3
+  br i1 %29, label %30, label %51
 
-if.then3:                                         ; preds = %if.end
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+30:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store i64 0, ptr %9, align 8, !tbaa !21
+  br label %31
 
-for.cond:                                         ; preds = %for.inc, %if.then3
-  %11 = load i64, ptr %i, align 8
-  %12 = load i64, ptr %repetitions.addr, align 8
-  %cmp4 = icmp ult i64 %11, %12
-  br i1 %cmp4, label %for.body, label %for.end
+31:                                               ; preds = %47, %30
+  %32 = load i64, ptr %9, align 8, !tbaa !21
+  %33 = load i64, ptr %5, align 8, !tbaa !21
+  %34 = icmp ult i64 %32, %33
+  br i1 %34, label %35, label %50
 
-for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %tree.addr, align 8
-  %14 = load ptr, ptr %tree_size.addr, align 8
-  %15 = load i64, ptr %14, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %13, i64 %15
-  store i8 0, ptr %arrayidx5, align 1
-  %16 = load ptr, ptr %extra_bits_data.addr, align 8
-  %17 = load ptr, ptr %tree_size.addr, align 8
-  %18 = load i64, ptr %17, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %16, i64 %18
-  store i8 0, ptr %arrayidx6, align 1
-  %19 = load ptr, ptr %tree_size.addr, align 8
-  %20 = load i64, ptr %19, align 8
-  %inc7 = add i64 %20, 1
-  store i64 %inc7, ptr %19, align 8
-  br label %for.inc
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %7, align 8, !tbaa !10
+  %37 = load ptr, ptr %6, align 8, !tbaa !42
+  %38 = load i64, ptr %37, align 8, !tbaa !21
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
+  store i8 0, ptr %39, align 1, !tbaa !16
+  %40 = load ptr, ptr %8, align 8, !tbaa !10
+  %41 = load ptr, ptr %6, align 8, !tbaa !42
+  %42 = load i64, ptr %41, align 8, !tbaa !21
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
+  store i8 0, ptr %43, align 1, !tbaa !16
+  %44 = load ptr, ptr %6, align 8, !tbaa !42
+  %45 = load i64, ptr %44, align 8, !tbaa !21
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %44, align 8, !tbaa !21
+  br label %47
 
-for.inc:                                          ; preds = %for.body
-  %21 = load i64, ptr %i, align 8
-  %inc8 = add i64 %21, 1
-  store i64 %inc8, ptr %i, align 8
-  br label %for.cond, !llvm.loop !26
+47:                                               ; preds = %35
+  %48 = load i64, ptr %9, align 8, !tbaa !21
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %9, align 8, !tbaa !21
+  br label %31, !llvm.loop !49
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end17
+50:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  br label %89
 
-if.else:                                          ; preds = %if.end
-  %22 = load ptr, ptr %tree_size.addr, align 8
-  %23 = load i64, ptr %22, align 8
-  store i64 %23, ptr %start, align 8
-  %24 = load i64, ptr %repetitions.addr, align 8
-  %sub = sub i64 %24, 3
-  store i64 %sub, ptr %repetitions.addr, align 8
-  br label %while.body
+51:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %52 = load ptr, ptr %6, align 8, !tbaa !42
+  %53 = load i64, ptr %52, align 8, !tbaa !21
+  store i64 %53, ptr %10, align 8, !tbaa !21
+  %54 = load i64, ptr %5, align 8, !tbaa !21
+  %55 = sub i64 %54, 3
+  store i64 %55, ptr %5, align 8, !tbaa !21
+  br label %56
 
-while.body:                                       ; preds = %if.end15, %if.else
-  %25 = load ptr, ptr %tree.addr, align 8
-  %26 = load ptr, ptr %tree_size.addr, align 8
-  %27 = load i64, ptr %26, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %25, i64 %27
-  store i8 17, ptr %arrayidx9, align 1
-  %28 = load i64, ptr %repetitions.addr, align 8
-  %and = and i64 %28, 7
-  %conv = trunc i64 %and to i8
-  %29 = load ptr, ptr %extra_bits_data.addr, align 8
-  %30 = load ptr, ptr %tree_size.addr, align 8
-  %31 = load i64, ptr %30, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %29, i64 %31
-  store i8 %conv, ptr %arrayidx10, align 1
-  %32 = load ptr, ptr %tree_size.addr, align 8
-  %33 = load i64, ptr %32, align 8
-  %inc11 = add i64 %33, 1
-  store i64 %inc11, ptr %32, align 8
-  %34 = load i64, ptr %repetitions.addr, align 8
-  %shr = lshr i64 %34, 3
-  store i64 %shr, ptr %repetitions.addr, align 8
-  %35 = load i64, ptr %repetitions.addr, align 8
-  %cmp12 = icmp eq i64 %35, 0
-  br i1 %cmp12, label %if.then14, label %if.end15
+56:                                               ; preds = %77, %51
+  br label %57
 
-if.then14:                                        ; preds = %while.body
-  br label %while.end
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %7, align 8, !tbaa !10
+  %59 = load ptr, ptr %6, align 8, !tbaa !42
+  %60 = load i64, ptr %59, align 8, !tbaa !21
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %60
+  store i8 17, ptr %61, align 1, !tbaa !16
+  %62 = load i64, ptr %5, align 8, !tbaa !21
+  %63 = and i64 %62, 7
+  %64 = trunc i64 %63 to i8
+  %65 = load ptr, ptr %8, align 8, !tbaa !10
+  %66 = load ptr, ptr %6, align 8, !tbaa !42
+  %67 = load i64, ptr %66, align 8, !tbaa !21
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %67
+  store i8 %64, ptr %68, align 1, !tbaa !16
+  %69 = load ptr, ptr %6, align 8, !tbaa !42
+  %70 = load i64, ptr %69, align 8, !tbaa !21
+  %71 = add i64 %70, 1
+  store i64 %71, ptr %69, align 8, !tbaa !21
+  %72 = load i64, ptr %5, align 8, !tbaa !21
+  %73 = lshr i64 %72, 3
+  store i64 %73, ptr %5, align 8, !tbaa !21
+  %74 = load i64, ptr %5, align 8, !tbaa !21
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %76, label %77
 
-if.end15:                                         ; preds = %while.body
-  %36 = load i64, ptr %repetitions.addr, align 8
-  %dec16 = add i64 %36, -1
-  store i64 %dec16, ptr %repetitions.addr, align 8
-  br label %while.body
+76:                                               ; preds = %57
+  br label %80
 
-while.end:                                        ; preds = %if.then14
-  %37 = load ptr, ptr %tree.addr, align 8
-  %38 = load i64, ptr %start, align 8
-  %39 = load ptr, ptr %tree_size.addr, align 8
-  %40 = load i64, ptr %39, align 8
-  call void @Reverse(ptr noundef %37, i64 noundef %38, i64 noundef %40)
-  %41 = load ptr, ptr %extra_bits_data.addr, align 8
-  %42 = load i64, ptr %start, align 8
-  %43 = load ptr, ptr %tree_size.addr, align 8
-  %44 = load i64, ptr %43, align 8
-  call void @Reverse(ptr noundef %41, i64 noundef %42, i64 noundef %44)
-  br label %if.end17
+77:                                               ; preds = %57
+  %78 = load i64, ptr %5, align 8, !tbaa !21
+  %79 = add i64 %78, -1
+  store i64 %79, ptr %5, align 8, !tbaa !21
+  br label %56
 
-if.end17:                                         ; preds = %while.end, %for.end
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %7, align 8, !tbaa !10
+  %82 = load i64, ptr %10, align 8, !tbaa !21
+  %83 = load ptr, ptr %6, align 8, !tbaa !42
+  %84 = load i64, ptr %83, align 8, !tbaa !21
+  call void @Reverse(ptr noundef %81, i64 noundef %82, i64 noundef %84)
+  %85 = load ptr, ptr %8, align 8, !tbaa !10
+  %86 = load i64, ptr %10, align 8, !tbaa !21
+  %87 = load ptr, ptr %6, align 8, !tbaa !42
+  %88 = load i64, ptr %87, align 8, !tbaa !21
+  call void @Reverse(ptr noundef %85, i64 noundef %86, i64 noundef %88)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  br label %89
+
+89:                                               ; preds = %80, %50
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @BrotliWriteHuffmanTreeRepetitions(i8 noundef zeroext %previous_value, i8 noundef zeroext %value, i64 noundef %repetitions, ptr noundef %tree_size, ptr noundef %tree, ptr noundef %extra_bits_data) #0 {
-entry:
-  %previous_value.addr = alloca i8, align 1
-  %value.addr = alloca i8, align 1
-  %repetitions.addr = alloca i64, align 8
-  %tree_size.addr = alloca ptr, align 8
-  %tree.addr = alloca ptr, align 8
-  %extra_bits_data.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %start = alloca i64, align 8
-  store i8 %previous_value, ptr %previous_value.addr, align 1
-  store i8 %value, ptr %value.addr, align 1
-  store i64 %repetitions, ptr %repetitions.addr, align 8
-  store ptr %tree_size, ptr %tree_size.addr, align 8
-  store ptr %tree, ptr %tree.addr, align 8
-  store ptr %extra_bits_data, ptr %extra_bits_data.addr, align 8
-  %0 = load i8, ptr %previous_value.addr, align 1
-  %conv = zext i8 %0 to i32
-  %1 = load i8, ptr %value.addr, align 1
-  %conv1 = zext i8 %1 to i32
-  %cmp = icmp ne i32 %conv, %conv1
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @BrotliWriteHuffmanTreeRepetitions(i8 noundef zeroext %0, i8 noundef zeroext %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  store i8 %0, ptr %7, align 1, !tbaa !16
+  store i8 %1, ptr %8, align 1, !tbaa !16
+  store i64 %2, ptr %9, align 8, !tbaa !21
+  store ptr %3, ptr %10, align 8, !tbaa !42
+  store ptr %4, ptr %11, align 8, !tbaa !10
+  store ptr %5, ptr %12, align 8, !tbaa !10
+  %15 = load i8, ptr %7, align 1, !tbaa !16
+  %16 = zext i8 %15 to i32
+  %17 = load i8, ptr %8, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  %19 = icmp ne i32 %16, %18
+  br i1 %19, label %20, label %35
 
-if.then:                                          ; preds = %entry
-  %2 = load i8, ptr %value.addr, align 1
-  %3 = load ptr, ptr %tree.addr, align 8
-  %4 = load ptr, ptr %tree_size.addr, align 8
-  %5 = load i64, ptr %4, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %5
-  store i8 %2, ptr %arrayidx, align 1
-  %6 = load ptr, ptr %extra_bits_data.addr, align 8
-  %7 = load ptr, ptr %tree_size.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %6, i64 %8
-  store i8 0, ptr %arrayidx3, align 1
-  %9 = load ptr, ptr %tree_size.addr, align 8
-  %10 = load i64, ptr %9, align 8
-  %inc = add i64 %10, 1
-  store i64 %inc, ptr %9, align 8
-  %11 = load i64, ptr %repetitions.addr, align 8
-  %dec = add i64 %11, -1
-  store i64 %dec, ptr %repetitions.addr, align 8
-  br label %if.end
+20:                                               ; preds = %6
+  %21 = load i8, ptr %8, align 1, !tbaa !16
+  %22 = load ptr, ptr %11, align 8, !tbaa !10
+  %23 = load ptr, ptr %10, align 8, !tbaa !42
+  %24 = load i64, ptr %23, align 8, !tbaa !21
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
+  store i8 %21, ptr %25, align 1, !tbaa !16
+  %26 = load ptr, ptr %12, align 8, !tbaa !10
+  %27 = load ptr, ptr %10, align 8, !tbaa !42
+  %28 = load i64, ptr %27, align 8, !tbaa !21
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
+  store i8 0, ptr %29, align 1, !tbaa !16
+  %30 = load ptr, ptr %10, align 8, !tbaa !42
+  %31 = load i64, ptr %30, align 8, !tbaa !21
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %30, align 8, !tbaa !21
+  %33 = load i64, ptr %9, align 8, !tbaa !21
+  %34 = add i64 %33, -1
+  store i64 %34, ptr %9, align 8, !tbaa !21
+  br label %35
 
-if.end:                                           ; preds = %if.then, %entry
-  %12 = load i64, ptr %repetitions.addr, align 8
-  %cmp4 = icmp eq i64 %12, 7
-  br i1 %cmp4, label %if.then6, label %if.end11
+35:                                               ; preds = %20, %6
+  %36 = load i64, ptr %9, align 8, !tbaa !21
+  %37 = icmp eq i64 %36, 7
+  br i1 %37, label %38, label %53
 
-if.then6:                                         ; preds = %if.end
-  %13 = load i8, ptr %value.addr, align 1
-  %14 = load ptr, ptr %tree.addr, align 8
-  %15 = load ptr, ptr %tree_size.addr, align 8
-  %16 = load i64, ptr %15, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %14, i64 %16
-  store i8 %13, ptr %arrayidx7, align 1
-  %17 = load ptr, ptr %extra_bits_data.addr, align 8
-  %18 = load ptr, ptr %tree_size.addr, align 8
-  %19 = load i64, ptr %18, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %17, i64 %19
-  store i8 0, ptr %arrayidx8, align 1
-  %20 = load ptr, ptr %tree_size.addr, align 8
-  %21 = load i64, ptr %20, align 8
-  %inc9 = add i64 %21, 1
-  store i64 %inc9, ptr %20, align 8
-  %22 = load i64, ptr %repetitions.addr, align 8
-  %dec10 = add i64 %22, -1
-  store i64 %dec10, ptr %repetitions.addr, align 8
-  br label %if.end11
+38:                                               ; preds = %35
+  %39 = load i8, ptr %8, align 1, !tbaa !16
+  %40 = load ptr, ptr %11, align 8, !tbaa !10
+  %41 = load ptr, ptr %10, align 8, !tbaa !42
+  %42 = load i64, ptr %41, align 8, !tbaa !21
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
+  store i8 %39, ptr %43, align 1, !tbaa !16
+  %44 = load ptr, ptr %12, align 8, !tbaa !10
+  %45 = load ptr, ptr %10, align 8, !tbaa !42
+  %46 = load i64, ptr %45, align 8, !tbaa !21
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
+  store i8 0, ptr %47, align 1, !tbaa !16
+  %48 = load ptr, ptr %10, align 8, !tbaa !42
+  %49 = load i64, ptr %48, align 8, !tbaa !21
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %48, align 8, !tbaa !21
+  %51 = load i64, ptr %9, align 8, !tbaa !21
+  %52 = add i64 %51, -1
+  store i64 %52, ptr %9, align 8, !tbaa !21
+  br label %53
 
-if.end11:                                         ; preds = %if.then6, %if.end
-  %23 = load i64, ptr %repetitions.addr, align 8
-  %cmp12 = icmp ult i64 %23, 3
-  br i1 %cmp12, label %if.then14, label %if.else
+53:                                               ; preds = %38, %35
+  %54 = load i64, ptr %9, align 8, !tbaa !21
+  %55 = icmp ult i64 %54, 3
+  br i1 %55, label %56, label %78
 
-if.then14:                                        ; preds = %if.end11
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+56:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  store i64 0, ptr %13, align 8, !tbaa !21
+  br label %57
 
-for.cond:                                         ; preds = %for.inc, %if.then14
-  %24 = load i64, ptr %i, align 8
-  %25 = load i64, ptr %repetitions.addr, align 8
-  %cmp15 = icmp ult i64 %24, %25
-  br i1 %cmp15, label %for.body, label %for.end
+57:                                               ; preds = %74, %56
+  %58 = load i64, ptr %13, align 8, !tbaa !21
+  %59 = load i64, ptr %9, align 8, !tbaa !21
+  %60 = icmp ult i64 %58, %59
+  br i1 %60, label %61, label %77
 
-for.body:                                         ; preds = %for.cond
-  %26 = load i8, ptr %value.addr, align 1
-  %27 = load ptr, ptr %tree.addr, align 8
-  %28 = load ptr, ptr %tree_size.addr, align 8
-  %29 = load i64, ptr %28, align 8
-  %arrayidx17 = getelementptr inbounds i8, ptr %27, i64 %29
-  store i8 %26, ptr %arrayidx17, align 1
-  %30 = load ptr, ptr %extra_bits_data.addr, align 8
-  %31 = load ptr, ptr %tree_size.addr, align 8
-  %32 = load i64, ptr %31, align 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %30, i64 %32
-  store i8 0, ptr %arrayidx18, align 1
-  %33 = load ptr, ptr %tree_size.addr, align 8
-  %34 = load i64, ptr %33, align 8
-  %inc19 = add i64 %34, 1
-  store i64 %inc19, ptr %33, align 8
-  br label %for.inc
+61:                                               ; preds = %57
+  %62 = load i8, ptr %8, align 1, !tbaa !16
+  %63 = load ptr, ptr %11, align 8, !tbaa !10
+  %64 = load ptr, ptr %10, align 8, !tbaa !42
+  %65 = load i64, ptr %64, align 8, !tbaa !21
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %65
+  store i8 %62, ptr %66, align 1, !tbaa !16
+  %67 = load ptr, ptr %12, align 8, !tbaa !10
+  %68 = load ptr, ptr %10, align 8, !tbaa !42
+  %69 = load i64, ptr %68, align 8, !tbaa !21
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %69
+  store i8 0, ptr %70, align 1, !tbaa !16
+  %71 = load ptr, ptr %10, align 8, !tbaa !42
+  %72 = load i64, ptr %71, align 8, !tbaa !21
+  %73 = add i64 %72, 1
+  store i64 %73, ptr %71, align 8, !tbaa !21
+  br label %74
 
-for.inc:                                          ; preds = %for.body
-  %35 = load i64, ptr %i, align 8
-  %inc20 = add i64 %35, 1
-  store i64 %inc20, ptr %i, align 8
-  br label %for.cond, !llvm.loop !27
+74:                                               ; preds = %61
+  %75 = load i64, ptr %13, align 8, !tbaa !21
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %13, align 8, !tbaa !21
+  br label %57, !llvm.loop !50
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end30
+77:                                               ; preds = %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %116
 
-if.else:                                          ; preds = %if.end11
-  %36 = load ptr, ptr %tree_size.addr, align 8
-  %37 = load i64, ptr %36, align 8
-  store i64 %37, ptr %start, align 8
-  %38 = load i64, ptr %repetitions.addr, align 8
-  %sub = sub i64 %38, 3
-  store i64 %sub, ptr %repetitions.addr, align 8
-  br label %while.body
+78:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %79 = load ptr, ptr %10, align 8, !tbaa !42
+  %80 = load i64, ptr %79, align 8, !tbaa !21
+  store i64 %80, ptr %14, align 8, !tbaa !21
+  %81 = load i64, ptr %9, align 8, !tbaa !21
+  %82 = sub i64 %81, 3
+  store i64 %82, ptr %9, align 8, !tbaa !21
+  br label %83
 
-while.body:                                       ; preds = %if.end28, %if.else
-  %39 = load ptr, ptr %tree.addr, align 8
-  %40 = load ptr, ptr %tree_size.addr, align 8
-  %41 = load i64, ptr %40, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %39, i64 %41
-  store i8 16, ptr %arrayidx21, align 1
-  %42 = load i64, ptr %repetitions.addr, align 8
-  %and = and i64 %42, 3
-  %conv22 = trunc i64 %and to i8
-  %43 = load ptr, ptr %extra_bits_data.addr, align 8
-  %44 = load ptr, ptr %tree_size.addr, align 8
-  %45 = load i64, ptr %44, align 8
-  %arrayidx23 = getelementptr inbounds i8, ptr %43, i64 %45
-  store i8 %conv22, ptr %arrayidx23, align 1
-  %46 = load ptr, ptr %tree_size.addr, align 8
-  %47 = load i64, ptr %46, align 8
-  %inc24 = add i64 %47, 1
-  store i64 %inc24, ptr %46, align 8
-  %48 = load i64, ptr %repetitions.addr, align 8
-  %shr = lshr i64 %48, 2
-  store i64 %shr, ptr %repetitions.addr, align 8
-  %49 = load i64, ptr %repetitions.addr, align 8
-  %cmp25 = icmp eq i64 %49, 0
-  br i1 %cmp25, label %if.then27, label %if.end28
+83:                                               ; preds = %104, %78
+  br label %84
 
-if.then27:                                        ; preds = %while.body
-  br label %while.end
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %11, align 8, !tbaa !10
+  %86 = load ptr, ptr %10, align 8, !tbaa !42
+  %87 = load i64, ptr %86, align 8, !tbaa !21
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %87
+  store i8 16, ptr %88, align 1, !tbaa !16
+  %89 = load i64, ptr %9, align 8, !tbaa !21
+  %90 = and i64 %89, 3
+  %91 = trunc i64 %90 to i8
+  %92 = load ptr, ptr %12, align 8, !tbaa !10
+  %93 = load ptr, ptr %10, align 8, !tbaa !42
+  %94 = load i64, ptr %93, align 8, !tbaa !21
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %94
+  store i8 %91, ptr %95, align 1, !tbaa !16
+  %96 = load ptr, ptr %10, align 8, !tbaa !42
+  %97 = load i64, ptr %96, align 8, !tbaa !21
+  %98 = add i64 %97, 1
+  store i64 %98, ptr %96, align 8, !tbaa !21
+  %99 = load i64, ptr %9, align 8, !tbaa !21
+  %100 = lshr i64 %99, 2
+  store i64 %100, ptr %9, align 8, !tbaa !21
+  %101 = load i64, ptr %9, align 8, !tbaa !21
+  %102 = icmp eq i64 %101, 0
+  br i1 %102, label %103, label %104
 
-if.end28:                                         ; preds = %while.body
-  %50 = load i64, ptr %repetitions.addr, align 8
-  %dec29 = add i64 %50, -1
-  store i64 %dec29, ptr %repetitions.addr, align 8
-  br label %while.body
+103:                                              ; preds = %84
+  br label %107
 
-while.end:                                        ; preds = %if.then27
-  %51 = load ptr, ptr %tree.addr, align 8
-  %52 = load i64, ptr %start, align 8
-  %53 = load ptr, ptr %tree_size.addr, align 8
-  %54 = load i64, ptr %53, align 8
-  call void @Reverse(ptr noundef %51, i64 noundef %52, i64 noundef %54)
-  %55 = load ptr, ptr %extra_bits_data.addr, align 8
-  %56 = load i64, ptr %start, align 8
-  %57 = load ptr, ptr %tree_size.addr, align 8
-  %58 = load i64, ptr %57, align 8
-  call void @Reverse(ptr noundef %55, i64 noundef %56, i64 noundef %58)
-  br label %if.end30
+104:                                              ; preds = %84
+  %105 = load i64, ptr %9, align 8, !tbaa !21
+  %106 = add i64 %105, -1
+  store i64 %106, ptr %9, align 8, !tbaa !21
+  br label %83
 
-if.end30:                                         ; preds = %while.end, %for.end
+107:                                              ; preds = %103
+  %108 = load ptr, ptr %11, align 8, !tbaa !10
+  %109 = load i64, ptr %14, align 8, !tbaa !21
+  %110 = load ptr, ptr %10, align 8, !tbaa !42
+  %111 = load i64, ptr %110, align 8, !tbaa !21
+  call void @Reverse(ptr noundef %108, i64 noundef %109, i64 noundef %111)
+  %112 = load ptr, ptr %12, align 8, !tbaa !10
+  %113 = load i64, ptr %14, align 8, !tbaa !21
+  %114 = load ptr, ptr %10, align 8, !tbaa !42
+  %115 = load i64, ptr %114, align 8, !tbaa !21
+  call void @Reverse(ptr noundef %112, i64 noundef %113, i64 noundef %115)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  br label %116
+
+116:                                              ; preds = %107, %77
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliConvertBitDepthsToSymbols(ptr noundef %depth, i64 noundef %len, ptr noundef %bits) #0 {
-entry:
-  %depth.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %bits.addr = alloca ptr, align 8
-  %bl_count = alloca [16 x i16], align 16
-  %next_code = alloca [16 x i16], align 16
-  %i = alloca i64, align 8
-  %code = alloca i32, align 4
-  store ptr %depth, ptr %depth.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store ptr %bits, ptr %bits.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 16 %bl_count, i8 0, i64 32, i1 false)
-  store i32 0, ptr %code, align 4
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define hidden void @BrotliConvertBitDepthsToSymbols(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca [16 x i16], align 16
+  %8 = alloca [16 x i16], align 16
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store i64 %1, ptr %5, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.memset.p0.i64(ptr align 16 %7, i8 0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 0, ptr %10, align 4, !tbaa !3
+  store i64 0, ptr %9, align 8, !tbaa !21
+  br label %11
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr %len.addr, align 8
-  %cmp = icmp ult i64 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+11:                                               ; preds = %24, %3
+  %12 = load i64, ptr %9, align 8, !tbaa !21
+  %13 = load i64, ptr %5, align 8, !tbaa !21
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %15, label %27
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %depth.addr, align 8
-  %3 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %3
-  %4 = load i8, ptr %arrayidx, align 1
-  %idxprom = zext i8 %4 to i64
-  %arrayidx1 = getelementptr inbounds [16 x i16], ptr %bl_count, i64 0, i64 %idxprom
-  %5 = load i16, ptr %arrayidx1, align 2
-  %inc = add i16 %5, 1
-  store i16 %inc, ptr %arrayidx1, align 2
-  br label %for.inc
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !10
+  %17 = load i64, ptr %9, align 8, !tbaa !21
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !16
+  %20 = zext i8 %19 to i64
+  %21 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %20
+  %22 = load i16, ptr %21, align 2, !tbaa !25
+  %23 = add i16 %22, 1
+  store i16 %23, ptr %21, align 2, !tbaa !25
+  br label %24
 
-for.inc:                                          ; preds = %for.body
-  %6 = load i64, ptr %i, align 8
-  %inc2 = add i64 %6, 1
-  store i64 %inc2, ptr %i, align 8
-  br label %for.cond, !llvm.loop !28
+24:                                               ; preds = %15
+  %25 = load i64, ptr %9, align 8, !tbaa !21
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %9, align 8, !tbaa !21
+  br label %11, !llvm.loop !53
 
-for.end:                                          ; preds = %for.cond
-  %arrayidx3 = getelementptr inbounds [16 x i16], ptr %bl_count, i64 0, i64 0
-  store i16 0, ptr %arrayidx3, align 16
-  %arrayidx4 = getelementptr inbounds [16 x i16], ptr %next_code, i64 0, i64 0
-  store i16 0, ptr %arrayidx4, align 16
-  store i64 1, ptr %i, align 8
-  br label %for.cond5
+27:                                               ; preds = %11
+  %28 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 0
+  store i16 0, ptr %28, align 16, !tbaa !25
+  %29 = getelementptr inbounds [16 x i16], ptr %8, i64 0, i64 0
+  store i16 0, ptr %29, align 16, !tbaa !25
+  store i64 1, ptr %9, align 8, !tbaa !21
+  br label %30
 
-for.cond5:                                        ; preds = %for.inc11, %for.end
-  %7 = load i64, ptr %i, align 8
-  %cmp6 = icmp ult i64 %7, 16
-  br i1 %cmp6, label %for.body7, label %for.end13
+30:                                               ; preds = %46, %27
+  %31 = load i64, ptr %9, align 8, !tbaa !21
+  %32 = icmp ult i64 %31, 16
+  br i1 %32, label %33, label %49
 
-for.body7:                                        ; preds = %for.cond5
-  %8 = load i32, ptr %code, align 4
-  %9 = load i64, ptr %i, align 8
-  %sub = sub i64 %9, 1
-  %arrayidx8 = getelementptr inbounds [16 x i16], ptr %bl_count, i64 0, i64 %sub
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv = zext i16 %10 to i32
-  %add = add nsw i32 %8, %conv
-  %shl = shl i32 %add, 1
-  store i32 %shl, ptr %code, align 4
-  %11 = load i32, ptr %code, align 4
-  %conv9 = trunc i32 %11 to i16
-  %12 = load i64, ptr %i, align 8
-  %arrayidx10 = getelementptr inbounds [16 x i16], ptr %next_code, i64 0, i64 %12
-  store i16 %conv9, ptr %arrayidx10, align 2
-  br label %for.inc11
+33:                                               ; preds = %30
+  %34 = load i32, ptr %10, align 4, !tbaa !3
+  %35 = load i64, ptr %9, align 8, !tbaa !21
+  %36 = sub i64 %35, 1
+  %37 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %36
+  %38 = load i16, ptr %37, align 2, !tbaa !25
+  %39 = zext i16 %38 to i32
+  %40 = add nsw i32 %34, %39
+  %41 = shl i32 %40, 1
+  store i32 %41, ptr %10, align 4, !tbaa !3
+  %42 = load i32, ptr %10, align 4, !tbaa !3
+  %43 = trunc i32 %42 to i16
+  %44 = load i64, ptr %9, align 8, !tbaa !21
+  %45 = getelementptr inbounds nuw [16 x i16], ptr %8, i64 0, i64 %44
+  store i16 %43, ptr %45, align 2, !tbaa !25
+  br label %46
 
-for.inc11:                                        ; preds = %for.body7
-  %13 = load i64, ptr %i, align 8
-  %inc12 = add i64 %13, 1
-  store i64 %inc12, ptr %i, align 8
-  br label %for.cond5, !llvm.loop !29
+46:                                               ; preds = %33
+  %47 = load i64, ptr %9, align 8, !tbaa !21
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %9, align 8, !tbaa !21
+  br label %30, !llvm.loop !54
 
-for.end13:                                        ; preds = %for.cond5
-  store i64 0, ptr %i, align 8
-  br label %for.cond14
+49:                                               ; preds = %30
+  store i64 0, ptr %9, align 8, !tbaa !21
+  br label %50
 
-for.cond14:                                       ; preds = %for.inc26, %for.end13
-  %14 = load i64, ptr %i, align 8
-  %15 = load i64, ptr %len.addr, align 8
-  %cmp15 = icmp ult i64 %14, %15
-  br i1 %cmp15, label %for.body17, label %for.end28
+50:                                               ; preds = %79, %49
+  %51 = load i64, ptr %9, align 8, !tbaa !21
+  %52 = load i64, ptr %5, align 8, !tbaa !21
+  %53 = icmp ult i64 %51, %52
+  br i1 %53, label %54, label %82
 
-for.body17:                                       ; preds = %for.cond14
-  %16 = load ptr, ptr %depth.addr, align 8
-  %17 = load i64, ptr %i, align 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %16, i64 %17
-  %18 = load i8, ptr %arrayidx18, align 1
-  %tobool = icmp ne i8 %18, 0
-  br i1 %tobool, label %if.then, label %if.end
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %4, align 8, !tbaa !10
+  %56 = load i64, ptr %9, align 8, !tbaa !21
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
+  %58 = load i8, ptr %57, align 1, !tbaa !16
+  %59 = icmp ne i8 %58, 0
+  br i1 %59, label %60, label %78
 
-if.then:                                          ; preds = %for.body17
-  %19 = load ptr, ptr %depth.addr, align 8
-  %20 = load i64, ptr %i, align 8
-  %arrayidx19 = getelementptr inbounds i8, ptr %19, i64 %20
-  %21 = load i8, ptr %arrayidx19, align 1
-  %conv20 = zext i8 %21 to i64
-  %22 = load ptr, ptr %depth.addr, align 8
-  %23 = load i64, ptr %i, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %22, i64 %23
-  %24 = load i8, ptr %arrayidx21, align 1
-  %idxprom22 = zext i8 %24 to i64
-  %arrayidx23 = getelementptr inbounds [16 x i16], ptr %next_code, i64 0, i64 %idxprom22
-  %25 = load i16, ptr %arrayidx23, align 2
-  %inc24 = add i16 %25, 1
-  store i16 %inc24, ptr %arrayidx23, align 2
-  %call = call zeroext i16 @BrotliReverseBits(i64 noundef %conv20, i16 noundef zeroext %25)
-  %26 = load ptr, ptr %bits.addr, align 8
-  %27 = load i64, ptr %i, align 8
-  %arrayidx25 = getelementptr inbounds i16, ptr %26, i64 %27
-  store i16 %call, ptr %arrayidx25, align 2
-  br label %if.end
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %4, align 8, !tbaa !10
+  %62 = load i64, ptr %9, align 8, !tbaa !21
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !16
+  %65 = zext i8 %64 to i64
+  %66 = load ptr, ptr %4, align 8, !tbaa !10
+  %67 = load i64, ptr %9, align 8, !tbaa !21
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %67
+  %69 = load i8, ptr %68, align 1, !tbaa !16
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw [16 x i16], ptr %8, i64 0, i64 %70
+  %72 = load i16, ptr %71, align 2, !tbaa !25
+  %73 = add i16 %72, 1
+  store i16 %73, ptr %71, align 2, !tbaa !25
+  %74 = call zeroext i16 @BrotliReverseBits(i64 noundef %65, i16 noundef zeroext %72)
+  %75 = load ptr, ptr %6, align 8, !tbaa !51
+  %76 = load i64, ptr %9, align 8, !tbaa !21
+  %77 = getelementptr inbounds nuw i16, ptr %75, i64 %76
+  store i16 %74, ptr %77, align 2, !tbaa !25
+  br label %78
 
-if.end:                                           ; preds = %if.then, %for.body17
-  br label %for.inc26
+78:                                               ; preds = %60, %54
+  br label %79
 
-for.inc26:                                        ; preds = %if.end
-  %28 = load i64, ptr %i, align 8
-  %inc27 = add i64 %28, 1
-  store i64 %inc27, ptr %i, align 8
-  br label %for.cond14, !llvm.loop !30
+79:                                               ; preds = %78
+  %80 = load i64, ptr %9, align 8, !tbaa !21
+  %81 = add i64 %80, 1
+  store i64 %81, ptr %9, align 8, !tbaa !21
+  br label %50, !llvm.loop !55
 
-for.end28:                                        ; preds = %for.cond14
+82:                                               ; preds = %50
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i16 @BrotliReverseBits(i64 noundef %num_bits, i16 noundef zeroext %bits) #0 {
-entry:
-  %num_bits.addr = alloca i64, align 8
-  %bits.addr = alloca i16, align 2
-  %retval1 = alloca i64, align 8
-  %i = alloca i64, align 8
-  store i64 %num_bits, ptr %num_bits.addr, align 8
-  store i16 %bits, ptr %bits.addr, align 2
-  %0 = load i16, ptr %bits.addr, align 2
-  %conv = zext i16 %0 to i32
-  %and = and i32 %conv, 15
-  %idxprom = sext i32 %and to i64
-  %arrayidx = getelementptr inbounds [16 x i64], ptr @BrotliReverseBits.kLut, i64 0, i64 %idxprom
-  %1 = load i64, ptr %arrayidx, align 8
-  store i64 %1, ptr %retval1, align 8
-  store i64 4, ptr %i, align 8
-  br label %for.cond
+define internal zeroext i16 @BrotliReverseBits(i64 noundef %0, i16 noundef zeroext %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i16, align 2
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !21
+  store i16 %1, ptr %4, align 2, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %7 = load i16, ptr %4, align 2, !tbaa !25
+  %8 = zext i16 %7 to i32
+  %9 = and i32 %8, 15
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds [16 x i64], ptr @BrotliReverseBits.kLut, i64 0, i64 %10
+  %12 = load i64, ptr %11, align 8, !tbaa !21
+  store i64 %12, ptr %5, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  store i64 4, ptr %6, align 8, !tbaa !21
+  br label %13
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i64, ptr %i, align 8
-  %3 = load i64, ptr %num_bits.addr, align 8
-  %cmp = icmp ult i64 %2, %3
-  br i1 %cmp, label %for.body, label %for.end
+13:                                               ; preds = %32, %2
+  %14 = load i64, ptr %6, align 8, !tbaa !21
+  %15 = load i64, ptr %3, align 8, !tbaa !21
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %17, label %35
 
-for.body:                                         ; preds = %for.cond
-  %4 = load i64, ptr %retval1, align 8
-  %shl = shl i64 %4, 4
-  store i64 %shl, ptr %retval1, align 8
-  %5 = load i16, ptr %bits.addr, align 2
-  %conv3 = zext i16 %5 to i32
-  %shr = ashr i32 %conv3, 4
-  %conv4 = trunc i32 %shr to i16
-  store i16 %conv4, ptr %bits.addr, align 2
-  %6 = load i16, ptr %bits.addr, align 2
-  %conv5 = zext i16 %6 to i32
-  %and6 = and i32 %conv5, 15
-  %idxprom7 = sext i32 %and6 to i64
-  %arrayidx8 = getelementptr inbounds [16 x i64], ptr @BrotliReverseBits.kLut, i64 0, i64 %idxprom7
-  %7 = load i64, ptr %arrayidx8, align 8
-  %8 = load i64, ptr %retval1, align 8
-  %or = or i64 %8, %7
-  store i64 %or, ptr %retval1, align 8
-  br label %for.inc
+17:                                               ; preds = %13
+  %18 = load i64, ptr %5, align 8, !tbaa !21
+  %19 = shl i64 %18, 4
+  store i64 %19, ptr %5, align 8, !tbaa !21
+  %20 = load i16, ptr %4, align 2, !tbaa !25
+  %21 = zext i16 %20 to i32
+  %22 = ashr i32 %21, 4
+  %23 = trunc i32 %22 to i16
+  store i16 %23, ptr %4, align 2, !tbaa !25
+  %24 = load i16, ptr %4, align 2, !tbaa !25
+  %25 = zext i16 %24 to i32
+  %26 = and i32 %25, 15
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds [16 x i64], ptr @BrotliReverseBits.kLut, i64 0, i64 %27
+  %29 = load i64, ptr %28, align 8, !tbaa !21
+  %30 = load i64, ptr %5, align 8, !tbaa !21
+  %31 = or i64 %30, %29
+  store i64 %31, ptr %5, align 8, !tbaa !21
+  br label %32
 
-for.inc:                                          ; preds = %for.body
-  %9 = load i64, ptr %i, align 8
-  %add = add i64 %9, 4
-  store i64 %add, ptr %i, align 8
-  br label %for.cond, !llvm.loop !31
+32:                                               ; preds = %17
+  %33 = load i64, ptr %6, align 8, !tbaa !21
+  %34 = add i64 %33, 4
+  store i64 %34, ptr %6, align 8, !tbaa !21
+  br label %13, !llvm.loop !56
 
-for.end:                                          ; preds = %for.cond
-  %10 = load i64, ptr %num_bits.addr, align 8
-  %sub = sub i64 0, %10
-  %and9 = and i64 %sub, 3
-  %11 = load i64, ptr %retval1, align 8
-  %shr10 = lshr i64 %11, %and9
-  store i64 %shr10, ptr %retval1, align 8
-  %12 = load i64, ptr %retval1, align 8
-  %conv11 = trunc i64 %12 to i16
-  ret i16 %conv11
+35:                                               ; preds = %13
+  %36 = load i64, ptr %3, align 8, !tbaa !21
+  %37 = sub i64 0, %36
+  %38 = and i64 %37, 3
+  %39 = load i64, ptr %5, align 8, !tbaa !21
+  %40 = lshr i64 %39, %38
+  store i64 %40, ptr %5, align 8, !tbaa !21
+  %41 = load i64, ptr %5, align 8, !tbaa !21
+  %42 = trunc i64 %41 to i16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret i16 %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Reverse(ptr noundef %v, i64 noundef %start, i64 noundef %end) #0 {
-entry:
-  %v.addr = alloca ptr, align 8
-  %start.addr = alloca i64, align 8
-  %end.addr = alloca i64, align 8
-  %tmp = alloca i8, align 1
-  store ptr %v, ptr %v.addr, align 8
-  store i64 %start, ptr %start.addr, align 8
-  store i64 %end, ptr %end.addr, align 8
-  %0 = load i64, ptr %end.addr, align 8
-  %dec = add i64 %0, -1
-  store i64 %dec, ptr %end.addr, align 8
-  br label %while.cond
+define internal void @Reverse(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store i64 %1, ptr %5, align 8, !tbaa !21
+  store i64 %2, ptr %6, align 8, !tbaa !21
+  %8 = load i64, ptr %6, align 8, !tbaa !21
+  %9 = add i64 %8, -1
+  store i64 %9, ptr %6, align 8, !tbaa !21
+  br label %10
 
-while.cond:                                       ; preds = %while.body, %entry
-  %1 = load i64, ptr %start.addr, align 8
-  %2 = load i64, ptr %end.addr, align 8
-  %cmp = icmp ult i64 %1, %2
-  br i1 %cmp, label %while.body, label %while.end
+10:                                               ; preds = %14, %3
+  %11 = load i64, ptr %5, align 8, !tbaa !21
+  %12 = load i64, ptr %6, align 8, !tbaa !21
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %14, label %34
 
-while.body:                                       ; preds = %while.cond
-  %3 = load ptr, ptr %v.addr, align 8
-  %4 = load i64, ptr %start.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %4
-  %5 = load i8, ptr %arrayidx, align 1
-  store i8 %5, ptr %tmp, align 1
-  %6 = load ptr, ptr %v.addr, align 8
-  %7 = load i64, ptr %end.addr, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %6, i64 %7
-  %8 = load i8, ptr %arrayidx1, align 1
-  %9 = load ptr, ptr %v.addr, align 8
-  %10 = load i64, ptr %start.addr, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %9, i64 %10
-  store i8 %8, ptr %arrayidx2, align 1
-  %11 = load i8, ptr %tmp, align 1
-  %12 = load ptr, ptr %v.addr, align 8
-  %13 = load i64, ptr %end.addr, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %12, i64 %13
-  store i8 %11, ptr %arrayidx3, align 1
-  %14 = load i64, ptr %start.addr, align 8
-  %inc = add i64 %14, 1
-  store i64 %inc, ptr %start.addr, align 8
-  %15 = load i64, ptr %end.addr, align 8
-  %dec4 = add i64 %15, -1
-  store i64 %dec4, ptr %end.addr, align 8
-  br label %while.cond, !llvm.loop !32
+14:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  %15 = load ptr, ptr %4, align 8, !tbaa !10
+  %16 = load i64, ptr %5, align 8, !tbaa !21
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !16
+  store i8 %18, ptr %7, align 1, !tbaa !16
+  %19 = load ptr, ptr %4, align 8, !tbaa !10
+  %20 = load i64, ptr %6, align 8, !tbaa !21
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !16
+  %23 = load ptr, ptr %4, align 8, !tbaa !10
+  %24 = load i64, ptr %5, align 8, !tbaa !21
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
+  store i8 %22, ptr %25, align 1, !tbaa !16
+  %26 = load i8, ptr %7, align 1, !tbaa !16
+  %27 = load ptr, ptr %4, align 8, !tbaa !10
+  %28 = load i64, ptr %6, align 8, !tbaa !21
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
+  store i8 %26, ptr %29, align 1, !tbaa !16
+  %30 = load i64, ptr %5, align 8, !tbaa !21
+  %31 = add i64 %30, 1
+  store i64 %31, ptr %5, align 8, !tbaa !21
+  %32 = load i64, ptr %6, align 8, !tbaa !21
+  %33 = add i64 %32, -1
+  store i64 %33, ptr %6, align 8, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  br label %10, !llvm.loop !57
 
-while.end:                                        ; preds = %while.cond
+34:                                               ; preds = %10
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { alwaysinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS11HuffmanTree", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !9, i64 0}
+!12 = !{!13, !14, i64 4}
+!13 = !{!"HuffmanTree", !4, i64 0, !14, i64 4, !14, i64 6}
+!14 = !{!"short", !5, i64 0}
+!15 = !{!13, !14, i64 6}
+!16 = !{!5, !5, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 int", !9, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !5, i64 0}
+!23 = distinct !{!23, !18}
+!24 = !{i64 0, i64 4, !3, i64 4, i64 2, !25, i64 6, i64 2, !25}
+!25 = !{!14, !14, i64 0}
+!26 = !{!13, !4, i64 0}
+!27 = distinct !{!27, !18}
+!28 = !{!9, !9, i64 0}
+!29 = distinct !{!29, !18}
+!30 = distinct !{!30, !18}
+!31 = distinct !{!31, !18}
+!32 = distinct !{!32, !18}
+!33 = distinct !{!33, !18}
+!34 = distinct !{!34, !18}
+!35 = distinct !{!35, !18}
+!36 = distinct !{!36, !18}
+!37 = distinct !{!37, !18}
+!38 = distinct !{!38, !18}
+!39 = distinct !{!39, !18}
+!40 = distinct !{!40, !18}
+!41 = distinct !{!41, !18}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 long", !9, i64 0}
+!44 = distinct !{!44, !18}
+!45 = distinct !{!45, !18}
+!46 = distinct !{!46, !18}
+!47 = distinct !{!47, !18}
+!48 = distinct !{!48, !18}
+!49 = distinct !{!49, !18}
+!50 = distinct !{!50, !18}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 short", !9, i64 0}
+!53 = distinct !{!53, !18}
+!54 = distinct !{!54, !18}
+!55 = distinct !{!55, !18}
+!56 = distinct !{!56, !18}
+!57 = distinct !{!57, !18}

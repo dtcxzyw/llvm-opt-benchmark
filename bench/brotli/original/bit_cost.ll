@@ -1,2366 +1,1943 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.HistogramLiteral = type { [256 x i32], i64, double }
 %struct.HistogramCommand = type { [704 x i32], i64, double }
 %struct.HistogramDistance = type { [544 x i32], i64, double }
 
-@BrotliPopulationCostLiteral.kOneSymbolHistogramCost = internal constant double 1.200000e+01, align 8
-@BrotliPopulationCostLiteral.kTwoSymbolHistogramCost = internal constant double 2.000000e+01, align 8
-@BrotliPopulationCostLiteral.kThreeSymbolHistogramCost = internal constant double 2.800000e+01, align 8
-@BrotliPopulationCostLiteral.kFourSymbolHistogramCost = internal constant double 3.700000e+01, align 8
-@BrotliPopulationCostCommand.kOneSymbolHistogramCost = internal constant double 1.200000e+01, align 8
-@BrotliPopulationCostCommand.kTwoSymbolHistogramCost = internal constant double 2.000000e+01, align 8
-@BrotliPopulationCostCommand.kThreeSymbolHistogramCost = internal constant double 2.800000e+01, align 8
-@BrotliPopulationCostCommand.kFourSymbolHistogramCost = internal constant double 3.700000e+01, align 8
-@BrotliPopulationCostDistance.kOneSymbolHistogramCost = internal constant double 1.200000e+01, align 8
-@BrotliPopulationCostDistance.kTwoSymbolHistogramCost = internal constant double 2.000000e+01, align 8
-@BrotliPopulationCostDistance.kThreeSymbolHistogramCost = internal constant double 2.800000e+01, align 8
-@BrotliPopulationCostDistance.kFourSymbolHistogramCost = internal constant double 3.700000e+01, align 8
 @kBrotliLog2Table = external hidden constant [256 x double], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden double @BrotliPopulationCostLiteral(ptr noundef %histogram) #0 {
-entry:
-  %retval.i23.i = alloca double, align 8
-  %v.addr.i24.i = alloca i64, align 8
-  %retval.i14.i = alloca double, align 8
-  %v.addr.i15.i = alloca i64, align 8
-  %retval.i.i = alloca double, align 8
-  %v.addr.i.i = alloca i64, align 8
-  %population.addr.i196 = alloca ptr, align 8
-  %size.addr.i197 = alloca i64, align 8
-  %total.addr.i = alloca ptr, align 8
-  %sum.i198 = alloca i64, align 8
-  %retval1.i199 = alloca double, align 8
-  %population_end.i = alloca ptr, align 8
-  %p.i = alloca i64, align 8
-  %population.addr.i = alloca ptr, align 8
-  %size.addr.i = alloca i64, align 8
-  %sum.i = alloca i64, align 8
-  %retval1.i = alloca double, align 8
-  %retval.i182 = alloca double, align 8
-  %v.addr.i183 = alloca i64, align 8
-  %retval.i = alloca double, align 8
-  %v.addr.i = alloca i64, align 8
-  %a.addr.i174 = alloca i32, align 4
-  %b.addr.i175 = alloca i32, align 4
-  %a.addr.i167 = alloca i32, align 4
-  %b.addr.i168 = alloca i32, align 4
-  %a.addr.i = alloca i32, align 4
-  %b.addr.i = alloca i32, align 4
-  %retval = alloca double, align 8
-  %histogram.addr = alloca ptr, align 8
-  %data_size = alloca i64, align 8
-  %count = alloca i32, align 4
-  %s = alloca [5 x i64], align 16
-  %bits = alloca double, align 8
-  %i = alloca i64, align 8
-  %histo0 = alloca i32, align 4
-  %histo1 = alloca i32, align 4
-  %histo2 = alloca i32, align 4
-  %histomax = alloca i32, align 4
-  %histo = alloca [4 x i32], align 16
-  %h23 = alloca i32, align 4
-  %histomax40 = alloca i32, align 4
-  %j = alloca i64, align 8
-  %__brotli_swap_tmp = alloca i32, align 4
-  %max_depth = alloca i64, align 8
-  %depth_histo = alloca [18 x i32], align 16
-  %log2total = alloca double, align 8
-  %log2p = alloca double, align 8
-  %depth = alloca i64, align 8
-  %reps = alloca i32, align 4
-  %k = alloca i64, align 8
-  store ptr %histogram, ptr %histogram.addr, align 8
-  store i64 256, ptr %data_size, align 8
-  store i32 0, ptr %count, align 4
-  store double 0.000000e+00, ptr %bits, align 8
-  %0 = load ptr, ptr %histogram.addr, align 8
-  %total_count_ = getelementptr inbounds %struct.HistogramLiteral, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %total_count_, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store double 1.200000e+01, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %2 = load i64, ptr %i, align 8
-  %3 = load i64, ptr %data_size, align 8
-  %cmp1 = icmp ult i64 %2, %3
-  br i1 %cmp1, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %histogram.addr, align 8
-  %data_ = getelementptr inbounds %struct.HistogramLiteral, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [256 x i32], ptr %data_, i64 0, i64 %5
-  %6 = load i32, ptr %arrayidx, align 4
-  %cmp2 = icmp ugt i32 %6, 0
-  br i1 %cmp2, label %if.then3, label %if.end8
-
-if.then3:                                         ; preds = %for.body
-  %7 = load i64, ptr %i, align 8
-  %8 = load i32, ptr %count, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx4 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %idxprom
-  store i64 %7, ptr %arrayidx4, align 8
-  %9 = load i32, ptr %count, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %count, align 4
-  %10 = load i32, ptr %count, align 4
-  %cmp5 = icmp sgt i32 %10, 4
-  br i1 %cmp5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %if.then3
-  br label %for.end
-
-if.end7:                                          ; preds = %if.then3
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.end7, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end8
-  %11 = load i64, ptr %i, align 8
-  %inc9 = add i64 %11, 1
-  store i64 %inc9, ptr %i, align 8
-  br label %for.cond, !llvm.loop !4
-
-for.end:                                          ; preds = %if.then6, %for.cond
-  %12 = load i32, ptr %count, align 4
-  %cmp10 = icmp eq i32 %12, 1
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %for.end
-  store double 1.200000e+01, ptr %retval, align 8
-  br label %return
-
-if.end12:                                         ; preds = %for.end
-  %13 = load i32, ptr %count, align 4
-  %cmp13 = icmp eq i32 %13, 2
-  br i1 %cmp13, label %if.then14, label %if.end16
-
-if.then14:                                        ; preds = %if.end12
-  %14 = load ptr, ptr %histogram.addr, align 8
-  %total_count_15 = getelementptr inbounds %struct.HistogramLiteral, ptr %14, i32 0, i32 1
-  %15 = load i64, ptr %total_count_15, align 8
-  %conv = uitofp i64 %15 to double
-  %add = fadd double 2.000000e+01, %conv
-  store double %add, ptr %retval, align 8
-  br label %return
-
-if.end16:                                         ; preds = %if.end12
-  %16 = load i32, ptr %count, align 4
-  %cmp17 = icmp eq i32 %16, 3
-  br i1 %cmp17, label %if.then19, label %if.end36
-
-if.then19:                                        ; preds = %if.end16
-  %17 = load ptr, ptr %histogram.addr, align 8
-  %data_20 = getelementptr inbounds %struct.HistogramLiteral, ptr %17, i32 0, i32 0
-  %arrayidx21 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 0
-  %18 = load i64, ptr %arrayidx21, align 16
-  %arrayidx22 = getelementptr inbounds [256 x i32], ptr %data_20, i64 0, i64 %18
-  %19 = load i32, ptr %arrayidx22, align 4
-  store i32 %19, ptr %histo0, align 4
-  %20 = load ptr, ptr %histogram.addr, align 8
-  %data_23 = getelementptr inbounds %struct.HistogramLiteral, ptr %20, i32 0, i32 0
-  %arrayidx24 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 1
-  %21 = load i64, ptr %arrayidx24, align 8
-  %arrayidx25 = getelementptr inbounds [256 x i32], ptr %data_23, i64 0, i64 %21
-  %22 = load i32, ptr %arrayidx25, align 4
-  store i32 %22, ptr %histo1, align 4
-  %23 = load ptr, ptr %histogram.addr, align 8
-  %data_26 = getelementptr inbounds %struct.HistogramLiteral, ptr %23, i32 0, i32 0
-  %arrayidx27 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 2
-  %24 = load i64, ptr %arrayidx27, align 16
-  %arrayidx28 = getelementptr inbounds [256 x i32], ptr %data_26, i64 0, i64 %24
-  %25 = load i32, ptr %arrayidx28, align 4
-  store i32 %25, ptr %histo2, align 4
-  %26 = load i32, ptr %histo0, align 4
-  %27 = load i32, ptr %histo1, align 4
-  %28 = load i32, ptr %histo2, align 4
-  store i32 %27, ptr %a.addr.i174, align 4
-  store i32 %28, ptr %b.addr.i175, align 4
-  %29 = load i32, ptr %a.addr.i174, align 4
-  %30 = load i32, ptr %b.addr.i175, align 4
-  %cmp.i176 = icmp ugt i32 %29, %30
-  br i1 %cmp.i176, label %cond.true.i179, label %cond.false.i177
-
-cond.true.i179:                                   ; preds = %if.then19
-  %31 = load i32, ptr %a.addr.i174, align 4
-  br label %brotli_max_uint32_t.exit180
-
-cond.false.i177:                                  ; preds = %if.then19
-  %32 = load i32, ptr %b.addr.i175, align 4
-  br label %brotli_max_uint32_t.exit180
-
-brotli_max_uint32_t.exit180:                      ; preds = %cond.false.i177, %cond.true.i179
-  %cond.i178 = phi i32 [ %31, %cond.true.i179 ], [ %32, %cond.false.i177 ]
-  store i32 %26, ptr %a.addr.i167, align 4
-  store i32 %cond.i178, ptr %b.addr.i168, align 4
-  %33 = load i32, ptr %a.addr.i167, align 4
-  %34 = load i32, ptr %b.addr.i168, align 4
-  %cmp.i169 = icmp ugt i32 %33, %34
-  br i1 %cmp.i169, label %cond.true.i172, label %cond.false.i170
-
-cond.true.i172:                                   ; preds = %brotli_max_uint32_t.exit180
-  %35 = load i32, ptr %a.addr.i167, align 4
-  br label %brotli_max_uint32_t.exit173
-
-cond.false.i170:                                  ; preds = %brotli_max_uint32_t.exit180
-  %36 = load i32, ptr %b.addr.i168, align 4
-  br label %brotli_max_uint32_t.exit173
-
-brotli_max_uint32_t.exit173:                      ; preds = %cond.false.i170, %cond.true.i172
-  %cond.i171 = phi i32 [ %35, %cond.true.i172 ], [ %36, %cond.false.i170 ]
-  store i32 %cond.i171, ptr %histomax, align 4
-  %37 = load i32, ptr %histo0, align 4
-  %38 = load i32, ptr %histo1, align 4
-  %add31 = add i32 %37, %38
-  %39 = load i32, ptr %histo2, align 4
-  %add32 = add i32 %add31, %39
-  %mul = mul i32 2, %add32
-  %conv33 = uitofp i32 %mul to double
-  %add34 = fadd double 2.800000e+01, %conv33
-  %40 = load i32, ptr %histomax, align 4
-  %conv35 = uitofp i32 %40 to double
-  %sub = fsub double %add34, %conv35
-  store double %sub, ptr %retval, align 8
-  br label %return
-
-if.end36:                                         ; preds = %if.end16
-  %41 = load i32, ptr %count, align 4
-  %cmp37 = icmp eq i32 %41, 4
-  br i1 %cmp37, label %if.then39, label %if.end93
-
-if.then39:                                        ; preds = %if.end36
-  store i64 0, ptr %i, align 8
-  br label %for.cond41
-
-for.cond41:                                       ; preds = %for.inc49, %if.then39
-  %42 = load i64, ptr %i, align 8
-  %cmp42 = icmp ult i64 %42, 4
-  br i1 %cmp42, label %for.body44, label %for.end51
-
-for.body44:                                       ; preds = %for.cond41
-  %43 = load ptr, ptr %histogram.addr, align 8
-  %data_45 = getelementptr inbounds %struct.HistogramLiteral, ptr %43, i32 0, i32 0
-  %44 = load i64, ptr %i, align 8
-  %arrayidx46 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %44
-  %45 = load i64, ptr %arrayidx46, align 8
-  %arrayidx47 = getelementptr inbounds [256 x i32], ptr %data_45, i64 0, i64 %45
-  %46 = load i32, ptr %arrayidx47, align 4
-  %47 = load i64, ptr %i, align 8
-  %arrayidx48 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %47
-  store i32 %46, ptr %arrayidx48, align 4
-  br label %for.inc49
-
-for.inc49:                                        ; preds = %for.body44
-  %48 = load i64, ptr %i, align 8
-  %inc50 = add i64 %48, 1
-  store i64 %inc50, ptr %i, align 8
-  br label %for.cond41, !llvm.loop !6
-
-for.end51:                                        ; preds = %for.cond41
-  store i64 0, ptr %i, align 8
-  br label %for.cond52
-
-for.cond52:                                       ; preds = %for.inc74, %for.end51
-  %49 = load i64, ptr %i, align 8
-  %cmp53 = icmp ult i64 %49, 4
-  br i1 %cmp53, label %for.body55, label %for.end76
-
-for.body55:                                       ; preds = %for.cond52
-  %50 = load i64, ptr %i, align 8
-  %add56 = add i64 %50, 1
-  store i64 %add56, ptr %j, align 8
-  br label %for.cond57
-
-for.cond57:                                       ; preds = %for.inc71, %for.body55
-  %51 = load i64, ptr %j, align 8
-  %cmp58 = icmp ult i64 %51, 4
-  br i1 %cmp58, label %for.body60, label %for.end73
-
-for.body60:                                       ; preds = %for.cond57
-  %52 = load i64, ptr %j, align 8
-  %arrayidx61 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %52
-  %53 = load i32, ptr %arrayidx61, align 4
-  %54 = load i64, ptr %i, align 8
-  %arrayidx62 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %54
-  %55 = load i32, ptr %arrayidx62, align 4
-  %cmp63 = icmp ugt i32 %53, %55
-  br i1 %cmp63, label %if.then65, label %if.end70
-
-if.then65:                                        ; preds = %for.body60
-  %56 = load i64, ptr %j, align 8
-  %arrayidx66 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %56
-  %57 = load i32, ptr %arrayidx66, align 4
-  store i32 %57, ptr %__brotli_swap_tmp, align 4
-  %58 = load i64, ptr %i, align 8
-  %arrayidx67 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %58
-  %59 = load i32, ptr %arrayidx67, align 4
-  %60 = load i64, ptr %j, align 8
-  %arrayidx68 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %60
-  store i32 %59, ptr %arrayidx68, align 4
-  %61 = load i32, ptr %__brotli_swap_tmp, align 4
-  %62 = load i64, ptr %i, align 8
-  %arrayidx69 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %62
-  store i32 %61, ptr %arrayidx69, align 4
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.then65, %for.body60
-  br label %for.inc71
-
-for.inc71:                                        ; preds = %if.end70
-  %63 = load i64, ptr %j, align 8
-  %inc72 = add i64 %63, 1
-  store i64 %inc72, ptr %j, align 8
-  br label %for.cond57, !llvm.loop !7
-
-for.end73:                                        ; preds = %for.cond57
-  br label %for.inc74
-
-for.inc74:                                        ; preds = %for.end73
-  %64 = load i64, ptr %i, align 8
-  %inc75 = add i64 %64, 1
-  store i64 %inc75, ptr %i, align 8
-  br label %for.cond52, !llvm.loop !8
-
-for.end76:                                        ; preds = %for.cond52
-  %arrayidx77 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 2
-  %65 = load i32, ptr %arrayidx77, align 8
-  %arrayidx78 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 3
-  %66 = load i32, ptr %arrayidx78, align 4
-  %add79 = add i32 %65, %66
-  store i32 %add79, ptr %h23, align 4
-  %67 = load i32, ptr %h23, align 4
-  %arrayidx80 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 0
-  %68 = load i32, ptr %arrayidx80, align 16
-  store i32 %67, ptr %a.addr.i, align 4
-  store i32 %68, ptr %b.addr.i, align 4
-  %69 = load i32, ptr %a.addr.i, align 4
-  %70 = load i32, ptr %b.addr.i, align 4
-  %cmp.i = icmp ugt i32 %69, %70
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %for.end76
-  %71 = load i32, ptr %a.addr.i, align 4
-  br label %brotli_max_uint32_t.exit
-
-cond.false.i:                                     ; preds = %for.end76
-  %72 = load i32, ptr %b.addr.i, align 4
-  br label %brotli_max_uint32_t.exit
-
-brotli_max_uint32_t.exit:                         ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i32 [ %71, %cond.true.i ], [ %72, %cond.false.i ]
-  store i32 %cond.i, ptr %histomax40, align 4
-  %73 = load i32, ptr %h23, align 4
-  %mul82 = mul i32 3, %73
-  %conv83 = uitofp i32 %mul82 to double
-  %add84 = fadd double 3.700000e+01, %conv83
-  %arrayidx85 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 0
-  %74 = load i32, ptr %arrayidx85, align 16
-  %arrayidx86 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 1
-  %75 = load i32, ptr %arrayidx86, align 4
-  %add87 = add i32 %74, %75
-  %mul88 = mul i32 2, %add87
-  %conv89 = uitofp i32 %mul88 to double
-  %add90 = fadd double %add84, %conv89
-  %76 = load i32, ptr %histomax40, align 4
-  %conv91 = uitofp i32 %76 to double
-  %sub92 = fsub double %add90, %conv91
-  store double %sub92, ptr %retval, align 8
-  br label %return
-
-if.end93:                                         ; preds = %if.end36
-  store i64 1, ptr %max_depth, align 8
-  call void @llvm.memset.p0.i64(ptr align 16 %depth_histo, i8 0, i64 72, i1 false)
-  %77 = load ptr, ptr %histogram.addr, align 8
-  %total_count_94 = getelementptr inbounds %struct.HistogramLiteral, ptr %77, i32 0, i32 1
-  %78 = load i64, ptr %total_count_94, align 8
-  store i64 %78, ptr %v.addr.i183, align 8
-  %79 = load i64, ptr %v.addr.i183, align 8
-  %cmp.i184 = icmp ult i64 %79, 256
-  br i1 %cmp.i184, label %if.then.i188, label %if.end.i185
-
-if.then.i188:                                     ; preds = %if.end93
-  %80 = load i64, ptr %v.addr.i183, align 8
-  %arrayidx.i189 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %80
-  %81 = load double, ptr %arrayidx.i189, align 8
-  store double %81, ptr %retval.i182, align 8
-  br label %FastLog2.exit190
-
-if.end.i185:                                      ; preds = %if.end93
-  %82 = load i64, ptr %v.addr.i183, align 8
-  %conv.i186 = uitofp i64 %82 to double
-  %call.i187 = call double @log2(double noundef %conv.i186) #4
-  store double %call.i187, ptr %retval.i182, align 8
-  br label %FastLog2.exit190
-
-FastLog2.exit190:                                 ; preds = %if.end.i185, %if.then.i188
-  %83 = load double, ptr %retval.i182, align 8
-  store double %83, ptr %log2total, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond96
-
-for.cond96:                                       ; preds = %if.end159, %FastLog2.exit190
-  %84 = load i64, ptr %i, align 8
-  %85 = load i64, ptr %data_size, align 8
-  %cmp97 = icmp ult i64 %84, %85
-  br i1 %cmp97, label %for.body99, label %for.end160
-
-for.body99:                                       ; preds = %for.cond96
-  %86 = load ptr, ptr %histogram.addr, align 8
-  %data_100 = getelementptr inbounds %struct.HistogramLiteral, ptr %86, i32 0, i32 0
-  %87 = load i64, ptr %i, align 8
-  %arrayidx101 = getelementptr inbounds [256 x i32], ptr %data_100, i64 0, i64 %87
-  %88 = load i32, ptr %arrayidx101, align 4
-  %cmp102 = icmp ugt i32 %88, 0
-  br i1 %cmp102, label %if.then104, label %if.else
-
-if.then104:                                       ; preds = %for.body99
-  %89 = load double, ptr %log2total, align 8
-  %90 = load ptr, ptr %histogram.addr, align 8
-  %data_105 = getelementptr inbounds %struct.HistogramLiteral, ptr %90, i32 0, i32 0
-  %91 = load i64, ptr %i, align 8
-  %arrayidx106 = getelementptr inbounds [256 x i32], ptr %data_105, i64 0, i64 %91
-  %92 = load i32, ptr %arrayidx106, align 4
-  %conv107 = zext i32 %92 to i64
-  store i64 %conv107, ptr %v.addr.i, align 8
-  %93 = load i64, ptr %v.addr.i, align 8
-  %cmp.i181 = icmp ult i64 %93, 256
-  br i1 %cmp.i181, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then104
-  %94 = load i64, ptr %v.addr.i, align 8
-  %arrayidx.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %94
-  %95 = load double, ptr %arrayidx.i, align 8
-  store double %95, ptr %retval.i, align 8
-  br label %FastLog2.exit
-
-if.end.i:                                         ; preds = %if.then104
-  %96 = load i64, ptr %v.addr.i, align 8
-  %conv.i = uitofp i64 %96 to double
-  %call.i = call double @log2(double noundef %conv.i) #4
-  store double %call.i, ptr %retval.i, align 8
-  br label %FastLog2.exit
-
-FastLog2.exit:                                    ; preds = %if.end.i, %if.then.i
-  %97 = load double, ptr %retval.i, align 8
-  %sub109 = fsub double %89, %97
-  store double %sub109, ptr %log2p, align 8
-  %98 = load double, ptr %log2p, align 8
-  %add110 = fadd double %98, 5.000000e-01
-  %conv111 = fptoui double %add110 to i64
-  store i64 %conv111, ptr %depth, align 8
-  %99 = load ptr, ptr %histogram.addr, align 8
-  %data_112 = getelementptr inbounds %struct.HistogramLiteral, ptr %99, i32 0, i32 0
-  %100 = load i64, ptr %i, align 8
-  %arrayidx113 = getelementptr inbounds [256 x i32], ptr %data_112, i64 0, i64 %100
-  %101 = load i32, ptr %arrayidx113, align 4
-  %conv114 = uitofp i32 %101 to double
-  %102 = load double, ptr %log2p, align 8
-  %103 = load double, ptr %bits, align 8
-  %104 = call double @llvm.fmuladd.f64(double %conv114, double %102, double %103)
-  store double %104, ptr %bits, align 8
-  %105 = load i64, ptr %depth, align 8
-  %cmp116 = icmp ugt i64 %105, 15
-  br i1 %cmp116, label %if.then118, label %if.end119
-
-if.then118:                                       ; preds = %FastLog2.exit
-  store i64 15, ptr %depth, align 8
-  br label %if.end119
-
-if.end119:                                        ; preds = %if.then118, %FastLog2.exit
-  %106 = load i64, ptr %depth, align 8
-  %107 = load i64, ptr %max_depth, align 8
-  %cmp120 = icmp ugt i64 %106, %107
-  br i1 %cmp120, label %if.then122, label %if.end123
-
-if.then122:                                       ; preds = %if.end119
-  %108 = load i64, ptr %depth, align 8
-  store i64 %108, ptr %max_depth, align 8
-  br label %if.end123
-
-if.end123:                                        ; preds = %if.then122, %if.end119
-  %109 = load i64, ptr %depth, align 8
-  %arrayidx124 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 %109
-  %110 = load i32, ptr %arrayidx124, align 4
-  %inc125 = add i32 %110, 1
-  store i32 %inc125, ptr %arrayidx124, align 4
-  %111 = load i64, ptr %i, align 8
-  %inc126 = add i64 %111, 1
-  store i64 %inc126, ptr %i, align 8
-  br label %if.end159
-
-if.else:                                          ; preds = %for.body99
-  store i32 1, ptr %reps, align 4
-  %112 = load i64, ptr %i, align 8
-  %add127 = add i64 %112, 1
-  store i64 %add127, ptr %k, align 8
-  br label %for.cond128
-
-for.cond128:                                      ; preds = %for.inc137, %if.else
-  %113 = load i64, ptr %k, align 8
-  %114 = load i64, ptr %data_size, align 8
-  %cmp129 = icmp ult i64 %113, %114
-  br i1 %cmp129, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond128
-  %115 = load ptr, ptr %histogram.addr, align 8
-  %data_131 = getelementptr inbounds %struct.HistogramLiteral, ptr %115, i32 0, i32 0
-  %116 = load i64, ptr %k, align 8
-  %arrayidx132 = getelementptr inbounds [256 x i32], ptr %data_131, i64 0, i64 %116
-  %117 = load i32, ptr %arrayidx132, align 4
-  %cmp133 = icmp eq i32 %117, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond128
-  %118 = phi i1 [ false, %for.cond128 ], [ %cmp133, %land.rhs ]
-  br i1 %118, label %for.body135, label %for.end139
-
-for.body135:                                      ; preds = %land.end
-  %119 = load i32, ptr %reps, align 4
-  %inc136 = add i32 %119, 1
-  store i32 %inc136, ptr %reps, align 4
-  br label %for.inc137
-
-for.inc137:                                       ; preds = %for.body135
-  %120 = load i64, ptr %k, align 8
-  %inc138 = add i64 %120, 1
-  store i64 %inc138, ptr %k, align 8
-  br label %for.cond128, !llvm.loop !9
-
-for.end139:                                       ; preds = %land.end
-  %121 = load i32, ptr %reps, align 4
-  %conv140 = zext i32 %121 to i64
-  %122 = load i64, ptr %i, align 8
-  %add141 = add i64 %122, %conv140
-  store i64 %add141, ptr %i, align 8
-  %123 = load i64, ptr %i, align 8
-  %124 = load i64, ptr %data_size, align 8
-  %cmp142 = icmp eq i64 %123, %124
-  br i1 %cmp142, label %if.then144, label %if.end145
-
-if.then144:                                       ; preds = %for.end139
-  br label %for.end160
-
-if.end145:                                        ; preds = %for.end139
-  %125 = load i32, ptr %reps, align 4
-  %cmp146 = icmp ult i32 %125, 3
-  br i1 %cmp146, label %if.then148, label %if.else151
-
-if.then148:                                       ; preds = %if.end145
-  %126 = load i32, ptr %reps, align 4
-  %arrayidx149 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 0
-  %127 = load i32, ptr %arrayidx149, align 16
-  %add150 = add i32 %127, %126
-  store i32 %add150, ptr %arrayidx149, align 16
-  br label %if.end158
-
-if.else151:                                       ; preds = %if.end145
-  %128 = load i32, ptr %reps, align 4
-  %sub152 = sub i32 %128, 2
-  store i32 %sub152, ptr %reps, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.else151
-  %129 = load i32, ptr %reps, align 4
-  %cmp153 = icmp ugt i32 %129, 0
-  br i1 %cmp153, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %arrayidx155 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 17
-  %130 = load i32, ptr %arrayidx155, align 4
-  %inc156 = add i32 %130, 1
-  store i32 %inc156, ptr %arrayidx155, align 4
-  %131 = load double, ptr %bits, align 8
-  %add157 = fadd double %131, 3.000000e+00
-  store double %add157, ptr %bits, align 8
-  %132 = load i32, ptr %reps, align 4
-  %shr = lshr i32 %132, 3
-  store i32 %shr, ptr %reps, align 4
-  br label %while.cond, !llvm.loop !10
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end158
-
-if.end158:                                        ; preds = %while.end, %if.then148
-  br label %if.end159
-
-if.end159:                                        ; preds = %if.end158, %if.end123
-  br label %for.cond96, !llvm.loop !11
-
-for.end160:                                       ; preds = %if.then144, %for.cond96
-  %133 = load i64, ptr %max_depth, align 8
-  %mul161 = mul i64 2, %133
-  %add162 = add i64 18, %mul161
-  %conv163 = uitofp i64 %add162 to double
-  %134 = load double, ptr %bits, align 8
-  %add164 = fadd double %134, %conv163
-  store double %add164, ptr %bits, align 8
-  %arraydecay = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 0
-  store ptr %arraydecay, ptr %population.addr.i, align 8
-  store i64 18, ptr %size.addr.i, align 8
-  %135 = load ptr, ptr %population.addr.i, align 8
-  %136 = load i64, ptr %size.addr.i, align 8
-  store ptr %135, ptr %population.addr.i196, align 8
-  store i64 %136, ptr %size.addr.i197, align 8
-  store ptr %sum.i, ptr %total.addr.i, align 8
-  store i64 0, ptr %sum.i198, align 8
-  store double 0.000000e+00, ptr %retval1.i199, align 8
-  %137 = load ptr, ptr %population.addr.i196, align 8
-  %138 = load i64, ptr %size.addr.i197, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %137, i64 %138
-  store ptr %add.ptr.i, ptr %population_end.i, align 8
-  %139 = load i64, ptr %size.addr.i197, align 8
-  %and.i = and i64 %139, 1
-  %tobool.i = icmp ne i64 %and.i, 0
-  br i1 %tobool.i, label %if.then.i203, label %if.end.i200
-
-if.then.i203:                                     ; preds = %for.end160
-  br label %odd_number_of_elements_left.i
-
-if.end.i200:                                      ; preds = %for.end160
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %FastLog2.exit22.i, %if.end.i200
-  %140 = load ptr, ptr %population.addr.i196, align 8
-  %141 = load ptr, ptr %population_end.i, align 8
-  %cmp.i201 = icmp ult ptr %140, %141
-  br i1 %cmp.i201, label %while.body.i, label %while.end.i
-
-while.body.i:                                     ; preds = %while.cond.i
-  %142 = load ptr, ptr %population.addr.i196, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %142, i32 1
-  store ptr %incdec.ptr.i, ptr %population.addr.i196, align 8
-  %143 = load i32, ptr %142, align 4
-  %conv.i202 = zext i32 %143 to i64
-  store i64 %conv.i202, ptr %p.i, align 8
-  %144 = load i64, ptr %p.i, align 8
-  %145 = load i64, ptr %sum.i198, align 8
-  %add.i = add i64 %145, %144
-  store i64 %add.i, ptr %sum.i198, align 8
-  %146 = load i64, ptr %p.i, align 8
-  %conv2.i = uitofp i64 %146 to double
-  %147 = load i64, ptr %p.i, align 8
-  store i64 %147, ptr %v.addr.i24.i, align 8
-  %148 = load i64, ptr %v.addr.i24.i, align 8
-  %cmp.i25.i = icmp ult i64 %148, 256
-  br i1 %cmp.i25.i, label %if.then.i29.i, label %if.end.i26.i
-
-if.then.i29.i:                                    ; preds = %while.body.i
-  %149 = load i64, ptr %v.addr.i24.i, align 8
-  %arrayidx.i30.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %149
-  %150 = load double, ptr %arrayidx.i30.i, align 8
-  store double %150, ptr %retval.i23.i, align 8
-  br label %FastLog2.exit31.i
-
-if.end.i26.i:                                     ; preds = %while.body.i
-  %151 = load i64, ptr %v.addr.i24.i, align 8
-  %conv.i27.i = uitofp i64 %151 to double
-  %call.i28.i = call double @log2(double noundef %conv.i27.i) #4
-  store double %call.i28.i, ptr %retval.i23.i, align 8
-  br label %FastLog2.exit31.i
-
-FastLog2.exit31.i:                                ; preds = %if.end.i26.i, %if.then.i29.i
-  %152 = load double, ptr %retval.i23.i, align 8
-  %153 = load double, ptr %retval1.i199, align 8
-  %neg.i = fneg double %conv2.i
-  %154 = call double @llvm.fmuladd.f64(double %neg.i, double %152, double %153)
-  store double %154, ptr %retval1.i199, align 8
-  br label %odd_number_of_elements_left.i
-
-odd_number_of_elements_left.i:                    ; preds = %FastLog2.exit31.i, %if.then.i203
-  %155 = load ptr, ptr %population.addr.i196, align 8
-  %incdec.ptr3.i = getelementptr inbounds i32, ptr %155, i32 1
-  store ptr %incdec.ptr3.i, ptr %population.addr.i196, align 8
-  %156 = load i32, ptr %155, align 4
-  %conv4.i = zext i32 %156 to i64
-  store i64 %conv4.i, ptr %p.i, align 8
-  %157 = load i64, ptr %p.i, align 8
-  %158 = load i64, ptr %sum.i198, align 8
-  %add5.i = add i64 %158, %157
-  store i64 %add5.i, ptr %sum.i198, align 8
-  %159 = load i64, ptr %p.i, align 8
-  %conv6.i = uitofp i64 %159 to double
-  %160 = load i64, ptr %p.i, align 8
-  store i64 %160, ptr %v.addr.i15.i, align 8
-  %161 = load i64, ptr %v.addr.i15.i, align 8
-  %cmp.i16.i = icmp ult i64 %161, 256
-  br i1 %cmp.i16.i, label %if.then.i20.i, label %if.end.i17.i
-
-if.then.i20.i:                                    ; preds = %odd_number_of_elements_left.i
-  %162 = load i64, ptr %v.addr.i15.i, align 8
-  %arrayidx.i21.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %162
-  %163 = load double, ptr %arrayidx.i21.i, align 8
-  store double %163, ptr %retval.i14.i, align 8
-  br label %FastLog2.exit22.i
-
-if.end.i17.i:                                     ; preds = %odd_number_of_elements_left.i
-  %164 = load i64, ptr %v.addr.i15.i, align 8
-  %conv.i18.i = uitofp i64 %164 to double
-  %call.i19.i = call double @log2(double noundef %conv.i18.i) #4
-  store double %call.i19.i, ptr %retval.i14.i, align 8
-  br label %FastLog2.exit22.i
-
-FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.then.i20.i
-  %165 = load double, ptr %retval.i14.i, align 8
-  %166 = load double, ptr %retval1.i199, align 8
-  %neg8.i = fneg double %conv6.i
-  %167 = call double @llvm.fmuladd.f64(double %neg8.i, double %165, double %166)
-  store double %167, ptr %retval1.i199, align 8
-  br label %while.cond.i, !llvm.loop !12
-
-while.end.i:                                      ; preds = %while.cond.i
-  %168 = load i64, ptr %sum.i198, align 8
-  %tobool9.i = icmp ne i64 %168, 0
-  br i1 %tobool9.i, label %if.then10.i, label %ShannonEntropy.exit
-
-if.then10.i:                                      ; preds = %while.end.i
-  %169 = load i64, ptr %sum.i198, align 8
-  %conv11.i = uitofp i64 %169 to double
-  %170 = load i64, ptr %sum.i198, align 8
-  store i64 %170, ptr %v.addr.i.i, align 8
-  %171 = load i64, ptr %v.addr.i.i, align 8
-  %cmp.i.i = icmp ult i64 %171, 256
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.then10.i
-  %172 = load i64, ptr %v.addr.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %172
-  %173 = load double, ptr %arrayidx.i.i, align 8
-  store double %173, ptr %retval.i.i, align 8
-  br label %FastLog2.exit.i
-
-if.end.i.i:                                       ; preds = %if.then10.i
-  %174 = load i64, ptr %v.addr.i.i, align 8
-  %conv.i.i = uitofp i64 %174 to double
-  %call.i.i = call double @log2(double noundef %conv.i.i) #4
-  store double %call.i.i, ptr %retval.i.i, align 8
-  br label %FastLog2.exit.i
-
-FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.then.i.i
-  %175 = load double, ptr %retval.i.i, align 8
-  %176 = load double, ptr %retval1.i199, align 8
-  %177 = call double @llvm.fmuladd.f64(double %conv11.i, double %175, double %176)
-  store double %177, ptr %retval1.i199, align 8
-  br label %ShannonEntropy.exit
-
-ShannonEntropy.exit:                              ; preds = %FastLog2.exit.i, %while.end.i
-  %178 = load i64, ptr %sum.i198, align 8
-  %179 = load ptr, ptr %total.addr.i, align 8
-  store i64 %178, ptr %179, align 8
-  %180 = load double, ptr %retval1.i199, align 8
-  store double %180, ptr %retval1.i, align 8
-  %181 = load double, ptr %retval1.i, align 8
-  %182 = load i64, ptr %sum.i, align 8
-  %conv.i192 = uitofp i64 %182 to double
-  %cmp.i193 = fcmp olt double %181, %conv.i192
-  br i1 %cmp.i193, label %if.then.i195, label %BitsEntropy.exit
-
-if.then.i195:                                     ; preds = %ShannonEntropy.exit
-  %183 = load i64, ptr %sum.i, align 8
-  %conv3.i = uitofp i64 %183 to double
-  store double %conv3.i, ptr %retval1.i, align 8
-  br label %BitsEntropy.exit
-
-BitsEntropy.exit:                                 ; preds = %if.then.i195, %ShannonEntropy.exit
-  %184 = load double, ptr %retval1.i, align 8
-  %185 = load double, ptr %bits, align 8
-  %add166 = fadd double %185, %184
-  store double %add166, ptr %bits, align 8
-  %186 = load double, ptr %bits, align 8
-  store double %186, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %BitsEntropy.exit, %brotli_max_uint32_t.exit, %brotli_max_uint32_t.exit173, %if.then14, %if.then11, %if.then
-  %187 = load double, ptr %retval, align 8
-  ret double %187
+define hidden double @BrotliPopulationCostLiteral(ptr noundef %0) #0 {
+  %2 = alloca double, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca [5 x i64], align 16
+  %7 = alloca double, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca [4 x i32], align 16
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
+  %20 = alloca [18 x i32], align 16
+  %21 = alloca double, align 8
+  %22 = alloca double, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %26 = call i64 @HistogramDataSizeLiteral()
+  store i64 %26, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  store i32 0, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 40, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store double 0.000000e+00, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %27 = load ptr, ptr %3, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %27, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8, !tbaa !14
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %1
+  store double 1.200000e+01, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+32:                                               ; preds = %1
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %33
+
+33:                                               ; preds = %56, %32
+  %34 = load i64, ptr %8, align 8, !tbaa !8
+  %35 = load i64, ptr %4, align 8, !tbaa !8
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %37, label %59
+
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %38, i32 0, i32 0
+  %40 = load i64, ptr %8, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw [256 x i32], ptr %39, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %43 = icmp ugt i32 %42, 0
+  br i1 %43, label %44, label %55
+
+44:                                               ; preds = %37
+  %45 = load i64, ptr %8, align 8, !tbaa !8
+  %46 = load i32, ptr %5, align 4, !tbaa !10
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 %47
+  store i64 %45, ptr %48, align 8, !tbaa !8
+  %49 = load i32, ptr %5, align 4, !tbaa !10
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %5, align 4, !tbaa !10
+  %51 = load i32, ptr %5, align 4, !tbaa !10
+  %52 = icmp sgt i32 %51, 4
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %44
+  br label %59
+
+54:                                               ; preds = %44
+  br label %55
+
+55:                                               ; preds = %54, %37
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load i64, ptr %8, align 8, !tbaa !8
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %8, align 8, !tbaa !8
+  br label %33, !llvm.loop !16
+
+59:                                               ; preds = %53, %33
+  %60 = load i32, ptr %5, align 4, !tbaa !10
+  %61 = icmp eq i32 %60, 1
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %59
+  store double 1.200000e+01, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+63:                                               ; preds = %59
+  %64 = load i32, ptr %5, align 4, !tbaa !10
+  %65 = icmp eq i32 %64, 2
+  br i1 %65, label %66, label %72
+
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %3, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %67, i32 0, i32 1
+  %69 = load i64, ptr %68, align 8, !tbaa !14
+  %70 = uitofp i64 %69 to double
+  %71 = fadd double 2.000000e+01, %70
+  store double %71, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+72:                                               ; preds = %63
+  %73 = load i32, ptr %5, align 4, !tbaa !10
+  %74 = icmp eq i32 %73, 3
+  br i1 %74, label %75, label %110
+
+75:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %76 = load ptr, ptr %3, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 0
+  %79 = load i64, ptr %78, align 16, !tbaa !8
+  %80 = getelementptr inbounds nuw [256 x i32], ptr %77, i64 0, i64 %79
+  %81 = load i32, ptr %80, align 4, !tbaa !10
+  store i32 %81, ptr %10, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %82 = load ptr, ptr %3, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 1
+  %85 = load i64, ptr %84, align 8, !tbaa !8
+  %86 = getelementptr inbounds nuw [256 x i32], ptr %83, i64 0, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !10
+  store i32 %87, ptr %11, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %88 = load ptr, ptr %3, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 2
+  %91 = load i64, ptr %90, align 16, !tbaa !8
+  %92 = getelementptr inbounds nuw [256 x i32], ptr %89, i64 0, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !10
+  store i32 %93, ptr %12, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %94 = load i32, ptr %10, align 4, !tbaa !10
+  %95 = load i32, ptr %11, align 4, !tbaa !10
+  %96 = load i32, ptr %12, align 4, !tbaa !10
+  %97 = call i32 @brotli_max_uint32_t(i32 noundef %95, i32 noundef %96)
+  %98 = call i32 @brotli_max_uint32_t(i32 noundef %94, i32 noundef %97)
+  store i32 %98, ptr %13, align 4, !tbaa !10
+  %99 = load i32, ptr %10, align 4, !tbaa !10
+  %100 = load i32, ptr %11, align 4, !tbaa !10
+  %101 = add i32 %99, %100
+  %102 = load i32, ptr %12, align 4, !tbaa !10
+  %103 = add i32 %101, %102
+  %104 = mul i32 2, %103
+  %105 = uitofp i32 %104 to double
+  %106 = fadd double 2.800000e+01, %105
+  %107 = load i32, ptr %13, align 4, !tbaa !10
+  %108 = uitofp i32 %107 to double
+  %109 = fsub double %106, %108
+  store double %109, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  br label %318
+
+110:                                              ; preds = %72
+  %111 = load i32, ptr %5, align 4, !tbaa !10
+  %112 = icmp eq i32 %111, 4
+  br i1 %112, label %113, label %193
+
+113:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %114
+
+114:                                              ; preds = %127, %113
+  %115 = load i64, ptr %8, align 8, !tbaa !8
+  %116 = icmp ult i64 %115, 4
+  br i1 %116, label %117, label %130
+
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %3, align 8, !tbaa !3
+  %119 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %118, i32 0, i32 0
+  %120 = load i64, ptr %8, align 8, !tbaa !8
+  %121 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %120
+  %122 = load i64, ptr %121, align 8, !tbaa !8
+  %123 = getelementptr inbounds nuw [256 x i32], ptr %119, i64 0, i64 %122
+  %124 = load i32, ptr %123, align 4, !tbaa !10
+  %125 = load i64, ptr %8, align 8, !tbaa !8
+  %126 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %125
+  store i32 %124, ptr %126, align 4, !tbaa !10
+  br label %127
+
+127:                                              ; preds = %117
+  %128 = load i64, ptr %8, align 8, !tbaa !8
+  %129 = add i64 %128, 1
+  store i64 %129, ptr %8, align 8, !tbaa !8
+  br label %114, !llvm.loop !18
+
+130:                                              ; preds = %114
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %131
+
+131:                                              ; preds = %165, %130
+  %132 = load i64, ptr %8, align 8, !tbaa !8
+  %133 = icmp ult i64 %132, 4
+  br i1 %133, label %134, label %168
+
+134:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %135 = load i64, ptr %8, align 8, !tbaa !8
+  %136 = add i64 %135, 1
+  store i64 %136, ptr %17, align 8, !tbaa !8
+  br label %137
+
+137:                                              ; preds = %161, %134
+  %138 = load i64, ptr %17, align 8, !tbaa !8
+  %139 = icmp ult i64 %138, 4
+  br i1 %139, label %140, label %164
+
+140:                                              ; preds = %137
+  %141 = load i64, ptr %17, align 8, !tbaa !8
+  %142 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %141
+  %143 = load i32, ptr %142, align 4, !tbaa !10
+  %144 = load i64, ptr %8, align 8, !tbaa !8
+  %145 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %144
+  %146 = load i32, ptr %145, align 4, !tbaa !10
+  %147 = icmp ugt i32 %143, %146
+  br i1 %147, label %148, label %160
+
+148:                                              ; preds = %140
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %149 = load i64, ptr %17, align 8, !tbaa !8
+  %150 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %149
+  %151 = load i32, ptr %150, align 4, !tbaa !10
+  store i32 %151, ptr %18, align 4, !tbaa !10
+  %152 = load i64, ptr %8, align 8, !tbaa !8
+  %153 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %152
+  %154 = load i32, ptr %153, align 4, !tbaa !10
+  %155 = load i64, ptr %17, align 8, !tbaa !8
+  %156 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %155
+  store i32 %154, ptr %156, align 4, !tbaa !10
+  %157 = load i32, ptr %18, align 4, !tbaa !10
+  %158 = load i64, ptr %8, align 8, !tbaa !8
+  %159 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %158
+  store i32 %157, ptr %159, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  br label %160
+
+160:                                              ; preds = %148, %140
+  br label %161
+
+161:                                              ; preds = %160
+  %162 = load i64, ptr %17, align 8, !tbaa !8
+  %163 = add i64 %162, 1
+  store i64 %163, ptr %17, align 8, !tbaa !8
+  br label %137, !llvm.loop !19
+
+164:                                              ; preds = %137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  br label %165
+
+165:                                              ; preds = %164
+  %166 = load i64, ptr %8, align 8, !tbaa !8
+  %167 = add i64 %166, 1
+  store i64 %167, ptr %8, align 8, !tbaa !8
+  br label %131, !llvm.loop !20
+
+168:                                              ; preds = %131
+  %169 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 2
+  %170 = load i32, ptr %169, align 8, !tbaa !10
+  %171 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 3
+  %172 = load i32, ptr %171, align 4, !tbaa !10
+  %173 = add i32 %170, %172
+  store i32 %173, ptr %15, align 4, !tbaa !10
+  %174 = load i32, ptr %15, align 4, !tbaa !10
+  %175 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 0
+  %176 = load i32, ptr %175, align 16, !tbaa !10
+  %177 = call i32 @brotli_max_uint32_t(i32 noundef %174, i32 noundef %176)
+  store i32 %177, ptr %16, align 4, !tbaa !10
+  %178 = load i32, ptr %15, align 4, !tbaa !10
+  %179 = mul i32 3, %178
+  %180 = uitofp i32 %179 to double
+  %181 = fadd double 3.700000e+01, %180
+  %182 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 0
+  %183 = load i32, ptr %182, align 16, !tbaa !10
+  %184 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 1
+  %185 = load i32, ptr %184, align 4, !tbaa !10
+  %186 = add i32 %183, %185
+  %187 = mul i32 2, %186
+  %188 = uitofp i32 %187 to double
+  %189 = fadd double %181, %188
+  %190 = load i32, ptr %16, align 4, !tbaa !10
+  %191 = uitofp i32 %190 to double
+  %192 = fsub double %189, %191
+  store double %192, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #6
+  br label %318
+
+193:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  store i64 1, ptr %19, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 72, ptr %20) #6
+  call void @llvm.memset.p0.i64(ptr align 16 %20, i8 0, i64 72, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  %194 = load ptr, ptr %3, align 8, !tbaa !3
+  %195 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %194, i32 0, i32 1
+  %196 = load i64, ptr %195, align 8, !tbaa !14
+  %197 = call double @FastLog2(i64 noundef %196)
+  store double %197, ptr %21, align 8, !tbaa !12
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %198
+
+198:                                              ; preds = %305, %193
+  %199 = load i64, ptr %8, align 8, !tbaa !8
+  %200 = load i64, ptr %4, align 8, !tbaa !8
+  %201 = icmp ult i64 %199, %200
+  br i1 %201, label %202, label %306
+
+202:                                              ; preds = %198
+  %203 = load ptr, ptr %3, align 8, !tbaa !3
+  %204 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %203, i32 0, i32 0
+  %205 = load i64, ptr %8, align 8, !tbaa !8
+  %206 = getelementptr inbounds nuw [256 x i32], ptr %204, i64 0, i64 %205
+  %207 = load i32, ptr %206, align 4, !tbaa !10
+  %208 = icmp ugt i32 %207, 0
+  br i1 %208, label %209, label %247
+
+209:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  %210 = load double, ptr %21, align 8, !tbaa !12
+  %211 = load ptr, ptr %3, align 8, !tbaa !3
+  %212 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %211, i32 0, i32 0
+  %213 = load i64, ptr %8, align 8, !tbaa !8
+  %214 = getelementptr inbounds nuw [256 x i32], ptr %212, i64 0, i64 %213
+  %215 = load i32, ptr %214, align 4, !tbaa !10
+  %216 = zext i32 %215 to i64
+  %217 = call double @FastLog2(i64 noundef %216)
+  %218 = fsub double %210, %217
+  store double %218, ptr %22, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  %219 = load double, ptr %22, align 8, !tbaa !12
+  %220 = fadd double %219, 5.000000e-01
+  %221 = fptoui double %220 to i64
+  store i64 %221, ptr %23, align 8, !tbaa !8
+  %222 = load ptr, ptr %3, align 8, !tbaa !3
+  %223 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %222, i32 0, i32 0
+  %224 = load i64, ptr %8, align 8, !tbaa !8
+  %225 = getelementptr inbounds nuw [256 x i32], ptr %223, i64 0, i64 %224
+  %226 = load i32, ptr %225, align 4, !tbaa !10
+  %227 = uitofp i32 %226 to double
+  %228 = load double, ptr %22, align 8, !tbaa !12
+  %229 = load double, ptr %7, align 8, !tbaa !12
+  %230 = call double @llvm.fmuladd.f64(double %227, double %228, double %229)
+  store double %230, ptr %7, align 8, !tbaa !12
+  %231 = load i64, ptr %23, align 8, !tbaa !8
+  %232 = icmp ugt i64 %231, 15
+  br i1 %232, label %233, label %234
+
+233:                                              ; preds = %209
+  store i64 15, ptr %23, align 8, !tbaa !8
+  br label %234
+
+234:                                              ; preds = %233, %209
+  %235 = load i64, ptr %23, align 8, !tbaa !8
+  %236 = load i64, ptr %19, align 8, !tbaa !8
+  %237 = icmp ugt i64 %235, %236
+  br i1 %237, label %238, label %240
+
+238:                                              ; preds = %234
+  %239 = load i64, ptr %23, align 8, !tbaa !8
+  store i64 %239, ptr %19, align 8, !tbaa !8
+  br label %240
+
+240:                                              ; preds = %238, %234
+  %241 = load i64, ptr %23, align 8, !tbaa !8
+  %242 = getelementptr inbounds nuw [18 x i32], ptr %20, i64 0, i64 %241
+  %243 = load i32, ptr %242, align 4, !tbaa !10
+  %244 = add i32 %243, 1
+  store i32 %244, ptr %242, align 4, !tbaa !10
+  %245 = load i64, ptr %8, align 8, !tbaa !8
+  %246 = add i64 %245, 1
+  store i64 %246, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  br label %305
+
+247:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
+  store i32 1, ptr %24, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #6
+  %248 = load i64, ptr %8, align 8, !tbaa !8
+  %249 = add i64 %248, 1
+  store i64 %249, ptr %25, align 8, !tbaa !8
+  br label %250
+
+250:                                              ; preds = %266, %247
+  %251 = load i64, ptr %25, align 8, !tbaa !8
+  %252 = load i64, ptr %4, align 8, !tbaa !8
+  %253 = icmp ult i64 %251, %252
+  br i1 %253, label %254, label %261
+
+254:                                              ; preds = %250
+  %255 = load ptr, ptr %3, align 8, !tbaa !3
+  %256 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %255, i32 0, i32 0
+  %257 = load i64, ptr %25, align 8, !tbaa !8
+  %258 = getelementptr inbounds nuw [256 x i32], ptr %256, i64 0, i64 %257
+  %259 = load i32, ptr %258, align 4, !tbaa !10
+  %260 = icmp eq i32 %259, 0
+  br label %261
+
+261:                                              ; preds = %254, %250
+  %262 = phi i1 [ false, %250 ], [ %260, %254 ]
+  br i1 %262, label %263, label %269
+
+263:                                              ; preds = %261
+  %264 = load i32, ptr %24, align 4, !tbaa !10
+  %265 = add i32 %264, 1
+  store i32 %265, ptr %24, align 4, !tbaa !10
+  br label %266
+
+266:                                              ; preds = %263
+  %267 = load i64, ptr %25, align 8, !tbaa !8
+  %268 = add i64 %267, 1
+  store i64 %268, ptr %25, align 8, !tbaa !8
+  br label %250, !llvm.loop !21
+
+269:                                              ; preds = %261
+  %270 = load i32, ptr %24, align 4, !tbaa !10
+  %271 = zext i32 %270 to i64
+  %272 = load i64, ptr %8, align 8, !tbaa !8
+  %273 = add i64 %272, %271
+  store i64 %273, ptr %8, align 8, !tbaa !8
+  %274 = load i64, ptr %8, align 8, !tbaa !8
+  %275 = load i64, ptr %4, align 8, !tbaa !8
+  %276 = icmp eq i64 %274, %275
+  br i1 %276, label %277, label %278
+
+277:                                              ; preds = %269
+  store i32 14, ptr %9, align 4
+  br label %302
+
+278:                                              ; preds = %269
+  %279 = load i32, ptr %24, align 4, !tbaa !10
+  %280 = icmp ult i32 %279, 3
+  br i1 %280, label %281, label %286
+
+281:                                              ; preds = %278
+  %282 = load i32, ptr %24, align 4, !tbaa !10
+  %283 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
+  %284 = load i32, ptr %283, align 16, !tbaa !10
+  %285 = add i32 %284, %282
+  store i32 %285, ptr %283, align 16, !tbaa !10
+  br label %301
+
+286:                                              ; preds = %278
+  %287 = load i32, ptr %24, align 4, !tbaa !10
+  %288 = sub i32 %287, 2
+  store i32 %288, ptr %24, align 4, !tbaa !10
+  br label %289
+
+289:                                              ; preds = %292, %286
+  %290 = load i32, ptr %24, align 4, !tbaa !10
+  %291 = icmp ugt i32 %290, 0
+  br i1 %291, label %292, label %300
+
+292:                                              ; preds = %289
+  %293 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 17
+  %294 = load i32, ptr %293, align 4, !tbaa !10
+  %295 = add i32 %294, 1
+  store i32 %295, ptr %293, align 4, !tbaa !10
+  %296 = load double, ptr %7, align 8, !tbaa !12
+  %297 = fadd double %296, 3.000000e+00
+  store double %297, ptr %7, align 8, !tbaa !12
+  %298 = load i32, ptr %24, align 4, !tbaa !10
+  %299 = lshr i32 %298, 3
+  store i32 %299, ptr %24, align 4, !tbaa !10
+  br label %289, !llvm.loop !22
+
+300:                                              ; preds = %289
+  br label %301
+
+301:                                              ; preds = %300, %281
+  store i32 0, ptr %9, align 4
+  br label %302
+
+302:                                              ; preds = %301, %277
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  %303 = load i32, ptr %9, align 4
+  switch i32 %303, label %320 [
+    i32 0, label %304
+    i32 14, label %306
+  ]
+
+304:                                              ; preds = %302
+  br label %305
+
+305:                                              ; preds = %304, %240
+  br label %198, !llvm.loop !23
+
+306:                                              ; preds = %302, %198
+  %307 = load i64, ptr %19, align 8, !tbaa !8
+  %308 = mul i64 2, %307
+  %309 = add i64 18, %308
+  %310 = uitofp i64 %309 to double
+  %311 = load double, ptr %7, align 8, !tbaa !12
+  %312 = fadd double %311, %310
+  store double %312, ptr %7, align 8, !tbaa !12
+  %313 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
+  %314 = call double @BitsEntropy(ptr noundef %313, i64 noundef 18)
+  %315 = load double, ptr %7, align 8, !tbaa !12
+  %316 = fadd double %315, %314
+  store double %316, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 72, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  %317 = load double, ptr %7, align 8, !tbaa !12
+  store double %317, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+318:                                              ; preds = %306, %168, %75, %66, %62, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 40, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %319 = load double, ptr %2, align 8
+  ret double %319
+
+320:                                              ; preds = %302
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @HistogramDataSizeLiteral() #2 {
+  ret i64 256
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @brotli_max_uint32_t(i32 noundef %0, i32 noundef %1) #2 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %4, align 4, !tbaa !10
+  %7 = icmp ugt i32 %5, %6
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %2
+  %9 = load i32, ptr %3, align 4, !tbaa !10
+  br label %12
+
+10:                                               ; preds = %2
+  %11 = load i32, ptr %4, align 4, !tbaa !10
+  br label %12
+
+12:                                               ; preds = %10, %8
+  %13 = phi i32 [ %9, %8 ], [ %11, %10 ]
+  ret i32 %13
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal double @FastLog2(i64 noundef %0) #2 {
+  %2 = alloca double, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !8
+  %4 = load i64, ptr %3, align 8, !tbaa !8
+  %5 = icmp ult i64 %4, 256
+  br i1 %5, label %6, label %10
+
+6:                                                ; preds = %1
+  %7 = load i64, ptr %3, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %7
+  %9 = load double, ptr %8, align 8, !tbaa !12
+  store double %9, ptr %2, align 8
+  br label %14
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %3, align 8, !tbaa !8
+  %12 = uitofp i64 %11 to double
+  %13 = call double @log2(double noundef %12) #6, !tbaa !10
+  store double %13, ptr %2, align 8
+  br label %14
+
+14:                                               ; preds = %10, %6
+  %15 = load double, ptr %2, align 8
+  ret double %15
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
-
-; Function Attrs: nounwind uwtable
-define hidden double @BrotliPopulationCostCommand(ptr noundef %histogram) #0 {
-entry:
-  %retval.i23.i = alloca double, align 8
-  %v.addr.i24.i = alloca i64, align 8
-  %retval.i14.i = alloca double, align 8
-  %v.addr.i15.i = alloca i64, align 8
-  %retval.i.i = alloca double, align 8
-  %v.addr.i.i = alloca i64, align 8
-  %population.addr.i196 = alloca ptr, align 8
-  %size.addr.i197 = alloca i64, align 8
-  %total.addr.i = alloca ptr, align 8
-  %sum.i198 = alloca i64, align 8
-  %retval1.i199 = alloca double, align 8
-  %population_end.i = alloca ptr, align 8
-  %p.i = alloca i64, align 8
-  %population.addr.i = alloca ptr, align 8
-  %size.addr.i = alloca i64, align 8
-  %sum.i = alloca i64, align 8
-  %retval1.i = alloca double, align 8
-  %retval.i182 = alloca double, align 8
-  %v.addr.i183 = alloca i64, align 8
-  %retval.i = alloca double, align 8
-  %v.addr.i = alloca i64, align 8
-  %a.addr.i174 = alloca i32, align 4
-  %b.addr.i175 = alloca i32, align 4
-  %a.addr.i167 = alloca i32, align 4
-  %b.addr.i168 = alloca i32, align 4
-  %a.addr.i = alloca i32, align 4
-  %b.addr.i = alloca i32, align 4
-  %retval = alloca double, align 8
-  %histogram.addr = alloca ptr, align 8
-  %data_size = alloca i64, align 8
-  %count = alloca i32, align 4
-  %s = alloca [5 x i64], align 16
-  %bits = alloca double, align 8
-  %i = alloca i64, align 8
-  %histo0 = alloca i32, align 4
-  %histo1 = alloca i32, align 4
-  %histo2 = alloca i32, align 4
-  %histomax = alloca i32, align 4
-  %histo = alloca [4 x i32], align 16
-  %h23 = alloca i32, align 4
-  %histomax40 = alloca i32, align 4
-  %j = alloca i64, align 8
-  %__brotli_swap_tmp = alloca i32, align 4
-  %max_depth = alloca i64, align 8
-  %depth_histo = alloca [18 x i32], align 16
-  %log2total = alloca double, align 8
-  %log2p = alloca double, align 8
-  %depth = alloca i64, align 8
-  %reps = alloca i32, align 4
-  %k = alloca i64, align 8
-  store ptr %histogram, ptr %histogram.addr, align 8
-  store i64 704, ptr %data_size, align 8
-  store i32 0, ptr %count, align 4
-  store double 0.000000e+00, ptr %bits, align 8
-  %0 = load ptr, ptr %histogram.addr, align 8
-  %total_count_ = getelementptr inbounds %struct.HistogramCommand, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %total_count_, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store double 1.200000e+01, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %2 = load i64, ptr %i, align 8
-  %3 = load i64, ptr %data_size, align 8
-  %cmp1 = icmp ult i64 %2, %3
-  br i1 %cmp1, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %histogram.addr, align 8
-  %data_ = getelementptr inbounds %struct.HistogramCommand, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [704 x i32], ptr %data_, i64 0, i64 %5
-  %6 = load i32, ptr %arrayidx, align 4
-  %cmp2 = icmp ugt i32 %6, 0
-  br i1 %cmp2, label %if.then3, label %if.end8
-
-if.then3:                                         ; preds = %for.body
-  %7 = load i64, ptr %i, align 8
-  %8 = load i32, ptr %count, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx4 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %idxprom
-  store i64 %7, ptr %arrayidx4, align 8
-  %9 = load i32, ptr %count, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %count, align 4
-  %10 = load i32, ptr %count, align 4
-  %cmp5 = icmp sgt i32 %10, 4
-  br i1 %cmp5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %if.then3
-  br label %for.end
-
-if.end7:                                          ; preds = %if.then3
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.end7, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end8
-  %11 = load i64, ptr %i, align 8
-  %inc9 = add i64 %11, 1
-  store i64 %inc9, ptr %i, align 8
-  br label %for.cond, !llvm.loop !13
-
-for.end:                                          ; preds = %if.then6, %for.cond
-  %12 = load i32, ptr %count, align 4
-  %cmp10 = icmp eq i32 %12, 1
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %for.end
-  store double 1.200000e+01, ptr %retval, align 8
-  br label %return
-
-if.end12:                                         ; preds = %for.end
-  %13 = load i32, ptr %count, align 4
-  %cmp13 = icmp eq i32 %13, 2
-  br i1 %cmp13, label %if.then14, label %if.end16
-
-if.then14:                                        ; preds = %if.end12
-  %14 = load ptr, ptr %histogram.addr, align 8
-  %total_count_15 = getelementptr inbounds %struct.HistogramCommand, ptr %14, i32 0, i32 1
-  %15 = load i64, ptr %total_count_15, align 8
-  %conv = uitofp i64 %15 to double
-  %add = fadd double 2.000000e+01, %conv
-  store double %add, ptr %retval, align 8
-  br label %return
-
-if.end16:                                         ; preds = %if.end12
-  %16 = load i32, ptr %count, align 4
-  %cmp17 = icmp eq i32 %16, 3
-  br i1 %cmp17, label %if.then19, label %if.end36
-
-if.then19:                                        ; preds = %if.end16
-  %17 = load ptr, ptr %histogram.addr, align 8
-  %data_20 = getelementptr inbounds %struct.HistogramCommand, ptr %17, i32 0, i32 0
-  %arrayidx21 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 0
-  %18 = load i64, ptr %arrayidx21, align 16
-  %arrayidx22 = getelementptr inbounds [704 x i32], ptr %data_20, i64 0, i64 %18
-  %19 = load i32, ptr %arrayidx22, align 4
-  store i32 %19, ptr %histo0, align 4
-  %20 = load ptr, ptr %histogram.addr, align 8
-  %data_23 = getelementptr inbounds %struct.HistogramCommand, ptr %20, i32 0, i32 0
-  %arrayidx24 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 1
-  %21 = load i64, ptr %arrayidx24, align 8
-  %arrayidx25 = getelementptr inbounds [704 x i32], ptr %data_23, i64 0, i64 %21
-  %22 = load i32, ptr %arrayidx25, align 4
-  store i32 %22, ptr %histo1, align 4
-  %23 = load ptr, ptr %histogram.addr, align 8
-  %data_26 = getelementptr inbounds %struct.HistogramCommand, ptr %23, i32 0, i32 0
-  %arrayidx27 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 2
-  %24 = load i64, ptr %arrayidx27, align 16
-  %arrayidx28 = getelementptr inbounds [704 x i32], ptr %data_26, i64 0, i64 %24
-  %25 = load i32, ptr %arrayidx28, align 4
-  store i32 %25, ptr %histo2, align 4
-  %26 = load i32, ptr %histo0, align 4
-  %27 = load i32, ptr %histo1, align 4
-  %28 = load i32, ptr %histo2, align 4
-  store i32 %27, ptr %a.addr.i174, align 4
-  store i32 %28, ptr %b.addr.i175, align 4
-  %29 = load i32, ptr %a.addr.i174, align 4
-  %30 = load i32, ptr %b.addr.i175, align 4
-  %cmp.i176 = icmp ugt i32 %29, %30
-  br i1 %cmp.i176, label %cond.true.i179, label %cond.false.i177
-
-cond.true.i179:                                   ; preds = %if.then19
-  %31 = load i32, ptr %a.addr.i174, align 4
-  br label %brotli_max_uint32_t.exit180
-
-cond.false.i177:                                  ; preds = %if.then19
-  %32 = load i32, ptr %b.addr.i175, align 4
-  br label %brotli_max_uint32_t.exit180
-
-brotli_max_uint32_t.exit180:                      ; preds = %cond.false.i177, %cond.true.i179
-  %cond.i178 = phi i32 [ %31, %cond.true.i179 ], [ %32, %cond.false.i177 ]
-  store i32 %26, ptr %a.addr.i167, align 4
-  store i32 %cond.i178, ptr %b.addr.i168, align 4
-  %33 = load i32, ptr %a.addr.i167, align 4
-  %34 = load i32, ptr %b.addr.i168, align 4
-  %cmp.i169 = icmp ugt i32 %33, %34
-  br i1 %cmp.i169, label %cond.true.i172, label %cond.false.i170
-
-cond.true.i172:                                   ; preds = %brotli_max_uint32_t.exit180
-  %35 = load i32, ptr %a.addr.i167, align 4
-  br label %brotli_max_uint32_t.exit173
-
-cond.false.i170:                                  ; preds = %brotli_max_uint32_t.exit180
-  %36 = load i32, ptr %b.addr.i168, align 4
-  br label %brotli_max_uint32_t.exit173
-
-brotli_max_uint32_t.exit173:                      ; preds = %cond.false.i170, %cond.true.i172
-  %cond.i171 = phi i32 [ %35, %cond.true.i172 ], [ %36, %cond.false.i170 ]
-  store i32 %cond.i171, ptr %histomax, align 4
-  %37 = load i32, ptr %histo0, align 4
-  %38 = load i32, ptr %histo1, align 4
-  %add31 = add i32 %37, %38
-  %39 = load i32, ptr %histo2, align 4
-  %add32 = add i32 %add31, %39
-  %mul = mul i32 2, %add32
-  %conv33 = uitofp i32 %mul to double
-  %add34 = fadd double 2.800000e+01, %conv33
-  %40 = load i32, ptr %histomax, align 4
-  %conv35 = uitofp i32 %40 to double
-  %sub = fsub double %add34, %conv35
-  store double %sub, ptr %retval, align 8
-  br label %return
-
-if.end36:                                         ; preds = %if.end16
-  %41 = load i32, ptr %count, align 4
-  %cmp37 = icmp eq i32 %41, 4
-  br i1 %cmp37, label %if.then39, label %if.end93
-
-if.then39:                                        ; preds = %if.end36
-  store i64 0, ptr %i, align 8
-  br label %for.cond41
-
-for.cond41:                                       ; preds = %for.inc49, %if.then39
-  %42 = load i64, ptr %i, align 8
-  %cmp42 = icmp ult i64 %42, 4
-  br i1 %cmp42, label %for.body44, label %for.end51
-
-for.body44:                                       ; preds = %for.cond41
-  %43 = load ptr, ptr %histogram.addr, align 8
-  %data_45 = getelementptr inbounds %struct.HistogramCommand, ptr %43, i32 0, i32 0
-  %44 = load i64, ptr %i, align 8
-  %arrayidx46 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %44
-  %45 = load i64, ptr %arrayidx46, align 8
-  %arrayidx47 = getelementptr inbounds [704 x i32], ptr %data_45, i64 0, i64 %45
-  %46 = load i32, ptr %arrayidx47, align 4
-  %47 = load i64, ptr %i, align 8
-  %arrayidx48 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %47
-  store i32 %46, ptr %arrayidx48, align 4
-  br label %for.inc49
-
-for.inc49:                                        ; preds = %for.body44
-  %48 = load i64, ptr %i, align 8
-  %inc50 = add i64 %48, 1
-  store i64 %inc50, ptr %i, align 8
-  br label %for.cond41, !llvm.loop !14
-
-for.end51:                                        ; preds = %for.cond41
-  store i64 0, ptr %i, align 8
-  br label %for.cond52
-
-for.cond52:                                       ; preds = %for.inc74, %for.end51
-  %49 = load i64, ptr %i, align 8
-  %cmp53 = icmp ult i64 %49, 4
-  br i1 %cmp53, label %for.body55, label %for.end76
-
-for.body55:                                       ; preds = %for.cond52
-  %50 = load i64, ptr %i, align 8
-  %add56 = add i64 %50, 1
-  store i64 %add56, ptr %j, align 8
-  br label %for.cond57
-
-for.cond57:                                       ; preds = %for.inc71, %for.body55
-  %51 = load i64, ptr %j, align 8
-  %cmp58 = icmp ult i64 %51, 4
-  br i1 %cmp58, label %for.body60, label %for.end73
-
-for.body60:                                       ; preds = %for.cond57
-  %52 = load i64, ptr %j, align 8
-  %arrayidx61 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %52
-  %53 = load i32, ptr %arrayidx61, align 4
-  %54 = load i64, ptr %i, align 8
-  %arrayidx62 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %54
-  %55 = load i32, ptr %arrayidx62, align 4
-  %cmp63 = icmp ugt i32 %53, %55
-  br i1 %cmp63, label %if.then65, label %if.end70
-
-if.then65:                                        ; preds = %for.body60
-  %56 = load i64, ptr %j, align 8
-  %arrayidx66 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %56
-  %57 = load i32, ptr %arrayidx66, align 4
-  store i32 %57, ptr %__brotli_swap_tmp, align 4
-  %58 = load i64, ptr %i, align 8
-  %arrayidx67 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %58
-  %59 = load i32, ptr %arrayidx67, align 4
-  %60 = load i64, ptr %j, align 8
-  %arrayidx68 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %60
-  store i32 %59, ptr %arrayidx68, align 4
-  %61 = load i32, ptr %__brotli_swap_tmp, align 4
-  %62 = load i64, ptr %i, align 8
-  %arrayidx69 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %62
-  store i32 %61, ptr %arrayidx69, align 4
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.then65, %for.body60
-  br label %for.inc71
-
-for.inc71:                                        ; preds = %if.end70
-  %63 = load i64, ptr %j, align 8
-  %inc72 = add i64 %63, 1
-  store i64 %inc72, ptr %j, align 8
-  br label %for.cond57, !llvm.loop !15
-
-for.end73:                                        ; preds = %for.cond57
-  br label %for.inc74
-
-for.inc74:                                        ; preds = %for.end73
-  %64 = load i64, ptr %i, align 8
-  %inc75 = add i64 %64, 1
-  store i64 %inc75, ptr %i, align 8
-  br label %for.cond52, !llvm.loop !16
-
-for.end76:                                        ; preds = %for.cond52
-  %arrayidx77 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 2
-  %65 = load i32, ptr %arrayidx77, align 8
-  %arrayidx78 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 3
-  %66 = load i32, ptr %arrayidx78, align 4
-  %add79 = add i32 %65, %66
-  store i32 %add79, ptr %h23, align 4
-  %67 = load i32, ptr %h23, align 4
-  %arrayidx80 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 0
-  %68 = load i32, ptr %arrayidx80, align 16
-  store i32 %67, ptr %a.addr.i, align 4
-  store i32 %68, ptr %b.addr.i, align 4
-  %69 = load i32, ptr %a.addr.i, align 4
-  %70 = load i32, ptr %b.addr.i, align 4
-  %cmp.i = icmp ugt i32 %69, %70
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %for.end76
-  %71 = load i32, ptr %a.addr.i, align 4
-  br label %brotli_max_uint32_t.exit
-
-cond.false.i:                                     ; preds = %for.end76
-  %72 = load i32, ptr %b.addr.i, align 4
-  br label %brotli_max_uint32_t.exit
-
-brotli_max_uint32_t.exit:                         ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i32 [ %71, %cond.true.i ], [ %72, %cond.false.i ]
-  store i32 %cond.i, ptr %histomax40, align 4
-  %73 = load i32, ptr %h23, align 4
-  %mul82 = mul i32 3, %73
-  %conv83 = uitofp i32 %mul82 to double
-  %add84 = fadd double 3.700000e+01, %conv83
-  %arrayidx85 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 0
-  %74 = load i32, ptr %arrayidx85, align 16
-  %arrayidx86 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 1
-  %75 = load i32, ptr %arrayidx86, align 4
-  %add87 = add i32 %74, %75
-  %mul88 = mul i32 2, %add87
-  %conv89 = uitofp i32 %mul88 to double
-  %add90 = fadd double %add84, %conv89
-  %76 = load i32, ptr %histomax40, align 4
-  %conv91 = uitofp i32 %76 to double
-  %sub92 = fsub double %add90, %conv91
-  store double %sub92, ptr %retval, align 8
-  br label %return
-
-if.end93:                                         ; preds = %if.end36
-  store i64 1, ptr %max_depth, align 8
-  call void @llvm.memset.p0.i64(ptr align 16 %depth_histo, i8 0, i64 72, i1 false)
-  %77 = load ptr, ptr %histogram.addr, align 8
-  %total_count_94 = getelementptr inbounds %struct.HistogramCommand, ptr %77, i32 0, i32 1
-  %78 = load i64, ptr %total_count_94, align 8
-  store i64 %78, ptr %v.addr.i183, align 8
-  %79 = load i64, ptr %v.addr.i183, align 8
-  %cmp.i184 = icmp ult i64 %79, 256
-  br i1 %cmp.i184, label %if.then.i188, label %if.end.i185
-
-if.then.i188:                                     ; preds = %if.end93
-  %80 = load i64, ptr %v.addr.i183, align 8
-  %arrayidx.i189 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %80
-  %81 = load double, ptr %arrayidx.i189, align 8
-  store double %81, ptr %retval.i182, align 8
-  br label %FastLog2.exit190
-
-if.end.i185:                                      ; preds = %if.end93
-  %82 = load i64, ptr %v.addr.i183, align 8
-  %conv.i186 = uitofp i64 %82 to double
-  %call.i187 = call double @log2(double noundef %conv.i186) #4
-  store double %call.i187, ptr %retval.i182, align 8
-  br label %FastLog2.exit190
-
-FastLog2.exit190:                                 ; preds = %if.end.i185, %if.then.i188
-  %83 = load double, ptr %retval.i182, align 8
-  store double %83, ptr %log2total, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond96
-
-for.cond96:                                       ; preds = %if.end159, %FastLog2.exit190
-  %84 = load i64, ptr %i, align 8
-  %85 = load i64, ptr %data_size, align 8
-  %cmp97 = icmp ult i64 %84, %85
-  br i1 %cmp97, label %for.body99, label %for.end160
-
-for.body99:                                       ; preds = %for.cond96
-  %86 = load ptr, ptr %histogram.addr, align 8
-  %data_100 = getelementptr inbounds %struct.HistogramCommand, ptr %86, i32 0, i32 0
-  %87 = load i64, ptr %i, align 8
-  %arrayidx101 = getelementptr inbounds [704 x i32], ptr %data_100, i64 0, i64 %87
-  %88 = load i32, ptr %arrayidx101, align 4
-  %cmp102 = icmp ugt i32 %88, 0
-  br i1 %cmp102, label %if.then104, label %if.else
-
-if.then104:                                       ; preds = %for.body99
-  %89 = load double, ptr %log2total, align 8
-  %90 = load ptr, ptr %histogram.addr, align 8
-  %data_105 = getelementptr inbounds %struct.HistogramCommand, ptr %90, i32 0, i32 0
-  %91 = load i64, ptr %i, align 8
-  %arrayidx106 = getelementptr inbounds [704 x i32], ptr %data_105, i64 0, i64 %91
-  %92 = load i32, ptr %arrayidx106, align 4
-  %conv107 = zext i32 %92 to i64
-  store i64 %conv107, ptr %v.addr.i, align 8
-  %93 = load i64, ptr %v.addr.i, align 8
-  %cmp.i181 = icmp ult i64 %93, 256
-  br i1 %cmp.i181, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then104
-  %94 = load i64, ptr %v.addr.i, align 8
-  %arrayidx.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %94
-  %95 = load double, ptr %arrayidx.i, align 8
-  store double %95, ptr %retval.i, align 8
-  br label %FastLog2.exit
-
-if.end.i:                                         ; preds = %if.then104
-  %96 = load i64, ptr %v.addr.i, align 8
-  %conv.i = uitofp i64 %96 to double
-  %call.i = call double @log2(double noundef %conv.i) #4
-  store double %call.i, ptr %retval.i, align 8
-  br label %FastLog2.exit
-
-FastLog2.exit:                                    ; preds = %if.end.i, %if.then.i
-  %97 = load double, ptr %retval.i, align 8
-  %sub109 = fsub double %89, %97
-  store double %sub109, ptr %log2p, align 8
-  %98 = load double, ptr %log2p, align 8
-  %add110 = fadd double %98, 5.000000e-01
-  %conv111 = fptoui double %add110 to i64
-  store i64 %conv111, ptr %depth, align 8
-  %99 = load ptr, ptr %histogram.addr, align 8
-  %data_112 = getelementptr inbounds %struct.HistogramCommand, ptr %99, i32 0, i32 0
-  %100 = load i64, ptr %i, align 8
-  %arrayidx113 = getelementptr inbounds [704 x i32], ptr %data_112, i64 0, i64 %100
-  %101 = load i32, ptr %arrayidx113, align 4
-  %conv114 = uitofp i32 %101 to double
-  %102 = load double, ptr %log2p, align 8
-  %103 = load double, ptr %bits, align 8
-  %104 = call double @llvm.fmuladd.f64(double %conv114, double %102, double %103)
-  store double %104, ptr %bits, align 8
-  %105 = load i64, ptr %depth, align 8
-  %cmp116 = icmp ugt i64 %105, 15
-  br i1 %cmp116, label %if.then118, label %if.end119
-
-if.then118:                                       ; preds = %FastLog2.exit
-  store i64 15, ptr %depth, align 8
-  br label %if.end119
-
-if.end119:                                        ; preds = %if.then118, %FastLog2.exit
-  %106 = load i64, ptr %depth, align 8
-  %107 = load i64, ptr %max_depth, align 8
-  %cmp120 = icmp ugt i64 %106, %107
-  br i1 %cmp120, label %if.then122, label %if.end123
-
-if.then122:                                       ; preds = %if.end119
-  %108 = load i64, ptr %depth, align 8
-  store i64 %108, ptr %max_depth, align 8
-  br label %if.end123
-
-if.end123:                                        ; preds = %if.then122, %if.end119
-  %109 = load i64, ptr %depth, align 8
-  %arrayidx124 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 %109
-  %110 = load i32, ptr %arrayidx124, align 4
-  %inc125 = add i32 %110, 1
-  store i32 %inc125, ptr %arrayidx124, align 4
-  %111 = load i64, ptr %i, align 8
-  %inc126 = add i64 %111, 1
-  store i64 %inc126, ptr %i, align 8
-  br label %if.end159
-
-if.else:                                          ; preds = %for.body99
-  store i32 1, ptr %reps, align 4
-  %112 = load i64, ptr %i, align 8
-  %add127 = add i64 %112, 1
-  store i64 %add127, ptr %k, align 8
-  br label %for.cond128
-
-for.cond128:                                      ; preds = %for.inc137, %if.else
-  %113 = load i64, ptr %k, align 8
-  %114 = load i64, ptr %data_size, align 8
-  %cmp129 = icmp ult i64 %113, %114
-  br i1 %cmp129, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond128
-  %115 = load ptr, ptr %histogram.addr, align 8
-  %data_131 = getelementptr inbounds %struct.HistogramCommand, ptr %115, i32 0, i32 0
-  %116 = load i64, ptr %k, align 8
-  %arrayidx132 = getelementptr inbounds [704 x i32], ptr %data_131, i64 0, i64 %116
-  %117 = load i32, ptr %arrayidx132, align 4
-  %cmp133 = icmp eq i32 %117, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond128
-  %118 = phi i1 [ false, %for.cond128 ], [ %cmp133, %land.rhs ]
-  br i1 %118, label %for.body135, label %for.end139
-
-for.body135:                                      ; preds = %land.end
-  %119 = load i32, ptr %reps, align 4
-  %inc136 = add i32 %119, 1
-  store i32 %inc136, ptr %reps, align 4
-  br label %for.inc137
-
-for.inc137:                                       ; preds = %for.body135
-  %120 = load i64, ptr %k, align 8
-  %inc138 = add i64 %120, 1
-  store i64 %inc138, ptr %k, align 8
-  br label %for.cond128, !llvm.loop !17
-
-for.end139:                                       ; preds = %land.end
-  %121 = load i32, ptr %reps, align 4
-  %conv140 = zext i32 %121 to i64
-  %122 = load i64, ptr %i, align 8
-  %add141 = add i64 %122, %conv140
-  store i64 %add141, ptr %i, align 8
-  %123 = load i64, ptr %i, align 8
-  %124 = load i64, ptr %data_size, align 8
-  %cmp142 = icmp eq i64 %123, %124
-  br i1 %cmp142, label %if.then144, label %if.end145
-
-if.then144:                                       ; preds = %for.end139
-  br label %for.end160
-
-if.end145:                                        ; preds = %for.end139
-  %125 = load i32, ptr %reps, align 4
-  %cmp146 = icmp ult i32 %125, 3
-  br i1 %cmp146, label %if.then148, label %if.else151
-
-if.then148:                                       ; preds = %if.end145
-  %126 = load i32, ptr %reps, align 4
-  %arrayidx149 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 0
-  %127 = load i32, ptr %arrayidx149, align 16
-  %add150 = add i32 %127, %126
-  store i32 %add150, ptr %arrayidx149, align 16
-  br label %if.end158
-
-if.else151:                                       ; preds = %if.end145
-  %128 = load i32, ptr %reps, align 4
-  %sub152 = sub i32 %128, 2
-  store i32 %sub152, ptr %reps, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.else151
-  %129 = load i32, ptr %reps, align 4
-  %cmp153 = icmp ugt i32 %129, 0
-  br i1 %cmp153, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %arrayidx155 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 17
-  %130 = load i32, ptr %arrayidx155, align 4
-  %inc156 = add i32 %130, 1
-  store i32 %inc156, ptr %arrayidx155, align 4
-  %131 = load double, ptr %bits, align 8
-  %add157 = fadd double %131, 3.000000e+00
-  store double %add157, ptr %bits, align 8
-  %132 = load i32, ptr %reps, align 4
-  %shr = lshr i32 %132, 3
-  store i32 %shr, ptr %reps, align 4
-  br label %while.cond, !llvm.loop !18
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end158
-
-if.end158:                                        ; preds = %while.end, %if.then148
-  br label %if.end159
-
-if.end159:                                        ; preds = %if.end158, %if.end123
-  br label %for.cond96, !llvm.loop !19
-
-for.end160:                                       ; preds = %if.then144, %for.cond96
-  %133 = load i64, ptr %max_depth, align 8
-  %mul161 = mul i64 2, %133
-  %add162 = add i64 18, %mul161
-  %conv163 = uitofp i64 %add162 to double
-  %134 = load double, ptr %bits, align 8
-  %add164 = fadd double %134, %conv163
-  store double %add164, ptr %bits, align 8
-  %arraydecay = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 0
-  store ptr %arraydecay, ptr %population.addr.i, align 8
-  store i64 18, ptr %size.addr.i, align 8
-  %135 = load ptr, ptr %population.addr.i, align 8
-  %136 = load i64, ptr %size.addr.i, align 8
-  store ptr %135, ptr %population.addr.i196, align 8
-  store i64 %136, ptr %size.addr.i197, align 8
-  store ptr %sum.i, ptr %total.addr.i, align 8
-  store i64 0, ptr %sum.i198, align 8
-  store double 0.000000e+00, ptr %retval1.i199, align 8
-  %137 = load ptr, ptr %population.addr.i196, align 8
-  %138 = load i64, ptr %size.addr.i197, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %137, i64 %138
-  store ptr %add.ptr.i, ptr %population_end.i, align 8
-  %139 = load i64, ptr %size.addr.i197, align 8
-  %and.i = and i64 %139, 1
-  %tobool.i = icmp ne i64 %and.i, 0
-  br i1 %tobool.i, label %if.then.i203, label %if.end.i200
-
-if.then.i203:                                     ; preds = %for.end160
-  br label %odd_number_of_elements_left.i
-
-if.end.i200:                                      ; preds = %for.end160
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %FastLog2.exit22.i, %if.end.i200
-  %140 = load ptr, ptr %population.addr.i196, align 8
-  %141 = load ptr, ptr %population_end.i, align 8
-  %cmp.i201 = icmp ult ptr %140, %141
-  br i1 %cmp.i201, label %while.body.i, label %while.end.i
-
-while.body.i:                                     ; preds = %while.cond.i
-  %142 = load ptr, ptr %population.addr.i196, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %142, i32 1
-  store ptr %incdec.ptr.i, ptr %population.addr.i196, align 8
-  %143 = load i32, ptr %142, align 4
-  %conv.i202 = zext i32 %143 to i64
-  store i64 %conv.i202, ptr %p.i, align 8
-  %144 = load i64, ptr %p.i, align 8
-  %145 = load i64, ptr %sum.i198, align 8
-  %add.i = add i64 %145, %144
-  store i64 %add.i, ptr %sum.i198, align 8
-  %146 = load i64, ptr %p.i, align 8
-  %conv2.i = uitofp i64 %146 to double
-  %147 = load i64, ptr %p.i, align 8
-  store i64 %147, ptr %v.addr.i24.i, align 8
-  %148 = load i64, ptr %v.addr.i24.i, align 8
-  %cmp.i25.i = icmp ult i64 %148, 256
-  br i1 %cmp.i25.i, label %if.then.i29.i, label %if.end.i26.i
-
-if.then.i29.i:                                    ; preds = %while.body.i
-  %149 = load i64, ptr %v.addr.i24.i, align 8
-  %arrayidx.i30.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %149
-  %150 = load double, ptr %arrayidx.i30.i, align 8
-  store double %150, ptr %retval.i23.i, align 8
-  br label %FastLog2.exit31.i
-
-if.end.i26.i:                                     ; preds = %while.body.i
-  %151 = load i64, ptr %v.addr.i24.i, align 8
-  %conv.i27.i = uitofp i64 %151 to double
-  %call.i28.i = call double @log2(double noundef %conv.i27.i) #4
-  store double %call.i28.i, ptr %retval.i23.i, align 8
-  br label %FastLog2.exit31.i
-
-FastLog2.exit31.i:                                ; preds = %if.end.i26.i, %if.then.i29.i
-  %152 = load double, ptr %retval.i23.i, align 8
-  %153 = load double, ptr %retval1.i199, align 8
-  %neg.i = fneg double %conv2.i
-  %154 = call double @llvm.fmuladd.f64(double %neg.i, double %152, double %153)
-  store double %154, ptr %retval1.i199, align 8
-  br label %odd_number_of_elements_left.i
-
-odd_number_of_elements_left.i:                    ; preds = %FastLog2.exit31.i, %if.then.i203
-  %155 = load ptr, ptr %population.addr.i196, align 8
-  %incdec.ptr3.i = getelementptr inbounds i32, ptr %155, i32 1
-  store ptr %incdec.ptr3.i, ptr %population.addr.i196, align 8
-  %156 = load i32, ptr %155, align 4
-  %conv4.i = zext i32 %156 to i64
-  store i64 %conv4.i, ptr %p.i, align 8
-  %157 = load i64, ptr %p.i, align 8
-  %158 = load i64, ptr %sum.i198, align 8
-  %add5.i = add i64 %158, %157
-  store i64 %add5.i, ptr %sum.i198, align 8
-  %159 = load i64, ptr %p.i, align 8
-  %conv6.i = uitofp i64 %159 to double
-  %160 = load i64, ptr %p.i, align 8
-  store i64 %160, ptr %v.addr.i15.i, align 8
-  %161 = load i64, ptr %v.addr.i15.i, align 8
-  %cmp.i16.i = icmp ult i64 %161, 256
-  br i1 %cmp.i16.i, label %if.then.i20.i, label %if.end.i17.i
-
-if.then.i20.i:                                    ; preds = %odd_number_of_elements_left.i
-  %162 = load i64, ptr %v.addr.i15.i, align 8
-  %arrayidx.i21.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %162
-  %163 = load double, ptr %arrayidx.i21.i, align 8
-  store double %163, ptr %retval.i14.i, align 8
-  br label %FastLog2.exit22.i
-
-if.end.i17.i:                                     ; preds = %odd_number_of_elements_left.i
-  %164 = load i64, ptr %v.addr.i15.i, align 8
-  %conv.i18.i = uitofp i64 %164 to double
-  %call.i19.i = call double @log2(double noundef %conv.i18.i) #4
-  store double %call.i19.i, ptr %retval.i14.i, align 8
-  br label %FastLog2.exit22.i
-
-FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.then.i20.i
-  %165 = load double, ptr %retval.i14.i, align 8
-  %166 = load double, ptr %retval1.i199, align 8
-  %neg8.i = fneg double %conv6.i
-  %167 = call double @llvm.fmuladd.f64(double %neg8.i, double %165, double %166)
-  store double %167, ptr %retval1.i199, align 8
-  br label %while.cond.i, !llvm.loop !12
-
-while.end.i:                                      ; preds = %while.cond.i
-  %168 = load i64, ptr %sum.i198, align 8
-  %tobool9.i = icmp ne i64 %168, 0
-  br i1 %tobool9.i, label %if.then10.i, label %ShannonEntropy.exit
-
-if.then10.i:                                      ; preds = %while.end.i
-  %169 = load i64, ptr %sum.i198, align 8
-  %conv11.i = uitofp i64 %169 to double
-  %170 = load i64, ptr %sum.i198, align 8
-  store i64 %170, ptr %v.addr.i.i, align 8
-  %171 = load i64, ptr %v.addr.i.i, align 8
-  %cmp.i.i = icmp ult i64 %171, 256
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.then10.i
-  %172 = load i64, ptr %v.addr.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %172
-  %173 = load double, ptr %arrayidx.i.i, align 8
-  store double %173, ptr %retval.i.i, align 8
-  br label %FastLog2.exit.i
-
-if.end.i.i:                                       ; preds = %if.then10.i
-  %174 = load i64, ptr %v.addr.i.i, align 8
-  %conv.i.i = uitofp i64 %174 to double
-  %call.i.i = call double @log2(double noundef %conv.i.i) #4
-  store double %call.i.i, ptr %retval.i.i, align 8
-  br label %FastLog2.exit.i
-
-FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.then.i.i
-  %175 = load double, ptr %retval.i.i, align 8
-  %176 = load double, ptr %retval1.i199, align 8
-  %177 = call double @llvm.fmuladd.f64(double %conv11.i, double %175, double %176)
-  store double %177, ptr %retval1.i199, align 8
-  br label %ShannonEntropy.exit
-
-ShannonEntropy.exit:                              ; preds = %FastLog2.exit.i, %while.end.i
-  %178 = load i64, ptr %sum.i198, align 8
-  %179 = load ptr, ptr %total.addr.i, align 8
-  store i64 %178, ptr %179, align 8
-  %180 = load double, ptr %retval1.i199, align 8
-  store double %180, ptr %retval1.i, align 8
-  %181 = load double, ptr %retval1.i, align 8
-  %182 = load i64, ptr %sum.i, align 8
-  %conv.i192 = uitofp i64 %182 to double
-  %cmp.i193 = fcmp olt double %181, %conv.i192
-  br i1 %cmp.i193, label %if.then.i195, label %BitsEntropy.exit
-
-if.then.i195:                                     ; preds = %ShannonEntropy.exit
-  %183 = load i64, ptr %sum.i, align 8
-  %conv3.i = uitofp i64 %183 to double
-  store double %conv3.i, ptr %retval1.i, align 8
-  br label %BitsEntropy.exit
-
-BitsEntropy.exit:                                 ; preds = %if.then.i195, %ShannonEntropy.exit
-  %184 = load double, ptr %retval1.i, align 8
-  %185 = load double, ptr %bits, align 8
-  %add166 = fadd double %185, %184
-  store double %add166, ptr %bits, align 8
-  %186 = load double, ptr %bits, align 8
-  store double %186, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %BitsEntropy.exit, %brotli_max_uint32_t.exit, %brotli_max_uint32_t.exit173, %if.then14, %if.then11, %if.then
-  %187 = load double, ptr %retval, align 8
-  ret double %187
+declare double @llvm.fmuladd.f64(double, double, double) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal double @BitsEntropy(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca double, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %7 = load ptr, ptr %3, align 8, !tbaa !24
+  %8 = load i64, ptr %4, align 8, !tbaa !8
+  %9 = call double @ShannonEntropy(ptr noundef %7, i64 noundef %8, ptr noundef %5)
+  store double %9, ptr %6, align 8, !tbaa !12
+  %10 = load double, ptr %6, align 8, !tbaa !12
+  %11 = load i64, ptr %5, align 8, !tbaa !8
+  %12 = uitofp i64 %11 to double
+  %13 = fcmp olt double %10, %12
+  br i1 %13, label %14, label %17
+
+14:                                               ; preds = %2
+  %15 = load i64, ptr %5, align 8, !tbaa !8
+  %16 = uitofp i64 %15 to double
+  store double %16, ptr %6, align 8, !tbaa !12
+  br label %17
+
+17:                                               ; preds = %14, %2
+  %18 = load double, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret double %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @BrotliPopulationCostDistance(ptr noundef %histogram) #0 {
-entry:
-  %retval.i23.i = alloca double, align 8
-  %v.addr.i24.i = alloca i64, align 8
-  %retval.i14.i = alloca double, align 8
-  %v.addr.i15.i = alloca i64, align 8
-  %retval.i.i = alloca double, align 8
-  %v.addr.i.i = alloca i64, align 8
-  %population.addr.i196 = alloca ptr, align 8
-  %size.addr.i197 = alloca i64, align 8
-  %total.addr.i = alloca ptr, align 8
-  %sum.i198 = alloca i64, align 8
-  %retval1.i199 = alloca double, align 8
-  %population_end.i = alloca ptr, align 8
-  %p.i = alloca i64, align 8
-  %population.addr.i = alloca ptr, align 8
-  %size.addr.i = alloca i64, align 8
-  %sum.i = alloca i64, align 8
-  %retval1.i = alloca double, align 8
-  %retval.i182 = alloca double, align 8
-  %v.addr.i183 = alloca i64, align 8
-  %retval.i = alloca double, align 8
-  %v.addr.i = alloca i64, align 8
-  %a.addr.i174 = alloca i32, align 4
-  %b.addr.i175 = alloca i32, align 4
-  %a.addr.i167 = alloca i32, align 4
-  %b.addr.i168 = alloca i32, align 4
-  %a.addr.i = alloca i32, align 4
-  %b.addr.i = alloca i32, align 4
-  %retval = alloca double, align 8
-  %histogram.addr = alloca ptr, align 8
-  %data_size = alloca i64, align 8
-  %count = alloca i32, align 4
-  %s = alloca [5 x i64], align 16
-  %bits = alloca double, align 8
-  %i = alloca i64, align 8
-  %histo0 = alloca i32, align 4
-  %histo1 = alloca i32, align 4
-  %histo2 = alloca i32, align 4
-  %histomax = alloca i32, align 4
-  %histo = alloca [4 x i32], align 16
-  %h23 = alloca i32, align 4
-  %histomax40 = alloca i32, align 4
-  %j = alloca i64, align 8
-  %__brotli_swap_tmp = alloca i32, align 4
-  %max_depth = alloca i64, align 8
-  %depth_histo = alloca [18 x i32], align 16
-  %log2total = alloca double, align 8
-  %log2p = alloca double, align 8
-  %depth = alloca i64, align 8
-  %reps = alloca i32, align 4
-  %k = alloca i64, align 8
-  store ptr %histogram, ptr %histogram.addr, align 8
-  store i64 544, ptr %data_size, align 8
-  store i32 0, ptr %count, align 4
-  store double 0.000000e+00, ptr %bits, align 8
-  %0 = load ptr, ptr %histogram.addr, align 8
-  %total_count_ = getelementptr inbounds %struct.HistogramDistance, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %total_count_, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store double 1.200000e+01, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %2 = load i64, ptr %i, align 8
-  %3 = load i64, ptr %data_size, align 8
-  %cmp1 = icmp ult i64 %2, %3
-  br i1 %cmp1, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %histogram.addr, align 8
-  %data_ = getelementptr inbounds %struct.HistogramDistance, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [544 x i32], ptr %data_, i64 0, i64 %5
-  %6 = load i32, ptr %arrayidx, align 4
-  %cmp2 = icmp ugt i32 %6, 0
-  br i1 %cmp2, label %if.then3, label %if.end8
-
-if.then3:                                         ; preds = %for.body
-  %7 = load i64, ptr %i, align 8
-  %8 = load i32, ptr %count, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx4 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %idxprom
-  store i64 %7, ptr %arrayidx4, align 8
-  %9 = load i32, ptr %count, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %count, align 4
-  %10 = load i32, ptr %count, align 4
-  %cmp5 = icmp sgt i32 %10, 4
-  br i1 %cmp5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %if.then3
-  br label %for.end
-
-if.end7:                                          ; preds = %if.then3
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.end7, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end8
-  %11 = load i64, ptr %i, align 8
-  %inc9 = add i64 %11, 1
-  store i64 %inc9, ptr %i, align 8
-  br label %for.cond, !llvm.loop !20
-
-for.end:                                          ; preds = %if.then6, %for.cond
-  %12 = load i32, ptr %count, align 4
-  %cmp10 = icmp eq i32 %12, 1
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %for.end
-  store double 1.200000e+01, ptr %retval, align 8
-  br label %return
-
-if.end12:                                         ; preds = %for.end
-  %13 = load i32, ptr %count, align 4
-  %cmp13 = icmp eq i32 %13, 2
-  br i1 %cmp13, label %if.then14, label %if.end16
-
-if.then14:                                        ; preds = %if.end12
-  %14 = load ptr, ptr %histogram.addr, align 8
-  %total_count_15 = getelementptr inbounds %struct.HistogramDistance, ptr %14, i32 0, i32 1
-  %15 = load i64, ptr %total_count_15, align 8
-  %conv = uitofp i64 %15 to double
-  %add = fadd double 2.000000e+01, %conv
-  store double %add, ptr %retval, align 8
-  br label %return
-
-if.end16:                                         ; preds = %if.end12
-  %16 = load i32, ptr %count, align 4
-  %cmp17 = icmp eq i32 %16, 3
-  br i1 %cmp17, label %if.then19, label %if.end36
-
-if.then19:                                        ; preds = %if.end16
-  %17 = load ptr, ptr %histogram.addr, align 8
-  %data_20 = getelementptr inbounds %struct.HistogramDistance, ptr %17, i32 0, i32 0
-  %arrayidx21 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 0
-  %18 = load i64, ptr %arrayidx21, align 16
-  %arrayidx22 = getelementptr inbounds [544 x i32], ptr %data_20, i64 0, i64 %18
-  %19 = load i32, ptr %arrayidx22, align 4
-  store i32 %19, ptr %histo0, align 4
-  %20 = load ptr, ptr %histogram.addr, align 8
-  %data_23 = getelementptr inbounds %struct.HistogramDistance, ptr %20, i32 0, i32 0
-  %arrayidx24 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 1
-  %21 = load i64, ptr %arrayidx24, align 8
-  %arrayidx25 = getelementptr inbounds [544 x i32], ptr %data_23, i64 0, i64 %21
-  %22 = load i32, ptr %arrayidx25, align 4
-  store i32 %22, ptr %histo1, align 4
-  %23 = load ptr, ptr %histogram.addr, align 8
-  %data_26 = getelementptr inbounds %struct.HistogramDistance, ptr %23, i32 0, i32 0
-  %arrayidx27 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 2
-  %24 = load i64, ptr %arrayidx27, align 16
-  %arrayidx28 = getelementptr inbounds [544 x i32], ptr %data_26, i64 0, i64 %24
-  %25 = load i32, ptr %arrayidx28, align 4
-  store i32 %25, ptr %histo2, align 4
-  %26 = load i32, ptr %histo0, align 4
-  %27 = load i32, ptr %histo1, align 4
-  %28 = load i32, ptr %histo2, align 4
-  store i32 %27, ptr %a.addr.i174, align 4
-  store i32 %28, ptr %b.addr.i175, align 4
-  %29 = load i32, ptr %a.addr.i174, align 4
-  %30 = load i32, ptr %b.addr.i175, align 4
-  %cmp.i176 = icmp ugt i32 %29, %30
-  br i1 %cmp.i176, label %cond.true.i179, label %cond.false.i177
-
-cond.true.i179:                                   ; preds = %if.then19
-  %31 = load i32, ptr %a.addr.i174, align 4
-  br label %brotli_max_uint32_t.exit180
-
-cond.false.i177:                                  ; preds = %if.then19
-  %32 = load i32, ptr %b.addr.i175, align 4
-  br label %brotli_max_uint32_t.exit180
-
-brotli_max_uint32_t.exit180:                      ; preds = %cond.false.i177, %cond.true.i179
-  %cond.i178 = phi i32 [ %31, %cond.true.i179 ], [ %32, %cond.false.i177 ]
-  store i32 %26, ptr %a.addr.i167, align 4
-  store i32 %cond.i178, ptr %b.addr.i168, align 4
-  %33 = load i32, ptr %a.addr.i167, align 4
-  %34 = load i32, ptr %b.addr.i168, align 4
-  %cmp.i169 = icmp ugt i32 %33, %34
-  br i1 %cmp.i169, label %cond.true.i172, label %cond.false.i170
-
-cond.true.i172:                                   ; preds = %brotli_max_uint32_t.exit180
-  %35 = load i32, ptr %a.addr.i167, align 4
-  br label %brotli_max_uint32_t.exit173
-
-cond.false.i170:                                  ; preds = %brotli_max_uint32_t.exit180
-  %36 = load i32, ptr %b.addr.i168, align 4
-  br label %brotli_max_uint32_t.exit173
-
-brotli_max_uint32_t.exit173:                      ; preds = %cond.false.i170, %cond.true.i172
-  %cond.i171 = phi i32 [ %35, %cond.true.i172 ], [ %36, %cond.false.i170 ]
-  store i32 %cond.i171, ptr %histomax, align 4
-  %37 = load i32, ptr %histo0, align 4
-  %38 = load i32, ptr %histo1, align 4
-  %add31 = add i32 %37, %38
-  %39 = load i32, ptr %histo2, align 4
-  %add32 = add i32 %add31, %39
-  %mul = mul i32 2, %add32
-  %conv33 = uitofp i32 %mul to double
-  %add34 = fadd double 2.800000e+01, %conv33
-  %40 = load i32, ptr %histomax, align 4
-  %conv35 = uitofp i32 %40 to double
-  %sub = fsub double %add34, %conv35
-  store double %sub, ptr %retval, align 8
-  br label %return
-
-if.end36:                                         ; preds = %if.end16
-  %41 = load i32, ptr %count, align 4
-  %cmp37 = icmp eq i32 %41, 4
-  br i1 %cmp37, label %if.then39, label %if.end93
-
-if.then39:                                        ; preds = %if.end36
-  store i64 0, ptr %i, align 8
-  br label %for.cond41
-
-for.cond41:                                       ; preds = %for.inc49, %if.then39
-  %42 = load i64, ptr %i, align 8
-  %cmp42 = icmp ult i64 %42, 4
-  br i1 %cmp42, label %for.body44, label %for.end51
-
-for.body44:                                       ; preds = %for.cond41
-  %43 = load ptr, ptr %histogram.addr, align 8
-  %data_45 = getelementptr inbounds %struct.HistogramDistance, ptr %43, i32 0, i32 0
-  %44 = load i64, ptr %i, align 8
-  %arrayidx46 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %44
-  %45 = load i64, ptr %arrayidx46, align 8
-  %arrayidx47 = getelementptr inbounds [544 x i32], ptr %data_45, i64 0, i64 %45
-  %46 = load i32, ptr %arrayidx47, align 4
-  %47 = load i64, ptr %i, align 8
-  %arrayidx48 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %47
-  store i32 %46, ptr %arrayidx48, align 4
-  br label %for.inc49
-
-for.inc49:                                        ; preds = %for.body44
-  %48 = load i64, ptr %i, align 8
-  %inc50 = add i64 %48, 1
-  store i64 %inc50, ptr %i, align 8
-  br label %for.cond41, !llvm.loop !21
-
-for.end51:                                        ; preds = %for.cond41
-  store i64 0, ptr %i, align 8
-  br label %for.cond52
-
-for.cond52:                                       ; preds = %for.inc74, %for.end51
-  %49 = load i64, ptr %i, align 8
-  %cmp53 = icmp ult i64 %49, 4
-  br i1 %cmp53, label %for.body55, label %for.end76
-
-for.body55:                                       ; preds = %for.cond52
-  %50 = load i64, ptr %i, align 8
-  %add56 = add i64 %50, 1
-  store i64 %add56, ptr %j, align 8
-  br label %for.cond57
-
-for.cond57:                                       ; preds = %for.inc71, %for.body55
-  %51 = load i64, ptr %j, align 8
-  %cmp58 = icmp ult i64 %51, 4
-  br i1 %cmp58, label %for.body60, label %for.end73
-
-for.body60:                                       ; preds = %for.cond57
-  %52 = load i64, ptr %j, align 8
-  %arrayidx61 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %52
-  %53 = load i32, ptr %arrayidx61, align 4
-  %54 = load i64, ptr %i, align 8
-  %arrayidx62 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %54
-  %55 = load i32, ptr %arrayidx62, align 4
-  %cmp63 = icmp ugt i32 %53, %55
-  br i1 %cmp63, label %if.then65, label %if.end70
-
-if.then65:                                        ; preds = %for.body60
-  %56 = load i64, ptr %j, align 8
-  %arrayidx66 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %56
-  %57 = load i32, ptr %arrayidx66, align 4
-  store i32 %57, ptr %__brotli_swap_tmp, align 4
-  %58 = load i64, ptr %i, align 8
-  %arrayidx67 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %58
-  %59 = load i32, ptr %arrayidx67, align 4
-  %60 = load i64, ptr %j, align 8
-  %arrayidx68 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %60
-  store i32 %59, ptr %arrayidx68, align 4
-  %61 = load i32, ptr %__brotli_swap_tmp, align 4
-  %62 = load i64, ptr %i, align 8
-  %arrayidx69 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %62
-  store i32 %61, ptr %arrayidx69, align 4
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.then65, %for.body60
-  br label %for.inc71
-
-for.inc71:                                        ; preds = %if.end70
-  %63 = load i64, ptr %j, align 8
-  %inc72 = add i64 %63, 1
-  store i64 %inc72, ptr %j, align 8
-  br label %for.cond57, !llvm.loop !22
-
-for.end73:                                        ; preds = %for.cond57
-  br label %for.inc74
-
-for.inc74:                                        ; preds = %for.end73
-  %64 = load i64, ptr %i, align 8
-  %inc75 = add i64 %64, 1
-  store i64 %inc75, ptr %i, align 8
-  br label %for.cond52, !llvm.loop !23
-
-for.end76:                                        ; preds = %for.cond52
-  %arrayidx77 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 2
-  %65 = load i32, ptr %arrayidx77, align 8
-  %arrayidx78 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 3
-  %66 = load i32, ptr %arrayidx78, align 4
-  %add79 = add i32 %65, %66
-  store i32 %add79, ptr %h23, align 4
-  %67 = load i32, ptr %h23, align 4
-  %arrayidx80 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 0
-  %68 = load i32, ptr %arrayidx80, align 16
-  store i32 %67, ptr %a.addr.i, align 4
-  store i32 %68, ptr %b.addr.i, align 4
-  %69 = load i32, ptr %a.addr.i, align 4
-  %70 = load i32, ptr %b.addr.i, align 4
-  %cmp.i = icmp ugt i32 %69, %70
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %for.end76
-  %71 = load i32, ptr %a.addr.i, align 4
-  br label %brotli_max_uint32_t.exit
-
-cond.false.i:                                     ; preds = %for.end76
-  %72 = load i32, ptr %b.addr.i, align 4
-  br label %brotli_max_uint32_t.exit
-
-brotli_max_uint32_t.exit:                         ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i32 [ %71, %cond.true.i ], [ %72, %cond.false.i ]
-  store i32 %cond.i, ptr %histomax40, align 4
-  %73 = load i32, ptr %h23, align 4
-  %mul82 = mul i32 3, %73
-  %conv83 = uitofp i32 %mul82 to double
-  %add84 = fadd double 3.700000e+01, %conv83
-  %arrayidx85 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 0
-  %74 = load i32, ptr %arrayidx85, align 16
-  %arrayidx86 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 1
-  %75 = load i32, ptr %arrayidx86, align 4
-  %add87 = add i32 %74, %75
-  %mul88 = mul i32 2, %add87
-  %conv89 = uitofp i32 %mul88 to double
-  %add90 = fadd double %add84, %conv89
-  %76 = load i32, ptr %histomax40, align 4
-  %conv91 = uitofp i32 %76 to double
-  %sub92 = fsub double %add90, %conv91
-  store double %sub92, ptr %retval, align 8
-  br label %return
-
-if.end93:                                         ; preds = %if.end36
-  store i64 1, ptr %max_depth, align 8
-  call void @llvm.memset.p0.i64(ptr align 16 %depth_histo, i8 0, i64 72, i1 false)
-  %77 = load ptr, ptr %histogram.addr, align 8
-  %total_count_94 = getelementptr inbounds %struct.HistogramDistance, ptr %77, i32 0, i32 1
-  %78 = load i64, ptr %total_count_94, align 8
-  store i64 %78, ptr %v.addr.i183, align 8
-  %79 = load i64, ptr %v.addr.i183, align 8
-  %cmp.i184 = icmp ult i64 %79, 256
-  br i1 %cmp.i184, label %if.then.i188, label %if.end.i185
-
-if.then.i188:                                     ; preds = %if.end93
-  %80 = load i64, ptr %v.addr.i183, align 8
-  %arrayidx.i189 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %80
-  %81 = load double, ptr %arrayidx.i189, align 8
-  store double %81, ptr %retval.i182, align 8
-  br label %FastLog2.exit190
-
-if.end.i185:                                      ; preds = %if.end93
-  %82 = load i64, ptr %v.addr.i183, align 8
-  %conv.i186 = uitofp i64 %82 to double
-  %call.i187 = call double @log2(double noundef %conv.i186) #4
-  store double %call.i187, ptr %retval.i182, align 8
-  br label %FastLog2.exit190
-
-FastLog2.exit190:                                 ; preds = %if.end.i185, %if.then.i188
-  %83 = load double, ptr %retval.i182, align 8
-  store double %83, ptr %log2total, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond96
-
-for.cond96:                                       ; preds = %if.end159, %FastLog2.exit190
-  %84 = load i64, ptr %i, align 8
-  %85 = load i64, ptr %data_size, align 8
-  %cmp97 = icmp ult i64 %84, %85
-  br i1 %cmp97, label %for.body99, label %for.end160
-
-for.body99:                                       ; preds = %for.cond96
-  %86 = load ptr, ptr %histogram.addr, align 8
-  %data_100 = getelementptr inbounds %struct.HistogramDistance, ptr %86, i32 0, i32 0
-  %87 = load i64, ptr %i, align 8
-  %arrayidx101 = getelementptr inbounds [544 x i32], ptr %data_100, i64 0, i64 %87
-  %88 = load i32, ptr %arrayidx101, align 4
-  %cmp102 = icmp ugt i32 %88, 0
-  br i1 %cmp102, label %if.then104, label %if.else
-
-if.then104:                                       ; preds = %for.body99
-  %89 = load double, ptr %log2total, align 8
-  %90 = load ptr, ptr %histogram.addr, align 8
-  %data_105 = getelementptr inbounds %struct.HistogramDistance, ptr %90, i32 0, i32 0
-  %91 = load i64, ptr %i, align 8
-  %arrayidx106 = getelementptr inbounds [544 x i32], ptr %data_105, i64 0, i64 %91
-  %92 = load i32, ptr %arrayidx106, align 4
-  %conv107 = zext i32 %92 to i64
-  store i64 %conv107, ptr %v.addr.i, align 8
-  %93 = load i64, ptr %v.addr.i, align 8
-  %cmp.i181 = icmp ult i64 %93, 256
-  br i1 %cmp.i181, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then104
-  %94 = load i64, ptr %v.addr.i, align 8
-  %arrayidx.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %94
-  %95 = load double, ptr %arrayidx.i, align 8
-  store double %95, ptr %retval.i, align 8
-  br label %FastLog2.exit
-
-if.end.i:                                         ; preds = %if.then104
-  %96 = load i64, ptr %v.addr.i, align 8
-  %conv.i = uitofp i64 %96 to double
-  %call.i = call double @log2(double noundef %conv.i) #4
-  store double %call.i, ptr %retval.i, align 8
-  br label %FastLog2.exit
-
-FastLog2.exit:                                    ; preds = %if.end.i, %if.then.i
-  %97 = load double, ptr %retval.i, align 8
-  %sub109 = fsub double %89, %97
-  store double %sub109, ptr %log2p, align 8
-  %98 = load double, ptr %log2p, align 8
-  %add110 = fadd double %98, 5.000000e-01
-  %conv111 = fptoui double %add110 to i64
-  store i64 %conv111, ptr %depth, align 8
-  %99 = load ptr, ptr %histogram.addr, align 8
-  %data_112 = getelementptr inbounds %struct.HistogramDistance, ptr %99, i32 0, i32 0
-  %100 = load i64, ptr %i, align 8
-  %arrayidx113 = getelementptr inbounds [544 x i32], ptr %data_112, i64 0, i64 %100
-  %101 = load i32, ptr %arrayidx113, align 4
-  %conv114 = uitofp i32 %101 to double
-  %102 = load double, ptr %log2p, align 8
-  %103 = load double, ptr %bits, align 8
-  %104 = call double @llvm.fmuladd.f64(double %conv114, double %102, double %103)
-  store double %104, ptr %bits, align 8
-  %105 = load i64, ptr %depth, align 8
-  %cmp116 = icmp ugt i64 %105, 15
-  br i1 %cmp116, label %if.then118, label %if.end119
-
-if.then118:                                       ; preds = %FastLog2.exit
-  store i64 15, ptr %depth, align 8
-  br label %if.end119
-
-if.end119:                                        ; preds = %if.then118, %FastLog2.exit
-  %106 = load i64, ptr %depth, align 8
-  %107 = load i64, ptr %max_depth, align 8
-  %cmp120 = icmp ugt i64 %106, %107
-  br i1 %cmp120, label %if.then122, label %if.end123
-
-if.then122:                                       ; preds = %if.end119
-  %108 = load i64, ptr %depth, align 8
-  store i64 %108, ptr %max_depth, align 8
-  br label %if.end123
-
-if.end123:                                        ; preds = %if.then122, %if.end119
-  %109 = load i64, ptr %depth, align 8
-  %arrayidx124 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 %109
-  %110 = load i32, ptr %arrayidx124, align 4
-  %inc125 = add i32 %110, 1
-  store i32 %inc125, ptr %arrayidx124, align 4
-  %111 = load i64, ptr %i, align 8
-  %inc126 = add i64 %111, 1
-  store i64 %inc126, ptr %i, align 8
-  br label %if.end159
-
-if.else:                                          ; preds = %for.body99
-  store i32 1, ptr %reps, align 4
-  %112 = load i64, ptr %i, align 8
-  %add127 = add i64 %112, 1
-  store i64 %add127, ptr %k, align 8
-  br label %for.cond128
-
-for.cond128:                                      ; preds = %for.inc137, %if.else
-  %113 = load i64, ptr %k, align 8
-  %114 = load i64, ptr %data_size, align 8
-  %cmp129 = icmp ult i64 %113, %114
-  br i1 %cmp129, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond128
-  %115 = load ptr, ptr %histogram.addr, align 8
-  %data_131 = getelementptr inbounds %struct.HistogramDistance, ptr %115, i32 0, i32 0
-  %116 = load i64, ptr %k, align 8
-  %arrayidx132 = getelementptr inbounds [544 x i32], ptr %data_131, i64 0, i64 %116
-  %117 = load i32, ptr %arrayidx132, align 4
-  %cmp133 = icmp eq i32 %117, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond128
-  %118 = phi i1 [ false, %for.cond128 ], [ %cmp133, %land.rhs ]
-  br i1 %118, label %for.body135, label %for.end139
-
-for.body135:                                      ; preds = %land.end
-  %119 = load i32, ptr %reps, align 4
-  %inc136 = add i32 %119, 1
-  store i32 %inc136, ptr %reps, align 4
-  br label %for.inc137
-
-for.inc137:                                       ; preds = %for.body135
-  %120 = load i64, ptr %k, align 8
-  %inc138 = add i64 %120, 1
-  store i64 %inc138, ptr %k, align 8
-  br label %for.cond128, !llvm.loop !24
-
-for.end139:                                       ; preds = %land.end
-  %121 = load i32, ptr %reps, align 4
-  %conv140 = zext i32 %121 to i64
-  %122 = load i64, ptr %i, align 8
-  %add141 = add i64 %122, %conv140
-  store i64 %add141, ptr %i, align 8
-  %123 = load i64, ptr %i, align 8
-  %124 = load i64, ptr %data_size, align 8
-  %cmp142 = icmp eq i64 %123, %124
-  br i1 %cmp142, label %if.then144, label %if.end145
-
-if.then144:                                       ; preds = %for.end139
-  br label %for.end160
-
-if.end145:                                        ; preds = %for.end139
-  %125 = load i32, ptr %reps, align 4
-  %cmp146 = icmp ult i32 %125, 3
-  br i1 %cmp146, label %if.then148, label %if.else151
-
-if.then148:                                       ; preds = %if.end145
-  %126 = load i32, ptr %reps, align 4
-  %arrayidx149 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 0
-  %127 = load i32, ptr %arrayidx149, align 16
-  %add150 = add i32 %127, %126
-  store i32 %add150, ptr %arrayidx149, align 16
-  br label %if.end158
-
-if.else151:                                       ; preds = %if.end145
-  %128 = load i32, ptr %reps, align 4
-  %sub152 = sub i32 %128, 2
-  store i32 %sub152, ptr %reps, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.else151
-  %129 = load i32, ptr %reps, align 4
-  %cmp153 = icmp ugt i32 %129, 0
-  br i1 %cmp153, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %arrayidx155 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 17
-  %130 = load i32, ptr %arrayidx155, align 4
-  %inc156 = add i32 %130, 1
-  store i32 %inc156, ptr %arrayidx155, align 4
-  %131 = load double, ptr %bits, align 8
-  %add157 = fadd double %131, 3.000000e+00
-  store double %add157, ptr %bits, align 8
-  %132 = load i32, ptr %reps, align 4
-  %shr = lshr i32 %132, 3
-  store i32 %shr, ptr %reps, align 4
-  br label %while.cond, !llvm.loop !25
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end158
-
-if.end158:                                        ; preds = %while.end, %if.then148
-  br label %if.end159
-
-if.end159:                                        ; preds = %if.end158, %if.end123
-  br label %for.cond96, !llvm.loop !26
-
-for.end160:                                       ; preds = %if.then144, %for.cond96
-  %133 = load i64, ptr %max_depth, align 8
-  %mul161 = mul i64 2, %133
-  %add162 = add i64 18, %mul161
-  %conv163 = uitofp i64 %add162 to double
-  %134 = load double, ptr %bits, align 8
-  %add164 = fadd double %134, %conv163
-  store double %add164, ptr %bits, align 8
-  %arraydecay = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 0
-  store ptr %arraydecay, ptr %population.addr.i, align 8
-  store i64 18, ptr %size.addr.i, align 8
-  %135 = load ptr, ptr %population.addr.i, align 8
-  %136 = load i64, ptr %size.addr.i, align 8
-  store ptr %135, ptr %population.addr.i196, align 8
-  store i64 %136, ptr %size.addr.i197, align 8
-  store ptr %sum.i, ptr %total.addr.i, align 8
-  store i64 0, ptr %sum.i198, align 8
-  store double 0.000000e+00, ptr %retval1.i199, align 8
-  %137 = load ptr, ptr %population.addr.i196, align 8
-  %138 = load i64, ptr %size.addr.i197, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %137, i64 %138
-  store ptr %add.ptr.i, ptr %population_end.i, align 8
-  %139 = load i64, ptr %size.addr.i197, align 8
-  %and.i = and i64 %139, 1
-  %tobool.i = icmp ne i64 %and.i, 0
-  br i1 %tobool.i, label %if.then.i203, label %if.end.i200
-
-if.then.i203:                                     ; preds = %for.end160
-  br label %odd_number_of_elements_left.i
-
-if.end.i200:                                      ; preds = %for.end160
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %FastLog2.exit22.i, %if.end.i200
-  %140 = load ptr, ptr %population.addr.i196, align 8
-  %141 = load ptr, ptr %population_end.i, align 8
-  %cmp.i201 = icmp ult ptr %140, %141
-  br i1 %cmp.i201, label %while.body.i, label %while.end.i
-
-while.body.i:                                     ; preds = %while.cond.i
-  %142 = load ptr, ptr %population.addr.i196, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %142, i32 1
-  store ptr %incdec.ptr.i, ptr %population.addr.i196, align 8
-  %143 = load i32, ptr %142, align 4
-  %conv.i202 = zext i32 %143 to i64
-  store i64 %conv.i202, ptr %p.i, align 8
-  %144 = load i64, ptr %p.i, align 8
-  %145 = load i64, ptr %sum.i198, align 8
-  %add.i = add i64 %145, %144
-  store i64 %add.i, ptr %sum.i198, align 8
-  %146 = load i64, ptr %p.i, align 8
-  %conv2.i = uitofp i64 %146 to double
-  %147 = load i64, ptr %p.i, align 8
-  store i64 %147, ptr %v.addr.i24.i, align 8
-  %148 = load i64, ptr %v.addr.i24.i, align 8
-  %cmp.i25.i = icmp ult i64 %148, 256
-  br i1 %cmp.i25.i, label %if.then.i29.i, label %if.end.i26.i
-
-if.then.i29.i:                                    ; preds = %while.body.i
-  %149 = load i64, ptr %v.addr.i24.i, align 8
-  %arrayidx.i30.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %149
-  %150 = load double, ptr %arrayidx.i30.i, align 8
-  store double %150, ptr %retval.i23.i, align 8
-  br label %FastLog2.exit31.i
-
-if.end.i26.i:                                     ; preds = %while.body.i
-  %151 = load i64, ptr %v.addr.i24.i, align 8
-  %conv.i27.i = uitofp i64 %151 to double
-  %call.i28.i = call double @log2(double noundef %conv.i27.i) #4
-  store double %call.i28.i, ptr %retval.i23.i, align 8
-  br label %FastLog2.exit31.i
-
-FastLog2.exit31.i:                                ; preds = %if.end.i26.i, %if.then.i29.i
-  %152 = load double, ptr %retval.i23.i, align 8
-  %153 = load double, ptr %retval1.i199, align 8
-  %neg.i = fneg double %conv2.i
-  %154 = call double @llvm.fmuladd.f64(double %neg.i, double %152, double %153)
-  store double %154, ptr %retval1.i199, align 8
-  br label %odd_number_of_elements_left.i
-
-odd_number_of_elements_left.i:                    ; preds = %FastLog2.exit31.i, %if.then.i203
-  %155 = load ptr, ptr %population.addr.i196, align 8
-  %incdec.ptr3.i = getelementptr inbounds i32, ptr %155, i32 1
-  store ptr %incdec.ptr3.i, ptr %population.addr.i196, align 8
-  %156 = load i32, ptr %155, align 4
-  %conv4.i = zext i32 %156 to i64
-  store i64 %conv4.i, ptr %p.i, align 8
-  %157 = load i64, ptr %p.i, align 8
-  %158 = load i64, ptr %sum.i198, align 8
-  %add5.i = add i64 %158, %157
-  store i64 %add5.i, ptr %sum.i198, align 8
-  %159 = load i64, ptr %p.i, align 8
-  %conv6.i = uitofp i64 %159 to double
-  %160 = load i64, ptr %p.i, align 8
-  store i64 %160, ptr %v.addr.i15.i, align 8
-  %161 = load i64, ptr %v.addr.i15.i, align 8
-  %cmp.i16.i = icmp ult i64 %161, 256
-  br i1 %cmp.i16.i, label %if.then.i20.i, label %if.end.i17.i
-
-if.then.i20.i:                                    ; preds = %odd_number_of_elements_left.i
-  %162 = load i64, ptr %v.addr.i15.i, align 8
-  %arrayidx.i21.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %162
-  %163 = load double, ptr %arrayidx.i21.i, align 8
-  store double %163, ptr %retval.i14.i, align 8
-  br label %FastLog2.exit22.i
-
-if.end.i17.i:                                     ; preds = %odd_number_of_elements_left.i
-  %164 = load i64, ptr %v.addr.i15.i, align 8
-  %conv.i18.i = uitofp i64 %164 to double
-  %call.i19.i = call double @log2(double noundef %conv.i18.i) #4
-  store double %call.i19.i, ptr %retval.i14.i, align 8
-  br label %FastLog2.exit22.i
-
-FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.then.i20.i
-  %165 = load double, ptr %retval.i14.i, align 8
-  %166 = load double, ptr %retval1.i199, align 8
-  %neg8.i = fneg double %conv6.i
-  %167 = call double @llvm.fmuladd.f64(double %neg8.i, double %165, double %166)
-  store double %167, ptr %retval1.i199, align 8
-  br label %while.cond.i, !llvm.loop !12
-
-while.end.i:                                      ; preds = %while.cond.i
-  %168 = load i64, ptr %sum.i198, align 8
-  %tobool9.i = icmp ne i64 %168, 0
-  br i1 %tobool9.i, label %if.then10.i, label %ShannonEntropy.exit
-
-if.then10.i:                                      ; preds = %while.end.i
-  %169 = load i64, ptr %sum.i198, align 8
-  %conv11.i = uitofp i64 %169 to double
-  %170 = load i64, ptr %sum.i198, align 8
-  store i64 %170, ptr %v.addr.i.i, align 8
-  %171 = load i64, ptr %v.addr.i.i, align 8
-  %cmp.i.i = icmp ult i64 %171, 256
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.then10.i
-  %172 = load i64, ptr %v.addr.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %172
-  %173 = load double, ptr %arrayidx.i.i, align 8
-  store double %173, ptr %retval.i.i, align 8
-  br label %FastLog2.exit.i
-
-if.end.i.i:                                       ; preds = %if.then10.i
-  %174 = load i64, ptr %v.addr.i.i, align 8
-  %conv.i.i = uitofp i64 %174 to double
-  %call.i.i = call double @log2(double noundef %conv.i.i) #4
-  store double %call.i.i, ptr %retval.i.i, align 8
-  br label %FastLog2.exit.i
-
-FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.then.i.i
-  %175 = load double, ptr %retval.i.i, align 8
-  %176 = load double, ptr %retval1.i199, align 8
-  %177 = call double @llvm.fmuladd.f64(double %conv11.i, double %175, double %176)
-  store double %177, ptr %retval1.i199, align 8
-  br label %ShannonEntropy.exit
-
-ShannonEntropy.exit:                              ; preds = %FastLog2.exit.i, %while.end.i
-  %178 = load i64, ptr %sum.i198, align 8
-  %179 = load ptr, ptr %total.addr.i, align 8
-  store i64 %178, ptr %179, align 8
-  %180 = load double, ptr %retval1.i199, align 8
-  store double %180, ptr %retval1.i, align 8
-  %181 = load double, ptr %retval1.i, align 8
-  %182 = load i64, ptr %sum.i, align 8
-  %conv.i192 = uitofp i64 %182 to double
-  %cmp.i193 = fcmp olt double %181, %conv.i192
-  br i1 %cmp.i193, label %if.then.i195, label %BitsEntropy.exit
-
-if.then.i195:                                     ; preds = %ShannonEntropy.exit
-  %183 = load i64, ptr %sum.i, align 8
-  %conv3.i = uitofp i64 %183 to double
-  store double %conv3.i, ptr %retval1.i, align 8
-  br label %BitsEntropy.exit
-
-BitsEntropy.exit:                                 ; preds = %if.then.i195, %ShannonEntropy.exit
-  %184 = load double, ptr %retval1.i, align 8
-  %185 = load double, ptr %bits, align 8
-  %add166 = fadd double %185, %184
-  store double %add166, ptr %bits, align 8
-  %186 = load double, ptr %bits, align 8
-  store double %186, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %BitsEntropy.exit, %brotli_max_uint32_t.exit, %brotli_max_uint32_t.exit173, %if.then14, %if.then11, %if.then
-  %187 = load double, ptr %retval, align 8
-  ret double %187
+define hidden double @BrotliPopulationCostCommand(ptr noundef %0) #0 {
+  %2 = alloca double, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca [5 x i64], align 16
+  %7 = alloca double, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca [4 x i32], align 16
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
+  %20 = alloca [18 x i32], align 16
+  %21 = alloca double, align 8
+  %22 = alloca double, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %26 = call i64 @HistogramDataSizeCommand()
+  store i64 %26, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  store i32 0, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 40, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store double 0.000000e+00, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %27 = load ptr, ptr %3, align 8, !tbaa !26
+  %28 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %27, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8, !tbaa !28
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %1
+  store double 1.200000e+01, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+32:                                               ; preds = %1
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %33
+
+33:                                               ; preds = %56, %32
+  %34 = load i64, ptr %8, align 8, !tbaa !8
+  %35 = load i64, ptr %4, align 8, !tbaa !8
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %37, label %59
+
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %3, align 8, !tbaa !26
+  %39 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %38, i32 0, i32 0
+  %40 = load i64, ptr %8, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw [704 x i32], ptr %39, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %43 = icmp ugt i32 %42, 0
+  br i1 %43, label %44, label %55
+
+44:                                               ; preds = %37
+  %45 = load i64, ptr %8, align 8, !tbaa !8
+  %46 = load i32, ptr %5, align 4, !tbaa !10
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 %47
+  store i64 %45, ptr %48, align 8, !tbaa !8
+  %49 = load i32, ptr %5, align 4, !tbaa !10
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %5, align 4, !tbaa !10
+  %51 = load i32, ptr %5, align 4, !tbaa !10
+  %52 = icmp sgt i32 %51, 4
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %44
+  br label %59
+
+54:                                               ; preds = %44
+  br label %55
+
+55:                                               ; preds = %54, %37
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load i64, ptr %8, align 8, !tbaa !8
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %8, align 8, !tbaa !8
+  br label %33, !llvm.loop !30
+
+59:                                               ; preds = %53, %33
+  %60 = load i32, ptr %5, align 4, !tbaa !10
+  %61 = icmp eq i32 %60, 1
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %59
+  store double 1.200000e+01, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+63:                                               ; preds = %59
+  %64 = load i32, ptr %5, align 4, !tbaa !10
+  %65 = icmp eq i32 %64, 2
+  br i1 %65, label %66, label %72
+
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %3, align 8, !tbaa !26
+  %68 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %67, i32 0, i32 1
+  %69 = load i64, ptr %68, align 8, !tbaa !28
+  %70 = uitofp i64 %69 to double
+  %71 = fadd double 2.000000e+01, %70
+  store double %71, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+72:                                               ; preds = %63
+  %73 = load i32, ptr %5, align 4, !tbaa !10
+  %74 = icmp eq i32 %73, 3
+  br i1 %74, label %75, label %110
+
+75:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %76 = load ptr, ptr %3, align 8, !tbaa !26
+  %77 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 0
+  %79 = load i64, ptr %78, align 16, !tbaa !8
+  %80 = getelementptr inbounds nuw [704 x i32], ptr %77, i64 0, i64 %79
+  %81 = load i32, ptr %80, align 4, !tbaa !10
+  store i32 %81, ptr %10, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %82 = load ptr, ptr %3, align 8, !tbaa !26
+  %83 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 1
+  %85 = load i64, ptr %84, align 8, !tbaa !8
+  %86 = getelementptr inbounds nuw [704 x i32], ptr %83, i64 0, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !10
+  store i32 %87, ptr %11, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %88 = load ptr, ptr %3, align 8, !tbaa !26
+  %89 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 2
+  %91 = load i64, ptr %90, align 16, !tbaa !8
+  %92 = getelementptr inbounds nuw [704 x i32], ptr %89, i64 0, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !10
+  store i32 %93, ptr %12, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %94 = load i32, ptr %10, align 4, !tbaa !10
+  %95 = load i32, ptr %11, align 4, !tbaa !10
+  %96 = load i32, ptr %12, align 4, !tbaa !10
+  %97 = call i32 @brotli_max_uint32_t(i32 noundef %95, i32 noundef %96)
+  %98 = call i32 @brotli_max_uint32_t(i32 noundef %94, i32 noundef %97)
+  store i32 %98, ptr %13, align 4, !tbaa !10
+  %99 = load i32, ptr %10, align 4, !tbaa !10
+  %100 = load i32, ptr %11, align 4, !tbaa !10
+  %101 = add i32 %99, %100
+  %102 = load i32, ptr %12, align 4, !tbaa !10
+  %103 = add i32 %101, %102
+  %104 = mul i32 2, %103
+  %105 = uitofp i32 %104 to double
+  %106 = fadd double 2.800000e+01, %105
+  %107 = load i32, ptr %13, align 4, !tbaa !10
+  %108 = uitofp i32 %107 to double
+  %109 = fsub double %106, %108
+  store double %109, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  br label %318
+
+110:                                              ; preds = %72
+  %111 = load i32, ptr %5, align 4, !tbaa !10
+  %112 = icmp eq i32 %111, 4
+  br i1 %112, label %113, label %193
+
+113:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %114
+
+114:                                              ; preds = %127, %113
+  %115 = load i64, ptr %8, align 8, !tbaa !8
+  %116 = icmp ult i64 %115, 4
+  br i1 %116, label %117, label %130
+
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %3, align 8, !tbaa !26
+  %119 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %118, i32 0, i32 0
+  %120 = load i64, ptr %8, align 8, !tbaa !8
+  %121 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %120
+  %122 = load i64, ptr %121, align 8, !tbaa !8
+  %123 = getelementptr inbounds nuw [704 x i32], ptr %119, i64 0, i64 %122
+  %124 = load i32, ptr %123, align 4, !tbaa !10
+  %125 = load i64, ptr %8, align 8, !tbaa !8
+  %126 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %125
+  store i32 %124, ptr %126, align 4, !tbaa !10
+  br label %127
+
+127:                                              ; preds = %117
+  %128 = load i64, ptr %8, align 8, !tbaa !8
+  %129 = add i64 %128, 1
+  store i64 %129, ptr %8, align 8, !tbaa !8
+  br label %114, !llvm.loop !31
+
+130:                                              ; preds = %114
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %131
+
+131:                                              ; preds = %165, %130
+  %132 = load i64, ptr %8, align 8, !tbaa !8
+  %133 = icmp ult i64 %132, 4
+  br i1 %133, label %134, label %168
+
+134:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %135 = load i64, ptr %8, align 8, !tbaa !8
+  %136 = add i64 %135, 1
+  store i64 %136, ptr %17, align 8, !tbaa !8
+  br label %137
+
+137:                                              ; preds = %161, %134
+  %138 = load i64, ptr %17, align 8, !tbaa !8
+  %139 = icmp ult i64 %138, 4
+  br i1 %139, label %140, label %164
+
+140:                                              ; preds = %137
+  %141 = load i64, ptr %17, align 8, !tbaa !8
+  %142 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %141
+  %143 = load i32, ptr %142, align 4, !tbaa !10
+  %144 = load i64, ptr %8, align 8, !tbaa !8
+  %145 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %144
+  %146 = load i32, ptr %145, align 4, !tbaa !10
+  %147 = icmp ugt i32 %143, %146
+  br i1 %147, label %148, label %160
+
+148:                                              ; preds = %140
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %149 = load i64, ptr %17, align 8, !tbaa !8
+  %150 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %149
+  %151 = load i32, ptr %150, align 4, !tbaa !10
+  store i32 %151, ptr %18, align 4, !tbaa !10
+  %152 = load i64, ptr %8, align 8, !tbaa !8
+  %153 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %152
+  %154 = load i32, ptr %153, align 4, !tbaa !10
+  %155 = load i64, ptr %17, align 8, !tbaa !8
+  %156 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %155
+  store i32 %154, ptr %156, align 4, !tbaa !10
+  %157 = load i32, ptr %18, align 4, !tbaa !10
+  %158 = load i64, ptr %8, align 8, !tbaa !8
+  %159 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %158
+  store i32 %157, ptr %159, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  br label %160
+
+160:                                              ; preds = %148, %140
+  br label %161
+
+161:                                              ; preds = %160
+  %162 = load i64, ptr %17, align 8, !tbaa !8
+  %163 = add i64 %162, 1
+  store i64 %163, ptr %17, align 8, !tbaa !8
+  br label %137, !llvm.loop !32
+
+164:                                              ; preds = %137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  br label %165
+
+165:                                              ; preds = %164
+  %166 = load i64, ptr %8, align 8, !tbaa !8
+  %167 = add i64 %166, 1
+  store i64 %167, ptr %8, align 8, !tbaa !8
+  br label %131, !llvm.loop !33
+
+168:                                              ; preds = %131
+  %169 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 2
+  %170 = load i32, ptr %169, align 8, !tbaa !10
+  %171 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 3
+  %172 = load i32, ptr %171, align 4, !tbaa !10
+  %173 = add i32 %170, %172
+  store i32 %173, ptr %15, align 4, !tbaa !10
+  %174 = load i32, ptr %15, align 4, !tbaa !10
+  %175 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 0
+  %176 = load i32, ptr %175, align 16, !tbaa !10
+  %177 = call i32 @brotli_max_uint32_t(i32 noundef %174, i32 noundef %176)
+  store i32 %177, ptr %16, align 4, !tbaa !10
+  %178 = load i32, ptr %15, align 4, !tbaa !10
+  %179 = mul i32 3, %178
+  %180 = uitofp i32 %179 to double
+  %181 = fadd double 3.700000e+01, %180
+  %182 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 0
+  %183 = load i32, ptr %182, align 16, !tbaa !10
+  %184 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 1
+  %185 = load i32, ptr %184, align 4, !tbaa !10
+  %186 = add i32 %183, %185
+  %187 = mul i32 2, %186
+  %188 = uitofp i32 %187 to double
+  %189 = fadd double %181, %188
+  %190 = load i32, ptr %16, align 4, !tbaa !10
+  %191 = uitofp i32 %190 to double
+  %192 = fsub double %189, %191
+  store double %192, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #6
+  br label %318
+
+193:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  store i64 1, ptr %19, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 72, ptr %20) #6
+  call void @llvm.memset.p0.i64(ptr align 16 %20, i8 0, i64 72, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  %194 = load ptr, ptr %3, align 8, !tbaa !26
+  %195 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %194, i32 0, i32 1
+  %196 = load i64, ptr %195, align 8, !tbaa !28
+  %197 = call double @FastLog2(i64 noundef %196)
+  store double %197, ptr %21, align 8, !tbaa !12
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %198
+
+198:                                              ; preds = %305, %193
+  %199 = load i64, ptr %8, align 8, !tbaa !8
+  %200 = load i64, ptr %4, align 8, !tbaa !8
+  %201 = icmp ult i64 %199, %200
+  br i1 %201, label %202, label %306
+
+202:                                              ; preds = %198
+  %203 = load ptr, ptr %3, align 8, !tbaa !26
+  %204 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %203, i32 0, i32 0
+  %205 = load i64, ptr %8, align 8, !tbaa !8
+  %206 = getelementptr inbounds nuw [704 x i32], ptr %204, i64 0, i64 %205
+  %207 = load i32, ptr %206, align 4, !tbaa !10
+  %208 = icmp ugt i32 %207, 0
+  br i1 %208, label %209, label %247
+
+209:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  %210 = load double, ptr %21, align 8, !tbaa !12
+  %211 = load ptr, ptr %3, align 8, !tbaa !26
+  %212 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %211, i32 0, i32 0
+  %213 = load i64, ptr %8, align 8, !tbaa !8
+  %214 = getelementptr inbounds nuw [704 x i32], ptr %212, i64 0, i64 %213
+  %215 = load i32, ptr %214, align 4, !tbaa !10
+  %216 = zext i32 %215 to i64
+  %217 = call double @FastLog2(i64 noundef %216)
+  %218 = fsub double %210, %217
+  store double %218, ptr %22, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  %219 = load double, ptr %22, align 8, !tbaa !12
+  %220 = fadd double %219, 5.000000e-01
+  %221 = fptoui double %220 to i64
+  store i64 %221, ptr %23, align 8, !tbaa !8
+  %222 = load ptr, ptr %3, align 8, !tbaa !26
+  %223 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %222, i32 0, i32 0
+  %224 = load i64, ptr %8, align 8, !tbaa !8
+  %225 = getelementptr inbounds nuw [704 x i32], ptr %223, i64 0, i64 %224
+  %226 = load i32, ptr %225, align 4, !tbaa !10
+  %227 = uitofp i32 %226 to double
+  %228 = load double, ptr %22, align 8, !tbaa !12
+  %229 = load double, ptr %7, align 8, !tbaa !12
+  %230 = call double @llvm.fmuladd.f64(double %227, double %228, double %229)
+  store double %230, ptr %7, align 8, !tbaa !12
+  %231 = load i64, ptr %23, align 8, !tbaa !8
+  %232 = icmp ugt i64 %231, 15
+  br i1 %232, label %233, label %234
+
+233:                                              ; preds = %209
+  store i64 15, ptr %23, align 8, !tbaa !8
+  br label %234
+
+234:                                              ; preds = %233, %209
+  %235 = load i64, ptr %23, align 8, !tbaa !8
+  %236 = load i64, ptr %19, align 8, !tbaa !8
+  %237 = icmp ugt i64 %235, %236
+  br i1 %237, label %238, label %240
+
+238:                                              ; preds = %234
+  %239 = load i64, ptr %23, align 8, !tbaa !8
+  store i64 %239, ptr %19, align 8, !tbaa !8
+  br label %240
+
+240:                                              ; preds = %238, %234
+  %241 = load i64, ptr %23, align 8, !tbaa !8
+  %242 = getelementptr inbounds nuw [18 x i32], ptr %20, i64 0, i64 %241
+  %243 = load i32, ptr %242, align 4, !tbaa !10
+  %244 = add i32 %243, 1
+  store i32 %244, ptr %242, align 4, !tbaa !10
+  %245 = load i64, ptr %8, align 8, !tbaa !8
+  %246 = add i64 %245, 1
+  store i64 %246, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  br label %305
+
+247:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
+  store i32 1, ptr %24, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #6
+  %248 = load i64, ptr %8, align 8, !tbaa !8
+  %249 = add i64 %248, 1
+  store i64 %249, ptr %25, align 8, !tbaa !8
+  br label %250
+
+250:                                              ; preds = %266, %247
+  %251 = load i64, ptr %25, align 8, !tbaa !8
+  %252 = load i64, ptr %4, align 8, !tbaa !8
+  %253 = icmp ult i64 %251, %252
+  br i1 %253, label %254, label %261
+
+254:                                              ; preds = %250
+  %255 = load ptr, ptr %3, align 8, !tbaa !26
+  %256 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %255, i32 0, i32 0
+  %257 = load i64, ptr %25, align 8, !tbaa !8
+  %258 = getelementptr inbounds nuw [704 x i32], ptr %256, i64 0, i64 %257
+  %259 = load i32, ptr %258, align 4, !tbaa !10
+  %260 = icmp eq i32 %259, 0
+  br label %261
+
+261:                                              ; preds = %254, %250
+  %262 = phi i1 [ false, %250 ], [ %260, %254 ]
+  br i1 %262, label %263, label %269
+
+263:                                              ; preds = %261
+  %264 = load i32, ptr %24, align 4, !tbaa !10
+  %265 = add i32 %264, 1
+  store i32 %265, ptr %24, align 4, !tbaa !10
+  br label %266
+
+266:                                              ; preds = %263
+  %267 = load i64, ptr %25, align 8, !tbaa !8
+  %268 = add i64 %267, 1
+  store i64 %268, ptr %25, align 8, !tbaa !8
+  br label %250, !llvm.loop !34
+
+269:                                              ; preds = %261
+  %270 = load i32, ptr %24, align 4, !tbaa !10
+  %271 = zext i32 %270 to i64
+  %272 = load i64, ptr %8, align 8, !tbaa !8
+  %273 = add i64 %272, %271
+  store i64 %273, ptr %8, align 8, !tbaa !8
+  %274 = load i64, ptr %8, align 8, !tbaa !8
+  %275 = load i64, ptr %4, align 8, !tbaa !8
+  %276 = icmp eq i64 %274, %275
+  br i1 %276, label %277, label %278
+
+277:                                              ; preds = %269
+  store i32 14, ptr %9, align 4
+  br label %302
+
+278:                                              ; preds = %269
+  %279 = load i32, ptr %24, align 4, !tbaa !10
+  %280 = icmp ult i32 %279, 3
+  br i1 %280, label %281, label %286
+
+281:                                              ; preds = %278
+  %282 = load i32, ptr %24, align 4, !tbaa !10
+  %283 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
+  %284 = load i32, ptr %283, align 16, !tbaa !10
+  %285 = add i32 %284, %282
+  store i32 %285, ptr %283, align 16, !tbaa !10
+  br label %301
+
+286:                                              ; preds = %278
+  %287 = load i32, ptr %24, align 4, !tbaa !10
+  %288 = sub i32 %287, 2
+  store i32 %288, ptr %24, align 4, !tbaa !10
+  br label %289
+
+289:                                              ; preds = %292, %286
+  %290 = load i32, ptr %24, align 4, !tbaa !10
+  %291 = icmp ugt i32 %290, 0
+  br i1 %291, label %292, label %300
+
+292:                                              ; preds = %289
+  %293 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 17
+  %294 = load i32, ptr %293, align 4, !tbaa !10
+  %295 = add i32 %294, 1
+  store i32 %295, ptr %293, align 4, !tbaa !10
+  %296 = load double, ptr %7, align 8, !tbaa !12
+  %297 = fadd double %296, 3.000000e+00
+  store double %297, ptr %7, align 8, !tbaa !12
+  %298 = load i32, ptr %24, align 4, !tbaa !10
+  %299 = lshr i32 %298, 3
+  store i32 %299, ptr %24, align 4, !tbaa !10
+  br label %289, !llvm.loop !35
+
+300:                                              ; preds = %289
+  br label %301
+
+301:                                              ; preds = %300, %281
+  store i32 0, ptr %9, align 4
+  br label %302
+
+302:                                              ; preds = %301, %277
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  %303 = load i32, ptr %9, align 4
+  switch i32 %303, label %320 [
+    i32 0, label %304
+    i32 14, label %306
+  ]
+
+304:                                              ; preds = %302
+  br label %305
+
+305:                                              ; preds = %304, %240
+  br label %198, !llvm.loop !36
+
+306:                                              ; preds = %302, %198
+  %307 = load i64, ptr %19, align 8, !tbaa !8
+  %308 = mul i64 2, %307
+  %309 = add i64 18, %308
+  %310 = uitofp i64 %309 to double
+  %311 = load double, ptr %7, align 8, !tbaa !12
+  %312 = fadd double %311, %310
+  store double %312, ptr %7, align 8, !tbaa !12
+  %313 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
+  %314 = call double @BitsEntropy(ptr noundef %313, i64 noundef 18)
+  %315 = load double, ptr %7, align 8, !tbaa !12
+  %316 = fadd double %315, %314
+  store double %316, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 72, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  %317 = load double, ptr %7, align 8, !tbaa !12
+  store double %317, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+318:                                              ; preds = %306, %168, %75, %66, %62, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 40, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %319 = load double, ptr %2, align 8
+  ret double %319
+
+320:                                              ; preds = %302
+  unreachable
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @HistogramDataSizeCommand() #2 {
+  ret i64 704
+}
+
+; Function Attrs: nounwind uwtable
+define hidden double @BrotliPopulationCostDistance(ptr noundef %0) #0 {
+  %2 = alloca double, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca [5 x i64], align 16
+  %7 = alloca double, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca [4 x i32], align 16
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
+  %20 = alloca [18 x i32], align 16
+  %21 = alloca double, align 8
+  %22 = alloca double, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %26 = call i64 @HistogramDataSizeDistance()
+  store i64 %26, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  store i32 0, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 40, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store double 0.000000e+00, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %27 = load ptr, ptr %3, align 8, !tbaa !37
+  %28 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %27, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8, !tbaa !39
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %1
+  store double 1.200000e+01, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+32:                                               ; preds = %1
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %33
+
+33:                                               ; preds = %56, %32
+  %34 = load i64, ptr %8, align 8, !tbaa !8
+  %35 = load i64, ptr %4, align 8, !tbaa !8
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %37, label %59
+
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %3, align 8, !tbaa !37
+  %39 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %38, i32 0, i32 0
+  %40 = load i64, ptr %8, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw [544 x i32], ptr %39, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %43 = icmp ugt i32 %42, 0
+  br i1 %43, label %44, label %55
+
+44:                                               ; preds = %37
+  %45 = load i64, ptr %8, align 8, !tbaa !8
+  %46 = load i32, ptr %5, align 4, !tbaa !10
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 %47
+  store i64 %45, ptr %48, align 8, !tbaa !8
+  %49 = load i32, ptr %5, align 4, !tbaa !10
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %5, align 4, !tbaa !10
+  %51 = load i32, ptr %5, align 4, !tbaa !10
+  %52 = icmp sgt i32 %51, 4
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %44
+  br label %59
+
+54:                                               ; preds = %44
+  br label %55
+
+55:                                               ; preds = %54, %37
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load i64, ptr %8, align 8, !tbaa !8
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %8, align 8, !tbaa !8
+  br label %33, !llvm.loop !41
+
+59:                                               ; preds = %53, %33
+  %60 = load i32, ptr %5, align 4, !tbaa !10
+  %61 = icmp eq i32 %60, 1
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %59
+  store double 1.200000e+01, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+63:                                               ; preds = %59
+  %64 = load i32, ptr %5, align 4, !tbaa !10
+  %65 = icmp eq i32 %64, 2
+  br i1 %65, label %66, label %72
+
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %3, align 8, !tbaa !37
+  %68 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %67, i32 0, i32 1
+  %69 = load i64, ptr %68, align 8, !tbaa !39
+  %70 = uitofp i64 %69 to double
+  %71 = fadd double 2.000000e+01, %70
+  store double %71, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+72:                                               ; preds = %63
+  %73 = load i32, ptr %5, align 4, !tbaa !10
+  %74 = icmp eq i32 %73, 3
+  br i1 %74, label %75, label %110
+
+75:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %76 = load ptr, ptr %3, align 8, !tbaa !37
+  %77 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 0
+  %79 = load i64, ptr %78, align 16, !tbaa !8
+  %80 = getelementptr inbounds nuw [544 x i32], ptr %77, i64 0, i64 %79
+  %81 = load i32, ptr %80, align 4, !tbaa !10
+  store i32 %81, ptr %10, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %82 = load ptr, ptr %3, align 8, !tbaa !37
+  %83 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 1
+  %85 = load i64, ptr %84, align 8, !tbaa !8
+  %86 = getelementptr inbounds nuw [544 x i32], ptr %83, i64 0, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !10
+  store i32 %87, ptr %11, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %88 = load ptr, ptr %3, align 8, !tbaa !37
+  %89 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds [5 x i64], ptr %6, i64 0, i64 2
+  %91 = load i64, ptr %90, align 16, !tbaa !8
+  %92 = getelementptr inbounds nuw [544 x i32], ptr %89, i64 0, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !10
+  store i32 %93, ptr %12, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %94 = load i32, ptr %10, align 4, !tbaa !10
+  %95 = load i32, ptr %11, align 4, !tbaa !10
+  %96 = load i32, ptr %12, align 4, !tbaa !10
+  %97 = call i32 @brotli_max_uint32_t(i32 noundef %95, i32 noundef %96)
+  %98 = call i32 @brotli_max_uint32_t(i32 noundef %94, i32 noundef %97)
+  store i32 %98, ptr %13, align 4, !tbaa !10
+  %99 = load i32, ptr %10, align 4, !tbaa !10
+  %100 = load i32, ptr %11, align 4, !tbaa !10
+  %101 = add i32 %99, %100
+  %102 = load i32, ptr %12, align 4, !tbaa !10
+  %103 = add i32 %101, %102
+  %104 = mul i32 2, %103
+  %105 = uitofp i32 %104 to double
+  %106 = fadd double 2.800000e+01, %105
+  %107 = load i32, ptr %13, align 4, !tbaa !10
+  %108 = uitofp i32 %107 to double
+  %109 = fsub double %106, %108
+  store double %109, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  br label %318
+
+110:                                              ; preds = %72
+  %111 = load i32, ptr %5, align 4, !tbaa !10
+  %112 = icmp eq i32 %111, 4
+  br i1 %112, label %113, label %193
+
+113:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %114
+
+114:                                              ; preds = %127, %113
+  %115 = load i64, ptr %8, align 8, !tbaa !8
+  %116 = icmp ult i64 %115, 4
+  br i1 %116, label %117, label %130
+
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %3, align 8, !tbaa !37
+  %119 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %118, i32 0, i32 0
+  %120 = load i64, ptr %8, align 8, !tbaa !8
+  %121 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %120
+  %122 = load i64, ptr %121, align 8, !tbaa !8
+  %123 = getelementptr inbounds nuw [544 x i32], ptr %119, i64 0, i64 %122
+  %124 = load i32, ptr %123, align 4, !tbaa !10
+  %125 = load i64, ptr %8, align 8, !tbaa !8
+  %126 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %125
+  store i32 %124, ptr %126, align 4, !tbaa !10
+  br label %127
+
+127:                                              ; preds = %117
+  %128 = load i64, ptr %8, align 8, !tbaa !8
+  %129 = add i64 %128, 1
+  store i64 %129, ptr %8, align 8, !tbaa !8
+  br label %114, !llvm.loop !42
+
+130:                                              ; preds = %114
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %131
+
+131:                                              ; preds = %165, %130
+  %132 = load i64, ptr %8, align 8, !tbaa !8
+  %133 = icmp ult i64 %132, 4
+  br i1 %133, label %134, label %168
+
+134:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %135 = load i64, ptr %8, align 8, !tbaa !8
+  %136 = add i64 %135, 1
+  store i64 %136, ptr %17, align 8, !tbaa !8
+  br label %137
+
+137:                                              ; preds = %161, %134
+  %138 = load i64, ptr %17, align 8, !tbaa !8
+  %139 = icmp ult i64 %138, 4
+  br i1 %139, label %140, label %164
+
+140:                                              ; preds = %137
+  %141 = load i64, ptr %17, align 8, !tbaa !8
+  %142 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %141
+  %143 = load i32, ptr %142, align 4, !tbaa !10
+  %144 = load i64, ptr %8, align 8, !tbaa !8
+  %145 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %144
+  %146 = load i32, ptr %145, align 4, !tbaa !10
+  %147 = icmp ugt i32 %143, %146
+  br i1 %147, label %148, label %160
+
+148:                                              ; preds = %140
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %149 = load i64, ptr %17, align 8, !tbaa !8
+  %150 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %149
+  %151 = load i32, ptr %150, align 4, !tbaa !10
+  store i32 %151, ptr %18, align 4, !tbaa !10
+  %152 = load i64, ptr %8, align 8, !tbaa !8
+  %153 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %152
+  %154 = load i32, ptr %153, align 4, !tbaa !10
+  %155 = load i64, ptr %17, align 8, !tbaa !8
+  %156 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %155
+  store i32 %154, ptr %156, align 4, !tbaa !10
+  %157 = load i32, ptr %18, align 4, !tbaa !10
+  %158 = load i64, ptr %8, align 8, !tbaa !8
+  %159 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %158
+  store i32 %157, ptr %159, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  br label %160
+
+160:                                              ; preds = %148, %140
+  br label %161
+
+161:                                              ; preds = %160
+  %162 = load i64, ptr %17, align 8, !tbaa !8
+  %163 = add i64 %162, 1
+  store i64 %163, ptr %17, align 8, !tbaa !8
+  br label %137, !llvm.loop !43
+
+164:                                              ; preds = %137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  br label %165
+
+165:                                              ; preds = %164
+  %166 = load i64, ptr %8, align 8, !tbaa !8
+  %167 = add i64 %166, 1
+  store i64 %167, ptr %8, align 8, !tbaa !8
+  br label %131, !llvm.loop !44
+
+168:                                              ; preds = %131
+  %169 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 2
+  %170 = load i32, ptr %169, align 8, !tbaa !10
+  %171 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 3
+  %172 = load i32, ptr %171, align 4, !tbaa !10
+  %173 = add i32 %170, %172
+  store i32 %173, ptr %15, align 4, !tbaa !10
+  %174 = load i32, ptr %15, align 4, !tbaa !10
+  %175 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 0
+  %176 = load i32, ptr %175, align 16, !tbaa !10
+  %177 = call i32 @brotli_max_uint32_t(i32 noundef %174, i32 noundef %176)
+  store i32 %177, ptr %16, align 4, !tbaa !10
+  %178 = load i32, ptr %15, align 4, !tbaa !10
+  %179 = mul i32 3, %178
+  %180 = uitofp i32 %179 to double
+  %181 = fadd double 3.700000e+01, %180
+  %182 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 0
+  %183 = load i32, ptr %182, align 16, !tbaa !10
+  %184 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 1
+  %185 = load i32, ptr %184, align 4, !tbaa !10
+  %186 = add i32 %183, %185
+  %187 = mul i32 2, %186
+  %188 = uitofp i32 %187 to double
+  %189 = fadd double %181, %188
+  %190 = load i32, ptr %16, align 4, !tbaa !10
+  %191 = uitofp i32 %190 to double
+  %192 = fsub double %189, %191
+  store double %192, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #6
+  br label %318
+
+193:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  store i64 1, ptr %19, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 72, ptr %20) #6
+  call void @llvm.memset.p0.i64(ptr align 16 %20, i8 0, i64 72, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  %194 = load ptr, ptr %3, align 8, !tbaa !37
+  %195 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %194, i32 0, i32 1
+  %196 = load i64, ptr %195, align 8, !tbaa !39
+  %197 = call double @FastLog2(i64 noundef %196)
+  store double %197, ptr %21, align 8, !tbaa !12
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %198
+
+198:                                              ; preds = %305, %193
+  %199 = load i64, ptr %8, align 8, !tbaa !8
+  %200 = load i64, ptr %4, align 8, !tbaa !8
+  %201 = icmp ult i64 %199, %200
+  br i1 %201, label %202, label %306
+
+202:                                              ; preds = %198
+  %203 = load ptr, ptr %3, align 8, !tbaa !37
+  %204 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %203, i32 0, i32 0
+  %205 = load i64, ptr %8, align 8, !tbaa !8
+  %206 = getelementptr inbounds nuw [544 x i32], ptr %204, i64 0, i64 %205
+  %207 = load i32, ptr %206, align 4, !tbaa !10
+  %208 = icmp ugt i32 %207, 0
+  br i1 %208, label %209, label %247
+
+209:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  %210 = load double, ptr %21, align 8, !tbaa !12
+  %211 = load ptr, ptr %3, align 8, !tbaa !37
+  %212 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %211, i32 0, i32 0
+  %213 = load i64, ptr %8, align 8, !tbaa !8
+  %214 = getelementptr inbounds nuw [544 x i32], ptr %212, i64 0, i64 %213
+  %215 = load i32, ptr %214, align 4, !tbaa !10
+  %216 = zext i32 %215 to i64
+  %217 = call double @FastLog2(i64 noundef %216)
+  %218 = fsub double %210, %217
+  store double %218, ptr %22, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  %219 = load double, ptr %22, align 8, !tbaa !12
+  %220 = fadd double %219, 5.000000e-01
+  %221 = fptoui double %220 to i64
+  store i64 %221, ptr %23, align 8, !tbaa !8
+  %222 = load ptr, ptr %3, align 8, !tbaa !37
+  %223 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %222, i32 0, i32 0
+  %224 = load i64, ptr %8, align 8, !tbaa !8
+  %225 = getelementptr inbounds nuw [544 x i32], ptr %223, i64 0, i64 %224
+  %226 = load i32, ptr %225, align 4, !tbaa !10
+  %227 = uitofp i32 %226 to double
+  %228 = load double, ptr %22, align 8, !tbaa !12
+  %229 = load double, ptr %7, align 8, !tbaa !12
+  %230 = call double @llvm.fmuladd.f64(double %227, double %228, double %229)
+  store double %230, ptr %7, align 8, !tbaa !12
+  %231 = load i64, ptr %23, align 8, !tbaa !8
+  %232 = icmp ugt i64 %231, 15
+  br i1 %232, label %233, label %234
+
+233:                                              ; preds = %209
+  store i64 15, ptr %23, align 8, !tbaa !8
+  br label %234
+
+234:                                              ; preds = %233, %209
+  %235 = load i64, ptr %23, align 8, !tbaa !8
+  %236 = load i64, ptr %19, align 8, !tbaa !8
+  %237 = icmp ugt i64 %235, %236
+  br i1 %237, label %238, label %240
+
+238:                                              ; preds = %234
+  %239 = load i64, ptr %23, align 8, !tbaa !8
+  store i64 %239, ptr %19, align 8, !tbaa !8
+  br label %240
+
+240:                                              ; preds = %238, %234
+  %241 = load i64, ptr %23, align 8, !tbaa !8
+  %242 = getelementptr inbounds nuw [18 x i32], ptr %20, i64 0, i64 %241
+  %243 = load i32, ptr %242, align 4, !tbaa !10
+  %244 = add i32 %243, 1
+  store i32 %244, ptr %242, align 4, !tbaa !10
+  %245 = load i64, ptr %8, align 8, !tbaa !8
+  %246 = add i64 %245, 1
+  store i64 %246, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  br label %305
+
+247:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
+  store i32 1, ptr %24, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #6
+  %248 = load i64, ptr %8, align 8, !tbaa !8
+  %249 = add i64 %248, 1
+  store i64 %249, ptr %25, align 8, !tbaa !8
+  br label %250
+
+250:                                              ; preds = %266, %247
+  %251 = load i64, ptr %25, align 8, !tbaa !8
+  %252 = load i64, ptr %4, align 8, !tbaa !8
+  %253 = icmp ult i64 %251, %252
+  br i1 %253, label %254, label %261
+
+254:                                              ; preds = %250
+  %255 = load ptr, ptr %3, align 8, !tbaa !37
+  %256 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %255, i32 0, i32 0
+  %257 = load i64, ptr %25, align 8, !tbaa !8
+  %258 = getelementptr inbounds nuw [544 x i32], ptr %256, i64 0, i64 %257
+  %259 = load i32, ptr %258, align 4, !tbaa !10
+  %260 = icmp eq i32 %259, 0
+  br label %261
+
+261:                                              ; preds = %254, %250
+  %262 = phi i1 [ false, %250 ], [ %260, %254 ]
+  br i1 %262, label %263, label %269
+
+263:                                              ; preds = %261
+  %264 = load i32, ptr %24, align 4, !tbaa !10
+  %265 = add i32 %264, 1
+  store i32 %265, ptr %24, align 4, !tbaa !10
+  br label %266
+
+266:                                              ; preds = %263
+  %267 = load i64, ptr %25, align 8, !tbaa !8
+  %268 = add i64 %267, 1
+  store i64 %268, ptr %25, align 8, !tbaa !8
+  br label %250, !llvm.loop !45
+
+269:                                              ; preds = %261
+  %270 = load i32, ptr %24, align 4, !tbaa !10
+  %271 = zext i32 %270 to i64
+  %272 = load i64, ptr %8, align 8, !tbaa !8
+  %273 = add i64 %272, %271
+  store i64 %273, ptr %8, align 8, !tbaa !8
+  %274 = load i64, ptr %8, align 8, !tbaa !8
+  %275 = load i64, ptr %4, align 8, !tbaa !8
+  %276 = icmp eq i64 %274, %275
+  br i1 %276, label %277, label %278
+
+277:                                              ; preds = %269
+  store i32 14, ptr %9, align 4
+  br label %302
+
+278:                                              ; preds = %269
+  %279 = load i32, ptr %24, align 4, !tbaa !10
+  %280 = icmp ult i32 %279, 3
+  br i1 %280, label %281, label %286
+
+281:                                              ; preds = %278
+  %282 = load i32, ptr %24, align 4, !tbaa !10
+  %283 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
+  %284 = load i32, ptr %283, align 16, !tbaa !10
+  %285 = add i32 %284, %282
+  store i32 %285, ptr %283, align 16, !tbaa !10
+  br label %301
+
+286:                                              ; preds = %278
+  %287 = load i32, ptr %24, align 4, !tbaa !10
+  %288 = sub i32 %287, 2
+  store i32 %288, ptr %24, align 4, !tbaa !10
+  br label %289
+
+289:                                              ; preds = %292, %286
+  %290 = load i32, ptr %24, align 4, !tbaa !10
+  %291 = icmp ugt i32 %290, 0
+  br i1 %291, label %292, label %300
+
+292:                                              ; preds = %289
+  %293 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 17
+  %294 = load i32, ptr %293, align 4, !tbaa !10
+  %295 = add i32 %294, 1
+  store i32 %295, ptr %293, align 4, !tbaa !10
+  %296 = load double, ptr %7, align 8, !tbaa !12
+  %297 = fadd double %296, 3.000000e+00
+  store double %297, ptr %7, align 8, !tbaa !12
+  %298 = load i32, ptr %24, align 4, !tbaa !10
+  %299 = lshr i32 %298, 3
+  store i32 %299, ptr %24, align 4, !tbaa !10
+  br label %289, !llvm.loop !46
+
+300:                                              ; preds = %289
+  br label %301
+
+301:                                              ; preds = %300, %281
+  store i32 0, ptr %9, align 4
+  br label %302
+
+302:                                              ; preds = %301, %277
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  %303 = load i32, ptr %9, align 4
+  switch i32 %303, label %320 [
+    i32 0, label %304
+    i32 14, label %306
+  ]
+
+304:                                              ; preds = %302
+  br label %305
+
+305:                                              ; preds = %304, %240
+  br label %198, !llvm.loop !47
+
+306:                                              ; preds = %302, %198
+  %307 = load i64, ptr %19, align 8, !tbaa !8
+  %308 = mul i64 2, %307
+  %309 = add i64 18, %308
+  %310 = uitofp i64 %309 to double
+  %311 = load double, ptr %7, align 8, !tbaa !12
+  %312 = fadd double %311, %310
+  store double %312, ptr %7, align 8, !tbaa !12
+  %313 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
+  %314 = call double @BitsEntropy(ptr noundef %313, i64 noundef 18)
+  %315 = load double, ptr %7, align 8, !tbaa !12
+  %316 = fadd double %315, %314
+  store double %316, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 72, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  %317 = load double, ptr %7, align 8, !tbaa !12
+  store double %317, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %318
+
+318:                                              ; preds = %306, %168, %75, %66, %62, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 40, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %319 = load double, ptr %2, align 8
+  ret double %319
+
+320:                                              ; preds = %302
+  unreachable
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @HistogramDataSizeDistance() #2 {
+  ret i64 544
 }
 
 ; Function Attrs: nounwind
-declare double @log2(double noundef) #3
+declare double @log2(double noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+; Function Attrs: alwaysinline nounwind uwtable
+define internal double @ShannonEntropy(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store i64 0, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %11 = load ptr, ptr %4, align 8, !tbaa !24
+  %12 = load i64, ptr %5, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  store ptr %13, ptr %9, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %14 = load i64, ptr %5, align 8, !tbaa !8
+  %15 = and i64 %14, 1
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %18
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+17:                                               ; preds = %3
+  br label %38
+
+18:                                               ; preds = %3
+  br label %19
+
+19:                                               ; preds = %38, %18
+  %20 = load ptr, ptr %4, align 8, !tbaa !24
+  %21 = load ptr, ptr %9, align 8, !tbaa !24
+  %22 = icmp ult ptr %20, %21
+  br i1 %22, label %23, label %53
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %4, align 8, !tbaa !24
+  %25 = getelementptr inbounds nuw i32, ptr %24, i32 1
+  store ptr %25, ptr %4, align 8, !tbaa !24
+  %26 = load i32, ptr %24, align 4, !tbaa !10
+  %27 = zext i32 %26 to i64
+  store i64 %27, ptr %10, align 8, !tbaa !8
+  %28 = load i64, ptr %10, align 8, !tbaa !8
+  %29 = load i64, ptr %7, align 8, !tbaa !8
+  %30 = add i64 %29, %28
+  store i64 %30, ptr %7, align 8, !tbaa !8
+  %31 = load i64, ptr %10, align 8, !tbaa !8
+  %32 = uitofp i64 %31 to double
+  %33 = load i64, ptr %10, align 8, !tbaa !8
+  %34 = call double @FastLog2(i64 noundef %33)
+  %35 = load double, ptr %8, align 8, !tbaa !12
+  %36 = fneg double %32
+  %37 = call double @llvm.fmuladd.f64(double %36, double %34, double %35)
+  store double %37, ptr %8, align 8, !tbaa !12
+  br label %38
+
+38:                                               ; preds = %23, %17
+  %39 = load ptr, ptr %4, align 8, !tbaa !24
+  %40 = getelementptr inbounds nuw i32, ptr %39, i32 1
+  store ptr %40, ptr %4, align 8, !tbaa !24
+  %41 = load i32, ptr %39, align 4, !tbaa !10
+  %42 = zext i32 %41 to i64
+  store i64 %42, ptr %10, align 8, !tbaa !8
+  %43 = load i64, ptr %10, align 8, !tbaa !8
+  %44 = load i64, ptr %7, align 8, !tbaa !8
+  %45 = add i64 %44, %43
+  store i64 %45, ptr %7, align 8, !tbaa !8
+  %46 = load i64, ptr %10, align 8, !tbaa !8
+  %47 = uitofp i64 %46 to double
+  %48 = load i64, ptr %10, align 8, !tbaa !8
+  %49 = call double @FastLog2(i64 noundef %48)
+  %50 = load double, ptr %8, align 8, !tbaa !12
+  %51 = fneg double %47
+  %52 = call double @llvm.fmuladd.f64(double %51, double %49, double %50)
+  store double %52, ptr %8, align 8, !tbaa !12
+  br label %19, !llvm.loop !50
+
+53:                                               ; preds = %19
+  %54 = load i64, ptr %7, align 8, !tbaa !8
+  %55 = icmp ne i64 %54, 0
+  br i1 %55, label %56, label %63
+
+56:                                               ; preds = %53
+  %57 = load i64, ptr %7, align 8, !tbaa !8
+  %58 = uitofp i64 %57 to double
+  %59 = load i64, ptr %7, align 8, !tbaa !8
+  %60 = call double @FastLog2(i64 noundef %59)
+  %61 = load double, ptr %8, align 8, !tbaa !12
+  %62 = call double @llvm.fmuladd.f64(double %58, double %60, double %61)
+  store double %62, ptr %8, align 8, !tbaa !12
+  br label %63
+
+63:                                               ; preds = %56, %53
+  %64 = load i64, ptr %7, align 8, !tbaa !8
+  %65 = load ptr, ptr %6, align 8, !tbaa !48
+  store i64 %64, ptr %65, align 8, !tbaa !8
+  %66 = load double, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  ret double %66
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS16HistogramLiteral", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"double", !6, i64 0}
+!14 = !{!15, !9, i64 1024}
+!15 = !{!"HistogramLiteral", !6, i64 0, !9, i64 1024, !13, i64 1032}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 int", !5, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS16HistogramCommand", !5, i64 0}
+!28 = !{!29, !9, i64 2816}
+!29 = !{!"HistogramCommand", !6, i64 0, !9, i64 2816, !13, i64 2824}
+!30 = distinct !{!30, !17}
+!31 = distinct !{!31, !17}
+!32 = distinct !{!32, !17}
+!33 = distinct !{!33, !17}
+!34 = distinct !{!34, !17}
+!35 = distinct !{!35, !17}
+!36 = distinct !{!36, !17}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS17HistogramDistance", !5, i64 0}
+!39 = !{!40, !9, i64 2176}
+!40 = !{!"HistogramDistance", !6, i64 0, !9, i64 2176, !13, i64 2184}
+!41 = distinct !{!41, !17}
+!42 = distinct !{!42, !17}
+!43 = distinct !{!43, !17}
+!44 = distinct !{!44, !17}
+!45 = distinct !{!45, !17}
+!46 = distinct !{!46, !17}
+!47 = distinct !{!47, !17}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 long", !5, i64 0}
+!50 = distinct !{!50, !17}
