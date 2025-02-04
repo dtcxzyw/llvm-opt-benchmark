@@ -1075,7 +1075,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i39, %Gem_Gr
   br i1 %70, label %.lr.ph.i43, label %Abc_TtSwapAdjacent.exit, !llvm.loop !67
 
 71:                                               ; preds = %62
-  %72 = icmp samesign ult i32 %indvars119, 7
+  %72 = icmp samesign ult i64 %indvars.iv, 7
   %73 = trunc i64 %indvars.iv to i32
   %74 = add i32 %73, -6
   %75 = shl nuw i32 1, %74

@@ -4324,27 +4324,27 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr noundef no
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !220, !noalias !311
   %18 = ashr i32 %17, 1
-  %19 = mul nuw nsw i32 %18, %15
-  %20 = icmp sgt i32 %13, -1
+  %19 = icmp sgt i32 %13, -1
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp sgt i32 %15, -1
+  %21 = icmp ugt i32 %17, 1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ugt i32 %17, 1
+  %22 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp sgt i32 %18, -1
+  %23 = icmp samesign uge i32 %18, %13
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp samesign uge i32 %18, %13
-  tail call void @llvm.assume(i1 %24)
-  %25 = icmp eq i32 %13, 0
-  %26 = icmp ne i32 %15, 0
-  %27 = xor i1 %25, %26
-  tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %29 = load i32, ptr %28, align 4, !tbaa !229
-  %30 = icmp sgt i32 %29, 4
-  br i1 %30, label %.lr.ph, label %._crit_edge
+  %24 = icmp eq i32 %13, 0
+  %25 = icmp ne i32 %15, 0
+  %26 = xor i1 %24, %25
+  tail call void @llvm.assume(i1 %26)
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %28 = load i32, ptr %27, align 4, !tbaa !229
+  %29 = icmp sgt i32 %28, 4
+  br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
+  %30 = mul nuw nsw i32 %18, %15
   %31 = zext i16 %1 to i32
   %32 = add nsw i32 %31, -2
   %33 = icmp samesign ult i32 %32, %13
@@ -4366,175 +4366,176 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr noundef no
   %invariant.gep = getelementptr inbounds nuw i16, ptr %8, i64 %39
   %49 = zext nneg i32 %18 to i64
   %50 = zext nneg i32 %13 to i64
-  %51 = zext nneg i32 %19 to i64
+  %51 = zext nneg i32 %30 to i64
   %52 = zext nneg i32 %15 to i64
   %53 = zext nneg i32 %18 to i64
-  br label %54
+  %54 = zext nneg i32 %13 to i64
+  %55 = zext nneg i32 %30 to i64
+  %56 = zext nneg i32 %15 to i64
+  br label %57
 
-._crit_edge:                                      ; preds = %161, %2
+._crit_edge:                                      ; preds = %162, %2
   ret void
 
-54:                                               ; preds = %.lr.ph, %161
-  %indvars.iv436 = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next437.pre-phi, %161 ]
-  %55 = phi ptr [ %6, %.lr.ph ], [ %162, %161 ]
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
-  %57 = trunc nuw nsw i64 %indvars.iv436 to i32
-  %58 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %56, i32 noundef %31, i32 noundef %57)
-  %59 = icmp eq i8 %58, 1
-  br i1 %59, label %60, label %114
+57:                                               ; preds = %.lr.ph, %162
+  %indvars.iv436 = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next437.pre-phi, %162 ]
+  %58 = phi ptr [ %6, %.lr.ph ], [ %163, %162 ]
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
+  %60 = trunc nuw nsw i64 %indvars.iv436 to i32
+  %61 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %59, i32 noundef %31, i32 noundef %60)
+  %62 = icmp eq i8 %61, 1
+  br i1 %62, label %63, label %116
 
-60:                                               ; preds = %54
+63:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
-  %61 = add nsw i64 %indvars.iv436, -1
+  %64 = add nsw i64 %indvars.iv436, -1
   tail call void @llvm.assume(i1 %41)
-  %62 = icmp samesign ult i64 %61, %52
-  tail call void @llvm.assume(i1 %62)
-  %63 = mul nuw nsw i64 %61, %53
-  %64 = trunc i64 %63 to i32
-  %65 = add i32 %13, %64
-  %66 = icmp samesign ule i32 %65, %19
-  tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i16, ptr %8, i64 %63
-  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %42
-  %69 = load i16, ptr %68, align 2, !tbaa !221
-  store i16 %69, ptr %3, align 2, !tbaa !221
-  %70 = zext i16 %69 to i32
-  %71 = add nuw nsw i64 %indvars.iv436, 1
-  %72 = icmp samesign ult i64 %71, %52
-  tail call void @llvm.assume(i1 %72)
-  %73 = mul nuw nsw i64 %71, %49
-  %74 = add nuw nsw i64 %73, %50
-  %75 = icmp samesign ule i64 %74, %51
-  tail call void @llvm.assume(i1 %75)
-  %76 = getelementptr inbounds nuw i16, ptr %8, i64 %73
-  %77 = getelementptr inbounds nuw i16, ptr %76, i64 %42
-  %78 = load i16, ptr %77, align 2, !tbaa !221
-  store i16 %78, ptr %43, align 2, !tbaa !221
-  %79 = zext i16 %78 to i32
-  %80 = add nuw nsw i32 %79, %70
+  %65 = icmp samesign ult i64 %64, %52
+  tail call void @llvm.assume(i1 %65)
+  %66 = mul nuw nsw i64 %64, %53
+  %67 = add nuw nsw i64 %66, %54
+  %68 = icmp samesign ule i64 %67, %55
+  tail call void @llvm.assume(i1 %68)
+  %69 = getelementptr inbounds nuw i16, ptr %8, i64 %66
+  %70 = getelementptr inbounds nuw i16, ptr %69, i64 %42
+  %71 = load i16, ptr %70, align 2, !tbaa !221
+  store i16 %71, ptr %3, align 2, !tbaa !221
+  %72 = zext i16 %71 to i32
+  %73 = add nuw nsw i64 %indvars.iv436, 1
+  %74 = icmp samesign ult i64 %73, %56
+  tail call void @llvm.assume(i1 %74)
+  %75 = mul nuw nsw i64 %73, %49
+  %76 = add nuw nsw i64 %75, %50
+  %77 = icmp samesign ule i64 %76, %51
+  tail call void @llvm.assume(i1 %77)
+  %78 = getelementptr inbounds nuw i16, ptr %8, i64 %75
+  %79 = getelementptr inbounds nuw i16, ptr %78, i64 %42
+  %80 = load i16, ptr %79, align 2, !tbaa !221
+  store i16 %80, ptr %43, align 2, !tbaa !221
+  %81 = zext i16 %80 to i32
+  %82 = add nuw nsw i32 %81, %72
   tail call void @llvm.assume(i1 %45)
-  %81 = getelementptr inbounds nuw i16, ptr %67, i64 %46
-  %82 = load i16, ptr %81, align 2, !tbaa !221
-  store i16 %82, ptr %47, align 2, !tbaa !221
-  %83 = zext i16 %82 to i32
-  %84 = add nuw nsw i32 %80, %83
-  %85 = getelementptr inbounds nuw i16, ptr %76, i64 %46
-  %86 = load i16, ptr %85, align 2, !tbaa !221
-  store i16 %86, ptr %48, align 2, !tbaa !221
-  %87 = zext i16 %86 to i32
-  %88 = add nuw nsw i32 %84, %87
-  br label %101
+  %83 = getelementptr inbounds nuw i16, ptr %69, i64 %46
+  %84 = load i16, ptr %83, align 2, !tbaa !221
+  store i16 %84, ptr %47, align 2, !tbaa !221
+  %85 = zext i16 %84 to i32
+  %86 = add nuw nsw i32 %82, %85
+  %87 = getelementptr inbounds nuw i16, ptr %78, i64 %46
+  %88 = load i16, ptr %87, align 2, !tbaa !221
+  store i16 %88, ptr %48, align 2, !tbaa !221
+  %89 = zext i16 %88 to i32
+  %90 = add nuw nsw i32 %86, %89
+  br label %103
 
-89:                                               ; preds = %101
-  %90 = zext nneg i32 %spec.select to i64
-  %91 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %90
-  %92 = load i16, ptr %91, align 2, !tbaa !221
-  %93 = zext i16 %92 to i32
-  %94 = add nuw nsw i32 %88, 1
-  %95 = sub nsw i32 %94, %93
-  %96 = sdiv i32 %95, 3
-  %97 = trunc i32 %96 to i16
-  %98 = mul nuw nsw i64 %indvars.iv436, %49
-  %99 = add nuw nsw i64 %98, %50
-  %100 = icmp samesign ule i64 %99, %51
-  tail call void @llvm.assume(i1 %100)
+91:                                               ; preds = %103
+  %92 = zext nneg i32 %spec.select to i64
+  %93 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %92
+  %94 = load i16, ptr %93, align 2, !tbaa !221
+  %95 = zext i16 %94 to i32
+  %96 = add nuw nsw i32 %90, 1
+  %97 = sub nsw i32 %96, %95
+  %98 = sdiv i32 %97, 3
+  %99 = trunc i32 %98 to i16
+  %100 = mul nuw nsw i64 %indvars.iv436, %49
+  %101 = add nuw nsw i64 %100, %50
+  %102 = icmp samesign ule i64 %101, %51
+  tail call void @llvm.assume(i1 %102)
   tail call void @llvm.assume(i1 %38)
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %98
-  store i16 %97, ptr %gep, align 2, !tbaa !221
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %100
+  store i16 %99, ptr %gep, align 2, !tbaa !221
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
-  br label %161
+  br label %162
 
-101:                                              ; preds = %60, %101
-  %indvars.iv = phi i64 [ 0, %60 ], [ %indvars.iv.next, %101 ]
-  %.045433 = phi i32 [ 0, %60 ], [ %spec.select, %101 ]
-  %102 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %indvars.iv
-  %103 = load i16, ptr %102, align 2, !tbaa !221
-  %104 = zext i16 %103 to i32
-  %105 = shl nuw nsw i32 %104, 2
-  %106 = sub nsw i32 %105, %88
-  %107 = tail call i32 @llvm.abs.i32(i32 %106, i1 true)
-  %108 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv
-  store i32 %107, ptr %108, align 4, !tbaa !30
-  %109 = zext nneg i32 %.045433 to i64
-  %110 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !30
-  %112 = icmp slt i32 %111, %107
-  %113 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %112, i32 %113, i32 %.045433
+103:                                              ; preds = %63, %103
+  %indvars.iv = phi i64 [ 0, %63 ], [ %indvars.iv.next, %103 ]
+  %.045433 = phi i32 [ 0, %63 ], [ %spec.select, %103 ]
+  %104 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %indvars.iv
+  %105 = load i16, ptr %104, align 2, !tbaa !221
+  %106 = zext i16 %105 to i32
+  %107 = shl nuw nsw i32 %106, 2
+  %108 = sub nsw i32 %107, %90
+  %109 = tail call i32 @llvm.abs.i32(i32 %108, i1 true)
+  %110 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv
+  store i32 %109, ptr %110, align 4, !tbaa !30
+  %111 = zext nneg i32 %.045433 to i64
+  %112 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %111
+  %113 = load i32, ptr %112, align 4, !tbaa !30
+  %114 = icmp slt i32 %113, %109
+  %115 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %114, i32 %115, i32 %.045433
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %89, label %101, !llvm.loop !314
+  br i1 %exitcond.not, label %91, label %103, !llvm.loop !314
 
-114:                                              ; preds = %54
-  %115 = add nuw nsw i64 %indvars.iv436, 2
+116:                                              ; preds = %57
+  %117 = add nuw nsw i64 %indvars.iv436, 2
   tail call void @llvm.assume(i1 %33)
-  %116 = icmp samesign ult i64 %115, %52
-  tail call void @llvm.assume(i1 %116)
-  %117 = mul nuw nsw i64 %115, %49
-  %118 = add nuw nsw i64 %117, %50
-  %119 = icmp samesign ule i64 %118, %51
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i16, ptr %8, i64 %117
-  %121 = getelementptr inbounds nuw i16, ptr %120, i64 %34
-  %122 = load i16, ptr %121, align 2, !tbaa !221
-  %123 = zext i16 %122 to i32
-  %124 = add nsw i64 %indvars.iv436, -2
-  %125 = icmp samesign ult i64 %124, %52
-  tail call void @llvm.assume(i1 %125)
-  %126 = mul nuw nsw i64 %124, %53
-  %127 = trunc i64 %126 to i32
-  %128 = add i32 %13, %127
-  %129 = icmp samesign ule i32 %128, %19
-  tail call void @llvm.assume(i1 %129)
-  %130 = getelementptr inbounds nuw i16, ptr %8, i64 %126
-  %131 = getelementptr inbounds nuw i16, ptr %130, i64 %34
-  %132 = load i16, ptr %131, align 2, !tbaa !221
-  %133 = zext i16 %132 to i32
-  %134 = add nuw nsw i32 %133, %123
+  %118 = icmp samesign ult i64 %117, %56
+  tail call void @llvm.assume(i1 %118)
+  %119 = mul nuw nsw i64 %117, %49
+  %120 = add nuw nsw i64 %119, %50
+  %121 = icmp samesign ule i64 %120, %51
+  tail call void @llvm.assume(i1 %121)
+  %122 = getelementptr inbounds nuw i16, ptr %8, i64 %119
+  %123 = getelementptr inbounds nuw i16, ptr %122, i64 %34
+  %124 = load i16, ptr %123, align 2, !tbaa !221
+  %125 = zext i16 %124 to i32
+  %126 = add nsw i64 %indvars.iv436, -2
+  %127 = icmp samesign ult i64 %126, %52
+  tail call void @llvm.assume(i1 %127)
+  %128 = mul nuw nsw i64 %126, %53
+  %129 = add nuw nsw i64 %128, %54
+  %130 = icmp samesign ule i64 %129, %55
+  tail call void @llvm.assume(i1 %130)
+  %131 = getelementptr inbounds nuw i16, ptr %8, i64 %128
+  %132 = getelementptr inbounds nuw i16, ptr %131, i64 %34
+  %133 = load i16, ptr %132, align 2, !tbaa !221
+  %134 = zext i16 %133 to i32
+  %135 = add nuw nsw i32 %134, %125
   tail call void @llvm.assume(i1 %36)
-  %135 = getelementptr inbounds nuw i16, ptr %120, i64 %37
-  %136 = load i16, ptr %135, align 2, !tbaa !221
-  %137 = zext i16 %136 to i32
-  %138 = add nuw nsw i32 %134, %137
-  %139 = getelementptr inbounds nuw i16, ptr %130, i64 %37
-  %140 = load i16, ptr %139, align 2, !tbaa !221
-  %141 = zext i16 %140 to i32
-  %142 = add nuw nsw i32 %138, %141
-  %143 = mul nuw nsw i64 %indvars.iv436, %49
-  %144 = add nuw nsw i64 %143, %50
-  %145 = icmp samesign ule i64 %144, %51
-  tail call void @llvm.assume(i1 %145)
-  %146 = getelementptr inbounds nuw i16, ptr %8, i64 %143
-  %147 = getelementptr inbounds nuw i16, ptr %146, i64 %34
-  %148 = load i16, ptr %147, align 2, !tbaa !221
-  %149 = zext i16 %148 to i32
-  %150 = getelementptr inbounds nuw i16, ptr %146, i64 %37
-  %151 = load i16, ptr %150, align 2, !tbaa !221
-  %152 = zext i16 %151 to i32
-  %153 = add nuw nsw i32 %152, %149
-  %154 = uitofp nneg i32 %142 to double
-  %155 = uitofp nneg i32 %153 to double
-  %156 = fmul double %155, 0x3FD6A09E7098EF50
-  %157 = tail call double @llvm.fmuladd.f64(double %154, double 7.322330e-02, double %156)
-  %158 = tail call i64 @lround(double noundef %157) #25, !tbaa !30
-  %159 = trunc i64 %158 to i16
+  %136 = getelementptr inbounds nuw i16, ptr %122, i64 %37
+  %137 = load i16, ptr %136, align 2, !tbaa !221
+  %138 = zext i16 %137 to i32
+  %139 = add nuw nsw i32 %135, %138
+  %140 = getelementptr inbounds nuw i16, ptr %131, i64 %37
+  %141 = load i16, ptr %140, align 2, !tbaa !221
+  %142 = zext i16 %141 to i32
+  %143 = add nuw nsw i32 %139, %142
+  %144 = mul nuw nsw i64 %indvars.iv436, %49
+  %145 = add nuw nsw i64 %144, %50
+  %146 = icmp samesign ule i64 %145, %51
+  tail call void @llvm.assume(i1 %146)
+  %147 = getelementptr inbounds nuw i16, ptr %8, i64 %144
+  %148 = getelementptr inbounds nuw i16, ptr %147, i64 %34
+  %149 = load i16, ptr %148, align 2, !tbaa !221
+  %150 = zext i16 %149 to i32
+  %151 = getelementptr inbounds nuw i16, ptr %147, i64 %37
+  %152 = load i16, ptr %151, align 2, !tbaa !221
+  %153 = zext i16 %152 to i32
+  %154 = add nuw nsw i32 %153, %150
+  %155 = uitofp nneg i32 %143 to double
+  %156 = uitofp nneg i32 %154 to double
+  %157 = fmul double %156, 0x3FD6A09E7098EF50
+  %158 = tail call double @llvm.fmuladd.f64(double %155, double 7.322330e-02, double %157)
+  %159 = tail call i64 @lround(double noundef %158) #25, !tbaa !30
+  %160 = trunc i64 %159 to i16
   tail call void @llvm.assume(i1 %38)
-  %160 = getelementptr inbounds nuw i16, ptr %146, i64 %39
-  store i16 %159, ptr %160, align 2, !tbaa !221
+  %161 = getelementptr inbounds nuw i16, ptr %147, i64 %39
+  store i16 %160, ptr %161, align 2, !tbaa !221
   %.pre = add nuw nsw i64 %indvars.iv436, 1
-  br label %161
+  br label %162
 
-161:                                              ; preds = %89, %114
-  %indvars.iv.next437.pre-phi = phi i64 [ %71, %89 ], [ %.pre, %114 ]
-  %162 = load ptr, ptr %5, align 8, !tbaa !110
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 44
-  %164 = load i32, ptr %163, align 4, !tbaa !229
-  %165 = add nsw i32 %164, -2
-  %166 = sext i32 %165 to i64
-  %167 = icmp slt i64 %indvars.iv.next437.pre-phi, %166
-  br i1 %167, label %54, label %._crit_edge, !llvm.loop !315
+162:                                              ; preds = %91, %116
+  %indvars.iv.next437.pre-phi = phi i64 [ %73, %91 ], [ %.pre, %116 ]
+  %163 = load ptr, ptr %5, align 8, !tbaa !110
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 44
+  %165 = load i32, ptr %164, align 4, !tbaa !229
+  %166 = add nsw i32 %165, -2
+  %167 = sext i32 %166 to i64
+  %168 = icmp slt i64 %indvars.iv.next437.pre-phi, %167
+  br i1 %168, label %57, label %._crit_edge, !llvm.loop !315
 }
 
 ; Function Attrs: mustprogress uwtable
