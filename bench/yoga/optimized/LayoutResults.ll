@@ -211,23 +211,23 @@ land.lhs.true14:                                  ; preds = %_ZN8facebook4yoga13
   %bf.load.i79 = load i8, ptr %direction_.i78, align 4
   %20 = xor i8 %bf.load.i79, %bf.load.i
   %21 = and i8 %20, 7
-  %or.cond130 = icmp eq i8 %21, 0
-  br i1 %or.cond130, label %land.lhs.true22, label %for.end
+  %cmp = icmp eq i8 %21, 0
+  br i1 %cmp, label %land.lhs.true17, label %for.end
 
-land.lhs.true22:                                  ; preds = %land.lhs.true14
+land.lhs.true17:                                  ; preds = %land.lhs.true14
   %lastOwnerDirection = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %22 = load i8, ptr %lastOwnerDirection, align 4
+  %25 = load i8, ptr %lastOwnerDirection, align 4
   %lastOwnerDirection23 = getelementptr inbounds nuw i8, ptr %layout, i64 12
-  %23 = load i8, ptr %lastOwnerDirection23, align 4
-  %cmp24 = icmp eq i8 %22, %23
+  %26 = load i8, ptr %lastOwnerDirection23, align 4
+  %cmp24 = icmp eq i8 %25, %26
   br i1 %cmp24, label %land.lhs.true25, label %for.end
 
 land.lhs.true25:                                  ; preds = %land.lhs.true22
   %nextCachedMeasurementsIndex = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %24 = load i32, ptr %nextCachedMeasurementsIndex, align 4
+  %27 = load i32, ptr %nextCachedMeasurementsIndex, align 4
   %nextCachedMeasurementsIndex26 = getelementptr inbounds nuw i8, ptr %layout, i64 16
-  %25 = load i32, ptr %nextCachedMeasurementsIndex26, align 8
-  %cmp27 = icmp eq i32 %24, %25
+  %28 = load i32, ptr %nextCachedMeasurementsIndex26, align 8
+  %cmp27 = icmp eq i32 %27, %28
   br i1 %cmp27, label %land.lhs.true28, label %for.end
 
 land.lhs.true28:                                  ; preds = %land.lhs.true25
@@ -248,8 +248,8 @@ land.rhs:                                         ; preds = %land.lhs.true28
 lor.rhs.i:                                        ; preds = %land.rhs
   %cmp.i.i.i86 = fcmp uno float %agg.tmp31.sroa.0.0.copyload, 0.000000e+00
   %cmp.i.i1.i = fcmp uno float %agg.tmp32.sroa.0.0.copyload, 0.000000e+00
-  %or.cond136 = and i1 %cmp.i.i.i86, %cmp.i.i1.i
-  br i1 %or.cond136, label %land.rhs40.lr.ph, label %for.end
+  %or.cond135 = and i1 %cmp.i.i.i86, %cmp.i.i1.i
+  br i1 %or.cond135, label %land.rhs40.lr.ph, label %for.end
 
 land.rhs40.lr.ph:                                 ; preds = %lor.rhs.i, %land.rhs
   %cachedMeasurements = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -272,53 +272,53 @@ land.rhs40:                                       ; preds = %land.rhs40.lr.ph, %
   %agg.tmp43.sroa.6.0.arrayidx.i.i87.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i87, i64 20
   %agg.tmp43.sroa.6.0.copyload = load float, ptr %agg.tmp43.sroa.6.0.arrayidx.i.i87.sroa_idx, align 8
   %widthSizingMode.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
-  %26 = load i32, ptr %widthSizingMode.i, align 4
-  %cmp.i89 = icmp eq i32 %26, %agg.tmp43.sroa.3.0.copyload
+  %29 = load i32, ptr %widthSizingMode.i, align 4
+  %cmp.i89 = icmp eq i32 %29, %agg.tmp43.sroa.3.0.copyload
   %heightSizingMode.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 12
-  %27 = load i32, ptr %heightSizingMode.i, align 4
-  %cmp4.i = icmp eq i32 %27, %agg.tmp43.sroa.4.0.copyload
-  %28 = select i1 %cmp.i89, i1 %cmp4.i, i1 false
-  %29 = load float, ptr %arrayidx.i.i, align 4
-  %cmp.i.i90 = fcmp uno float %29, 0.000000e+00
+  %30 = load i32, ptr %heightSizingMode.i, align 4
+  %cmp4.i = icmp eq i32 %30, %agg.tmp43.sroa.4.0.copyload
+  %31 = select i1 %cmp.i89, i1 %cmp4.i, i1 false
+  %32 = load float, ptr %arrayidx.i.i, align 4
+  %cmp.i.i90 = fcmp uno float %32, 0.000000e+00
   %cmp.i5.i = fcmp uno float %agg.tmp43.sroa.0.0.copyload, 0.000000e+00
   %or.cond17.i = select i1 %cmp.i.i90, i1 %cmp.i5.i, i1 false
   br i1 %or.cond17.i, label %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs40
-  %cmp10.i = fcmp oeq float %29, %agg.tmp43.sroa.0.0.copyload
-  %narrow.i = select i1 %28, i1 %cmp10.i, i1 false
+  %cmp10.i = fcmp oeq float %32, %agg.tmp43.sroa.0.0.copyload
+  %narrow.i = select i1 %31, i1 %cmp10.i, i1 false
   br label %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit
 
 _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %land.rhs40, %if.then.i
-  %isEqual.0.in.i = phi i1 [ %narrow.i, %if.then.i ], [ %28, %land.rhs40 ]
+  %isEqual.0.in.i = phi i1 [ %narrow.i, %if.then.i ], [ %31, %land.rhs40 ]
   %availableHeight.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
-  %30 = load float, ptr %availableHeight.i, align 4
-  %cmp.i6.i = fcmp uno float %30, 0.000000e+00
+  %33 = load float, ptr %availableHeight.i, align 4
+  %cmp.i6.i = fcmp uno float %33, 0.000000e+00
   %cmp.i7.i = fcmp uno float %agg.tmp43.sroa.2.0.copyload, 0.000000e+00
   %or.cond.i = select i1 %cmp.i6.i, i1 %cmp.i7.i, i1 false
-  %cmp22.i = fcmp oeq float %30, %agg.tmp43.sroa.2.0.copyload
+  %cmp22.i = fcmp oeq float %33, %agg.tmp43.sroa.2.0.copyload
   %narrow14.i = select i1 %isEqual.0.in.i, i1 %cmp22.i, i1 false
   %isEqual.1.v.i = select i1 %or.cond.i, i1 %isEqual.0.in.i, i1 %narrow14.i
   %computedWidth.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
-  %31 = load float, ptr %computedWidth.i, align 4
-  %cmp.i8.i = fcmp uno float %31, 0.000000e+00
+  %34 = load float, ptr %computedWidth.i, align 4
+  %cmp.i8.i = fcmp uno float %34, 0.000000e+00
   %cmp.i9.i = fcmp uno float %agg.tmp43.sroa.5.0.copyload, 0.000000e+00
   %or.cond12.i = select i1 %cmp.i8.i, i1 %cmp.i9.i, i1 false
-  %cmp35.i = fcmp oeq float %31, %agg.tmp43.sroa.5.0.copyload
+  %cmp35.i = fcmp oeq float %34, %agg.tmp43.sroa.5.0.copyload
   %narrow15.i = select i1 %isEqual.1.v.i, i1 %cmp35.i, i1 false
   %isEqual.2.v.i = select i1 %or.cond12.i, i1 %isEqual.1.v.i, i1 %narrow15.i
   %computedHeight.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 20
-  %32 = load float, ptr %computedHeight.i, align 4
-  %cmp.i10.i = fcmp uno float %32, 0.000000e+00
+  %35 = load float, ptr %computedHeight.i, align 4
+  %cmp.i10.i = fcmp uno float %35, 0.000000e+00
   %cmp.i11.i = fcmp uno float %agg.tmp43.sroa.6.0.copyload, 0.000000e+00
   %or.cond13.i = select i1 %cmp.i10.i, i1 %cmp.i11.i, i1 false
-  %cmp48.i = fcmp oeq float %32, %agg.tmp43.sroa.6.0.copyload
+  %cmp48.i = fcmp oeq float %35, %agg.tmp43.sroa.6.0.copyload
   %narrow16.i = select i1 %isEqual.2.v.i, i1 %cmp48.i, i1 false
   %isEqual.3.v.i = select i1 %or.cond13.i, i1 %isEqual.2.v.i, i1 %narrow16.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp36 = icmp samesign ult i64 %indvars.iv, 7
-  %33 = select i1 %cmp36, i1 %isEqual.3.v.i, i1 false
-  br i1 %33, label %land.rhs40, label %for.end.loopexit, !llvm.loop !7
+  %36 = select i1 %cmp36, i1 %isEqual.3.v.i, i1 false
+  br i1 %36, label %land.rhs40, label %for.end.loopexit, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit
   %frombool49 = zext i1 %isEqual.3.v.i to i8
@@ -328,14 +328,14 @@ for.end:                                          ; preds = %if.end.i.i, %if.end
   %isEqual.0.lcssa = phi i8 [ %frombool49, %for.end.loopexit ], [ 0, %land.lhs.true28 ], [ 0, %land.lhs.true25 ], [ 0, %land.lhs.true22 ], [ 0, %land.lhs.true14 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ 0, %lor.rhs.i ], [ 0, %if.end.i.i65 ], [ 0, %if.end.i.i47 ], [ 0, %if.end.i.i29 ], [ 0, %if.end.i.i14 ], [ 0, %if.end.i.i ]
   %tobool.lcssa = phi i1 [ %isEqual.3.v.i, %for.end.loopexit ], [ false, %land.lhs.true28 ], [ false, %land.lhs.true25 ], [ false, %land.lhs.true22 ], [ false, %land.lhs.true14 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %lor.rhs.i ], [ false, %if.end.i.i65 ], [ false, %if.end.i.i47 ], [ false, %if.end.i.i29 ], [ false, %if.end.i.i14 ], [ false, %if.end.i.i ]
   %measuredDimensions_ = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %34 = load float, ptr %measuredDimensions_, align 4
-  %cmp.i92 = fcmp uno float %34, 0.000000e+00
+  %37 = load float, ptr %measuredDimensions_, align 4
+  %cmp.i92 = fcmp uno float %37, 0.000000e+00
   br i1 %cmp.i92, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %for.end
   %measuredDimensions_52 = getelementptr inbounds nuw i8, ptr %layout, i64 248
-  %35 = load float, ptr %measuredDimensions_52, align 8
-  %cmp.i94 = fcmp ord float %35, 0.000000e+00
+  %38 = load float, ptr %measuredDimensions_52, align 8
+  %cmp.i94 = fcmp ord float %38, 0.000000e+00
   %brmerge.not = select i1 %cmp.i94, i1 %tobool.lcssa, i1 false
   %isEqual.0.mux = select i1 %cmp.i94, i8 0, i8 %isEqual.0.lcssa
   br i1 %brmerge.not, label %land.rhs56, label %if.end
@@ -349,19 +349,19 @@ if.then.land.rhs56_crit_edge:                     ; preds = %if.then
   br label %land.rhs56
 
 land.rhs56:                                       ; preds = %if.then.land.rhs56_crit_edge, %lor.lhs.false
-  %36 = phi float [ %.pre, %if.then.land.rhs56_crit_edge ], [ %35, %lor.lhs.false ]
-  %cmp61 = fcmp oeq float %34, %36
-  %37 = zext i1 %cmp61 to i8
+  %39 = phi float [ %.pre, %if.then.land.rhs56_crit_edge ], [ %38, %lor.lhs.false ]
+  %cmp61 = fcmp oeq float %37, %39
+  %40 = zext i1 %cmp61 to i8
   br label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false, %if.then, %land.rhs56
-  %isEqual.1 = phi i8 [ %isEqual.0.mux, %lor.lhs.false ], [ 0, %if.then ], [ %37, %land.rhs56 ]
+  %isEqual.1 = phi i8 [ %isEqual.0.mux, %lor.lhs.false ], [ 0, %if.then ], [ %40, %land.rhs56 ]
   %arrayidx.i.i97 = getelementptr inbounds nuw i8, ptr %this, i64 252
-  %38 = load float, ptr %arrayidx.i.i97, align 4
-  %cmp.i98 = fcmp uno float %38, 0.000000e+00
+  %41 = load float, ptr %arrayidx.i.i97, align 4
+  %cmp.i98 = fcmp uno float %41, 0.000000e+00
   %arrayidx.i.i99 = getelementptr inbounds nuw i8, ptr %layout, i64 252
-  %39 = load float, ptr %arrayidx.i.i99, align 4
-  %cmp.i100 = fcmp uno float %39, 0.000000e+00
+  %42 = load float, ptr %arrayidx.i.i99, align 4
+  %cmp.i100 = fcmp uno float %42, 0.000000e+00
   %or.cond = select i1 %cmp.i98, i1 %cmp.i100, i1 false
   br i1 %or.cond, label %if.end81, label %if.then71
 
@@ -370,12 +370,12 @@ if.then71:                                        ; preds = %if.end
   br i1 %tobool72, label %land.rhs73, label %if.end81
 
 land.rhs73:                                       ; preds = %if.then71
-  %cmp78 = fcmp oeq float %38, %39
-  %40 = zext i1 %cmp78 to i8
+  %cmp78 = fcmp oeq float %41, %42
+  %43 = zext i1 %cmp78 to i8
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end, %if.then71, %land.rhs73
-  %isEqual.2 = phi i8 [ 0, %if.then71 ], [ %40, %land.rhs73 ], [ %isEqual.1, %if.end ]
+  %isEqual.2 = phi i8 [ 0, %if.then71 ], [ %43, %land.rhs73 ], [ %isEqual.1, %if.end ]
   %tobool82 = trunc nuw i8 %isEqual.2 to i1
   ret i1 %tobool82
 }

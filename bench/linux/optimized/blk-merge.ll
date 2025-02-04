@@ -1369,10 +1369,10 @@ define internal fastcc noundef ptr @attempt_merge(ptr noundef %0, ptr noundef %1
 37:                                               ; preds = %33
   %38 = xor i32 %20, %5
   %39 = and i32 %38, 1
-  %.not = icmp eq i32 %39, 0
+  %40 = icmp eq i32 %39, 0
   br i1 %.not, label %40, label %.thread
 
-40:                                               ; preds = %37
+40: ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %42 = load i16, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 124
@@ -1380,12 +1380,12 @@ define internal fastcc noundef ptr @attempt_merge(ptr noundef %0, ptr noundef %1
   %45 = icmp eq i16 %42, %44
   br i1 %45, label %46, label %.thread
 
-46:                                               ; preds = %40
-  %47 = icmp eq i32 %34, 3
-  br i1 %47, label %48, label %53
+43:                                               ; preds = %40
+  %44 = icmp eq i32 %91, 3
+  br i1 %44, label %48, label %53
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %1, align 8
+48:   ; preds = %46
+  %48 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 224
   %51 = load i16, ptr %50, align 8
   %52 = icmp ugt i16 %51, 1
@@ -1393,99 +1393,99 @@ define internal fastcc noundef ptr @attempt_merge(ptr noundef %0, ptr noundef %1
 
 53:                                               ; preds = %48, %46
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %57 = load i32, ptr %56, align 4
-  %58 = lshr i32 %57, 9
+  %52 = load i64, ptr %54, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %54 = load i32, ptr %53, align 4
+  %55 = lshr i32 %54, 9
   %59 = zext nneg i32 %58 to i64
   %60 = add i64 %55, %59
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %62 = load i64, ptr %61, align 8
-  %63 = icmp eq i64 %60, %62
-  br i1 %63, label %66, label %.thread
+  %57 = load i64, ptr %61, align 8
+  %58 = icmp eq i64 %60, %57
+  br i1 %58, label %66, label %.thread
 
-64:                                               ; preds = %48
-  %65 = tail call fastcc zeroext i1 @req_attempt_discard_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br i1 %65, label %69, label %.thread
+64:; preds = %49
+  %62 = tail call fastcc zeroext i1 @req_attempt_discard_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br i1 %57, label %69, label %.thread
 
-66:                                               ; preds = %53
-  %67 = tail call fastcc i32 @ll_merge_requests_fn(ptr noundef %1, ptr noundef %2)
+66:; preds = %53
+  %66 = tail call fastcc i32 @ll_merge_requests_fn(ptr noundef %1, ptr noundef %2)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %.thread, label %69
 
-69:                                               ; preds = %66, %64
+69:; preds = %66, %64
   %70 = load i32, ptr %14, align 4
   %71 = load i32, ptr %29, align 4
   %72 = or i32 %71, %70
-  %73 = and i32 %72, 32
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %81
+  %70 = and i32 %72, 32
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %75, label %78
 
-75:                                               ; preds = %69
-  %76 = load i32, ptr %4, align 8
-  %77 = load i32, ptr %19, align 8
-  %78 = xor i32 %77, %76
-  %79 = and i32 %78, 1792
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %82, label %81
+72:                                               ; preds = %69
+  %73 = load i32, ptr %4, align 8
+  %74 = load i32, ptr %19, align 8
+  %75 = xor i32 %74, %73
+  %76 = and i32 %75, 1792
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %82, label %81
 
-81:                                               ; preds = %75, %69
+78:                                               ; preds = %72, %69
   tail call void @blk_rq_set_mixed_merge(ptr noundef %1)
   tail call void @blk_rq_set_mixed_merge(ptr noundef %2)
-  br label %82
+  br label %85
 
-82:                                               ; preds = %81, %75
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %86 = load i64, ptr %85, align 8
-  %87 = icmp ult i64 %84, %86
-  br i1 %87, label %88, label %89
+85:                                               ; preds = %81, %75
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %87 = load i64, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %89 = load i64, ptr %88, align 8
+  %90 = icmp ult i64 %87, %89
+  br i1 %90, label %91, label %92
 
-88:                                               ; preds = %82
-  store i64 %84, ptr %85, align 8
-  br label %89
+91:                                               ; preds = %85
+  store i64 %87, ptr %88, align 8
+  br label %92
 
-89:                                               ; preds = %88, %82
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %93 = load ptr, ptr %92, align 8
-  store ptr %91, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %92, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %99 = load i32, ptr %98, align 4
-  %100 = add i32 %99, %97
-  store i32 %100, ptr %98, align 4
-  %101 = load i32, ptr %4, align 8
-  %102 = and i32 %101, 255
-  %103 = icmp eq i32 %102, 3
-  br i1 %103, label %104, label %109
+92:                                               ; preds = %91, %85
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %96 = load ptr, ptr %95, align 8
+  store ptr %94, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %98 = load ptr, ptr %97, align 8
+  store ptr %98, ptr %95, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %100 = load i32, ptr %99, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %102 = load i32, ptr %101, align 4
+  %103 = add i32 %102, %100
+  store i32 %103, ptr %101, align 4
+  %104 = load i32, ptr %4, align 8
+  %105 = and i32 %104, 255
+  %106 = icmp eq i32 %105, 3
+  br i1 %106, label %107, label %112
 
-104:                                              ; preds = %89
-  %105 = load ptr, ptr %1, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 224
-  %107 = load i16, ptr %106, align 8
-  %108 = icmp ugt i16 %107, 1
-  br i1 %108, label %110, label %109
+107:                                              ; preds = %92
+  %108 = load ptr, ptr %1, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 224
+  %110 = load i16, ptr %109, align 8
+  %111 = icmp ugt i16 %110, 1
+  br i1 %111, label %113, label %112
 
-109:                                              ; preds = %104, %89
+112:                                              ; preds = %107, %92
   tail call void @elv_merge_requests(ptr noundef %0, ptr noundef %1, ptr noundef %2) #14
-  br label %110
+  br label %113
 
-110:                                              ; preds = %109, %104
+113:                                              ; preds = %112, %107
   tail call fastcc void @blk_account_io_merge_request(ptr noundef %2)
   tail call fastcc void @trace_block_rq_merge(ptr noundef %2)
-  store ptr null, ptr %90, align 8
+  store ptr null, ptr %93, align 8
   br label %.thread
 
-.thread:                                          ; preds = %53, %110, %66, %64, %40, %37, %33, %28, %25, %23, %23, %23, %18, %13, %10, %8, %8, %8, %3
-  %111 = phi ptr [ %2, %110 ], [ null, %28 ], [ null, %13 ], [ null, %33 ], [ null, %37 ], [ null, %40 ], [ null, %64 ], [ null, %66 ], [ null, %10 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %3 ], [ null, %25 ], [ null, %23 ], [ null, %23 ], [ null, %23 ], [ null, %18 ], [ null, %53 ]
-  ret ptr %111
+.thread:                                          ; preds = %53, %113, %66, %64, %40, %37, %33, %28, %25, %23, %23, %23, %18, %13, %10, %8, %8, %8, %3
+  %114 = phi ptr [ %2, %113 ], [ null, %28 ], [ null, %13 ], [ null, %33 ], [ null, %37 ], [ null, %40 ], [ null, %64 ], [ null, %66 ], [ null, %10 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %3 ], [ null, %25 ], [ null, %23 ], [ null, %23 ], [ null, %23 ], [ null, %18 ], [ null, %53 ]
+  ret ptr %114
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
@@ -1526,40 +1526,40 @@ define dso_local zeroext i1 @blk_rq_merge_ok(ptr noundef readonly captures(none)
 22:                                               ; preds = %17
   %23 = xor i32 %19, %4
   %24 = and i32 %23, 255
-  %or.cond = icmp eq i32 %24, 0
-  br i1 %or.cond, label %25, label %47
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %47
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 72
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %29, %31
   br i1 %32, label %33, label %47
 
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = and i32 %35, 16781312
-  %37 = icmp ne i32 %36, 0
-  %38 = and i32 %19, 16781312
+33:; preds = %25
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %36 = load i32, ptr %35, align 8
+  %37 = and i32 %35, 16781312
+  %38 = icmp ne i32 %37, 0
+  %39 = and i32 %19, 16781312
   %39 = icmp eq i32 %38, 0
   %40 = xor i1 %39, %37
   br i1 %40, label %41, label %47
 
-41:                                               ; preds = %33
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %43 = load i16, ptr %42, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  %45 = load i16, ptr %44, align 2
-  %46 = icmp eq i16 %43, %45
-  br label %47
+41:; preds = %33
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %44 = load i16, ptr %43, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 22
+  %46 = load i16, ptr %45, align 2
+  %47 = icmp eq i16 %43, %45
+  br label %44
 
-47:                                               ; preds = %41, %33, %25, %22, %17, %12, %9, %7, %7, %7, %2
-  %48 = phi i1 [ false, %17 ], [ false, %12 ], [ false, %22 ], [ false, %33 ], [ %46, %41 ], [ false, %9 ], [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %2 ], [ false, %25 ]
-  ret i1 %48
+48:                                               ; preds = %41, %90, %25, %22, %17, %12, %9, %7, %7, %7, %2
+  %49 = phi i1 [ false, %17 ], [ false, %12 ], [ false, %22 ], [ false, %33 ], [ %46, %41 ], [ false, %9 ], [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %2 ], [ false, %25 ]
+  ret i1 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
@@ -1691,22 +1691,22 @@ define internal fastcc noundef range(i32 0, 3) i32 @blk_attempt_bio_merge(ptr no
 25:                                               ; preds = %20
   %26 = xor i32 %22, %7
   %27 = and i32 %26, 255
-  %or.cond = icmp eq i32 %27, 0
-  br i1 %or.cond, label %28, label %104
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %104
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %32, %34
+85:                                               ; preds = %25
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 72
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %91 = load ptr, ptr %90, align 8
+  %35 = icmp eq ptr %89, %34
   br i1 %35, label %36, label %104
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %38 = load i32, ptr %37, align 8
+111:                                              ; preds = %29
+  %112 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %38 = load i32, ptr %112, align 8
   %39 = and i32 %38, 16781312
   %40 = icmp ne i32 %39, 0
   %41 = and i32 %22, 16781312

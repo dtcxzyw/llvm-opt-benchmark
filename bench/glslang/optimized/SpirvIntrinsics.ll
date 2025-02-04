@@ -344,13 +344,13 @@ _ZNK7glslang5TType15sameElementTypeERKS0_PiS3_.exit: ; preds = %15
   %.not16.i = icmp eq i32 %28, 14
   %29 = and i32 %24, 255
   %.not17.i = icmp eq i32 %29, 14
-  %or.cond = or i1 %.not16.i, %.not17.i
+  %30 = or i1 %.not16.i, %.not17.i
   br i1 %or.cond, label %30, label %._crit_edge.i17
 
-30:                                               ; preds = %_ZNK7glslang5TType15sameElementTypeERKS0_PiS3_.exit
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 128
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 128
-  %33 = load i32, ptr %31, align 4
+30:; preds = %_ZNK7glslang5TType15sameElementTypeERKS0_PiS3_.exit
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 128
+  %brmerge10.i = load i32, ptr %31, align 4
   %34 = load i32, ptr %32, align 4
   %35 = xor i32 %34, %33
   %36 = and i32 %35, 2147483647
@@ -359,30 +359,30 @@ _ZNK7glslang5TType15sameElementTypeERKS0_PiS3_.exit: ; preds = %15
   %or.cond19 = icmp eq i32 %38, 0
   br i1 %or.cond19, label %39, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-._crit_edge.i17:                                  ; preds = %_ZNK7glslang5TType15sameElementTypeERKS0_PiS3_.exit
-  %.old = and i32 %25, 8388352
-  %or.cond29.i.old = icmp eq i32 %.old, 0
-  br i1 %or.cond29.i.old, label %39, label %_ZNK7glslang5TTypeeqERKS0_.exit
+._crit_edge.i17:; preds = %_ZNK7glslang5TType15sameElementTypeERKS0_PiS3_.exit
+  %41 = and i32 %74, 8388352
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-39:                                               ; preds = %30, %._crit_edge.i17
-  %40 = tail call noundef zeroext i1 @_ZNK7glslang5TType14sameStructTypeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %.0.i6, ptr noundef nonnull align 8 dereferenceable(152) %.0.i7, ptr noundef null, ptr noundef null)
+43:                                               ; preds = %30, %._crit_edge.i17
+  %.pre.i = tail call noundef zeroext i1 @_ZNK7glslang5TType14sameStructTypeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %.0.i6, ptr noundef nonnull align 8 dereferenceable(152) %.0.i7, ptr noundef null, ptr noundef null)
   br i1 %40, label %_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_.exit, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_.exit: ; preds = %39
-  %41 = tail call noundef zeroext i1 @_ZNK7glslang5TType17sameReferenceTypeERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %.0.i6, ptr noundef nonnull align 8 dereferenceable(152) %.0.i7)
-  br i1 %41, label %42, label %_ZNK7glslang5TTypeeqERKS0_.exit
+_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_.exit:; preds = %43
+  %47 = tail call noundef zeroext i1 @_ZNK7glslang5TType17sameReferenceTypeERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %.0.i6, ptr noundef nonnull align 8 dereferenceable(152) %.0.i7)
+  br i1 %47, label %42, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-42:                                               ; preds = %_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_.exit
+42:; preds = %_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_.exit
   %43 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   %46 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 96
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
-  %brmerge10.i = select i1 %45, i1 true, i1 %48
-  br i1 %brmerge10.i, label %_ZNK7glslang5TType13sameArraynessERKS0_.exit, label %49
+  %52 = select i1 %45, i1 true, i1 %48
+  br i1 %52, label %_ZNK7glslang5TType13sameArraynessERKS0_.exit, label %49
 
-49:                                               ; preds = %42
+49: ; preds = %42
   %50 = tail call noundef zeroext i1 @_ZNK7glslang17TSmallArrayVectoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(22) %44, ptr noundef nonnull align 8 dereferenceable(22) %47)
   br i1 %50, label %_ZNK7glslang5TType13sameArraynessERKS0_.exit.thread, label %51
 
@@ -418,78 +418,78 @@ _ZNK7glslang5TType13sameArraynessERKS0_.exit:     ; preds = %42
   br i1 %.mux.mux.i, label %_ZNK7glslang5TType13sameArraynessERKS0_.exit.thread, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
 _ZNK7glslang5TType13sameArraynessERKS0_.exit.thread: ; preds = %49, %56, %64, %_ZNK7glslang5TType13sameArraynessERKS0_.exit
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 136
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 136
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  %or.cond.i8 = select i1 %70, i1 %73, i1 false
-  br i1 %or.cond.i8, label %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13, label %74
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 136
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 136
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  %or.cond.i8 = select i1 %57, i1 %60, i1 false
+  br i1 %or.cond.i8, label %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13, label %61
 
-74:                                               ; preds = %_ZNK7glslang5TType13sameArraynessERKS0_.exit.thread
-  %brmerge = select i1 %70, i1 true, i1 %73
-  br i1 %brmerge, label %_ZNK7glslang5TTypeeqERKS0_.exit, label %75
+61:                                               ; preds = %_ZNK7glslang5TType13sameArraynessERKS0_.exit.thread
+  %brmerge = select i1 %57, i1 true, i1 %60
+  br i1 %brmerge, label %_ZNK7glslang5TTypeeqERKS0_.exit, label %62
 
-75:                                               ; preds = %74
-  %76 = load i32, ptr %69, align 8
-  %77 = load i32, ptr %72, align 8
-  %78 = icmp eq i32 %76, %77
-  br i1 %78, label %79, label %_ZNK7glslang5TTypeeqERKS0_.exit
+62:                                               ; preds = %61
+  %63 = load i32, ptr %56, align 8
+  %64 = load i32, ptr %59, align 8
+  %65 = icmp eq i32 %63, %64
+  br i1 %65, label %66, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call noundef zeroext i1 @_ZNK7glslang17TSmallArrayVectoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(22) %81, ptr noundef nonnull align 8 dereferenceable(22) %83)
-  %85 = load i32, ptr %69, align 8
-  %86 = icmp eq i32 %85, 22
-  %or.cond.i.i = select i1 %84, i1 %86, i1 false
-  br i1 %or.cond.i.i, label %87, label %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call noundef zeroext i1 @_ZNK7glslang17TSmallArrayVectoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(22) %68, ptr noundef nonnull align 8 dereferenceable(22) %70)
+  %72 = load i32, ptr %56, align 8
+  %73 = icmp eq i32 %72, 22
+  %or.cond.i.i = select i1 %71, i1 %73, i1 false
+  br i1 %or.cond.i.i, label %74, label %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit
 
-87:                                               ; preds = %79
-  %88 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %91 = load ptr, ptr %90, align 8
-  %92 = tail call noundef zeroext i1 @_ZNK7glslang10TSpirvTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %89, ptr noundef nonnull align 8 dereferenceable(80) %91)
-  br i1 %92, label %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13, label %_ZNK7glslang5TTypeeqERKS0_.exit
+74:                                               ; preds = %66
+  %75 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call noundef zeroext i1 @_ZNK7glslang10TSpirvTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %76, ptr noundef nonnull align 8 dereferenceable(80) %78)
+  br i1 %79, label %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-_ZNK7glslang5TType18sameTypeParametersERKS0_.exit: ; preds = %79
-  br i1 %84, label %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13, label %_ZNK7glslang5TTypeeqERKS0_.exit
+_ZNK7glslang5TType18sameTypeParametersERKS0_.exit: ; preds = %66
+  br i1 %71, label %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13: ; preds = %_ZNK7glslang5TType13sameArraynessERKS0_.exit.thread, %87, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit
-  %93 = load i32, ptr %21, align 8
-  %94 = load i32, ptr %23, align 8
-  %95 = xor i32 %94, %93
-  %96 = and i32 %95, 58720256
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %_ZNK7glslang5TTypeeqERKS0_.exit
+_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13: ; preds = %_ZNK7glslang5TType13sameArraynessERKS0_.exit.thread, %74, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit
+  %80 = load i32, ptr %21, align 8
+  %81 = load i32, ptr %23, align 8
+  %82 = xor i32 %81, %80
+  %83 = and i32 %82, 58720256
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-98:                                               ; preds = %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 144
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %100, null
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 144
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, null
-  %brmerge15 = select i1 %101, i1 true, i1 %104
-  %.mux.mux = select i1 %101, i1 %104, i1 false
-  br i1 %brmerge15, label %_ZNK7glslang5TTypeeqERKS0_.exit, label %105
+85:                                               ; preds = %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 144
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, null
+  %89 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 144
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, null
+  %brmerge15 = select i1 %88, i1 true, i1 %91
+  %.mux.mux = select i1 %88, i1 %91, i1 false
+  br i1 %brmerge15, label %_ZNK7glslang5TTypeeqERKS0_.exit, label %92
 
-105:                                              ; preds = %98
-  %106 = tail call noundef zeroext i1 @_ZNK7glslang17TSpirvInstructioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %100, ptr noundef nonnull align 8 dereferenceable(80) %103)
-  br i1 %106, label %107, label %_ZNK7glslang5TTypeeqERKS0_.exit
+92:                                               ; preds = %85
+  %93 = tail call noundef zeroext i1 @_ZNK7glslang17TSpirvInstructioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %87, ptr noundef nonnull align 8 dereferenceable(80) %90)
+  br i1 %93, label %94, label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %100, i64 48
-  %109 = getelementptr inbounds nuw i8, ptr %103, i64 48
-  %110 = tail call noundef zeroext i1 @_ZSteqIN7glslang19TSpirvTypeParameterENS0_14pool_allocatorIS1_EEEbRKSt6vectorIT_T0_ES9_(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %109)
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 48
+  %97 = tail call noundef zeroext i1 @_ZSteqIN7glslang19TSpirvTypeParameterENS0_14pool_allocatorIS1_EEEbRKSt6vectorIT_T0_ES9_(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %96)
   br label %_ZNK7glslang5TTypeeqERKS0_.exit
 
-_ZNK7glslang5TTypeeqERKS0_.exit:                  ; preds = %30, %._crit_edge.i17, %39, %51, %98, %74, %75, %._crit_edge.i, %15, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit, %_ZNK7glslang5TType13sameArraynessERKS0_.exit, %_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_.exit, %64, %87, %105, %107, %7
-  %.0 = phi i1 [ %14, %7 ], [ false, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13 ], [ false, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit ], [ false, %_ZNK7glslang5TType13sameArraynessERKS0_.exit ], [ false, %_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_.exit ], [ false, %64 ], [ false, %87 ], [ %.mux.mux, %98 ], [ false, %105 ], [ %110, %107 ], [ false, %15 ], [ false, %._crit_edge.i ], [ false, %74 ], [ false, %75 ], [ false, %51 ], [ false, %39 ], [ false, %._crit_edge.i17 ], [ false, %30 ]
+_ZNK7glslang5TTypeeqERKS0_.exit:                  ; preds = %30, %._crit_edge.i17, %39, %51, %85, %61, %62, %._crit_edge.i, %15, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit, %_ZNK7glslang5TType13sameArraynessERKS0_.exit, %_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_.exit, %64, %74, %92, %94, %7
+  %.0 = phi i1 [ %14, %7 ], [ false, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit.thread13 ], [ false, %_ZNK7glslang5TType18sameTypeParametersERKS0_.exit ], [ false, %_ZNK7glslang5TType13sameArraynessERKS0_.exit ], [ false, %_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_.exit ], [ false, %64 ], [ false, %74 ], [ %.mux.mux, %85 ], [ false, %92 ], [ %97, %94 ], [ false, %15 ], [ false, %._crit_edge.i ], [ false, %61 ], [ false, %62 ], [ false, %51 ], [ false, %39 ], [ false, %._crit_edge.i17 ], [ false, %30 ]
   ret i1 %.0
 }
 
@@ -5089,7 +5089,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 255
   %.not17 = icmp eq i32 %13, 14
-  br i1 %.not17, label %14, label %21
+  br i1 %.not17, label %14, label %58
 
 14:                                               ; preds = %10, %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5098,24 +5098,24 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %18 = load i32, ptr %16, align 8
   %19 = xor i32 %18, %17
   %20 = and i32 %19, 2147483647
-  %or.cond = icmp eq i32 %20, 0
+  %or.cond19.i = icmp eq i32 %20, 0
   br i1 %or.cond, label %._crit_edge, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
 ._crit_edge:                                      ; preds = %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %21
+  br label %58
 
-21:                                               ; preds = %._crit_edge, %10
-  %22 = phi i32 [ %.pre, %._crit_edge ], [ %12, %10 ]
-  %23 = xor i32 %22, %8
-  %24 = and i32 %23, 8388352
-  %or.cond29 = icmp eq i32 %24, 0
-  br i1 %or.cond29, label %25, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
+58:                                               ; preds = %._crit_edge, %10
+  %59 = phi i32 [ %.pre, %._crit_edge ], [ %12, %10 ]
+  %60 = xor i32 %59, %8
+  %61 = and i32 %60, 8388352
+  %or.cond25 = icmp eq i32 %61, 0
+  br i1 %or.cond25, label %25, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-25:                                               ; preds = %21
-  %26 = tail call noundef zeroext i1 @_ZNK7glslang5TType14sameStructTypeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %2, ptr noundef %3)
-  br i1 %26, label %27, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
+74:                                               ; preds = %58
+  %75 = tail call noundef zeroext i1 @_ZNK7glslang5TType14sameStructTypeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %2, ptr noundef %3)
+  br i1 %75, label %27, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %0, align 8
@@ -5155,13 +5155,13 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %56 = icmp eq ptr %53, %55
   br i1 %56, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %57
 
-57:                                               ; preds = %51
-  %58 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %53, ptr noundef nonnull align 8 dereferenceable(152) %55)
+76:                                               ; preds = %51
+  %77 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %53, ptr noundef nonnull align 8 dereferenceable(152) %55)
   br label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-_ZNK7glslang8TSamplereqERKS0_.exit.thread:        ; preds = %57, %51, %45, %27, %14, %25, %21
-  %59 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %14 ], [ %58, %57 ], [ false, %27 ], [ true, %45 ], [ true, %51 ]
-  ret i1 %59
+_ZNK7glslang8TSamplereqERKS0_.exit.thread:        ; preds = %57, %51, %45, %27, %14, %25, %58
+  %78 = phi i1 [ false, %74 ], [ false, %58 ], [ false, %14 ], [ %64, %57 ], [ false, %27 ], [ true, %45 ], [ true, %51 ]
+  ret i1 %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

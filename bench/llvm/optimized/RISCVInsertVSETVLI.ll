@@ -6185,22 +6185,22 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
 74:                                               ; preds = %70
   %75 = xor i64 %1, %0
   %76 = and i64 %75, 64
-  %.not31 = icmp eq i64 %76, 0
+  %77 = icmp eq i64 %76, 0
   br i1 %.not31, label %77, label %85
 
-77:                                               ; preds = %74, %70
+77:; preds = %74, %70
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %79 = load i8, ptr %78, align 1, !tbaa !526, !range !52, !noundef !53
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %84
+  %81 = trunc nuw i8 %79 to i1
+  br i1 %81, label %81, label %84
 
-81:                                               ; preds = %77
+81:; preds = %77
   %82 = xor i64 %1, %0
   %83 = and i64 %82, 128
-  %.not32 = icmp eq i64 %83, 0
+  %85 = icmp eq i64 %83, 0
   br i1 %.not32, label %84, label %85
 
-84:                                               ; preds = %81, %77
+84:; preds = %81, %77
   br label %85
 
 85:                                               ; preds = %55, %81, %74, %42, %39, %25, %15, %6, %84

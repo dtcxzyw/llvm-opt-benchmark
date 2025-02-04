@@ -753,29 +753,29 @@ define dso_local noundef zeroext i1 @_ZNK12CVQualifiers13stricter_thanERKS_(ptr 
   br i1 %.not32, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %27
-  %.not66 = icmp eq i64 %15, 0
-  br i1 %.not66, label %.loopexit, label %.lr.ph
+  %.not65 = icmp eq i64 %15, 0
+  br i1 %.not65, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %78
-  %.02958 = phi i64 [ %79, %78 ], [ 0, %.preheader ]
-  %52 = sub nuw i64 %15, %.02958
+  %.02957 = phi i64 [ %79, %78 ], [ 0, %.preheader ]
+  %52 = sub nuw i64 %15, %.02957
   %53 = icmp ugt i64 %52, 2
-  %54 = sdiv i64 %.02958, 64
+  %54 = sdiv i64 %.02957, 64
   br i1 %53, label %55, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre77 = and i64 %.02958, -9223372036854775745
-  %.pre79 = and i64 %.02958, 63
-  %.pre81 = shl nuw i64 1, %.pre79
+  %.pre76 = and i64 %.02957, -9223372036854775745
+  %.pre78 = and i64 %.02957, 63
+  %.pre80 = shl nuw i64 1, %.pre78
   br label %69
 
 55:                                               ; preds = %.lr.ph
   %56 = getelementptr inbounds i64, ptr %9, i64 %54
-  %57 = and i64 %.02958, -9223372036854775745
+  %57 = and i64 %.02957, -9223372036854775745
   %58 = icmp ugt i64 %57, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %58, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 %storemerge.idx.i.i.i.i.i
-  %59 = and i64 %.02958, 63
+  %59 = and i64 %.02957, 63
   %60 = shl nuw i64 1, %59
   %61 = load i64, ptr %storemerge.i.i.i.i.i, align 8
   %62 = and i64 %61, %60
@@ -789,103 +789,103 @@ define dso_local noundef zeroext i1 @_ZNK12CVQualifiers13stricter_thanERKS_(ptr 
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %.lr.ph._crit_edge, %55
-  %.pre-phi82 = phi i64 [ %.pre81, %.lr.ph._crit_edge ], [ %60, %55 ]
-  %.pre-phi78 = phi i64 [ %.pre77, %.lr.ph._crit_edge ], [ %57, %55 ]
+  %.pre-phi81 = phi i64 [ %.pre80, %.lr.ph._crit_edge ], [ %60, %55 ]
+  %.pre-phi77 = phi i64 [ %.pre76, %.lr.ph._crit_edge ], [ %57, %55 ]
   %70 = getelementptr inbounds i64, ptr %20, i64 %54
-  %71 = icmp ugt i64 %.pre-phi78, -9223372036854775808
+  %71 = icmp ugt i64 %.pre-phi77, -9223372036854775808
   %storemerge.idx.i.i.i.i.i38 = select i1 %71, i64 -8, i64 0
   %storemerge.i.i.i.i.i39 = getelementptr inbounds i8, ptr %70, i64 %storemerge.idx.i.i.i.i.i38
   %72 = load i64, ptr %storemerge.i.i.i.i.i39, align 8
-  %73 = and i64 %72, %.pre-phi82
-  %.not55 = icmp eq i64 %73, 0
-  br i1 %.not55, label %78, label %74
+  %73 = and i64 %72, %.pre-phi81
+  %.not54 = icmp eq i64 %73, 0
+  br i1 %.not54, label %78, label %74
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds i64, ptr %9, i64 %54
   %storemerge.i.i.i.i.i41 = getelementptr inbounds i8, ptr %75, i64 %storemerge.idx.i.i.i.i.i38
   %76 = load i64, ptr %storemerge.i.i.i.i.i41, align 8
-  %77 = and i64 %76, %.pre-phi82
-  %.not56 = icmp eq i64 %77, 0
-  br i1 %.not56, label %.loopexit, label %78
+  %77 = and i64 %76, %.pre-phi81
+  %.not55 = icmp eq i64 %77, 0
+  br i1 %.not55, label %.loopexit, label %78
 
 78:                                               ; preds = %69, %74
-  %79 = add nuw i64 %.02958, 1
+  %79 = add nuw i64 %.02957, 1
   %80 = icmp ult i64 %79, %15
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %78
-  %.not84 = icmp eq i64 %15, 1
-  br i1 %.not84, label %.lr.ph61.preheader, label %81
+  %.not83 = icmp eq i64 %15, 1
+  br i1 %.not83, label %.lr.ph61.preheader, label %81
 
 81:                                               ; preds = %._crit_edge
   %82 = load i64, ptr %34, align 8
   %83 = load i64, ptr %45, align 8
   %84 = xor i64 %83, %82
   %85 = and i64 %84, 1
-  %.not52 = icmp eq i64 %85, 0
-  br i1 %.not52, label %.lr.ph61.preheader, label %.loopexit
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %.lr.ph61.preheader, label %.loopexit
 
-.lr.ph61.preheader:                               ; preds = %81, %._crit_edge
+.lr.ph61.preheader:; preds = %81, %._crit_edge
   br label %.lr.ph61
 
-.lr.ph61:                                         ; preds = %.lr.ph61.preheader, %112
+.lr.ph61:; preds = %.lr.ph61.preheader, %112
   %.159 = phi i64 [ %113, %112 ], [ 0, %.lr.ph61.preheader ]
   %86 = sub nuw i64 %15, %.159
-  %87 = icmp ugt i64 %86, 2
-  %88 = sdiv i64 %.159, 64
+  %.158 = icmp ugt i64 %86, 2
+  %89 = sdiv i64 %.159, 64
   br i1 %87, label %89, label %.lr.ph61._crit_edge
 
-.lr.ph61._crit_edge:                              ; preds = %.lr.ph61
+.lr.ph61._crit_edge:; preds = %.lr.ph61
   %.pre69 = and i64 %.159, -9223372036854775745
   %.pre71 = and i64 %.159, 63
-  %.pre73 = shl nuw i64 1, %.pre71
+  %.pre68 = shl nuw i64 1, %.pre71
   br label %103
 
-89:                                               ; preds = %.lr.ph61
+89:; preds = %.lr.ph61
   %90 = getelementptr inbounds i64, ptr %34, i64 %88
   %91 = and i64 %.159, -9223372036854775745
-  %92 = icmp ugt i64 %91, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i44 = select i1 %92, i64 -8, i64 0
-  %storemerge.i.i.i.i.i45 = getelementptr inbounds i8, ptr %90, i64 %storemerge.idx.i.i.i.i.i44
-  %93 = and i64 %.159, 63
-  %94 = shl nuw i64 1, %93
-  %95 = load i64, ptr %storemerge.i.i.i.i.i45, align 8
-  %96 = and i64 %95, %94
-  %97 = icmp ne i64 %96, 0
-  %98 = getelementptr inbounds i64, ptr %45, i64 %88
-  %storemerge.i.i.i.i.i47 = getelementptr inbounds i8, ptr %98, i64 %storemerge.idx.i.i.i.i.i44
-  %99 = load i64, ptr %storemerge.i.i.i.i.i47, align 8
-  %100 = and i64 %99, %94
-  %101 = icmp ne i64 %100, 0
-  %102 = xor i1 %97, %101
+  %93 = icmp ugt i64 %91, -9223372036854775808
+  %94 = select i1 %92, i64 -8, i64 0
+  %95 = getelementptr inbounds i8, ptr %90, i64 %94
+  %storemerge.idx.i.i.i.i.i44 = and i64 %.159, 63
+  %storemerge.i.i.i.i.i45 = shl nuw i64 1, %storemerge.idx.i.i.i.i.i44
+  %96 = load i64, ptr %96, align 8
+  %97 = and i64 %95, %94
+  %98 = icmp ne i64 %96, 0
+  %99 = getelementptr inbounds i64, ptr %45, i64 %89
+  %100 = getelementptr inbounds i8, ptr %98, i64 %94
+  %101 = load i64, ptr %100, align 8
+  %storemerge.i.i.i.i.i47 = and i64 %101, %storemerge.i.i.i.i.i45
+  %102 = icmp ne i64 %storemerge.i.i.i.i.i47, 0
+  %103 = xor i1 %97, %101
   br i1 %102, label %.loopexit, label %103
 
-103:                                              ; preds = %.lr.ph61._crit_edge, %89
+103:; preds = %.lr.ph61._crit_edge, %89
   %.pre-phi74 = phi i64 [ %.pre73, %.lr.ph61._crit_edge ], [ %94, %89 ]
   %.pre-phi70 = phi i64 [ %.pre69, %.lr.ph61._crit_edge ], [ %91, %89 ]
-  %104 = getelementptr inbounds i64, ptr %45, i64 %88
-  %105 = icmp ugt i64 %.pre-phi70, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i48 = select i1 %105, i64 -8, i64 0
-  %storemerge.i.i.i.i.i49 = getelementptr inbounds i8, ptr %104, i64 %storemerge.idx.i.i.i.i.i48
-  %106 = load i64, ptr %storemerge.i.i.i.i.i49, align 8
-  %107 = and i64 %106, %.pre-phi74
-  %.not53 = icmp eq i64 %107, 0
-  br i1 %.not53, label %112, label %108
+  %.pre-phi73 = getelementptr inbounds i64, ptr %45, i64 %89
+  %.pre-phi69 = icmp ugt i64 %.pre-phi70, -9223372036854775808
+  %107 = select i1 %105, i64 -8, i64 0
+  %108 = getelementptr inbounds i8, ptr %.pre-phi73, i64 %107
+  %storemerge.idx.i.i.i.i.i48 = load i64, ptr %108, align 8
+  %storemerge.i.i.i.i.i49 = and i64 %storemerge.idx.i.i.i.i.i48, %.pre-phi74
+  %109 = icmp eq i64 %storemerge.i.i.i.i.i49, 0
+  br i1 %109, label %112, label %108
 
-108:                                              ; preds = %103
+108: ; preds = %103
   %109 = getelementptr inbounds i64, ptr %34, i64 %88
-  %storemerge.i.i.i.i.i51 = getelementptr inbounds i8, ptr %109, i64 %storemerge.idx.i.i.i.i.i48
-  %110 = load i64, ptr %storemerge.i.i.i.i.i51, align 8
-  %111 = and i64 %110, %.pre-phi74
-  %.not54 = icmp eq i64 %111, 0
-  br i1 %.not54, label %.loopexit, label %112
+  %storemerge.i.i.i.i.i51 = getelementptr inbounds i8, ptr %109, i64 %107
+  %112 = load i64, ptr %storemerge.i.i.i.i.i51, align 8
+  %storemerge.i.i.i.i.i51 = and i64 %112, %.pre-phi74
+  %113 = icmp eq i64 %storemerge.i.i.i.i.i51, 0
+  br i1 %113, label %.loopexit, label %112
 
-112:                                              ; preds = %103, %108
+112:  ; preds = %103, %108
   %113 = add nuw i64 %.159, 1
   %114 = icmp ult i64 %113, %15
   br i1 %114, label %.lr.ph61, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %74, %55, %89, %108, %112, %.preheader, %81, %2, %27
+.loopexit:; preds = %74, %55, %89, %108, %112, %.preheader, %81, %2, %27
   %.0 = phi i1 [ false, %27 ], [ false, %2 ], [ false, %81 ], [ true, %.preheader ], [ false, %89 ], [ false, %108 ], [ true, %112 ], [ false, %55 ], [ false, %74 ]
   ret i1 %.0
 }

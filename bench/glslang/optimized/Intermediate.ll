@@ -21208,7 +21208,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %18 = load i32, ptr %16, align 8
   %19 = xor i32 %18, %17
   %20 = and i32 %19, 2147483647
-  %or.cond = icmp eq i32 %20, 0
+  %or.cond19.i = icmp eq i32 %20, 0
   br i1 %or.cond, label %._crit_edge, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
 ._crit_edge:                                      ; preds = %14
@@ -21241,37 +21241,37 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %38 = xor i1 %32, %37
   br i1 %38, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %39
 
-39:                                               ; preds = %27
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(152) %0) #17
-  %44 = icmp eq i32 %43, 18
+58:                                               ; preds = %27
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %61 = load ptr, ptr %60, align 8
+  %or.cond25 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(152) %0) #17
+  %44 = icmp eq i32 %or.cond25, 18
   br i1 %44, label %51, label %45
 
-45:                                               ; preds = %39
-  %46 = load ptr, ptr %1, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %50 = icmp eq i32 %49, 18
-  br i1 %50, label %51, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
+68:                                               ; preds = %39
+  %69 = load ptr, ptr %1, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 56
+  %71 = load ptr, ptr %47, align 8
+  %72 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
+  %73 = icmp eq i32 %49, 18
+  br i1 %73, label %51, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-51:                                               ; preds = %45, %39
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %53 = load ptr, ptr %52, align 8
+74:                                               ; preds = %68, %58
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %53 = load ptr, ptr %75, align 8
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %53, %55
   br i1 %56, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread, label %57
 
-57:                                               ; preds = %51
-  %58 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %53, ptr noundef nonnull align 8 dereferenceable(152) %55)
+76:                                               ; preds = %74
+  %77 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %53, ptr noundef nonnull align 8 dereferenceable(152) %55)
   br label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
 _ZNK7glslang8TSamplereqERKS0_.exit.thread:        ; preds = %57, %51, %45, %27, %14, %25, %21
-  %59 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %14 ], [ %58, %57 ], [ false, %27 ], [ true, %45 ], [ true, %51 ]
-  ret i1 %59
+  %78 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %14 ], [ %58, %76 ], [ false, %27 ], [ true, %68 ], [ true, %74 ]
+  ret i1 %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -422,9 +422,9 @@ if.end14.i:                                       ; preds = %if.then11.i
 
 land.lhs.true.i:                                  ; preds = %if.end14.i
   %20 = xor i64 %.val100.pre119, %edata.val98
-  %21 = and i64 %20, 8192
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %if.end27.i, label %return
+  %tobool.i107 = and i64 %20, 8192
+  %21 = icmp eq i64 %tobool.i107, 0
+  br i1 %tobool.i107, label %if.end27.i, label %return
 
 if.else.i122:                                     ; preds = %if.end8.i143
   %cmp23.i = icmp eq i32 %conv8.i, 0
@@ -436,21 +436,21 @@ if.else.i122.if.end27.i_crit_edge:                ; preds = %if.else.i122
 
 if.end27.i:                                       ; preds = %if.else.i122.if.end27.i_crit_edge, %if.end14.i, %land.lhs.true.i
   %.val100 = phi i64 [ %.val100.pre, %if.else.i122.if.end27.i_crit_edge ], [ %.val100.pre119, %if.end14.i ], [ %.val100.pre119, %land.lhs.true.i ]
-  %22 = trunc i64 %.val100 to i32
-  %23 = lshr i32 %22, 14
-  %conv.i = and i32 %23, 1
+  %23 = trunc i64 %.val100 to i32
+  %24 = lshr i32 %23, 14
+  %conv.i = and i32 %24, 1
   %cmp29.i.not = icmp eq i32 %conv.i, %pai
   br i1 %cmp29.i.not, label %if.end32.i, label %return
 
 if.end32.i:                                       ; preds = %if.end27.i
-  %24 = load i8, ptr @opt_retain, align 1
-  %tobool33.i = trunc i8 %24 to i1
+  %25 = load i8, ptr @opt_retain, align 1
+  %tobool33.i = trunc i8 %25 to i1
   br i1 %tobool33.i, label %if.end44.i, label %if.else37.i
 
 if.else37.i:                                      ; preds = %if.end32.i
-  %25 = xor i64 %.val100, %edata.val98
-  %26 = and i64 %25, 4095
-  %cmp40.i.not = icmp eq i64 %26, 0
+  %26 = xor i64 %.val100, %edata.val98
+  %27 = and i64 %26, 4095
+  %cmp40.i.not = icmp eq i64 %27, 0
   br i1 %cmp40.i.not, label %if.end44.i, label %return
 
 if.end44.i:                                       ; preds = %if.else37.i, %if.end32.i

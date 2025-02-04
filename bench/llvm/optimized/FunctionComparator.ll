@@ -694,18 +694,18 @@ define dso_local noundef i32 @_ZNK4llvm18FunctionComparator8cmpTypesEPNS_4TypeES
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %3
-  %.tr174 = phi ptr [ %1, %3 ], [ %.tr174.be, %tailrecurse.backedge ]
-  %.tr175 = phi ptr [ %2, %3 ], [ %.tr175.be, %tailrecurse.backedge ]
-  %4 = getelementptr inbounds nuw i8, ptr %.tr174, i64 8
+  %.tr173 = phi ptr [ %1, %3 ], [ %.tr174.be, %tailrecurse.backedge ]
+  %.tr174 = phi ptr [ %2, %3 ], [ %.tr175.be, %tailrecurse.backedge ]
+  %4 = getelementptr inbounds nuw i8, ptr %.tr173, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 14
-  %spec.select.i.i = select i1 %7, ptr %.tr174, ptr null
-  %8 = getelementptr inbounds nuw i8, ptr %.tr175, i64 8
+  %spec.select.i.i = select i1 %7, ptr %.tr173, ptr null
+  %8 = getelementptr inbounds nuw i8, ptr %.tr174, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 255
   %11 = icmp eq i32 %10, 14
-  %spec.select.i.i126 = select i1 %11, ptr %.tr175, ptr null
+  %spec.select.i.i126 = select i1 %11, ptr %.tr174, ptr null
   %12 = load ptr, ptr %0, align 8, !tbaa !14
   %13 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %12) #18
   %.not = icmp eq ptr %spec.select.i.i, null
@@ -718,11 +718,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
-  %19 = tail call noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %13, ptr noundef nonnull %.tr174) #18
+  %19 = tail call noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %13, ptr noundef nonnull %.tr173) #18
   br label %20
 
 20:                                               ; preds = %18, %14, %tailrecurse
-  %.097 = phi ptr [ %19, %18 ], [ %.tr174, %14 ], [ %.tr174, %tailrecurse ]
+  %.097 = phi ptr [ %19, %18 ], [ %.tr173, %14 ], [ %.tr173, %tailrecurse ]
   %.not112 = icmp eq ptr %spec.select.i.i126, null
   br i1 %.not112, label %27, label %21
 
@@ -733,11 +733,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
-  %26 = tail call noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %13, ptr noundef nonnull %.tr175) #18
+  %26 = tail call noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %13, ptr noundef nonnull %.tr174) #18
   br label %27
 
 27:                                               ; preds = %25, %21, %20
-  %.098 = phi ptr [ %26, %25 ], [ %.tr175, %21 ], [ %.tr175, %20 ]
+  %.098 = phi ptr [ %26, %25 ], [ %.tr174, %21 ], [ %.tr174, %20 ]
   %28 = icmp eq ptr %.097, %.098
   br i1 %28, label %.loopexit, label %29
 
@@ -749,7 +749,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 255
   %.not113 = icmp eq i32 %32, %35
-  br i1 %.not113, label %36, label %.loopexit178.split.loop.exit
+  br i1 %.not113, label %36, label %.loopexit177.split.loop.exit
 
 36:                                               ; preds = %29
   %trunc = trunc i32 %31 to i8
@@ -766,10 +766,10 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 11, label %.loopexit
     i8 14, label %43
     i8 15, label %52
-    i8 13, label %80
-    i8 16, label %119
-    i8 17, label %125
-    i8 18, label %125
+    i8 13, label %81
+    i8 16, label %120
+    i8 17, label %126
+    i8 18, label %126
   ]
 
 37:                                               ; preds = %36
@@ -812,150 +812,150 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 60:                                               ; preds = %52
   %61 = xor i32 %34, %31
   %62 = and i32 %61, 512
-  %.not173 = icmp eq i32 %62, 0
-  br i1 %.not173, label %.preheader, label %66
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %.preheader, label %66
 
 .preheader:                                       ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %.097, i64 16
-  %.not123244 = icmp eq i32 %54, 0
-  br i1 %.not123244, label %.loopexit, label %.lr.ph
+  %66 = getelementptr inbounds nuw i8, ptr %.097, i64 16
+  %.not123243 = icmp eq i32 %54, 0
+  br i1 %.not123243, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %64 = getelementptr inbounds nuw i8, ptr %.098, i64 16
-  %65 = zext i32 %54 to i64
-  br label %72
+  %67 = getelementptr inbounds nuw i8, ptr %.098, i64 16
+  %68 = zext i32 %54 to i64
+  br label %73
 
-66:                                               ; preds = %60
-  %67 = lshr i32 %31, 9
-  %.lobit = and i32 %67, 1
-  %68 = zext nneg i32 %.lobit to i64
-  %69 = lshr i32 %34, 9
-  %.lobit172 = and i32 %69, 1
+69:                                               ; preds = %60
+  %.lobit = lshr i32 %31, 9
+  %70 = and i32 %.lobit, 1
+  %.lobit172 = zext nneg i32 %70 to i64
+  %71 = lshr i32 %34, 9
+  %.0.i130 = and i32 %69, 1
   %70 = zext nneg i32 %.lobit172 to i64
   %.0.i130 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %68, i64 %70)
   br label %.loopexit
 
-71:                                               ; preds = %72
-  %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
-  %.not123 = icmp eq i64 %indvars.iv.next332, %65
-  br i1 %.not123, label %.loopexit, label %72, !llvm.loop !25
+72:                                               ; preds = %73
+  %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
+  %.not123 = icmp eq i64 %indvars.iv.next331, %68
+  br i1 %.not123, label %.loopexit, label %73, !llvm.loop !25
 
-72:                                               ; preds = %.lr.ph, %71
-  %indvars.iv331 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next332, %71 ]
-  %73 = load ptr, ptr %63, align 8, !tbaa !26
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv331
-  %75 = load ptr, ptr %74, align 8, !tbaa !27
-  %76 = load ptr, ptr %64, align 8, !tbaa !26
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv331
-  %78 = load ptr, ptr %77, align 8, !tbaa !27
-  %79 = tail call noundef i32 @_ZNK4llvm18FunctionComparator8cmpTypesEPNS_4TypeES2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %75, ptr noundef %78)
-  %.not124 = icmp eq i32 %79, 0
-  br i1 %.not124, label %71, label %.loopexit
+73:                                               ; preds = %.lr.ph, %72
+  %indvars.iv330 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next331, %72 ]
+  %74 = load ptr, ptr %66, align 8, !tbaa !26
+  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv330
+  %76 = load ptr, ptr %75, align 8, !tbaa !27
+  %77 = load ptr, ptr %67, align 8, !tbaa !26
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv330
+  %79 = load ptr, ptr %78, align 8, !tbaa !27
+  %80 = tail call noundef i32 @_ZNK4llvm18FunctionComparator8cmpTypesEPNS_4TypeES2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %76, ptr noundef %79)
+  %.not124 = icmp eq i32 %80, 0
+  br i1 %.not124, label %72, label %.loopexit
 
-80:                                               ; preds = %36
-  %81 = getelementptr inbounds nuw i8, ptr %.097, i64 12
-  %82 = load i32, ptr %81, align 4, !tbaa !20
-  %83 = getelementptr inbounds nuw i8, ptr %.098, i64 12
-  %84 = load i32, ptr %83, align 4, !tbaa !20
-  %.not116 = icmp eq i32 %82, %84
-  br i1 %.not116, label %90, label %85
+81:                                               ; preds = %36
+  %82 = getelementptr inbounds nuw i8, ptr %.097, i64 12
+  %83 = load i32, ptr %82, align 4, !tbaa !20
+  %84 = getelementptr inbounds nuw i8, ptr %.098, i64 12
+  %85 = load i32, ptr %84, align 4, !tbaa !20
+  %.not116 = icmp eq i32 %83, %85
+  br i1 %.not116, label %91, label %86
 
-85:                                               ; preds = %80
-  %86 = add i32 %84, -1
-  %87 = add i32 %82, -1
-  %88 = zext i32 %87 to i64
-  %89 = zext i32 %86 to i64
-  %.0.i131 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %88, i64 %89)
+86:                                               ; preds = %81
+  %87 = add i32 %85, -1
+  %88 = add i32 %83, -1
+  %89 = zext i32 %88 to i64
+  %90 = zext i32 %87 to i64
+  %.0.i131 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %89, i64 %90)
   br label %.loopexit
 
-90:                                               ; preds = %80
-  %91 = icmp ugt i32 %31, 255
-  %92 = icmp ugt i32 %34, 255
-  %93 = xor i1 %91, %92
-  br i1 %93, label %94, label %97
+91:                                               ; preds = %81
+  %92 = icmp ugt i32 %31, 255
+  %93 = icmp ugt i32 %34, 255
+  %94 = xor i1 %92, %93
+  br i1 %94, label %95, label %98
 
-94:                                               ; preds = %90
+95:                                               ; preds = %91
   %95 = zext i1 %91 to i64
   %96 = zext i1 %92 to i64
-  %.0.i132 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %95, i64 %96)
+  %97 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %95, i64 %96)
   br label %.loopexit
 
-97:                                               ; preds = %90
-  %98 = getelementptr inbounds nuw i8, ptr %.097, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !26
-  %100 = load ptr, ptr %99, align 8, !tbaa !27
-  %101 = getelementptr inbounds nuw i8, ptr %.098, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !26
-  %103 = load ptr, ptr %102, align 8, !tbaa !27
-  %104 = tail call noundef i32 @_ZNK4llvm18FunctionComparator8cmpTypesEPNS_4TypeES2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %100, ptr noundef %103)
-  %.not118 = icmp eq i32 %104, 0
-  br i1 %.not118, label %105, label %.loopexit
+98:                                               ; preds = %91
+  %99 = getelementptr inbounds nuw i8, ptr %.097, i64 16
+  %100 = load ptr, ptr %99, align 8, !tbaa !26
+  %101 = load ptr, ptr %100, align 8, !tbaa !27
+  %102 = getelementptr inbounds nuw i8, ptr %.098, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !26
+  %104 = load ptr, ptr %103, align 8, !tbaa !27
+  %105 = tail call noundef i32 @_ZNK4llvm18FunctionComparator8cmpTypesEPNS_4TypeES2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %101, ptr noundef %104)
+  %.not118 = icmp eq i32 %105, 0
+  br i1 %.not118, label %106, label %.loopexit
 
-105:                                              ; preds = %97
-  %106 = load i32, ptr %81, align 4, !tbaa !20
-  %107 = add i32 %106, -1
-  %108 = zext i32 %107 to i64
-  br label %109
+106:                                              ; preds = %98
+  %107 = load i32, ptr %82, align 4, !tbaa !20
+  %108 = add i32 %107, -1
+  %109 = zext i32 %108 to i64
+  br label %110
 
-109:                                              ; preds = %110, %105
-  %indvars.iv = phi i64 [ %indvars.iv.next, %110 ], [ 0, %105 ]
-  %.not119 = icmp eq i64 %indvars.iv, %108
-  br i1 %.not119, label %.loopexit, label %110
+110:                                              ; preds = %111, %106
+  %indvars.iv = phi i64 [ %indvars.iv.next, %111 ], [ 0, %106 ]
+  %.not119 = icmp eq i64 %indvars.iv, %109
+  br i1 %.not119, label %.loopexit, label %111
 
-110:                                              ; preds = %109
-  %111 = load ptr, ptr %98, align 8, !tbaa !26
+111:                                              ; preds = %110
+  %112 = load ptr, ptr %99, align 8, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %112 = and i64 %indvars.iv.next, 4294967295
-  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %112
-  %114 = load ptr, ptr %113, align 8, !tbaa !27
-  %115 = load ptr, ptr %101, align 8, !tbaa !26
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %112
-  %117 = load ptr, ptr %116, align 8, !tbaa !27
-  %118 = tail call noundef i32 @_ZNK4llvm18FunctionComparator8cmpTypesEPNS_4TypeES2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %114, ptr noundef %117)
-  %.not120 = icmp eq i32 %118, 0
-  br i1 %.not120, label %109, label %.loopexit, !llvm.loop !29
+  %113 = and i64 %indvars.iv.next, 4294967295
+  %114 = getelementptr inbounds nuw ptr, ptr %112, i64 %113
+  %115 = load ptr, ptr %114, align 8, !tbaa !27
+  %116 = load ptr, ptr %102, align 8, !tbaa !26
+  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %113
+  %118 = load ptr, ptr %117, align 8, !tbaa !27
+  %119 = tail call noundef i32 @_ZNK4llvm18FunctionComparator8cmpTypesEPNS_4TypeES2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %115, ptr noundef %118)
+  %.not120 = icmp eq i32 %119, 0
+  br i1 %.not120, label %110, label %.loopexit, !llvm.loop !29
 
-119:                                              ; preds = %36
-  %120 = getelementptr inbounds nuw i8, ptr %.097, i64 32
-  %121 = load i64, ptr %120, align 8, !tbaa !30
-  %122 = getelementptr inbounds nuw i8, ptr %.098, i64 32
-  %123 = load i64, ptr %122, align 8, !tbaa !30
-  %.not115 = icmp eq i64 %121, %123
-  br i1 %.not115, label %tailrecurse.backedge, label %124
+120:                                              ; preds = %36
+  %121 = getelementptr inbounds nuw i8, ptr %.097, i64 32
+  %122 = load i64, ptr %121, align 8, !tbaa !30
+  %123 = getelementptr inbounds nuw i8, ptr %.098, i64 32
+  %124 = load i64, ptr %123, align 8, !tbaa !30
+  %.not115 = icmp eq i64 %122, %124
+  br i1 %.not115, label %tailrecurse.backedge, label %125
 
-124:                                              ; preds = %119
-  %.0.i133 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %121, i64 %123)
+125:                                              ; preds = %120
+  %.0.i133 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %122, i64 %124)
   br label %.loopexit
 
-tailrecurse.backedge:                             ; preds = %125, %119
-  %.tr175.be.in = getelementptr inbounds nuw i8, ptr %.098, i64 24
+tailrecurse.backedge:                             ; preds = %126, %120
+  %.tr174.be.in = getelementptr inbounds nuw i8, ptr %.098, i64 24
   %.tr175.be = load ptr, ptr %.tr175.be.in, align 8, !tbaa !27
   %.tr174.be.in = getelementptr inbounds nuw i8, ptr %.097, i64 24
   %.tr174.be = load ptr, ptr %.tr174.be.in, align 8, !tbaa !27
   br label %tailrecurse
 
-125:                                              ; preds = %36, %36
-  %126 = getelementptr inbounds nuw i8, ptr %.098, i64 32
-  %127 = load i32, ptr %126, align 8, !tbaa !33
-  %128 = getelementptr inbounds nuw i8, ptr %.097, i64 32
-  %129 = load i32, ptr %128, align 8, !tbaa !33
-  %.not.i.not = icmp eq i32 %129, %127
-  br i1 %.not.i.not, label %tailrecurse.backedge, label %130
+126:                                              ; preds = %36, %36
+  %127 = getelementptr inbounds nuw i8, ptr %.098, i64 32
+  %128 = load i32, ptr %127, align 8, !tbaa !33
+  %129 = getelementptr inbounds nuw i8, ptr %.097, i64 32
+  %130 = load i32, ptr %129, align 8, !tbaa !33
+  %.not.i.not = icmp eq i32 %130, %128
+  br i1 %.not.i.not, label %tailrecurse.backedge, label %131
 
-130:                                              ; preds = %125
-  %131 = zext i32 %129 to i64
-  %132 = zext i32 %127 to i64
-  %.0.i156 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %131, i64 %132)
+131:                                              ; preds = %126
+  %132 = zext i32 %130 to i64
+  %133 = zext i32 %128 to i64
+  %.0.i156 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %132, i64 %133)
   br label %.loopexit
 
-.loopexit178.split.loop.exit:                     ; preds = %29
-  %133 = zext nneg i32 %32 to i64
-  %134 = zext nneg i32 %35 to i64
-  %.0.i.le = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %133, i64 %134)
+.loopexit177.split.loop.exit:                     ; preds = %29
+  %134 = zext nneg i32 %32 to i64
+  %135 = zext nneg i32 %35 to i64
+  %.0.i.le = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %134, i64 %135)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %36, %36, %36, %36, %36, %36, %36, %36, %36, %110, %109, %71, %72, %.loopexit178.split.loop.exit, %.preheader, %130, %124, %85, %94, %97, %57, %66, %43, %38
-  %.0 = phi i32 [ %.0.i128, %43 ], [ %.0.i127, %38 ], [ %.0.i129, %57 ], [ %.0.i130, %66 ], [ %.0.i131, %85 ], [ %.0.i132, %94 ], [ %104, %97 ], [ %.0.i133, %124 ], [ %.0.i156, %130 ], [ 0, %.preheader ], [ %.0.i.le, %.loopexit178.split.loop.exit ], [ 0, %71 ], [ %79, %72 ], [ 0, %109 ], [ %118, %110 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %27 ]
+.loopexit:                                        ; preds = %27, %36, %36, %36, %36, %36, %36, %36, %36, %36, %111, %110, %72, %73, %.loopexit177.split.loop.exit, %.preheader, %131, %125, %86, %95, %98, %57, %69, %43, %38
+  %.0 = phi i32 [ %.0.i128, %43 ], [ %.0.i127, %38 ], [ %.0.i129, %57 ], [ %.0.i130, %69 ], [ %.0.i131, %86 ], [ %.0.i132, %95 ], [ %105, %98 ], [ %.0.i133, %125 ], [ %.0.i156, %131 ], [ 0, %.preheader ], [ %.0.i.le, %.loopexit177.split.loop.exit ], [ 0, %72 ], [ %80, %73 ], [ 0, %110 ], [ %119, %111 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %27 ]
   ret i32 %.0
 }
 

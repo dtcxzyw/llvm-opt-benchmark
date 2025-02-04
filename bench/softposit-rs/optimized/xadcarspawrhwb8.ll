@@ -58,13 +58,13 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
 
 38:                                               ; preds = %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) @anon.5c5618c1b510649a6d086749e7299d2c.6, i64 64, i1 false)
-  br label %149
+  br label %151
 
 39:                                               ; preds = %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit
   %40 = icmp eq i32 %1, 0
   %41 = icmp eq i32 %2, 0
   %or.cond6 = or i1 %40, %41
-  br i1 %or.cond6, label %149, label %42
+  br i1 %or.cond6, label %151, label %42
 
 42:                                               ; preds = %39
   %43 = and i32 %1, -2147483648
@@ -294,7 +294,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
 
 _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113: ; preds = %132
   %139 = icmp eq i64 %.sroa.10.0.copyload, 0
-  br i1 %139, label %148, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread
+  br i1 %139, label %150, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread
 
 140:                                              ; preds = %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread", %179
   %.064203 = phi i1 [ false, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread" ], [ %.165, %179 ]
@@ -308,18 +308,18 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113: ; preds = %132
   %147 = icmp eq i64 %141, 7
   br i1 %147, label %150, label %161
 
-148:                                              ; preds = %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113
+150:                                              ; preds = %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113
   br label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread
 
-_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread: ; preds = %132, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113, %148
-  %.sroa.0159.0 = phi i64 [ 0, %148 ], [ -9223372036854775808, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.046.0.copyload, %132 ]
-  %.sroa.5161.0 = phi i64 [ 0, %148 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.447.0.copyload, %132 ]
-  %.sroa.6163.0 = phi i64 [ 0, %148 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.5.0.copyload, %132 ]
-  %.sroa.7165.0 = phi i64 [ 0, %148 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.648.0.copyload, %132 ]
-  %.sroa.8167.0 = phi i64 [ 0, %148 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.7.0.copyload, %132 ]
-  %.sroa.9169.0 = phi i64 [ 0, %148 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.8.0.copyload, %132 ]
-  %.sroa.10171.0 = phi i64 [ 0, %148 ], [ %.sroa.9.0.copyload, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.9.0.copyload, %132 ]
-  %.sroa.11173.0 = phi i64 [ 0, %148 ], [ %.sroa.10.0.copyload, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.10.0.copyload, %132 ]
+_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread: ; preds = %132, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113, %150
+  %.sroa.0159.0 = phi i64 [ 0, %150 ], [ -9223372036854775808, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.046.0.copyload, %132 ]
+  %.sroa.5161.0 = phi i64 [ 0, %150 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.447.0.copyload, %132 ]
+  %.sroa.6163.0 = phi i64 [ 0, %150 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.5.0.copyload, %132 ]
+  %.sroa.7165.0 = phi i64 [ 0, %150 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.648.0.copyload, %132 ]
+  %.sroa.8167.0 = phi i64 [ 0, %150 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.7.0.copyload, %132 ]
+  %.sroa.9169.0 = phi i64 [ 0, %150 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.8.0.copyload, %132 ]
+  %.sroa.10171.0 = phi i64 [ 0, %150 ], [ %.sroa.9.0.copyload, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.9.0.copyload, %132 ]
+  %.sroa.11173.0 = phi i64 [ 0, %150 ], [ %.sroa.10.0.copyload, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113 ], [ %.sroa.10.0.copyload, %132 ]
   store i64 %.sroa.0159.0, ptr %0, align 8
   store i64 %.sroa.5161.0, ptr %8, align 8
   store i64 %.sroa.6163.0, ptr %10, align 8
@@ -330,47 +330,47 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread: ; preds =
   store i64 %.sroa.11173.0, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  br label %149
+  br label %151
 
-149:                                              ; preds = %38, %39, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread
+151:                                              ; preds = %38, %39, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   ret void
 
-150:                                              ; preds = %140
-  %151 = and i64 %145, 1
-  %152 = and i64 %151, %146
-  %153 = lshr i64 %145, 1
-  %154 = lshr i64 %146, 1
-  %155 = add nuw i64 %154, %153
-  %156 = add nuw i64 %155, %152
-  %157 = shl i64 %156, 1
-  %158 = xor i64 %146, %145
-  %159 = and i64 %158, 1
-  %160 = or disjoint i64 %157, %159
+152:                                              ; preds = %140
+  %153 = and i64 %145, 1
+  %154 = and i64 %151, %146
+  %155 = lshr i64 %145, 1
+  %156 = lshr i64 %146, 1
+  %157 = add nuw i64 %154, %153
+  %158 = add nuw i64 %157, %152
+  %159 = shl i64 %158, 1
+  %160 = xor i64 %146, %145
+  %161 = and i64 %158, 1
+  %162 = or disjoint i64 %157, %161
   br label %179
 
 161:                                              ; preds = %140
   %162 = trunc i64 %145 to i8
-  %163 = and i8 %162, 1
-  %164 = trunc i64 %146 to i8
-  %165 = and i8 %164, 1
-  %166 = zext i1 %.064203 to i8
-  %167 = add nuw nsw i8 %163, %166
-  %168 = add nuw nsw i8 %167, %165
-  %169 = lshr i64 %145, 1
-  %170 = lshr i64 %146, 1
-  %171 = add nuw i64 %170, %169
-  %172 = lshr i8 %168, 1
-  %173 = zext nneg i8 %172 to i64
-  %174 = add nuw i64 %171, %173
-  %175 = shl i64 %174, 1
-  %176 = and i8 %168, 1
-  %177 = zext nneg i8 %176 to i64
+  %165 = and i8 %162, 1
+  %166 = trunc i64 %146 to i8
+  %167 = and i8 %164, 1
+  %168 = zext i1 %.064203 to i8
+  %169 = add nuw nsw i8 %163, %166
+  %170 = add nuw nsw i8 %167, %165
+  %171 = lshr i64 %145, 1
+  %172 = lshr i64 %146, 1
+  %173 = add nuw i64 %170, %171
+  %174 = lshr i8 %170, 1
+  %175 = zext nneg i8 %172 to i64
+  %176 = add nuw i64 %171, %173
+  %177 = shl i64 %176, 1
+  %178 = and i8 %170, 1
+  %179 = zext nneg i8 %176 to i64
   %178 = or disjoint i64 %175, %177
   br label %179
 
-179:                                              ; preds = %161, %150
-  %storemerge = phi i64 [ %160, %150 ], [ %178, %161 ]
+179: ; preds = %161, %152
+  %.165.in.in = phi i64 [ %160, %152 ], [ %178, %161 ]
   %.165.in.in = phi i64 [ %156, %150 ], [ %174, %161 ]
   store i64 %storemerge, ptr %142, align 8
   %.165 = icmp slt i64 %.165.in.in, 0
@@ -429,11 +429,11 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
 
 36:                                               ; preds = %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit
   %37 = icmp eq i32 %1, 0
-  br i1 %37, label %115, label %39
+  br i1 %37, label %117, label %39
 
 38:                                               ; preds = %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) @anon.5c5618c1b510649a6d086749e7299d2c.6, i64 64, i1 false)
-  br label %115
+  br label %117
 
 39:                                               ; preds = %36
   %40 = and i32 %1, -2147483648
@@ -592,7 +592,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
 
 _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86: ; preds = %98
   %105 = icmp eq i64 %.sroa.10.0.copyload, 0
-  br i1 %105, label %114, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread
+  br i1 %105, label %116, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread
 
 106:                                              ; preds = %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread", %145
   %.052171 = phi i1 [ false, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread" ], [ %.153, %145 ]
@@ -606,18 +606,18 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86: ; preds = %98
   %113 = icmp eq i64 %107, 7
   br i1 %113, label %116, label %127
 
-114:                                              ; preds = %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86
+116:                                              ; preds = %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86
   br label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread
 
-_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread: ; preds = %98, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86, %114
-  %.sroa.0132.0 = phi i64 [ 0, %114 ], [ -9223372036854775808, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.035.0.copyload, %98 ]
-  %.sroa.5134.0 = phi i64 [ 0, %114 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.436.0.copyload, %98 ]
-  %.sroa.6136.0 = phi i64 [ 0, %114 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.5.0.copyload, %98 ]
-  %.sroa.7138.0 = phi i64 [ 0, %114 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.637.0.copyload, %98 ]
-  %.sroa.8140.0 = phi i64 [ 0, %114 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.7.0.copyload, %98 ]
-  %.sroa.9142.0 = phi i64 [ 0, %114 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.8.0.copyload, %98 ]
-  %.sroa.10144.0 = phi i64 [ 0, %114 ], [ %.sroa.9.0.copyload, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.9.0.copyload, %98 ]
-  %.sroa.11146.0 = phi i64 [ 0, %114 ], [ %.sroa.10.0.copyload, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.10.0.copyload, %98 ]
+_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread: ; preds = %98, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86, %116
+  %.sroa.0132.0 = phi i64 [ 0, %116 ], [ -9223372036854775808, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.035.0.copyload, %98 ]
+  %.sroa.5134.0 = phi i64 [ 0, %116 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.436.0.copyload, %98 ]
+  %.sroa.6136.0 = phi i64 [ 0, %116 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.5.0.copyload, %98 ]
+  %.sroa.7138.0 = phi i64 [ 0, %116 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.637.0.copyload, %98 ]
+  %.sroa.8140.0 = phi i64 [ 0, %116 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.7.0.copyload, %98 ]
+  %.sroa.9142.0 = phi i64 [ 0, %116 ], [ 0, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.8.0.copyload, %98 ]
+  %.sroa.10144.0 = phi i64 [ 0, %116 ], [ %.sroa.9.0.copyload, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.9.0.copyload, %98 ]
+  %.sroa.11146.0 = phi i64 [ 0, %116 ], [ %.sroa.10.0.copyload, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86 ], [ %.sroa.10.0.copyload, %98 ]
   store i64 %.sroa.0132.0, ptr %0, align 8
   store i64 %.sroa.5134.0, ptr %7, align 8
   store i64 %.sroa.6136.0, ptr %9, align 8
@@ -628,47 +628,47 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread: ; preds = 
   store i64 %.sroa.11146.0, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  br label %115
+  br label %117
 
-115:                                              ; preds = %38, %36, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread
+117:                                              ; preds = %38, %36, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   ret void
 
-116:                                              ; preds = %106
-  %117 = and i64 %111, 1
-  %118 = and i64 %117, %112
-  %119 = lshr i64 %111, 1
-  %120 = lshr i64 %112, 1
-  %121 = add nuw i64 %120, %119
-  %122 = add nuw i64 %121, %118
-  %123 = shl i64 %122, 1
-  %124 = xor i64 %112, %111
-  %125 = and i64 %124, 1
-  %126 = or disjoint i64 %123, %125
+118:                                              ; preds = %106
+  %119 = and i64 %111, 1
+  %120 = and i64 %117, %112
+  %121 = lshr i64 %111, 1
+  %122 = lshr i64 %112, 1
+  %123 = add nuw i64 %120, %119
+  %124 = add nuw i64 %123, %122
+  %125 = shl i64 %124, 1
+  %126 = xor i64 %112, %111
+  %127 = and i64 %124, 1
+  %128 = or disjoint i64 %123, %127
   br label %145
 
 127:                                              ; preds = %106
   %128 = trunc i64 %111 to i8
-  %129 = and i8 %128, 1
-  %130 = trunc i64 %112 to i8
-  %131 = and i8 %130, 1
-  %132 = zext i1 %.052171 to i8
-  %133 = add nuw nsw i8 %129, %132
-  %134 = add nuw nsw i8 %133, %131
-  %135 = lshr i64 %111, 1
-  %136 = lshr i64 %112, 1
-  %137 = add nuw i64 %136, %135
-  %138 = lshr i8 %134, 1
-  %139 = zext nneg i8 %138 to i64
-  %140 = add nuw i64 %137, %139
-  %141 = shl i64 %140, 1
-  %142 = and i8 %134, 1
-  %143 = zext nneg i8 %142 to i64
+  %131 = and i8 %128, 1
+  %132 = trunc i64 %112 to i8
+  %133 = and i8 %130, 1
+  %134 = zext i1 %.052171 to i8
+  %135 = add nuw nsw i8 %131, %132
+  %136 = add nuw nsw i8 %133, %131
+  %137 = lshr i64 %111, 1
+  %138 = lshr i64 %112, 1
+  %139 = add nuw i64 %138, %137
+  %140 = lshr i8 %134, 1
+  %141 = zext nneg i8 %138 to i64
+  %142 = add nuw i64 %137, %139
+  %143 = shl i64 %140, 1
+  %144 = and i8 %134, 1
+  %145 = zext nneg i8 %142 to i64
   %144 = or disjoint i64 %141, %143
   br label %145
 
-145:                                              ; preds = %127, %116
-  %storemerge = phi i64 [ %126, %116 ], [ %144, %127 ]
+145: ; preds = %127, %118
+  %.153.in.in = phi i64 [ %126, %118 ], [ %144, %127 ]
   %.153.in.in = phi i64 [ %122, %116 ], [ %140, %127 ]
   store i64 %storemerge, ptr %108, align 8
   %.153 = icmp slt i64 %.153.in.in, 0

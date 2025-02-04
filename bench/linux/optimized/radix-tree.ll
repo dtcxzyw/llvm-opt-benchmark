@@ -1073,23 +1073,23 @@ define dso_local void @radix_tree_replace_slot(ptr noundef readonly %0, ptr noun
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %17, label %11
 
-11:                                               ; preds = %3
-  %12 = and i32 %8, 67108864
+11:; preds = %3
+  %14 = and i32 %8, 67108864
   %13 = icmp ne i32 %12, 0
   %14 = icmp ne ptr %4, null
   %15 = lshr exact i32 %12, 26
   %16 = and i1 %14, %13
   br i1 %16, label %17, label %23
 
-17:                                               ; preds = %11, %3
-  %18 = icmp ne ptr %2, null
-  %19 = zext i1 %18 to i32
+17:; preds = %11, %3
+  %20 = icmp ne ptr %2, null
+  %19 = zext i1 %20 to i32
   %20 = icmp ne ptr %4, null
   %21 = sext i1 %20 to i32
   %22 = add nsw i32 %21, %19
   br label %23
 
-23:                                               ; preds = %17, %11
+35:                                               ; preds = %17, %11
   %24 = phi i32 [ %15, %11 ], [ %22, %17 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = icmp eq ptr %25, %1
@@ -1107,9 +1107,9 @@ define dso_local void @radix_tree_replace_slot(ptr noundef readonly %0, ptr noun
   tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #13, !srcloc !47
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 889, i32 2307, i64 12) #13, !srcloc !48
   tail call void asm sideeffect "364: nop\0A\09.pushsection .discard.instr_end\0A\09.long 364b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 364) #13, !srcloc !49
-  br label %34
+  br label %36
 
-34:                                               ; preds = %33, %27, %23
+36:                                               ; preds = %33, %27, %23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !50
   store volatile ptr %2, ptr %1, align 8
   ret void

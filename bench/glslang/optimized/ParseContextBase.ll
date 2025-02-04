@@ -18176,7 +18176,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 255
   %.not17 = icmp eq i32 %13, 14
-  br i1 %.not17, label %14, label %21
+  br i1 %.not17, label %14, label %58
 
 14:                                               ; preds = %10, %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -18185,27 +18185,27 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %18 = load i32, ptr %16, align 8
   %19 = xor i32 %18, %17
   %20 = and i32 %19, 2147483647
-  %or.cond = icmp eq i32 %20, 0
+  %or.cond19.i = icmp eq i32 %20, 0
   br i1 %or.cond, label %._crit_edge, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
 ._crit_edge:                                      ; preds = %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %21
+  br label %58
 
-21:                                               ; preds = %._crit_edge, %10
-  %22 = phi i32 [ %.pre, %._crit_edge ], [ %12, %10 ]
-  %23 = xor i32 %22, %8
-  %24 = and i32 %23, 8388352
-  %or.cond29 = icmp eq i32 %24, 0
-  br i1 %or.cond29, label %25, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
+58:                                               ; preds = %._crit_edge, %10
+  %59 = phi i32 [ %.pre, %._crit_edge ], [ %12, %10 ]
+  %60 = xor i32 %59, %8
+  %61 = and i32 %60, 8388352
+  %or.cond25 = icmp eq i32 %61, 0
+  br i1 %or.cond25, label %25, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-25:                                               ; preds = %21
-  %26 = tail call noundef zeroext i1 @_ZNK7glslang5TType14sameStructTypeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %2, ptr noundef %3)
-  br i1 %26, label %27, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
+74:                                               ; preds = %58
+  %75 = tail call noundef zeroext i1 @_ZNK7glslang5TType14sameStructTypeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %2, ptr noundef %3)
+  br i1 %75, label %76, label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %0, align 8
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(152) %0) #16
@@ -18246,9 +18246,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS
   %58 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %53, ptr noundef nonnull align 8 dereferenceable(152) %55)
   br label %_ZNK7glslang8TSamplereqERKS0_.exit.thread
 
-_ZNK7glslang8TSamplereqERKS0_.exit.thread:        ; preds = %57, %51, %45, %27, %14, %25, %21
-  %59 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %14 ], [ %58, %57 ], [ false, %27 ], [ true, %45 ], [ true, %51 ]
-  ret i1 %59
+_ZNK7glslang8TSamplereqERKS0_.exit.thread:        ; preds = %57, %51, %45, %76, %14, %25, %58
+  %78 = phi i1 [ false, %74 ], [ false, %58 ], [ false, %14 ], [ %58, %57 ], [ false, %27 ], [ true, %45 ], [ true, %51 ]
+  ret i1 %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
