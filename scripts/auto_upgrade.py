@@ -12,11 +12,13 @@ supported_project = [
     "cjson",
     "clamav",
     "cmake",
+    "coremark",
 ]
 
 modify_only = [
     "cjson",
     "cmake",
+    "coremark",
 ]
 
 
