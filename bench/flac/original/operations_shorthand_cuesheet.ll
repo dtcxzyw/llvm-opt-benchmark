@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon }
 %union.anon = type { %struct.FLAC__StreamMetadata_CueSheet }
@@ -40,760 +40,865 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [10 x i8] c"\22%s\22 FLAC\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @do_shorthand_operation__cuesheet(ptr noundef %filename, ptr noundef %chain, ptr noundef %operation, ptr noundef %needs_write) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %filename.addr = alloca ptr, align 8
-  %chain.addr = alloca ptr, align 8
-  %operation.addr = alloca ptr, align 8
-  %needs_write.addr = alloca ptr, align 8
-  %ok = alloca i32, align 4
-  %cuesheet = alloca ptr, align 8
-  %iterator = alloca ptr, align 8
-  %lead_out_offset = alloca i64, align 8
-  %is_cdda = alloca i32, align 4
-  %sample_rate = alloca i32, align 4
-  %block = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store ptr %chain, ptr %chain.addr, align 8
-  store ptr %operation, ptr %operation.addr, align 8
-  store ptr %needs_write, ptr %needs_write.addr, align 8
-  store i32 1, ptr %ok, align 4
-  store ptr null, ptr %cuesheet, align 8
-  %call = call ptr @FLAC__metadata_iterator_new()
-  store ptr %call, ptr %iterator, align 8
-  store i64 0, ptr %lead_out_offset, align 8
-  store i32 0, ptr %is_cdda, align 4
-  store i32 0, ptr %sample_rate, align 4
-  %0 = load ptr, ptr %iterator, align 8
-  %cmp = icmp eq ptr null, %0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @do_shorthand_operation__cuesheet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !11
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 1, ptr %10, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  store ptr null, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %18 = call ptr @FLAC__metadata_iterator_new()
+  store ptr %18, ptr %12, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store i64 0, ptr %13, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  store i32 0, ptr %14, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  store i32 0, ptr %15, align 4, !tbaa !14
+  %19 = load ptr, ptr %12, align 8, !tbaa !18
+  %20 = icmp eq ptr null, %19
+  br i1 %20, label %21, label %22
 
-if.then:                                          ; preds = %entry
+21:                                               ; preds = %4
   call void @die(ptr noundef @.str)
-  br label %if.end
+  br label %22
 
-if.end:                                           ; preds = %if.then, %entry
-  %1 = load ptr, ptr %iterator, align 8
-  %2 = load ptr, ptr %chain.addr, align 8
-  call void @FLAC__metadata_iterator_init(ptr noundef %1, ptr noundef %2)
-  br label %do.body
+22:                                               ; preds = %21, %4
+  %23 = load ptr, ptr %12, align 8, !tbaa !18
+  %24 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @FLAC__metadata_iterator_init(ptr noundef %23, ptr noundef %24)
+  br label %25
 
-do.body:                                          ; preds = %do.cond, %if.end
-  %3 = load ptr, ptr %iterator, align 8
-  %call1 = call ptr @FLAC__metadata_iterator_get_block(ptr noundef %3)
-  store ptr %call1, ptr %block, align 8
-  %4 = load ptr, ptr %block, align 8
-  %type = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %type, align 8
-  %cmp2 = icmp eq i32 %5, 0
-  br i1 %cmp2, label %if.then3, label %if.else
+25:                                               ; preds = %84, %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %26 = load ptr, ptr %12, align 8, !tbaa !18
+  %27 = call ptr @FLAC__metadata_iterator_get_block(ptr noundef %26)
+  store ptr %27, ptr %16, align 8, !tbaa !16
+  %28 = load ptr, ptr %16, align 8, !tbaa !16
+  %29 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 8, !tbaa !22
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %72
 
-if.then3:                                         ; preds = %do.body
-  %6 = load ptr, ptr %block, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %6, i32 0, i32 3
-  %total_samples = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data, i32 0, i32 7
-  %7 = load i64, ptr %total_samples, align 8
-  store i64 %7, ptr %lead_out_offset, align 8
-  %8 = load i64, ptr %lead_out_offset, align 8
-  %cmp4 = icmp eq i64 %8, 0
-  br i1 %cmp4, label %if.then5, label %if.end7
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %16, align 8, !tbaa !16
+  %34 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %33, i32 0, i32 3
+  %35 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %34, i32 0, i32 7
+  %36 = load i64, ptr %35, align 8, !tbaa !24
+  store i64 %36, ptr %13, align 8, !tbaa !20
+  %37 = load i64, ptr %13, align 8, !tbaa !20
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %44
 
-if.then5:                                         ; preds = %if.then3
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = load ptr, ptr %filename.addr, align 8
-  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.1, ptr noundef %10)
-  %11 = load ptr, ptr %iterator, align 8
-  call void @FLAC__metadata_iterator_delete(ptr noundef %11)
-  store i32 0, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %32
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %41 = load ptr, ptr %6, align 8, !tbaa !4
+  %42 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %40, i32 noundef 1, ptr noundef @.str.1, ptr noundef %41)
+  %43 = load ptr, ptr %12, align 8, !tbaa !18
+  call void @FLAC__metadata_iterator_delete(ptr noundef %43)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %81
 
-if.end7:                                          ; preds = %if.then3
-  %12 = load ptr, ptr %block, align 8
-  %data8 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %12, i32 0, i32 3
-  %sample_rate9 = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data8, i32 0, i32 4
-  %13 = load i32, ptr %sample_rate9, align 8
-  store i32 %13, ptr %sample_rate, align 4
-  %14 = load ptr, ptr %block, align 8
-  %data10 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %14, i32 0, i32 3
-  %channels = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data10, i32 0, i32 5
-  %15 = load i32, ptr %channels, align 4
-  %cmp11 = icmp eq i32 %15, 1
-  br i1 %cmp11, label %land.lhs.true, label %lor.lhs.false
+44:                                               ; preds = %32
+  %45 = load ptr, ptr %16, align 8, !tbaa !16
+  %46 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %45, i32 0, i32 3
+  %47 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %46, i32 0, i32 4
+  %48 = load i32, ptr %47, align 8, !tbaa !24
+  store i32 %48, ptr %15, align 4, !tbaa !14
+  %49 = load ptr, ptr %16, align 8, !tbaa !16
+  %50 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %49, i32 0, i32 3
+  %51 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %50, i32 0, i32 5
+  %52 = load i32, ptr %51, align 4, !tbaa !24
+  %53 = icmp eq i32 %52, 1
+  br i1 %53, label %60, label %54
 
-lor.lhs.false:                                    ; preds = %if.end7
-  %16 = load ptr, ptr %block, align 8
-  %data12 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %16, i32 0, i32 3
-  %channels13 = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data12, i32 0, i32 5
-  %17 = load i32, ptr %channels13, align 4
-  %cmp14 = icmp eq i32 %17, 2
-  br i1 %cmp14, label %land.lhs.true, label %land.end
+54:                                               ; preds = %44
+  %55 = load ptr, ptr %16, align 8, !tbaa !16
+  %56 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %55, i32 0, i32 3
+  %57 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %56, i32 0, i32 5
+  %58 = load i32, ptr %57, align 4, !tbaa !24
+  %59 = icmp eq i32 %58, 2
+  br i1 %59, label %60, label %69
 
-land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end7
-  %18 = load ptr, ptr %block, align 8
-  %data15 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %18, i32 0, i32 3
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data15, i32 0, i32 6
-  %19 = load i32, ptr %bits_per_sample, align 8
-  %cmp16 = icmp eq i32 %19, 16
-  br i1 %cmp16, label %land.rhs, label %land.end
+60:                                               ; preds = %54, %44
+  %61 = load ptr, ptr %16, align 8, !tbaa !16
+  %62 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %61, i32 0, i32 3
+  %63 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %62, i32 0, i32 6
+  %64 = load i32, ptr %63, align 8, !tbaa !24
+  %65 = icmp eq i32 %64, 16
+  br i1 %65, label %66, label %69
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %20 = load i32, ptr %sample_rate, align 4
-  %cmp17 = icmp eq i32 %20, 44100
-  br label %land.end
+66:                                               ; preds = %60
+  %67 = load i32, ptr %15, align 4, !tbaa !14
+  %68 = icmp eq i32 %67, 44100
+  br label %69
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %lor.lhs.false
-  %21 = phi i1 [ false, %land.lhs.true ], [ false, %lor.lhs.false ], [ %cmp17, %land.rhs ]
-  %land.ext = zext i1 %21 to i32
-  store i32 %land.ext, ptr %is_cdda, align 4
-  br label %if.end22
+69:                                               ; preds = %66, %60, %54
+  %70 = phi i1 [ false, %60 ], [ false, %54 ], [ %68, %66 ]
+  %71 = zext i1 %70 to i32
+  store i32 %71, ptr %14, align 4, !tbaa !14
+  br label %80
 
-if.else:                                          ; preds = %do.body
-  %22 = load ptr, ptr %block, align 8
-  %type18 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %22, i32 0, i32 0
-  %23 = load i32, ptr %type18, align 8
-  %cmp19 = icmp eq i32 %23, 5
-  br i1 %cmp19, label %if.then20, label %if.end21
+72:                                               ; preds = %25
+  %73 = load ptr, ptr %16, align 8, !tbaa !16
+  %74 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %73, i32 0, i32 0
+  %75 = load i32, ptr %74, align 8, !tbaa !22
+  %76 = icmp eq i32 %75, 5
+  br i1 %76, label %77, label %79
 
-if.then20:                                        ; preds = %if.else
-  %24 = load ptr, ptr %block, align 8
-  store ptr %24, ptr %cuesheet, align 8
-  br label %if.end21
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %16, align 8, !tbaa !16
+  store ptr %78, ptr %11, align 8, !tbaa !16
+  br label %79
 
-if.end21:                                         ; preds = %if.then20, %if.else
-  br label %if.end22
+79:                                               ; preds = %77, %72
+  br label %80
 
-if.end22:                                         ; preds = %if.end21, %land.end
-  br label %do.cond
+80:                                               ; preds = %79, %69
+  store i32 0, ptr %17, align 4
+  br label %81
 
-do.cond:                                          ; preds = %if.end22
-  %25 = load ptr, ptr %iterator, align 8
-  %call23 = call i32 @FLAC__metadata_iterator_next(ptr noundef %25)
-  %tobool = icmp ne i32 %call23, 0
-  br i1 %tobool, label %do.body, label %do.end, !llvm.loop !5
-
-do.end:                                           ; preds = %do.cond
-  %26 = load i64, ptr %lead_out_offset, align 8
-  %cmp24 = icmp eq i64 %26, 0
-  br i1 %cmp24, label %if.then25, label %if.end27
-
-if.then25:                                        ; preds = %do.end
-  %27 = load ptr, ptr @stderr, align 8
-  %28 = load ptr, ptr %filename.addr, align 8
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.2, ptr noundef %28)
-  %29 = load ptr, ptr %iterator, align 8
-  call void @FLAC__metadata_iterator_delete(ptr noundef %29)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end27:                                         ; preds = %do.end
-  %30 = load i32, ptr %sample_rate, align 4
-  %cmp28 = icmp eq i32 %30, 0
-  br i1 %cmp28, label %if.then29, label %if.end31
-
-if.then29:                                        ; preds = %if.end27
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = load ptr, ptr %filename.addr, align 8
-  %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.3, ptr noundef %32)
-  %33 = load ptr, ptr %iterator, align 8
-  call void @FLAC__metadata_iterator_delete(ptr noundef %33)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end31:                                         ; preds = %if.end27
-  %34 = load ptr, ptr %operation.addr, align 8
-  %type32 = getelementptr inbounds %struct.Operation, ptr %34, i32 0, i32 0
-  %35 = load i32, ptr %type32, align 8
-  switch i32 %35, label %sw.default [
-    i32 27, label %sw.bb
-    i32 28, label %sw.bb50
+81:                                               ; preds = %80, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  %82 = load i32, ptr %17, align 4
+  switch i32 %82, label %170 [
+    i32 0, label %83
   ]
 
-sw.bb:                                            ; preds = %if.end31
-  %36 = load ptr, ptr %cuesheet, align 8
-  %cmp33 = icmp ne ptr null, %36
-  br i1 %cmp33, label %if.then34, label %if.else36
+83:                                               ; preds = %81
+  br label %84
 
-if.then34:                                        ; preds = %sw.bb
-  %37 = load ptr, ptr @stderr, align 8
-  %38 = load ptr, ptr %filename.addr, align 8
-  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.4, ptr noundef %38)
-  store i32 0, ptr %ok, align 4
-  br label %if.end49
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %12, align 8, !tbaa !18
+  %86 = call i32 @FLAC__metadata_iterator_next(ptr noundef %85)
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %25, label %88, !llvm.loop !27
 
-if.else36:                                        ; preds = %sw.bb
-  %39 = load ptr, ptr %filename.addr, align 8
-  %40 = load ptr, ptr %operation.addr, align 8
-  %argument = getelementptr inbounds %struct.Operation, ptr %40, i32 0, i32 1
-  %filename37 = getelementptr inbounds %struct.Argument_ImportCuesheetFrom, ptr %argument, i32 0, i32 0
-  %41 = load ptr, ptr %filename37, align 8
-  %42 = load ptr, ptr %needs_write.addr, align 8
-  %43 = load i64, ptr %lead_out_offset, align 8
-  %44 = load i32, ptr %sample_rate, align 4
-  %45 = load i32, ptr %is_cdda, align 4
-  %46 = load ptr, ptr %operation.addr, align 8
-  %argument38 = getelementptr inbounds %struct.Operation, ptr %46, i32 0, i32 1
-  %add_seekpoint_link = getelementptr inbounds %struct.Argument_ImportCuesheetFrom, ptr %argument38, i32 0, i32 1
-  %47 = load ptr, ptr %add_seekpoint_link, align 8
-  %call39 = call i32 @import_cs_from(ptr noundef %39, ptr noundef %cuesheet, ptr noundef %41, ptr noundef %42, i64 noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef %47)
-  store i32 %call39, ptr %ok, align 4
-  %48 = load i32, ptr %ok, align 4
-  %tobool40 = icmp ne i32 %48, 0
-  br i1 %tobool40, label %if.then41, label %if.end48
+88:                                               ; preds = %84
+  %89 = load i64, ptr %13, align 8, !tbaa !20
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %91, label %96
 
-if.then41:                                        ; preds = %if.else36
-  br label %while.cond
+91:                                               ; preds = %88
+  %92 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %93 = load ptr, ptr %6, align 8, !tbaa !4
+  %94 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %92, i32 noundef 1, ptr noundef @.str.2, ptr noundef %93)
+  %95 = load ptr, ptr %12, align 8, !tbaa !18
+  call void @FLAC__metadata_iterator_delete(ptr noundef %95)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %170
 
-while.cond:                                       ; preds = %while.body, %if.then41
-  %49 = load ptr, ptr %iterator, align 8
-  %call42 = call i32 @FLAC__metadata_iterator_next(ptr noundef %49)
-  %tobool43 = icmp ne i32 %call42, 0
-  br i1 %tobool43, label %while.body, label %while.end
+96:                                               ; preds = %88
+  %97 = load i32, ptr %15, align 4, !tbaa !14
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %104
 
-while.body:                                       ; preds = %while.cond
-  br label %while.cond, !llvm.loop !7
+99:                                               ; preds = %96
+  %100 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %101 = load ptr, ptr %6, align 8, !tbaa !4
+  %102 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %100, i32 noundef 1, ptr noundef @.str.3, ptr noundef %101)
+  %103 = load ptr, ptr %12, align 8, !tbaa !18
+  call void @FLAC__metadata_iterator_delete(ptr noundef %103)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %170
 
-while.end:                                        ; preds = %while.cond
-  %50 = load ptr, ptr %iterator, align 8
-  %51 = load ptr, ptr %cuesheet, align 8
-  %call44 = call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %50, ptr noundef %51)
-  %tobool45 = icmp ne i32 %call44, 0
-  br i1 %tobool45, label %if.end47, label %if.then46
+104:                                              ; preds = %96
+  %105 = load ptr, ptr %8, align 8, !tbaa !11
+  %106 = getelementptr inbounds nuw %struct.Operation, ptr %105, i32 0, i32 0
+  %107 = load i32, ptr %106, align 8, !tbaa !29
+  switch i32 %107, label %166 [
+    i32 27, label %108
+    i32 28, label %150
+  ]
 
-if.then46:                                        ; preds = %while.end
-  %52 = load ptr, ptr %chain.addr, align 8
-  %53 = load ptr, ptr %filename.addr, align 8
-  call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %52, ptr noundef @.str.5, ptr noundef %53)
-  %54 = load ptr, ptr %cuesheet, align 8
-  call void @FLAC__metadata_object_delete(ptr noundef %54)
-  store i32 0, ptr %ok, align 4
-  br label %if.end47
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %11, align 8, !tbaa !16
+  %110 = icmp ne ptr null, %109
+  br i1 %110, label %111, label %115
 
-if.end47:                                         ; preds = %if.then46, %while.end
-  br label %if.end48
+111:                                              ; preds = %108
+  %112 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %113 = load ptr, ptr %6, align 8, !tbaa !4
+  %114 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %112, i32 noundef 1, ptr noundef @.str.4, ptr noundef %113)
+  store i32 0, ptr %10, align 4, !tbaa !14
+  br label %149
 
-if.end48:                                         ; preds = %if.end47, %if.else36
-  br label %if.end49
+115:                                              ; preds = %108
+  %116 = load ptr, ptr %6, align 8, !tbaa !4
+  %117 = load ptr, ptr %8, align 8, !tbaa !11
+  %118 = getelementptr inbounds nuw %struct.Operation, ptr %117, i32 0, i32 1
+  %119 = getelementptr inbounds nuw %struct.Argument_ImportCuesheetFrom, ptr %118, i32 0, i32 0
+  %120 = load ptr, ptr %119, align 8, !tbaa !24
+  %121 = load ptr, ptr %9, align 8, !tbaa !12
+  %122 = load i64, ptr %13, align 8, !tbaa !20
+  %123 = load i32, ptr %15, align 4, !tbaa !14
+  %124 = load i32, ptr %14, align 4, !tbaa !14
+  %125 = load ptr, ptr %8, align 8, !tbaa !11
+  %126 = getelementptr inbounds nuw %struct.Operation, ptr %125, i32 0, i32 1
+  %127 = getelementptr inbounds nuw %struct.Argument_ImportCuesheetFrom, ptr %126, i32 0, i32 1
+  %128 = load ptr, ptr %127, align 8, !tbaa !24
+  %129 = call i32 @import_cs_from(ptr noundef %116, ptr noundef %11, ptr noundef %120, ptr noundef %121, i64 noundef %122, i32 noundef %123, i32 noundef %124, ptr noundef %128)
+  store i32 %129, ptr %10, align 4, !tbaa !14
+  %130 = load i32, ptr %10, align 4, !tbaa !14
+  %131 = icmp ne i32 %130, 0
+  br i1 %131, label %132, label %148
 
-if.end49:                                         ; preds = %if.end48, %if.then34
-  br label %sw.epilog
+132:                                              ; preds = %115
+  br label %133
 
-sw.bb50:                                          ; preds = %if.end31
-  %55 = load ptr, ptr %cuesheet, align 8
-  %cmp51 = icmp eq ptr null, %55
-  br i1 %cmp51, label %if.then52, label %if.else54
+133:                                              ; preds = %137, %132
+  %134 = load ptr, ptr %12, align 8, !tbaa !18
+  %135 = call i32 @FLAC__metadata_iterator_next(ptr noundef %134)
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %137, label %138
 
-if.then52:                                        ; preds = %sw.bb50
-  %56 = load ptr, ptr @stderr, align 8
-  %57 = load ptr, ptr %filename.addr, align 8
-  %call53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.6, ptr noundef %57)
-  store i32 0, ptr %ok, align 4
-  br label %if.end57
+137:                                              ; preds = %133
+  br label %133, !llvm.loop !31
 
-if.else54:                                        ; preds = %sw.bb50
-  %58 = load ptr, ptr %filename.addr, align 8
-  %59 = load ptr, ptr %cuesheet, align 8
-  %60 = load ptr, ptr %operation.addr, align 8
-  %argument55 = getelementptr inbounds %struct.Operation, ptr %60, i32 0, i32 1
-  %value = getelementptr inbounds %struct.Argument_String, ptr %argument55, i32 0, i32 0
-  %61 = load ptr, ptr %value, align 8
-  %call56 = call i32 @export_cs_to(ptr noundef %58, ptr noundef %59, ptr noundef %61)
-  store i32 %call56, ptr %ok, align 4
-  br label %if.end57
+138:                                              ; preds = %133
+  %139 = load ptr, ptr %12, align 8, !tbaa !18
+  %140 = load ptr, ptr %11, align 8, !tbaa !16
+  %141 = call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %139, ptr noundef %140)
+  %142 = icmp ne i32 %141, 0
+  br i1 %142, label %147, label %143
 
-if.end57:                                         ; preds = %if.else54, %if.then52
-  br label %sw.epilog
+143:                                              ; preds = %138
+  %144 = load ptr, ptr %7, align 8, !tbaa !9
+  %145 = load ptr, ptr %6, align 8, !tbaa !4
+  call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %144, ptr noundef @.str.5, ptr noundef %145)
+  %146 = load ptr, ptr %11, align 8, !tbaa !16
+  call void @FLAC__metadata_object_delete(ptr noundef %146)
+  store i32 0, ptr %10, align 4, !tbaa !14
+  br label %147
 
-sw.default:                                       ; preds = %if.end31
-  store i32 0, ptr %ok, align 4
-  br label %sw.epilog
+147:                                              ; preds = %143, %138
+  br label %148
 
-sw.epilog:                                        ; preds = %sw.default, %if.end57, %if.end49
-  %62 = load ptr, ptr %iterator, align 8
-  call void @FLAC__metadata_iterator_delete(ptr noundef %62)
-  %63 = load i32, ptr %ok, align 4
-  store i32 %63, ptr %retval, align 4
-  br label %return
+148:                                              ; preds = %147, %115
+  br label %149
 
-return:                                           ; preds = %sw.epilog, %if.then29, %if.then25, %if.then5
-  %64 = load i32, ptr %retval, align 4
-  ret i32 %64
+149:                                              ; preds = %148, %111
+  br label %167
+
+150:                                              ; preds = %104
+  %151 = load ptr, ptr %11, align 8, !tbaa !16
+  %152 = icmp eq ptr null, %151
+  br i1 %152, label %153, label %157
+
+153:                                              ; preds = %150
+  %154 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %155 = load ptr, ptr %6, align 8, !tbaa !4
+  %156 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %154, i32 noundef 1, ptr noundef @.str.6, ptr noundef %155)
+  store i32 0, ptr %10, align 4, !tbaa !14
+  br label %165
+
+157:                                              ; preds = %150
+  %158 = load ptr, ptr %6, align 8, !tbaa !4
+  %159 = load ptr, ptr %11, align 8, !tbaa !16
+  %160 = load ptr, ptr %8, align 8, !tbaa !11
+  %161 = getelementptr inbounds nuw %struct.Operation, ptr %160, i32 0, i32 1
+  %162 = getelementptr inbounds nuw %struct.Argument_String, ptr %161, i32 0, i32 0
+  %163 = load ptr, ptr %162, align 8, !tbaa !24
+  %164 = call i32 @export_cs_to(ptr noundef %158, ptr noundef %159, ptr noundef %163)
+  store i32 %164, ptr %10, align 4, !tbaa !14
+  br label %165
+
+165:                                              ; preds = %157, %153
+  br label %167
+
+166:                                              ; preds = %104
+  store i32 0, ptr %10, align 4, !tbaa !14
+  br label %167
+
+167:                                              ; preds = %166, %165, %149
+  %168 = load ptr, ptr %12, align 8, !tbaa !18
+  call void @FLAC__metadata_iterator_delete(ptr noundef %168)
+  %169 = load i32, ptr %10, align 4, !tbaa !14
+  store i32 %169, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %170
+
+170:                                              ; preds = %167, %99, %91, %81
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  %171 = load i32, ptr %5, align 4
+  ret i32 %171
 }
 
-declare ptr @FLAC__metadata_iterator_new() #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @die(ptr noundef) #1
+declare ptr @FLAC__metadata_iterator_new() #2
 
-declare void @FLAC__metadata_iterator_init(ptr noundef, ptr noundef) #1
+declare void @die(ptr noundef) #2
 
-declare ptr @FLAC__metadata_iterator_get_block(ptr noundef) #1
+declare void @FLAC__metadata_iterator_init(ptr noundef, ptr noundef) #2
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+declare ptr @FLAC__metadata_iterator_get_block(ptr noundef) #2
 
-declare void @FLAC__metadata_iterator_delete(ptr noundef) #1
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare i32 @FLAC__metadata_iterator_next(ptr noundef) #1
+declare void @FLAC__metadata_iterator_delete(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @FLAC__metadata_iterator_next(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @import_cs_from(ptr noundef %filename, ptr noundef %cuesheet, ptr noundef %cs_filename, ptr noundef %needs_write, i64 noundef %lead_out_offset, i32 noundef %sample_rate, i32 noundef %is_cdda, ptr noundef %add_seekpoint_link) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %filename.addr = alloca ptr, align 8
-  %cuesheet.addr = alloca ptr, align 8
-  %cs_filename.addr = alloca ptr, align 8
-  %needs_write.addr = alloca ptr, align 8
-  %lead_out_offset.addr = alloca i64, align 8
-  %sample_rate.addr = alloca i32, align 4
-  %is_cdda.addr = alloca i32, align 4
-  %add_seekpoint_link.addr = alloca ptr, align 8
-  %f = alloca ptr, align 8
-  %error_message = alloca ptr, align 8
-  %seekpoint_specification = alloca ptr, align 8
-  %last_line_read = alloca i32, align 4
-  %spec = alloca [128 x i8], align 16
-  %track = alloca i32, align 4
-  %indx = alloca i32, align 4
-  %cs = alloca ptr, align 8
-  %tr = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store ptr %cuesheet, ptr %cuesheet.addr, align 8
-  store ptr %cs_filename, ptr %cs_filename.addr, align 8
-  store ptr %needs_write, ptr %needs_write.addr, align 8
-  store i64 %lead_out_offset, ptr %lead_out_offset.addr, align 8
-  store i32 %sample_rate, ptr %sample_rate.addr, align 4
-  store i32 %is_cdda, ptr %is_cdda.addr, align 4
-  store ptr %add_seekpoint_link, ptr %add_seekpoint_link.addr, align 8
-  %0 = load ptr, ptr %add_seekpoint_link.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define internal i32 @import_cs_from(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca [128 x i8], align 16
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !4
+  store ptr %1, ptr %11, align 8, !tbaa !32
+  store ptr %2, ptr %12, align 8, !tbaa !4
+  store ptr %3, ptr %13, align 8, !tbaa !12
+  store i64 %4, ptr %14, align 8, !tbaa !20
+  store i32 %5, ptr %15, align 4, !tbaa !14
+  store i32 %6, ptr %16, align 4, !tbaa !14
+  store ptr %7, ptr %17, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %28 = load ptr, ptr %17, align 8, !tbaa !11
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %33
 
-cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %add_seekpoint_link.addr, align 8
-  %specification = getelementptr inbounds %struct.Argument_AddSeekpoint, ptr %1, i32 0, i32 0
-  br label %cond.end
+30:                                               ; preds = %8
+  %31 = load ptr, ptr %17, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.Argument_AddSeekpoint, ptr %31, i32 0, i32 0
+  br label %34
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+33:                                               ; preds = %8
+  br label %34
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %specification, %cond.true ], [ null, %cond.false ]
-  store ptr %cond, ptr %seekpoint_specification, align 8
-  %2 = load ptr, ptr %cs_filename.addr, align 8
-  %cmp = icmp eq ptr null, %2
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+34:                                               ; preds = %33, %30
+  %35 = phi ptr [ %32, %30 ], [ null, %33 ]
+  store ptr %35, ptr %20, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #7
+  %36 = load ptr, ptr %12, align 8, !tbaa !4
+  %37 = icmp eq ptr null, %36
+  br i1 %37, label %42, label %38
 
-lor.lhs.false:                                    ; preds = %cond.end
-  %3 = load ptr, ptr %cs_filename.addr, align 8
-  %call = call i64 @strlen(ptr noundef %3) #6
-  %cmp1 = icmp eq i64 %call, 0
-  br i1 %cmp1, label %if.then, label %if.end
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %12, align 8, !tbaa !4
+  %40 = call i64 @strlen(ptr noundef %39) #8
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %46
 
-if.then:                                          ; preds = %lor.lhs.false, %cond.end
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load ptr, ptr %filename.addr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.7, ptr noundef %5)
-  store i32 0, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %38, %34
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %44 = load ptr, ptr %10, align 8, !tbaa !4
+  %45 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %43, i32 noundef 1, ptr noundef @.str.7, ptr noundef %44)
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %184
 
-if.end:                                           ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %cs_filename.addr, align 8
-  %call3 = call i32 @strcmp(ptr noundef %6, ptr noundef @.str.8) #6
-  %cmp4 = icmp eq i32 0, %call3
-  br i1 %cmp4, label %if.then5, label %if.else
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %12, align 8, !tbaa !4
+  %48 = call i32 @strcmp(ptr noundef %47, ptr noundef @.str.8) #8
+  %49 = icmp eq i32 0, %48
+  br i1 %49, label %50, label %52
 
-if.then5:                                         ; preds = %if.end
-  %7 = load ptr, ptr @stdin, align 8
-  store ptr %7, ptr %f, align 8
-  br label %if.end7
+50:                                               ; preds = %46
+  %51 = load ptr, ptr @stdin, align 8, !tbaa !25
+  store ptr %51, ptr %18, align 8, !tbaa !25
+  br label %55
 
-if.else:                                          ; preds = %if.end
-  %8 = load ptr, ptr %cs_filename.addr, align 8
-  %call6 = call noalias ptr @fopen64(ptr noundef %8, ptr noundef @.str.9)
-  store ptr %call6, ptr %f, align 8
-  br label %if.end7
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %12, align 8, !tbaa !4
+  %54 = call noalias ptr @fopen64(ptr noundef %53, ptr noundef @.str.9)
+  store ptr %54, ptr %18, align 8, !tbaa !25
+  br label %55
 
-if.end7:                                          ; preds = %if.else, %if.then5
-  %9 = load ptr, ptr %f, align 8
-  %cmp8 = icmp eq ptr null, %9
-  br i1 %cmp8, label %if.then9, label %if.end13
+55:                                               ; preds = %52, %50
+  %56 = load ptr, ptr %18, align 8, !tbaa !25
+  %57 = icmp eq ptr null, %56
+  br i1 %57, label %58, label %66
 
-if.then9:                                         ; preds = %if.end7
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = load ptr, ptr %filename.addr, align 8
-  %12 = load ptr, ptr %cs_filename.addr, align 8
-  %call10 = call ptr @__errno_location() #7
-  %13 = load i32, ptr %call10, align 4
-  %call11 = call ptr @strerror(i32 noundef %13) #8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.10, ptr noundef %11, ptr noundef %12, ptr noundef %call11)
-  store i32 0, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %55
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %60 = load ptr, ptr %10, align 8, !tbaa !4
+  %61 = load ptr, ptr %12, align 8, !tbaa !4
+  %62 = call ptr @__errno_location() #9
+  %63 = load i32, ptr %62, align 4, !tbaa !14
+  %64 = call ptr @strerror(i32 noundef %63) #7
+  %65 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %59, i32 noundef 1, ptr noundef @.str.10, ptr noundef %60, ptr noundef %61, ptr noundef %64)
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %184
 
-if.end13:                                         ; preds = %if.end7
-  %14 = load ptr, ptr %f, align 8
-  %15 = load i32, ptr %sample_rate.addr, align 4
-  %16 = load i32, ptr %is_cdda.addr, align 4
-  %17 = load i64, ptr %lead_out_offset.addr, align 8
-  %call14 = call ptr @grabbag__cuesheet_parse(ptr noundef %14, ptr noundef %error_message, ptr noundef %last_line_read, i32 noundef %15, i32 noundef %16, i64 noundef %17)
-  %18 = load ptr, ptr %cuesheet.addr, align 8
-  store ptr %call14, ptr %18, align 8
-  %19 = load ptr, ptr %f, align 8
-  %20 = load ptr, ptr @stdin, align 8
-  %cmp15 = icmp ne ptr %19, %20
-  br i1 %cmp15, label %if.then16, label %if.end18
+66:                                               ; preds = %55
+  %67 = load ptr, ptr %18, align 8, !tbaa !25
+  %68 = load i32, ptr %15, align 4, !tbaa !14
+  %69 = load i32, ptr %16, align 4, !tbaa !14
+  %70 = load i64, ptr %14, align 8, !tbaa !20
+  %71 = call ptr @grabbag__cuesheet_parse(ptr noundef %67, ptr noundef %19, ptr noundef %21, i32 noundef %68, i32 noundef %69, i64 noundef %70)
+  %72 = load ptr, ptr %11, align 8, !tbaa !32
+  store ptr %71, ptr %72, align 8, !tbaa !16
+  %73 = load ptr, ptr %18, align 8, !tbaa !25
+  %74 = load ptr, ptr @stdin, align 8, !tbaa !25
+  %75 = icmp ne ptr %73, %74
+  br i1 %75, label %76, label %79
 
-if.then16:                                        ; preds = %if.end13
-  %21 = load ptr, ptr %f, align 8
-  %call17 = call i32 @fclose(ptr noundef %21)
-  br label %if.end18
+76:                                               ; preds = %66
+  %77 = load ptr, ptr %18, align 8, !tbaa !25
+  %78 = call i32 @fclose(ptr noundef %77)
+  br label %79
 
-if.end18:                                         ; preds = %if.then16, %if.end13
-  %22 = load ptr, ptr %cuesheet.addr, align 8
-  %23 = load ptr, ptr %22, align 8
-  %cmp19 = icmp eq ptr null, %23
-  br i1 %cmp19, label %if.then20, label %if.end22
+79:                                               ; preds = %76, %66
+  %80 = load ptr, ptr %11, align 8, !tbaa !32
+  %81 = load ptr, ptr %80, align 8, !tbaa !16
+  %82 = icmp eq ptr null, %81
+  br i1 %82, label %83, label %90
 
-if.then20:                                        ; preds = %if.end18
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = load ptr, ptr %filename.addr, align 8
-  %26 = load ptr, ptr %cs_filename.addr, align 8
-  %27 = load i32, ptr %last_line_read, align 4
-  %28 = load ptr, ptr %error_message, align 8
-  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.11, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %28)
-  store i32 0, ptr %retval, align 4
-  br label %return
+83:                                               ; preds = %79
+  %84 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %85 = load ptr, ptr %10, align 8, !tbaa !4
+  %86 = load ptr, ptr %12, align 8, !tbaa !4
+  %87 = load i32, ptr %21, align 4, !tbaa !14
+  %88 = load ptr, ptr %19, align 8, !tbaa !4
+  %89 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %84, i32 noundef 1, ptr noundef @.str.11, ptr noundef %85, ptr noundef %86, i32 noundef %87, ptr noundef %88)
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %184
 
-if.end22:                                         ; preds = %if.end18
-  %29 = load ptr, ptr %cuesheet.addr, align 8
-  %30 = load ptr, ptr %29, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %30, i32 0, i32 3
-  %call23 = call i32 @FLAC__format_cuesheet_is_legal(ptr noundef %data, i32 noundef 0, ptr noundef %error_message)
-  %tobool24 = icmp ne i32 %call23, 0
-  br i1 %tobool24, label %if.end27, label %if.then25
+90:                                               ; preds = %79
+  %91 = load ptr, ptr %11, align 8, !tbaa !32
+  %92 = load ptr, ptr %91, align 8, !tbaa !16
+  %93 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %92, i32 0, i32 3
+  %94 = call i32 @FLAC__format_cuesheet_is_legal(ptr noundef %93, i32 noundef 0, ptr noundef %19)
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %104, label %96
 
-if.then25:                                        ; preds = %if.end22
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = load ptr, ptr %filename.addr, align 8
-  %33 = load ptr, ptr %cs_filename.addr, align 8
-  %34 = load ptr, ptr %error_message, align 8
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.12, ptr noundef %32, ptr noundef %33, ptr noundef %34)
-  %35 = load ptr, ptr %cuesheet.addr, align 8
-  %36 = load ptr, ptr %35, align 8
-  call void @FLAC__metadata_object_delete(ptr noundef %36)
-  store i32 0, ptr %retval, align 4
-  br label %return
+96:                                               ; preds = %90
+  %97 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %98 = load ptr, ptr %10, align 8, !tbaa !4
+  %99 = load ptr, ptr %12, align 8, !tbaa !4
+  %100 = load ptr, ptr %19, align 8, !tbaa !4
+  %101 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %97, i32 noundef 1, ptr noundef @.str.12, ptr noundef %98, ptr noundef %99, ptr noundef %100)
+  %102 = load ptr, ptr %11, align 8, !tbaa !32
+  %103 = load ptr, ptr %102, align 8, !tbaa !16
+  call void @FLAC__metadata_object_delete(ptr noundef %103)
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %184
 
-if.end27:                                         ; preds = %if.end22
-  %37 = load i32, ptr %is_cdda.addr, align 4
-  %tobool28 = icmp ne i32 %37, 0
-  br i1 %tobool28, label %land.lhs.true, label %if.end35
+104:                                              ; preds = %90
+  %105 = load i32, ptr %16, align 4, !tbaa !14
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %123
 
-land.lhs.true:                                    ; preds = %if.end27
-  %38 = load ptr, ptr %cuesheet.addr, align 8
-  %39 = load ptr, ptr %38, align 8
-  %data29 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %39, i32 0, i32 3
-  %call30 = call i32 @FLAC__format_cuesheet_is_legal(ptr noundef %data29, i32 noundef 1, ptr noundef %error_message)
-  %tobool31 = icmp ne i32 %call30, 0
-  br i1 %tobool31, label %if.end35, label %if.then32
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %11, align 8, !tbaa !32
+  %109 = load ptr, ptr %108, align 8, !tbaa !16
+  %110 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %109, i32 0, i32 3
+  %111 = call i32 @FLAC__format_cuesheet_is_legal(ptr noundef %110, i32 noundef 1, ptr noundef %19)
+  %112 = icmp ne i32 %111, 0
+  br i1 %112, label %123, label %113
 
-if.then32:                                        ; preds = %land.lhs.true
-  %40 = load ptr, ptr @stderr, align 8
-  %41 = load ptr, ptr %filename.addr, align 8
-  %42 = load ptr, ptr %cs_filename.addr, align 8
-  %43 = load ptr, ptr %error_message, align 8
-  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.13, ptr noundef %41, ptr noundef %42, ptr noundef %43)
-  %44 = load ptr, ptr %cuesheet.addr, align 8
-  %45 = load ptr, ptr %44, align 8
-  %data34 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %45, i32 0, i32 3
-  %is_cd = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %data34, i32 0, i32 2
-  store i32 0, ptr %is_cd, align 8
-  br label %if.end35
+113:                                              ; preds = %107
+  %114 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %115 = load ptr, ptr %10, align 8, !tbaa !4
+  %116 = load ptr, ptr %12, align 8, !tbaa !4
+  %117 = load ptr, ptr %19, align 8, !tbaa !4
+  %118 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %114, i32 noundef 1, ptr noundef @.str.13, ptr noundef %115, ptr noundef %116, ptr noundef %117)
+  %119 = load ptr, ptr %11, align 8, !tbaa !32
+  %120 = load ptr, ptr %119, align 8, !tbaa !16
+  %121 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %120, i32 0, i32 3
+  %122 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet, ptr %121, i32 0, i32 2
+  store i32 0, ptr %122, align 8, !tbaa !24
+  br label %123
 
-if.end35:                                         ; preds = %if.then32, %land.lhs.true, %if.end27
-  %46 = load ptr, ptr %seekpoint_specification, align 8
-  %cmp36 = icmp ne ptr null, %46
-  br i1 %cmp36, label %if.then37, label %if.end54
+123:                                              ; preds = %113, %107, %104
+  %124 = load ptr, ptr %20, align 8, !tbaa !34
+  %125 = icmp ne ptr null, %124
+  br i1 %125, label %126, label %182
 
-if.then37:                                        ; preds = %if.end35
-  %47 = load ptr, ptr %cuesheet.addr, align 8
-  %48 = load ptr, ptr %47, align 8
-  %data38 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %48, i32 0, i32 3
-  store ptr %data38, ptr %cs, align 8
-  %49 = load ptr, ptr %seekpoint_specification, align 8
-  %50 = load ptr, ptr %49, align 8
-  %cmp39 = icmp eq ptr null, %50
-  br i1 %cmp39, label %if.then40, label %if.end42
+126:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 128, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  %127 = load ptr, ptr %11, align 8, !tbaa !32
+  %128 = load ptr, ptr %127, align 8, !tbaa !16
+  %129 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %128, i32 0, i32 3
+  store ptr %129, ptr %26, align 8, !tbaa !11
+  %130 = load ptr, ptr %20, align 8, !tbaa !34
+  %131 = load ptr, ptr %130, align 8, !tbaa !4
+  %132 = icmp eq ptr null, %131
+  br i1 %132, label %133, label %136
 
-if.then40:                                        ; preds = %if.then37
-  %call41 = call ptr @local_strdup(ptr noundef @.str.14)
-  %51 = load ptr, ptr %seekpoint_specification, align 8
-  store ptr %call41, ptr %51, align 8
-  br label %if.end42
+133:                                              ; preds = %126
+  %134 = call ptr @local_strdup(ptr noundef @.str.14)
+  %135 = load ptr, ptr %20, align 8, !tbaa !34
+  store ptr %134, ptr %135, align 8, !tbaa !4
+  br label %136
 
-if.end42:                                         ; preds = %if.then40, %if.then37
-  store i32 0, ptr %track, align 4
-  br label %for.cond
+136:                                              ; preds = %133, %126
+  store i32 0, ptr %24, align 4, !tbaa !14
+  br label %137
 
-for.cond:                                         ; preds = %for.inc51, %if.end42
-  %52 = load i32, ptr %track, align 4
-  %53 = load ptr, ptr %cs, align 8
-  %num_tracks = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %53, i32 0, i32 3
-  %54 = load i32, ptr %num_tracks, align 4
-  %cmp43 = icmp ult i32 %52, %54
-  br i1 %cmp43, label %for.body, label %for.end53
+137:                                              ; preds = %178, %136
+  %138 = load i32, ptr %24, align 4, !tbaa !14
+  %139 = load ptr, ptr %26, align 8, !tbaa !11
+  %140 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet, ptr %139, i32 0, i32 3
+  %141 = load i32, ptr %140, align 4, !tbaa !36
+  %142 = icmp ult i32 %138, %141
+  br i1 %142, label %143, label %181
 
-for.body:                                         ; preds = %for.cond
-  %55 = load ptr, ptr %cs, align 8
-  %tracks = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %55, i32 0, i32 4
-  %56 = load ptr, ptr %tracks, align 8
-  %57 = load i32, ptr %track, align 4
-  %idx.ext = zext i32 %57 to i64
-  %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %56, i64 %idx.ext
-  store ptr %add.ptr, ptr %tr, align 8
-  store i32 0, ptr %indx, align 4
-  br label %for.cond44
+143:                                              ; preds = %137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  %144 = load ptr, ptr %26, align 8, !tbaa !11
+  %145 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet, ptr %144, i32 0, i32 4
+  %146 = load ptr, ptr %145, align 8, !tbaa !38
+  %147 = load i32, ptr %24, align 4, !tbaa !14
+  %148 = zext i32 %147 to i64
+  %149 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %146, i64 %148
+  store ptr %149, ptr %27, align 8, !tbaa !11
+  store i32 0, ptr %25, align 4, !tbaa !14
+  br label %150
 
-for.cond44:                                       ; preds = %for.inc, %for.body
-  %58 = load i32, ptr %indx, align 4
-  %59 = load ptr, ptr %tr, align 8
-  %num_indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %59, i32 0, i32 4
-  %60 = load i8, ptr %num_indices, align 1
-  %conv = zext i8 %60 to i32
-  %cmp45 = icmp ult i32 %58, %conv
-  br i1 %cmp45, label %for.body47, label %for.end
+150:                                              ; preds = %174, %143
+  %151 = load i32, ptr %25, align 4, !tbaa !14
+  %152 = load ptr, ptr %27, align 8, !tbaa !11
+  %153 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %152, i32 0, i32 4
+  %154 = load i8, ptr %153, align 1, !tbaa !39
+  %155 = zext i8 %154 to i32
+  %156 = icmp ult i32 %151, %155
+  br i1 %156, label %157, label %177
 
-for.body47:                                       ; preds = %for.cond44
-  %arraydecay = getelementptr inbounds [128 x i8], ptr %spec, i64 0, i64 0
-  %61 = load ptr, ptr %tr, align 8
-  %offset = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %61, i32 0, i32 0
-  %62 = load i64, ptr %offset, align 8
-  %63 = load ptr, ptr %tr, align 8
-  %indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %63, i32 0, i32 5
-  %64 = load ptr, ptr %indices, align 8
-  %65 = load i32, ptr %indx, align 4
-  %idxprom = zext i32 %65 to i64
-  %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %64, i64 %idxprom
-  %offset48 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %arrayidx, i32 0, i32 0
-  %66 = load i64, ptr %offset48, align 8
-  %add = add i64 %62, %66
-  %call49 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef %arraydecay, i64 noundef 128, ptr noundef @.str.15, i64 noundef %add)
-  %67 = load ptr, ptr %seekpoint_specification, align 8
-  %arraydecay50 = getelementptr inbounds [128 x i8], ptr %spec, i64 0, i64 0
-  call void @local_strcat(ptr noundef %67, ptr noundef %arraydecay50)
-  br label %for.inc
+157:                                              ; preds = %150
+  %158 = getelementptr inbounds [128 x i8], ptr %23, i64 0, i64 0
+  %159 = load ptr, ptr %27, align 8, !tbaa !11
+  %160 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %159, i32 0, i32 0
+  %161 = load i64, ptr %160, align 8, !tbaa !41
+  %162 = load ptr, ptr %27, align 8, !tbaa !11
+  %163 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %162, i32 0, i32 5
+  %164 = load ptr, ptr %163, align 8, !tbaa !42
+  %165 = load i32, ptr %25, align 4, !tbaa !14
+  %166 = zext i32 %165 to i64
+  %167 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %164, i64 %166
+  %168 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %167, i32 0, i32 0
+  %169 = load i64, ptr %168, align 8, !tbaa !43
+  %170 = add i64 %161, %169
+  %171 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef %158, i64 noundef 128, ptr noundef @.str.15, i64 noundef %170)
+  %172 = load ptr, ptr %20, align 8, !tbaa !34
+  %173 = getelementptr inbounds [128 x i8], ptr %23, i64 0, i64 0
+  call void @local_strcat(ptr noundef %172, ptr noundef %173)
+  br label %174
 
-for.inc:                                          ; preds = %for.body47
-  %68 = load i32, ptr %indx, align 4
-  %inc = add i32 %68, 1
-  store i32 %inc, ptr %indx, align 4
-  br label %for.cond44, !llvm.loop !8
+174:                                              ; preds = %157
+  %175 = load i32, ptr %25, align 4, !tbaa !14
+  %176 = add i32 %175, 1
+  store i32 %176, ptr %25, align 4, !tbaa !14
+  br label %150, !llvm.loop !45
 
-for.end:                                          ; preds = %for.cond44
-  br label %for.inc51
+177:                                              ; preds = %150
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  br label %178
 
-for.inc51:                                        ; preds = %for.end
-  %69 = load i32, ptr %track, align 4
-  %inc52 = add i32 %69, 1
-  store i32 %inc52, ptr %track, align 4
-  br label %for.cond, !llvm.loop !9
+178:                                              ; preds = %177
+  %179 = load i32, ptr %24, align 4, !tbaa !14
+  %180 = add i32 %179, 1
+  store i32 %180, ptr %24, align 4, !tbaa !14
+  br label %137, !llvm.loop !46
 
-for.end53:                                        ; preds = %for.cond
-  br label %if.end54
+181:                                              ; preds = %137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 128, ptr %23) #7
+  br label %182
 
-if.end54:                                         ; preds = %for.end53, %if.end35
-  %70 = load ptr, ptr %needs_write.addr, align 8
-  store i32 1, ptr %70, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
+182:                                              ; preds = %181, %123
+  %183 = load ptr, ptr %13, align 8, !tbaa !12
+  store i32 1, ptr %183, align 4, !tbaa !14
+  store i32 1, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %184
 
-return:                                           ; preds = %if.end54, %if.then25, %if.then20, %if.then9, %if.then
-  %71 = load i32, ptr %retval, align 4
-  ret i32 %71
+184:                                              ; preds = %182, %96, %83, %58, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  %185 = load i32, ptr %9, align 4
+  ret i32 %185
 }
 
-declare i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef, ptr noundef) #1
+declare i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef, ptr noundef) #2
 
-declare void @print_error_with_chain_status(ptr noundef, ptr noundef, ...) #1
+declare void @print_error_with_chain_status(ptr noundef, ptr noundef, ...) #2
 
-declare void @FLAC__metadata_object_delete(ptr noundef) #1
+declare void @FLAC__metadata_object_delete(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @export_cs_to(ptr noundef %filename, ptr noundef %cuesheet, ptr noundef %cs_filename) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %filename.addr = alloca ptr, align 8
-  %cuesheet.addr = alloca ptr, align 8
-  %cs_filename.addr = alloca ptr, align 8
-  %f = alloca ptr, align 8
-  %ref = alloca ptr, align 8
-  %reflen = alloca i64, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store ptr %cuesheet, ptr %cuesheet.addr, align 8
-  store ptr %cs_filename, ptr %cs_filename.addr, align 8
-  store ptr null, ptr %ref, align 8
-  %0 = load ptr, ptr %cs_filename.addr, align 8
-  %cmp = icmp eq ptr null, %0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal i32 @export_cs_to(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !16
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  store ptr null, ptr %9, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !4
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %18, label %14
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %cs_filename.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #6
-  %cmp1 = icmp eq i64 %call, 0
-  br i1 %cmp1, label %if.then, label %if.end
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %7, align 8, !tbaa !4
+  %16 = call i64 @strlen(ptr noundef %15) #8
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %22
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr @stderr, align 8
-  %3 = load ptr, ptr %filename.addr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.16, ptr noundef %3)
-  store i32 0, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %14, %3
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %20 = load ptr, ptr %5, align 8, !tbaa !4
+  %21 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %19, i32 noundef 1, ptr noundef @.str.16, ptr noundef %20)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %77
 
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %cs_filename.addr, align 8
-  %call3 = call i32 @strcmp(ptr noundef %4, ptr noundef @.str.8) #6
-  %cmp4 = icmp eq i32 0, %call3
-  br i1 %cmp4, label %if.then5, label %if.else
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %7, align 8, !tbaa !4
+  %24 = call i32 @strcmp(ptr noundef %23, ptr noundef @.str.8) #8
+  %25 = icmp eq i32 0, %24
+  br i1 %25, label %26, label %28
 
-if.then5:                                         ; preds = %if.end
-  %5 = load ptr, ptr @stdout, align 8
-  store ptr %5, ptr %f, align 8
-  br label %if.end7
+26:                                               ; preds = %22
+  %27 = load ptr, ptr @stdout, align 8, !tbaa !25
+  store ptr %27, ptr %8, align 8, !tbaa !25
+  br label %31
 
-if.else:                                          ; preds = %if.end
-  %6 = load ptr, ptr %cs_filename.addr, align 8
-  %call6 = call noalias ptr @fopen64(ptr noundef %6, ptr noundef @.str.17)
-  store ptr %call6, ptr %f, align 8
-  br label %if.end7
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %7, align 8, !tbaa !4
+  %30 = call noalias ptr @fopen64(ptr noundef %29, ptr noundef @.str.17)
+  store ptr %30, ptr %8, align 8, !tbaa !25
+  br label %31
 
-if.end7:                                          ; preds = %if.else, %if.then5
-  %7 = load ptr, ptr %f, align 8
-  %cmp8 = icmp eq ptr null, %7
-  br i1 %cmp8, label %if.then9, label %if.end13
+31:                                               ; preds = %28, %26
+  %32 = load ptr, ptr %8, align 8, !tbaa !25
+  %33 = icmp eq ptr null, %32
+  br i1 %33, label %34, label %42
 
-if.then9:                                         ; preds = %if.end7
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = load ptr, ptr %filename.addr, align 8
-  %10 = load ptr, ptr %cs_filename.addr, align 8
-  %call10 = call ptr @__errno_location() #7
-  %11 = load i32, ptr %call10, align 4
-  %call11 = call ptr @strerror(i32 noundef %11) #8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.18, ptr noundef %9, ptr noundef %10, ptr noundef %call11)
-  store i32 0, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %31
+  %35 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %36 = load ptr, ptr %5, align 8, !tbaa !4
+  %37 = load ptr, ptr %7, align 8, !tbaa !4
+  %38 = call ptr @__errno_location() #9
+  %39 = load i32, ptr %38, align 4, !tbaa !14
+  %40 = call ptr @strerror(i32 noundef %39) #7
+  %41 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %35, i32 noundef 1, ptr noundef @.str.18, ptr noundef %36, ptr noundef %37, ptr noundef %40)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %77
 
-if.end13:                                         ; preds = %if.end7
-  %12 = load ptr, ptr %filename.addr, align 8
-  %call14 = call i64 @strlen(ptr noundef %12) #6
-  %add = add i64 %call14, 7
-  %add15 = add i64 %add, 1
-  store i64 %add15, ptr %reflen, align 8
-  %13 = load i64, ptr %reflen, align 8
-  %call16 = call noalias ptr @malloc(i64 noundef %13) #9
-  store ptr %call16, ptr %ref, align 8
-  %cmp17 = icmp eq ptr null, %call16
-  br i1 %cmp17, label %if.then18, label %if.end24
+42:                                               ; preds = %31
+  %43 = load ptr, ptr %5, align 8, !tbaa !4
+  %44 = call i64 @strlen(ptr noundef %43) #8
+  %45 = add i64 %44, 7
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %10, align 8, !tbaa !20
+  %47 = load i64, ptr %10, align 8, !tbaa !20
+  %48 = call noalias ptr @malloc(i64 noundef %47) #10
+  store ptr %48, ptr %9, align 8, !tbaa !4
+  %49 = icmp eq ptr null, %48
+  br i1 %49, label %50, label %61
 
-if.then18:                                        ; preds = %if.end13
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = load ptr, ptr %filename.addr, align 8
-  %call19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.19, ptr noundef %15)
-  %16 = load ptr, ptr %f, align 8
-  %17 = load ptr, ptr @stdout, align 8
-  %cmp20 = icmp ne ptr %16, %17
-  br i1 %cmp20, label %if.then21, label %if.end23
+50:                                               ; preds = %42
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %52 = load ptr, ptr %5, align 8, !tbaa !4
+  %53 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %51, i32 noundef 1, ptr noundef @.str.19, ptr noundef %52)
+  %54 = load ptr, ptr %8, align 8, !tbaa !25
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !25
+  %56 = icmp ne ptr %54, %55
+  br i1 %56, label %57, label %60
 
-if.then21:                                        ; preds = %if.then18
-  %18 = load ptr, ptr %f, align 8
-  %call22 = call i32 @fclose(ptr noundef %18)
-  br label %if.end23
+57:                                               ; preds = %50
+  %58 = load ptr, ptr %8, align 8, !tbaa !25
+  %59 = call i32 @fclose(ptr noundef %58)
+  br label %60
 
-if.end23:                                         ; preds = %if.then21, %if.then18
-  store i32 0, ptr %retval, align 4
-  br label %return
+60:                                               ; preds = %57, %50
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %77
 
-if.end24:                                         ; preds = %if.end13
-  %19 = load ptr, ptr %ref, align 8
-  %20 = load i64, ptr %reflen, align 8
-  %21 = load ptr, ptr %filename.addr, align 8
-  %call25 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef %19, i64 noundef %20, ptr noundef @.str.20, ptr noundef %21)
-  %22 = load ptr, ptr %f, align 8
-  %23 = load ptr, ptr %cuesheet.addr, align 8
-  %24 = load ptr, ptr %ref, align 8
-  call void @grabbag__cuesheet_emit(ptr noundef %22, ptr noundef %23, ptr noundef %24)
-  %25 = load ptr, ptr %ref, align 8
-  call void @free(ptr noundef %25) #8
-  %26 = load ptr, ptr %f, align 8
-  %27 = load ptr, ptr @stdout, align 8
-  %cmp26 = icmp ne ptr %26, %27
-  br i1 %cmp26, label %if.then27, label %if.end29
+61:                                               ; preds = %42
+  %62 = load ptr, ptr %9, align 8, !tbaa !4
+  %63 = load i64, ptr %10, align 8, !tbaa !20
+  %64 = load ptr, ptr %5, align 8, !tbaa !4
+  %65 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef %62, i64 noundef %63, ptr noundef @.str.20, ptr noundef %64)
+  %66 = load ptr, ptr %8, align 8, !tbaa !25
+  %67 = load ptr, ptr %6, align 8, !tbaa !16
+  %68 = load ptr, ptr %9, align 8, !tbaa !4
+  call void @grabbag__cuesheet_emit(ptr noundef %66, ptr noundef %67, ptr noundef %68)
+  %69 = load ptr, ptr %9, align 8, !tbaa !4
+  call void @free(ptr noundef %69) #7
+  %70 = load ptr, ptr %8, align 8, !tbaa !25
+  %71 = load ptr, ptr @stdout, align 8, !tbaa !25
+  %72 = icmp ne ptr %70, %71
+  br i1 %72, label %73, label %76
 
-if.then27:                                        ; preds = %if.end24
-  %28 = load ptr, ptr %f, align 8
-  %call28 = call i32 @fclose(ptr noundef %28)
-  br label %if.end29
+73:                                               ; preds = %61
+  %74 = load ptr, ptr %8, align 8, !tbaa !25
+  %75 = call i32 @fclose(ptr noundef %74)
+  br label %76
 
-if.end29:                                         ; preds = %if.then27, %if.end24
-  store i32 1, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %73, %61
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %77
 
-return:                                           ; preds = %if.end29, %if.end23, %if.then9, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+77:                                               ; preds = %76, %60, %34, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %78 = load i32, ptr %4, align 4
+  ret i32 %78
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
-declare noalias ptr @fopen64(ptr noundef, ptr noundef) #1
+declare noalias ptr @fopen64(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #3
+declare ptr @strerror(i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #5
 
-declare ptr @grabbag__cuesheet_parse(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+declare ptr @grabbag__cuesheet_parse(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #2
 
-declare i32 @fclose(ptr noundef) #1
+declare i32 @fclose(ptr noundef) #2
 
-declare i32 @FLAC__format_cuesheet_is_legal(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @FLAC__format_cuesheet_is_legal(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @local_strdup(ptr noundef) #1
+declare ptr @local_strdup(ptr noundef) #2
 
-declare i32 @flac_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
+declare i32 @flac_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
 
-declare void @local_strcat(ptr noundef, ptr noundef) #1
+declare void @local_strcat(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #5
+declare noalias ptr @malloc(i64 noundef) #6
 
-declare void @grabbag__cuesheet_emit(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @grabbag__cuesheet_emit(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind allocsize(0) }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS20FLAC__Metadata_Chain", !6, i64 0}
+!11 = !{!6, !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 int", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !7, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS20FLAC__StreamMetadata", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS23FLAC__Metadata_Iterator", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!23, !15, i64 0}
+!23 = !{!"FLAC__StreamMetadata", !15, i64 0, !15, i64 4, !15, i64 8, !7, i64 16}
+!24 = !{!7, !7, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!30, !15, i64 0}
+!30 = !{!"", !15, i64 0, !7, i64 8}
+!31 = distinct !{!31, !28}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p2 _ZTS20FLAC__StreamMetadata", !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p2 omnipotent char", !6, i64 0}
+!36 = !{!37, !15, i64 148}
+!37 = !{!"", !7, i64 0, !21, i64 136, !15, i64 144, !15, i64 148, !6, i64 152}
+!38 = !{!37, !6, i64 152}
+!39 = !{!40, !7, i64 23}
+!40 = !{!"", !21, i64 0, !7, i64 8, !7, i64 9, !15, i64 22, !15, i64 22, !7, i64 23, !6, i64 24}
+!41 = !{!40, !21, i64 0}
+!42 = !{!40, !6, i64 24}
+!43 = !{!44, !21, i64 0}
+!44 = !{!"", !21, i64 0, !7, i64 8}
+!45 = distinct !{!45, !28}
+!46 = distinct !{!46, !28}

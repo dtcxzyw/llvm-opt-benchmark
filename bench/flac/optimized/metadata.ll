@@ -1,7 +1,7 @@
-; ModuleID = 'bench/flac/original/metadata.cpp.ll'
-source_filename = "bench/flac/original/metadata.cpp.ll"
+; ModuleID = 'bench/flac/original/metadata.ll'
+source_filename = "bench/flac/original/metadata.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
 %"class.FLAC::Metadata::VorbisComment::Entry" = type <{ ptr, i8, [7 x i8], %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
@@ -16,26 +16,26 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $__clang_call_terminate = comdat any
 
+@_ZTIN4FLAC8Metadata9PrototypeE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata9PrototypeE }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN4FLAC8Metadata9PrototypeE = constant [27 x i8] c"N4FLAC8Metadata9PrototypeE\00", align 1
-@_ZTIN4FLAC8Metadata9PrototypeE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata9PrototypeE }, align 8
+@_ZTIN4FLAC8Metadata10StreamInfoE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata10StreamInfoE, ptr @_ZTIN4FLAC8Metadata9PrototypeE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN4FLAC8Metadata10StreamInfoE = constant [29 x i8] c"N4FLAC8Metadata10StreamInfoE\00", align 1
-@_ZTIN4FLAC8Metadata10StreamInfoE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata10StreamInfoE, ptr @_ZTIN4FLAC8Metadata9PrototypeE }, align 8
-@_ZTSN4FLAC8Metadata7PaddingE = constant [25 x i8] c"N4FLAC8Metadata7PaddingE\00", align 1
 @_ZTIN4FLAC8Metadata7PaddingE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata7PaddingE, ptr @_ZTIN4FLAC8Metadata9PrototypeE }, align 8
-@_ZTSN4FLAC8Metadata11ApplicationE = constant [30 x i8] c"N4FLAC8Metadata11ApplicationE\00", align 1
+@_ZTSN4FLAC8Metadata7PaddingE = constant [25 x i8] c"N4FLAC8Metadata7PaddingE\00", align 1
 @_ZTIN4FLAC8Metadata11ApplicationE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata11ApplicationE, ptr @_ZTIN4FLAC8Metadata9PrototypeE }, align 8
-@_ZTSN4FLAC8Metadata9SeekTableE = constant [27 x i8] c"N4FLAC8Metadata9SeekTableE\00", align 1
+@_ZTSN4FLAC8Metadata11ApplicationE = constant [30 x i8] c"N4FLAC8Metadata11ApplicationE\00", align 1
 @_ZTIN4FLAC8Metadata9SeekTableE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata9SeekTableE, ptr @_ZTIN4FLAC8Metadata9PrototypeE }, align 8
-@_ZTSN4FLAC8Metadata13VorbisCommentE = constant [32 x i8] c"N4FLAC8Metadata13VorbisCommentE\00", align 1
+@_ZTSN4FLAC8Metadata9SeekTableE = constant [27 x i8] c"N4FLAC8Metadata9SeekTableE\00", align 1
 @_ZTIN4FLAC8Metadata13VorbisCommentE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata13VorbisCommentE, ptr @_ZTIN4FLAC8Metadata9PrototypeE }, align 8
-@_ZTSN4FLAC8Metadata8CueSheetE = constant [26 x i8] c"N4FLAC8Metadata8CueSheetE\00", align 1
+@_ZTSN4FLAC8Metadata13VorbisCommentE = constant [32 x i8] c"N4FLAC8Metadata13VorbisCommentE\00", align 1
 @_ZTIN4FLAC8Metadata8CueSheetE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata8CueSheetE, ptr @_ZTIN4FLAC8Metadata9PrototypeE }, align 8
-@_ZTSN4FLAC8Metadata7PictureE = constant [25 x i8] c"N4FLAC8Metadata7PictureE\00", align 1
+@_ZTSN4FLAC8Metadata8CueSheetE = constant [26 x i8] c"N4FLAC8Metadata8CueSheetE\00", align 1
 @_ZTIN4FLAC8Metadata7PictureE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata7PictureE, ptr @_ZTIN4FLAC8Metadata9PrototypeE }, align 8
-@_ZTSN4FLAC8Metadata7UnknownE = constant [25 x i8] c"N4FLAC8Metadata7UnknownE\00", align 1
+@_ZTSN4FLAC8Metadata7PictureE = constant [25 x i8] c"N4FLAC8Metadata7PictureE\00", align 1
 @_ZTIN4FLAC8Metadata7UnknownE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata7UnknownE, ptr @_ZTIN4FLAC8Metadata9PrototypeE }, align 8
+@_ZTSN4FLAC8Metadata7UnknownE = constant [25 x i8] c"N4FLAC8Metadata7UnknownE\00", align 1
 @_ZTVN4FLAC8Metadata9PrototypeE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN4FLAC8Metadata9PrototypeE, ptr @_ZN4FLAC8Metadata9Prototype5clearEv, ptr @_ZN4FLAC8Metadata9PrototypeD1Ev, ptr @_ZN4FLAC8Metadata9PrototypeD0Ev] }, align 8
 @_ZTVN4FLAC8Metadata10StreamInfoE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN4FLAC8Metadata10StreamInfoE, ptr @_ZN4FLAC8Metadata9Prototype5clearEv, ptr @_ZN4FLAC8Metadata10StreamInfoD1Ev, ptr @_ZN4FLAC8Metadata10StreamInfoD0Ev] }, align 8
 @_ZTVN4FLAC8Metadata7PaddingE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN4FLAC8Metadata7PaddingE, ptr @_ZN4FLAC8Metadata9Prototype5clearEv, ptr @_ZN4FLAC8Metadata7PaddingD1Ev, ptr @_ZN4FLAC8Metadata7PaddingD0Ev] }, align 8
@@ -50,17 +50,17 @@ $__clang_call_terminate = comdat any
 @_ZTVN4FLAC8Metadata14SimpleIteratorE = unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN4FLAC8Metadata14SimpleIteratorE, ptr @_ZN4FLAC8Metadata14SimpleIteratorD1Ev, ptr @_ZN4FLAC8Metadata14SimpleIteratorD0Ev] }, align 8
 @_ZTVN4FLAC8Metadata5ChainE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN4FLAC8Metadata5ChainE, ptr @_ZN4FLAC8Metadata5ChainD1Ev, ptr @_ZN4FLAC8Metadata5ChainD0Ev, ptr @_ZN4FLAC8Metadata5Chain5clearEv] }, align 8
 @_ZTVN4FLAC8Metadata8IteratorE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN4FLAC8Metadata8IteratorE, ptr @_ZN4FLAC8Metadata8IteratorD1Ev, ptr @_ZN4FLAC8Metadata8IteratorD0Ev, ptr @_ZN4FLAC8Metadata8Iterator5clearEv] }, align 8
-@_ZTSN4FLAC8Metadata13VorbisComment5EntryE = constant [38 x i8] c"N4FLAC8Metadata13VorbisComment5EntryE\00", align 1
 @_ZTIN4FLAC8Metadata13VorbisComment5EntryE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata13VorbisComment5EntryE }, align 8
-@_ZTSN4FLAC8Metadata8CueSheet5TrackE = constant [32 x i8] c"N4FLAC8Metadata8CueSheet5TrackE\00", align 1
+@_ZTSN4FLAC8Metadata13VorbisComment5EntryE = constant [38 x i8] c"N4FLAC8Metadata13VorbisComment5EntryE\00", align 1
 @_ZTIN4FLAC8Metadata8CueSheet5TrackE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata8CueSheet5TrackE }, align 8
-@_ZTSN4FLAC8Metadata14SimpleIteratorE = constant [33 x i8] c"N4FLAC8Metadata14SimpleIteratorE\00", align 1
+@_ZTSN4FLAC8Metadata8CueSheet5TrackE = constant [32 x i8] c"N4FLAC8Metadata8CueSheet5TrackE\00", align 1
 @_ZTIN4FLAC8Metadata14SimpleIteratorE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata14SimpleIteratorE }, align 8
-@_ZTSN4FLAC8Metadata5ChainE = constant [23 x i8] c"N4FLAC8Metadata5ChainE\00", align 1
+@_ZTSN4FLAC8Metadata14SimpleIteratorE = constant [33 x i8] c"N4FLAC8Metadata14SimpleIteratorE\00", align 1
 @_ZTIN4FLAC8Metadata5ChainE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata5ChainE }, align 8
-@_ZTSN4FLAC8Metadata8IteratorE = constant [26 x i8] c"N4FLAC8Metadata8IteratorE\00", align 1
+@_ZTSN4FLAC8Metadata5ChainE = constant [23 x i8] c"N4FLAC8Metadata5ChainE\00", align 1
 @_ZTIN4FLAC8Metadata8IteratorE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4FLAC8Metadata8IteratorE }, align 8
-@switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv = private unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16)], align 8
+@_ZTSN4FLAC8Metadata8IteratorE = constant [26 x i8] c"N4FLAC8Metadata8IteratorE\00", align 1
+@switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv = private unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16)], align 8
 
 @_ZN4FLAC8Metadata9PrototypeC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4FLAC8Metadata9PrototypeC2ERKS1_
 @_ZN4FLAC8Metadata9PrototypeC1ERK20FLAC__StreamMetadata = unnamed_addr alias void (ptr, ptr), ptr @_ZN4FLAC8Metadata9PrototypeC2ERK20FLAC__StreamMetadata
@@ -68,13 +68,17 @@ $__clang_call_terminate = comdat any
 @_ZN4FLAC8Metadata9PrototypeC1EP20FLAC__StreamMetadatab = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab
 @_ZN4FLAC8Metadata9PrototypeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9PrototypeD2Ev
 @_ZN4FLAC8Metadata10StreamInfoC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata10StreamInfoC2Ev
+@_ZN4FLAC8Metadata10StreamInfoD2Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9PrototypeD2Ev
 @_ZN4FLAC8Metadata10StreamInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata10StreamInfoD2Ev
 @_ZN4FLAC8Metadata7PaddingC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata7PaddingC2Ev
 @_ZN4FLAC8Metadata7PaddingC1Ej = unnamed_addr alias void (ptr, i32), ptr @_ZN4FLAC8Metadata7PaddingC2Ej
+@_ZN4FLAC8Metadata7PaddingD2Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9PrototypeD2Ev
 @_ZN4FLAC8Metadata7PaddingD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata7PaddingD2Ev
 @_ZN4FLAC8Metadata11ApplicationC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata11ApplicationC2Ev
+@_ZN4FLAC8Metadata11ApplicationD2Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9PrototypeD2Ev
 @_ZN4FLAC8Metadata11ApplicationD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata11ApplicationD2Ev
 @_ZN4FLAC8Metadata9SeekTableC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9SeekTableC2Ev
+@_ZN4FLAC8Metadata9SeekTableD2Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9PrototypeD2Ev
 @_ZN4FLAC8Metadata9SeekTableD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9SeekTableD2Ev
 @_ZN4FLAC8Metadata13VorbisComment5EntryC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata13VorbisComment5EntryC2Ev
 @_ZN4FLAC8Metadata13VorbisComment5EntryC1EPKcj = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcj
@@ -84,16 +88,20 @@ $__clang_call_terminate = comdat any
 @_ZN4FLAC8Metadata13VorbisComment5EntryC1ERKS2_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4FLAC8Metadata13VorbisComment5EntryC2ERKS2_
 @_ZN4FLAC8Metadata13VorbisComment5EntryD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata13VorbisComment5EntryD2Ev
 @_ZN4FLAC8Metadata13VorbisCommentC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata13VorbisCommentC2Ev
+@_ZN4FLAC8Metadata13VorbisCommentD2Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9PrototypeD2Ev
 @_ZN4FLAC8Metadata13VorbisCommentD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata13VorbisCommentD2Ev
 @_ZN4FLAC8Metadata8CueSheet5TrackC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata8CueSheet5TrackC2Ev
 @_ZN4FLAC8Metadata8CueSheet5TrackC1EPK35FLAC__StreamMetadata_CueSheet_Track = unnamed_addr alias void (ptr, ptr), ptr @_ZN4FLAC8Metadata8CueSheet5TrackC2EPK35FLAC__StreamMetadata_CueSheet_Track
 @_ZN4FLAC8Metadata8CueSheet5TrackC1ERKS2_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4FLAC8Metadata8CueSheet5TrackC2ERKS2_
 @_ZN4FLAC8Metadata8CueSheet5TrackD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata8CueSheet5TrackD2Ev
 @_ZN4FLAC8Metadata8CueSheetC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata8CueSheetC2Ev
+@_ZN4FLAC8Metadata8CueSheetD2Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9PrototypeD2Ev
 @_ZN4FLAC8Metadata8CueSheetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata8CueSheetD2Ev
 @_ZN4FLAC8Metadata7PictureC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata7PictureC2Ev
+@_ZN4FLAC8Metadata7PictureD2Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9PrototypeD2Ev
 @_ZN4FLAC8Metadata7PictureD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata7PictureD2Ev
 @_ZN4FLAC8Metadata7UnknownC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata7UnknownC2Ev
+@_ZN4FLAC8Metadata7UnknownD2Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata9PrototypeD2Ev
 @_ZN4FLAC8Metadata7UnknownD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata7UnknownD2Ev
 @_ZN4FLAC8Metadata14SimpleIteratorC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata14SimpleIteratorC2Ev
 @_ZN4FLAC8Metadata14SimpleIteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata14SimpleIteratorD2Ev
@@ -103,4460 +111,3721 @@ $__clang_call_terminate = comdat any
 @_ZN4FLAC8Metadata8IteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC8Metadata8IteratorD2Ev
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define hidden noalias noundef ptr @_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata(ptr noundef %object) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp = icmp eq ptr %object, null
-  br i1 %cmp, label %return, label %if.end
+define hidden noalias noundef ptr @_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %10, label %3
 
-if.end:                                           ; preds = %entry
-  %0 = load i32, ptr %object, align 8
-  %call25 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %object_.i.i23 = getelementptr inbounds nuw i8, ptr %call25, i64 8
-  store ptr %object, ptr %object_.i.i23, align 8
-  %is_reference_.i.i24 = getelementptr inbounds nuw i8, ptr %call25, i64 16
-  store i8 0, ptr %is_reference_.i.i24, align 8
-  %1 = icmp ult i32 %0, 7
-  br i1 %1, label %switch.lookup, label %return.sink.split
+3:                                                ; preds = %1
+  %4 = load i32, ptr %0, align 8, !tbaa !3
+  %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 0, ptr %7, align 8, !tbaa !14
+  %8 = icmp ult i32 %4, 7
+  br i1 %8, label %switch.lookup, label %.sink.split
 
-switch.lookup:                                    ; preds = %if.end
-  %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 0, i64 %2
+switch.lookup:                                    ; preds = %3
+  %9 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %return.sink.split
+  br label %.sink.split
 
-return.sink.split:                                ; preds = %if.end, %switch.lookup
-  %.sink = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %if.end ]
-  store ptr %.sink, ptr %call25, align 8
-  br label %return
+.sink.split:                                      ; preds = %3, %switch.lookup
+  %.sink = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %3 ]
+  store ptr %.sink, ptr %5, align 8, !tbaa !15
+  br label %10
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %call25, %return.sink.split ]
-  ret ptr %retval.0
+10:                                               ; preds = %.sink.split, %1
+  %.015 = phi ptr [ null, %1 ], [ %5, %.sink.split ]
+  ret ptr %.015
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef ptr @_ZN4FLAC8Metadata5cloneEPKNS0_9PrototypeE(ptr noundef readonly %object) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = icmp eq ptr %object, null
-  br i1 %0, label %return, label %dynamic_cast.end21
+define noundef ptr @_ZN4FLAC8Metadata5cloneEPKNS0_9PrototypeE(ptr noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %.thread65, label %3
 
-dynamic_cast.end21:                               ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %object, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata10StreamInfoE, i64 0) #21
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %object, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata7PaddingE, i64 0) #21
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %object, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata11ApplicationE, i64 0) #21
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %object, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata9SeekTableE, i64 0) #21
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %object, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata13VorbisCommentE, i64 0) #21
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull %object, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata8CueSheetE, i64 0) #21
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %object, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata7PictureE, i64 0) #21
-  %8 = tail call ptr @__dynamic_cast(ptr nonnull %object, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata7UnknownE, i64 0) #21
-  %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %if.end, label %if.then
+3:                                                ; preds = %1
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata10StreamInfoE, i64 0) #23
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata7PaddingE, i64 0) #23
+  %6 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata11ApplicationE, i64 0) #23
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata9SeekTableE, i64 0) #23
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata13VorbisCommentE, i64 0) #23
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata8CueSheetE, i64 0) #23
+  %10 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata7PictureE, i64 0) #23
+  %11 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN4FLAC8Metadata9PrototypeE, ptr nonnull @_ZTIN4FLAC8Metadata7UnknownE, i64 0) #23
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %21, label %12
 
-if.then:                                          ; preds = %dynamic_cast.end21
-  %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call, align 8
-  %object_2.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %object_2.i.i, align 8
-  %call.i.i24 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %9)
-          to label %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit unwind label %lpad
+12:                                               ; preds = %3
+  %13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %13, align 8, !tbaa !15
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !9
+  %16 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %15)
+          to label %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit unwind label %19
 
-_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit:       ; preds = %if.then
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr %call.i.i24, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store i8 0, ptr %is_reference_.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 16), ptr %call, align 8
-  br label %return
+_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit:       ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %16, ptr %17, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i8 0, ptr %18, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 16), ptr %13, align 8, !tbaa !15
+  br label %.thread65
 
-lpad:                                             ; preds = %if.then
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  br label %eh.resume
-
-if.end:                                           ; preds = %dynamic_cast.end21
-  %cmp22.not = icmp eq ptr %2, null
-  br i1 %cmp22.not, label %if.end27, label %if.then23
-
-if.then23:                                        ; preds = %if.end
-  %call24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call24, align 8
-  %object_2.i.i26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %object_2.i.i26, align 8
-  %call.i.i28 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %11)
-          to label %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit unwind label %lpad25
-
-_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit:           ; preds = %if.then23
-  %object_.i.i25 = getelementptr inbounds nuw i8, ptr %call24, i64 8
-  store ptr %call.i.i28, ptr %object_.i.i25, align 8
-  %is_reference_.i.i27 = getelementptr inbounds nuw i8, ptr %call24, i64 16
-  store i8 0, ptr %is_reference_.i.i27, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %call24, align 8
-  br label %return
-
-lpad25:                                           ; preds = %if.then23
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  br label %eh.resume
-
-if.end27:                                         ; preds = %if.end
-  %cmp28.not = icmp eq ptr %3, null
-  br i1 %cmp28.not, label %if.end33, label %if.then29
-
-if.then29:                                        ; preds = %if.end27
-  %call30 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call30, align 8
-  %object_2.i.i30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load ptr, ptr %object_2.i.i30, align 8
-  %call.i.i32 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %13)
-          to label %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit unwind label %lpad31
-
-_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit:      ; preds = %if.then29
-  %object_.i.i29 = getelementptr inbounds nuw i8, ptr %call30, i64 8
-  store ptr %call.i.i32, ptr %object_.i.i29, align 8
-  %is_reference_.i.i31 = getelementptr inbounds nuw i8, ptr %call30, i64 16
-  store i8 0, ptr %is_reference_.i.i31, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 16), ptr %call30, align 8
-  br label %return
-
-lpad31:                                           ; preds = %if.then29
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  br label %eh.resume
-
-if.end33:                                         ; preds = %if.end27
-  %cmp34.not = icmp eq ptr %4, null
-  br i1 %cmp34.not, label %if.end39, label %if.then35
-
-if.then35:                                        ; preds = %if.end33
-  %call36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call36, align 8
-  %object_2.i.i34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = load ptr, ptr %object_2.i.i34, align 8
-  %call.i.i36 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %15)
-          to label %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit unwind label %lpad37
-
-_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit:         ; preds = %if.then35
-  %object_.i.i33 = getelementptr inbounds nuw i8, ptr %call36, i64 8
-  store ptr %call.i.i36, ptr %object_.i.i33, align 8
-  %is_reference_.i.i35 = getelementptr inbounds nuw i8, ptr %call36, i64 16
-  store i8 0, ptr %is_reference_.i.i35, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 16), ptr %call36, align 8
-  br label %return
-
-lpad37:                                           ; preds = %if.then35
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  br label %eh.resume
-
-if.end39:                                         ; preds = %if.end33
-  %cmp40.not = icmp eq ptr %5, null
-  br i1 %cmp40.not, label %if.end45, label %if.then41
-
-if.then41:                                        ; preds = %if.end39
-  %call42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call42, align 8
-  %object_2.i.i38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %17 = load ptr, ptr %object_2.i.i38, align 8
-  %call.i.i40 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %17)
-          to label %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit unwind label %lpad43
-
-_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit:    ; preds = %if.then41
-  %object_.i.i37 = getelementptr inbounds nuw i8, ptr %call42, i64 8
-  store ptr %call.i.i40, ptr %object_.i.i37, align 8
-  %is_reference_.i.i39 = getelementptr inbounds nuw i8, ptr %call42, i64 16
-  store i8 0, ptr %is_reference_.i.i39, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr %call42, align 8
-  br label %return
-
-lpad43:                                           ; preds = %if.then41
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  br label %eh.resume
-
-if.end45:                                         ; preds = %if.end39
-  %cmp46.not = icmp eq ptr %6, null
-  br i1 %cmp46.not, label %if.end51, label %if.then47
-
-if.then47:                                        ; preds = %if.end45
-  %call48 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call48, align 8
-  %object_2.i.i42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %19 = load ptr, ptr %object_2.i.i42, align 8
-  %call.i.i44 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %19)
-          to label %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit unwind label %lpad49
-
-_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit:          ; preds = %if.then47
-  %object_.i.i41 = getelementptr inbounds nuw i8, ptr %call48, i64 8
-  store ptr %call.i.i44, ptr %object_.i.i41, align 8
-  %is_reference_.i.i43 = getelementptr inbounds nuw i8, ptr %call48, i64 16
-  store i8 0, ptr %is_reference_.i.i43, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr %call48, align 8
-  br label %return
-
-lpad49:                                           ; preds = %if.then47
+19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %91
 
-if.end51:                                         ; preds = %if.end45
-  %cmp52.not = icmp eq ptr %7, null
-  br i1 %cmp52.not, label %if.end57, label %if.then53
+21:                                               ; preds = %3
+  %.not37 = icmp eq ptr %5, null
+  br i1 %.not37, label %31, label %22
 
-if.then53:                                        ; preds = %if.end51
-  %call54 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call54, align 8
-  %object_2.i.i46 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %21 = load ptr, ptr %object_2.i.i46, align 8
-  %call.i.i48 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %21)
-          to label %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit unwind label %lpad55
+22:                                               ; preds = %21
+  %23 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %23, align 8, !tbaa !15
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !9
+  %26 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %25)
+          to label %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit unwind label %29
 
-_ZN4FLAC8Metadata7PictureC2ERKS1_.exit:           ; preds = %if.then53
-  %object_.i.i45 = getelementptr inbounds nuw i8, ptr %call54, i64 8
-  store ptr %call.i.i48, ptr %object_.i.i45, align 8
-  %is_reference_.i.i47 = getelementptr inbounds nuw i8, ptr %call54, i64 16
-  store i8 0, ptr %is_reference_.i.i47, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16), ptr %call54, align 8
-  br label %return
+_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit:           ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %26, ptr %27, align 8, !tbaa !9
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i8 0, ptr %28, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %23, align 8, !tbaa !15
+  br label %.thread65
 
-lpad55:                                           ; preds = %if.then53
-  %22 = landingpad { ptr, i32 }
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %91
 
-if.end57:                                         ; preds = %if.end51
-  %cmp58.not = icmp eq ptr %8, null
-  br i1 %cmp58.not, label %return, label %if.then59
+31:                                               ; preds = %21
+  %.not38 = icmp eq ptr %6, null
+  br i1 %.not38, label %41, label %32
 
-if.then59:                                        ; preds = %if.end57
-  %call60 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %call60, align 8
-  %object_2.i.i50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %23 = load ptr, ptr %object_2.i.i50, align 8
-  %call.i.i52 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %23)
-          to label %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit unwind label %lpad61
+32:                                               ; preds = %31
+  %33 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %33, align 8, !tbaa !15
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !9
+  %36 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %35)
+          to label %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit unwind label %39
 
-_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit:           ; preds = %if.then59
-  %object_.i.i49 = getelementptr inbounds nuw i8, ptr %call60, i64 8
-  store ptr %call.i.i52, ptr %object_.i.i49, align 8
-  %is_reference_.i.i51 = getelementptr inbounds nuw i8, ptr %call60, i64 16
-  store i8 0, ptr %is_reference_.i.i51, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), ptr %call60, align 8
-  br label %return
+_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit:      ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store ptr %36, ptr %37, align 8, !tbaa !9
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i8 0, ptr %38, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 16), ptr %33, align 8, !tbaa !15
+  br label %.thread65
 
-lpad61:                                           ; preds = %if.then59
-  %24 = landingpad { ptr, i32 }
+39:                                               ; preds = %32
+  %40 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %91
 
-return:                                           ; preds = %entry, %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit, %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit, %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit, %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit, %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit, %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit, %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit, %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit, %if.end57
-  %retval.0 = phi ptr [ %call, %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit ], [ %call24, %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit ], [ %call30, %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit ], [ %call36, %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit ], [ %call42, %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit ], [ %call48, %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit ], [ %call54, %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit ], [ %call60, %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit ], [ null, %if.end57 ], [ null, %entry ]
-  ret ptr %retval.0
+41:                                               ; preds = %31
+  %.not39 = icmp eq ptr %7, null
+  br i1 %.not39, label %51, label %42
 
-eh.resume:                                        ; preds = %lpad61, %lpad55, %lpad49, %lpad43, %lpad37, %lpad31, %lpad25, %lpad
-  %call60.sink = phi ptr [ %call60, %lpad61 ], [ %call54, %lpad55 ], [ %call48, %lpad49 ], [ %call42, %lpad43 ], [ %call36, %lpad37 ], [ %call30, %lpad31 ], [ %call24, %lpad25 ], [ %call, %lpad ]
-  %.pn = phi { ptr, i32 } [ %24, %lpad61 ], [ %22, %lpad55 ], [ %20, %lpad49 ], [ %18, %lpad43 ], [ %16, %lpad37 ], [ %14, %lpad31 ], [ %12, %lpad25 ], [ %10, %lpad ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call60.sink) #22
+42:                                               ; preds = %41
+  %43 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %43, align 8, !tbaa !15
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !9
+  %46 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %45)
+          to label %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit unwind label %49
+
+_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit:         ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store ptr %46, ptr %47, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store i8 0, ptr %48, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 16), ptr %43, align 8, !tbaa !15
+  br label %.thread65
+
+49:                                               ; preds = %42
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  br label %91
+
+51:                                               ; preds = %41
+  %.not40 = icmp eq ptr %8, null
+  br i1 %.not40, label %61, label %52
+
+52:                                               ; preds = %51
+  %53 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %53, align 8, !tbaa !15
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !9
+  %56 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %55)
+          to label %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit unwind label %59
+
+_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit:    ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store ptr %56, ptr %57, align 8, !tbaa !9
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store i8 0, ptr %58, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr %53, align 8, !tbaa !15
+  br label %.thread65
+
+59:                                               ; preds = %52
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  br label %91
+
+61:                                               ; preds = %51
+  %.not41 = icmp eq ptr %9, null
+  br i1 %.not41, label %71, label %62
+
+62:                                               ; preds = %61
+  %63 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %63, align 8, !tbaa !15
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !9
+  %66 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %65)
+          to label %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit unwind label %69
+
+_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit:          ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store ptr %66, ptr %67, align 8, !tbaa !9
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store i8 0, ptr %68, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr %63, align 8, !tbaa !15
+  br label %.thread65
+
+69:                                               ; preds = %62
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  br label %91
+
+71:                                               ; preds = %61
+  %.not42 = icmp eq ptr %10, null
+  br i1 %.not42, label %81, label %72
+
+72:                                               ; preds = %71
+  %73 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %73, align 8, !tbaa !15
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !9
+  %76 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %75)
+          to label %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit unwind label %79
+
+_ZN4FLAC8Metadata7PictureC2ERKS1_.exit:           ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store ptr %76, ptr %77, align 8, !tbaa !9
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store i8 0, ptr %78, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16), ptr %73, align 8, !tbaa !15
+  br label %.thread65
+
+79:                                               ; preds = %72
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  br label %91
+
+81:                                               ; preds = %71
+  %.not43 = icmp eq ptr %11, null
+  br i1 %.not43, label %.thread65, label %82
+
+82:                                               ; preds = %81
+  %83 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %83, align 8, !tbaa !15
+  %84 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !9
+  %86 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %85)
+          to label %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit unwind label %89
+
+_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit:           ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store ptr %86, ptr %87, align 8, !tbaa !9
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  store i8 0, ptr %88, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), ptr %83, align 8, !tbaa !15
+  br label %.thread65
+
+89:                                               ; preds = %82
+  %90 = landingpad { ptr, i32 }
+          cleanup
+  br label %91
+
+.thread65:                                        ; preds = %1, %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit, %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit, %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit, %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit, %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit, %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit, %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit, %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit, %81
+  %.027 = phi ptr [ %13, %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit ], [ %23, %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit ], [ %33, %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit ], [ %43, %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit ], [ %53, %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit ], [ %63, %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit ], [ %73, %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit ], [ %83, %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit ], [ null, %81 ], [ null, %1 ]
+  ret ptr %.027
+
+91:                                               ; preds = %89, %79, %69, %59, %49, %39, %29, %19
+  %.sink = phi ptr [ %83, %89 ], [ %73, %79 ], [ %63, %69 ], [ %53, %59 ], [ %43, %49 ], [ %33, %39 ], [ %23, %29 ], [ %13, %19 ]
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %80, %79 ], [ %70, %69 ], [ %60, %59 ], [ %50, %49 ], [ %40, %39 ], [ %30, %29 ], [ %20, %19 ]
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef 24) #24
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #3
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %object) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %object_2 = getelementptr inbounds nuw i8, ptr %object, i64 8
-  %0 = load ptr, ptr %object_2, align 8
-  %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %0)
-  store ptr %call, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_, align 8
+define void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call ptr @FLAC__metadata_object_clone(ptr noundef %5)
+  store ptr %6, ptr %3, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %7, align 8, !tbaa !14
   ret void
 }
 
-declare ptr @FLAC__metadata_object_clone(ptr noundef) local_unnamed_addr #4
+declare ptr @FLAC__metadata_object_clone(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeC2ERK20FLAC__StreamMetadata(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this, ptr noundef nonnull align 8 dereferenceable(176) %object) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef nonnull %object)
-  store ptr %call, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeC2EPK20FLAC__StreamMetadata(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this, ptr noundef %object) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %object)
-  store ptr %call, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_, align 8
+define void @_ZN4FLAC8Metadata9PrototypeC2ERK20FLAC__StreamMetadata(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call ptr @FLAC__metadata_object_clone(ptr noundef nonnull %1)
+  store ptr %4, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %5, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this, ptr noundef %object, i1 noundef zeroext %copy) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  br i1 %copy, label %cond.true, label %cond.end
+define void @_ZN4FLAC8Metadata9PrototypeC2EPK20FLAC__StreamMetadata(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call ptr @FLAC__metadata_object_clone(ptr noundef %1)
+  store ptr %4, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %5, align 8, !tbaa !14
+  ret void
+}
 
-cond.true:                                        ; preds = %entry
-  %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %object)
-  br label %cond.end
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %0, align 8, !tbaa !15
+  br i1 %2, label %4, label %6
 
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi ptr [ %call, %cond.true ], [ %object, %entry ]
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %cond, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_, align 8
+4:                                                ; preds = %3
+  %5 = tail call ptr @FLAC__metadata_object_clone(ptr noundef %1)
+  br label %6
+
+6:                                                ; preds = %3, %4
+  %7 = phi ptr [ %5, %4 ], [ %1, %3 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %7, ptr %8, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %9, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %invoke.cont, label %land.lhs.true.i
+define void @_ZN4FLAC8Metadata9PrototypeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %9, label %4
 
-land.lhs.true.i:                                  ; preds = %entry
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_.i, align 8
-  %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %invoke.cont, label %if.then.i
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i8, ptr %5, align 8, !tbaa !14, !range !17, !noundef !18
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %9, label %8
 
-if.then.i:                                        ; preds = %land.lhs.true.i
-  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-          to label %invoke.cont unwind label %terminate.lpad
+8:                                                ; preds = %4
+  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %3)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
-  store ptr null, ptr %object_.i, align 8
+9:                                                ; preds = %4, %1, %8
+  store ptr null, ptr %2, align 8, !tbaa !9
   ret void
 
-terminate.lpad:                                   ; preds = %if.then.i
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #25
   unreachable
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
-  tail call void @_ZSt9terminatev() #23
+; Function Attrs: noinline noreturn nounwind sspstrong uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata9PrototypeD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+define void @_ZN4FLAC8Metadata9PrototypeD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata9PrototypeD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9Prototype5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this) unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %land.lhs.true
+define void @_ZN4FLAC8Metadata9Prototype5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0) unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %9, label %4
 
-land.lhs.true:                                    ; preds = %entry
-  %is_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.end, label %if.then
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i8, ptr %5, align 8, !tbaa !14, !range !17, !noundef !18
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %9, label %8
 
-if.then:                                          ; preds = %land.lhs.true
-  tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-  br label %if.end
+8:                                                ; preds = %4
+  tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %3)
+  br label %9
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  store ptr null, ptr %object_, align 8
+9:                                                ; preds = %8, %4, %1
+  store ptr null, ptr %2, align 8, !tbaa !9
   ret void
 }
 
-declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #4
+declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZN4FLAC8Metadata9PrototypeaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %object) local_unnamed_addr #0 align 2 {
-entry:
-  %vtable = load ptr, ptr %this, align 8
-  %0 = load ptr, ptr %vtable, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(17) %this)
-  %is_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %object, i64 8
-  %1 = load ptr, ptr %object_, align 8
-  %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %1)
-  %object_2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_2, align 8
-  ret ptr %this
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZN4FLAC8Metadata9PrototypeaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(17) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #0 align 2 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %3, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(17) %0)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %5, align 8, !tbaa !14
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !9
+  %8 = tail call ptr @FLAC__metadata_object_clone(ptr noundef %7)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %9, align 8, !tbaa !9
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZN4FLAC8Metadata9PrototypeaSERK20FLAC__StreamMetadata(ptr noundef nonnull returned align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(176) %object) local_unnamed_addr #0 align 2 {
-entry:
-  %vtable = load ptr, ptr %this, align 8
-  %0 = load ptr, ptr %vtable, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(17) %this)
-  %is_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_, align 8
-  %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef nonnull %object)
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_, align 8
-  ret ptr %this
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZN4FLAC8Metadata9PrototypeaSERK20FLAC__StreamMetadata(ptr noundef nonnull returned align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) local_unnamed_addr #0 align 2 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %3, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(17) %0)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %5, align 8, !tbaa !14
+  %6 = tail call ptr @FLAC__metadata_object_clone(ptr noundef nonnull %1)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %7, align 8, !tbaa !9
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZN4FLAC8Metadata9PrototypeaSEPK20FLAC__StreamMetadata(ptr noundef nonnull returned align 8 dereferenceable(17) %this, ptr noundef %object) local_unnamed_addr #0 align 2 {
-entry:
-  %vtable = load ptr, ptr %this, align 8
-  %0 = load ptr, ptr %vtable, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(17) %this)
-  %is_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_, align 8
-  %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %object)
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_, align 8
-  ret ptr %this
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZN4FLAC8Metadata9PrototypeaSEPK20FLAC__StreamMetadata(ptr noundef nonnull returned align 8 dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %3, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(17) %0)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %5, align 8, !tbaa !14
+  %6 = tail call ptr @FLAC__metadata_object_clone(ptr noundef %1)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %7, align 8, !tbaa !9
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZN4FLAC8Metadata9Prototype13assign_objectEP20FLAC__StreamMetadatab(ptr noundef nonnull returned align 8 dereferenceable(17) %this, ptr noundef %object, i1 noundef zeroext %copy) local_unnamed_addr #0 align 2 {
-entry:
-  %vtable = load ptr, ptr %this, align 8
-  %0 = load ptr, ptr %vtable, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(17) %this)
-  br i1 %copy, label %cond.true, label %cond.end
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZN4FLAC8Metadata9Prototype13assign_objectEP20FLAC__StreamMetadatab(ptr noundef nonnull returned align 8 dereferenceable(17) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  %5 = load ptr, ptr %4, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(17) %0)
+  br i1 %2, label %6, label %8
 
-cond.true:                                        ; preds = %entry
-  %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %object)
-  br label %cond.end
+6:                                                ; preds = %3
+  %7 = tail call ptr @FLAC__metadata_object_clone(ptr noundef %1)
+  br label %8
 
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi ptr [ %call, %cond.true ], [ %object, %entry ]
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %cond, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_, align 8
-  ret ptr %this
+8:                                                ; preds = %3, %6
+  %9 = phi ptr [ %7, %6 ], [ %1, %3 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %9, ptr %10, align 8, !tbaa !9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %11, align 8, !tbaa !14
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata9Prototype11get_is_lastEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %is_last = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %1 = load i32, ptr %is_last, align 4
-  %tobool = icmp ne i32 %1, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZNK4FLAC8Metadata9Prototype11get_is_lastEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !19
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata9Prototype8get_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %1 = load i32, ptr %0, align 8
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata9Prototype8get_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata9Prototype10get_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %length = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load i32, ptr %length, align 8
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata9Prototype10get_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i32, ptr %4, align 8, !tbaa !20
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata9Prototype11set_is_lastEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i1 noundef zeroext %value) local_unnamed_addr #9 align 2 {
-entry:
-  %conv = zext i1 %value to i32
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %is_last = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %conv, ptr %is_last, align 4
+define void @_ZN4FLAC8Metadata9Prototype11set_is_lastEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+  %3 = zext i1 %1 to i32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %3, ptr %6, align 4, !tbaa !19
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata10StreamInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
-entry:
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 0)
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 16), ptr %this, align 8
+define void @_ZN4FLAC8Metadata10StreamInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+  %2 = tail call ptr @FLAC__metadata_object_new(i32 noundef 0)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %4, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 16), ptr %0, align 8, !tbaa !15
   ret void
 }
 
-declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #4
+declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata10StreamInfoD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_.i.i, align 8
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-          to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
-  unreachable
-
-_ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  store ptr null, ptr %object_.i.i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata10StreamInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata10StreamInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+define void @_ZN4FLAC8Metadata10StreamInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata10StreamInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_min_blocksizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load i32, ptr %data, align 8
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_min_blocksizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_max_blocksizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %max_blocksize = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %1 = load i32, ptr %max_blocksize, align 4
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_max_blocksizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %5 = load i32, ptr %4, align 4, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_min_framesizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %min_framesize = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load i32, ptr %min_framesize, align 8
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_min_framesizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_max_framesizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %max_framesize = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1 = load i32, ptr %max_framesize, align 4
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_max_framesizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %5 = load i32, ptr %4, align 4, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo15get_sample_rateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %sample_rate = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1 = load i32, ptr %sample_rate, align 8
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo15get_sample_rateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo12get_channelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %channels = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %1 = load i32, ptr %channels, align 4
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo12get_channelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %5 = load i32, ptr %4, align 4, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo19get_bits_per_sampleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %bits_per_sample = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1 = load i32, ptr %bits_per_sample, align 8
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo19get_bits_per_sampleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4FLAC8Metadata10StreamInfo17get_total_samplesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %total_samples = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %1 = load i64, ptr %total_samples, align 8
-  ret i64 %1
+define noundef i64 @_ZNK4FLAC8Metadata10StreamInfo17get_total_samplesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %5 = load i64, ptr %4, align 8, !tbaa !21
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK4FLAC8Metadata10StreamInfo10get_md5sumEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %md5sum = getelementptr inbounds nuw i8, ptr %0, i64 56
-  ret ptr %md5sum
+define noundef nonnull ptr @_ZNK4FLAC8Metadata10StreamInfo10get_md5sumEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata10StreamInfo17set_min_blocksizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %value, ptr %data, align 8
+define void @_ZN4FLAC8Metadata10StreamInfo17set_min_blocksizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %1, ptr %5, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata10StreamInfo17set_max_blocksizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %max_blocksize = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %value, ptr %max_blocksize, align 4
+define void @_ZN4FLAC8Metadata10StreamInfo17set_max_blocksizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %1, ptr %5, align 4, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata10StreamInfo17set_min_framesizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %min_framesize = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %value, ptr %min_framesize, align 8
+define void @_ZN4FLAC8Metadata10StreamInfo17set_min_framesizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 %1, ptr %5, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata10StreamInfo17set_max_framesizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %max_framesize = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %value, ptr %max_framesize, align 4
+define void @_ZN4FLAC8Metadata10StreamInfo17set_max_framesizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 %1, ptr %5, align 4, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata10StreamInfo15set_sample_rateEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %sample_rate = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %value, ptr %sample_rate, align 8
+define void @_ZN4FLAC8Metadata10StreamInfo15set_sample_rateEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 %1, ptr %5, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata10StreamInfo12set_channelsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %channels = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %value, ptr %channels, align 4
+define void @_ZN4FLAC8Metadata10StreamInfo12set_channelsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i32 %1, ptr %5, align 4, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata10StreamInfo19set_bits_per_sampleEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %bits_per_sample = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %value, ptr %bits_per_sample, align 8
+define void @_ZN4FLAC8Metadata10StreamInfo19set_bits_per_sampleEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 %1, ptr %5, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata10StreamInfo17set_total_samplesEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i64 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %total_samples = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %value, ptr %total_samples, align 8
+define void @_ZN4FLAC8Metadata10StreamInfo17set_total_samplesEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i64 %1, ptr %5, align 8, !tbaa !21
   ret void
+}
+
+; Function Attrs: mustprogress nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4FLAC8Metadata10StreamInfo10set_md5sumEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 noundef 16, i1 noundef false) #23
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata7PaddingC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+  %2 = tail call ptr @FLAC__metadata_object_new(i32 noundef 1)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %4, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %0, align 8, !tbaa !15
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata7PaddingC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = tail call ptr @FLAC__metadata_object_new(i32 noundef 1)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %3, ptr %4, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %5, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %0, align 8, !tbaa !15
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %1, ptr %6, align 8, !tbaa !20
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4FLAC8Metadata7Padding10set_lengthEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %1, ptr %5, align 8, !tbaa !20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind sspstrong uwtable
+define void @_ZN4FLAC8Metadata7PaddingD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata7PaddingD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata11ApplicationC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+  %2 = tail call ptr @FLAC__metadata_object_new(i32 noundef 2)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %4, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 16), ptr %0, align 8, !tbaa !15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind sspstrong uwtable
+define void @_ZN4FLAC8Metadata11ApplicationD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata11ApplicationD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+define noundef nonnull ptr @_ZNK4FLAC8Metadata11Application6get_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef ptr @_ZNK4FLAC8Metadata11Application8get_dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4FLAC8Metadata11Application6set_idEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i32, ptr %1, align 1
+  store i32 %6, ptr %5, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata11Application8set_dataEPKhj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 1)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
+}
+
+declare i32 @FLAC__metadata_object_application_set_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata11Application8set_dataEPhjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  %7 = zext i1 %3 to i32
+  %8 = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef %7)
+  %9 = icmp ne i32 %8, 0
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata9SeekTableC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+  %2 = tail call ptr @FLAC__metadata_object_new(i32 noundef 3)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %4, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 16), ptr %0, align 8, !tbaa !15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind sspstrong uwtable
+define void @_ZN4FLAC8Metadata9SeekTableD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata9SeekTableD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef i32 @_ZNK4FLAC8Metadata9SeekTable14get_num_pointsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata10StreamInfo10set_md5sumEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef readonly captures(none) %value) local_unnamed_addr #11 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %md5sum = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md5sum, ptr noundef nonnull align 1 dereferenceable(16) %value, i64 16, i1 false)
+define void @_ZNK4FLAC8Metadata9SeekTable9get_pointEj(ptr dead_on_unwind noalias writable writeonly sret(%struct.FLAC__StreamMetadata_SeekPoint) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #13 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %8 = zext i32 %2 to i64
+  %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %7, i64 %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !22
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PaddingC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
-entry:
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 1)
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %this, align 8
+define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable13resize_pointsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef %4, i32 noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
+}
+
+declare i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata9SeekTable9set_pointEjRK30FLAC__StreamMetadata_SeekPoint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  tail call void @FLAC__metadata_object_seektable_set_point(ptr noundef %5, i32 noundef %1, ptr noundef nonnull byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 %2)
   ret void
 }
 
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PaddingC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this, i32 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 1)
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %this, align 8
-  %length2.i = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store i32 %length, ptr %length2.i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata7Padding10set_lengthEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %length) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %length2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %length, ptr %length2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PaddingD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_.i.i, align 8
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-          to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
-  unreachable
-
-_ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  store ptr null, ptr %object_.i.i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PaddingD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata7PaddingD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
-  ret void
-}
+declare void @FLAC__metadata_object_seektable_set_point(ptr noundef, i32 noundef, ptr noundef byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata11ApplicationC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
-entry:
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 2)
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 16), ptr %this, align 8
-  ret void
+define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable12insert_pointEjRK30FLAC__StreamMetadata_SeekPoint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_seektable_insert_point(ptr noundef %5, i32 noundef %1, ptr noundef nonnull byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 %2)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata11ApplicationD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_.i.i, align 8
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-          to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
-  unreachable
-
-_ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  store ptr null, ptr %object_.i.i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata11ApplicationD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata11ApplicationD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK4FLAC8Metadata11Application6get_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 16
-  ret ptr %data
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4FLAC8Metadata11Application8get_dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %data2, align 8
-  ret ptr %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata11Application6set_idEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef readonly captures(none) %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load i32, ptr %value, align 1
-  store i32 %1, ptr %data, align 8
-  ret void
-}
+declare i32 @FLAC__metadata_object_seektable_insert_point(ptr noundef, i32 noundef, ptr noundef byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata11Application8set_dataEPKhj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %data, i32 noundef %length) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %length, i32 noundef 1)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable12delete_pointEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_seektable_delete_point(ptr noundef %4, i32 noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
-declare i32 @FLAC__metadata_object_application_set_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_seektable_delete_point(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata11Application8set_dataEPhjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %data, i32 noundef %length, i1 noundef zeroext %copy) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %conv = zext i1 %copy to i32
-  %call = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %length, i32 noundef %conv)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
+define noundef zeroext i1 @_ZNK4FLAC8Metadata9SeekTable8is_legalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = tail call i32 @FLAC__metadata_object_seektable_is_legal(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  ret i1 %5
 }
+
+declare i32 @FLAC__metadata_object_seektable_is_legal(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9SeekTableC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
-entry:
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 3)
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 16), ptr %this, align 8
-  ret void
+define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable28template_append_placeholdersEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef %4, i32 noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata9SeekTableD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_.i.i, align 8
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-          to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
-  unreachable
-
-_ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  store ptr null, ptr %object_.i.i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata9SeekTableD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata9SeekTableD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata9SeekTable14get_num_pointsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load i32, ptr %data, align 8
-  ret i32 %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK4FLAC8Metadata9SeekTable9get_pointEj(ptr noalias writeonly sret(%struct.FLAC__StreamMetadata_SeekPoint) align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #11 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %points = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %points, align 8
-  %idxprom = zext i32 %indx to i64
-  %arrayidx = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %1, i64 %idxprom
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 24, i1 false)
-  ret void
-}
+declare i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable13resize_pointsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %new_num_points) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef %0, i32 noundef %new_num_points)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable21template_append_pointEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef %4, i64 noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
-declare i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9SeekTable9set_pointEjRK30FLAC__StreamMetadata_SeekPoint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %indx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %point) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  tail call void @FLAC__metadata_object_seektable_set_point(ptr noundef %0, i32 noundef %indx, ptr noundef nonnull byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 %point)
-  ret void
+define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable22template_append_pointsEPmj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_seektable_template_append_points(ptr noundef %5, ptr noundef %1, i32 noundef %2)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare void @FLAC__metadata_object_seektable_set_point(ptr noundef, i32 noundef, ptr noundef byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_seektable_template_append_points(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable12insert_pointEjRK30FLAC__StreamMetadata_SeekPoint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %indx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %point) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_seektable_insert_point(ptr noundef %0, i32 noundef %indx, ptr noundef nonnull byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 %point)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable29template_append_spaced_pointsEjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef %5, i32 noundef %1, i64 noundef %2)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_object_seektable_insert_point(ptr noundef, i32 noundef, ptr noundef byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable12delete_pointEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_seektable_delete_point(ptr noundef %0, i32 noundef %indx)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable40template_append_spaced_points_by_samplesEjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef %5, i32 noundef %1, i64 noundef %2)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_object_seektable_delete_point(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata9SeekTable8is_legalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_seektable_is_legal(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable13template_sortEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = zext i1 %1 to i32
+  %6 = tail call i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef %4, i32 noundef %5)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_object_seektable_is_legal(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable28template_append_placeholdersEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %num) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef %0, i32 noundef %num)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-declare i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable21template_append_pointEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i64 noundef %sample_number) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef %0, i64 noundef %sample_number)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-declare i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable22template_append_pointsEPmj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %sample_numbers, i32 noundef %num) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_seektable_template_append_points(ptr noundef %0, ptr noundef %sample_numbers, i32 noundef %num)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-declare i32 @FLAC__metadata_object_seektable_template_append_points(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable29template_append_spaced_pointsEjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %num, i64 noundef %total_samples) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef %0, i32 noundef %num, i64 noundef %total_samples)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable40template_append_spaced_points_by_samplesEjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %samples, i64 noundef %total_samples) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef %0, i32 noundef %samples, i64 noundef %total_samples)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable13template_sortEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i1 noundef zeroext %compact) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %conv = zext i1 %compact to i32
-  %call = tail call i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef %0, i32 noundef %conv)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
-}
-
-declare i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this) unnamed_addr #13 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i64 0, ptr %entry_, align 8
-  store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr null, ptr %field_value_, align 8
-  store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %0) unnamed_addr #15 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %3, align 8
+  store i8 1, ptr %2, align 8, !tbaa !26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %4, align 8, !tbaa !30
+  store i32 0, ptr %5, align 8, !tbaa !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry4zeroEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(60) initializes((8, 9), (16, 20), (24, 44), (48, 60)) %this) local_unnamed_addr #13 align 2 {
-entry:
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 1, ptr %is_valid_, align 8
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 0, ptr %entry_, align 8
-  %entry3 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr null, ptr %field_value_, align 8
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3, i8 0, i64 20, i1 false)
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry4zeroEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(60) initializes((8, 9), (16, 20), (24, 44), (48, 60)) %0) local_unnamed_addr #15 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %2, align 8, !tbaa !26
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %3, align 8, !tbaa !32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr null, ptr %5, align 8, !tbaa !30
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %6, align 8, !tbaa !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcj(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr noundef %field, i32 noundef %field_length) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i64 0, ptr %entry_, align 8
-  store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr null, ptr %field_value_, align 8
-  store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
-  %call.i.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %field, i32 noundef %field_length)
-  %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  store i8 0, ptr %is_valid_, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-if.end.i.i:                                       ; preds = %entry
-  %0 = load ptr, ptr %entry3.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @free(ptr noundef nonnull %0) #21
-  store i32 0, ptr %entry_, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
-  %conv.i.i = zext i32 %field_length to i64
-  %add.i.i.i = add nuw nsw i64 %conv.i.i, 1
-  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #24
-  store ptr %call.i.i.i.i, ptr %entry3.i, align 8
-  %cmp.i.i = icmp eq ptr %call.i.i.i.i, null
-  br i1 %cmp.i.i, label %if.then4.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
-
-if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  store i8 0, ptr %is_valid_, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  store i32 %field_length, ptr %entry_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %field, i64 %conv.i.i, i1 false)
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %conv.i.i
-  store i8 0, ptr %arrayidx.i.i, align 1
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %.pre.i.i = load i8, ptr %is_valid_, align 8
-  %1 = trunc i8 %.pre.i.i to i1
-  br i1 %1, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-if.then.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i.i, %if.then4.i.i, %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i, %if.then.i
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcj(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %0, align 8, !tbaa !15
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %5, align 8
+  store i8 1, ptr %4, align 8, !tbaa !26
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %6, align 8, !tbaa !30
+  store i32 0, ptr %7, align 8, !tbaa !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field, i32 noundef %field_length) local_unnamed_addr #0 align 2 {
-entry:
-  %call.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %field, i32 noundef %field_length)
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %1, i32 noundef %2)
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %5, label %7
 
-if.then.i:                                        ; preds = %entry
-  %is_valid_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_.i, align 8
-  br label %if.end
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %6, align 8, !tbaa !26
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.thread
 
-if.end.i:                                         ; preds = %entry
-  %entry2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %.not.i.i = icmp eq ptr %9, null
+  br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %10
 
-if.then.i.i:                                      ; preds = %if.end.i
-  %entry_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store i32 0, ptr %entry_.i.i, align 8
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @free(ptr noundef nonnull %9) #23
+  store i32 0, ptr %11, align 8, !tbaa !32
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %if.end.i
-  %conv.i = zext i32 %field_length to i64
-  %add.i.i = add nuw nsw i64 %conv.i, 1
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #24
-  store ptr %call.i.i.i, ptr %entry2.i.i, align 8
-  %cmp.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i, label %if.then4.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
+_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %10, %7
+  %12 = zext i32 %2 to i64
+  %13 = add nuw nsw i64 %12, 1
+  %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #26
+  store ptr %14, ptr %8, align 8, !tbaa !33
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
-if.then4.i:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %is_valid_5.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_5.i, align 8
-  br label %if.end
+16:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %17, align 8, !tbaa !26
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.thread
 
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %entry_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %field_length, ptr %entry_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %field, i64 %conv.i, i1 false)
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %conv.i
-  store i8 0, ptr %arrayidx.i, align 1
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %is_valid_13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %.pre.i = load i8, ptr %is_valid_13.phi.trans.insert.i, align 8
-  %1 = trunc i8 %.pre.i to i1
-  br i1 %1, label %if.then, label %if.end
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %18, align 8, !tbaa !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %12, i1 noundef false) #23
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 %12
+  store i8 0, ptr %19, align 1, !tbaa !21
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %20 = trunc nuw i8 %.pre.i to i1
+  br i1 %20, label %21, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.thread
 
-if.then:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  br label %if.end
+21:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.thread
 
-if.end:                                           ; preds = %if.then4.i, %if.then.i, %if.then, %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
+_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.thread: ; preds = %16, %5, %21, %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr noundef %field) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i64 0, ptr %entry_, align 8
-  store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr null, ptr %field_value_, align 8
-  store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKc(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field)
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %4, align 8
+  store i8 1, ptr %3, align 8, !tbaa !26
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %5, align 8, !tbaa !30
+  store i32 0, ptr %6, align 8, !tbaa !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %9 = trunc i64 %8 to i32
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field) local_unnamed_addr #0 align 2 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %field) #25
-  %conv = trunc i64 %call to i32
-  %call.i.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef nonnull %field, i32 noundef %conv)
-  %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  %is_valid_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_.i.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-if.end.i.i:                                       ; preds = %entry
-  %entry2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %entry_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store i32 0, ptr %entry_.i.i.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
-  %conv.i.i = and i64 %call, 4294967295
-  %add.i.i.i = add nuw nsw i64 %conv.i.i, 1
-  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #24
-  store ptr %call.i.i.i.i, ptr %entry2.i.i.i, align 8
-  %cmp.i.i = icmp eq ptr %call.i.i.i.i, null
-  br i1 %cmp.i.i, label %if.then4.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
-
-if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %is_valid_5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_5.i.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %entry_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %conv, ptr %entry_.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr nonnull align 1 %field, i64 %conv.i.i, i1 false)
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %conv.i.i
-  store i8 0, ptr %arrayidx.i.i, align 1
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %is_valid_13.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %.pre.i.i = load i8, ptr %is_valid_13.phi.trans.insert.i.i, align 8
-  %1 = trunc i8 %.pre.i.i to i1
-  br i1 %1, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-if.then.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i.i, %if.then4.i.i, %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i, %if.then.i
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %4 = trunc i64 %3 to i32
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_j(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr noundef %field_name, ptr noundef %field_value, i32 noundef %field_value_length) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %field_name_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %field_name_length_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i64 0, ptr %entry_, align 8
-  store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr null, ptr %field_value_, align 8
-  store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
-  %call.i = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name)
-  br i1 %call.i, label %land.lhs.true.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit
-
-land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_value, i32 noundef %field_value_length)
-  br i1 %call2.i, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit
-
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %0 = load ptr, ptr %entry3.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @free(ptr noundef nonnull %0) #21
-  store i32 0, ptr %entry_, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i
-  %1 = load i32, ptr %field_name_length_, align 8
-  %conv.i.i = zext i32 %1 to i64
-  %2 = load i32, ptr %field_value_length_, align 8
-  %conv2.i.i = zext i32 %2 to i64
-  %add1.i.i.i = add nuw nsw i64 %conv.i.i, 2
-  %add5.i.i.i = add nuw nsw i64 %add1.i.i.i, %conv2.i.i
-  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i.i) #24
-  store ptr %call.i.i.i.i, ptr %entry3.i, align 8
-  %cmp.i.i = icmp eq ptr %call.i.i.i.i, null
-  br i1 %cmp.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i, label %if.else.i.i
-
-if.else.i.i:                                      ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %3 = load ptr, ptr %field_name_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %3, i64 %conv.i.i, i1 false)
-  %4 = load i32, ptr %entry_, align 8
-  %add.i.i = add i32 %4, %1
-  %idx.ext.i.i = zext i32 %add.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %idx.ext.i.i
-  store i8 61, ptr %add.ptr.i.i, align 1
-  %add16.i.i = add i32 %add.i.i, 1
-  store i32 %add16.i.i, ptr %entry_, align 8
-  %cmp18.not.i.i = icmp eq i32 %2, 0
-  br i1 %cmp18.not.i.i, label %if.end.i.i, label %if.then19.i.i
-
-if.then19.i.i:                                    ; preds = %if.else.i.i
-  %idx.ext24.i.i = zext i32 %add16.i.i to i64
-  %add.ptr25.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %idx.ext24.i.i
-  %5 = load ptr, ptr %field_value_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25.i.i, ptr align 1 %5, i64 %conv2.i.i, i1 false)
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then19.i.i, %if.else.i.i
-  %add31.i.i = add i32 %add16.i.i, %2
-  store i32 %add31.i.i, ptr %entry_, align 8
-  %idxprom.i.i = zext i32 %add31.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %idxprom.i.i
-  store i8 0, ptr %arrayidx.i.i, align 1
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i: ; preds = %if.end.i.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %.sink.i.i = phi i8 [ 1, %if.end.i.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i ]
-  store i8 %.sink.i.i, ptr %is_valid_, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit: ; preds = %entry, %land.lhs.true.i, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_j(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %0, align 8, !tbaa !15
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %6, align 8
+  store i8 1, ptr %5, align 8, !tbaa !26
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %7, align 8, !tbaa !30
+  store i32 0, ptr %8, align 8, !tbaa !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_name, ptr noundef %field_value, i32 noundef %field_value_length) local_unnamed_addr #0 align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name)
-  br i1 %call, label %land.lhs.true, label %if.end
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+  %5 = tail call i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef %1)
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %6, label %8
 
-land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_value, i32 noundef %field_value_length)
-  br i1 %call2, label %if.then, label %if.end
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %7, align 8, !tbaa !26
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
 
-if.then:                                          ; preds = %land.lhs.true
-  %entry2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
+  %.not.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %11
 
-if.then.i.i:                                      ; preds = %if.then
-  %entry_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store i32 0, ptr %entry_.i.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %if.then
-  %field_name_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i32, ptr %field_name_length_.i, align 8
-  %conv.i = zext i32 %1 to i64
-  %field_value_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %2 = load i32, ptr %field_value_length_.i, align 8
-  %conv2.i = zext i32 %2 to i64
-  %add1.i.i = add nuw nsw i64 %conv.i, 2
-  %add5.i.i = add nuw nsw i64 %add1.i.i, %conv2.i
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i) #24
-  %entry_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %call.i.i.i, ptr %entry2.i.i, align 8
-  %cmp.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %field_name_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %3 = load ptr, ptr %field_name_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %3, i64 %conv.i, i1 false)
-  %4 = load i32, ptr %entry_.i, align 8
-  %add.i = add i32 %4, %1
-  %idx.ext.i = zext i32 %add.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %idx.ext.i
-  store i8 61, ptr %add.ptr.i, align 1
-  %add16.i = add i32 %add.i, 1
-  store i32 %add16.i, ptr %entry_.i, align 8
-  %cmp18.not.i = icmp eq i32 %2, 0
-  br i1 %cmp18.not.i, label %if.end.i, label %if.then19.i
-
-if.then19.i:                                      ; preds = %if.else.i
-  %idx.ext24.i = zext i32 %add16.i to i64
-  %add.ptr25.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %idx.ext24.i
-  %field_value_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %5 = load ptr, ptr %field_value_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25.i, ptr align 1 %5, i64 %conv2.i, i1 false)
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.then19.i, %if.else.i
-  %add31.i = add i32 %add16.i, %2
-  store i32 %add31.i, ptr %entry_.i, align 8
-  %idxprom.i = zext i32 %add31.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %idxprom.i
-  store i8 0, ptr %arrayidx.i, align 1
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %if.end.i
-  %.sink.i = phi i8 [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %is_valid_36.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 %.sink.i, ptr %is_valid_36.i, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, %land.lhs.true, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr noundef %field_name, ptr noundef %field_value) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i64 0, ptr %entry_, align 8
-  store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr null, ptr %field_value_, align 8
-  store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value)
-  ret void
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_name, ptr noundef %field_value) local_unnamed_addr #0 align 2 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %field_value) #25
-  %call.i = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name)
-  br i1 %call.i, label %land.lhs.true.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit
-
-land.lhs.true.i:                                  ; preds = %entry
-  %conv = trunc i64 %call to i32
-  %call2.i = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull %field_value, i32 noundef %conv)
-  br i1 %call2.i, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit
-
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %entry2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then.i
-  %entry_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store i32 0, ptr %entry_.i.i.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i
-  %field_name_length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i32, ptr %field_name_length_.i.i, align 8
-  %conv.i.i = zext i32 %1 to i64
-  %field_value_length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %2 = load i32, ptr %field_value_length_.i.i, align 8
-  %conv2.i.i = zext i32 %2 to i64
-  %add1.i.i.i = add nuw nsw i64 %conv.i.i, 2
-  %add5.i.i.i = add nuw nsw i64 %add1.i.i.i, %conv2.i.i
-  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i.i) #24
-  %entry_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %call.i.i.i.i, ptr %entry2.i.i.i, align 8
-  %cmp.i.i = icmp eq ptr %call.i.i.i.i, null
-  br i1 %cmp.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i, label %if.else.i.i
-
-if.else.i.i:                                      ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %field_name_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %3 = load ptr, ptr %field_name_.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %3, i64 %conv.i.i, i1 false)
-  %4 = load i32, ptr %entry_.i.i, align 8
-  %add.i.i = add i32 %4, %1
-  %idx.ext.i.i = zext i32 %add.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %idx.ext.i.i
-  store i8 61, ptr %add.ptr.i.i, align 1
-  %add16.i.i = add i32 %add.i.i, 1
-  store i32 %add16.i.i, ptr %entry_.i.i, align 8
-  %cmp18.not.i.i = icmp eq i32 %2, 0
-  br i1 %cmp18.not.i.i, label %if.end.i.i, label %if.then19.i.i
-
-if.then19.i.i:                                    ; preds = %if.else.i.i
-  %idx.ext24.i.i = zext i32 %add16.i.i to i64
-  %add.ptr25.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %idx.ext24.i.i
-  %field_value_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %5 = load ptr, ptr %field_value_.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25.i.i, ptr align 1 %5, i64 %conv2.i.i, i1 false)
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then19.i.i, %if.else.i.i
-  %add31.i.i = add i32 %add16.i.i, %2
-  store i32 %add31.i.i, ptr %entry_.i.i, align 8
-  %idxprom.i.i = zext i32 %add31.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %idxprom.i.i
-  store i8 0, ptr %arrayidx.i.i, align 1
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i: ; preds = %if.end.i.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %.sink.i.i = phi i8 [ 1, %if.end.i.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i ]
-  %is_valid_36.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 %.sink.i.i, ptr %is_valid_36.i.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit: ; preds = %entry, %land.lhs.true.i, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i
-  ret void
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2ERKS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %entry1) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i64 0, ptr %entry_, align 8
-  store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr null, ptr %field_value_, align 8
-  store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
-  %entry_3 = getelementptr inbounds nuw i8, ptr %entry1, i64 16
-  %entry4 = getelementptr inbounds nuw i8, ptr %entry1, i64 24
-  %0 = load ptr, ptr %entry4, align 8
-  %1 = load i32, ptr %entry_3, align 8
-  %call.i.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %0, i32 noundef %1)
-  %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  store i8 0, ptr %is_valid_, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-if.end.i.i:                                       ; preds = %entry
-  %2 = load ptr, ptr %entry3.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @free(ptr noundef nonnull %2) #21
-  store i32 0, ptr %entry_, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
-  %conv.i.i = zext i32 %1 to i64
-  %add.i.i.i = add nuw nsw i64 %conv.i.i, 1
-  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #24
-  store ptr %call.i.i.i.i, ptr %entry3.i, align 8
-  %cmp.i.i = icmp eq ptr %call.i.i.i.i, null
-  br i1 %cmp.i.i, label %if.then4.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
-
-if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  store i8 0, ptr %is_valid_, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  store i32 %1, ptr %entry_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %0, i64 %conv.i.i, i1 false)
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %conv.i.i
-  store i8 0, ptr %arrayidx.i.i, align 1
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %.pre.i.i = load i8, ptr %is_valid_, align 8
-  %3 = trunc i8 %.pre.i.i to i1
-  br i1 %3, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-if.then.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i.i, %if.then4.i.i, %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i, %if.then.i
-  ret void
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN4FLAC8Metadata13VorbisComment5EntryaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
-entry:
-  %entry2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  %entry_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store ptr null, ptr %entry2.i.i, align 8
-  store i32 0, ptr %entry_.i.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %entry
-  %field_name_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load ptr, ptr %field_name_.i.i, align 8
-  %cmp.not.i1.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i1.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %if.then.i2.i
-
-if.then.i2.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  tail call void @free(ptr noundef nonnull %1) #21
-  store ptr null, ptr %field_name_.i.i, align 8
-  %field_name_length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 0, ptr %field_name_length_.i.i, align 8
+11:                                               ; preds = %8
+  tail call void @free(ptr noundef nonnull %10) #23
+  store ptr null, ptr %9, align 8, !tbaa !34
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %12, align 8, !tbaa !35
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
 
-_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %if.then.i2.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %field_value_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %2 = load ptr, ptr %field_value_.i.i, align 8
-  %cmp.not.i3.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i3.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit, label %if.then.i4.i
+_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %11, %8
+  %13 = tail call noalias ptr @strdup(ptr noundef %1) #23
+  store ptr %13, ptr %9, align 8, !tbaa !34
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit
 
-if.then.i4.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
-  tail call void @free(ptr noundef nonnull %2) #21
-  store ptr null, ptr %field_value_.i.i, align 8
-  %field_value_length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 0, ptr %field_value_length_.i.i, align 8
+15:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %16, align 8, !tbaa !26
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
+
+_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #27
+  %18 = trunc i64 %17 to i32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %18, ptr %19, align 8, !tbaa !35
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %20 = trunc nuw i8 %.pre.i to i1
+  br i1 %20, label %21, label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
+
+21:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit
+  %22 = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef %2, i32 noundef %3)
+  %.not.i3 = icmp eq i32 %22, 0
+  br i1 %.not.i3, label %23, label %24
+
+23:                                               ; preds = %21
+  store i8 0, ptr %.phi.trans.insert.i, align 8, !tbaa !26
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
+
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %.not.i.i4 = icmp eq ptr %26, null
+  br i1 %.not.i.i4, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i, label %27
+
+27:                                               ; preds = %24
+  tail call void @free(ptr noundef nonnull %26) #23
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %28, align 8, !tbaa !31
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
+
+_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i: ; preds = %27, %24
+  %29 = zext i32 %3 to i64
+  %30 = add nuw nsw i64 %29, 1
+  %31 = tail call noalias noundef ptr @malloc(i64 noundef %30) #26
+  store ptr %31, ptr %25, align 8, !tbaa !30
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit
+
+33:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
+  store i8 0, ptr %.phi.trans.insert.i, align 8, !tbaa !26
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
+
+_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %3, ptr %34, align 8, !tbaa !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %31, ptr noundef nonnull align 1 %2, i64 noundef range(i64 0, 4294967296) %29, i1 noundef false) #23
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 %29
+  store i8 0, ptr %35, align 1, !tbaa !21
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  %.pre.i6 = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %36 = trunc nuw i8 %.pre.i6 to i1
+  br i1 %36, label %37, label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
+
+37:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
+
+_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread: ; preds = %33, %23, %15, %6, %37, %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit, %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %0, align 8, !tbaa !15
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %5, align 8
+  store i8 1, ptr %4, align 8, !tbaa !26
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %6, align 8, !tbaa !30
+  store i32 0, ptr %7, align 8, !tbaa !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %10 = trunc i64 %9 to i32
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %10)
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %5 = trunc i64 %4 to i32
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2ERKS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %4, align 8
+  store i8 1, ptr %3, align 8, !tbaa !26
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %5, align 8, !tbaa !30
+  store i32 0, ptr %6, align 8, !tbaa !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %11 = load i32, ptr %8, align 8, !tbaa !32
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %10, i32 noundef %11)
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN4FLAC8Metadata13VorbisComment5EntryaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(60) initializes((8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
+  %.not.i.i = icmp eq ptr %4, null
+  br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %5
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @free(ptr noundef nonnull %4) #23
+  store ptr null, ptr %3, align 8, !tbaa !33
+  store i32 0, ptr %6, align 8, !tbaa !32
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
+
+_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %5, %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %.not.i1.i = icmp eq ptr %8, null
+  br i1 %.not.i1.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %9
+
+9:                                                ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
+  tail call void @free(ptr noundef nonnull %8) #23
+  store ptr null, ptr %7, align 8, !tbaa !34
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %10, align 8, !tbaa !35
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
+
+_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %9, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %.not.i2.i = icmp eq ptr %12, null
+  br i1 %.not.i2.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit, label %13
+
+13:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
+  tail call void @free(ptr noundef nonnull %12) #23
+  store ptr null, ptr %11, align 8, !tbaa !30
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %14, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, %if.then.i4.i
-  %is_valid_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 1, ptr %is_valid_.i, align 8
-  %entry_ = getelementptr inbounds nuw i8, ptr %entry1, i64 16
-  %entry3 = getelementptr inbounds nuw i8, ptr %entry1, i64 24
-  %3 = load ptr, ptr %entry3, align 8
-  %4 = load i32, ptr %entry_, align 8
-  %call.i.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %3, i32 noundef %4)
-  %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i3, label %if.end.i.i
-
-if.then.i.i3:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit
-  store i8 0, ptr %is_valid_.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-if.end.i.i:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit
-  %5 = load ptr, ptr %entry2.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %entry_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %5) #21
-  store i32 0, ptr %entry_.i.i.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
-  %conv.i.i = zext i32 %4 to i64
-  %add.i.i.i = add nuw nsw i64 %conv.i.i, 1
-  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #24
-  store ptr %call.i.i.i.i, ptr %entry2.i.i, align 8
-  %cmp.i.i = icmp eq ptr %call.i.i.i.i, null
-  br i1 %cmp.i.i, label %if.then4.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
-
-if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  store i8 0, ptr %is_valid_.i, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %entry_.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %4, ptr %entry_.i.i2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %3, i64 %conv.i.i, i1 false)
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 %conv.i.i
-  store i8 0, ptr %arrayidx.i.i, align 1
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %.pre.i.i = load i8, ptr %is_valid_.i, align 8
-  %6 = trunc i8 %.pre.i.i to i1
-  br i1 %6, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-if.then.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i.i3, %if.then4.i.i, %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i, %if.then.i
-  ret ptr %this
+_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %15, align 8, !tbaa !26
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
+  %19 = load i32, ptr %16, align 8, !tbaa !32
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %18, i32 noundef %19)
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this) local_unnamed_addr #15 align 2 {
-entry:
-  %entry2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %if.then.i
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0) local_unnamed_addr #17 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %4
 
-if.then.i:                                        ; preds = %entry
-  %entry_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store ptr null, ptr %entry2.i, align 8
-  store i32 0, ptr %entry_.i, align 8
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @free(ptr noundef nonnull %3) #23
+  store ptr null, ptr %2, align 8, !tbaa !33
+  store i32 0, ptr %5, align 8, !tbaa !32
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %entry, %if.then.i
-  %field_name_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load ptr, ptr %field_name_.i, align 8
-  %cmp.not.i1 = icmp eq ptr %1, null
-  br i1 %cmp.not.i1, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %if.then.i2
+_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %.not.i1 = icmp eq ptr %7, null
+  br i1 %.not.i1, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %8
 
-if.then.i2:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
-  tail call void @free(ptr noundef nonnull %1) #21
-  store ptr null, ptr %field_name_.i, align 8
-  %field_name_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 0, ptr %field_name_length_.i, align 8
+8:                                                ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
+  tail call void @free(ptr noundef nonnull %7) #23
+  store ptr null, ptr %6, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %9, align 8, !tbaa !35
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, %if.then.i2
-  %field_value_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %2 = load ptr, ptr %field_value_.i, align 8
-  %cmp.not.i3 = icmp eq ptr %2, null
-  br i1 %cmp.not.i3, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %if.then.i4
+_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %.not.i2 = icmp eq ptr %11, null
+  br i1 %.not.i2, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %12
 
-if.then.i4:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
-  tail call void @free(ptr noundef nonnull %2) #21
-  store ptr null, ptr %field_value_.i, align 8
-  %field_value_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 0, ptr %field_value_length_.i, align 8
+12:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
+  tail call void @free(ptr noundef nonnull %11) #23
+  store ptr null, ptr %10, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %13, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %if.then.i4
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 1, ptr %is_valid_, align 8
+_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %14, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
-  %entry2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9)) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %.not.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %4
 
-if.then.i.i:                                      ; preds = %entry
-  %entry_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store ptr null, ptr %entry2.i.i, align 8
-  store i32 0, ptr %entry_.i.i, align 8
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @free(ptr noundef nonnull %3) #23
+  store ptr null, ptr %2, align 8, !tbaa !33
+  store i32 0, ptr %5, align 8, !tbaa !32
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %entry
-  %field_name_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load ptr, ptr %field_name_.i.i, align 8
-  %cmp.not.i1.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i1.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %if.then.i2.i
+_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %4, %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %.not.i1.i = icmp eq ptr %7, null
+  br i1 %.not.i1.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %8
 
-if.then.i2.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  tail call void @free(ptr noundef nonnull %1) #21
-  store ptr null, ptr %field_name_.i.i, align 8
-  %field_name_length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 0, ptr %field_name_length_.i.i, align 8
+8:                                                ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
+  tail call void @free(ptr noundef nonnull %7) #23
+  store ptr null, ptr %6, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %9, align 8, !tbaa !35
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
 
-_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %if.then.i2.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %field_value_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %2 = load ptr, ptr %field_value_.i.i, align 8
-  %cmp.not.i3.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i3.i, label %invoke.cont, label %if.then.i4.i
+_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %8, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %.not.i2.i = icmp eq ptr %11, null
+  br i1 %.not.i2.i, label %14, label %12
 
-if.then.i4.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
-  tail call void @free(ptr noundef nonnull %2) #21
-  store ptr null, ptr %field_value_.i.i, align 8
-  %field_value_length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 0, ptr %field_value_length_.i.i, align 8
-  br label %invoke.cont
+12:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
+  tail call void @free(ptr noundef nonnull %11) #23
+  store ptr null, ptr %10, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %13, align 8, !tbaa !31
+  br label %14
 
-invoke.cont:                                      ; preds = %if.then.i4.i, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
-  %is_valid_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 1, ptr %is_valid_.i, align 8
+14:                                               ; preds = %12, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %15, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5EntryD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5EntryD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata13VorbisComment5Entry8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) unnamed_addr #10 align 2 {
-entry:
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i8, ptr %is_valid_, align 8
-  %tobool = trunc i8 %0 to i1
-  ret i1 %tobool
+define noundef zeroext i1 @_ZNK4FLAC8Metadata13VorbisComment5Entry8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i8, ptr %2, align 8, !tbaa !26, !range !17, !noundef !18
+  %4 = trunc nuw i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry16get_field_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i32, ptr %entry_, align 8
-  ret i32 %0
+define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry16get_field_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i32, ptr %2, align 8, !tbaa !32
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry21get_field_name_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %field_name_length_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load i32, ptr %field_name_length_, align 8
-  ret i32 %0
+define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry21get_field_name_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load i32, ptr %2, align 8, !tbaa !35
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry22get_field_value_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load i32, ptr %field_value_length_, align 8
-  ret i32 %0
+define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry22get_field_value_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load i32, ptr %2, align 8, !tbaa !31
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define { i32, ptr } @_ZNK4FLAC8Metadata13VorbisComment5Entry9get_entryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %retval.sroa.0.0.copyload = load i32, ptr %entry_, align 8
-  %retval.sroa.21.0.entry_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %retval.sroa.21.0.copyload = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx, align 8
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0.copyload, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.21.0.copyload, 1
+define { i32, ptr } @_ZNK4FLAC8Metadata13VorbisComment5Entry9get_entryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload = load i32, ptr %2, align 8, !tbaa !25
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !36
+  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0.copyload, 0
+  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.21.0.copyload, 1
   ret { i32, ptr } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry9get_fieldEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %entry2 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2, align 8
-  ret ptr %0
+define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry9get_fieldEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry14get_field_nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %field_name_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %field_name_, align 8
-  ret ptr %0
+define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry14get_field_nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry15get_field_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %field_value_, align 8
-  ret ptr %0
+define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry15get_field_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field, i32 noundef %field_length) local_unnamed_addr #0 align 2 {
-entry:
-  %call = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %field, i32 noundef %field_length)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %1, i32 noundef %2)
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %5, label %7
 
-if.then:                                          ; preds = %entry
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_, align 8
-  br label %return
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %6, align 8, !tbaa !26
+  br label %22
 
-if.end:                                           ; preds = %entry
-  %entry2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %if.then.i
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %10
 
-if.then.i:                                        ; preds = %if.end
-  %entry_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store i32 0, ptr %entry_.i, align 8
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @free(ptr noundef nonnull %9) #23
+  store i32 0, ptr %11, align 8, !tbaa !32
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %if.end, %if.then.i
-  %conv = zext i32 %field_length to i64
-  %add.i = add nuw nsw i64 %conv, 1
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #24
-  store ptr %call.i.i, ptr %entry2.i, align 8
-  %cmp = icmp eq ptr %call.i.i, null
-  br i1 %cmp, label %if.then4, label %if.else
+_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %7, %10
+  %12 = zext i32 %2 to i64
+  %13 = add nuw nsw i64 %12, 1
+  %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #26
+  store ptr %14, ptr %8, align 8, !tbaa !33
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %18
 
-if.then4:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
-  %is_valid_5 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_5, align 8
-  br label %return
+16:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %17, align 8, !tbaa !26
+  br label %22
 
-if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %field_length, ptr %entry_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %field, i64 %conv, i1 false)
-  %arrayidx = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %conv
-  store i8 0, ptr %arrayidx, align 1
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %is_valid_13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %.pre = load i8, ptr %is_valid_13.phi.trans.insert, align 8
-  %1 = trunc i8 %.pre to i1
-  br label %return
+18:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %19, align 8, !tbaa !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %12, i1 noundef false) #23
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %12
+  store i8 0, ptr %20, align 1, !tbaa !21
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !26, !range !17
+  %21 = trunc nuw i8 %.pre to i1
+  br label %22
 
-return:                                           ; preds = %if.then4, %if.else, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %1, %if.else ], [ false, %if.then4 ]
-  ret i1 %retval.0
+22:                                               ; preds = %16, %18, %5
+  %.0 = phi i1 [ false, %5 ], [ %21, %18 ], [ false, %16 ]
+  ret i1 %.0
 }
 
-declare i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #15 align 2 {
-entry:
-  %entry2 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #17 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %6, label %4
 
-if.then:                                          ; preds = %entry
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store ptr null, ptr %entry2, align 8
-  store i32 0, ptr %entry_, align 8
-  br label %if.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @free(ptr noundef nonnull %3) #23
+  store ptr null, ptr %2, align 8, !tbaa !33
+  store i32 0, ptr %5, align 8, !tbaa !32
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
+6:                                                ; preds = %4, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9), (40, 44)) %this) local_unnamed_addr #15 align 2 {
-entry:
-  %field_name_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %field_name_.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %if.then.i
+; Function Attrs: mustprogress nounwind sspstrong uwtable
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9), (40, 44)) %0) local_unnamed_addr #6 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %4
 
-if.then.i:                                        ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #21
-  store ptr null, ptr %field_name_.i, align 8
-  %field_name_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 0, ptr %field_name_length_.i, align 8
+4:                                                ; preds = %1
+  tail call void @free(ptr noundef nonnull %3) #23
+  store ptr null, ptr %2, align 8, !tbaa !34
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %5, align 8, !tbaa !35
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %entry, %if.then.i
-  %field_value_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %1 = load ptr, ptr %field_value_.i, align 8
-  %cmp.not.i3 = icmp eq ptr %1, null
-  br i1 %cmp.not.i3, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %if.then.i4
+_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %.not.i8 = icmp eq ptr %7, null
+  br i1 %.not.i8, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %8
 
-if.then.i4:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
-  tail call void @free(ptr noundef nonnull %1) #21
-  store ptr null, ptr %field_value_.i, align 8
-  %field_value_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 0, ptr %field_value_length_.i, align 8
+8:                                                ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
+  tail call void @free(ptr noundef nonnull %7) #23
+  store ptr null, ptr %6, align 8, !tbaa !30
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %9, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %if.then.i4
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %entry2 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %2 = load ptr, ptr %entry2, align 8
-  %3 = load i32, ptr %entry_, align 8
-  %conv = zext i32 %3 to i64
-  %call = tail call noundef ptr @memchr(ptr noundef %2, i32 noundef 61, i64 noundef %conv) #25
-  %cmp = icmp eq ptr %call, null
-  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %conv
-  %spec.select = select i1 %cmp, ptr %add.ptr, ptr %call
-  %sub.ptr.lhs.cast = ptrtoint ptr %spec.select to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv10 = trunc i64 %sub.ptr.sub to i32
-  %field_name_length_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 %conv10, ptr %field_name_length_, align 8
-  %conv12 = and i64 %sub.ptr.sub, 4294967295
-  %add.i = add nuw nsw i64 %conv12, 1
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #24
-  store ptr %call.i.i, ptr %field_name_.i, align 8
-  %cmp14 = icmp eq ptr %call.i.i, null
-  br i1 %cmp14, label %return, label %if.end16
+_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %13 = load i32, ptr %10, align 8, !tbaa !32
+  %14 = zext i32 %13 to i64
+  %15 = tail call noundef ptr @memchr(ptr noundef %12, i32 noundef 61, i64 noundef %14) #27
+  %16 = icmp eq ptr %15, null
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 %14
+  %spec.select = select i1 %16, ptr %17, ptr %15
+  %18 = ptrtoint ptr %spec.select to i64
+  %19 = ptrtoint ptr %12 to i64
+  %20 = sub i64 %18, %19
+  %21 = trunc i64 %20 to i32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %21, ptr %22, align 8, !tbaa !35
+  %23 = and i64 %20, 4294967295
+  %24 = add nuw nsw i64 %23, 1
+  %25 = tail call noalias noundef ptr @malloc(i64 noundef %24) #26
+  store ptr %25, ptr %2, align 8, !tbaa !34
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %46, label %27
 
-if.end16:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %2, i64 %conv12, i1 false)
-  %arrayidx = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %conv12
-  store i8 0, ptr %arrayidx, align 1
-  %cmp27 = icmp eq i32 %3, %conv10
-  br i1 %cmp27, label %if.then28, label %if.else
+27:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %25, ptr noundef nonnull align 1 %12, i64 noundef range(i64 0, 4294967296) %23, i1 noundef false) #23
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %23
+  store i8 0, ptr %28, align 1, !tbaa !21
+  %29 = icmp eq i32 %13, %21
+  br i1 %29, label %30, label %34
 
-if.then28:                                        ; preds = %if.end16
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 0, ptr %field_value_length_, align 8
-  %call.i = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #24
-  store ptr %call.i, ptr %field_value_.i, align 8
-  %cmp30 = icmp eq ptr %call.i, null
-  br i1 %cmp30, label %return, label %if.end55
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %31, align 8, !tbaa !31
+  %32 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
+  store ptr %32, ptr %6, align 8, !tbaa !30
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %46, label %45
 
-if.else:                                          ; preds = %if.end16
-  %4 = xor i32 %conv10, -1
-  %sub38 = add i32 %3, %4
-  %field_value_length_39 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 %sub38, ptr %field_value_length_39, align 8
-  %conv41 = zext i32 %sub38 to i64
-  %add.i5 = add nuw nsw i64 %conv41, 1
-  %call.i.i6 = tail call noalias noundef ptr @malloc(i64 noundef %add.i5) #24
-  store ptr %call.i.i6, ptr %field_value_.i, align 8
-  %cmp44 = icmp eq ptr %call.i.i6, null
-  br i1 %cmp44, label %return, label %if.end47
+34:                                               ; preds = %27
+  %35 = xor i32 %21, -1
+  %36 = add i32 %13, %35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %36, ptr %37, align 8, !tbaa !31
+  %38 = zext i32 %36 to i64
+  %39 = add nuw nsw i64 %38, 1
+  %40 = tail call noalias noundef ptr @malloc(i64 noundef %39) #26
+  store ptr %40, ptr %6, align 8, !tbaa !30
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %46, label %42
 
-if.end47:                                         ; preds = %if.else
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i6, ptr nonnull align 1 %incdec.ptr, i64 %conv41, i1 false)
-  %arrayidx54 = getelementptr inbounds nuw i8, ptr %call.i.i6, i64 %conv41
-  store i8 0, ptr %arrayidx54, align 1
-  br label %if.end55
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %40, ptr noundef nonnull align 1 %43, i64 noundef range(i64 0, 4294967296) %38, i1 noundef false) #23
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %38
+  store i8 0, ptr %44, align 1, !tbaa !21
+  br label %45
 
-if.end55:                                         ; preds = %if.then28, %if.end47
-  br label %return
+45:                                               ; preds = %30, %42
+  br label %46
 
-return:                                           ; preds = %if.else, %if.then28, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, %if.end55
-  %.sink = phi i8 [ 1, %if.end55 ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 0, %if.then28 ], [ 0, %if.else ]
-  %is_valid_56 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 %.sink, ptr %is_valid_56, align 8
+46:                                               ; preds = %34, %30, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, %45
+  %.sink = phi i8 [ 1, %45 ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 0, %30 ], [ 0, %34 ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %47, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field) local_unnamed_addr #0 align 2 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %field) #25
-  %conv = trunc i64 %call to i32
-  %call.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef nonnull %field, i32 noundef %conv)
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %4 = trunc i64 %3 to i32
+  %5 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef nonnull %1, i32 noundef %4)
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %6, label %8
 
-if.then.i:                                        ; preds = %entry
-  %is_valid_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_.i, align 8
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %7, align 8, !tbaa !26
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
-if.end.i:                                         ; preds = %entry
-  %entry2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %.not.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %11
 
-if.then.i.i:                                      ; preds = %if.end.i
-  %entry_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store i32 0, ptr %entry_.i.i, align 8
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @free(ptr noundef nonnull %10) #23
+  store i32 0, ptr %12, align 8, !tbaa !32
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %if.end.i
-  %conv.i = and i64 %call, 4294967295
-  %add.i.i = add nuw nsw i64 %conv.i, 1
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #24
-  store ptr %call.i.i.i, ptr %entry2.i.i, align 8
-  %cmp.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i, label %if.then4.i, label %if.else.i
+_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %11, %8
+  %13 = and i64 %3, 4294967295
+  %14 = add nuw nsw i64 %13, 1
+  %15 = tail call noalias noundef ptr @malloc(i64 noundef %14) #26
+  store ptr %15, ptr %9, align 8, !tbaa !33
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %19
 
-if.then4.i:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %is_valid_5.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_5.i, align 8
+17:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %18, align 8, !tbaa !26
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
-if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %entry_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %conv, ptr %entry_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr nonnull align 1 %field, i64 %conv.i, i1 false)
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %conv.i
-  store i8 0, ptr %arrayidx.i, align 1
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %is_valid_13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %.pre.i = load i8, ptr %is_valid_13.phi.trans.insert.i, align 8
-  %1 = trunc i8 %.pre.i to i1
+19:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %4, ptr %20, align 8, !tbaa !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %15, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %13, i1 noundef false) #23
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 %13
+  store i8 0, ptr %21, align 1, !tbaa !21
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %22 = trunc nuw i8 %.pre.i to i1
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit: ; preds = %if.then.i, %if.then4.i, %if.else.i
-  %retval.0.i = phi i1 [ false, %if.then.i ], [ %1, %if.else.i ], [ false, %if.then4.i ]
-  ret i1 %retval.0.i
+_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit: ; preds = %6, %17, %19
+  %.0.i = phi i1 [ false, %6 ], [ %22, %19 ], [ false, %17 ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_name) local_unnamed_addr #0 align 2 {
-entry:
-  %call = tail call i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef %field_name)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = tail call i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef %1)
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %6
 
-if.then:                                          ; preds = %entry
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_, align 8
-  br label %return
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %5, align 8, !tbaa !26
+  br label %20
 
-if.end:                                           ; preds = %entry
-  %field_name_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %field_name_.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %if.then.i
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %.not.i = icmp eq ptr %8, null
+  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %9
 
-if.then.i:                                        ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %0) #21
-  store ptr null, ptr %field_name_.i, align 8
-  %field_name_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 0, ptr %field_name_length_.i, align 8
+9:                                                ; preds = %6
+  tail call void @free(ptr noundef nonnull %8) #23
+  store ptr null, ptr %7, align 8, !tbaa !34
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %10, align 8, !tbaa !35
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %if.end, %if.then.i
-  %call2 = tail call noalias ptr @strdup(ptr noundef %field_name) #21
-  store ptr %call2, ptr %field_name_.i, align 8
-  %cmp = icmp eq ptr %call2, null
-  br i1 %cmp, label %if.then3, label %if.else
+_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %6, %9
+  %11 = tail call noalias ptr @strdup(ptr noundef %1) #23
+  store ptr %11, ptr %7, align 8, !tbaa !34
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %15
 
-if.then3:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
-  %is_valid_4 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_4, align 8
-  br label %return
+13:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %14, align 8, !tbaa !26
+  br label %20
 
-if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
-  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call2) #25
-  %conv = trunc i64 %call6 to i32
-  %field_name_length_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 %conv, ptr %field_name_length_, align 8
-  %entry2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %entry2.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
+15:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #27
+  %17 = trunc i64 %16 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %17, ptr %18, align 8, !tbaa !35
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !26, !range !17
+  %19 = trunc nuw i8 %.pre to i1
+  br label %20
 
-if.then.i.i:                                      ; preds = %if.else
-  %entry_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %1) #21
-  store i32 0, ptr %entry_.i.i, align 8
-  %.pre = load i32, ptr %field_name_length_, align 8
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %if.else
-  %2 = phi i32 [ %.pre, %if.then.i.i ], [ %conv, %if.else ]
-  %conv.i = zext i32 %2 to i64
-  %field_value_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %3 = load i32, ptr %field_value_length_.i, align 8
-  %conv2.i = zext i32 %3 to i64
-  %add1.i.i = add nuw nsw i64 %conv.i, 2
-  %add5.i.i = add nuw nsw i64 %add1.i.i, %conv2.i
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i) #24
-  %entry_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %call.i.i.i, ptr %entry2.i.i, align 8
-  %cmp.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %4 = load ptr, ptr %field_name_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %4, i64 %conv.i, i1 false)
-  %5 = load i32, ptr %entry_.i, align 8
-  %add.i = add i32 %5, %2
-  %idx.ext.i = zext i32 %add.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %idx.ext.i
-  store i8 61, ptr %add.ptr.i, align 1
-  %add16.i = add i32 %add.i, 1
-  store i32 %add16.i, ptr %entry_.i, align 8
-  %cmp18.not.i = icmp eq i32 %3, 0
-  br i1 %cmp18.not.i, label %if.end.i, label %if.then19.i
-
-if.then19.i:                                      ; preds = %if.else.i
-  %idx.ext24.i = zext i32 %add16.i to i64
-  %add.ptr25.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %idx.ext24.i
-  %field_value_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %6 = load ptr, ptr %field_value_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25.i, ptr align 1 %6, i64 %conv2.i, i1 false)
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.then19.i, %if.else.i
-  %add31.i = add i32 %add16.i, %3
-  store i32 %add31.i, ptr %entry_.i, align 8
-  %idxprom.i = zext i32 %add31.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %idxprom.i
-  store i8 0, ptr %arrayidx.i, align 1
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %if.end.i
-  %.sink.i = phi i8 [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %is_valid_36.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 %.sink.i, ptr %is_valid_36.i, align 8
-  %7 = trunc nuw i8 %.sink.i to i1
-  br label %return
-
-return:                                           ; preds = %if.then3, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %7, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit ], [ false, %if.then3 ]
-  ret i1 %retval.0
+20:                                               ; preds = %13, %15, %4
+  %.0 = phi i1 [ false, %4 ], [ %19, %15 ], [ false, %13 ]
+  ret i1 %.0
 }
 
-declare i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #15 align 2 {
-entry:
-  %field_name_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %field_name_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #17 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %6, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #21
-  store ptr null, ptr %field_name_, align 8
-  %field_name_length_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 0, ptr %field_name_length_, align 8
-  br label %if.end
+4:                                                ; preds = %1
+  tail call void @free(ptr noundef nonnull %3) #23
+  store ptr null, ptr %2, align 8, !tbaa !34
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %5, align 8, !tbaa !35
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
+6:                                                ; preds = %4, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #17
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this) local_unnamed_addr #15 align 2 {
-entry:
-  %entry2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %entry2.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %if.then.i
+; Function Attrs: mustprogress nounwind sspstrong uwtable
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0) local_unnamed_addr #6 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %4
 
-if.then.i:                                        ; preds = %entry
-  %entry_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %0) #21
-  store i32 0, ptr %entry_.i, align 8
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @free(ptr noundef nonnull %3) #23
+  store i32 0, ptr %5, align 8, !tbaa !32
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %entry, %if.then.i
-  %field_name_length_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i32, ptr %field_name_length_, align 8
-  %conv = zext i32 %1 to i64
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %2 = load i32, ptr %field_value_length_, align 8
-  %conv2 = zext i32 %2 to i64
-  %add1.i = add nuw nsw i64 %conv, 2
-  %add5.i = add nuw nsw i64 %add1.i, %conv2
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i) #24
-  %entry_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %call.i.i, ptr %entry2.i, align 8
-  %cmp = icmp eq ptr %call.i.i, null
-  br i1 %cmp, label %if.end37, label %if.else
+_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load i32, ptr %6, align 8, !tbaa !35
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = load i32, ptr %9, align 8, !tbaa !31
+  %11 = zext i32 %10 to i64
+  %12 = add nuw nsw i64 %8, 2
+  %13 = add nuw nsw i64 %12, %11
+  %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #26
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %14, ptr %2, align 8, !tbaa !33
+  %16 = icmp eq ptr %14, null
+  br i1 %16, label %34, label %17
 
-if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
-  %field_name_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %3 = load ptr, ptr %field_name_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %3, i64 %conv, i1 false)
-  %4 = load i32, ptr %entry_, align 8
-  %add = add i32 %4, %1
-  %idx.ext = zext i32 %add to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %idx.ext
-  store i8 61, ptr %add.ptr, align 1
-  %add16 = add i32 %add, 1
-  store i32 %add16, ptr %entry_, align 8
-  %cmp18.not = icmp eq i32 %2, 0
-  br i1 %cmp18.not, label %if.end, label %if.then19
+17:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %19, i64 noundef range(i64 0, 4294967296) %8, i1 noundef false) #23
+  %20 = load i32, ptr %15, align 8, !tbaa !32
+  %21 = add i32 %20, %7
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 %22
+  store i8 61, ptr %23, align 1
+  %24 = add i32 %21, 1
+  store i32 %24, ptr %15, align 8, !tbaa !32
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %30, label %25
 
-if.then19:                                        ; preds = %if.else
-  %idx.ext24 = zext i32 %add16 to i64
-  %add.ptr25 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %idx.ext24
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %5 = load ptr, ptr %field_value_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr align 1 %5, i64 %conv2, i1 false)
-  br label %if.end
+25:                                               ; preds = %17
+  %26 = zext i32 %24 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = load ptr, ptr %28, align 8, !tbaa !30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %27, ptr noundef nonnull align 1 %29, i64 noundef range(i64 0, 4294967296) %11, i1 noundef false) #23
+  br label %30
 
-if.end:                                           ; preds = %if.then19, %if.else
-  %add31 = add i32 %add16, %2
-  store i32 %add31, ptr %entry_, align 8
-  %idxprom = zext i32 %add31 to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %idxprom
-  store i8 0, ptr %arrayidx, align 1
-  br label %if.end37
+30:                                               ; preds = %25, %17
+  %31 = add i32 %24, %10
+  store i32 %31, ptr %15, align 8, !tbaa !32
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 %32
+  store i8 0, ptr %33, align 1, !tbaa !21
+  br label %34
 
-if.end37:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, %if.end
-  %.sink = phi i8 [ 1, %if.end ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit ]
-  %is_valid_36 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 %.sink, ptr %is_valid_36, align 8
+34:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, %30
+  %.sink = phi i8 [ 1, %30 ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %35, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_value, i32 noundef %field_value_length) local_unnamed_addr #0 align 2 {
-entry:
-  %call = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef %field_value, i32 noundef %field_value_length)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef %1, i32 noundef %2)
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %5, label %7
 
-if.then:                                          ; preds = %entry
-  %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_, align 8
-  br label %return
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %6, align 8, !tbaa !26
+  br label %22
 
-if.end:                                           ; preds = %entry
-  %field_value_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %field_value_.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %if.then.i
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %10
 
-if.then.i:                                        ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %0) #21
-  %field_value_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 0, ptr %field_value_length_.i, align 8
+10:                                               ; preds = %7
+  tail call void @free(ptr noundef nonnull %9) #23
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %11, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
 
-_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %if.end, %if.then.i
-  %conv = zext i32 %field_value_length to i64
-  %add.i = add nuw nsw i64 %conv, 1
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #24
-  store ptr %call.i.i, ptr %field_value_.i, align 8
-  %cmp = icmp eq ptr %call.i.i, null
-  br i1 %cmp, label %if.then3, label %if.else
+_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %7, %10
+  %12 = zext i32 %2 to i64
+  %13 = add nuw nsw i64 %12, 1
+  %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #26
+  store ptr %14, ptr %8, align 8, !tbaa !30
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %18
 
-if.then3:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
-  %is_valid_4 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %is_valid_4, align 8
-  br label %return
+16:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %17, align 8, !tbaa !26
+  br label %22
 
-if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 %field_value_length, ptr %field_value_length_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %field_value, i64 %conv, i1 false)
-  %arrayidx = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %conv
-  store i8 0, ptr %arrayidx, align 1
-  %entry2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %entry2.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
+18:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %2, ptr %19, align 8, !tbaa !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %12, i1 noundef false) #23
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %12
+  store i8 0, ptr %20, align 1, !tbaa !21
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !26, !range !17
+  %21 = trunc nuw i8 %.pre to i1
+  br label %22
 
-if.then.i.i:                                      ; preds = %if.else
-  %entry_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @free(ptr noundef nonnull %1) #21
-  store i32 0, ptr %entry_.i.i, align 8
-  %.pre = load i32, ptr %field_value_length_, align 8
-  %.pre9 = zext i32 %.pre to i64
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-
-_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %if.else
-  %conv2.i.pre-phi = phi i64 [ %.pre9, %if.then.i.i ], [ %conv, %if.else ]
-  %2 = phi i32 [ %.pre, %if.then.i.i ], [ %field_value_length, %if.else ]
-  %field_name_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %3 = load i32, ptr %field_name_length_.i, align 8
-  %conv.i = zext i32 %3 to i64
-  %add1.i.i = add nuw nsw i64 %conv.i, 2
-  %add5.i.i = add nuw nsw i64 %add1.i.i, %conv2.i.pre-phi
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i) #24
-  %entry_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %call.i.i.i, ptr %entry2.i.i, align 8
-  %cmp.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %field_name_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %4 = load ptr, ptr %field_name_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %4, i64 %conv.i, i1 false)
-  %5 = load i32, ptr %entry_.i, align 8
-  %add.i7 = add i32 %5, %3
-  %idx.ext.i = zext i32 %add.i7 to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %idx.ext.i
-  store i8 61, ptr %add.ptr.i, align 1
-  %add16.i = add i32 %add.i7, 1
-  store i32 %add16.i, ptr %entry_.i, align 8
-  %cmp18.not.i = icmp eq i32 %2, 0
-  br i1 %cmp18.not.i, label %if.end.i, label %if.then19.i
-
-if.then19.i:                                      ; preds = %if.else.i
-  %idx.ext24.i = zext i32 %add16.i to i64
-  %add.ptr25.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %idx.ext24.i
-  %6 = load ptr, ptr %field_value_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25.i, ptr align 1 %6, i64 %conv2.i.pre-phi, i1 false)
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.then19.i, %if.else.i
-  %add31.i = add i32 %add16.i, %2
-  store i32 %add31.i, ptr %entry_.i, align 8
-  %idxprom.i = zext i32 %add31.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %idxprom.i
-  store i8 0, ptr %arrayidx.i, align 1
-  br label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit
-
-_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %if.end.i
-  %.sink.i = phi i8 [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %is_valid_36.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 %.sink.i, ptr %is_valid_36.i, align 8
-  %7 = trunc nuw i8 %.sink.i to i1
-  br label %return
-
-return:                                           ; preds = %if.then3, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %7, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit ], [ false, %if.then3 ]
-  ret i1 %retval.0
+22:                                               ; preds = %16, %18, %5
+  %.0 = phi i1 [ false, %5 ], [ %21, %18 ], [ false, %16 ]
+  ret i1 %.0
 }
 
-declare i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #15 align 2 {
-entry:
-  %field_value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %field_value_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #17 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %6, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #21
-  store ptr null, ptr %field_value_, align 8
-  %field_value_length_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 0, ptr %field_value_length_, align 8
-  br label %if.end
+4:                                                ; preds = %1
+  tail call void @free(ptr noundef nonnull %3) #23
+  store ptr null, ptr %2, align 8, !tbaa !30
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %5, align 8, !tbaa !31
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
+6:                                                ; preds = %4, %1
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_value) local_unnamed_addr #0 align 2 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %field_value) #25
-  %conv = trunc i64 %call to i32
-  %call2 = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull %field_value, i32 noundef %conv)
-  ret i1 %call2
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %4 = trunc i64 %3 to i32
+  %5 = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef nonnull %1, i32 noundef %4)
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %6, label %8
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %7, align 8, !tbaa !26
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %.not.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i, label %11
+
+11:                                               ; preds = %8
+  tail call void @free(ptr noundef nonnull %10) #23
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %12, align 8, !tbaa !31
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
+
+_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i: ; preds = %11, %8
+  %13 = and i64 %3, 4294967295
+  %14 = add nuw nsw i64 %13, 1
+  %15 = tail call noalias noundef ptr @malloc(i64 noundef %14) #26
+  store ptr %15, ptr %9, align 8, !tbaa !30
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %18, align 8, !tbaa !26
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit
+
+19:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %4, ptr %20, align 8, !tbaa !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %15, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %13, i1 noundef false) #23
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 %13
+  store i8 0, ptr %21, align 1, !tbaa !21
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %22 = trunc nuw i8 %.pre.i to i1
+  br label %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit
+
+_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit: ; preds = %6, %17, %19
+  %.0.i = phi i1 [ false, %6 ], [ %22, %19 ], [ false, %17 ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisCommentC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
-entry:
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 4)
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr %this, align 8
+define void @_ZN4FLAC8Metadata13VorbisCommentC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+  %2 = tail call ptr @FLAC__metadata_object_new(i32 noundef 4)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %4, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisCommentD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_.i.i, align 8
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-          to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
-  unreachable
-
-_ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  store ptr null, ptr %object_.i.i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisCommentD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata13VorbisCommentD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+define void @_ZN4FLAC8Metadata13VorbisCommentD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata13VorbisCommentD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment16get_num_commentsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %num_comments = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1 = load i32, ptr %num_comments, align 8
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment16get_num_commentsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment17get_vendor_stringEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %entry2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %entry2, align 8
-  ret ptr %1
+define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment17get_vendor_stringEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZNK4FLAC8Metadata13VorbisComment11get_commentEj(ptr noalias sret(%"class.FLAC::Metadata::VorbisComment::Entry") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %comments = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1 = load ptr, ptr %comments, align 8
-  %idxprom = zext i32 %indx to i64
-  %arrayidx = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idxprom
-  %entry2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %2 = load ptr, ptr %entry2, align 8
-  %3 = load i32, ptr %arrayidx, align 8
-  tail call void @_ZN4FLAC8Metadata13VorbisComment5EntryC1EPKcj(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, ptr noundef %2, i32 noundef %3)
+define void @_ZNK4FLAC8Metadata13VorbisComment11get_commentEj(ptr dead_on_unwind noalias writable sret(%"class.FLAC::Metadata::VorbisComment::Entry") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %8 = zext i32 %2 to i64
+  %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %12 = load i32, ptr %9, align 8, !tbaa !38
+  tail call void @_ZN4FLAC8Metadata13VorbisComment5EntryC1EPKcj(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %11, i32 noundef %12)
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment17set_vendor_stringEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %string) local_unnamed_addr #0 align 2 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #25
-  %conv = trunc i64 %call to i32
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_set_vendor_string(ptr noundef %0, i32 %conv, ptr nonnull %string, i32 noundef 1)
-  %tobool = icmp ne i32 %call3, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment17set_vendor_stringEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %4 = trunc i64 %3 to i32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  %7 = tail call i32 @FLAC__metadata_object_vorbiscomment_set_vendor_string(ptr noundef %6, i32 %4, ptr nonnull %1, i32 noundef 1)
+  %8 = icmp ne i32 %7, 0
+  ret i1 %8
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_set_vendor_string(ptr noundef, i32, ptr, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_set_vendor_string(ptr noundef, i32, ptr, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment15resize_commentsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %new_num_comments) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef %0, i32 noundef %new_num_comments)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment15resize_commentsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef %4, i32 noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment11set_commentEjRKNS1_5EntryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %indx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %entry_.i = getelementptr inbounds nuw i8, ptr %entry1, i64 16
-  %retval.sroa.0.0.copyload.i = load i32, ptr %entry_.i, align 8
-  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %entry1, i64 24
-  %retval.sroa.21.0.copyload.i = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx.i, align 8
-  %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr noundef %0, i32 noundef %indx, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.21.0.copyload.i, i32 noundef 1)
-  %tobool = icmp ne i32 %call3, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment11set_commentEjRKNS1_5EntryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8, !tbaa !25
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !36
+  %7 = tail call i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr noundef %5, i32 noundef %1, i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i, i32 noundef 1)
+  %8 = icmp ne i32 %7, 0
+  ret i1 %8
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr noundef, i32 noundef, i32, ptr, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr noundef, i32 noundef, i32, ptr, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14insert_commentEjRKNS1_5EntryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %indx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %entry_.i = getelementptr inbounds nuw i8, ptr %entry1, i64 16
-  %retval.sroa.0.0.copyload.i = load i32, ptr %entry_.i, align 8
-  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %entry1, i64 24
-  %retval.sroa.21.0.copyload.i = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx.i, align 8
-  %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef %0, i32 noundef %indx, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.21.0.copyload.i, i32 noundef 1)
-  %tobool = icmp ne i32 %call3, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14insert_commentEjRKNS1_5EntryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8, !tbaa !25
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !36
+  %7 = tail call i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef %5, i32 noundef %1, i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i, i32 noundef 1)
+  %8 = icmp ne i32 %7, 0
+  ret i1 %8
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef, i32 noundef, i32, ptr, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef, i32 noundef, i32, ptr, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14append_commentERKNS1_5EntryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %entry_.i = getelementptr inbounds nuw i8, ptr %entry1, i64 16
-  %retval.sroa.0.0.copyload.i = load i32, ptr %entry_.i, align 8
-  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %entry1, i64 24
-  %retval.sroa.21.0.copyload.i = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx.i, align 8
-  %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %0, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.21.0.copyload.i, i32 noundef 1)
-  %tobool = icmp ne i32 %call3, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14append_commentERKNS1_5EntryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0.0.copyload.i = load i32, ptr %5, align 8, !tbaa !25
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !36
+  %6 = tail call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %4, i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i, i32 noundef 1)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef, i32, ptr, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef, i32, ptr, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment15replace_commentERKNS1_5EntryEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %entry1, i1 noundef zeroext %all) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %entry_.i = getelementptr inbounds nuw i8, ptr %entry1, i64 16
-  %retval.sroa.0.0.copyload.i = load i32, ptr %entry_.i, align 8
-  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %entry1, i64 24
-  %retval.sroa.21.0.copyload.i = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx.i, align 8
-  %conv = zext i1 %all to i32
-  %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef %0, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.21.0.copyload.i, i32 noundef %conv, i32 noundef 1)
-  %tobool4 = icmp ne i32 %call3, 0
-  ret i1 %tobool4
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment15replace_commentERKNS1_5EntryEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8, !tbaa !25
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !36
+  %7 = zext i1 %2 to i32
+  %8 = tail call i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef %5, i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i, i32 noundef %7, i32 noundef 1)
+  %9 = icmp ne i32 %8, 0
+  ret i1 %9
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef, i32, ptr, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef, i32, ptr, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14delete_commentEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef %0, i32 noundef %indx)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14delete_commentEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef %4, i32 noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN4FLAC8Metadata13VorbisComment15find_entry_fromEjPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %offset, ptr noundef %field_name) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %0, i32 noundef %offset, ptr noundef %field_name)
-  ret i32 %call
+define noundef i32 @_ZN4FLAC8Metadata13VorbisComment15find_entry_fromEjPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %5, i32 noundef %1, ptr noundef %2)
+  ret i32 %6
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN4FLAC8Metadata13VorbisComment21remove_entry_matchingEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %field_name) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef %0, ptr noundef %field_name)
-  ret i32 %call
+define noundef i32 @_ZN4FLAC8Metadata13VorbisComment21remove_entry_matchingEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef %4, ptr noundef %1)
+  ret i32 %5
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN4FLAC8Metadata13VorbisComment23remove_entries_matchingEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %field_name) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef %field_name)
-  ret i32 %call
+define noundef i32 @_ZN4FLAC8Metadata13VorbisComment23remove_entries_matchingEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %4, ptr noundef %1)
+  ret i32 %5
 }
 
-declare i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5TrackC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call = tail call ptr @FLAC__metadata_object_cuesheet_track_new()
-  store ptr %call, ptr %object_, align 8
+define void @_ZN4FLAC8Metadata8CueSheet5TrackC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = tail call ptr @FLAC__metadata_object_cuesheet_track_new()
+  store ptr %3, ptr %2, align 8, !tbaa !39
   ret void
 }
 
-declare ptr @FLAC__metadata_object_cuesheet_track_new() local_unnamed_addr #4
+declare ptr @FLAC__metadata_object_cuesheet_track_new() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5TrackC2EPK35FLAC__StreamMetadata_CueSheet_Track(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %track) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %track)
-  store ptr %call, ptr %object_, align 8
+define void @_ZN4FLAC8Metadata8CueSheet5TrackC2EPK35FLAC__StreamMetadata_CueSheet_Track(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %1)
+  store ptr %4, ptr %3, align 8, !tbaa !39
   ret void
 }
 
-declare ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef) local_unnamed_addr #4
+declare ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5TrackC2ERKS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %track) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %object_2 = getelementptr inbounds nuw i8, ptr %track, i64 8
-  %0 = load ptr, ptr %object_2, align 8
-  %call = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %0)
-  store ptr %call, ptr %object_, align 8
+define void @_ZN4FLAC8Metadata8CueSheet5TrackC2ERKS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %5)
+  store ptr %6, ptr %3, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN4FLAC8Metadata8CueSheet5TrackaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %track) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN4FLAC8Metadata8CueSheet5TrackaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  tail call void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef nonnull %0)
-  br label %if.end
+5:                                                ; preds = %2
+  tail call void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef nonnull %4)
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
-  %object_3 = getelementptr inbounds nuw i8, ptr %track, i64 8
-  %1 = load ptr, ptr %object_3, align 8
-  %call = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %1)
-  store ptr %call, ptr %object_, align 8
-  ret ptr %this
+6:                                                ; preds = %5, %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %9 = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !39
+  ret ptr %0
 }
 
-declare void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef) local_unnamed_addr #4
+declare void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5TrackD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_ZN4FLAC8Metadata8CueSheet5TrackD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  invoke void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef nonnull %0)
-          to label %if.end unwind label %terminate.lpad
+4:                                                ; preds = %1
+  invoke void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef nonnull %3)
+          to label %5 unwind label %6
 
-if.end:                                           ; preds = %if.then, %entry
+5:                                                ; preds = %4, %1
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #23
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #25
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5TrackD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata8CueSheet5TrackD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+define void @_ZN4FLAC8Metadata8CueSheet5TrackD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata8CueSheet5TrackD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet5Track8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #10 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %cmp = icmp ne ptr %0, null
-  ret i1 %cmp
+define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet5Track8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %4 = icmp ne ptr %3, null
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define { i64, i8 } @_ZNK4FLAC8Metadata8CueSheet5Track9get_indexEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %i) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %indices = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %indices, align 8
-  %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %1, i64 %idxprom
-  %retval.sroa.0.0.copyload = load i64, ptr %arrayidx, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %retval.sroa.2.0.copyload = load i8, ptr %retval.sroa.2.0.arrayidx.sroa_idx, align 8
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0.copyload, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0.copyload, 1
+define { i64, i8 } @_ZNK4FLAC8Metadata8CueSheet5Track9get_indexEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %7 = zext i32 %1 to i64
+  %8 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %6, i64 %7
+  %.sroa.0.0.copyload = load i64, ptr %8, align 8, !tbaa !23
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !21
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0.copyload, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5Track8set_isrcEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %value) local_unnamed_addr #11 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %isrc = getelementptr inbounds nuw i8, ptr %0, i64 9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %isrc, ptr noundef nonnull align 1 dereferenceable(12) %value, i64 12, i1 false)
-  %1 = load ptr, ptr %object_, align 8
-  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 21
-  store i8 0, ptr %arrayidx, align 1
+; Function Attrs: mustprogress nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4FLAC8Metadata8CueSheet5Track8set_isrcEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 noundef 12, i1 noundef false) #23
+  %6 = load ptr, ptr %3, align 8, !tbaa !39
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 21
+  store i8 0, ptr %7, align 1, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5Track8set_typeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) local_unnamed_addr #11 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %type = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %1 = trunc i32 %value to i8
-  %bf.load = load i8, ptr %type, align 2
-  %bf.value = and i8 %1, 1
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or disjoint i8 %bf.clear, %bf.value
-  store i8 %bf.set, ptr %type, align 2
+define void @_ZN4FLAC8Metadata8CueSheet5Track8set_typeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 22
+  %6 = trunc i32 %1 to i8
+  %7 = load i8, ptr %5, align 2
+  %8 = and i8 %6, 1
+  %9 = and i8 %7, -2
+  %10 = or disjoint i8 %9, %8
+  store i8 %10, ptr %5, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5Track9set_indexEjRK35FLAC__StreamMetadata_CueSheet_Index(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %i, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %indx) local_unnamed_addr #11 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %indices = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %indices, align 8
-  %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %1, i64 %idxprom
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef nonnull align 8 dereferenceable(16) %indx, i64 16, i1 false)
+define void @_ZN4FLAC8Metadata8CueSheet5Track9set_indexEjRK35FLAC__StreamMetadata_CueSheet_Index(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #13 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !41
+  %8 = zext i32 %1 to i64
+  %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %7, i64 %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !43
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheetC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
-entry:
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 5)
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr %this, align 8
+define void @_ZN4FLAC8Metadata8CueSheetC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+  %2 = tail call ptr @FLAC__metadata_object_new(i32 noundef 5)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %4, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheetD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_.i.i, align 8
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-          to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
-  unreachable
-
-_ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  store ptr null, ptr %object_.i.i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheetD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata8CueSheetD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+define void @_ZN4FLAC8Metadata8CueSheetD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata8CueSheetD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK4FLAC8Metadata8CueSheet24get_media_catalog_numberEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 16
-  ret ptr %data
+define noundef nonnull ptr @_ZNK4FLAC8Metadata8CueSheet24get_media_catalog_numberEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4FLAC8Metadata8CueSheet11get_lead_inEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %lead_in = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %1 = load i64, ptr %lead_in, align 8
-  ret i64 %1
+define noundef i64 @_ZNK4FLAC8Metadata8CueSheet11get_lead_inEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %5 = load i64, ptr %4, align 8, !tbaa !21
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet9get_is_cdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %is_cd = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %1 = load i32, ptr %is_cd, align 8
-  %tobool = icmp ne i32 %1, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet9get_is_cdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata8CueSheet14get_num_tracksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %num_tracks = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %1 = load i32, ptr %num_tracks, align 4
-  ret i32 %1
+define noundef i32 @_ZNK4FLAC8Metadata8CueSheet14get_num_tracksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 164
+  %5 = load i32, ptr %4, align 4, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZNK4FLAC8Metadata8CueSheet9get_trackEj(ptr noalias sret(%"class.FLAC::Metadata::CueSheet::Track") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %i) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %tracks = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %1 = load ptr, ptr %tracks, align 8
-  %idx.ext = zext i32 %i to i64
-  %add.ptr = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %1, i64 %idx.ext
-  tail call void @_ZN4FLAC8Metadata8CueSheet5TrackC1EPK35FLAC__StreamMetadata_CueSheet_Track(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %add.ptr)
+define void @_ZNK4FLAC8Metadata8CueSheet9get_trackEj(ptr dead_on_unwind noalias writable sret(%"class.FLAC::Metadata::CueSheet::Track") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %8 = zext i32 %2 to i64
+  %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %7, i64 %8
+  tail call void @_ZN4FLAC8Metadata8CueSheet5TrackC1EPK35FLAC__StreamMetadata_CueSheet_Track(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4FLAC8Metadata8CueSheet24set_media_catalog_numberEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %5, ptr noundef nonnull align 1 dereferenceable(128) %1, i64 noundef 128, i1 noundef false) #23
+  %6 = load ptr, ptr %3, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  store i8 0, ptr %7, align 8, !tbaa !21
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4FLAC8Metadata8CueSheet11set_lead_inEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  store i64 %1, ptr %5, align 8, !tbaa !21
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4FLAC8Metadata8CueSheet9set_is_cdEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+  %3 = zext i1 %1 to i32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  store i32 %3, ptr %6, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata8CueSheet24set_media_catalog_numberEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef readonly captures(none) %value) local_unnamed_addr #11 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %data, ptr noundef nonnull align 1 dereferenceable(128) %value, i64 128, i1 false)
-  %1 = load ptr, ptr %object_, align 8
-  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i8 0, ptr %arrayidx, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata8CueSheet11set_lead_inEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i64 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %lead_in = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %value, ptr %lead_in, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata8CueSheet9set_is_cdEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i1 noundef zeroext %value) local_unnamed_addr #9 align 2 {
-entry:
-  %conv = zext i1 %value to i32
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %is_cd = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %conv, ptr %is_cd, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata8CueSheet9set_indexEjjRK35FLAC__StreamMetadata_CueSheet_Index(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %index_num, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %indx) local_unnamed_addr #11 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %tracks = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %1 = load ptr, ptr %tracks, align 8
-  %idxprom = zext i32 %track_num to i64
-  %indices = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %1, i64 %idxprom, i32 5
-  %2 = load ptr, ptr %indices, align 8
-  %idxprom2 = zext i32 %index_num to i64
-  %arrayidx3 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %2, i64 %idxprom2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %indx, i64 16, i1 false)
+define void @_ZN4FLAC8Metadata8CueSheet9set_indexEjjRK35FLAC__StreamMetadata_CueSheet_Index(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #13 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %9 = zext i32 %1 to i64
+  %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %8, i64 %9, i32 5
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = zext i32 %2 to i64
+  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %11, i64 %12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !43
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet14resize_indicesEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %new_num_indices) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_cuesheet_track_resize_indices(ptr noundef %0, i32 noundef %track_num, i32 noundef %new_num_indices)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet14resize_indicesEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_cuesheet_track_resize_indices(ptr noundef %5, i32 noundef %1, i32 noundef %2)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_track_resize_indices(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_track_resize_indices(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12insert_indexEjjRK35FLAC__StreamMetadata_CueSheet_Index(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %index_num, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %indx) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %agg.tmp.sroa.0.0.copyload = load i64, ptr %indx, align 8
-  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %indx, i64 8
-  %agg.tmp.sroa.2.0.copyload = load i8, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
-  %call = tail call i32 @FLAC__metadata_object_cuesheet_track_insert_index(ptr noundef %0, i32 noundef %track_num, i32 noundef %index_num, i64 %agg.tmp.sroa.0.0.copyload, i8 %agg.tmp.sroa.2.0.copyload)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12insert_indexEjjRK35FLAC__StreamMetadata_CueSheet_Index(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  %.sroa.0.0.copyload = load i64, ptr %3, align 8, !tbaa !23
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !21
+  %7 = tail call i32 @FLAC__metadata_object_cuesheet_track_insert_index(ptr noundef %6, i32 noundef %1, i32 noundef %2, i64 %.sroa.0.0.copyload, i8 %.sroa.2.0.copyload)
+  %8 = icmp ne i32 %7, 0
+  ret i1 %8
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_track_insert_index(ptr noundef, i32 noundef, i32 noundef, i64, i8) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_track_insert_index(ptr noundef, i32 noundef, i32 noundef, i64, i8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet18insert_blank_indexEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %index_num) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_cuesheet_track_insert_blank_index(ptr noundef %0, i32 noundef %track_num, i32 noundef %index_num)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet18insert_blank_indexEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_cuesheet_track_insert_blank_index(ptr noundef %5, i32 noundef %1, i32 noundef %2)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_track_insert_blank_index(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_track_insert_blank_index(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12delete_indexEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %index_num) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr noundef %0, i32 noundef %track_num, i32 noundef %index_num)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12delete_indexEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr noundef %5, i32 noundef %1, i32 noundef %2)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet13resize_tracksEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %new_num_tracks) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr noundef %0, i32 noundef %new_num_tracks)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet13resize_tracksEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr noundef %4, i32 noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet9set_trackEjRKNS1_5TrackE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %i, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %track) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %object_.i = getelementptr inbounds nuw i8, ptr %track, i64 8
-  %1 = load ptr, ptr %object_.i, align 8
-  %call2 = tail call i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef %0, i32 noundef %i, ptr noundef %1, i32 noundef 1)
-  %tobool = icmp ne i32 %call2, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet9set_trackEjRKNS1_5TrackE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %8 = tail call i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef %5, i32 noundef %1, ptr noundef %7, i32 noundef 1)
+  %9 = icmp ne i32 %8, 0
+  ret i1 %9
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12insert_trackEjRKNS1_5TrackE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %i, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %track) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %object_.i = getelementptr inbounds nuw i8, ptr %track, i64 8
-  %1 = load ptr, ptr %object_.i, align 8
-  %call2 = tail call i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noundef %0, i32 noundef %i, ptr noundef %1, i32 noundef 1)
-  %tobool = icmp ne i32 %call2, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12insert_trackEjRKNS1_5TrackE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %8 = tail call i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noundef %5, i32 noundef %1, ptr noundef %7, i32 noundef 1)
+  %9 = icmp ne i32 %8, 0
+  ret i1 %9
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet18insert_blank_trackEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %i) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef %0, i32 noundef %i)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet18insert_blank_trackEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef %4, i32 noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12delete_trackEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %i) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noundef %0, i32 noundef %i)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12delete_trackEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noundef %4, i32 noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet8is_legalEbPPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i1 noundef zeroext %check_cd_da_subset, ptr noundef %violation) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %conv = zext i1 %check_cd_da_subset to i32
-  %call = tail call i32 @FLAC__metadata_object_cuesheet_is_legal(ptr noundef %0, i32 noundef %conv, ptr noundef %violation)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
+define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet8is_legalEbPPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = zext i1 %1 to i32
+  %7 = tail call i32 @FLAC__metadata_object_cuesheet_is_legal(ptr noundef %5, i32 noundef %6, ptr noundef %2)
+  %8 = icmp ne i32 %7, 0
+  ret i1 %8
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_is_legal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_is_legal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC8Metadata8CueSheet17calculate_cddb_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef %0)
-  ret i32 %call
+define noundef i32 @_ZNK4FLAC8Metadata8CueSheet17calculate_cddb_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = tail call i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef %3)
+  ret i32 %4
 }
 
-declare i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PictureC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
-entry:
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 6)
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16), ptr %this, align 8
+define void @_ZN4FLAC8Metadata7PictureC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+  %2 = tail call ptr @FLAC__metadata_object_new(i32 noundef 6)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %4, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16), ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PictureD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
+define void @_ZN4FLAC8Metadata7PictureD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata7PictureD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
+  ret void
+}
 
-land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_.i.i, align 8
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef i32 @_ZNK4FLAC8Metadata7Picture8get_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
+}
 
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-          to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef ptr @_ZNK4FLAC8Metadata7Picture13get_mime_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  ret ptr %5
+}
 
-terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef ptr @_ZNK4FLAC8Metadata7Picture15get_descriptionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef i32 @_ZNK4FLAC8Metadata7Picture9get_widthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef i32 @_ZNK4FLAC8Metadata7Picture10get_heightEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %5 = load i32, ptr %4, align 4, !tbaa !21
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef i32 @_ZNK4FLAC8Metadata7Picture9get_depthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef i32 @_ZNK4FLAC8Metadata7Picture10get_colorsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %5 = load i32, ptr %4, align 4, !tbaa !21
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef i32 @_ZNK4FLAC8Metadata7Picture15get_data_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef ptr @_ZNK4FLAC8Metadata7Picture8get_dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4FLAC8Metadata7Picture8set_typeE33FLAC__StreamMetadata_Picture_Type(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %1, ptr %5, align 8, !tbaa !21
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture13set_mime_typeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef %4, ptr noundef %1, i32 noundef 1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
+}
+
+declare i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture15set_descriptionEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef %4, ptr noundef %1, i32 noundef 1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
+}
+
+declare i32 @FLAC__metadata_object_picture_set_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZNK4FLAC8Metadata7Picture9set_widthEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 %1, ptr %5, align 8, !tbaa !21
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZNK4FLAC8Metadata7Picture10set_heightEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  store i32 %1, ptr %5, align 4, !tbaa !21
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZNK4FLAC8Metadata7Picture9set_depthEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i32 %1, ptr %5, align 8, !tbaa !21
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZNK4FLAC8Metadata7Picture10set_colorsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  store i32 %1, ptr %5, align 4, !tbaa !21
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture8set_dataEPKhj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 1)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
+}
+
+declare i32 @FLAC__metadata_object_picture_set_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture8is_legalEPPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 @FLAC__metadata_object_picture_is_legal(ptr noundef %4, ptr noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
+}
+
+declare i32 @FLAC__metadata_object_picture_is_legal(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata7UnknownC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+  %2 = tail call ptr @FLAC__metadata_object_new(i32 noundef 2)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %4, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), ptr %0, align 8, !tbaa !15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind sspstrong uwtable
+define void @_ZN4FLAC8Metadata7UnknownD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata7UnknownD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef ptr @_ZNK4FLAC8Metadata7Unknown8get_dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #9 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata7Unknown8set_dataEPKhj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 1)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata7Unknown8set_dataEPhjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  %7 = zext i1 %3 to i32
+  %8 = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef %7)
+  %9 = icmp ne i32 %8, 0
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata14get_streaminfoEPKcRNS0_10StreamInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1) local_unnamed_addr #0 {
+  %3 = alloca %struct.FLAC__StreamMetadata, align 8
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3) #23
+  %4 = call i32 @FLAC__metadata_get_streaminfo(ptr noundef %0, ptr noundef nonnull %3)
+  %.not = icmp ne i32 %4, 0
+  br i1 %.not, label %5, label %11
+
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %1, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(17) %1)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 0, ptr %8, align 8, !tbaa !14
+  %9 = call ptr @FLAC__metadata_object_clone(ptr noundef nonnull align 8 dereferenceable(176) %3)
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %9, ptr %10, align 8, !tbaa !9
+  br label %11
+
+11:                                               ; preds = %2, %5
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3) #23
+  ret i1 %.not
+}
+
+declare i32 @FLAC__metadata_get_streaminfo(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata8get_tagsEPKcRPNS0_13VorbisCommentE(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  store ptr null, ptr %1, align 8, !tbaa !44
+  %4 = call i32 @FLAC__metadata_get_tags(ptr noundef %0, ptr noundef nonnull %3)
+  %.not = icmp ne i32 %4, 0
+  br i1 %.not, label %5, label %10
+
+5:                                                ; preds = %2
+  %6 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %7 = load ptr, ptr %3, align 8, !tbaa !46
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %7, ptr %8, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i8 0, ptr %9, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr %6, align 8, !tbaa !15
+  store ptr %6, ptr %1, align 8, !tbaa !44
+  br label %10
+
+10:                                               ; preds = %2, %5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  ret i1 %.not
+}
+
+declare i32 @FLAC__metadata_get_tags(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata8get_tagsEPKcRNS0_13VorbisCommentE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1) local_unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  %4 = call i32 @FLAC__metadata_get_tags(ptr noundef %0, ptr noundef nonnull %3)
+  %.not = icmp ne i32 %4, 0
+  br i1 %.not, label %5, label %11
+
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %3, align 8, !tbaa !46
+  %7 = load ptr, ptr %1, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(17) %1)
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %6, ptr %9, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 0, ptr %10, align 8, !tbaa !14
+  br label %11
+
+11:                                               ; preds = %2, %5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  ret i1 %.not
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata12get_cuesheetEPKcRPNS0_8CueSheetE(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  store ptr null, ptr %1, align 8, !tbaa !47
+  %4 = call i32 @FLAC__metadata_get_cuesheet(ptr noundef %0, ptr noundef nonnull %3)
+  %.not = icmp ne i32 %4, 0
+  br i1 %.not, label %5, label %10
+
+5:                                                ; preds = %2
+  %6 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %7 = load ptr, ptr %3, align 8, !tbaa !46
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %7, ptr %8, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i8 0, ptr %9, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr %6, align 8, !tbaa !15
+  store ptr %6, ptr %1, align 8, !tbaa !47
+  br label %10
+
+10:                                               ; preds = %2, %5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  ret i1 %.not
+}
+
+declare i32 @FLAC__metadata_get_cuesheet(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata12get_cuesheetEPKcRNS0_8CueSheetE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1) local_unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  %4 = call i32 @FLAC__metadata_get_cuesheet(ptr noundef %0, ptr noundef nonnull %3)
+  %.not = icmp ne i32 %4, 0
+  br i1 %.not, label %5, label %11
+
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %3, align 8, !tbaa !46
+  %7 = load ptr, ptr %1, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(17) %1)
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %6, ptr %9, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 0, ptr %10, align 8, !tbaa !14
+  br label %11
+
+11:                                               ; preds = %2, %5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  ret i1 %.not
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata11get_pictureEPKcRPNS0_7PictureE33FLAC__StreamMetadata_Picture_TypeS2_PKhjjjj(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %10 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
+  store ptr null, ptr %1, align 8, !tbaa !49
+  %11 = call i32 @FLAC__metadata_get_picture(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
+  %.not = icmp ne i32 %11, 0
+  br i1 %.not, label %12, label %17
+
+12:                                               ; preds = %9
+  %13 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %14 = load ptr, ptr %10, align 8, !tbaa !46
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %14, ptr %15, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i8 0, ptr %16, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16), ptr %13, align 8, !tbaa !15
+  store ptr %13, ptr %1, align 8, !tbaa !49
+  br label %17
+
+17:                                               ; preds = %9, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
+  ret i1 %.not
+}
+
+declare i32 @FLAC__metadata_get_picture(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define noundef zeroext i1 @_ZN4FLAC8Metadata11get_pictureEPKcRNS0_7PictureE33FLAC__StreamMetadata_Picture_TypeS2_PKhjjjj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+  %10 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
+  %11 = call i32 @FLAC__metadata_get_picture(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
+  %.not = icmp ne i32 %11, 0
+  br i1 %.not, label %12, label %18
+
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %10, align 8, !tbaa !46
+  %14 = load ptr, ptr %1, align 8, !tbaa !15
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(17) %1)
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %13, ptr %16, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 0, ptr %17, align 8, !tbaa !14
+  br label %18
+
+18:                                               ; preds = %9, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
+  ret i1 %.not
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata14SimpleIteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = tail call ptr @FLAC__metadata_simple_iterator_new()
+  store ptr %3, ptr %2, align 8, !tbaa !51
+  ret void
+}
+
+declare ptr @FLAC__metadata_simple_iterator_new() local_unnamed_addr #5
+
+; Function Attrs: mustprogress nounwind sspstrong uwtable
+define void @_ZN4FLAC8Metadata14SimpleIteratorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %5, label %4
+
+4:                                                ; preds = %1
+  invoke void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %3)
+          to label %5 unwind label %6
+
+5:                                                ; preds = %1, %4
+  store ptr null, ptr %2, align 8, !tbaa !51
+  ret void
+
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
-  unreachable
-
-_ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  store ptr null, ptr %object_.i.i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PictureD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata7PictureD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata7Picture8get_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load i32, ptr %data, align 8
-  ret i32 %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4FLAC8Metadata7Picture13get_mime_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %mime_type = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %mime_type, align 8
-  ret ptr %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4FLAC8Metadata7Picture15get_descriptionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %description = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1 = load ptr, ptr %description, align 8
-  ret ptr %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata7Picture9get_widthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %width = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1 = load i32, ptr %width, align 8
-  ret i32 %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata7Picture10get_heightEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %height = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %1 = load i32, ptr %height, align 4
-  ret i32 %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata7Picture9get_depthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %depth = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %1 = load i32, ptr %depth, align 8
-  ret i32 %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata7Picture10get_colorsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %colors = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %1 = load i32, ptr %colors, align 4
-  ret i32 %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4FLAC8Metadata7Picture15get_data_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data_length = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %1 = load i32, ptr %data_length, align 8
-  ret i32 %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4FLAC8Metadata7Picture8get_dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1 = load ptr, ptr %data2, align 8
-  ret ptr %1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4FLAC8Metadata7Picture8set_typeE33FLAC__StreamMetadata_Picture_Type(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %type) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %type, ptr %data, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture13set_mime_typeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %string) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef %0, ptr noundef %string, i32 noundef 1)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-declare i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture15set_descriptionEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %string) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef %0, ptr noundef %string, i32 noundef 1)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-declare i32 @FLAC__metadata_object_picture_set_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK4FLAC8Metadata7Picture9set_widthEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %width = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %value, ptr %width, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK4FLAC8Metadata7Picture10set_heightEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %height = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %value, ptr %height, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK4FLAC8Metadata7Picture9set_depthEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %depth = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %value, ptr %depth, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK4FLAC8Metadata7Picture10set_colorsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #9 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %colors = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %value, ptr %colors, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture8set_dataEPKhj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %data, i32 noundef %data_length) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %data_length, i32 noundef 1)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-declare i32 @FLAC__metadata_object_picture_set_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture8is_legalEPPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %violation) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_picture_is_legal(ptr noundef %0, ptr noundef %violation)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-declare i32 @FLAC__metadata_object_picture_is_legal(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata7UnknownC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
-entry:
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 2)
-  %object_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %is_reference_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), ptr %this, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata7UnknownD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %is_reference_.i.i, align 8
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %0)
-          to label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
-  unreachable
-
-_ZN4FLAC8Metadata9PrototypeD2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  store ptr null, ptr %object_.i.i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata7UnknownD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata7UnknownD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4FLAC8Metadata7Unknown8get_dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %data2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %data2, align 8
-  ret ptr %1
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata7Unknown8set_dataEPKhj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %data, i32 noundef %length) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %length, i32 noundef 1)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata7Unknown8set_dataEPhjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %data, i32 noundef %length, i1 noundef zeroext %copy) local_unnamed_addr #0 align 2 {
-entry:
-  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %object_, align 8
-  %conv = zext i1 %copy to i32
-  %call = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %length, i32 noundef %conv)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata14get_streaminfoEPKcRNS0_10StreamInfoE(ptr noundef %filename, ptr noundef nonnull align 8 dereferenceable(17) %streaminfo) local_unnamed_addr #0 {
-entry:
-  %object = alloca %struct.FLAC__StreamMetadata, align 8
-  %call = call i32 @FLAC__metadata_get_streaminfo(ptr noundef %filename, ptr noundef nonnull %object)
-  %tobool.not = icmp ne i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %return
-
-if.then:                                          ; preds = %entry
-  %vtable.i.i = load ptr, ptr %streaminfo, align 8
-  %0 = load ptr, ptr %vtable.i.i, align 8
-  call void %0(ptr noundef nonnull align 8 dereferenceable(17) %streaminfo)
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %streaminfo, i64 16
-  store i8 0, ptr %is_reference_.i.i, align 8
-  %call.i.i = call ptr @FLAC__metadata_object_clone(ptr noundef nonnull align 8 dereferenceable(176) %object)
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %streaminfo, i64 8
-  store ptr %call.i.i, ptr %object_.i.i, align 8
-  br label %return
-
-return:                                           ; preds = %entry, %if.then
-  ret i1 %tobool.not
-}
-
-declare i32 @FLAC__metadata_get_streaminfo(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8get_tagsEPKcRPNS0_13VorbisCommentE(ptr noundef %filename, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %tags) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %object = alloca ptr, align 8
-  store ptr null, ptr %tags, align 8
-  %call = call i32 @FLAC__metadata_get_tags(ptr noundef %filename, ptr noundef nonnull %object)
-  %tobool.not = icmp ne i32 %call, 0
-  br i1 %tobool.not, label %invoke.cont, label %return
-
-invoke.cont:                                      ; preds = %entry
-  %call1 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %0 = load ptr, ptr %object, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
-  store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
-  store i8 0, ptr %is_reference_.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 16), ptr %call1, align 8
-  store ptr %call1, ptr %tags, align 8
-  br label %return
-
-return:                                           ; preds = %entry, %invoke.cont
-  ret i1 %tobool.not
-}
-
-declare i32 @FLAC__metadata_get_tags(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8get_tagsEPKcRNS0_13VorbisCommentE(ptr noundef %filename, ptr noundef nonnull align 8 dereferenceable(17) %tags) local_unnamed_addr #0 {
-entry:
-  %object = alloca ptr, align 8
-  %call = call i32 @FLAC__metadata_get_tags(ptr noundef %filename, ptr noundef nonnull %object)
-  %tobool.not = icmp ne i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %return
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %object, align 8
-  %vtable.i.i = load ptr, ptr %tags, align 8
-  %1 = load ptr, ptr %vtable.i.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(17) %tags)
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %tags, i64 8
-  store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %tags, i64 16
-  store i8 0, ptr %is_reference_.i.i, align 8
-  br label %return
-
-return:                                           ; preds = %entry, %if.then
-  ret i1 %tobool.not
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata12get_cuesheetEPKcRPNS0_8CueSheetE(ptr noundef %filename, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %cuesheet) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %object = alloca ptr, align 8
-  store ptr null, ptr %cuesheet, align 8
-  %call = call i32 @FLAC__metadata_get_cuesheet(ptr noundef %filename, ptr noundef nonnull %object)
-  %tobool.not = icmp ne i32 %call, 0
-  br i1 %tobool.not, label %invoke.cont, label %return
-
-invoke.cont:                                      ; preds = %entry
-  %call1 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %0 = load ptr, ptr %object, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
-  store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
-  store i8 0, ptr %is_reference_.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 16), ptr %call1, align 8
-  store ptr %call1, ptr %cuesheet, align 8
-  br label %return
-
-return:                                           ; preds = %entry, %invoke.cont
-  ret i1 %tobool.not
-}
-
-declare i32 @FLAC__metadata_get_cuesheet(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata12get_cuesheetEPKcRNS0_8CueSheetE(ptr noundef %filename, ptr noundef nonnull align 8 dereferenceable(17) %cuesheet) local_unnamed_addr #0 {
-entry:
-  %object = alloca ptr, align 8
-  %call = call i32 @FLAC__metadata_get_cuesheet(ptr noundef %filename, ptr noundef nonnull %object)
-  %tobool.not = icmp ne i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %return
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %object, align 8
-  %vtable.i.i = load ptr, ptr %cuesheet, align 8
-  %1 = load ptr, ptr %vtable.i.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(17) %cuesheet)
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %cuesheet, i64 8
-  store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %cuesheet, i64 16
-  store i8 0, ptr %is_reference_.i.i, align 8
-  br label %return
-
-return:                                           ; preds = %entry, %if.then
-  ret i1 %tobool.not
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata11get_pictureEPKcRPNS0_7PictureE33FLAC__StreamMetadata_Picture_TypeS2_PKhjjjj(ptr noundef %filename, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %picture, i32 noundef %type, ptr noundef %mime_type, ptr noundef %description, i32 noundef %max_width, i32 noundef %max_height, i32 noundef %max_depth, i32 noundef %max_colors) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %object = alloca ptr, align 8
-  store ptr null, ptr %picture, align 8
-  %call = call i32 @FLAC__metadata_get_picture(ptr noundef %filename, ptr noundef nonnull %object, i32 noundef %type, ptr noundef %mime_type, ptr noundef %description, i32 noundef %max_width, i32 noundef %max_height, i32 noundef %max_depth, i32 noundef %max_colors)
-  %tobool.not = icmp ne i32 %call, 0
-  br i1 %tobool.not, label %invoke.cont, label %return
-
-invoke.cont:                                      ; preds = %entry
-  %call1 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %0 = load ptr, ptr %object, align 8
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
-  store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
-  store i8 0, ptr %is_reference_.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 16), ptr %call1, align 8
-  store ptr %call1, ptr %picture, align 8
-  br label %return
-
-return:                                           ; preds = %entry, %invoke.cont
-  ret i1 %tobool.not
-}
-
-declare i32 @FLAC__metadata_get_picture(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata11get_pictureEPKcRNS0_7PictureE33FLAC__StreamMetadata_Picture_TypeS2_PKhjjjj(ptr noundef %filename, ptr noundef nonnull align 8 dereferenceable(17) %picture, i32 noundef %type, ptr noundef %mime_type, ptr noundef %description, i32 noundef %max_width, i32 noundef %max_height, i32 noundef %max_depth, i32 noundef %max_colors) local_unnamed_addr #0 {
-entry:
-  %object = alloca ptr, align 8
-  %call = call i32 @FLAC__metadata_get_picture(ptr noundef %filename, ptr noundef nonnull %object, i32 noundef %type, ptr noundef %mime_type, ptr noundef %description, i32 noundef %max_width, i32 noundef %max_height, i32 noundef %max_depth, i32 noundef %max_colors)
-  %tobool.not = icmp ne i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %return
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %object, align 8
-  %vtable.i.i = load ptr, ptr %picture, align 8
-  %1 = load ptr, ptr %vtable.i.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(17) %picture)
-  %object_.i.i = getelementptr inbounds nuw i8, ptr %picture, i64 8
-  store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds nuw i8, ptr %picture, i64 16
-  store i8 0, ptr %is_reference_.i.i, align 8
-  br label %return
-
-return:                                           ; preds = %entry, %if.then
-  ret i1 %tobool.not
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata14SimpleIteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 16), ptr %this, align 8
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call = tail call ptr @FLAC__metadata_simple_iterator_new()
-  store ptr %call, ptr %iterator_, align 8
-  ret void
-}
-
-declare ptr @FLAC__metadata_simple_iterator_new() local_unnamed_addr #4
-
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata14SimpleIteratorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 16), ptr %this, align 8
-  %iterator_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  invoke void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %0)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry, %if.then.i
-  store ptr null, ptr %iterator_.i, align 8
-  ret void
-
-terminate.lpad:                                   ; preds = %if.then.i
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #23
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #25
   unreachable
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata14SimpleIterator5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_ZN4FLAC8Metadata14SimpleIterator5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %0)
-  br label %if.end
+4:                                                ; preds = %1
+  tail call void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %3)
+  br label %5
 
-if.end:                                           ; preds = %if.then, %entry
-  store ptr null, ptr %iterator_, align 8
+5:                                                ; preds = %4, %1
+  store ptr null, ptr %2, align 8, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata14SimpleIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata14SimpleIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+define void @_ZN4FLAC8Metadata14SimpleIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata14SimpleIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #24
   ret void
 }
 
-declare void @FLAC__metadata_simple_iterator_delete(ptr noundef) local_unnamed_addr #4
+declare void @FLAC__metadata_simple_iterator_delete(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator4initEPKcbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %filename, i1 noundef zeroext %read_only, i1 noundef zeroext %preserve_file_stats) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %conv = zext i1 %read_only to i32
-  %conv4 = zext i1 %preserve_file_stats to i32
-  %call = tail call i32 @FLAC__metadata_simple_iterator_init(ptr noundef %0, ptr noundef %filename, i32 noundef %conv, i32 noundef %conv4)
-  %tobool5 = icmp ne i32 %call, 0
-  ret i1 %tobool5
+define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator4initEPKcbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %7 = zext i1 %2 to i32
+  %8 = zext i1 %3 to i32
+  %9 = tail call i32 @FLAC__metadata_simple_iterator_init(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef %8)
+  %10 = icmp ne i32 %9, 0
+  ret i1 %10
 }
 
-declare i32 @FLAC__metadata_simple_iterator_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata14SimpleIterator8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %cmp = icmp ne ptr %0, null
-  ret i1 %cmp
+define noundef zeroext i1 @_ZNK4FLAC8Metadata14SimpleIterator8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = icmp ne ptr %3, null
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define i32 @_ZN4FLAC8Metadata14SimpleIterator6statusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_simple_iterator_status(ptr noundef %0)
-  ret i32 %call
+define i32 @_ZN4FLAC8Metadata14SimpleIterator6statusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = tail call i32 @FLAC__metadata_simple_iterator_status(ptr noundef %3)
+  ret i32 %4
 }
 
-declare i32 @FLAC__metadata_simple_iterator_status(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_status(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata14SimpleIterator11is_writableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_simple_iterator_is_writable(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZNK4FLAC8Metadata14SimpleIterator11is_writableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = tail call i32 @FLAC__metadata_simple_iterator_is_writable(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  ret i1 %5
 }
 
-declare i32 @FLAC__metadata_simple_iterator_is_writable(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_is_writable(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator4nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_simple_iterator_next(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator4nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = tail call i32 @FLAC__metadata_simple_iterator_next(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  ret i1 %5
 }
 
-declare i32 @FLAC__metadata_simple_iterator_next(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_next(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator4prevEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_simple_iterator_prev(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator4prevEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = tail call i32 @FLAC__metadata_simple_iterator_prev(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  ret i1 %5
 }
 
-declare i32 @FLAC__metadata_simple_iterator_prev(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_prev(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata14SimpleIterator7is_lastEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_simple_iterator_is_last(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZNK4FLAC8Metadata14SimpleIterator7is_lastEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = tail call i32 @FLAC__metadata_simple_iterator_is_last(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  ret i1 %5
 }
 
-declare i32 @FLAC__metadata_simple_iterator_is_last(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_is_last(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i64 @_ZNK4FLAC8Metadata14SimpleIterator16get_block_offsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i64 @FLAC__metadata_simple_iterator_get_block_offset(ptr noundef %0)
-  ret i64 %call
+define noundef i64 @_ZNK4FLAC8Metadata14SimpleIterator16get_block_offsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = tail call i64 @FLAC__metadata_simple_iterator_get_block_offset(ptr noundef %3)
+  ret i64 %4
 }
 
-declare i64 @FLAC__metadata_simple_iterator_get_block_offset(ptr noundef) local_unnamed_addr #4
+declare i64 @FLAC__metadata_simple_iterator_get_block_offset(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC8Metadata14SimpleIterator14get_block_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_simple_iterator_get_block_type(ptr noundef %0)
-  ret i32 %call
+define noundef i32 @_ZNK4FLAC8Metadata14SimpleIterator14get_block_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = tail call i32 @FLAC__metadata_simple_iterator_get_block_type(ptr noundef %3)
+  ret i32 %4
 }
 
-declare i32 @FLAC__metadata_simple_iterator_get_block_type(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_get_block_type(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC8Metadata14SimpleIterator16get_block_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef %0)
-  ret i32 %call
+define noundef i32 @_ZNK4FLAC8Metadata14SimpleIterator16get_block_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = tail call i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef %3)
+  ret i32 %4
 }
 
-declare i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator18get_application_idEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %id) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_simple_iterator_get_application_id(ptr noundef %0, ptr noundef %id)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator18get_application_idEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %5 = tail call i32 @FLAC__metadata_simple_iterator_get_application_id(ptr noundef %4, ptr noundef %1)
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
 }
 
-declare i32 @FLAC__metadata_simple_iterator_get_application_id(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_get_application_id(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noalias noundef ptr @_ZN4FLAC8Metadata14SimpleIterator9get_blockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call ptr @FLAC__metadata_simple_iterator_get_block(ptr noundef %0)
-  %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit, label %if.end.i
+define noalias noundef ptr @_ZN4FLAC8Metadata14SimpleIterator9get_blockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = tail call ptr @FLAC__metadata_simple_iterator_get_block(ptr noundef %3)
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit, label %6
 
-if.end.i:                                         ; preds = %entry
-  %1 = load i32, ptr %call, align 8
-  %call25.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %object_.i.i23.i = getelementptr inbounds nuw i8, ptr %call25.i, i64 8
-  store ptr %call, ptr %object_.i.i23.i, align 8
-  %is_reference_.i.i24.i = getelementptr inbounds nuw i8, ptr %call25.i, i64 16
-  store i8 0, ptr %is_reference_.i.i24.i, align 8
-  %2 = icmp ult i32 %1, 7
-  br i1 %2, label %switch.lookup, label %return.sink.split.i
+6:                                                ; preds = %1
+  %7 = load i32, ptr %4, align 8, !tbaa !3
+  %8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %4, ptr %9, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i8 0, ptr %10, align 8, !tbaa !14
+  %11 = icmp ult i32 %7, 7
+  br i1 %11, label %switch.lookup, label %.sink.split.i
 
-switch.lookup:                                    ; preds = %if.end.i
-  %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 0, i64 %3
+switch.lookup:                                    ; preds = %6
+  %12 = zext nneg i32 %7 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %return.sink.split.i
+  br label %.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.end.i, %switch.lookup
-  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %if.end.i ]
-  store ptr %.sink.i, ptr %call25.i, align 8
+.sink.split.i:                                    ; preds = %6, %switch.lookup
+  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %6 ]
+  store ptr %.sink.i, ptr %8, align 8, !tbaa !15
   br label %_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit
 
-_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit: ; preds = %entry, %return.sink.split.i
-  %retval.0.i = phi ptr [ null, %entry ], [ %call25.i, %return.sink.split.i ]
-  ret ptr %retval.0.i
+_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit: ; preds = %1, %.sink.split.i
+  %.015.i = phi ptr [ null, %1 ], [ %8, %.sink.split.i ]
+  ret ptr %.015.i
 }
 
-declare ptr @FLAC__metadata_simple_iterator_get_block(ptr noundef) local_unnamed_addr #4
+declare ptr @FLAC__metadata_simple_iterator_get_block(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator9set_blockEPNS0_9PrototypeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %block, i1 noundef zeroext %use_padding) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %block, i64 8
-  %1 = load ptr, ptr %object_, align 8
-  %conv = zext i1 %use_padding to i32
-  %call = tail call i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef %0, ptr noundef %1, i32 noundef %conv)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
+define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator9set_blockEPNS0_9PrototypeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !9
+  %8 = zext i1 %2 to i32
+  %9 = tail call i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef %5, ptr noundef %7, i32 noundef %8)
+  %10 = icmp ne i32 %9, 0
+  ret i1 %10
 }
 
-declare i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator18insert_block_afterEPNS0_9PrototypeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %block, i1 noundef zeroext %use_padding) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %block, i64 8
-  %1 = load ptr, ptr %object_, align 8
-  %conv = zext i1 %use_padding to i32
-  %call = tail call i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef %0, ptr noundef %1, i32 noundef %conv)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
+define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator18insert_block_afterEPNS0_9PrototypeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !9
+  %8 = zext i1 %2 to i32
+  %9 = tail call i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef %5, ptr noundef %7, i32 noundef %8)
+  %10 = icmp ne i32 %9, 0
+  ret i1 %10
 }
 
-declare i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator12delete_blockEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %use_padding) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %conv = zext i1 %use_padding to i32
-  %call = tail call i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef %0, i32 noundef %conv)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
+define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator12delete_blockEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %5 = zext i1 %1 to i32
+  %6 = tail call i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef %4, i32 noundef %5)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata5ChainC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 16), ptr %this, align 8
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call = tail call ptr @FLAC__metadata_chain_new()
-  store ptr %call, ptr %chain_, align 8
+define void @_ZN4FLAC8Metadata5ChainC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = tail call ptr @FLAC__metadata_chain_new()
+  store ptr %3, ptr %2, align 8, !tbaa !54
   ret void
 }
 
-declare ptr @FLAC__metadata_chain_new() local_unnamed_addr #4
+declare ptr @FLAC__metadata_chain_new() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata5ChainD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 16), ptr %this, align 8
-  %chain_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
+define void @_ZN4FLAC8Metadata5ChainD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %5, label %4
 
-if.then.i:                                        ; preds = %entry
-  invoke void @FLAC__metadata_chain_delete(ptr noundef nonnull %0)
-          to label %invoke.cont unwind label %terminate.lpad
+4:                                                ; preds = %1
+  invoke void @FLAC__metadata_chain_delete(ptr noundef nonnull %3)
+          to label %5 unwind label %6
 
-invoke.cont:                                      ; preds = %entry, %if.then.i
-  store ptr null, ptr %chain_.i, align 8
+5:                                                ; preds = %1, %4
+  store ptr null, ptr %2, align 8, !tbaa !54
   ret void
 
-terminate.lpad:                                   ; preds = %if.then.i
-  %1 = landingpad { ptr, i32 }
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #23
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #25
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata5ChainD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata5ChainD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+define void @_ZN4FLAC8Metadata5ChainD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata5ChainD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #24
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata5Chain5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_ZN4FLAC8Metadata5Chain5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @FLAC__metadata_chain_delete(ptr noundef nonnull %0)
-  br label %if.end
+4:                                                ; preds = %1
+  tail call void @FLAC__metadata_chain_delete(ptr noundef nonnull %3)
+  br label %5
 
-if.end:                                           ; preds = %if.then, %entry
-  store ptr null, ptr %chain_, align 8
+5:                                                ; preds = %4, %1
+  store ptr null, ptr %2, align 8, !tbaa !54
   ret void
 }
 
-declare void @FLAC__metadata_chain_delete(ptr noundef) local_unnamed_addr #4
+declare void @FLAC__metadata_chain_delete(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata5Chain8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  %cmp = icmp ne ptr %0, null
-  ret i1 %cmp
+define noundef zeroext i1 @_ZNK4FLAC8Metadata5Chain8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = icmp ne ptr %3, null
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define i32 @_ZN4FLAC8Metadata5Chain6statusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  %call = tail call i32 @FLAC__metadata_chain_status(ptr noundef %0)
-  ret i32 %call
+define i32 @_ZN4FLAC8Metadata5Chain6statusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %3)
+  ret i32 %4
 }
 
-declare i32 @FLAC__metadata_chain_status(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_chain_status(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain4readEPKcb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %filename, i1 noundef zeroext %is_ogg) local_unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  br i1 %is_ogg, label %cond.true, label %cond.false
+define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain4readEPKcb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  br i1 %2, label %6, label %8
 
-cond.true:                                        ; preds = %entry
-  %call = tail call i32 @FLAC__metadata_chain_read_ogg(ptr noundef %0, ptr noundef %filename)
-  br label %cond.end
+6:                                                ; preds = %3
+  %7 = tail call i32 @FLAC__metadata_chain_read_ogg(ptr noundef %5, ptr noundef %1)
+  br label %10
 
-cond.false:                                       ; preds = %entry
-  %call4 = tail call i32 @FLAC__metadata_chain_read(ptr noundef %0, ptr noundef %filename)
-  br label %cond.end
+8:                                                ; preds = %3
+  %9 = tail call i32 @FLAC__metadata_chain_read(ptr noundef %5, ptr noundef %1)
+  br label %10
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond.in = phi i32 [ %call, %cond.true ], [ %call4, %cond.false ]
-  %cond = icmp ne i32 %cond.in, 0
-  ret i1 %cond
+10:                                               ; preds = %8, %6
+  %.in = phi i32 [ %7, %6 ], [ %9, %8 ]
+  %11 = icmp ne i32 %.in, 0
+  ret i1 %11
 }
 
-declare i32 @FLAC__metadata_chain_read_ogg(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_chain_read_ogg(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @FLAC__metadata_chain_read(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_chain_read(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain4readEPv17FLAC__IOCallbacksb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %handle, ptr noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 captures(none) %callbacks, i1 noundef zeroext %is_ogg) local_unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  br i1 %is_ogg, label %cond.true, label %cond.false
+define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain4readEPv17FLAC__IOCallbacksb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
+  br i1 %3, label %7, label %9
 
-cond.true:                                        ; preds = %entry
-  %call = tail call i32 @FLAC__metadata_chain_read_ogg_with_callbacks(ptr noundef %0, ptr noundef %handle, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %callbacks)
-  br label %cond.end
+7:                                                ; preds = %4
+  %8 = tail call i32 @FLAC__metadata_chain_read_ogg_with_callbacks(ptr noundef %6, ptr noundef %1, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %2)
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  %call5 = tail call i32 @FLAC__metadata_chain_read_with_callbacks(ptr noundef %0, ptr noundef %handle, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %callbacks)
-  br label %cond.end
+9:                                                ; preds = %4
+  %10 = tail call i32 @FLAC__metadata_chain_read_with_callbacks(ptr noundef %6, ptr noundef %1, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %2)
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond.in = phi i32 [ %call, %cond.true ], [ %call5, %cond.false ]
-  %cond = icmp ne i32 %cond.in, 0
-  ret i1 %cond
+11:                                               ; preds = %9, %7
+  %.in = phi i32 [ %8, %7 ], [ %10, %9 ]
+  %12 = icmp ne i32 %.in, 0
+  ret i1 %12
 }
 
-declare i32 @FLAC__metadata_chain_read_ogg_with_callbacks(ptr noundef, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8) local_unnamed_addr #4
+declare i32 @FLAC__metadata_chain_read_ogg_with_callbacks(ptr noundef, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8) local_unnamed_addr #5
 
-declare i32 @FLAC__metadata_chain_read_with_callbacks(ptr noundef, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8) local_unnamed_addr #4
+declare i32 @FLAC__metadata_chain_read_with_callbacks(ptr noundef, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain24check_if_tempfile_neededEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %use_padding) local_unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  %conv = zext i1 %use_padding to i32
-  %call = tail call i32 @FLAC__metadata_chain_check_if_tempfile_needed(ptr noundef %0, i32 noundef %conv)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
+define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain24check_if_tempfile_neededEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
+  %5 = zext i1 %1 to i32
+  %6 = tail call i32 @FLAC__metadata_chain_check_if_tempfile_needed(ptr noundef %4, i32 noundef %5)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_chain_check_if_tempfile_needed(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_chain_check_if_tempfile_needed(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %use_padding, i1 noundef zeroext %preserve_file_stats) local_unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  %conv = zext i1 %use_padding to i32
-  %conv4 = zext i1 %preserve_file_stats to i32
-  %call = tail call i32 @FLAC__metadata_chain_write(ptr noundef %0, i32 noundef %conv, i32 noundef %conv4)
-  %tobool5 = icmp ne i32 %call, 0
-  ret i1 %tobool5
+define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %6 = zext i1 %1 to i32
+  %7 = zext i1 %2 to i32
+  %8 = tail call i32 @FLAC__metadata_chain_write(ptr noundef %5, i32 noundef %6, i32 noundef %7)
+  %9 = icmp ne i32 %8, 0
+  ret i1 %9
 }
 
-declare i32 @FLAC__metadata_chain_write(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_chain_write(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEbPv17FLAC__IOCallbacks(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %use_padding, ptr noundef %handle, ptr noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 captures(none) %callbacks) local_unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  %conv = zext i1 %use_padding to i32
-  %call = tail call i32 @FLAC__metadata_chain_write_with_callbacks(ptr noundef %0, i32 noundef %conv, ptr noundef %handle, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %callbacks)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
+define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEPKcb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %6 = zext i1 %2 to i32
+  %7 = tail call i32 @FLAC__metadata_chain_write_new_file(ptr noundef %5, ptr noundef %1, i32 noundef %6)
+  %8 = icmp ne i32 %7, 0
+  ret i1 %8
 }
 
-declare i32 @FLAC__metadata_chain_write_with_callbacks(ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8) local_unnamed_addr #4
+declare i32 @FLAC__metadata_chain_write_new_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEbPv17FLAC__IOCallbacksS2_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %use_padding, ptr noundef %handle, ptr noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 captures(none) %callbacks, ptr noundef %temp_handle, ptr noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 captures(none) %temp_callbacks) local_unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  %conv = zext i1 %use_padding to i32
-  %call = tail call i32 @FLAC__metadata_chain_write_with_callbacks_and_tempfile(ptr noundef %0, i32 noundef %conv, ptr noundef %handle, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %callbacks, ptr noundef %temp_handle, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %temp_callbacks)
-  %tobool3 = icmp ne i32 %call, 0
-  ret i1 %tobool3
+define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEbPv17FLAC__IOCallbacks(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 captures(none) %3) local_unnamed_addr #0 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
+  %7 = zext i1 %1 to i32
+  %8 = tail call i32 @FLAC__metadata_chain_write_with_callbacks(ptr noundef %6, i32 noundef %7, ptr noundef %2, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %3)
+  %9 = icmp ne i32 %8, 0
+  ret i1 %9
 }
 
-declare i32 @FLAC__metadata_chain_write_with_callbacks_and_tempfile(ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8) local_unnamed_addr #4
+declare i32 @FLAC__metadata_chain_write_with_callbacks(ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata5Chain13merge_paddingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  tail call void @FLAC__metadata_chain_merge_padding(ptr noundef %0)
+define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEbPv17FLAC__IOCallbacksS2_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 captures(none) %3, ptr noundef %4, ptr noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 captures(none) %5) local_unnamed_addr #0 align 2 {
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !54
+  %9 = zext i1 %1 to i32
+  %10 = tail call i32 @FLAC__metadata_chain_write_with_callbacks_and_tempfile(ptr noundef %8, i32 noundef %9, ptr noundef %2, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %3, ptr noundef %4, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %5)
+  %11 = icmp ne i32 %10, 0
+  ret i1 %11
+}
+
+declare i32 @FLAC__metadata_chain_write_with_callbacks_and_tempfile(ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8, ptr noundef, ptr noundef byval(%struct.FLAC__IOCallbacks) align 8) local_unnamed_addr #5
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN4FLAC8Metadata5Chain13merge_paddingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  tail call void @FLAC__metadata_chain_merge_padding(ptr noundef %3)
   ret void
 }
 
-declare void @FLAC__metadata_chain_merge_padding(ptr noundef) local_unnamed_addr #4
+declare void @FLAC__metadata_chain_merge_padding(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata5Chain12sort_paddingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %chain_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chain_, align 8
-  tail call void @FLAC__metadata_chain_sort_padding(ptr noundef %0)
+define void @_ZN4FLAC8Metadata5Chain12sort_paddingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  tail call void @FLAC__metadata_chain_sort_padding(ptr noundef %3)
   ret void
 }
 
-declare void @FLAC__metadata_chain_sort_padding(ptr noundef) local_unnamed_addr #4
+declare void @FLAC__metadata_chain_sort_padding(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8IteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 16), ptr %this, align 8
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call = tail call ptr @FLAC__metadata_iterator_new()
-  store ptr %call, ptr %iterator_, align 8
+define void @_ZN4FLAC8Metadata8IteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = tail call ptr @FLAC__metadata_iterator_new()
+  store ptr %3, ptr %2, align 8, !tbaa !57
   ret void
 }
 
-declare ptr @FLAC__metadata_iterator_new() local_unnamed_addr #4
+declare ptr @FLAC__metadata_iterator_new() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata8IteratorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 16), ptr %this, align 8
-  %iterator_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
+define void @_ZN4FLAC8Metadata8IteratorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 16), ptr %0, align 8, !tbaa !15
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %5, label %4
 
-if.then.i:                                        ; preds = %entry
-  invoke void @FLAC__metadata_iterator_delete(ptr noundef nonnull %0)
-          to label %invoke.cont unwind label %terminate.lpad
+4:                                                ; preds = %1
+  invoke void @FLAC__metadata_iterator_delete(ptr noundef nonnull %3)
+          to label %5 unwind label %6
 
-invoke.cont:                                      ; preds = %entry, %if.then.i
-  store ptr null, ptr %iterator_.i, align 8
+5:                                                ; preds = %1, %4
+  store ptr null, ptr %2, align 8, !tbaa !57
   ret void
 
-terminate.lpad:                                   ; preds = %if.then.i
-  %1 = landingpad { ptr, i32 }
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #23
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #25
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
-entry:
-  tail call void @_ZN4FLAC8Metadata8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+define void @_ZN4FLAC8Metadata8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZN4FLAC8Metadata8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #24
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8Iterator5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_ZN4FLAC8Metadata8Iterator5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @FLAC__metadata_iterator_delete(ptr noundef nonnull %0)
-  br label %if.end
+4:                                                ; preds = %1
+  tail call void @FLAC__metadata_iterator_delete(ptr noundef nonnull %3)
+  br label %5
 
-if.end:                                           ; preds = %if.then, %entry
-  store ptr null, ptr %iterator_, align 8
+5:                                                ; preds = %4, %1
+  store ptr null, ptr %2, align 8, !tbaa !57
   ret void
 }
 
-declare void @FLAC__metadata_iterator_delete(ptr noundef) local_unnamed_addr #4
+declare void @FLAC__metadata_iterator_delete(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4FLAC8Metadata8Iterator8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %cmp = icmp ne ptr %0, null
-  ret i1 %cmp
+define noundef zeroext i1 @_ZNK4FLAC8Metadata8Iterator8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %4 = icmp ne ptr %3, null
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8Iterator4initERNS0_5ChainE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %chain) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %chain_ = getelementptr inbounds nuw i8, ptr %chain, i64 8
-  %1 = load ptr, ptr %chain_, align 8
-  tail call void @FLAC__metadata_iterator_init(ptr noundef %0, ptr noundef %1)
+define void @_ZN4FLAC8Metadata8Iterator4initERNS0_5ChainE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
+  tail call void @FLAC__metadata_iterator_init(ptr noundef %4, ptr noundef %6)
   ret void
 }
 
-declare void @FLAC__metadata_iterator_init(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @FLAC__metadata_iterator_init(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator4nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_iterator_next(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator4nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %4 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  ret i1 %5
 }
 
-declare i32 @FLAC__metadata_iterator_next(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_iterator_next(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator4prevEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_iterator_prev(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  ret i1 %tobool
+define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator4prevEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %4 = tail call i32 @FLAC__metadata_iterator_prev(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  ret i1 %5
 }
 
-declare i32 @FLAC__metadata_iterator_prev(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_iterator_prev(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC8Metadata8Iterator14get_block_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call i32 @FLAC__metadata_iterator_get_block_type(ptr noundef %0)
-  ret i32 %call
+define noundef i32 @_ZNK4FLAC8Metadata8Iterator14get_block_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %4 = tail call i32 @FLAC__metadata_iterator_get_block_type(ptr noundef %3)
+  ret i32 %4
 }
 
-declare i32 @FLAC__metadata_iterator_get_block_type(ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_iterator_get_block_type(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noalias noundef ptr @_ZN4FLAC8Metadata8Iterator9get_blockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %call = tail call ptr @FLAC__metadata_iterator_get_block(ptr noundef %0)
-  %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %if.end, label %if.end.i
+define noalias noundef ptr @_ZN4FLAC8Metadata8Iterator9get_blockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %4 = tail call ptr @FLAC__metadata_iterator_get_block(ptr noundef %3)
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit.thread, label %6
 
-if.end.i:                                         ; preds = %entry
-  %1 = load i32, ptr %call, align 8
-  %call25.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %object_.i.i23.i = getelementptr inbounds nuw i8, ptr %call25.i, i64 8
-  store ptr %call, ptr %object_.i.i23.i, align 8
-  %is_reference_.i.i24.i = getelementptr inbounds nuw i8, ptr %call25.i, i64 16
-  %2 = icmp ult i32 %1, 7
-  br i1 %2, label %switch.lookup, label %if.then
+6:                                                ; preds = %1
+  %7 = load i32, ptr %4, align 8, !tbaa !3
+  %8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %4, ptr %9, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %11 = icmp ult i32 %7, 7
+  br i1 %11, label %switch.lookup, label %13
 
-switch.lookup:                                    ; preds = %if.end.i
-  %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 0, i64 %3
+switch.lookup:                                    ; preds = %6
+  %12 = zext nneg i32 %7 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %if.then
+  br label %13
 
-if.then:                                          ; preds = %if.end.i, %switch.lookup
-  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %if.end.i ]
-  store ptr %.sink.i, ptr %call25.i, align 8
-  store i8 1, ptr %is_reference_.i.i24.i, align 8
-  br label %if.end
+13:                                               ; preds = %6, %switch.lookup
+  %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %6 ]
+  store ptr %.sink.i, ptr %8, align 8, !tbaa !15
+  store i8 1, ptr %10, align 8, !tbaa !14
+  br label %_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit.thread
 
-if.end:                                           ; preds = %entry, %if.then
-  %retval.0.i5 = phi ptr [ %call25.i, %if.then ], [ null, %entry ]
-  ret ptr %retval.0.i5
+_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit.thread: ; preds = %1, %13
+  %.015.i6 = phi ptr [ %8, %13 ], [ null, %1 ]
+  ret ptr %.015.i6
 }
 
-declare ptr @FLAC__metadata_iterator_get_block(ptr noundef) local_unnamed_addr #4
+declare ptr @FLAC__metadata_iterator_get_block(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator9set_blockEPNS0_9PrototypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %block) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %block, i64 8
-  %1 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_iterator_set_block(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator9set_blockEPNS0_9PrototypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  %7 = tail call i32 @FLAC__metadata_iterator_set_block(ptr noundef %4, ptr noundef %6)
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %entry
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %block, i64 16
-  store i8 1, ptr %is_reference_.i, align 8
-  %vtable = load ptr, ptr %block, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(17) %block) #21
-  br label %if.end
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 1, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %1, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(17) %1) #23
+  br label %14
 
-if.end:                                           ; preds = %if.then, %entry
-  ret i1 %tobool
+14:                                               ; preds = %9, %2
+  ret i1 %8
 }
 
-declare i32 @FLAC__metadata_iterator_set_block(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_iterator_set_block(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator12delete_blockEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %replace_with_padding) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %conv = zext i1 %replace_with_padding to i32
-  %call = tail call i32 @FLAC__metadata_iterator_delete_block(ptr noundef %0, i32 noundef %conv)
-  %tobool2 = icmp ne i32 %call, 0
-  ret i1 %tobool2
+define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator12delete_blockEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %5 = zext i1 %1 to i32
+  %6 = tail call i32 @FLAC__metadata_iterator_delete_block(ptr noundef %4, i32 noundef %5)
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-declare i32 @FLAC__metadata_iterator_delete_block(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_iterator_delete_block(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator19insert_block_beforeEPNS0_9PrototypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %block) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %block, i64 8
-  %1 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_iterator_insert_block_before(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator19insert_block_beforeEPNS0_9PrototypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  %7 = tail call i32 @FLAC__metadata_iterator_insert_block_before(ptr noundef %4, ptr noundef %6)
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %entry
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %block, i64 16
-  store i8 1, ptr %is_reference_.i, align 8
-  %vtable = load ptr, ptr %block, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(17) %block) #21
-  br label %if.end
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 1, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %1, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(17) %1) #23
+  br label %14
 
-if.end:                                           ; preds = %if.then, %entry
-  ret i1 %tobool
+14:                                               ; preds = %9, %2
+  ret i1 %8
 }
 
-declare i32 @FLAC__metadata_iterator_insert_block_before(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_iterator_insert_block_before(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator18insert_block_afterEPNS0_9PrototypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %block) local_unnamed_addr #0 align 2 {
-entry:
-  %iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds nuw i8, ptr %block, i64 8
-  %1 = load ptr, ptr %object_, align 8
-  %call = tail call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator18insert_block_afterEPNS0_9PrototypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  %7 = tail call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %4, ptr noundef %6)
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %entry
-  %is_reference_.i = getelementptr inbounds nuw i8, ptr %block, i64 16
-  store i8 1, ptr %is_reference_.i, align 8
-  %vtable = load ptr, ptr %block, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(17) %block) #21
-  br label %if.end
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 1, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %1, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(17) %1) #23
+  br label %14
 
-if.end:                                           ; preds = %if.then, %entry
-  ret i1 %tobool
+14:                                               ; preds = %9, %2
+  ret i1 %8
 }
 
-declare i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #21
 
-attributes #0 = { mustprogress sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { mustprogress nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { builtin allocsize(0) }
-attributes #21 = { nounwind }
-attributes #22 = { builtin nounwind }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind allocsize(0) }
-attributes #25 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress nounwind sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { builtin allocsize(0) }
+attributes #23 = { nounwind }
+attributes #24 = { builtin nounwind }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTS20FLAC__StreamMetadata", !5, i64 0, !8, i64 4, !8, i64 8, !6, i64 16}
+!5 = !{!"_ZTS18FLAC__MetadataType", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!"int", !6, i64 0}
+!9 = !{!10, !11, i64 8}
+!10 = !{!"_ZTSN4FLAC8Metadata9PrototypeE", !11, i64 8, !13, i64 16}
+!11 = !{!"p1 _ZTS20FLAC__StreamMetadata", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}
+!13 = !{!"bool", !6, i64 0}
+!14 = !{!10, !13, i64 16}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"vtable pointer", !7, i64 0}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = !{!4, !8, i64 4}
+!20 = !{!4, !8, i64 8}
+!21 = !{!6, !6, i64 0}
+!22 = !{i64 0, i64 8, !23, i64 8, i64 8, !23, i64 16, i64 4, !25}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !6, i64 0}
+!25 = !{!8, !8, i64 0}
+!26 = !{!27, !13, i64 8}
+!27 = !{!"_ZTSN4FLAC8Metadata13VorbisComment5EntryE", !13, i64 8, !28, i64 16, !29, i64 32, !8, i64 40, !29, i64 48, !8, i64 56}
+!28 = !{!"_ZTS40FLAC__StreamMetadata_VorbisComment_Entry", !8, i64 0, !29, i64 8}
+!29 = !{!"p1 omnipotent char", !12, i64 0}
+!30 = !{!27, !29, i64 48}
+!31 = !{!27, !8, i64 56}
+!32 = !{!27, !8, i64 16}
+!33 = !{!27, !29, i64 24}
+!34 = !{!27, !29, i64 32}
+!35 = !{!27, !8, i64 40}
+!36 = !{!29, !29, i64 0}
+!37 = !{!28, !29, i64 8}
+!38 = !{!28, !8, i64 0}
+!39 = !{!40, !12, i64 8}
+!40 = !{!"_ZTSN4FLAC8Metadata8CueSheet5TrackE", !12, i64 8}
+!41 = !{!42, !12, i64 24}
+!42 = !{!"_ZTS35FLAC__StreamMetadata_CueSheet_Track", !24, i64 0, !6, i64 8, !6, i64 9, !8, i64 22, !8, i64 22, !6, i64 23, !12, i64 24}
+!43 = !{i64 0, i64 8, !23, i64 8, i64 1, !21}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSN4FLAC8Metadata13VorbisCommentE", !12, i64 0}
+!46 = !{!11, !11, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN4FLAC8Metadata8CueSheetE", !12, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTSN4FLAC8Metadata7PictureE", !12, i64 0}
+!51 = !{!52, !53, i64 8}
+!52 = !{!"_ZTSN4FLAC8Metadata14SimpleIteratorE", !53, i64 8}
+!53 = !{!"p1 _ZTS29FLAC__Metadata_SimpleIterator", !12, i64 0}
+!54 = !{!55, !56, i64 8}
+!55 = !{!"_ZTSN4FLAC8Metadata5ChainE", !56, i64 8}
+!56 = !{!"p1 _ZTS20FLAC__Metadata_Chain", !12, i64 0}
+!57 = !{!58, !59, i64 8}
+!58 = !{!"_ZTSN4FLAC8Metadata8IteratorE", !59, i64 8}
+!59 = !{!"p1 _ZTS23FLAC__Metadata_Iterator", !12, i64 0}

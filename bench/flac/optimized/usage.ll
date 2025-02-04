@@ -1,11 +1,12 @@
-; ModuleID = 'bench/flac/original/usage.c.ll'
-source_filename = "bench/flac/original/usage.c.ll"
+; ModuleID = 'bench/flac/original/usage.ll'
+source_filename = "bench/flac/original/usage.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @stderr = external local_unnamed_addr global ptr, align 8
+@.str = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.1 = private unnamed_addr constant [61 x i8] c"This is the short help; for full help use 'metaflac --help'\0A\00", align 1
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str.2 = private unnamed_addr constant [23 x i8] c"Shorthand operations:\0A\00", align 1
@@ -212,7 +213,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.203 = private unnamed_addr constant [57 x i8] c"metaflac - Command-line FLAC metadata editor version %s\0A\00", align 1
 @FLAC__VERSION_STRING = external local_unnamed_addr global ptr, align 8
 @.str.204 = private unnamed_addr constant [39 x i8] c"Copyright (C) 2001-2009  Josh Coalson\0A\00", align 1
-@.str.205 = private unnamed_addr constant [46 x i8] c"Copyright (C) 2011-2023  Xiph.Org Foundation\0A\00", align 1
+@.str.205 = private unnamed_addr constant [46 x i8] c"Copyright (C) 2011-2025  Xiph.Org Foundation\0A\00", align 1
 @.str.206 = private unnamed_addr constant [63 x i8] c"This program is free software; you can redistribute it and/or\0A\00", align 1
 @.str.207 = private unnamed_addr constant [61 x i8] c"modify it under the terms of the GNU General Public License\0A\00", align 1
 @.str.208 = private unnamed_addr constant [64 x i8] c"as published by the Free Software Foundation; either version 2\0A\00", align 1
@@ -229,378 +230,387 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.219 = private unnamed_addr constant [80 x i8] c"Use metaflac to list, add, remove, or edit metadata in one or more FLAC files.\0A\00", align 1
 @.str.220 = private unnamed_addr constant [78 x i8] c"You may perform one major operation, or many shorthand operations at a time.\0A\00", align 1
 @.str.221 = private unnamed_addr constant [10 x i8] c"Options:\0A\00", align 1
-@.str.222 = private unnamed_addr constant [81 x i8] c"--preserve-modtime    Preserve the original modification time in spite of edits\0A\00", align 1
-@.str.223 = private unnamed_addr constant [71 x i8] c"--with-filename       Prefix each output line with the FLAC file name\0A\00", align 1
-@.str.224 = private unnamed_addr constant [78 x i8] c"                      (the default if more than one FLAC file is specified).\0A\00", align 1
-@.str.225 = private unnamed_addr constant [76 x i8] c"                      This option has no effect for options exporting to a\0A\00", align 1
-@.str.226 = private unnamed_addr constant [52 x i8] c"                      file, like --export-tags-to.\0A\00", align 1
-@.str.227 = private unnamed_addr constant [78 x i8] c"--no-filename         Do not prefix each output line with the FLAC file name\0A\00", align 1
-@.str.228 = private unnamed_addr constant [72 x i8] c"                      (the default if only one FLAC file is specified)\0A\00", align 1
-@.str.229 = private unnamed_addr constant [72 x i8] c"--no-utf8-convert     Do not convert tags from UTF-8 to local charset,\0A\00", align 1
-@.str.230 = private unnamed_addr constant [79 x i8] c"                      or vice versa.  This is useful for scripts, and setting\0A\00", align 1
-@.str.231 = private unnamed_addr constant [69 x i8] c"                      tags in situations where the locale is wrong.\0A\00", align 1
-@.str.232 = private unnamed_addr constant [79 x i8] c"--dont-use-padding    By default metaflac tries to use padding where possible\0A\00", align 1
-@.str.233 = private unnamed_addr constant [79 x i8] c"                      to avoid rewriting the entire file if the metadata size\0A\00", align 1
-@.str.234 = private unnamed_addr constant [78 x i8] c"                      changes.  Use this option to tell metaflac to not take\0A\00", align 1
-@.str.235 = private unnamed_addr constant [54 x i8] c"                      advantage of padding this way.\0A\00", align 1
+@.str.222 = private unnamed_addr constant [80 x i8] c"-o, --output-name=FILENAME   Write changes to a new file, instead of doing all\0A\00", align 1
+@.str.223 = private unnamed_addr constant [60 x i8] c"                             operations on the input files\0A\00", align 1
+@.str.224 = private unnamed_addr constant [81 x i8] c"--preserve-modtime    Preserve the original modification time in spite of edits\0A\00", align 1
+@.str.225 = private unnamed_addr constant [81 x i8] c"                      This option does nothing when combined with --output-name\0A\00", align 1
+@.str.226 = private unnamed_addr constant [71 x i8] c"--with-filename       Prefix each output line with the FLAC file name\0A\00", align 1
+@.str.227 = private unnamed_addr constant [78 x i8] c"                      (the default if more than one FLAC file is specified).\0A\00", align 1
+@.str.228 = private unnamed_addr constant [76 x i8] c"                      This option has no effect for options exporting to a\0A\00", align 1
+@.str.229 = private unnamed_addr constant [52 x i8] c"                      file, like --export-tags-to.\0A\00", align 1
+@.str.230 = private unnamed_addr constant [78 x i8] c"--no-filename         Do not prefix each output line with the FLAC file name\0A\00", align 1
+@.str.231 = private unnamed_addr constant [72 x i8] c"                      (the default if only one FLAC file is specified)\0A\00", align 1
+@.str.232 = private unnamed_addr constant [72 x i8] c"--no-utf8-convert     Do not convert tags from UTF-8 to local charset,\0A\00", align 1
+@.str.233 = private unnamed_addr constant [79 x i8] c"                      or vice versa.  This is useful for scripts, and setting\0A\00", align 1
+@.str.234 = private unnamed_addr constant [69 x i8] c"                      tags in situations where the locale is wrong.\0A\00", align 1
+@.str.235 = private unnamed_addr constant [79 x i8] c"--dont-use-padding    By default metaflac tries to use padding where possible\0A\00", align 1
+@.str.236 = private unnamed_addr constant [79 x i8] c"                      to avoid rewriting the entire file if the metadata size\0A\00", align 1
+@.str.237 = private unnamed_addr constant [78 x i8] c"                      changes.  Use this option to tell metaflac to not take\0A\00", align 1
+@.str.238 = private unnamed_addr constant [54 x i8] c"                      advantage of padding this way.\0A\00", align 1
 
-; Function Attrs: cold nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @short_usage(ptr noundef readonly %message, ...) local_unnamed_addr #0 {
-entry:
-  %args = alloca [1 x %struct.__va_list_tag], align 16
-  %tobool.not = icmp ne ptr %message, null
-  br i1 %tobool.not, label %if.then, label %if.end
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local range(i32 0, 2) i32 @short_usage(ptr noundef %0, ...) local_unnamed_addr #0 {
+  %2 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
+  %.not = icmp ne ptr %0, null
+  br i1 %.not, label %3, label %6
 
-if.then:                                          ; preds = %entry
-  call void @llvm.va_start.p0(ptr nonnull %args)
-  %0 = load ptr, ptr @stderr, align 8
-  %call = call i32 @vfprintf(ptr noundef %0, ptr noundef nonnull %message, ptr noundef nonnull %args) #5
-  call void @llvm.va_end.p0(ptr nonnull %args)
-  br label %if.end
+3:                                                ; preds = %1
+  call void @llvm.va_start.p0(ptr nonnull %2)
+  %4 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %5 = call i32 @__vfprintf_chk(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %2) #4
+  call void @llvm.va_end.p0(ptr nonnull %2)
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
-  %1 = load ptr, ptr @stderr, align 8
-  call fastcc void @usage_header(ptr noundef %1)
-  %2 = load ptr, ptr @stderr, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %2)
+6:                                                ; preds = %3, %1
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !4
+  call fastcc void @usage_header(ptr noundef %7)
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %9 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %11 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %10, i32 noundef 1, ptr noundef nonnull @.str.1) #4
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %13 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %12, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !4
+  call fastcc void @usage_summary(ptr noundef %14)
+  %15 = zext i1 %.not to i32
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
+  ret i32 %15
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @usage_header(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.202) #4
+  %3 = load ptr, ptr @FLAC__VERSION_STRING, align 8, !tbaa !9
+  %4 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.203, ptr noundef %3) #4
+  %5 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.204) #4
+  %6 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.205) #4
+  %7 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %8 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.206) #4
+  %9 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.207) #4
+  %10 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.208) #4
+  %11 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.209) #4
+  %12 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %13 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.210) #4
+  %14 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.211) #4
+  %15 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.212) #4
+  %16 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.213) #4
+  %17 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %18 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.214) #4
+  %19 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.215) #4
+  %20 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.216) #4
+  %21 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.202) #4
+  ret void
+}
+
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @usage_summary(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.217) #4
+  %3 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.218) #4
+  %4 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %5 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.219) #4
+  %6 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.220) #4
+  %7 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %8 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.221) #4
+  %9 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.222) #4
+  %10 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.223) #4
+  %11 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.224) #4
+  %12 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.225) #4
+  %13 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.226) #4
+  %14 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.227) #4
+  %15 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.228) #4
+  %16 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.229) #4
+  %17 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.230) #4
+  %18 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.231) #4
+  %19 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.232) #4
+  %20 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.233) #4
+  %21 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.234) #4
+  %22 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.235) #4
+  %23 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.236) #4
+  %24 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.237) #4
+  %25 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.238) #4
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local range(i32 0, 2) i32 @long_usage(ptr noundef %0, ...) local_unnamed_addr #0 {
+  %2 = alloca [1 x %struct.__va_list_tag], align 16
+  %.not = icmp ne ptr %0, null
   %3 = load ptr, ptr @stderr, align 8
-  %4 = call i64 @fwrite(ptr nonnull @.str.1, i64 60, i64 1, ptr %3) #5
-  %5 = load ptr, ptr @stderr, align 8
-  %fputc3 = call i32 @fputc(i32 10, ptr %5)
-  %6 = load ptr, ptr @stderr, align 8
-  call fastcc void @usage_summary(ptr noundef %6)
-  %cond = zext i1 %tobool.not to i32
-  ret i32 %cond
+  %4 = load ptr, ptr @stdout, align 8
+  %5 = select i1 %.not, ptr %3, ptr %4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
+  br i1 %.not, label %6, label %9
+
+6:                                                ; preds = %1
+  call void @llvm.va_start.p0(ptr nonnull %2)
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %8 = call i32 @__vfprintf_chk(ptr noundef %7, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %2) #4
+  call void @llvm.va_end.p0(ptr nonnull %2)
+  br label %9
+
+9:                                                ; preds = %6, %1
+  call fastcc void @usage_header(ptr noundef %5)
+  %10 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  call fastcc void @usage_summary(ptr noundef %5)
+  %11 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %12 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.2) #4
+  %13 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.3) #4
+  %14 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %15 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.5) #4
+  %16 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.6) #4
+  %17 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.7) #4
+  %18 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.8) #4
+  %19 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.9) #4
+  %20 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.10) #4
+  %21 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.11) #4
+  %22 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %23 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.12) #4
+  %24 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.13) #4
+  %25 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.14) #4
+  %26 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.15) #4
+  %27 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.16) #4
+  %28 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.17) #4
+  %29 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.18) #4
+  %30 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.19) #4
+  %31 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.20) #4
+  %32 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.21) #4
+  %33 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.22) #4
+  %34 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.23) #4
+  %35 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.24) #4
+  %36 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.25) #4
+  %37 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.26) #4
+  %38 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.27) #4
+  %39 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.28) #4
+  %40 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.29) #4
+  %41 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.30) #4
+  %42 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.31) #4
+  %43 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.32) #4
+  %44 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.33) #4
+  %45 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.34) #4
+  %46 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.35) #4
+  %47 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.36) #4
+  %48 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.37) #4
+  %49 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.38) #4
+  %50 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.39) #4
+  %51 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.40) #4
+  %52 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.41) #4
+  %53 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.42) #4
+  %54 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.43) #4
+  %55 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.44) #4
+  %56 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.45) #4
+  %57 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.46) #4
+  %58 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.47) #4
+  %59 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.48) #4
+  %60 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.49) #4
+  %61 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.50) #4
+  %62 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.51) #4
+  %63 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.52) #4
+  %64 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.53) #4
+  %65 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.54) #4
+  %66 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.55) #4
+  %67 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.56) #4
+  %68 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.57) #4
+  %69 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.58) #4
+  %70 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.59) #4
+  %71 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.60) #4
+  %72 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.61) #4
+  %73 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.62) #4
+  %74 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.63) #4
+  %75 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.64) #4
+  %76 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.65) #4
+  %77 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.66) #4
+  %78 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.67) #4
+  %79 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.68) #4
+  %80 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.69) #4
+  %81 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.70) #4
+  %82 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.71) #4
+  %83 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.72) #4
+  %84 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.73) #4
+  %85 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.74) #4
+  %86 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.75) #4
+  %87 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.76) #4
+  %88 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.77) #4
+  %89 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.78) #4
+  %90 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.79) #4
+  %91 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.80) #4
+  %92 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.81) #4
+  %93 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.82) #4
+  %94 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.83) #4
+  %95 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.84) #4
+  %96 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.85) #4
+  %97 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.86) #4
+  %98 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.87) #4
+  %99 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.88) #4
+  %100 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.89) #4
+  %101 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.90) #4
+  %102 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.91) #4
+  %103 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.92) #4
+  %104 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.93) #4
+  %105 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.94) #4
+  %106 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.95) #4
+  %107 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.96) #4
+  %108 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.97) #4
+  %109 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.98) #4
+  %110 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.99) #4
+  %111 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.100) #4
+  %112 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.101) #4
+  %113 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.102) #4
+  %114 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.103) #4
+  %115 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.104) #4
+  %116 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.105) #4
+  %117 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.106) #4
+  %118 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.107) #4
+  %119 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.108) #4
+  %120 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.109) #4
+  %121 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.110) #4
+  %122 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.111) #4
+  %123 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.112) #4
+  %124 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.113) #4
+  %125 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.114) #4
+  %126 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.115) #4
+  %127 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.116) #4
+  %128 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.117) #4
+  %129 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.118) #4
+  %130 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.119) #4
+  %131 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.120) #4
+  %132 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.121) #4
+  %133 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.122) #4
+  %134 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.123) #4
+  %135 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.124) #4
+  %136 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.125) #4
+  %137 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.126) #4
+  %138 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.127) #4
+  %139 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.128) #4
+  %140 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.129) #4
+  %141 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.130) #4
+  %142 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.131) #4
+  %143 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.132) #4
+  %144 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.133) #4
+  %145 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %146 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.134) #4
+  %147 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.135) #4
+  %148 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.136) #4
+  %149 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.137) #4
+  %150 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.138) #4
+  %151 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.139) #4
+  %152 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.140) #4
+  %153 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %154 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.141) #4
+  %155 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.142) #4
+  %156 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.143) #4
+  %157 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %158 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.144) #4
+  %159 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.145) #4
+  %160 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.146) #4
+  %161 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.147) #4
+  %162 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.148) #4
+  %163 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.149) #4
+  %164 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.150) #4
+  %165 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.151) #4
+  %166 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.152) #4
+  %167 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.153) #4
+  %168 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.154) #4
+  %169 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.155) #4
+  %170 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.156) #4
+  %171 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %172 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.157) #4
+  %173 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.158) #4
+  %174 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %175 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.159) #4
+  %176 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.160) #4
+  %177 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.161) #4
+  %178 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.162) #4
+  %179 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.163) #4
+  %180 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.164) #4
+  %181 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.165) #4
+  %182 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %183 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.166) #4
+  %184 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.167) #4
+  %185 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.168) #4
+  %186 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.169) #4
+  %187 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %188 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.170) #4
+  %189 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.171) #4
+  %190 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.172) #4
+  %191 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.173) #4
+  %192 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.174) #4
+  %193 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.175) #4
+  %194 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.176) #4
+  %195 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.177) #4
+  %196 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.178) #4
+  %197 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.179) #4
+  %198 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.180) #4
+  %199 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.181) #4
+  %200 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.182) #4
+  %201 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %202 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.183) #4
+  %203 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.184) #4
+  %204 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.185) #4
+  %205 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.186) #4
+  %206 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.187) #4
+  %207 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %208 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.188) #4
+  %209 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.189) #4
+  %210 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.190) #4
+  %211 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.191) #4
+  %212 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %213 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.141) #4
+  %214 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.144) #4
+  %215 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.145) #4
+  %216 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.192) #4
+  %217 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %218 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.157) #4
+  %219 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.158) #4
+  %220 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %221 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.193) #4
+  %222 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.194) #4
+  %223 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.195) #4
+  %224 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.196) #4
+  %225 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %226 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.197) #4
+  %227 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.198) #4
+  %228 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #4
+  %229 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.199) #4
+  %230 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.200) #4
+  %231 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.201) #4
+  %232 = zext i1 %.not to i32
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
+  ret i32 %232
 }
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
+declare i32 @__vfprintf_chk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc void @usage_header(ptr noundef captures(none) %out) unnamed_addr #2 {
-entry:
-  %0 = tail call i64 @fwrite(ptr nonnull @.str.202, i64 79, i64 1, ptr %out)
-  %1 = load ptr, ptr @FLAC__VERSION_STRING, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out, ptr noundef nonnull @.str.203, ptr noundef %1)
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.204, i64 38, i64 1, ptr %out)
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.205, i64 45, i64 1, ptr %out)
-  %fputc = tail call i32 @fputc(i32 10, ptr %out)
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.206, i64 62, i64 1, ptr %out)
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.207, i64 60, i64 1, ptr %out)
-  %6 = tail call i64 @fwrite(ptr nonnull @.str.208, i64 63, i64 1, ptr %out)
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.209, i64 55, i64 1, ptr %out)
-  %fputc19 = tail call i32 @fputc(i32 10, ptr %out)
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.210, i64 64, i64 1, ptr %out)
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.211, i64 63, i64 1, ptr %out)
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.212, i64 62, i64 1, ptr %out)
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.213, i64 45, i64 1, ptr %out)
-  %fputc20 = tail call i32 @fputc(i32 10, ptr %out)
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.214, i64 72, i64 1, ptr %out)
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.215, i64 72, i64 1, ptr %out)
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.216, i64 60, i64 1, ptr %out)
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.202, i64 79, i64 1, ptr %out)
-  ret void
-}
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
-
-; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc void @usage_summary(ptr noundef captures(none) %out) unnamed_addr #2 {
-entry:
-  %0 = tail call i64 @fwrite(ptr nonnull @.str.217, i64 7, i64 1, ptr %out)
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.218, i64 58, i64 1, ptr %out)
-  %fputc = tail call i32 @fputc(i32 10, ptr %out)
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.219, i64 79, i64 1, ptr %out)
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.220, i64 77, i64 1, ptr %out)
-  %fputc21 = tail call i32 @fputc(i32 10, ptr %out)
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.221, i64 9, i64 1, ptr %out)
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.222, i64 80, i64 1, ptr %out)
-  %6 = tail call i64 @fwrite(ptr nonnull @.str.223, i64 70, i64 1, ptr %out)
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.224, i64 77, i64 1, ptr %out)
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.225, i64 75, i64 1, ptr %out)
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.226, i64 51, i64 1, ptr %out)
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.227, i64 77, i64 1, ptr %out)
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.228, i64 71, i64 1, ptr %out)
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.229, i64 71, i64 1, ptr %out)
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.230, i64 78, i64 1, ptr %out)
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.231, i64 68, i64 1, ptr %out)
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.232, i64 78, i64 1, ptr %out)
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.233, i64 78, i64 1, ptr %out)
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.234, i64 77, i64 1, ptr %out)
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.235, i64 53, i64 1, ptr %out)
-  ret void
-}
-
-; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @long_usage(ptr noundef readonly %message, ...) local_unnamed_addr #2 {
-entry:
-  %args = alloca [1 x %struct.__va_list_tag], align 16
-  %tobool.not = icmp ne ptr %message, null
-  %0 = load ptr, ptr @stderr, align 8
-  %1 = load ptr, ptr @stdout, align 8
-  %cond = select i1 %tobool.not, ptr %0, ptr %1
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  call void @llvm.va_start.p0(ptr nonnull %args)
-  %2 = load ptr, ptr @stderr, align 8
-  %call = call i32 @vfprintf(ptr noundef %2, ptr noundef nonnull %message, ptr noundef nonnull %args) #5
-  call void @llvm.va_end.p0(ptr nonnull %args)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  call fastcc void @usage_header(ptr noundef %cond)
-  %fputc = call i32 @fputc(i32 10, ptr %cond)
-  call fastcc void @usage_summary(ptr noundef %cond)
-  %fputc227 = call i32 @fputc(i32 10, ptr %cond)
-  %3 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %cond)
-  %4 = call i64 @fwrite(ptr nonnull @.str.3, i64 72, i64 1, ptr %cond)
-  %5 = call i64 @fwrite(ptr nonnull @.str.4, i64 77, i64 1, ptr %cond)
-  %6 = call i64 @fwrite(ptr nonnull @.str.5, i64 77, i64 1, ptr %cond)
-  %7 = call i64 @fwrite(ptr nonnull @.str.6, i64 77, i64 1, ptr %cond)
-  %8 = call i64 @fwrite(ptr nonnull @.str.7, i64 77, i64 1, ptr %cond)
-  %9 = call i64 @fwrite(ptr nonnull @.str.8, i64 70, i64 1, ptr %cond)
-  %10 = call i64 @fwrite(ptr nonnull @.str.9, i64 77, i64 1, ptr %cond)
-  %11 = call i64 @fwrite(ptr nonnull @.str.10, i64 79, i64 1, ptr %cond)
-  %12 = call i64 @fwrite(ptr nonnull @.str.11, i64 77, i64 1, ptr %cond)
-  %fputc228 = call i32 @fputc(i32 10, ptr %cond)
-  %13 = call i64 @fwrite(ptr nonnull @.str.12, i64 76, i64 1, ptr %cond)
-  %14 = call i64 @fwrite(ptr nonnull @.str.13, i64 73, i64 1, ptr %cond)
-  %15 = call i64 @fwrite(ptr nonnull @.str.14, i64 78, i64 1, ptr %cond)
-  %16 = call i64 @fwrite(ptr nonnull @.str.15, i64 66, i64 1, ptr %cond)
-  %17 = call i64 @fwrite(ptr nonnull @.str.16, i64 70, i64 1, ptr %cond)
-  %18 = call i64 @fwrite(ptr nonnull @.str.17, i64 71, i64 1, ptr %cond)
-  %19 = call i64 @fwrite(ptr nonnull @.str.18, i64 80, i64 1, ptr %cond)
-  %20 = call i64 @fwrite(ptr nonnull @.str.19, i64 76, i64 1, ptr %cond)
-  %21 = call i64 @fwrite(ptr nonnull @.str.20, i64 51, i64 1, ptr %cond)
-  %22 = call i64 @fwrite(ptr nonnull @.str.21, i64 80, i64 1, ptr %cond)
-  %23 = call i64 @fwrite(ptr nonnull @.str.22, i64 77, i64 1, ptr %cond)
-  %24 = call i64 @fwrite(ptr nonnull @.str.23, i64 57, i64 1, ptr %cond)
-  %25 = call i64 @fwrite(ptr nonnull @.str.24, i64 75, i64 1, ptr %cond)
-  %26 = call i64 @fwrite(ptr nonnull @.str.25, i64 81, i64 1, ptr %cond)
-  %27 = call i64 @fwrite(ptr nonnull @.str.26, i64 79, i64 1, ptr %cond)
-  %28 = call i64 @fwrite(ptr nonnull @.str.27, i64 78, i64 1, ptr %cond)
-  %29 = call i64 @fwrite(ptr nonnull @.str.28, i64 65, i64 1, ptr %cond)
-  %30 = call i64 @fwrite(ptr nonnull @.str.29, i64 77, i64 1, ptr %cond)
-  %31 = call i64 @fwrite(ptr nonnull @.str.30, i64 75, i64 1, ptr %cond)
-  %32 = call i64 @fwrite(ptr nonnull @.str.31, i64 39, i64 1, ptr %cond)
-  %33 = call i64 @fwrite(ptr nonnull @.str.32, i64 80, i64 1, ptr %cond)
-  %34 = call i64 @fwrite(ptr nonnull @.str.33, i64 77, i64 1, ptr %cond)
-  %35 = call i64 @fwrite(ptr nonnull @.str.34, i64 78, i64 1, ptr %cond)
-  %36 = call i64 @fwrite(ptr nonnull @.str.35, i64 76, i64 1, ptr %cond)
-  %37 = call i64 @fwrite(ptr nonnull @.str.36, i64 77, i64 1, ptr %cond)
-  %38 = call i64 @fwrite(ptr nonnull @.str.37, i64 40, i64 1, ptr %cond)
-  %39 = call i64 @fwrite(ptr nonnull @.str.38, i64 77, i64 1, ptr %cond)
-  %40 = call i64 @fwrite(ptr nonnull @.str.39, i64 63, i64 1, ptr %cond)
-  %41 = call i64 @fwrite(ptr nonnull @.str.40, i64 54, i64 1, ptr %cond)
-  %42 = call i64 @fwrite(ptr nonnull @.str.41, i64 80, i64 1, ptr %cond)
-  %43 = call i64 @fwrite(ptr nonnull @.str.42, i64 80, i64 1, ptr %cond)
-  %44 = call i64 @fwrite(ptr nonnull @.str.43, i64 72, i64 1, ptr %cond)
-  %45 = call i64 @fwrite(ptr nonnull @.str.44, i64 74, i64 1, ptr %cond)
-  %46 = call i64 @fwrite(ptr nonnull @.str.45, i64 78, i64 1, ptr %cond)
-  %47 = call i64 @fwrite(ptr nonnull @.str.46, i64 77, i64 1, ptr %cond)
-  %48 = call i64 @fwrite(ptr nonnull @.str.47, i64 79, i64 1, ptr %cond)
-  %49 = call i64 @fwrite(ptr nonnull @.str.48, i64 81, i64 1, ptr %cond)
-  %50 = call i64 @fwrite(ptr nonnull @.str.49, i64 80, i64 1, ptr %cond)
-  %51 = call i64 @fwrite(ptr nonnull @.str.50, i64 75, i64 1, ptr %cond)
-  %52 = call i64 @fwrite(ptr nonnull @.str.51, i64 79, i64 1, ptr %cond)
-  %53 = call i64 @fwrite(ptr nonnull @.str.52, i64 74, i64 1, ptr %cond)
-  %54 = call i64 @fwrite(ptr nonnull @.str.53, i64 70, i64 1, ptr %cond)
-  %55 = call i64 @fwrite(ptr nonnull @.str.54, i64 71, i64 1, ptr %cond)
-  %56 = call i64 @fwrite(ptr nonnull @.str.55, i64 77, i64 1, ptr %cond)
-  %57 = call i64 @fwrite(ptr nonnull @.str.56, i64 57, i64 1, ptr %cond)
-  %58 = call i64 @fwrite(ptr nonnull @.str.57, i64 23, i64 1, ptr %cond)
-  %59 = call i64 @fwrite(ptr nonnull @.str.58, i64 53, i64 1, ptr %cond)
-  %60 = call i64 @fwrite(ptr nonnull @.str.59, i64 33, i64 1, ptr %cond)
-  %61 = call i64 @fwrite(ptr nonnull @.str.60, i64 31, i64 1, ptr %cond)
-  %62 = call i64 @fwrite(ptr nonnull @.str.61, i64 30, i64 1, ptr %cond)
-  %63 = call i64 @fwrite(ptr nonnull @.str.62, i64 30, i64 1, ptr %cond)
-  %64 = call i64 @fwrite(ptr nonnull @.str.63, i64 47, i64 1, ptr %cond)
-  %65 = call i64 @fwrite(ptr nonnull @.str.64, i64 52, i64 1, ptr %cond)
-  %66 = call i64 @fwrite(ptr nonnull @.str.65, i64 34, i64 1, ptr %cond)
-  %67 = call i64 @fwrite(ptr nonnull @.str.66, i64 27, i64 1, ptr %cond)
-  %68 = call i64 @fwrite(ptr nonnull @.str.67, i64 32, i64 1, ptr %cond)
-  %69 = call i64 @fwrite(ptr nonnull @.str.68, i64 26, i64 1, ptr %cond)
-  %70 = call i64 @fwrite(ptr nonnull @.str.69, i64 38, i64 1, ptr %cond)
-  %71 = call i64 @fwrite(ptr nonnull @.str.70, i64 36, i64 1, ptr %cond)
-  %72 = call i64 @fwrite(ptr nonnull @.str.71, i64 34, i64 1, ptr %cond)
-  %73 = call i64 @fwrite(ptr nonnull @.str.72, i64 36, i64 1, ptr %cond)
-  %74 = call i64 @fwrite(ptr nonnull @.str.73, i64 44, i64 1, ptr %cond)
-  %75 = call i64 @fwrite(ptr nonnull @.str.74, i64 40, i64 1, ptr %cond)
-  %76 = call i64 @fwrite(ptr nonnull @.str.75, i64 30, i64 1, ptr %cond)
-  %77 = call i64 @fwrite(ptr nonnull @.str.76, i64 38, i64 1, ptr %cond)
-  %78 = call i64 @fwrite(ptr nonnull @.str.77, i64 43, i64 1, ptr %cond)
-  %79 = call i64 @fwrite(ptr nonnull @.str.78, i64 81, i64 1, ptr %cond)
-  %80 = call i64 @fwrite(ptr nonnull @.str.79, i64 40, i64 1, ptr %cond)
-  %81 = call i64 @fwrite(ptr nonnull @.str.80, i64 78, i64 1, ptr %cond)
-  %82 = call i64 @fwrite(ptr nonnull @.str.81, i64 80, i64 1, ptr %cond)
-  %83 = call i64 @fwrite(ptr nonnull @.str.82, i64 77, i64 1, ptr %cond)
-  %84 = call i64 @fwrite(ptr nonnull @.str.83, i64 78, i64 1, ptr %cond)
-  %85 = call i64 @fwrite(ptr nonnull @.str.84, i64 26, i64 1, ptr %cond)
-  %86 = call i64 @fwrite(ptr nonnull @.str.85, i64 67, i64 1, ptr %cond)
-  %87 = call i64 @fwrite(ptr nonnull @.str.86, i64 77, i64 1, ptr %cond)
-  %88 = call i64 @fwrite(ptr nonnull @.str.87, i64 75, i64 1, ptr %cond)
-  %89 = call i64 @fwrite(ptr nonnull @.str.88, i64 78, i64 1, ptr %cond)
-  %90 = call i64 @fwrite(ptr nonnull @.str.89, i64 80, i64 1, ptr %cond)
-  %91 = call i64 @fwrite(ptr nonnull @.str.90, i64 81, i64 1, ptr %cond)
-  %92 = call i64 @fwrite(ptr nonnull @.str.91, i64 64, i64 1, ptr %cond)
-  %93 = call i64 @fwrite(ptr nonnull @.str.92, i64 78, i64 1, ptr %cond)
-  %94 = call i64 @fwrite(ptr nonnull @.str.93, i64 30, i64 1, ptr %cond)
-  %95 = call i64 @fwrite(ptr nonnull @.str.94, i64 79, i64 1, ptr %cond)
-  %96 = call i64 @fwrite(ptr nonnull @.str.95, i64 78, i64 1, ptr %cond)
-  %97 = call i64 @fwrite(ptr nonnull @.str.96, i64 75, i64 1, ptr %cond)
-  %98 = call i64 @fwrite(ptr nonnull @.str.97, i64 81, i64 1, ptr %cond)
-  %99 = call i64 @fwrite(ptr nonnull @.str.98, i64 80, i64 1, ptr %cond)
-  %100 = call i64 @fwrite(ptr nonnull @.str.99, i64 47, i64 1, ptr %cond)
-  %101 = call i64 @fwrite(ptr nonnull @.str.100, i64 78, i64 1, ptr %cond)
-  %102 = call i64 @fwrite(ptr nonnull @.str.101, i64 77, i64 1, ptr %cond)
-  %103 = call i64 @fwrite(ptr nonnull @.str.102, i64 78, i64 1, ptr %cond)
-  %104 = call i64 @fwrite(ptr nonnull @.str.103, i64 74, i64 1, ptr %cond)
-  %105 = call i64 @fwrite(ptr nonnull @.str.104, i64 79, i64 1, ptr %cond)
-  %106 = call i64 @fwrite(ptr nonnull @.str.105, i64 76, i64 1, ptr %cond)
-  %107 = call i64 @fwrite(ptr nonnull @.str.106, i64 77, i64 1, ptr %cond)
-  %108 = call i64 @fwrite(ptr nonnull @.str.107, i64 74, i64 1, ptr %cond)
-  %109 = call i64 @fwrite(ptr nonnull @.str.108, i64 79, i64 1, ptr %cond)
-  %110 = call i64 @fwrite(ptr nonnull @.str.109, i64 77, i64 1, ptr %cond)
-  %111 = call i64 @fwrite(ptr nonnull @.str.110, i64 76, i64 1, ptr %cond)
-  %112 = call i64 @fwrite(ptr nonnull @.str.111, i64 75, i64 1, ptr %cond)
-  %113 = call i64 @fwrite(ptr nonnull @.str.112, i64 79, i64 1, ptr %cond)
-  %114 = call i64 @fwrite(ptr nonnull @.str.113, i64 76, i64 1, ptr %cond)
-  %115 = call i64 @fwrite(ptr nonnull @.str.114, i64 75, i64 1, ptr %cond)
-  %116 = call i64 @fwrite(ptr nonnull @.str.115, i64 74, i64 1, ptr %cond)
-  %117 = call i64 @fwrite(ptr nonnull @.str.116, i64 56, i64 1, ptr %cond)
-  %118 = call i64 @fwrite(ptr nonnull @.str.117, i64 51, i64 1, ptr %cond)
-  %119 = call i64 @fwrite(ptr nonnull @.str.118, i64 66, i64 1, ptr %cond)
-  %120 = call i64 @fwrite(ptr nonnull @.str.119, i64 54, i64 1, ptr %cond)
-  %121 = call i64 @fwrite(ptr nonnull @.str.120, i64 74, i64 1, ptr %cond)
-  %122 = call i64 @fwrite(ptr nonnull @.str.121, i64 68, i64 1, ptr %cond)
-  %123 = call i64 @fwrite(ptr nonnull @.str.122, i64 78, i64 1, ptr %cond)
-  %124 = call i64 @fwrite(ptr nonnull @.str.123, i64 77, i64 1, ptr %cond)
-  %125 = call i64 @fwrite(ptr nonnull @.str.124, i64 79, i64 1, ptr %cond)
-  %126 = call i64 @fwrite(ptr nonnull @.str.125, i64 80, i64 1, ptr %cond)
-  %127 = call i64 @fwrite(ptr nonnull @.str.126, i64 77, i64 1, ptr %cond)
-  %128 = call i64 @fwrite(ptr nonnull @.str.127, i64 76, i64 1, ptr %cond)
-  %129 = call i64 @fwrite(ptr nonnull @.str.128, i64 70, i64 1, ptr %cond)
-  %130 = call i64 @fwrite(ptr nonnull @.str.129, i64 70, i64 1, ptr %cond)
-  %131 = call i64 @fwrite(ptr nonnull @.str.130, i64 68, i64 1, ptr %cond)
-  %132 = call i64 @fwrite(ptr nonnull @.str.131, i64 74, i64 1, ptr %cond)
-  %133 = call i64 @fwrite(ptr nonnull @.str.132, i64 78, i64 1, ptr %cond)
-  %134 = call i64 @fwrite(ptr nonnull @.str.133, i64 74, i64 1, ptr %cond)
-  %fputc229 = call i32 @fputc(i32 10, ptr %cond)
-  %135 = call i64 @fwrite(ptr nonnull @.str.134, i64 18, i64 1, ptr %cond)
-  %136 = call i64 @fwrite(ptr nonnull @.str.135, i64 10, i64 1, ptr %cond)
-  %137 = call i64 @fwrite(ptr nonnull @.str.136, i64 38, i64 1, ptr %cond)
-  %138 = call i64 @fwrite(ptr nonnull @.str.137, i64 7, i64 1, ptr %cond)
-  %139 = call i64 @fwrite(ptr nonnull @.str.138, i64 77, i64 1, ptr %cond)
-  %140 = call i64 @fwrite(ptr nonnull @.str.139, i64 78, i64 1, ptr %cond)
-  %141 = call i64 @fwrite(ptr nonnull @.str.140, i64 29, i64 1, ptr %cond)
-  %fputc230 = call i32 @fputc(i32 10, ptr %cond)
-  %142 = call i64 @fwrite(ptr nonnull @.str.141, i64 30, i64 1, ptr %cond)
-  %143 = call i64 @fwrite(ptr nonnull @.str.142, i64 77, i64 1, ptr %cond)
-  %144 = call i64 @fwrite(ptr nonnull @.str.143, i64 45, i64 1, ptr %cond)
-  %fputc231 = call i32 @fputc(i32 10, ptr %cond)
-  %145 = call i64 @fwrite(ptr nonnull @.str.144, i64 34, i64 1, ptr %cond)
-  %146 = call i64 @fwrite(ptr nonnull @.str.145, i64 41, i64 1, ptr %cond)
-  %147 = call i64 @fwrite(ptr nonnull @.str.146, i64 78, i64 1, ptr %cond)
-  %148 = call i64 @fwrite(ptr nonnull @.str.147, i64 76, i64 1, ptr %cond)
-  %149 = call i64 @fwrite(ptr nonnull @.str.148, i64 76, i64 1, ptr %cond)
-  %150 = call i64 @fwrite(ptr nonnull @.str.149, i64 73, i64 1, ptr %cond)
-  %151 = call i64 @fwrite(ptr nonnull @.str.150, i64 26, i64 1, ptr %cond)
-  %152 = call i64 @fwrite(ptr nonnull @.str.151, i64 78, i64 1, ptr %cond)
-  %153 = call i64 @fwrite(ptr nonnull @.str.152, i64 69, i64 1, ptr %cond)
-  %154 = call i64 @fwrite(ptr nonnull @.str.153, i64 80, i64 1, ptr %cond)
-  %155 = call i64 @fwrite(ptr nonnull @.str.154, i64 74, i64 1, ptr %cond)
-  %156 = call i64 @fwrite(ptr nonnull @.str.155, i64 80, i64 1, ptr %cond)
-  %157 = call i64 @fwrite(ptr nonnull @.str.156, i64 71, i64 1, ptr %cond)
-  %fputc232 = call i32 @fputc(i32 10, ptr %cond)
-  %158 = call i64 @fwrite(ptr nonnull @.str.157, i64 74, i64 1, ptr %cond)
-  %159 = call i64 @fwrite(ptr nonnull @.str.158, i64 59, i64 1, ptr %cond)
-  %fputc233 = call i32 @fputc(i32 10, ptr %cond)
-  %160 = call i64 @fwrite(ptr nonnull @.str.159, i64 48, i64 1, ptr %cond)
-  %161 = call i64 @fwrite(ptr nonnull @.str.160, i64 78, i64 1, ptr %cond)
-  %162 = call i64 @fwrite(ptr nonnull @.str.161, i64 77, i64 1, ptr %cond)
-  %163 = call i64 @fwrite(ptr nonnull @.str.162, i64 78, i64 1, ptr %cond)
-  %164 = call i64 @fwrite(ptr nonnull @.str.163, i64 77, i64 1, ptr %cond)
-  %165 = call i64 @fwrite(ptr nonnull @.str.164, i64 57, i64 1, ptr %cond)
-  %166 = call i64 @fwrite(ptr nonnull @.str.165, i64 24, i64 1, ptr %cond)
-  %fputc234 = call i32 @fputc(i32 10, ptr %cond)
-  %167 = call i64 @fwrite(ptr nonnull @.str.166, i64 43, i64 1, ptr %cond)
-  %168 = call i64 @fwrite(ptr nonnull @.str.167, i64 78, i64 1, ptr %cond)
-  %169 = call i64 @fwrite(ptr nonnull @.str.168, i64 75, i64 1, ptr %cond)
-  %170 = call i64 @fwrite(ptr nonnull @.str.169, i64 61, i64 1, ptr %cond)
-  %fputc235 = call i32 @fputc(i32 10, ptr %cond)
-  %171 = call i64 @fwrite(ptr nonnull @.str.170, i64 9, i64 1, ptr %cond)
-  %172 = call i64 @fwrite(ptr nonnull @.str.171, i64 72, i64 1, ptr %cond)
-  %173 = call i64 @fwrite(ptr nonnull @.str.172, i64 70, i64 1, ptr %cond)
-  %174 = call i64 @fwrite(ptr nonnull @.str.173, i64 74, i64 1, ptr %cond)
-  %175 = call i64 @fwrite(ptr nonnull @.str.174, i64 72, i64 1, ptr %cond)
-  %176 = call i64 @fwrite(ptr nonnull @.str.175, i64 69, i64 1, ptr %cond)
-  %177 = call i64 @fwrite(ptr nonnull @.str.176, i64 71, i64 1, ptr %cond)
-  %178 = call i64 @fwrite(ptr nonnull @.str.177, i64 54, i64 1, ptr %cond)
-  %179 = call i64 @fwrite(ptr nonnull @.str.178, i64 76, i64 1, ptr %cond)
-  %180 = call i64 @fwrite(ptr nonnull @.str.179, i64 49, i64 1, ptr %cond)
-  %181 = call i64 @fwrite(ptr nonnull @.str.180, i64 47, i64 1, ptr %cond)
-  %182 = call i64 @fwrite(ptr nonnull @.str.181, i64 77, i64 1, ptr %cond)
-  %183 = call i64 @fwrite(ptr nonnull @.str.182, i64 37, i64 1, ptr %cond)
-  %fputc236 = call i32 @fputc(i32 10, ptr %cond)
-  %184 = call i64 @fwrite(ptr nonnull @.str.183, i64 21, i64 1, ptr %cond)
-  %185 = call i64 @fwrite(ptr nonnull @.str.184, i64 78, i64 1, ptr %cond)
-  %186 = call i64 @fwrite(ptr nonnull @.str.185, i64 80, i64 1, ptr %cond)
-  %187 = call i64 @fwrite(ptr nonnull @.str.186, i64 80, i64 1, ptr %cond)
-  %188 = call i64 @fwrite(ptr nonnull @.str.187, i64 22, i64 1, ptr %cond)
-  %fputc237 = call i32 @fputc(i32 10, ptr %cond)
-  %189 = call i64 @fwrite(ptr nonnull @.str.188, i64 9, i64 1, ptr %cond)
-  %190 = call i64 @fwrite(ptr nonnull @.str.189, i64 66, i64 1, ptr %cond)
-  %191 = call i64 @fwrite(ptr nonnull @.str.190, i64 79, i64 1, ptr %cond)
-  %192 = call i64 @fwrite(ptr nonnull @.str.191, i64 45, i64 1, ptr %cond)
-  %fputc238 = call i32 @fputc(i32 10, ptr %cond)
-  %193 = call i64 @fwrite(ptr nonnull @.str.141, i64 30, i64 1, ptr %cond)
-  %194 = call i64 @fwrite(ptr nonnull @.str.144, i64 34, i64 1, ptr %cond)
-  %195 = call i64 @fwrite(ptr nonnull @.str.145, i64 41, i64 1, ptr %cond)
-  %196 = call i64 @fwrite(ptr nonnull @.str.192, i64 32, i64 1, ptr %cond)
-  %fputc239 = call i32 @fputc(i32 10, ptr %cond)
-  %197 = call i64 @fwrite(ptr nonnull @.str.157, i64 74, i64 1, ptr %cond)
-  %198 = call i64 @fwrite(ptr nonnull @.str.158, i64 59, i64 1, ptr %cond)
-  %fputc240 = call i32 @fputc(i32 10, ptr %cond)
-  %199 = call i64 @fwrite(ptr nonnull @.str.193, i64 13, i64 1, ptr %cond)
-  %200 = call i64 @fwrite(ptr nonnull @.str.194, i64 70, i64 1, ptr %cond)
-  %201 = call i64 @fwrite(ptr nonnull @.str.195, i64 74, i64 1, ptr %cond)
-  %202 = call i64 @fwrite(ptr nonnull @.str.196, i64 27, i64 1, ptr %cond)
-  %fputc241 = call i32 @fputc(i32 10, ptr %cond)
-  %203 = call i64 @fwrite(ptr nonnull @.str.197, i64 16, i64 1, ptr %cond)
-  %204 = call i64 @fwrite(ptr nonnull @.str.198, i64 54, i64 1, ptr %cond)
-  %fputc242 = call i32 @fputc(i32 10, ptr %cond)
-  %205 = call i64 @fwrite(ptr nonnull @.str.199, i64 15, i64 1, ptr %cond)
-  %206 = call i64 @fwrite(ptr nonnull @.str.200, i64 77, i64 1, ptr %cond)
-  %207 = call i64 @fwrite(ptr nonnull @.str.201, i64 18, i64 1, ptr %cond)
-  %cond227 = zext i1 %tobool.not to i32
-  ret i32 %cond227
-}
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
-
-; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
-
-attributes #0 = { cold nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nofree nounwind }
-attributes #5 = { cold }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !6, i64 0}

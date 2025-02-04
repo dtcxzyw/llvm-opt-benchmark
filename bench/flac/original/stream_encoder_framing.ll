@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon }
 %union.anon = type { %struct.FLAC__StreamMetadata_CueSheet }
@@ -93,2771 +93,3068 @@ target triple = "x86_64-unknown-linux-gnu"
 @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_RAW_LEN = external constant i32, align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__add_metadata_block(ptr noundef %metadata, ptr noundef %bw, i32 noundef %update_vendor_string) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %metadata.addr = alloca ptr, align 8
-  %bw.addr = alloca ptr, align 8
-  %update_vendor_string.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %metadata_length = alloca i32, align 4
-  %vendor_string_length = alloca i32, align 4
-  %start_bits = alloca i32, align 4
-  %track = alloca ptr, align 8
-  %indx = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %length_in_bits = alloca i32, align 4
-  store ptr %metadata, ptr %metadata.addr, align 8
-  store ptr %bw, ptr %bw.addr, align 8
-  store i32 %update_vendor_string, ptr %update_vendor_string.addr, align 4
-  %0 = load ptr, ptr @FLAC__VENDOR_STRING, align 8
-  %call = call i64 @strlen(ptr noundef %0) #3
-  %conv = trunc i64 %call to i32
-  store i32 %conv, ptr %vendor_string_length, align 4
-  %1 = load ptr, ptr %bw.addr, align 8
-  %call1 = call i32 @FLAC__bitwriter_get_input_bits_unconsumed(ptr noundef %1)
-  store i32 %call1, ptr %start_bits, align 4
-  %2 = load ptr, ptr %bw.addr, align 8
-  %3 = load ptr, ptr %metadata.addr, align 8
-  %is_last = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %is_last, align 4
-  %5 = load i32, ptr @FLAC__STREAM_METADATA_IS_LAST_LEN, align 4
-  %call2 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %2, i32 noundef %4, i32 noundef %5)
-  %tobool = icmp ne i32 %call2, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @FLAC__add_metadata_block(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %18 = load ptr, ptr @FLAC__VENDOR_STRING, align 8, !tbaa !12
+  %19 = call i64 @strlen(ptr noundef %18) #5
+  %20 = trunc i64 %19 to i32
+  store i32 %20, ptr %11, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %21 = load ptr, ptr %6, align 8, !tbaa !8
+  %22 = call i32 @FLAC__bitwriter_get_input_bits_unconsumed(ptr noundef %21)
+  store i32 %22, ptr %12, align 4, !tbaa !10
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 4, !tbaa !14
+  %27 = load i32, ptr @FLAC__STREAM_METADATA_IS_LAST_LEN, align 4, !tbaa !10
+  %28 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %23, i32 noundef %26, i32 noundef %27)
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %31, label %30
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
 
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %bw.addr, align 8
-  %7 = load ptr, ptr %metadata.addr, align 8
-  %type = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr %type, align 8
-  %9 = load i32, ptr @FLAC__STREAM_METADATA_TYPE_LEN, align 4
-  %call3 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %6, i32 noundef %8, i32 noundef %9)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.end6, label %if.then5
+31:                                               ; preds = %3
+  %32 = load ptr, ptr %6, align 8, !tbaa !8
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 8, !tbaa !16
+  %36 = load i32, ptr @FLAC__STREAM_METADATA_TYPE_LEN, align 4, !tbaa !10
+  %37 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %32, i32 noundef %35, i32 noundef %36)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %40, label %39
 
-if.then5:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %31
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
 
-if.end6:                                          ; preds = %if.end
-  %10 = load ptr, ptr %metadata.addr, align 8
-  %length = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %10, i32 0, i32 2
-  %11 = load i32, ptr %length, align 8
-  store i32 %11, ptr %metadata_length, align 4
-  %12 = load ptr, ptr %metadata.addr, align 8
-  %type7 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %12, i32 0, i32 0
-  %13 = load i32, ptr %type7, align 8
-  %cmp = icmp eq i32 %13, 4
-  br i1 %cmp, label %land.lhs.true, label %if.end12
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %5, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 8, !tbaa !17
+  store i32 %43, ptr %10, align 4, !tbaa !10
+  %44 = load ptr, ptr %5, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !16
+  %47 = icmp eq i32 %46, 4
+  br i1 %47, label %48, label %62
 
-land.lhs.true:                                    ; preds = %if.end6
-  %14 = load i32, ptr %update_vendor_string.addr, align 4
-  %tobool9 = icmp ne i32 %14, 0
-  br i1 %tobool9, label %if.then10, label %if.end12
+48:                                               ; preds = %40
+  %49 = load i32, ptr %7, align 4, !tbaa !10
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %62
 
-if.then10:                                        ; preds = %land.lhs.true
-  %15 = load ptr, ptr %metadata.addr, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %15, i32 0, i32 3
-  %vendor_string = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data, i32 0, i32 0
-  %length11 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %vendor_string, i32 0, i32 0
-  %16 = load i32, ptr %length11, align 8
-  %17 = load i32, ptr %metadata_length, align 4
-  %sub = sub i32 %17, %16
-  store i32 %sub, ptr %metadata_length, align 4
-  %18 = load i32, ptr %vendor_string_length, align 4
-  %19 = load i32, ptr %metadata_length, align 4
-  %add = add i32 %19, %18
-  store i32 %add, ptr %metadata_length, align 4
-  br label %if.end12
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %5, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %52, i32 0, i32 3
+  %54 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 8, !tbaa !18
+  %57 = load i32, ptr %10, align 4, !tbaa !10
+  %58 = sub i32 %57, %56
+  store i32 %58, ptr %10, align 4, !tbaa !10
+  %59 = load i32, ptr %11, align 4, !tbaa !10
+  %60 = load i32, ptr %10, align 4, !tbaa !10
+  %61 = add i32 %60, %59
+  store i32 %61, ptr %10, align 4, !tbaa !10
+  br label %62
 
-if.end12:                                         ; preds = %if.then10, %land.lhs.true, %if.end6
-  %20 = load i32, ptr %metadata_length, align 4
-  %21 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
-  %shl = shl i32 1, %21
-  %cmp13 = icmp uge i32 %20, %shl
-  br i1 %cmp13, label %if.then15, label %if.end16
+62:                                               ; preds = %51, %48, %40
+  %63 = load i32, ptr %10, align 4, !tbaa !10
+  %64 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !10
+  %65 = shl i32 1, %64
+  %66 = icmp uge i32 %63, %65
+  br i1 %66, label %67, label %68
 
-if.then15:                                        ; preds = %if.end12
-  store i32 0, ptr %retval, align 4
-  br label %return
+67:                                               ; preds = %62
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
 
-if.end16:                                         ; preds = %if.end12
-  %22 = load ptr, ptr %bw.addr, align 8
-  %23 = load i32, ptr %metadata_length, align 4
-  %24 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
-  %call17 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %22, i32 noundef %23, i32 noundef %24)
-  %tobool18 = icmp ne i32 %call17, 0
-  br i1 %tobool18, label %if.end20, label %if.then19
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %6, align 8, !tbaa !8
+  %70 = load i32, ptr %10, align 4, !tbaa !10
+  %71 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !10
+  %72 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %69, i32 noundef %70, i32 noundef %71)
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %75, label %74
 
-if.then19:                                        ; preds = %if.end16
-  store i32 0, ptr %retval, align 4
-  br label %return
+74:                                               ; preds = %68
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
 
-if.end20:                                         ; preds = %if.end16
-  %25 = load ptr, ptr %metadata.addr, align 8
-  %type21 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %25, i32 0, i32 0
-  %26 = load i32, ptr %type21, align 8
-  switch i32 %26, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb80
-    i32 2, label %sw.bb86
-    i32 3, label %sw.bb102
-    i32 4, label %sw.bb127
-    i32 5, label %sw.bb193
-    i32 6, label %sw.bb293
+75:                                               ; preds = %68
+  %76 = load ptr, ptr %5, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 8, !tbaa !16
+  switch i32 %78, label %696 [
+    i32 0, label %79
+    i32 1, label %188
+    i32 2, label %198
+    i32 3, label %225
+    i32 4, label %283
+    i32 5, label %385
+    i32 6, label %571
   ]
 
-sw.bb:                                            ; preds = %if.end20
-  %27 = load ptr, ptr %bw.addr, align 8
-  %28 = load ptr, ptr %metadata.addr, align 8
-  %data22 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %28, i32 0, i32 3
-  %min_blocksize = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data22, i32 0, i32 0
-  %29 = load i32, ptr %min_blocksize, align 8
-  %30 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MIN_BLOCK_SIZE_LEN, align 4
-  %call23 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %27, i32 noundef %29, i32 noundef %30)
-  %tobool24 = icmp ne i32 %call23, 0
-  br i1 %tobool24, label %if.end26, label %if.then25
-
-if.then25:                                        ; preds = %sw.bb
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end26:                                         ; preds = %sw.bb
-  %31 = load ptr, ptr %bw.addr, align 8
-  %32 = load ptr, ptr %metadata.addr, align 8
-  %data27 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %32, i32 0, i32 3
-  %max_blocksize = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data27, i32 0, i32 1
-  %33 = load i32, ptr %max_blocksize, align 4
-  %34 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MAX_BLOCK_SIZE_LEN, align 4
-  %call28 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %31, i32 noundef %33, i32 noundef %34)
-  %tobool29 = icmp ne i32 %call28, 0
-  br i1 %tobool29, label %if.end31, label %if.then30
-
-if.then30:                                        ; preds = %if.end26
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end31:                                         ; preds = %if.end26
-  %35 = load ptr, ptr %bw.addr, align 8
-  %36 = load ptr, ptr %metadata.addr, align 8
-  %data32 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %36, i32 0, i32 3
-  %min_framesize = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data32, i32 0, i32 2
-  %37 = load i32, ptr %min_framesize, align 8
-  %38 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MIN_FRAME_SIZE_LEN, align 4
-  %call33 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %35, i32 noundef %37, i32 noundef %38)
-  %tobool34 = icmp ne i32 %call33, 0
-  br i1 %tobool34, label %if.end36, label %if.then35
-
-if.then35:                                        ; preds = %if.end31
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end36:                                         ; preds = %if.end31
-  %39 = load ptr, ptr %bw.addr, align 8
-  %40 = load ptr, ptr %metadata.addr, align 8
-  %data37 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %40, i32 0, i32 3
-  %max_framesize = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data37, i32 0, i32 3
-  %41 = load i32, ptr %max_framesize, align 4
-  %42 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MAX_FRAME_SIZE_LEN, align 4
-  %call38 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %39, i32 noundef %41, i32 noundef %42)
-  %tobool39 = icmp ne i32 %call38, 0
-  br i1 %tobool39, label %if.end41, label %if.then40
-
-if.then40:                                        ; preds = %if.end36
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end41:                                         ; preds = %if.end36
-  %43 = load ptr, ptr %bw.addr, align 8
-  %44 = load ptr, ptr %metadata.addr, align 8
-  %data42 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %44, i32 0, i32 3
-  %sample_rate = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data42, i32 0, i32 4
-  %45 = load i32, ptr %sample_rate, align 8
-  %46 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_SAMPLE_RATE_LEN, align 4
-  %call43 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %43, i32 noundef %45, i32 noundef %46)
-  %tobool44 = icmp ne i32 %call43, 0
-  br i1 %tobool44, label %if.end46, label %if.then45
-
-if.then45:                                        ; preds = %if.end41
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end46:                                         ; preds = %if.end41
-  %47 = load ptr, ptr %bw.addr, align 8
-  %48 = load ptr, ptr %metadata.addr, align 8
-  %data47 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %48, i32 0, i32 3
-  %channels = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data47, i32 0, i32 5
-  %49 = load i32, ptr %channels, align 4
-  %sub48 = sub i32 %49, 1
-  %50 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_CHANNELS_LEN, align 4
-  %call49 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %47, i32 noundef %sub48, i32 noundef %50)
-  %tobool50 = icmp ne i32 %call49, 0
-  br i1 %tobool50, label %if.end52, label %if.then51
-
-if.then51:                                        ; preds = %if.end46
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end52:                                         ; preds = %if.end46
-  %51 = load ptr, ptr %bw.addr, align 8
-  %52 = load ptr, ptr %metadata.addr, align 8
-  %data53 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %52, i32 0, i32 3
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data53, i32 0, i32 6
-  %53 = load i32, ptr %bits_per_sample, align 8
-  %sub54 = sub i32 %53, 1
-  %54 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_BITS_PER_SAMPLE_LEN, align 4
-  %call55 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %51, i32 noundef %sub54, i32 noundef %54)
-  %tobool56 = icmp ne i32 %call55, 0
-  br i1 %tobool56, label %if.end58, label %if.then57
-
-if.then57:                                        ; preds = %if.end52
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end58:                                         ; preds = %if.end52
-  %55 = load ptr, ptr %metadata.addr, align 8
-  %data59 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %55, i32 0, i32 3
-  %total_samples = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data59, i32 0, i32 7
-  %56 = load i64, ptr %total_samples, align 8
-  %57 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN, align 4
-  %sh_prom = zext i32 %57 to i64
-  %shl60 = shl i64 1, %sh_prom
-  %cmp61 = icmp uge i64 %56, %shl60
-  br i1 %cmp61, label %if.then63, label %if.else
-
-if.then63:                                        ; preds = %if.end58
-  %58 = load ptr, ptr %bw.addr, align 8
-  %59 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN, align 4
-  %call64 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %58, i64 noundef 0, i32 noundef %59)
-  %tobool65 = icmp ne i32 %call64, 0
-  br i1 %tobool65, label %if.end67, label %if.then66
-
-if.then66:                                        ; preds = %if.then63
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end67:                                         ; preds = %if.then63
-  br label %if.end74
-
-if.else:                                          ; preds = %if.end58
-  %60 = load ptr, ptr %bw.addr, align 8
-  %61 = load ptr, ptr %metadata.addr, align 8
-  %data68 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %61, i32 0, i32 3
-  %total_samples69 = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data68, i32 0, i32 7
-  %62 = load i64, ptr %total_samples69, align 8
-  %63 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN, align 4
-  %call70 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %60, i64 noundef %62, i32 noundef %63)
-  %tobool71 = icmp ne i32 %call70, 0
-  br i1 %tobool71, label %if.end73, label %if.then72
-
-if.then72:                                        ; preds = %if.else
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end73:                                         ; preds = %if.else
-  br label %if.end74
-
-if.end74:                                         ; preds = %if.end73, %if.end67
-  %64 = load ptr, ptr %bw.addr, align 8
-  %65 = load ptr, ptr %metadata.addr, align 8
-  %data75 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %65, i32 0, i32 3
-  %md5sum = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data75, i32 0, i32 8
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %md5sum, i64 0, i64 0
-  %call76 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %64, ptr noundef %arraydecay, i32 noundef 16)
-  %tobool77 = icmp ne i32 %call76, 0
-  br i1 %tobool77, label %if.end79, label %if.then78
-
-if.then78:                                        ; preds = %if.end74
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end79:                                         ; preds = %if.end74
-  br label %sw.epilog
-
-sw.bb80:                                          ; preds = %if.end20
-  %66 = load ptr, ptr %bw.addr, align 8
-  %67 = load ptr, ptr %metadata.addr, align 8
-  %length81 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %67, i32 0, i32 2
-  %68 = load i32, ptr %length81, align 8
-  %mul = mul i32 %68, 8
-  %call82 = call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %66, i32 noundef %mul)
-  %tobool83 = icmp ne i32 %call82, 0
-  br i1 %tobool83, label %if.end85, label %if.then84
-
-if.then84:                                        ; preds = %sw.bb80
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end85:                                         ; preds = %sw.bb80
-  br label %sw.epilog
-
-sw.bb86:                                          ; preds = %if.end20
-  %69 = load ptr, ptr %bw.addr, align 8
-  %70 = load ptr, ptr %metadata.addr, align 8
-  %data87 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %70, i32 0, i32 3
-  %id = getelementptr inbounds %struct.FLAC__StreamMetadata_Application, ptr %data87, i32 0, i32 0
-  %arraydecay88 = getelementptr inbounds [4 x i8], ptr %id, i64 0, i64 0
-  %71 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4
-  %div = udiv i32 %71, 8
-  %call89 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %69, ptr noundef %arraydecay88, i32 noundef %div)
-  %tobool90 = icmp ne i32 %call89, 0
-  br i1 %tobool90, label %if.end92, label %if.then91
-
-if.then91:                                        ; preds = %sw.bb86
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end92:                                         ; preds = %sw.bb86
-  %72 = load ptr, ptr %bw.addr, align 8
-  %73 = load ptr, ptr %metadata.addr, align 8
-  %data93 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %73, i32 0, i32 3
-  %data94 = getelementptr inbounds %struct.FLAC__StreamMetadata_Application, ptr %data93, i32 0, i32 1
-  %74 = load ptr, ptr %data94, align 8
-  %75 = load ptr, ptr %metadata.addr, align 8
-  %length95 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %75, i32 0, i32 2
-  %76 = load i32, ptr %length95, align 8
-  %77 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4
-  %div96 = udiv i32 %77, 8
-  %sub97 = sub i32 %76, %div96
-  %call98 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %72, ptr noundef %74, i32 noundef %sub97)
-  %tobool99 = icmp ne i32 %call98, 0
-  br i1 %tobool99, label %if.end101, label %if.then100
-
-if.then100:                                       ; preds = %if.end92
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end101:                                        ; preds = %if.end92
-  br label %sw.epilog
-
-sw.bb102:                                         ; preds = %if.end20
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %sw.bb102
-  %78 = load i32, ptr %i, align 4
-  %79 = load ptr, ptr %metadata.addr, align 8
-  %data103 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %79, i32 0, i32 3
-  %num_points = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekTable, ptr %data103, i32 0, i32 0
-  %80 = load i32, ptr %num_points, align 8
-  %cmp104 = icmp ult i32 %78, %80
-  br i1 %cmp104, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %81 = load ptr, ptr %bw.addr, align 8
-  %82 = load ptr, ptr %metadata.addr, align 8
-  %data106 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %82, i32 0, i32 3
-  %points = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekTable, ptr %data106, i32 0, i32 1
-  %83 = load ptr, ptr %points, align 8
-  %84 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %84 to i64
-  %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %83, i64 %idxprom
-  %sample_number = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %arrayidx, i32 0, i32 0
-  %85 = load i64, ptr %sample_number, align 8
-  %86 = load i32, ptr @FLAC__STREAM_METADATA_SEEKPOINT_SAMPLE_NUMBER_LEN, align 4
-  %call107 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %81, i64 noundef %85, i32 noundef %86)
-  %tobool108 = icmp ne i32 %call107, 0
-  br i1 %tobool108, label %if.end110, label %if.then109
-
-if.then109:                                       ; preds = %for.body
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end110:                                        ; preds = %for.body
-  %87 = load ptr, ptr %bw.addr, align 8
-  %88 = load ptr, ptr %metadata.addr, align 8
-  %data111 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %88, i32 0, i32 3
-  %points112 = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekTable, ptr %data111, i32 0, i32 1
-  %89 = load ptr, ptr %points112, align 8
-  %90 = load i32, ptr %i, align 4
-  %idxprom113 = zext i32 %90 to i64
-  %arrayidx114 = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %89, i64 %idxprom113
-  %stream_offset = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %arrayidx114, i32 0, i32 1
-  %91 = load i64, ptr %stream_offset, align 8
-  %92 = load i32, ptr @FLAC__STREAM_METADATA_SEEKPOINT_STREAM_OFFSET_LEN, align 4
-  %call115 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %87, i64 noundef %91, i32 noundef %92)
-  %tobool116 = icmp ne i32 %call115, 0
-  br i1 %tobool116, label %if.end118, label %if.then117
-
-if.then117:                                       ; preds = %if.end110
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end118:                                        ; preds = %if.end110
-  %93 = load ptr, ptr %bw.addr, align 8
-  %94 = load ptr, ptr %metadata.addr, align 8
-  %data119 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %94, i32 0, i32 3
-  %points120 = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekTable, ptr %data119, i32 0, i32 1
-  %95 = load ptr, ptr %points120, align 8
-  %96 = load i32, ptr %i, align 4
-  %idxprom121 = zext i32 %96 to i64
-  %arrayidx122 = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %95, i64 %idxprom121
-  %frame_samples = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %arrayidx122, i32 0, i32 2
-  %97 = load i32, ptr %frame_samples, align 8
-  %98 = load i32, ptr @FLAC__STREAM_METADATA_SEEKPOINT_FRAME_SAMPLES_LEN, align 4
-  %call123 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %93, i32 noundef %97, i32 noundef %98)
-  %tobool124 = icmp ne i32 %call123, 0
-  br i1 %tobool124, label %if.end126, label %if.then125
-
-if.then125:                                       ; preds = %if.end118
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end126:                                        ; preds = %if.end118
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end126
-  %99 = load i32, ptr %i, align 4
-  %inc = add i32 %99, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
-
-for.end:                                          ; preds = %for.cond
-  br label %sw.epilog
-
-sw.bb127:                                         ; preds = %if.end20
-  %100 = load i32, ptr %update_vendor_string.addr, align 4
-  %tobool128 = icmp ne i32 %100, 0
-  br i1 %tobool128, label %if.then129, label %if.else138
-
-if.then129:                                       ; preds = %sw.bb127
-  %101 = load ptr, ptr %bw.addr, align 8
-  %102 = load i32, ptr %vendor_string_length, align 4
-  %call130 = call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %101, i32 noundef %102)
-  %tobool131 = icmp ne i32 %call130, 0
-  br i1 %tobool131, label %if.end133, label %if.then132
-
-if.then132:                                       ; preds = %if.then129
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end133:                                        ; preds = %if.then129
-  %103 = load ptr, ptr %bw.addr, align 8
-  %104 = load ptr, ptr @FLAC__VENDOR_STRING, align 8
-  %105 = load i32, ptr %vendor_string_length, align 4
-  %call134 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %103, ptr noundef %104, i32 noundef %105)
-  %tobool135 = icmp ne i32 %call134, 0
-  br i1 %tobool135, label %if.end137, label %if.then136
-
-if.then136:                                       ; preds = %if.end133
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end137:                                        ; preds = %if.end133
-  br label %if.end156
-
-if.else138:                                       ; preds = %sw.bb127
-  %106 = load ptr, ptr %bw.addr, align 8
-  %107 = load ptr, ptr %metadata.addr, align 8
-  %data139 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %107, i32 0, i32 3
-  %vendor_string140 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data139, i32 0, i32 0
-  %length141 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %vendor_string140, i32 0, i32 0
-  %108 = load i32, ptr %length141, align 8
-  %call142 = call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %106, i32 noundef %108)
-  %tobool143 = icmp ne i32 %call142, 0
-  br i1 %tobool143, label %if.end145, label %if.then144
-
-if.then144:                                       ; preds = %if.else138
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end145:                                        ; preds = %if.else138
-  %109 = load ptr, ptr %bw.addr, align 8
-  %110 = load ptr, ptr %metadata.addr, align 8
-  %data146 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %110, i32 0, i32 3
-  %vendor_string147 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data146, i32 0, i32 0
-  %entry148 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %vendor_string147, i32 0, i32 1
-  %111 = load ptr, ptr %entry148, align 8
-  %112 = load ptr, ptr %metadata.addr, align 8
-  %data149 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %112, i32 0, i32 3
-  %vendor_string150 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data149, i32 0, i32 0
-  %length151 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %vendor_string150, i32 0, i32 0
-  %113 = load i32, ptr %length151, align 8
-  %call152 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %109, ptr noundef %111, i32 noundef %113)
-  %tobool153 = icmp ne i32 %call152, 0
-  br i1 %tobool153, label %if.end155, label %if.then154
-
-if.then154:                                       ; preds = %if.end145
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end155:                                        ; preds = %if.end145
-  br label %if.end156
-
-if.end156:                                        ; preds = %if.end155, %if.end137
-  %114 = load ptr, ptr %bw.addr, align 8
-  %115 = load ptr, ptr %metadata.addr, align 8
-  %data157 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %115, i32 0, i32 3
-  %num_comments = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data157, i32 0, i32 1
-  %116 = load i32, ptr %num_comments, align 8
-  %call158 = call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %114, i32 noundef %116)
-  %tobool159 = icmp ne i32 %call158, 0
-  br i1 %tobool159, label %if.end161, label %if.then160
-
-if.then160:                                       ; preds = %if.end156
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end161:                                        ; preds = %if.end156
-  store i32 0, ptr %i, align 4
-  br label %for.cond162
-
-for.cond162:                                      ; preds = %for.inc190, %if.end161
-  %117 = load i32, ptr %i, align 4
-  %118 = load ptr, ptr %metadata.addr, align 8
-  %data163 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %118, i32 0, i32 3
-  %num_comments164 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data163, i32 0, i32 1
-  %119 = load i32, ptr %num_comments164, align 8
-  %cmp165 = icmp ult i32 %117, %119
-  br i1 %cmp165, label %for.body167, label %for.end192
-
-for.body167:                                      ; preds = %for.cond162
-  %120 = load ptr, ptr %bw.addr, align 8
-  %121 = load ptr, ptr %metadata.addr, align 8
-  %data168 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %121, i32 0, i32 3
-  %comments = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data168, i32 0, i32 2
-  %122 = load ptr, ptr %comments, align 8
-  %123 = load i32, ptr %i, align 4
-  %idxprom169 = zext i32 %123 to i64
-  %arrayidx170 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %122, i64 %idxprom169
-  %length171 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %arrayidx170, i32 0, i32 0
-  %124 = load i32, ptr %length171, align 8
-  %call172 = call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %120, i32 noundef %124)
-  %tobool173 = icmp ne i32 %call172, 0
-  br i1 %tobool173, label %if.end175, label %if.then174
-
-if.then174:                                       ; preds = %for.body167
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end175:                                        ; preds = %for.body167
-  %125 = load ptr, ptr %bw.addr, align 8
-  %126 = load ptr, ptr %metadata.addr, align 8
-  %data176 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %126, i32 0, i32 3
-  %comments177 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data176, i32 0, i32 2
-  %127 = load ptr, ptr %comments177, align 8
-  %128 = load i32, ptr %i, align 4
-  %idxprom178 = zext i32 %128 to i64
-  %arrayidx179 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %127, i64 %idxprom178
-  %entry180 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %arrayidx179, i32 0, i32 1
-  %129 = load ptr, ptr %entry180, align 8
-  %130 = load ptr, ptr %metadata.addr, align 8
-  %data181 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %130, i32 0, i32 3
-  %comments182 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data181, i32 0, i32 2
-  %131 = load ptr, ptr %comments182, align 8
-  %132 = load i32, ptr %i, align 4
-  %idxprom183 = zext i32 %132 to i64
-  %arrayidx184 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %131, i64 %idxprom183
-  %length185 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %arrayidx184, i32 0, i32 0
-  %133 = load i32, ptr %length185, align 8
-  %call186 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %125, ptr noundef %129, i32 noundef %133)
-  %tobool187 = icmp ne i32 %call186, 0
-  br i1 %tobool187, label %if.end189, label %if.then188
-
-if.then188:                                       ; preds = %if.end175
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end189:                                        ; preds = %if.end175
-  br label %for.inc190
-
-for.inc190:                                       ; preds = %if.end189
-  %134 = load i32, ptr %i, align 4
-  %inc191 = add i32 %134, 1
-  store i32 %inc191, ptr %i, align 4
-  br label %for.cond162, !llvm.loop !6
-
-for.end192:                                       ; preds = %for.cond162
-  br label %sw.epilog
-
-sw.bb193:                                         ; preds = %if.end20
-  %135 = load ptr, ptr %bw.addr, align 8
-  %136 = load ptr, ptr %metadata.addr, align 8
-  %data194 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %136, i32 0, i32 3
-  %media_catalog_number = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %data194, i32 0, i32 0
-  %arraydecay195 = getelementptr inbounds [129 x i8], ptr %media_catalog_number, i64 0, i64 0
-  %137 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4
-  %div196 = udiv i32 %137, 8
-  %call197 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %135, ptr noundef %arraydecay195, i32 noundef %div196)
-  %tobool198 = icmp ne i32 %call197, 0
-  br i1 %tobool198, label %if.end200, label %if.then199
-
-if.then199:                                       ; preds = %sw.bb193
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end200:                                        ; preds = %sw.bb193
-  %138 = load ptr, ptr %bw.addr, align 8
-  %139 = load ptr, ptr %metadata.addr, align 8
-  %data201 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %139, i32 0, i32 3
-  %lead_in = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %data201, i32 0, i32 1
-  %140 = load i64, ptr %lead_in, align 8
-  %141 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4
-  %call202 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %138, i64 noundef %140, i32 noundef %141)
-  %tobool203 = icmp ne i32 %call202, 0
-  br i1 %tobool203, label %if.end205, label %if.then204
-
-if.then204:                                       ; preds = %if.end200
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end205:                                        ; preds = %if.end200
-  %142 = load ptr, ptr %bw.addr, align 8
-  %143 = load ptr, ptr %metadata.addr, align 8
-  %data206 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %143, i32 0, i32 3
-  %is_cd = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %data206, i32 0, i32 2
-  %144 = load i32, ptr %is_cd, align 8
-  %tobool207 = icmp ne i32 %144, 0
-  %cond = select i1 %tobool207, i32 1, i32 0
-  %145 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN, align 4
-  %call208 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %142, i32 noundef %cond, i32 noundef %145)
-  %tobool209 = icmp ne i32 %call208, 0
-  br i1 %tobool209, label %if.end211, label %if.then210
-
-if.then210:                                       ; preds = %if.end205
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end211:                                        ; preds = %if.end205
-  %146 = load ptr, ptr %bw.addr, align 8
-  %147 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN, align 4
-  %call212 = call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %146, i32 noundef %147)
-  %tobool213 = icmp ne i32 %call212, 0
-  br i1 %tobool213, label %if.end215, label %if.then214
-
-if.then214:                                       ; preds = %if.end211
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end215:                                        ; preds = %if.end211
-  %148 = load ptr, ptr %bw.addr, align 8
-  %149 = load ptr, ptr %metadata.addr, align 8
-  %data216 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %149, i32 0, i32 3
-  %num_tracks = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %data216, i32 0, i32 3
-  %150 = load i32, ptr %num_tracks, align 4
-  %151 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN, align 4
-  %call217 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %148, i32 noundef %150, i32 noundef %151)
-  %tobool218 = icmp ne i32 %call217, 0
-  br i1 %tobool218, label %if.end220, label %if.then219
-
-if.then219:                                       ; preds = %if.end215
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end220:                                        ; preds = %if.end215
-  store i32 0, ptr %i, align 4
-  br label %for.cond221
-
-for.cond221:                                      ; preds = %for.inc290, %if.end220
-  %152 = load i32, ptr %i, align 4
-  %153 = load ptr, ptr %metadata.addr, align 8
-  %data222 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %153, i32 0, i32 3
-  %num_tracks223 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %data222, i32 0, i32 3
-  %154 = load i32, ptr %num_tracks223, align 4
-  %cmp224 = icmp ult i32 %152, %154
-  br i1 %cmp224, label %for.body226, label %for.end292
-
-for.body226:                                      ; preds = %for.cond221
-  %155 = load ptr, ptr %metadata.addr, align 8
-  %data227 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %155, i32 0, i32 3
-  %tracks = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %data227, i32 0, i32 4
-  %156 = load ptr, ptr %tracks, align 8
-  %157 = load i32, ptr %i, align 4
-  %idx.ext = zext i32 %157 to i64
-  %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %156, i64 %idx.ext
-  store ptr %add.ptr, ptr %track, align 8
-  %158 = load ptr, ptr %bw.addr, align 8
-  %159 = load ptr, ptr %track, align 8
-  %offset = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %159, i32 0, i32 0
-  %160 = load i64, ptr %offset, align 8
-  %161 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN, align 4
-  %call228 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %158, i64 noundef %160, i32 noundef %161)
-  %tobool229 = icmp ne i32 %call228, 0
-  br i1 %tobool229, label %if.end231, label %if.then230
-
-if.then230:                                       ; preds = %for.body226
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end231:                                        ; preds = %for.body226
-  %162 = load ptr, ptr %bw.addr, align 8
-  %163 = load ptr, ptr %track, align 8
-  %number = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %163, i32 0, i32 1
-  %164 = load i8, ptr %number, align 8
-  %conv232 = zext i8 %164 to i32
-  %165 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN, align 4
-  %call233 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %162, i32 noundef %conv232, i32 noundef %165)
-  %tobool234 = icmp ne i32 %call233, 0
-  br i1 %tobool234, label %if.end236, label %if.then235
-
-if.then235:                                       ; preds = %if.end231
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end236:                                        ; preds = %if.end231
-  %166 = load ptr, ptr %bw.addr, align 8
-  %167 = load ptr, ptr %track, align 8
-  %isrc = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %167, i32 0, i32 2
-  %arraydecay237 = getelementptr inbounds [13 x i8], ptr %isrc, i64 0, i64 0
-  %168 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN, align 4
-  %div238 = udiv i32 %168, 8
-  %call239 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %166, ptr noundef %arraydecay237, i32 noundef %div238)
-  %tobool240 = icmp ne i32 %call239, 0
-  br i1 %tobool240, label %if.end242, label %if.then241
-
-if.then241:                                       ; preds = %if.end236
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end242:                                        ; preds = %if.end236
-  %169 = load ptr, ptr %bw.addr, align 8
-  %170 = load ptr, ptr %track, align 8
-  %type243 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %170, i32 0, i32 3
-  %bf.load = load i8, ptr %type243, align 2
-  %bf.clear = and i8 %bf.load, 1
-  %bf.cast = zext i8 %bf.clear to i32
-  %171 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN, align 4
-  %call244 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %169, i32 noundef %bf.cast, i32 noundef %171)
-  %tobool245 = icmp ne i32 %call244, 0
-  br i1 %tobool245, label %if.end247, label %if.then246
-
-if.then246:                                       ; preds = %if.end242
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end247:                                        ; preds = %if.end242
-  %172 = load ptr, ptr %bw.addr, align 8
-  %173 = load ptr, ptr %track, align 8
-  %pre_emphasis = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %173, i32 0, i32 3
-  %bf.load248 = load i8, ptr %pre_emphasis, align 2
-  %bf.lshr = lshr i8 %bf.load248, 1
-  %bf.clear249 = and i8 %bf.lshr, 1
-  %bf.cast250 = zext i8 %bf.clear249 to i32
-  %174 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN, align 4
-  %call251 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %172, i32 noundef %bf.cast250, i32 noundef %174)
-  %tobool252 = icmp ne i32 %call251, 0
-  br i1 %tobool252, label %if.end254, label %if.then253
-
-if.then253:                                       ; preds = %if.end247
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end254:                                        ; preds = %if.end247
-  %175 = load ptr, ptr %bw.addr, align 8
-  %176 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN, align 4
-  %call255 = call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %175, i32 noundef %176)
-  %tobool256 = icmp ne i32 %call255, 0
-  br i1 %tobool256, label %if.end258, label %if.then257
-
-if.then257:                                       ; preds = %if.end254
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end258:                                        ; preds = %if.end254
-  %177 = load ptr, ptr %bw.addr, align 8
-  %178 = load ptr, ptr %track, align 8
-  %num_indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %178, i32 0, i32 4
-  %179 = load i8, ptr %num_indices, align 1
-  %conv259 = zext i8 %179 to i32
-  %180 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN, align 4
-  %call260 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %177, i32 noundef %conv259, i32 noundef %180)
-  %tobool261 = icmp ne i32 %call260, 0
-  br i1 %tobool261, label %if.end263, label %if.then262
-
-if.then262:                                       ; preds = %if.end258
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end263:                                        ; preds = %if.end258
-  store i32 0, ptr %j, align 4
-  br label %for.cond264
-
-for.cond264:                                      ; preds = %for.inc287, %if.end263
-  %181 = load i32, ptr %j, align 4
-  %182 = load ptr, ptr %track, align 8
-  %num_indices265 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %182, i32 0, i32 4
-  %183 = load i8, ptr %num_indices265, align 1
-  %conv266 = zext i8 %183 to i32
-  %cmp267 = icmp ult i32 %181, %conv266
-  br i1 %cmp267, label %for.body269, label %for.end289
-
-for.body269:                                      ; preds = %for.cond264
-  %184 = load ptr, ptr %track, align 8
-  %indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %184, i32 0, i32 5
-  %185 = load ptr, ptr %indices, align 8
-  %186 = load i32, ptr %j, align 4
-  %idx.ext270 = zext i32 %186 to i64
-  %add.ptr271 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %185, i64 %idx.ext270
-  store ptr %add.ptr271, ptr %indx, align 8
-  %187 = load ptr, ptr %bw.addr, align 8
-  %188 = load ptr, ptr %indx, align 8
-  %offset272 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %188, i32 0, i32 0
-  %189 = load i64, ptr %offset272, align 8
-  %190 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN, align 4
-  %call273 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %187, i64 noundef %189, i32 noundef %190)
-  %tobool274 = icmp ne i32 %call273, 0
-  br i1 %tobool274, label %if.end276, label %if.then275
-
-if.then275:                                       ; preds = %for.body269
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end276:                                        ; preds = %for.body269
-  %191 = load ptr, ptr %bw.addr, align 8
-  %192 = load ptr, ptr %indx, align 8
-  %number277 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %192, i32 0, i32 1
-  %193 = load i8, ptr %number277, align 8
-  %conv278 = zext i8 %193 to i32
-  %194 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN, align 4
-  %call279 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %191, i32 noundef %conv278, i32 noundef %194)
-  %tobool280 = icmp ne i32 %call279, 0
-  br i1 %tobool280, label %if.end282, label %if.then281
-
-if.then281:                                       ; preds = %if.end276
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end282:                                        ; preds = %if.end276
-  %195 = load ptr, ptr %bw.addr, align 8
-  %196 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN, align 4
-  %call283 = call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %195, i32 noundef %196)
-  %tobool284 = icmp ne i32 %call283, 0
-  br i1 %tobool284, label %if.end286, label %if.then285
-
-if.then285:                                       ; preds = %if.end282
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end286:                                        ; preds = %if.end282
-  br label %for.inc287
-
-for.inc287:                                       ; preds = %if.end286
-  %197 = load i32, ptr %j, align 4
-  %inc288 = add i32 %197, 1
-  store i32 %inc288, ptr %j, align 4
-  br label %for.cond264, !llvm.loop !7
-
-for.end289:                                       ; preds = %for.cond264
-  br label %for.inc290
-
-for.inc290:                                       ; preds = %for.end289
-  %198 = load i32, ptr %i, align 4
-  %inc291 = add i32 %198, 1
-  store i32 %inc291, ptr %i, align 4
-  br label %for.cond221, !llvm.loop !8
-
-for.end292:                                       ; preds = %for.cond221
-  br label %sw.epilog
-
-sw.bb293:                                         ; preds = %if.end20
-  %199 = load ptr, ptr %bw.addr, align 8
-  %200 = load ptr, ptr %metadata.addr, align 8
-  %data294 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %200, i32 0, i32 3
-  %type295 = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data294, i32 0, i32 0
-  %201 = load i32, ptr %type295, align 8
-  %202 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_TYPE_LEN, align 4
-  %call296 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %199, i32 noundef %201, i32 noundef %202)
-  %tobool297 = icmp ne i32 %call296, 0
-  br i1 %tobool297, label %if.end299, label %if.then298
-
-if.then298:                                       ; preds = %sw.bb293
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end299:                                        ; preds = %sw.bb293
-  %203 = load ptr, ptr %metadata.addr, align 8
-  %data300 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %203, i32 0, i32 3
-  %mime_type = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data300, i32 0, i32 1
-  %204 = load ptr, ptr %mime_type, align 8
-  %call301 = call i64 @strlen(ptr noundef %204) #3
-  store i64 %call301, ptr %len, align 8
-  %205 = load ptr, ptr %bw.addr, align 8
-  %206 = load i64, ptr %len, align 8
-  %conv302 = trunc i64 %206 to i32
-  %207 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN, align 4
-  %call303 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %205, i32 noundef %conv302, i32 noundef %207)
-  %tobool304 = icmp ne i32 %call303, 0
-  br i1 %tobool304, label %if.end306, label %if.then305
-
-if.then305:                                       ; preds = %if.end299
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end306:                                        ; preds = %if.end299
-  %208 = load ptr, ptr %bw.addr, align 8
-  %209 = load ptr, ptr %metadata.addr, align 8
-  %data307 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %209, i32 0, i32 3
-  %mime_type308 = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data307, i32 0, i32 1
-  %210 = load ptr, ptr %mime_type308, align 8
-  %211 = load i64, ptr %len, align 8
-  %conv309 = trunc i64 %211 to i32
-  %call310 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %208, ptr noundef %210, i32 noundef %conv309)
-  %tobool311 = icmp ne i32 %call310, 0
-  br i1 %tobool311, label %if.end313, label %if.then312
-
-if.then312:                                       ; preds = %if.end306
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end313:                                        ; preds = %if.end306
-  %212 = load ptr, ptr %metadata.addr, align 8
-  %data314 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %212, i32 0, i32 3
-  %description = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data314, i32 0, i32 2
-  %213 = load ptr, ptr %description, align 8
-  %call315 = call i64 @strlen(ptr noundef %213) #3
-  store i64 %call315, ptr %len, align 8
-  %214 = load ptr, ptr %bw.addr, align 8
-  %215 = load i64, ptr %len, align 8
-  %conv316 = trunc i64 %215 to i32
-  %216 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN, align 4
-  %call317 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %214, i32 noundef %conv316, i32 noundef %216)
-  %tobool318 = icmp ne i32 %call317, 0
-  br i1 %tobool318, label %if.end320, label %if.then319
-
-if.then319:                                       ; preds = %if.end313
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end320:                                        ; preds = %if.end313
-  %217 = load ptr, ptr %bw.addr, align 8
-  %218 = load ptr, ptr %metadata.addr, align 8
-  %data321 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %218, i32 0, i32 3
-  %description322 = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data321, i32 0, i32 2
-  %219 = load ptr, ptr %description322, align 8
-  %220 = load i64, ptr %len, align 8
-  %conv323 = trunc i64 %220 to i32
-  %call324 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %217, ptr noundef %219, i32 noundef %conv323)
-  %tobool325 = icmp ne i32 %call324, 0
-  br i1 %tobool325, label %if.end327, label %if.then326
-
-if.then326:                                       ; preds = %if.end320
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end327:                                        ; preds = %if.end320
-  %221 = load ptr, ptr %bw.addr, align 8
-  %222 = load ptr, ptr %metadata.addr, align 8
-  %data328 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %222, i32 0, i32 3
-  %width = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data328, i32 0, i32 3
-  %223 = load i32, ptr %width, align 8
-  %224 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN, align 4
-  %call329 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %221, i32 noundef %223, i32 noundef %224)
-  %tobool330 = icmp ne i32 %call329, 0
-  br i1 %tobool330, label %if.end332, label %if.then331
-
-if.then331:                                       ; preds = %if.end327
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end332:                                        ; preds = %if.end327
-  %225 = load ptr, ptr %bw.addr, align 8
-  %226 = load ptr, ptr %metadata.addr, align 8
-  %data333 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %226, i32 0, i32 3
-  %height = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data333, i32 0, i32 4
-  %227 = load i32, ptr %height, align 4
-  %228 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN, align 4
-  %call334 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %225, i32 noundef %227, i32 noundef %228)
-  %tobool335 = icmp ne i32 %call334, 0
-  br i1 %tobool335, label %if.end337, label %if.then336
-
-if.then336:                                       ; preds = %if.end332
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end337:                                        ; preds = %if.end332
-  %229 = load ptr, ptr %bw.addr, align 8
-  %230 = load ptr, ptr %metadata.addr, align 8
-  %data338 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %230, i32 0, i32 3
-  %depth = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data338, i32 0, i32 5
-  %231 = load i32, ptr %depth, align 8
-  %232 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN, align 4
-  %call339 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %229, i32 noundef %231, i32 noundef %232)
-  %tobool340 = icmp ne i32 %call339, 0
-  br i1 %tobool340, label %if.end342, label %if.then341
-
-if.then341:                                       ; preds = %if.end337
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end342:                                        ; preds = %if.end337
-  %233 = load ptr, ptr %bw.addr, align 8
-  %234 = load ptr, ptr %metadata.addr, align 8
-  %data343 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %234, i32 0, i32 3
-  %colors = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data343, i32 0, i32 6
-  %235 = load i32, ptr %colors, align 4
-  %236 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_COLORS_LEN, align 4
-  %call344 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %233, i32 noundef %235, i32 noundef %236)
-  %tobool345 = icmp ne i32 %call344, 0
-  br i1 %tobool345, label %if.end347, label %if.then346
-
-if.then346:                                       ; preds = %if.end342
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end347:                                        ; preds = %if.end342
-  %237 = load ptr, ptr %bw.addr, align 8
-  %238 = load ptr, ptr %metadata.addr, align 8
-  %data348 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %238, i32 0, i32 3
-  %data_length = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data348, i32 0, i32 7
-  %239 = load i32, ptr %data_length, align 8
-  %240 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN, align 4
-  %call349 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %237, i32 noundef %239, i32 noundef %240)
-  %tobool350 = icmp ne i32 %call349, 0
-  br i1 %tobool350, label %if.end352, label %if.then351
-
-if.then351:                                       ; preds = %if.end347
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end352:                                        ; preds = %if.end347
-  %241 = load ptr, ptr %bw.addr, align 8
-  %242 = load ptr, ptr %metadata.addr, align 8
-  %data353 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %242, i32 0, i32 3
-  %data354 = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data353, i32 0, i32 8
-  %243 = load ptr, ptr %data354, align 8
-  %244 = load ptr, ptr %metadata.addr, align 8
-  %data355 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %244, i32 0, i32 3
-  %data_length356 = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %data355, i32 0, i32 7
-  %245 = load i32, ptr %data_length356, align 8
-  %call357 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %241, ptr noundef %243, i32 noundef %245)
-  %tobool358 = icmp ne i32 %call357, 0
-  br i1 %tobool358, label %if.end360, label %if.then359
-
-if.then359:                                       ; preds = %if.end352
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end360:                                        ; preds = %if.end352
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %if.end20
-  %246 = load ptr, ptr %bw.addr, align 8
-  %247 = load ptr, ptr %metadata.addr, align 8
-  %data361 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %247, i32 0, i32 3
-  %data362 = getelementptr inbounds %struct.FLAC__StreamMetadata_Unknown, ptr %data361, i32 0, i32 0
-  %248 = load ptr, ptr %data362, align 8
-  %249 = load ptr, ptr %metadata.addr, align 8
-  %length363 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %249, i32 0, i32 2
-  %250 = load i32, ptr %length363, align 8
-  %call364 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %246, ptr noundef %248, i32 noundef %250)
-  %tobool365 = icmp ne i32 %call364, 0
-  br i1 %tobool365, label %if.end367, label %if.then366
-
-if.then366:                                       ; preds = %sw.default
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end367:                                        ; preds = %sw.default
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %if.end367, %if.end360, %for.end292, %for.end192, %for.end, %if.end101, %if.end85, %if.end79
-  %251 = load ptr, ptr %bw.addr, align 8
-  %call368 = call i32 @FLAC__bitwriter_get_input_bits_unconsumed(ptr noundef %251)
-  store i32 %call368, ptr %length_in_bits, align 4
-  %252 = load i32, ptr %length_in_bits, align 4
-  %253 = load i32, ptr %start_bits, align 4
-  %cmp369 = icmp ult i32 %252, %253
-  br i1 %cmp369, label %if.then371, label %if.end372
-
-if.then371:                                       ; preds = %sw.epilog
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end372:                                        ; preds = %sw.epilog
-  %254 = load i32, ptr %start_bits, align 4
-  %255 = load i32, ptr %length_in_bits, align 4
-  %sub373 = sub i32 %255, %254
-  store i32 %sub373, ptr %length_in_bits, align 4
-  %256 = load i32, ptr %length_in_bits, align 4
-  %rem = urem i32 %256, 8
-  %cmp374 = icmp ne i32 %rem, 0
-  br i1 %cmp374, label %if.then380, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end372
-  %257 = load i32, ptr %length_in_bits, align 4
-  %258 = load i32, ptr %metadata_length, align 4
-  %mul376 = mul i32 %258, 8
-  %add377 = add i32 %mul376, 32
-  %cmp378 = icmp ne i32 %257, %add377
-  br i1 %cmp378, label %if.then380, label %if.end381
-
-if.then380:                                       ; preds = %lor.lhs.false, %if.end372
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end381:                                        ; preds = %lor.lhs.false
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end381, %if.then380, %if.then371, %if.then366, %if.then359, %if.then351, %if.then346, %if.then341, %if.then336, %if.then331, %if.then326, %if.then319, %if.then312, %if.then305, %if.then298, %if.then285, %if.then281, %if.then275, %if.then262, %if.then257, %if.then253, %if.then246, %if.then241, %if.then235, %if.then230, %if.then219, %if.then214, %if.then210, %if.then204, %if.then199, %if.then188, %if.then174, %if.then160, %if.then154, %if.then144, %if.then136, %if.then132, %if.then125, %if.then117, %if.then109, %if.then100, %if.then91, %if.then84, %if.then78, %if.then72, %if.then66, %if.then57, %if.then51, %if.then45, %if.then40, %if.then35, %if.then30, %if.then25, %if.then19, %if.then15, %if.then5, %if.then
-  %259 = load i32, ptr %retval, align 4
-  ret i32 %259
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %6, align 8, !tbaa !8
+  %81 = load ptr, ptr %5, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %81, i32 0, i32 3
+  %83 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %82, i32 0, i32 0
+  %84 = load i32, ptr %83, align 8, !tbaa !18
+  %85 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MIN_BLOCK_SIZE_LEN, align 4, !tbaa !10
+  %86 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %80, i32 noundef %84, i32 noundef %85)
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %89, label %88
+
+88:                                               ; preds = %79
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+89:                                               ; preds = %79
+  %90 = load ptr, ptr %6, align 8, !tbaa !8
+  %91 = load ptr, ptr %5, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %91, i32 0, i32 3
+  %93 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %92, i32 0, i32 1
+  %94 = load i32, ptr %93, align 4, !tbaa !18
+  %95 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MAX_BLOCK_SIZE_LEN, align 4, !tbaa !10
+  %96 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %90, i32 noundef %94, i32 noundef %95)
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %99, label %98
+
+98:                                               ; preds = %89
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+99:                                               ; preds = %89
+  %100 = load ptr, ptr %6, align 8, !tbaa !8
+  %101 = load ptr, ptr %5, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %101, i32 0, i32 3
+  %103 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %102, i32 0, i32 2
+  %104 = load i32, ptr %103, align 8, !tbaa !18
+  %105 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MIN_FRAME_SIZE_LEN, align 4, !tbaa !10
+  %106 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %100, i32 noundef %104, i32 noundef %105)
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %109, label %108
+
+108:                                              ; preds = %99
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+109:                                              ; preds = %99
+  %110 = load ptr, ptr %6, align 8, !tbaa !8
+  %111 = load ptr, ptr %5, align 8, !tbaa !3
+  %112 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %111, i32 0, i32 3
+  %113 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %112, i32 0, i32 3
+  %114 = load i32, ptr %113, align 4, !tbaa !18
+  %115 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MAX_FRAME_SIZE_LEN, align 4, !tbaa !10
+  %116 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %110, i32 noundef %114, i32 noundef %115)
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %119, label %118
+
+118:                                              ; preds = %109
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+119:                                              ; preds = %109
+  %120 = load ptr, ptr %6, align 8, !tbaa !8
+  %121 = load ptr, ptr %5, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %121, i32 0, i32 3
+  %123 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %122, i32 0, i32 4
+  %124 = load i32, ptr %123, align 8, !tbaa !18
+  %125 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_SAMPLE_RATE_LEN, align 4, !tbaa !10
+  %126 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %120, i32 noundef %124, i32 noundef %125)
+  %127 = icmp ne i32 %126, 0
+  br i1 %127, label %129, label %128
+
+128:                                              ; preds = %119
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+129:                                              ; preds = %119
+  %130 = load ptr, ptr %6, align 8, !tbaa !8
+  %131 = load ptr, ptr %5, align 8, !tbaa !3
+  %132 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %131, i32 0, i32 3
+  %133 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %132, i32 0, i32 5
+  %134 = load i32, ptr %133, align 4, !tbaa !18
+  %135 = sub i32 %134, 1
+  %136 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_CHANNELS_LEN, align 4, !tbaa !10
+  %137 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %130, i32 noundef %135, i32 noundef %136)
+  %138 = icmp ne i32 %137, 0
+  br i1 %138, label %140, label %139
+
+139:                                              ; preds = %129
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+140:                                              ; preds = %129
+  %141 = load ptr, ptr %6, align 8, !tbaa !8
+  %142 = load ptr, ptr %5, align 8, !tbaa !3
+  %143 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %142, i32 0, i32 3
+  %144 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %143, i32 0, i32 6
+  %145 = load i32, ptr %144, align 8, !tbaa !18
+  %146 = sub i32 %145, 1
+  %147 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_BITS_PER_SAMPLE_LEN, align 4, !tbaa !10
+  %148 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %141, i32 noundef %146, i32 noundef %147)
+  %149 = icmp ne i32 %148, 0
+  br i1 %149, label %151, label %150
+
+150:                                              ; preds = %140
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+151:                                              ; preds = %140
+  %152 = load ptr, ptr %5, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %152, i32 0, i32 3
+  %154 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %153, i32 0, i32 7
+  %155 = load i64, ptr %154, align 8, !tbaa !18
+  %156 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN, align 4, !tbaa !10
+  %157 = zext i32 %156 to i64
+  %158 = shl i64 1, %157
+  %159 = icmp uge i64 %155, %158
+  br i1 %159, label %160, label %167
+
+160:                                              ; preds = %151
+  %161 = load ptr, ptr %6, align 8, !tbaa !8
+  %162 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN, align 4, !tbaa !10
+  %163 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %161, i64 noundef 0, i32 noundef %162)
+  %164 = icmp ne i32 %163, 0
+  br i1 %164, label %166, label %165
+
+165:                                              ; preds = %160
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+166:                                              ; preds = %160
+  br label %178
+
+167:                                              ; preds = %151
+  %168 = load ptr, ptr %6, align 8, !tbaa !8
+  %169 = load ptr, ptr %5, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %169, i32 0, i32 3
+  %171 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %170, i32 0, i32 7
+  %172 = load i64, ptr %171, align 8, !tbaa !18
+  %173 = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN, align 4, !tbaa !10
+  %174 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %168, i64 noundef %172, i32 noundef %173)
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %177, label %176
+
+176:                                              ; preds = %167
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+177:                                              ; preds = %167
+  br label %178
+
+178:                                              ; preds = %177, %166
+  %179 = load ptr, ptr %6, align 8, !tbaa !8
+  %180 = load ptr, ptr %5, align 8, !tbaa !3
+  %181 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %180, i32 0, i32 3
+  %182 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %181, i32 0, i32 8
+  %183 = getelementptr inbounds [16 x i8], ptr %182, i64 0, i64 0
+  %184 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %179, ptr noundef %183, i32 noundef 16)
+  %185 = icmp ne i32 %184, 0
+  br i1 %185, label %187, label %186
+
+186:                                              ; preds = %178
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+187:                                              ; preds = %178
+  br label %709
+
+188:                                              ; preds = %75
+  %189 = load ptr, ptr %6, align 8, !tbaa !8
+  %190 = load ptr, ptr %5, align 8, !tbaa !3
+  %191 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %190, i32 0, i32 2
+  %192 = load i32, ptr %191, align 8, !tbaa !17
+  %193 = mul i32 %192, 8
+  %194 = call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %189, i32 noundef %193)
+  %195 = icmp ne i32 %194, 0
+  br i1 %195, label %197, label %196
+
+196:                                              ; preds = %188
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+197:                                              ; preds = %188
+  br label %709
+
+198:                                              ; preds = %75
+  %199 = load ptr, ptr %6, align 8, !tbaa !8
+  %200 = load ptr, ptr %5, align 8, !tbaa !3
+  %201 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %200, i32 0, i32 3
+  %202 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Application, ptr %201, i32 0, i32 0
+  %203 = getelementptr inbounds [4 x i8], ptr %202, i64 0, i64 0
+  %204 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4, !tbaa !10
+  %205 = udiv i32 %204, 8
+  %206 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %199, ptr noundef %203, i32 noundef %205)
+  %207 = icmp ne i32 %206, 0
+  br i1 %207, label %209, label %208
+
+208:                                              ; preds = %198
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+209:                                              ; preds = %198
+  %210 = load ptr, ptr %6, align 8, !tbaa !8
+  %211 = load ptr, ptr %5, align 8, !tbaa !3
+  %212 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %211, i32 0, i32 3
+  %213 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Application, ptr %212, i32 0, i32 1
+  %214 = load ptr, ptr %213, align 8, !tbaa !18
+  %215 = load ptr, ptr %5, align 8, !tbaa !3
+  %216 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %215, i32 0, i32 2
+  %217 = load i32, ptr %216, align 8, !tbaa !17
+  %218 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4, !tbaa !10
+  %219 = udiv i32 %218, 8
+  %220 = sub i32 %217, %219
+  %221 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %210, ptr noundef %214, i32 noundef %220)
+  %222 = icmp ne i32 %221, 0
+  br i1 %222, label %224, label %223
+
+223:                                              ; preds = %209
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+224:                                              ; preds = %209
+  br label %709
+
+225:                                              ; preds = %75
+  store i32 0, ptr %8, align 4, !tbaa !10
+  br label %226
+
+226:                                              ; preds = %279, %225
+  %227 = load i32, ptr %8, align 4, !tbaa !10
+  %228 = load ptr, ptr %5, align 8, !tbaa !3
+  %229 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %228, i32 0, i32 3
+  %230 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekTable, ptr %229, i32 0, i32 0
+  %231 = load i32, ptr %230, align 8, !tbaa !18
+  %232 = icmp ult i32 %227, %231
+  br i1 %232, label %233, label %282
+
+233:                                              ; preds = %226
+  %234 = load ptr, ptr %6, align 8, !tbaa !8
+  %235 = load ptr, ptr %5, align 8, !tbaa !3
+  %236 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %235, i32 0, i32 3
+  %237 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekTable, ptr %236, i32 0, i32 1
+  %238 = load ptr, ptr %237, align 8, !tbaa !18
+  %239 = load i32, ptr %8, align 4, !tbaa !10
+  %240 = zext i32 %239 to i64
+  %241 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %238, i64 %240
+  %242 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %241, i32 0, i32 0
+  %243 = load i64, ptr %242, align 8, !tbaa !19
+  %244 = load i32, ptr @FLAC__STREAM_METADATA_SEEKPOINT_SAMPLE_NUMBER_LEN, align 4, !tbaa !10
+  %245 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %234, i64 noundef %243, i32 noundef %244)
+  %246 = icmp ne i32 %245, 0
+  br i1 %246, label %248, label %247
+
+247:                                              ; preds = %233
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+248:                                              ; preds = %233
+  %249 = load ptr, ptr %6, align 8, !tbaa !8
+  %250 = load ptr, ptr %5, align 8, !tbaa !3
+  %251 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %250, i32 0, i32 3
+  %252 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekTable, ptr %251, i32 0, i32 1
+  %253 = load ptr, ptr %252, align 8, !tbaa !18
+  %254 = load i32, ptr %8, align 4, !tbaa !10
+  %255 = zext i32 %254 to i64
+  %256 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %253, i64 %255
+  %257 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %256, i32 0, i32 1
+  %258 = load i64, ptr %257, align 8, !tbaa !22
+  %259 = load i32, ptr @FLAC__STREAM_METADATA_SEEKPOINT_STREAM_OFFSET_LEN, align 4, !tbaa !10
+  %260 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %249, i64 noundef %258, i32 noundef %259)
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %263, label %262
+
+262:                                              ; preds = %248
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+263:                                              ; preds = %248
+  %264 = load ptr, ptr %6, align 8, !tbaa !8
+  %265 = load ptr, ptr %5, align 8, !tbaa !3
+  %266 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %265, i32 0, i32 3
+  %267 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekTable, ptr %266, i32 0, i32 1
+  %268 = load ptr, ptr %267, align 8, !tbaa !18
+  %269 = load i32, ptr %8, align 4, !tbaa !10
+  %270 = zext i32 %269 to i64
+  %271 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %268, i64 %270
+  %272 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %271, i32 0, i32 2
+  %273 = load i32, ptr %272, align 8, !tbaa !23
+  %274 = load i32, ptr @FLAC__STREAM_METADATA_SEEKPOINT_FRAME_SAMPLES_LEN, align 4, !tbaa !10
+  %275 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %264, i32 noundef %273, i32 noundef %274)
+  %276 = icmp ne i32 %275, 0
+  br i1 %276, label %278, label %277
+
+277:                                              ; preds = %263
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+278:                                              ; preds = %263
+  br label %279
+
+279:                                              ; preds = %278
+  %280 = load i32, ptr %8, align 4, !tbaa !10
+  %281 = add i32 %280, 1
+  store i32 %281, ptr %8, align 4, !tbaa !10
+  br label %226, !llvm.loop !24
+
+282:                                              ; preds = %226
+  br label %709
+
+283:                                              ; preds = %75
+  %284 = load i32, ptr %7, align 4, !tbaa !10
+  %285 = icmp ne i32 %284, 0
+  br i1 %285, label %286, label %300
+
+286:                                              ; preds = %283
+  %287 = load ptr, ptr %6, align 8, !tbaa !8
+  %288 = load i32, ptr %11, align 4, !tbaa !10
+  %289 = call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %287, i32 noundef %288)
+  %290 = icmp ne i32 %289, 0
+  br i1 %290, label %292, label %291
+
+291:                                              ; preds = %286
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+292:                                              ; preds = %286
+  %293 = load ptr, ptr %6, align 8, !tbaa !8
+  %294 = load ptr, ptr @FLAC__VENDOR_STRING, align 8, !tbaa !12
+  %295 = load i32, ptr %11, align 4, !tbaa !10
+  %296 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %293, ptr noundef %294, i32 noundef %295)
+  %297 = icmp ne i32 %296, 0
+  br i1 %297, label %299, label %298
+
+298:                                              ; preds = %292
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+299:                                              ; preds = %292
+  br label %326
+
+300:                                              ; preds = %283
+  %301 = load ptr, ptr %6, align 8, !tbaa !8
+  %302 = load ptr, ptr %5, align 8, !tbaa !3
+  %303 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %302, i32 0, i32 3
+  %304 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %303, i32 0, i32 0
+  %305 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %304, i32 0, i32 0
+  %306 = load i32, ptr %305, align 8, !tbaa !18
+  %307 = call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %301, i32 noundef %306)
+  %308 = icmp ne i32 %307, 0
+  br i1 %308, label %310, label %309
+
+309:                                              ; preds = %300
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+310:                                              ; preds = %300
+  %311 = load ptr, ptr %6, align 8, !tbaa !8
+  %312 = load ptr, ptr %5, align 8, !tbaa !3
+  %313 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %312, i32 0, i32 3
+  %314 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %313, i32 0, i32 0
+  %315 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %314, i32 0, i32 1
+  %316 = load ptr, ptr %315, align 8, !tbaa !18
+  %317 = load ptr, ptr %5, align 8, !tbaa !3
+  %318 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %317, i32 0, i32 3
+  %319 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %318, i32 0, i32 0
+  %320 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %319, i32 0, i32 0
+  %321 = load i32, ptr %320, align 8, !tbaa !18
+  %322 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %311, ptr noundef %316, i32 noundef %321)
+  %323 = icmp ne i32 %322, 0
+  br i1 %323, label %325, label %324
+
+324:                                              ; preds = %310
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+325:                                              ; preds = %310
+  br label %326
+
+326:                                              ; preds = %325, %299
+  %327 = load ptr, ptr %6, align 8, !tbaa !8
+  %328 = load ptr, ptr %5, align 8, !tbaa !3
+  %329 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %328, i32 0, i32 3
+  %330 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %329, i32 0, i32 1
+  %331 = load i32, ptr %330, align 8, !tbaa !18
+  %332 = call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %327, i32 noundef %331)
+  %333 = icmp ne i32 %332, 0
+  br i1 %333, label %335, label %334
+
+334:                                              ; preds = %326
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+335:                                              ; preds = %326
+  store i32 0, ptr %8, align 4, !tbaa !10
+  br label %336
+
+336:                                              ; preds = %381, %335
+  %337 = load i32, ptr %8, align 4, !tbaa !10
+  %338 = load ptr, ptr %5, align 8, !tbaa !3
+  %339 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %338, i32 0, i32 3
+  %340 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %339, i32 0, i32 1
+  %341 = load i32, ptr %340, align 8, !tbaa !18
+  %342 = icmp ult i32 %337, %341
+  br i1 %342, label %343, label %384
+
+343:                                              ; preds = %336
+  %344 = load ptr, ptr %6, align 8, !tbaa !8
+  %345 = load ptr, ptr %5, align 8, !tbaa !3
+  %346 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %345, i32 0, i32 3
+  %347 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %346, i32 0, i32 2
+  %348 = load ptr, ptr %347, align 8, !tbaa !18
+  %349 = load i32, ptr %8, align 4, !tbaa !10
+  %350 = zext i32 %349 to i64
+  %351 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %348, i64 %350
+  %352 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %351, i32 0, i32 0
+  %353 = load i32, ptr %352, align 8, !tbaa !26
+  %354 = call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %344, i32 noundef %353)
+  %355 = icmp ne i32 %354, 0
+  br i1 %355, label %357, label %356
+
+356:                                              ; preds = %343
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+357:                                              ; preds = %343
+  %358 = load ptr, ptr %6, align 8, !tbaa !8
+  %359 = load ptr, ptr %5, align 8, !tbaa !3
+  %360 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %359, i32 0, i32 3
+  %361 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %360, i32 0, i32 2
+  %362 = load ptr, ptr %361, align 8, !tbaa !18
+  %363 = load i32, ptr %8, align 4, !tbaa !10
+  %364 = zext i32 %363 to i64
+  %365 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %362, i64 %364
+  %366 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %365, i32 0, i32 1
+  %367 = load ptr, ptr %366, align 8, !tbaa !28
+  %368 = load ptr, ptr %5, align 8, !tbaa !3
+  %369 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %368, i32 0, i32 3
+  %370 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %369, i32 0, i32 2
+  %371 = load ptr, ptr %370, align 8, !tbaa !18
+  %372 = load i32, ptr %8, align 4, !tbaa !10
+  %373 = zext i32 %372 to i64
+  %374 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %371, i64 %373
+  %375 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %374, i32 0, i32 0
+  %376 = load i32, ptr %375, align 8, !tbaa !26
+  %377 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %358, ptr noundef %367, i32 noundef %376)
+  %378 = icmp ne i32 %377, 0
+  br i1 %378, label %380, label %379
+
+379:                                              ; preds = %357
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+380:                                              ; preds = %357
+  br label %381
+
+381:                                              ; preds = %380
+  %382 = load i32, ptr %8, align 4, !tbaa !10
+  %383 = add i32 %382, 1
+  store i32 %383, ptr %8, align 4, !tbaa !10
+  br label %336, !llvm.loop !29
+
+384:                                              ; preds = %336
+  br label %709
+
+385:                                              ; preds = %75
+  %386 = load ptr, ptr %6, align 8, !tbaa !8
+  %387 = load ptr, ptr %5, align 8, !tbaa !3
+  %388 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %387, i32 0, i32 3
+  %389 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet, ptr %388, i32 0, i32 0
+  %390 = getelementptr inbounds [129 x i8], ptr %389, i64 0, i64 0
+  %391 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4, !tbaa !10
+  %392 = udiv i32 %391, 8
+  %393 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %386, ptr noundef %390, i32 noundef %392)
+  %394 = icmp ne i32 %393, 0
+  br i1 %394, label %396, label %395
+
+395:                                              ; preds = %385
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+396:                                              ; preds = %385
+  %397 = load ptr, ptr %6, align 8, !tbaa !8
+  %398 = load ptr, ptr %5, align 8, !tbaa !3
+  %399 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %398, i32 0, i32 3
+  %400 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet, ptr %399, i32 0, i32 1
+  %401 = load i64, ptr %400, align 8, !tbaa !18
+  %402 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4, !tbaa !10
+  %403 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %397, i64 noundef %401, i32 noundef %402)
+  %404 = icmp ne i32 %403, 0
+  br i1 %404, label %406, label %405
+
+405:                                              ; preds = %396
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+406:                                              ; preds = %396
+  %407 = load ptr, ptr %6, align 8, !tbaa !8
+  %408 = load ptr, ptr %5, align 8, !tbaa !3
+  %409 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %408, i32 0, i32 3
+  %410 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet, ptr %409, i32 0, i32 2
+  %411 = load i32, ptr %410, align 8, !tbaa !18
+  %412 = icmp ne i32 %411, 0
+  %413 = select i1 %412, i32 1, i32 0
+  %414 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN, align 4, !tbaa !10
+  %415 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %407, i32 noundef %413, i32 noundef %414)
+  %416 = icmp ne i32 %415, 0
+  br i1 %416, label %418, label %417
+
+417:                                              ; preds = %406
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+418:                                              ; preds = %406
+  %419 = load ptr, ptr %6, align 8, !tbaa !8
+  %420 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN, align 4, !tbaa !10
+  %421 = call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %419, i32 noundef %420)
+  %422 = icmp ne i32 %421, 0
+  br i1 %422, label %424, label %423
+
+423:                                              ; preds = %418
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+424:                                              ; preds = %418
+  %425 = load ptr, ptr %6, align 8, !tbaa !8
+  %426 = load ptr, ptr %5, align 8, !tbaa !3
+  %427 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %426, i32 0, i32 3
+  %428 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet, ptr %427, i32 0, i32 3
+  %429 = load i32, ptr %428, align 4, !tbaa !18
+  %430 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN, align 4, !tbaa !10
+  %431 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %425, i32 noundef %429, i32 noundef %430)
+  %432 = icmp ne i32 %431, 0
+  br i1 %432, label %434, label %433
+
+433:                                              ; preds = %424
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+434:                                              ; preds = %424
+  store i32 0, ptr %8, align 4, !tbaa !10
+  br label %435
+
+435:                                              ; preds = %567, %434
+  %436 = load i32, ptr %8, align 4, !tbaa !10
+  %437 = load ptr, ptr %5, align 8, !tbaa !3
+  %438 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %437, i32 0, i32 3
+  %439 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet, ptr %438, i32 0, i32 3
+  %440 = load i32, ptr %439, align 4, !tbaa !18
+  %441 = icmp ult i32 %436, %440
+  br i1 %441, label %442, label %570
+
+442:                                              ; preds = %435
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %443 = load ptr, ptr %5, align 8, !tbaa !3
+  %444 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %443, i32 0, i32 3
+  %445 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet, ptr %444, i32 0, i32 4
+  %446 = load ptr, ptr %445, align 8, !tbaa !18
+  %447 = load i32, ptr %8, align 4, !tbaa !10
+  %448 = zext i32 %447 to i64
+  %449 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %446, i64 %448
+  store ptr %449, ptr %14, align 8, !tbaa !30
+  %450 = load ptr, ptr %6, align 8, !tbaa !8
+  %451 = load ptr, ptr %14, align 8, !tbaa !30
+  %452 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %451, i32 0, i32 0
+  %453 = load i64, ptr %452, align 8, !tbaa !31
+  %454 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN, align 4, !tbaa !10
+  %455 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %450, i64 noundef %453, i32 noundef %454)
+  %456 = icmp ne i32 %455, 0
+  br i1 %456, label %458, label %457
+
+457:                                              ; preds = %442
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %564
+
+458:                                              ; preds = %442
+  %459 = load ptr, ptr %6, align 8, !tbaa !8
+  %460 = load ptr, ptr %14, align 8, !tbaa !30
+  %461 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %460, i32 0, i32 1
+  %462 = load i8, ptr %461, align 8, !tbaa !33
+  %463 = zext i8 %462 to i32
+  %464 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN, align 4, !tbaa !10
+  %465 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %459, i32 noundef %463, i32 noundef %464)
+  %466 = icmp ne i32 %465, 0
+  br i1 %466, label %468, label %467
+
+467:                                              ; preds = %458
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %564
+
+468:                                              ; preds = %458
+  %469 = load ptr, ptr %6, align 8, !tbaa !8
+  %470 = load ptr, ptr %14, align 8, !tbaa !30
+  %471 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %470, i32 0, i32 2
+  %472 = getelementptr inbounds [13 x i8], ptr %471, i64 0, i64 0
+  %473 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN, align 4, !tbaa !10
+  %474 = udiv i32 %473, 8
+  %475 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %469, ptr noundef %472, i32 noundef %474)
+  %476 = icmp ne i32 %475, 0
+  br i1 %476, label %478, label %477
+
+477:                                              ; preds = %468
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %564
+
+478:                                              ; preds = %468
+  %479 = load ptr, ptr %6, align 8, !tbaa !8
+  %480 = load ptr, ptr %14, align 8, !tbaa !30
+  %481 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %480, i32 0, i32 3
+  %482 = load i8, ptr %481, align 2
+  %483 = and i8 %482, 1
+  %484 = zext i8 %483 to i32
+  %485 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN, align 4, !tbaa !10
+  %486 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %479, i32 noundef %484, i32 noundef %485)
+  %487 = icmp ne i32 %486, 0
+  br i1 %487, label %489, label %488
+
+488:                                              ; preds = %478
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %564
+
+489:                                              ; preds = %478
+  %490 = load ptr, ptr %6, align 8, !tbaa !8
+  %491 = load ptr, ptr %14, align 8, !tbaa !30
+  %492 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %491, i32 0, i32 3
+  %493 = load i8, ptr %492, align 2
+  %494 = lshr i8 %493, 1
+  %495 = and i8 %494, 1
+  %496 = zext i8 %495 to i32
+  %497 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN, align 4, !tbaa !10
+  %498 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %490, i32 noundef %496, i32 noundef %497)
+  %499 = icmp ne i32 %498, 0
+  br i1 %499, label %501, label %500
+
+500:                                              ; preds = %489
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %564
+
+501:                                              ; preds = %489
+  %502 = load ptr, ptr %6, align 8, !tbaa !8
+  %503 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN, align 4, !tbaa !10
+  %504 = call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %502, i32 noundef %503)
+  %505 = icmp ne i32 %504, 0
+  br i1 %505, label %507, label %506
+
+506:                                              ; preds = %501
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %564
+
+507:                                              ; preds = %501
+  %508 = load ptr, ptr %6, align 8, !tbaa !8
+  %509 = load ptr, ptr %14, align 8, !tbaa !30
+  %510 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %509, i32 0, i32 4
+  %511 = load i8, ptr %510, align 1, !tbaa !34
+  %512 = zext i8 %511 to i32
+  %513 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN, align 4, !tbaa !10
+  %514 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %508, i32 noundef %512, i32 noundef %513)
+  %515 = icmp ne i32 %514, 0
+  br i1 %515, label %517, label %516
+
+516:                                              ; preds = %507
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %564
+
+517:                                              ; preds = %507
+  store i32 0, ptr %9, align 4, !tbaa !10
+  br label %518
+
+518:                                              ; preds = %560, %517
+  %519 = load i32, ptr %9, align 4, !tbaa !10
+  %520 = load ptr, ptr %14, align 8, !tbaa !30
+  %521 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %520, i32 0, i32 4
+  %522 = load i8, ptr %521, align 1, !tbaa !34
+  %523 = zext i8 %522 to i32
+  %524 = icmp ult i32 %519, %523
+  br i1 %524, label %525, label %563
+
+525:                                              ; preds = %518
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  %526 = load ptr, ptr %14, align 8, !tbaa !30
+  %527 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %526, i32 0, i32 5
+  %528 = load ptr, ptr %527, align 8, !tbaa !35
+  %529 = load i32, ptr %9, align 4, !tbaa !10
+  %530 = zext i32 %529 to i64
+  %531 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %528, i64 %530
+  store ptr %531, ptr %15, align 8, !tbaa !30
+  %532 = load ptr, ptr %6, align 8, !tbaa !8
+  %533 = load ptr, ptr %15, align 8, !tbaa !30
+  %534 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %533, i32 0, i32 0
+  %535 = load i64, ptr %534, align 8, !tbaa !36
+  %536 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN, align 4, !tbaa !10
+  %537 = call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %532, i64 noundef %535, i32 noundef %536)
+  %538 = icmp ne i32 %537, 0
+  br i1 %538, label %540, label %539
+
+539:                                              ; preds = %525
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %557
+
+540:                                              ; preds = %525
+  %541 = load ptr, ptr %6, align 8, !tbaa !8
+  %542 = load ptr, ptr %15, align 8, !tbaa !30
+  %543 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %542, i32 0, i32 1
+  %544 = load i8, ptr %543, align 8, !tbaa !38
+  %545 = zext i8 %544 to i32
+  %546 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN, align 4, !tbaa !10
+  %547 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %541, i32 noundef %545, i32 noundef %546)
+  %548 = icmp ne i32 %547, 0
+  br i1 %548, label %550, label %549
+
+549:                                              ; preds = %540
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %557
+
+550:                                              ; preds = %540
+  %551 = load ptr, ptr %6, align 8, !tbaa !8
+  %552 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN, align 4, !tbaa !10
+  %553 = call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %551, i32 noundef %552)
+  %554 = icmp ne i32 %553, 0
+  br i1 %554, label %556, label %555
+
+555:                                              ; preds = %550
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %557
+
+556:                                              ; preds = %550
+  store i32 0, ptr %13, align 4
+  br label %557
+
+557:                                              ; preds = %556, %555, %549, %539
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  %558 = load i32, ptr %13, align 4
+  switch i32 %558, label %564 [
+    i32 0, label %559
+  ]
+
+559:                                              ; preds = %557
+  br label %560
+
+560:                                              ; preds = %559
+  %561 = load i32, ptr %9, align 4, !tbaa !10
+  %562 = add i32 %561, 1
+  store i32 %562, ptr %9, align 4, !tbaa !10
+  br label %518, !llvm.loop !39
+
+563:                                              ; preds = %518
+  store i32 0, ptr %13, align 4
+  br label %564
+
+564:                                              ; preds = %563, %557, %516, %506, %500, %488, %477, %467, %457
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  %565 = load i32, ptr %13, align 4
+  switch i32 %565, label %734 [
+    i32 0, label %566
+  ]
+
+566:                                              ; preds = %564
+  br label %567
+
+567:                                              ; preds = %566
+  %568 = load i32, ptr %8, align 4, !tbaa !10
+  %569 = add i32 %568, 1
+  store i32 %569, ptr %8, align 4, !tbaa !10
+  br label %435, !llvm.loop !40
+
+570:                                              ; preds = %435
+  br label %709
+
+571:                                              ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  %572 = load ptr, ptr %6, align 8, !tbaa !8
+  %573 = load ptr, ptr %5, align 8, !tbaa !3
+  %574 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %573, i32 0, i32 3
+  %575 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %574, i32 0, i32 0
+  %576 = load i32, ptr %575, align 8, !tbaa !18
+  %577 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_TYPE_LEN, align 4, !tbaa !10
+  %578 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %572, i32 noundef %576, i32 noundef %577)
+  %579 = icmp ne i32 %578, 0
+  br i1 %579, label %581, label %580
+
+580:                                              ; preds = %571
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+581:                                              ; preds = %571
+  %582 = load ptr, ptr %5, align 8, !tbaa !3
+  %583 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %582, i32 0, i32 3
+  %584 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %583, i32 0, i32 1
+  %585 = load ptr, ptr %584, align 8, !tbaa !18
+  %586 = call i64 @strlen(ptr noundef %585) #5
+  store i64 %586, ptr %16, align 8, !tbaa !41
+  %587 = load ptr, ptr %6, align 8, !tbaa !8
+  %588 = load i64, ptr %16, align 8, !tbaa !41
+  %589 = trunc i64 %588 to i32
+  %590 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN, align 4, !tbaa !10
+  %591 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %587, i32 noundef %589, i32 noundef %590)
+  %592 = icmp ne i32 %591, 0
+  br i1 %592, label %594, label %593
+
+593:                                              ; preds = %581
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+594:                                              ; preds = %581
+  %595 = load ptr, ptr %6, align 8, !tbaa !8
+  %596 = load ptr, ptr %5, align 8, !tbaa !3
+  %597 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %596, i32 0, i32 3
+  %598 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %597, i32 0, i32 1
+  %599 = load ptr, ptr %598, align 8, !tbaa !18
+  %600 = load i64, ptr %16, align 8, !tbaa !41
+  %601 = trunc i64 %600 to i32
+  %602 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %595, ptr noundef %599, i32 noundef %601)
+  %603 = icmp ne i32 %602, 0
+  br i1 %603, label %605, label %604
+
+604:                                              ; preds = %594
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+605:                                              ; preds = %594
+  %606 = load ptr, ptr %5, align 8, !tbaa !3
+  %607 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %606, i32 0, i32 3
+  %608 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %607, i32 0, i32 2
+  %609 = load ptr, ptr %608, align 8, !tbaa !18
+  %610 = call i64 @strlen(ptr noundef %609) #5
+  store i64 %610, ptr %16, align 8, !tbaa !41
+  %611 = load ptr, ptr %6, align 8, !tbaa !8
+  %612 = load i64, ptr %16, align 8, !tbaa !41
+  %613 = trunc i64 %612 to i32
+  %614 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN, align 4, !tbaa !10
+  %615 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %611, i32 noundef %613, i32 noundef %614)
+  %616 = icmp ne i32 %615, 0
+  br i1 %616, label %618, label %617
+
+617:                                              ; preds = %605
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+618:                                              ; preds = %605
+  %619 = load ptr, ptr %6, align 8, !tbaa !8
+  %620 = load ptr, ptr %5, align 8, !tbaa !3
+  %621 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %620, i32 0, i32 3
+  %622 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %621, i32 0, i32 2
+  %623 = load ptr, ptr %622, align 8, !tbaa !18
+  %624 = load i64, ptr %16, align 8, !tbaa !41
+  %625 = trunc i64 %624 to i32
+  %626 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %619, ptr noundef %623, i32 noundef %625)
+  %627 = icmp ne i32 %626, 0
+  br i1 %627, label %629, label %628
+
+628:                                              ; preds = %618
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+629:                                              ; preds = %618
+  %630 = load ptr, ptr %6, align 8, !tbaa !8
+  %631 = load ptr, ptr %5, align 8, !tbaa !3
+  %632 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %631, i32 0, i32 3
+  %633 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %632, i32 0, i32 3
+  %634 = load i32, ptr %633, align 8, !tbaa !18
+  %635 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN, align 4, !tbaa !10
+  %636 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %630, i32 noundef %634, i32 noundef %635)
+  %637 = icmp ne i32 %636, 0
+  br i1 %637, label %639, label %638
+
+638:                                              ; preds = %629
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+639:                                              ; preds = %629
+  %640 = load ptr, ptr %6, align 8, !tbaa !8
+  %641 = load ptr, ptr %5, align 8, !tbaa !3
+  %642 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %641, i32 0, i32 3
+  %643 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %642, i32 0, i32 4
+  %644 = load i32, ptr %643, align 4, !tbaa !18
+  %645 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN, align 4, !tbaa !10
+  %646 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %640, i32 noundef %644, i32 noundef %645)
+  %647 = icmp ne i32 %646, 0
+  br i1 %647, label %649, label %648
+
+648:                                              ; preds = %639
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+649:                                              ; preds = %639
+  %650 = load ptr, ptr %6, align 8, !tbaa !8
+  %651 = load ptr, ptr %5, align 8, !tbaa !3
+  %652 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %651, i32 0, i32 3
+  %653 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %652, i32 0, i32 5
+  %654 = load i32, ptr %653, align 8, !tbaa !18
+  %655 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN, align 4, !tbaa !10
+  %656 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %650, i32 noundef %654, i32 noundef %655)
+  %657 = icmp ne i32 %656, 0
+  br i1 %657, label %659, label %658
+
+658:                                              ; preds = %649
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+659:                                              ; preds = %649
+  %660 = load ptr, ptr %6, align 8, !tbaa !8
+  %661 = load ptr, ptr %5, align 8, !tbaa !3
+  %662 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %661, i32 0, i32 3
+  %663 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %662, i32 0, i32 6
+  %664 = load i32, ptr %663, align 4, !tbaa !18
+  %665 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_COLORS_LEN, align 4, !tbaa !10
+  %666 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %660, i32 noundef %664, i32 noundef %665)
+  %667 = icmp ne i32 %666, 0
+  br i1 %667, label %669, label %668
+
+668:                                              ; preds = %659
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+669:                                              ; preds = %659
+  %670 = load ptr, ptr %6, align 8, !tbaa !8
+  %671 = load ptr, ptr %5, align 8, !tbaa !3
+  %672 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %671, i32 0, i32 3
+  %673 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %672, i32 0, i32 7
+  %674 = load i32, ptr %673, align 8, !tbaa !18
+  %675 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN, align 4, !tbaa !10
+  %676 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %670, i32 noundef %674, i32 noundef %675)
+  %677 = icmp ne i32 %676, 0
+  br i1 %677, label %679, label %678
+
+678:                                              ; preds = %669
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+679:                                              ; preds = %669
+  %680 = load ptr, ptr %6, align 8, !tbaa !8
+  %681 = load ptr, ptr %5, align 8, !tbaa !3
+  %682 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %681, i32 0, i32 3
+  %683 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %682, i32 0, i32 8
+  %684 = load ptr, ptr %683, align 8, !tbaa !18
+  %685 = load ptr, ptr %5, align 8, !tbaa !3
+  %686 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %685, i32 0, i32 3
+  %687 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Picture, ptr %686, i32 0, i32 7
+  %688 = load i32, ptr %687, align 8, !tbaa !18
+  %689 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %680, ptr noundef %684, i32 noundef %688)
+  %690 = icmp ne i32 %689, 0
+  br i1 %690, label %692, label %691
+
+691:                                              ; preds = %679
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %693
+
+692:                                              ; preds = %679
+  store i32 0, ptr %13, align 4
+  br label %693
+
+693:                                              ; preds = %692, %691, %678, %668, %658, %648, %638, %628, %617, %604, %593, %580
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  %694 = load i32, ptr %13, align 4
+  switch i32 %694, label %734 [
+    i32 0, label %695
+  ]
+
+695:                                              ; preds = %693
+  br label %709
+
+696:                                              ; preds = %75
+  %697 = load ptr, ptr %6, align 8, !tbaa !8
+  %698 = load ptr, ptr %5, align 8, !tbaa !3
+  %699 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %698, i32 0, i32 3
+  %700 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_Unknown, ptr %699, i32 0, i32 0
+  %701 = load ptr, ptr %700, align 8, !tbaa !18
+  %702 = load ptr, ptr %5, align 8, !tbaa !3
+  %703 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %702, i32 0, i32 2
+  %704 = load i32, ptr %703, align 8, !tbaa !17
+  %705 = call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %697, ptr noundef %701, i32 noundef %704)
+  %706 = icmp ne i32 %705, 0
+  br i1 %706, label %708, label %707
+
+707:                                              ; preds = %696
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+708:                                              ; preds = %696
+  br label %709
+
+709:                                              ; preds = %708, %695, %570, %384, %282, %224, %197, %187
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  %710 = load ptr, ptr %6, align 8, !tbaa !8
+  %711 = call i32 @FLAC__bitwriter_get_input_bits_unconsumed(ptr noundef %710)
+  store i32 %711, ptr %17, align 4, !tbaa !10
+  %712 = load i32, ptr %17, align 4, !tbaa !10
+  %713 = load i32, ptr %12, align 4, !tbaa !10
+  %714 = icmp ult i32 %712, %713
+  br i1 %714, label %715, label %716
+
+715:                                              ; preds = %709
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %731
+
+716:                                              ; preds = %709
+  %717 = load i32, ptr %12, align 4, !tbaa !10
+  %718 = load i32, ptr %17, align 4, !tbaa !10
+  %719 = sub i32 %718, %717
+  store i32 %719, ptr %17, align 4, !tbaa !10
+  %720 = load i32, ptr %17, align 4, !tbaa !10
+  %721 = urem i32 %720, 8
+  %722 = icmp ne i32 %721, 0
+  br i1 %722, label %729, label %723
+
+723:                                              ; preds = %716
+  %724 = load i32, ptr %17, align 4, !tbaa !10
+  %725 = load i32, ptr %10, align 4, !tbaa !10
+  %726 = mul i32 %725, 8
+  %727 = add i32 %726, 32
+  %728 = icmp ne i32 %724, %727
+  br i1 %728, label %729, label %730
+
+729:                                              ; preds = %723, %716
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %731
+
+730:                                              ; preds = %723
+  store i32 0, ptr %13, align 4
+  br label %731
+
+731:                                              ; preds = %730, %729, %715
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  %732 = load i32, ptr %13, align 4
+  switch i32 %732, label %734 [
+    i32 0, label %733
+  ]
+
+733:                                              ; preds = %731
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %734
+
+734:                                              ; preds = %733, %731, %707, %693, %564, %433, %423, %417, %405, %395, %379, %356, %334, %324, %309, %298, %291, %277, %262, %247, %223, %208, %196, %186, %176, %165, %150, %139, %128, %118, %108, %98, %88, %74, %67, %39, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %735 = load i32, ptr %4, align 4
+  ret i32 %735
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #1
+declare i64 @strlen(ptr noundef) #2
 
-declare i32 @FLAC__bitwriter_get_input_bits_unconsumed(ptr noundef) #2
+declare i32 @FLAC__bitwriter_get_input_bits_unconsumed(ptr noundef) #3
 
-declare i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef, i32 noundef, i32 noundef) #2
+declare i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef, i64 noundef, i32 noundef) #2
+declare i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef, i64 noundef, i32 noundef) #3
 
-declare i32 @FLAC__bitwriter_write_byte_block(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @FLAC__bitwriter_write_byte_block(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @FLAC__bitwriter_write_zeroes(ptr noundef, i32 noundef) #2
+declare i32 @FLAC__bitwriter_write_zeroes(ptr noundef, i32 noundef) #3
 
-declare i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef, i32 noundef) #2
+declare i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef, i32 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__frame_add_header(ptr noundef %header, ptr noundef %bw) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %header.addr = alloca ptr, align 8
-  %bw.addr = alloca ptr, align 8
-  %u = alloca i32, align 4
-  %blocksize_hint = alloca i32, align 4
-  %sample_rate_hint = alloca i32, align 4
-  %crc = alloca i8, align 1
-  store ptr %header, ptr %header.addr, align 8
-  store ptr %bw, ptr %bw.addr, align 8
-  %0 = load ptr, ptr %bw.addr, align 8
-  %1 = load i32, ptr @FLAC__FRAME_HEADER_SYNC, align 4
-  %2 = load i32, ptr @FLAC__FRAME_HEADER_SYNC_LEN, align 4
-  %call = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %0, i32 noundef %1, i32 noundef %2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @FLAC__frame_add_header(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !30
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #4
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load i32, ptr @FLAC__FRAME_HEADER_SYNC, align 4, !tbaa !10
+  %13 = load i32, ptr @FLAC__FRAME_HEADER_SYNC_LEN, align 4, !tbaa !10
+  %14 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %11, i32 noundef %12, i32 noundef %13)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %bw.addr, align 8
-  %4 = load i32, ptr @FLAC__FRAME_HEADER_RESERVED_LEN, align 4
-  %call1 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %3, i32 noundef 0, i32 noundef %4)
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %if.end4, label %if.then3
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  %19 = load i32, ptr @FLAC__FRAME_HEADER_RESERVED_LEN, align 4, !tbaa !10
+  %20 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %18, i32 noundef 0, i32 noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %23, label %22
 
-if.then3:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %17
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end4:                                          ; preds = %if.end
-  %5 = load ptr, ptr %bw.addr, align 8
-  %6 = load ptr, ptr %header.addr, align 8
-  %number_type = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %6, i32 0, i32 5
-  %7 = load i32, ptr %number_type, align 4
-  %cmp = icmp eq i32 %7, 0
-  %cond = select i1 %cmp, i32 0, i32 1
-  %8 = load i32, ptr @FLAC__FRAME_HEADER_BLOCKING_STRATEGY_LEN, align 4
-  %call5 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %5, i32 noundef %cond, i32 noundef %8)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.end8, label %if.then7
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %5, align 8, !tbaa !8
+  %25 = load ptr, ptr %4, align 8, !tbaa !30
+  %26 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %25, i32 0, i32 5
+  %27 = load i32, ptr %26, align 4, !tbaa !42
+  %28 = icmp eq i32 %27, 0
+  %29 = select i1 %28, i32 0, i32 1
+  %30 = load i32, ptr @FLAC__FRAME_HEADER_BLOCKING_STRATEGY_LEN, align 4, !tbaa !10
+  %31 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %24, i32 noundef %29, i32 noundef %30)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %34, label %33
 
-if.then7:                                         ; preds = %if.end4
-  store i32 0, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %23
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end8:                                          ; preds = %if.end4
-  store i32 0, ptr %blocksize_hint, align 4
-  %9 = load ptr, ptr %header.addr, align 8
-  %blocksize = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %blocksize, align 8
-  switch i32 %10, label %sw.default [
-    i32 192, label %sw.bb
-    i32 576, label %sw.bb9
-    i32 1152, label %sw.bb10
-    i32 2304, label %sw.bb11
-    i32 4608, label %sw.bb12
-    i32 256, label %sw.bb13
-    i32 512, label %sw.bb14
-    i32 1024, label %sw.bb15
-    i32 2048, label %sw.bb16
-    i32 4096, label %sw.bb17
-    i32 8192, label %sw.bb18
-    i32 16384, label %sw.bb19
-    i32 32768, label %sw.bb20
+34:                                               ; preds = %23
+  store i32 0, ptr %7, align 4, !tbaa !10
+  %35 = load ptr, ptr %4, align 8, !tbaa !30
+  %36 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %35, i32 0, i32 0
+  %37 = load i32, ptr %36, align 8, !tbaa !44
+  switch i32 %37, label %51 [
+    i32 192, label %38
+    i32 576, label %39
+    i32 1152, label %40
+    i32 2304, label %41
+    i32 4608, label %42
+    i32 256, label %43
+    i32 512, label %44
+    i32 1024, label %45
+    i32 2048, label %46
+    i32 4096, label %47
+    i32 8192, label %48
+    i32 16384, label %49
+    i32 32768, label %50
   ]
 
-sw.bb:                                            ; preds = %if.end8
-  store i32 1, ptr %u, align 4
-  br label %sw.epilog
+38:                                               ; preds = %34
+  store i32 1, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb9:                                           ; preds = %if.end8
-  store i32 2, ptr %u, align 4
-  br label %sw.epilog
+39:                                               ; preds = %34
+  store i32 2, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb10:                                          ; preds = %if.end8
-  store i32 3, ptr %u, align 4
-  br label %sw.epilog
+40:                                               ; preds = %34
+  store i32 3, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb11:                                          ; preds = %if.end8
-  store i32 4, ptr %u, align 4
-  br label %sw.epilog
+41:                                               ; preds = %34
+  store i32 4, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb12:                                          ; preds = %if.end8
-  store i32 5, ptr %u, align 4
-  br label %sw.epilog
+42:                                               ; preds = %34
+  store i32 5, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb13:                                          ; preds = %if.end8
-  store i32 8, ptr %u, align 4
-  br label %sw.epilog
+43:                                               ; preds = %34
+  store i32 8, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb14:                                          ; preds = %if.end8
-  store i32 9, ptr %u, align 4
-  br label %sw.epilog
+44:                                               ; preds = %34
+  store i32 9, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb15:                                          ; preds = %if.end8
-  store i32 10, ptr %u, align 4
-  br label %sw.epilog
+45:                                               ; preds = %34
+  store i32 10, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb16:                                          ; preds = %if.end8
-  store i32 11, ptr %u, align 4
-  br label %sw.epilog
+46:                                               ; preds = %34
+  store i32 11, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb17:                                          ; preds = %if.end8
-  store i32 12, ptr %u, align 4
-  br label %sw.epilog
+47:                                               ; preds = %34
+  store i32 12, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb18:                                          ; preds = %if.end8
-  store i32 13, ptr %u, align 4
-  br label %sw.epilog
+48:                                               ; preds = %34
+  store i32 13, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb19:                                          ; preds = %if.end8
-  store i32 14, ptr %u, align 4
-  br label %sw.epilog
+49:                                               ; preds = %34
+  store i32 14, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.bb20:                                          ; preds = %if.end8
-  store i32 15, ptr %u, align 4
-  br label %sw.epilog
+50:                                               ; preds = %34
+  store i32 15, ptr %6, align 4, !tbaa !10
+  br label %59
 
-sw.default:                                       ; preds = %if.end8
-  %11 = load ptr, ptr %header.addr, align 8
-  %blocksize21 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %11, i32 0, i32 0
-  %12 = load i32, ptr %blocksize21, align 8
-  %cmp22 = icmp ule i32 %12, 256
-  br i1 %cmp22, label %if.then23, label %if.else
+51:                                               ; preds = %34
+  %52 = load ptr, ptr %4, align 8, !tbaa !30
+  %53 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %52, i32 0, i32 0
+  %54 = load i32, ptr %53, align 8, !tbaa !44
+  %55 = icmp ule i32 %54, 256
+  br i1 %55, label %56, label %57
 
-if.then23:                                        ; preds = %sw.default
-  store i32 6, ptr %u, align 4
-  store i32 6, ptr %blocksize_hint, align 4
-  br label %if.end24
+56:                                               ; preds = %51
+  store i32 6, ptr %6, align 4, !tbaa !10
+  store i32 6, ptr %7, align 4, !tbaa !10
+  br label %58
 
-if.else:                                          ; preds = %sw.default
-  store i32 7, ptr %u, align 4
-  store i32 7, ptr %blocksize_hint, align 4
-  br label %if.end24
+57:                                               ; preds = %51
+  store i32 7, ptr %6, align 4, !tbaa !10
+  store i32 7, ptr %7, align 4, !tbaa !10
+  br label %58
 
-if.end24:                                         ; preds = %if.else, %if.then23
-  br label %sw.epilog
+58:                                               ; preds = %57, %56
+  br label %59
 
-sw.epilog:                                        ; preds = %if.end24, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb
-  %13 = load ptr, ptr %bw.addr, align 8
-  %14 = load i32, ptr %u, align 4
-  %15 = load i32, ptr @FLAC__FRAME_HEADER_BLOCK_SIZE_LEN, align 4
-  %call25 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %13, i32 noundef %14, i32 noundef %15)
-  %tobool26 = icmp ne i32 %call25, 0
-  br i1 %tobool26, label %if.end28, label %if.then27
+59:                                               ; preds = %58, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38
+  %60 = load ptr, ptr %5, align 8, !tbaa !8
+  %61 = load i32, ptr %6, align 4, !tbaa !10
+  %62 = load i32, ptr @FLAC__FRAME_HEADER_BLOCK_SIZE_LEN, align 4, !tbaa !10
+  %63 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %60, i32 noundef %61, i32 noundef %62)
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %66, label %65
 
-if.then27:                                        ; preds = %sw.epilog
-  store i32 0, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %59
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end28:                                         ; preds = %sw.epilog
-  store i32 0, ptr %sample_rate_hint, align 4
-  %16 = load ptr, ptr %header.addr, align 8
-  %sample_rate = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %16, i32 0, i32 1
-  %17 = load i32, ptr %sample_rate, align 4
-  switch i32 %17, label %sw.default40 [
-    i32 88200, label %sw.bb29
-    i32 176400, label %sw.bb30
-    i32 192000, label %sw.bb31
-    i32 8000, label %sw.bb32
-    i32 16000, label %sw.bb33
-    i32 22050, label %sw.bb34
-    i32 24000, label %sw.bb35
-    i32 32000, label %sw.bb36
-    i32 44100, label %sw.bb37
-    i32 48000, label %sw.bb38
-    i32 96000, label %sw.bb39
+66:                                               ; preds = %59
+  store i32 0, ptr %8, align 4, !tbaa !10
+  %67 = load ptr, ptr %4, align 8, !tbaa !30
+  %68 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %67, i32 0, i32 1
+  %69 = load i32, ptr %68, align 4, !tbaa !45
+  switch i32 %69, label %81 [
+    i32 88200, label %70
+    i32 176400, label %71
+    i32 192000, label %72
+    i32 8000, label %73
+    i32 16000, label %74
+    i32 22050, label %75
+    i32 24000, label %76
+    i32 32000, label %77
+    i32 44100, label %78
+    i32 48000, label %79
+    i32 96000, label %80
   ]
 
-sw.bb29:                                          ; preds = %if.end28
-  store i32 1, ptr %u, align 4
-  br label %sw.epilog62
+70:                                               ; preds = %66
+  store i32 1, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb30:                                          ; preds = %if.end28
-  store i32 2, ptr %u, align 4
-  br label %sw.epilog62
+71:                                               ; preds = %66
+  store i32 2, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb31:                                          ; preds = %if.end28
-  store i32 3, ptr %u, align 4
-  br label %sw.epilog62
+72:                                               ; preds = %66
+  store i32 3, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb32:                                          ; preds = %if.end28
-  store i32 4, ptr %u, align 4
-  br label %sw.epilog62
+73:                                               ; preds = %66
+  store i32 4, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb33:                                          ; preds = %if.end28
-  store i32 5, ptr %u, align 4
-  br label %sw.epilog62
+74:                                               ; preds = %66
+  store i32 5, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb34:                                          ; preds = %if.end28
-  store i32 6, ptr %u, align 4
-  br label %sw.epilog62
+75:                                               ; preds = %66
+  store i32 6, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb35:                                          ; preds = %if.end28
-  store i32 7, ptr %u, align 4
-  br label %sw.epilog62
+76:                                               ; preds = %66
+  store i32 7, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb36:                                          ; preds = %if.end28
-  store i32 8, ptr %u, align 4
-  br label %sw.epilog62
+77:                                               ; preds = %66
+  store i32 8, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb37:                                          ; preds = %if.end28
-  store i32 9, ptr %u, align 4
-  br label %sw.epilog62
+78:                                               ; preds = %66
+  store i32 9, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb38:                                          ; preds = %if.end28
-  store i32 10, ptr %u, align 4
-  br label %sw.epilog62
+79:                                               ; preds = %66
+  store i32 10, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.bb39:                                          ; preds = %if.end28
-  store i32 11, ptr %u, align 4
-  br label %sw.epilog62
+80:                                               ; preds = %66
+  store i32 11, ptr %6, align 4, !tbaa !10
+  br label %115
 
-sw.default40:                                     ; preds = %if.end28
-  %18 = load ptr, ptr %header.addr, align 8
-  %sample_rate41 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %18, i32 0, i32 1
-  %19 = load i32, ptr %sample_rate41, align 4
-  %cmp42 = icmp ule i32 %19, 255000
-  br i1 %cmp42, label %land.lhs.true, label %if.else46
+81:                                               ; preds = %66
+  %82 = load ptr, ptr %4, align 8, !tbaa !30
+  %83 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %82, i32 0, i32 1
+  %84 = load i32, ptr %83, align 4, !tbaa !45
+  %85 = icmp ule i32 %84, 255000
+  br i1 %85, label %86, label %93
 
-land.lhs.true:                                    ; preds = %sw.default40
-  %20 = load ptr, ptr %header.addr, align 8
-  %sample_rate43 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %20, i32 0, i32 1
-  %21 = load i32, ptr %sample_rate43, align 4
-  %rem = urem i32 %21, 1000
-  %cmp44 = icmp eq i32 %rem, 0
-  br i1 %cmp44, label %if.then45, label %if.else46
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %4, align 8, !tbaa !30
+  %88 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %87, i32 0, i32 1
+  %89 = load i32, ptr %88, align 4, !tbaa !45
+  %90 = urem i32 %89, 1000
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %93
 
-if.then45:                                        ; preds = %land.lhs.true
-  store i32 12, ptr %u, align 4
-  store i32 12, ptr %sample_rate_hint, align 4
-  br label %if.end61
+92:                                               ; preds = %86
+  store i32 12, ptr %6, align 4, !tbaa !10
+  store i32 12, ptr %8, align 4, !tbaa !10
+  br label %114
 
-if.else46:                                        ; preds = %land.lhs.true, %sw.default40
-  %22 = load ptr, ptr %header.addr, align 8
-  %sample_rate47 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %22, i32 0, i32 1
-  %23 = load i32, ptr %sample_rate47, align 4
-  %cmp48 = icmp ule i32 %23, 655350
-  br i1 %cmp48, label %land.lhs.true49, label %if.else54
+93:                                               ; preds = %86, %81
+  %94 = load ptr, ptr %4, align 8, !tbaa !30
+  %95 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %94, i32 0, i32 1
+  %96 = load i32, ptr %95, align 4, !tbaa !45
+  %97 = icmp ule i32 %96, 655350
+  br i1 %97, label %98, label %105
 
-land.lhs.true49:                                  ; preds = %if.else46
-  %24 = load ptr, ptr %header.addr, align 8
-  %sample_rate50 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %24, i32 0, i32 1
-  %25 = load i32, ptr %sample_rate50, align 4
-  %rem51 = urem i32 %25, 10
-  %cmp52 = icmp eq i32 %rem51, 0
-  br i1 %cmp52, label %if.then53, label %if.else54
+98:                                               ; preds = %93
+  %99 = load ptr, ptr %4, align 8, !tbaa !30
+  %100 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %99, i32 0, i32 1
+  %101 = load i32, ptr %100, align 4, !tbaa !45
+  %102 = urem i32 %101, 10
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %105
 
-if.then53:                                        ; preds = %land.lhs.true49
-  store i32 14, ptr %u, align 4
-  store i32 14, ptr %sample_rate_hint, align 4
-  br label %if.end60
+104:                                              ; preds = %98
+  store i32 14, ptr %6, align 4, !tbaa !10
+  store i32 14, ptr %8, align 4, !tbaa !10
+  br label %113
 
-if.else54:                                        ; preds = %land.lhs.true49, %if.else46
-  %26 = load ptr, ptr %header.addr, align 8
-  %sample_rate55 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %26, i32 0, i32 1
-  %27 = load i32, ptr %sample_rate55, align 4
-  %cmp56 = icmp ule i32 %27, 65535
-  br i1 %cmp56, label %if.then57, label %if.else58
+105:                                              ; preds = %98, %93
+  %106 = load ptr, ptr %4, align 8, !tbaa !30
+  %107 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %106, i32 0, i32 1
+  %108 = load i32, ptr %107, align 4, !tbaa !45
+  %109 = icmp ule i32 %108, 65535
+  br i1 %109, label %110, label %111
 
-if.then57:                                        ; preds = %if.else54
-  store i32 13, ptr %u, align 4
-  store i32 13, ptr %sample_rate_hint, align 4
-  br label %if.end59
+110:                                              ; preds = %105
+  store i32 13, ptr %6, align 4, !tbaa !10
+  store i32 13, ptr %8, align 4, !tbaa !10
+  br label %112
 
-if.else58:                                        ; preds = %if.else54
-  store i32 0, ptr %u, align 4
-  br label %if.end59
+111:                                              ; preds = %105
+  store i32 0, ptr %6, align 4, !tbaa !10
+  br label %112
 
-if.end59:                                         ; preds = %if.else58, %if.then57
-  br label %if.end60
+112:                                              ; preds = %111, %110
+  br label %113
 
-if.end60:                                         ; preds = %if.end59, %if.then53
-  br label %if.end61
+113:                                              ; preds = %112, %104
+  br label %114
 
-if.end61:                                         ; preds = %if.end60, %if.then45
-  br label %sw.epilog62
+114:                                              ; preds = %113, %92
+  br label %115
 
-sw.epilog62:                                      ; preds = %if.end61, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29
-  %28 = load ptr, ptr %bw.addr, align 8
-  %29 = load i32, ptr %u, align 4
-  %30 = load i32, ptr @FLAC__FRAME_HEADER_SAMPLE_RATE_LEN, align 4
-  %call63 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %28, i32 noundef %29, i32 noundef %30)
-  %tobool64 = icmp ne i32 %call63, 0
-  br i1 %tobool64, label %if.end66, label %if.then65
+115:                                              ; preds = %114, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70
+  %116 = load ptr, ptr %5, align 8, !tbaa !8
+  %117 = load i32, ptr %6, align 4, !tbaa !10
+  %118 = load i32, ptr @FLAC__FRAME_HEADER_SAMPLE_RATE_LEN, align 4, !tbaa !10
+  %119 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %116, i32 noundef %117, i32 noundef %118)
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %122, label %121
 
-if.then65:                                        ; preds = %sw.epilog62
-  store i32 0, ptr %retval, align 4
-  br label %return
+121:                                              ; preds = %115
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end66:                                         ; preds = %sw.epilog62
-  %31 = load ptr, ptr %header.addr, align 8
-  %channel_assignment = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %31, i32 0, i32 3
-  %32 = load i32, ptr %channel_assignment, align 4
-  switch i32 %32, label %sw.default71 [
-    i32 0, label %sw.bb67
-    i32 1, label %sw.bb68
-    i32 2, label %sw.bb69
-    i32 3, label %sw.bb70
+122:                                              ; preds = %115
+  %123 = load ptr, ptr %4, align 8, !tbaa !30
+  %124 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %123, i32 0, i32 3
+  %125 = load i32, ptr %124, align 4, !tbaa !46
+  switch i32 %125, label %134 [
+    i32 0, label %126
+    i32 1, label %131
+    i32 2, label %132
+    i32 3, label %133
   ]
 
-sw.bb67:                                          ; preds = %if.end66
-  %33 = load ptr, ptr %header.addr, align 8
-  %channels = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %33, i32 0, i32 2
-  %34 = load i32, ptr %channels, align 8
-  %sub = sub i32 %34, 1
-  store i32 %sub, ptr %u, align 4
-  br label %sw.epilog72
+126:                                              ; preds = %122
+  %127 = load ptr, ptr %4, align 8, !tbaa !30
+  %128 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %127, i32 0, i32 2
+  %129 = load i32, ptr %128, align 8, !tbaa !47
+  %130 = sub i32 %129, 1
+  store i32 %130, ptr %6, align 4, !tbaa !10
+  br label %135
 
-sw.bb68:                                          ; preds = %if.end66
-  store i32 8, ptr %u, align 4
-  br label %sw.epilog72
+131:                                              ; preds = %122
+  store i32 8, ptr %6, align 4, !tbaa !10
+  br label %135
 
-sw.bb69:                                          ; preds = %if.end66
-  store i32 9, ptr %u, align 4
-  br label %sw.epilog72
+132:                                              ; preds = %122
+  store i32 9, ptr %6, align 4, !tbaa !10
+  br label %135
 
-sw.bb70:                                          ; preds = %if.end66
-  store i32 10, ptr %u, align 4
-  br label %sw.epilog72
+133:                                              ; preds = %122
+  store i32 10, ptr %6, align 4, !tbaa !10
+  br label %135
 
-sw.default71:                                     ; preds = %if.end66
-  br label %sw.epilog72
+134:                                              ; preds = %122
+  br label %135
 
-sw.epilog72:                                      ; preds = %sw.default71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb67
-  %35 = load ptr, ptr %bw.addr, align 8
-  %36 = load i32, ptr %u, align 4
-  %37 = load i32, ptr @FLAC__FRAME_HEADER_CHANNEL_ASSIGNMENT_LEN, align 4
-  %call73 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %35, i32 noundef %36, i32 noundef %37)
-  %tobool74 = icmp ne i32 %call73, 0
-  br i1 %tobool74, label %if.end76, label %if.then75
+135:                                              ; preds = %134, %133, %132, %131, %126
+  %136 = load ptr, ptr %5, align 8, !tbaa !8
+  %137 = load i32, ptr %6, align 4, !tbaa !10
+  %138 = load i32, ptr @FLAC__FRAME_HEADER_CHANNEL_ASSIGNMENT_LEN, align 4, !tbaa !10
+  %139 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %136, i32 noundef %137, i32 noundef %138)
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %142, label %141
 
-if.then75:                                        ; preds = %sw.epilog72
-  store i32 0, ptr %retval, align 4
-  br label %return
+141:                                              ; preds = %135
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end76:                                         ; preds = %sw.epilog72
-  %38 = load ptr, ptr %header.addr, align 8
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %38, i32 0, i32 4
-  %39 = load i32, ptr %bits_per_sample, align 8
-  switch i32 %39, label %sw.default83 [
-    i32 8, label %sw.bb77
-    i32 12, label %sw.bb78
-    i32 16, label %sw.bb79
-    i32 20, label %sw.bb80
-    i32 24, label %sw.bb81
-    i32 32, label %sw.bb82
+142:                                              ; preds = %135
+  %143 = load ptr, ptr %4, align 8, !tbaa !30
+  %144 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %143, i32 0, i32 4
+  %145 = load i32, ptr %144, align 8, !tbaa !48
+  switch i32 %145, label %152 [
+    i32 8, label %146
+    i32 12, label %147
+    i32 16, label %148
+    i32 20, label %149
+    i32 24, label %150
+    i32 32, label %151
   ]
 
-sw.bb77:                                          ; preds = %if.end76
-  store i32 1, ptr %u, align 4
-  br label %sw.epilog84
+146:                                              ; preds = %142
+  store i32 1, ptr %6, align 4, !tbaa !10
+  br label %153
 
-sw.bb78:                                          ; preds = %if.end76
-  store i32 2, ptr %u, align 4
-  br label %sw.epilog84
+147:                                              ; preds = %142
+  store i32 2, ptr %6, align 4, !tbaa !10
+  br label %153
 
-sw.bb79:                                          ; preds = %if.end76
-  store i32 4, ptr %u, align 4
-  br label %sw.epilog84
+148:                                              ; preds = %142
+  store i32 4, ptr %6, align 4, !tbaa !10
+  br label %153
 
-sw.bb80:                                          ; preds = %if.end76
-  store i32 5, ptr %u, align 4
-  br label %sw.epilog84
+149:                                              ; preds = %142
+  store i32 5, ptr %6, align 4, !tbaa !10
+  br label %153
 
-sw.bb81:                                          ; preds = %if.end76
-  store i32 6, ptr %u, align 4
-  br label %sw.epilog84
+150:                                              ; preds = %142
+  store i32 6, ptr %6, align 4, !tbaa !10
+  br label %153
 
-sw.bb82:                                          ; preds = %if.end76
-  store i32 7, ptr %u, align 4
-  br label %sw.epilog84
+151:                                              ; preds = %142
+  store i32 7, ptr %6, align 4, !tbaa !10
+  br label %153
 
-sw.default83:                                     ; preds = %if.end76
-  store i32 0, ptr %u, align 4
-  br label %sw.epilog84
+152:                                              ; preds = %142
+  store i32 0, ptr %6, align 4, !tbaa !10
+  br label %153
 
-sw.epilog84:                                      ; preds = %sw.default83, %sw.bb82, %sw.bb81, %sw.bb80, %sw.bb79, %sw.bb78, %sw.bb77
-  %40 = load ptr, ptr %bw.addr, align 8
-  %41 = load i32, ptr %u, align 4
-  %42 = load i32, ptr @FLAC__FRAME_HEADER_BITS_PER_SAMPLE_LEN, align 4
-  %call85 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %40, i32 noundef %41, i32 noundef %42)
-  %tobool86 = icmp ne i32 %call85, 0
-  br i1 %tobool86, label %if.end88, label %if.then87
+153:                                              ; preds = %152, %151, %150, %149, %148, %147, %146
+  %154 = load ptr, ptr %5, align 8, !tbaa !8
+  %155 = load i32, ptr %6, align 4, !tbaa !10
+  %156 = load i32, ptr @FLAC__FRAME_HEADER_BITS_PER_SAMPLE_LEN, align 4, !tbaa !10
+  %157 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %154, i32 noundef %155, i32 noundef %156)
+  %158 = icmp ne i32 %157, 0
+  br i1 %158, label %160, label %159
 
-if.then87:                                        ; preds = %sw.epilog84
-  store i32 0, ptr %retval, align 4
-  br label %return
+159:                                              ; preds = %153
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end88:                                         ; preds = %sw.epilog84
-  %43 = load ptr, ptr %bw.addr, align 8
-  %44 = load i32, ptr @FLAC__FRAME_HEADER_ZERO_PAD_LEN, align 4
-  %call89 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %43, i32 noundef 0, i32 noundef %44)
-  %tobool90 = icmp ne i32 %call89, 0
-  br i1 %tobool90, label %if.end92, label %if.then91
+160:                                              ; preds = %153
+  %161 = load ptr, ptr %5, align 8, !tbaa !8
+  %162 = load i32, ptr @FLAC__FRAME_HEADER_ZERO_PAD_LEN, align 4, !tbaa !10
+  %163 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %161, i32 noundef 0, i32 noundef %162)
+  %164 = icmp ne i32 %163, 0
+  br i1 %164, label %166, label %165
 
-if.then91:                                        ; preds = %if.end88
-  store i32 0, ptr %retval, align 4
-  br label %return
+165:                                              ; preds = %160
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end92:                                         ; preds = %if.end88
-  %45 = load ptr, ptr %header.addr, align 8
-  %number_type93 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %45, i32 0, i32 5
-  %46 = load i32, ptr %number_type93, align 4
-  %cmp94 = icmp eq i32 %46, 0
-  br i1 %cmp94, label %if.then95, label %if.else100
+166:                                              ; preds = %160
+  %167 = load ptr, ptr %4, align 8, !tbaa !30
+  %168 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %167, i32 0, i32 5
+  %169 = load i32, ptr %168, align 4, !tbaa !42
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %171, label %180
 
-if.then95:                                        ; preds = %if.end92
-  %47 = load ptr, ptr %bw.addr, align 8
-  %48 = load ptr, ptr %header.addr, align 8
-  %number = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %48, i32 0, i32 6
-  %49 = load i32, ptr %number, align 8
-  %call96 = call i32 @FLAC__bitwriter_write_utf8_uint32(ptr noundef %47, i32 noundef %49)
-  %tobool97 = icmp ne i32 %call96, 0
-  br i1 %tobool97, label %if.end99, label %if.then98
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %5, align 8, !tbaa !8
+  %173 = load ptr, ptr %4, align 8, !tbaa !30
+  %174 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %173, i32 0, i32 6
+  %175 = load i32, ptr %174, align 8, !tbaa !18
+  %176 = call i32 @FLAC__bitwriter_write_utf8_uint32(ptr noundef %172, i32 noundef %175)
+  %177 = icmp ne i32 %176, 0
+  br i1 %177, label %179, label %178
 
-if.then98:                                        ; preds = %if.then95
-  store i32 0, ptr %retval, align 4
-  br label %return
+178:                                              ; preds = %171
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end99:                                         ; preds = %if.then95
-  br label %if.end106
+179:                                              ; preds = %171
+  br label %189
 
-if.else100:                                       ; preds = %if.end92
-  %50 = load ptr, ptr %bw.addr, align 8
-  %51 = load ptr, ptr %header.addr, align 8
-  %number101 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %51, i32 0, i32 6
-  %52 = load i64, ptr %number101, align 8
-  %call102 = call i32 @FLAC__bitwriter_write_utf8_uint64(ptr noundef %50, i64 noundef %52)
-  %tobool103 = icmp ne i32 %call102, 0
-  br i1 %tobool103, label %if.end105, label %if.then104
+180:                                              ; preds = %166
+  %181 = load ptr, ptr %5, align 8, !tbaa !8
+  %182 = load ptr, ptr %4, align 8, !tbaa !30
+  %183 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %182, i32 0, i32 6
+  %184 = load i64, ptr %183, align 8, !tbaa !18
+  %185 = call i32 @FLAC__bitwriter_write_utf8_uint64(ptr noundef %181, i64 noundef %184)
+  %186 = icmp ne i32 %185, 0
+  br i1 %186, label %188, label %187
 
-if.then104:                                       ; preds = %if.else100
-  store i32 0, ptr %retval, align 4
-  br label %return
+187:                                              ; preds = %180
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end105:                                        ; preds = %if.else100
-  br label %if.end106
+188:                                              ; preds = %180
+  br label %189
 
-if.end106:                                        ; preds = %if.end105, %if.end99
-  %53 = load i32, ptr %blocksize_hint, align 4
-  %tobool107 = icmp ne i32 %53, 0
-  br i1 %tobool107, label %if.then108, label %if.end117
+189:                                              ; preds = %188, %179
+  %190 = load i32, ptr %7, align 4, !tbaa !10
+  %191 = icmp ne i32 %190, 0
+  br i1 %191, label %192, label %205
 
-if.then108:                                       ; preds = %if.end106
-  %54 = load ptr, ptr %bw.addr, align 8
-  %55 = load ptr, ptr %header.addr, align 8
-  %blocksize109 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %55, i32 0, i32 0
-  %56 = load i32, ptr %blocksize109, align 8
-  %sub110 = sub i32 %56, 1
-  %57 = load i32, ptr %blocksize_hint, align 4
-  %cmp111 = icmp eq i32 %57, 6
-  %cond112 = select i1 %cmp111, i32 8, i32 16
-  %call113 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %54, i32 noundef %sub110, i32 noundef %cond112)
-  %tobool114 = icmp ne i32 %call113, 0
-  br i1 %tobool114, label %if.end116, label %if.then115
+192:                                              ; preds = %189
+  %193 = load ptr, ptr %5, align 8, !tbaa !8
+  %194 = load ptr, ptr %4, align 8, !tbaa !30
+  %195 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %194, i32 0, i32 0
+  %196 = load i32, ptr %195, align 8, !tbaa !44
+  %197 = sub i32 %196, 1
+  %198 = load i32, ptr %7, align 4, !tbaa !10
+  %199 = icmp eq i32 %198, 6
+  %200 = select i1 %199, i32 8, i32 16
+  %201 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %193, i32 noundef %197, i32 noundef %200)
+  %202 = icmp ne i32 %201, 0
+  br i1 %202, label %204, label %203
 
-if.then115:                                       ; preds = %if.then108
-  store i32 0, ptr %retval, align 4
-  br label %return
+203:                                              ; preds = %192
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end116:                                        ; preds = %if.then108
-  br label %if.end117
+204:                                              ; preds = %192
+  br label %205
 
-if.end117:                                        ; preds = %if.end116, %if.end106
-  %58 = load i32, ptr %sample_rate_hint, align 4
-  switch i32 %58, label %sw.epilog137 [
-    i32 12, label %sw.bb118
-    i32 13, label %sw.bb124
-    i32 14, label %sw.bb130
+205:                                              ; preds = %204, %189
+  %206 = load i32, ptr %8, align 4, !tbaa !10
+  switch i32 %206, label %236 [
+    i32 12, label %207
+    i32 13, label %217
+    i32 14, label %226
   ]
 
-sw.bb118:                                         ; preds = %if.end117
-  %59 = load ptr, ptr %bw.addr, align 8
-  %60 = load ptr, ptr %header.addr, align 8
-  %sample_rate119 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %60, i32 0, i32 1
-  %61 = load i32, ptr %sample_rate119, align 4
-  %div = udiv i32 %61, 1000
-  %call120 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %59, i32 noundef %div, i32 noundef 8)
-  %tobool121 = icmp ne i32 %call120, 0
-  br i1 %tobool121, label %if.end123, label %if.then122
+207:                                              ; preds = %205
+  %208 = load ptr, ptr %5, align 8, !tbaa !8
+  %209 = load ptr, ptr %4, align 8, !tbaa !30
+  %210 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %209, i32 0, i32 1
+  %211 = load i32, ptr %210, align 4, !tbaa !45
+  %212 = udiv i32 %211, 1000
+  %213 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %208, i32 noundef %212, i32 noundef 8)
+  %214 = icmp ne i32 %213, 0
+  br i1 %214, label %216, label %215
 
-if.then122:                                       ; preds = %sw.bb118
-  store i32 0, ptr %retval, align 4
-  br label %return
+215:                                              ; preds = %207
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end123:                                        ; preds = %sw.bb118
-  br label %sw.epilog137
+216:                                              ; preds = %207
+  br label %236
 
-sw.bb124:                                         ; preds = %if.end117
-  %62 = load ptr, ptr %bw.addr, align 8
-  %63 = load ptr, ptr %header.addr, align 8
-  %sample_rate125 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %63, i32 0, i32 1
-  %64 = load i32, ptr %sample_rate125, align 4
-  %call126 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %62, i32 noundef %64, i32 noundef 16)
-  %tobool127 = icmp ne i32 %call126, 0
-  br i1 %tobool127, label %if.end129, label %if.then128
+217:                                              ; preds = %205
+  %218 = load ptr, ptr %5, align 8, !tbaa !8
+  %219 = load ptr, ptr %4, align 8, !tbaa !30
+  %220 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %219, i32 0, i32 1
+  %221 = load i32, ptr %220, align 4, !tbaa !45
+  %222 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %218, i32 noundef %221, i32 noundef 16)
+  %223 = icmp ne i32 %222, 0
+  br i1 %223, label %225, label %224
 
-if.then128:                                       ; preds = %sw.bb124
-  store i32 0, ptr %retval, align 4
-  br label %return
+224:                                              ; preds = %217
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end129:                                        ; preds = %sw.bb124
-  br label %sw.epilog137
+225:                                              ; preds = %217
+  br label %236
 
-sw.bb130:                                         ; preds = %if.end117
-  %65 = load ptr, ptr %bw.addr, align 8
-  %66 = load ptr, ptr %header.addr, align 8
-  %sample_rate131 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %66, i32 0, i32 1
-  %67 = load i32, ptr %sample_rate131, align 4
-  %div132 = udiv i32 %67, 10
-  %call133 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %65, i32 noundef %div132, i32 noundef 16)
-  %tobool134 = icmp ne i32 %call133, 0
-  br i1 %tobool134, label %if.end136, label %if.then135
+226:                                              ; preds = %205
+  %227 = load ptr, ptr %5, align 8, !tbaa !8
+  %228 = load ptr, ptr %4, align 8, !tbaa !30
+  %229 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %228, i32 0, i32 1
+  %230 = load i32, ptr %229, align 4, !tbaa !45
+  %231 = udiv i32 %230, 10
+  %232 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %227, i32 noundef %231, i32 noundef 16)
+  %233 = icmp ne i32 %232, 0
+  br i1 %233, label %235, label %234
 
-if.then135:                                       ; preds = %sw.bb130
-  store i32 0, ptr %retval, align 4
-  br label %return
+234:                                              ; preds = %226
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end136:                                        ; preds = %sw.bb130
-  br label %sw.epilog137
+235:                                              ; preds = %226
+  br label %236
 
-sw.epilog137:                                     ; preds = %if.end136, %if.end129, %if.end123, %if.end117
-  %68 = load ptr, ptr %bw.addr, align 8
-  %call138 = call i32 @FLAC__bitwriter_get_write_crc8(ptr noundef %68, ptr noundef %crc)
-  %tobool139 = icmp ne i32 %call138, 0
-  br i1 %tobool139, label %if.end141, label %if.then140
+236:                                              ; preds = %205, %235, %225, %216
+  %237 = load ptr, ptr %5, align 8, !tbaa !8
+  %238 = call i32 @FLAC__bitwriter_get_write_crc8(ptr noundef %237, ptr noundef %9)
+  %239 = icmp ne i32 %238, 0
+  br i1 %239, label %241, label %240
 
-if.then140:                                       ; preds = %sw.epilog137
-  store i32 0, ptr %retval, align 4
-  br label %return
+240:                                              ; preds = %236
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end141:                                        ; preds = %sw.epilog137
-  %69 = load ptr, ptr %bw.addr, align 8
-  %70 = load i8, ptr %crc, align 1
-  %conv = zext i8 %70 to i32
-  %71 = load i32, ptr @FLAC__FRAME_HEADER_CRC_LEN, align 4
-  %call142 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %69, i32 noundef %conv, i32 noundef %71)
-  %tobool143 = icmp ne i32 %call142, 0
-  br i1 %tobool143, label %if.end145, label %if.then144
+241:                                              ; preds = %236
+  %242 = load ptr, ptr %5, align 8, !tbaa !8
+  %243 = load i8, ptr %9, align 1, !tbaa !18
+  %244 = zext i8 %243 to i32
+  %245 = load i32, ptr @FLAC__FRAME_HEADER_CRC_LEN, align 4, !tbaa !10
+  %246 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %242, i32 noundef %244, i32 noundef %245)
+  %247 = icmp ne i32 %246, 0
+  br i1 %247, label %249, label %248
 
-if.then144:                                       ; preds = %if.end141
-  store i32 0, ptr %retval, align 4
-  br label %return
+248:                                              ; preds = %241
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-if.end145:                                        ; preds = %if.end141
-  store i32 1, ptr %retval, align 4
-  br label %return
+249:                                              ; preds = %241
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-return:                                           ; preds = %if.end145, %if.then144, %if.then140, %if.then135, %if.then128, %if.then122, %if.then115, %if.then104, %if.then98, %if.then91, %if.then87, %if.then75, %if.then65, %if.then27, %if.then7, %if.then3, %if.then
-  %72 = load i32, ptr %retval, align 4
-  ret i32 %72
+250:                                              ; preds = %249, %248, %240, %234, %224, %215, %203, %187, %178, %165, %159, %141, %121, %65, %33, %22, %16
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %251 = load i32, ptr %3, align 4
+  ret i32 %251
 }
 
-declare i32 @FLAC__bitwriter_write_utf8_uint32(ptr noundef, i32 noundef) #2
+declare i32 @FLAC__bitwriter_write_utf8_uint32(ptr noundef, i32 noundef) #3
 
-declare i32 @FLAC__bitwriter_write_utf8_uint64(ptr noundef, i64 noundef) #2
+declare i32 @FLAC__bitwriter_write_utf8_uint64(ptr noundef, i64 noundef) #3
 
-declare i32 @FLAC__bitwriter_get_write_crc8(ptr noundef, ptr noundef) #2
+declare i32 @FLAC__bitwriter_get_write_crc8(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_constant(ptr noundef %subframe, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) #0 {
-entry:
-  %subframe.addr = alloca ptr, align 8
-  %subframe_bps.addr = alloca i32, align 4
-  %wasted_bits.addr = alloca i32, align 4
-  %bw.addr = alloca ptr, align 8
-  %ok = alloca i32, align 4
-  store ptr %subframe, ptr %subframe.addr, align 8
-  store i32 %subframe_bps, ptr %subframe_bps.addr, align 4
-  store i32 %wasted_bits, ptr %wasted_bits.addr, align 4
-  store ptr %bw, ptr %bw.addr, align 8
-  %0 = load ptr, ptr %bw.addr, align 8
-  %1 = load i32, ptr @FLAC__SUBFRAME_TYPE_CONSTANT_BYTE_ALIGNED_MASK, align 4
-  %2 = load i32, ptr %wasted_bits.addr, align 4
-  %tobool = icmp ne i32 %2, 0
-  %cond = select i1 %tobool, i32 1, i32 0
-  %or = or i32 %1, %cond
-  %3 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4
-  %4 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4
-  %add = add i32 %3, %4
-  %5 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4
-  %add1 = add i32 %add, %5
-  %call = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %0, i32 noundef %or, i32 noundef %add1)
-  %tobool2 = icmp ne i32 %call, 0
-  br i1 %tobool2, label %land.lhs.true, label %land.end
+define hidden i32 @FLAC__subframe_add_constant(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !30
+  store i32 %1, ptr %6, align 4, !tbaa !10
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %10 = load ptr, ptr %8, align 8, !tbaa !8
+  %11 = load i32, ptr @FLAC__SUBFRAME_TYPE_CONSTANT_BYTE_ALIGNED_MASK, align 4, !tbaa !10
+  %12 = load i32, ptr %7, align 4, !tbaa !10
+  %13 = icmp ne i32 %12, 0
+  %14 = select i1 %13, i32 1, i32 0
+  %15 = or i32 %11, %14
+  %16 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4, !tbaa !10
+  %17 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4, !tbaa !10
+  %18 = add i32 %16, %17
+  %19 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4, !tbaa !10
+  %20 = add i32 %18, %19
+  %21 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %10, i32 noundef %15, i32 noundef %20)
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %41
 
-land.lhs.true:                                    ; preds = %entry
-  %6 = load i32, ptr %wasted_bits.addr, align 4
-  %tobool3 = icmp ne i32 %6, 0
-  br i1 %tobool3, label %cond.true, label %cond.false
+23:                                               ; preds = %4
+  %24 = load i32, ptr %7, align 4, !tbaa !10
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %32
 
-cond.true:                                        ; preds = %land.lhs.true
-  %7 = load ptr, ptr %bw.addr, align 8
-  %8 = load i32, ptr %wasted_bits.addr, align 4
-  %sub = sub i32 %8, 1
-  %call4 = call i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %7, i32 noundef %sub)
-  %tobool5 = icmp ne i32 %call4, 0
-  br i1 %tobool5, label %land.rhs, label %land.end
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %8, align 8, !tbaa !8
+  %28 = load i32, ptr %7, align 4, !tbaa !10
+  %29 = sub i32 %28, 1
+  %30 = call i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %27, i32 noundef %29)
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %33, label %41
 
-cond.false:                                       ; preds = %land.lhs.true
-  br i1 true, label %land.rhs, label %land.end
+32:                                               ; preds = %23
+  br i1 true, label %33, label %41
 
-land.rhs:                                         ; preds = %cond.false, %cond.true
-  %9 = load ptr, ptr %bw.addr, align 8
-  %10 = load ptr, ptr %subframe.addr, align 8
-  %value = getelementptr inbounds %struct.FLAC__Subframe_Constant, ptr %10, i32 0, i32 0
-  %11 = load i64, ptr %value, align 8
-  %12 = load i32, ptr %subframe_bps.addr, align 4
-  %call6 = call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %9, i64 noundef %11, i32 noundef %12)
-  %tobool7 = icmp ne i32 %call6, 0
-  br label %land.end
+33:                                               ; preds = %32, %26
+  %34 = load ptr, ptr %8, align 8, !tbaa !8
+  %35 = load ptr, ptr %5, align 8, !tbaa !30
+  %36 = getelementptr inbounds nuw %struct.FLAC__Subframe_Constant, ptr %35, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8, !tbaa !49
+  %38 = load i32, ptr %6, align 4, !tbaa !10
+  %39 = call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %34, i64 noundef %37, i32 noundef %38)
+  %40 = icmp ne i32 %39, 0
+  br label %41
 
-land.end:                                         ; preds = %land.rhs, %cond.false, %cond.true, %entry
-  %13 = phi i1 [ false, %cond.false ], [ false, %cond.true ], [ false, %entry ], [ %tobool7, %land.rhs ]
-  %land.ext = zext i1 %13 to i32
-  store i32 %land.ext, ptr %ok, align 4
-  %14 = load i32, ptr %ok, align 4
-  ret i32 %14
+41:                                               ; preds = %33, %32, %26, %4
+  %42 = phi i1 [ false, %32 ], [ false, %26 ], [ false, %4 ], [ %40, %33 ]
+  %43 = zext i1 %42 to i32
+  store i32 %43, ptr %9, align 4, !tbaa !10
+  %44 = load i32, ptr %9, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  ret i32 %44
 }
 
-declare i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef, i32 noundef) #2
+declare i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef, i32 noundef) #3
 
-declare i32 @FLAC__bitwriter_write_raw_int64(ptr noundef, i64 noundef, i32 noundef) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_fixed(ptr noundef %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %subframe.addr = alloca ptr, align 8
-  %residual_samples.addr = alloca i32, align 4
-  %subframe_bps.addr = alloca i32, align 4
-  %wasted_bits.addr = alloca i32, align 4
-  %bw.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %subframe, ptr %subframe.addr, align 8
-  store i32 %residual_samples, ptr %residual_samples.addr, align 4
-  store i32 %subframe_bps, ptr %subframe_bps.addr, align 4
-  store i32 %wasted_bits, ptr %wasted_bits.addr, align 4
-  store ptr %bw, ptr %bw.addr, align 8
-  %0 = load ptr, ptr %bw.addr, align 8
-  %1 = load i32, ptr @FLAC__SUBFRAME_TYPE_FIXED_BYTE_ALIGNED_MASK, align 4
-  %2 = load ptr, ptr %subframe.addr, align 8
-  %order = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %order, align 8
-  %shl = shl i32 %3, 1
-  %or = or i32 %1, %shl
-  %4 = load i32, ptr %wasted_bits.addr, align 4
-  %tobool = icmp ne i32 %4, 0
-  %cond = select i1 %tobool, i32 1, i32 0
-  %or1 = or i32 %or, %cond
-  %5 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4
-  %6 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4
-  %add = add i32 %5, %6
-  %7 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4
-  %add2 = add i32 %add, %7
-  %call = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %0, i32 noundef %or1, i32 noundef %add2)
-  %tobool3 = icmp ne i32 %call, 0
-  br i1 %tobool3, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %8 = load i32, ptr %wasted_bits.addr, align 4
-  %tobool4 = icmp ne i32 %8, 0
-  br i1 %tobool4, label %if.then5, label %if.end10
-
-if.then5:                                         ; preds = %if.end
-  %9 = load ptr, ptr %bw.addr, align 8
-  %10 = load i32, ptr %wasted_bits.addr, align 4
-  %sub = sub i32 %10, 1
-  %call6 = call i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %9, i32 noundef %sub)
-  %tobool7 = icmp ne i32 %call6, 0
-  br i1 %tobool7, label %if.end9, label %if.then8
-
-if.then8:                                         ; preds = %if.then5
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end9:                                          ; preds = %if.then5
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.end9, %if.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end10
-  %11 = load i32, ptr %i, align 4
-  %12 = load ptr, ptr %subframe.addr, align 8
-  %order11 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %order11, align 8
-  %cmp = icmp ult i32 %11, %13
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %14 = load ptr, ptr %bw.addr, align 8
-  %15 = load ptr, ptr %subframe.addr, align 8
-  %warmup = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %15, i32 0, i32 2
-  %16 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %16 to i64
-  %arrayidx = getelementptr inbounds [4 x i64], ptr %warmup, i64 0, i64 %idxprom
-  %17 = load i64, ptr %arrayidx, align 8
-  %18 = load i32, ptr %subframe_bps.addr, align 4
-  %call12 = call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %14, i64 noundef %17, i32 noundef %18)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.end15, label %if.then14
-
-if.then14:                                        ; preds = %for.body
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end15:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end15
-  %19 = load i32, ptr %i, align 4
-  %inc = add i32 %19, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %for.cond
-  %20 = load ptr, ptr %bw.addr, align 8
-  %21 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %21, i32 0, i32 0
-  %call16 = call i32 @add_entropy_coding_method_(ptr noundef %20, ptr noundef %entropy_coding_method)
-  %tobool17 = icmp ne i32 %call16, 0
-  br i1 %tobool17, label %if.end19, label %if.then18
-
-if.then18:                                        ; preds = %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end19:                                         ; preds = %for.end
-  %22 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method20 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %22, i32 0, i32 0
-  %type = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method20, i32 0, i32 0
-  %23 = load i32, ptr %type, align 8
-  switch i32 %23, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb
-  ]
-
-sw.bb:                                            ; preds = %if.end19, %if.end19
-  %24 = load ptr, ptr %bw.addr, align 8
-  %25 = load ptr, ptr %subframe.addr, align 8
-  %residual = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %25, i32 0, i32 3
-  %26 = load ptr, ptr %residual, align 8
-  %27 = load i32, ptr %residual_samples.addr, align 4
-  %28 = load ptr, ptr %subframe.addr, align 8
-  %order21 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %28, i32 0, i32 1
-  %29 = load i32, ptr %order21, align 8
-  %30 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method22 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %30, i32 0, i32 0
-  %data = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method22, i32 0, i32 1
-  %contents = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %data, i32 0, i32 1
-  %31 = load ptr, ptr %contents, align 8
-  %parameters = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %parameters, align 8
-  %33 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method23 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %33, i32 0, i32 0
-  %data24 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method23, i32 0, i32 1
-  %contents25 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %data24, i32 0, i32 1
-  %34 = load ptr, ptr %contents25, align 8
-  %raw_bits = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %34, i32 0, i32 1
-  %35 = load ptr, ptr %raw_bits, align 8
-  %36 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method26 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %36, i32 0, i32 0
-  %data27 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method26, i32 0, i32 1
-  %order28 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %data27, i32 0, i32 0
-  %37 = load i32, ptr %order28, align 8
-  %38 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method29 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %38, i32 0, i32 0
-  %type30 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method29, i32 0, i32 0
-  %39 = load i32, ptr %type30, align 8
-  %cmp31 = icmp eq i32 %39, 1
-  %conv = zext i1 %cmp31 to i32
-  %call32 = call i32 @add_residual_partitioned_rice_(ptr noundef %24, ptr noundef %26, i32 noundef %27, i32 noundef %29, ptr noundef %32, ptr noundef %35, i32 noundef %37, i32 noundef %conv)
-  %tobool33 = icmp ne i32 %call32, 0
-  br i1 %tobool33, label %if.end35, label %if.then34
-
-if.then34:                                        ; preds = %sw.bb
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end35:                                         ; preds = %sw.bb
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %if.end19
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.default, %if.end35
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %sw.epilog, %if.then34, %if.then18, %if.then14, %if.then8, %if.then
-  %40 = load i32, ptr %retval, align 4
-  ret i32 %40
-}
+declare i32 @FLAC__bitwriter_write_raw_int64(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @add_entropy_coding_method_(ptr noundef %bw, ptr noundef %method) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bw.addr = alloca ptr, align 8
-  %method.addr = alloca ptr, align 8
-  store ptr %bw, ptr %bw.addr, align 8
-  store ptr %method, ptr %method.addr, align 8
-  %0 = load ptr, ptr %bw.addr, align 8
-  %1 = load ptr, ptr %method.addr, align 8
-  %type = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %type, align 8
-  %3 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_TYPE_LEN, align 4
-  %call = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %0, i32 noundef %2, i32 noundef %3)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @FLAC__subframe_add_fixed(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !30
+  store i32 %1, ptr %8, align 4, !tbaa !10
+  store i32 %2, ptr %9, align 4, !tbaa !10
+  store i32 %3, ptr %10, align 4, !tbaa !10
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %14 = load ptr, ptr %11, align 8, !tbaa !8
+  %15 = load i32, ptr @FLAC__SUBFRAME_TYPE_FIXED_BYTE_ALIGNED_MASK, align 4, !tbaa !10
+  %16 = load ptr, ptr %7, align 8, !tbaa !30
+  %17 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8, !tbaa !51
+  %19 = shl i32 %18, 1
+  %20 = or i32 %15, %19
+  %21 = load i32, ptr %10, align 4, !tbaa !10
+  %22 = icmp ne i32 %21, 0
+  %23 = select i1 %22, i32 1, i32 0
+  %24 = or i32 %20, %23
+  %25 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4, !tbaa !10
+  %26 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4, !tbaa !10
+  %27 = add i32 %25, %26
+  %28 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4, !tbaa !10
+  %29 = add i32 %27, %28
+  %30 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %14, i32 noundef %24, i32 noundef %29)
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %33, label %32
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %119
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %method.addr, align 8
-  %type1 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %type1, align 8
-  switch i32 %5, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb
+33:                                               ; preds = %5
+  %34 = load i32, ptr %10, align 4, !tbaa !10
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %44
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %11, align 8, !tbaa !8
+  %38 = load i32, ptr %10, align 4, !tbaa !10
+  %39 = sub i32 %38, 1
+  %40 = call i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %37, i32 noundef %39)
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %36
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %119
+
+43:                                               ; preds = %36
+  br label %44
+
+44:                                               ; preds = %43, %33
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %45
+
+45:                                               ; preds = %64, %44
+  %46 = load i32, ptr %12, align 4, !tbaa !10
+  %47 = load ptr, ptr %7, align 8, !tbaa !30
+  %48 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 8, !tbaa !51
+  %50 = icmp ult i32 %46, %49
+  br i1 %50, label %51, label %67
+
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %11, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !30
+  %54 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %53, i32 0, i32 2
+  %55 = load i32, ptr %12, align 4, !tbaa !10
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds nuw [4 x i64], ptr %54, i64 0, i64 %56
+  %58 = load i64, ptr %57, align 8, !tbaa !41
+  %59 = load i32, ptr %9, align 4, !tbaa !10
+  %60 = call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %52, i64 noundef %58, i32 noundef %59)
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %63, label %62
+
+62:                                               ; preds = %51
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %119
+
+63:                                               ; preds = %51
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load i32, ptr %12, align 4, !tbaa !10
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %12, align 4, !tbaa !10
+  br label %45, !llvm.loop !55
+
+67:                                               ; preds = %45
+  %68 = load ptr, ptr %11, align 8, !tbaa !8
+  %69 = load ptr, ptr %7, align 8, !tbaa !30
+  %70 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %69, i32 0, i32 0
+  %71 = call i32 @add_entropy_coding_method_(ptr noundef %68, ptr noundef %70)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %74, label %73
+
+73:                                               ; preds = %67
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %119
+
+74:                                               ; preds = %67
+  %75 = load ptr, ptr %7, align 8, !tbaa !30
+  %76 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %75, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 8, !tbaa !56
+  switch i32 %78, label %117 [
+    i32 0, label %79
+    i32 1, label %79
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end
-  %6 = load ptr, ptr %bw.addr, align 8
-  %7 = load ptr, ptr %method.addr, align 8
-  %data = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %7, i32 0, i32 1
-  %order = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %data, i32 0, i32 0
-  %8 = load i32, ptr %order, align 8
-  %9 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN, align 4
-  %call2 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %6, i32 noundef %8, i32 noundef %9)
-  %tobool3 = icmp ne i32 %call2, 0
-  br i1 %tobool3, label %if.end5, label %if.then4
+79:                                               ; preds = %74, %74
+  %80 = load ptr, ptr %11, align 8, !tbaa !8
+  %81 = load ptr, ptr %7, align 8, !tbaa !30
+  %82 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %81, i32 0, i32 3
+  %83 = load ptr, ptr %82, align 8, !tbaa !57
+  %84 = load i32, ptr %8, align 4, !tbaa !10
+  %85 = load ptr, ptr %7, align 8, !tbaa !30
+  %86 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %85, i32 0, i32 1
+  %87 = load i32, ptr %86, align 8, !tbaa !51
+  %88 = load ptr, ptr %7, align 8, !tbaa !30
+  %89 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %89, i32 0, i32 1
+  %91 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8, !tbaa !18
+  %93 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8, !tbaa !58
+  %95 = load ptr, ptr %7, align 8, !tbaa !30
+  %96 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %95, i32 0, i32 0
+  %97 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %96, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8, !tbaa !18
+  %100 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %99, i32 0, i32 1
+  %101 = load ptr, ptr %100, align 8, !tbaa !60
+  %102 = load ptr, ptr %7, align 8, !tbaa !30
+  %103 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %102, i32 0, i32 0
+  %104 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %103, i32 0, i32 1
+  %105 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %104, i32 0, i32 0
+  %106 = load i32, ptr %105, align 8, !tbaa !18
+  %107 = load ptr, ptr %7, align 8, !tbaa !30
+  %108 = getelementptr inbounds nuw %struct.FLAC__Subframe_Fixed, ptr %107, i32 0, i32 0
+  %109 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %108, i32 0, i32 0
+  %110 = load i32, ptr %109, align 8, !tbaa !56
+  %111 = icmp eq i32 %110, 1
+  %112 = zext i1 %111 to i32
+  %113 = call i32 @add_residual_partitioned_rice_(ptr noundef %80, ptr noundef %83, i32 noundef %84, i32 noundef %87, ptr noundef %94, ptr noundef %101, i32 noundef %106, i32 noundef %112)
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %116, label %115
 
-if.then4:                                         ; preds = %sw.bb
-  store i32 0, ptr %retval, align 4
-  br label %return
+115:                                              ; preds = %79
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %119
 
-if.end5:                                          ; preds = %sw.bb
-  br label %sw.epilog
+116:                                              ; preds = %79
+  br label %118
 
-sw.default:                                       ; preds = %if.end
-  br label %sw.epilog
+117:                                              ; preds = %74
+  br label %118
 
-sw.epilog:                                        ; preds = %sw.default, %if.end5
-  store i32 1, ptr %retval, align 4
-  br label %return
+118:                                              ; preds = %117, %116
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %119
 
-return:                                           ; preds = %sw.epilog, %if.then4, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+119:                                              ; preds = %118, %115, %73, %62, %42, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  %120 = load i32, ptr %6, align 4
+  ret i32 %120
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %predictor_order, ptr noundef %rice_parameters, ptr noundef %raw_bits, i32 noundef %partition_order, i32 noundef %is_extended) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bw.addr = alloca ptr, align 8
-  %residual.addr = alloca ptr, align 8
-  %residual_samples.addr = alloca i32, align 4
-  %predictor_order.addr = alloca i32, align 4
-  %rice_parameters.addr = alloca ptr, align 8
-  %raw_bits.addr = alloca ptr, align 8
-  %partition_order.addr = alloca i32, align 4
-  %is_extended.addr = alloca i32, align 4
-  %plen = alloca i32, align 4
-  %pesc = alloca i32, align 4
-  %i = alloca i32, align 4
-  %i34 = alloca i32, align 4
-  %j = alloca i32, align 4
-  %k = alloca i32, align 4
-  %k_last = alloca i32, align 4
-  %partition_samples = alloca i32, align 4
-  %default_partition_samples = alloca i32, align 4
-  store ptr %bw, ptr %bw.addr, align 8
-  store ptr %residual, ptr %residual.addr, align 8
-  store i32 %residual_samples, ptr %residual_samples.addr, align 4
-  store i32 %predictor_order, ptr %predictor_order.addr, align 4
-  store ptr %rice_parameters, ptr %rice_parameters.addr, align 8
-  store ptr %raw_bits, ptr %raw_bits.addr, align 8
-  store i32 %partition_order, ptr %partition_order.addr, align 4
-  store i32 %is_extended, ptr %is_extended.addr, align 4
-  %0 = load i32, ptr %is_extended.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN, align 4
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %2 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_PARAMETER_LEN, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ %2, %cond.false ]
-  store i32 %cond, ptr %plen, align 4
-  %3 = load i32, ptr %is_extended.addr, align 4
-  %tobool1 = icmp ne i32 %3, 0
-  br i1 %tobool1, label %cond.true2, label %cond.false3
-
-cond.true2:                                       ; preds = %cond.end
-  %4 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_ESCAPE_PARAMETER, align 4
-  br label %cond.end4
-
-cond.false3:                                      ; preds = %cond.end
-  %5 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ESCAPE_PARAMETER, align 4
-  br label %cond.end4
-
-cond.end4:                                        ; preds = %cond.false3, %cond.true2
-  %cond5 = phi i32 [ %4, %cond.true2 ], [ %5, %cond.false3 ]
-  store i32 %cond5, ptr %pesc, align 4
-  %6 = load i32, ptr %partition_order.addr, align 4
-  %cmp = icmp eq i32 %6, 0
-  br i1 %cmp, label %if.then, label %if.else33
-
-if.then:                                          ; preds = %cond.end4
-  %7 = load ptr, ptr %raw_bits.addr, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %7, i64 0
-  %8 = load i32, ptr %arrayidx, align 4
-  %cmp6 = icmp eq i32 %8, 0
-  br i1 %cmp6, label %if.then7, label %if.else
-
-if.then7:                                         ; preds = %if.then
-  %9 = load ptr, ptr %bw.addr, align 8
-  %10 = load ptr, ptr %rice_parameters.addr, align 8
-  %arrayidx8 = getelementptr inbounds i32, ptr %10, i64 0
-  %11 = load i32, ptr %arrayidx8, align 4
-  %12 = load i32, ptr %plen, align 4
-  %call = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %9, i32 noundef %11, i32 noundef %12)
-  %tobool9 = icmp ne i32 %call, 0
-  br i1 %tobool9, label %if.end, label %if.then10
-
-if.then10:                                        ; preds = %if.then7
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then7
-  %13 = load ptr, ptr %bw.addr, align 8
-  %14 = load ptr, ptr %residual.addr, align 8
-  %15 = load i32, ptr %residual_samples.addr, align 4
-  %16 = load ptr, ptr %rice_parameters.addr, align 8
-  %arrayidx11 = getelementptr inbounds i32, ptr %16, i64 0
-  %17 = load i32, ptr %arrayidx11, align 4
-  %call12 = call i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef %17)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.end15, label %if.then14
-
-if.then14:                                        ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end15:                                         ; preds = %if.end
-  br label %if.end32
-
-if.else:                                          ; preds = %if.then
-  %18 = load ptr, ptr %bw.addr, align 8
-  %19 = load i32, ptr %pesc, align 4
-  %20 = load i32, ptr %plen, align 4
-  %call16 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %18, i32 noundef %19, i32 noundef %20)
-  %tobool17 = icmp ne i32 %call16, 0
-  br i1 %tobool17, label %if.end19, label %if.then18
-
-if.then18:                                        ; preds = %if.else
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end19:                                         ; preds = %if.else
-  %21 = load ptr, ptr %bw.addr, align 8
-  %22 = load ptr, ptr %raw_bits.addr, align 8
-  %arrayidx20 = getelementptr inbounds i32, ptr %22, i64 0
-  %23 = load i32, ptr %arrayidx20, align 4
-  %24 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_RAW_LEN, align 4
-  %call21 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %21, i32 noundef %23, i32 noundef %24)
-  %tobool22 = icmp ne i32 %call21, 0
-  br i1 %tobool22, label %if.end24, label %if.then23
-
-if.then23:                                        ; preds = %if.end19
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end24:                                         ; preds = %if.end19
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end24
-  %25 = load i32, ptr %i, align 4
-  %26 = load i32, ptr %residual_samples.addr, align 4
-  %cmp25 = icmp ult i32 %25, %26
-  br i1 %cmp25, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %27 = load ptr, ptr %bw.addr, align 8
-  %28 = load ptr, ptr %residual.addr, align 8
-  %29 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %29 to i64
-  %arrayidx26 = getelementptr inbounds i32, ptr %28, i64 %idxprom
-  %30 = load i32, ptr %arrayidx26, align 4
-  %31 = load ptr, ptr %raw_bits.addr, align 8
-  %arrayidx27 = getelementptr inbounds i32, ptr %31, i64 0
-  %32 = load i32, ptr %arrayidx27, align 4
-  %call28 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %27, i32 noundef %30, i32 noundef %32)
-  %tobool29 = icmp ne i32 %call28, 0
-  br i1 %tobool29, label %if.end31, label %if.then30
-
-if.then30:                                        ; preds = %for.body
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end31:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end31
-  %33 = load i32, ptr %i, align 4
-  %inc = add i32 %33, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %for.cond
-  br label %if.end32
-
-if.end32:                                         ; preds = %for.end, %if.end15
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.else33:                                        ; preds = %cond.end4
-  store i32 0, ptr %k, align 4
-  store i32 0, ptr %k_last, align 4
-  %34 = load i32, ptr %residual_samples.addr, align 4
-  %35 = load i32, ptr %predictor_order.addr, align 4
-  %add = add i32 %34, %35
-  %36 = load i32, ptr %partition_order.addr, align 4
-  %shr = lshr i32 %add, %36
-  store i32 %shr, ptr %default_partition_samples, align 4
-  store i32 0, ptr %i34, align 4
-  br label %for.cond35
-
-for.cond35:                                       ; preds = %for.inc85, %if.else33
-  %37 = load i32, ptr %i34, align 4
-  %38 = load i32, ptr %partition_order.addr, align 4
-  %shl = shl i32 1, %38
-  %cmp36 = icmp ult i32 %37, %shl
-  br i1 %cmp36, label %for.body37, label %for.end87
-
-for.body37:                                       ; preds = %for.cond35
-  %39 = load i32, ptr %default_partition_samples, align 4
-  store i32 %39, ptr %partition_samples, align 4
-  %40 = load i32, ptr %i34, align 4
-  %cmp38 = icmp eq i32 %40, 0
-  br i1 %cmp38, label %if.then39, label %if.end40
-
-if.then39:                                        ; preds = %for.body37
-  %41 = load i32, ptr %predictor_order.addr, align 4
-  %42 = load i32, ptr %partition_samples, align 4
-  %sub = sub i32 %42, %41
-  store i32 %sub, ptr %partition_samples, align 4
-  br label %if.end40
-
-if.end40:                                         ; preds = %if.then39, %for.body37
-  %43 = load i32, ptr %partition_samples, align 4
-  %44 = load i32, ptr %k, align 4
-  %add41 = add i32 %44, %43
-  store i32 %add41, ptr %k, align 4
-  %45 = load ptr, ptr %raw_bits.addr, align 8
-  %46 = load i32, ptr %i34, align 4
-  %idxprom42 = zext i32 %46 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %45, i64 %idxprom42
-  %47 = load i32, ptr %arrayidx43, align 4
-  %cmp44 = icmp eq i32 %47, 0
-  br i1 %cmp44, label %if.then45, label %if.else59
-
-if.then45:                                        ; preds = %if.end40
-  %48 = load ptr, ptr %bw.addr, align 8
-  %49 = load ptr, ptr %rice_parameters.addr, align 8
-  %50 = load i32, ptr %i34, align 4
-  %idxprom46 = zext i32 %50 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %49, i64 %idxprom46
-  %51 = load i32, ptr %arrayidx47, align 4
-  %52 = load i32, ptr %plen, align 4
-  %call48 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %48, i32 noundef %51, i32 noundef %52)
-  %tobool49 = icmp ne i32 %call48, 0
-  br i1 %tobool49, label %if.end51, label %if.then50
-
-if.then50:                                        ; preds = %if.then45
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end51:                                         ; preds = %if.then45
-  %53 = load ptr, ptr %bw.addr, align 8
-  %54 = load ptr, ptr %residual.addr, align 8
-  %55 = load i32, ptr %k_last, align 4
-  %idx.ext = zext i32 %55 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %54, i64 %idx.ext
-  %56 = load i32, ptr %k, align 4
-  %57 = load i32, ptr %k_last, align 4
-  %sub52 = sub i32 %56, %57
-  %58 = load ptr, ptr %rice_parameters.addr, align 8
-  %59 = load i32, ptr %i34, align 4
-  %idxprom53 = zext i32 %59 to i64
-  %arrayidx54 = getelementptr inbounds i32, ptr %58, i64 %idxprom53
-  %60 = load i32, ptr %arrayidx54, align 4
-  %call55 = call i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef %53, ptr noundef %add.ptr, i32 noundef %sub52, i32 noundef %60)
-  %tobool56 = icmp ne i32 %call55, 0
-  br i1 %tobool56, label %if.end58, label %if.then57
-
-if.then57:                                        ; preds = %if.end51
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end58:                                         ; preds = %if.end51
-  br label %if.end84
-
-if.else59:                                        ; preds = %if.end40
-  %61 = load ptr, ptr %bw.addr, align 8
-  %62 = load i32, ptr %pesc, align 4
-  %63 = load i32, ptr %plen, align 4
-  %call60 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %61, i32 noundef %62, i32 noundef %63)
-  %tobool61 = icmp ne i32 %call60, 0
-  br i1 %tobool61, label %if.end63, label %if.then62
-
-if.then62:                                        ; preds = %if.else59
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end63:                                         ; preds = %if.else59
-  %64 = load ptr, ptr %bw.addr, align 8
-  %65 = load ptr, ptr %raw_bits.addr, align 8
-  %66 = load i32, ptr %i34, align 4
-  %idxprom64 = zext i32 %66 to i64
-  %arrayidx65 = getelementptr inbounds i32, ptr %65, i64 %idxprom64
-  %67 = load i32, ptr %arrayidx65, align 4
-  %68 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_RAW_LEN, align 4
-  %call66 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %64, i32 noundef %67, i32 noundef %68)
-  %tobool67 = icmp ne i32 %call66, 0
-  br i1 %tobool67, label %if.end69, label %if.then68
-
-if.then68:                                        ; preds = %if.end63
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end69:                                         ; preds = %if.end63
-  %69 = load i32, ptr %k_last, align 4
-  store i32 %69, ptr %j, align 4
-  br label %for.cond70
-
-for.cond70:                                       ; preds = %for.inc81, %if.end69
-  %70 = load i32, ptr %j, align 4
-  %71 = load i32, ptr %k, align 4
-  %cmp71 = icmp ult i32 %70, %71
-  br i1 %cmp71, label %for.body72, label %for.end83
-
-for.body72:                                       ; preds = %for.cond70
-  %72 = load ptr, ptr %bw.addr, align 8
-  %73 = load ptr, ptr %residual.addr, align 8
-  %74 = load i32, ptr %j, align 4
-  %idxprom73 = zext i32 %74 to i64
-  %arrayidx74 = getelementptr inbounds i32, ptr %73, i64 %idxprom73
-  %75 = load i32, ptr %arrayidx74, align 4
-  %76 = load ptr, ptr %raw_bits.addr, align 8
-  %77 = load i32, ptr %i34, align 4
-  %idxprom75 = zext i32 %77 to i64
-  %arrayidx76 = getelementptr inbounds i32, ptr %76, i64 %idxprom75
-  %78 = load i32, ptr %arrayidx76, align 4
-  %call77 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %72, i32 noundef %75, i32 noundef %78)
-  %tobool78 = icmp ne i32 %call77, 0
-  br i1 %tobool78, label %if.end80, label %if.then79
-
-if.then79:                                        ; preds = %for.body72
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end80:                                         ; preds = %for.body72
-  br label %for.inc81
-
-for.inc81:                                        ; preds = %if.end80
-  %79 = load i32, ptr %j, align 4
-  %inc82 = add i32 %79, 1
-  store i32 %inc82, ptr %j, align 4
-  br label %for.cond70, !llvm.loop !11
-
-for.end83:                                        ; preds = %for.cond70
-  br label %if.end84
-
-if.end84:                                         ; preds = %for.end83, %if.end58
-  %80 = load i32, ptr %k, align 4
-  store i32 %80, ptr %k_last, align 4
-  br label %for.inc85
-
-for.inc85:                                        ; preds = %if.end84
-  %81 = load i32, ptr %i34, align 4
-  %inc86 = add i32 %81, 1
-  store i32 %inc86, ptr %i34, align 4
-  br label %for.cond35, !llvm.loop !12
-
-for.end87:                                        ; preds = %for.cond35
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end87, %if.then79, %if.then68, %if.then62, %if.then57, %if.then50, %if.end32, %if.then30, %if.then23, %if.then18, %if.then14, %if.then10
-  %82 = load i32, ptr %retval, align 4
-  ret i32 %82
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_lpc(ptr noundef %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %subframe.addr = alloca ptr, align 8
-  %residual_samples.addr = alloca i32, align 4
-  %subframe_bps.addr = alloca i32, align 4
-  %wasted_bits.addr = alloca i32, align 4
-  %bw.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %subframe, ptr %subframe.addr, align 8
-  store i32 %residual_samples, ptr %residual_samples.addr, align 4
-  store i32 %subframe_bps, ptr %subframe_bps.addr, align 4
-  store i32 %wasted_bits, ptr %wasted_bits.addr, align 4
-  store ptr %bw, ptr %bw.addr, align 8
-  %0 = load ptr, ptr %bw.addr, align 8
-  %1 = load i32, ptr @FLAC__SUBFRAME_TYPE_LPC_BYTE_ALIGNED_MASK, align 4
-  %2 = load ptr, ptr %subframe.addr, align 8
-  %order = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %order, align 8
-  %sub = sub i32 %3, 1
-  %shl = shl i32 %sub, 1
-  %or = or i32 %1, %shl
-  %4 = load i32, ptr %wasted_bits.addr, align 4
-  %tobool = icmp ne i32 %4, 0
-  %cond = select i1 %tobool, i32 1, i32 0
-  %or1 = or i32 %or, %cond
-  %5 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4
-  %6 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4
-  %add = add i32 %5, %6
-  %7 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4
-  %add2 = add i32 %add, %7
-  %call = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %0, i32 noundef %or1, i32 noundef %add2)
-  %tobool3 = icmp ne i32 %call, 0
-  br i1 %tobool3, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %8 = load i32, ptr %wasted_bits.addr, align 4
-  %tobool4 = icmp ne i32 %8, 0
-  br i1 %tobool4, label %if.then5, label %if.end11
-
-if.then5:                                         ; preds = %if.end
-  %9 = load ptr, ptr %bw.addr, align 8
-  %10 = load i32, ptr %wasted_bits.addr, align 4
-  %sub6 = sub i32 %10, 1
-  %call7 = call i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %9, i32 noundef %sub6)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.end10, label %if.then9
-
-if.then9:                                         ; preds = %if.then5
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end10:                                         ; preds = %if.then5
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end10, %if.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end11
-  %11 = load i32, ptr %i, align 4
-  %12 = load ptr, ptr %subframe.addr, align 8
-  %order12 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %order12, align 8
-  %cmp = icmp ult i32 %11, %13
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %14 = load ptr, ptr %bw.addr, align 8
-  %15 = load ptr, ptr %subframe.addr, align 8
-  %warmup = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %15, i32 0, i32 5
-  %16 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %16 to i64
-  %arrayidx = getelementptr inbounds [32 x i64], ptr %warmup, i64 0, i64 %idxprom
-  %17 = load i64, ptr %arrayidx, align 8
-  %18 = load i32, ptr %subframe_bps.addr, align 4
-  %call13 = call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %14, i64 noundef %17, i32 noundef %18)
-  %tobool14 = icmp ne i32 %call13, 0
-  br i1 %tobool14, label %if.end16, label %if.then15
-
-if.then15:                                        ; preds = %for.body
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end16:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end16
-  %19 = load i32, ptr %i, align 4
-  %inc = add i32 %19, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !13
-
-for.end:                                          ; preds = %for.cond
-  %20 = load ptr, ptr %bw.addr, align 8
-  %21 = load ptr, ptr %subframe.addr, align 8
-  %qlp_coeff_precision = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %21, i32 0, i32 2
-  %22 = load i32, ptr %qlp_coeff_precision, align 4
-  %sub17 = sub i32 %22, 1
-  %23 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN, align 4
-  %call18 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %20, i32 noundef %sub17, i32 noundef %23)
-  %tobool19 = icmp ne i32 %call18, 0
-  br i1 %tobool19, label %if.end21, label %if.then20
-
-if.then20:                                        ; preds = %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end21:                                         ; preds = %for.end
-  %24 = load ptr, ptr %bw.addr, align 8
-  %25 = load ptr, ptr %subframe.addr, align 8
-  %quantization_level = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %25, i32 0, i32 3
-  %26 = load i32, ptr %quantization_level, align 8
-  %27 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN, align 4
-  %call22 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %24, i32 noundef %26, i32 noundef %27)
-  %tobool23 = icmp ne i32 %call22, 0
-  br i1 %tobool23, label %if.end25, label %if.then24
-
-if.then24:                                        ; preds = %if.end21
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end25:                                         ; preds = %if.end21
-  store i32 0, ptr %i, align 4
-  br label %for.cond26
-
-for.cond26:                                       ; preds = %for.inc37, %if.end25
-  %28 = load i32, ptr %i, align 4
-  %29 = load ptr, ptr %subframe.addr, align 8
-  %order27 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %29, i32 0, i32 1
-  %30 = load i32, ptr %order27, align 8
-  %cmp28 = icmp ult i32 %28, %30
-  br i1 %cmp28, label %for.body29, label %for.end39
-
-for.body29:                                       ; preds = %for.cond26
-  %31 = load ptr, ptr %bw.addr, align 8
-  %32 = load ptr, ptr %subframe.addr, align 8
-  %qlp_coeff = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %32, i32 0, i32 4
-  %33 = load i32, ptr %i, align 4
-  %idxprom30 = zext i32 %33 to i64
-  %arrayidx31 = getelementptr inbounds [32 x i32], ptr %qlp_coeff, i64 0, i64 %idxprom30
-  %34 = load i32, ptr %arrayidx31, align 4
-  %35 = load ptr, ptr %subframe.addr, align 8
-  %qlp_coeff_precision32 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %35, i32 0, i32 2
-  %36 = load i32, ptr %qlp_coeff_precision32, align 4
-  %call33 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %31, i32 noundef %34, i32 noundef %36)
-  %tobool34 = icmp ne i32 %call33, 0
-  br i1 %tobool34, label %if.end36, label %if.then35
-
-if.then35:                                        ; preds = %for.body29
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end36:                                         ; preds = %for.body29
-  br label %for.inc37
-
-for.inc37:                                        ; preds = %if.end36
-  %37 = load i32, ptr %i, align 4
-  %inc38 = add i32 %37, 1
-  store i32 %inc38, ptr %i, align 4
-  br label %for.cond26, !llvm.loop !14
-
-for.end39:                                        ; preds = %for.cond26
-  %38 = load ptr, ptr %bw.addr, align 8
-  %39 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %39, i32 0, i32 0
-  %call40 = call i32 @add_entropy_coding_method_(ptr noundef %38, ptr noundef %entropy_coding_method)
-  %tobool41 = icmp ne i32 %call40, 0
-  br i1 %tobool41, label %if.end43, label %if.then42
-
-if.then42:                                        ; preds = %for.end39
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end43:                                         ; preds = %for.end39
-  %40 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method44 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %40, i32 0, i32 0
-  %type = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method44, i32 0, i32 0
-  %41 = load i32, ptr %type, align 8
-  switch i32 %41, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb
+define internal i32 @add_entropy_coding_method_(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = load ptr, ptr %5, align 8, !tbaa !30
+  %8 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8, !tbaa !61
+  %10 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_TYPE_LEN, align 4, !tbaa !10
+  %11 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %6, i32 noundef %9, i32 noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %31
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8, !tbaa !30
+  %16 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8, !tbaa !61
+  switch i32 %17, label %29 [
+    i32 0, label %18
+    i32 1, label %18
   ]
 
-sw.bb:                                            ; preds = %if.end43, %if.end43
-  %42 = load ptr, ptr %bw.addr, align 8
-  %43 = load ptr, ptr %subframe.addr, align 8
-  %residual = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %43, i32 0, i32 6
-  %44 = load ptr, ptr %residual, align 8
-  %45 = load i32, ptr %residual_samples.addr, align 4
-  %46 = load ptr, ptr %subframe.addr, align 8
-  %order45 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %46, i32 0, i32 1
-  %47 = load i32, ptr %order45, align 8
-  %48 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method46 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %48, i32 0, i32 0
-  %data = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method46, i32 0, i32 1
-  %contents = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %data, i32 0, i32 1
-  %49 = load ptr, ptr %contents, align 8
-  %parameters = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %49, i32 0, i32 0
-  %50 = load ptr, ptr %parameters, align 8
-  %51 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method47 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %51, i32 0, i32 0
-  %data48 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method47, i32 0, i32 1
-  %contents49 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %data48, i32 0, i32 1
-  %52 = load ptr, ptr %contents49, align 8
-  %raw_bits = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %52, i32 0, i32 1
-  %53 = load ptr, ptr %raw_bits, align 8
-  %54 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method50 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %54, i32 0, i32 0
-  %data51 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method50, i32 0, i32 1
-  %order52 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %data51, i32 0, i32 0
-  %55 = load i32, ptr %order52, align 8
-  %56 = load ptr, ptr %subframe.addr, align 8
-  %entropy_coding_method53 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %56, i32 0, i32 0
-  %type54 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %entropy_coding_method53, i32 0, i32 0
-  %57 = load i32, ptr %type54, align 8
-  %cmp55 = icmp eq i32 %57, 1
-  %conv = zext i1 %cmp55 to i32
-  %call56 = call i32 @add_residual_partitioned_rice_(ptr noundef %42, ptr noundef %44, i32 noundef %45, i32 noundef %47, ptr noundef %50, ptr noundef %53, i32 noundef %55, i32 noundef %conv)
-  %tobool57 = icmp ne i32 %call56, 0
-  br i1 %tobool57, label %if.end59, label %if.then58
+18:                                               ; preds = %14, %14
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
+  %20 = load ptr, ptr %5, align 8, !tbaa !30
+  %21 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !18
+  %24 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN, align 4, !tbaa !10
+  %25 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %19, i32 noundef %23, i32 noundef %24)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %28, label %27
 
-if.then58:                                        ; preds = %sw.bb
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %18
+  store i32 0, ptr %3, align 4
+  br label %31
 
-if.end59:                                         ; preds = %sw.bb
-  br label %sw.epilog
+28:                                               ; preds = %18
+  br label %30
 
-sw.default:                                       ; preds = %if.end43
-  br label %sw.epilog
+29:                                               ; preds = %14
+  br label %30
 
-sw.epilog:                                        ; preds = %sw.default, %if.end59
-  store i32 1, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %29, %28
+  store i32 1, ptr %3, align 4
+  br label %31
 
-return:                                           ; preds = %sw.epilog, %if.then58, %if.then42, %if.then35, %if.then24, %if.then20, %if.then15, %if.then9, %if.then
-  %58 = load i32, ptr %retval, align 4
-  ret i32 %58
+31:                                               ; preds = %30, %27, %13
+  %32 = load i32, ptr %3, align 4
+  ret i32 %32
 }
-
-declare i32 @FLAC__bitwriter_write_raw_int32(ptr noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_verbatim(ptr noundef %subframe, i32 noundef %samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %subframe.addr = alloca ptr, align 8
-  %samples.addr = alloca i32, align 4
-  %subframe_bps.addr = alloca i32, align 4
-  %wasted_bits.addr = alloca i32, align 4
-  %bw.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %signal = alloca ptr, align 8
-  %signal16 = alloca ptr, align 8
-  store ptr %subframe, ptr %subframe.addr, align 8
-  store i32 %samples, ptr %samples.addr, align 4
-  store i32 %subframe_bps, ptr %subframe_bps.addr, align 4
-  store i32 %wasted_bits, ptr %wasted_bits.addr, align 4
-  store ptr %bw, ptr %bw.addr, align 8
-  %0 = load ptr, ptr %bw.addr, align 8
-  %1 = load i32, ptr @FLAC__SUBFRAME_TYPE_VERBATIM_BYTE_ALIGNED_MASK, align 4
-  %2 = load i32, ptr %wasted_bits.addr, align 4
-  %tobool = icmp ne i32 %2, 0
-  %cond = select i1 %tobool, i32 1, i32 0
-  %or = or i32 %1, %cond
-  %3 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4
-  %4 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4
-  %add = add i32 %3, %4
-  %5 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4
-  %add1 = add i32 %add, %5
-  %call = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %0, i32 noundef %or, i32 noundef %add1)
-  %tobool2 = icmp ne i32 %call, 0
-  br i1 %tobool2, label %if.end, label %if.then
+define internal i32 @add_residual_partitioned_rice_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !8
+  store ptr %1, ptr %11, align 8, !tbaa !62
+  store i32 %2, ptr %12, align 4, !tbaa !10
+  store i32 %3, ptr %13, align 4, !tbaa !10
+  store ptr %4, ptr %14, align 8, !tbaa !62
+  store ptr %5, ptr %15, align 8, !tbaa !62
+  store i32 %6, ptr %16, align 4, !tbaa !10
+  store i32 %7, ptr %17, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  %28 = load i32, ptr %17, align 4, !tbaa !10
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %32
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %8
+  %31 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN, align 4, !tbaa !10
+  br label %34
 
-if.end:                                           ; preds = %entry
-  %6 = load i32, ptr %wasted_bits.addr, align 4
-  %tobool3 = icmp ne i32 %6, 0
-  br i1 %tobool3, label %if.then4, label %if.end9
+32:                                               ; preds = %8
+  %33 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_PARAMETER_LEN, align 4, !tbaa !10
+  br label %34
 
-if.then4:                                         ; preds = %if.end
-  %7 = load ptr, ptr %bw.addr, align 8
-  %8 = load i32, ptr %wasted_bits.addr, align 4
-  %sub = sub i32 %8, 1
-  %call5 = call i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %7, i32 noundef %sub)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.end8, label %if.then7
+34:                                               ; preds = %32, %30
+  %35 = phi i32 [ %31, %30 ], [ %33, %32 ]
+  store i32 %35, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  %36 = load i32, ptr %17, align 4, !tbaa !10
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %40
 
-if.then7:                                         ; preds = %if.then4
-  store i32 0, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %34
+  %39 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_ESCAPE_PARAMETER, align 4, !tbaa !10
+  br label %42
 
-if.end8:                                          ; preds = %if.then4
-  br label %if.end9
+40:                                               ; preds = %34
+  %41 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ESCAPE_PARAMETER, align 4, !tbaa !10
+  br label %42
 
-if.end9:                                          ; preds = %if.end8, %if.end
-  %9 = load ptr, ptr %subframe.addr, align 8
-  %data_type = getelementptr inbounds %struct.FLAC__Subframe_Verbatim, ptr %9, i32 0, i32 1
-  %10 = load i32, ptr %data_type, align 8
-  %cmp = icmp eq i32 %10, 0
-  br i1 %cmp, label %if.then10, label %if.else
+42:                                               ; preds = %40, %38
+  %43 = phi i32 [ %39, %38 ], [ %41, %40 ]
+  store i32 %43, ptr %19, align 4, !tbaa !10
+  %44 = load i32, ptr %16, align 4, !tbaa !10
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %112
 
-if.then10:                                        ; preds = %if.end9
-  %11 = load ptr, ptr %subframe.addr, align 8
-  %data = getelementptr inbounds %struct.FLAC__Subframe_Verbatim, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %data, align 8
-  store ptr %12, ptr %signal, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+46:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  %47 = load ptr, ptr %15, align 8, !tbaa !62
+  %48 = getelementptr inbounds i32, ptr %47, i64 0
+  %49 = load i32, ptr %48, align 4, !tbaa !10
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %71
 
-for.cond:                                         ; preds = %for.inc, %if.then10
-  %13 = load i32, ptr %i, align 4
-  %14 = load i32, ptr %samples.addr, align 4
-  %cmp11 = icmp ult i32 %13, %14
-  br i1 %cmp11, label %for.body, label %for.end
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %14, align 8, !tbaa !62
+  %54 = getelementptr inbounds i32, ptr %53, i64 0
+  %55 = load i32, ptr %54, align 4, !tbaa !10
+  %56 = load i32, ptr %18, align 4, !tbaa !10
+  %57 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %52, i32 noundef %55, i32 noundef %56)
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %60, label %59
 
-for.body:                                         ; preds = %for.cond
-  %15 = load ptr, ptr %bw.addr, align 8
-  %16 = load ptr, ptr %signal, align 8
-  %17 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %17 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %16, i64 %idxprom
-  %18 = load i32, ptr %arrayidx, align 4
-  %19 = load i32, ptr %subframe_bps.addr, align 4
-  %call12 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %15, i32 noundef %18, i32 noundef %19)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.end15, label %if.then14
+59:                                               ; preds = %51
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %111
 
-if.then14:                                        ; preds = %for.body
-  store i32 0, ptr %retval, align 4
-  br label %return
+60:                                               ; preds = %51
+  %61 = load ptr, ptr %10, align 8, !tbaa !8
+  %62 = load ptr, ptr %11, align 8, !tbaa !62
+  %63 = load i32, ptr %12, align 4, !tbaa !10
+  %64 = load ptr, ptr %14, align 8, !tbaa !62
+  %65 = getelementptr inbounds i32, ptr %64, i64 0
+  %66 = load i32, ptr %65, align 4, !tbaa !10
+  %67 = call i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef %66)
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %70, label %69
 
-if.end15:                                         ; preds = %for.body
-  br label %for.inc
+69:                                               ; preds = %60
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %111
 
-for.inc:                                          ; preds = %if.end15
-  %20 = load i32, ptr %i, align 4
-  %inc = add i32 %20, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !15
+70:                                               ; preds = %60
+  br label %110
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end30
+71:                                               ; preds = %46
+  %72 = load ptr, ptr %10, align 8, !tbaa !8
+  %73 = load i32, ptr %19, align 4, !tbaa !10
+  %74 = load i32, ptr %18, align 4, !tbaa !10
+  %75 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %72, i32 noundef %73, i32 noundef %74)
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %78, label %77
 
-if.else:                                          ; preds = %if.end9
-  %21 = load ptr, ptr %subframe.addr, align 8
-  %data17 = getelementptr inbounds %struct.FLAC__Subframe_Verbatim, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %data17, align 8
-  store ptr %22, ptr %signal16, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond18
+77:                                               ; preds = %71
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %111
 
-for.cond18:                                       ; preds = %for.inc27, %if.else
-  %23 = load i32, ptr %i, align 4
-  %24 = load i32, ptr %samples.addr, align 4
-  %cmp19 = icmp ult i32 %23, %24
-  br i1 %cmp19, label %for.body20, label %for.end29
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %10, align 8, !tbaa !8
+  %80 = load ptr, ptr %15, align 8, !tbaa !62
+  %81 = getelementptr inbounds i32, ptr %80, i64 0
+  %82 = load i32, ptr %81, align 4, !tbaa !10
+  %83 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_RAW_LEN, align 4, !tbaa !10
+  %84 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %79, i32 noundef %82, i32 noundef %83)
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %87, label %86
 
-for.body20:                                       ; preds = %for.cond18
-  %25 = load ptr, ptr %bw.addr, align 8
-  %26 = load ptr, ptr %signal16, align 8
-  %27 = load i32, ptr %i, align 4
-  %idxprom21 = zext i32 %27 to i64
-  %arrayidx22 = getelementptr inbounds i64, ptr %26, i64 %idxprom21
-  %28 = load i64, ptr %arrayidx22, align 8
-  %29 = load i32, ptr %subframe_bps.addr, align 4
-  %call23 = call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %25, i64 noundef %28, i32 noundef %29)
-  %tobool24 = icmp ne i32 %call23, 0
-  br i1 %tobool24, label %if.end26, label %if.then25
+86:                                               ; preds = %78
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %111
 
-if.then25:                                        ; preds = %for.body20
-  store i32 0, ptr %retval, align 4
-  br label %return
+87:                                               ; preds = %78
+  store i32 0, ptr %20, align 4, !tbaa !10
+  br label %88
 
-if.end26:                                         ; preds = %for.body20
-  br label %for.inc27
+88:                                               ; preds = %106, %87
+  %89 = load i32, ptr %20, align 4, !tbaa !10
+  %90 = load i32, ptr %12, align 4, !tbaa !10
+  %91 = icmp ult i32 %89, %90
+  br i1 %91, label %92, label %109
 
-for.inc27:                                        ; preds = %if.end26
-  %30 = load i32, ptr %i, align 4
-  %inc28 = add i32 %30, 1
-  store i32 %inc28, ptr %i, align 4
-  br label %for.cond18, !llvm.loop !16
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %10, align 8, !tbaa !8
+  %94 = load ptr, ptr %11, align 8, !tbaa !62
+  %95 = load i32, ptr %20, align 4, !tbaa !10
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr inbounds nuw i32, ptr %94, i64 %96
+  %98 = load i32, ptr %97, align 4, !tbaa !10
+  %99 = load ptr, ptr %15, align 8, !tbaa !62
+  %100 = getelementptr inbounds i32, ptr %99, i64 0
+  %101 = load i32, ptr %100, align 4, !tbaa !10
+  %102 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %93, i32 noundef %98, i32 noundef %101)
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %105, label %104
 
-for.end29:                                        ; preds = %for.cond18
-  br label %if.end30
+104:                                              ; preds = %92
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %111
 
-if.end30:                                         ; preds = %for.end29, %for.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+105:                                              ; preds = %92
+  br label %106
 
-return:                                           ; preds = %if.end30, %if.then25, %if.then14, %if.then7, %if.then
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+106:                                              ; preds = %105
+  %107 = load i32, ptr %20, align 4, !tbaa !10
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %20, align 4, !tbaa !10
+  br label %88, !llvm.loop !63
+
+109:                                              ; preds = %88
+  br label %110
+
+110:                                              ; preds = %109, %70
+  store i32 1, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %111
+
+111:                                              ; preds = %110, %104, %86, %77, %69, %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  br label %221
+
+112:                                              ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #4
+  store i32 0, ptr %24, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #4
+  store i32 0, ptr %25, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #4
+  %113 = load i32, ptr %12, align 4, !tbaa !10
+  %114 = load i32, ptr %13, align 4, !tbaa !10
+  %115 = add i32 %113, %114
+  %116 = load i32, ptr %16, align 4, !tbaa !10
+  %117 = lshr i32 %115, %116
+  store i32 %117, ptr %27, align 4, !tbaa !10
+  store i32 0, ptr %22, align 4, !tbaa !10
+  br label %118
+
+118:                                              ; preds = %216, %112
+  %119 = load i32, ptr %22, align 4, !tbaa !10
+  %120 = load i32, ptr %16, align 4, !tbaa !10
+  %121 = shl i32 1, %120
+  %122 = icmp ult i32 %119, %121
+  br i1 %122, label %123, label %219
+
+123:                                              ; preds = %118
+  %124 = load i32, ptr %27, align 4, !tbaa !10
+  store i32 %124, ptr %26, align 4, !tbaa !10
+  %125 = load i32, ptr %22, align 4, !tbaa !10
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %131
+
+127:                                              ; preds = %123
+  %128 = load i32, ptr %13, align 4, !tbaa !10
+  %129 = load i32, ptr %26, align 4, !tbaa !10
+  %130 = sub i32 %129, %128
+  store i32 %130, ptr %26, align 4, !tbaa !10
+  br label %131
+
+131:                                              ; preds = %127, %123
+  %132 = load i32, ptr %26, align 4, !tbaa !10
+  %133 = load i32, ptr %24, align 4, !tbaa !10
+  %134 = add i32 %133, %132
+  store i32 %134, ptr %24, align 4, !tbaa !10
+  %135 = load ptr, ptr %15, align 8, !tbaa !62
+  %136 = load i32, ptr %22, align 4, !tbaa !10
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw i32, ptr %135, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !10
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %170
+
+141:                                              ; preds = %131
+  %142 = load ptr, ptr %10, align 8, !tbaa !8
+  %143 = load ptr, ptr %14, align 8, !tbaa !62
+  %144 = load i32, ptr %22, align 4, !tbaa !10
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds nuw i32, ptr %143, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !10
+  %148 = load i32, ptr %18, align 4, !tbaa !10
+  %149 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %142, i32 noundef %147, i32 noundef %148)
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %152, label %151
+
+151:                                              ; preds = %141
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %220
+
+152:                                              ; preds = %141
+  %153 = load ptr, ptr %10, align 8, !tbaa !8
+  %154 = load ptr, ptr %11, align 8, !tbaa !62
+  %155 = load i32, ptr %25, align 4, !tbaa !10
+  %156 = zext i32 %155 to i64
+  %157 = getelementptr inbounds nuw i32, ptr %154, i64 %156
+  %158 = load i32, ptr %24, align 4, !tbaa !10
+  %159 = load i32, ptr %25, align 4, !tbaa !10
+  %160 = sub i32 %158, %159
+  %161 = load ptr, ptr %14, align 8, !tbaa !62
+  %162 = load i32, ptr %22, align 4, !tbaa !10
+  %163 = zext i32 %162 to i64
+  %164 = getelementptr inbounds nuw i32, ptr %161, i64 %163
+  %165 = load i32, ptr %164, align 4, !tbaa !10
+  %166 = call i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef %153, ptr noundef %157, i32 noundef %160, i32 noundef %165)
+  %167 = icmp ne i32 %166, 0
+  br i1 %167, label %169, label %168
+
+168:                                              ; preds = %152
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %220
+
+169:                                              ; preds = %152
+  br label %214
+
+170:                                              ; preds = %131
+  %171 = load ptr, ptr %10, align 8, !tbaa !8
+  %172 = load i32, ptr %19, align 4, !tbaa !10
+  %173 = load i32, ptr %18, align 4, !tbaa !10
+  %174 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %171, i32 noundef %172, i32 noundef %173)
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %177, label %176
+
+176:                                              ; preds = %170
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %220
+
+177:                                              ; preds = %170
+  %178 = load ptr, ptr %10, align 8, !tbaa !8
+  %179 = load ptr, ptr %15, align 8, !tbaa !62
+  %180 = load i32, ptr %22, align 4, !tbaa !10
+  %181 = zext i32 %180 to i64
+  %182 = getelementptr inbounds nuw i32, ptr %179, i64 %181
+  %183 = load i32, ptr %182, align 4, !tbaa !10
+  %184 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_RAW_LEN, align 4, !tbaa !10
+  %185 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %178, i32 noundef %183, i32 noundef %184)
+  %186 = icmp ne i32 %185, 0
+  br i1 %186, label %188, label %187
+
+187:                                              ; preds = %177
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %220
+
+188:                                              ; preds = %177
+  %189 = load i32, ptr %25, align 4, !tbaa !10
+  store i32 %189, ptr %23, align 4, !tbaa !10
+  br label %190
+
+190:                                              ; preds = %210, %188
+  %191 = load i32, ptr %23, align 4, !tbaa !10
+  %192 = load i32, ptr %24, align 4, !tbaa !10
+  %193 = icmp ult i32 %191, %192
+  br i1 %193, label %194, label %213
+
+194:                                              ; preds = %190
+  %195 = load ptr, ptr %10, align 8, !tbaa !8
+  %196 = load ptr, ptr %11, align 8, !tbaa !62
+  %197 = load i32, ptr %23, align 4, !tbaa !10
+  %198 = zext i32 %197 to i64
+  %199 = getelementptr inbounds nuw i32, ptr %196, i64 %198
+  %200 = load i32, ptr %199, align 4, !tbaa !10
+  %201 = load ptr, ptr %15, align 8, !tbaa !62
+  %202 = load i32, ptr %22, align 4, !tbaa !10
+  %203 = zext i32 %202 to i64
+  %204 = getelementptr inbounds nuw i32, ptr %201, i64 %203
+  %205 = load i32, ptr %204, align 4, !tbaa !10
+  %206 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %195, i32 noundef %200, i32 noundef %205)
+  %207 = icmp ne i32 %206, 0
+  br i1 %207, label %209, label %208
+
+208:                                              ; preds = %194
+  store i32 0, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %220
+
+209:                                              ; preds = %194
+  br label %210
+
+210:                                              ; preds = %209
+  %211 = load i32, ptr %23, align 4, !tbaa !10
+  %212 = add i32 %211, 1
+  store i32 %212, ptr %23, align 4, !tbaa !10
+  br label %190, !llvm.loop !64
+
+213:                                              ; preds = %190
+  br label %214
+
+214:                                              ; preds = %213, %169
+  %215 = load i32, ptr %24, align 4, !tbaa !10
+  store i32 %215, ptr %25, align 4, !tbaa !10
+  br label %216
+
+216:                                              ; preds = %214
+  %217 = load i32, ptr %22, align 4, !tbaa !10
+  %218 = add i32 %217, 1
+  store i32 %218, ptr %22, align 4, !tbaa !10
+  br label %118, !llvm.loop !65
+
+219:                                              ; preds = %118
+  store i32 1, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %220
+
+220:                                              ; preds = %219, %208, %187, %176, %168, %151
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  br label %221
+
+221:                                              ; preds = %220, %111
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  %222 = load i32, ptr %9, align 4
+  ret i32 %222
 }
 
-declare i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: nounwind sspstrong uwtable
+define hidden i32 @FLAC__subframe_add_lpc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !30
+  store i32 %1, ptr %8, align 4, !tbaa !10
+  store i32 %2, ptr %9, align 4, !tbaa !10
+  store i32 %3, ptr %10, align 4, !tbaa !10
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %14 = load ptr, ptr %11, align 8, !tbaa !8
+  %15 = load i32, ptr @FLAC__SUBFRAME_TYPE_LPC_BYTE_ALIGNED_MASK, align 4, !tbaa !10
+  %16 = load ptr, ptr %7, align 8, !tbaa !30
+  %17 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8, !tbaa !66
+  %19 = sub i32 %18, 1
+  %20 = shl i32 %19, 1
+  %21 = or i32 %15, %20
+  %22 = load i32, ptr %10, align 4, !tbaa !10
+  %23 = icmp ne i32 %22, 0
+  %24 = select i1 %23, i32 1, i32 0
+  %25 = or i32 %21, %24
+  %26 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4, !tbaa !10
+  %27 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4, !tbaa !10
+  %28 = add i32 %26, %27
+  %29 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4, !tbaa !10
+  %30 = add i32 %28, %29
+  %31 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %14, i32 noundef %25, i32 noundef %30)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %34, label %33
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+33:                                               ; preds = %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %164
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+34:                                               ; preds = %5
+  %35 = load i32, ptr %10, align 4, !tbaa !10
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %45
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %11, align 8, !tbaa !8
+  %39 = load i32, ptr %10, align 4, !tbaa !10
+  %40 = sub i32 %39, 1
+  %41 = call i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %38, i32 noundef %40)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %44, label %43
+
+43:                                               ; preds = %37
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %164
+
+44:                                               ; preds = %37
+  br label %45
+
+45:                                               ; preds = %44, %34
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %46
+
+46:                                               ; preds = %65, %45
+  %47 = load i32, ptr %12, align 4, !tbaa !10
+  %48 = load ptr, ptr %7, align 8, !tbaa !30
+  %49 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %48, i32 0, i32 1
+  %50 = load i32, ptr %49, align 8, !tbaa !66
+  %51 = icmp ult i32 %47, %50
+  br i1 %51, label %52, label %68
+
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %11, align 8, !tbaa !8
+  %54 = load ptr, ptr %7, align 8, !tbaa !30
+  %55 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %54, i32 0, i32 5
+  %56 = load i32, ptr %12, align 4, !tbaa !10
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw [32 x i64], ptr %55, i64 0, i64 %57
+  %59 = load i64, ptr %58, align 8, !tbaa !41
+  %60 = load i32, ptr %9, align 4, !tbaa !10
+  %61 = call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %53, i64 noundef %59, i32 noundef %60)
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %64, label %63
+
+63:                                               ; preds = %52
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %164
+
+64:                                               ; preds = %52
+  br label %65
+
+65:                                               ; preds = %64
+  %66 = load i32, ptr %12, align 4, !tbaa !10
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %12, align 4, !tbaa !10
+  br label %46, !llvm.loop !68
+
+68:                                               ; preds = %46
+  %69 = load ptr, ptr %11, align 8, !tbaa !8
+  %70 = load ptr, ptr %7, align 8, !tbaa !30
+  %71 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %70, i32 0, i32 2
+  %72 = load i32, ptr %71, align 4, !tbaa !69
+  %73 = sub i32 %72, 1
+  %74 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN, align 4, !tbaa !10
+  %75 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %69, i32 noundef %73, i32 noundef %74)
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %78, label %77
+
+77:                                               ; preds = %68
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %164
+
+78:                                               ; preds = %68
+  %79 = load ptr, ptr %11, align 8, !tbaa !8
+  %80 = load ptr, ptr %7, align 8, !tbaa !30
+  %81 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %80, i32 0, i32 3
+  %82 = load i32, ptr %81, align 8, !tbaa !70
+  %83 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN, align 4, !tbaa !10
+  %84 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %79, i32 noundef %82, i32 noundef %83)
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %78
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %164
+
+87:                                               ; preds = %78
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %88
+
+88:                                               ; preds = %109, %87
+  %89 = load i32, ptr %12, align 4, !tbaa !10
+  %90 = load ptr, ptr %7, align 8, !tbaa !30
+  %91 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %90, i32 0, i32 1
+  %92 = load i32, ptr %91, align 8, !tbaa !66
+  %93 = icmp ult i32 %89, %92
+  br i1 %93, label %94, label %112
+
+94:                                               ; preds = %88
+  %95 = load ptr, ptr %11, align 8, !tbaa !8
+  %96 = load ptr, ptr %7, align 8, !tbaa !30
+  %97 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %96, i32 0, i32 4
+  %98 = load i32, ptr %12, align 4, !tbaa !10
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds nuw [32 x i32], ptr %97, i64 0, i64 %99
+  %101 = load i32, ptr %100, align 4, !tbaa !10
+  %102 = load ptr, ptr %7, align 8, !tbaa !30
+  %103 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %102, i32 0, i32 2
+  %104 = load i32, ptr %103, align 4, !tbaa !69
+  %105 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %95, i32 noundef %101, i32 noundef %104)
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %108, label %107
+
+107:                                              ; preds = %94
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %164
+
+108:                                              ; preds = %94
+  br label %109
+
+109:                                              ; preds = %108
+  %110 = load i32, ptr %12, align 4, !tbaa !10
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %12, align 4, !tbaa !10
+  br label %88, !llvm.loop !71
+
+112:                                              ; preds = %88
+  %113 = load ptr, ptr %11, align 8, !tbaa !8
+  %114 = load ptr, ptr %7, align 8, !tbaa !30
+  %115 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %114, i32 0, i32 0
+  %116 = call i32 @add_entropy_coding_method_(ptr noundef %113, ptr noundef %115)
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %119, label %118
+
+118:                                              ; preds = %112
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %164
+
+119:                                              ; preds = %112
+  %120 = load ptr, ptr %7, align 8, !tbaa !30
+  %121 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %120, i32 0, i32 0
+  %122 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %121, i32 0, i32 0
+  %123 = load i32, ptr %122, align 8, !tbaa !72
+  switch i32 %123, label %162 [
+    i32 0, label %124
+    i32 1, label %124
+  ]
+
+124:                                              ; preds = %119, %119
+  %125 = load ptr, ptr %11, align 8, !tbaa !8
+  %126 = load ptr, ptr %7, align 8, !tbaa !30
+  %127 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %126, i32 0, i32 6
+  %128 = load ptr, ptr %127, align 8, !tbaa !73
+  %129 = load i32, ptr %8, align 4, !tbaa !10
+  %130 = load ptr, ptr %7, align 8, !tbaa !30
+  %131 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %130, i32 0, i32 1
+  %132 = load i32, ptr %131, align 8, !tbaa !66
+  %133 = load ptr, ptr %7, align 8, !tbaa !30
+  %134 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %133, i32 0, i32 0
+  %135 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %134, i32 0, i32 1
+  %136 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %135, i32 0, i32 1
+  %137 = load ptr, ptr %136, align 8, !tbaa !18
+  %138 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %137, i32 0, i32 0
+  %139 = load ptr, ptr %138, align 8, !tbaa !58
+  %140 = load ptr, ptr %7, align 8, !tbaa !30
+  %141 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %140, i32 0, i32 0
+  %142 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %141, i32 0, i32 1
+  %143 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %142, i32 0, i32 1
+  %144 = load ptr, ptr %143, align 8, !tbaa !18
+  %145 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %144, i32 0, i32 1
+  %146 = load ptr, ptr %145, align 8, !tbaa !60
+  %147 = load ptr, ptr %7, align 8, !tbaa !30
+  %148 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %147, i32 0, i32 0
+  %149 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %148, i32 0, i32 1
+  %150 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod_PartitionedRice, ptr %149, i32 0, i32 0
+  %151 = load i32, ptr %150, align 8, !tbaa !18
+  %152 = load ptr, ptr %7, align 8, !tbaa !30
+  %153 = getelementptr inbounds nuw %struct.FLAC__Subframe_LPC, ptr %152, i32 0, i32 0
+  %154 = getelementptr inbounds nuw %struct.FLAC__EntropyCodingMethod, ptr %153, i32 0, i32 0
+  %155 = load i32, ptr %154, align 8, !tbaa !72
+  %156 = icmp eq i32 %155, 1
+  %157 = zext i1 %156 to i32
+  %158 = call i32 @add_residual_partitioned_rice_(ptr noundef %125, ptr noundef %128, i32 noundef %129, i32 noundef %132, ptr noundef %139, ptr noundef %146, i32 noundef %151, i32 noundef %157)
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %161, label %160
+
+160:                                              ; preds = %124
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %164
+
+161:                                              ; preds = %124
+  br label %163
+
+162:                                              ; preds = %119
+  br label %163
+
+163:                                              ; preds = %162, %161
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %164
+
+164:                                              ; preds = %163, %160, %118, %107, %86, %77, %63, %43, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  %165 = load i32, ptr %6, align 4
+  ret i32 %165
+}
+
+declare i32 @FLAC__bitwriter_write_raw_int32(ptr noundef, i32 noundef, i32 noundef) #3
+
+; Function Attrs: nounwind sspstrong uwtable
+define hidden i32 @FLAC__subframe_add_verbatim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !30
+  store i32 %1, ptr %8, align 4, !tbaa !10
+  store i32 %2, ptr %9, align 4, !tbaa !10
+  store i32 %3, ptr %10, align 4, !tbaa !10
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %16 = load ptr, ptr %11, align 8, !tbaa !8
+  %17 = load i32, ptr @FLAC__SUBFRAME_TYPE_VERBATIM_BYTE_ALIGNED_MASK, align 4, !tbaa !10
+  %18 = load i32, ptr %10, align 4, !tbaa !10
+  %19 = icmp ne i32 %18, 0
+  %20 = select i1 %19, i32 1, i32 0
+  %21 = or i32 %17, %20
+  %22 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4, !tbaa !10
+  %23 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4, !tbaa !10
+  %24 = add i32 %22, %23
+  %25 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4, !tbaa !10
+  %26 = add i32 %24, %25
+  %27 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %16, i32 noundef %21, i32 noundef %26)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %30, label %29
+
+29:                                               ; preds = %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %101
+
+30:                                               ; preds = %5
+  %31 = load i32, ptr %10, align 4, !tbaa !10
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %41
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %11, align 8, !tbaa !8
+  %35 = load i32, ptr %10, align 4, !tbaa !10
+  %36 = sub i32 %35, 1
+  %37 = call i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %34, i32 noundef %36)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %33
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %101
+
+40:                                               ; preds = %33
+  br label %41
+
+41:                                               ; preds = %40, %30
+  %42 = load ptr, ptr %7, align 8, !tbaa !30
+  %43 = getelementptr inbounds nuw %struct.FLAC__Subframe_Verbatim, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 8, !tbaa !74
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %73
+
+46:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %47 = load ptr, ptr %7, align 8, !tbaa !30
+  %48 = getelementptr inbounds nuw %struct.FLAC__Subframe_Verbatim, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !18
+  store ptr %49, ptr %14, align 8, !tbaa !62
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %50
+
+50:                                               ; preds = %66, %46
+  %51 = load i32, ptr %12, align 4, !tbaa !10
+  %52 = load i32, ptr %8, align 4, !tbaa !10
+  %53 = icmp ult i32 %51, %52
+  br i1 %53, label %54, label %69
+
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %11, align 8, !tbaa !8
+  %56 = load ptr, ptr %14, align 8, !tbaa !62
+  %57 = load i32, ptr %12, align 4, !tbaa !10
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !10
+  %61 = load i32, ptr %9, align 4, !tbaa !10
+  %62 = call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %55, i32 noundef %60, i32 noundef %61)
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %65, label %64
+
+64:                                               ; preds = %54
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %70
+
+65:                                               ; preds = %54
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load i32, ptr %12, align 4, !tbaa !10
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %12, align 4, !tbaa !10
+  br label %50, !llvm.loop !76
+
+69:                                               ; preds = %50
+  store i32 0, ptr %13, align 4
+  br label %70
+
+70:                                               ; preds = %69, %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  %71 = load i32, ptr %13, align 4
+  switch i32 %71, label %101 [
+    i32 0, label %72
+  ]
+
+72:                                               ; preds = %70
+  br label %100
+
+73:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  %74 = load ptr, ptr %7, align 8, !tbaa !30
+  %75 = getelementptr inbounds nuw %struct.FLAC__Subframe_Verbatim, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !18
+  store ptr %76, ptr %15, align 8, !tbaa !77
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %77
+
+77:                                               ; preds = %93, %73
+  %78 = load i32, ptr %12, align 4, !tbaa !10
+  %79 = load i32, ptr %8, align 4, !tbaa !10
+  %80 = icmp ult i32 %78, %79
+  br i1 %80, label %81, label %96
+
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %11, align 8, !tbaa !8
+  %83 = load ptr, ptr %15, align 8, !tbaa !77
+  %84 = load i32, ptr %12, align 4, !tbaa !10
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds nuw i64, ptr %83, i64 %85
+  %87 = load i64, ptr %86, align 8, !tbaa !41
+  %88 = load i32, ptr %9, align 4, !tbaa !10
+  %89 = call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %82, i64 noundef %87, i32 noundef %88)
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %92, label %91
+
+91:                                               ; preds = %81
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %97
+
+92:                                               ; preds = %81
+  br label %93
+
+93:                                               ; preds = %92
+  %94 = load i32, ptr %12, align 4, !tbaa !10
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %12, align 4, !tbaa !10
+  br label %77, !llvm.loop !79
+
+96:                                               ; preds = %77
+  store i32 0, ptr %13, align 4
+  br label %97
+
+97:                                               ; preds = %96, %91
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  %98 = load i32, ptr %13, align 4
+  switch i32 %98, label %101 [
+    i32 0, label %99
+  ]
+
+99:                                               ; preds = %97
+  br label %100
+
+100:                                              ; preds = %99, %72
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %101
+
+101:                                              ; preds = %100, %97, %70, %39, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  %102 = load i32, ptr %6, align 4
+  ret i32 %102
+}
+
+declare i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS20FLAC__StreamMetadata", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS15FLAC__BitWriter", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!15, !11, i64 4}
+!15 = !{!"FLAC__StreamMetadata", !11, i64 0, !11, i64 4, !11, i64 8, !6, i64 16}
+!16 = !{!15, !11, i64 0}
+!17 = !{!15, !11, i64 8}
+!18 = !{!6, !6, i64 0}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"", !21, i64 0, !21, i64 8, !11, i64 16}
+!21 = !{!"long", !6, i64 0}
+!22 = !{!20, !21, i64 8}
+!23 = !{!20, !11, i64 16}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!27, !11, i64 0}
+!27 = !{!"", !11, i64 0, !13, i64 8}
+!28 = !{!27, !13, i64 8}
+!29 = distinct !{!29, !25}
+!30 = !{!5, !5, i64 0}
+!31 = !{!32, !21, i64 0}
+!32 = !{!"", !21, i64 0, !6, i64 8, !6, i64 9, !11, i64 22, !11, i64 22, !6, i64 23, !5, i64 24}
+!33 = !{!32, !6, i64 8}
+!34 = !{!32, !6, i64 23}
+!35 = !{!32, !5, i64 24}
+!36 = !{!37, !21, i64 0}
+!37 = !{!"", !21, i64 0, !6, i64 8}
+!38 = !{!37, !6, i64 8}
+!39 = distinct !{!39, !25}
+!40 = distinct !{!40, !25}
+!41 = !{!21, !21, i64 0}
+!42 = !{!43, !11, i64 20}
+!43 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !6, i64 24, !6, i64 32}
+!44 = !{!43, !11, i64 0}
+!45 = !{!43, !11, i64 4}
+!46 = !{!43, !11, i64 12}
+!47 = !{!43, !11, i64 8}
+!48 = !{!43, !11, i64 16}
+!49 = !{!50, !21, i64 0}
+!50 = !{!"", !21, i64 0}
+!51 = !{!52, !11, i64 24}
+!52 = !{!"", !53, i64 0, !11, i64 24, !6, i64 32, !54, i64 64}
+!53 = !{!"", !11, i64 0, !6, i64 8}
+!54 = !{!"p1 int", !5, i64 0}
+!55 = distinct !{!55, !25}
+!56 = !{!52, !11, i64 0}
+!57 = !{!52, !54, i64 64}
+!58 = !{!59, !54, i64 0}
+!59 = !{!"", !54, i64 0, !54, i64 8, !11, i64 16}
+!60 = !{!59, !54, i64 8}
+!61 = !{!53, !11, i64 0}
+!62 = !{!54, !54, i64 0}
+!63 = distinct !{!63, !25}
+!64 = distinct !{!64, !25}
+!65 = distinct !{!65, !25}
+!66 = !{!67, !11, i64 24}
+!67 = !{!"", !53, i64 0, !11, i64 24, !11, i64 28, !11, i64 32, !6, i64 36, !6, i64 168, !54, i64 424}
+!68 = distinct !{!68, !25}
+!69 = !{!67, !11, i64 28}
+!70 = !{!67, !11, i64 32}
+!71 = distinct !{!71, !25}
+!72 = !{!67, !11, i64 0}
+!73 = !{!67, !54, i64 424}
+!74 = !{!75, !11, i64 8}
+!75 = !{!"", !6, i64 0, !11, i64 8}
+!76 = distinct !{!76, !25}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 long", !5, i64 0}
+!79 = distinct !{!79, !25}

@@ -1,2282 +1,2312 @@
-; ModuleID = 'bench/flac/original/bitreader.c.ll'
-source_filename = "bench/flac/original/bitreader.c.ll"
+; ModuleID = 'bench/flac/original/bitreader.ll'
+source_filename = "bench/flac/original/bitreader.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @FLAC__crc16_table = external local_unnamed_addr constant [8 x [256 x i16]], align 16
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef ptr @FLAC__bitreader_new() local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #17
-  ret ptr %call
+  %1 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #20
+  ret ptr %1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__bitreader_delete(ptr noundef captures(none) %br) local_unnamed_addr #2 {
-entry:
-  %0 = load ptr, ptr %br, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %FLAC__bitreader_free.exit, label %if.then.i
+define hidden void @FLAC__bitreader_delete(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not.i = icmp eq ptr %2, null
+  br i1 %.not.i, label %FLAC__bitreader_free.exit, label %3
 
-if.then.i:                                        ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #18
+3:                                                ; preds = %1
+  tail call void @free(ptr noundef nonnull %2) #21
   br label %FLAC__bitreader_free.exit
 
-FLAC__bitreader_free.exit:                        ; preds = %entry, %if.then.i
-  tail call void @free(ptr noundef nonnull %br) #18
+FLAC__bitreader_free.exit:                        ; preds = %1, %3
+  tail call void @free(ptr noundef nonnull %0) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__bitreader_free(ptr noundef captures(none) initializes((8, 28), (40, 52), (56, 72)) %br) local_unnamed_addr #2 {
-entry:
-  %0 = load ptr, ptr %br, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden void @FLAC__bitreader_free(ptr noundef captures(none) initializes((8, 28), (40, 52), (56, 72)) %0) local_unnamed_addr #3 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %4, label %3
 
-if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #18
-  br label %if.end
+3:                                                ; preds = %1
+  tail call void @free(ptr noundef nonnull %2) #21
+  br label %4
 
-if.end:                                           ; preds = %if.then, %entry
-  %read_callback = getelementptr inbounds nuw i8, ptr %br, i64 56
-  %read_limit_set = getelementptr inbounds nuw i8, ptr %br, i64 40
-  store i32 0, ptr %read_limit_set, align 8
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %br, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_callback, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %read_limit, align 4
-  %last_seen_framesync = getelementptr inbounds nuw i8, ptr %br, i64 48
-  store i32 -1, ptr %last_seen_framesync, align 8
+4:                                                ; preds = %3, %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %7, align 4, !tbaa !11
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 -1, ptr %8, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_init(ptr noundef writeonly captures(none) initializes((0, 28)) %br, ptr noundef %rcb, ptr noundef %cd) local_unnamed_addr #4 {
-entry:
-  %words = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %capacity = getelementptr inbounds nuw i8, ptr %br, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %words, i8 0, i64 16, i1 false)
-  store i32 1024, ptr %capacity, align 8
-  %call = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #19
-  store ptr %call, ptr %br, align 8
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_init(ptr noundef writeonly captures(none) initializes((0, 28)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  store i32 1024, ptr %5, align 8, !tbaa !13
+  %6 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #22
+  store ptr %6, ptr %0, align 8, !tbaa !3
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %14, label %8
 
-if.end:                                           ; preds = %entry
-  %read_callback = getelementptr inbounds nuw i8, ptr %br, i64 56
-  store ptr %rcb, ptr %read_callback, align 8
-  %client_data = getelementptr inbounds nuw i8, ptr %br, i64 64
-  store ptr %cd, ptr %client_data, align 8
-  %read_limit_set = getelementptr inbounds nuw i8, ptr %br, i64 40
-  store i32 0, ptr %read_limit_set, align 8
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  store i32 -1, ptr %read_limit, align 4
-  %last_seen_framesync = getelementptr inbounds nuw i8, ptr %br, i64 48
-  store i32 -1, ptr %last_seen_framesync, align 8
-  br label %return
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %1, ptr %9, align 8, !tbaa !14
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %2, ptr %10, align 8, !tbaa !15
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %11, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 -1, ptr %12, align 4, !tbaa !11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 -1, ptr %13, align 8, !tbaa !12
+  br label %14
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %entry ]
-  ret i32 %retval.0
+14:                                               ; preds = %3, %8
+  %.0 = phi i32 [ 1, %8 ], [ 0, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @FLAC__bitreader_clear(ptr noundef writeonly captures(none) initializes((12, 28), (40, 52)) %br) local_unnamed_addr #6 {
-entry:
-  %words = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %read_limit_set = getelementptr inbounds nuw i8, ptr %br, i64 40
-  store i32 0, ptr %read_limit_set, align 8
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %words, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %read_limit, align 4
-  %last_seen_framesync = getelementptr inbounds nuw i8, ptr %br, i64 48
-  store i32 -1, ptr %last_seen_framesync, align 8
+define hidden noundef i32 @FLAC__bitreader_clear(ptr noundef writeonly captures(none) initializes((12, 28), (40, 52)) %0) local_unnamed_addr #7 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %3, align 8, !tbaa !10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %4, align 4, !tbaa !11
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 -1, ptr %5, align 8, !tbaa !12
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden void @FLAC__bitreader_set_framesync_location(ptr noundef captures(none) initializes((48, 52)) %br) local_unnamed_addr #7 {
-entry:
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %0 = load i32, ptr %consumed_words, align 4
-  %mul = shl i32 %0, 3
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %1 = load i32, ptr %consumed_bits, align 8
-  %div3 = lshr i32 %1, 3
-  %add = add i32 %div3, %mul
-  %last_seen_framesync = getelementptr inbounds nuw i8, ptr %br, i64 48
-  store i32 %add, ptr %last_seen_framesync, align 8
+define hidden void @FLAC__bitreader_set_framesync_location(ptr noundef captures(none) initializes((48, 52)) %0) local_unnamed_addr #8 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %3 = load i32, ptr %2, align 4, !tbaa !16
+  %4 = shl i32 %3, 3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load i32, ptr %5, align 8, !tbaa !17
+  %7 = lshr i32 %6, 3
+  %8 = add i32 %7, %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %8, ptr %9, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr noundef captures(none) initializes((20, 28)) %br) local_unnamed_addr #7 {
-entry:
-  %last_seen_framesync = getelementptr inbounds nuw i8, ptr %br, i64 48
-  %0 = load i32, ptr %last_seen_framesync, align 8
-  %cmp = icmp eq i32 %0, -1
-  br i1 %cmp, label %return, label %if.else
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr noundef captures(none) initializes((20, 28)) %0) local_unnamed_addr #8 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load i32, ptr %2, align 8, !tbaa !12
+  %4 = icmp eq i32 %3, -1
+  br i1 %4, label %11, label %5
 
-if.else:                                          ; preds = %entry
-  %add = add nuw i32 %0, 1
-  %div7 = lshr i32 %add, 3
-  %add4 = shl i32 %0, 3
-  %rem = add i32 %add4, 8
-  %mul = and i32 %rem, 56
-  br label %return
+5:                                                ; preds = %1
+  %6 = add nuw i32 %3, 1
+  %7 = lshr i32 %6, 3
+  %8 = shl i32 %3, 3
+  %9 = add i32 %8, 8
+  %10 = and i32 %9, 56
+  br label %11
 
-return:                                           ; preds = %entry, %if.else
-  %mul.sink = phi i32 [ %mul, %if.else ], [ 0, %entry ]
-  %div7.sink = phi i32 [ %div7, %if.else ], [ 0, %entry ]
-  %retval.0 = phi i32 [ 1, %if.else ], [ 0, %entry ]
-  %1 = getelementptr inbounds nuw i8, ptr %br, i64 24
-  store i32 %mul.sink, ptr %1, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %br, i64 20
-  store i32 %div7.sink, ptr %2, align 4
-  ret i32 %retval.0
+11:                                               ; preds = %1, %5
+  %.sink8 = phi i32 [ %10, %5 ], [ 0, %1 ]
+  %.sink = phi i32 [ %7, %5 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %.sink8, ptr %12, align 8, !tbaa !17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sink, ptr %13, align 4, !tbaa !16
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden void @FLAC__bitreader_reset_read_crc16(ptr noundef captures(none) initializes((28, 40)) %br, i16 noundef zeroext %seed) local_unnamed_addr #7 {
-entry:
-  %conv = zext i16 %seed to i32
-  %read_crc16 = getelementptr inbounds nuw i8, ptr %br, i64 28
-  store i32 %conv, ptr %read_crc16, align 4
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %0 = load i32, ptr %consumed_words, align 4
-  %crc16_offset = getelementptr inbounds nuw i8, ptr %br, i64 32
-  store i32 %0, ptr %crc16_offset, align 8
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %1 = load i32, ptr %consumed_bits, align 8
-  %crc16_align = getelementptr inbounds nuw i8, ptr %br, i64 36
-  store i32 %1, ptr %crc16_align, align 4
+define hidden void @FLAC__bitreader_reset_read_crc16(ptr noundef captures(none) initializes((28, 40)) %0, i16 noundef zeroext %1) local_unnamed_addr #8 {
+  %3 = zext i16 %1 to i32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %3, ptr %4, align 4, !tbaa !18
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %6 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %6, ptr %7, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load i32, ptr %8, align 8, !tbaa !17
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %9, ptr %10, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden zeroext i16 @FLAC__bitreader_get_read_crc16(ptr noundef captures(none) %br) local_unnamed_addr #8 {
-entry:
-  %consumed_words.i = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %0 = load i32, ptr %consumed_words.i, align 4
-  %crc16_offset.i = getelementptr inbounds nuw i8, ptr %br, i64 32
-  %1 = load i32, ptr %crc16_offset.i, align 8
-  %cmp.i = icmp ugt i32 %0, %1
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
+define hidden zeroext i16 @FLAC__bitreader_get_read_crc16(ptr noundef captures(none) %0) local_unnamed_addr #9 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %3 = load i32, ptr %2, align 4, !tbaa !16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load i32, ptr %4, align 8, !tbaa !19
+  %6 = icmp ugt i32 %3, %5
+  br i1 %6, label %7, label %36
 
-land.lhs.true.i:                                  ; preds = %entry
-  %crc16_align.i = getelementptr inbounds nuw i8, ptr %br, i64 36
-  %2 = load i32, ptr %crc16_align.i, align 4
-  %tobool.not.i = icmp eq i32 %2, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %9 = load i32, ptr %8, align 4, !tbaa !20
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %36, label %10
 
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr %br, align 8
-  %inc.i = add nuw i32 %1, 1
-  store i32 %inc.i, ptr %crc16_offset.i, align 8
-  %idxprom.i = zext i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %3, i64 %idxprom.i
-  %4 = load i64, ptr %arrayidx.i, align 8
-  %read_crc16.i.i = getelementptr inbounds nuw i8, ptr %br, i64 28
-  %5 = load i32, ptr %read_crc16.i.i, align 4
-  %cmp9.i.i = icmp ult i32 %2, 64
-  br i1 %cmp9.i.i, label %for.body.preheader.i.i, label %crc16_update_word_.exit.i
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %0, align 8, !tbaa !3
+  %12 = add nuw i32 %5, 1
+  store i32 %12, ptr %4, align 8, !tbaa !19
+  %13 = zext i32 %5 to i64
+  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
+  %15 = load i64, ptr %14, align 8, !tbaa !21
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %17 = load i32, ptr %16, align 4, !tbaa !18
+  %18 = icmp ult i32 %9, 64
+  br i1 %18, label %.lr.ph.preheader.i.i, label %crc16_update_word_.exit.i
 
-for.body.preheader.i.i:                           ; preds = %if.then.i
-  %6 = zext nneg i32 %2 to i64
-  br label %for.body.i.i
+.lr.ph.preheader.i.i:                             ; preds = %10
+  %19 = zext nneg i32 %9 to i64
+  br label %.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %6, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %crc.010.i.i = phi i32 [ %5, %for.body.preheader.i.i ], [ %xor6.i.i, %for.body.i.i ]
-  %7 = sub nsw i64 56, %indvars.iv.i.i
-  %shl.i.i = shl i32 %crc.010.i.i, 8
-  %and.i.i = and i32 %shl.i.i, 65280
-  %shr.i.i = lshr i32 %crc.010.i.i, 8
-  %cmp2.i.i = icmp ult i64 %7, 64
-  %shr3.i.i = lshr i64 %4, %7
-  %8 = trunc i64 %shr3.i.i to i32
-  %9 = and i32 %8, 255
-  %conv.i.i = select i1 %cmp2.i.i, i32 %9, i32 0
-  %xor.i.i = xor i32 %conv.i.i, %shr.i.i
-  %idxprom.i.i = zext nneg i32 %xor.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %idxprom.i.i
-  %10 = load i16, ptr %arrayidx.i.i, align 2
-  %conv5.i.i = zext i16 %10 to i32
-  %xor6.i.i = xor i32 %and.i.i, %conv5.i.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %19, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %.012.i.i = phi i32 [ %17, %.lr.ph.preheader.i.i ], [ %34, %.lr.ph.i.i ]
+  %20 = sub nsw i64 56, %indvars.iv.i.i
+  %21 = shl i32 %.012.i.i, 8
+  %22 = and i32 %21, 65280
+  %23 = lshr i32 %.012.i.i, 8
+  %24 = icmp ult i64 %20, 64
+  %25 = lshr i64 %15, %20
+  %26 = trunc i64 %25 to i32
+  %27 = and i32 %26, 255
+  %28 = select i1 %24, i32 %27, i32 0
+  %29 = xor i32 %28, %23
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr inbounds nuw [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %30
+  %32 = load i16, ptr %31, align 2, !tbaa !23
+  %33 = zext i16 %32 to i32
+  %34 = xor i32 %22, %33
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
-  %cmp.i.i = icmp samesign ult i64 %indvars.iv.i.i, 56
-  br i1 %cmp.i.i, label %for.body.i.i, label %crc16_update_word_.exit.i, !llvm.loop !4
+  %35 = icmp samesign ult i64 %indvars.iv.i.i, 56
+  br i1 %35, label %.lr.ph.i.i, label %crc16_update_word_.exit.i, !llvm.loop !25
 
-crc16_update_word_.exit.i:                        ; preds = %for.body.i.i, %if.then.i
-  %crc.0.lcssa.i.i = phi i32 [ %5, %if.then.i ], [ %xor6.i.i, %for.body.i.i ]
-  store i32 %crc.0.lcssa.i.i, ptr %read_crc16.i.i, align 4
-  store i32 0, ptr %crc16_align.i, align 4
-  br label %if.end.i
+crc16_update_word_.exit.i:                        ; preds = %.lr.ph.i.i, %10
+  %.0.lcssa.i.i = phi i32 [ %17, %10 ], [ %34, %.lr.ph.i.i ]
+  store i32 %.0.lcssa.i.i, ptr %16, align 4, !tbaa !18
+  store i32 0, ptr %8, align 4, !tbaa !20
+  br label %36
 
-if.end.i:                                         ; preds = %crc16_update_word_.exit.i, %land.lhs.true.i, %entry
-  %11 = phi i32 [ %inc.i, %crc16_update_word_.exit.i ], [ %1, %land.lhs.true.i ], [ %1, %entry ]
-  %cmp4.i = icmp ugt i32 %0, %11
-  br i1 %cmp4.i, label %if.then5.i, label %crc16_update_block_.exit
+36:                                               ; preds = %crc16_update_word_.exit.i, %7, %1
+  %37 = phi i32 [ %12, %crc16_update_word_.exit.i ], [ %5, %7 ], [ %5, %1 ]
+  %38 = icmp ugt i32 %3, %37
+  br i1 %38, label %39, label %crc16_update_block_.exit
 
-if.then5.i:                                       ; preds = %if.end.i
-  %12 = load ptr, ptr %br, align 8
-  %idx.ext.i = zext i32 %11 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %12, i64 %idx.ext.i
-  %sub.i = sub nuw i32 %0, %11
-  %read_crc16.i = getelementptr inbounds nuw i8, ptr %br, i64 28
-  %13 = load i32, ptr %read_crc16.i, align 4
-  %conv.i = trunc i32 %13 to i16
-  %call.i = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %add.ptr.i, i32 noundef %sub.i, i16 noundef zeroext %conv.i) #18
-  %conv10.i = zext i16 %call.i to i32
-  store i32 %conv10.i, ptr %read_crc16.i, align 4
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %0, align 8, !tbaa !3
+  %41 = zext i32 %37 to i64
+  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %41
+  %43 = sub nuw i32 %3, %37
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %45 = load i32, ptr %44, align 4, !tbaa !18
+  %46 = trunc i32 %45 to i16
+  %47 = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %42, i32 noundef %43, i16 noundef zeroext %46) #21
+  %48 = zext i16 %47 to i32
+  store i32 %48, ptr %44, align 4, !tbaa !18
   br label %crc16_update_block_.exit
 
-crc16_update_block_.exit:                         ; preds = %if.end.i, %if.then5.i
-  store i32 0, ptr %crc16_offset.i, align 8
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %14 = load i32, ptr %consumed_bits, align 8
-  %tobool.not = icmp eq i32 %14, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+crc16_update_block_.exit:                         ; preds = %36, %39
+  store i32 0, ptr %4, align 8, !tbaa !19
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %50 = load i32, ptr %49, align 8, !tbaa !17
+  %.not = icmp eq i32 %50, 0
+  br i1 %.not, label %.loopexit, label %51
 
-if.then:                                          ; preds = %crc16_update_block_.exit
-  %15 = load ptr, ptr %br, align 8
-  %16 = load i32, ptr %consumed_words.i, align 4
-  %idxprom = zext i32 %16 to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %15, i64 %idxprom
-  %17 = load i64, ptr %arrayidx, align 8
-  %crc16_align = getelementptr inbounds nuw i8, ptr %br, i64 36
-  %crc16_align.promoted = load i32, ptr %crc16_align, align 4
-  %cmp12 = icmp ult i32 %crc16_align.promoted, %14
-  br i1 %cmp12, label %for.body.lr.ph, label %if.end
+51:                                               ; preds = %crc16_update_block_.exit
+  %52 = load ptr, ptr %0, align 8, !tbaa !3
+  %53 = load i32, ptr %2, align 4, !tbaa !16
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw i64, ptr %52, i64 %54
+  %56 = load i64, ptr %55, align 8, !tbaa !21
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %.promoted = load i32, ptr %57, align 4, !tbaa !20
+  %58 = icmp ult i32 %.promoted, %50
+  br i1 %58, label %.lr.ph, label %.loopexit
 
-for.body.lr.ph:                                   ; preds = %if.then
-  %read_crc16 = getelementptr inbounds nuw i8, ptr %br, i64 28
-  %read_crc16.promoted = load i32, ptr %read_crc16, align 4
-  br label %for.body
+.lr.ph:                                           ; preds = %51
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %.promoted12 = load i32, ptr %59, align 4, !tbaa !18
+  br label %60
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %18 = phi i32 [ %read_crc16.promoted, %for.body.lr.ph ], [ %xor9, %for.body ]
-  %19 = phi i32 [ %crc16_align.promoted, %for.body.lr.ph ], [ %add, %for.body ]
-  %shl = shl i32 %18, 8
-  %and = and i32 %shl, 65280
-  %shr = lshr i32 %18, 8
-  %sub = sub i32 56, %19
-  %sh_prom = zext nneg i32 %sub to i64
-  %shr4 = lshr i64 %17, %sh_prom
-  %20 = trunc i64 %shr4 to i32
-  %conv = and i32 %20, 255
-  %xor = xor i32 %shr, %conv
-  %idxprom6 = zext nneg i32 %xor to i64
-  %arrayidx7 = getelementptr inbounds nuw [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %idxprom6
-  %21 = load i16, ptr %arrayidx7, align 2
-  %conv8 = zext i16 %21 to i32
-  %xor9 = xor i32 %and, %conv8
-  store i32 %xor9, ptr %read_crc16, align 4
-  %add = add i32 %19, 8
-  store i32 %add, ptr %crc16_align, align 4
-  %cmp = icmp ult i32 %add, %14
-  br i1 %cmp, label %for.body, label %if.end, !llvm.loop !6
+60:                                               ; preds = %.lr.ph, %60
+  %61 = phi i32 [ %.promoted12, %.lr.ph ], [ %76, %60 ]
+  %62 = phi i32 [ %.promoted, %.lr.ph ], [ %77, %60 ]
+  %63 = shl i32 %61, 8
+  %64 = and i32 %63, 65280
+  %65 = lshr i32 %61, 8
+  %66 = sub i32 56, %62
+  %67 = zext nneg i32 %66 to i64
+  %68 = lshr i64 %56, %67
+  %69 = trunc i64 %68 to i32
+  %70 = and i32 %69, 255
+  %71 = xor i32 %65, %70
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr inbounds nuw [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %72
+  %74 = load i16, ptr %73, align 2, !tbaa !23
+  %75 = zext i16 %74 to i32
+  %76 = xor i32 %64, %75
+  %77 = add i32 %62, 8
+  %78 = icmp ult i32 %77, %50
+  br i1 %78, label %60, label %..loopexit_crit_edge, !llvm.loop !27
 
-if.end:                                           ; preds = %for.body, %if.then, %crc16_update_block_.exit
-  %read_crc1612 = getelementptr inbounds nuw i8, ptr %br, i64 28
-  %22 = load i32, ptr %read_crc1612, align 4
-  %conv13 = trunc i32 %22 to i16
-  ret i16 %conv13
+..loopexit_crit_edge:                             ; preds = %60
+  store i32 %76, ptr %59, align 4, !tbaa !18
+  store i32 %77, ptr %57, align 4, !tbaa !20
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %51, %..loopexit_crit_edge, %crc16_update_block_.exit
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %80 = load i32, ptr %79, align 4, !tbaa !18
+  %81 = trunc i32 %80 to i16
+  ret i16 %81
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef readonly captures(none) %br) local_unnamed_addr #9 {
-entry:
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %0 = load i32, ptr %consumed_bits, align 8
-  %and = and i32 %0, 7
-  %cmp = icmp eq i32 %and, 0
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load i32, ptr %2, align 8, !tbaa !17
+  %4 = and i32 %3, 7
+  %5 = icmp eq i32 %4, 0
+  %6 = zext i1 %5 to i32
+  ret i32 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i32 1, 9) i32 @FLAC__bitreader_bits_left_for_byte_alignment(ptr noundef readonly captures(none) %br) local_unnamed_addr #9 {
-entry:
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %0 = load i32, ptr %consumed_bits, align 8
-  %and = and i32 %0, 7
-  %sub = sub nuw nsw i32 8, %and
-  ret i32 %sub
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+define hidden range(i32 1, 9) i32 @FLAC__bitreader_bits_left_for_byte_alignment(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load i32, ptr %2, align 8, !tbaa !17
+  %4 = and i32 %3, 7
+  %5 = sub nuw nsw i32 8, %4
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef readonly captures(none) %br) local_unnamed_addr #9 {
-entry:
-  %words = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %0 = load i32, ptr %words, align 4
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %1 = load i32, ptr %consumed_words, align 4
-  %sub = sub i32 %0, %1
-  %mul = shl i32 %sub, 6
-  %bytes = getelementptr inbounds nuw i8, ptr %br, i64 16
-  %2 = load i32, ptr %bytes, align 8
-  %mul1 = shl i32 %2, 3
-  %add = add i32 %mul, %mul1
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %3 = load i32, ptr %consumed_bits, align 8
-  %sub2 = sub i32 %add, %3
-  ret i32 %sub2
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+define hidden i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = load i32, ptr %2, align 4, !tbaa !28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %5 = load i32, ptr %4, align 4, !tbaa !16
+  %6 = sub i32 %3, %5
+  %7 = shl i32 %6, 6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load i32, ptr %8, align 8, !tbaa !29
+  %10 = shl i32 %9, 3
+  %11 = add i32 %7, %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load i32, ptr %12, align 8, !tbaa !17
+  %14 = sub i32 %11, %13
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitreader_set_limit(ptr noundef writeonly captures(none) initializes((40, 48)) %br, i32 noundef %limit) local_unnamed_addr #6 {
-entry:
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  store i32 %limit, ptr %read_limit, align 4
-  %read_limit_set = getelementptr inbounds nuw i8, ptr %br, i64 40
-  store i32 1, ptr %read_limit_set, align 8
+define hidden void @FLAC__bitreader_set_limit(ptr noundef writeonly captures(none) initializes((40, 48)) %0, i32 noundef %1) local_unnamed_addr #7 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %1, ptr %3, align 4, !tbaa !11
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 1, ptr %4, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitreader_remove_limit(ptr noundef writeonly captures(none) initializes((40, 48)) %br) local_unnamed_addr #6 {
-entry:
-  %read_limit_set = getelementptr inbounds nuw i8, ptr %br, i64 40
-  store i32 0, ptr %read_limit_set, align 8
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  store i32 -1, ptr %read_limit, align 4
+define hidden void @FLAC__bitreader_remove_limit(ptr noundef writeonly captures(none) initializes((40, 48)) %0) local_unnamed_addr #7 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %2, align 8, !tbaa !10
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 -1, ptr %3, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @FLAC__bitreader_limit_remaining(ptr noundef readonly captures(none) %br) local_unnamed_addr #9 {
-entry:
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  %0 = load i32, ptr %read_limit, align 4
-  ret i32 %0
+define hidden i32 @FLAC__bitreader_limit_remaining(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %3 = load i32, ptr %2, align 4, !tbaa !11
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitreader_limit_invalidate(ptr noundef writeonly captures(none) initializes((44, 48)) %br) local_unnamed_addr #6 {
-entry:
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  store i32 -1, ptr %read_limit, align 4
+define hidden void @FLAC__bitreader_limit_invalidate(ptr noundef writeonly captures(none) initializes((44, 48)) %0) local_unnamed_addr #7 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 -1, ptr %2, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef captures(none) %br, ptr noundef captures(none) %val, i32 noundef %bits) local_unnamed_addr #8 {
-entry:
-  %cmp = icmp eq i32 %bits, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+  %4 = icmp eq i32 %2, 0
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %val, align 4
-  br label %return
+5:                                                ; preds = %3
+  store i32 0, ptr %1, align 4, !tbaa !30
+  br label %.loopexit
 
-if.end:                                           ; preds = %entry
-  %read_limit_set = getelementptr inbounds nuw i8, ptr %br, i64 40
-  %0 = load i32, ptr %read_limit_set, align 8
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %if.end9, label %land.lhs.true
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load i32, ptr %7, align 8, !tbaa !10
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %17, label %9
 
-land.lhs.true:                                    ; preds = %if.end
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  %1 = load i32, ptr %read_limit, align 4
-  %cmp1.not = icmp eq i32 %1, -1
-  br i1 %cmp1.not, label %if.end9, label %if.then2
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %11 = load i32, ptr %10, align 4, !tbaa !11
+  %.not89 = icmp eq i32 %11, -1
+  br i1 %.not89, label %17, label %12
 
-if.then2:                                         ; preds = %land.lhs.true
-  %cmp4 = icmp ult i32 %1, %bits
-  br i1 %cmp4, label %if.then5, label %if.else
+12:                                               ; preds = %9
+  %13 = icmp ult i32 %11, %2
+  br i1 %13, label %14, label %15
 
-if.then5:                                         ; preds = %if.then2
-  store i32 -1, ptr %read_limit, align 4
-  br label %return
+14:                                               ; preds = %12
+  store i32 -1, ptr %10, align 4, !tbaa !11
+  br label %.loopexit
 
-if.else:                                          ; preds = %if.then2
-  %sub = sub nuw i32 %1, %bits
-  store i32 %sub, ptr %read_limit, align 4
-  br label %if.end9
+15:                                               ; preds = %12
+  %16 = sub nuw i32 %11, %2
+  store i32 %16, ptr %10, align 4, !tbaa !11
+  br label %17
 
-if.end9:                                          ; preds = %if.else, %land.lhs.true, %if.end
-  %words = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %bytes = getelementptr inbounds nuw i8, ptr %br, i64 16
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  br label %while.cond
+17:                                               ; preds = %15, %9, %6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %22
 
-while.cond:                                       ; preds = %while.body, %if.end9
-  %2 = load i32, ptr %words, align 4
-  %3 = load i32, ptr %consumed_words, align 4
-  %sub10 = sub i32 %2, %3
-  %mul = shl i32 %sub10, 6
-  %4 = load i32, ptr %bytes, align 8
-  %mul11 = shl i32 %4, 3
-  %add = add i32 %mul, %mul11
-  %5 = load i32, ptr %consumed_bits, align 8
-  %sub12 = sub i32 %add, %5
-  %cmp13 = icmp ult i32 %sub12, %bits
-  br i1 %cmp13, label %while.body, label %while.end
+22:                                               ; preds = %33, %17
+  %23 = load i32, ptr %18, align 4, !tbaa !28
+  %24 = load i32, ptr %19, align 4, !tbaa !16
+  %25 = sub i32 %23, %24
+  %26 = shl i32 %25, 6
+  %27 = load i32, ptr %20, align 8, !tbaa !29
+  %28 = shl i32 %27, 3
+  %29 = add i32 %26, %28
+  %30 = load i32, ptr %21, align 8, !tbaa !17
+  %31 = sub i32 %29, %30
+  %32 = icmp ult i32 %31, %2
+  br i1 %32, label %33, label %35
 
-while.body:                                       ; preds = %while.cond
-  %call = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br)
-  %tobool14.not = icmp eq i32 %call, 0
-  br i1 %tobool14.not, label %return, label %while.cond, !llvm.loop !7
+33:                                               ; preds = %22
+  %34 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %0)
+  %.not93 = icmp eq i32 %34, 0
+  br i1 %.not93, label %.loopexit, label %22, !llvm.loop !31
 
-while.end:                                        ; preds = %while.cond
-  %cmp19 = icmp ult i32 %3, %2
-  %tobool22.not = icmp eq i32 %5, 0
-  br i1 %cmp19, label %if.then20, label %if.else91
+35:                                               ; preds = %22
+  %36 = icmp ult i32 %24, %23
+  %.not91 = icmp eq i32 %30, 0
+  br i1 %36, label %37, label %100
 
-if.then20:                                        ; preds = %while.end
-  br i1 %tobool22.not, label %if.else73, label %if.then23
+37:                                               ; preds = %35
+  br i1 %.not91, label %85, label %38
 
-if.then23:                                        ; preds = %if.then20
-  %sub25 = sub i32 64, %5
-  %6 = load ptr, ptr %br, align 8
-  %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom
-  %7 = load i64, ptr %arrayidx, align 8
-  %cmp28 = icmp ult i32 %5, 64
-  %sh_prom = zext nneg i32 %5 to i64
-  %shr = lshr i64 -1, %sh_prom
-  %cond = select i1 %cmp28, i64 %shr, i64 0
-  %cmp30 = icmp ult i32 %bits, %sub25
-  br i1 %cmp30, label %if.then31, label %if.end42
+38:                                               ; preds = %37
+  %39 = sub i32 64, %30
+  %40 = load ptr, ptr %0, align 8, !tbaa !3
+  %41 = zext i32 %24 to i64
+  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %41
+  %43 = load i64, ptr %42, align 8, !tbaa !21
+  %44 = icmp ult i32 %30, 64
+  %45 = zext nneg i32 %30 to i64
+  %46 = lshr i64 -1, %45
+  %47 = select i1 %44, i64 %46, i64 0
+  %48 = icmp ult i32 %2, %39
+  br i1 %48, label %49, label %59
 
-if.then31:                                        ; preds = %if.then23
-  %sub32 = sub nuw i32 %sub25, %bits
-  %cmp33 = icmp ult i32 %sub32, 64
-  %and = and i64 %7, %cond
-  %sh_prom35 = zext nneg i32 %sub32 to i64
-  %shr36 = lshr i64 %and, %sh_prom35
-  %conv = trunc i64 %shr36 to i32
-  %cond39 = select i1 %cmp33, i32 %conv, i32 0
-  store i32 %cond39, ptr %val, align 4
-  %8 = load i32, ptr %consumed_bits, align 8
-  %add41 = add i32 %8, %bits
-  store i32 %add41, ptr %consumed_bits, align 8
-  br label %return
+49:                                               ; preds = %38
+  %50 = sub nuw i32 %39, %2
+  %51 = icmp ult i32 %50, 64
+  %52 = and i64 %43, %47
+  %53 = zext nneg i32 %50 to i64
+  %54 = lshr i64 %52, %53
+  %55 = trunc i64 %54 to i32
+  %56 = select i1 %51, i32 %55, i32 0
+  store i32 %56, ptr %1, align 4, !tbaa !30
+  %57 = load i32, ptr %21, align 8, !tbaa !17
+  %58 = add i32 %57, %2
+  store i32 %58, ptr %21, align 8, !tbaa !17
+  br label %.loopexit
 
-if.end42:                                         ; preds = %if.then23
-  %and43 = and i64 %7, %cond
-  %conv44 = trunc i64 %and43 to i32
-  store i32 %conv44, ptr %val, align 4
-  %sub45 = sub nuw i32 %bits, %sub25
-  %9 = load i32, ptr %consumed_words, align 4
-  %inc = add i32 %9, 1
-  store i32 %inc, ptr %consumed_words, align 4
-  store i32 0, ptr %consumed_bits, align 8
-  %tobool48.not = icmp eq i32 %bits, %sub25
-  br i1 %tobool48.not, label %return, label %if.then49
+59:                                               ; preds = %38
+  %60 = and i64 %43, %47
+  %61 = trunc i64 %60 to i32
+  store i32 %61, ptr %1, align 4, !tbaa !30
+  %62 = sub nuw i32 %2, %39
+  %63 = load i32, ptr %19, align 4, !tbaa !16
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %19, align 4, !tbaa !16
+  store i32 0, ptr %21, align 8, !tbaa !17
+  %.not92 = icmp eq i32 %2, %39
+  br i1 %.not92, label %.loopexit, label %65
 
-if.then49:                                        ; preds = %if.end42
-  %sub51 = sub i32 64, %sub45
-  %cmp52 = icmp ult i32 %sub45, 32
-  br i1 %cmp52, label %cond.true54, label %cond.end56
+65:                                               ; preds = %59
+  %66 = sub i32 64, %62
+  %67 = icmp ult i32 %62, 32
+  br i1 %67, label %68, label %71
 
-cond.true54:                                      ; preds = %if.then49
-  %10 = load i32, ptr %val, align 4
-  %shl = shl i32 %10, %sub45
-  br label %cond.end56
+68:                                               ; preds = %65
+  %69 = load i32, ptr %1, align 4, !tbaa !30
+  %70 = shl i32 %69, %62
+  br label %71
 
-cond.end56:                                       ; preds = %if.then49, %cond.true54
-  %cond57 = phi i32 [ %shl, %cond.true54 ], [ 0, %if.then49 ]
-  store i32 %cond57, ptr %val, align 4
-  %cmp58 = icmp ult i32 %sub51, 64
-  br i1 %cmp58, label %cond.true60, label %cond.end69
+71:                                               ; preds = %65, %68
+  %72 = phi i32 [ %70, %68 ], [ 0, %65 ]
+  store i32 %72, ptr %1, align 4, !tbaa !30
+  %73 = icmp ult i32 %66, 64
+  br i1 %73, label %74, label %82
 
-cond.true60:                                      ; preds = %cond.end56
-  %11 = load ptr, ptr %br, align 8
-  %12 = load i32, ptr %consumed_words, align 4
-  %idxprom63 = zext i32 %12 to i64
-  %arrayidx64 = getelementptr inbounds nuw i64, ptr %11, i64 %idxprom63
-  %13 = load i64, ptr %arrayidx64, align 8
-  %sh_prom65 = zext nneg i32 %sub51 to i64
-  %shr66 = lshr i64 %13, %sh_prom65
-  %conv67 = trunc i64 %shr66 to i32
-  br label %cond.end69
+74:                                               ; preds = %71
+  %75 = load i32, ptr %19, align 4, !tbaa !16
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds nuw i64, ptr %40, i64 %76
+  %78 = load i64, ptr %77, align 8, !tbaa !21
+  %79 = zext nneg i32 %66 to i64
+  %80 = lshr i64 %78, %79
+  %81 = trunc i64 %80 to i32
+  br label %82
 
-cond.end69:                                       ; preds = %cond.end56, %cond.true60
-  %cond70 = phi i32 [ %conv67, %cond.true60 ], [ 0, %cond.end56 ]
-  %or = or i32 %cond70, %cond57
-  store i32 %or, ptr %val, align 4
-  store i32 %sub45, ptr %consumed_bits, align 8
-  br label %return
+82:                                               ; preds = %71, %74
+  %83 = phi i32 [ %81, %74 ], [ 0, %71 ]
+  %84 = or i32 %83, %72
+  store i32 %84, ptr %1, align 4, !tbaa !30
+  store i32 %62, ptr %21, align 8, !tbaa !17
+  br label %.loopexit
 
-if.else73:                                        ; preds = %if.then20
-  %14 = load ptr, ptr %br, align 8
-  %idxprom77 = zext i32 %3 to i64
-  %arrayidx78 = getelementptr inbounds nuw i64, ptr %14, i64 %idxprom77
-  %15 = load i64, ptr %arrayidx78, align 8
-  %cmp79 = icmp ult i32 %bits, 64
-  br i1 %cmp79, label %if.then81, label %if.end87
+85:                                               ; preds = %37
+  %86 = load ptr, ptr %0, align 8, !tbaa !3
+  %87 = zext i32 %24 to i64
+  %88 = getelementptr inbounds nuw i64, ptr %86, i64 %87
+  %89 = load i64, ptr %88, align 8, !tbaa !21
+  %90 = icmp ult i32 %2, 64
+  br i1 %90, label %91, label %96
 
-if.then81:                                        ; preds = %if.else73
-  %sub82 = sub nuw nsw i32 64, %bits
-  %sh_prom83 = zext nneg i32 %sub82 to i64
-  %shr84 = lshr i64 %15, %sh_prom83
-  %conv85 = trunc i64 %shr84 to i32
-  store i32 %conv85, ptr %val, align 4
-  store i32 %bits, ptr %consumed_bits, align 8
-  br label %return
+91:                                               ; preds = %85
+  %92 = sub nuw nsw i32 64, %2
+  %93 = zext nneg i32 %92 to i64
+  %94 = lshr i64 %89, %93
+  %95 = trunc i64 %94 to i32
+  store i32 %95, ptr %1, align 4, !tbaa !30
+  store i32 %2, ptr %21, align 8, !tbaa !17
+  br label %.loopexit
 
-if.end87:                                         ; preds = %if.else73
-  %conv88 = trunc i64 %15 to i32
-  store i32 %conv88, ptr %val, align 4
-  %16 = load i32, ptr %consumed_words, align 4
-  %inc90 = add i32 %16, 1
-  store i32 %inc90, ptr %consumed_words, align 4
-  br label %return
+96:                                               ; preds = %85
+  %97 = trunc i64 %89 to i32
+  store i32 %97, ptr %1, align 4, !tbaa !30
+  %98 = load i32, ptr %19, align 4, !tbaa !16
+  %99 = add i32 %98, 1
+  store i32 %99, ptr %19, align 4, !tbaa !16
+  br label %.loopexit
 
-if.else91:                                        ; preds = %while.end
-  %17 = load ptr, ptr %br, align 8
-  %idxprom114 = zext i32 %3 to i64
-  %arrayidx115 = getelementptr inbounds nuw i64, ptr %17, i64 %idxprom114
-  %18 = load i64, ptr %arrayidx115, align 8
-  br i1 %tobool22.not, label %if.else111, label %if.then94
+100:                                              ; preds = %35
+  %101 = load ptr, ptr %0, align 8, !tbaa !3
+  %102 = zext i32 %24 to i64
+  %103 = getelementptr inbounds nuw i64, ptr %101, i64 %102
+  %104 = load i64, ptr %103, align 8, !tbaa !21
+  br i1 %.not91, label %116, label %105
 
-if.then94:                                        ; preds = %if.else91
-  %sh_prom100 = zext nneg i32 %5 to i64
-  %shr101 = lshr i64 -1, %sh_prom100
-  %and102 = and i64 %18, %shr101
-  %19 = add i32 %bits, %5
-  %sub105 = sub i32 64, %19
-  %sh_prom106 = zext nneg i32 %sub105 to i64
-  %shr107 = lshr i64 %and102, %sh_prom106
-  %conv108 = trunc i64 %shr107 to i32
-  store i32 %conv108, ptr %val, align 4
-  %20 = load i32, ptr %consumed_bits, align 8
-  %add110 = add i32 %20, %bits
-  store i32 %add110, ptr %consumed_bits, align 8
-  br label %return
+105:                                              ; preds = %100
+  %106 = zext nneg i32 %30 to i64
+  %107 = lshr i64 -1, %106
+  %108 = and i64 %104, %107
+  %109 = add i32 %2, %30
+  %110 = sub i32 64, %109
+  %111 = zext nneg i32 %110 to i64
+  %112 = lshr i64 %108, %111
+  %113 = trunc i64 %112 to i32
+  store i32 %113, ptr %1, align 4, !tbaa !30
+  %114 = load i32, ptr %21, align 8, !tbaa !17
+  %115 = add i32 %114, %2
+  store i32 %115, ptr %21, align 8, !tbaa !17
+  br label %.loopexit
 
-if.else111:                                       ; preds = %if.else91
-  %sub116 = sub i32 64, %bits
-  %sh_prom117 = zext nneg i32 %sub116 to i64
-  %shr118 = lshr i64 %18, %sh_prom117
-  %conv119 = trunc i64 %shr118 to i32
-  store i32 %conv119, ptr %val, align 4
-  %21 = load i32, ptr %consumed_bits, align 8
-  %add121 = add i32 %21, %bits
-  store i32 %add121, ptr %consumed_bits, align 8
-  br label %return
+116:                                              ; preds = %100
+  %117 = sub i32 64, %2
+  %118 = zext nneg i32 %117 to i64
+  %119 = lshr i64 %104, %118
+  %120 = trunc i64 %119 to i32
+  store i32 %120, ptr %1, align 4, !tbaa !30
+  %121 = load i32, ptr %21, align 8, !tbaa !17
+  %122 = add i32 %121, %2
+  store i32 %122, ptr %21, align 8, !tbaa !17
+  br label %.loopexit
 
-return:                                           ; preds = %while.body, %if.end42, %cond.end69, %if.else111, %if.then94, %if.end87, %if.then81, %if.then31, %if.then5, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 0, %if.then5 ], [ 1, %if.then31 ], [ 1, %if.then81 ], [ 1, %if.end87 ], [ 1, %if.then94 ], [ 1, %if.else111 ], [ 1, %cond.end69 ], [ 1, %if.end42 ], [ 0, %while.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %33, %91, %96, %49, %82, %59, %116, %105, %14, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %14 ], [ 1, %105 ], [ 1, %116 ], [ 1, %59 ], [ 1, %82 ], [ 1, %49 ], [ 1, %96 ], [ 1, %91 ], [ 0, %33 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @bitreader_read_from_client_(ptr noundef captures(none) %br) unnamed_addr #8 {
-entry:
-  %bytes = alloca i64, align 8
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %0 = load i32, ptr %consumed_words, align 4
-  %cmp.not = icmp eq i32 %0, 0
-  br i1 %cmp.not, label %entry.if.end_crit_edge, label %if.then
+define internal fastcc range(i32 0, 2) i32 @bitreader_read_from_client_(ptr noundef captures(none) %0) unnamed_addr #12 {
+  %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = load i32, ptr %3, align 4, !tbaa !16
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %._crit_edge57, label %5
 
-entry.if.end_crit_edge:                           ; preds = %entry
-  %words7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %.pre52 = load i32, ptr %words7.phi.trans.insert, align 4
-  br label %if.end
+._crit_edge57:                                    ; preds = %1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.pre58 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !28
+  br label %65
 
-if.then:                                          ; preds = %entry
-  %last_seen_framesync = getelementptr inbounds nuw i8, ptr %br, i64 48
-  store i32 -1, ptr %last_seen_framesync, align 8
-  %crc16_offset.i = getelementptr inbounds nuw i8, ptr %br, i64 32
-  %1 = load i32, ptr %crc16_offset.i, align 8
-  %cmp.i = icmp ugt i32 %0, %1
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.then.if.end.i_crit_edge
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 -1, ptr %6, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load i32, ptr %7, align 8, !tbaa !19
+  %9 = icmp ugt i32 %4, %8
+  br i1 %9, label %10, label %._crit_edge60
 
-if.then.if.end.i_crit_edge:                       ; preds = %if.then
-  %.pre51.pre = load ptr, ptr %br, align 8
-  br label %if.end.i
+._crit_edge60:                                    ; preds = %5
+  %.pre56.pre = load ptr, ptr %0, align 8, !tbaa !3
+  br label %38
 
-land.lhs.true.i:                                  ; preds = %if.then
-  %crc16_align.i = getelementptr inbounds nuw i8, ptr %br, i64 36
-  %2 = load i32, ptr %crc16_align.i, align 4
-  %tobool.not.i = icmp eq i32 %2, 0
-  %.pre51.pre56 = load ptr, ptr %br, align 8
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %12 = load i32, ptr %11, align 4, !tbaa !20
+  %.not.i = icmp eq i32 %12, 0
+  %.pre56.pre61 = load ptr, ptr %0, align 8, !tbaa !3
+  br i1 %.not.i, label %38, label %13
 
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %inc.i = add nuw i32 %1, 1
-  store i32 %inc.i, ptr %crc16_offset.i, align 8
-  %idxprom.i = zext i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %.pre51.pre56, i64 %idxprom.i
-  %3 = load i64, ptr %arrayidx.i, align 8
-  %read_crc16.i.i = getelementptr inbounds nuw i8, ptr %br, i64 28
-  %4 = load i32, ptr %read_crc16.i.i, align 4
-  %cmp9.i.i = icmp ult i32 %2, 64
-  br i1 %cmp9.i.i, label %for.body.preheader.i.i, label %crc16_update_word_.exit.i
+13:                                               ; preds = %10
+  %14 = add nuw i32 %8, 1
+  store i32 %14, ptr %7, align 8, !tbaa !19
+  %15 = zext i32 %8 to i64
+  %16 = getelementptr inbounds nuw i64, ptr %.pre56.pre61, i64 %15
+  %17 = load i64, ptr %16, align 8, !tbaa !21
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %19 = load i32, ptr %18, align 4, !tbaa !18
+  %20 = icmp ult i32 %12, 64
+  br i1 %20, label %.lr.ph.preheader.i.i, label %crc16_update_word_.exit.i
 
-for.body.preheader.i.i:                           ; preds = %if.then.i
-  %5 = zext nneg i32 %2 to i64
-  br label %for.body.i.i
+.lr.ph.preheader.i.i:                             ; preds = %13
+  %21 = zext nneg i32 %12 to i64
+  br label %.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %5, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %crc.010.i.i = phi i32 [ %4, %for.body.preheader.i.i ], [ %xor6.i.i, %for.body.i.i ]
-  %6 = sub nsw i64 56, %indvars.iv.i.i
-  %shl.i.i = shl i32 %crc.010.i.i, 8
-  %and.i.i = and i32 %shl.i.i, 65280
-  %shr.i.i = lshr i32 %crc.010.i.i, 8
-  %cmp2.i.i = icmp ult i64 %6, 64
-  %shr3.i.i = lshr i64 %3, %6
-  %7 = trunc i64 %shr3.i.i to i32
-  %8 = and i32 %7, 255
-  %conv.i.i = select i1 %cmp2.i.i, i32 %8, i32 0
-  %xor.i.i = xor i32 %conv.i.i, %shr.i.i
-  %idxprom.i.i = zext nneg i32 %xor.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %idxprom.i.i
-  %9 = load i16, ptr %arrayidx.i.i, align 2
-  %conv5.i.i = zext i16 %9 to i32
-  %xor6.i.i = xor i32 %and.i.i, %conv5.i.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %21, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %.012.i.i = phi i32 [ %19, %.lr.ph.preheader.i.i ], [ %36, %.lr.ph.i.i ]
+  %22 = sub nsw i64 56, %indvars.iv.i.i
+  %23 = shl i32 %.012.i.i, 8
+  %24 = and i32 %23, 65280
+  %25 = lshr i32 %.012.i.i, 8
+  %26 = icmp ult i64 %22, 64
+  %27 = lshr i64 %17, %22
+  %28 = trunc i64 %27 to i32
+  %29 = and i32 %28, 255
+  %30 = select i1 %26, i32 %29, i32 0
+  %31 = xor i32 %30, %25
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %32
+  %34 = load i16, ptr %33, align 2, !tbaa !23
+  %35 = zext i16 %34 to i32
+  %36 = xor i32 %24, %35
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
-  %cmp.i.i = icmp samesign ult i64 %indvars.iv.i.i, 56
-  br i1 %cmp.i.i, label %for.body.i.i, label %crc16_update_word_.exit.i, !llvm.loop !4
+  %37 = icmp samesign ult i64 %indvars.iv.i.i, 56
+  br i1 %37, label %.lr.ph.i.i, label %crc16_update_word_.exit.i, !llvm.loop !25
 
-crc16_update_word_.exit.i:                        ; preds = %for.body.i.i, %if.then.i
-  %crc.0.lcssa.i.i = phi i32 [ %4, %if.then.i ], [ %xor6.i.i, %for.body.i.i ]
-  store i32 %crc.0.lcssa.i.i, ptr %read_crc16.i.i, align 4
-  store i32 0, ptr %crc16_align.i, align 4
-  br label %if.end.i
+crc16_update_word_.exit.i:                        ; preds = %.lr.ph.i.i, %13
+  %.0.lcssa.i.i = phi i32 [ %19, %13 ], [ %36, %.lr.ph.i.i ]
+  store i32 %.0.lcssa.i.i, ptr %18, align 4, !tbaa !18
+  store i32 0, ptr %11, align 4, !tbaa !20
+  br label %38
 
-if.end.i:                                         ; preds = %if.then.if.end.i_crit_edge, %crc16_update_word_.exit.i, %land.lhs.true.i
-  %.pre51 = phi ptr [ %.pre51.pre56, %crc16_update_word_.exit.i ], [ %.pre51.pre56, %land.lhs.true.i ], [ %.pre51.pre, %if.then.if.end.i_crit_edge ]
-  %10 = phi i32 [ %inc.i, %crc16_update_word_.exit.i ], [ %1, %land.lhs.true.i ], [ %1, %if.then.if.end.i_crit_edge ]
-  %cmp4.i = icmp ugt i32 %0, %10
-  br i1 %cmp4.i, label %if.then5.i, label %crc16_update_block_.exit
+38:                                               ; preds = %._crit_edge60, %crc16_update_word_.exit.i, %10
+  %.pre56 = phi ptr [ %.pre56.pre61, %crc16_update_word_.exit.i ], [ %.pre56.pre61, %10 ], [ %.pre56.pre, %._crit_edge60 ]
+  %39 = phi i32 [ %14, %crc16_update_word_.exit.i ], [ %8, %10 ], [ %8, %._crit_edge60 ]
+  %40 = icmp ugt i32 %4, %39
+  br i1 %40, label %41, label %crc16_update_block_.exit
 
-if.then5.i:                                       ; preds = %if.end.i
-  %idx.ext.i = zext i32 %10 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %.pre51, i64 %idx.ext.i
-  %sub.i = sub nuw i32 %0, %10
-  %read_crc16.i = getelementptr inbounds nuw i8, ptr %br, i64 28
-  %11 = load i32, ptr %read_crc16.i, align 4
-  %conv.i = trunc i32 %11 to i16
-  %call.i = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %add.ptr.i, i32 noundef %sub.i, i16 noundef zeroext %conv.i) #18
-  %conv10.i = zext i16 %call.i to i32
-  store i32 %conv10.i, ptr %read_crc16.i, align 4
-  %.pre = load i32, ptr %consumed_words, align 4
-  %.pre50 = load ptr, ptr %br, align 8
+41:                                               ; preds = %38
+  %42 = zext i32 %39 to i64
+  %43 = getelementptr inbounds nuw i64, ptr %.pre56, i64 %42
+  %44 = sub nuw i32 %4, %39
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %46 = load i32, ptr %45, align 4, !tbaa !18
+  %47 = trunc i32 %46 to i16
+  %48 = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %43, i32 noundef %44, i16 noundef zeroext %47) #21
+  %49 = zext i16 %48 to i32
+  store i32 %49, ptr %45, align 4, !tbaa !18
+  %.pre = load i32, ptr %3, align 4, !tbaa !16
+  %.pre55 = load ptr, ptr %0, align 8, !tbaa !3
   br label %crc16_update_block_.exit
 
-crc16_update_block_.exit:                         ; preds = %if.end.i, %if.then5.i
-  %12 = phi ptr [ %.pre51, %if.end.i ], [ %.pre50, %if.then5.i ]
-  %13 = phi i32 [ %0, %if.end.i ], [ %.pre, %if.then5.i ]
-  store i32 0, ptr %crc16_offset.i, align 8
-  %words = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %14 = load i32, ptr %words, align 4
-  %bytes2 = getelementptr inbounds nuw i8, ptr %br, i64 16
-  %15 = load i32, ptr %bytes2, align 8
-  %tobool.not = icmp ne i32 %15, 0
-  %cond = zext i1 %tobool.not to i32
-  %idx.ext = zext i32 %13 to i64
-  %add.ptr = getelementptr inbounds nuw i64, ptr %12, i64 %idx.ext
-  %add = sub i32 %14, %13
-  %sub = add i32 %add, %cond
-  %mul = shl i32 %sub, 3
-  %conv = zext i32 %mul to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %add.ptr, i64 %conv, i1 false)
-  %16 = load i32, ptr %words, align 4
-  %sub5 = sub i32 %16, %13
-  store i32 %sub5, ptr %words, align 4
-  store i32 0, ptr %consumed_words, align 4
-  br label %if.end
+crc16_update_block_.exit:                         ; preds = %38, %41
+  %50 = phi ptr [ %.pre56, %38 ], [ %.pre55, %41 ]
+  %51 = phi i32 [ %4, %38 ], [ %.pre, %41 ]
+  store i32 0, ptr %7, align 8, !tbaa !19
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %53 = load i32, ptr %52, align 4, !tbaa !28
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = load i32, ptr %54, align 8, !tbaa !29
+  %.not50 = icmp ne i32 %55, 0
+  %56 = zext i1 %.not50 to i32
+  %57 = zext i32 %51 to i64
+  %58 = getelementptr inbounds nuw i64, ptr %50, i64 %57
+  %59 = sub i32 %53, %51
+  %60 = add i32 %59, %56
+  %61 = shl i32 %60, 3
+  %62 = zext i32 %61 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 1 %58, i64 noundef range(i64 0, 4294967296) %62, i1 noundef false) #21
+  %63 = load i32, ptr %52, align 4, !tbaa !28
+  %64 = sub i32 %63, %51
+  store i32 %64, ptr %52, align 4, !tbaa !28
+  store i32 0, ptr %3, align 4, !tbaa !16
+  br label %65
 
-if.end:                                           ; preds = %entry.if.end_crit_edge, %crc16_update_block_.exit
-  %17 = phi i32 [ %.pre52, %entry.if.end_crit_edge ], [ %sub5, %crc16_update_block_.exit ]
-  %capacity = getelementptr inbounds nuw i8, ptr %br, i64 8
-  %18 = load i32, ptr %capacity, align 8
-  %words7 = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %sub8 = sub i32 %18, %17
-  %mul9 = shl i32 %sub8, 3
-  %bytes10 = getelementptr inbounds nuw i8, ptr %br, i64 16
-  %19 = load i32, ptr %bytes10, align 8
-  %sub11 = sub i32 %mul9, %19
-  %conv12 = zext i32 %sub11 to i64
-  store i64 %conv12, ptr %bytes, align 8
-  %cmp13 = icmp eq i32 %mul9, %19
-  br i1 %cmp13, label %return, label %if.end16
+65:                                               ; preds = %._crit_edge57, %crc16_update_block_.exit
+  %66 = phi i32 [ %.pre58, %._crit_edge57 ], [ %64, %crc16_update_block_.exit ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %68 = load i32, ptr %67, align 8, !tbaa !13
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %70 = sub i32 %68, %66
+  %71 = shl i32 %70, 3
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %73 = load i32, ptr %72, align 8, !tbaa !29
+  %74 = sub i32 %71, %73
+  %75 = zext i32 %74 to i64
+  store i64 %75, ptr %2, align 8, !tbaa !21
+  %76 = icmp eq i32 %71, %73
+  br i1 %76, label %117, label %77
 
-if.end16:                                         ; preds = %if.end
-  %20 = load ptr, ptr %br, align 8
-  %idx.ext19 = zext i32 %17 to i64
-  %add.ptr20 = getelementptr inbounds nuw i64, ptr %20, i64 %idx.ext19
-  %idx.ext22 = zext i32 %19 to i64
-  %add.ptr23 = getelementptr inbounds nuw i8, ptr %add.ptr20, i64 %idx.ext22
-  %21 = load i64, ptr %add.ptr20, align 8
-  %tobool27.not = icmp eq i32 %19, 0
-  br i1 %tobool27.not, label %if.end37, label %if.then28
+77:                                               ; preds = %65
+  %78 = load ptr, ptr %0, align 8, !tbaa !3
+  %79 = zext i32 %66 to i64
+  %80 = getelementptr inbounds nuw i64, ptr %78, i64 %79
+  %81 = zext i32 %73 to i64
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 %81
+  %83 = load i64, ptr %80, align 8, !tbaa !21
+  %.not51 = icmp eq i32 %73, 0
+  br i1 %.not51, label %86, label %84
 
-if.then28:                                        ; preds = %if.end16
-  %22 = tail call i64 @llvm.bswap.i64(i64 %21)
-  store i64 %22, ptr %add.ptr20, align 8
-  br label %if.end37
+84:                                               ; preds = %77
+  %85 = tail call i64 @llvm.bswap.i64(i64 %83)
+  store i64 %85, ptr %80, align 8, !tbaa !21
+  br label %86
 
-if.end37:                                         ; preds = %if.then28, %if.end16
-  %read_callback = getelementptr inbounds nuw i8, ptr %br, i64 56
-  %23 = load ptr, ptr %read_callback, align 8
-  %client_data = getelementptr inbounds nuw i8, ptr %br, i64 64
-  %24 = load ptr, ptr %client_data, align 8
-  %call = call i32 %23(ptr noundef nonnull %add.ptr23, ptr noundef nonnull %bytes, ptr noundef %24) #18
-  %tobool38.not = icmp eq i32 %call, 0
-  br i1 %tobool38.not, label %if.then39, label %if.end44
+86:                                               ; preds = %84, %77
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %88 = load ptr, ptr %87, align 8, !tbaa !14
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %90 = load ptr, ptr %89, align 8, !tbaa !15
+  %91 = call i32 %88(ptr noundef nonnull %82, ptr noundef nonnull %2, ptr noundef %90) #21
+  %.not52 = icmp eq i32 %91, 0
+  br i1 %.not52, label %92, label %97
 
-if.then39:                                        ; preds = %if.end37
-  %25 = load ptr, ptr %br, align 8
-  %26 = load i32, ptr %words7, align 4
-  %idxprom42 = zext i32 %26 to i64
-  %arrayidx43 = getelementptr inbounds nuw i64, ptr %25, i64 %idxprom42
-  store i64 %21, ptr %arrayidx43, align 8
-  br label %return
+92:                                               ; preds = %86
+  %93 = load ptr, ptr %0, align 8, !tbaa !3
+  %94 = load i32, ptr %69, align 4, !tbaa !28
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds nuw i64, ptr %93, i64 %95
+  store i64 %83, ptr %96, align 8, !tbaa !21
+  br label %117
 
-if.end44:                                         ; preds = %if.end37
-  %27 = load i32, ptr %words7, align 4
-  %mul46 = shl i32 %27, 3
-  %28 = load i32, ptr %bytes10, align 8
-  %29 = load i64, ptr %bytes, align 8
-  %conv49 = trunc i64 %29 to i32
-  %add48 = add i32 %28, 7
-  %add50 = add i32 %add48, %mul46
-  %add51 = add i32 %add50, %conv49
-  %div45 = lshr i32 %add51, 3
-  %cmp5347 = icmp ult i32 %27, %div45
-  br i1 %cmp5347, label %for.body.preheader, label %for.end
+97:                                               ; preds = %86
+  %98 = load i32, ptr %69, align 4, !tbaa !28
+  %99 = shl i32 %98, 3
+  %100 = load i32, ptr %72, align 8, !tbaa !29
+  %101 = add i32 %99, %100
+  %102 = load i64, ptr %2, align 8, !tbaa !21
+  %103 = trunc i64 %102 to i32
+  %104 = add i32 %101, 7
+  %105 = add i32 %104, %103
+  %106 = lshr i32 %105, 3
+  %107 = icmp ult i32 %98, %106
+  br i1 %107, label %.lr.ph, label %._crit_edge
 
-for.body.preheader:                               ; preds = %if.end44
-  %30 = zext nneg i32 %27 to i64
-  %wide.trip.count = zext nneg i32 %div45 to i64
-  br label %for.body
+.lr.ph:                                           ; preds = %97
+  %108 = load ptr, ptr %0, align 8, !tbaa !3
+  %109 = zext nneg i32 %98 to i64
+  %wide.trip.count = zext nneg i32 %106 to i64
+  br label %110
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ %30, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %31 = load ptr, ptr %br, align 8
-  %arrayidx57 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv
-  %32 = load i64, ptr %arrayidx57, align 8
-  %33 = call i64 @llvm.bswap.i64(i64 %32)
-  store i64 %33, ptr %arrayidx57, align 8
+110:                                              ; preds = %.lr.ph, %110
+  %indvars.iv = phi i64 [ %109, %.lr.ph ], [ %indvars.iv.next, %110 ]
+  %111 = getelementptr inbounds nuw i64, ptr %108, i64 %indvars.iv
+  %112 = load i64, ptr %111, align 8, !tbaa !21
+  %113 = call i64 @llvm.bswap.i64(i64 %112)
+  store i64 %113, ptr %111, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %110, !llvm.loop !32
 
-for.end.loopexit:                                 ; preds = %for.body
-  %.pre53 = load i32, ptr %words7, align 4
-  %.pre54 = load i32, ptr %bytes10, align 8
-  %.pre55 = load i64, ptr %bytes, align 8
-  %.pre58 = shl i32 %.pre53, 3
-  %.pre59 = trunc i64 %.pre55 to i32
-  br label %for.end
+._crit_edge.loopexit:                             ; preds = %110
+  %.pre59 = load i64, ptr %2, align 8, !tbaa !21
+  %.pre63 = trunc i64 %.pre59 to i32
+  br label %._crit_edge
 
-for.end:                                          ; preds = %for.end.loopexit, %if.end44
-  %conv65.pre-phi = phi i32 [ %.pre59, %for.end.loopexit ], [ %conv49, %if.end44 ]
-  %mul62.pre-phi = phi i32 [ %.pre58, %for.end.loopexit ], [ %mul46, %if.end44 ]
-  %34 = phi i32 [ %.pre54, %for.end.loopexit ], [ %28, %if.end44 ]
-  %add64 = add i32 %mul62.pre-phi, %34
-  %add66 = add i32 %add64, %conv65.pre-phi
-  %div6746 = lshr i32 %add66, 3
-  store i32 %div6746, ptr %words7, align 4
-  %rem = and i32 %add66, 7
-  store i32 %rem, ptr %bytes10, align 8
-  br label %return
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %97
+  %.pre-phi = phi i32 [ %.pre63, %._crit_edge.loopexit ], [ %103, %97 ]
+  %114 = add i32 %101, %.pre-phi
+  %115 = lshr i32 %114, 3
+  store i32 %115, ptr %69, align 4, !tbaa !28
+  %116 = and i32 %114, 7
+  store i32 %116, ptr %72, align 8, !tbaa !29
+  br label %117
 
-return:                                           ; preds = %if.end, %for.end, %if.then39
-  %retval.0 = phi i32 [ 1, %for.end ], [ 0, %if.then39 ], [ 0, %if.end ]
-  ret i32 %retval.0
+117:                                              ; preds = %65, %._crit_edge, %92
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %92 ], [ 0, %65 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_int32(ptr noundef captures(none) %br, ptr noundef writeonly captures(none) %val, i32 noundef %bits) local_unnamed_addr #8 {
-entry:
-  %uval = alloca i32, align 4
-  %cmp = icmp eq i32 %bits, 0
-  br i1 %cmp, label %return, label %lor.lhs.false
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_int32(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
+  %5 = icmp eq i32 %2, 0
+  br i1 %5, label %18, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %uval, i32 noundef %bits)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+6:                                                ; preds = %3
+  %7 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %2)
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %18, label %8
 
-if.end:                                           ; preds = %lor.lhs.false
-  %cmp1 = icmp ugt i32 %bits, 32
-  %sub = add i32 %bits, -1
-  %sh_prom = zext nneg i32 %sub to i64
-  %shl = shl nuw i64 1, %sh_prom
-  %0 = trunc i64 %shl to i32
-  %conv = select i1 %cmp1, i32 0, i32 %0
-  %1 = load i32, ptr %uval, align 4
-  %xor = xor i32 %1, %conv
-  %sub2 = sub i32 %xor, %conv
-  store i32 %sub2, ptr %val, align 4
-  br label %return
+8:                                                ; preds = %6
+  %9 = icmp ugt i32 %2, 32
+  %10 = add i32 %2, -1
+  %11 = zext nneg i32 %10 to i64
+  %12 = shl nuw i64 1, %11
+  %13 = trunc i64 %12 to i32
+  %14 = select i1 %9, i32 0, i32 %13
+  %15 = load i32, ptr %4, align 4, !tbaa !30
+  %16 = xor i32 %15, %14
+  %17 = sub i32 %16, %14
+  store i32 %17, ptr %1, align 4, !tbaa !30
+  br label %18
 
-return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  ret i32 %retval.0
+18:                                               ; preds = %3, %6, %8
+  %.0 = phi i32 [ 1, %8 ], [ 0, %6 ], [ 0, %3 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint64(ptr noundef captures(none) %br, ptr noundef writeonly captures(none) %val, i32 noundef %bits) local_unnamed_addr #8 {
-entry:
-  %hi = alloca i32, align 4
-  %lo = alloca i32, align 4
-  %cmp = icmp ugt i32 %bits, 32
-  br i1 %cmp, label %if.then, label %if.else
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint64(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  %6 = icmp ugt i32 %2, 32
+  br i1 %6, label %7, label %19
 
-if.then:                                          ; preds = %entry
-  %sub = add i32 %bits, -32
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %hi, i32 noundef %sub)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+7:                                                ; preds = %3
+  %8 = add i32 %2, -32
+  %9 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %8)
+  %.not11 = icmp eq i32 %9, 0
+  br i1 %.not11, label %25, label %10
 
-if.end:                                           ; preds = %if.then
-  %call2 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo, i32 noundef 32)
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %return, label %if.end5
+10:                                               ; preds = %7
+  %11 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 32)
+  %.not12 = icmp eq i32 %11, 0
+  br i1 %.not12, label %25, label %12
 
-if.end5:                                          ; preds = %if.end
-  %0 = load i32, ptr %hi, align 4
-  %conv = zext i32 %0 to i64
-  %shl = shl nuw i64 %conv, 32
-  %1 = load i32, ptr %lo, align 4
-  %conv6 = zext i32 %1 to i64
-  %or = or disjoint i64 %shl, %conv6
-  br label %if.end12
+12:                                               ; preds = %10
+  %13 = load i32, ptr %4, align 4, !tbaa !30
+  %14 = zext i32 %13 to i64
+  %15 = shl nuw i64 %14, 32
+  %16 = load i32, ptr %5, align 4, !tbaa !30
+  %17 = zext i32 %16 to i64
+  %18 = or disjoint i64 %15, %17
+  br label %24
 
-if.else:                                          ; preds = %entry
-  %call7 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo, i32 noundef %bits)
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %return, label %if.end10
+19:                                               ; preds = %3
+  %20 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2)
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %25, label %21
 
-if.end10:                                         ; preds = %if.else
-  %2 = load i32, ptr %lo, align 4
-  %conv11 = zext i32 %2 to i64
-  br label %if.end12
+21:                                               ; preds = %19
+  %22 = load i32, ptr %5, align 4, !tbaa !30
+  %23 = zext i32 %22 to i64
+  br label %24
 
-if.end12:                                         ; preds = %if.end10, %if.end5
-  %storemerge = phi i64 [ %conv11, %if.end10 ], [ %or, %if.end5 ]
-  store i64 %storemerge, ptr %val, align 8
-  br label %return
+24:                                               ; preds = %21, %12
+  %storemerge = phi i64 [ %23, %21 ], [ %18, %12 ]
+  store i64 %storemerge, ptr %1, align 8, !tbaa !21
+  br label %25
 
-return:                                           ; preds = %if.else, %if.end, %if.then, %if.end12
-  %retval.0 = phi i32 [ 1, %if.end12 ], [ 0, %if.then ], [ 0, %if.end ], [ 0, %if.else ]
-  ret i32 %retval.0
+25:                                               ; preds = %19, %10, %7, %24
+  %.0 = phi i32 [ 1, %24 ], [ 0, %7 ], [ 0, %10 ], [ 0, %19 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_int64(ptr noundef captures(none) %br, ptr noundef writeonly captures(none) %val, i32 noundef %bits) local_unnamed_addr #8 {
-entry:
-  %hi.i = alloca i32, align 4
-  %lo.i = alloca i32, align 4
-  %cmp = icmp eq i32 %bits, 0
-  br i1 %cmp, label %return, label %lor.lhs.false
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_int64(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = icmp eq i32 %2, 0
+  br i1 %6, label %34, label %7
 
-lor.lhs.false:                                    ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hi.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lo.i)
-  %cmp.i = icmp ugt i32 %bits, 32
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+7:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  %8 = icmp ugt i32 %2, 32
+  br i1 %8, label %9, label %21
 
-if.then.i:                                        ; preds = %lor.lhs.false
-  %sub.i = add i32 %bits, -32
-  %call.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %hi.i, i32 noundef %sub.i)
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %if.end.i
+9:                                                ; preds = %7
+  %10 = add i32 %2, -32
+  %11 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %10)
+  %.not11.i = icmp eq i32 %11, 0
+  br i1 %.not11.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %12
 
-if.end.i:                                         ; preds = %if.then.i
-  %call2.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo.i, i32 noundef 32)
-  %tobool3.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.not.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %if.end5.i
+12:                                               ; preds = %9
+  %13 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 32)
+  %.not12.i = icmp eq i32 %13, 0
+  br i1 %.not12.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %14
 
-if.end5.i:                                        ; preds = %if.end.i
-  %0 = load i32, ptr %hi.i, align 4
-  %conv.i = zext i32 %0 to i64
-  %shl.i = shl nuw i64 %conv.i, 32
-  %1 = load i32, ptr %lo.i, align 4
-  %conv6.i = zext i32 %1 to i64
-  %or.i = or disjoint i64 %shl.i, %conv6.i
-  br label %if.end
+14:                                               ; preds = %12
+  %15 = load i32, ptr %4, align 4, !tbaa !30
+  %16 = zext i32 %15 to i64
+  %17 = shl nuw i64 %16, 32
+  %18 = load i32, ptr %5, align 4, !tbaa !30
+  %19 = zext i32 %18 to i64
+  %20 = or disjoint i64 %17, %19
+  br label %26
 
-if.else.i:                                        ; preds = %lor.lhs.false
-  %call7.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo.i, i32 noundef %bits)
-  %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %if.end10.i
+21:                                               ; preds = %7
+  %22 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2)
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %23
 
-if.end10.i:                                       ; preds = %if.else.i
-  %2 = load i32, ptr %lo.i, align 4
-  %conv11.i = zext i32 %2 to i64
-  br label %if.end
+23:                                               ; preds = %21
+  %24 = load i32, ptr %5, align 4, !tbaa !30
+  %25 = zext i32 %24 to i64
+  br label %26
 
-FLAC__bitreader_read_raw_uint64.exit.thread:      ; preds = %if.then.i, %if.end.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hi.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lo.i)
-  br label %return
+FLAC__bitreader_read_raw_uint64.exit.thread:      ; preds = %9, %12, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
+  br label %34
 
-if.end:                                           ; preds = %if.end10.i, %if.end5.i
-  %uval.0 = phi i64 [ %conv11.i, %if.end10.i ], [ %or.i, %if.end5.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hi.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lo.i)
-  %cmp1 = icmp ugt i32 %bits, 64
-  %sub = add i32 %bits, -1
-  %sh_prom = zext nneg i32 %sub to i64
-  %shl = shl nuw i64 1, %sh_prom
-  %cond = select i1 %cmp1, i64 0, i64 %shl
-  %xor = xor i64 %uval.0, %cond
-  %sub2 = sub i64 %xor, %cond
-  store i64 %sub2, ptr %val, align 8
-  br label %return
+26:                                               ; preds = %23, %14
+  %.09 = phi i64 [ %25, %23 ], [ %20, %14 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
+  %27 = icmp ugt i32 %2, 64
+  %28 = add i32 %2, -1
+  %29 = zext nneg i32 %28 to i64
+  %30 = shl nuw i64 1, %29
+  %31 = select i1 %27, i64 0, i64 %30
+  %32 = xor i64 %.09, %31
+  %33 = sub i64 %32, %31
+  store i64 %33, ptr %1, align 8, !tbaa !21
+  br label %34
 
-return:                                           ; preds = %FLAC__bitreader_read_raw_uint64.exit.thread, %entry, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %entry ], [ 0, %FLAC__bitreader_read_raw_uint64.exit.thread ]
-  ret i32 %retval.0
+34:                                               ; preds = %FLAC__bitreader_read_raw_uint64.exit.thread, %3, %26
+  %.0 = phi i32 [ 1, %26 ], [ 0, %3 ], [ 0, %FLAC__bitreader_read_raw_uint64.exit.thread ]
+  ret i32 %.0
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_uint32_little_endian(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #13 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
+  store i32 0, ptr %4, align 4, !tbaa !30
+  %5 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8)
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %23, label %6
+
+6:                                                ; preds = %2
+  %7 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
+  %.not5 = icmp eq i32 %7, 0
+  br i1 %.not5, label %23, label %8
+
+8:                                                ; preds = %6
+  %9 = load i32, ptr %3, align 4, !tbaa !30
+  %10 = load i32, ptr %4, align 4, !tbaa !30
+  %11 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
+  %.not6 = icmp eq i32 %11, 0
+  br i1 %.not6, label %23, label %12
+
+12:                                               ; preds = %8
+  %13 = load i32, ptr %3, align 4, !tbaa !30
+  %14 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
+  %.not7 = icmp eq i32 %14, 0
+  br i1 %.not7, label %23, label %15
+
+15:                                               ; preds = %12
+  %16 = shl i32 %13, 16
+  %17 = shl i32 %9, 8
+  %18 = or i32 %10, %17
+  %19 = or i32 %16, %18
+  %20 = load i32, ptr %3, align 4, !tbaa !30
+  %21 = shl i32 %20, 24
+  %22 = or i32 %21, %19
+  store i32 %22, ptr %1, align 4, !tbaa !30
+  br label %23
+
+23:                                               ; preds = %12, %8, %6, %2, %15
+  %.0 = phi i32 [ 1, %15 ], [ 0, %2 ], [ 0, %6 ], [ 0, %8 ], [ 0, %12 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_uint32_little_endian(ptr noundef captures(none) %br, ptr noundef writeonly captures(none) %val) local_unnamed_addr #8 {
-entry:
-  %x8 = alloca i32, align 4
-  %x32 = alloca i32, align 4
-  store i32 0, ptr %x32, align 4
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x32, i32 noundef 8)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+  %3 = alloca i32, align 4
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %24, label %4
 
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x8, i32 noundef 8)
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %return, label %if.end4
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load i32, ptr %5, align 8, !tbaa !17
+  %7 = and i32 %6, 7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
+  %.not26 = icmp eq i32 %7, 0
+  br i1 %.not26, label %14, label %8
 
-if.end4:                                          ; preds = %if.end
-  %0 = load i32, ptr %x8, align 4
-  %1 = load i32, ptr %x32, align 4
-  %call5 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x8, i32 noundef 8)
-  %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %return, label %if.end8
+8:                                                ; preds = %4
+  %9 = sub nuw nsw i32 8, %7
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 %1)
+  %11 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %10)
+  %.not27 = icmp eq i32 %11, 0
+  br i1 %.not27, label %.sink.split, label %12
 
-if.end8:                                          ; preds = %if.end4
-  %2 = load i32, ptr %x8, align 4
-  %call11 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x8, i32 noundef 8)
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %return, label %if.end14
+12:                                               ; preds = %8
+  %13 = sub i32 %1, %10
+  br label %14
 
-if.end14:                                         ; preds = %if.end8
-  %shl9 = shl i32 %2, 16
-  %shl = shl i32 %0, 8
-  %or = or i32 %1, %shl
-  %or10 = or i32 %shl9, %or
-  %3 = load i32, ptr %x8, align 4
-  %shl15 = shl i32 %3, 24
-  %or16 = or i32 %shl15, %or10
-  store i32 %or16, ptr %val, align 4
-  br label %return
+14:                                               ; preds = %12, %4
+  %.021 = phi i32 [ %13, %12 ], [ %1, %4 ]
+  %.not28 = icmp ult i32 %.021, 8
+  br i1 %.not28, label %20, label %15
 
-return:                                           ; preds = %if.end8, %if.end4, %if.end, %entry, %if.end14
-  %retval.0 = phi i32 [ 1, %if.end14 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end4 ], [ 0, %if.end8 ]
-  ret i32 %retval.0
+15:                                               ; preds = %14
+  %16 = lshr i32 %.021, 3
+  %17 = tail call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef nonnull %0, i32 noundef %16)
+  %.not29 = icmp eq i32 %17, 0
+  br i1 %.not29, label %.sink.split, label %18
+
+18:                                               ; preds = %15
+  %19 = and i32 %.021, 7
+  br label %20
+
+20:                                               ; preds = %18, %14
+  %.122 = phi i32 [ %19, %18 ], [ %.021, %14 ]
+  %.not30 = icmp eq i32 %.122, 0
+  br i1 %.not30, label %23, label %21
+
+21:                                               ; preds = %20
+  %22 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %.122)
+  %.not31 = icmp eq i32 %22, 0
+  br i1 %.not31, label %.sink.split, label %23
+
+23:                                               ; preds = %20, %21
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %21, %15, %8, %23
+  %.1.ph = phi i32 [ 1, %23 ], [ 0, %8 ], [ 0, %15 ], [ 0, %21 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
+  br label %24
+
+24:                                               ; preds = %.sink.split, %2
+  %.1 = phi i32 [ 1, %2 ], [ %.1.ph, %.sink.split ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef captures(none) %br, i32 noundef %bits) local_unnamed_addr #8 {
-entry:
-  %x = alloca i32, align 4
-  %cmp.not = icmp eq i32 %bits, 0
-  br i1 %cmp.not, label %if.end22, label %if.then
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load i32, ptr %4, align 8, !tbaa !10
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %12, label %6
 
-if.then:                                          ; preds = %entry
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %0 = load i32, ptr %consumed_bits, align 8
-  %and = and i32 %0, 7
-  %cmp1.not = icmp eq i32 %and, 0
-  br i1 %cmp1.not, label %if.end7, label %if.then2
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %8 = load i32, ptr %7, align 4, !tbaa !11
+  %9 = shl i32 %1, 3
+  %10 = icmp ult i32 %8, %9
+  br i1 %10, label %11, label %12
 
-if.then2:                                         ; preds = %if.then
-  %sub = sub nuw nsw i32 8, %and
-  %cond = tail call i32 @llvm.umin.i32(i32 %sub, i32 %bits)
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef %cond)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+11:                                               ; preds = %6
+  store i32 -1, ptr %7, align 4, !tbaa !11
+  br label %.loopexit
 
-if.end:                                           ; preds = %if.then2
-  %sub6 = sub i32 %bits, %cond
-  br label %if.end7
+12:                                               ; preds = %6, %2
+  %cond38 = icmp eq i32 %1, 0
+  br i1 %cond38, label %.loopexit, label %.lr.ph
 
-if.end7:                                          ; preds = %if.end, %if.then
-  %bits.addr.0 = phi i32 [ %sub6, %if.end ], [ %bits, %if.then ]
-  %cmp8.not = icmp ult i32 %bits.addr.0, 8
-  br i1 %cmp8.not, label %if.end14, label %if.then9
+.lr.ph:                                           ; preds = %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %14
 
-if.then9:                                         ; preds = %if.end7
-  %div16 = lshr i32 %bits.addr.0, 3
-  %call10 = tail call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef nonnull %br, i32 noundef %div16)
-  %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %return, label %if.end13
+14:                                               ; preds = %.lr.ph, %22
+  %.039 = phi i32 [ %1, %.lr.ph ], [ %23, %22 ]
+  %15 = load i32, ptr %13, align 8, !tbaa !17
+  %.not26 = icmp eq i32 %15, 0
+  br i1 %.not26, label %.critedge.preheader, label %20
 
-if.end13:                                         ; preds = %if.then9
-  %rem = and i32 %bits.addr.0, 7
-  br label %if.end14
+.critedge.preheader:                              ; preds = %14
+  %16 = icmp ugt i32 %.039, 7
+  br i1 %16, label %.lr.ph43, label %.lr.ph47.preheader
 
-if.end14:                                         ; preds = %if.end13, %if.end7
-  %bits.addr.1 = phi i32 [ %rem, %if.end13 ], [ %bits.addr.0, %if.end7 ]
-  %cmp15.not = icmp eq i32 %bits.addr.1, 0
-  br i1 %cmp15.not, label %if.end22, label %if.then16
+.lr.ph43:                                         ; preds = %.critedge.preheader
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  br label %24
 
-if.then16:                                        ; preds = %if.end14
-  %call17 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef %bits.addr.1)
-  %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %return, label %if.end22
+20:                                               ; preds = %14
+  %21 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 8)
+  %.not31 = icmp eq i32 %21, 0
+  br i1 %.not31, label %.loopexit, label %22
 
-if.end22:                                         ; preds = %if.end14, %if.then16, %entry
-  br label %return
+22:                                               ; preds = %20
+  %23 = add i32 %.039, -1
+  %cond = icmp eq i32 %23, 0
+  br i1 %cond, label %.loopexit, label %14, !llvm.loop !33
 
-return:                                           ; preds = %if.then16, %if.then9, %if.then2, %if.end22
-  %retval.0 = phi i32 [ 1, %if.end22 ], [ 0, %if.then2 ], [ 0, %if.then9 ], [ 0, %if.then16 ]
-  ret i32 %retval.0
+.preheader:                                       ; preds = %.critedge
+  %.not2745 = icmp eq i32 %.2, 0
+  br i1 %.not2745, label %.loopexit, label %.lr.ph47.preheader
+
+.lr.ph47.preheader:                               ; preds = %.critedge.preheader, %.preheader
+  %.346.ph = phi i32 [ %.039, %.critedge.preheader ], [ %.2, %.preheader ]
+  br label %.lr.ph47
+
+24:                                               ; preds = %.lr.ph43, %.critedge
+  %.142 = phi i32 [ %.039, %.lr.ph43 ], [ %.2, %.critedge ]
+  %25 = load i32, ptr %17, align 4, !tbaa !16
+  %26 = load i32, ptr %18, align 4, !tbaa !28
+  %27 = icmp ult i32 %25, %26
+  br i1 %27, label %28, label %35
+
+28:                                               ; preds = %24
+  %29 = add nuw i32 %25, 1
+  store i32 %29, ptr %17, align 4, !tbaa !16
+  %30 = add i32 %.142, -8
+  %31 = load i32, ptr %4, align 8, !tbaa !10
+  %.not30 = icmp eq i32 %31, 0
+  br i1 %.not30, label %.critedge, label %32
+
+32:                                               ; preds = %28
+  %33 = load i32, ptr %19, align 4, !tbaa !11
+  %34 = add i32 %33, -64
+  store i32 %34, ptr %19, align 4, !tbaa !11
+  br label %.critedge
+
+35:                                               ; preds = %24
+  %36 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %0)
+  %.not29 = icmp eq i32 %36, 0
+  br i1 %.not29, label %.loopexit, label %.critedge
+
+.critedge:                                        ; preds = %35, %28, %32
+  %.2 = phi i32 [ %30, %32 ], [ %30, %28 ], [ %.142, %35 ]
+  %37 = icmp ugt i32 %.2, 7
+  br i1 %37, label %24, label %.preheader, !llvm.loop !34
+
+38:                                               ; preds = %.lr.ph47
+  %39 = add nsw i32 %.346, -1
+  %.not27 = icmp eq i32 %39, 0
+  br i1 %.not27, label %.loopexit, label %.lr.ph47, !llvm.loop !35
+
+.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %38
+  %.346 = phi i32 [ %39, %38 ], [ %.346.ph, %.lr.ph47.preheader ]
+  %40 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
+  %.not28 = icmp eq i32 %40, 0
+  br i1 %.not28, label %.loopexit, label %38
+
+.loopexit:                                        ; preds = %20, %22, %35, %.lr.ph47, %38, %12, %.preheader, %11
+  %.021 = phi i32 [ 0, %11 ], [ 1, %.preheader ], [ 1, %12 ], [ 0, %.lr.ph47 ], [ 1, %38 ], [ 0, %35 ], [ 0, %20 ], [ 1, %22 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef captures(none) %br, i32 noundef %nvals) local_unnamed_addr #8 {
-entry:
-  %x = alloca i32, align 4
-  %read_limit_set = getelementptr inbounds nuw i8, ptr %br, i64 40
-  %0 = load i32, ptr %read_limit_set, align 8
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %if.end5, label %land.lhs.true
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = load i32, ptr %5, align 8, !tbaa !10
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %13, label %7
 
-land.lhs.true:                                    ; preds = %entry
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  %1 = load i32, ptr %read_limit, align 4
-  %mul = shl i32 %nvals, 3
-  %cmp2 = icmp ult i32 %1, %mul
-  br i1 %cmp2, label %if.then3, label %if.end5
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %9 = load i32, ptr %8, align 4, !tbaa !11
+  %10 = shl i32 %2, 3
+  %11 = icmp ult i32 %9, %10
+  br i1 %11, label %12, label %13
 
-if.then3:                                         ; preds = %land.lhs.true
-  store i32 -1, ptr %read_limit, align 4
-  br label %return
+12:                                               ; preds = %7
+  store i32 -1, ptr %8, align 4, !tbaa !11
+  br label %.loopexit
 
-if.end5:                                          ; preds = %land.lhs.true, %entry
-  %cond26 = icmp eq i32 %nvals, 0
-  br i1 %cond26, label %return, label %land.rhs.lr.ph
+13:                                               ; preds = %7, %3
+  %cond64 = icmp eq i32 %2, 0
+  br i1 %cond64, label %.loopexit, label %.lr.ph
 
-land.rhs.lr.ph:                                   ; preds = %if.end5
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  br label %land.rhs
+.lr.ph:                                           ; preds = %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %15
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end10
-  %nvals.addr.027 = phi i32 [ %nvals, %land.rhs.lr.ph ], [ %dec, %if.end10 ]
-  %2 = load i32, ptr %consumed_bits, align 8
-  %tobool7.not = icmp eq i32 %2, 0
-  br i1 %tobool7.not, label %while.cond14.preheader, label %while.body
+15:                                               ; preds = %.lr.ph, %23
+  %.04166 = phi i32 [ %2, %.lr.ph ], [ %27, %23 ]
+  %.04265 = phi ptr [ %1, %.lr.ph ], [ %26, %23 ]
+  %16 = load i32, ptr %14, align 8, !tbaa !17
+  %.not50 = icmp eq i32 %16, 0
+  br i1 %.not50, label %.critedge.preheader, label %21
 
-while.cond14.preheader:                           ; preds = %land.rhs
-  %cmp1529 = icmp ugt i32 %nvals.addr.027, 7
-  br i1 %cmp1529, label %while.body16.lr.ph, label %while.body34.preheader
+.critedge.preheader:                              ; preds = %15
+  %17 = icmp ugt i32 %.04166, 7
+  br i1 %17, label %.lr.ph71, label %.lr.ph77.preheader
 
-while.body16.lr.ph:                               ; preds = %while.cond14.preheader
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %words = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %read_limit23 = getelementptr inbounds nuw i8, ptr %br, i64 44
-  br label %while.body16
+.lr.ph71:                                         ; preds = %.critedge.preheader
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  br label %28
 
-while.body:                                       ; preds = %land.rhs
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool8.not = icmp eq i32 %call, 0
-  br i1 %tobool8.not, label %return, label %if.end10
+21:                                               ; preds = %15
+  %22 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 8)
+  %.not55 = icmp eq i32 %22, 0
+  br i1 %.not55, label %.loopexit, label %23
 
-if.end10:                                         ; preds = %while.body
-  %dec = add i32 %nvals.addr.027, -1
-  %cond = icmp eq i32 %dec, 0
-  br i1 %cond, label %return, label %land.rhs, !llvm.loop !9
+23:                                               ; preds = %21
+  %24 = load i32, ptr %4, align 4, !tbaa !30
+  %25 = trunc i32 %24 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %.04265, i64 1
+  store i8 %25, ptr %.04265, align 1, !tbaa !36
+  %27 = add i32 %.04166, -1
+  %cond = icmp eq i32 %27, 0
+  br i1 %cond, label %.loopexit, label %15, !llvm.loop !37
 
-while.cond32.preheader:                           ; preds = %if.end30
-  %tobool33.not32 = icmp eq i32 %nvals.addr.2, 0
-  br i1 %tobool33.not32, label %return, label %while.body34.preheader
+.preheader:                                       ; preds = %.critedge
+  %.not5174 = icmp eq i32 %.2, 0
+  br i1 %.not5174, label %.loopexit, label %.lr.ph77.preheader
 
-while.body34.preheader:                           ; preds = %while.cond14.preheader, %while.cond32.preheader
-  %nvals.addr.333.ph = phi i32 [ %nvals.addr.027, %while.cond14.preheader ], [ %nvals.addr.2, %while.cond32.preheader ]
-  br label %while.body34
+.lr.ph77.preheader:                               ; preds = %.critedge.preheader, %.preheader
+  %.376.ph = phi i32 [ %.04166, %.critedge.preheader ], [ %.2, %.preheader ]
+  %.34575.ph = phi ptr [ %.04265, %.critedge.preheader ], [ %.244, %.preheader ]
+  br label %.lr.ph77
 
-while.body16:                                     ; preds = %while.body16.lr.ph, %if.end30
-  %nvals.addr.130 = phi i32 [ %nvals.addr.027, %while.body16.lr.ph ], [ %nvals.addr.2, %if.end30 ]
-  %3 = load i32, ptr %consumed_words, align 4
-  %4 = load i32, ptr %words, align 4
-  %cmp17 = icmp ult i32 %3, %4
-  br i1 %cmp17, label %if.then18, label %if.else
+28:                                               ; preds = %.lr.ph71, %.critedge
+  %.170 = phi i32 [ %.04166, %.lr.ph71 ], [ %.2, %.critedge ]
+  %.14369 = phi ptr [ %.04265, %.lr.ph71 ], [ %.244, %.critedge ]
+  %29 = load i32, ptr %18, align 4, !tbaa !16
+  %30 = load i32, ptr %19, align 4, !tbaa !28
+  %31 = icmp ult i32 %29, %30
+  br i1 %31, label %32, label %66
 
-if.then18:                                        ; preds = %while.body16
-  %inc = add nuw i32 %3, 1
-  store i32 %inc, ptr %consumed_words, align 4
-  %sub = add i32 %nvals.addr.130, -8
-  %5 = load i32, ptr %read_limit_set, align 8
-  %tobool21.not = icmp eq i32 %5, 0
-  br i1 %tobool21.not, label %if.end30, label %if.then22
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %0, align 8, !tbaa !3
+  %34 = add nuw i32 %29, 1
+  store i32 %34, ptr %18, align 4, !tbaa !16
+  %35 = zext i32 %29 to i64
+  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %35
+  %37 = load i64, ptr %36, align 8, !tbaa !21
+  %38 = lshr i64 %37, 56
+  %39 = trunc nuw i64 %38 to i8
+  store i8 %39, ptr %.14369, align 1, !tbaa !36
+  %40 = lshr i64 %37, 48
+  %41 = trunc i64 %40 to i8
+  %42 = getelementptr inbounds nuw i8, ptr %.14369, i64 1
+  store i8 %41, ptr %42, align 1, !tbaa !36
+  %43 = lshr i64 %37, 40
+  %44 = trunc i64 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %.14369, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !36
+  %46 = lshr i64 %37, 32
+  %47 = trunc i64 %46 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %.14369, i64 3
+  store i8 %47, ptr %48, align 1, !tbaa !36
+  %49 = lshr i64 %37, 24
+  %50 = trunc i64 %49 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %.14369, i64 4
+  store i8 %50, ptr %51, align 1, !tbaa !36
+  %52 = lshr i64 %37, 16
+  %53 = trunc i64 %52 to i8
+  %54 = getelementptr inbounds nuw i8, ptr %.14369, i64 5
+  store i8 %53, ptr %54, align 1, !tbaa !36
+  %55 = lshr i64 %37, 8
+  %56 = trunc i64 %55 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %.14369, i64 6
+  store i8 %56, ptr %57, align 1, !tbaa !36
+  %58 = trunc i64 %37 to i8
+  %59 = getelementptr inbounds nuw i8, ptr %.14369, i64 7
+  store i8 %58, ptr %59, align 1, !tbaa !36
+  %60 = getelementptr inbounds nuw i8, ptr %.14369, i64 8
+  %61 = add i32 %.170, -8
+  %62 = load i32, ptr %5, align 8, !tbaa !10
+  %.not54 = icmp eq i32 %62, 0
+  br i1 %.not54, label %.critedge, label %63
 
-if.then22:                                        ; preds = %if.then18
-  %6 = load i32, ptr %read_limit23, align 4
-  %sub24 = add i32 %6, -64
-  store i32 %sub24, ptr %read_limit23, align 4
-  br label %if.end30
+63:                                               ; preds = %32
+  %64 = load i32, ptr %20, align 4, !tbaa !11
+  %65 = add i32 %64, -64
+  store i32 %65, ptr %20, align 4, !tbaa !11
+  br label %.critedge
 
-if.else:                                          ; preds = %while.body16
-  %call26 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br)
-  %tobool27.not = icmp eq i32 %call26, 0
-  br i1 %tobool27.not, label %return, label %if.end30
+66:                                               ; preds = %28
+  %67 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %0)
+  %.not53 = icmp eq i32 %67, 0
+  br i1 %.not53, label %.loopexit, label %.critedge
 
-if.end30:                                         ; preds = %if.else, %if.then18, %if.then22
-  %nvals.addr.2 = phi i32 [ %sub, %if.then22 ], [ %sub, %if.then18 ], [ %nvals.addr.130, %if.else ]
-  %cmp15 = icmp ugt i32 %nvals.addr.2, 7
-  br i1 %cmp15, label %while.body16, label %while.cond32.preheader, !llvm.loop !10
+.critedge:                                        ; preds = %32, %63, %66
+  %.244 = phi ptr [ %.14369, %66 ], [ %60, %63 ], [ %60, %32 ]
+  %.2 = phi i32 [ %.170, %66 ], [ %61, %63 ], [ %61, %32 ]
+  %68 = icmp ugt i32 %.2, 7
+  br i1 %68, label %28, label %.preheader, !llvm.loop !38
 
-while.cond32:                                     ; preds = %while.body34
-  %dec39 = add nsw i32 %nvals.addr.333, -1
-  %tobool33.not = icmp eq i32 %dec39, 0
-  br i1 %tobool33.not, label %return, label %while.body34, !llvm.loop !11
+.lr.ph77:                                         ; preds = %.lr.ph77.preheader, %70
+  %.376 = phi i32 [ %74, %70 ], [ %.376.ph, %.lr.ph77.preheader ]
+  %.34575 = phi ptr [ %73, %70 ], [ %.34575.ph, %.lr.ph77.preheader ]
+  %69 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8)
+  %.not52 = icmp eq i32 %69, 0
+  br i1 %.not52, label %.loopexit, label %70
 
-while.body34:                                     ; preds = %while.body34.preheader, %while.cond32
-  %nvals.addr.333 = phi i32 [ %dec39, %while.cond32 ], [ %nvals.addr.333.ph, %while.body34.preheader ]
-  %call35 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool36.not = icmp eq i32 %call35, 0
-  br i1 %tobool36.not, label %return, label %while.cond32
+70:                                               ; preds = %.lr.ph77
+  %71 = load i32, ptr %4, align 4, !tbaa !30
+  %72 = trunc i32 %71 to i8
+  %73 = getelementptr inbounds nuw i8, ptr %.34575, i64 1
+  store i8 %72, ptr %.34575, align 1, !tbaa !36
+  %74 = add nsw i32 %.376, -1
+  %.not51 = icmp eq i32 %74, 0
+  br i1 %.not51, label %.loopexit, label %.lr.ph77, !llvm.loop !39
 
-return:                                           ; preds = %while.body, %if.end10, %if.else, %while.body34, %while.cond32, %if.end5, %while.cond32.preheader, %if.then3
-  %retval.0 = phi i32 [ 0, %if.then3 ], [ 1, %while.cond32.preheader ], [ 1, %if.end5 ], [ 0, %while.body34 ], [ 1, %while.cond32 ], [ 0, %if.else ], [ 0, %while.body ], [ 1, %if.end10 ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %21, %23, %66, %.lr.ph77, %70, %13, %.preheader, %12
+  %.0 = phi i32 [ 0, %12 ], [ 1, %.preheader ], [ 1, %13 ], [ 0, %.lr.ph77 ], [ 1, %70 ], [ 0, %66 ], [ 0, %21 ], [ 1, %23 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef captures(none) %br, ptr noundef writeonly captures(none) %val, i32 noundef %nvals) local_unnamed_addr #8 {
-entry:
-  %x = alloca i32, align 4
-  %read_limit_set = getelementptr inbounds nuw i8, ptr %br, i64 40
-  %0 = load i32, ptr %read_limit_set, align 8
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %if.end5, label %land.lhs.true
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #9 {
+  store i32 0, ptr %1, align 4, !tbaa !30
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %7
 
-land.lhs.true:                                    ; preds = %entry
-  %read_limit = getelementptr inbounds nuw i8, ptr %br, i64 44
-  %1 = load i32, ptr %read_limit, align 4
-  %mul = shl i32 %nvals, 3
-  %cmp2 = icmp ult i32 %1, %mul
-  br i1 %cmp2, label %if.then3, label %if.end5
+7:                                                ; preds = %64, %2
+  %8 = load i32, ptr %3, align 4, !tbaa !16
+  %9 = load i32, ptr %4, align 4, !tbaa !28
+  %10 = icmp ult i32 %8, %9
+  %.pre77 = load i32, ptr %5, align 8, !tbaa !17
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
-if.then3:                                         ; preds = %land.lhs.true
-  store i32 -1, ptr %read_limit, align 4
-  br label %return
+.lr.ph:                                           ; preds = %7, %.thread
+  %11 = phi i32 [ 0, %.thread ], [ %.pre77, %7 ]
+  %12 = phi i32 [ %35, %.thread ], [ %8, %7 ]
+  %13 = icmp ult i32 %11, 64
+  br i1 %13, label %14, label %.lr.ph..thread_crit_edge
 
-if.end5:                                          ; preds = %land.lhs.true, %entry
-  %cond46 = icmp eq i32 %nvals, 0
-  br i1 %cond46, label %return, label %land.rhs.lr.ph
+.lr.ph..thread_crit_edge:                         ; preds = %.lr.ph
+  %.pre75 = load i32, ptr %1, align 4, !tbaa !30
+  br label %.thread
 
-land.rhs.lr.ph:                                   ; preds = %if.end5
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  br label %land.rhs
+14:                                               ; preds = %.lr.ph
+  %15 = load ptr, ptr %0, align 8, !tbaa !3
+  %16 = zext i32 %12 to i64
+  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
+  %18 = load i64, ptr %17, align 8, !tbaa !21
+  %19 = zext nneg i32 %11 to i64
+  %20 = shl i64 %18, %19
+  %.not54 = icmp eq i64 %20, 0
+  %.pre76 = load i32, ptr %1, align 4, !tbaa !30
+  br i1 %.not54, label %.thread, label %21
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end10
-  %nvals.addr.048 = phi i32 [ %nvals, %land.rhs.lr.ph ], [ %dec, %if.end10 ]
-  %val.addr.047 = phi ptr [ %val, %land.rhs.lr.ph ], [ %incdec.ptr, %if.end10 ]
-  %2 = load i32, ptr %consumed_bits, align 8
-  %tobool7.not = icmp eq i32 %2, 0
-  br i1 %tobool7.not, label %while.cond15.preheader, label %while.body
+21:                                               ; preds = %14
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %20, i1 true)
+  %23 = trunc nuw nsw i64 %22 to i32
+  %24 = add i32 %.pre76, %23
+  store i32 %24, ptr %1, align 4, !tbaa !30
+  %25 = add nuw nsw i32 %23, 1
+  %26 = load i32, ptr %5, align 8, !tbaa !17
+  %27 = add i32 %25, %26
+  store i32 %27, ptr %5, align 8, !tbaa !17
+  %28 = icmp ugt i32 %27, 63
+  br i1 %28, label %29, label %.thread58
 
-while.cond15.preheader:                           ; preds = %land.rhs
-  %cmp1650 = icmp ugt i32 %nvals.addr.048, 7
-  br i1 %cmp1650, label %while.body18.lr.ph, label %while.body59.preheader
+29:                                               ; preds = %21
+  %30 = load i32, ptr %3, align 4, !tbaa !16
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %3, align 4, !tbaa !16
+  br label %.thread58.sink.split
 
-while.body18.lr.ph:                               ; preds = %while.cond15.preheader
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %words = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %read_limit48 = getelementptr inbounds nuw i8, ptr %br, i64 44
-  br label %while.body18
+.thread:                                          ; preds = %.lr.ph..thread_crit_edge, %14
+  %32 = phi i32 [ %.pre75, %.lr.ph..thread_crit_edge ], [ %.pre76, %14 ]
+  %reass.sub71 = sub i32 %32, %11
+  %33 = add i32 %reass.sub71, 64
+  store i32 %33, ptr %1, align 4, !tbaa !30
+  %34 = load i32, ptr %3, align 4, !tbaa !16
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %3, align 4, !tbaa !16
+  store i32 0, ptr %5, align 8, !tbaa !17
+  %36 = load i32, ptr %4, align 4, !tbaa !28
+  %37 = icmp ult i32 %35, %36
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
-while.body:                                       ; preds = %land.rhs
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool8.not = icmp eq i32 %call, 0
-  br i1 %tobool8.not, label %return, label %if.end10
+._crit_edge:                                      ; preds = %.thread, %7
+  %38 = phi i32 [ %.pre77, %7 ], [ 0, %.thread ]
+  %.lcssa = phi i32 [ %8, %7 ], [ %35, %.thread ]
+  %39 = load i32, ptr %6, align 8, !tbaa !29
+  %40 = shl i32 %39, 3
+  %41 = icmp ugt i32 %40, %38
+  br i1 %41, label %42, label %64
 
-if.end10:                                         ; preds = %while.body
-  %3 = load i32, ptr %x, align 4
-  %conv = trunc i32 %3 to i8
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %val.addr.047, i64 1
-  store i8 %conv, ptr %val.addr.047, align 1
-  %dec = add i32 %nvals.addr.048, -1
-  %cond = icmp eq i32 %dec, 0
-  br i1 %cond, label %return, label %land.rhs, !llvm.loop !12
+42:                                               ; preds = %._crit_edge
+  %43 = load ptr, ptr %0, align 8, !tbaa !3
+  %44 = zext i32 %.lcssa to i64
+  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %46 = load i64, ptr %45, align 8, !tbaa !21
+  %47 = sub i32 64, %40
+  %48 = zext nneg i32 %47 to i64
+  %49 = shl nsw i64 -1, %48
+  %50 = and i64 %46, %49
+  %51 = zext nneg i32 %38 to i64
+  %52 = shl i64 %50, %51
+  %.not = icmp eq i64 %52, 0
+  br i1 %.not, label %.thread60, label %56
 
-while.cond57.preheader:                           ; preds = %if.end55
-  %tobool58.not55 = icmp eq i32 %nvals.addr.2, 0
-  br i1 %tobool58.not55, label %return, label %while.body59.preheader
+.thread60:                                        ; preds = %42
+  %53 = sub i32 %40, %38
+  %54 = load i32, ptr %1, align 4, !tbaa !30
+  %55 = add i32 %53, %54
+  store i32 %55, ptr %1, align 4, !tbaa !30
+  store i32 %40, ptr %5, align 8, !tbaa !17
+  br label %64
 
-while.body59.preheader:                           ; preds = %while.cond15.preheader, %while.cond57.preheader
-  %nvals.addr.357.ph = phi i32 [ %nvals.addr.048, %while.cond15.preheader ], [ %nvals.addr.2, %while.cond57.preheader ]
-  %val.addr.356.ph = phi ptr [ %val.addr.047, %while.cond15.preheader ], [ %val.addr.2, %while.cond57.preheader ]
-  br label %while.body59
+56:                                               ; preds = %42
+  %57 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %52, i1 true)
+  %58 = trunc nuw nsw i64 %57 to i32
+  %59 = load i32, ptr %1, align 4, !tbaa !30
+  %60 = add i32 %59, %58
+  store i32 %60, ptr %1, align 4, !tbaa !30
+  %61 = add nuw nsw i32 %58, 1
+  %62 = load i32, ptr %5, align 8, !tbaa !17
+  %63 = add i32 %61, %62
+  br label %.thread58.sink.split
 
-while.body18:                                     ; preds = %while.body18.lr.ph, %if.end55
-  %nvals.addr.152 = phi i32 [ %nvals.addr.048, %while.body18.lr.ph ], [ %nvals.addr.2, %if.end55 ]
-  %val.addr.151 = phi ptr [ %val.addr.047, %while.body18.lr.ph ], [ %val.addr.2, %if.end55 ]
-  %4 = load i32, ptr %consumed_words, align 4
-  %5 = load i32, ptr %words, align 4
-  %cmp19 = icmp ult i32 %4, %5
-  br i1 %cmp19, label %if.then21, label %if.else
+64:                                               ; preds = %.thread60, %._crit_edge
+  %65 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %0)
+  %.not53 = icmp eq i32 %65, 0
+  br i1 %.not53, label %.thread58, label %7
 
-if.then21:                                        ; preds = %while.body18
-  %6 = load ptr, ptr %br, align 8
-  %inc = add nuw i32 %4, 1
-  store i32 %inc, ptr %consumed_words, align 4
-  %idxprom = zext i32 %4 to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom
-  %7 = load i64, ptr %arrayidx, align 8
-  %shr = lshr i64 %7, 56
-  %conv23 = trunc nuw i64 %shr to i8
-  store i8 %conv23, ptr %val.addr.151, align 1
-  %shr25 = lshr i64 %7, 48
-  %conv26 = trunc i64 %shr25 to i8
-  %arrayidx27 = getelementptr inbounds nuw i8, ptr %val.addr.151, i64 1
-  store i8 %conv26, ptr %arrayidx27, align 1
-  %shr28 = lshr i64 %7, 40
-  %conv29 = trunc i64 %shr28 to i8
-  %arrayidx30 = getelementptr inbounds nuw i8, ptr %val.addr.151, i64 2
-  store i8 %conv29, ptr %arrayidx30, align 1
-  %shr31 = lshr i64 %7, 32
-  %conv32 = trunc i64 %shr31 to i8
-  %arrayidx33 = getelementptr inbounds nuw i8, ptr %val.addr.151, i64 3
-  store i8 %conv32, ptr %arrayidx33, align 1
-  %shr34 = lshr i64 %7, 24
-  %conv35 = trunc i64 %shr34 to i8
-  %arrayidx36 = getelementptr inbounds nuw i8, ptr %val.addr.151, i64 4
-  store i8 %conv35, ptr %arrayidx36, align 1
-  %shr37 = lshr i64 %7, 16
-  %conv38 = trunc i64 %shr37 to i8
-  %arrayidx39 = getelementptr inbounds nuw i8, ptr %val.addr.151, i64 5
-  store i8 %conv38, ptr %arrayidx39, align 1
-  %shr40 = lshr i64 %7, 8
-  %conv41 = trunc i64 %shr40 to i8
-  %arrayidx42 = getelementptr inbounds nuw i8, ptr %val.addr.151, i64 6
-  store i8 %conv41, ptr %arrayidx42, align 1
-  %conv43 = trunc i64 %7 to i8
-  %arrayidx44 = getelementptr inbounds nuw i8, ptr %val.addr.151, i64 7
-  store i8 %conv43, ptr %arrayidx44, align 1
-  %add.ptr = getelementptr inbounds nuw i8, ptr %val.addr.151, i64 8
-  %sub = add i32 %nvals.addr.152, -8
-  %8 = load i32, ptr %read_limit_set, align 8
-  %tobool46.not = icmp eq i32 %8, 0
-  br i1 %tobool46.not, label %if.end55, label %if.then47
+.thread58.sink.split:                             ; preds = %56, %29
+  %.sink = phi i32 [ 0, %29 ], [ %63, %56 ]
+  store i32 %.sink, ptr %5, align 8, !tbaa !17
+  br label %.thread58
 
-if.then47:                                        ; preds = %if.then21
-  %9 = load i32, ptr %read_limit48, align 4
-  %sub49 = add i32 %9, -64
-  store i32 %sub49, ptr %read_limit48, align 4
-  br label %if.end55
-
-if.else:                                          ; preds = %while.body18
-  %call51 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br)
-  %tobool52.not = icmp eq i32 %call51, 0
-  br i1 %tobool52.not, label %return, label %if.end55
-
-if.end55:                                         ; preds = %if.else, %if.then21, %if.then47
-  %val.addr.2 = phi ptr [ %add.ptr, %if.then47 ], [ %add.ptr, %if.then21 ], [ %val.addr.151, %if.else ]
-  %nvals.addr.2 = phi i32 [ %sub, %if.then47 ], [ %sub, %if.then21 ], [ %nvals.addr.152, %if.else ]
-  %cmp16 = icmp ugt i32 %nvals.addr.2, 7
-  br i1 %cmp16, label %while.body18, label %while.cond57.preheader, !llvm.loop !13
-
-while.body59:                                     ; preds = %while.body59.preheader, %if.end63
-  %nvals.addr.357 = phi i32 [ %dec66, %if.end63 ], [ %nvals.addr.357.ph, %while.body59.preheader ]
-  %val.addr.356 = phi ptr [ %incdec.ptr65, %if.end63 ], [ %val.addr.356.ph, %while.body59.preheader ]
-  %call60 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool61.not = icmp eq i32 %call60, 0
-  br i1 %tobool61.not, label %return, label %if.end63
-
-if.end63:                                         ; preds = %while.body59
-  %10 = load i32, ptr %x, align 4
-  %conv64 = trunc i32 %10 to i8
-  %incdec.ptr65 = getelementptr inbounds nuw i8, ptr %val.addr.356, i64 1
-  store i8 %conv64, ptr %val.addr.356, align 1
-  %dec66 = add nsw i32 %nvals.addr.357, -1
-  %tobool58.not = icmp eq i32 %dec66, 0
-  br i1 %tobool58.not, label %return, label %while.body59, !llvm.loop !14
-
-return:                                           ; preds = %while.body, %if.end10, %if.else, %while.body59, %if.end63, %if.end5, %while.cond57.preheader, %if.then3
-  %retval.0 = phi i32 [ 0, %if.then3 ], [ 1, %while.cond57.preheader ], [ 1, %if.end5 ], [ 0, %while.body59 ], [ 1, %if.end63 ], [ 0, %if.else ], [ 0, %while.body ], [ 1, %if.end10 ]
-  ret i32 %retval.0
+.thread58:                                        ; preds = %64, %.thread58.sink.split, %21
+  %.3 = phi i32 [ 1, %21 ], [ 1, %.thread58.sink.split ], [ 0, %64 ]
+  ret i32 %.3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef captures(none) %br, ptr noundef captures(none) initializes((0, 4)) %val) local_unnamed_addr #8 {
-entry:
-  store i32 0, ptr %val, align 4
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %words = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %bytes = getelementptr inbounds nuw i8, ptr %br, i64 16
-  br label %while.body
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
+  %7 = lshr i32 -1, %3
+  %8 = zext i32 %2 to i64
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
+  %10 = icmp eq i32 %3, 0
+  br i1 %10, label %.preheader, label %20
 
-while.body:                                       ; preds = %if.end49, %entry
-  %0 = load i32, ptr %consumed_words, align 4
-  %1 = load i32, ptr %words, align 4
-  %cmp45 = icmp ult i32 %0, %1
-  %.pre49 = load i32, ptr %consumed_bits, align 8
-  br i1 %cmp45, label %while.body2, label %while.end
+.preheader:                                       ; preds = %4
+  %.not172 = icmp eq i32 %2, 0
+  br i1 %.not172, label %.loopexit, label %.lr.ph168
 
-while.body2:                                      ; preds = %while.body, %if.else
-  %2 = phi i32 [ 0, %if.else ], [ %.pre49, %while.body ]
-  %3 = phi i32 [ %inc17, %if.else ], [ %0, %while.body ]
-  %cmp3 = icmp ult i32 %2, 64
-  br i1 %cmp3, label %cond.end, label %while.body2.if.else_crit_edge
+.lr.ph168:                                        ; preds = %.preheader, %12
+  %.0100167 = phi ptr [ %18, %12 ], [ %1, %.preheader ]
+  %11 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %0, ptr noundef nonnull %6)
+  %.not138 = icmp eq i32 %11, 0
+  br i1 %.not138, label %.loopexit, label %12
 
-while.body2.if.else_crit_edge:                    ; preds = %while.body2
-  %.pre47 = load i32, ptr %val, align 4
-  br label %if.else
+12:                                               ; preds = %.lr.ph168
+  %13 = load i32, ptr %6, align 4, !tbaa !30
+  %14 = lshr i32 %13, 1
+  %15 = and i32 %13, 1
+  %16 = sub nsw i32 0, %15
+  %17 = xor i32 %14, %16
+  %18 = getelementptr inbounds nuw i8, ptr %.0100167, i64 4
+  store i32 %17, ptr %.0100167, align 4, !tbaa !30
+  %19 = icmp ult ptr %18, %9
+  br i1 %19, label %.lr.ph168, label %.loopexit, !llvm.loop !40
 
-cond.end:                                         ; preds = %while.body2
-  %4 = load ptr, ptr %br, align 8
-  %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %4, i64 %idxprom
-  %5 = load i64, ptr %arrayidx, align 8
-  %sh_prom = zext nneg i32 %2 to i64
-  %shl = shl i64 %5, %sh_prom
-  %tobool.not = icmp eq i64 %shl, 0
-  %.pre48 = load i32, ptr %val, align 4
-  br i1 %tobool.not, label %if.else, label %if.then
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %22 = load i32, ptr %21, align 4, !tbaa !16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %.not = icmp ult i32 %22, %24
+  br i1 %.not, label %25, label %91
 
-if.then:                                          ; preds = %cond.end
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %shl, i1 true)
-  %cast.i = trunc nuw nsw i64 %6 to i32
-  %add = add i32 %.pre48, %cast.i
-  store i32 %add, ptr %val, align 4
-  %inc = add nuw nsw i32 %cast.i, 1
-  %7 = load i32, ptr %consumed_bits, align 8
-  %add7 = add i32 %inc, %7
-  store i32 %add7, ptr %consumed_bits, align 8
-  %cmp9 = icmp ugt i32 %add7, 63
-  br i1 %cmp9, label %if.then10, label %return
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load i32, ptr %26, align 8, !tbaa !17
+  %28 = load ptr, ptr %0, align 8, !tbaa !3
+  %29 = zext i32 %22 to i64
+  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !21
+  %32 = zext nneg i32 %27 to i64
+  %33 = shl i64 %31, %32
+  br label %.preheader142
 
-if.then10:                                        ; preds = %if.then
-  %8 = load i32, ptr %consumed_words, align 4
-  %inc12 = add i32 %8, 1
-  store i32 %inc12, ptr %consumed_words, align 4
-  br label %return.sink.split
+.preheader142:                                    ; preds = %25, %131
+  %.0119.ph = phi i32 [ %24, %25 ], [ %113, %131 ]
+  %.0108.ph = phi i32 [ %22, %25 ], [ %112, %131 ]
+  %.pn = phi i32 [ %27, %25 ], [ %115, %131 ]
+  %.0101.ph = phi i64 [ %33, %25 ], [ %127, %131 ]
+  %.1.ph = phi ptr [ %1, %25 ], [ %111, %131 ]
+  %.0104.ph = sub i32 64, %.pn
+  %34 = icmp ult ptr %.1.ph, %9
+  br i1 %34, label %.lr.ph, label %._crit_edge
 
-if.else:                                          ; preds = %while.body2.if.else_crit_edge, %cond.end
-  %9 = phi i32 [ %.pre47, %while.body2.if.else_crit_edge ], [ %.pre48, %cond.end ]
-  %reass.sub46 = sub i32 %9, %2
-  %add15 = add i32 %reass.sub46, 64
-  store i32 %add15, ptr %val, align 4
-  %10 = load i32, ptr %consumed_words, align 4
-  %inc17 = add i32 %10, 1
-  store i32 %inc17, ptr %consumed_words, align 4
-  store i32 0, ptr %consumed_bits, align 8
-  %11 = load i32, ptr %words, align 4
-  %cmp = icmp ult i32 %inc17, %11
-  br i1 %cmp, label %while.body2, label %while.end, !llvm.loop !15
+.lr.ph:                                           ; preds = %.preheader142
+  %35 = sub i32 64, %3
+  %36 = zext nneg i32 %35 to i64
+  %37 = zext nneg i32 %3 to i64
+  br label %38
 
-while.end:                                        ; preds = %if.else, %while.body
-  %12 = phi i32 [ %.pre49, %while.body ], [ 0, %if.else ]
-  %.lcssa = phi i32 [ %0, %while.body ], [ %inc17, %if.else ]
-  %13 = load i32, ptr %bytes, align 8
-  %mul = shl i32 %13, 3
-  %cmp21 = icmp ugt i32 %mul, %12
-  br i1 %cmp21, label %if.then22, label %if.end49
+38:                                               ; preds = %.lr.ph, %79
+  %.1165 = phi ptr [ %.1.ph, %.lr.ph ], [ %86, %79 ]
+  %.0101164 = phi i64 [ %.0101.ph, %.lr.ph ], [ %.2103, %79 ]
+  %.0104163 = phi i32 [ %.0104.ph, %.lr.ph ], [ %.1105, %79 ]
+  %.0108162 = phi i32 [ %.0108.ph, %.lr.ph ], [ %.3111, %79 ]
+  %39 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.0101164, i1 false)
+  %40 = trunc nuw nsw i64 %39 to i32
+  %41 = icmp eq i64 %.0101164, 0
+  br i1 %41, label %.preheader140, label %.loopexit141
 
-if.then22:                                        ; preds = %while.end
-  %14 = load ptr, ptr %br, align 8
-  %idxprom28 = zext i32 %.lcssa to i64
-  %arrayidx29 = getelementptr inbounds nuw i64, ptr %14, i64 %idxprom28
-  %15 = load i64, ptr %arrayidx29, align 8
-  %sub30 = sub i32 64, %mul
-  %sh_prom31 = zext nneg i32 %sub30 to i64
-  %shl32 = shl nsw i64 -1, %sh_prom31
-  %and = and i64 %15, %shl32
-  %sh_prom34 = zext nneg i32 %12 to i64
-  %shl35 = shl i64 %and, %sh_prom34
-  %tobool36.not = icmp eq i64 %shl35, 0
-  br i1 %tobool36.not, label %if.else43, label %if.then37
+.preheader140:                                    ; preds = %38, %43
+  %.1115 = phi i32 [ %50, %43 ], [ %.0104163, %38 ]
+  %.2110 = phi i32 [ %42, %43 ], [ %.0108162, %38 ]
+  %42 = add i32 %.2110, 1
+  %.not135 = icmp ult i32 %42, %.0119.ph
+  br i1 %.not135, label %43, label %88
 
-if.then37:                                        ; preds = %if.then22
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %shl35, i1 true)
-  %cast.i38 = trunc nuw nsw i64 %16 to i32
-  %17 = load i32, ptr %val, align 4
-  %add39 = add i32 %17, %cast.i38
-  store i32 %add39, ptr %val, align 4
-  %inc40 = add nuw nsw i32 %cast.i38, 1
-  %18 = load i32, ptr %consumed_bits, align 8
-  %add42 = add i32 %inc40, %18
-  br label %return.sink.split
+43:                                               ; preds = %.preheader140
+  %44 = load ptr, ptr %0, align 8, !tbaa !3
+  %45 = zext i32 %42 to i64
+  %46 = getelementptr inbounds nuw i64, ptr %44, i64 %45
+  %47 = load i64, ptr %46, align 8, !tbaa !21
+  %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %47, i1 false)
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = add i32 %.1115, %49
+  %51 = icmp eq i64 %47, 0
+  br i1 %51, label %.preheader140, label %.loopexit141, !llvm.loop !41
 
-if.else43:                                        ; preds = %if.then22
-  %sub45 = sub i32 %mul, %12
-  %19 = load i32, ptr %val, align 4
-  %add46 = add i32 %sub45, %19
-  store i32 %add46, ptr %val, align 4
-  store i32 %mul, ptr %consumed_bits, align 8
-  br label %if.end49
+.loopexit141:                                     ; preds = %43, %38
+  %.0114 = phi i32 [ %40, %38 ], [ %50, %43 ]
+  %.0113 = phi i64 [ %39, %38 ], [ %48, %43 ]
+  %.1109 = phi i32 [ %.0108162, %38 ], [ %42, %43 ]
+  %.1102 = phi i64 [ %.0101164, %38 ], [ %47, %43 ]
+  %52 = shl i64 %.1102, %.0113
+  %53 = shl i64 %52, 1
+  %54 = xor i32 %.0114, -1
+  %55 = add i32 %.0104163, %54
+  %56 = and i32 %55, 63
+  %57 = icmp ugt i32 %.0114, %7
+  br i1 %57, label %.loopexit, label %58
 
-if.end49:                                         ; preds = %if.else43, %while.end
-  %call50 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br)
-  %tobool51.not = icmp eq i32 %call50, 0
-  br i1 %tobool51.not, label %return, label %while.body
+58:                                               ; preds = %.loopexit141
+  %59 = lshr i64 %53, %36
+  %60 = trunc i64 %59 to i32
+  %.not136 = icmp ugt i32 %3, %56
+  br i1 %.not136, label %64, label %61
 
-return.sink.split:                                ; preds = %if.then37, %if.then10
-  %.sink = phi i32 [ 0, %if.then10 ], [ %add42, %if.then37 ]
-  store i32 %.sink, ptr %consumed_bits, align 8
-  br label %return
+61:                                               ; preds = %58
+  %62 = sub nuw nsw i32 %56, %3
+  %63 = shl i64 %53, %37
+  br label %79
 
-return:                                           ; preds = %if.end49, %return.sink.split, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 1, %return.sink.split ], [ 0, %if.end49 ]
-  ret i32 %retval.0
-}
+64:                                               ; preds = %58
+  %65 = add i32 %.1109, 1
+  %.not137 = icmp ult i32 %65, %.0119.ph
+  br i1 %.not137, label %66, label %96
 
-; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr noundef captures(none) %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #8 {
-entry:
-  %lsbs = alloca i32, align 4
-  %msbs = alloca i32, align 4
-  %shr = lshr i32 -1, %parameter
-  %idx.ext = zext i32 %nvals to i64
-  %add.ptr = getelementptr inbounds nuw i32, ptr %vals, i64 %idx.ext
-  %cmp = icmp eq i32 %parameter, 0
-  br i1 %cmp, label %while.cond.preheader, label %if.end4
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %0, align 8, !tbaa !3
+  %68 = zext i32 %65 to i64
+  %69 = getelementptr inbounds nuw i64, ptr %67, i64 %68
+  %70 = load i64, ptr %69, align 8, !tbaa !21
+  %71 = add i32 %56, %35
+  %72 = zext nneg i32 %71 to i64
+  %73 = lshr i64 %70, %72
+  %74 = or i64 %73, %59
+  %75 = trunc i64 %74 to i32
+  %76 = sub i32 64, %71
+  %77 = zext nneg i32 %76 to i64
+  %78 = shl i64 %70, %77
+  br label %79
 
-while.cond.preheader:                             ; preds = %entry
-  %cmp1113.not = icmp eq i32 %nvals, 0
-  br i1 %cmp1113.not, label %return, label %while.body
+79:                                               ; preds = %66, %61
+  %.2116 = phi i32 [ %60, %61 ], [ %75, %66 ]
+  %.3111 = phi i32 [ %.1109, %61 ], [ %65, %66 ]
+  %.1105 = phi i32 [ %62, %61 ], [ %71, %66 ]
+  %.2103 = phi i64 [ %63, %61 ], [ %78, %66 ]
+  store i32 %.2116, ptr %5, align 4, !tbaa !30
+  %80 = shl i32 %.0114, %3
+  %81 = or i32 %.2116, %80
+  %82 = lshr i32 %81, 1
+  %83 = and i32 %81, 1
+  %84 = sub nsw i32 0, %83
+  %85 = xor i32 %82, %84
+  %86 = getelementptr inbounds nuw i8, ptr %.1165, i64 4
+  store i32 %85, ptr %.1165, align 4, !tbaa !30
+  %87 = icmp ult ptr %86, %9
+  br i1 %87, label %38, label %._crit_edge, !llvm.loop !42
 
-while.body:                                       ; preds = %while.cond.preheader, %if.end
-  %val.0114 = phi ptr [ %incdec.ptr, %if.end ], [ %vals, %while.cond.preheader ]
-  %call = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %br, ptr noundef nonnull %msbs)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+88:                                               ; preds = %.preheader140
+  %89 = add i32 %.0108162, 1
+  %umax.le = tail call i32 @llvm.umax.i32(i32 %.0119.ph, i32 %89)
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %90, align 8, !tbaa !17
+  store i32 %umax.le, ptr %21, align 4, !tbaa !16
+  br label %91
 
-if.end:                                           ; preds = %while.body
-  %0 = load i32, ptr %msbs, align 4
-  %shr3 = lshr i32 %0, 1
-  %and = and i32 %0, 1
-  %sub = sub nsw i32 0, %and
-  %xor = xor i32 %shr3, %sub
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %val.0114, i64 4
-  store i32 %xor, ptr %val.0114, align 4
-  %cmp1 = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp1, label %while.body, label %return, !llvm.loop !16
+91:                                               ; preds = %126, %20, %88
+  %.4118 = phi i32 [ %.1115, %88 ], [ 0, %20 ], [ 0, %126 ]
+  %.3 = phi ptr [ %.1165, %88 ], [ %1, %20 ], [ %111, %126 ]
+  %92 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %6)
+  %.not133 = icmp eq i32 %92, 0
+  br i1 %.not133, label %.loopexit, label %93
 
-if.end4:                                          ; preds = %entry
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %1 = load i32, ptr %consumed_words, align 4
-  %words5 = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %2 = load i32, ptr %words5, align 4
-  %cmp6.not = icmp ult i32 %1, %2
-  br i1 %cmp6.not, label %if.end8, label %if.end71
+93:                                               ; preds = %91
+  %94 = load i32, ptr %6, align 4, !tbaa !30
+  %95 = add i32 %94, %.4118
+  store i32 %95, ptr %6, align 4, !tbaa !30
+  br label %98
 
-if.end8:                                          ; preds = %if.end4
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %3 = load i32, ptr %consumed_bits, align 8
-  %4 = load ptr, ptr %br, align 8
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %4, i64 %idxprom
-  %5 = load i64, ptr %arrayidx, align 8
-  %sh_prom = zext nneg i32 %3 to i64
-  %shl = shl i64 %5, %sh_prom
-  br label %while.cond11.preheader
+96:                                               ; preds = %64
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %97, align 8, !tbaa !17
+  store i32 %65, ptr %21, align 4, !tbaa !16
+  br label %98
 
-while.cond11.preheader:                           ; preds = %if.end8, %do.end111
-  %words.0.ph = phi i32 [ %2, %if.end8 ], [ %18, %do.end111 ]
-  %cwords.0.ph = phi i32 [ %1, %if.end8 ], [ %17, %do.end111 ]
-  %.pn = phi i32 [ %3, %if.end8 ], [ %19, %do.end111 ]
-  %b.0.ph = phi i64 [ %shl, %if.end8 ], [ %cond, %do.end111 ]
-  %val.1.ph = phi ptr [ %vals, %if.end8 ], [ %incdec.ptr93, %do.end111 ]
-  %ucbits.0.ph = sub i32 64, %.pn
-  %cmp12107 = icmp ult ptr %val.1.ph, %add.ptr
-  br i1 %cmp12107, label %while.body13.lr.ph, label %while.end112
+98:                                               ; preds = %93, %96
+  %99 = phi i32 [ %95, %93 ], [ %.0114, %96 ]
+  %.5 = phi i32 [ 0, %93 ], [ %60, %96 ]
+  %.2106 = phi i32 [ 0, %93 ], [ %56, %96 ]
+  %.4 = phi ptr [ %.3, %93 ], [ %.1165, %96 ]
+  %100 = sub i32 %3, %.2106
+  %101 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %100)
+  %.not134 = icmp eq i32 %101, 0
+  br i1 %.not134, label %.loopexit, label %102
 
-while.body13.lr.ph:                               ; preds = %while.cond11.preheader
-  %sub34 = sub i32 64, %parameter
-  %sh_prom35 = zext nneg i32 %sub34 to i64
-  %sh_prom41 = zext nneg i32 %parameter to i64
-  br label %while.body13
+102:                                              ; preds = %98
+  %103 = load i32, ptr %5, align 4, !tbaa !30
+  %104 = or i32 %103, %.5
+  store i32 %104, ptr %5, align 4, !tbaa !30
+  %105 = shl i32 %99, %3
+  %106 = or i32 %105, %104
+  %107 = lshr i32 %106, 1
+  %108 = and i32 %106, 1
+  %109 = sub nsw i32 0, %108
+  %110 = xor i32 %107, %109
+  %111 = getelementptr inbounds nuw i8, ptr %.4, i64 4
+  store i32 %110, ptr %.4, align 4, !tbaa !30
+  %112 = load i32, ptr %21, align 4, !tbaa !16
+  %113 = load i32, ptr %23, align 4, !tbaa !28
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %115 = load i32, ptr %114, align 8, !tbaa !17
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %117 = load i32, ptr %116, align 8, !tbaa !13
+  %118 = icmp ult i32 %112, %117
+  br i1 %118, label %119, label %126
 
-while.body13:                                     ; preds = %while.body13.lr.ph, %if.end59
-  %val.1111 = phi ptr [ %val.1.ph, %while.body13.lr.ph ], [ %incdec.ptr66, %if.end59 ]
-  %b.0110 = phi i64 [ %b.0.ph, %while.body13.lr.ph ], [ %b.2, %if.end59 ]
-  %ucbits.0109 = phi i32 [ %ucbits.0.ph, %while.body13.lr.ph ], [ %ucbits.1, %if.end59 ]
-  %cwords.0108 = phi i32 [ %cwords.0.ph, %while.body13.lr.ph ], [ %cwords.3, %if.end59 ]
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %b.0110, i1 false)
-  %cast.i.i = trunc nuw nsw i64 %6 to i32
-  %cmp15 = icmp eq i64 %b.0110, 0
-  br i1 %cmp15, label %do.body, label %if.end25
+119:                                              ; preds = %102
+  %120 = load ptr, ptr %0, align 8, !tbaa !3
+  %121 = zext i32 %112 to i64
+  %122 = getelementptr inbounds nuw i64, ptr %120, i64 %121
+  %123 = load i64, ptr %122, align 8, !tbaa !21
+  %124 = zext nneg i32 %115 to i64
+  %125 = shl i64 %123, %124
+  br label %126
 
-do.body:                                          ; preds = %while.body13, %if.end19
-  %x.1 = phi i32 [ %add, %if.end19 ], [ %ucbits.0109, %while.body13 ]
-  %cwords.2 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
-  %inc = add i32 %cwords.2, 1
-  %cmp17.not = icmp ult i32 %inc, %words.0.ph
-  br i1 %cmp17.not, label %if.end19, label %incomplete_msbs
+126:                                              ; preds = %102, %119
+  %127 = phi i64 [ %125, %119 ], [ 0, %102 ]
+  %128 = icmp uge i32 %112, %113
+  %129 = icmp ult ptr %111, %9
+  %130 = select i1 %128, i1 %129, i1 false
+  br i1 %130, label %91, label %131, !llvm.loop !43
 
-if.end19:                                         ; preds = %do.body
-  %7 = load ptr, ptr %br, align 8
-  %idxprom21 = zext i32 %inc to i64
-  %arrayidx22 = getelementptr inbounds nuw i64, ptr %7, i64 %idxprom21
-  %8 = load i64, ptr %arrayidx22, align 8
-  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %8, i1 false)
-  %cast.i.i92 = trunc nuw nsw i64 %9 to i32
-  %add = add i32 %x.1, %cast.i.i92
-  %cmp24 = icmp eq i64 %8, 0
-  br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !17
+131:                                              ; preds = %126
+  br label %.preheader142, !llvm.loop !42
 
-if.end25:                                         ; preds = %if.end19, %while.body13
-  %x.0 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
-  %y.0 = phi i64 [ %6, %while.body13 ], [ %9, %if.end19 ]
-  %cwords.1 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
-  %b.1 = phi i64 [ %b.0110, %while.body13 ], [ %8, %if.end19 ]
-  %shl27 = shl i64 %b.1, %y.0
-  %shl28 = shl i64 %shl27, 1
-  %10 = xor i32 %x.0, -1
-  %sub30 = add i32 %ucbits.0109, %10
-  %rem = and i32 %sub30, 63
-  %cmp31 = icmp ugt i32 %x.0, %shr
-  br i1 %cmp31, label %return, label %if.end33
-
-if.end33:                                         ; preds = %if.end25
-  %shr36 = lshr i64 %shl28, %sh_prom35
-  %conv = trunc i64 %shr36 to i32
-  %cmp37.not = icmp ugt i32 %parameter, %rem
-  br i1 %cmp37.not, label %if.else, label %if.then39
-
-if.then39:                                        ; preds = %if.end33
-  %sub40 = sub nuw nsw i32 %rem, %parameter
-  %shl42 = shl i64 %shl28, %sh_prom41
-  br label %if.end59
-
-if.else:                                          ; preds = %if.end33
-  %inc43 = add i32 %cwords.1, 1
-  %cmp44.not = icmp ult i32 %inc43, %words.0.ph
-  br i1 %cmp44.not, label %if.end47, label %incomplete_lsbs
-
-if.end47:                                         ; preds = %if.else
-  %11 = load ptr, ptr %br, align 8
-  %idxprom49 = zext i32 %inc43 to i64
-  %arrayidx50 = getelementptr inbounds nuw i64, ptr %11, i64 %idxprom49
-  %12 = load i64, ptr %arrayidx50, align 8
-  %add52 = add i32 %rem, %sub34
-  %sh_prom53 = zext nneg i32 %add52 to i64
-  %shr54 = lshr i64 %12, %sh_prom53
-  %or90 = or i64 %shr54, %shr36
-  %or = trunc i64 %or90 to i32
-  %sub56 = sub i32 64, %add52
-  %sh_prom57 = zext nneg i32 %sub56 to i64
-  %shl58 = shl i64 %12, %sh_prom57
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.end47, %if.then39
-  %x.2 = phi i32 [ %conv, %if.then39 ], [ %or, %if.end47 ]
-  %cwords.3 = phi i32 [ %cwords.1, %if.then39 ], [ %inc43, %if.end47 ]
-  %ucbits.1 = phi i32 [ %sub40, %if.then39 ], [ %add52, %if.end47 ]
-  %b.2 = phi i64 [ %shl42, %if.then39 ], [ %shl58, %if.end47 ]
-  store i32 %x.2, ptr %lsbs, align 4
-  %shl60 = shl i32 %x.0, %parameter
-  %or61 = or i32 %x.2, %shl60
-  %shr62 = lshr i32 %or61, 1
-  %and63 = and i32 %or61, 1
-  %sub64 = sub nsw i32 0, %and63
-  %xor65 = xor i32 %shr62, %sub64
-  %incdec.ptr66 = getelementptr inbounds nuw i8, ptr %val.1111, i64 4
-  store i32 %xor65, ptr %val.1111, align 4
-  %cmp12 = icmp ult ptr %incdec.ptr66, %add.ptr
-  br i1 %cmp12, label %while.body13, label %while.end112, !llvm.loop !18
-
-incomplete_msbs:                                  ; preds = %do.body
-  %13 = add i32 %cwords.0108, 1
-  %umax.le = tail call i32 @llvm.umax.i32(i32 %words.0.ph, i32 %13)
-  %consumed_bits69 = getelementptr inbounds nuw i8, ptr %br, i64 24
-  store i32 0, ptr %consumed_bits69, align 8
-  store i32 %umax.le, ptr %consumed_words, align 4
-  br label %if.end71
-
-if.end71:                                         ; preds = %cond.end, %if.end4, %incomplete_msbs
-  %x.4 = phi i32 [ %x.1, %incomplete_msbs ], [ 0, %if.end4 ], [ 0, %cond.end ]
-  %val.3 = phi ptr [ %val.1111, %incomplete_msbs ], [ %vals, %if.end4 ], [ %incdec.ptr93, %cond.end ]
-  %call72 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %br, ptr noundef nonnull %msbs)
-  %tobool73.not = icmp eq i32 %call72, 0
-  br i1 %tobool73.not, label %return, label %if.end75
-
-if.end75:                                         ; preds = %if.end71
-  %14 = load i32, ptr %msbs, align 4
-  %add76 = add i32 %14, %x.4
-  store i32 %add76, ptr %msbs, align 4
-  br label %if.end80
-
-incomplete_lsbs:                                  ; preds = %if.else
-  %consumed_bits78 = getelementptr inbounds nuw i8, ptr %br, i64 24
-  store i32 0, ptr %consumed_bits78, align 8
-  store i32 %inc43, ptr %consumed_words, align 4
-  br label %if.end80
-
-if.end80:                                         ; preds = %if.end75, %incomplete_lsbs
-  %15 = phi i32 [ %add76, %if.end75 ], [ %x.0, %incomplete_lsbs ]
-  %x.5 = phi i32 [ 0, %if.end75 ], [ %conv, %incomplete_lsbs ]
-  %ucbits.2 = phi i32 [ 0, %if.end75 ], [ %rem, %incomplete_lsbs ]
-  %val.4 = phi ptr [ %val.3, %if.end75 ], [ %val.1111, %incomplete_lsbs ]
-  %sub81 = sub i32 %parameter, %ucbits.2
-  %call82 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %lsbs, i32 noundef %sub81)
-  %tobool83.not = icmp eq i32 %call82, 0
-  br i1 %tobool83.not, label %return, label %if.end85
-
-if.end85:                                         ; preds = %if.end80
-  %16 = load i32, ptr %lsbs, align 4
-  %or86 = or i32 %16, %x.5
-  store i32 %or86, ptr %lsbs, align 4
-  %shl87 = shl i32 %15, %parameter
-  %or88 = or i32 %shl87, %or86
-  %shr89 = lshr i32 %or88, 1
-  %and90 = and i32 %or88, 1
-  %sub91 = sub nsw i32 0, %and90
-  %xor92 = xor i32 %shr89, %sub91
-  %incdec.ptr93 = getelementptr inbounds nuw i8, ptr %val.4, i64 4
-  store i32 %xor92, ptr %val.4, align 4
-  %17 = load i32, ptr %consumed_words, align 4
-  %18 = load i32, ptr %words5, align 4
-  %consumed_bits96 = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %19 = load i32, ptr %consumed_bits96, align 8
-  %capacity = getelementptr inbounds nuw i8, ptr %br, i64 8
-  %20 = load i32, ptr %capacity, align 8
-  %cmp98 = icmp ult i32 %17, %20
-  br i1 %cmp98, label %cond.true, label %cond.end
-
-cond.true:                                        ; preds = %if.end85
-  %21 = load ptr, ptr %br, align 8
-  %idxprom101 = zext i32 %17 to i64
-  %arrayidx102 = getelementptr inbounds nuw i64, ptr %21, i64 %idxprom101
-  %22 = load i64, ptr %arrayidx102, align 8
-  %sh_prom104 = zext nneg i32 %19 to i64
-  %shl105 = shl i64 %22, %sh_prom104
-  br label %cond.end
-
-cond.end:                                         ; preds = %if.end85, %cond.true
-  %cond = phi i64 [ %shl105, %cond.true ], [ 0, %if.end85 ]
-  %cmp107 = icmp uge i32 %17, %18
-  %cmp109 = icmp ult ptr %incdec.ptr93, %add.ptr
-  %23 = select i1 %cmp107, i1 %cmp109, i1 false
-  br i1 %23, label %if.end71, label %do.end111, !llvm.loop !19
-
-do.end111:                                        ; preds = %cond.end
-  br label %while.cond11.preheader, !llvm.loop !18
-
-while.end112:                                     ; preds = %if.end59, %while.cond11.preheader
-  %cwords.0.lcssa = phi i32 [ %cwords.0.ph, %while.cond11.preheader ], [ %cwords.3, %if.end59 ]
-  %ucbits.0.lcssa = phi i32 [ %ucbits.0.ph, %while.cond11.preheader ], [ %ucbits.1, %if.end59 ]
-  %cmp113 = icmp eq i32 %ucbits.0.lcssa, 0
-  %cmp115 = icmp ult i32 %cwords.0.lcssa, %words.0.ph
-  %spec.select91 = select i1 %cmp115, i32 64, i32 0
-  %narrow = select i1 %cmp113, i1 %cmp115, i1 false
+._crit_edge:                                      ; preds = %79, %.preheader142
+  %.0108.lcssa = phi i32 [ %.0108.ph, %.preheader142 ], [ %.3111, %79 ]
+  %.0104.lcssa = phi i32 [ %.0104.ph, %.preheader142 ], [ %.1105, %79 ]
+  %132 = icmp eq i32 %.0104.lcssa, 0
+  %133 = icmp ult i32 %.0108.lcssa, %.0119.ph
+  %spec.select139 = select i1 %133, i32 64, i32 0
+  %narrow = select i1 %132, i1 %133, i1 false
   %spec.select = zext i1 %narrow to i32
-  %cwords.4 = add i32 %cwords.0.lcssa, %spec.select
-  %ucbits.3 = select i1 %cmp113, i32 %spec.select91, i32 %ucbits.0.lcssa
-  %sub120 = sub i32 64, %ucbits.3
-  %consumed_bits121 = getelementptr inbounds nuw i8, ptr %br, i64 24
-  store i32 %sub120, ptr %consumed_bits121, align 8
-  store i32 %cwords.4, ptr %consumed_words, align 4
-  br label %return
+  %.4112 = add i32 %.0108.lcssa, %spec.select
+  %.3107 = select i1 %132, i32 %spec.select139, i32 %.0104.lcssa
+  %134 = sub i32 64, %.3107
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %134, ptr %135, align 8, !tbaa !17
+  store i32 %.4112, ptr %21, align 4, !tbaa !16
+  br label %.loopexit
 
-return:                                           ; preds = %if.end25, %while.body, %if.end, %while.cond.preheader, %if.end80, %if.end71, %while.end112
-  %retval.0 = phi i32 [ 1, %while.end112 ], [ 0, %if.end71 ], [ 0, %if.end80 ], [ 1, %while.cond.preheader ], [ 0, %while.body ], [ 1, %if.end ], [ 0, %if.end25 ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %.loopexit141, %.lr.ph168, %12, %.preheader, %98, %91, %._crit_edge
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %91 ], [ 0, %98 ], [ 1, %.preheader ], [ 0, %.lr.ph168 ], [ 1, %12 ], [ 0, %.loopexit141 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(ptr noundef captures(none) %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #10 {
-entry:
-  %lsbs = alloca i32, align 4
-  %msbs = alloca i32, align 4
-  %shr = lshr i32 -1, %parameter
-  %idx.ext = zext i32 %nvals to i64
-  %add.ptr = getelementptr inbounds nuw i32, ptr %vals, i64 %idx.ext
-  %cmp = icmp eq i32 %parameter, 0
-  br i1 %cmp, label %while.cond.preheader, label %if.end4
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
+  %7 = lshr i32 -1, %3
+  %8 = zext i32 %2 to i64
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
+  %10 = icmp eq i32 %3, 0
+  br i1 %10, label %.preheader, label %20
 
-while.cond.preheader:                             ; preds = %entry
-  %cmp1113.not = icmp eq i32 %nvals, 0
-  br i1 %cmp1113.not, label %return, label %while.body
+.preheader:                                       ; preds = %4
+  %.not172 = icmp eq i32 %2, 0
+  br i1 %.not172, label %.loopexit, label %.lr.ph168
 
-while.body:                                       ; preds = %while.cond.preheader, %if.end
-  %val.0114 = phi ptr [ %incdec.ptr, %if.end ], [ %vals, %while.cond.preheader ]
-  %call = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %br, ptr noundef nonnull %msbs)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+.lr.ph168:                                        ; preds = %.preheader, %12
+  %.0100167 = phi ptr [ %18, %12 ], [ %1, %.preheader ]
+  %11 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %0, ptr noundef nonnull %6)
+  %.not138 = icmp eq i32 %11, 0
+  br i1 %.not138, label %.loopexit, label %12
 
-if.end:                                           ; preds = %while.body
-  %0 = load i32, ptr %msbs, align 4
-  %shr3 = lshr i32 %0, 1
-  %and = and i32 %0, 1
-  %sub = sub nsw i32 0, %and
-  %xor = xor i32 %shr3, %sub
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %val.0114, i64 4
-  store i32 %xor, ptr %val.0114, align 4
-  %cmp1 = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp1, label %while.body, label %return, !llvm.loop !20
+12:                                               ; preds = %.lr.ph168
+  %13 = load i32, ptr %6, align 4, !tbaa !30
+  %14 = lshr i32 %13, 1
+  %15 = and i32 %13, 1
+  %16 = sub nsw i32 0, %15
+  %17 = xor i32 %14, %16
+  %18 = getelementptr inbounds nuw i8, ptr %.0100167, i64 4
+  store i32 %17, ptr %.0100167, align 4, !tbaa !30
+  %19 = icmp ult ptr %18, %9
+  br i1 %19, label %.lr.ph168, label %.loopexit, !llvm.loop !44
 
-if.end4:                                          ; preds = %entry
-  %consumed_words = getelementptr inbounds nuw i8, ptr %br, i64 20
-  %1 = load i32, ptr %consumed_words, align 4
-  %words5 = getelementptr inbounds nuw i8, ptr %br, i64 12
-  %2 = load i32, ptr %words5, align 4
-  %cmp6.not = icmp ult i32 %1, %2
-  br i1 %cmp6.not, label %if.end8, label %if.end71
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %22 = load i32, ptr %21, align 4, !tbaa !16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %.not = icmp ult i32 %22, %24
+  br i1 %.not, label %25, label %91
 
-if.end8:                                          ; preds = %if.end4
-  %consumed_bits = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %3 = load i32, ptr %consumed_bits, align 8
-  %4 = load ptr, ptr %br, align 8
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %4, i64 %idxprom
-  %5 = load i64, ptr %arrayidx, align 8
-  %sh_prom = zext nneg i32 %3 to i64
-  %shl = shl i64 %5, %sh_prom
-  br label %while.cond11.preheader
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load i32, ptr %26, align 8, !tbaa !17
+  %28 = load ptr, ptr %0, align 8, !tbaa !3
+  %29 = zext i32 %22 to i64
+  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !21
+  %32 = zext nneg i32 %27 to i64
+  %33 = shl i64 %31, %32
+  br label %.preheader142
 
-while.cond11.preheader:                           ; preds = %if.end8, %do.end111
-  %words.0.ph = phi i32 [ %2, %if.end8 ], [ %18, %do.end111 ]
-  %cwords.0.ph = phi i32 [ %1, %if.end8 ], [ %17, %do.end111 ]
-  %.pn = phi i32 [ %3, %if.end8 ], [ %19, %do.end111 ]
-  %b.0.ph = phi i64 [ %shl, %if.end8 ], [ %cond, %do.end111 ]
-  %val.1.ph = phi ptr [ %vals, %if.end8 ], [ %incdec.ptr93, %do.end111 ]
-  %ucbits.0.ph = sub i32 64, %.pn
-  %cmp12107 = icmp ult ptr %val.1.ph, %add.ptr
-  br i1 %cmp12107, label %while.body13.lr.ph, label %while.end112
+.preheader142:                                    ; preds = %25, %131
+  %.0119.ph = phi i32 [ %24, %25 ], [ %113, %131 ]
+  %.0108.ph = phi i32 [ %22, %25 ], [ %112, %131 ]
+  %.pn = phi i32 [ %27, %25 ], [ %115, %131 ]
+  %.0101.ph = phi i64 [ %33, %25 ], [ %127, %131 ]
+  %.1.ph = phi ptr [ %1, %25 ], [ %111, %131 ]
+  %.0104.ph = sub i32 64, %.pn
+  %34 = icmp ult ptr %.1.ph, %9
+  br i1 %34, label %.lr.ph, label %._crit_edge
 
-while.body13.lr.ph:                               ; preds = %while.cond11.preheader
-  %sub34 = sub i32 64, %parameter
-  %sh_prom35 = zext nneg i32 %sub34 to i64
-  %sh_prom41 = zext nneg i32 %parameter to i64
-  br label %while.body13
+.lr.ph:                                           ; preds = %.preheader142
+  %35 = sub i32 64, %3
+  %36 = zext nneg i32 %35 to i64
+  %37 = zext nneg i32 %3 to i64
+  br label %38
 
-while.body13:                                     ; preds = %while.body13.lr.ph, %if.end59
-  %val.1111 = phi ptr [ %val.1.ph, %while.body13.lr.ph ], [ %incdec.ptr66, %if.end59 ]
-  %b.0110 = phi i64 [ %b.0.ph, %while.body13.lr.ph ], [ %b.2, %if.end59 ]
-  %ucbits.0109 = phi i32 [ %ucbits.0.ph, %while.body13.lr.ph ], [ %ucbits.1, %if.end59 ]
-  %cwords.0108 = phi i32 [ %cwords.0.ph, %while.body13.lr.ph ], [ %cwords.3, %if.end59 ]
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %b.0110, i1 false)
-  %cast.i.i = trunc nuw nsw i64 %6 to i32
-  %cmp15 = icmp eq i64 %b.0110, 0
-  br i1 %cmp15, label %do.body, label %if.end25
+38:                                               ; preds = %.lr.ph, %79
+  %.1165 = phi ptr [ %.1.ph, %.lr.ph ], [ %86, %79 ]
+  %.0101164 = phi i64 [ %.0101.ph, %.lr.ph ], [ %.2103, %79 ]
+  %.0104163 = phi i32 [ %.0104.ph, %.lr.ph ], [ %.1105, %79 ]
+  %.0108162 = phi i32 [ %.0108.ph, %.lr.ph ], [ %.3111, %79 ]
+  %39 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.0101164, i1 false)
+  %40 = trunc nuw nsw i64 %39 to i32
+  %41 = icmp eq i64 %.0101164, 0
+  br i1 %41, label %.preheader140, label %.loopexit141
 
-do.body:                                          ; preds = %while.body13, %if.end19
-  %x.1 = phi i32 [ %add, %if.end19 ], [ %ucbits.0109, %while.body13 ]
-  %cwords.2 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
-  %inc = add i32 %cwords.2, 1
-  %cmp17.not = icmp ult i32 %inc, %words.0.ph
-  br i1 %cmp17.not, label %if.end19, label %incomplete_msbs
+.preheader140:                                    ; preds = %38, %43
+  %.1115 = phi i32 [ %50, %43 ], [ %.0104163, %38 ]
+  %.2110 = phi i32 [ %42, %43 ], [ %.0108162, %38 ]
+  %42 = add i32 %.2110, 1
+  %.not135 = icmp ult i32 %42, %.0119.ph
+  br i1 %.not135, label %43, label %88
 
-if.end19:                                         ; preds = %do.body
-  %7 = load ptr, ptr %br, align 8
-  %idxprom21 = zext i32 %inc to i64
-  %arrayidx22 = getelementptr inbounds nuw i64, ptr %7, i64 %idxprom21
-  %8 = load i64, ptr %arrayidx22, align 8
-  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %8, i1 false)
-  %cast.i.i92 = trunc nuw nsw i64 %9 to i32
-  %add = add i32 %x.1, %cast.i.i92
-  %cmp24 = icmp eq i64 %8, 0
-  br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !21
+43:                                               ; preds = %.preheader140
+  %44 = load ptr, ptr %0, align 8, !tbaa !3
+  %45 = zext i32 %42 to i64
+  %46 = getelementptr inbounds nuw i64, ptr %44, i64 %45
+  %47 = load i64, ptr %46, align 8, !tbaa !21
+  %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %47, i1 false)
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = add i32 %.1115, %49
+  %51 = icmp eq i64 %47, 0
+  br i1 %51, label %.preheader140, label %.loopexit141, !llvm.loop !45
 
-if.end25:                                         ; preds = %if.end19, %while.body13
-  %x.0 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
-  %y.0 = phi i64 [ %6, %while.body13 ], [ %9, %if.end19 ]
-  %cwords.1 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
-  %b.1 = phi i64 [ %b.0110, %while.body13 ], [ %8, %if.end19 ]
-  %shl27 = shl i64 %b.1, %y.0
-  %shl28 = shl i64 %shl27, 1
-  %10 = xor i32 %x.0, -1
-  %sub30 = add i32 %ucbits.0109, %10
-  %rem = and i32 %sub30, 63
-  %cmp31 = icmp ugt i32 %x.0, %shr
-  br i1 %cmp31, label %return, label %if.end33
+.loopexit141:                                     ; preds = %43, %38
+  %.0114 = phi i32 [ %40, %38 ], [ %50, %43 ]
+  %.0113 = phi i64 [ %39, %38 ], [ %48, %43 ]
+  %.1109 = phi i32 [ %.0108162, %38 ], [ %42, %43 ]
+  %.1102 = phi i64 [ %.0101164, %38 ], [ %47, %43 ]
+  %52 = shl i64 %.1102, %.0113
+  %53 = shl i64 %52, 1
+  %54 = xor i32 %.0114, -1
+  %55 = add i32 %.0104163, %54
+  %56 = and i32 %55, 63
+  %57 = icmp ugt i32 %.0114, %7
+  br i1 %57, label %.loopexit, label %58
 
-if.end33:                                         ; preds = %if.end25
-  %shr36 = lshr i64 %shl28, %sh_prom35
-  %conv = trunc i64 %shr36 to i32
-  %cmp37.not = icmp ugt i32 %parameter, %rem
-  br i1 %cmp37.not, label %if.else, label %if.then39
+58:                                               ; preds = %.loopexit141
+  %59 = lshr i64 %53, %36
+  %60 = trunc i64 %59 to i32
+  %.not136 = icmp ugt i32 %3, %56
+  br i1 %.not136, label %64, label %61
 
-if.then39:                                        ; preds = %if.end33
-  %sub40 = sub nuw nsw i32 %rem, %parameter
-  %shl42 = shl i64 %shl28, %sh_prom41
-  br label %if.end59
+61:                                               ; preds = %58
+  %62 = sub nuw nsw i32 %56, %3
+  %63 = shl i64 %53, %37
+  br label %79
 
-if.else:                                          ; preds = %if.end33
-  %inc43 = add i32 %cwords.1, 1
-  %cmp44.not = icmp ult i32 %inc43, %words.0.ph
-  br i1 %cmp44.not, label %if.end47, label %incomplete_lsbs
+64:                                               ; preds = %58
+  %65 = add i32 %.1109, 1
+  %.not137 = icmp ult i32 %65, %.0119.ph
+  br i1 %.not137, label %66, label %96
 
-if.end47:                                         ; preds = %if.else
-  %11 = load ptr, ptr %br, align 8
-  %idxprom49 = zext i32 %inc43 to i64
-  %arrayidx50 = getelementptr inbounds nuw i64, ptr %11, i64 %idxprom49
-  %12 = load i64, ptr %arrayidx50, align 8
-  %add52 = add i32 %rem, %sub34
-  %sh_prom53 = zext nneg i32 %add52 to i64
-  %shr54 = lshr i64 %12, %sh_prom53
-  %or90 = or i64 %shr54, %shr36
-  %or = trunc i64 %or90 to i32
-  %sub56 = sub i32 64, %add52
-  %sh_prom57 = zext nneg i32 %sub56 to i64
-  %shl58 = shl i64 %12, %sh_prom57
-  br label %if.end59
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %0, align 8, !tbaa !3
+  %68 = zext i32 %65 to i64
+  %69 = getelementptr inbounds nuw i64, ptr %67, i64 %68
+  %70 = load i64, ptr %69, align 8, !tbaa !21
+  %71 = add i32 %56, %35
+  %72 = zext nneg i32 %71 to i64
+  %73 = lshr i64 %70, %72
+  %74 = or i64 %73, %59
+  %75 = trunc i64 %74 to i32
+  %76 = sub i32 64, %71
+  %77 = zext nneg i32 %76 to i64
+  %78 = shl i64 %70, %77
+  br label %79
 
-if.end59:                                         ; preds = %if.end47, %if.then39
-  %x.2 = phi i32 [ %conv, %if.then39 ], [ %or, %if.end47 ]
-  %cwords.3 = phi i32 [ %cwords.1, %if.then39 ], [ %inc43, %if.end47 ]
-  %ucbits.1 = phi i32 [ %sub40, %if.then39 ], [ %add52, %if.end47 ]
-  %b.2 = phi i64 [ %shl42, %if.then39 ], [ %shl58, %if.end47 ]
-  store i32 %x.2, ptr %lsbs, align 4
-  %shl60 = shl i32 %x.0, %parameter
-  %or61 = or i32 %x.2, %shl60
-  %shr62 = lshr i32 %or61, 1
-  %and63 = and i32 %or61, 1
-  %sub64 = sub nsw i32 0, %and63
-  %xor65 = xor i32 %shr62, %sub64
-  %incdec.ptr66 = getelementptr inbounds nuw i8, ptr %val.1111, i64 4
-  store i32 %xor65, ptr %val.1111, align 4
-  %cmp12 = icmp ult ptr %incdec.ptr66, %add.ptr
-  br i1 %cmp12, label %while.body13, label %while.end112, !llvm.loop !22
+79:                                               ; preds = %66, %61
+  %.2116 = phi i32 [ %60, %61 ], [ %75, %66 ]
+  %.3111 = phi i32 [ %.1109, %61 ], [ %65, %66 ]
+  %.1105 = phi i32 [ %62, %61 ], [ %71, %66 ]
+  %.2103 = phi i64 [ %63, %61 ], [ %78, %66 ]
+  store i32 %.2116, ptr %5, align 4, !tbaa !30
+  %80 = shl i32 %.0114, %3
+  %81 = or i32 %.2116, %80
+  %82 = lshr i32 %81, 1
+  %83 = and i32 %81, 1
+  %84 = sub nsw i32 0, %83
+  %85 = xor i32 %82, %84
+  %86 = getelementptr inbounds nuw i8, ptr %.1165, i64 4
+  store i32 %85, ptr %.1165, align 4, !tbaa !30
+  %87 = icmp ult ptr %86, %9
+  br i1 %87, label %38, label %._crit_edge, !llvm.loop !46
 
-incomplete_msbs:                                  ; preds = %do.body
-  %13 = add i32 %cwords.0108, 1
-  %umax.le = tail call i32 @llvm.umax.i32(i32 %words.0.ph, i32 %13)
-  %consumed_bits69 = getelementptr inbounds nuw i8, ptr %br, i64 24
-  store i32 0, ptr %consumed_bits69, align 8
-  store i32 %umax.le, ptr %consumed_words, align 4
-  br label %if.end71
+88:                                               ; preds = %.preheader140
+  %89 = add i32 %.0108162, 1
+  %umax.le = tail call i32 @llvm.umax.i32(i32 %.0119.ph, i32 %89)
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %90, align 8, !tbaa !17
+  store i32 %umax.le, ptr %21, align 4, !tbaa !16
+  br label %91
 
-if.end71:                                         ; preds = %cond.end, %if.end4, %incomplete_msbs
-  %x.4 = phi i32 [ %x.1, %incomplete_msbs ], [ 0, %if.end4 ], [ 0, %cond.end ]
-  %val.3 = phi ptr [ %val.1111, %incomplete_msbs ], [ %vals, %if.end4 ], [ %incdec.ptr93, %cond.end ]
-  %call72 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %br, ptr noundef nonnull %msbs)
-  %tobool73.not = icmp eq i32 %call72, 0
-  br i1 %tobool73.not, label %return, label %if.end75
+91:                                               ; preds = %126, %20, %88
+  %.4118 = phi i32 [ %.1115, %88 ], [ 0, %20 ], [ 0, %126 ]
+  %.3 = phi ptr [ %.1165, %88 ], [ %1, %20 ], [ %111, %126 ]
+  %92 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %6)
+  %.not133 = icmp eq i32 %92, 0
+  br i1 %.not133, label %.loopexit, label %93
 
-if.end75:                                         ; preds = %if.end71
-  %14 = load i32, ptr %msbs, align 4
-  %add76 = add i32 %14, %x.4
-  store i32 %add76, ptr %msbs, align 4
-  br label %if.end80
+93:                                               ; preds = %91
+  %94 = load i32, ptr %6, align 4, !tbaa !30
+  %95 = add i32 %94, %.4118
+  store i32 %95, ptr %6, align 4, !tbaa !30
+  br label %98
 
-incomplete_lsbs:                                  ; preds = %if.else
-  %consumed_bits78 = getelementptr inbounds nuw i8, ptr %br, i64 24
-  store i32 0, ptr %consumed_bits78, align 8
-  store i32 %inc43, ptr %consumed_words, align 4
-  br label %if.end80
+96:                                               ; preds = %64
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %97, align 8, !tbaa !17
+  store i32 %65, ptr %21, align 4, !tbaa !16
+  br label %98
 
-if.end80:                                         ; preds = %if.end75, %incomplete_lsbs
-  %15 = phi i32 [ %add76, %if.end75 ], [ %x.0, %incomplete_lsbs ]
-  %x.5 = phi i32 [ 0, %if.end75 ], [ %conv, %incomplete_lsbs ]
-  %ucbits.2 = phi i32 [ 0, %if.end75 ], [ %rem, %incomplete_lsbs ]
-  %val.4 = phi ptr [ %val.3, %if.end75 ], [ %val.1111, %incomplete_lsbs ]
-  %sub81 = sub i32 %parameter, %ucbits.2
-  %call82 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %lsbs, i32 noundef %sub81)
-  %tobool83.not = icmp eq i32 %call82, 0
-  br i1 %tobool83.not, label %return, label %if.end85
+98:                                               ; preds = %93, %96
+  %99 = phi i32 [ %95, %93 ], [ %.0114, %96 ]
+  %.5 = phi i32 [ 0, %93 ], [ %60, %96 ]
+  %.2106 = phi i32 [ 0, %93 ], [ %56, %96 ]
+  %.4 = phi ptr [ %.3, %93 ], [ %.1165, %96 ]
+  %100 = sub i32 %3, %.2106
+  %101 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %100)
+  %.not134 = icmp eq i32 %101, 0
+  br i1 %.not134, label %.loopexit, label %102
 
-if.end85:                                         ; preds = %if.end80
-  %16 = load i32, ptr %lsbs, align 4
-  %or86 = or i32 %16, %x.5
-  store i32 %or86, ptr %lsbs, align 4
-  %shl87 = shl i32 %15, %parameter
-  %or88 = or i32 %shl87, %or86
-  %shr89 = lshr i32 %or88, 1
-  %and90 = and i32 %or88, 1
-  %sub91 = sub nsw i32 0, %and90
-  %xor92 = xor i32 %shr89, %sub91
-  %incdec.ptr93 = getelementptr inbounds nuw i8, ptr %val.4, i64 4
-  store i32 %xor92, ptr %val.4, align 4
-  %17 = load i32, ptr %consumed_words, align 4
-  %18 = load i32, ptr %words5, align 4
-  %consumed_bits96 = getelementptr inbounds nuw i8, ptr %br, i64 24
-  %19 = load i32, ptr %consumed_bits96, align 8
-  %capacity = getelementptr inbounds nuw i8, ptr %br, i64 8
-  %20 = load i32, ptr %capacity, align 8
-  %cmp98 = icmp ult i32 %17, %20
-  br i1 %cmp98, label %cond.true, label %cond.end
+102:                                              ; preds = %98
+  %103 = load i32, ptr %5, align 4, !tbaa !30
+  %104 = or i32 %103, %.5
+  store i32 %104, ptr %5, align 4, !tbaa !30
+  %105 = shl i32 %99, %3
+  %106 = or i32 %105, %104
+  %107 = lshr i32 %106, 1
+  %108 = and i32 %106, 1
+  %109 = sub nsw i32 0, %108
+  %110 = xor i32 %107, %109
+  %111 = getelementptr inbounds nuw i8, ptr %.4, i64 4
+  store i32 %110, ptr %.4, align 4, !tbaa !30
+  %112 = load i32, ptr %21, align 4, !tbaa !16
+  %113 = load i32, ptr %23, align 4, !tbaa !28
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %115 = load i32, ptr %114, align 8, !tbaa !17
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %117 = load i32, ptr %116, align 8, !tbaa !13
+  %118 = icmp ult i32 %112, %117
+  br i1 %118, label %119, label %126
 
-cond.true:                                        ; preds = %if.end85
-  %21 = load ptr, ptr %br, align 8
-  %idxprom101 = zext i32 %17 to i64
-  %arrayidx102 = getelementptr inbounds nuw i64, ptr %21, i64 %idxprom101
-  %22 = load i64, ptr %arrayidx102, align 8
-  %sh_prom104 = zext nneg i32 %19 to i64
-  %shl105 = shl i64 %22, %sh_prom104
-  br label %cond.end
+119:                                              ; preds = %102
+  %120 = load ptr, ptr %0, align 8, !tbaa !3
+  %121 = zext i32 %112 to i64
+  %122 = getelementptr inbounds nuw i64, ptr %120, i64 %121
+  %123 = load i64, ptr %122, align 8, !tbaa !21
+  %124 = zext nneg i32 %115 to i64
+  %125 = shl i64 %123, %124
+  br label %126
 
-cond.end:                                         ; preds = %if.end85, %cond.true
-  %cond = phi i64 [ %shl105, %cond.true ], [ 0, %if.end85 ]
-  %cmp107 = icmp uge i32 %17, %18
-  %cmp109 = icmp ult ptr %incdec.ptr93, %add.ptr
-  %23 = select i1 %cmp107, i1 %cmp109, i1 false
-  br i1 %23, label %if.end71, label %do.end111, !llvm.loop !23
+126:                                              ; preds = %102, %119
+  %127 = phi i64 [ %125, %119 ], [ 0, %102 ]
+  %128 = icmp uge i32 %112, %113
+  %129 = icmp ult ptr %111, %9
+  %130 = select i1 %128, i1 %129, i1 false
+  br i1 %130, label %91, label %131, !llvm.loop !47
 
-do.end111:                                        ; preds = %cond.end
-  br label %while.cond11.preheader, !llvm.loop !22
+131:                                              ; preds = %126
+  br label %.preheader142, !llvm.loop !46
 
-while.end112:                                     ; preds = %if.end59, %while.cond11.preheader
-  %cwords.0.lcssa = phi i32 [ %cwords.0.ph, %while.cond11.preheader ], [ %cwords.3, %if.end59 ]
-  %ucbits.0.lcssa = phi i32 [ %ucbits.0.ph, %while.cond11.preheader ], [ %ucbits.1, %if.end59 ]
-  %cmp113 = icmp eq i32 %ucbits.0.lcssa, 0
-  %cmp115 = icmp ult i32 %cwords.0.lcssa, %words.0.ph
-  %spec.select91 = select i1 %cmp115, i32 64, i32 0
-  %narrow = select i1 %cmp113, i1 %cmp115, i1 false
+._crit_edge:                                      ; preds = %79, %.preheader142
+  %.0108.lcssa = phi i32 [ %.0108.ph, %.preheader142 ], [ %.3111, %79 ]
+  %.0104.lcssa = phi i32 [ %.0104.ph, %.preheader142 ], [ %.1105, %79 ]
+  %132 = icmp eq i32 %.0104.lcssa, 0
+  %133 = icmp ult i32 %.0108.lcssa, %.0119.ph
+  %spec.select139 = select i1 %133, i32 64, i32 0
+  %narrow = select i1 %132, i1 %133, i1 false
   %spec.select = zext i1 %narrow to i32
-  %cwords.4 = add i32 %cwords.0.lcssa, %spec.select
-  %ucbits.3 = select i1 %cmp113, i32 %spec.select91, i32 %ucbits.0.lcssa
-  %sub120 = sub i32 64, %ucbits.3
-  %consumed_bits121 = getelementptr inbounds nuw i8, ptr %br, i64 24
-  store i32 %sub120, ptr %consumed_bits121, align 8
-  store i32 %cwords.4, ptr %consumed_words, align 4
-  br label %return
+  %.4112 = add i32 %.0108.lcssa, %spec.select
+  %.3107 = select i1 %132, i32 %spec.select139, i32 %.0104.lcssa
+  %134 = sub i32 64, %.3107
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %134, ptr %135, align 8, !tbaa !17
+  store i32 %.4112, ptr %21, align 4, !tbaa !16
+  br label %.loopexit
 
-return:                                           ; preds = %if.end25, %while.body, %if.end, %while.cond.preheader, %if.end80, %if.end71, %while.end112
-  %retval.0 = phi i32 [ 1, %while.end112 ], [ 0, %if.end71 ], [ 0, %if.end80 ], [ 1, %while.cond.preheader ], [ 0, %while.body ], [ 1, %if.end ], [ 0, %if.end25 ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %.loopexit141, %.lr.ph168, %12, %.preheader, %98, %91, %._crit_edge
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %91 ], [ 0, %98 ], [ 1, %.preheader ], [ 0, %.lr.ph168 ], [ 1, %12 ], [ 0, %.loopexit141 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef captures(none) %br, ptr noundef writeonly captures(none) %val, ptr noundef writeonly %raw, ptr noundef captures(none) %rawlen) local_unnamed_addr #8 {
-entry:
-  %x = alloca i32, align 4
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  %6 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.loopexit, label %7
 
-if.end:                                           ; preds = %entry
-  %tobool1.not = icmp eq ptr %raw, null
-  %.pre = load i32, ptr %x, align 4
-  br i1 %tobool1.not, label %if.end3, label %if.then2
+7:                                                ; preds = %4
+  %.not21 = icmp eq ptr %2, null
+  %.pre = load i32, ptr %5, align 4, !tbaa !30
+  br i1 %.not21, label %14, label %8
 
-if.then2:                                         ; preds = %if.end
-  %conv = trunc i32 %.pre to i8
-  %0 = load i32, ptr %rawlen, align 4
-  %inc = add i32 %0, 1
-  store i32 %inc, ptr %rawlen, align 4
-  %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr %raw, i64 %idxprom
-  store i8 %conv, ptr %arrayidx, align 1
-  br label %if.end3
+8:                                                ; preds = %7
+  %9 = trunc i32 %.pre to i8
+  %10 = load i32, ptr %3, align 4, !tbaa !30
+  %11 = add i32 %10, 1
+  store i32 %11, ptr %3, align 4, !tbaa !30
+  %12 = zext i32 %10 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
+  store i8 %9, ptr %13, align 1, !tbaa !36
+  br label %14
 
-if.end3:                                          ; preds = %if.then2, %if.end
-  %and = and i32 %.pre, 128
-  %tobool4.not = icmp eq i32 %and, 0
-  br i1 %tobool4.not, label %return.sink.split, label %land.lhs.true
+14:                                               ; preds = %8, %7
+  %15 = and i32 %.pre, 128
+  %.not22 = icmp eq i32 %15, 0
+  br i1 %.not22, label %.loopexit.sink.split, label %16
 
-land.lhs.true:                                    ; preds = %if.end3
-  %and8 = and i32 %.pre, 32
-  %tobool9.not = icmp eq i32 %and8, 0
-  br i1 %tobool9.not, label %for.body.lr.ph, label %if.else12
+16:                                               ; preds = %14
+  %17 = and i32 %.pre, 224
+  %18 = icmp eq i32 %17, 192
+  br i1 %18, label %.lr.ph, label %19
 
-if.else12:                                        ; preds = %land.lhs.true
-  %and16 = and i32 %.pre, 16
-  %tobool17.not = icmp eq i32 %and16, 0
-  br i1 %tobool17.not, label %for.body.lr.ph, label %if.else20
+19:                                               ; preds = %16
+  %20 = and i32 %.pre, 240
+  %21 = icmp eq i32 %20, 224
+  br i1 %21, label %.lr.ph, label %22
 
-if.else20:                                        ; preds = %if.else12
-  %and24 = and i32 %.pre, 8
-  %tobool25.not = icmp eq i32 %and24, 0
-  br i1 %tobool25.not, label %for.body.lr.ph, label %if.else28
+22:                                               ; preds = %19
+  %23 = and i32 %.pre, 248
+  %24 = icmp eq i32 %23, 240
+  br i1 %24, label %.lr.ph, label %25
 
-if.else28:                                        ; preds = %if.else20
-  %and32 = and i32 %.pre, 4
-  %tobool33.not = icmp eq i32 %and32, 0
-  br i1 %tobool33.not, label %for.body.lr.ph, label %if.else36
+25:                                               ; preds = %22
+  %26 = and i32 %.pre, 252
+  %27 = icmp eq i32 %26, 248
+  br i1 %27, label %.lr.ph, label %28
 
-if.else36:                                        ; preds = %if.else28
-  %and40 = and i32 %.pre, 2
-  %tobool41.not = icmp eq i32 %and40, 0
-  br i1 %tobool41.not, label %for.body.lr.ph, label %return.sink.split
+28:                                               ; preds = %25
+  %29 = and i32 %.pre, 254
+  %30 = icmp eq i32 %29, 252
+  br i1 %30, label %.lr.ph, label %.loopexit.sink.split
 
-for.body.lr.ph:                                   ; preds = %if.else36, %if.else28, %if.else20, %if.else12, %land.lhs.true
-  %.sink = phi i32 [ 31, %land.lhs.true ], [ 15, %if.else12 ], [ 7, %if.else20 ], [ 3, %if.else28 ], [ 1, %if.else36 ]
-  %i.0.ph = phi i32 [ 1, %land.lhs.true ], [ 2, %if.else12 ], [ 3, %if.else20 ], [ 4, %if.else28 ], [ 5, %if.else36 ]
-  %and11 = and i32 %.pre, %.sink
-  br i1 %tobool1.not, label %for.body.us, label %for.body
+.lr.ph:                                           ; preds = %28, %25, %22, %19, %16
+  %.sink = phi i32 [ 31, %16 ], [ 15, %19 ], [ 7, %22 ], [ 3, %25 ], [ 1, %28 ]
+  %.0.ph = phi i32 [ 1, %16 ], [ 2, %19 ], [ 3, %22 ], [ 4, %25 ], [ 5, %28 ]
+  %31 = and i32 %.pre, %.sink
+  br i1 %.not21, label %.lr.ph.split.us, label %.lr.ph.split
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %if.end68.us
-  %i.119.us = phi i32 [ %dec.us, %if.end68.us ], [ %i.0.ph, %for.body.lr.ph ]
-  %v.118.us = phi i32 [ %or.us, %if.end68.us ], [ %and11, %for.body.lr.ph ]
-  %call52.us = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool53.not.us = icmp eq i32 %call52.us, 0
-  br i1 %tobool53.not.us, label %return, label %if.end55.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %36
+  %.131.us = phi i32 [ %40, %36 ], [ %.0.ph, %.lr.ph ]
+  %.11730.us = phi i32 [ %39, %36 ], [ %31, %.lr.ph ]
+  %32 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)
+  %.not24.us = icmp eq i32 %32, 0
+  br i1 %.not24.us, label %.loopexit, label %33
 
-if.end55.us:                                      ; preds = %for.body.us
-  %1 = load i32, ptr %x, align 4
-  %2 = and i32 %1, 192
-  %or.cond14.us = icmp eq i32 %2, 128
-  br i1 %or.cond14.us, label %if.end68.us, label %return.sink.split
+33:                                               ; preds = %.lr.ph.split.us
+  %34 = load i32, ptr %5, align 4, !tbaa !30
+  %35 = and i32 %34, 192
+  %or.cond.us = icmp eq i32 %35, 128
+  br i1 %or.cond.us, label %36, label %.loopexit.sink.split
 
-if.end68.us:                                      ; preds = %if.end55.us
-  %shl.us = shl i32 %v.118.us, 6
-  %and69.us = and i32 %1, 63
-  %or.us = or disjoint i32 %and69.us, %shl.us
-  %dec.us = add nsw i32 %i.119.us, -1
-  %tobool51.not.us = icmp eq i32 %dec.us, 0
-  br i1 %tobool51.not.us, label %return.sink.split, label %for.body.us, !llvm.loop !24
+36:                                               ; preds = %33
+  %37 = shl i32 %.11730.us, 6
+  %38 = and i32 %34, 63
+  %39 = or disjoint i32 %38, %37
+  %40 = add nsw i32 %.131.us, -1
+  %.not23.us = icmp eq i32 %40, 0
+  br i1 %.not23.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !48
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end68
-  %i.119 = phi i32 [ %dec, %if.end68 ], [ %i.0.ph, %for.body.lr.ph ]
-  %v.118 = phi i32 [ %or, %if.end68 ], [ %and11, %for.body.lr.ph ]
-  %call52 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool53.not = icmp eq i32 %call52, 0
-  br i1 %tobool53.not, label %return, label %if.end55
+.lr.ph.split:                                     ; preds = %.lr.ph, %50
+  %.131 = phi i32 [ %54, %50 ], [ %.0.ph, %.lr.ph ]
+  %.11730 = phi i32 [ %53, %50 ], [ %31, %.lr.ph ]
+  %41 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)
+  %.not24 = icmp eq i32 %41, 0
+  br i1 %.not24, label %.loopexit, label %42
 
-if.end55:                                         ; preds = %for.body
-  %3 = load i32, ptr %x, align 4
-  %conv58 = trunc i32 %3 to i8
-  %4 = load i32, ptr %rawlen, align 4
-  %inc59 = add i32 %4, 1
-  store i32 %inc59, ptr %rawlen, align 4
-  %idxprom60 = zext i32 %4 to i64
-  %arrayidx61 = getelementptr inbounds nuw i8, ptr %raw, i64 %idxprom60
-  store i8 %conv58, ptr %arrayidx61, align 1
-  %5 = and i32 %3, 192
-  %or.cond14 = icmp eq i32 %5, 128
-  br i1 %or.cond14, label %if.end68, label %return.sink.split
+42:                                               ; preds = %.lr.ph.split
+  %43 = load i32, ptr %5, align 4, !tbaa !30
+  %44 = trunc i32 %43 to i8
+  %45 = load i32, ptr %3, align 4, !tbaa !30
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %3, align 4, !tbaa !30
+  %47 = zext i32 %45 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 %47
+  store i8 %44, ptr %48, align 1, !tbaa !36
+  %49 = and i32 %43, 192
+  %or.cond = icmp eq i32 %49, 128
+  br i1 %or.cond, label %50, label %.loopexit.sink.split
 
-if.end68:                                         ; preds = %if.end55
-  %shl = shl i32 %v.118, 6
-  %and69 = and i32 %3, 63
-  %or = or disjoint i32 %and69, %shl
-  %dec = add nsw i32 %i.119, -1
-  %tobool51.not = icmp eq i32 %dec, 0
-  br i1 %tobool51.not, label %return.sink.split, label %for.body, !llvm.loop !24
+50:                                               ; preds = %42
+  %51 = shl i32 %.11730, 6
+  %52 = and i32 %43, 63
+  %53 = or disjoint i32 %52, %51
+  %54 = add nsw i32 %.131, -1
+  %.not23 = icmp eq i32 %54, 0
+  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !48
 
-return.sink.split:                                ; preds = %if.end68, %if.end55, %if.end68.us, %if.end55.us, %if.end3, %if.else36
-  %v.1.lcssa.sink = phi i32 [ -1, %if.else36 ], [ %.pre, %if.end3 ], [ -1, %if.end55.us ], [ %or.us, %if.end68.us ], [ -1, %if.end55 ], [ %or, %if.end68 ]
-  store i32 %v.1.lcssa.sink, ptr %val, align 4
-  br label %return
+.loopexit.sink.split:                             ; preds = %50, %42, %36, %33, %14, %28
+  %.117.lcssa.sink = phi i32 [ -1, %28 ], [ %.pre, %14 ], [ -1, %33 ], [ %39, %36 ], [ -1, %42 ], [ %53, %50 ]
+  store i32 %.117.lcssa.sink, ptr %1, align 4, !tbaa !30
+  br label %.loopexit
 
-return:                                           ; preds = %for.body, %for.body.us, %return.sink.split, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %return.sink.split ], [ 0, %for.body.us ], [ 0, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.loopexit.sink.split, %4
+  %.018 = phi i32 [ 0, %4 ], [ 1, %.loopexit.sink.split ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef captures(none) %br, ptr noundef writeonly captures(none) %val, ptr noundef writeonly %raw, ptr noundef captures(none) %rawlen) local_unnamed_addr #8 {
-entry:
-  %x = alloca i32, align 4
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  %6 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.loopexit, label %7
 
-if.end:                                           ; preds = %entry
-  %tobool1.not = icmp eq ptr %raw, null
-  %.pre = load i32, ptr %x, align 4
-  br i1 %tobool1.not, label %if.end3, label %if.then2
+7:                                                ; preds = %4
+  %.not21 = icmp eq ptr %2, null
+  %.pre = load i32, ptr %5, align 4, !tbaa !30
+  br i1 %.not21, label %14, label %8
 
-if.then2:                                         ; preds = %if.end
-  %conv = trunc i32 %.pre to i8
-  %0 = load i32, ptr %rawlen, align 4
-  %inc = add i32 %0, 1
-  store i32 %inc, ptr %rawlen, align 4
-  %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr %raw, i64 %idxprom
-  store i8 %conv, ptr %arrayidx, align 1
-  br label %if.end3
+8:                                                ; preds = %7
+  %9 = trunc i32 %.pre to i8
+  %10 = load i32, ptr %3, align 4, !tbaa !30
+  %11 = add i32 %10, 1
+  store i32 %11, ptr %3, align 4, !tbaa !30
+  %12 = zext i32 %10 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
+  store i8 %9, ptr %13, align 1, !tbaa !36
+  br label %14
 
-if.end3:                                          ; preds = %if.then2, %if.end
-  %and = and i32 %.pre, 128
-  %tobool4.not = icmp eq i32 %and, 0
-  br i1 %tobool4.not, label %if.end64, label %land.lhs.true
+14:                                               ; preds = %8, %7
+  %15 = and i32 %.pre, 128
+  %.not22 = icmp eq i32 %15, 0
+  br i1 %.not22, label %43, label %16
 
-land.lhs.true:                                    ; preds = %if.end3
-  %and9 = and i32 %.pre, 32
-  %tobool10.not = icmp eq i32 %and9, 0
-  br i1 %tobool10.not, label %if.then11, label %if.else14
+16:                                               ; preds = %14
+  %17 = and i32 %.pre, 224
+  %18 = icmp eq i32 %17, 192
+  br i1 %18, label %19, label %21
 
-if.then11:                                        ; preds = %land.lhs.true
-  %and12 = and i32 %.pre, 31
-  br label %for.body.lr.ph
+19:                                               ; preds = %16
+  %20 = and i32 %.pre, 31
+  br label %.lr.ph
 
-if.else14:                                        ; preds = %land.lhs.true
-  %and18 = and i32 %.pre, 16
-  %tobool19.not = icmp eq i32 %and18, 0
-  br i1 %tobool19.not, label %if.then20, label %if.else23
+21:                                               ; preds = %16
+  %22 = and i32 %.pre, 240
+  %23 = icmp eq i32 %22, 224
+  br i1 %23, label %24, label %26
 
-if.then20:                                        ; preds = %if.else14
-  %and21 = and i32 %.pre, 15
-  br label %for.body.lr.ph
+24:                                               ; preds = %21
+  %25 = and i32 %.pre, 15
+  br label %.lr.ph
 
-if.else23:                                        ; preds = %if.else14
-  %and27 = and i32 %.pre, 8
-  %tobool28.not = icmp eq i32 %and27, 0
-  br i1 %tobool28.not, label %if.then29, label %if.else32
+26:                                               ; preds = %21
+  %27 = and i32 %.pre, 248
+  %28 = icmp eq i32 %27, 240
+  br i1 %28, label %29, label %31
 
-if.then29:                                        ; preds = %if.else23
-  %and30 = and i32 %.pre, 7
-  br label %for.body.lr.ph
+29:                                               ; preds = %26
+  %30 = and i32 %.pre, 7
+  br label %.lr.ph
 
-if.else32:                                        ; preds = %if.else23
-  %and36 = and i32 %.pre, 4
-  %tobool37.not = icmp eq i32 %and36, 0
-  br i1 %tobool37.not, label %if.then38, label %if.else41
+31:                                               ; preds = %26
+  %32 = and i32 %.pre, 252
+  %33 = icmp eq i32 %32, 248
+  br i1 %33, label %34, label %36
 
-if.then38:                                        ; preds = %if.else32
-  %and39 = and i32 %.pre, 3
-  br label %for.body.lr.ph
+34:                                               ; preds = %31
+  %35 = and i32 %.pre, 3
+  br label %.lr.ph
 
-if.else41:                                        ; preds = %if.else32
-  %and45 = and i32 %.pre, 2
-  %tobool46.not = icmp eq i32 %and45, 0
-  %and48 = and i32 %.pre, 1
-  br i1 %tobool46.not, label %for.body.lr.ph, label %if.else50
+36:                                               ; preds = %31
+  %37 = and i32 %.pre, 254
+  %38 = icmp eq i32 %37, 252
+  br i1 %38, label %39, label %41
 
-if.else50:                                        ; preds = %if.else41
-  %tobool55.not = icmp eq i32 %and48, 0
-  br i1 %tobool55.not, label %for.body.lr.ph, label %return.sink.split
+39:                                               ; preds = %36
+  %40 = and i32 %.pre, 1
+  br label %.lr.ph
 
-if.end64:                                         ; preds = %if.end3
-  %v.0 = zext i32 %.pre to i64
-  br label %return.sink.split
+41:                                               ; preds = %36
+  %42 = icmp eq i32 %.pre, 254
+  br i1 %42, label %.lr.ph, label %.loopexit.sink.split
 
-for.body.lr.ph:                                   ; preds = %if.else41, %if.else50, %if.then11, %if.then29, %if.then38, %if.then20
-  %v.0.shrunk.ph = phi i32 [ 0, %if.else50 ], [ %and12, %if.then11 ], [ %and21, %if.then20 ], [ %and30, %if.then29 ], [ %and39, %if.then38 ], [ %and48, %if.else41 ]
-  %i.0.ph = phi i32 [ 6, %if.else50 ], [ 1, %if.then11 ], [ 2, %if.then20 ], [ 3, %if.then29 ], [ 4, %if.then38 ], [ 5, %if.else41 ]
-  %v.026 = zext nneg i32 %v.0.shrunk.ph to i64
-  br i1 %tobool1.not, label %for.body.us, label %for.body
+43:                                               ; preds = %14
+  %.016 = zext i32 %.pre to i64
+  br label %.loopexit.sink.split
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %if.end82.us
-  %i.120.us = phi i32 [ %dec.us, %if.end82.us ], [ %i.0.ph, %for.body.lr.ph ]
-  %v.119.us = phi i64 [ %or.us, %if.end82.us ], [ %v.026, %for.body.lr.ph ]
-  %call66.us = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool67.not.us = icmp eq i32 %call66.us, 0
-  br i1 %tobool67.not.us, label %return, label %if.end69.us
+.lr.ph:                                           ; preds = %41, %19, %29, %39, %34, %24
+  %.016.shrunk.ph = phi i32 [ 0, %41 ], [ %40, %39 ], [ %35, %34 ], [ %30, %29 ], [ %25, %24 ], [ %20, %19 ]
+  %.0.ph = phi i32 [ 6, %41 ], [ 5, %39 ], [ 4, %34 ], [ 3, %29 ], [ 2, %24 ], [ 1, %19 ]
+  %.01638 = zext nneg i32 %.016.shrunk.ph to i64
+  br i1 %.not21, label %.lr.ph.split.us, label %.lr.ph.split
 
-if.end69.us:                                      ; preds = %for.body.us
-  %1 = load i32, ptr %x, align 4
-  %2 = and i32 %1, 192
-  %or.cond15.us = icmp eq i32 %2, 128
-  br i1 %or.cond15.us, label %if.end82.us, label %return.sink.split
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %48
+  %.131.us = phi i32 [ %53, %48 ], [ %.0.ph, %.lr.ph ]
+  %.11730.us = phi i64 [ %52, %48 ], [ %.01638, %.lr.ph ]
+  %44 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)
+  %.not24.us = icmp eq i32 %44, 0
+  br i1 %.not24.us, label %.loopexit, label %45
 
-if.end82.us:                                      ; preds = %if.end69.us
-  %shl.us = shl i64 %v.119.us, 6
-  %and83.us = and i32 %1, 63
-  %conv84.us = zext nneg i32 %and83.us to i64
-  %or.us = or disjoint i64 %shl.us, %conv84.us
-  %dec.us = add nsw i32 %i.120.us, -1
-  %tobool65.not.us = icmp eq i32 %dec.us, 0
-  br i1 %tobool65.not.us, label %return.sink.split, label %for.body.us, !llvm.loop !25
+45:                                               ; preds = %.lr.ph.split.us
+  %46 = load i32, ptr %5, align 4, !tbaa !30
+  %47 = and i32 %46, 192
+  %or.cond.us = icmp eq i32 %47, 128
+  br i1 %or.cond.us, label %48, label %.loopexit.sink.split
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end82
-  %i.120 = phi i32 [ %dec, %if.end82 ], [ %i.0.ph, %for.body.lr.ph ]
-  %v.119 = phi i64 [ %or, %if.end82 ], [ %v.026, %for.body.lr.ph ]
-  %call66 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
-  %tobool67.not = icmp eq i32 %call66, 0
-  br i1 %tobool67.not, label %return, label %if.end69
+48:                                               ; preds = %45
+  %49 = shl i64 %.11730.us, 6
+  %50 = and i32 %46, 63
+  %51 = zext nneg i32 %50 to i64
+  %52 = or disjoint i64 %49, %51
+  %53 = add nsw i32 %.131.us, -1
+  %.not23.us = icmp eq i32 %53, 0
+  br i1 %.not23.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !49
 
-if.end69:                                         ; preds = %for.body
-  %3 = load i32, ptr %x, align 4
-  %conv72 = trunc i32 %3 to i8
-  %4 = load i32, ptr %rawlen, align 4
-  %inc73 = add i32 %4, 1
-  store i32 %inc73, ptr %rawlen, align 4
-  %idxprom74 = zext i32 %4 to i64
-  %arrayidx75 = getelementptr inbounds nuw i8, ptr %raw, i64 %idxprom74
-  store i8 %conv72, ptr %arrayidx75, align 1
-  %5 = and i32 %3, 192
-  %or.cond15 = icmp eq i32 %5, 128
-  br i1 %or.cond15, label %if.end82, label %return.sink.split
+.lr.ph.split:                                     ; preds = %.lr.ph, %63
+  %.131 = phi i32 [ %68, %63 ], [ %.0.ph, %.lr.ph ]
+  %.11730 = phi i64 [ %67, %63 ], [ %.01638, %.lr.ph ]
+  %54 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)
+  %.not24 = icmp eq i32 %54, 0
+  br i1 %.not24, label %.loopexit, label %55
 
-if.end82:                                         ; preds = %if.end69
-  %shl = shl i64 %v.119, 6
-  %and83 = and i32 %3, 63
-  %conv84 = zext nneg i32 %and83 to i64
-  %or = or disjoint i64 %shl, %conv84
-  %dec = add nsw i32 %i.120, -1
-  %tobool65.not = icmp eq i32 %dec, 0
-  br i1 %tobool65.not, label %return.sink.split, label %for.body, !llvm.loop !25
+55:                                               ; preds = %.lr.ph.split
+  %56 = load i32, ptr %5, align 4, !tbaa !30
+  %57 = trunc i32 %56 to i8
+  %58 = load i32, ptr %3, align 4, !tbaa !30
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %3, align 4, !tbaa !30
+  %60 = zext i32 %58 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 %60
+  store i8 %57, ptr %61, align 1, !tbaa !36
+  %62 = and i32 %56, 192
+  %or.cond = icmp eq i32 %62, 128
+  br i1 %or.cond, label %63, label %.loopexit.sink.split
 
-return.sink.split:                                ; preds = %if.end82, %if.end69, %if.end82.us, %if.end69.us, %if.end64, %if.else50
-  %v.1.lcssa.sink = phi i64 [ -1, %if.else50 ], [ %v.0, %if.end64 ], [ -1, %if.end69.us ], [ %or.us, %if.end82.us ], [ -1, %if.end69 ], [ %or, %if.end82 ]
-  store i64 %v.1.lcssa.sink, ptr %val, align 8
-  br label %return
+63:                                               ; preds = %55
+  %64 = shl i64 %.11730, 6
+  %65 = and i32 %56, 63
+  %66 = zext nneg i32 %65 to i64
+  %67 = or disjoint i64 %64, %66
+  %68 = add nsw i32 %.131, -1
+  %.not23 = icmp eq i32 %68, 0
+  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !49
 
-return:                                           ; preds = %for.body, %for.body.us, %return.sink.split, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %return.sink.split ], [ 0, %for.body.us ], [ 0, %for.body ]
-  ret i32 %retval.0
+.loopexit.sink.split:                             ; preds = %63, %55, %48, %45, %43, %41
+  %.117.lcssa.sink = phi i64 [ -1, %41 ], [ %.016, %43 ], [ -1, %45 ], [ %52, %48 ], [ -1, %55 ], [ %67, %63 ]
+  store i64 %.117.lcssa.sink, ptr %1, align 8, !tbaa !21
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.loopexit.sink.split, %4
+  %.018 = phi i32 [ 0, %4 ], [ 1, %.loopexit.sink.split ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
+  ret i32 %.018
 }
 
-declare zeroext i16 @FLAC__crc16_update_words64(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #11
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
+declare zeroext i16 @FLAC__crc16_update_words64(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #13
+declare i64 @llvm.bswap.i64(i64) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #17
 
-attributes #0 = { mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi2,+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(0) }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #19
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi2,+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nounwind allocsize(0,1) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"FLAC__BitReader", !5, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !6, i64 56, !6, i64 64}
+!5 = !{!"p1 long", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!4, !9, i64 40}
+!11 = !{!4, !9, i64 44}
+!12 = !{!4, !9, i64 48}
+!13 = !{!4, !9, i64 8}
+!14 = !{!4, !6, i64 56}
+!15 = !{!4, !6, i64 64}
+!16 = !{!4, !9, i64 20}
+!17 = !{!4, !9, i64 24}
+!18 = !{!4, !9, i64 28}
+!19 = !{!4, !9, i64 32}
+!20 = !{!4, !9, i64 36}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !7, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"short", !7, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = distinct !{!27, !26}
+!28 = !{!4, !9, i64 12}
+!29 = !{!4, !9, i64 16}
+!30 = !{!9, !9, i64 0}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}
+!33 = distinct !{!33, !26}
+!34 = distinct !{!34, !26}
+!35 = distinct !{!35, !26}
+!36 = !{!7, !7, i64 0}
+!37 = distinct !{!37, !26}
+!38 = distinct !{!38, !26}
+!39 = distinct !{!39, !26}
+!40 = distinct !{!40, !26}
+!41 = distinct !{!41, !26}
+!42 = distinct !{!42, !26}
+!43 = distinct !{!43, !26}
+!44 = distinct !{!44, !26}
+!45 = distinct !{!45, !26}
+!46 = distinct !{!46, !26}
+!47 = distinct !{!47, !26}
+!48 = distinct !{!48, !26}
+!49 = distinct !{!49, !26}

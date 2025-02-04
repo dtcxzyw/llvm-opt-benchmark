@@ -1,1895 +1,1987 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_bartlett(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  %1 = load i32, ptr %L.addr, align 4
-  %and = and i32 %1, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
+define hidden void @FLAC__window_bartlett(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %9 = load i32, ptr %4, align 4, !tbaa !8
+  %10 = and i32 %9, 1
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %53
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+12:                                               ; preds = %2
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %13
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %2 = load i32, ptr %n, align 4
-  %3 = load i32, ptr %N, align 4
-  %div = sdiv i32 %3, 2
-  %cmp = icmp sle i32 %2, %div
-  br i1 %cmp, label %for.body, label %for.end
+13:                                               ; preds = %29, %12
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = load i32, ptr %5, align 4, !tbaa !8
+  %16 = sdiv i32 %15, 2
+  %17 = icmp sle i32 %14, %16
+  br i1 %17, label %18, label %32
 
-for.body:                                         ; preds = %for.cond
-  %4 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %4 to float
-  %mul = fmul reassoc nsz arcp float 2.000000e+00, %conv
-  %5 = load i32, ptr %N, align 4
-  %conv1 = sitofp i32 %5 to float
-  %div2 = fdiv reassoc nsz arcp float %mul, %conv1
-  %6 = load ptr, ptr %window.addr, align 8
-  %7 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds float, ptr %6, i64 %idxprom
-  store float %div2, ptr %arrayidx, align 4
-  br label %for.inc
+18:                                               ; preds = %13
+  %19 = load i32, ptr %6, align 4, !tbaa !8
+  %20 = sitofp i32 %19 to float
+  %21 = fmul reassoc nsz arcp float 2.000000e+00, %20
+  %22 = load i32, ptr %5, align 4, !tbaa !8
+  %23 = sitofp i32 %22 to float
+  %24 = fdiv reassoc nsz arcp float %21, %23
+  %25 = load ptr, ptr %3, align 8, !tbaa !3
+  %26 = load i32, ptr %6, align 4, !tbaa !8
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds float, ptr %25, i64 %27
+  store float %24, ptr %28, align 4, !tbaa !10
+  br label %29
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !4
+29:                                               ; preds = %18
+  %30 = load i32, ptr %6, align 4, !tbaa !8
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %6, align 4, !tbaa !8
+  br label %13, !llvm.loop !12
 
-for.end:                                          ; preds = %for.cond
-  br label %for.cond3
+32:                                               ; preds = %13
+  br label %33
 
-for.cond3:                                        ; preds = %for.inc14, %for.end
-  %9 = load i32, ptr %n, align 4
-  %10 = load i32, ptr %N, align 4
-  %cmp4 = icmp sle i32 %9, %10
-  br i1 %cmp4, label %for.body6, label %for.end16
+33:                                               ; preds = %49, %32
+  %34 = load i32, ptr %6, align 4, !tbaa !8
+  %35 = load i32, ptr %5, align 4, !tbaa !8
+  %36 = icmp sle i32 %34, %35
+  br i1 %36, label %37, label %52
 
-for.body6:                                        ; preds = %for.cond3
-  %11 = load i32, ptr %n, align 4
-  %conv7 = sitofp i32 %11 to float
-  %mul8 = fmul reassoc nsz arcp float 2.000000e+00, %conv7
-  %12 = load i32, ptr %N, align 4
-  %conv9 = sitofp i32 %12 to float
-  %div10 = fdiv reassoc nsz arcp float %mul8, %conv9
-  %sub11 = fsub reassoc nsz arcp float 2.000000e+00, %div10
-  %13 = load ptr, ptr %window.addr, align 8
-  %14 = load i32, ptr %n, align 4
-  %idxprom12 = sext i32 %14 to i64
-  %arrayidx13 = getelementptr inbounds float, ptr %13, i64 %idxprom12
-  store float %sub11, ptr %arrayidx13, align 4
-  br label %for.inc14
+37:                                               ; preds = %33
+  %38 = load i32, ptr %6, align 4, !tbaa !8
+  %39 = sitofp i32 %38 to float
+  %40 = fmul reassoc nsz arcp float 2.000000e+00, %39
+  %41 = load i32, ptr %5, align 4, !tbaa !8
+  %42 = sitofp i32 %41 to float
+  %43 = fdiv reassoc nsz arcp float %40, %42
+  %44 = fsub reassoc nsz arcp float 2.000000e+00, %43
+  %45 = load ptr, ptr %3, align 8, !tbaa !3
+  %46 = load i32, ptr %6, align 4, !tbaa !8
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds float, ptr %45, i64 %47
+  store float %44, ptr %48, align 4, !tbaa !10
+  br label %49
 
-for.inc14:                                        ; preds = %for.body6
-  %15 = load i32, ptr %n, align 4
-  %inc15 = add nsw i32 %15, 1
-  store i32 %inc15, ptr %n, align 4
-  br label %for.cond3, !llvm.loop !6
+49:                                               ; preds = %37
+  %50 = load i32, ptr %6, align 4, !tbaa !8
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %6, align 4, !tbaa !8
+  br label %33, !llvm.loop !14
 
-for.end16:                                        ; preds = %for.cond3
-  br label %if.end
+52:                                               ; preds = %33
+  br label %95
 
-if.else:                                          ; preds = %entry
-  store i32 0, ptr %n, align 4
-  br label %for.cond17
+53:                                               ; preds = %2
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %54
 
-for.cond17:                                       ; preds = %for.inc29, %if.else
-  %16 = load i32, ptr %n, align 4
-  %17 = load i32, ptr %L.addr, align 4
-  %div18 = sdiv i32 %17, 2
-  %sub19 = sub nsw i32 %div18, 1
-  %cmp20 = icmp sle i32 %16, %sub19
-  br i1 %cmp20, label %for.body22, label %for.end31
+54:                                               ; preds = %71, %53
+  %55 = load i32, ptr %6, align 4, !tbaa !8
+  %56 = load i32, ptr %4, align 4, !tbaa !8
+  %57 = sdiv i32 %56, 2
+  %58 = sub nsw i32 %57, 1
+  %59 = icmp sle i32 %55, %58
+  br i1 %59, label %60, label %74
 
-for.body22:                                       ; preds = %for.cond17
-  %18 = load i32, ptr %n, align 4
-  %conv23 = sitofp i32 %18 to float
-  %mul24 = fmul reassoc nsz arcp float 2.000000e+00, %conv23
-  %19 = load i32, ptr %N, align 4
-  %conv25 = sitofp i32 %19 to float
-  %div26 = fdiv reassoc nsz arcp float %mul24, %conv25
-  %20 = load ptr, ptr %window.addr, align 8
-  %21 = load i32, ptr %n, align 4
-  %idxprom27 = sext i32 %21 to i64
-  %arrayidx28 = getelementptr inbounds float, ptr %20, i64 %idxprom27
-  store float %div26, ptr %arrayidx28, align 4
-  br label %for.inc29
+60:                                               ; preds = %54
+  %61 = load i32, ptr %6, align 4, !tbaa !8
+  %62 = sitofp i32 %61 to float
+  %63 = fmul reassoc nsz arcp float 2.000000e+00, %62
+  %64 = load i32, ptr %5, align 4, !tbaa !8
+  %65 = sitofp i32 %64 to float
+  %66 = fdiv reassoc nsz arcp float %63, %65
+  %67 = load ptr, ptr %3, align 8, !tbaa !3
+  %68 = load i32, ptr %6, align 4, !tbaa !8
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds float, ptr %67, i64 %69
+  store float %66, ptr %70, align 4, !tbaa !10
+  br label %71
 
-for.inc29:                                        ; preds = %for.body22
-  %22 = load i32, ptr %n, align 4
-  %inc30 = add nsw i32 %22, 1
-  store i32 %inc30, ptr %n, align 4
-  br label %for.cond17, !llvm.loop !7
+71:                                               ; preds = %60
+  %72 = load i32, ptr %6, align 4, !tbaa !8
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %6, align 4, !tbaa !8
+  br label %54, !llvm.loop !15
 
-for.end31:                                        ; preds = %for.cond17
-  br label %for.cond32
+74:                                               ; preds = %54
+  br label %75
 
-for.cond32:                                       ; preds = %for.inc43, %for.end31
-  %23 = load i32, ptr %n, align 4
-  %24 = load i32, ptr %N, align 4
-  %cmp33 = icmp sle i32 %23, %24
-  br i1 %cmp33, label %for.body35, label %for.end45
+75:                                               ; preds = %91, %74
+  %76 = load i32, ptr %6, align 4, !tbaa !8
+  %77 = load i32, ptr %5, align 4, !tbaa !8
+  %78 = icmp sle i32 %76, %77
+  br i1 %78, label %79, label %94
 
-for.body35:                                       ; preds = %for.cond32
-  %25 = load i32, ptr %n, align 4
-  %conv36 = sitofp i32 %25 to float
-  %mul37 = fmul reassoc nsz arcp float 2.000000e+00, %conv36
-  %26 = load i32, ptr %N, align 4
-  %conv38 = sitofp i32 %26 to float
-  %div39 = fdiv reassoc nsz arcp float %mul37, %conv38
-  %sub40 = fsub reassoc nsz arcp float 2.000000e+00, %div39
-  %27 = load ptr, ptr %window.addr, align 8
-  %28 = load i32, ptr %n, align 4
-  %idxprom41 = sext i32 %28 to i64
-  %arrayidx42 = getelementptr inbounds float, ptr %27, i64 %idxprom41
-  store float %sub40, ptr %arrayidx42, align 4
-  br label %for.inc43
+79:                                               ; preds = %75
+  %80 = load i32, ptr %6, align 4, !tbaa !8
+  %81 = sitofp i32 %80 to float
+  %82 = fmul reassoc nsz arcp float 2.000000e+00, %81
+  %83 = load i32, ptr %5, align 4, !tbaa !8
+  %84 = sitofp i32 %83 to float
+  %85 = fdiv reassoc nsz arcp float %82, %84
+  %86 = fsub reassoc nsz arcp float 2.000000e+00, %85
+  %87 = load ptr, ptr %3, align 8, !tbaa !3
+  %88 = load i32, ptr %6, align 4, !tbaa !8
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds float, ptr %87, i64 %89
+  store float %86, ptr %90, align 4, !tbaa !10
+  br label %91
 
-for.inc43:                                        ; preds = %for.body35
-  %29 = load i32, ptr %n, align 4
-  %inc44 = add nsw i32 %29, 1
-  store i32 %inc44, ptr %n, align 4
-  br label %for.cond32, !llvm.loop !8
+91:                                               ; preds = %79
+  %92 = load i32, ptr %6, align 4, !tbaa !8
+  %93 = add nsw i32 %92, 1
+  store i32 %93, ptr %6, align 4, !tbaa !8
+  br label %75, !llvm.loop !16
 
-for.end45:                                        ; preds = %for.cond32
-  br label %if.end
+94:                                               ; preds = %75
+  br label %95
 
-if.end:                                           ; preds = %for.end45, %for.end16
+95:                                               ; preds = %94, %52
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_bartlett_hann(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_bartlett_hann(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %n, align 4
-  %2 = load i32, ptr %L.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %36, %2
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %4, align 4, !tbaa !8
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %39
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %3 to float
-  %4 = load i32, ptr %N, align 4
-  %conv1 = sitofp i32 %4 to float
-  %div = fdiv reassoc nsz arcp float %conv, %conv1
-  %sub2 = fsub reassoc nsz arcp float %div, 5.000000e-01
-  %5 = call reassoc nsz arcp float @llvm.fabs.f32(float %sub2)
-  %6 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDEB851E0000000, float %5, float 0x3FE3D70A40000000)
-  %7 = load i32, ptr %n, align 4
-  %conv3 = sitofp i32 %7 to float
-  %8 = load i32, ptr %N, align 4
-  %conv4 = sitofp i32 %8 to float
-  %div5 = fdiv reassoc nsz arcp float %conv3, %conv4
-  %conv6 = fpext float %div5 to double
-  %mul = fmul reassoc nsz arcp double 0x401921FB54442D18, %conv6
-  %conv7 = fptrunc double %mul to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv7) #3
-  %9 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFD851EB80000000, float %call, float %6)
-  %10 = load ptr, ptr %window.addr, align 8
-  %11 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds float, ptr %10, i64 %idxprom
-  store float %9, ptr %arrayidx, align 4
-  br label %for.inc
+13:                                               ; preds = %9
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = sitofp i32 %14 to float
+  %16 = load i32, ptr %5, align 4, !tbaa !8
+  %17 = sitofp i32 %16 to float
+  %18 = fdiv reassoc nsz arcp float %15, %17
+  %19 = fsub reassoc nsz arcp float %18, 5.000000e-01
+  %20 = call reassoc nsz arcp float @llvm.fabs.f32(float %19)
+  %21 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDEB851E0000000, float %20, float 0x3FE3D70A40000000)
+  %22 = load i32, ptr %6, align 4, !tbaa !8
+  %23 = sitofp i32 %22 to float
+  %24 = load i32, ptr %5, align 4, !tbaa !8
+  %25 = sitofp i32 %24 to float
+  %26 = fdiv reassoc nsz arcp float %23, %25
+  %27 = fpext reassoc nsz arcp float %26 to double
+  %28 = fmul reassoc nsz arcp double 0x401921FB54442D18, %27
+  %29 = fptrunc reassoc nsz arcp double %28 to float
+  %30 = call reassoc nsz arcp float @cosf(float noundef %29) #4, !tbaa !8
+  %31 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFD851EB80000000, float %30, float %21)
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = load i32, ptr %6, align 4, !tbaa !8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds float, ptr %32, i64 %34
+  store float %31, ptr %35, align 4, !tbaa !10
+  br label %36
 
-for.inc:                                          ; preds = %for.body
-  %12 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !9
+36:                                               ; preds = %13
+  %37 = load i32, ptr %6, align 4, !tbaa !8
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %6, align 4, !tbaa !8
+  br label %9, !llvm.loop !17
 
-for.end:                                          ; preds = %for.cond
+39:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #1
+declare float @llvm.fabs.f32(float) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #1
+declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: nounwind
-declare float @cosf(float noundef) #2
+declare float @cosf(float noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_blackman(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_blackman(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %n, align 4
-  %2 = load i32, ptr %L.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %36, %2
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %4, align 4, !tbaa !8
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %39
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %3 to double
-  %mul = fmul reassoc nsz arcp double 0x401921FB54442D18, %conv
-  %4 = load i32, ptr %N, align 4
-  %conv1 = sitofp i32 %4 to double
-  %div = fdiv reassoc nsz arcp double %mul, %conv1
-  %conv2 = fptrunc double %div to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv2) #3
-  %5 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call, float 0x3FDAE147A0000000)
-  %6 = load i32, ptr %n, align 4
-  %conv4 = sitofp i32 %6 to double
-  %mul5 = fmul reassoc nsz arcp double 0x402921FB54442D18, %conv4
-  %7 = load i32, ptr %N, align 4
-  %conv6 = sitofp i32 %7 to double
-  %div7 = fdiv reassoc nsz arcp double %mul5, %conv6
-  %conv8 = fptrunc double %div7 to float
-  %call9 = call reassoc nsz arcp float @cosf(float noundef %conv8) #3
-  %8 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FB47AE140000000, float %call9, float %5)
-  %9 = load ptr, ptr %window.addr, align 8
-  %10 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds float, ptr %9, i64 %idxprom
-  store float %8, ptr %arrayidx, align 4
-  br label %for.inc
+13:                                               ; preds = %9
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = sitofp i32 %14 to double
+  %16 = fmul reassoc nsz arcp double 0x401921FB54442D18, %15
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = sitofp i32 %17 to double
+  %19 = fdiv reassoc nsz arcp double %16, %18
+  %20 = fptrunc reassoc nsz arcp double %19 to float
+  %21 = call reassoc nsz arcp float @cosf(float noundef %20) #4, !tbaa !8
+  %22 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %21, float 0x3FDAE147A0000000)
+  %23 = load i32, ptr %6, align 4, !tbaa !8
+  %24 = sitofp i32 %23 to double
+  %25 = fmul reassoc nsz arcp double 0x402921FB54442D18, %24
+  %26 = load i32, ptr %5, align 4, !tbaa !8
+  %27 = sitofp i32 %26 to double
+  %28 = fdiv reassoc nsz arcp double %25, %27
+  %29 = fptrunc reassoc nsz arcp double %28 to float
+  %30 = call reassoc nsz arcp float @cosf(float noundef %29) #4, !tbaa !8
+  %31 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FB47AE140000000, float %30, float %22)
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = load i32, ptr %6, align 4, !tbaa !8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds float, ptr %32, i64 %34
+  store float %31, ptr %35, align 4, !tbaa !10
+  br label %36
 
-for.inc:                                          ; preds = %for.body
-  %11 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %11, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !10
+36:                                               ; preds = %13
+  %37 = load i32, ptr %6, align 4, !tbaa !8
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %6, align 4, !tbaa !8
+  br label %9, !llvm.loop !18
 
-for.end:                                          ; preds = %for.cond
+39:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_blackman_harris_4term_92db_sidelobe(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_blackman_harris_4term_92db_sidelobe(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %n, align 4
-  %2 = load i32, ptr %N, align 4
-  %cmp = icmp sle i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %45, %2
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = icmp sle i32 %10, %11
+  br i1 %12, label %13, label %48
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %3 to double
-  %mul = fmul reassoc nsz arcp double 0x401921FB54442D18, %conv
-  %4 = load i32, ptr %N, align 4
-  %conv1 = sitofp i32 %4 to double
-  %div = fdiv reassoc nsz arcp double %mul, %conv1
-  %conv2 = fptrunc double %div to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv2) #3
-  %5 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDF4024C0000000, float %call, float 0x3FD6F5C280000000)
-  %6 = load i32, ptr %n, align 4
-  %conv4 = sitofp i32 %6 to double
-  %mul5 = fmul reassoc nsz arcp double 0x402921FB54442D18, %conv4
-  %7 = load i32, ptr %N, align 4
-  %conv6 = sitofp i32 %7 to double
-  %div7 = fdiv reassoc nsz arcp double %mul5, %conv6
-  %conv8 = fptrunc double %div7 to float
-  %call9 = call reassoc nsz arcp float @cosf(float noundef %conv8) #3
-  %8 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FC2157680000000, float %call9, float %5)
-  %9 = load i32, ptr %n, align 4
-  %conv11 = sitofp i32 %9 to double
-  %mul12 = fmul reassoc nsz arcp double 0x4032D97C7F3321D2, %conv11
-  %10 = load i32, ptr %N, align 4
-  %conv13 = sitofp i32 %10 to double
-  %div14 = fdiv reassoc nsz arcp double %mul12, %conv13
-  %conv15 = fptrunc double %div14 to float
-  %call16 = call reassoc nsz arcp float @cosf(float noundef %conv15) #3
-  %11 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBF87EBAF20000000, float %call16, float %8)
-  %12 = load ptr, ptr %window.addr, align 8
-  %13 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds float, ptr %12, i64 %idxprom
-  store float %11, ptr %arrayidx, align 4
-  br label %for.inc
+13:                                               ; preds = %9
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = sitofp i32 %14 to double
+  %16 = fmul reassoc nsz arcp double 0x401921FB54442D18, %15
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = sitofp i32 %17 to double
+  %19 = fdiv reassoc nsz arcp double %16, %18
+  %20 = fptrunc reassoc nsz arcp double %19 to float
+  %21 = call reassoc nsz arcp float @cosf(float noundef %20) #4, !tbaa !8
+  %22 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDF4024C0000000, float %21, float 0x3FD6F5C280000000)
+  %23 = load i32, ptr %6, align 4, !tbaa !8
+  %24 = sitofp i32 %23 to double
+  %25 = fmul reassoc nsz arcp double 0x402921FB54442D18, %24
+  %26 = load i32, ptr %5, align 4, !tbaa !8
+  %27 = sitofp i32 %26 to double
+  %28 = fdiv reassoc nsz arcp double %25, %27
+  %29 = fptrunc reassoc nsz arcp double %28 to float
+  %30 = call reassoc nsz arcp float @cosf(float noundef %29) #4, !tbaa !8
+  %31 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FC2157680000000, float %30, float %22)
+  %32 = load i32, ptr %6, align 4, !tbaa !8
+  %33 = sitofp i32 %32 to double
+  %34 = fmul reassoc nsz arcp double 0x4032D97C7F3321D2, %33
+  %35 = load i32, ptr %5, align 4, !tbaa !8
+  %36 = sitofp i32 %35 to double
+  %37 = fdiv reassoc nsz arcp double %34, %36
+  %38 = fptrunc reassoc nsz arcp double %37 to float
+  %39 = call reassoc nsz arcp float @cosf(float noundef %38) #4, !tbaa !8
+  %40 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBF87EBAF20000000, float %39, float %31)
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
+  %42 = load i32, ptr %6, align 4, !tbaa !8
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds float, ptr %41, i64 %43
+  store float %40, ptr %44, align 4, !tbaa !10
+  br label %45
 
-for.inc:                                          ; preds = %for.body
-  %14 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !11
+45:                                               ; preds = %13
+  %46 = load i32, ptr %6, align 4, !tbaa !8
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %6, align 4, !tbaa !8
+  br label %9, !llvm.loop !19
 
-for.end:                                          ; preds = %for.cond
+48:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_connes(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %N2 = alloca double, align 8
-  %n = alloca i32, align 4
-  %k = alloca double, align 8
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  %1 = load i32, ptr %N, align 4
-  %conv = sitofp i32 %1 to double
-  %div = fdiv reassoc nsz arcp double %conv, 2.000000e+00
-  store double %div, ptr %N2, align 8
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_connes(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca double, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca double, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %9 = load i32, ptr %4, align 4, !tbaa !8
+  %10 = sub nsw i32 %9, 1
+  store i32 %10, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = sitofp i32 %11 to double
+  %13 = fdiv reassoc nsz arcp double %12, 2.000000e+00
+  store double %13, ptr %6, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  store i32 0, ptr %7, align 4, !tbaa !8
+  br label %14
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %n, align 4
-  %3 = load i32, ptr %N, align 4
-  %cmp = icmp sle i32 %2, %3
-  br i1 %cmp, label %for.body, label %for.end
+14:                                               ; preds = %37, %2
+  %15 = load i32, ptr %7, align 4, !tbaa !8
+  %16 = load i32, ptr %5, align 4, !tbaa !8
+  %17 = icmp sle i32 %15, %16
+  br i1 %17, label %18, label %40
 
-for.body:                                         ; preds = %for.cond
-  %4 = load i32, ptr %n, align 4
-  %conv2 = sitofp i32 %4 to double
-  %5 = load double, ptr %N2, align 8
-  %sub3 = fsub reassoc nsz arcp double %conv2, %5
-  %6 = load double, ptr %N2, align 8
-  %div4 = fdiv reassoc nsz arcp double %sub3, %6
-  store double %div4, ptr %k, align 8
-  %7 = load double, ptr %k, align 8
-  %8 = load double, ptr %k, align 8
-  %neg = fneg reassoc nsz arcp double %7
-  %9 = call reassoc nsz arcp double @llvm.fmuladd.f64(double %neg, double %8, double 1.000000e+00)
-  store double %9, ptr %k, align 8
-  %10 = load double, ptr %k, align 8
-  %11 = load double, ptr %k, align 8
-  %mul = fmul reassoc nsz arcp double %10, %11
-  %conv5 = fptrunc double %mul to float
-  %12 = load ptr, ptr %window.addr, align 8
-  %13 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds float, ptr %12, i64 %idxprom
-  store float %conv5, ptr %arrayidx, align 4
-  br label %for.inc
+18:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %19 = load i32, ptr %7, align 4, !tbaa !8
+  %20 = sitofp i32 %19 to double
+  %21 = load double, ptr %6, align 8, !tbaa !20
+  %22 = fsub reassoc nsz arcp double %20, %21
+  %23 = load double, ptr %6, align 8, !tbaa !20
+  %24 = fdiv reassoc nsz arcp double %22, %23
+  store double %24, ptr %8, align 8, !tbaa !20
+  %25 = load double, ptr %8, align 8, !tbaa !20
+  %26 = load double, ptr %8, align 8, !tbaa !20
+  %27 = fneg reassoc nsz arcp double %25
+  %28 = call reassoc nsz arcp double @llvm.fmuladd.f64(double %27, double %26, double 1.000000e+00)
+  store double %28, ptr %8, align 8, !tbaa !20
+  %29 = load double, ptr %8, align 8, !tbaa !20
+  %30 = load double, ptr %8, align 8, !tbaa !20
+  %31 = fmul reassoc nsz arcp double %29, %30
+  %32 = fptrunc reassoc nsz arcp double %31 to float
+  %33 = load ptr, ptr %3, align 8, !tbaa !3
+  %34 = load i32, ptr %7, align 4, !tbaa !8
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds float, ptr %33, i64 %35
+  store float %32, ptr %36, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  br label %37
 
-for.inc:                                          ; preds = %for.body
-  %14 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !12
+37:                                               ; preds = %18
+  %38 = load i32, ptr %7, align 4, !tbaa !8
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %7, align 4, !tbaa !8
+  br label %14, !llvm.loop !22
 
-for.end:                                          ; preds = %for.cond
+40:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #1
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_flattop(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_flattop(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %n, align 4
-  %2 = load i32, ptr %L.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %54, %2
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %4, align 4, !tbaa !8
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %57
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %3 to double
-  %mul = fmul reassoc nsz arcp double 0x401921FB54442D18, %conv
-  %4 = load i32, ptr %N, align 4
-  %conv1 = sitofp i32 %4 to double
-  %div = fdiv reassoc nsz arcp double %mul, %conv1
-  %conv2 = fptrunc double %div to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv2) #3
-  %5 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDAAA1780000000, float %call, float 0x3FCB981740000000)
-  %6 = load i32, ptr %n, align 4
-  %conv4 = sitofp i32 %6 to double
-  %mul5 = fmul reassoc nsz arcp double 0x402921FB54442D18, %conv4
-  %7 = load i32, ptr %N, align 4
-  %conv6 = sitofp i32 %7 to double
-  %div7 = fdiv reassoc nsz arcp double %mul5, %conv6
-  %conv8 = fptrunc double %div7 to float
-  %call9 = call reassoc nsz arcp float @cosf(float noundef %conv8) #3
-  %8 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FD1BEAE00000000, float %call9, float %5)
-  %9 = load i32, ptr %n, align 4
-  %conv11 = sitofp i32 %9 to double
-  %mul12 = fmul reassoc nsz arcp double 0x4032D97C7F3321D2, %conv11
-  %10 = load i32, ptr %N, align 4
-  %conv13 = sitofp i32 %10 to double
-  %div14 = fdiv reassoc nsz arcp double %mul12, %conv13
-  %conv15 = fptrunc double %div14 to float
-  %call16 = call reassoc nsz arcp float @cosf(float noundef %conv15) #3
-  %11 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFB5656E00000000, float %call16, float %8)
-  %12 = load i32, ptr %n, align 4
-  %conv18 = sitofp i32 %12 to double
-  %mul19 = fmul reassoc nsz arcp double 0x403921FB54442D18, %conv18
-  %13 = load i32, ptr %N, align 4
-  %conv20 = sitofp i32 %13 to double
-  %div21 = fdiv reassoc nsz arcp double %mul19, %conv20
-  %conv22 = fptrunc double %div21 to float
-  %call23 = call reassoc nsz arcp float @cosf(float noundef %conv22) #3
-  %14 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3F7C74D7E0000000, float %call23, float %11)
-  %15 = load ptr, ptr %window.addr, align 8
-  %16 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %16 to i64
-  %arrayidx = getelementptr inbounds float, ptr %15, i64 %idxprom
-  store float %14, ptr %arrayidx, align 4
-  br label %for.inc
+13:                                               ; preds = %9
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = sitofp i32 %14 to double
+  %16 = fmul reassoc nsz arcp double 0x401921FB54442D18, %15
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = sitofp i32 %17 to double
+  %19 = fdiv reassoc nsz arcp double %16, %18
+  %20 = fptrunc reassoc nsz arcp double %19 to float
+  %21 = call reassoc nsz arcp float @cosf(float noundef %20) #4, !tbaa !8
+  %22 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDAAA1780000000, float %21, float 0x3FCB981740000000)
+  %23 = load i32, ptr %6, align 4, !tbaa !8
+  %24 = sitofp i32 %23 to double
+  %25 = fmul reassoc nsz arcp double 0x402921FB54442D18, %24
+  %26 = load i32, ptr %5, align 4, !tbaa !8
+  %27 = sitofp i32 %26 to double
+  %28 = fdiv reassoc nsz arcp double %25, %27
+  %29 = fptrunc reassoc nsz arcp double %28 to float
+  %30 = call reassoc nsz arcp float @cosf(float noundef %29) #4, !tbaa !8
+  %31 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FD1BEAE00000000, float %30, float %22)
+  %32 = load i32, ptr %6, align 4, !tbaa !8
+  %33 = sitofp i32 %32 to double
+  %34 = fmul reassoc nsz arcp double 0x4032D97C7F3321D2, %33
+  %35 = load i32, ptr %5, align 4, !tbaa !8
+  %36 = sitofp i32 %35 to double
+  %37 = fdiv reassoc nsz arcp double %34, %36
+  %38 = fptrunc reassoc nsz arcp double %37 to float
+  %39 = call reassoc nsz arcp float @cosf(float noundef %38) #4, !tbaa !8
+  %40 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFB5656E00000000, float %39, float %31)
+  %41 = load i32, ptr %6, align 4, !tbaa !8
+  %42 = sitofp i32 %41 to double
+  %43 = fmul reassoc nsz arcp double 0x403921FB54442D18, %42
+  %44 = load i32, ptr %5, align 4, !tbaa !8
+  %45 = sitofp i32 %44 to double
+  %46 = fdiv reassoc nsz arcp double %43, %45
+  %47 = fptrunc reassoc nsz arcp double %46 to float
+  %48 = call reassoc nsz arcp float @cosf(float noundef %47) #4, !tbaa !8
+  %49 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3F7C74D7E0000000, float %48, float %40)
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
+  %51 = load i32, ptr %6, align 4, !tbaa !8
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds float, ptr %50, i64 %52
+  store float %49, ptr %53, align 4, !tbaa !10
+  br label %54
 
-for.inc:                                          ; preds = %for.body
-  %17 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %17, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !13
+54:                                               ; preds = %13
+  %55 = load i32, ptr %6, align 4, !tbaa !8
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %6, align 4, !tbaa !8
+  br label %9, !llvm.loop !23
 
-for.end:                                          ; preds = %for.cond
+57:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_gauss(ptr noundef %window, i32 noundef %L, float noundef %stddev) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %stddev.addr = alloca float, align 4
-  %N = alloca i32, align 4
-  %N2 = alloca double, align 8
-  %n = alloca i32, align 4
-  %k = alloca double, align 8
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  store float %stddev, ptr %stddev.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  %1 = load i32, ptr %N, align 4
-  %conv = sitofp i32 %1 to double
-  %div = fdiv reassoc nsz arcp double %conv, 2.000000e+00
-  store double %div, ptr %N2, align 8
-  %2 = load float, ptr %stddev.addr, align 4
-  %cmp = fcmp reassoc nsz arcp ogt float %2, 0.000000e+00
-  br i1 %cmp, label %land.lhs.true, label %if.then
+define hidden void @FLAC__window_gauss(ptr noundef %0, i32 noundef %1, float noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca float, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca double, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store float %2, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = sub nsw i32 %11, 1
+  store i32 %12, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %13 = load i32, ptr %7, align 4, !tbaa !8
+  %14 = sitofp i32 %13 to double
+  %15 = fdiv reassoc nsz arcp double %14, 2.000000e+00
+  store double %15, ptr %8, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %16 = load float, ptr %6, align 4, !tbaa !10
+  %17 = fcmp reassoc nsz arcp ogt float %16, 0.000000e+00
+  br i1 %17, label %18, label %21
 
-land.lhs.true:                                    ; preds = %entry
-  %3 = load float, ptr %stddev.addr, align 4
-  %cmp2 = fcmp reassoc nsz arcp ole float %3, 5.000000e-01
-  br i1 %cmp2, label %if.else, label %if.then
+18:                                               ; preds = %3
+  %19 = load float, ptr %6, align 4, !tbaa !10
+  %20 = fcmp reassoc nsz arcp ole float %19, 5.000000e-01
+  br i1 %20, label %24, label %21
 
-if.then:                                          ; preds = %land.lhs.true, %entry
-  %4 = load ptr, ptr %window.addr, align 8
-  %5 = load i32, ptr %L.addr, align 4
-  call void @FLAC__window_gauss(ptr noundef %4, i32 noundef %5, float noundef 2.500000e-01)
-  br label %if.end
+21:                                               ; preds = %18, %3
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = load i32, ptr %5, align 4, !tbaa !8
+  call void @FLAC__window_gauss(ptr noundef %22, i32 noundef %23, float noundef 2.500000e-01)
+  br label %53
 
-if.else:                                          ; preds = %land.lhs.true
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+24:                                               ; preds = %18
+  store i32 0, ptr %9, align 4, !tbaa !8
+  br label %25
 
-for.cond:                                         ; preds = %for.inc, %if.else
-  %6 = load i32, ptr %n, align 4
-  %7 = load i32, ptr %N, align 4
-  %cmp4 = icmp sle i32 %6, %7
-  br i1 %cmp4, label %for.body, label %for.end
+25:                                               ; preds = %49, %24
+  %26 = load i32, ptr %9, align 4, !tbaa !8
+  %27 = load i32, ptr %7, align 4, !tbaa !8
+  %28 = icmp sle i32 %26, %27
+  br i1 %28, label %29, label %52
 
-for.body:                                         ; preds = %for.cond
-  %8 = load i32, ptr %n, align 4
-  %conv6 = sitofp i32 %8 to double
-  %9 = load double, ptr %N2, align 8
-  %sub7 = fsub reassoc nsz arcp double %conv6, %9
-  %10 = load float, ptr %stddev.addr, align 4
-  %conv8 = fpext float %10 to double
-  %11 = load double, ptr %N2, align 8
-  %mul = fmul reassoc nsz arcp double %conv8, %11
-  %div9 = fdiv reassoc nsz arcp double %sub7, %mul
-  store double %div9, ptr %k, align 8
-  %12 = load double, ptr %k, align 8
-  %mul10 = fmul reassoc nsz arcp double -5.000000e-01, %12
-  %13 = load double, ptr %k, align 8
-  %mul11 = fmul reassoc nsz arcp double %mul10, %13
-  %call = call reassoc nsz arcp double @exp(double noundef %mul11) #3
-  %conv12 = fptrunc double %call to float
-  %14 = load ptr, ptr %window.addr, align 8
-  %15 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %15 to i64
-  %arrayidx = getelementptr inbounds float, ptr %14, i64 %idxprom
-  store float %conv12, ptr %arrayidx, align 4
-  br label %for.inc
+29:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %30 = load i32, ptr %9, align 4, !tbaa !8
+  %31 = sitofp i32 %30 to double
+  %32 = load double, ptr %8, align 8, !tbaa !20
+  %33 = fsub reassoc nsz arcp double %31, %32
+  %34 = load float, ptr %6, align 4, !tbaa !10
+  %35 = fpext reassoc nsz arcp float %34 to double
+  %36 = load double, ptr %8, align 8, !tbaa !20
+  %37 = fmul reassoc nsz arcp double %35, %36
+  %38 = fdiv reassoc nsz arcp double %33, %37
+  store double %38, ptr %10, align 8, !tbaa !20
+  %39 = load double, ptr %10, align 8, !tbaa !20
+  %40 = fmul reassoc nsz arcp double -5.000000e-01, %39
+  %41 = load double, ptr %10, align 8, !tbaa !20
+  %42 = fmul reassoc nsz arcp double %40, %41
+  %43 = call reassoc nsz arcp double @exp(double noundef %42) #4, !tbaa !8
+  %44 = fptrunc reassoc nsz arcp double %43 to float
+  %45 = load ptr, ptr %4, align 8, !tbaa !3
+  %46 = load i32, ptr %9, align 4, !tbaa !8
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds float, ptr %45, i64 %47
+  store float %44, ptr %48, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  br label %49
 
-for.inc:                                          ; preds = %for.body
-  %16 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %16, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !14
+49:                                               ; preds = %29
+  %50 = load i32, ptr %9, align 4, !tbaa !8
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %9, align 4, !tbaa !8
+  br label %25, !llvm.loop !24
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+52:                                               ; preds = %25
+  br label %53
 
-if.end:                                           ; preds = %for.end, %if.then
+53:                                               ; preds = %52, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret void
 }
 
 ; Function Attrs: nounwind
-declare double @exp(double noundef) #2
+declare double @exp(double noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_hamming(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_hamming(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %n, align 4
-  %2 = load i32, ptr %L.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %27, %2
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %4, align 4, !tbaa !8
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %30
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %3 to double
-  %mul = fmul reassoc nsz arcp double 0x401921FB54442D18, %conv
-  %4 = load i32, ptr %N, align 4
-  %conv1 = sitofp i32 %4 to double
-  %div = fdiv reassoc nsz arcp double %mul, %conv1
-  %conv2 = fptrunc double %div to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv2) #3
-  %5 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDD70A3E0000000, float %call, float 0x3FE147AE20000000)
-  %6 = load ptr, ptr %window.addr, align 8
-  %7 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds float, ptr %6, i64 %idxprom
-  store float %5, ptr %arrayidx, align 4
-  br label %for.inc
+13:                                               ; preds = %9
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = sitofp i32 %14 to double
+  %16 = fmul reassoc nsz arcp double 0x401921FB54442D18, %15
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = sitofp i32 %17 to double
+  %19 = fdiv reassoc nsz arcp double %16, %18
+  %20 = fptrunc reassoc nsz arcp double %19 to float
+  %21 = call reassoc nsz arcp float @cosf(float noundef %20) #4, !tbaa !8
+  %22 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDD70A3E0000000, float %21, float 0x3FE147AE20000000)
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = load i32, ptr %6, align 4, !tbaa !8
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds float, ptr %23, i64 %25
+  store float %22, ptr %26, align 4, !tbaa !10
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !15
+27:                                               ; preds = %13
+  %28 = load i32, ptr %6, align 4, !tbaa !8
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %6, align 4, !tbaa !8
+  br label %9, !llvm.loop !25
 
-for.end:                                          ; preds = %for.cond
+30:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_hann(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_hann(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %n, align 4
-  %2 = load i32, ptr %L.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %27, %2
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %4, align 4, !tbaa !8
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %30
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %3 to double
-  %mul = fmul reassoc nsz arcp double 0x401921FB54442D18, %conv
-  %4 = load i32, ptr %N, align 4
-  %conv1 = sitofp i32 %4 to double
-  %div = fdiv reassoc nsz arcp double %mul, %conv1
-  %conv2 = fptrunc double %div to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv2) #3
-  %5 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call, float 5.000000e-01)
-  %6 = load ptr, ptr %window.addr, align 8
-  %7 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds float, ptr %6, i64 %idxprom
-  store float %5, ptr %arrayidx, align 4
-  br label %for.inc
+13:                                               ; preds = %9
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = sitofp i32 %14 to double
+  %16 = fmul reassoc nsz arcp double 0x401921FB54442D18, %15
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = sitofp i32 %17 to double
+  %19 = fdiv reassoc nsz arcp double %16, %18
+  %20 = fptrunc reassoc nsz arcp double %19 to float
+  %21 = call reassoc nsz arcp float @cosf(float noundef %20) #4, !tbaa !8
+  %22 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %21, float 5.000000e-01)
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = load i32, ptr %6, align 4, !tbaa !8
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds float, ptr %23, i64 %25
+  store float %22, ptr %26, align 4, !tbaa !10
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !16
+27:                                               ; preds = %13
+  %28 = load i32, ptr %6, align 4, !tbaa !8
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %6, align 4, !tbaa !8
+  br label %9, !llvm.loop !26
 
-for.end:                                          ; preds = %for.cond
+30:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_kaiser_bessel(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_kaiser_bessel(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %n, align 4
-  %2 = load i32, ptr %L.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %45, %2
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %4, align 4, !tbaa !8
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %48
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %3 to double
-  %mul = fmul reassoc nsz arcp double 0x401921FB54442D18, %conv
-  %4 = load i32, ptr %N, align 4
-  %conv1 = sitofp i32 %4 to double
-  %div = fdiv reassoc nsz arcp double %mul, %conv1
-  %conv2 = fptrunc double %div to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv2) #3
-  %5 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDFDF3B60000000, float %call, float 0x3FD9BA5E40000000)
-  %6 = load i32, ptr %n, align 4
-  %conv4 = sitofp i32 %6 to double
-  %mul5 = fmul reassoc nsz arcp double 0x402921FB54442D18, %conv4
-  %7 = load i32, ptr %N, align 4
-  %conv6 = sitofp i32 %7 to double
-  %div7 = fdiv reassoc nsz arcp double %mul5, %conv6
-  %conv8 = fptrunc double %div7 to float
-  %call9 = call reassoc nsz arcp float @cosf(float noundef %conv8) #3
-  %8 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FB9168720000000, float %call9, float %5)
-  %9 = load i32, ptr %n, align 4
-  %conv11 = sitofp i32 %9 to double
-  %mul12 = fmul reassoc nsz arcp double 0x4032D97C7F3321D2, %conv11
-  %10 = load i32, ptr %N, align 4
-  %conv13 = sitofp i32 %10 to double
-  %div14 = fdiv reassoc nsz arcp double %mul12, %conv13
-  %conv15 = fptrunc double %div14 to float
-  %call16 = call reassoc nsz arcp float @cosf(float noundef %conv15) #3
-  %11 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBF50624DE0000000, float %call16, float %8)
-  %12 = load ptr, ptr %window.addr, align 8
-  %13 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds float, ptr %12, i64 %idxprom
-  store float %11, ptr %arrayidx, align 4
-  br label %for.inc
+13:                                               ; preds = %9
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = sitofp i32 %14 to double
+  %16 = fmul reassoc nsz arcp double 0x401921FB54442D18, %15
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = sitofp i32 %17 to double
+  %19 = fdiv reassoc nsz arcp double %16, %18
+  %20 = fptrunc reassoc nsz arcp double %19 to float
+  %21 = call reassoc nsz arcp float @cosf(float noundef %20) #4, !tbaa !8
+  %22 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDFDF3B60000000, float %21, float 0x3FD9BA5E40000000)
+  %23 = load i32, ptr %6, align 4, !tbaa !8
+  %24 = sitofp i32 %23 to double
+  %25 = fmul reassoc nsz arcp double 0x402921FB54442D18, %24
+  %26 = load i32, ptr %5, align 4, !tbaa !8
+  %27 = sitofp i32 %26 to double
+  %28 = fdiv reassoc nsz arcp double %25, %27
+  %29 = fptrunc reassoc nsz arcp double %28 to float
+  %30 = call reassoc nsz arcp float @cosf(float noundef %29) #4, !tbaa !8
+  %31 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FB9168720000000, float %30, float %22)
+  %32 = load i32, ptr %6, align 4, !tbaa !8
+  %33 = sitofp i32 %32 to double
+  %34 = fmul reassoc nsz arcp double 0x4032D97C7F3321D2, %33
+  %35 = load i32, ptr %5, align 4, !tbaa !8
+  %36 = sitofp i32 %35 to double
+  %37 = fdiv reassoc nsz arcp double %34, %36
+  %38 = fptrunc reassoc nsz arcp double %37 to float
+  %39 = call reassoc nsz arcp float @cosf(float noundef %38) #4, !tbaa !8
+  %40 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBF50624DE0000000, float %39, float %31)
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
+  %42 = load i32, ptr %6, align 4, !tbaa !8
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds float, ptr %41, i64 %43
+  store float %40, ptr %44, align 4, !tbaa !10
+  br label %45
 
-for.inc:                                          ; preds = %for.body
-  %14 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !17
+45:                                               ; preds = %13
+  %46 = load i32, ptr %6, align 4, !tbaa !8
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %6, align 4, !tbaa !8
+  br label %9, !llvm.loop !27
 
-for.end:                                          ; preds = %for.cond
+48:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_nuttall(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_nuttall(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %n, align 4
-  %2 = load i32, ptr %L.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %45, %2
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %4, align 4, !tbaa !8
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %48
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %3 to double
-  %mul = fmul reassoc nsz arcp double 0x401921FB54442D18, %conv
-  %4 = load i32, ptr %N, align 4
-  %conv1 = sitofp i32 %4 to double
-  %div = fdiv reassoc nsz arcp double %mul, %conv1
-  %conv2 = fptrunc double %div to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv2) #3
-  %5 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDF4EAF20000000, float %call, float 0x3FD744ED00000000)
-  %6 = load i32, ptr %n, align 4
-  %conv4 = sitofp i32 %6 to double
-  %mul5 = fmul reassoc nsz arcp double 0x402921FB54442D18, %conv4
-  %7 = load i32, ptr %N, align 4
-  %conv6 = sitofp i32 %7 to double
-  %div7 = fdiv reassoc nsz arcp double %mul5, %conv6
-  %conv8 = fptrunc double %div7 to float
-  %call9 = call reassoc nsz arcp float @cosf(float noundef %conv8) #3
-  %8 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FC17C17A0000000, float %call9, float %5)
-  %9 = load i32, ptr %n, align 4
-  %conv11 = sitofp i32 %9 to double
-  %mul12 = fmul reassoc nsz arcp double 0x4032D97C7F3321D2, %conv11
-  %10 = load i32, ptr %N, align 4
-  %conv13 = sitofp i32 %10 to double
-  %div14 = fdiv reassoc nsz arcp double %mul12, %conv13
-  %conv15 = fptrunc double %div14 to float
-  %call16 = call reassoc nsz arcp float @cosf(float noundef %conv15) #3
-  %11 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBF85CB0040000000, float %call16, float %8)
-  %12 = load ptr, ptr %window.addr, align 8
-  %13 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds float, ptr %12, i64 %idxprom
-  store float %11, ptr %arrayidx, align 4
-  br label %for.inc
+13:                                               ; preds = %9
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = sitofp i32 %14 to double
+  %16 = fmul reassoc nsz arcp double 0x401921FB54442D18, %15
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = sitofp i32 %17 to double
+  %19 = fdiv reassoc nsz arcp double %16, %18
+  %20 = fptrunc reassoc nsz arcp double %19 to float
+  %21 = call reassoc nsz arcp float @cosf(float noundef %20) #4, !tbaa !8
+  %22 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBFDF4EAF20000000, float %21, float 0x3FD744ED00000000)
+  %23 = load i32, ptr %6, align 4, !tbaa !8
+  %24 = sitofp i32 %23 to double
+  %25 = fmul reassoc nsz arcp double 0x402921FB54442D18, %24
+  %26 = load i32, ptr %5, align 4, !tbaa !8
+  %27 = sitofp i32 %26 to double
+  %28 = fdiv reassoc nsz arcp double %25, %27
+  %29 = fptrunc reassoc nsz arcp double %28 to float
+  %30 = call reassoc nsz arcp float @cosf(float noundef %29) #4, !tbaa !8
+  %31 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0x3FC17C17A0000000, float %30, float %22)
+  %32 = load i32, ptr %6, align 4, !tbaa !8
+  %33 = sitofp i32 %32 to double
+  %34 = fmul reassoc nsz arcp double 0x4032D97C7F3321D2, %33
+  %35 = load i32, ptr %5, align 4, !tbaa !8
+  %36 = sitofp i32 %35 to double
+  %37 = fdiv reassoc nsz arcp double %34, %36
+  %38 = fptrunc reassoc nsz arcp double %37 to float
+  %39 = call reassoc nsz arcp float @cosf(float noundef %38) #4, !tbaa !8
+  %40 = call reassoc nsz arcp float @llvm.fmuladd.f32(float 0xBF85CB0040000000, float %39, float %31)
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
+  %42 = load i32, ptr %6, align 4, !tbaa !8
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds float, ptr %41, i64 %43
+  store float %40, ptr %44, align 4, !tbaa !10
+  br label %45
 
-for.inc:                                          ; preds = %for.body
-  %14 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !18
+45:                                               ; preds = %13
+  %46 = load i32, ptr %6, align 4, !tbaa !8
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %6, align 4, !tbaa !8
+  br label %9, !llvm.loop !28
 
-for.end:                                          ; preds = %for.cond
+48:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_rectangle(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_rectangle(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  store i32 0, ptr %5, align 4, !tbaa !8
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %n, align 4
-  %1 = load i32, ptr %L.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %15, %2
+  %7 = load i32, ptr %5, align 4, !tbaa !8
+  %8 = load i32, ptr %4, align 4, !tbaa !8
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %18
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %window.addr, align 8
-  %3 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds float, ptr %2, i64 %idxprom
-  store float 1.000000e+00, ptr %arrayidx, align 4
-  br label %for.inc
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load i32, ptr %5, align 4, !tbaa !8
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds float, ptr %11, i64 %13
+  store float 1.000000e+00, ptr %14, align 4, !tbaa !10
+  br label %15
 
-for.inc:                                          ; preds = %for.body
-  %4 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !19
+15:                                               ; preds = %10
+  %16 = load i32, ptr %5, align 4, !tbaa !8
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %5, align 4, !tbaa !8
+  br label %6, !llvm.loop !29
 
-for.end:                                          ; preds = %for.cond
+18:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_triangle(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %and = and i32 %0, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
+define hidden void @FLAC__window_triangle(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = and i32 %6, 1
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %57
 
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %n, align 4
-  br label %for.cond
+9:                                                ; preds = %2
+  store i32 1, ptr %5, align 4, !tbaa !8
+  br label %10
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %1 = load i32, ptr %n, align 4
-  %2 = load i32, ptr %L.addr, align 4
-  %add = add nsw i32 %2, 1
-  %div = sdiv i32 %add, 2
-  %cmp = icmp sle i32 %1, %div
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %29, %9
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = load i32, ptr %4, align 4, !tbaa !8
+  %13 = add nsw i32 %12, 1
+  %14 = sdiv i32 %13, 2
+  %15 = icmp sle i32 %11, %14
+  br i1 %15, label %16, label %32
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %n, align 4
-  %conv = sitofp i32 %3 to float
-  %mul = fmul reassoc nsz arcp float 2.000000e+00, %conv
-  %4 = load i32, ptr %L.addr, align 4
-  %conv1 = sitofp i32 %4 to float
-  %add2 = fadd reassoc nsz arcp float %conv1, 1.000000e+00
-  %div3 = fdiv reassoc nsz arcp float %mul, %add2
-  %5 = load ptr, ptr %window.addr, align 8
-  %6 = load i32, ptr %n, align 4
-  %sub = sub nsw i32 %6, 1
-  %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds float, ptr %5, i64 %idxprom
-  store float %div3, ptr %arrayidx, align 4
-  br label %for.inc
+16:                                               ; preds = %10
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = sitofp i32 %17 to float
+  %19 = fmul reassoc nsz arcp float 2.000000e+00, %18
+  %20 = load i32, ptr %4, align 4, !tbaa !8
+  %21 = sitofp i32 %20 to float
+  %22 = fadd reassoc nsz arcp float %21, 1.000000e+00
+  %23 = fdiv reassoc nsz arcp float %19, %22
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %25 = load i32, ptr %5, align 4, !tbaa !8
+  %26 = sub nsw i32 %25, 1
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds float, ptr %24, i64 %27
+  store float %23, ptr %28, align 4, !tbaa !10
+  br label %29
 
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !20
+29:                                               ; preds = %16
+  %30 = load i32, ptr %5, align 4, !tbaa !8
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %5, align 4, !tbaa !8
+  br label %10, !llvm.loop !30
 
-for.end:                                          ; preds = %for.cond
-  br label %for.cond4
+32:                                               ; preds = %10
+  br label %33
 
-for.cond4:                                        ; preds = %for.inc18, %for.end
-  %8 = load i32, ptr %n, align 4
-  %9 = load i32, ptr %L.addr, align 4
-  %cmp5 = icmp sle i32 %8, %9
-  br i1 %cmp5, label %for.body7, label %for.end20
+33:                                               ; preds = %53, %32
+  %34 = load i32, ptr %5, align 4, !tbaa !8
+  %35 = load i32, ptr %4, align 4, !tbaa !8
+  %36 = icmp sle i32 %34, %35
+  br i1 %36, label %37, label %56
 
-for.body7:                                        ; preds = %for.cond4
-  %10 = load i32, ptr %L.addr, align 4
-  %11 = load i32, ptr %n, align 4
-  %sub8 = sub nsw i32 %10, %11
-  %add9 = add nsw i32 %sub8, 1
-  %mul10 = mul nsw i32 2, %add9
-  %conv11 = sitofp i32 %mul10 to float
-  %12 = load i32, ptr %L.addr, align 4
-  %conv12 = sitofp i32 %12 to float
-  %add13 = fadd reassoc nsz arcp float %conv12, 1.000000e+00
-  %div14 = fdiv reassoc nsz arcp float %conv11, %add13
-  %13 = load ptr, ptr %window.addr, align 8
-  %14 = load i32, ptr %n, align 4
-  %sub15 = sub nsw i32 %14, 1
-  %idxprom16 = sext i32 %sub15 to i64
-  %arrayidx17 = getelementptr inbounds float, ptr %13, i64 %idxprom16
-  store float %div14, ptr %arrayidx17, align 4
-  br label %for.inc18
+37:                                               ; preds = %33
+  %38 = load i32, ptr %4, align 4, !tbaa !8
+  %39 = load i32, ptr %5, align 4, !tbaa !8
+  %40 = sub nsw i32 %38, %39
+  %41 = add nsw i32 %40, 1
+  %42 = mul nsw i32 2, %41
+  %43 = sitofp i32 %42 to float
+  %44 = load i32, ptr %4, align 4, !tbaa !8
+  %45 = sitofp i32 %44 to float
+  %46 = fadd reassoc nsz arcp float %45, 1.000000e+00
+  %47 = fdiv reassoc nsz arcp float %43, %46
+  %48 = load ptr, ptr %3, align 8, !tbaa !3
+  %49 = load i32, ptr %5, align 4, !tbaa !8
+  %50 = sub nsw i32 %49, 1
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds float, ptr %48, i64 %51
+  store float %47, ptr %52, align 4, !tbaa !10
+  br label %53
 
-for.inc18:                                        ; preds = %for.body7
-  %15 = load i32, ptr %n, align 4
-  %inc19 = add nsw i32 %15, 1
-  store i32 %inc19, ptr %n, align 4
-  br label %for.cond4, !llvm.loop !21
+53:                                               ; preds = %37
+  %54 = load i32, ptr %5, align 4, !tbaa !8
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %5, align 4, !tbaa !8
+  br label %33, !llvm.loop !31
 
-for.end20:                                        ; preds = %for.cond4
-  br label %if.end
+56:                                               ; preds = %33
+  br label %104
 
-if.else:                                          ; preds = %entry
-  store i32 1, ptr %n, align 4
-  br label %for.cond21
+57:                                               ; preds = %2
+  store i32 1, ptr %5, align 4, !tbaa !8
+  br label %58
 
-for.cond21:                                       ; preds = %for.inc34, %if.else
-  %16 = load i32, ptr %n, align 4
-  %17 = load i32, ptr %L.addr, align 4
-  %div22 = sdiv i32 %17, 2
-  %cmp23 = icmp sle i32 %16, %div22
-  br i1 %cmp23, label %for.body25, label %for.end36
+58:                                               ; preds = %76, %57
+  %59 = load i32, ptr %5, align 4, !tbaa !8
+  %60 = load i32, ptr %4, align 4, !tbaa !8
+  %61 = sdiv i32 %60, 2
+  %62 = icmp sle i32 %59, %61
+  br i1 %62, label %63, label %79
 
-for.body25:                                       ; preds = %for.cond21
-  %18 = load i32, ptr %n, align 4
-  %conv26 = sitofp i32 %18 to float
-  %mul27 = fmul reassoc nsz arcp float 2.000000e+00, %conv26
-  %19 = load i32, ptr %L.addr, align 4
-  %conv28 = sitofp i32 %19 to float
-  %add29 = fadd reassoc nsz arcp float %conv28, 1.000000e+00
-  %div30 = fdiv reassoc nsz arcp float %mul27, %add29
-  %20 = load ptr, ptr %window.addr, align 8
-  %21 = load i32, ptr %n, align 4
-  %sub31 = sub nsw i32 %21, 1
-  %idxprom32 = sext i32 %sub31 to i64
-  %arrayidx33 = getelementptr inbounds float, ptr %20, i64 %idxprom32
-  store float %div30, ptr %arrayidx33, align 4
-  br label %for.inc34
+63:                                               ; preds = %58
+  %64 = load i32, ptr %5, align 4, !tbaa !8
+  %65 = sitofp i32 %64 to float
+  %66 = fmul reassoc nsz arcp float 2.000000e+00, %65
+  %67 = load i32, ptr %4, align 4, !tbaa !8
+  %68 = sitofp i32 %67 to float
+  %69 = fadd reassoc nsz arcp float %68, 1.000000e+00
+  %70 = fdiv reassoc nsz arcp float %66, %69
+  %71 = load ptr, ptr %3, align 8, !tbaa !3
+  %72 = load i32, ptr %5, align 4, !tbaa !8
+  %73 = sub nsw i32 %72, 1
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds float, ptr %71, i64 %74
+  store float %70, ptr %75, align 4, !tbaa !10
+  br label %76
 
-for.inc34:                                        ; preds = %for.body25
-  %22 = load i32, ptr %n, align 4
-  %inc35 = add nsw i32 %22, 1
-  store i32 %inc35, ptr %n, align 4
-  br label %for.cond21, !llvm.loop !22
+76:                                               ; preds = %63
+  %77 = load i32, ptr %5, align 4, !tbaa !8
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %5, align 4, !tbaa !8
+  br label %58, !llvm.loop !32
 
-for.end36:                                        ; preds = %for.cond21
-  br label %for.cond37
+79:                                               ; preds = %58
+  br label %80
 
-for.cond37:                                       ; preds = %for.inc51, %for.end36
-  %23 = load i32, ptr %n, align 4
-  %24 = load i32, ptr %L.addr, align 4
-  %cmp38 = icmp sle i32 %23, %24
-  br i1 %cmp38, label %for.body40, label %for.end53
+80:                                               ; preds = %100, %79
+  %81 = load i32, ptr %5, align 4, !tbaa !8
+  %82 = load i32, ptr %4, align 4, !tbaa !8
+  %83 = icmp sle i32 %81, %82
+  br i1 %83, label %84, label %103
 
-for.body40:                                       ; preds = %for.cond37
-  %25 = load i32, ptr %L.addr, align 4
-  %26 = load i32, ptr %n, align 4
-  %sub41 = sub nsw i32 %25, %26
-  %add42 = add nsw i32 %sub41, 1
-  %mul43 = mul nsw i32 2, %add42
-  %conv44 = sitofp i32 %mul43 to float
-  %27 = load i32, ptr %L.addr, align 4
-  %conv45 = sitofp i32 %27 to float
-  %add46 = fadd reassoc nsz arcp float %conv45, 1.000000e+00
-  %div47 = fdiv reassoc nsz arcp float %conv44, %add46
-  %28 = load ptr, ptr %window.addr, align 8
-  %29 = load i32, ptr %n, align 4
-  %sub48 = sub nsw i32 %29, 1
-  %idxprom49 = sext i32 %sub48 to i64
-  %arrayidx50 = getelementptr inbounds float, ptr %28, i64 %idxprom49
-  store float %div47, ptr %arrayidx50, align 4
-  br label %for.inc51
+84:                                               ; preds = %80
+  %85 = load i32, ptr %4, align 4, !tbaa !8
+  %86 = load i32, ptr %5, align 4, !tbaa !8
+  %87 = sub nsw i32 %85, %86
+  %88 = add nsw i32 %87, 1
+  %89 = mul nsw i32 2, %88
+  %90 = sitofp i32 %89 to float
+  %91 = load i32, ptr %4, align 4, !tbaa !8
+  %92 = sitofp i32 %91 to float
+  %93 = fadd reassoc nsz arcp float %92, 1.000000e+00
+  %94 = fdiv reassoc nsz arcp float %90, %93
+  %95 = load ptr, ptr %3, align 8, !tbaa !3
+  %96 = load i32, ptr %5, align 4, !tbaa !8
+  %97 = sub nsw i32 %96, 1
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds float, ptr %95, i64 %98
+  store float %94, ptr %99, align 4, !tbaa !10
+  br label %100
 
-for.inc51:                                        ; preds = %for.body40
-  %30 = load i32, ptr %n, align 4
-  %inc52 = add nsw i32 %30, 1
-  store i32 %inc52, ptr %n, align 4
-  br label %for.cond37, !llvm.loop !23
+100:                                              ; preds = %84
+  %101 = load i32, ptr %5, align 4, !tbaa !8
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %5, align 4, !tbaa !8
+  br label %80, !llvm.loop !33
 
-for.end53:                                        ; preds = %for.cond37
-  br label %if.end
+103:                                              ; preds = %80
+  br label %104
 
-if.end:                                           ; preds = %for.end53, %for.end20
+104:                                              ; preds = %103, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_tukey(ptr noundef %window, i32 noundef %L, float noundef %p) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %p.addr = alloca float, align 4
-  %Np = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  store float %p, ptr %p.addr, align 4
-  %0 = load float, ptr %p.addr, align 4
-  %conv = fpext float %0 to double
-  %cmp = fcmp reassoc nsz arcp ole double %conv, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
+define hidden void @FLAC__window_tukey(ptr noundef %0, i32 noundef %1, float noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca float, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store float %2, ptr %6, align 4, !tbaa !10
+  %9 = load float, ptr %6, align 4, !tbaa !10
+  %10 = fpext reassoc nsz arcp float %9 to double
+  %11 = fcmp reassoc nsz arcp ole double %10, 0.000000e+00
+  br i1 %11, label %12, label %15
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %window.addr, align 8
-  %2 = load i32, ptr %L.addr, align 4
-  call void @FLAC__window_rectangle(ptr noundef %1, i32 noundef %2)
-  br label %if.end40
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = load i32, ptr %5, align 4, !tbaa !8
+  call void @FLAC__window_rectangle(ptr noundef %13, i32 noundef %14)
+  br label %89
 
-if.else:                                          ; preds = %entry
-  %3 = load float, ptr %p.addr, align 4
-  %conv2 = fpext float %3 to double
-  %cmp3 = fcmp reassoc nsz arcp oge double %conv2, 1.000000e+00
-  br i1 %cmp3, label %if.then5, label %if.else6
+15:                                               ; preds = %3
+  %16 = load float, ptr %6, align 4, !tbaa !10
+  %17 = fpext reassoc nsz arcp float %16 to double
+  %18 = fcmp reassoc nsz arcp oge double %17, 1.000000e+00
+  br i1 %18, label %19, label %22
 
-if.then5:                                         ; preds = %if.else
-  %4 = load ptr, ptr %window.addr, align 8
-  %5 = load i32, ptr %L.addr, align 4
-  call void @FLAC__window_hann(ptr noundef %4, i32 noundef %5)
-  br label %if.end39
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = load i32, ptr %5, align 4, !tbaa !8
+  call void @FLAC__window_hann(ptr noundef %20, i32 noundef %21)
+  br label %88
 
-if.else6:                                         ; preds = %if.else
-  %6 = load float, ptr %p.addr, align 4
-  %cmp7 = fcmp reassoc nsz arcp ogt float %6, 0.000000e+00
-  br i1 %cmp7, label %land.lhs.true, label %if.then11
+22:                                               ; preds = %15
+  %23 = load float, ptr %6, align 4, !tbaa !10
+  %24 = fcmp reassoc nsz arcp ogt float %23, 0.000000e+00
+  br i1 %24, label %25, label %28
 
-land.lhs.true:                                    ; preds = %if.else6
-  %7 = load float, ptr %p.addr, align 4
-  %cmp9 = fcmp reassoc nsz arcp olt float %7, 1.000000e+00
-  br i1 %cmp9, label %if.else12, label %if.then11
+25:                                               ; preds = %22
+  %26 = load float, ptr %6, align 4, !tbaa !10
+  %27 = fcmp reassoc nsz arcp olt float %26, 1.000000e+00
+  br i1 %27, label %31, label %28
 
-if.then11:                                        ; preds = %land.lhs.true, %if.else6
-  %8 = load ptr, ptr %window.addr, align 8
-  %9 = load i32, ptr %L.addr, align 4
-  call void @FLAC__window_tukey(ptr noundef %8, i32 noundef %9, float noundef 5.000000e-01)
-  br label %if.end38
+28:                                               ; preds = %25, %22
+  %29 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = load i32, ptr %5, align 4, !tbaa !8
+  call void @FLAC__window_tukey(ptr noundef %29, i32 noundef %30, float noundef 5.000000e-01)
+  br label %87
 
-if.else12:                                        ; preds = %land.lhs.true
-  %10 = load float, ptr %p.addr, align 4
-  %div = fdiv reassoc nsz arcp float %10, 2.000000e+00
-  %11 = load i32, ptr %L.addr, align 4
-  %conv13 = sitofp i32 %11 to float
-  %mul = fmul reassoc nsz arcp float %div, %conv13
-  %conv14 = fptosi float %mul to i32
-  %sub = sub nsw i32 %conv14, 1
-  store i32 %sub, ptr %Np, align 4
-  %12 = load ptr, ptr %window.addr, align 8
-  %13 = load i32, ptr %L.addr, align 4
-  call void @FLAC__window_rectangle(ptr noundef %12, i32 noundef %13)
-  %14 = load i32, ptr %Np, align 4
-  %cmp15 = icmp sgt i32 %14, 0
-  br i1 %cmp15, label %if.then17, label %if.end
+31:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %32 = load float, ptr %6, align 4, !tbaa !10
+  %33 = fdiv reassoc nsz arcp float %32, 2.000000e+00
+  %34 = load i32, ptr %5, align 4, !tbaa !8
+  %35 = sitofp i32 %34 to float
+  %36 = fmul reassoc nsz arcp float %33, %35
+  %37 = fptosi float %36 to i32
+  %38 = sub nsw i32 %37, 1
+  store i32 %38, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
+  %40 = load i32, ptr %5, align 4, !tbaa !8
+  call void @FLAC__window_rectangle(ptr noundef %39, i32 noundef %40)
+  %41 = load i32, ptr %7, align 4, !tbaa !8
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %43, label %86
 
-if.then17:                                        ; preds = %if.else12
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+43:                                               ; preds = %31
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %44
 
-for.cond:                                         ; preds = %for.inc, %if.then17
-  %15 = load i32, ptr %n, align 4
-  %16 = load i32, ptr %Np, align 4
-  %cmp18 = icmp sle i32 %15, %16
-  br i1 %cmp18, label %for.body, label %for.end
+44:                                               ; preds = %82, %43
+  %45 = load i32, ptr %8, align 4, !tbaa !8
+  %46 = load i32, ptr %7, align 4, !tbaa !8
+  %47 = icmp sle i32 %45, %46
+  br i1 %47, label %48, label %85
 
-for.body:                                         ; preds = %for.cond
-  %17 = load i32, ptr %n, align 4
-  %conv20 = sitofp i32 %17 to double
-  %mul21 = fmul reassoc nsz arcp double 0x400921FB54442D18, %conv20
-  %18 = load i32, ptr %Np, align 4
-  %conv22 = sitofp i32 %18 to double
-  %div23 = fdiv reassoc nsz arcp double %mul21, %conv22
-  %conv24 = fptrunc double %div23 to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv24) #3
-  %19 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call, float 5.000000e-01)
-  %20 = load ptr, ptr %window.addr, align 8
-  %21 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %21 to i64
-  %arrayidx = getelementptr inbounds float, ptr %20, i64 %idxprom
-  store float %19, ptr %arrayidx, align 4
-  %22 = load i32, ptr %n, align 4
-  %23 = load i32, ptr %Np, align 4
-  %add = add nsw i32 %22, %23
-  %conv26 = sitofp i32 %add to double
-  %mul27 = fmul reassoc nsz arcp double 0x400921FB54442D18, %conv26
-  %24 = load i32, ptr %Np, align 4
-  %conv28 = sitofp i32 %24 to double
-  %div29 = fdiv reassoc nsz arcp double %mul27, %conv28
-  %conv30 = fptrunc double %div29 to float
-  %call31 = call reassoc nsz arcp float @cosf(float noundef %conv30) #3
-  %25 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call31, float 5.000000e-01)
-  %26 = load ptr, ptr %window.addr, align 8
-  %27 = load i32, ptr %L.addr, align 4
-  %28 = load i32, ptr %Np, align 4
-  %sub33 = sub nsw i32 %27, %28
-  %sub34 = sub nsw i32 %sub33, 1
-  %29 = load i32, ptr %n, align 4
-  %add35 = add nsw i32 %sub34, %29
-  %idxprom36 = sext i32 %add35 to i64
-  %arrayidx37 = getelementptr inbounds float, ptr %26, i64 %idxprom36
-  store float %25, ptr %arrayidx37, align 4
-  br label %for.inc
+48:                                               ; preds = %44
+  %49 = load i32, ptr %8, align 4, !tbaa !8
+  %50 = sitofp i32 %49 to double
+  %51 = fmul reassoc nsz arcp double 0x400921FB54442D18, %50
+  %52 = load i32, ptr %7, align 4, !tbaa !8
+  %53 = sitofp i32 %52 to double
+  %54 = fdiv reassoc nsz arcp double %51, %53
+  %55 = fptrunc reassoc nsz arcp double %54 to float
+  %56 = call reassoc nsz arcp float @cosf(float noundef %55) #4, !tbaa !8
+  %57 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %56, float 5.000000e-01)
+  %58 = load ptr, ptr %4, align 8, !tbaa !3
+  %59 = load i32, ptr %8, align 4, !tbaa !8
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds float, ptr %58, i64 %60
+  store float %57, ptr %61, align 4, !tbaa !10
+  %62 = load i32, ptr %8, align 4, !tbaa !8
+  %63 = load i32, ptr %7, align 4, !tbaa !8
+  %64 = add nsw i32 %62, %63
+  %65 = sitofp i32 %64 to double
+  %66 = fmul reassoc nsz arcp double 0x400921FB54442D18, %65
+  %67 = load i32, ptr %7, align 4, !tbaa !8
+  %68 = sitofp i32 %67 to double
+  %69 = fdiv reassoc nsz arcp double %66, %68
+  %70 = fptrunc reassoc nsz arcp double %69 to float
+  %71 = call reassoc nsz arcp float @cosf(float noundef %70) #4, !tbaa !8
+  %72 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %71, float 5.000000e-01)
+  %73 = load ptr, ptr %4, align 8, !tbaa !3
+  %74 = load i32, ptr %5, align 4, !tbaa !8
+  %75 = load i32, ptr %7, align 4, !tbaa !8
+  %76 = sub nsw i32 %74, %75
+  %77 = sub nsw i32 %76, 1
+  %78 = load i32, ptr %8, align 4, !tbaa !8
+  %79 = add nsw i32 %77, %78
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds float, ptr %73, i64 %80
+  store float %72, ptr %81, align 4, !tbaa !10
+  br label %82
 
-for.inc:                                          ; preds = %for.body
-  %30 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %30, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !24
+82:                                               ; preds = %48
+  %83 = load i32, ptr %8, align 4, !tbaa !8
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %8, align 4, !tbaa !8
+  br label %44, !llvm.loop !34
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+85:                                               ; preds = %44
+  br label %86
 
-if.end:                                           ; preds = %for.end, %if.else12
-  br label %if.end38
+86:                                               ; preds = %85, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  br label %87
 
-if.end38:                                         ; preds = %if.end, %if.then11
-  br label %if.end39
+87:                                               ; preds = %86, %28
+  br label %88
 
-if.end39:                                         ; preds = %if.end38, %if.then5
-  br label %if.end40
+88:                                               ; preds = %87, %19
+  br label %89
 
-if.end40:                                         ; preds = %if.end39, %if.then
+89:                                               ; preds = %88, %12
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_partial_tukey(ptr noundef %window, i32 noundef %L, float noundef %p, float noundef %start, float noundef %end) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %p.addr = alloca float, align 4
-  %start.addr = alloca float, align 4
-  %end.addr = alloca float, align 4
-  %start_n = alloca i32, align 4
-  %end_n = alloca i32, align 4
-  %N = alloca i32, align 4
-  %Np = alloca i32, align 4
-  %n = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  store float %p, ptr %p.addr, align 4
-  store float %start, ptr %start.addr, align 4
-  store float %end, ptr %end.addr, align 4
-  %0 = load float, ptr %start.addr, align 4
-  %1 = load i32, ptr %L.addr, align 4
-  %conv = sitofp i32 %1 to float
-  %mul = fmul reassoc nsz arcp float %0, %conv
-  %conv1 = fptosi float %mul to i32
-  store i32 %conv1, ptr %start_n, align 4
-  %2 = load float, ptr %end.addr, align 4
-  %3 = load i32, ptr %L.addr, align 4
-  %conv2 = sitofp i32 %3 to float
-  %mul3 = fmul reassoc nsz arcp float %2, %conv2
-  %conv4 = fptosi float %mul3 to i32
-  store i32 %conv4, ptr %end_n, align 4
-  %4 = load i32, ptr %end_n, align 4
-  %5 = load i32, ptr %start_n, align 4
-  %sub = sub nsw i32 %4, %5
-  store i32 %sub, ptr %N, align 4
-  %6 = load float, ptr %p.addr, align 4
-  %cmp = fcmp reassoc nsz arcp ole float %6, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
+define hidden void @FLAC__window_partial_tukey(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store float %2, ptr %8, align 4, !tbaa !10
+  store float %3, ptr %9, align 4, !tbaa !10
+  store float %4, ptr %10, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %17 = load float, ptr %9, align 4, !tbaa !10
+  %18 = load i32, ptr %7, align 4, !tbaa !8
+  %19 = sitofp i32 %18 to float
+  %20 = fmul reassoc nsz arcp float %17, %19
+  %21 = fptosi float %20 to i32
+  store i32 %21, ptr %11, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %22 = load float, ptr %10, align 4, !tbaa !10
+  %23 = load i32, ptr %7, align 4, !tbaa !8
+  %24 = sitofp i32 %23 to float
+  %25 = fmul reassoc nsz arcp float %22, %24
+  %26 = fptosi float %25 to i32
+  store i32 %26, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  %27 = load i32, ptr %12, align 4, !tbaa !8
+  %28 = load i32, ptr %11, align 4, !tbaa !8
+  %29 = sub nsw i32 %27, %28
+  store i32 %29, ptr %13, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  %30 = load float, ptr %8, align 4, !tbaa !10
+  %31 = fcmp reassoc nsz arcp ole float %30, 0.000000e+00
+  br i1 %31, label %32, label %37
 
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %window.addr, align 8
-  %8 = load i32, ptr %L.addr, align 4
-  %9 = load float, ptr %start.addr, align 4
-  %10 = load float, ptr %end.addr, align 4
-  call void @FLAC__window_partial_tukey(ptr noundef %7, i32 noundef %8, float noundef 0x3FA99999A0000000, float noundef %9, float noundef %10)
-  br label %if.end87
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %6, align 8, !tbaa !3
+  %34 = load i32, ptr %7, align 4, !tbaa !8
+  %35 = load float, ptr %9, align 4, !tbaa !10
+  %36 = load float, ptr %10, align 4, !tbaa !10
+  call void @FLAC__window_partial_tukey(ptr noundef %33, i32 noundef %34, float noundef 0x3FA99999A0000000, float noundef %35, float noundef %36)
+  br label %181
 
-if.else:                                          ; preds = %entry
-  %11 = load float, ptr %p.addr, align 4
-  %cmp6 = fcmp reassoc nsz arcp oge float %11, 1.000000e+00
-  br i1 %cmp6, label %if.then8, label %if.else9
+37:                                               ; preds = %5
+  %38 = load float, ptr %8, align 4, !tbaa !10
+  %39 = fcmp reassoc nsz arcp oge float %38, 1.000000e+00
+  br i1 %39, label %40, label %45
 
-if.then8:                                         ; preds = %if.else
-  %12 = load ptr, ptr %window.addr, align 8
-  %13 = load i32, ptr %L.addr, align 4
-  %14 = load float, ptr %start.addr, align 4
-  %15 = load float, ptr %end.addr, align 4
-  call void @FLAC__window_partial_tukey(ptr noundef %12, i32 noundef %13, float noundef 0x3FEE666660000000, float noundef %14, float noundef %15)
-  br label %if.end86
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %6, align 8, !tbaa !3
+  %42 = load i32, ptr %7, align 4, !tbaa !8
+  %43 = load float, ptr %9, align 4, !tbaa !10
+  %44 = load float, ptr %10, align 4, !tbaa !10
+  call void @FLAC__window_partial_tukey(ptr noundef %41, i32 noundef %42, float noundef 0x3FEE666660000000, float noundef %43, float noundef %44)
+  br label %180
 
-if.else9:                                         ; preds = %if.else
-  %16 = load float, ptr %p.addr, align 4
-  %cmp10 = fcmp reassoc nsz arcp ogt float %16, 0.000000e+00
-  br i1 %cmp10, label %land.lhs.true, label %if.then14
+45:                                               ; preds = %37
+  %46 = load float, ptr %8, align 4, !tbaa !10
+  %47 = fcmp reassoc nsz arcp ogt float %46, 0.000000e+00
+  br i1 %47, label %48, label %51
 
-land.lhs.true:                                    ; preds = %if.else9
-  %17 = load float, ptr %p.addr, align 4
-  %cmp12 = fcmp reassoc nsz arcp olt float %17, 1.000000e+00
-  br i1 %cmp12, label %if.else15, label %if.then14
+48:                                               ; preds = %45
+  %49 = load float, ptr %8, align 4, !tbaa !10
+  %50 = fcmp reassoc nsz arcp olt float %49, 1.000000e+00
+  br i1 %50, label %56, label %51
 
-if.then14:                                        ; preds = %land.lhs.true, %if.else9
-  %18 = load ptr, ptr %window.addr, align 8
-  %19 = load i32, ptr %L.addr, align 4
-  %20 = load float, ptr %start.addr, align 4
-  %21 = load float, ptr %end.addr, align 4
-  call void @FLAC__window_partial_tukey(ptr noundef %18, i32 noundef %19, float noundef 5.000000e-01, float noundef %20, float noundef %21)
-  br label %if.end
+51:                                               ; preds = %48, %45
+  %52 = load ptr, ptr %6, align 8, !tbaa !3
+  %53 = load i32, ptr %7, align 4, !tbaa !8
+  %54 = load float, ptr %9, align 4, !tbaa !10
+  %55 = load float, ptr %10, align 4, !tbaa !10
+  call void @FLAC__window_partial_tukey(ptr noundef %52, i32 noundef %53, float noundef 5.000000e-01, float noundef %54, float noundef %55)
+  br label %179
 
-if.else15:                                        ; preds = %land.lhs.true
-  %22 = load float, ptr %p.addr, align 4
-  %div = fdiv reassoc nsz arcp float %22, 2.000000e+00
-  %23 = load i32, ptr %N, align 4
-  %conv16 = sitofp i32 %23 to float
-  %mul17 = fmul reassoc nsz arcp float %div, %conv16
-  %conv18 = fptosi float %mul17 to i32
-  store i32 %conv18, ptr %Np, align 4
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+56:                                               ; preds = %48
+  %57 = load float, ptr %8, align 4, !tbaa !10
+  %58 = fdiv reassoc nsz arcp float %57, 2.000000e+00
+  %59 = load i32, ptr %13, align 4, !tbaa !8
+  %60 = sitofp i32 %59 to float
+  %61 = fmul reassoc nsz arcp float %58, %60
+  %62 = fptosi float %61 to i32
+  store i32 %62, ptr %14, align 4, !tbaa !8
+  store i32 0, ptr %15, align 4, !tbaa !8
+  br label %63
 
-for.cond:                                         ; preds = %for.inc, %if.else15
-  %24 = load i32, ptr %n, align 4
-  %25 = load i32, ptr %start_n, align 4
-  %cmp19 = icmp slt i32 %24, %25
-  br i1 %cmp19, label %land.rhs, label %land.end
+63:                                               ; preds = %78, %56
+  %64 = load i32, ptr %15, align 4, !tbaa !8
+  %65 = load i32, ptr %11, align 4, !tbaa !8
+  %66 = icmp slt i32 %64, %65
+  br i1 %66, label %67, label %71
 
-land.rhs:                                         ; preds = %for.cond
-  %26 = load i32, ptr %n, align 4
-  %27 = load i32, ptr %L.addr, align 4
-  %cmp21 = icmp slt i32 %26, %27
-  br label %land.end
+67:                                               ; preds = %63
+  %68 = load i32, ptr %15, align 4, !tbaa !8
+  %69 = load i32, ptr %7, align 4, !tbaa !8
+  %70 = icmp slt i32 %68, %69
+  br label %71
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %28 = phi i1 [ false, %for.cond ], [ %cmp21, %land.rhs ]
-  br i1 %28, label %for.body, label %for.end
+71:                                               ; preds = %67, %63
+  %72 = phi i1 [ false, %63 ], [ %70, %67 ]
+  br i1 %72, label %73, label %81
 
-for.body:                                         ; preds = %land.end
-  %29 = load ptr, ptr %window.addr, align 8
-  %30 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %30 to i64
-  %arrayidx = getelementptr inbounds float, ptr %29, i64 %idxprom
-  store float 0.000000e+00, ptr %arrayidx, align 4
-  br label %for.inc
+73:                                               ; preds = %71
+  %74 = load ptr, ptr %6, align 8, !tbaa !3
+  %75 = load i32, ptr %15, align 4, !tbaa !8
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds float, ptr %74, i64 %76
+  store float 0.000000e+00, ptr %77, align 4, !tbaa !10
+  br label %78
 
-for.inc:                                          ; preds = %for.body
-  %31 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %31, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !25
+78:                                               ; preds = %73
+  %79 = load i32, ptr %15, align 4, !tbaa !8
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %15, align 4, !tbaa !8
+  br label %63, !llvm.loop !35
 
-for.end:                                          ; preds = %land.end
-  store i32 1, ptr %i, align 4
-  br label %for.cond23
+81:                                               ; preds = %71
+  store i32 1, ptr %16, align 4, !tbaa !8
+  br label %82
 
-for.cond23:                                       ; preds = %for.inc39, %for.end
-  %32 = load i32, ptr %n, align 4
-  %33 = load i32, ptr %start_n, align 4
-  %34 = load i32, ptr %Np, align 4
-  %add = add nsw i32 %33, %34
-  %cmp24 = icmp slt i32 %32, %add
-  br i1 %cmp24, label %land.rhs26, label %land.end29
+82:                                               ; preds = %108, %81
+  %83 = load i32, ptr %15, align 4, !tbaa !8
+  %84 = load i32, ptr %11, align 4, !tbaa !8
+  %85 = load i32, ptr %14, align 4, !tbaa !8
+  %86 = add nsw i32 %84, %85
+  %87 = icmp slt i32 %83, %86
+  br i1 %87, label %88, label %92
 
-land.rhs26:                                       ; preds = %for.cond23
-  %35 = load i32, ptr %n, align 4
-  %36 = load i32, ptr %L.addr, align 4
-  %cmp27 = icmp slt i32 %35, %36
-  br label %land.end29
+88:                                               ; preds = %82
+  %89 = load i32, ptr %15, align 4, !tbaa !8
+  %90 = load i32, ptr %7, align 4, !tbaa !8
+  %91 = icmp slt i32 %89, %90
+  br label %92
 
-land.end29:                                       ; preds = %land.rhs26, %for.cond23
-  %37 = phi i1 [ false, %for.cond23 ], [ %cmp27, %land.rhs26 ]
-  br i1 %37, label %for.body30, label %for.end42
+92:                                               ; preds = %88, %82
+  %93 = phi i1 [ false, %82 ], [ %91, %88 ]
+  br i1 %93, label %94, label %113
 
-for.body30:                                       ; preds = %land.end29
-  %38 = load i32, ptr %i, align 4
-  %conv31 = sitofp i32 %38 to double
-  %mul32 = fmul reassoc nsz arcp double 0x400921FB54442D18, %conv31
-  %39 = load i32, ptr %Np, align 4
-  %conv33 = sitofp i32 %39 to double
-  %div34 = fdiv reassoc nsz arcp double %mul32, %conv33
-  %conv35 = fptrunc double %div34 to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv35) #3
-  %40 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call, float 5.000000e-01)
-  %41 = load ptr, ptr %window.addr, align 8
-  %42 = load i32, ptr %n, align 4
-  %idxprom37 = sext i32 %42 to i64
-  %arrayidx38 = getelementptr inbounds float, ptr %41, i64 %idxprom37
-  store float %40, ptr %arrayidx38, align 4
-  br label %for.inc39
+94:                                               ; preds = %92
+  %95 = load i32, ptr %16, align 4, !tbaa !8
+  %96 = sitofp i32 %95 to double
+  %97 = fmul reassoc nsz arcp double 0x400921FB54442D18, %96
+  %98 = load i32, ptr %14, align 4, !tbaa !8
+  %99 = sitofp i32 %98 to double
+  %100 = fdiv reassoc nsz arcp double %97, %99
+  %101 = fptrunc reassoc nsz arcp double %100 to float
+  %102 = call reassoc nsz arcp float @cosf(float noundef %101) #4, !tbaa !8
+  %103 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %102, float 5.000000e-01)
+  %104 = load ptr, ptr %6, align 8, !tbaa !3
+  %105 = load i32, ptr %15, align 4, !tbaa !8
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds float, ptr %104, i64 %106
+  store float %103, ptr %107, align 4, !tbaa !10
+  br label %108
 
-for.inc39:                                        ; preds = %for.body30
-  %43 = load i32, ptr %n, align 4
-  %inc40 = add nsw i32 %43, 1
-  store i32 %inc40, ptr %n, align 4
-  %44 = load i32, ptr %i, align 4
-  %inc41 = add nsw i32 %44, 1
-  store i32 %inc41, ptr %i, align 4
-  br label %for.cond23, !llvm.loop !26
+108:                                              ; preds = %94
+  %109 = load i32, ptr %15, align 4, !tbaa !8
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %15, align 4, !tbaa !8
+  %111 = load i32, ptr %16, align 4, !tbaa !8
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %16, align 4, !tbaa !8
+  br label %82, !llvm.loop !36
 
-for.end42:                                        ; preds = %land.end29
-  br label %for.cond43
+113:                                              ; preds = %92
+  br label %114
 
-for.cond43:                                       ; preds = %for.inc54, %for.end42
-  %45 = load i32, ptr %n, align 4
-  %46 = load i32, ptr %end_n, align 4
-  %47 = load i32, ptr %Np, align 4
-  %sub44 = sub nsw i32 %46, %47
-  %cmp45 = icmp slt i32 %45, %sub44
-  br i1 %cmp45, label %land.rhs47, label %land.end50
+114:                                              ; preds = %131, %113
+  %115 = load i32, ptr %15, align 4, !tbaa !8
+  %116 = load i32, ptr %12, align 4, !tbaa !8
+  %117 = load i32, ptr %14, align 4, !tbaa !8
+  %118 = sub nsw i32 %116, %117
+  %119 = icmp slt i32 %115, %118
+  br i1 %119, label %120, label %124
 
-land.rhs47:                                       ; preds = %for.cond43
-  %48 = load i32, ptr %n, align 4
-  %49 = load i32, ptr %L.addr, align 4
-  %cmp48 = icmp slt i32 %48, %49
-  br label %land.end50
+120:                                              ; preds = %114
+  %121 = load i32, ptr %15, align 4, !tbaa !8
+  %122 = load i32, ptr %7, align 4, !tbaa !8
+  %123 = icmp slt i32 %121, %122
+  br label %124
 
-land.end50:                                       ; preds = %land.rhs47, %for.cond43
-  %50 = phi i1 [ false, %for.cond43 ], [ %cmp48, %land.rhs47 ]
-  br i1 %50, label %for.body51, label %for.end56
+124:                                              ; preds = %120, %114
+  %125 = phi i1 [ false, %114 ], [ %123, %120 ]
+  br i1 %125, label %126, label %134
 
-for.body51:                                       ; preds = %land.end50
-  %51 = load ptr, ptr %window.addr, align 8
-  %52 = load i32, ptr %n, align 4
-  %idxprom52 = sext i32 %52 to i64
-  %arrayidx53 = getelementptr inbounds float, ptr %51, i64 %idxprom52
-  store float 1.000000e+00, ptr %arrayidx53, align 4
-  br label %for.inc54
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %6, align 8, !tbaa !3
+  %128 = load i32, ptr %15, align 4, !tbaa !8
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds float, ptr %127, i64 %129
+  store float 1.000000e+00, ptr %130, align 4, !tbaa !10
+  br label %131
 
-for.inc54:                                        ; preds = %for.body51
-  %53 = load i32, ptr %n, align 4
-  %inc55 = add nsw i32 %53, 1
-  store i32 %inc55, ptr %n, align 4
-  br label %for.cond43, !llvm.loop !27
+131:                                              ; preds = %126
+  %132 = load i32, ptr %15, align 4, !tbaa !8
+  %133 = add nsw i32 %132, 1
+  store i32 %133, ptr %15, align 4, !tbaa !8
+  br label %114, !llvm.loop !37
 
-for.end56:                                        ; preds = %land.end50
-  %54 = load i32, ptr %Np, align 4
-  store i32 %54, ptr %i, align 4
-  br label %for.cond57
+134:                                              ; preds = %124
+  %135 = load i32, ptr %14, align 4, !tbaa !8
+  store i32 %135, ptr %16, align 4, !tbaa !8
+  br label %136
 
-for.cond57:                                       ; preds = %for.inc74, %for.end56
-  %55 = load i32, ptr %n, align 4
-  %56 = load i32, ptr %end_n, align 4
-  %cmp58 = icmp slt i32 %55, %56
-  br i1 %cmp58, label %land.rhs60, label %land.end63
+136:                                              ; preds = %160, %134
+  %137 = load i32, ptr %15, align 4, !tbaa !8
+  %138 = load i32, ptr %12, align 4, !tbaa !8
+  %139 = icmp slt i32 %137, %138
+  br i1 %139, label %140, label %144
 
-land.rhs60:                                       ; preds = %for.cond57
-  %57 = load i32, ptr %n, align 4
-  %58 = load i32, ptr %L.addr, align 4
-  %cmp61 = icmp slt i32 %57, %58
-  br label %land.end63
+140:                                              ; preds = %136
+  %141 = load i32, ptr %15, align 4, !tbaa !8
+  %142 = load i32, ptr %7, align 4, !tbaa !8
+  %143 = icmp slt i32 %141, %142
+  br label %144
 
-land.end63:                                       ; preds = %land.rhs60, %for.cond57
-  %59 = phi i1 [ false, %for.cond57 ], [ %cmp61, %land.rhs60 ]
-  br i1 %59, label %for.body64, label %for.end76
+144:                                              ; preds = %140, %136
+  %145 = phi i1 [ false, %136 ], [ %143, %140 ]
+  br i1 %145, label %146, label %165
 
-for.body64:                                       ; preds = %land.end63
-  %60 = load i32, ptr %i, align 4
-  %conv65 = sitofp i32 %60 to double
-  %mul66 = fmul reassoc nsz arcp double 0x400921FB54442D18, %conv65
-  %61 = load i32, ptr %Np, align 4
-  %conv67 = sitofp i32 %61 to double
-  %div68 = fdiv reassoc nsz arcp double %mul66, %conv67
-  %conv69 = fptrunc double %div68 to float
-  %call70 = call reassoc nsz arcp float @cosf(float noundef %conv69) #3
-  %62 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call70, float 5.000000e-01)
-  %63 = load ptr, ptr %window.addr, align 8
-  %64 = load i32, ptr %n, align 4
-  %idxprom72 = sext i32 %64 to i64
-  %arrayidx73 = getelementptr inbounds float, ptr %63, i64 %idxprom72
-  store float %62, ptr %arrayidx73, align 4
-  br label %for.inc74
+146:                                              ; preds = %144
+  %147 = load i32, ptr %16, align 4, !tbaa !8
+  %148 = sitofp i32 %147 to double
+  %149 = fmul reassoc nsz arcp double 0x400921FB54442D18, %148
+  %150 = load i32, ptr %14, align 4, !tbaa !8
+  %151 = sitofp i32 %150 to double
+  %152 = fdiv reassoc nsz arcp double %149, %151
+  %153 = fptrunc reassoc nsz arcp double %152 to float
+  %154 = call reassoc nsz arcp float @cosf(float noundef %153) #4, !tbaa !8
+  %155 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %154, float 5.000000e-01)
+  %156 = load ptr, ptr %6, align 8, !tbaa !3
+  %157 = load i32, ptr %15, align 4, !tbaa !8
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds float, ptr %156, i64 %158
+  store float %155, ptr %159, align 4, !tbaa !10
+  br label %160
 
-for.inc74:                                        ; preds = %for.body64
-  %65 = load i32, ptr %n, align 4
-  %inc75 = add nsw i32 %65, 1
-  store i32 %inc75, ptr %n, align 4
-  %66 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %66, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond57, !llvm.loop !28
+160:                                              ; preds = %146
+  %161 = load i32, ptr %15, align 4, !tbaa !8
+  %162 = add nsw i32 %161, 1
+  store i32 %162, ptr %15, align 4, !tbaa !8
+  %163 = load i32, ptr %16, align 4, !tbaa !8
+  %164 = add nsw i32 %163, -1
+  store i32 %164, ptr %16, align 4, !tbaa !8
+  br label %136, !llvm.loop !38
 
-for.end76:                                        ; preds = %land.end63
-  br label %for.cond77
+165:                                              ; preds = %144
+  br label %166
 
-for.cond77:                                       ; preds = %for.inc83, %for.end76
-  %67 = load i32, ptr %n, align 4
-  %68 = load i32, ptr %L.addr, align 4
-  %cmp78 = icmp slt i32 %67, %68
-  br i1 %cmp78, label %for.body80, label %for.end85
+166:                                              ; preds = %175, %165
+  %167 = load i32, ptr %15, align 4, !tbaa !8
+  %168 = load i32, ptr %7, align 4, !tbaa !8
+  %169 = icmp slt i32 %167, %168
+  br i1 %169, label %170, label %178
 
-for.body80:                                       ; preds = %for.cond77
-  %69 = load ptr, ptr %window.addr, align 8
-  %70 = load i32, ptr %n, align 4
-  %idxprom81 = sext i32 %70 to i64
-  %arrayidx82 = getelementptr inbounds float, ptr %69, i64 %idxprom81
-  store float 0.000000e+00, ptr %arrayidx82, align 4
-  br label %for.inc83
+170:                                              ; preds = %166
+  %171 = load ptr, ptr %6, align 8, !tbaa !3
+  %172 = load i32, ptr %15, align 4, !tbaa !8
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds float, ptr %171, i64 %173
+  store float 0.000000e+00, ptr %174, align 4, !tbaa !10
+  br label %175
 
-for.inc83:                                        ; preds = %for.body80
-  %71 = load i32, ptr %n, align 4
-  %inc84 = add nsw i32 %71, 1
-  store i32 %inc84, ptr %n, align 4
-  br label %for.cond77, !llvm.loop !29
+175:                                              ; preds = %170
+  %176 = load i32, ptr %15, align 4, !tbaa !8
+  %177 = add nsw i32 %176, 1
+  store i32 %177, ptr %15, align 4, !tbaa !8
+  br label %166, !llvm.loop !39
 
-for.end85:                                        ; preds = %for.cond77
-  br label %if.end
+178:                                              ; preds = %166
+  br label %179
 
-if.end:                                           ; preds = %for.end85, %if.then14
-  br label %if.end86
+179:                                              ; preds = %178, %51
+  br label %180
 
-if.end86:                                         ; preds = %if.end, %if.then8
-  br label %if.end87
+180:                                              ; preds = %179, %40
+  br label %181
 
-if.end87:                                         ; preds = %if.end86, %if.then
+181:                                              ; preds = %180, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_punchout_tukey(ptr noundef %window, i32 noundef %L, float noundef %p, float noundef %start, float noundef %end) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %p.addr = alloca float, align 4
-  %start.addr = alloca float, align 4
-  %end.addr = alloca float, align 4
-  %start_n = alloca i32, align 4
-  %end_n = alloca i32, align 4
-  %Ns = alloca i32, align 4
-  %Ne = alloca i32, align 4
-  %n = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  store float %p, ptr %p.addr, align 4
-  store float %start, ptr %start.addr, align 4
-  store float %end, ptr %end.addr, align 4
-  %0 = load float, ptr %start.addr, align 4
-  %1 = load i32, ptr %L.addr, align 4
-  %conv = sitofp i32 %1 to float
-  %mul = fmul reassoc nsz arcp float %0, %conv
-  %conv1 = fptosi float %mul to i32
-  store i32 %conv1, ptr %start_n, align 4
-  %2 = load float, ptr %end.addr, align 4
-  %3 = load i32, ptr %L.addr, align 4
-  %conv2 = sitofp i32 %3 to float
-  %mul3 = fmul reassoc nsz arcp float %2, %conv2
-  %conv4 = fptosi float %mul3 to i32
-  store i32 %conv4, ptr %end_n, align 4
-  %4 = load float, ptr %p.addr, align 4
-  %cmp = fcmp reassoc nsz arcp ole float %4, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
+define hidden void @FLAC__window_punchout_tukey(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store float %2, ptr %8, align 4, !tbaa !10
+  store float %3, ptr %9, align 4, !tbaa !10
+  store float %4, ptr %10, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %17 = load float, ptr %9, align 4, !tbaa !10
+  %18 = load i32, ptr %7, align 4, !tbaa !8
+  %19 = sitofp i32 %18 to float
+  %20 = fmul reassoc nsz arcp float %17, %19
+  %21 = fptosi float %20 to i32
+  store i32 %21, ptr %11, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %22 = load float, ptr %10, align 4, !tbaa !10
+  %23 = load i32, ptr %7, align 4, !tbaa !8
+  %24 = sitofp i32 %23 to float
+  %25 = fmul reassoc nsz arcp float %22, %24
+  %26 = fptosi float %25 to i32
+  store i32 %26, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  %27 = load float, ptr %8, align 4, !tbaa !10
+  %28 = fcmp reassoc nsz arcp ole float %27, 0.000000e+00
+  br i1 %28, label %29, label %34
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %window.addr, align 8
-  %6 = load i32, ptr %L.addr, align 4
-  %7 = load float, ptr %start.addr, align 4
-  %8 = load float, ptr %end.addr, align 4
-  call void @FLAC__window_punchout_tukey(ptr noundef %5, i32 noundef %6, float noundef 0x3FA99999A0000000, float noundef %7, float noundef %8)
-  br label %if.end134
+29:                                               ; preds = %5
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = load i32, ptr %7, align 4, !tbaa !8
+  %32 = load float, ptr %9, align 4, !tbaa !10
+  %33 = load float, ptr %10, align 4, !tbaa !10
+  call void @FLAC__window_punchout_tukey(ptr noundef %30, i32 noundef %31, float noundef 0x3FA99999A0000000, float noundef %32, float noundef %33)
+  br label %249
 
-if.else:                                          ; preds = %entry
-  %9 = load float, ptr %p.addr, align 4
-  %cmp6 = fcmp reassoc nsz arcp oge float %9, 1.000000e+00
-  br i1 %cmp6, label %if.then8, label %if.else9
+34:                                               ; preds = %5
+  %35 = load float, ptr %8, align 4, !tbaa !10
+  %36 = fcmp reassoc nsz arcp oge float %35, 1.000000e+00
+  br i1 %36, label %37, label %42
 
-if.then8:                                         ; preds = %if.else
-  %10 = load ptr, ptr %window.addr, align 8
-  %11 = load i32, ptr %L.addr, align 4
-  %12 = load float, ptr %start.addr, align 4
-  %13 = load float, ptr %end.addr, align 4
-  call void @FLAC__window_punchout_tukey(ptr noundef %10, i32 noundef %11, float noundef 0x3FEE666660000000, float noundef %12, float noundef %13)
-  br label %if.end133
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load i32, ptr %7, align 4, !tbaa !8
+  %40 = load float, ptr %9, align 4, !tbaa !10
+  %41 = load float, ptr %10, align 4, !tbaa !10
+  call void @FLAC__window_punchout_tukey(ptr noundef %38, i32 noundef %39, float noundef 0x3FEE666660000000, float noundef %40, float noundef %41)
+  br label %248
 
-if.else9:                                         ; preds = %if.else
-  %14 = load float, ptr %p.addr, align 4
-  %cmp10 = fcmp reassoc nsz arcp ogt float %14, 0.000000e+00
-  br i1 %cmp10, label %land.lhs.true, label %if.then14
+42:                                               ; preds = %34
+  %43 = load float, ptr %8, align 4, !tbaa !10
+  %44 = fcmp reassoc nsz arcp ogt float %43, 0.000000e+00
+  br i1 %44, label %45, label %48
 
-land.lhs.true:                                    ; preds = %if.else9
-  %15 = load float, ptr %p.addr, align 4
-  %cmp12 = fcmp reassoc nsz arcp olt float %15, 1.000000e+00
-  br i1 %cmp12, label %if.else15, label %if.then14
+45:                                               ; preds = %42
+  %46 = load float, ptr %8, align 4, !tbaa !10
+  %47 = fcmp reassoc nsz arcp olt float %46, 1.000000e+00
+  br i1 %47, label %53, label %48
 
-if.then14:                                        ; preds = %land.lhs.true, %if.else9
-  %16 = load ptr, ptr %window.addr, align 8
-  %17 = load i32, ptr %L.addr, align 4
-  %18 = load float, ptr %start.addr, align 4
-  %19 = load float, ptr %end.addr, align 4
-  call void @FLAC__window_punchout_tukey(ptr noundef %16, i32 noundef %17, float noundef 5.000000e-01, float noundef %18, float noundef %19)
-  br label %if.end
+48:                                               ; preds = %45, %42
+  %49 = load ptr, ptr %6, align 8, !tbaa !3
+  %50 = load i32, ptr %7, align 4, !tbaa !8
+  %51 = load float, ptr %9, align 4, !tbaa !10
+  %52 = load float, ptr %10, align 4, !tbaa !10
+  call void @FLAC__window_punchout_tukey(ptr noundef %49, i32 noundef %50, float noundef 5.000000e-01, float noundef %51, float noundef %52)
+  br label %247
 
-if.else15:                                        ; preds = %land.lhs.true
-  %20 = load float, ptr %p.addr, align 4
-  %div = fdiv reassoc nsz arcp float %20, 2.000000e+00
-  %21 = load i32, ptr %start_n, align 4
-  %conv16 = sitofp i32 %21 to float
-  %mul17 = fmul reassoc nsz arcp float %div, %conv16
-  %conv18 = fptosi float %mul17 to i32
-  store i32 %conv18, ptr %Ns, align 4
-  %22 = load float, ptr %p.addr, align 4
-  %div19 = fdiv reassoc nsz arcp float %22, 2.000000e+00
-  %23 = load i32, ptr %L.addr, align 4
-  %24 = load i32, ptr %end_n, align 4
-  %sub = sub nsw i32 %23, %24
-  %conv20 = sitofp i32 %sub to float
-  %mul21 = fmul reassoc nsz arcp float %div19, %conv20
-  %conv22 = fptosi float %mul21 to i32
-  store i32 %conv22, ptr %Ne, align 4
-  store i32 0, ptr %n, align 4
-  store i32 1, ptr %i, align 4
-  br label %for.cond
+53:                                               ; preds = %45
+  %54 = load float, ptr %8, align 4, !tbaa !10
+  %55 = fdiv reassoc nsz arcp float %54, 2.000000e+00
+  %56 = load i32, ptr %11, align 4, !tbaa !8
+  %57 = sitofp i32 %56 to float
+  %58 = fmul reassoc nsz arcp float %55, %57
+  %59 = fptosi float %58 to i32
+  store i32 %59, ptr %13, align 4, !tbaa !8
+  %60 = load float, ptr %8, align 4, !tbaa !10
+  %61 = fdiv reassoc nsz arcp float %60, 2.000000e+00
+  %62 = load i32, ptr %7, align 4, !tbaa !8
+  %63 = load i32, ptr %12, align 4, !tbaa !8
+  %64 = sub nsw i32 %62, %63
+  %65 = sitofp i32 %64 to float
+  %66 = fmul reassoc nsz arcp float %61, %65
+  %67 = fptosi float %66 to i32
+  store i32 %67, ptr %14, align 4, !tbaa !8
+  store i32 0, ptr %15, align 4, !tbaa !8
+  store i32 1, ptr %16, align 4, !tbaa !8
+  br label %68
 
-for.cond:                                         ; preds = %for.inc, %if.else15
-  %25 = load i32, ptr %n, align 4
-  %26 = load i32, ptr %Ns, align 4
-  %cmp23 = icmp slt i32 %25, %26
-  br i1 %cmp23, label %land.rhs, label %land.end
+68:                                               ; preds = %92, %53
+  %69 = load i32, ptr %15, align 4, !tbaa !8
+  %70 = load i32, ptr %13, align 4, !tbaa !8
+  %71 = icmp slt i32 %69, %70
+  br i1 %71, label %72, label %76
 
-land.rhs:                                         ; preds = %for.cond
-  %27 = load i32, ptr %n, align 4
-  %28 = load i32, ptr %L.addr, align 4
-  %cmp25 = icmp slt i32 %27, %28
-  br label %land.end
+72:                                               ; preds = %68
+  %73 = load i32, ptr %15, align 4, !tbaa !8
+  %74 = load i32, ptr %7, align 4, !tbaa !8
+  %75 = icmp slt i32 %73, %74
+  br label %76
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %29 = phi i1 [ false, %for.cond ], [ %cmp25, %land.rhs ]
-  br i1 %29, label %for.body, label %for.end
+76:                                               ; preds = %72, %68
+  %77 = phi i1 [ false, %68 ], [ %75, %72 ]
+  br i1 %77, label %78, label %97
 
-for.body:                                         ; preds = %land.end
-  %30 = load i32, ptr %i, align 4
-  %conv27 = sitofp i32 %30 to double
-  %mul28 = fmul reassoc nsz arcp double 0x400921FB54442D18, %conv27
-  %31 = load i32, ptr %Ns, align 4
-  %conv29 = sitofp i32 %31 to double
-  %div30 = fdiv reassoc nsz arcp double %mul28, %conv29
-  %conv31 = fptrunc double %div30 to float
-  %call = call reassoc nsz arcp float @cosf(float noundef %conv31) #3
-  %32 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call, float 5.000000e-01)
-  %33 = load ptr, ptr %window.addr, align 8
-  %34 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %34 to i64
-  %arrayidx = getelementptr inbounds float, ptr %33, i64 %idxprom
-  store float %32, ptr %arrayidx, align 4
-  br label %for.inc
+78:                                               ; preds = %76
+  %79 = load i32, ptr %16, align 4, !tbaa !8
+  %80 = sitofp i32 %79 to double
+  %81 = fmul reassoc nsz arcp double 0x400921FB54442D18, %80
+  %82 = load i32, ptr %13, align 4, !tbaa !8
+  %83 = sitofp i32 %82 to double
+  %84 = fdiv reassoc nsz arcp double %81, %83
+  %85 = fptrunc reassoc nsz arcp double %84 to float
+  %86 = call reassoc nsz arcp float @cosf(float noundef %85) #4, !tbaa !8
+  %87 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %86, float 5.000000e-01)
+  %88 = load ptr, ptr %6, align 8, !tbaa !3
+  %89 = load i32, ptr %15, align 4, !tbaa !8
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds float, ptr %88, i64 %90
+  store float %87, ptr %91, align 4, !tbaa !10
+  br label %92
 
-for.inc:                                          ; preds = %for.body
-  %35 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %35, 1
-  store i32 %inc, ptr %n, align 4
-  %36 = load i32, ptr %i, align 4
-  %inc33 = add nsw i32 %36, 1
-  store i32 %inc33, ptr %i, align 4
-  br label %for.cond, !llvm.loop !30
+92:                                               ; preds = %78
+  %93 = load i32, ptr %15, align 4, !tbaa !8
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %15, align 4, !tbaa !8
+  %95 = load i32, ptr %16, align 4, !tbaa !8
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr %16, align 4, !tbaa !8
+  br label %68, !llvm.loop !40
 
-for.end:                                          ; preds = %land.end
-  br label %for.cond34
+97:                                               ; preds = %76
+  br label %98
 
-for.cond34:                                       ; preds = %for.inc45, %for.end
-  %37 = load i32, ptr %n, align 4
-  %38 = load i32, ptr %start_n, align 4
-  %39 = load i32, ptr %Ns, align 4
-  %sub35 = sub nsw i32 %38, %39
-  %cmp36 = icmp slt i32 %37, %sub35
-  br i1 %cmp36, label %land.rhs38, label %land.end41
+98:                                               ; preds = %115, %97
+  %99 = load i32, ptr %15, align 4, !tbaa !8
+  %100 = load i32, ptr %11, align 4, !tbaa !8
+  %101 = load i32, ptr %13, align 4, !tbaa !8
+  %102 = sub nsw i32 %100, %101
+  %103 = icmp slt i32 %99, %102
+  br i1 %103, label %104, label %108
 
-land.rhs38:                                       ; preds = %for.cond34
-  %40 = load i32, ptr %n, align 4
-  %41 = load i32, ptr %L.addr, align 4
-  %cmp39 = icmp slt i32 %40, %41
-  br label %land.end41
+104:                                              ; preds = %98
+  %105 = load i32, ptr %15, align 4, !tbaa !8
+  %106 = load i32, ptr %7, align 4, !tbaa !8
+  %107 = icmp slt i32 %105, %106
+  br label %108
 
-land.end41:                                       ; preds = %land.rhs38, %for.cond34
-  %42 = phi i1 [ false, %for.cond34 ], [ %cmp39, %land.rhs38 ]
-  br i1 %42, label %for.body42, label %for.end47
+108:                                              ; preds = %104, %98
+  %109 = phi i1 [ false, %98 ], [ %107, %104 ]
+  br i1 %109, label %110, label %118
 
-for.body42:                                       ; preds = %land.end41
-  %43 = load ptr, ptr %window.addr, align 8
-  %44 = load i32, ptr %n, align 4
-  %idxprom43 = sext i32 %44 to i64
-  %arrayidx44 = getelementptr inbounds float, ptr %43, i64 %idxprom43
-  store float 1.000000e+00, ptr %arrayidx44, align 4
-  br label %for.inc45
+110:                                              ; preds = %108
+  %111 = load ptr, ptr %6, align 8, !tbaa !3
+  %112 = load i32, ptr %15, align 4, !tbaa !8
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds float, ptr %111, i64 %113
+  store float 1.000000e+00, ptr %114, align 4, !tbaa !10
+  br label %115
 
-for.inc45:                                        ; preds = %for.body42
-  %45 = load i32, ptr %n, align 4
-  %inc46 = add nsw i32 %45, 1
-  store i32 %inc46, ptr %n, align 4
-  br label %for.cond34, !llvm.loop !31
+115:                                              ; preds = %110
+  %116 = load i32, ptr %15, align 4, !tbaa !8
+  %117 = add nsw i32 %116, 1
+  store i32 %117, ptr %15, align 4, !tbaa !8
+  br label %98, !llvm.loop !41
 
-for.end47:                                        ; preds = %land.end41
-  %46 = load i32, ptr %Ns, align 4
-  store i32 %46, ptr %i, align 4
-  br label %for.cond48
+118:                                              ; preds = %108
+  %119 = load i32, ptr %13, align 4, !tbaa !8
+  store i32 %119, ptr %16, align 4, !tbaa !8
+  br label %120
 
-for.cond48:                                       ; preds = %for.inc65, %for.end47
-  %47 = load i32, ptr %n, align 4
-  %48 = load i32, ptr %start_n, align 4
-  %cmp49 = icmp slt i32 %47, %48
-  br i1 %cmp49, label %land.rhs51, label %land.end54
+120:                                              ; preds = %144, %118
+  %121 = load i32, ptr %15, align 4, !tbaa !8
+  %122 = load i32, ptr %11, align 4, !tbaa !8
+  %123 = icmp slt i32 %121, %122
+  br i1 %123, label %124, label %128
 
-land.rhs51:                                       ; preds = %for.cond48
-  %49 = load i32, ptr %n, align 4
-  %50 = load i32, ptr %L.addr, align 4
-  %cmp52 = icmp slt i32 %49, %50
-  br label %land.end54
+124:                                              ; preds = %120
+  %125 = load i32, ptr %15, align 4, !tbaa !8
+  %126 = load i32, ptr %7, align 4, !tbaa !8
+  %127 = icmp slt i32 %125, %126
+  br label %128
 
-land.end54:                                       ; preds = %land.rhs51, %for.cond48
-  %51 = phi i1 [ false, %for.cond48 ], [ %cmp52, %land.rhs51 ]
-  br i1 %51, label %for.body55, label %for.end67
+128:                                              ; preds = %124, %120
+  %129 = phi i1 [ false, %120 ], [ %127, %124 ]
+  br i1 %129, label %130, label %149
 
-for.body55:                                       ; preds = %land.end54
-  %52 = load i32, ptr %i, align 4
-  %conv56 = sitofp i32 %52 to double
-  %mul57 = fmul reassoc nsz arcp double 0x400921FB54442D18, %conv56
-  %53 = load i32, ptr %Ns, align 4
-  %conv58 = sitofp i32 %53 to double
-  %div59 = fdiv reassoc nsz arcp double %mul57, %conv58
-  %conv60 = fptrunc double %div59 to float
-  %call61 = call reassoc nsz arcp float @cosf(float noundef %conv60) #3
-  %54 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call61, float 5.000000e-01)
-  %55 = load ptr, ptr %window.addr, align 8
-  %56 = load i32, ptr %n, align 4
-  %idxprom63 = sext i32 %56 to i64
-  %arrayidx64 = getelementptr inbounds float, ptr %55, i64 %idxprom63
-  store float %54, ptr %arrayidx64, align 4
-  br label %for.inc65
+130:                                              ; preds = %128
+  %131 = load i32, ptr %16, align 4, !tbaa !8
+  %132 = sitofp i32 %131 to double
+  %133 = fmul reassoc nsz arcp double 0x400921FB54442D18, %132
+  %134 = load i32, ptr %13, align 4, !tbaa !8
+  %135 = sitofp i32 %134 to double
+  %136 = fdiv reassoc nsz arcp double %133, %135
+  %137 = fptrunc reassoc nsz arcp double %136 to float
+  %138 = call reassoc nsz arcp float @cosf(float noundef %137) #4, !tbaa !8
+  %139 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %138, float 5.000000e-01)
+  %140 = load ptr, ptr %6, align 8, !tbaa !3
+  %141 = load i32, ptr %15, align 4, !tbaa !8
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds float, ptr %140, i64 %142
+  store float %139, ptr %143, align 4, !tbaa !10
+  br label %144
 
-for.inc65:                                        ; preds = %for.body55
-  %57 = load i32, ptr %n, align 4
-  %inc66 = add nsw i32 %57, 1
-  store i32 %inc66, ptr %n, align 4
-  %58 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %58, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond48, !llvm.loop !32
+144:                                              ; preds = %130
+  %145 = load i32, ptr %15, align 4, !tbaa !8
+  %146 = add nsw i32 %145, 1
+  store i32 %146, ptr %15, align 4, !tbaa !8
+  %147 = load i32, ptr %16, align 4, !tbaa !8
+  %148 = add nsw i32 %147, -1
+  store i32 %148, ptr %16, align 4, !tbaa !8
+  br label %120, !llvm.loop !42
 
-for.end67:                                        ; preds = %land.end54
-  br label %for.cond68
+149:                                              ; preds = %128
+  br label %150
 
-for.cond68:                                       ; preds = %for.inc78, %for.end67
-  %59 = load i32, ptr %n, align 4
-  %60 = load i32, ptr %end_n, align 4
-  %cmp69 = icmp slt i32 %59, %60
-  br i1 %cmp69, label %land.rhs71, label %land.end74
+150:                                              ; preds = %165, %149
+  %151 = load i32, ptr %15, align 4, !tbaa !8
+  %152 = load i32, ptr %12, align 4, !tbaa !8
+  %153 = icmp slt i32 %151, %152
+  br i1 %153, label %154, label %158
 
-land.rhs71:                                       ; preds = %for.cond68
-  %61 = load i32, ptr %n, align 4
-  %62 = load i32, ptr %L.addr, align 4
-  %cmp72 = icmp slt i32 %61, %62
-  br label %land.end74
+154:                                              ; preds = %150
+  %155 = load i32, ptr %15, align 4, !tbaa !8
+  %156 = load i32, ptr %7, align 4, !tbaa !8
+  %157 = icmp slt i32 %155, %156
+  br label %158
 
-land.end74:                                       ; preds = %land.rhs71, %for.cond68
-  %63 = phi i1 [ false, %for.cond68 ], [ %cmp72, %land.rhs71 ]
-  br i1 %63, label %for.body75, label %for.end80
+158:                                              ; preds = %154, %150
+  %159 = phi i1 [ false, %150 ], [ %157, %154 ]
+  br i1 %159, label %160, label %168
 
-for.body75:                                       ; preds = %land.end74
-  %64 = load ptr, ptr %window.addr, align 8
-  %65 = load i32, ptr %n, align 4
-  %idxprom76 = sext i32 %65 to i64
-  %arrayidx77 = getelementptr inbounds float, ptr %64, i64 %idxprom76
-  store float 0.000000e+00, ptr %arrayidx77, align 4
-  br label %for.inc78
+160:                                              ; preds = %158
+  %161 = load ptr, ptr %6, align 8, !tbaa !3
+  %162 = load i32, ptr %15, align 4, !tbaa !8
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds float, ptr %161, i64 %163
+  store float 0.000000e+00, ptr %164, align 4, !tbaa !10
+  br label %165
 
-for.inc78:                                        ; preds = %for.body75
-  %66 = load i32, ptr %n, align 4
-  %inc79 = add nsw i32 %66, 1
-  store i32 %inc79, ptr %n, align 4
-  br label %for.cond68, !llvm.loop !33
+165:                                              ; preds = %160
+  %166 = load i32, ptr %15, align 4, !tbaa !8
+  %167 = add nsw i32 %166, 1
+  store i32 %167, ptr %15, align 4, !tbaa !8
+  br label %150, !llvm.loop !43
 
-for.end80:                                        ; preds = %land.end74
-  store i32 1, ptr %i, align 4
-  br label %for.cond81
+168:                                              ; preds = %158
+  store i32 1, ptr %16, align 4, !tbaa !8
+  br label %169
 
-for.cond81:                                       ; preds = %for.inc98, %for.end80
-  %67 = load i32, ptr %n, align 4
-  %68 = load i32, ptr %end_n, align 4
-  %69 = load i32, ptr %Ne, align 4
-  %add = add nsw i32 %68, %69
-  %cmp82 = icmp slt i32 %67, %add
-  br i1 %cmp82, label %land.rhs84, label %land.end87
+169:                                              ; preds = %195, %168
+  %170 = load i32, ptr %15, align 4, !tbaa !8
+  %171 = load i32, ptr %12, align 4, !tbaa !8
+  %172 = load i32, ptr %14, align 4, !tbaa !8
+  %173 = add nsw i32 %171, %172
+  %174 = icmp slt i32 %170, %173
+  br i1 %174, label %175, label %179
 
-land.rhs84:                                       ; preds = %for.cond81
-  %70 = load i32, ptr %n, align 4
-  %71 = load i32, ptr %L.addr, align 4
-  %cmp85 = icmp slt i32 %70, %71
-  br label %land.end87
+175:                                              ; preds = %169
+  %176 = load i32, ptr %15, align 4, !tbaa !8
+  %177 = load i32, ptr %7, align 4, !tbaa !8
+  %178 = icmp slt i32 %176, %177
+  br label %179
 
-land.end87:                                       ; preds = %land.rhs84, %for.cond81
-  %72 = phi i1 [ false, %for.cond81 ], [ %cmp85, %land.rhs84 ]
-  br i1 %72, label %for.body88, label %for.end101
+179:                                              ; preds = %175, %169
+  %180 = phi i1 [ false, %169 ], [ %178, %175 ]
+  br i1 %180, label %181, label %200
 
-for.body88:                                       ; preds = %land.end87
-  %73 = load i32, ptr %i, align 4
-  %conv89 = sitofp i32 %73 to double
-  %mul90 = fmul reassoc nsz arcp double 0x400921FB54442D18, %conv89
-  %74 = load i32, ptr %Ne, align 4
-  %conv91 = sitofp i32 %74 to double
-  %div92 = fdiv reassoc nsz arcp double %mul90, %conv91
-  %conv93 = fptrunc double %div92 to float
-  %call94 = call reassoc nsz arcp float @cosf(float noundef %conv93) #3
-  %75 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call94, float 5.000000e-01)
-  %76 = load ptr, ptr %window.addr, align 8
-  %77 = load i32, ptr %n, align 4
-  %idxprom96 = sext i32 %77 to i64
-  %arrayidx97 = getelementptr inbounds float, ptr %76, i64 %idxprom96
-  store float %75, ptr %arrayidx97, align 4
-  br label %for.inc98
+181:                                              ; preds = %179
+  %182 = load i32, ptr %16, align 4, !tbaa !8
+  %183 = sitofp i32 %182 to double
+  %184 = fmul reassoc nsz arcp double 0x400921FB54442D18, %183
+  %185 = load i32, ptr %14, align 4, !tbaa !8
+  %186 = sitofp i32 %185 to double
+  %187 = fdiv reassoc nsz arcp double %184, %186
+  %188 = fptrunc reassoc nsz arcp double %187 to float
+  %189 = call reassoc nsz arcp float @cosf(float noundef %188) #4, !tbaa !8
+  %190 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %189, float 5.000000e-01)
+  %191 = load ptr, ptr %6, align 8, !tbaa !3
+  %192 = load i32, ptr %15, align 4, !tbaa !8
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds float, ptr %191, i64 %193
+  store float %190, ptr %194, align 4, !tbaa !10
+  br label %195
 
-for.inc98:                                        ; preds = %for.body88
-  %78 = load i32, ptr %n, align 4
-  %inc99 = add nsw i32 %78, 1
-  store i32 %inc99, ptr %n, align 4
-  %79 = load i32, ptr %i, align 4
-  %inc100 = add nsw i32 %79, 1
-  store i32 %inc100, ptr %i, align 4
-  br label %for.cond81, !llvm.loop !34
+195:                                              ; preds = %181
+  %196 = load i32, ptr %15, align 4, !tbaa !8
+  %197 = add nsw i32 %196, 1
+  store i32 %197, ptr %15, align 4, !tbaa !8
+  %198 = load i32, ptr %16, align 4, !tbaa !8
+  %199 = add nsw i32 %198, 1
+  store i32 %199, ptr %16, align 4, !tbaa !8
+  br label %169, !llvm.loop !44
 
-for.end101:                                       ; preds = %land.end87
-  br label %for.cond102
+200:                                              ; preds = %179
+  br label %201
 
-for.cond102:                                      ; preds = %for.inc113, %for.end101
-  %80 = load i32, ptr %n, align 4
-  %81 = load i32, ptr %L.addr, align 4
-  %82 = load i32, ptr %Ne, align 4
-  %sub103 = sub nsw i32 %81, %82
-  %cmp104 = icmp slt i32 %80, %sub103
-  br i1 %cmp104, label %land.rhs106, label %land.end109
+201:                                              ; preds = %218, %200
+  %202 = load i32, ptr %15, align 4, !tbaa !8
+  %203 = load i32, ptr %7, align 4, !tbaa !8
+  %204 = load i32, ptr %14, align 4, !tbaa !8
+  %205 = sub nsw i32 %203, %204
+  %206 = icmp slt i32 %202, %205
+  br i1 %206, label %207, label %211
 
-land.rhs106:                                      ; preds = %for.cond102
-  %83 = load i32, ptr %n, align 4
-  %84 = load i32, ptr %L.addr, align 4
-  %cmp107 = icmp slt i32 %83, %84
-  br label %land.end109
+207:                                              ; preds = %201
+  %208 = load i32, ptr %15, align 4, !tbaa !8
+  %209 = load i32, ptr %7, align 4, !tbaa !8
+  %210 = icmp slt i32 %208, %209
+  br label %211
 
-land.end109:                                      ; preds = %land.rhs106, %for.cond102
-  %85 = phi i1 [ false, %for.cond102 ], [ %cmp107, %land.rhs106 ]
-  br i1 %85, label %for.body110, label %for.end115
+211:                                              ; preds = %207, %201
+  %212 = phi i1 [ false, %201 ], [ %210, %207 ]
+  br i1 %212, label %213, label %221
 
-for.body110:                                      ; preds = %land.end109
-  %86 = load ptr, ptr %window.addr, align 8
-  %87 = load i32, ptr %n, align 4
-  %idxprom111 = sext i32 %87 to i64
-  %arrayidx112 = getelementptr inbounds float, ptr %86, i64 %idxprom111
-  store float 1.000000e+00, ptr %arrayidx112, align 4
-  br label %for.inc113
+213:                                              ; preds = %211
+  %214 = load ptr, ptr %6, align 8, !tbaa !3
+  %215 = load i32, ptr %15, align 4, !tbaa !8
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds float, ptr %214, i64 %216
+  store float 1.000000e+00, ptr %217, align 4, !tbaa !10
+  br label %218
 
-for.inc113:                                       ; preds = %for.body110
-  %88 = load i32, ptr %n, align 4
-  %inc114 = add nsw i32 %88, 1
-  store i32 %inc114, ptr %n, align 4
-  br label %for.cond102, !llvm.loop !35
+218:                                              ; preds = %213
+  %219 = load i32, ptr %15, align 4, !tbaa !8
+  %220 = add nsw i32 %219, 1
+  store i32 %220, ptr %15, align 4, !tbaa !8
+  br label %201, !llvm.loop !45
 
-for.end115:                                       ; preds = %land.end109
-  %89 = load i32, ptr %Ne, align 4
-  store i32 %89, ptr %i, align 4
-  br label %for.cond116
+221:                                              ; preds = %211
+  %222 = load i32, ptr %14, align 4, !tbaa !8
+  store i32 %222, ptr %16, align 4, !tbaa !8
+  br label %223
 
-for.cond116:                                      ; preds = %for.inc129, %for.end115
-  %90 = load i32, ptr %n, align 4
-  %91 = load i32, ptr %L.addr, align 4
-  %cmp117 = icmp slt i32 %90, %91
-  br i1 %cmp117, label %for.body119, label %for.end132
+223:                                              ; preds = %241, %221
+  %224 = load i32, ptr %15, align 4, !tbaa !8
+  %225 = load i32, ptr %7, align 4, !tbaa !8
+  %226 = icmp slt i32 %224, %225
+  br i1 %226, label %227, label %246
 
-for.body119:                                      ; preds = %for.cond116
-  %92 = load i32, ptr %i, align 4
-  %conv120 = sitofp i32 %92 to double
-  %mul121 = fmul reassoc nsz arcp double 0x400921FB54442D18, %conv120
-  %93 = load i32, ptr %Ne, align 4
-  %conv122 = sitofp i32 %93 to double
-  %div123 = fdiv reassoc nsz arcp double %mul121, %conv122
-  %conv124 = fptrunc double %div123 to float
-  %call125 = call reassoc nsz arcp float @cosf(float noundef %conv124) #3
-  %94 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %call125, float 5.000000e-01)
-  %95 = load ptr, ptr %window.addr, align 8
-  %96 = load i32, ptr %n, align 4
-  %idxprom127 = sext i32 %96 to i64
-  %arrayidx128 = getelementptr inbounds float, ptr %95, i64 %idxprom127
-  store float %94, ptr %arrayidx128, align 4
-  br label %for.inc129
+227:                                              ; preds = %223
+  %228 = load i32, ptr %16, align 4, !tbaa !8
+  %229 = sitofp i32 %228 to double
+  %230 = fmul reassoc nsz arcp double 0x400921FB54442D18, %229
+  %231 = load i32, ptr %14, align 4, !tbaa !8
+  %232 = sitofp i32 %231 to double
+  %233 = fdiv reassoc nsz arcp double %230, %232
+  %234 = fptrunc reassoc nsz arcp double %233 to float
+  %235 = call reassoc nsz arcp float @cosf(float noundef %234) #4, !tbaa !8
+  %236 = call reassoc nsz arcp float @llvm.fmuladd.f32(float -5.000000e-01, float %235, float 5.000000e-01)
+  %237 = load ptr, ptr %6, align 8, !tbaa !3
+  %238 = load i32, ptr %15, align 4, !tbaa !8
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds float, ptr %237, i64 %239
+  store float %236, ptr %240, align 4, !tbaa !10
+  br label %241
 
-for.inc129:                                       ; preds = %for.body119
-  %97 = load i32, ptr %n, align 4
-  %inc130 = add nsw i32 %97, 1
-  store i32 %inc130, ptr %n, align 4
-  %98 = load i32, ptr %i, align 4
-  %dec131 = add nsw i32 %98, -1
-  store i32 %dec131, ptr %i, align 4
-  br label %for.cond116, !llvm.loop !36
+241:                                              ; preds = %227
+  %242 = load i32, ptr %15, align 4, !tbaa !8
+  %243 = add nsw i32 %242, 1
+  store i32 %243, ptr %15, align 4, !tbaa !8
+  %244 = load i32, ptr %16, align 4, !tbaa !8
+  %245 = add nsw i32 %244, -1
+  store i32 %245, ptr %16, align 4, !tbaa !8
+  br label %223, !llvm.loop !46
 
-for.end132:                                       ; preds = %for.cond116
-  br label %if.end
+246:                                              ; preds = %223
+  br label %247
 
-if.end:                                           ; preds = %for.end132, %if.then14
-  br label %if.end133
+247:                                              ; preds = %246, %48
+  br label %248
 
-if.end133:                                        ; preds = %if.end, %if.then8
-  br label %if.end134
+248:                                              ; preds = %247, %37
+  br label %249
 
-if.end134:                                        ; preds = %if.end133, %if.then
+249:                                              ; preds = %248, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__window_welch(ptr noundef %window, i32 noundef %L) #0 {
-entry:
-  %window.addr = alloca ptr, align 8
-  %L.addr = alloca i32, align 4
-  %N = alloca i32, align 4
-  %N2 = alloca double, align 8
-  %n = alloca i32, align 4
-  %k = alloca double, align 8
-  store ptr %window, ptr %window.addr, align 8
-  store i32 %L, ptr %L.addr, align 4
-  %0 = load i32, ptr %L.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  store i32 %sub, ptr %N, align 4
-  %1 = load i32, ptr %N, align 4
-  %conv = sitofp i32 %1 to double
-  %div = fdiv reassoc nsz arcp double %conv, 2.000000e+00
-  store double %div, ptr %N2, align 8
-  store i32 0, ptr %n, align 4
-  br label %for.cond
+define hidden void @FLAC__window_welch(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca double, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca double, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %9 = load i32, ptr %4, align 4, !tbaa !8
+  %10 = sub nsw i32 %9, 1
+  store i32 %10, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = sitofp i32 %11 to double
+  %13 = fdiv reassoc nsz arcp double %12, 2.000000e+00
+  store double %13, ptr %6, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  store i32 0, ptr %7, align 4, !tbaa !8
+  br label %14
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %n, align 4
-  %3 = load i32, ptr %N, align 4
-  %cmp = icmp sle i32 %2, %3
-  br i1 %cmp, label %for.body, label %for.end
+14:                                               ; preds = %34, %2
+  %15 = load i32, ptr %7, align 4, !tbaa !8
+  %16 = load i32, ptr %5, align 4, !tbaa !8
+  %17 = icmp sle i32 %15, %16
+  br i1 %17, label %18, label %37
 
-for.body:                                         ; preds = %for.cond
-  %4 = load i32, ptr %n, align 4
-  %conv2 = sitofp i32 %4 to double
-  %5 = load double, ptr %N2, align 8
-  %sub3 = fsub reassoc nsz arcp double %conv2, %5
-  %6 = load double, ptr %N2, align 8
-  %div4 = fdiv reassoc nsz arcp double %sub3, %6
-  store double %div4, ptr %k, align 8
-  %7 = load double, ptr %k, align 8
-  %8 = load double, ptr %k, align 8
-  %neg = fneg reassoc nsz arcp double %7
-  %9 = call reassoc nsz arcp double @llvm.fmuladd.f64(double %neg, double %8, double 1.000000e+00)
-  %conv5 = fptrunc double %9 to float
-  %10 = load ptr, ptr %window.addr, align 8
-  %11 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds float, ptr %10, i64 %idxprom
-  store float %conv5, ptr %arrayidx, align 4
-  br label %for.inc
+18:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %19 = load i32, ptr %7, align 4, !tbaa !8
+  %20 = sitofp i32 %19 to double
+  %21 = load double, ptr %6, align 8, !tbaa !20
+  %22 = fsub reassoc nsz arcp double %20, %21
+  %23 = load double, ptr %6, align 8, !tbaa !20
+  %24 = fdiv reassoc nsz arcp double %22, %23
+  store double %24, ptr %8, align 8, !tbaa !20
+  %25 = load double, ptr %8, align 8, !tbaa !20
+  %26 = load double, ptr %8, align 8, !tbaa !20
+  %27 = fneg reassoc nsz arcp double %25
+  %28 = call reassoc nsz arcp double @llvm.fmuladd.f64(double %27, double %26, double 1.000000e+00)
+  %29 = fptrunc reassoc nsz arcp double %28 to float
+  %30 = load ptr, ptr %3, align 8, !tbaa !3
+  %31 = load i32, ptr %7, align 4, !tbaa !8
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds float, ptr %30, i64 %32
+  store float %29, ptr %33, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  br label %34
 
-for.inc:                                          ; preds = %for.body
-  %12 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !37
+34:                                               ; preds = %18
+  %35 = load i32, ptr %7, align 4, !tbaa !8
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %7, align 4, !tbaa !8
+  br label %14, !llvm.loop !47
 
-for.end:                                          ; preds = %for.cond
+37:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 float", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"float", !6, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !6, i64 0}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !13}
+!25 = distinct !{!25, !13}
+!26 = distinct !{!26, !13}
+!27 = distinct !{!27, !13}
+!28 = distinct !{!28, !13}
+!29 = distinct !{!29, !13}
+!30 = distinct !{!30, !13}
+!31 = distinct !{!31, !13}
+!32 = distinct !{!32, !13}
+!33 = distinct !{!33, !13}
+!34 = distinct !{!34, !13}
+!35 = distinct !{!35, !13}
+!36 = distinct !{!36, !13}
+!37 = distinct !{!37, !13}
+!38 = distinct !{!38, !13}
+!39 = distinct !{!39, !13}
+!40 = distinct !{!40, !13}
+!41 = distinct !{!41, !13}
+!42 = distinct !{!42, !13}
+!43 = distinct !{!43, !13}
+!44 = distinct !{!44, !13}
+!45 = distinct !{!45, !13}
+!46 = distinct !{!46, !13}
+!47 = distinct !{!47, !13}

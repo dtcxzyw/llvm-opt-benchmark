@@ -1,5886 +1,3569 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.__loadu_si128 = type { <2 x i64> }
+%struct.__storeu_si128 = type { <2 x i64> }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_sse41(ptr noundef %data, i32 noundef %data_len, ptr noundef %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noundef %residual) #0 {
-entry:
-  %__a.addr.i2359 = alloca <2 x i64>, align 16
-  %__b.addr.i2360 = alloca <2 x i64>, align 16
-  %__a.addr.i2356 = alloca <2 x i64>, align 16
-  %__b.addr.i2357 = alloca <2 x i64>, align 16
-  %__a.addr.i2353 = alloca <2 x i64>, align 16
-  %__b.addr.i2354 = alloca <2 x i64>, align 16
-  %__a.addr.i2350 = alloca <2 x i64>, align 16
-  %__b.addr.i2351 = alloca <2 x i64>, align 16
-  %__a.addr.i2347 = alloca <2 x i64>, align 16
-  %__b.addr.i2348 = alloca <2 x i64>, align 16
-  %__a.addr.i2344 = alloca <2 x i64>, align 16
-  %__b.addr.i2345 = alloca <2 x i64>, align 16
-  %__a.addr.i2341 = alloca <2 x i64>, align 16
-  %__b.addr.i2342 = alloca <2 x i64>, align 16
-  %__a.addr.i2338 = alloca <2 x i64>, align 16
-  %__b.addr.i2339 = alloca <2 x i64>, align 16
-  %__a.addr.i2335 = alloca <2 x i64>, align 16
-  %__b.addr.i2336 = alloca <2 x i64>, align 16
-  %__a.addr.i2332 = alloca <2 x i64>, align 16
-  %__b.addr.i2333 = alloca <2 x i64>, align 16
-  %__a.addr.i2329 = alloca <2 x i64>, align 16
-  %__b.addr.i2330 = alloca <2 x i64>, align 16
-  %__a.addr.i2327 = alloca <2 x i64>, align 16
-  %__b.addr.i2328 = alloca <2 x i64>, align 16
-  %__p.addr.i2325 = alloca ptr, align 8
-  %__b.addr.i2326 = alloca <2 x i64>, align 16
-  %__p.addr.i2323 = alloca ptr, align 8
-  %__b.addr.i2324 = alloca <2 x i64>, align 16
-  %__p.addr.i2321 = alloca ptr, align 8
-  %__b.addr.i2322 = alloca <2 x i64>, align 16
-  %__p.addr.i2319 = alloca ptr, align 8
-  %__b.addr.i2320 = alloca <2 x i64>, align 16
-  %__p.addr.i2317 = alloca ptr, align 8
-  %__b.addr.i2318 = alloca <2 x i64>, align 16
-  %__p.addr.i2315 = alloca ptr, align 8
-  %__b.addr.i2316 = alloca <2 x i64>, align 16
-  %__p.addr.i2313 = alloca ptr, align 8
-  %__b.addr.i2314 = alloca <2 x i64>, align 16
-  %__p.addr.i2311 = alloca ptr, align 8
-  %__b.addr.i2312 = alloca <2 x i64>, align 16
-  %__p.addr.i2309 = alloca ptr, align 8
-  %__b.addr.i2310 = alloca <2 x i64>, align 16
-  %__p.addr.i2307 = alloca ptr, align 8
-  %__b.addr.i2308 = alloca <2 x i64>, align 16
-  %__p.addr.i2305 = alloca ptr, align 8
-  %__b.addr.i2306 = alloca <2 x i64>, align 16
-  %__p.addr.i2303 = alloca ptr, align 8
-  %__b.addr.i2304 = alloca <2 x i64>, align 16
-  %__a.addr.i2301 = alloca <2 x i64>, align 16
-  %__count.addr.i2302 = alloca <2 x i64>, align 16
-  %__a.addr.i2299 = alloca <2 x i64>, align 16
-  %__count.addr.i2300 = alloca <2 x i64>, align 16
-  %__a.addr.i2297 = alloca <2 x i64>, align 16
-  %__count.addr.i2298 = alloca <2 x i64>, align 16
-  %__a.addr.i2295 = alloca <2 x i64>, align 16
-  %__count.addr.i2296 = alloca <2 x i64>, align 16
-  %__a.addr.i2293 = alloca <2 x i64>, align 16
-  %__count.addr.i2294 = alloca <2 x i64>, align 16
-  %__a.addr.i2291 = alloca <2 x i64>, align 16
-  %__count.addr.i2292 = alloca <2 x i64>, align 16
-  %__a.addr.i2289 = alloca <2 x i64>, align 16
-  %__count.addr.i2290 = alloca <2 x i64>, align 16
-  %__a.addr.i2287 = alloca <2 x i64>, align 16
-  %__count.addr.i2288 = alloca <2 x i64>, align 16
-  %__a.addr.i2285 = alloca <2 x i64>, align 16
-  %__count.addr.i2286 = alloca <2 x i64>, align 16
-  %__a.addr.i2283 = alloca <2 x i64>, align 16
-  %__count.addr.i2284 = alloca <2 x i64>, align 16
-  %__a.addr.i2281 = alloca <2 x i64>, align 16
-  %__count.addr.i2282 = alloca <2 x i64>, align 16
-  %__a.addr.i2280 = alloca <2 x i64>, align 16
-  %__count.addr.i = alloca <2 x i64>, align 16
-  %__a.addr.i2277 = alloca <2 x i64>, align 16
-  %__b.addr.i2278 = alloca <2 x i64>, align 16
-  %__a.addr.i2274 = alloca <2 x i64>, align 16
-  %__b.addr.i2275 = alloca <2 x i64>, align 16
-  %__a.addr.i2271 = alloca <2 x i64>, align 16
-  %__b.addr.i2272 = alloca <2 x i64>, align 16
-  %__a.addr.i2268 = alloca <2 x i64>, align 16
-  %__b.addr.i2269 = alloca <2 x i64>, align 16
-  %__a.addr.i2265 = alloca <2 x i64>, align 16
-  %__b.addr.i2266 = alloca <2 x i64>, align 16
-  %__a.addr.i2262 = alloca <2 x i64>, align 16
-  %__b.addr.i2263 = alloca <2 x i64>, align 16
-  %__a.addr.i2259 = alloca <2 x i64>, align 16
-  %__b.addr.i2260 = alloca <2 x i64>, align 16
-  %__a.addr.i2256 = alloca <2 x i64>, align 16
-  %__b.addr.i2257 = alloca <2 x i64>, align 16
-  %__a.addr.i2253 = alloca <2 x i64>, align 16
-  %__b.addr.i2254 = alloca <2 x i64>, align 16
-  %__a.addr.i2250 = alloca <2 x i64>, align 16
-  %__b.addr.i2251 = alloca <2 x i64>, align 16
-  %__a.addr.i2247 = alloca <2 x i64>, align 16
-  %__b.addr.i2248 = alloca <2 x i64>, align 16
-  %__a.addr.i2244 = alloca <2 x i64>, align 16
-  %__b.addr.i2245 = alloca <2 x i64>, align 16
-  %__a.addr.i2241 = alloca <2 x i64>, align 16
-  %__b.addr.i2242 = alloca <2 x i64>, align 16
-  %__a.addr.i2238 = alloca <2 x i64>, align 16
-  %__b.addr.i2239 = alloca <2 x i64>, align 16
-  %__a.addr.i2235 = alloca <2 x i64>, align 16
-  %__b.addr.i2236 = alloca <2 x i64>, align 16
-  %__a.addr.i2232 = alloca <2 x i64>, align 16
-  %__b.addr.i2233 = alloca <2 x i64>, align 16
-  %__a.addr.i2229 = alloca <2 x i64>, align 16
-  %__b.addr.i2230 = alloca <2 x i64>, align 16
-  %__a.addr.i2226 = alloca <2 x i64>, align 16
-  %__b.addr.i2227 = alloca <2 x i64>, align 16
-  %__a.addr.i2223 = alloca <2 x i64>, align 16
-  %__b.addr.i2224 = alloca <2 x i64>, align 16
-  %__a.addr.i2220 = alloca <2 x i64>, align 16
-  %__b.addr.i2221 = alloca <2 x i64>, align 16
-  %__a.addr.i2217 = alloca <2 x i64>, align 16
-  %__b.addr.i2218 = alloca <2 x i64>, align 16
-  %__a.addr.i2214 = alloca <2 x i64>, align 16
-  %__b.addr.i2215 = alloca <2 x i64>, align 16
-  %__a.addr.i2211 = alloca <2 x i64>, align 16
-  %__b.addr.i2212 = alloca <2 x i64>, align 16
-  %__a.addr.i2208 = alloca <2 x i64>, align 16
-  %__b.addr.i2209 = alloca <2 x i64>, align 16
-  %__a.addr.i2205 = alloca <2 x i64>, align 16
-  %__b.addr.i2206 = alloca <2 x i64>, align 16
-  %__a.addr.i2202 = alloca <2 x i64>, align 16
-  %__b.addr.i2203 = alloca <2 x i64>, align 16
-  %__a.addr.i2199 = alloca <2 x i64>, align 16
-  %__b.addr.i2200 = alloca <2 x i64>, align 16
-  %__a.addr.i2196 = alloca <2 x i64>, align 16
-  %__b.addr.i2197 = alloca <2 x i64>, align 16
-  %__a.addr.i2193 = alloca <2 x i64>, align 16
-  %__b.addr.i2194 = alloca <2 x i64>, align 16
-  %__a.addr.i2190 = alloca <2 x i64>, align 16
-  %__b.addr.i2191 = alloca <2 x i64>, align 16
-  %__a.addr.i2187 = alloca <2 x i64>, align 16
-  %__b.addr.i2188 = alloca <2 x i64>, align 16
-  %__a.addr.i2184 = alloca <2 x i64>, align 16
-  %__b.addr.i2185 = alloca <2 x i64>, align 16
-  %__a.addr.i2181 = alloca <2 x i64>, align 16
-  %__b.addr.i2182 = alloca <2 x i64>, align 16
-  %__a.addr.i2178 = alloca <2 x i64>, align 16
-  %__b.addr.i2179 = alloca <2 x i64>, align 16
-  %__a.addr.i2175 = alloca <2 x i64>, align 16
-  %__b.addr.i2176 = alloca <2 x i64>, align 16
-  %__a.addr.i2172 = alloca <2 x i64>, align 16
-  %__b.addr.i2173 = alloca <2 x i64>, align 16
-  %__a.addr.i2169 = alloca <2 x i64>, align 16
-  %__b.addr.i2170 = alloca <2 x i64>, align 16
-  %__a.addr.i2166 = alloca <2 x i64>, align 16
-  %__b.addr.i2167 = alloca <2 x i64>, align 16
-  %__a.addr.i2163 = alloca <2 x i64>, align 16
-  %__b.addr.i2164 = alloca <2 x i64>, align 16
-  %__a.addr.i2160 = alloca <2 x i64>, align 16
-  %__b.addr.i2161 = alloca <2 x i64>, align 16
-  %__a.addr.i2157 = alloca <2 x i64>, align 16
-  %__b.addr.i2158 = alloca <2 x i64>, align 16
-  %__a.addr.i2154 = alloca <2 x i64>, align 16
-  %__b.addr.i2155 = alloca <2 x i64>, align 16
-  %__a.addr.i2151 = alloca <2 x i64>, align 16
-  %__b.addr.i2152 = alloca <2 x i64>, align 16
-  %__a.addr.i2148 = alloca <2 x i64>, align 16
-  %__b.addr.i2149 = alloca <2 x i64>, align 16
-  %__a.addr.i2145 = alloca <2 x i64>, align 16
-  %__b.addr.i2146 = alloca <2 x i64>, align 16
-  %__a.addr.i2142 = alloca <2 x i64>, align 16
-  %__b.addr.i2143 = alloca <2 x i64>, align 16
-  %__a.addr.i2139 = alloca <2 x i64>, align 16
-  %__b.addr.i2140 = alloca <2 x i64>, align 16
-  %__a.addr.i2136 = alloca <2 x i64>, align 16
-  %__b.addr.i2137 = alloca <2 x i64>, align 16
-  %__a.addr.i2133 = alloca <2 x i64>, align 16
-  %__b.addr.i2134 = alloca <2 x i64>, align 16
-  %__a.addr.i2130 = alloca <2 x i64>, align 16
-  %__b.addr.i2131 = alloca <2 x i64>, align 16
-  %__a.addr.i2127 = alloca <2 x i64>, align 16
-  %__b.addr.i2128 = alloca <2 x i64>, align 16
-  %__a.addr.i2124 = alloca <2 x i64>, align 16
-  %__b.addr.i2125 = alloca <2 x i64>, align 16
-  %__a.addr.i2121 = alloca <2 x i64>, align 16
-  %__b.addr.i2122 = alloca <2 x i64>, align 16
-  %__a.addr.i2118 = alloca <2 x i64>, align 16
-  %__b.addr.i2119 = alloca <2 x i64>, align 16
-  %__a.addr.i2115 = alloca <2 x i64>, align 16
-  %__b.addr.i2116 = alloca <2 x i64>, align 16
-  %__a.addr.i2112 = alloca <2 x i64>, align 16
-  %__b.addr.i2113 = alloca <2 x i64>, align 16
-  %__a.addr.i2109 = alloca <2 x i64>, align 16
-  %__b.addr.i2110 = alloca <2 x i64>, align 16
-  %__a.addr.i2106 = alloca <2 x i64>, align 16
-  %__b.addr.i2107 = alloca <2 x i64>, align 16
-  %__a.addr.i2103 = alloca <2 x i64>, align 16
-  %__b.addr.i2104 = alloca <2 x i64>, align 16
-  %__a.addr.i2100 = alloca <2 x i64>, align 16
-  %__b.addr.i2101 = alloca <2 x i64>, align 16
-  %__a.addr.i2097 = alloca <2 x i64>, align 16
-  %__b.addr.i2098 = alloca <2 x i64>, align 16
-  %__a.addr.i2094 = alloca <2 x i64>, align 16
-  %__b.addr.i2095 = alloca <2 x i64>, align 16
-  %__a.addr.i2091 = alloca <2 x i64>, align 16
-  %__b.addr.i2092 = alloca <2 x i64>, align 16
-  %__a.addr.i2088 = alloca <2 x i64>, align 16
-  %__b.addr.i2089 = alloca <2 x i64>, align 16
-  %__a.addr.i2085 = alloca <2 x i64>, align 16
-  %__b.addr.i2086 = alloca <2 x i64>, align 16
-  %__a.addr.i2084 = alloca <2 x i64>, align 16
-  %__b.addr.i = alloca <2 x i64>, align 16
-  %__p.addr.i2083 = alloca ptr, align 8
-  %__p.addr.i2082 = alloca ptr, align 8
-  %__p.addr.i2081 = alloca ptr, align 8
-  %__p.addr.i2080 = alloca ptr, align 8
-  %__p.addr.i2079 = alloca ptr, align 8
-  %__p.addr.i2078 = alloca ptr, align 8
-  %__p.addr.i2077 = alloca ptr, align 8
-  %__p.addr.i2076 = alloca ptr, align 8
-  %__p.addr.i2075 = alloca ptr, align 8
-  %__p.addr.i2074 = alloca ptr, align 8
-  %__p.addr.i2073 = alloca ptr, align 8
-  %__p.addr.i2072 = alloca ptr, align 8
-  %__p.addr.i2071 = alloca ptr, align 8
-  %__p.addr.i2070 = alloca ptr, align 8
-  %__p.addr.i2069 = alloca ptr, align 8
-  %__p.addr.i2068 = alloca ptr, align 8
-  %__p.addr.i2067 = alloca ptr, align 8
-  %__p.addr.i2066 = alloca ptr, align 8
-  %__p.addr.i2065 = alloca ptr, align 8
-  %__p.addr.i2064 = alloca ptr, align 8
-  %__p.addr.i2063 = alloca ptr, align 8
-  %__p.addr.i2062 = alloca ptr, align 8
-  %__p.addr.i2061 = alloca ptr, align 8
-  %__p.addr.i2060 = alloca ptr, align 8
-  %__p.addr.i2059 = alloca ptr, align 8
-  %__p.addr.i2058 = alloca ptr, align 8
-  %__p.addr.i2057 = alloca ptr, align 8
-  %__p.addr.i2056 = alloca ptr, align 8
-  %__p.addr.i2055 = alloca ptr, align 8
-  %__p.addr.i2054 = alloca ptr, align 8
-  %__p.addr.i2053 = alloca ptr, align 8
-  %__p.addr.i2052 = alloca ptr, align 8
-  %__p.addr.i2051 = alloca ptr, align 8
-  %__p.addr.i2050 = alloca ptr, align 8
-  %__p.addr.i2049 = alloca ptr, align 8
-  %__p.addr.i2048 = alloca ptr, align 8
-  %__p.addr.i2047 = alloca ptr, align 8
-  %__p.addr.i2046 = alloca ptr, align 8
-  %__p.addr.i2045 = alloca ptr, align 8
-  %__p.addr.i2044 = alloca ptr, align 8
-  %__p.addr.i2043 = alloca ptr, align 8
-  %__p.addr.i2042 = alloca ptr, align 8
-  %__p.addr.i2041 = alloca ptr, align 8
-  %__p.addr.i2040 = alloca ptr, align 8
-  %__p.addr.i2039 = alloca ptr, align 8
-  %__p.addr.i2038 = alloca ptr, align 8
-  %__p.addr.i2037 = alloca ptr, align 8
-  %__p.addr.i2036 = alloca ptr, align 8
-  %__p.addr.i2035 = alloca ptr, align 8
-  %__p.addr.i2034 = alloca ptr, align 8
-  %__p.addr.i2033 = alloca ptr, align 8
-  %__p.addr.i2032 = alloca ptr, align 8
-  %__p.addr.i2031 = alloca ptr, align 8
-  %__p.addr.i2030 = alloca ptr, align 8
-  %__p.addr.i2029 = alloca ptr, align 8
-  %__p.addr.i2028 = alloca ptr, align 8
-  %__p.addr.i2027 = alloca ptr, align 8
-  %__p.addr.i2026 = alloca ptr, align 8
-  %__p.addr.i2025 = alloca ptr, align 8
-  %__p.addr.i2024 = alloca ptr, align 8
-  %__p.addr.i2023 = alloca ptr, align 8
-  %__p.addr.i2022 = alloca ptr, align 8
-  %__p.addr.i2021 = alloca ptr, align 8
-  %__p.addr.i2020 = alloca ptr, align 8
-  %__p.addr.i2019 = alloca ptr, align 8
-  %__p.addr.i2018 = alloca ptr, align 8
-  %__p.addr.i2017 = alloca ptr, align 8
-  %__p.addr.i2016 = alloca ptr, align 8
-  %__p.addr.i2015 = alloca ptr, align 8
-  %__p.addr.i2014 = alloca ptr, align 8
-  %__p.addr.i2013 = alloca ptr, align 8
-  %__p.addr.i2012 = alloca ptr, align 8
-  %__p.addr.i2011 = alloca ptr, align 8
-  %__p.addr.i2010 = alloca ptr, align 8
-  %__p.addr.i2009 = alloca ptr, align 8
-  %__p.addr.i2008 = alloca ptr, align 8
-  %__p.addr.i2007 = alloca ptr, align 8
-  %__p.addr.i2006 = alloca ptr, align 8
-  %__p.addr.i2005 = alloca ptr, align 8
-  %__p.addr.i2004 = alloca ptr, align 8
-  %__p.addr.i2003 = alloca ptr, align 8
-  %__p.addr.i2002 = alloca ptr, align 8
-  %__p.addr.i2001 = alloca ptr, align 8
-  %__p.addr.i2000 = alloca ptr, align 8
-  %__p.addr.i1999 = alloca ptr, align 8
-  %__p.addr.i1998 = alloca ptr, align 8
-  %__p.addr.i1997 = alloca ptr, align 8
-  %__p.addr.i1996 = alloca ptr, align 8
-  %__p.addr.i1995 = alloca ptr, align 8
-  %__p.addr.i = alloca ptr, align 8
-  %__V1.addr.i1992 = alloca <2 x i64>, align 16
-  %__V2.addr.i1993 = alloca <2 x i64>, align 16
-  %__V1.addr.i1989 = alloca <2 x i64>, align 16
-  %__V2.addr.i1990 = alloca <2 x i64>, align 16
-  %__V1.addr.i1986 = alloca <2 x i64>, align 16
-  %__V2.addr.i1987 = alloca <2 x i64>, align 16
-  %__V1.addr.i1983 = alloca <2 x i64>, align 16
-  %__V2.addr.i1984 = alloca <2 x i64>, align 16
-  %__V1.addr.i1980 = alloca <2 x i64>, align 16
-  %__V2.addr.i1981 = alloca <2 x i64>, align 16
-  %__V1.addr.i1977 = alloca <2 x i64>, align 16
-  %__V2.addr.i1978 = alloca <2 x i64>, align 16
-  %__V1.addr.i1974 = alloca <2 x i64>, align 16
-  %__V2.addr.i1975 = alloca <2 x i64>, align 16
-  %__V1.addr.i1971 = alloca <2 x i64>, align 16
-  %__V2.addr.i1972 = alloca <2 x i64>, align 16
-  %__V1.addr.i1968 = alloca <2 x i64>, align 16
-  %__V2.addr.i1969 = alloca <2 x i64>, align 16
-  %__V1.addr.i1965 = alloca <2 x i64>, align 16
-  %__V2.addr.i1966 = alloca <2 x i64>, align 16
-  %__V1.addr.i1962 = alloca <2 x i64>, align 16
-  %__V2.addr.i1963 = alloca <2 x i64>, align 16
-  %__V1.addr.i1959 = alloca <2 x i64>, align 16
-  %__V2.addr.i1960 = alloca <2 x i64>, align 16
-  %__V1.addr.i1956 = alloca <2 x i64>, align 16
-  %__V2.addr.i1957 = alloca <2 x i64>, align 16
-  %__V1.addr.i1953 = alloca <2 x i64>, align 16
-  %__V2.addr.i1954 = alloca <2 x i64>, align 16
-  %__V1.addr.i1950 = alloca <2 x i64>, align 16
-  %__V2.addr.i1951 = alloca <2 x i64>, align 16
-  %__V1.addr.i1947 = alloca <2 x i64>, align 16
-  %__V2.addr.i1948 = alloca <2 x i64>, align 16
-  %__V1.addr.i1944 = alloca <2 x i64>, align 16
-  %__V2.addr.i1945 = alloca <2 x i64>, align 16
-  %__V1.addr.i1941 = alloca <2 x i64>, align 16
-  %__V2.addr.i1942 = alloca <2 x i64>, align 16
-  %__V1.addr.i1938 = alloca <2 x i64>, align 16
-  %__V2.addr.i1939 = alloca <2 x i64>, align 16
-  %__V1.addr.i1935 = alloca <2 x i64>, align 16
-  %__V2.addr.i1936 = alloca <2 x i64>, align 16
-  %__V1.addr.i1932 = alloca <2 x i64>, align 16
-  %__V2.addr.i1933 = alloca <2 x i64>, align 16
-  %__V1.addr.i1929 = alloca <2 x i64>, align 16
-  %__V2.addr.i1930 = alloca <2 x i64>, align 16
-  %__V1.addr.i1926 = alloca <2 x i64>, align 16
-  %__V2.addr.i1927 = alloca <2 x i64>, align 16
-  %__V1.addr.i1923 = alloca <2 x i64>, align 16
-  %__V2.addr.i1924 = alloca <2 x i64>, align 16
-  %__V1.addr.i1920 = alloca <2 x i64>, align 16
-  %__V2.addr.i1921 = alloca <2 x i64>, align 16
-  %__V1.addr.i1917 = alloca <2 x i64>, align 16
-  %__V2.addr.i1918 = alloca <2 x i64>, align 16
-  %__V1.addr.i1914 = alloca <2 x i64>, align 16
-  %__V2.addr.i1915 = alloca <2 x i64>, align 16
-  %__V1.addr.i1911 = alloca <2 x i64>, align 16
-  %__V2.addr.i1912 = alloca <2 x i64>, align 16
-  %__V1.addr.i1908 = alloca <2 x i64>, align 16
-  %__V2.addr.i1909 = alloca <2 x i64>, align 16
-  %__V1.addr.i1905 = alloca <2 x i64>, align 16
-  %__V2.addr.i1906 = alloca <2 x i64>, align 16
-  %__V1.addr.i1902 = alloca <2 x i64>, align 16
-  %__V2.addr.i1903 = alloca <2 x i64>, align 16
-  %__V1.addr.i1899 = alloca <2 x i64>, align 16
-  %__V2.addr.i1900 = alloca <2 x i64>, align 16
-  %__V1.addr.i1896 = alloca <2 x i64>, align 16
-  %__V2.addr.i1897 = alloca <2 x i64>, align 16
-  %__V1.addr.i1893 = alloca <2 x i64>, align 16
-  %__V2.addr.i1894 = alloca <2 x i64>, align 16
-  %__V1.addr.i1890 = alloca <2 x i64>, align 16
-  %__V2.addr.i1891 = alloca <2 x i64>, align 16
-  %__V1.addr.i1887 = alloca <2 x i64>, align 16
-  %__V2.addr.i1888 = alloca <2 x i64>, align 16
-  %__V1.addr.i1884 = alloca <2 x i64>, align 16
-  %__V2.addr.i1885 = alloca <2 x i64>, align 16
-  %__V1.addr.i1881 = alloca <2 x i64>, align 16
-  %__V2.addr.i1882 = alloca <2 x i64>, align 16
-  %__V1.addr.i1878 = alloca <2 x i64>, align 16
-  %__V2.addr.i1879 = alloca <2 x i64>, align 16
-  %__V1.addr.i1875 = alloca <2 x i64>, align 16
-  %__V2.addr.i1876 = alloca <2 x i64>, align 16
-  %__V1.addr.i1872 = alloca <2 x i64>, align 16
-  %__V2.addr.i1873 = alloca <2 x i64>, align 16
-  %__V1.addr.i1869 = alloca <2 x i64>, align 16
-  %__V2.addr.i1870 = alloca <2 x i64>, align 16
-  %__V1.addr.i1866 = alloca <2 x i64>, align 16
-  %__V2.addr.i1867 = alloca <2 x i64>, align 16
-  %__V1.addr.i1863 = alloca <2 x i64>, align 16
-  %__V2.addr.i1864 = alloca <2 x i64>, align 16
-  %__V1.addr.i1860 = alloca <2 x i64>, align 16
-  %__V2.addr.i1861 = alloca <2 x i64>, align 16
-  %__V1.addr.i1857 = alloca <2 x i64>, align 16
-  %__V2.addr.i1858 = alloca <2 x i64>, align 16
-  %__V1.addr.i1854 = alloca <2 x i64>, align 16
-  %__V2.addr.i1855 = alloca <2 x i64>, align 16
-  %__V1.addr.i1851 = alloca <2 x i64>, align 16
-  %__V2.addr.i1852 = alloca <2 x i64>, align 16
-  %__V1.addr.i1848 = alloca <2 x i64>, align 16
-  %__V2.addr.i1849 = alloca <2 x i64>, align 16
-  %__V1.addr.i1845 = alloca <2 x i64>, align 16
-  %__V2.addr.i1846 = alloca <2 x i64>, align 16
-  %__V1.addr.i1842 = alloca <2 x i64>, align 16
-  %__V2.addr.i1843 = alloca <2 x i64>, align 16
-  %__V1.addr.i1839 = alloca <2 x i64>, align 16
-  %__V2.addr.i1840 = alloca <2 x i64>, align 16
-  %__V1.addr.i1836 = alloca <2 x i64>, align 16
-  %__V2.addr.i1837 = alloca <2 x i64>, align 16
-  %__V1.addr.i1833 = alloca <2 x i64>, align 16
-  %__V2.addr.i1834 = alloca <2 x i64>, align 16
-  %__V1.addr.i1830 = alloca <2 x i64>, align 16
-  %__V2.addr.i1831 = alloca <2 x i64>, align 16
-  %__V1.addr.i1827 = alloca <2 x i64>, align 16
-  %__V2.addr.i1828 = alloca <2 x i64>, align 16
-  %__V1.addr.i1824 = alloca <2 x i64>, align 16
-  %__V2.addr.i1825 = alloca <2 x i64>, align 16
-  %__V1.addr.i1821 = alloca <2 x i64>, align 16
-  %__V2.addr.i1822 = alloca <2 x i64>, align 16
-  %__V1.addr.i1818 = alloca <2 x i64>, align 16
-  %__V2.addr.i1819 = alloca <2 x i64>, align 16
-  %__V1.addr.i1815 = alloca <2 x i64>, align 16
-  %__V2.addr.i1816 = alloca <2 x i64>, align 16
-  %__V1.addr.i1812 = alloca <2 x i64>, align 16
-  %__V2.addr.i1813 = alloca <2 x i64>, align 16
-  %__V1.addr.i1809 = alloca <2 x i64>, align 16
-  %__V2.addr.i1810 = alloca <2 x i64>, align 16
-  %__V1.addr.i1806 = alloca <2 x i64>, align 16
-  %__V2.addr.i1807 = alloca <2 x i64>, align 16
-  %__V1.addr.i1803 = alloca <2 x i64>, align 16
-  %__V2.addr.i1804 = alloca <2 x i64>, align 16
-  %__V1.addr.i1800 = alloca <2 x i64>, align 16
-  %__V2.addr.i1801 = alloca <2 x i64>, align 16
-  %__V1.addr.i1797 = alloca <2 x i64>, align 16
-  %__V2.addr.i1798 = alloca <2 x i64>, align 16
-  %__V1.addr.i1794 = alloca <2 x i64>, align 16
-  %__V2.addr.i1795 = alloca <2 x i64>, align 16
-  %__V1.addr.i1791 = alloca <2 x i64>, align 16
-  %__V2.addr.i1792 = alloca <2 x i64>, align 16
-  %__V1.addr.i1788 = alloca <2 x i64>, align 16
-  %__V2.addr.i1789 = alloca <2 x i64>, align 16
-  %__V1.addr.i1785 = alloca <2 x i64>, align 16
-  %__V2.addr.i1786 = alloca <2 x i64>, align 16
-  %__V1.addr.i1782 = alloca <2 x i64>, align 16
-  %__V2.addr.i1783 = alloca <2 x i64>, align 16
-  %__V1.addr.i1779 = alloca <2 x i64>, align 16
-  %__V2.addr.i1780 = alloca <2 x i64>, align 16
-  %__V1.addr.i1776 = alloca <2 x i64>, align 16
-  %__V2.addr.i1777 = alloca <2 x i64>, align 16
-  %__V1.addr.i1773 = alloca <2 x i64>, align 16
-  %__V2.addr.i1774 = alloca <2 x i64>, align 16
-  %__V1.addr.i1770 = alloca <2 x i64>, align 16
-  %__V2.addr.i1771 = alloca <2 x i64>, align 16
-  %__V1.addr.i1767 = alloca <2 x i64>, align 16
-  %__V2.addr.i1768 = alloca <2 x i64>, align 16
-  %__V1.addr.i1764 = alloca <2 x i64>, align 16
-  %__V2.addr.i1765 = alloca <2 x i64>, align 16
-  %__V1.addr.i = alloca <2 x i64>, align 16
-  %__V2.addr.i = alloca <2 x i64>, align 16
-  %__a.addr.i1758 = alloca i32, align 4
-  %.compoundliteral.i1759 = alloca <4 x i32>, align 16
-  %__a.addr.i1752 = alloca i32, align 4
-  %.compoundliteral.i1753 = alloca <4 x i32>, align 16
-  %__a.addr.i1746 = alloca i32, align 4
-  %.compoundliteral.i1747 = alloca <4 x i32>, align 16
-  %__a.addr.i1740 = alloca i32, align 4
-  %.compoundliteral.i1741 = alloca <4 x i32>, align 16
-  %__a.addr.i1734 = alloca i32, align 4
-  %.compoundliteral.i1735 = alloca <4 x i32>, align 16
-  %__a.addr.i1728 = alloca i32, align 4
-  %.compoundliteral.i1729 = alloca <4 x i32>, align 16
-  %__a.addr.i1722 = alloca i32, align 4
-  %.compoundliteral.i1723 = alloca <4 x i32>, align 16
-  %__a.addr.i1716 = alloca i32, align 4
-  %.compoundliteral.i1717 = alloca <4 x i32>, align 16
-  %__a.addr.i1710 = alloca i32, align 4
-  %.compoundliteral.i1711 = alloca <4 x i32>, align 16
-  %__a.addr.i1704 = alloca i32, align 4
-  %.compoundliteral.i1705 = alloca <4 x i32>, align 16
-  %__a.addr.i1698 = alloca i32, align 4
-  %.compoundliteral.i1699 = alloca <4 x i32>, align 16
-  %__a.addr.i1692 = alloca i32, align 4
-  %.compoundliteral.i1693 = alloca <4 x i32>, align 16
-  %__a.addr.i1686 = alloca i32, align 4
-  %.compoundliteral.i1687 = alloca <4 x i32>, align 16
-  %__a.addr.i1680 = alloca i32, align 4
-  %.compoundliteral.i1681 = alloca <4 x i32>, align 16
-  %__a.addr.i1674 = alloca i32, align 4
-  %.compoundliteral.i1675 = alloca <4 x i32>, align 16
-  %__a.addr.i1668 = alloca i32, align 4
-  %.compoundliteral.i1669 = alloca <4 x i32>, align 16
-  %__a.addr.i1662 = alloca i32, align 4
-  %.compoundliteral.i1663 = alloca <4 x i32>, align 16
-  %__a.addr.i1656 = alloca i32, align 4
-  %.compoundliteral.i1657 = alloca <4 x i32>, align 16
-  %__a.addr.i1650 = alloca i32, align 4
-  %.compoundliteral.i1651 = alloca <4 x i32>, align 16
-  %__a.addr.i1644 = alloca i32, align 4
-  %.compoundliteral.i1645 = alloca <4 x i32>, align 16
-  %__a.addr.i1638 = alloca i32, align 4
-  %.compoundliteral.i1639 = alloca <4 x i32>, align 16
-  %__a.addr.i1632 = alloca i32, align 4
-  %.compoundliteral.i1633 = alloca <4 x i32>, align 16
-  %__a.addr.i1626 = alloca i32, align 4
-  %.compoundliteral.i1627 = alloca <4 x i32>, align 16
-  %__a.addr.i1620 = alloca i32, align 4
-  %.compoundliteral.i1621 = alloca <4 x i32>, align 16
-  %__a.addr.i1614 = alloca i32, align 4
-  %.compoundliteral.i1615 = alloca <4 x i32>, align 16
-  %__a.addr.i1608 = alloca i32, align 4
-  %.compoundliteral.i1609 = alloca <4 x i32>, align 16
-  %__a.addr.i1602 = alloca i32, align 4
-  %.compoundliteral.i1603 = alloca <4 x i32>, align 16
-  %__a.addr.i1596 = alloca i32, align 4
-  %.compoundliteral.i1597 = alloca <4 x i32>, align 16
-  %__a.addr.i1590 = alloca i32, align 4
-  %.compoundliteral.i1591 = alloca <4 x i32>, align 16
-  %__a.addr.i1584 = alloca i32, align 4
-  %.compoundliteral.i1585 = alloca <4 x i32>, align 16
-  %__a.addr.i1578 = alloca i32, align 4
-  %.compoundliteral.i1579 = alloca <4 x i32>, align 16
-  %__a.addr.i1572 = alloca i32, align 4
-  %.compoundliteral.i1573 = alloca <4 x i32>, align 16
-  %__a.addr.i1566 = alloca i32, align 4
-  %.compoundliteral.i1567 = alloca <4 x i32>, align 16
-  %__a.addr.i1560 = alloca i32, align 4
-  %.compoundliteral.i1561 = alloca <4 x i32>, align 16
-  %__a.addr.i1554 = alloca i32, align 4
-  %.compoundliteral.i1555 = alloca <4 x i32>, align 16
-  %__a.addr.i1548 = alloca i32, align 4
-  %.compoundliteral.i1549 = alloca <4 x i32>, align 16
-  %__a.addr.i1542 = alloca i32, align 4
-  %.compoundliteral.i1543 = alloca <4 x i32>, align 16
-  %__a.addr.i1536 = alloca i32, align 4
-  %.compoundliteral.i1537 = alloca <4 x i32>, align 16
-  %__a.addr.i1530 = alloca i32, align 4
-  %.compoundliteral.i1531 = alloca <4 x i32>, align 16
-  %__a.addr.i1524 = alloca i32, align 4
-  %.compoundliteral.i1525 = alloca <4 x i32>, align 16
-  %__a.addr.i1518 = alloca i32, align 4
-  %.compoundliteral.i1519 = alloca <4 x i32>, align 16
-  %__a.addr.i1512 = alloca i32, align 4
-  %.compoundliteral.i1513 = alloca <4 x i32>, align 16
-  %__a.addr.i1506 = alloca i32, align 4
-  %.compoundliteral.i1507 = alloca <4 x i32>, align 16
-  %__a.addr.i1500 = alloca i32, align 4
-  %.compoundliteral.i1501 = alloca <4 x i32>, align 16
-  %__a.addr.i1494 = alloca i32, align 4
-  %.compoundliteral.i1495 = alloca <4 x i32>, align 16
-  %__a.addr.i1488 = alloca i32, align 4
-  %.compoundliteral.i1489 = alloca <4 x i32>, align 16
-  %__a.addr.i1482 = alloca i32, align 4
-  %.compoundliteral.i1483 = alloca <4 x i32>, align 16
-  %__a.addr.i1476 = alloca i32, align 4
-  %.compoundliteral.i1477 = alloca <4 x i32>, align 16
-  %__a.addr.i1470 = alloca i32, align 4
-  %.compoundliteral.i1471 = alloca <4 x i32>, align 16
-  %__a.addr.i1464 = alloca i32, align 4
-  %.compoundliteral.i1465 = alloca <4 x i32>, align 16
-  %__a.addr.i1458 = alloca i32, align 4
-  %.compoundliteral.i1459 = alloca <4 x i32>, align 16
-  %__a.addr.i1452 = alloca i32, align 4
-  %.compoundliteral.i1453 = alloca <4 x i32>, align 16
-  %__a.addr.i1446 = alloca i32, align 4
-  %.compoundliteral.i1447 = alloca <4 x i32>, align 16
-  %__a.addr.i1440 = alloca i32, align 4
-  %.compoundliteral.i1441 = alloca <4 x i32>, align 16
-  %__a.addr.i1434 = alloca i32, align 4
-  %.compoundliteral.i1435 = alloca <4 x i32>, align 16
-  %__a.addr.i1428 = alloca i32, align 4
-  %.compoundliteral.i1429 = alloca <4 x i32>, align 16
-  %__a.addr.i1422 = alloca i32, align 4
-  %.compoundliteral.i1423 = alloca <4 x i32>, align 16
-  %__a.addr.i1416 = alloca i32, align 4
-  %.compoundliteral.i1417 = alloca <4 x i32>, align 16
-  %__a.addr.i1410 = alloca i32, align 4
-  %.compoundliteral.i1411 = alloca <4 x i32>, align 16
-  %__a.addr.i1404 = alloca i32, align 4
-  %.compoundliteral.i1405 = alloca <4 x i32>, align 16
-  %__a.addr.i1398 = alloca i32, align 4
-  %.compoundliteral.i1399 = alloca <4 x i32>, align 16
-  %__a.addr.i1392 = alloca i32, align 4
-  %.compoundliteral.i1393 = alloca <4 x i32>, align 16
-  %__a.addr.i1386 = alloca i32, align 4
-  %.compoundliteral.i1387 = alloca <4 x i32>, align 16
-  %__a.addr.i1380 = alloca i32, align 4
-  %.compoundliteral.i1381 = alloca <4 x i32>, align 16
-  %__a.addr.i1374 = alloca i32, align 4
-  %.compoundliteral.i1375 = alloca <4 x i32>, align 16
-  %__a.addr.i1368 = alloca i32, align 4
-  %.compoundliteral.i1369 = alloca <4 x i32>, align 16
-  %__a.addr.i1362 = alloca i32, align 4
-  %.compoundliteral.i1363 = alloca <4 x i32>, align 16
-  %__a.addr.i1356 = alloca i32, align 4
-  %.compoundliteral.i1357 = alloca <4 x i32>, align 16
-  %__a.addr.i1350 = alloca i32, align 4
-  %.compoundliteral.i1351 = alloca <4 x i32>, align 16
-  %__a.addr.i1344 = alloca i32, align 4
-  %.compoundliteral.i1345 = alloca <4 x i32>, align 16
-  %__a.addr.i1338 = alloca i32, align 4
-  %.compoundliteral.i1339 = alloca <4 x i32>, align 16
-  %__a.addr.i1332 = alloca i32, align 4
-  %.compoundliteral.i1333 = alloca <4 x i32>, align 16
-  %__a.addr.i1326 = alloca i32, align 4
-  %.compoundliteral.i1327 = alloca <4 x i32>, align 16
-  %__a.addr.i1320 = alloca i32, align 4
-  %.compoundliteral.i1321 = alloca <4 x i32>, align 16
-  %__a.addr.i1314 = alloca i32, align 4
-  %.compoundliteral.i1315 = alloca <4 x i32>, align 16
-  %__a.addr.i1308 = alloca i32, align 4
-  %.compoundliteral.i1309 = alloca <4 x i32>, align 16
-  %__a.addr.i1302 = alloca i32, align 4
-  %.compoundliteral.i1303 = alloca <4 x i32>, align 16
-  %__a.addr.i1296 = alloca i32, align 4
-  %.compoundliteral.i1297 = alloca <4 x i32>, align 16
-  %__a.addr.i = alloca i32, align 4
-  %.compoundliteral.i = alloca <4 x i32>, align 16
-  %data.addr = alloca ptr, align 8
-  %data_len.addr = alloca i32, align 4
-  %qlp_coeff.addr = alloca ptr, align 8
-  %order.addr = alloca i32, align 4
-  %lp_quantization.addr = alloca i32, align 4
-  %residual.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %sum = alloca i32, align 4
-  %cnt = alloca <2 x i64>, align 16
-  %q0 = alloca <2 x i64>, align 16
-  %q1 = alloca <2 x i64>, align 16
-  %q2 = alloca <2 x i64>, align 16
-  %q3 = alloca <2 x i64>, align 16
-  %q4 = alloca <2 x i64>, align 16
-  %q5 = alloca <2 x i64>, align 16
-  %q6 = alloca <2 x i64>, align 16
-  %q7 = alloca <2 x i64>, align 16
-  %q8 = alloca <2 x i64>, align 16
-  %q9 = alloca <2 x i64>, align 16
-  %q10 = alloca <2 x i64>, align 16
-  %q11 = alloca <2 x i64>, align 16
-  %summ = alloca <2 x i64>, align 16
-  %mull = alloca <2 x i64>, align 16
-  %q0118 = alloca <2 x i64>, align 16
-  %q1119 = alloca <2 x i64>, align 16
-  %q2120 = alloca <2 x i64>, align 16
-  %q3121 = alloca <2 x i64>, align 16
-  %q4122 = alloca <2 x i64>, align 16
-  %q5123 = alloca <2 x i64>, align 16
-  %q6124 = alloca <2 x i64>, align 16
-  %q7125 = alloca <2 x i64>, align 16
-  %q8126 = alloca <2 x i64>, align 16
-  %q9127 = alloca <2 x i64>, align 16
-  %q10128 = alloca <2 x i64>, align 16
-  %summ166 = alloca <2 x i64>, align 16
-  %mull167 = alloca <2 x i64>, align 16
-  %q0246 = alloca <2 x i64>, align 16
-  %q1247 = alloca <2 x i64>, align 16
-  %q2248 = alloca <2 x i64>, align 16
-  %q3249 = alloca <2 x i64>, align 16
-  %q4250 = alloca <2 x i64>, align 16
-  %q5251 = alloca <2 x i64>, align 16
-  %q6252 = alloca <2 x i64>, align 16
-  %q7253 = alloca <2 x i64>, align 16
-  %q8254 = alloca <2 x i64>, align 16
-  %q9255 = alloca <2 x i64>, align 16
-  %summ290 = alloca <2 x i64>, align 16
-  %mull291 = alloca <2 x i64>, align 16
-  %q0362 = alloca <2 x i64>, align 16
-  %q1363 = alloca <2 x i64>, align 16
-  %q2364 = alloca <2 x i64>, align 16
-  %q3365 = alloca <2 x i64>, align 16
-  %q4366 = alloca <2 x i64>, align 16
-  %q5367 = alloca <2 x i64>, align 16
-  %q6368 = alloca <2 x i64>, align 16
-  %q7369 = alloca <2 x i64>, align 16
-  %q8370 = alloca <2 x i64>, align 16
-  %summ402 = alloca <2 x i64>, align 16
-  %mull403 = alloca <2 x i64>, align 16
-  %q0476 = alloca <2 x i64>, align 16
-  %q1477 = alloca <2 x i64>, align 16
-  %q2478 = alloca <2 x i64>, align 16
-  %q3479 = alloca <2 x i64>, align 16
-  %q4480 = alloca <2 x i64>, align 16
-  %q5481 = alloca <2 x i64>, align 16
-  %q6482 = alloca <2 x i64>, align 16
-  %q7483 = alloca <2 x i64>, align 16
-  %summ512 = alloca <2 x i64>, align 16
-  %mull513 = alloca <2 x i64>, align 16
-  %q0572 = alloca <2 x i64>, align 16
-  %q1573 = alloca <2 x i64>, align 16
-  %q2574 = alloca <2 x i64>, align 16
-  %q3575 = alloca <2 x i64>, align 16
-  %q4576 = alloca <2 x i64>, align 16
-  %q5577 = alloca <2 x i64>, align 16
-  %q6578 = alloca <2 x i64>, align 16
-  %summ604 = alloca <2 x i64>, align 16
-  %mull605 = alloca <2 x i64>, align 16
-  %q0661 = alloca <2 x i64>, align 16
-  %q1662 = alloca <2 x i64>, align 16
-  %q2663 = alloca <2 x i64>, align 16
-  %q3664 = alloca <2 x i64>, align 16
-  %q4665 = alloca <2 x i64>, align 16
-  %q5666 = alloca <2 x i64>, align 16
-  %summ689 = alloca <2 x i64>, align 16
-  %mull690 = alloca <2 x i64>, align 16
-  %q0737 = alloca <2 x i64>, align 16
-  %q1738 = alloca <2 x i64>, align 16
-  %q2739 = alloca <2 x i64>, align 16
-  %q3740 = alloca <2 x i64>, align 16
-  %q4741 = alloca <2 x i64>, align 16
-  %summ761 = alloca <2 x i64>, align 16
-  %mull762 = alloca <2 x i64>, align 16
-  %q0809 = alloca <2 x i64>, align 16
-  %q1810 = alloca <2 x i64>, align 16
-  %q2811 = alloca <2 x i64>, align 16
-  %q3812 = alloca <2 x i64>, align 16
-  %summ829 = alloca <2 x i64>, align 16
-  %mull830 = alloca <2 x i64>, align 16
-  %q0865 = alloca <2 x i64>, align 16
-  %q1866 = alloca <2 x i64>, align 16
-  %q2867 = alloca <2 x i64>, align 16
-  %summ881 = alloca <2 x i64>, align 16
-  %mull882 = alloca <2 x i64>, align 16
-  %q0914 = alloca <2 x i64>, align 16
-  %q1915 = alloca <2 x i64>, align 16
-  %summ926 = alloca <2 x i64>, align 16
-  %mull927 = alloca <2 x i64>, align 16
-  %q0950 = alloca <2 x i64>, align 16
-  %summ958 = alloca <2 x i64>, align 16
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %data_len, ptr %data_len.addr, align 4
-  store ptr %qlp_coeff, ptr %qlp_coeff.addr, align 8
-  store i32 %order, ptr %order.addr, align 4
-  store i32 %lp_quantization, ptr %lp_quantization.addr, align 4
-  store ptr %residual, ptr %residual.addr, align 8
-  %0 = load i32, ptr %lp_quantization.addr, align 4
-  store i32 %0, ptr %__a.addr.i1758, align 4
-  %1 = load i32, ptr %__a.addr.i1758, align 4
-  %vecinit.i1760 = insertelement <4 x i32> undef, i32 %1, i32 0
-  %vecinit1.i1761 = insertelement <4 x i32> %vecinit.i1760, i32 0, i32 1
-  %vecinit2.i1762 = insertelement <4 x i32> %vecinit1.i1761, i32 0, i32 2
-  %vecinit3.i1763 = insertelement <4 x i32> %vecinit2.i1762, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1763, ptr %.compoundliteral.i1759, align 16
-  %2 = load <4 x i32>, ptr %.compoundliteral.i1759, align 16
-  %3 = bitcast <4 x i32> %2 to <2 x i64>
-  store <2 x i64> %3, ptr %cnt, align 16
-  %4 = load i32, ptr %order.addr, align 4
-  %cmp = icmp ule i32 %4, 12
-  br i1 %cmp, label %if.then, label %if.else1069
+define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_sse41(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca <2 x i64>, align 16
+  %16 = alloca <2 x i64>, align 16
+  %17 = alloca <2 x i64>, align 16
+  %18 = alloca <2 x i64>, align 16
+  %19 = alloca <2 x i64>, align 16
+  %20 = alloca <2 x i64>, align 16
+  %21 = alloca <2 x i64>, align 16
+  %22 = alloca <2 x i64>, align 16
+  %23 = alloca <2 x i64>, align 16
+  %24 = alloca <2 x i64>, align 16
+  %25 = alloca <2 x i64>, align 16
+  %26 = alloca <2 x i64>, align 16
+  %27 = alloca <2 x i64>, align 16
+  %28 = alloca <2 x i64>, align 16
+  %29 = alloca <2 x i64>, align 16
+  %30 = alloca <2 x i64>, align 16
+  %31 = alloca <2 x i64>, align 16
+  %32 = alloca <2 x i64>, align 16
+  %33 = alloca <2 x i64>, align 16
+  %34 = alloca <2 x i64>, align 16
+  %35 = alloca <2 x i64>, align 16
+  %36 = alloca <2 x i64>, align 16
+  %37 = alloca <2 x i64>, align 16
+  %38 = alloca <2 x i64>, align 16
+  %39 = alloca <2 x i64>, align 16
+  %40 = alloca <2 x i64>, align 16
+  %41 = alloca <2 x i64>, align 16
+  %42 = alloca <2 x i64>, align 16
+  %43 = alloca <2 x i64>, align 16
+  %44 = alloca <2 x i64>, align 16
+  %45 = alloca <2 x i64>, align 16
+  %46 = alloca <2 x i64>, align 16
+  %47 = alloca <2 x i64>, align 16
+  %48 = alloca <2 x i64>, align 16
+  %49 = alloca <2 x i64>, align 16
+  %50 = alloca <2 x i64>, align 16
+  %51 = alloca <2 x i64>, align 16
+  %52 = alloca <2 x i64>, align 16
+  %53 = alloca <2 x i64>, align 16
+  %54 = alloca <2 x i64>, align 16
+  %55 = alloca <2 x i64>, align 16
+  %56 = alloca <2 x i64>, align 16
+  %57 = alloca <2 x i64>, align 16
+  %58 = alloca <2 x i64>, align 16
+  %59 = alloca <2 x i64>, align 16
+  %60 = alloca <2 x i64>, align 16
+  %61 = alloca <2 x i64>, align 16
+  %62 = alloca <2 x i64>, align 16
+  %63 = alloca <2 x i64>, align 16
+  %64 = alloca <2 x i64>, align 16
+  %65 = alloca <2 x i64>, align 16
+  %66 = alloca <2 x i64>, align 16
+  %67 = alloca <2 x i64>, align 16
+  %68 = alloca <2 x i64>, align 16
+  %69 = alloca <2 x i64>, align 16
+  %70 = alloca <2 x i64>, align 16
+  %71 = alloca <2 x i64>, align 16
+  %72 = alloca <2 x i64>, align 16
+  %73 = alloca <2 x i64>, align 16
+  %74 = alloca <2 x i64>, align 16
+  %75 = alloca <2 x i64>, align 16
+  %76 = alloca <2 x i64>, align 16
+  %77 = alloca <2 x i64>, align 16
+  %78 = alloca <2 x i64>, align 16
+  %79 = alloca <2 x i64>, align 16
+  %80 = alloca <2 x i64>, align 16
+  %81 = alloca <2 x i64>, align 16
+  %82 = alloca <2 x i64>, align 16
+  %83 = alloca <2 x i64>, align 16
+  %84 = alloca <2 x i64>, align 16
+  %85 = alloca <2 x i64>, align 16
+  %86 = alloca <2 x i64>, align 16
+  %87 = alloca <2 x i64>, align 16
+  %88 = alloca <2 x i64>, align 16
+  %89 = alloca <2 x i64>, align 16
+  %90 = alloca <2 x i64>, align 16
+  %91 = alloca <2 x i64>, align 16
+  %92 = alloca <2 x i64>, align 16
+  %93 = alloca <2 x i64>, align 16
+  %94 = alloca <2 x i64>, align 16
+  %95 = alloca <2 x i64>, align 16
+  %96 = alloca <2 x i64>, align 16
+  %97 = alloca <2 x i64>, align 16
+  %98 = alloca <2 x i64>, align 16
+  %99 = alloca <2 x i64>, align 16
+  %100 = alloca <2 x i64>, align 16
+  %101 = alloca <2 x i64>, align 16
+  %102 = alloca <2 x i64>, align 16
+  %103 = alloca <2 x i64>, align 16
+  %104 = alloca <2 x i64>, align 16
+  %105 = alloca <2 x i64>, align 16
+  %106 = alloca <2 x i64>, align 16
+  %107 = alloca <2 x i64>, align 16
+  %108 = alloca <2 x i64>, align 16
+  %109 = alloca <2 x i64>, align 16
+  %110 = alloca <2 x i64>, align 16
+  %111 = alloca <2 x i64>, align 16
+  %112 = alloca <2 x i64>, align 16
+  %113 = alloca <2 x i64>, align 16
+  %114 = alloca <2 x i64>, align 16
+  %115 = alloca <2 x i64>, align 16
+  %116 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i32 %1, ptr %8, align 4, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !3
+  store i32 %3, ptr %10, align 4, !tbaa !8
+  store i32 %4, ptr %11, align 4, !tbaa !8
+  store ptr %5, ptr %12, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #5
+  %117 = load i32, ptr %11, align 4, !tbaa !8
+  %118 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %117)
+  store <2 x i64> %118, ptr %15, align 16, !tbaa !10
+  %119 = load i32, ptr %10, align 4, !tbaa !8
+  %120 = icmp ule i32 %119, 12
+  br i1 %120, label %121, label %2091
 
-if.then:                                          ; preds = %entry
-  %5 = load i32, ptr %order.addr, align 4
-  %cmp1 = icmp ugt i32 %5, 8
-  br i1 %cmp1, label %if.then2, label %if.else469
+121:                                              ; preds = %6
+  %122 = load i32, ptr %10, align 4, !tbaa !8
+  %123 = icmp ugt i32 %122, 8
+  br i1 %123, label %124, label %1022
 
-if.then2:                                         ; preds = %if.then
-  %6 = load i32, ptr %order.addr, align 4
-  %cmp3 = icmp ugt i32 %6, 10
-  br i1 %cmp3, label %if.then4, label %if.else243
+124:                                              ; preds = %121
+  %125 = load i32, ptr %10, align 4, !tbaa !8
+  %126 = icmp ugt i32 %125, 10
+  br i1 %126, label %127, label %612
 
-if.then4:                                         ; preds = %if.then2
-  %7 = load i32, ptr %order.addr, align 4
-  %cmp5 = icmp eq i32 %7, 12
-  br i1 %cmp5, label %if.then6, label %if.else
+127:                                              ; preds = %124
+  %128 = load i32, ptr %10, align 4, !tbaa !8
+  %129 = icmp eq i32 %128, 12
+  br i1 %129, label %130, label %380
 
-if.then6:                                         ; preds = %if.then4
-  %8 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %8, i64 0
-  %9 = load i32, ptr %arrayidx, align 4
-  store i32 %9, ptr %__a.addr.i1752, align 4
-  %10 = load i32, ptr %__a.addr.i1752, align 4
-  %vecinit.i1754 = insertelement <4 x i32> undef, i32 %10, i32 0
-  %vecinit1.i1755 = insertelement <4 x i32> %vecinit.i1754, i32 0, i32 1
-  %vecinit2.i1756 = insertelement <4 x i32> %vecinit1.i1755, i32 0, i32 2
-  %vecinit3.i1757 = insertelement <4 x i32> %vecinit2.i1756, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1757, ptr %.compoundliteral.i1753, align 16
-  %11 = load <4 x i32>, ptr %.compoundliteral.i1753, align 16
-  %12 = bitcast <4 x i32> %11 to <2 x i64>
-  store <2 x i64> %12, ptr %q0, align 16
-  %13 = load <2 x i64>, ptr %q0, align 16
-  %14 = bitcast <2 x i64> %13 to <4 x i32>
-  %permil = shufflevector <4 x i32> %14, <4 x i32> poison, <4 x i32> zeroinitializer
-  %15 = bitcast <4 x i32> %permil to <2 x i64>
-  store <2 x i64> %15, ptr %q0, align 16
-  %16 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx8 = getelementptr inbounds i32, ptr %16, i64 1
-  %17 = load i32, ptr %arrayidx8, align 4
-  store i32 %17, ptr %__a.addr.i1746, align 4
-  %18 = load i32, ptr %__a.addr.i1746, align 4
-  %vecinit.i1748 = insertelement <4 x i32> undef, i32 %18, i32 0
-  %vecinit1.i1749 = insertelement <4 x i32> %vecinit.i1748, i32 0, i32 1
-  %vecinit2.i1750 = insertelement <4 x i32> %vecinit1.i1749, i32 0, i32 2
-  %vecinit3.i1751 = insertelement <4 x i32> %vecinit2.i1750, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1751, ptr %.compoundliteral.i1747, align 16
-  %19 = load <4 x i32>, ptr %.compoundliteral.i1747, align 16
-  %20 = bitcast <4 x i32> %19 to <2 x i64>
-  store <2 x i64> %20, ptr %q1, align 16
-  %21 = load <2 x i64>, ptr %q1, align 16
-  %22 = bitcast <2 x i64> %21 to <4 x i32>
-  %permil10 = shufflevector <4 x i32> %22, <4 x i32> poison, <4 x i32> zeroinitializer
-  %23 = bitcast <4 x i32> %permil10 to <2 x i64>
-  store <2 x i64> %23, ptr %q1, align 16
-  %24 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx11 = getelementptr inbounds i32, ptr %24, i64 2
-  %25 = load i32, ptr %arrayidx11, align 4
-  store i32 %25, ptr %__a.addr.i1740, align 4
-  %26 = load i32, ptr %__a.addr.i1740, align 4
-  %vecinit.i1742 = insertelement <4 x i32> undef, i32 %26, i32 0
-  %vecinit1.i1743 = insertelement <4 x i32> %vecinit.i1742, i32 0, i32 1
-  %vecinit2.i1744 = insertelement <4 x i32> %vecinit1.i1743, i32 0, i32 2
-  %vecinit3.i1745 = insertelement <4 x i32> %vecinit2.i1744, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1745, ptr %.compoundliteral.i1741, align 16
-  %27 = load <4 x i32>, ptr %.compoundliteral.i1741, align 16
-  %28 = bitcast <4 x i32> %27 to <2 x i64>
-  store <2 x i64> %28, ptr %q2, align 16
-  %29 = load <2 x i64>, ptr %q2, align 16
-  %30 = bitcast <2 x i64> %29 to <4 x i32>
-  %permil13 = shufflevector <4 x i32> %30, <4 x i32> poison, <4 x i32> zeroinitializer
-  %31 = bitcast <4 x i32> %permil13 to <2 x i64>
-  store <2 x i64> %31, ptr %q2, align 16
-  %32 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx14 = getelementptr inbounds i32, ptr %32, i64 3
-  %33 = load i32, ptr %arrayidx14, align 4
-  store i32 %33, ptr %__a.addr.i1734, align 4
-  %34 = load i32, ptr %__a.addr.i1734, align 4
-  %vecinit.i1736 = insertelement <4 x i32> undef, i32 %34, i32 0
-  %vecinit1.i1737 = insertelement <4 x i32> %vecinit.i1736, i32 0, i32 1
-  %vecinit2.i1738 = insertelement <4 x i32> %vecinit1.i1737, i32 0, i32 2
-  %vecinit3.i1739 = insertelement <4 x i32> %vecinit2.i1738, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1739, ptr %.compoundliteral.i1735, align 16
-  %35 = load <4 x i32>, ptr %.compoundliteral.i1735, align 16
-  %36 = bitcast <4 x i32> %35 to <2 x i64>
-  store <2 x i64> %36, ptr %q3, align 16
-  %37 = load <2 x i64>, ptr %q3, align 16
-  %38 = bitcast <2 x i64> %37 to <4 x i32>
-  %permil16 = shufflevector <4 x i32> %38, <4 x i32> poison, <4 x i32> zeroinitializer
-  %39 = bitcast <4 x i32> %permil16 to <2 x i64>
-  store <2 x i64> %39, ptr %q3, align 16
-  %40 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx17 = getelementptr inbounds i32, ptr %40, i64 4
-  %41 = load i32, ptr %arrayidx17, align 4
-  store i32 %41, ptr %__a.addr.i1728, align 4
-  %42 = load i32, ptr %__a.addr.i1728, align 4
-  %vecinit.i1730 = insertelement <4 x i32> undef, i32 %42, i32 0
-  %vecinit1.i1731 = insertelement <4 x i32> %vecinit.i1730, i32 0, i32 1
-  %vecinit2.i1732 = insertelement <4 x i32> %vecinit1.i1731, i32 0, i32 2
-  %vecinit3.i1733 = insertelement <4 x i32> %vecinit2.i1732, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1733, ptr %.compoundliteral.i1729, align 16
-  %43 = load <4 x i32>, ptr %.compoundliteral.i1729, align 16
-  %44 = bitcast <4 x i32> %43 to <2 x i64>
-  store <2 x i64> %44, ptr %q4, align 16
-  %45 = load <2 x i64>, ptr %q4, align 16
-  %46 = bitcast <2 x i64> %45 to <4 x i32>
-  %permil19 = shufflevector <4 x i32> %46, <4 x i32> poison, <4 x i32> zeroinitializer
-  %47 = bitcast <4 x i32> %permil19 to <2 x i64>
-  store <2 x i64> %47, ptr %q4, align 16
-  %48 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx20 = getelementptr inbounds i32, ptr %48, i64 5
-  %49 = load i32, ptr %arrayidx20, align 4
-  store i32 %49, ptr %__a.addr.i1722, align 4
-  %50 = load i32, ptr %__a.addr.i1722, align 4
-  %vecinit.i1724 = insertelement <4 x i32> undef, i32 %50, i32 0
-  %vecinit1.i1725 = insertelement <4 x i32> %vecinit.i1724, i32 0, i32 1
-  %vecinit2.i1726 = insertelement <4 x i32> %vecinit1.i1725, i32 0, i32 2
-  %vecinit3.i1727 = insertelement <4 x i32> %vecinit2.i1726, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1727, ptr %.compoundliteral.i1723, align 16
-  %51 = load <4 x i32>, ptr %.compoundliteral.i1723, align 16
-  %52 = bitcast <4 x i32> %51 to <2 x i64>
-  store <2 x i64> %52, ptr %q5, align 16
-  %53 = load <2 x i64>, ptr %q5, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x i32>
-  %permil22 = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> zeroinitializer
-  %55 = bitcast <4 x i32> %permil22 to <2 x i64>
-  store <2 x i64> %55, ptr %q5, align 16
-  %56 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx23 = getelementptr inbounds i32, ptr %56, i64 6
-  %57 = load i32, ptr %arrayidx23, align 4
-  store i32 %57, ptr %__a.addr.i1716, align 4
-  %58 = load i32, ptr %__a.addr.i1716, align 4
-  %vecinit.i1718 = insertelement <4 x i32> undef, i32 %58, i32 0
-  %vecinit1.i1719 = insertelement <4 x i32> %vecinit.i1718, i32 0, i32 1
-  %vecinit2.i1720 = insertelement <4 x i32> %vecinit1.i1719, i32 0, i32 2
-  %vecinit3.i1721 = insertelement <4 x i32> %vecinit2.i1720, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1721, ptr %.compoundliteral.i1717, align 16
-  %59 = load <4 x i32>, ptr %.compoundliteral.i1717, align 16
-  %60 = bitcast <4 x i32> %59 to <2 x i64>
-  store <2 x i64> %60, ptr %q6, align 16
-  %61 = load <2 x i64>, ptr %q6, align 16
-  %62 = bitcast <2 x i64> %61 to <4 x i32>
-  %permil25 = shufflevector <4 x i32> %62, <4 x i32> poison, <4 x i32> zeroinitializer
-  %63 = bitcast <4 x i32> %permil25 to <2 x i64>
-  store <2 x i64> %63, ptr %q6, align 16
-  %64 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx26 = getelementptr inbounds i32, ptr %64, i64 7
-  %65 = load i32, ptr %arrayidx26, align 4
-  store i32 %65, ptr %__a.addr.i1710, align 4
-  %66 = load i32, ptr %__a.addr.i1710, align 4
-  %vecinit.i1712 = insertelement <4 x i32> undef, i32 %66, i32 0
-  %vecinit1.i1713 = insertelement <4 x i32> %vecinit.i1712, i32 0, i32 1
-  %vecinit2.i1714 = insertelement <4 x i32> %vecinit1.i1713, i32 0, i32 2
-  %vecinit3.i1715 = insertelement <4 x i32> %vecinit2.i1714, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1715, ptr %.compoundliteral.i1711, align 16
-  %67 = load <4 x i32>, ptr %.compoundliteral.i1711, align 16
-  %68 = bitcast <4 x i32> %67 to <2 x i64>
-  store <2 x i64> %68, ptr %q7, align 16
-  %69 = load <2 x i64>, ptr %q7, align 16
-  %70 = bitcast <2 x i64> %69 to <4 x i32>
-  %permil28 = shufflevector <4 x i32> %70, <4 x i32> poison, <4 x i32> zeroinitializer
-  %71 = bitcast <4 x i32> %permil28 to <2 x i64>
-  store <2 x i64> %71, ptr %q7, align 16
-  %72 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx29 = getelementptr inbounds i32, ptr %72, i64 8
-  %73 = load i32, ptr %arrayidx29, align 4
-  store i32 %73, ptr %__a.addr.i1704, align 4
-  %74 = load i32, ptr %__a.addr.i1704, align 4
-  %vecinit.i1706 = insertelement <4 x i32> undef, i32 %74, i32 0
-  %vecinit1.i1707 = insertelement <4 x i32> %vecinit.i1706, i32 0, i32 1
-  %vecinit2.i1708 = insertelement <4 x i32> %vecinit1.i1707, i32 0, i32 2
-  %vecinit3.i1709 = insertelement <4 x i32> %vecinit2.i1708, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1709, ptr %.compoundliteral.i1705, align 16
-  %75 = load <4 x i32>, ptr %.compoundliteral.i1705, align 16
-  %76 = bitcast <4 x i32> %75 to <2 x i64>
-  store <2 x i64> %76, ptr %q8, align 16
-  %77 = load <2 x i64>, ptr %q8, align 16
-  %78 = bitcast <2 x i64> %77 to <4 x i32>
-  %permil31 = shufflevector <4 x i32> %78, <4 x i32> poison, <4 x i32> zeroinitializer
-  %79 = bitcast <4 x i32> %permil31 to <2 x i64>
-  store <2 x i64> %79, ptr %q8, align 16
-  %80 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx32 = getelementptr inbounds i32, ptr %80, i64 9
-  %81 = load i32, ptr %arrayidx32, align 4
-  store i32 %81, ptr %__a.addr.i1698, align 4
-  %82 = load i32, ptr %__a.addr.i1698, align 4
-  %vecinit.i1700 = insertelement <4 x i32> undef, i32 %82, i32 0
-  %vecinit1.i1701 = insertelement <4 x i32> %vecinit.i1700, i32 0, i32 1
-  %vecinit2.i1702 = insertelement <4 x i32> %vecinit1.i1701, i32 0, i32 2
-  %vecinit3.i1703 = insertelement <4 x i32> %vecinit2.i1702, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1703, ptr %.compoundliteral.i1699, align 16
-  %83 = load <4 x i32>, ptr %.compoundliteral.i1699, align 16
-  %84 = bitcast <4 x i32> %83 to <2 x i64>
-  store <2 x i64> %84, ptr %q9, align 16
-  %85 = load <2 x i64>, ptr %q9, align 16
-  %86 = bitcast <2 x i64> %85 to <4 x i32>
-  %permil34 = shufflevector <4 x i32> %86, <4 x i32> poison, <4 x i32> zeroinitializer
-  %87 = bitcast <4 x i32> %permil34 to <2 x i64>
-  store <2 x i64> %87, ptr %q9, align 16
-  %88 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx35 = getelementptr inbounds i32, ptr %88, i64 10
-  %89 = load i32, ptr %arrayidx35, align 4
-  store i32 %89, ptr %__a.addr.i1692, align 4
-  %90 = load i32, ptr %__a.addr.i1692, align 4
-  %vecinit.i1694 = insertelement <4 x i32> undef, i32 %90, i32 0
-  %vecinit1.i1695 = insertelement <4 x i32> %vecinit.i1694, i32 0, i32 1
-  %vecinit2.i1696 = insertelement <4 x i32> %vecinit1.i1695, i32 0, i32 2
-  %vecinit3.i1697 = insertelement <4 x i32> %vecinit2.i1696, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1697, ptr %.compoundliteral.i1693, align 16
-  %91 = load <4 x i32>, ptr %.compoundliteral.i1693, align 16
-  %92 = bitcast <4 x i32> %91 to <2 x i64>
-  store <2 x i64> %92, ptr %q10, align 16
-  %93 = load <2 x i64>, ptr %q10, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x i32>
-  %permil37 = shufflevector <4 x i32> %94, <4 x i32> poison, <4 x i32> zeroinitializer
-  %95 = bitcast <4 x i32> %permil37 to <2 x i64>
-  store <2 x i64> %95, ptr %q10, align 16
-  %96 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx38 = getelementptr inbounds i32, ptr %96, i64 11
-  %97 = load i32, ptr %arrayidx38, align 4
-  store i32 %97, ptr %__a.addr.i1686, align 4
-  %98 = load i32, ptr %__a.addr.i1686, align 4
-  %vecinit.i1688 = insertelement <4 x i32> undef, i32 %98, i32 0
-  %vecinit1.i1689 = insertelement <4 x i32> %vecinit.i1688, i32 0, i32 1
-  %vecinit2.i1690 = insertelement <4 x i32> %vecinit1.i1689, i32 0, i32 2
-  %vecinit3.i1691 = insertelement <4 x i32> %vecinit2.i1690, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1691, ptr %.compoundliteral.i1687, align 16
-  %99 = load <4 x i32>, ptr %.compoundliteral.i1687, align 16
-  %100 = bitcast <4 x i32> %99 to <2 x i64>
-  store <2 x i64> %100, ptr %q11, align 16
-  %101 = load <2 x i64>, ptr %q11, align 16
-  %102 = bitcast <2 x i64> %101 to <4 x i32>
-  %permil40 = shufflevector <4 x i32> %102, <4 x i32> poison, <4 x i32> zeroinitializer
-  %103 = bitcast <4 x i32> %permil40 to <2 x i64>
-  store <2 x i64> %103, ptr %q11, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then6
-  %104 = load i32, ptr %i, align 4
-  %105 = load i32, ptr %data_len.addr, align 4
-  %sub = sub nsw i32 %105, 3
-  %cmp41 = icmp slt i32 %104, %sub
-  br i1 %cmp41, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %106 = load <2 x i64>, ptr %q11, align 16
-  %107 = load ptr, ptr %data.addr, align 8
-  %108 = load i32, ptr %i, align 4
-  %idx.ext = sext i32 %108 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %107, i64 %idx.ext
-  %add.ptr42 = getelementptr inbounds i32, ptr %add.ptr, i64 -12
-  store ptr %add.ptr42, ptr %__p.addr.i2083, align 8
-  %109 = load ptr, ptr %__p.addr.i2083, align 8
-  %110 = load <2 x i64>, ptr %109, align 1
-  store <2 x i64> %106, ptr %__V1.addr.i1992, align 16
-  store <2 x i64> %110, ptr %__V2.addr.i1993, align 16
-  %111 = load <2 x i64>, ptr %__V1.addr.i1992, align 16
-  %112 = bitcast <2 x i64> %111 to <4 x i32>
-  %113 = load <2 x i64>, ptr %__V2.addr.i1993, align 16
-  %114 = bitcast <2 x i64> %113 to <4 x i32>
-  %mul.i1994 = mul <4 x i32> %112, %114
-  %115 = bitcast <4 x i32> %mul.i1994 to <2 x i64>
-  store <2 x i64> %115, ptr %summ, align 16
-  %116 = load <2 x i64>, ptr %q10, align 16
-  %117 = load ptr, ptr %data.addr, align 8
-  %118 = load i32, ptr %i, align 4
-  %idx.ext45 = sext i32 %118 to i64
-  %add.ptr46 = getelementptr inbounds i32, ptr %117, i64 %idx.ext45
-  %add.ptr47 = getelementptr inbounds i32, ptr %add.ptr46, i64 -11
-  store ptr %add.ptr47, ptr %__p.addr.i2082, align 8
-  %119 = load ptr, ptr %__p.addr.i2082, align 8
-  %120 = load <2 x i64>, ptr %119, align 1
-  store <2 x i64> %116, ptr %__V1.addr.i1989, align 16
-  store <2 x i64> %120, ptr %__V2.addr.i1990, align 16
-  %121 = load <2 x i64>, ptr %__V1.addr.i1989, align 16
-  %122 = bitcast <2 x i64> %121 to <4 x i32>
-  %123 = load <2 x i64>, ptr %__V2.addr.i1990, align 16
-  %124 = bitcast <2 x i64> %123 to <4 x i32>
-  %mul.i1991 = mul <4 x i32> %122, %124
-  %125 = bitcast <4 x i32> %mul.i1991 to <2 x i64>
-  store <2 x i64> %125, ptr %mull, align 16
-  %126 = load <2 x i64>, ptr %summ, align 16
-  %127 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %126, ptr %__a.addr.i2277, align 16
-  store <2 x i64> %127, ptr %__b.addr.i2278, align 16
-  %128 = load <2 x i64>, ptr %__a.addr.i2277, align 16
-  %129 = bitcast <2 x i64> %128 to <4 x i32>
-  %130 = load <2 x i64>, ptr %__b.addr.i2278, align 16
-  %131 = bitcast <2 x i64> %130 to <4 x i32>
-  %add.i2279 = add <4 x i32> %129, %131
-  %132 = bitcast <4 x i32> %add.i2279 to <2 x i64>
-  store <2 x i64> %132, ptr %summ, align 16
-  %133 = load <2 x i64>, ptr %q9, align 16
-  %134 = load ptr, ptr %data.addr, align 8
-  %135 = load i32, ptr %i, align 4
-  %idx.ext51 = sext i32 %135 to i64
-  %add.ptr52 = getelementptr inbounds i32, ptr %134, i64 %idx.ext51
-  %add.ptr53 = getelementptr inbounds i32, ptr %add.ptr52, i64 -10
-  store ptr %add.ptr53, ptr %__p.addr.i2081, align 8
-  %136 = load ptr, ptr %__p.addr.i2081, align 8
-  %137 = load <2 x i64>, ptr %136, align 1
-  store <2 x i64> %133, ptr %__V1.addr.i1986, align 16
-  store <2 x i64> %137, ptr %__V2.addr.i1987, align 16
-  %138 = load <2 x i64>, ptr %__V1.addr.i1986, align 16
-  %139 = bitcast <2 x i64> %138 to <4 x i32>
-  %140 = load <2 x i64>, ptr %__V2.addr.i1987, align 16
-  %141 = bitcast <2 x i64> %140 to <4 x i32>
-  %mul.i1988 = mul <4 x i32> %139, %141
-  %142 = bitcast <4 x i32> %mul.i1988 to <2 x i64>
-  store <2 x i64> %142, ptr %mull, align 16
-  %143 = load <2 x i64>, ptr %summ, align 16
-  %144 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %143, ptr %__a.addr.i2274, align 16
-  store <2 x i64> %144, ptr %__b.addr.i2275, align 16
-  %145 = load <2 x i64>, ptr %__a.addr.i2274, align 16
-  %146 = bitcast <2 x i64> %145 to <4 x i32>
-  %147 = load <2 x i64>, ptr %__b.addr.i2275, align 16
-  %148 = bitcast <2 x i64> %147 to <4 x i32>
-  %add.i2276 = add <4 x i32> %146, %148
-  %149 = bitcast <4 x i32> %add.i2276 to <2 x i64>
-  store <2 x i64> %149, ptr %summ, align 16
-  %150 = load <2 x i64>, ptr %q8, align 16
-  %151 = load ptr, ptr %data.addr, align 8
-  %152 = load i32, ptr %i, align 4
-  %idx.ext57 = sext i32 %152 to i64
-  %add.ptr58 = getelementptr inbounds i32, ptr %151, i64 %idx.ext57
-  %add.ptr59 = getelementptr inbounds i32, ptr %add.ptr58, i64 -9
-  store ptr %add.ptr59, ptr %__p.addr.i2080, align 8
-  %153 = load ptr, ptr %__p.addr.i2080, align 8
-  %154 = load <2 x i64>, ptr %153, align 1
-  store <2 x i64> %150, ptr %__V1.addr.i1983, align 16
-  store <2 x i64> %154, ptr %__V2.addr.i1984, align 16
-  %155 = load <2 x i64>, ptr %__V1.addr.i1983, align 16
-  %156 = bitcast <2 x i64> %155 to <4 x i32>
-  %157 = load <2 x i64>, ptr %__V2.addr.i1984, align 16
-  %158 = bitcast <2 x i64> %157 to <4 x i32>
-  %mul.i1985 = mul <4 x i32> %156, %158
-  %159 = bitcast <4 x i32> %mul.i1985 to <2 x i64>
-  store <2 x i64> %159, ptr %mull, align 16
-  %160 = load <2 x i64>, ptr %summ, align 16
-  %161 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %160, ptr %__a.addr.i2271, align 16
-  store <2 x i64> %161, ptr %__b.addr.i2272, align 16
-  %162 = load <2 x i64>, ptr %__a.addr.i2271, align 16
-  %163 = bitcast <2 x i64> %162 to <4 x i32>
-  %164 = load <2 x i64>, ptr %__b.addr.i2272, align 16
-  %165 = bitcast <2 x i64> %164 to <4 x i32>
-  %add.i2273 = add <4 x i32> %163, %165
-  %166 = bitcast <4 x i32> %add.i2273 to <2 x i64>
-  store <2 x i64> %166, ptr %summ, align 16
-  %167 = load <2 x i64>, ptr %q7, align 16
-  %168 = load ptr, ptr %data.addr, align 8
-  %169 = load i32, ptr %i, align 4
-  %idx.ext63 = sext i32 %169 to i64
-  %add.ptr64 = getelementptr inbounds i32, ptr %168, i64 %idx.ext63
-  %add.ptr65 = getelementptr inbounds i32, ptr %add.ptr64, i64 -8
-  store ptr %add.ptr65, ptr %__p.addr.i2079, align 8
-  %170 = load ptr, ptr %__p.addr.i2079, align 8
-  %171 = load <2 x i64>, ptr %170, align 1
-  store <2 x i64> %167, ptr %__V1.addr.i1980, align 16
-  store <2 x i64> %171, ptr %__V2.addr.i1981, align 16
-  %172 = load <2 x i64>, ptr %__V1.addr.i1980, align 16
-  %173 = bitcast <2 x i64> %172 to <4 x i32>
-  %174 = load <2 x i64>, ptr %__V2.addr.i1981, align 16
-  %175 = bitcast <2 x i64> %174 to <4 x i32>
-  %mul.i1982 = mul <4 x i32> %173, %175
-  %176 = bitcast <4 x i32> %mul.i1982 to <2 x i64>
-  store <2 x i64> %176, ptr %mull, align 16
-  %177 = load <2 x i64>, ptr %summ, align 16
-  %178 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %177, ptr %__a.addr.i2268, align 16
-  store <2 x i64> %178, ptr %__b.addr.i2269, align 16
-  %179 = load <2 x i64>, ptr %__a.addr.i2268, align 16
-  %180 = bitcast <2 x i64> %179 to <4 x i32>
-  %181 = load <2 x i64>, ptr %__b.addr.i2269, align 16
-  %182 = bitcast <2 x i64> %181 to <4 x i32>
-  %add.i2270 = add <4 x i32> %180, %182
-  %183 = bitcast <4 x i32> %add.i2270 to <2 x i64>
-  store <2 x i64> %183, ptr %summ, align 16
-  %184 = load <2 x i64>, ptr %q6, align 16
-  %185 = load ptr, ptr %data.addr, align 8
-  %186 = load i32, ptr %i, align 4
-  %idx.ext69 = sext i32 %186 to i64
-  %add.ptr70 = getelementptr inbounds i32, ptr %185, i64 %idx.ext69
-  %add.ptr71 = getelementptr inbounds i32, ptr %add.ptr70, i64 -7
-  store ptr %add.ptr71, ptr %__p.addr.i2078, align 8
-  %187 = load ptr, ptr %__p.addr.i2078, align 8
-  %188 = load <2 x i64>, ptr %187, align 1
-  store <2 x i64> %184, ptr %__V1.addr.i1977, align 16
-  store <2 x i64> %188, ptr %__V2.addr.i1978, align 16
-  %189 = load <2 x i64>, ptr %__V1.addr.i1977, align 16
-  %190 = bitcast <2 x i64> %189 to <4 x i32>
-  %191 = load <2 x i64>, ptr %__V2.addr.i1978, align 16
+130:                                              ; preds = %127
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %24) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %27) #5
+  %131 = load ptr, ptr %9, align 8, !tbaa !3
+  %132 = getelementptr inbounds i32, ptr %131, i64 0
+  %133 = load i32, ptr %132, align 4, !tbaa !8
+  %134 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %133)
+  store <2 x i64> %134, ptr %16, align 16, !tbaa !10
+  %135 = load <2 x i64>, ptr %16, align 16, !tbaa !10
+  %136 = bitcast <2 x i64> %135 to <4 x i32>
+  %137 = shufflevector <4 x i32> %136, <4 x i32> poison, <4 x i32> zeroinitializer
+  %138 = bitcast <4 x i32> %137 to <2 x i64>
+  store <2 x i64> %138, ptr %16, align 16, !tbaa !10
+  %139 = load ptr, ptr %9, align 8, !tbaa !3
+  %140 = getelementptr inbounds i32, ptr %139, i64 1
+  %141 = load i32, ptr %140, align 4, !tbaa !8
+  %142 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %141)
+  store <2 x i64> %142, ptr %17, align 16, !tbaa !10
+  %143 = load <2 x i64>, ptr %17, align 16, !tbaa !10
+  %144 = bitcast <2 x i64> %143 to <4 x i32>
+  %145 = shufflevector <4 x i32> %144, <4 x i32> poison, <4 x i32> zeroinitializer
+  %146 = bitcast <4 x i32> %145 to <2 x i64>
+  store <2 x i64> %146, ptr %17, align 16, !tbaa !10
+  %147 = load ptr, ptr %9, align 8, !tbaa !3
+  %148 = getelementptr inbounds i32, ptr %147, i64 2
+  %149 = load i32, ptr %148, align 4, !tbaa !8
+  %150 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %149)
+  store <2 x i64> %150, ptr %18, align 16, !tbaa !10
+  %151 = load <2 x i64>, ptr %18, align 16, !tbaa !10
+  %152 = bitcast <2 x i64> %151 to <4 x i32>
+  %153 = shufflevector <4 x i32> %152, <4 x i32> poison, <4 x i32> zeroinitializer
+  %154 = bitcast <4 x i32> %153 to <2 x i64>
+  store <2 x i64> %154, ptr %18, align 16, !tbaa !10
+  %155 = load ptr, ptr %9, align 8, !tbaa !3
+  %156 = getelementptr inbounds i32, ptr %155, i64 3
+  %157 = load i32, ptr %156, align 4, !tbaa !8
+  %158 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %157)
+  store <2 x i64> %158, ptr %19, align 16, !tbaa !10
+  %159 = load <2 x i64>, ptr %19, align 16, !tbaa !10
+  %160 = bitcast <2 x i64> %159 to <4 x i32>
+  %161 = shufflevector <4 x i32> %160, <4 x i32> poison, <4 x i32> zeroinitializer
+  %162 = bitcast <4 x i32> %161 to <2 x i64>
+  store <2 x i64> %162, ptr %19, align 16, !tbaa !10
+  %163 = load ptr, ptr %9, align 8, !tbaa !3
+  %164 = getelementptr inbounds i32, ptr %163, i64 4
+  %165 = load i32, ptr %164, align 4, !tbaa !8
+  %166 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %165)
+  store <2 x i64> %166, ptr %20, align 16, !tbaa !10
+  %167 = load <2 x i64>, ptr %20, align 16, !tbaa !10
+  %168 = bitcast <2 x i64> %167 to <4 x i32>
+  %169 = shufflevector <4 x i32> %168, <4 x i32> poison, <4 x i32> zeroinitializer
+  %170 = bitcast <4 x i32> %169 to <2 x i64>
+  store <2 x i64> %170, ptr %20, align 16, !tbaa !10
+  %171 = load ptr, ptr %9, align 8, !tbaa !3
+  %172 = getelementptr inbounds i32, ptr %171, i64 5
+  %173 = load i32, ptr %172, align 4, !tbaa !8
+  %174 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %173)
+  store <2 x i64> %174, ptr %21, align 16, !tbaa !10
+  %175 = load <2 x i64>, ptr %21, align 16, !tbaa !10
+  %176 = bitcast <2 x i64> %175 to <4 x i32>
+  %177 = shufflevector <4 x i32> %176, <4 x i32> poison, <4 x i32> zeroinitializer
+  %178 = bitcast <4 x i32> %177 to <2 x i64>
+  store <2 x i64> %178, ptr %21, align 16, !tbaa !10
+  %179 = load ptr, ptr %9, align 8, !tbaa !3
+  %180 = getelementptr inbounds i32, ptr %179, i64 6
+  %181 = load i32, ptr %180, align 4, !tbaa !8
+  %182 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %181)
+  store <2 x i64> %182, ptr %22, align 16, !tbaa !10
+  %183 = load <2 x i64>, ptr %22, align 16, !tbaa !10
+  %184 = bitcast <2 x i64> %183 to <4 x i32>
+  %185 = shufflevector <4 x i32> %184, <4 x i32> poison, <4 x i32> zeroinitializer
+  %186 = bitcast <4 x i32> %185 to <2 x i64>
+  store <2 x i64> %186, ptr %22, align 16, !tbaa !10
+  %187 = load ptr, ptr %9, align 8, !tbaa !3
+  %188 = getelementptr inbounds i32, ptr %187, i64 7
+  %189 = load i32, ptr %188, align 4, !tbaa !8
+  %190 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %189)
+  store <2 x i64> %190, ptr %23, align 16, !tbaa !10
+  %191 = load <2 x i64>, ptr %23, align 16, !tbaa !10
   %192 = bitcast <2 x i64> %191 to <4 x i32>
-  %mul.i1979 = mul <4 x i32> %190, %192
-  %193 = bitcast <4 x i32> %mul.i1979 to <2 x i64>
-  store <2 x i64> %193, ptr %mull, align 16
-  %194 = load <2 x i64>, ptr %summ, align 16
-  %195 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %194, ptr %__a.addr.i2265, align 16
-  store <2 x i64> %195, ptr %__b.addr.i2266, align 16
-  %196 = load <2 x i64>, ptr %__a.addr.i2265, align 16
-  %197 = bitcast <2 x i64> %196 to <4 x i32>
-  %198 = load <2 x i64>, ptr %__b.addr.i2266, align 16
-  %199 = bitcast <2 x i64> %198 to <4 x i32>
-  %add.i2267 = add <4 x i32> %197, %199
-  %200 = bitcast <4 x i32> %add.i2267 to <2 x i64>
-  store <2 x i64> %200, ptr %summ, align 16
-  %201 = load <2 x i64>, ptr %q5, align 16
-  %202 = load ptr, ptr %data.addr, align 8
-  %203 = load i32, ptr %i, align 4
-  %idx.ext75 = sext i32 %203 to i64
-  %add.ptr76 = getelementptr inbounds i32, ptr %202, i64 %idx.ext75
-  %add.ptr77 = getelementptr inbounds i32, ptr %add.ptr76, i64 -6
-  store ptr %add.ptr77, ptr %__p.addr.i2077, align 8
-  %204 = load ptr, ptr %__p.addr.i2077, align 8
-  %205 = load <2 x i64>, ptr %204, align 1
-  store <2 x i64> %201, ptr %__V1.addr.i1974, align 16
-  store <2 x i64> %205, ptr %__V2.addr.i1975, align 16
-  %206 = load <2 x i64>, ptr %__V1.addr.i1974, align 16
-  %207 = bitcast <2 x i64> %206 to <4 x i32>
-  %208 = load <2 x i64>, ptr %__V2.addr.i1975, align 16
-  %209 = bitcast <2 x i64> %208 to <4 x i32>
-  %mul.i1976 = mul <4 x i32> %207, %209
-  %210 = bitcast <4 x i32> %mul.i1976 to <2 x i64>
-  store <2 x i64> %210, ptr %mull, align 16
-  %211 = load <2 x i64>, ptr %summ, align 16
-  %212 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %211, ptr %__a.addr.i2262, align 16
-  store <2 x i64> %212, ptr %__b.addr.i2263, align 16
-  %213 = load <2 x i64>, ptr %__a.addr.i2262, align 16
-  %214 = bitcast <2 x i64> %213 to <4 x i32>
-  %215 = load <2 x i64>, ptr %__b.addr.i2263, align 16
+  %193 = shufflevector <4 x i32> %192, <4 x i32> poison, <4 x i32> zeroinitializer
+  %194 = bitcast <4 x i32> %193 to <2 x i64>
+  store <2 x i64> %194, ptr %23, align 16, !tbaa !10
+  %195 = load ptr, ptr %9, align 8, !tbaa !3
+  %196 = getelementptr inbounds i32, ptr %195, i64 8
+  %197 = load i32, ptr %196, align 4, !tbaa !8
+  %198 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %197)
+  store <2 x i64> %198, ptr %24, align 16, !tbaa !10
+  %199 = load <2 x i64>, ptr %24, align 16, !tbaa !10
+  %200 = bitcast <2 x i64> %199 to <4 x i32>
+  %201 = shufflevector <4 x i32> %200, <4 x i32> poison, <4 x i32> zeroinitializer
+  %202 = bitcast <4 x i32> %201 to <2 x i64>
+  store <2 x i64> %202, ptr %24, align 16, !tbaa !10
+  %203 = load ptr, ptr %9, align 8, !tbaa !3
+  %204 = getelementptr inbounds i32, ptr %203, i64 9
+  %205 = load i32, ptr %204, align 4, !tbaa !8
+  %206 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %205)
+  store <2 x i64> %206, ptr %25, align 16, !tbaa !10
+  %207 = load <2 x i64>, ptr %25, align 16, !tbaa !10
+  %208 = bitcast <2 x i64> %207 to <4 x i32>
+  %209 = shufflevector <4 x i32> %208, <4 x i32> poison, <4 x i32> zeroinitializer
+  %210 = bitcast <4 x i32> %209 to <2 x i64>
+  store <2 x i64> %210, ptr %25, align 16, !tbaa !10
+  %211 = load ptr, ptr %9, align 8, !tbaa !3
+  %212 = getelementptr inbounds i32, ptr %211, i64 10
+  %213 = load i32, ptr %212, align 4, !tbaa !8
+  %214 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %213)
+  store <2 x i64> %214, ptr %26, align 16, !tbaa !10
+  %215 = load <2 x i64>, ptr %26, align 16, !tbaa !10
   %216 = bitcast <2 x i64> %215 to <4 x i32>
-  %add.i2264 = add <4 x i32> %214, %216
-  %217 = bitcast <4 x i32> %add.i2264 to <2 x i64>
-  store <2 x i64> %217, ptr %summ, align 16
-  %218 = load <2 x i64>, ptr %q4, align 16
-  %219 = load ptr, ptr %data.addr, align 8
-  %220 = load i32, ptr %i, align 4
-  %idx.ext81 = sext i32 %220 to i64
-  %add.ptr82 = getelementptr inbounds i32, ptr %219, i64 %idx.ext81
-  %add.ptr83 = getelementptr inbounds i32, ptr %add.ptr82, i64 -5
-  store ptr %add.ptr83, ptr %__p.addr.i2076, align 8
-  %221 = load ptr, ptr %__p.addr.i2076, align 8
-  %222 = load <2 x i64>, ptr %221, align 1
-  store <2 x i64> %218, ptr %__V1.addr.i1971, align 16
-  store <2 x i64> %222, ptr %__V2.addr.i1972, align 16
-  %223 = load <2 x i64>, ptr %__V1.addr.i1971, align 16
+  %217 = shufflevector <4 x i32> %216, <4 x i32> poison, <4 x i32> zeroinitializer
+  %218 = bitcast <4 x i32> %217 to <2 x i64>
+  store <2 x i64> %218, ptr %26, align 16, !tbaa !10
+  %219 = load ptr, ptr %9, align 8, !tbaa !3
+  %220 = getelementptr inbounds i32, ptr %219, i64 11
+  %221 = load i32, ptr %220, align 4, !tbaa !8
+  %222 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %221)
+  store <2 x i64> %222, ptr %27, align 16, !tbaa !10
+  %223 = load <2 x i64>, ptr %27, align 16, !tbaa !10
   %224 = bitcast <2 x i64> %223 to <4 x i32>
-  %225 = load <2 x i64>, ptr %__V2.addr.i1972, align 16
-  %226 = bitcast <2 x i64> %225 to <4 x i32>
-  %mul.i1973 = mul <4 x i32> %224, %226
-  %227 = bitcast <4 x i32> %mul.i1973 to <2 x i64>
-  store <2 x i64> %227, ptr %mull, align 16
-  %228 = load <2 x i64>, ptr %summ, align 16
-  %229 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %228, ptr %__a.addr.i2259, align 16
-  store <2 x i64> %229, ptr %__b.addr.i2260, align 16
-  %230 = load <2 x i64>, ptr %__a.addr.i2259, align 16
-  %231 = bitcast <2 x i64> %230 to <4 x i32>
-  %232 = load <2 x i64>, ptr %__b.addr.i2260, align 16
-  %233 = bitcast <2 x i64> %232 to <4 x i32>
-  %add.i2261 = add <4 x i32> %231, %233
-  %234 = bitcast <4 x i32> %add.i2261 to <2 x i64>
-  store <2 x i64> %234, ptr %summ, align 16
-  %235 = load <2 x i64>, ptr %q3, align 16
-  %236 = load ptr, ptr %data.addr, align 8
-  %237 = load i32, ptr %i, align 4
-  %idx.ext87 = sext i32 %237 to i64
-  %add.ptr88 = getelementptr inbounds i32, ptr %236, i64 %idx.ext87
-  %add.ptr89 = getelementptr inbounds i32, ptr %add.ptr88, i64 -4
-  store ptr %add.ptr89, ptr %__p.addr.i2075, align 8
-  %238 = load ptr, ptr %__p.addr.i2075, align 8
-  %239 = load <2 x i64>, ptr %238, align 1
-  store <2 x i64> %235, ptr %__V1.addr.i1968, align 16
-  store <2 x i64> %239, ptr %__V2.addr.i1969, align 16
-  %240 = load <2 x i64>, ptr %__V1.addr.i1968, align 16
-  %241 = bitcast <2 x i64> %240 to <4 x i32>
-  %242 = load <2 x i64>, ptr %__V2.addr.i1969, align 16
-  %243 = bitcast <2 x i64> %242 to <4 x i32>
-  %mul.i1970 = mul <4 x i32> %241, %243
-  %244 = bitcast <4 x i32> %mul.i1970 to <2 x i64>
-  store <2 x i64> %244, ptr %mull, align 16
-  %245 = load <2 x i64>, ptr %summ, align 16
-  %246 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %245, ptr %__a.addr.i2256, align 16
-  store <2 x i64> %246, ptr %__b.addr.i2257, align 16
-  %247 = load <2 x i64>, ptr %__a.addr.i2256, align 16
-  %248 = bitcast <2 x i64> %247 to <4 x i32>
-  %249 = load <2 x i64>, ptr %__b.addr.i2257, align 16
-  %250 = bitcast <2 x i64> %249 to <4 x i32>
-  %add.i2258 = add <4 x i32> %248, %250
-  %251 = bitcast <4 x i32> %add.i2258 to <2 x i64>
-  store <2 x i64> %251, ptr %summ, align 16
-  %252 = load <2 x i64>, ptr %q2, align 16
-  %253 = load ptr, ptr %data.addr, align 8
-  %254 = load i32, ptr %i, align 4
-  %idx.ext93 = sext i32 %254 to i64
-  %add.ptr94 = getelementptr inbounds i32, ptr %253, i64 %idx.ext93
-  %add.ptr95 = getelementptr inbounds i32, ptr %add.ptr94, i64 -3
-  store ptr %add.ptr95, ptr %__p.addr.i2074, align 8
-  %255 = load ptr, ptr %__p.addr.i2074, align 8
-  %256 = load <2 x i64>, ptr %255, align 1
-  store <2 x i64> %252, ptr %__V1.addr.i1965, align 16
-  store <2 x i64> %256, ptr %__V2.addr.i1966, align 16
-  %257 = load <2 x i64>, ptr %__V1.addr.i1965, align 16
-  %258 = bitcast <2 x i64> %257 to <4 x i32>
-  %259 = load <2 x i64>, ptr %__V2.addr.i1966, align 16
-  %260 = bitcast <2 x i64> %259 to <4 x i32>
-  %mul.i1967 = mul <4 x i32> %258, %260
-  %261 = bitcast <4 x i32> %mul.i1967 to <2 x i64>
-  store <2 x i64> %261, ptr %mull, align 16
-  %262 = load <2 x i64>, ptr %summ, align 16
-  %263 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %262, ptr %__a.addr.i2253, align 16
-  store <2 x i64> %263, ptr %__b.addr.i2254, align 16
-  %264 = load <2 x i64>, ptr %__a.addr.i2253, align 16
-  %265 = bitcast <2 x i64> %264 to <4 x i32>
-  %266 = load <2 x i64>, ptr %__b.addr.i2254, align 16
-  %267 = bitcast <2 x i64> %266 to <4 x i32>
-  %add.i2255 = add <4 x i32> %265, %267
-  %268 = bitcast <4 x i32> %add.i2255 to <2 x i64>
-  store <2 x i64> %268, ptr %summ, align 16
-  %269 = load <2 x i64>, ptr %q1, align 16
-  %270 = load ptr, ptr %data.addr, align 8
-  %271 = load i32, ptr %i, align 4
-  %idx.ext99 = sext i32 %271 to i64
-  %add.ptr100 = getelementptr inbounds i32, ptr %270, i64 %idx.ext99
-  %add.ptr101 = getelementptr inbounds i32, ptr %add.ptr100, i64 -2
-  store ptr %add.ptr101, ptr %__p.addr.i2073, align 8
-  %272 = load ptr, ptr %__p.addr.i2073, align 8
-  %273 = load <2 x i64>, ptr %272, align 1
-  store <2 x i64> %269, ptr %__V1.addr.i1962, align 16
-  store <2 x i64> %273, ptr %__V2.addr.i1963, align 16
-  %274 = load <2 x i64>, ptr %__V1.addr.i1962, align 16
-  %275 = bitcast <2 x i64> %274 to <4 x i32>
-  %276 = load <2 x i64>, ptr %__V2.addr.i1963, align 16
-  %277 = bitcast <2 x i64> %276 to <4 x i32>
-  %mul.i1964 = mul <4 x i32> %275, %277
-  %278 = bitcast <4 x i32> %mul.i1964 to <2 x i64>
-  store <2 x i64> %278, ptr %mull, align 16
-  %279 = load <2 x i64>, ptr %summ, align 16
-  %280 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %279, ptr %__a.addr.i2250, align 16
-  store <2 x i64> %280, ptr %__b.addr.i2251, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i2250, align 16
-  %282 = bitcast <2 x i64> %281 to <4 x i32>
-  %283 = load <2 x i64>, ptr %__b.addr.i2251, align 16
-  %284 = bitcast <2 x i64> %283 to <4 x i32>
-  %add.i2252 = add <4 x i32> %282, %284
-  %285 = bitcast <4 x i32> %add.i2252 to <2 x i64>
-  store <2 x i64> %285, ptr %summ, align 16
-  %286 = load <2 x i64>, ptr %q0, align 16
-  %287 = load ptr, ptr %data.addr, align 8
-  %288 = load i32, ptr %i, align 4
-  %idx.ext105 = sext i32 %288 to i64
-  %add.ptr106 = getelementptr inbounds i32, ptr %287, i64 %idx.ext105
-  %add.ptr107 = getelementptr inbounds i32, ptr %add.ptr106, i64 -1
-  store ptr %add.ptr107, ptr %__p.addr.i2072, align 8
-  %289 = load ptr, ptr %__p.addr.i2072, align 8
-  %290 = load <2 x i64>, ptr %289, align 1
-  store <2 x i64> %286, ptr %__V1.addr.i1959, align 16
-  store <2 x i64> %290, ptr %__V2.addr.i1960, align 16
-  %291 = load <2 x i64>, ptr %__V1.addr.i1959, align 16
-  %292 = bitcast <2 x i64> %291 to <4 x i32>
-  %293 = load <2 x i64>, ptr %__V2.addr.i1960, align 16
-  %294 = bitcast <2 x i64> %293 to <4 x i32>
-  %mul.i1961 = mul <4 x i32> %292, %294
-  %295 = bitcast <4 x i32> %mul.i1961 to <2 x i64>
-  store <2 x i64> %295, ptr %mull, align 16
-  %296 = load <2 x i64>, ptr %summ, align 16
-  %297 = load <2 x i64>, ptr %mull, align 16
-  store <2 x i64> %296, ptr %__a.addr.i2247, align 16
-  store <2 x i64> %297, ptr %__b.addr.i2248, align 16
-  %298 = load <2 x i64>, ptr %__a.addr.i2247, align 16
-  %299 = bitcast <2 x i64> %298 to <4 x i32>
-  %300 = load <2 x i64>, ptr %__b.addr.i2248, align 16
-  %301 = bitcast <2 x i64> %300 to <4 x i32>
-  %add.i2249 = add <4 x i32> %299, %301
-  %302 = bitcast <4 x i32> %add.i2249 to <2 x i64>
-  store <2 x i64> %302, ptr %summ, align 16
-  %303 = load <2 x i64>, ptr %summ, align 16
-  %304 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %303, ptr %__a.addr.i2301, align 16
-  store <2 x i64> %304, ptr %__count.addr.i2302, align 16
-  %305 = load <2 x i64>, ptr %__a.addr.i2301, align 16
-  %306 = bitcast <2 x i64> %305 to <4 x i32>
-  %307 = load <2 x i64>, ptr %__count.addr.i2302, align 16
-  %308 = bitcast <2 x i64> %307 to <4 x i32>
-  %309 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %306, <4 x i32> %308)
-  %310 = bitcast <4 x i32> %309 to <2 x i64>
-  store <2 x i64> %310, ptr %summ, align 16
-  %311 = load ptr, ptr %residual.addr, align 8
-  %312 = load i32, ptr %i, align 4
-  %idx.ext112 = sext i32 %312 to i64
-  %add.ptr113 = getelementptr inbounds i32, ptr %311, i64 %idx.ext112
-  %313 = load ptr, ptr %data.addr, align 8
-  %314 = load i32, ptr %i, align 4
-  %idx.ext114 = sext i32 %314 to i64
-  %add.ptr115 = getelementptr inbounds i32, ptr %313, i64 %idx.ext114
-  store ptr %add.ptr115, ptr %__p.addr.i2071, align 8
-  %315 = load ptr, ptr %__p.addr.i2071, align 8
-  %316 = load <2 x i64>, ptr %315, align 1
-  %317 = load <2 x i64>, ptr %summ, align 16
-  store <2 x i64> %316, ptr %__a.addr.i2359, align 16
-  store <2 x i64> %317, ptr %__b.addr.i2360, align 16
-  %318 = load <2 x i64>, ptr %__a.addr.i2359, align 16
-  %319 = bitcast <2 x i64> %318 to <4 x i32>
-  %320 = load <2 x i64>, ptr %__b.addr.i2360, align 16
-  %321 = bitcast <2 x i64> %320 to <4 x i32>
-  %sub.i2361 = sub <4 x i32> %319, %321
-  %322 = bitcast <4 x i32> %sub.i2361 to <2 x i64>
-  store ptr %add.ptr113, ptr %__p.addr.i2325, align 8
-  store <2 x i64> %322, ptr %__b.addr.i2326, align 16
-  %323 = load <2 x i64>, ptr %__b.addr.i2326, align 16
-  %324 = load ptr, ptr %__p.addr.i2325, align 8
-  store <2 x i64> %323, ptr %324, align 1
-  br label %for.inc
+  %225 = shufflevector <4 x i32> %224, <4 x i32> poison, <4 x i32> zeroinitializer
+  %226 = bitcast <4 x i32> %225 to <2 x i64>
+  store <2 x i64> %226, ptr %27, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %227
 
-for.inc:                                          ; preds = %for.body
-  %325 = load i32, ptr %i, align 4
-  %add = add nsw i32 %325, 4
-  store i32 %add, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+227:                                              ; preds = %376, %130
+  %228 = load i32, ptr %13, align 4, !tbaa !8
+  %229 = load i32, ptr %8, align 4, !tbaa !8
+  %230 = sub nsw i32 %229, 3
+  %231 = icmp slt i32 %228, %230
+  br i1 %231, label %232, label %379
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+232:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 16, ptr %28) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %29) #5
+  %233 = load <2 x i64>, ptr %27, align 16, !tbaa !10
+  %234 = load ptr, ptr %7, align 8, !tbaa !3
+  %235 = load i32, ptr %13, align 4, !tbaa !8
+  %236 = sext i32 %235 to i64
+  %237 = getelementptr inbounds i32, ptr %234, i64 %236
+  %238 = getelementptr inbounds i32, ptr %237, i64 -12
+  %239 = call <2 x i64> @_mm_loadu_si128(ptr noundef %238)
+  %240 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %233, <2 x i64> noundef %239)
+  store <2 x i64> %240, ptr %28, align 16, !tbaa !10
+  %241 = load <2 x i64>, ptr %26, align 16, !tbaa !10
+  %242 = load ptr, ptr %7, align 8, !tbaa !3
+  %243 = load i32, ptr %13, align 4, !tbaa !8
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds i32, ptr %242, i64 %244
+  %246 = getelementptr inbounds i32, ptr %245, i64 -11
+  %247 = call <2 x i64> @_mm_loadu_si128(ptr noundef %246)
+  %248 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %241, <2 x i64> noundef %247)
+  store <2 x i64> %248, ptr %29, align 16, !tbaa !10
+  %249 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %250 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %251 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %249, <2 x i64> noundef %250)
+  store <2 x i64> %251, ptr %28, align 16, !tbaa !10
+  %252 = load <2 x i64>, ptr %25, align 16, !tbaa !10
+  %253 = load ptr, ptr %7, align 8, !tbaa !3
+  %254 = load i32, ptr %13, align 4, !tbaa !8
+  %255 = sext i32 %254 to i64
+  %256 = getelementptr inbounds i32, ptr %253, i64 %255
+  %257 = getelementptr inbounds i32, ptr %256, i64 -10
+  %258 = call <2 x i64> @_mm_loadu_si128(ptr noundef %257)
+  %259 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %252, <2 x i64> noundef %258)
+  store <2 x i64> %259, ptr %29, align 16, !tbaa !10
+  %260 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %261 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %262 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %260, <2 x i64> noundef %261)
+  store <2 x i64> %262, ptr %28, align 16, !tbaa !10
+  %263 = load <2 x i64>, ptr %24, align 16, !tbaa !10
+  %264 = load ptr, ptr %7, align 8, !tbaa !3
+  %265 = load i32, ptr %13, align 4, !tbaa !8
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds i32, ptr %264, i64 %266
+  %268 = getelementptr inbounds i32, ptr %267, i64 -9
+  %269 = call <2 x i64> @_mm_loadu_si128(ptr noundef %268)
+  %270 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %263, <2 x i64> noundef %269)
+  store <2 x i64> %270, ptr %29, align 16, !tbaa !10
+  %271 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %272 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %273 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %271, <2 x i64> noundef %272)
+  store <2 x i64> %273, ptr %28, align 16, !tbaa !10
+  %274 = load <2 x i64>, ptr %23, align 16, !tbaa !10
+  %275 = load ptr, ptr %7, align 8, !tbaa !3
+  %276 = load i32, ptr %13, align 4, !tbaa !8
+  %277 = sext i32 %276 to i64
+  %278 = getelementptr inbounds i32, ptr %275, i64 %277
+  %279 = getelementptr inbounds i32, ptr %278, i64 -8
+  %280 = call <2 x i64> @_mm_loadu_si128(ptr noundef %279)
+  %281 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %274, <2 x i64> noundef %280)
+  store <2 x i64> %281, ptr %29, align 16, !tbaa !10
+  %282 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %283 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %284 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %282, <2 x i64> noundef %283)
+  store <2 x i64> %284, ptr %28, align 16, !tbaa !10
+  %285 = load <2 x i64>, ptr %22, align 16, !tbaa !10
+  %286 = load ptr, ptr %7, align 8, !tbaa !3
+  %287 = load i32, ptr %13, align 4, !tbaa !8
+  %288 = sext i32 %287 to i64
+  %289 = getelementptr inbounds i32, ptr %286, i64 %288
+  %290 = getelementptr inbounds i32, ptr %289, i64 -7
+  %291 = call <2 x i64> @_mm_loadu_si128(ptr noundef %290)
+  %292 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %285, <2 x i64> noundef %291)
+  store <2 x i64> %292, ptr %29, align 16, !tbaa !10
+  %293 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %294 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %295 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %293, <2 x i64> noundef %294)
+  store <2 x i64> %295, ptr %28, align 16, !tbaa !10
+  %296 = load <2 x i64>, ptr %21, align 16, !tbaa !10
+  %297 = load ptr, ptr %7, align 8, !tbaa !3
+  %298 = load i32, ptr %13, align 4, !tbaa !8
+  %299 = sext i32 %298 to i64
+  %300 = getelementptr inbounds i32, ptr %297, i64 %299
+  %301 = getelementptr inbounds i32, ptr %300, i64 -6
+  %302 = call <2 x i64> @_mm_loadu_si128(ptr noundef %301)
+  %303 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %296, <2 x i64> noundef %302)
+  store <2 x i64> %303, ptr %29, align 16, !tbaa !10
+  %304 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %305 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %306 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %304, <2 x i64> noundef %305)
+  store <2 x i64> %306, ptr %28, align 16, !tbaa !10
+  %307 = load <2 x i64>, ptr %20, align 16, !tbaa !10
+  %308 = load ptr, ptr %7, align 8, !tbaa !3
+  %309 = load i32, ptr %13, align 4, !tbaa !8
+  %310 = sext i32 %309 to i64
+  %311 = getelementptr inbounds i32, ptr %308, i64 %310
+  %312 = getelementptr inbounds i32, ptr %311, i64 -5
+  %313 = call <2 x i64> @_mm_loadu_si128(ptr noundef %312)
+  %314 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %307, <2 x i64> noundef %313)
+  store <2 x i64> %314, ptr %29, align 16, !tbaa !10
+  %315 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %316 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %317 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %315, <2 x i64> noundef %316)
+  store <2 x i64> %317, ptr %28, align 16, !tbaa !10
+  %318 = load <2 x i64>, ptr %19, align 16, !tbaa !10
+  %319 = load ptr, ptr %7, align 8, !tbaa !3
+  %320 = load i32, ptr %13, align 4, !tbaa !8
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr inbounds i32, ptr %319, i64 %321
+  %323 = getelementptr inbounds i32, ptr %322, i64 -4
+  %324 = call <2 x i64> @_mm_loadu_si128(ptr noundef %323)
+  %325 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %318, <2 x i64> noundef %324)
+  store <2 x i64> %325, ptr %29, align 16, !tbaa !10
+  %326 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %327 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %328 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %326, <2 x i64> noundef %327)
+  store <2 x i64> %328, ptr %28, align 16, !tbaa !10
+  %329 = load <2 x i64>, ptr %18, align 16, !tbaa !10
+  %330 = load ptr, ptr %7, align 8, !tbaa !3
+  %331 = load i32, ptr %13, align 4, !tbaa !8
+  %332 = sext i32 %331 to i64
+  %333 = getelementptr inbounds i32, ptr %330, i64 %332
+  %334 = getelementptr inbounds i32, ptr %333, i64 -3
+  %335 = call <2 x i64> @_mm_loadu_si128(ptr noundef %334)
+  %336 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %329, <2 x i64> noundef %335)
+  store <2 x i64> %336, ptr %29, align 16, !tbaa !10
+  %337 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %338 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %339 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %337, <2 x i64> noundef %338)
+  store <2 x i64> %339, ptr %28, align 16, !tbaa !10
+  %340 = load <2 x i64>, ptr %17, align 16, !tbaa !10
+  %341 = load ptr, ptr %7, align 8, !tbaa !3
+  %342 = load i32, ptr %13, align 4, !tbaa !8
+  %343 = sext i32 %342 to i64
+  %344 = getelementptr inbounds i32, ptr %341, i64 %343
+  %345 = getelementptr inbounds i32, ptr %344, i64 -2
+  %346 = call <2 x i64> @_mm_loadu_si128(ptr noundef %345)
+  %347 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %340, <2 x i64> noundef %346)
+  store <2 x i64> %347, ptr %29, align 16, !tbaa !10
+  %348 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %349 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %350 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %348, <2 x i64> noundef %349)
+  store <2 x i64> %350, ptr %28, align 16, !tbaa !10
+  %351 = load <2 x i64>, ptr %16, align 16, !tbaa !10
+  %352 = load ptr, ptr %7, align 8, !tbaa !3
+  %353 = load i32, ptr %13, align 4, !tbaa !8
+  %354 = sext i32 %353 to i64
+  %355 = getelementptr inbounds i32, ptr %352, i64 %354
+  %356 = getelementptr inbounds i32, ptr %355, i64 -1
+  %357 = call <2 x i64> @_mm_loadu_si128(ptr noundef %356)
+  %358 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %351, <2 x i64> noundef %357)
+  store <2 x i64> %358, ptr %29, align 16, !tbaa !10
+  %359 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %360 = load <2 x i64>, ptr %29, align 16, !tbaa !10
+  %361 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %359, <2 x i64> noundef %360)
+  store <2 x i64> %361, ptr %28, align 16, !tbaa !10
+  %362 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %363 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %364 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %362, <2 x i64> noundef %363)
+  store <2 x i64> %364, ptr %28, align 16, !tbaa !10
+  %365 = load ptr, ptr %12, align 8, !tbaa !3
+  %366 = load i32, ptr %13, align 4, !tbaa !8
+  %367 = sext i32 %366 to i64
+  %368 = getelementptr inbounds i32, ptr %365, i64 %367
+  %369 = load ptr, ptr %7, align 8, !tbaa !3
+  %370 = load i32, ptr %13, align 4, !tbaa !8
+  %371 = sext i32 %370 to i64
+  %372 = getelementptr inbounds i32, ptr %369, i64 %371
+  %373 = call <2 x i64> @_mm_loadu_si128(ptr noundef %372)
+  %374 = load <2 x i64>, ptr %28, align 16, !tbaa !10
+  %375 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %373, <2 x i64> noundef %374)
+  call void @_mm_storeu_si128(ptr noundef %368, <2 x i64> noundef %375)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %29) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %28) #5
+  br label %376
 
-if.else:                                          ; preds = %if.then4
-  %326 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx129 = getelementptr inbounds i32, ptr %326, i64 0
-  %327 = load i32, ptr %arrayidx129, align 4
-  store i32 %327, ptr %__a.addr.i1680, align 4
-  %328 = load i32, ptr %__a.addr.i1680, align 4
-  %vecinit.i1682 = insertelement <4 x i32> undef, i32 %328, i32 0
-  %vecinit1.i1683 = insertelement <4 x i32> %vecinit.i1682, i32 0, i32 1
-  %vecinit2.i1684 = insertelement <4 x i32> %vecinit1.i1683, i32 0, i32 2
-  %vecinit3.i1685 = insertelement <4 x i32> %vecinit2.i1684, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1685, ptr %.compoundliteral.i1681, align 16
-  %329 = load <4 x i32>, ptr %.compoundliteral.i1681, align 16
-  %330 = bitcast <4 x i32> %329 to <2 x i64>
-  store <2 x i64> %330, ptr %q0118, align 16
-  %331 = load <2 x i64>, ptr %q0118, align 16
-  %332 = bitcast <2 x i64> %331 to <4 x i32>
-  %permil131 = shufflevector <4 x i32> %332, <4 x i32> poison, <4 x i32> zeroinitializer
-  %333 = bitcast <4 x i32> %permil131 to <2 x i64>
-  store <2 x i64> %333, ptr %q0118, align 16
-  %334 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx132 = getelementptr inbounds i32, ptr %334, i64 1
-  %335 = load i32, ptr %arrayidx132, align 4
-  store i32 %335, ptr %__a.addr.i1674, align 4
-  %336 = load i32, ptr %__a.addr.i1674, align 4
-  %vecinit.i1676 = insertelement <4 x i32> undef, i32 %336, i32 0
-  %vecinit1.i1677 = insertelement <4 x i32> %vecinit.i1676, i32 0, i32 1
-  %vecinit2.i1678 = insertelement <4 x i32> %vecinit1.i1677, i32 0, i32 2
-  %vecinit3.i1679 = insertelement <4 x i32> %vecinit2.i1678, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1679, ptr %.compoundliteral.i1675, align 16
-  %337 = load <4 x i32>, ptr %.compoundliteral.i1675, align 16
-  %338 = bitcast <4 x i32> %337 to <2 x i64>
-  store <2 x i64> %338, ptr %q1119, align 16
-  %339 = load <2 x i64>, ptr %q1119, align 16
-  %340 = bitcast <2 x i64> %339 to <4 x i32>
-  %permil134 = shufflevector <4 x i32> %340, <4 x i32> poison, <4 x i32> zeroinitializer
-  %341 = bitcast <4 x i32> %permil134 to <2 x i64>
-  store <2 x i64> %341, ptr %q1119, align 16
-  %342 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx135 = getelementptr inbounds i32, ptr %342, i64 2
-  %343 = load i32, ptr %arrayidx135, align 4
-  store i32 %343, ptr %__a.addr.i1668, align 4
-  %344 = load i32, ptr %__a.addr.i1668, align 4
-  %vecinit.i1670 = insertelement <4 x i32> undef, i32 %344, i32 0
-  %vecinit1.i1671 = insertelement <4 x i32> %vecinit.i1670, i32 0, i32 1
-  %vecinit2.i1672 = insertelement <4 x i32> %vecinit1.i1671, i32 0, i32 2
-  %vecinit3.i1673 = insertelement <4 x i32> %vecinit2.i1672, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1673, ptr %.compoundliteral.i1669, align 16
-  %345 = load <4 x i32>, ptr %.compoundliteral.i1669, align 16
-  %346 = bitcast <4 x i32> %345 to <2 x i64>
-  store <2 x i64> %346, ptr %q2120, align 16
-  %347 = load <2 x i64>, ptr %q2120, align 16
-  %348 = bitcast <2 x i64> %347 to <4 x i32>
-  %permil137 = shufflevector <4 x i32> %348, <4 x i32> poison, <4 x i32> zeroinitializer
-  %349 = bitcast <4 x i32> %permil137 to <2 x i64>
-  store <2 x i64> %349, ptr %q2120, align 16
-  %350 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx138 = getelementptr inbounds i32, ptr %350, i64 3
-  %351 = load i32, ptr %arrayidx138, align 4
-  store i32 %351, ptr %__a.addr.i1662, align 4
-  %352 = load i32, ptr %__a.addr.i1662, align 4
-  %vecinit.i1664 = insertelement <4 x i32> undef, i32 %352, i32 0
-  %vecinit1.i1665 = insertelement <4 x i32> %vecinit.i1664, i32 0, i32 1
-  %vecinit2.i1666 = insertelement <4 x i32> %vecinit1.i1665, i32 0, i32 2
-  %vecinit3.i1667 = insertelement <4 x i32> %vecinit2.i1666, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1667, ptr %.compoundliteral.i1663, align 16
-  %353 = load <4 x i32>, ptr %.compoundliteral.i1663, align 16
-  %354 = bitcast <4 x i32> %353 to <2 x i64>
-  store <2 x i64> %354, ptr %q3121, align 16
-  %355 = load <2 x i64>, ptr %q3121, align 16
-  %356 = bitcast <2 x i64> %355 to <4 x i32>
-  %permil140 = shufflevector <4 x i32> %356, <4 x i32> poison, <4 x i32> zeroinitializer
-  %357 = bitcast <4 x i32> %permil140 to <2 x i64>
-  store <2 x i64> %357, ptr %q3121, align 16
-  %358 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx141 = getelementptr inbounds i32, ptr %358, i64 4
-  %359 = load i32, ptr %arrayidx141, align 4
-  store i32 %359, ptr %__a.addr.i1656, align 4
-  %360 = load i32, ptr %__a.addr.i1656, align 4
-  %vecinit.i1658 = insertelement <4 x i32> undef, i32 %360, i32 0
-  %vecinit1.i1659 = insertelement <4 x i32> %vecinit.i1658, i32 0, i32 1
-  %vecinit2.i1660 = insertelement <4 x i32> %vecinit1.i1659, i32 0, i32 2
-  %vecinit3.i1661 = insertelement <4 x i32> %vecinit2.i1660, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1661, ptr %.compoundliteral.i1657, align 16
-  %361 = load <4 x i32>, ptr %.compoundliteral.i1657, align 16
-  %362 = bitcast <4 x i32> %361 to <2 x i64>
-  store <2 x i64> %362, ptr %q4122, align 16
-  %363 = load <2 x i64>, ptr %q4122, align 16
-  %364 = bitcast <2 x i64> %363 to <4 x i32>
-  %permil143 = shufflevector <4 x i32> %364, <4 x i32> poison, <4 x i32> zeroinitializer
-  %365 = bitcast <4 x i32> %permil143 to <2 x i64>
-  store <2 x i64> %365, ptr %q4122, align 16
-  %366 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx144 = getelementptr inbounds i32, ptr %366, i64 5
-  %367 = load i32, ptr %arrayidx144, align 4
-  store i32 %367, ptr %__a.addr.i1650, align 4
-  %368 = load i32, ptr %__a.addr.i1650, align 4
-  %vecinit.i1652 = insertelement <4 x i32> undef, i32 %368, i32 0
-  %vecinit1.i1653 = insertelement <4 x i32> %vecinit.i1652, i32 0, i32 1
-  %vecinit2.i1654 = insertelement <4 x i32> %vecinit1.i1653, i32 0, i32 2
-  %vecinit3.i1655 = insertelement <4 x i32> %vecinit2.i1654, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1655, ptr %.compoundliteral.i1651, align 16
-  %369 = load <4 x i32>, ptr %.compoundliteral.i1651, align 16
-  %370 = bitcast <4 x i32> %369 to <2 x i64>
-  store <2 x i64> %370, ptr %q5123, align 16
-  %371 = load <2 x i64>, ptr %q5123, align 16
-  %372 = bitcast <2 x i64> %371 to <4 x i32>
-  %permil146 = shufflevector <4 x i32> %372, <4 x i32> poison, <4 x i32> zeroinitializer
-  %373 = bitcast <4 x i32> %permil146 to <2 x i64>
-  store <2 x i64> %373, ptr %q5123, align 16
-  %374 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx147 = getelementptr inbounds i32, ptr %374, i64 6
-  %375 = load i32, ptr %arrayidx147, align 4
-  store i32 %375, ptr %__a.addr.i1644, align 4
-  %376 = load i32, ptr %__a.addr.i1644, align 4
-  %vecinit.i1646 = insertelement <4 x i32> undef, i32 %376, i32 0
-  %vecinit1.i1647 = insertelement <4 x i32> %vecinit.i1646, i32 0, i32 1
-  %vecinit2.i1648 = insertelement <4 x i32> %vecinit1.i1647, i32 0, i32 2
-  %vecinit3.i1649 = insertelement <4 x i32> %vecinit2.i1648, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1649, ptr %.compoundliteral.i1645, align 16
-  %377 = load <4 x i32>, ptr %.compoundliteral.i1645, align 16
-  %378 = bitcast <4 x i32> %377 to <2 x i64>
-  store <2 x i64> %378, ptr %q6124, align 16
-  %379 = load <2 x i64>, ptr %q6124, align 16
-  %380 = bitcast <2 x i64> %379 to <4 x i32>
-  %permil149 = shufflevector <4 x i32> %380, <4 x i32> poison, <4 x i32> zeroinitializer
-  %381 = bitcast <4 x i32> %permil149 to <2 x i64>
-  store <2 x i64> %381, ptr %q6124, align 16
-  %382 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx150 = getelementptr inbounds i32, ptr %382, i64 7
-  %383 = load i32, ptr %arrayidx150, align 4
-  store i32 %383, ptr %__a.addr.i1638, align 4
-  %384 = load i32, ptr %__a.addr.i1638, align 4
-  %vecinit.i1640 = insertelement <4 x i32> undef, i32 %384, i32 0
-  %vecinit1.i1641 = insertelement <4 x i32> %vecinit.i1640, i32 0, i32 1
-  %vecinit2.i1642 = insertelement <4 x i32> %vecinit1.i1641, i32 0, i32 2
-  %vecinit3.i1643 = insertelement <4 x i32> %vecinit2.i1642, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1643, ptr %.compoundliteral.i1639, align 16
-  %385 = load <4 x i32>, ptr %.compoundliteral.i1639, align 16
-  %386 = bitcast <4 x i32> %385 to <2 x i64>
-  store <2 x i64> %386, ptr %q7125, align 16
-  %387 = load <2 x i64>, ptr %q7125, align 16
-  %388 = bitcast <2 x i64> %387 to <4 x i32>
-  %permil152 = shufflevector <4 x i32> %388, <4 x i32> poison, <4 x i32> zeroinitializer
-  %389 = bitcast <4 x i32> %permil152 to <2 x i64>
-  store <2 x i64> %389, ptr %q7125, align 16
-  %390 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx153 = getelementptr inbounds i32, ptr %390, i64 8
-  %391 = load i32, ptr %arrayidx153, align 4
-  store i32 %391, ptr %__a.addr.i1632, align 4
-  %392 = load i32, ptr %__a.addr.i1632, align 4
-  %vecinit.i1634 = insertelement <4 x i32> undef, i32 %392, i32 0
-  %vecinit1.i1635 = insertelement <4 x i32> %vecinit.i1634, i32 0, i32 1
-  %vecinit2.i1636 = insertelement <4 x i32> %vecinit1.i1635, i32 0, i32 2
-  %vecinit3.i1637 = insertelement <4 x i32> %vecinit2.i1636, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1637, ptr %.compoundliteral.i1633, align 16
-  %393 = load <4 x i32>, ptr %.compoundliteral.i1633, align 16
-  %394 = bitcast <4 x i32> %393 to <2 x i64>
-  store <2 x i64> %394, ptr %q8126, align 16
-  %395 = load <2 x i64>, ptr %q8126, align 16
-  %396 = bitcast <2 x i64> %395 to <4 x i32>
-  %permil155 = shufflevector <4 x i32> %396, <4 x i32> poison, <4 x i32> zeroinitializer
-  %397 = bitcast <4 x i32> %permil155 to <2 x i64>
-  store <2 x i64> %397, ptr %q8126, align 16
-  %398 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx156 = getelementptr inbounds i32, ptr %398, i64 9
-  %399 = load i32, ptr %arrayidx156, align 4
-  store i32 %399, ptr %__a.addr.i1626, align 4
-  %400 = load i32, ptr %__a.addr.i1626, align 4
-  %vecinit.i1628 = insertelement <4 x i32> undef, i32 %400, i32 0
-  %vecinit1.i1629 = insertelement <4 x i32> %vecinit.i1628, i32 0, i32 1
-  %vecinit2.i1630 = insertelement <4 x i32> %vecinit1.i1629, i32 0, i32 2
-  %vecinit3.i1631 = insertelement <4 x i32> %vecinit2.i1630, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1631, ptr %.compoundliteral.i1627, align 16
-  %401 = load <4 x i32>, ptr %.compoundliteral.i1627, align 16
-  %402 = bitcast <4 x i32> %401 to <2 x i64>
-  store <2 x i64> %402, ptr %q9127, align 16
-  %403 = load <2 x i64>, ptr %q9127, align 16
-  %404 = bitcast <2 x i64> %403 to <4 x i32>
-  %permil158 = shufflevector <4 x i32> %404, <4 x i32> poison, <4 x i32> zeroinitializer
-  %405 = bitcast <4 x i32> %permil158 to <2 x i64>
-  store <2 x i64> %405, ptr %q9127, align 16
-  %406 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx159 = getelementptr inbounds i32, ptr %406, i64 10
-  %407 = load i32, ptr %arrayidx159, align 4
-  store i32 %407, ptr %__a.addr.i1620, align 4
-  %408 = load i32, ptr %__a.addr.i1620, align 4
-  %vecinit.i1622 = insertelement <4 x i32> undef, i32 %408, i32 0
-  %vecinit1.i1623 = insertelement <4 x i32> %vecinit.i1622, i32 0, i32 1
-  %vecinit2.i1624 = insertelement <4 x i32> %vecinit1.i1623, i32 0, i32 2
-  %vecinit3.i1625 = insertelement <4 x i32> %vecinit2.i1624, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1625, ptr %.compoundliteral.i1621, align 16
-  %409 = load <4 x i32>, ptr %.compoundliteral.i1621, align 16
-  %410 = bitcast <4 x i32> %409 to <2 x i64>
-  store <2 x i64> %410, ptr %q10128, align 16
-  %411 = load <2 x i64>, ptr %q10128, align 16
-  %412 = bitcast <2 x i64> %411 to <4 x i32>
-  %permil161 = shufflevector <4 x i32> %412, <4 x i32> poison, <4 x i32> zeroinitializer
-  %413 = bitcast <4 x i32> %permil161 to <2 x i64>
-  store <2 x i64> %413, ptr %q10128, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond162
+376:                                              ; preds = %232
+  %377 = load i32, ptr %13, align 4, !tbaa !8
+  %378 = add nsw i32 %377, 4
+  store i32 %378, ptr %13, align 4, !tbaa !8
+  br label %227, !llvm.loop !11
 
-for.cond162:                                      ; preds = %for.inc240, %if.else
-  %414 = load i32, ptr %i, align 4
-  %415 = load i32, ptr %data_len.addr, align 4
-  %sub163 = sub nsw i32 %415, 3
-  %cmp164 = icmp slt i32 %414, %sub163
-  br i1 %cmp164, label %for.body165, label %for.end242
+379:                                              ; preds = %227
+  call void @llvm.lifetime.end.p0(i64 16, ptr %27) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #5
+  br label %611
 
-for.body165:                                      ; preds = %for.cond162
-  %416 = load <2 x i64>, ptr %q10128, align 16
-  %417 = load ptr, ptr %data.addr, align 8
-  %418 = load i32, ptr %i, align 4
-  %idx.ext168 = sext i32 %418 to i64
-  %add.ptr169 = getelementptr inbounds i32, ptr %417, i64 %idx.ext168
-  %add.ptr170 = getelementptr inbounds i32, ptr %add.ptr169, i64 -11
-  store ptr %add.ptr170, ptr %__p.addr.i2070, align 8
-  %419 = load ptr, ptr %__p.addr.i2070, align 8
-  %420 = load <2 x i64>, ptr %419, align 1
-  store <2 x i64> %416, ptr %__V1.addr.i1956, align 16
-  store <2 x i64> %420, ptr %__V2.addr.i1957, align 16
-  %421 = load <2 x i64>, ptr %__V1.addr.i1956, align 16
-  %422 = bitcast <2 x i64> %421 to <4 x i32>
-  %423 = load <2 x i64>, ptr %__V2.addr.i1957, align 16
-  %424 = bitcast <2 x i64> %423 to <4 x i32>
-  %mul.i1958 = mul <4 x i32> %422, %424
-  %425 = bitcast <4 x i32> %mul.i1958 to <2 x i64>
-  store <2 x i64> %425, ptr %summ166, align 16
-  %426 = load <2 x i64>, ptr %q9127, align 16
-  %427 = load ptr, ptr %data.addr, align 8
-  %428 = load i32, ptr %i, align 4
-  %idx.ext173 = sext i32 %428 to i64
-  %add.ptr174 = getelementptr inbounds i32, ptr %427, i64 %idx.ext173
-  %add.ptr175 = getelementptr inbounds i32, ptr %add.ptr174, i64 -10
-  store ptr %add.ptr175, ptr %__p.addr.i2069, align 8
-  %429 = load ptr, ptr %__p.addr.i2069, align 8
-  %430 = load <2 x i64>, ptr %429, align 1
-  store <2 x i64> %426, ptr %__V1.addr.i1953, align 16
-  store <2 x i64> %430, ptr %__V2.addr.i1954, align 16
-  %431 = load <2 x i64>, ptr %__V1.addr.i1953, align 16
-  %432 = bitcast <2 x i64> %431 to <4 x i32>
-  %433 = load <2 x i64>, ptr %__V2.addr.i1954, align 16
+380:                                              ; preds = %127
+  call void @llvm.lifetime.start.p0(i64 16, ptr %30) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %31) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %32) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %33) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %34) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %35) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %36) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %37) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %38) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %39) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %40) #5
+  %381 = load ptr, ptr %9, align 8, !tbaa !3
+  %382 = getelementptr inbounds i32, ptr %381, i64 0
+  %383 = load i32, ptr %382, align 4, !tbaa !8
+  %384 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %383)
+  store <2 x i64> %384, ptr %30, align 16, !tbaa !10
+  %385 = load <2 x i64>, ptr %30, align 16, !tbaa !10
+  %386 = bitcast <2 x i64> %385 to <4 x i32>
+  %387 = shufflevector <4 x i32> %386, <4 x i32> poison, <4 x i32> zeroinitializer
+  %388 = bitcast <4 x i32> %387 to <2 x i64>
+  store <2 x i64> %388, ptr %30, align 16, !tbaa !10
+  %389 = load ptr, ptr %9, align 8, !tbaa !3
+  %390 = getelementptr inbounds i32, ptr %389, i64 1
+  %391 = load i32, ptr %390, align 4, !tbaa !8
+  %392 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %391)
+  store <2 x i64> %392, ptr %31, align 16, !tbaa !10
+  %393 = load <2 x i64>, ptr %31, align 16, !tbaa !10
+  %394 = bitcast <2 x i64> %393 to <4 x i32>
+  %395 = shufflevector <4 x i32> %394, <4 x i32> poison, <4 x i32> zeroinitializer
+  %396 = bitcast <4 x i32> %395 to <2 x i64>
+  store <2 x i64> %396, ptr %31, align 16, !tbaa !10
+  %397 = load ptr, ptr %9, align 8, !tbaa !3
+  %398 = getelementptr inbounds i32, ptr %397, i64 2
+  %399 = load i32, ptr %398, align 4, !tbaa !8
+  %400 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %399)
+  store <2 x i64> %400, ptr %32, align 16, !tbaa !10
+  %401 = load <2 x i64>, ptr %32, align 16, !tbaa !10
+  %402 = bitcast <2 x i64> %401 to <4 x i32>
+  %403 = shufflevector <4 x i32> %402, <4 x i32> poison, <4 x i32> zeroinitializer
+  %404 = bitcast <4 x i32> %403 to <2 x i64>
+  store <2 x i64> %404, ptr %32, align 16, !tbaa !10
+  %405 = load ptr, ptr %9, align 8, !tbaa !3
+  %406 = getelementptr inbounds i32, ptr %405, i64 3
+  %407 = load i32, ptr %406, align 4, !tbaa !8
+  %408 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %407)
+  store <2 x i64> %408, ptr %33, align 16, !tbaa !10
+  %409 = load <2 x i64>, ptr %33, align 16, !tbaa !10
+  %410 = bitcast <2 x i64> %409 to <4 x i32>
+  %411 = shufflevector <4 x i32> %410, <4 x i32> poison, <4 x i32> zeroinitializer
+  %412 = bitcast <4 x i32> %411 to <2 x i64>
+  store <2 x i64> %412, ptr %33, align 16, !tbaa !10
+  %413 = load ptr, ptr %9, align 8, !tbaa !3
+  %414 = getelementptr inbounds i32, ptr %413, i64 4
+  %415 = load i32, ptr %414, align 4, !tbaa !8
+  %416 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %415)
+  store <2 x i64> %416, ptr %34, align 16, !tbaa !10
+  %417 = load <2 x i64>, ptr %34, align 16, !tbaa !10
+  %418 = bitcast <2 x i64> %417 to <4 x i32>
+  %419 = shufflevector <4 x i32> %418, <4 x i32> poison, <4 x i32> zeroinitializer
+  %420 = bitcast <4 x i32> %419 to <2 x i64>
+  store <2 x i64> %420, ptr %34, align 16, !tbaa !10
+  %421 = load ptr, ptr %9, align 8, !tbaa !3
+  %422 = getelementptr inbounds i32, ptr %421, i64 5
+  %423 = load i32, ptr %422, align 4, !tbaa !8
+  %424 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %423)
+  store <2 x i64> %424, ptr %35, align 16, !tbaa !10
+  %425 = load <2 x i64>, ptr %35, align 16, !tbaa !10
+  %426 = bitcast <2 x i64> %425 to <4 x i32>
+  %427 = shufflevector <4 x i32> %426, <4 x i32> poison, <4 x i32> zeroinitializer
+  %428 = bitcast <4 x i32> %427 to <2 x i64>
+  store <2 x i64> %428, ptr %35, align 16, !tbaa !10
+  %429 = load ptr, ptr %9, align 8, !tbaa !3
+  %430 = getelementptr inbounds i32, ptr %429, i64 6
+  %431 = load i32, ptr %430, align 4, !tbaa !8
+  %432 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %431)
+  store <2 x i64> %432, ptr %36, align 16, !tbaa !10
+  %433 = load <2 x i64>, ptr %36, align 16, !tbaa !10
   %434 = bitcast <2 x i64> %433 to <4 x i32>
-  %mul.i1955 = mul <4 x i32> %432, %434
-  %435 = bitcast <4 x i32> %mul.i1955 to <2 x i64>
-  store <2 x i64> %435, ptr %mull167, align 16
-  %436 = load <2 x i64>, ptr %summ166, align 16
-  %437 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %436, ptr %__a.addr.i2244, align 16
-  store <2 x i64> %437, ptr %__b.addr.i2245, align 16
-  %438 = load <2 x i64>, ptr %__a.addr.i2244, align 16
-  %439 = bitcast <2 x i64> %438 to <4 x i32>
-  %440 = load <2 x i64>, ptr %__b.addr.i2245, align 16
-  %441 = bitcast <2 x i64> %440 to <4 x i32>
-  %add.i2246 = add <4 x i32> %439, %441
-  %442 = bitcast <4 x i32> %add.i2246 to <2 x i64>
-  store <2 x i64> %442, ptr %summ166, align 16
-  %443 = load <2 x i64>, ptr %q8126, align 16
-  %444 = load ptr, ptr %data.addr, align 8
-  %445 = load i32, ptr %i, align 4
-  %idx.ext179 = sext i32 %445 to i64
-  %add.ptr180 = getelementptr inbounds i32, ptr %444, i64 %idx.ext179
-  %add.ptr181 = getelementptr inbounds i32, ptr %add.ptr180, i64 -9
-  store ptr %add.ptr181, ptr %__p.addr.i2068, align 8
-  %446 = load ptr, ptr %__p.addr.i2068, align 8
-  %447 = load <2 x i64>, ptr %446, align 1
-  store <2 x i64> %443, ptr %__V1.addr.i1950, align 16
-  store <2 x i64> %447, ptr %__V2.addr.i1951, align 16
-  %448 = load <2 x i64>, ptr %__V1.addr.i1950, align 16
-  %449 = bitcast <2 x i64> %448 to <4 x i32>
-  %450 = load <2 x i64>, ptr %__V2.addr.i1951, align 16
-  %451 = bitcast <2 x i64> %450 to <4 x i32>
-  %mul.i1952 = mul <4 x i32> %449, %451
-  %452 = bitcast <4 x i32> %mul.i1952 to <2 x i64>
-  store <2 x i64> %452, ptr %mull167, align 16
-  %453 = load <2 x i64>, ptr %summ166, align 16
-  %454 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %453, ptr %__a.addr.i2241, align 16
-  store <2 x i64> %454, ptr %__b.addr.i2242, align 16
-  %455 = load <2 x i64>, ptr %__a.addr.i2241, align 16
-  %456 = bitcast <2 x i64> %455 to <4 x i32>
-  %457 = load <2 x i64>, ptr %__b.addr.i2242, align 16
+  %435 = shufflevector <4 x i32> %434, <4 x i32> poison, <4 x i32> zeroinitializer
+  %436 = bitcast <4 x i32> %435 to <2 x i64>
+  store <2 x i64> %436, ptr %36, align 16, !tbaa !10
+  %437 = load ptr, ptr %9, align 8, !tbaa !3
+  %438 = getelementptr inbounds i32, ptr %437, i64 7
+  %439 = load i32, ptr %438, align 4, !tbaa !8
+  %440 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %439)
+  store <2 x i64> %440, ptr %37, align 16, !tbaa !10
+  %441 = load <2 x i64>, ptr %37, align 16, !tbaa !10
+  %442 = bitcast <2 x i64> %441 to <4 x i32>
+  %443 = shufflevector <4 x i32> %442, <4 x i32> poison, <4 x i32> zeroinitializer
+  %444 = bitcast <4 x i32> %443 to <2 x i64>
+  store <2 x i64> %444, ptr %37, align 16, !tbaa !10
+  %445 = load ptr, ptr %9, align 8, !tbaa !3
+  %446 = getelementptr inbounds i32, ptr %445, i64 8
+  %447 = load i32, ptr %446, align 4, !tbaa !8
+  %448 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %447)
+  store <2 x i64> %448, ptr %38, align 16, !tbaa !10
+  %449 = load <2 x i64>, ptr %38, align 16, !tbaa !10
+  %450 = bitcast <2 x i64> %449 to <4 x i32>
+  %451 = shufflevector <4 x i32> %450, <4 x i32> poison, <4 x i32> zeroinitializer
+  %452 = bitcast <4 x i32> %451 to <2 x i64>
+  store <2 x i64> %452, ptr %38, align 16, !tbaa !10
+  %453 = load ptr, ptr %9, align 8, !tbaa !3
+  %454 = getelementptr inbounds i32, ptr %453, i64 9
+  %455 = load i32, ptr %454, align 4, !tbaa !8
+  %456 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %455)
+  store <2 x i64> %456, ptr %39, align 16, !tbaa !10
+  %457 = load <2 x i64>, ptr %39, align 16, !tbaa !10
   %458 = bitcast <2 x i64> %457 to <4 x i32>
-  %add.i2243 = add <4 x i32> %456, %458
-  %459 = bitcast <4 x i32> %add.i2243 to <2 x i64>
-  store <2 x i64> %459, ptr %summ166, align 16
-  %460 = load <2 x i64>, ptr %q7125, align 16
-  %461 = load ptr, ptr %data.addr, align 8
-  %462 = load i32, ptr %i, align 4
-  %idx.ext185 = sext i32 %462 to i64
-  %add.ptr186 = getelementptr inbounds i32, ptr %461, i64 %idx.ext185
-  %add.ptr187 = getelementptr inbounds i32, ptr %add.ptr186, i64 -8
-  store ptr %add.ptr187, ptr %__p.addr.i2067, align 8
-  %463 = load ptr, ptr %__p.addr.i2067, align 8
-  %464 = load <2 x i64>, ptr %463, align 1
-  store <2 x i64> %460, ptr %__V1.addr.i1947, align 16
-  store <2 x i64> %464, ptr %__V2.addr.i1948, align 16
-  %465 = load <2 x i64>, ptr %__V1.addr.i1947, align 16
+  %459 = shufflevector <4 x i32> %458, <4 x i32> poison, <4 x i32> zeroinitializer
+  %460 = bitcast <4 x i32> %459 to <2 x i64>
+  store <2 x i64> %460, ptr %39, align 16, !tbaa !10
+  %461 = load ptr, ptr %9, align 8, !tbaa !3
+  %462 = getelementptr inbounds i32, ptr %461, i64 10
+  %463 = load i32, ptr %462, align 4, !tbaa !8
+  %464 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %463)
+  store <2 x i64> %464, ptr %40, align 16, !tbaa !10
+  %465 = load <2 x i64>, ptr %40, align 16, !tbaa !10
   %466 = bitcast <2 x i64> %465 to <4 x i32>
-  %467 = load <2 x i64>, ptr %__V2.addr.i1948, align 16
-  %468 = bitcast <2 x i64> %467 to <4 x i32>
-  %mul.i1949 = mul <4 x i32> %466, %468
-  %469 = bitcast <4 x i32> %mul.i1949 to <2 x i64>
-  store <2 x i64> %469, ptr %mull167, align 16
-  %470 = load <2 x i64>, ptr %summ166, align 16
-  %471 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %470, ptr %__a.addr.i2238, align 16
-  store <2 x i64> %471, ptr %__b.addr.i2239, align 16
-  %472 = load <2 x i64>, ptr %__a.addr.i2238, align 16
-  %473 = bitcast <2 x i64> %472 to <4 x i32>
-  %474 = load <2 x i64>, ptr %__b.addr.i2239, align 16
-  %475 = bitcast <2 x i64> %474 to <4 x i32>
-  %add.i2240 = add <4 x i32> %473, %475
-  %476 = bitcast <4 x i32> %add.i2240 to <2 x i64>
-  store <2 x i64> %476, ptr %summ166, align 16
-  %477 = load <2 x i64>, ptr %q6124, align 16
-  %478 = load ptr, ptr %data.addr, align 8
-  %479 = load i32, ptr %i, align 4
-  %idx.ext191 = sext i32 %479 to i64
-  %add.ptr192 = getelementptr inbounds i32, ptr %478, i64 %idx.ext191
-  %add.ptr193 = getelementptr inbounds i32, ptr %add.ptr192, i64 -7
-  store ptr %add.ptr193, ptr %__p.addr.i2066, align 8
-  %480 = load ptr, ptr %__p.addr.i2066, align 8
-  %481 = load <2 x i64>, ptr %480, align 1
-  store <2 x i64> %477, ptr %__V1.addr.i1944, align 16
-  store <2 x i64> %481, ptr %__V2.addr.i1945, align 16
-  %482 = load <2 x i64>, ptr %__V1.addr.i1944, align 16
-  %483 = bitcast <2 x i64> %482 to <4 x i32>
-  %484 = load <2 x i64>, ptr %__V2.addr.i1945, align 16
-  %485 = bitcast <2 x i64> %484 to <4 x i32>
-  %mul.i1946 = mul <4 x i32> %483, %485
-  %486 = bitcast <4 x i32> %mul.i1946 to <2 x i64>
-  store <2 x i64> %486, ptr %mull167, align 16
-  %487 = load <2 x i64>, ptr %summ166, align 16
-  %488 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %487, ptr %__a.addr.i2235, align 16
-  store <2 x i64> %488, ptr %__b.addr.i2236, align 16
-  %489 = load <2 x i64>, ptr %__a.addr.i2235, align 16
-  %490 = bitcast <2 x i64> %489 to <4 x i32>
-  %491 = load <2 x i64>, ptr %__b.addr.i2236, align 16
-  %492 = bitcast <2 x i64> %491 to <4 x i32>
-  %add.i2237 = add <4 x i32> %490, %492
-  %493 = bitcast <4 x i32> %add.i2237 to <2 x i64>
-  store <2 x i64> %493, ptr %summ166, align 16
-  %494 = load <2 x i64>, ptr %q5123, align 16
-  %495 = load ptr, ptr %data.addr, align 8
-  %496 = load i32, ptr %i, align 4
-  %idx.ext197 = sext i32 %496 to i64
-  %add.ptr198 = getelementptr inbounds i32, ptr %495, i64 %idx.ext197
-  %add.ptr199 = getelementptr inbounds i32, ptr %add.ptr198, i64 -6
-  store ptr %add.ptr199, ptr %__p.addr.i2065, align 8
-  %497 = load ptr, ptr %__p.addr.i2065, align 8
-  %498 = load <2 x i64>, ptr %497, align 1
-  store <2 x i64> %494, ptr %__V1.addr.i1941, align 16
-  store <2 x i64> %498, ptr %__V2.addr.i1942, align 16
-  %499 = load <2 x i64>, ptr %__V1.addr.i1941, align 16
-  %500 = bitcast <2 x i64> %499 to <4 x i32>
-  %501 = load <2 x i64>, ptr %__V2.addr.i1942, align 16
-  %502 = bitcast <2 x i64> %501 to <4 x i32>
-  %mul.i1943 = mul <4 x i32> %500, %502
-  %503 = bitcast <4 x i32> %mul.i1943 to <2 x i64>
-  store <2 x i64> %503, ptr %mull167, align 16
-  %504 = load <2 x i64>, ptr %summ166, align 16
-  %505 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %504, ptr %__a.addr.i2232, align 16
-  store <2 x i64> %505, ptr %__b.addr.i2233, align 16
-  %506 = load <2 x i64>, ptr %__a.addr.i2232, align 16
-  %507 = bitcast <2 x i64> %506 to <4 x i32>
-  %508 = load <2 x i64>, ptr %__b.addr.i2233, align 16
-  %509 = bitcast <2 x i64> %508 to <4 x i32>
-  %add.i2234 = add <4 x i32> %507, %509
-  %510 = bitcast <4 x i32> %add.i2234 to <2 x i64>
-  store <2 x i64> %510, ptr %summ166, align 16
-  %511 = load <2 x i64>, ptr %q4122, align 16
-  %512 = load ptr, ptr %data.addr, align 8
-  %513 = load i32, ptr %i, align 4
-  %idx.ext203 = sext i32 %513 to i64
-  %add.ptr204 = getelementptr inbounds i32, ptr %512, i64 %idx.ext203
-  %add.ptr205 = getelementptr inbounds i32, ptr %add.ptr204, i64 -5
-  store ptr %add.ptr205, ptr %__p.addr.i2064, align 8
-  %514 = load ptr, ptr %__p.addr.i2064, align 8
-  %515 = load <2 x i64>, ptr %514, align 1
-  store <2 x i64> %511, ptr %__V1.addr.i1938, align 16
-  store <2 x i64> %515, ptr %__V2.addr.i1939, align 16
-  %516 = load <2 x i64>, ptr %__V1.addr.i1938, align 16
-  %517 = bitcast <2 x i64> %516 to <4 x i32>
-  %518 = load <2 x i64>, ptr %__V2.addr.i1939, align 16
-  %519 = bitcast <2 x i64> %518 to <4 x i32>
-  %mul.i1940 = mul <4 x i32> %517, %519
-  %520 = bitcast <4 x i32> %mul.i1940 to <2 x i64>
-  store <2 x i64> %520, ptr %mull167, align 16
-  %521 = load <2 x i64>, ptr %summ166, align 16
-  %522 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %521, ptr %__a.addr.i2229, align 16
-  store <2 x i64> %522, ptr %__b.addr.i2230, align 16
-  %523 = load <2 x i64>, ptr %__a.addr.i2229, align 16
-  %524 = bitcast <2 x i64> %523 to <4 x i32>
-  %525 = load <2 x i64>, ptr %__b.addr.i2230, align 16
-  %526 = bitcast <2 x i64> %525 to <4 x i32>
-  %add.i2231 = add <4 x i32> %524, %526
-  %527 = bitcast <4 x i32> %add.i2231 to <2 x i64>
-  store <2 x i64> %527, ptr %summ166, align 16
-  %528 = load <2 x i64>, ptr %q3121, align 16
-  %529 = load ptr, ptr %data.addr, align 8
-  %530 = load i32, ptr %i, align 4
-  %idx.ext209 = sext i32 %530 to i64
-  %add.ptr210 = getelementptr inbounds i32, ptr %529, i64 %idx.ext209
-  %add.ptr211 = getelementptr inbounds i32, ptr %add.ptr210, i64 -4
-  store ptr %add.ptr211, ptr %__p.addr.i2063, align 8
-  %531 = load ptr, ptr %__p.addr.i2063, align 8
-  %532 = load <2 x i64>, ptr %531, align 1
-  store <2 x i64> %528, ptr %__V1.addr.i1935, align 16
-  store <2 x i64> %532, ptr %__V2.addr.i1936, align 16
-  %533 = load <2 x i64>, ptr %__V1.addr.i1935, align 16
-  %534 = bitcast <2 x i64> %533 to <4 x i32>
-  %535 = load <2 x i64>, ptr %__V2.addr.i1936, align 16
-  %536 = bitcast <2 x i64> %535 to <4 x i32>
-  %mul.i1937 = mul <4 x i32> %534, %536
-  %537 = bitcast <4 x i32> %mul.i1937 to <2 x i64>
-  store <2 x i64> %537, ptr %mull167, align 16
-  %538 = load <2 x i64>, ptr %summ166, align 16
-  %539 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %538, ptr %__a.addr.i2226, align 16
-  store <2 x i64> %539, ptr %__b.addr.i2227, align 16
-  %540 = load <2 x i64>, ptr %__a.addr.i2226, align 16
-  %541 = bitcast <2 x i64> %540 to <4 x i32>
-  %542 = load <2 x i64>, ptr %__b.addr.i2227, align 16
-  %543 = bitcast <2 x i64> %542 to <4 x i32>
-  %add.i2228 = add <4 x i32> %541, %543
-  %544 = bitcast <4 x i32> %add.i2228 to <2 x i64>
-  store <2 x i64> %544, ptr %summ166, align 16
-  %545 = load <2 x i64>, ptr %q2120, align 16
-  %546 = load ptr, ptr %data.addr, align 8
-  %547 = load i32, ptr %i, align 4
-  %idx.ext215 = sext i32 %547 to i64
-  %add.ptr216 = getelementptr inbounds i32, ptr %546, i64 %idx.ext215
-  %add.ptr217 = getelementptr inbounds i32, ptr %add.ptr216, i64 -3
-  store ptr %add.ptr217, ptr %__p.addr.i2062, align 8
-  %548 = load ptr, ptr %__p.addr.i2062, align 8
-  %549 = load <2 x i64>, ptr %548, align 1
-  store <2 x i64> %545, ptr %__V1.addr.i1932, align 16
-  store <2 x i64> %549, ptr %__V2.addr.i1933, align 16
-  %550 = load <2 x i64>, ptr %__V1.addr.i1932, align 16
-  %551 = bitcast <2 x i64> %550 to <4 x i32>
-  %552 = load <2 x i64>, ptr %__V2.addr.i1933, align 16
-  %553 = bitcast <2 x i64> %552 to <4 x i32>
-  %mul.i1934 = mul <4 x i32> %551, %553
-  %554 = bitcast <4 x i32> %mul.i1934 to <2 x i64>
-  store <2 x i64> %554, ptr %mull167, align 16
-  %555 = load <2 x i64>, ptr %summ166, align 16
-  %556 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %555, ptr %__a.addr.i2223, align 16
-  store <2 x i64> %556, ptr %__b.addr.i2224, align 16
-  %557 = load <2 x i64>, ptr %__a.addr.i2223, align 16
-  %558 = bitcast <2 x i64> %557 to <4 x i32>
-  %559 = load <2 x i64>, ptr %__b.addr.i2224, align 16
-  %560 = bitcast <2 x i64> %559 to <4 x i32>
-  %add.i2225 = add <4 x i32> %558, %560
-  %561 = bitcast <4 x i32> %add.i2225 to <2 x i64>
-  store <2 x i64> %561, ptr %summ166, align 16
-  %562 = load <2 x i64>, ptr %q1119, align 16
-  %563 = load ptr, ptr %data.addr, align 8
-  %564 = load i32, ptr %i, align 4
-  %idx.ext221 = sext i32 %564 to i64
-  %add.ptr222 = getelementptr inbounds i32, ptr %563, i64 %idx.ext221
-  %add.ptr223 = getelementptr inbounds i32, ptr %add.ptr222, i64 -2
-  store ptr %add.ptr223, ptr %__p.addr.i2061, align 8
-  %565 = load ptr, ptr %__p.addr.i2061, align 8
-  %566 = load <2 x i64>, ptr %565, align 1
-  store <2 x i64> %562, ptr %__V1.addr.i1929, align 16
-  store <2 x i64> %566, ptr %__V2.addr.i1930, align 16
-  %567 = load <2 x i64>, ptr %__V1.addr.i1929, align 16
-  %568 = bitcast <2 x i64> %567 to <4 x i32>
-  %569 = load <2 x i64>, ptr %__V2.addr.i1930, align 16
-  %570 = bitcast <2 x i64> %569 to <4 x i32>
-  %mul.i1931 = mul <4 x i32> %568, %570
-  %571 = bitcast <4 x i32> %mul.i1931 to <2 x i64>
-  store <2 x i64> %571, ptr %mull167, align 16
-  %572 = load <2 x i64>, ptr %summ166, align 16
-  %573 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %572, ptr %__a.addr.i2220, align 16
-  store <2 x i64> %573, ptr %__b.addr.i2221, align 16
-  %574 = load <2 x i64>, ptr %__a.addr.i2220, align 16
-  %575 = bitcast <2 x i64> %574 to <4 x i32>
-  %576 = load <2 x i64>, ptr %__b.addr.i2221, align 16
-  %577 = bitcast <2 x i64> %576 to <4 x i32>
-  %add.i2222 = add <4 x i32> %575, %577
-  %578 = bitcast <4 x i32> %add.i2222 to <2 x i64>
-  store <2 x i64> %578, ptr %summ166, align 16
-  %579 = load <2 x i64>, ptr %q0118, align 16
-  %580 = load ptr, ptr %data.addr, align 8
-  %581 = load i32, ptr %i, align 4
-  %idx.ext227 = sext i32 %581 to i64
-  %add.ptr228 = getelementptr inbounds i32, ptr %580, i64 %idx.ext227
-  %add.ptr229 = getelementptr inbounds i32, ptr %add.ptr228, i64 -1
-  store ptr %add.ptr229, ptr %__p.addr.i2060, align 8
-  %582 = load ptr, ptr %__p.addr.i2060, align 8
-  %583 = load <2 x i64>, ptr %582, align 1
-  store <2 x i64> %579, ptr %__V1.addr.i1926, align 16
-  store <2 x i64> %583, ptr %__V2.addr.i1927, align 16
-  %584 = load <2 x i64>, ptr %__V1.addr.i1926, align 16
-  %585 = bitcast <2 x i64> %584 to <4 x i32>
-  %586 = load <2 x i64>, ptr %__V2.addr.i1927, align 16
-  %587 = bitcast <2 x i64> %586 to <4 x i32>
-  %mul.i1928 = mul <4 x i32> %585, %587
-  %588 = bitcast <4 x i32> %mul.i1928 to <2 x i64>
-  store <2 x i64> %588, ptr %mull167, align 16
-  %589 = load <2 x i64>, ptr %summ166, align 16
-  %590 = load <2 x i64>, ptr %mull167, align 16
-  store <2 x i64> %589, ptr %__a.addr.i2217, align 16
-  store <2 x i64> %590, ptr %__b.addr.i2218, align 16
-  %591 = load <2 x i64>, ptr %__a.addr.i2217, align 16
-  %592 = bitcast <2 x i64> %591 to <4 x i32>
-  %593 = load <2 x i64>, ptr %__b.addr.i2218, align 16
-  %594 = bitcast <2 x i64> %593 to <4 x i32>
-  %add.i2219 = add <4 x i32> %592, %594
-  %595 = bitcast <4 x i32> %add.i2219 to <2 x i64>
-  store <2 x i64> %595, ptr %summ166, align 16
-  %596 = load <2 x i64>, ptr %summ166, align 16
-  %597 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %596, ptr %__a.addr.i2299, align 16
-  store <2 x i64> %597, ptr %__count.addr.i2300, align 16
-  %598 = load <2 x i64>, ptr %__a.addr.i2299, align 16
-  %599 = bitcast <2 x i64> %598 to <4 x i32>
-  %600 = load <2 x i64>, ptr %__count.addr.i2300, align 16
-  %601 = bitcast <2 x i64> %600 to <4 x i32>
-  %602 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %599, <4 x i32> %601)
-  %603 = bitcast <4 x i32> %602 to <2 x i64>
-  store <2 x i64> %603, ptr %summ166, align 16
-  %604 = load ptr, ptr %residual.addr, align 8
-  %605 = load i32, ptr %i, align 4
-  %idx.ext234 = sext i32 %605 to i64
-  %add.ptr235 = getelementptr inbounds i32, ptr %604, i64 %idx.ext234
-  %606 = load ptr, ptr %data.addr, align 8
-  %607 = load i32, ptr %i, align 4
-  %idx.ext236 = sext i32 %607 to i64
-  %add.ptr237 = getelementptr inbounds i32, ptr %606, i64 %idx.ext236
-  store ptr %add.ptr237, ptr %__p.addr.i2059, align 8
-  %608 = load ptr, ptr %__p.addr.i2059, align 8
-  %609 = load <2 x i64>, ptr %608, align 1
-  %610 = load <2 x i64>, ptr %summ166, align 16
-  store <2 x i64> %609, ptr %__a.addr.i2356, align 16
-  store <2 x i64> %610, ptr %__b.addr.i2357, align 16
-  %611 = load <2 x i64>, ptr %__a.addr.i2356, align 16
-  %612 = bitcast <2 x i64> %611 to <4 x i32>
-  %613 = load <2 x i64>, ptr %__b.addr.i2357, align 16
-  %614 = bitcast <2 x i64> %613 to <4 x i32>
-  %sub.i2358 = sub <4 x i32> %612, %614
-  %615 = bitcast <4 x i32> %sub.i2358 to <2 x i64>
-  store ptr %add.ptr235, ptr %__p.addr.i2323, align 8
-  store <2 x i64> %615, ptr %__b.addr.i2324, align 16
-  %616 = load <2 x i64>, ptr %__b.addr.i2324, align 16
-  %617 = load ptr, ptr %__p.addr.i2323, align 8
-  store <2 x i64> %616, ptr %617, align 1
-  br label %for.inc240
+  %467 = shufflevector <4 x i32> %466, <4 x i32> poison, <4 x i32> zeroinitializer
+  %468 = bitcast <4 x i32> %467 to <2 x i64>
+  store <2 x i64> %468, ptr %40, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %469
 
-for.inc240:                                       ; preds = %for.body165
-  %618 = load i32, ptr %i, align 4
-  %add241 = add nsw i32 %618, 4
-  store i32 %add241, ptr %i, align 4
-  br label %for.cond162, !llvm.loop !6
+469:                                              ; preds = %607, %380
+  %470 = load i32, ptr %13, align 4, !tbaa !8
+  %471 = load i32, ptr %8, align 4, !tbaa !8
+  %472 = sub nsw i32 %471, 3
+  %473 = icmp slt i32 %470, %472
+  br i1 %473, label %474, label %610
 
-for.end242:                                       ; preds = %for.cond162
-  br label %if.end
+474:                                              ; preds = %469
+  call void @llvm.lifetime.start.p0(i64 16, ptr %41) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %42) #5
+  %475 = load <2 x i64>, ptr %40, align 16, !tbaa !10
+  %476 = load ptr, ptr %7, align 8, !tbaa !3
+  %477 = load i32, ptr %13, align 4, !tbaa !8
+  %478 = sext i32 %477 to i64
+  %479 = getelementptr inbounds i32, ptr %476, i64 %478
+  %480 = getelementptr inbounds i32, ptr %479, i64 -11
+  %481 = call <2 x i64> @_mm_loadu_si128(ptr noundef %480)
+  %482 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %475, <2 x i64> noundef %481)
+  store <2 x i64> %482, ptr %41, align 16, !tbaa !10
+  %483 = load <2 x i64>, ptr %39, align 16, !tbaa !10
+  %484 = load ptr, ptr %7, align 8, !tbaa !3
+  %485 = load i32, ptr %13, align 4, !tbaa !8
+  %486 = sext i32 %485 to i64
+  %487 = getelementptr inbounds i32, ptr %484, i64 %486
+  %488 = getelementptr inbounds i32, ptr %487, i64 -10
+  %489 = call <2 x i64> @_mm_loadu_si128(ptr noundef %488)
+  %490 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %483, <2 x i64> noundef %489)
+  store <2 x i64> %490, ptr %42, align 16, !tbaa !10
+  %491 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %492 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %493 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %491, <2 x i64> noundef %492)
+  store <2 x i64> %493, ptr %41, align 16, !tbaa !10
+  %494 = load <2 x i64>, ptr %38, align 16, !tbaa !10
+  %495 = load ptr, ptr %7, align 8, !tbaa !3
+  %496 = load i32, ptr %13, align 4, !tbaa !8
+  %497 = sext i32 %496 to i64
+  %498 = getelementptr inbounds i32, ptr %495, i64 %497
+  %499 = getelementptr inbounds i32, ptr %498, i64 -9
+  %500 = call <2 x i64> @_mm_loadu_si128(ptr noundef %499)
+  %501 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %494, <2 x i64> noundef %500)
+  store <2 x i64> %501, ptr %42, align 16, !tbaa !10
+  %502 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %503 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %504 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %502, <2 x i64> noundef %503)
+  store <2 x i64> %504, ptr %41, align 16, !tbaa !10
+  %505 = load <2 x i64>, ptr %37, align 16, !tbaa !10
+  %506 = load ptr, ptr %7, align 8, !tbaa !3
+  %507 = load i32, ptr %13, align 4, !tbaa !8
+  %508 = sext i32 %507 to i64
+  %509 = getelementptr inbounds i32, ptr %506, i64 %508
+  %510 = getelementptr inbounds i32, ptr %509, i64 -8
+  %511 = call <2 x i64> @_mm_loadu_si128(ptr noundef %510)
+  %512 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %505, <2 x i64> noundef %511)
+  store <2 x i64> %512, ptr %42, align 16, !tbaa !10
+  %513 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %514 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %515 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %513, <2 x i64> noundef %514)
+  store <2 x i64> %515, ptr %41, align 16, !tbaa !10
+  %516 = load <2 x i64>, ptr %36, align 16, !tbaa !10
+  %517 = load ptr, ptr %7, align 8, !tbaa !3
+  %518 = load i32, ptr %13, align 4, !tbaa !8
+  %519 = sext i32 %518 to i64
+  %520 = getelementptr inbounds i32, ptr %517, i64 %519
+  %521 = getelementptr inbounds i32, ptr %520, i64 -7
+  %522 = call <2 x i64> @_mm_loadu_si128(ptr noundef %521)
+  %523 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %516, <2 x i64> noundef %522)
+  store <2 x i64> %523, ptr %42, align 16, !tbaa !10
+  %524 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %525 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %526 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %524, <2 x i64> noundef %525)
+  store <2 x i64> %526, ptr %41, align 16, !tbaa !10
+  %527 = load <2 x i64>, ptr %35, align 16, !tbaa !10
+  %528 = load ptr, ptr %7, align 8, !tbaa !3
+  %529 = load i32, ptr %13, align 4, !tbaa !8
+  %530 = sext i32 %529 to i64
+  %531 = getelementptr inbounds i32, ptr %528, i64 %530
+  %532 = getelementptr inbounds i32, ptr %531, i64 -6
+  %533 = call <2 x i64> @_mm_loadu_si128(ptr noundef %532)
+  %534 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %527, <2 x i64> noundef %533)
+  store <2 x i64> %534, ptr %42, align 16, !tbaa !10
+  %535 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %536 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %537 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %535, <2 x i64> noundef %536)
+  store <2 x i64> %537, ptr %41, align 16, !tbaa !10
+  %538 = load <2 x i64>, ptr %34, align 16, !tbaa !10
+  %539 = load ptr, ptr %7, align 8, !tbaa !3
+  %540 = load i32, ptr %13, align 4, !tbaa !8
+  %541 = sext i32 %540 to i64
+  %542 = getelementptr inbounds i32, ptr %539, i64 %541
+  %543 = getelementptr inbounds i32, ptr %542, i64 -5
+  %544 = call <2 x i64> @_mm_loadu_si128(ptr noundef %543)
+  %545 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %538, <2 x i64> noundef %544)
+  store <2 x i64> %545, ptr %42, align 16, !tbaa !10
+  %546 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %547 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %548 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %546, <2 x i64> noundef %547)
+  store <2 x i64> %548, ptr %41, align 16, !tbaa !10
+  %549 = load <2 x i64>, ptr %33, align 16, !tbaa !10
+  %550 = load ptr, ptr %7, align 8, !tbaa !3
+  %551 = load i32, ptr %13, align 4, !tbaa !8
+  %552 = sext i32 %551 to i64
+  %553 = getelementptr inbounds i32, ptr %550, i64 %552
+  %554 = getelementptr inbounds i32, ptr %553, i64 -4
+  %555 = call <2 x i64> @_mm_loadu_si128(ptr noundef %554)
+  %556 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %549, <2 x i64> noundef %555)
+  store <2 x i64> %556, ptr %42, align 16, !tbaa !10
+  %557 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %558 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %559 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %557, <2 x i64> noundef %558)
+  store <2 x i64> %559, ptr %41, align 16, !tbaa !10
+  %560 = load <2 x i64>, ptr %32, align 16, !tbaa !10
+  %561 = load ptr, ptr %7, align 8, !tbaa !3
+  %562 = load i32, ptr %13, align 4, !tbaa !8
+  %563 = sext i32 %562 to i64
+  %564 = getelementptr inbounds i32, ptr %561, i64 %563
+  %565 = getelementptr inbounds i32, ptr %564, i64 -3
+  %566 = call <2 x i64> @_mm_loadu_si128(ptr noundef %565)
+  %567 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %560, <2 x i64> noundef %566)
+  store <2 x i64> %567, ptr %42, align 16, !tbaa !10
+  %568 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %569 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %570 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %568, <2 x i64> noundef %569)
+  store <2 x i64> %570, ptr %41, align 16, !tbaa !10
+  %571 = load <2 x i64>, ptr %31, align 16, !tbaa !10
+  %572 = load ptr, ptr %7, align 8, !tbaa !3
+  %573 = load i32, ptr %13, align 4, !tbaa !8
+  %574 = sext i32 %573 to i64
+  %575 = getelementptr inbounds i32, ptr %572, i64 %574
+  %576 = getelementptr inbounds i32, ptr %575, i64 -2
+  %577 = call <2 x i64> @_mm_loadu_si128(ptr noundef %576)
+  %578 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %571, <2 x i64> noundef %577)
+  store <2 x i64> %578, ptr %42, align 16, !tbaa !10
+  %579 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %580 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %581 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %579, <2 x i64> noundef %580)
+  store <2 x i64> %581, ptr %41, align 16, !tbaa !10
+  %582 = load <2 x i64>, ptr %30, align 16, !tbaa !10
+  %583 = load ptr, ptr %7, align 8, !tbaa !3
+  %584 = load i32, ptr %13, align 4, !tbaa !8
+  %585 = sext i32 %584 to i64
+  %586 = getelementptr inbounds i32, ptr %583, i64 %585
+  %587 = getelementptr inbounds i32, ptr %586, i64 -1
+  %588 = call <2 x i64> @_mm_loadu_si128(ptr noundef %587)
+  %589 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %582, <2 x i64> noundef %588)
+  store <2 x i64> %589, ptr %42, align 16, !tbaa !10
+  %590 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %591 = load <2 x i64>, ptr %42, align 16, !tbaa !10
+  %592 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %590, <2 x i64> noundef %591)
+  store <2 x i64> %592, ptr %41, align 16, !tbaa !10
+  %593 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %594 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %595 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %593, <2 x i64> noundef %594)
+  store <2 x i64> %595, ptr %41, align 16, !tbaa !10
+  %596 = load ptr, ptr %12, align 8, !tbaa !3
+  %597 = load i32, ptr %13, align 4, !tbaa !8
+  %598 = sext i32 %597 to i64
+  %599 = getelementptr inbounds i32, ptr %596, i64 %598
+  %600 = load ptr, ptr %7, align 8, !tbaa !3
+  %601 = load i32, ptr %13, align 4, !tbaa !8
+  %602 = sext i32 %601 to i64
+  %603 = getelementptr inbounds i32, ptr %600, i64 %602
+  %604 = call <2 x i64> @_mm_loadu_si128(ptr noundef %603)
+  %605 = load <2 x i64>, ptr %41, align 16, !tbaa !10
+  %606 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %604, <2 x i64> noundef %605)
+  call void @_mm_storeu_si128(ptr noundef %599, <2 x i64> noundef %606)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %42) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %41) #5
+  br label %607
 
-if.end:                                           ; preds = %for.end242, %for.end
-  br label %if.end468
+607:                                              ; preds = %474
+  %608 = load i32, ptr %13, align 4, !tbaa !8
+  %609 = add nsw i32 %608, 4
+  store i32 %609, ptr %13, align 4, !tbaa !8
+  br label %469, !llvm.loop !13
 
-if.else243:                                       ; preds = %if.then2
-  %619 = load i32, ptr %order.addr, align 4
-  %cmp244 = icmp eq i32 %619, 10
-  br i1 %cmp244, label %if.then245, label %if.else361
+610:                                              ; preds = %469
+  call void @llvm.lifetime.end.p0(i64 16, ptr %40) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %39) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %38) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %37) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %36) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %35) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %34) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %33) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %32) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %31) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %30) #5
+  br label %611
 
-if.then245:                                       ; preds = %if.else243
-  %620 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx256 = getelementptr inbounds i32, ptr %620, i64 0
-  %621 = load i32, ptr %arrayidx256, align 4
-  store i32 %621, ptr %__a.addr.i1614, align 4
-  %622 = load i32, ptr %__a.addr.i1614, align 4
-  %vecinit.i1616 = insertelement <4 x i32> undef, i32 %622, i32 0
-  %vecinit1.i1617 = insertelement <4 x i32> %vecinit.i1616, i32 0, i32 1
-  %vecinit2.i1618 = insertelement <4 x i32> %vecinit1.i1617, i32 0, i32 2
-  %vecinit3.i1619 = insertelement <4 x i32> %vecinit2.i1618, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1619, ptr %.compoundliteral.i1615, align 16
-  %623 = load <4 x i32>, ptr %.compoundliteral.i1615, align 16
-  %624 = bitcast <4 x i32> %623 to <2 x i64>
-  store <2 x i64> %624, ptr %q0246, align 16
-  %625 = load <2 x i64>, ptr %q0246, align 16
-  %626 = bitcast <2 x i64> %625 to <4 x i32>
-  %permil258 = shufflevector <4 x i32> %626, <4 x i32> poison, <4 x i32> zeroinitializer
-  %627 = bitcast <4 x i32> %permil258 to <2 x i64>
-  store <2 x i64> %627, ptr %q0246, align 16
-  %628 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx259 = getelementptr inbounds i32, ptr %628, i64 1
-  %629 = load i32, ptr %arrayidx259, align 4
-  store i32 %629, ptr %__a.addr.i1608, align 4
-  %630 = load i32, ptr %__a.addr.i1608, align 4
-  %vecinit.i1610 = insertelement <4 x i32> undef, i32 %630, i32 0
-  %vecinit1.i1611 = insertelement <4 x i32> %vecinit.i1610, i32 0, i32 1
-  %vecinit2.i1612 = insertelement <4 x i32> %vecinit1.i1611, i32 0, i32 2
-  %vecinit3.i1613 = insertelement <4 x i32> %vecinit2.i1612, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1613, ptr %.compoundliteral.i1609, align 16
-  %631 = load <4 x i32>, ptr %.compoundliteral.i1609, align 16
-  %632 = bitcast <4 x i32> %631 to <2 x i64>
-  store <2 x i64> %632, ptr %q1247, align 16
-  %633 = load <2 x i64>, ptr %q1247, align 16
-  %634 = bitcast <2 x i64> %633 to <4 x i32>
-  %permil261 = shufflevector <4 x i32> %634, <4 x i32> poison, <4 x i32> zeroinitializer
-  %635 = bitcast <4 x i32> %permil261 to <2 x i64>
-  store <2 x i64> %635, ptr %q1247, align 16
-  %636 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx262 = getelementptr inbounds i32, ptr %636, i64 2
-  %637 = load i32, ptr %arrayidx262, align 4
-  store i32 %637, ptr %__a.addr.i1602, align 4
-  %638 = load i32, ptr %__a.addr.i1602, align 4
-  %vecinit.i1604 = insertelement <4 x i32> undef, i32 %638, i32 0
-  %vecinit1.i1605 = insertelement <4 x i32> %vecinit.i1604, i32 0, i32 1
-  %vecinit2.i1606 = insertelement <4 x i32> %vecinit1.i1605, i32 0, i32 2
-  %vecinit3.i1607 = insertelement <4 x i32> %vecinit2.i1606, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1607, ptr %.compoundliteral.i1603, align 16
-  %639 = load <4 x i32>, ptr %.compoundliteral.i1603, align 16
-  %640 = bitcast <4 x i32> %639 to <2 x i64>
-  store <2 x i64> %640, ptr %q2248, align 16
-  %641 = load <2 x i64>, ptr %q2248, align 16
-  %642 = bitcast <2 x i64> %641 to <4 x i32>
-  %permil264 = shufflevector <4 x i32> %642, <4 x i32> poison, <4 x i32> zeroinitializer
-  %643 = bitcast <4 x i32> %permil264 to <2 x i64>
-  store <2 x i64> %643, ptr %q2248, align 16
-  %644 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx265 = getelementptr inbounds i32, ptr %644, i64 3
-  %645 = load i32, ptr %arrayidx265, align 4
-  store i32 %645, ptr %__a.addr.i1596, align 4
-  %646 = load i32, ptr %__a.addr.i1596, align 4
-  %vecinit.i1598 = insertelement <4 x i32> undef, i32 %646, i32 0
-  %vecinit1.i1599 = insertelement <4 x i32> %vecinit.i1598, i32 0, i32 1
-  %vecinit2.i1600 = insertelement <4 x i32> %vecinit1.i1599, i32 0, i32 2
-  %vecinit3.i1601 = insertelement <4 x i32> %vecinit2.i1600, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1601, ptr %.compoundliteral.i1597, align 16
-  %647 = load <4 x i32>, ptr %.compoundliteral.i1597, align 16
-  %648 = bitcast <4 x i32> %647 to <2 x i64>
-  store <2 x i64> %648, ptr %q3249, align 16
-  %649 = load <2 x i64>, ptr %q3249, align 16
-  %650 = bitcast <2 x i64> %649 to <4 x i32>
-  %permil267 = shufflevector <4 x i32> %650, <4 x i32> poison, <4 x i32> zeroinitializer
-  %651 = bitcast <4 x i32> %permil267 to <2 x i64>
-  store <2 x i64> %651, ptr %q3249, align 16
-  %652 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx268 = getelementptr inbounds i32, ptr %652, i64 4
-  %653 = load i32, ptr %arrayidx268, align 4
-  store i32 %653, ptr %__a.addr.i1590, align 4
-  %654 = load i32, ptr %__a.addr.i1590, align 4
-  %vecinit.i1592 = insertelement <4 x i32> undef, i32 %654, i32 0
-  %vecinit1.i1593 = insertelement <4 x i32> %vecinit.i1592, i32 0, i32 1
-  %vecinit2.i1594 = insertelement <4 x i32> %vecinit1.i1593, i32 0, i32 2
-  %vecinit3.i1595 = insertelement <4 x i32> %vecinit2.i1594, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1595, ptr %.compoundliteral.i1591, align 16
-  %655 = load <4 x i32>, ptr %.compoundliteral.i1591, align 16
-  %656 = bitcast <4 x i32> %655 to <2 x i64>
-  store <2 x i64> %656, ptr %q4250, align 16
-  %657 = load <2 x i64>, ptr %q4250, align 16
-  %658 = bitcast <2 x i64> %657 to <4 x i32>
-  %permil270 = shufflevector <4 x i32> %658, <4 x i32> poison, <4 x i32> zeroinitializer
-  %659 = bitcast <4 x i32> %permil270 to <2 x i64>
-  store <2 x i64> %659, ptr %q4250, align 16
-  %660 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx271 = getelementptr inbounds i32, ptr %660, i64 5
-  %661 = load i32, ptr %arrayidx271, align 4
-  store i32 %661, ptr %__a.addr.i1584, align 4
-  %662 = load i32, ptr %__a.addr.i1584, align 4
-  %vecinit.i1586 = insertelement <4 x i32> undef, i32 %662, i32 0
-  %vecinit1.i1587 = insertelement <4 x i32> %vecinit.i1586, i32 0, i32 1
-  %vecinit2.i1588 = insertelement <4 x i32> %vecinit1.i1587, i32 0, i32 2
-  %vecinit3.i1589 = insertelement <4 x i32> %vecinit2.i1588, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1589, ptr %.compoundliteral.i1585, align 16
-  %663 = load <4 x i32>, ptr %.compoundliteral.i1585, align 16
-  %664 = bitcast <4 x i32> %663 to <2 x i64>
-  store <2 x i64> %664, ptr %q5251, align 16
-  %665 = load <2 x i64>, ptr %q5251, align 16
-  %666 = bitcast <2 x i64> %665 to <4 x i32>
-  %permil273 = shufflevector <4 x i32> %666, <4 x i32> poison, <4 x i32> zeroinitializer
-  %667 = bitcast <4 x i32> %permil273 to <2 x i64>
-  store <2 x i64> %667, ptr %q5251, align 16
-  %668 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx274 = getelementptr inbounds i32, ptr %668, i64 6
-  %669 = load i32, ptr %arrayidx274, align 4
-  store i32 %669, ptr %__a.addr.i1578, align 4
-  %670 = load i32, ptr %__a.addr.i1578, align 4
-  %vecinit.i1580 = insertelement <4 x i32> undef, i32 %670, i32 0
-  %vecinit1.i1581 = insertelement <4 x i32> %vecinit.i1580, i32 0, i32 1
-  %vecinit2.i1582 = insertelement <4 x i32> %vecinit1.i1581, i32 0, i32 2
-  %vecinit3.i1583 = insertelement <4 x i32> %vecinit2.i1582, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1583, ptr %.compoundliteral.i1579, align 16
-  %671 = load <4 x i32>, ptr %.compoundliteral.i1579, align 16
-  %672 = bitcast <4 x i32> %671 to <2 x i64>
-  store <2 x i64> %672, ptr %q6252, align 16
-  %673 = load <2 x i64>, ptr %q6252, align 16
-  %674 = bitcast <2 x i64> %673 to <4 x i32>
-  %permil276 = shufflevector <4 x i32> %674, <4 x i32> poison, <4 x i32> zeroinitializer
-  %675 = bitcast <4 x i32> %permil276 to <2 x i64>
-  store <2 x i64> %675, ptr %q6252, align 16
-  %676 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx277 = getelementptr inbounds i32, ptr %676, i64 7
-  %677 = load i32, ptr %arrayidx277, align 4
-  store i32 %677, ptr %__a.addr.i1572, align 4
-  %678 = load i32, ptr %__a.addr.i1572, align 4
-  %vecinit.i1574 = insertelement <4 x i32> undef, i32 %678, i32 0
-  %vecinit1.i1575 = insertelement <4 x i32> %vecinit.i1574, i32 0, i32 1
-  %vecinit2.i1576 = insertelement <4 x i32> %vecinit1.i1575, i32 0, i32 2
-  %vecinit3.i1577 = insertelement <4 x i32> %vecinit2.i1576, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1577, ptr %.compoundliteral.i1573, align 16
-  %679 = load <4 x i32>, ptr %.compoundliteral.i1573, align 16
-  %680 = bitcast <4 x i32> %679 to <2 x i64>
-  store <2 x i64> %680, ptr %q7253, align 16
-  %681 = load <2 x i64>, ptr %q7253, align 16
-  %682 = bitcast <2 x i64> %681 to <4 x i32>
-  %permil279 = shufflevector <4 x i32> %682, <4 x i32> poison, <4 x i32> zeroinitializer
-  %683 = bitcast <4 x i32> %permil279 to <2 x i64>
-  store <2 x i64> %683, ptr %q7253, align 16
-  %684 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx280 = getelementptr inbounds i32, ptr %684, i64 8
-  %685 = load i32, ptr %arrayidx280, align 4
-  store i32 %685, ptr %__a.addr.i1566, align 4
-  %686 = load i32, ptr %__a.addr.i1566, align 4
-  %vecinit.i1568 = insertelement <4 x i32> undef, i32 %686, i32 0
-  %vecinit1.i1569 = insertelement <4 x i32> %vecinit.i1568, i32 0, i32 1
-  %vecinit2.i1570 = insertelement <4 x i32> %vecinit1.i1569, i32 0, i32 2
-  %vecinit3.i1571 = insertelement <4 x i32> %vecinit2.i1570, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1571, ptr %.compoundliteral.i1567, align 16
-  %687 = load <4 x i32>, ptr %.compoundliteral.i1567, align 16
-  %688 = bitcast <4 x i32> %687 to <2 x i64>
-  store <2 x i64> %688, ptr %q8254, align 16
-  %689 = load <2 x i64>, ptr %q8254, align 16
-  %690 = bitcast <2 x i64> %689 to <4 x i32>
-  %permil282 = shufflevector <4 x i32> %690, <4 x i32> poison, <4 x i32> zeroinitializer
-  %691 = bitcast <4 x i32> %permil282 to <2 x i64>
-  store <2 x i64> %691, ptr %q8254, align 16
-  %692 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx283 = getelementptr inbounds i32, ptr %692, i64 9
-  %693 = load i32, ptr %arrayidx283, align 4
-  store i32 %693, ptr %__a.addr.i1560, align 4
-  %694 = load i32, ptr %__a.addr.i1560, align 4
-  %vecinit.i1562 = insertelement <4 x i32> undef, i32 %694, i32 0
-  %vecinit1.i1563 = insertelement <4 x i32> %vecinit.i1562, i32 0, i32 1
-  %vecinit2.i1564 = insertelement <4 x i32> %vecinit1.i1563, i32 0, i32 2
-  %vecinit3.i1565 = insertelement <4 x i32> %vecinit2.i1564, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1565, ptr %.compoundliteral.i1561, align 16
-  %695 = load <4 x i32>, ptr %.compoundliteral.i1561, align 16
-  %696 = bitcast <4 x i32> %695 to <2 x i64>
-  store <2 x i64> %696, ptr %q9255, align 16
-  %697 = load <2 x i64>, ptr %q9255, align 16
-  %698 = bitcast <2 x i64> %697 to <4 x i32>
-  %permil285 = shufflevector <4 x i32> %698, <4 x i32> poison, <4 x i32> zeroinitializer
-  %699 = bitcast <4 x i32> %permil285 to <2 x i64>
-  store <2 x i64> %699, ptr %q9255, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond286
+611:                                              ; preds = %610, %379
+  br label %1021
 
-for.cond286:                                      ; preds = %for.inc358, %if.then245
-  %700 = load i32, ptr %i, align 4
-  %701 = load i32, ptr %data_len.addr, align 4
-  %sub287 = sub nsw i32 %701, 3
-  %cmp288 = icmp slt i32 %700, %sub287
-  br i1 %cmp288, label %for.body289, label %for.end360
+612:                                              ; preds = %124
+  %613 = load i32, ptr %10, align 4, !tbaa !8
+  %614 = icmp eq i32 %613, 10
+  br i1 %614, label %615, label %827
 
-for.body289:                                      ; preds = %for.cond286
-  %702 = load <2 x i64>, ptr %q9255, align 16
-  %703 = load ptr, ptr %data.addr, align 8
-  %704 = load i32, ptr %i, align 4
-  %idx.ext292 = sext i32 %704 to i64
-  %add.ptr293 = getelementptr inbounds i32, ptr %703, i64 %idx.ext292
-  %add.ptr294 = getelementptr inbounds i32, ptr %add.ptr293, i64 -10
-  store ptr %add.ptr294, ptr %__p.addr.i2058, align 8
-  %705 = load ptr, ptr %__p.addr.i2058, align 8
-  %706 = load <2 x i64>, ptr %705, align 1
-  store <2 x i64> %702, ptr %__V1.addr.i1923, align 16
-  store <2 x i64> %706, ptr %__V2.addr.i1924, align 16
-  %707 = load <2 x i64>, ptr %__V1.addr.i1923, align 16
-  %708 = bitcast <2 x i64> %707 to <4 x i32>
-  %709 = load <2 x i64>, ptr %__V2.addr.i1924, align 16
-  %710 = bitcast <2 x i64> %709 to <4 x i32>
-  %mul.i1925 = mul <4 x i32> %708, %710
-  %711 = bitcast <4 x i32> %mul.i1925 to <2 x i64>
-  store <2 x i64> %711, ptr %summ290, align 16
-  %712 = load <2 x i64>, ptr %q8254, align 16
-  %713 = load ptr, ptr %data.addr, align 8
-  %714 = load i32, ptr %i, align 4
-  %idx.ext297 = sext i32 %714 to i64
-  %add.ptr298 = getelementptr inbounds i32, ptr %713, i64 %idx.ext297
-  %add.ptr299 = getelementptr inbounds i32, ptr %add.ptr298, i64 -9
-  store ptr %add.ptr299, ptr %__p.addr.i2057, align 8
-  %715 = load ptr, ptr %__p.addr.i2057, align 8
-  %716 = load <2 x i64>, ptr %715, align 1
-  store <2 x i64> %712, ptr %__V1.addr.i1920, align 16
-  store <2 x i64> %716, ptr %__V2.addr.i1921, align 16
-  %717 = load <2 x i64>, ptr %__V1.addr.i1920, align 16
-  %718 = bitcast <2 x i64> %717 to <4 x i32>
-  %719 = load <2 x i64>, ptr %__V2.addr.i1921, align 16
-  %720 = bitcast <2 x i64> %719 to <4 x i32>
-  %mul.i1922 = mul <4 x i32> %718, %720
-  %721 = bitcast <4 x i32> %mul.i1922 to <2 x i64>
-  store <2 x i64> %721, ptr %mull291, align 16
-  %722 = load <2 x i64>, ptr %summ290, align 16
-  %723 = load <2 x i64>, ptr %mull291, align 16
-  store <2 x i64> %722, ptr %__a.addr.i2214, align 16
-  store <2 x i64> %723, ptr %__b.addr.i2215, align 16
-  %724 = load <2 x i64>, ptr %__a.addr.i2214, align 16
-  %725 = bitcast <2 x i64> %724 to <4 x i32>
-  %726 = load <2 x i64>, ptr %__b.addr.i2215, align 16
-  %727 = bitcast <2 x i64> %726 to <4 x i32>
-  %add.i2216 = add <4 x i32> %725, %727
-  %728 = bitcast <4 x i32> %add.i2216 to <2 x i64>
-  store <2 x i64> %728, ptr %summ290, align 16
-  %729 = load <2 x i64>, ptr %q7253, align 16
-  %730 = load ptr, ptr %data.addr, align 8
-  %731 = load i32, ptr %i, align 4
-  %idx.ext303 = sext i32 %731 to i64
-  %add.ptr304 = getelementptr inbounds i32, ptr %730, i64 %idx.ext303
-  %add.ptr305 = getelementptr inbounds i32, ptr %add.ptr304, i64 -8
-  store ptr %add.ptr305, ptr %__p.addr.i2056, align 8
-  %732 = load ptr, ptr %__p.addr.i2056, align 8
-  %733 = load <2 x i64>, ptr %732, align 1
-  store <2 x i64> %729, ptr %__V1.addr.i1917, align 16
-  store <2 x i64> %733, ptr %__V2.addr.i1918, align 16
-  %734 = load <2 x i64>, ptr %__V1.addr.i1917, align 16
-  %735 = bitcast <2 x i64> %734 to <4 x i32>
-  %736 = load <2 x i64>, ptr %__V2.addr.i1918, align 16
-  %737 = bitcast <2 x i64> %736 to <4 x i32>
-  %mul.i1919 = mul <4 x i32> %735, %737
-  %738 = bitcast <4 x i32> %mul.i1919 to <2 x i64>
-  store <2 x i64> %738, ptr %mull291, align 16
-  %739 = load <2 x i64>, ptr %summ290, align 16
-  %740 = load <2 x i64>, ptr %mull291, align 16
-  store <2 x i64> %739, ptr %__a.addr.i2211, align 16
-  store <2 x i64> %740, ptr %__b.addr.i2212, align 16
-  %741 = load <2 x i64>, ptr %__a.addr.i2211, align 16
-  %742 = bitcast <2 x i64> %741 to <4 x i32>
-  %743 = load <2 x i64>, ptr %__b.addr.i2212, align 16
-  %744 = bitcast <2 x i64> %743 to <4 x i32>
-  %add.i2213 = add <4 x i32> %742, %744
-  %745 = bitcast <4 x i32> %add.i2213 to <2 x i64>
-  store <2 x i64> %745, ptr %summ290, align 16
-  %746 = load <2 x i64>, ptr %q6252, align 16
-  %747 = load ptr, ptr %data.addr, align 8
-  %748 = load i32, ptr %i, align 4
-  %idx.ext309 = sext i32 %748 to i64
-  %add.ptr310 = getelementptr inbounds i32, ptr %747, i64 %idx.ext309
-  %add.ptr311 = getelementptr inbounds i32, ptr %add.ptr310, i64 -7
-  store ptr %add.ptr311, ptr %__p.addr.i2055, align 8
-  %749 = load ptr, ptr %__p.addr.i2055, align 8
-  %750 = load <2 x i64>, ptr %749, align 1
-  store <2 x i64> %746, ptr %__V1.addr.i1914, align 16
-  store <2 x i64> %750, ptr %__V2.addr.i1915, align 16
-  %751 = load <2 x i64>, ptr %__V1.addr.i1914, align 16
-  %752 = bitcast <2 x i64> %751 to <4 x i32>
-  %753 = load <2 x i64>, ptr %__V2.addr.i1915, align 16
-  %754 = bitcast <2 x i64> %753 to <4 x i32>
-  %mul.i1916 = mul <4 x i32> %752, %754
-  %755 = bitcast <4 x i32> %mul.i1916 to <2 x i64>
-  store <2 x i64> %755, ptr %mull291, align 16
-  %756 = load <2 x i64>, ptr %summ290, align 16
-  %757 = load <2 x i64>, ptr %mull291, align 16
-  store <2 x i64> %756, ptr %__a.addr.i2208, align 16
-  store <2 x i64> %757, ptr %__b.addr.i2209, align 16
-  %758 = load <2 x i64>, ptr %__a.addr.i2208, align 16
-  %759 = bitcast <2 x i64> %758 to <4 x i32>
-  %760 = load <2 x i64>, ptr %__b.addr.i2209, align 16
-  %761 = bitcast <2 x i64> %760 to <4 x i32>
-  %add.i2210 = add <4 x i32> %759, %761
-  %762 = bitcast <4 x i32> %add.i2210 to <2 x i64>
-  store <2 x i64> %762, ptr %summ290, align 16
-  %763 = load <2 x i64>, ptr %q5251, align 16
-  %764 = load ptr, ptr %data.addr, align 8
-  %765 = load i32, ptr %i, align 4
-  %idx.ext315 = sext i32 %765 to i64
-  %add.ptr316 = getelementptr inbounds i32, ptr %764, i64 %idx.ext315
-  %add.ptr317 = getelementptr inbounds i32, ptr %add.ptr316, i64 -6
-  store ptr %add.ptr317, ptr %__p.addr.i2054, align 8
-  %766 = load ptr, ptr %__p.addr.i2054, align 8
-  %767 = load <2 x i64>, ptr %766, align 1
-  store <2 x i64> %763, ptr %__V1.addr.i1911, align 16
-  store <2 x i64> %767, ptr %__V2.addr.i1912, align 16
-  %768 = load <2 x i64>, ptr %__V1.addr.i1911, align 16
-  %769 = bitcast <2 x i64> %768 to <4 x i32>
-  %770 = load <2 x i64>, ptr %__V2.addr.i1912, align 16
-  %771 = bitcast <2 x i64> %770 to <4 x i32>
-  %mul.i1913 = mul <4 x i32> %769, %771
-  %772 = bitcast <4 x i32> %mul.i1913 to <2 x i64>
-  store <2 x i64> %772, ptr %mull291, align 16
-  %773 = load <2 x i64>, ptr %summ290, align 16
-  %774 = load <2 x i64>, ptr %mull291, align 16
-  store <2 x i64> %773, ptr %__a.addr.i2205, align 16
-  store <2 x i64> %774, ptr %__b.addr.i2206, align 16
-  %775 = load <2 x i64>, ptr %__a.addr.i2205, align 16
-  %776 = bitcast <2 x i64> %775 to <4 x i32>
-  %777 = load <2 x i64>, ptr %__b.addr.i2206, align 16
-  %778 = bitcast <2 x i64> %777 to <4 x i32>
-  %add.i2207 = add <4 x i32> %776, %778
-  %779 = bitcast <4 x i32> %add.i2207 to <2 x i64>
-  store <2 x i64> %779, ptr %summ290, align 16
-  %780 = load <2 x i64>, ptr %q4250, align 16
-  %781 = load ptr, ptr %data.addr, align 8
-  %782 = load i32, ptr %i, align 4
-  %idx.ext321 = sext i32 %782 to i64
-  %add.ptr322 = getelementptr inbounds i32, ptr %781, i64 %idx.ext321
-  %add.ptr323 = getelementptr inbounds i32, ptr %add.ptr322, i64 -5
-  store ptr %add.ptr323, ptr %__p.addr.i2053, align 8
-  %783 = load ptr, ptr %__p.addr.i2053, align 8
-  %784 = load <2 x i64>, ptr %783, align 1
-  store <2 x i64> %780, ptr %__V1.addr.i1908, align 16
-  store <2 x i64> %784, ptr %__V2.addr.i1909, align 16
-  %785 = load <2 x i64>, ptr %__V1.addr.i1908, align 16
-  %786 = bitcast <2 x i64> %785 to <4 x i32>
-  %787 = load <2 x i64>, ptr %__V2.addr.i1909, align 16
-  %788 = bitcast <2 x i64> %787 to <4 x i32>
-  %mul.i1910 = mul <4 x i32> %786, %788
-  %789 = bitcast <4 x i32> %mul.i1910 to <2 x i64>
-  store <2 x i64> %789, ptr %mull291, align 16
-  %790 = load <2 x i64>, ptr %summ290, align 16
-  %791 = load <2 x i64>, ptr %mull291, align 16
-  store <2 x i64> %790, ptr %__a.addr.i2202, align 16
-  store <2 x i64> %791, ptr %__b.addr.i2203, align 16
-  %792 = load <2 x i64>, ptr %__a.addr.i2202, align 16
-  %793 = bitcast <2 x i64> %792 to <4 x i32>
-  %794 = load <2 x i64>, ptr %__b.addr.i2203, align 16
-  %795 = bitcast <2 x i64> %794 to <4 x i32>
-  %add.i2204 = add <4 x i32> %793, %795
-  %796 = bitcast <4 x i32> %add.i2204 to <2 x i64>
-  store <2 x i64> %796, ptr %summ290, align 16
-  %797 = load <2 x i64>, ptr %q3249, align 16
-  %798 = load ptr, ptr %data.addr, align 8
-  %799 = load i32, ptr %i, align 4
-  %idx.ext327 = sext i32 %799 to i64
-  %add.ptr328 = getelementptr inbounds i32, ptr %798, i64 %idx.ext327
-  %add.ptr329 = getelementptr inbounds i32, ptr %add.ptr328, i64 -4
-  store ptr %add.ptr329, ptr %__p.addr.i2052, align 8
-  %800 = load ptr, ptr %__p.addr.i2052, align 8
-  %801 = load <2 x i64>, ptr %800, align 1
-  store <2 x i64> %797, ptr %__V1.addr.i1905, align 16
-  store <2 x i64> %801, ptr %__V2.addr.i1906, align 16
-  %802 = load <2 x i64>, ptr %__V1.addr.i1905, align 16
-  %803 = bitcast <2 x i64> %802 to <4 x i32>
-  %804 = load <2 x i64>, ptr %__V2.addr.i1906, align 16
-  %805 = bitcast <2 x i64> %804 to <4 x i32>
-  %mul.i1907 = mul <4 x i32> %803, %805
-  %806 = bitcast <4 x i32> %mul.i1907 to <2 x i64>
-  store <2 x i64> %806, ptr %mull291, align 16
-  %807 = load <2 x i64>, ptr %summ290, align 16
-  %808 = load <2 x i64>, ptr %mull291, align 16
-  store <2 x i64> %807, ptr %__a.addr.i2199, align 16
-  store <2 x i64> %808, ptr %__b.addr.i2200, align 16
-  %809 = load <2 x i64>, ptr %__a.addr.i2199, align 16
-  %810 = bitcast <2 x i64> %809 to <4 x i32>
-  %811 = load <2 x i64>, ptr %__b.addr.i2200, align 16
-  %812 = bitcast <2 x i64> %811 to <4 x i32>
-  %add.i2201 = add <4 x i32> %810, %812
-  %813 = bitcast <4 x i32> %add.i2201 to <2 x i64>
-  store <2 x i64> %813, ptr %summ290, align 16
-  %814 = load <2 x i64>, ptr %q2248, align 16
-  %815 = load ptr, ptr %data.addr, align 8
-  %816 = load i32, ptr %i, align 4
-  %idx.ext333 = sext i32 %816 to i64
-  %add.ptr334 = getelementptr inbounds i32, ptr %815, i64 %idx.ext333
-  %add.ptr335 = getelementptr inbounds i32, ptr %add.ptr334, i64 -3
-  store ptr %add.ptr335, ptr %__p.addr.i2051, align 8
-  %817 = load ptr, ptr %__p.addr.i2051, align 8
-  %818 = load <2 x i64>, ptr %817, align 1
-  store <2 x i64> %814, ptr %__V1.addr.i1902, align 16
-  store <2 x i64> %818, ptr %__V2.addr.i1903, align 16
-  %819 = load <2 x i64>, ptr %__V1.addr.i1902, align 16
-  %820 = bitcast <2 x i64> %819 to <4 x i32>
-  %821 = load <2 x i64>, ptr %__V2.addr.i1903, align 16
-  %822 = bitcast <2 x i64> %821 to <4 x i32>
-  %mul.i1904 = mul <4 x i32> %820, %822
-  %823 = bitcast <4 x i32> %mul.i1904 to <2 x i64>
-  store <2 x i64> %823, ptr %mull291, align 16
-  %824 = load <2 x i64>, ptr %summ290, align 16
-  %825 = load <2 x i64>, ptr %mull291, align 16
-  store <2 x i64> %824, ptr %__a.addr.i2196, align 16
-  store <2 x i64> %825, ptr %__b.addr.i2197, align 16
-  %826 = load <2 x i64>, ptr %__a.addr.i2196, align 16
-  %827 = bitcast <2 x i64> %826 to <4 x i32>
-  %828 = load <2 x i64>, ptr %__b.addr.i2197, align 16
-  %829 = bitcast <2 x i64> %828 to <4 x i32>
-  %add.i2198 = add <4 x i32> %827, %829
-  %830 = bitcast <4 x i32> %add.i2198 to <2 x i64>
-  store <2 x i64> %830, ptr %summ290, align 16
-  %831 = load <2 x i64>, ptr %q1247, align 16
-  %832 = load ptr, ptr %data.addr, align 8
-  %833 = load i32, ptr %i, align 4
-  %idx.ext339 = sext i32 %833 to i64
-  %add.ptr340 = getelementptr inbounds i32, ptr %832, i64 %idx.ext339
-  %add.ptr341 = getelementptr inbounds i32, ptr %add.ptr340, i64 -2
-  store ptr %add.ptr341, ptr %__p.addr.i2050, align 8
-  %834 = load ptr, ptr %__p.addr.i2050, align 8
-  %835 = load <2 x i64>, ptr %834, align 1
-  store <2 x i64> %831, ptr %__V1.addr.i1899, align 16
-  store <2 x i64> %835, ptr %__V2.addr.i1900, align 16
-  %836 = load <2 x i64>, ptr %__V1.addr.i1899, align 16
-  %837 = bitcast <2 x i64> %836 to <4 x i32>
-  %838 = load <2 x i64>, ptr %__V2.addr.i1900, align 16
-  %839 = bitcast <2 x i64> %838 to <4 x i32>
-  %mul.i1901 = mul <4 x i32> %837, %839
-  %840 = bitcast <4 x i32> %mul.i1901 to <2 x i64>
-  store <2 x i64> %840, ptr %mull291, align 16
-  %841 = load <2 x i64>, ptr %summ290, align 16
-  %842 = load <2 x i64>, ptr %mull291, align 16
-  store <2 x i64> %841, ptr %__a.addr.i2193, align 16
-  store <2 x i64> %842, ptr %__b.addr.i2194, align 16
-  %843 = load <2 x i64>, ptr %__a.addr.i2193, align 16
-  %844 = bitcast <2 x i64> %843 to <4 x i32>
-  %845 = load <2 x i64>, ptr %__b.addr.i2194, align 16
-  %846 = bitcast <2 x i64> %845 to <4 x i32>
-  %add.i2195 = add <4 x i32> %844, %846
-  %847 = bitcast <4 x i32> %add.i2195 to <2 x i64>
-  store <2 x i64> %847, ptr %summ290, align 16
-  %848 = load <2 x i64>, ptr %q0246, align 16
-  %849 = load ptr, ptr %data.addr, align 8
-  %850 = load i32, ptr %i, align 4
-  %idx.ext345 = sext i32 %850 to i64
-  %add.ptr346 = getelementptr inbounds i32, ptr %849, i64 %idx.ext345
-  %add.ptr347 = getelementptr inbounds i32, ptr %add.ptr346, i64 -1
-  store ptr %add.ptr347, ptr %__p.addr.i2049, align 8
-  %851 = load ptr, ptr %__p.addr.i2049, align 8
-  %852 = load <2 x i64>, ptr %851, align 1
-  store <2 x i64> %848, ptr %__V1.addr.i1896, align 16
-  store <2 x i64> %852, ptr %__V2.addr.i1897, align 16
-  %853 = load <2 x i64>, ptr %__V1.addr.i1896, align 16
-  %854 = bitcast <2 x i64> %853 to <4 x i32>
-  %855 = load <2 x i64>, ptr %__V2.addr.i1897, align 16
-  %856 = bitcast <2 x i64> %855 to <4 x i32>
-  %mul.i1898 = mul <4 x i32> %854, %856
-  %857 = bitcast <4 x i32> %mul.i1898 to <2 x i64>
-  store <2 x i64> %857, ptr %mull291, align 16
-  %858 = load <2 x i64>, ptr %summ290, align 16
-  %859 = load <2 x i64>, ptr %mull291, align 16
-  store <2 x i64> %858, ptr %__a.addr.i2190, align 16
-  store <2 x i64> %859, ptr %__b.addr.i2191, align 16
-  %860 = load <2 x i64>, ptr %__a.addr.i2190, align 16
-  %861 = bitcast <2 x i64> %860 to <4 x i32>
-  %862 = load <2 x i64>, ptr %__b.addr.i2191, align 16
-  %863 = bitcast <2 x i64> %862 to <4 x i32>
-  %add.i2192 = add <4 x i32> %861, %863
-  %864 = bitcast <4 x i32> %add.i2192 to <2 x i64>
-  store <2 x i64> %864, ptr %summ290, align 16
-  %865 = load <2 x i64>, ptr %summ290, align 16
-  %866 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %865, ptr %__a.addr.i2297, align 16
-  store <2 x i64> %866, ptr %__count.addr.i2298, align 16
-  %867 = load <2 x i64>, ptr %__a.addr.i2297, align 16
-  %868 = bitcast <2 x i64> %867 to <4 x i32>
-  %869 = load <2 x i64>, ptr %__count.addr.i2298, align 16
-  %870 = bitcast <2 x i64> %869 to <4 x i32>
-  %871 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %868, <4 x i32> %870)
-  %872 = bitcast <4 x i32> %871 to <2 x i64>
-  store <2 x i64> %872, ptr %summ290, align 16
-  %873 = load ptr, ptr %residual.addr, align 8
-  %874 = load i32, ptr %i, align 4
-  %idx.ext352 = sext i32 %874 to i64
-  %add.ptr353 = getelementptr inbounds i32, ptr %873, i64 %idx.ext352
-  %875 = load ptr, ptr %data.addr, align 8
-  %876 = load i32, ptr %i, align 4
-  %idx.ext354 = sext i32 %876 to i64
-  %add.ptr355 = getelementptr inbounds i32, ptr %875, i64 %idx.ext354
-  store ptr %add.ptr355, ptr %__p.addr.i2048, align 8
-  %877 = load ptr, ptr %__p.addr.i2048, align 8
-  %878 = load <2 x i64>, ptr %877, align 1
-  %879 = load <2 x i64>, ptr %summ290, align 16
-  store <2 x i64> %878, ptr %__a.addr.i2353, align 16
-  store <2 x i64> %879, ptr %__b.addr.i2354, align 16
-  %880 = load <2 x i64>, ptr %__a.addr.i2353, align 16
+615:                                              ; preds = %612
+  call void @llvm.lifetime.start.p0(i64 16, ptr %43) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %44) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %45) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %46) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %47) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %48) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %49) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %50) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %51) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %52) #5
+  %616 = load ptr, ptr %9, align 8, !tbaa !3
+  %617 = getelementptr inbounds i32, ptr %616, i64 0
+  %618 = load i32, ptr %617, align 4, !tbaa !8
+  %619 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %618)
+  store <2 x i64> %619, ptr %43, align 16, !tbaa !10
+  %620 = load <2 x i64>, ptr %43, align 16, !tbaa !10
+  %621 = bitcast <2 x i64> %620 to <4 x i32>
+  %622 = shufflevector <4 x i32> %621, <4 x i32> poison, <4 x i32> zeroinitializer
+  %623 = bitcast <4 x i32> %622 to <2 x i64>
+  store <2 x i64> %623, ptr %43, align 16, !tbaa !10
+  %624 = load ptr, ptr %9, align 8, !tbaa !3
+  %625 = getelementptr inbounds i32, ptr %624, i64 1
+  %626 = load i32, ptr %625, align 4, !tbaa !8
+  %627 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %626)
+  store <2 x i64> %627, ptr %44, align 16, !tbaa !10
+  %628 = load <2 x i64>, ptr %44, align 16, !tbaa !10
+  %629 = bitcast <2 x i64> %628 to <4 x i32>
+  %630 = shufflevector <4 x i32> %629, <4 x i32> poison, <4 x i32> zeroinitializer
+  %631 = bitcast <4 x i32> %630 to <2 x i64>
+  store <2 x i64> %631, ptr %44, align 16, !tbaa !10
+  %632 = load ptr, ptr %9, align 8, !tbaa !3
+  %633 = getelementptr inbounds i32, ptr %632, i64 2
+  %634 = load i32, ptr %633, align 4, !tbaa !8
+  %635 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %634)
+  store <2 x i64> %635, ptr %45, align 16, !tbaa !10
+  %636 = load <2 x i64>, ptr %45, align 16, !tbaa !10
+  %637 = bitcast <2 x i64> %636 to <4 x i32>
+  %638 = shufflevector <4 x i32> %637, <4 x i32> poison, <4 x i32> zeroinitializer
+  %639 = bitcast <4 x i32> %638 to <2 x i64>
+  store <2 x i64> %639, ptr %45, align 16, !tbaa !10
+  %640 = load ptr, ptr %9, align 8, !tbaa !3
+  %641 = getelementptr inbounds i32, ptr %640, i64 3
+  %642 = load i32, ptr %641, align 4, !tbaa !8
+  %643 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %642)
+  store <2 x i64> %643, ptr %46, align 16, !tbaa !10
+  %644 = load <2 x i64>, ptr %46, align 16, !tbaa !10
+  %645 = bitcast <2 x i64> %644 to <4 x i32>
+  %646 = shufflevector <4 x i32> %645, <4 x i32> poison, <4 x i32> zeroinitializer
+  %647 = bitcast <4 x i32> %646 to <2 x i64>
+  store <2 x i64> %647, ptr %46, align 16, !tbaa !10
+  %648 = load ptr, ptr %9, align 8, !tbaa !3
+  %649 = getelementptr inbounds i32, ptr %648, i64 4
+  %650 = load i32, ptr %649, align 4, !tbaa !8
+  %651 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %650)
+  store <2 x i64> %651, ptr %47, align 16, !tbaa !10
+  %652 = load <2 x i64>, ptr %47, align 16, !tbaa !10
+  %653 = bitcast <2 x i64> %652 to <4 x i32>
+  %654 = shufflevector <4 x i32> %653, <4 x i32> poison, <4 x i32> zeroinitializer
+  %655 = bitcast <4 x i32> %654 to <2 x i64>
+  store <2 x i64> %655, ptr %47, align 16, !tbaa !10
+  %656 = load ptr, ptr %9, align 8, !tbaa !3
+  %657 = getelementptr inbounds i32, ptr %656, i64 5
+  %658 = load i32, ptr %657, align 4, !tbaa !8
+  %659 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %658)
+  store <2 x i64> %659, ptr %48, align 16, !tbaa !10
+  %660 = load <2 x i64>, ptr %48, align 16, !tbaa !10
+  %661 = bitcast <2 x i64> %660 to <4 x i32>
+  %662 = shufflevector <4 x i32> %661, <4 x i32> poison, <4 x i32> zeroinitializer
+  %663 = bitcast <4 x i32> %662 to <2 x i64>
+  store <2 x i64> %663, ptr %48, align 16, !tbaa !10
+  %664 = load ptr, ptr %9, align 8, !tbaa !3
+  %665 = getelementptr inbounds i32, ptr %664, i64 6
+  %666 = load i32, ptr %665, align 4, !tbaa !8
+  %667 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %666)
+  store <2 x i64> %667, ptr %49, align 16, !tbaa !10
+  %668 = load <2 x i64>, ptr %49, align 16, !tbaa !10
+  %669 = bitcast <2 x i64> %668 to <4 x i32>
+  %670 = shufflevector <4 x i32> %669, <4 x i32> poison, <4 x i32> zeroinitializer
+  %671 = bitcast <4 x i32> %670 to <2 x i64>
+  store <2 x i64> %671, ptr %49, align 16, !tbaa !10
+  %672 = load ptr, ptr %9, align 8, !tbaa !3
+  %673 = getelementptr inbounds i32, ptr %672, i64 7
+  %674 = load i32, ptr %673, align 4, !tbaa !8
+  %675 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %674)
+  store <2 x i64> %675, ptr %50, align 16, !tbaa !10
+  %676 = load <2 x i64>, ptr %50, align 16, !tbaa !10
+  %677 = bitcast <2 x i64> %676 to <4 x i32>
+  %678 = shufflevector <4 x i32> %677, <4 x i32> poison, <4 x i32> zeroinitializer
+  %679 = bitcast <4 x i32> %678 to <2 x i64>
+  store <2 x i64> %679, ptr %50, align 16, !tbaa !10
+  %680 = load ptr, ptr %9, align 8, !tbaa !3
+  %681 = getelementptr inbounds i32, ptr %680, i64 8
+  %682 = load i32, ptr %681, align 4, !tbaa !8
+  %683 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %682)
+  store <2 x i64> %683, ptr %51, align 16, !tbaa !10
+  %684 = load <2 x i64>, ptr %51, align 16, !tbaa !10
+  %685 = bitcast <2 x i64> %684 to <4 x i32>
+  %686 = shufflevector <4 x i32> %685, <4 x i32> poison, <4 x i32> zeroinitializer
+  %687 = bitcast <4 x i32> %686 to <2 x i64>
+  store <2 x i64> %687, ptr %51, align 16, !tbaa !10
+  %688 = load ptr, ptr %9, align 8, !tbaa !3
+  %689 = getelementptr inbounds i32, ptr %688, i64 9
+  %690 = load i32, ptr %689, align 4, !tbaa !8
+  %691 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %690)
+  store <2 x i64> %691, ptr %52, align 16, !tbaa !10
+  %692 = load <2 x i64>, ptr %52, align 16, !tbaa !10
+  %693 = bitcast <2 x i64> %692 to <4 x i32>
+  %694 = shufflevector <4 x i32> %693, <4 x i32> poison, <4 x i32> zeroinitializer
+  %695 = bitcast <4 x i32> %694 to <2 x i64>
+  store <2 x i64> %695, ptr %52, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %696
+
+696:                                              ; preds = %823, %615
+  %697 = load i32, ptr %13, align 4, !tbaa !8
+  %698 = load i32, ptr %8, align 4, !tbaa !8
+  %699 = sub nsw i32 %698, 3
+  %700 = icmp slt i32 %697, %699
+  br i1 %700, label %701, label %826
+
+701:                                              ; preds = %696
+  call void @llvm.lifetime.start.p0(i64 16, ptr %53) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %54) #5
+  %702 = load <2 x i64>, ptr %52, align 16, !tbaa !10
+  %703 = load ptr, ptr %7, align 8, !tbaa !3
+  %704 = load i32, ptr %13, align 4, !tbaa !8
+  %705 = sext i32 %704 to i64
+  %706 = getelementptr inbounds i32, ptr %703, i64 %705
+  %707 = getelementptr inbounds i32, ptr %706, i64 -10
+  %708 = call <2 x i64> @_mm_loadu_si128(ptr noundef %707)
+  %709 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %702, <2 x i64> noundef %708)
+  store <2 x i64> %709, ptr %53, align 16, !tbaa !10
+  %710 = load <2 x i64>, ptr %51, align 16, !tbaa !10
+  %711 = load ptr, ptr %7, align 8, !tbaa !3
+  %712 = load i32, ptr %13, align 4, !tbaa !8
+  %713 = sext i32 %712 to i64
+  %714 = getelementptr inbounds i32, ptr %711, i64 %713
+  %715 = getelementptr inbounds i32, ptr %714, i64 -9
+  %716 = call <2 x i64> @_mm_loadu_si128(ptr noundef %715)
+  %717 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %710, <2 x i64> noundef %716)
+  store <2 x i64> %717, ptr %54, align 16, !tbaa !10
+  %718 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %719 = load <2 x i64>, ptr %54, align 16, !tbaa !10
+  %720 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %718, <2 x i64> noundef %719)
+  store <2 x i64> %720, ptr %53, align 16, !tbaa !10
+  %721 = load <2 x i64>, ptr %50, align 16, !tbaa !10
+  %722 = load ptr, ptr %7, align 8, !tbaa !3
+  %723 = load i32, ptr %13, align 4, !tbaa !8
+  %724 = sext i32 %723 to i64
+  %725 = getelementptr inbounds i32, ptr %722, i64 %724
+  %726 = getelementptr inbounds i32, ptr %725, i64 -8
+  %727 = call <2 x i64> @_mm_loadu_si128(ptr noundef %726)
+  %728 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %721, <2 x i64> noundef %727)
+  store <2 x i64> %728, ptr %54, align 16, !tbaa !10
+  %729 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %730 = load <2 x i64>, ptr %54, align 16, !tbaa !10
+  %731 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %729, <2 x i64> noundef %730)
+  store <2 x i64> %731, ptr %53, align 16, !tbaa !10
+  %732 = load <2 x i64>, ptr %49, align 16, !tbaa !10
+  %733 = load ptr, ptr %7, align 8, !tbaa !3
+  %734 = load i32, ptr %13, align 4, !tbaa !8
+  %735 = sext i32 %734 to i64
+  %736 = getelementptr inbounds i32, ptr %733, i64 %735
+  %737 = getelementptr inbounds i32, ptr %736, i64 -7
+  %738 = call <2 x i64> @_mm_loadu_si128(ptr noundef %737)
+  %739 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %732, <2 x i64> noundef %738)
+  store <2 x i64> %739, ptr %54, align 16, !tbaa !10
+  %740 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %741 = load <2 x i64>, ptr %54, align 16, !tbaa !10
+  %742 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %740, <2 x i64> noundef %741)
+  store <2 x i64> %742, ptr %53, align 16, !tbaa !10
+  %743 = load <2 x i64>, ptr %48, align 16, !tbaa !10
+  %744 = load ptr, ptr %7, align 8, !tbaa !3
+  %745 = load i32, ptr %13, align 4, !tbaa !8
+  %746 = sext i32 %745 to i64
+  %747 = getelementptr inbounds i32, ptr %744, i64 %746
+  %748 = getelementptr inbounds i32, ptr %747, i64 -6
+  %749 = call <2 x i64> @_mm_loadu_si128(ptr noundef %748)
+  %750 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %743, <2 x i64> noundef %749)
+  store <2 x i64> %750, ptr %54, align 16, !tbaa !10
+  %751 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %752 = load <2 x i64>, ptr %54, align 16, !tbaa !10
+  %753 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %751, <2 x i64> noundef %752)
+  store <2 x i64> %753, ptr %53, align 16, !tbaa !10
+  %754 = load <2 x i64>, ptr %47, align 16, !tbaa !10
+  %755 = load ptr, ptr %7, align 8, !tbaa !3
+  %756 = load i32, ptr %13, align 4, !tbaa !8
+  %757 = sext i32 %756 to i64
+  %758 = getelementptr inbounds i32, ptr %755, i64 %757
+  %759 = getelementptr inbounds i32, ptr %758, i64 -5
+  %760 = call <2 x i64> @_mm_loadu_si128(ptr noundef %759)
+  %761 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %754, <2 x i64> noundef %760)
+  store <2 x i64> %761, ptr %54, align 16, !tbaa !10
+  %762 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %763 = load <2 x i64>, ptr %54, align 16, !tbaa !10
+  %764 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %762, <2 x i64> noundef %763)
+  store <2 x i64> %764, ptr %53, align 16, !tbaa !10
+  %765 = load <2 x i64>, ptr %46, align 16, !tbaa !10
+  %766 = load ptr, ptr %7, align 8, !tbaa !3
+  %767 = load i32, ptr %13, align 4, !tbaa !8
+  %768 = sext i32 %767 to i64
+  %769 = getelementptr inbounds i32, ptr %766, i64 %768
+  %770 = getelementptr inbounds i32, ptr %769, i64 -4
+  %771 = call <2 x i64> @_mm_loadu_si128(ptr noundef %770)
+  %772 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %765, <2 x i64> noundef %771)
+  store <2 x i64> %772, ptr %54, align 16, !tbaa !10
+  %773 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %774 = load <2 x i64>, ptr %54, align 16, !tbaa !10
+  %775 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %773, <2 x i64> noundef %774)
+  store <2 x i64> %775, ptr %53, align 16, !tbaa !10
+  %776 = load <2 x i64>, ptr %45, align 16, !tbaa !10
+  %777 = load ptr, ptr %7, align 8, !tbaa !3
+  %778 = load i32, ptr %13, align 4, !tbaa !8
+  %779 = sext i32 %778 to i64
+  %780 = getelementptr inbounds i32, ptr %777, i64 %779
+  %781 = getelementptr inbounds i32, ptr %780, i64 -3
+  %782 = call <2 x i64> @_mm_loadu_si128(ptr noundef %781)
+  %783 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %776, <2 x i64> noundef %782)
+  store <2 x i64> %783, ptr %54, align 16, !tbaa !10
+  %784 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %785 = load <2 x i64>, ptr %54, align 16, !tbaa !10
+  %786 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %784, <2 x i64> noundef %785)
+  store <2 x i64> %786, ptr %53, align 16, !tbaa !10
+  %787 = load <2 x i64>, ptr %44, align 16, !tbaa !10
+  %788 = load ptr, ptr %7, align 8, !tbaa !3
+  %789 = load i32, ptr %13, align 4, !tbaa !8
+  %790 = sext i32 %789 to i64
+  %791 = getelementptr inbounds i32, ptr %788, i64 %790
+  %792 = getelementptr inbounds i32, ptr %791, i64 -2
+  %793 = call <2 x i64> @_mm_loadu_si128(ptr noundef %792)
+  %794 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %787, <2 x i64> noundef %793)
+  store <2 x i64> %794, ptr %54, align 16, !tbaa !10
+  %795 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %796 = load <2 x i64>, ptr %54, align 16, !tbaa !10
+  %797 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %795, <2 x i64> noundef %796)
+  store <2 x i64> %797, ptr %53, align 16, !tbaa !10
+  %798 = load <2 x i64>, ptr %43, align 16, !tbaa !10
+  %799 = load ptr, ptr %7, align 8, !tbaa !3
+  %800 = load i32, ptr %13, align 4, !tbaa !8
+  %801 = sext i32 %800 to i64
+  %802 = getelementptr inbounds i32, ptr %799, i64 %801
+  %803 = getelementptr inbounds i32, ptr %802, i64 -1
+  %804 = call <2 x i64> @_mm_loadu_si128(ptr noundef %803)
+  %805 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %798, <2 x i64> noundef %804)
+  store <2 x i64> %805, ptr %54, align 16, !tbaa !10
+  %806 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %807 = load <2 x i64>, ptr %54, align 16, !tbaa !10
+  %808 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %806, <2 x i64> noundef %807)
+  store <2 x i64> %808, ptr %53, align 16, !tbaa !10
+  %809 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %810 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %811 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %809, <2 x i64> noundef %810)
+  store <2 x i64> %811, ptr %53, align 16, !tbaa !10
+  %812 = load ptr, ptr %12, align 8, !tbaa !3
+  %813 = load i32, ptr %13, align 4, !tbaa !8
+  %814 = sext i32 %813 to i64
+  %815 = getelementptr inbounds i32, ptr %812, i64 %814
+  %816 = load ptr, ptr %7, align 8, !tbaa !3
+  %817 = load i32, ptr %13, align 4, !tbaa !8
+  %818 = sext i32 %817 to i64
+  %819 = getelementptr inbounds i32, ptr %816, i64 %818
+  %820 = call <2 x i64> @_mm_loadu_si128(ptr noundef %819)
+  %821 = load <2 x i64>, ptr %53, align 16, !tbaa !10
+  %822 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %820, <2 x i64> noundef %821)
+  call void @_mm_storeu_si128(ptr noundef %815, <2 x i64> noundef %822)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %54) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %53) #5
+  br label %823
+
+823:                                              ; preds = %701
+  %824 = load i32, ptr %13, align 4, !tbaa !8
+  %825 = add nsw i32 %824, 4
+  store i32 %825, ptr %13, align 4, !tbaa !8
+  br label %696, !llvm.loop !14
+
+826:                                              ; preds = %696
+  call void @llvm.lifetime.end.p0(i64 16, ptr %52) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %51) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %50) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %49) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %48) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %47) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %46) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %45) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %44) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %43) #5
+  br label %1020
+
+827:                                              ; preds = %612
+  call void @llvm.lifetime.start.p0(i64 16, ptr %55) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %56) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %57) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %58) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %59) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %60) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %61) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %62) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %63) #5
+  %828 = load ptr, ptr %9, align 8, !tbaa !3
+  %829 = getelementptr inbounds i32, ptr %828, i64 0
+  %830 = load i32, ptr %829, align 4, !tbaa !8
+  %831 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %830)
+  store <2 x i64> %831, ptr %55, align 16, !tbaa !10
+  %832 = load <2 x i64>, ptr %55, align 16, !tbaa !10
+  %833 = bitcast <2 x i64> %832 to <4 x i32>
+  %834 = shufflevector <4 x i32> %833, <4 x i32> poison, <4 x i32> zeroinitializer
+  %835 = bitcast <4 x i32> %834 to <2 x i64>
+  store <2 x i64> %835, ptr %55, align 16, !tbaa !10
+  %836 = load ptr, ptr %9, align 8, !tbaa !3
+  %837 = getelementptr inbounds i32, ptr %836, i64 1
+  %838 = load i32, ptr %837, align 4, !tbaa !8
+  %839 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %838)
+  store <2 x i64> %839, ptr %56, align 16, !tbaa !10
+  %840 = load <2 x i64>, ptr %56, align 16, !tbaa !10
+  %841 = bitcast <2 x i64> %840 to <4 x i32>
+  %842 = shufflevector <4 x i32> %841, <4 x i32> poison, <4 x i32> zeroinitializer
+  %843 = bitcast <4 x i32> %842 to <2 x i64>
+  store <2 x i64> %843, ptr %56, align 16, !tbaa !10
+  %844 = load ptr, ptr %9, align 8, !tbaa !3
+  %845 = getelementptr inbounds i32, ptr %844, i64 2
+  %846 = load i32, ptr %845, align 4, !tbaa !8
+  %847 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %846)
+  store <2 x i64> %847, ptr %57, align 16, !tbaa !10
+  %848 = load <2 x i64>, ptr %57, align 16, !tbaa !10
+  %849 = bitcast <2 x i64> %848 to <4 x i32>
+  %850 = shufflevector <4 x i32> %849, <4 x i32> poison, <4 x i32> zeroinitializer
+  %851 = bitcast <4 x i32> %850 to <2 x i64>
+  store <2 x i64> %851, ptr %57, align 16, !tbaa !10
+  %852 = load ptr, ptr %9, align 8, !tbaa !3
+  %853 = getelementptr inbounds i32, ptr %852, i64 3
+  %854 = load i32, ptr %853, align 4, !tbaa !8
+  %855 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %854)
+  store <2 x i64> %855, ptr %58, align 16, !tbaa !10
+  %856 = load <2 x i64>, ptr %58, align 16, !tbaa !10
+  %857 = bitcast <2 x i64> %856 to <4 x i32>
+  %858 = shufflevector <4 x i32> %857, <4 x i32> poison, <4 x i32> zeroinitializer
+  %859 = bitcast <4 x i32> %858 to <2 x i64>
+  store <2 x i64> %859, ptr %58, align 16, !tbaa !10
+  %860 = load ptr, ptr %9, align 8, !tbaa !3
+  %861 = getelementptr inbounds i32, ptr %860, i64 4
+  %862 = load i32, ptr %861, align 4, !tbaa !8
+  %863 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %862)
+  store <2 x i64> %863, ptr %59, align 16, !tbaa !10
+  %864 = load <2 x i64>, ptr %59, align 16, !tbaa !10
+  %865 = bitcast <2 x i64> %864 to <4 x i32>
+  %866 = shufflevector <4 x i32> %865, <4 x i32> poison, <4 x i32> zeroinitializer
+  %867 = bitcast <4 x i32> %866 to <2 x i64>
+  store <2 x i64> %867, ptr %59, align 16, !tbaa !10
+  %868 = load ptr, ptr %9, align 8, !tbaa !3
+  %869 = getelementptr inbounds i32, ptr %868, i64 5
+  %870 = load i32, ptr %869, align 4, !tbaa !8
+  %871 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %870)
+  store <2 x i64> %871, ptr %60, align 16, !tbaa !10
+  %872 = load <2 x i64>, ptr %60, align 16, !tbaa !10
+  %873 = bitcast <2 x i64> %872 to <4 x i32>
+  %874 = shufflevector <4 x i32> %873, <4 x i32> poison, <4 x i32> zeroinitializer
+  %875 = bitcast <4 x i32> %874 to <2 x i64>
+  store <2 x i64> %875, ptr %60, align 16, !tbaa !10
+  %876 = load ptr, ptr %9, align 8, !tbaa !3
+  %877 = getelementptr inbounds i32, ptr %876, i64 6
+  %878 = load i32, ptr %877, align 4, !tbaa !8
+  %879 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %878)
+  store <2 x i64> %879, ptr %61, align 16, !tbaa !10
+  %880 = load <2 x i64>, ptr %61, align 16, !tbaa !10
   %881 = bitcast <2 x i64> %880 to <4 x i32>
-  %882 = load <2 x i64>, ptr %__b.addr.i2354, align 16
-  %883 = bitcast <2 x i64> %882 to <4 x i32>
-  %sub.i2355 = sub <4 x i32> %881, %883
-  %884 = bitcast <4 x i32> %sub.i2355 to <2 x i64>
-  store ptr %add.ptr353, ptr %__p.addr.i2321, align 8
-  store <2 x i64> %884, ptr %__b.addr.i2322, align 16
-  %885 = load <2 x i64>, ptr %__b.addr.i2322, align 16
-  %886 = load ptr, ptr %__p.addr.i2321, align 8
-  store <2 x i64> %885, ptr %886, align 1
-  br label %for.inc358
+  %882 = shufflevector <4 x i32> %881, <4 x i32> poison, <4 x i32> zeroinitializer
+  %883 = bitcast <4 x i32> %882 to <2 x i64>
+  store <2 x i64> %883, ptr %61, align 16, !tbaa !10
+  %884 = load ptr, ptr %9, align 8, !tbaa !3
+  %885 = getelementptr inbounds i32, ptr %884, i64 7
+  %886 = load i32, ptr %885, align 4, !tbaa !8
+  %887 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %886)
+  store <2 x i64> %887, ptr %62, align 16, !tbaa !10
+  %888 = load <2 x i64>, ptr %62, align 16, !tbaa !10
+  %889 = bitcast <2 x i64> %888 to <4 x i32>
+  %890 = shufflevector <4 x i32> %889, <4 x i32> poison, <4 x i32> zeroinitializer
+  %891 = bitcast <4 x i32> %890 to <2 x i64>
+  store <2 x i64> %891, ptr %62, align 16, !tbaa !10
+  %892 = load ptr, ptr %9, align 8, !tbaa !3
+  %893 = getelementptr inbounds i32, ptr %892, i64 8
+  %894 = load i32, ptr %893, align 4, !tbaa !8
+  %895 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %894)
+  store <2 x i64> %895, ptr %63, align 16, !tbaa !10
+  %896 = load <2 x i64>, ptr %63, align 16, !tbaa !10
+  %897 = bitcast <2 x i64> %896 to <4 x i32>
+  %898 = shufflevector <4 x i32> %897, <4 x i32> poison, <4 x i32> zeroinitializer
+  %899 = bitcast <4 x i32> %898 to <2 x i64>
+  store <2 x i64> %899, ptr %63, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %900
 
-for.inc358:                                       ; preds = %for.body289
-  %887 = load i32, ptr %i, align 4
-  %add359 = add nsw i32 %887, 4
-  store i32 %add359, ptr %i, align 4
-  br label %for.cond286, !llvm.loop !7
+900:                                              ; preds = %1016, %827
+  %901 = load i32, ptr %13, align 4, !tbaa !8
+  %902 = load i32, ptr %8, align 4, !tbaa !8
+  %903 = sub nsw i32 %902, 3
+  %904 = icmp slt i32 %901, %903
+  br i1 %904, label %905, label %1019
 
-for.end360:                                       ; preds = %for.cond286
-  br label %if.end467
+905:                                              ; preds = %900
+  call void @llvm.lifetime.start.p0(i64 16, ptr %64) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %65) #5
+  %906 = load <2 x i64>, ptr %63, align 16, !tbaa !10
+  %907 = load ptr, ptr %7, align 8, !tbaa !3
+  %908 = load i32, ptr %13, align 4, !tbaa !8
+  %909 = sext i32 %908 to i64
+  %910 = getelementptr inbounds i32, ptr %907, i64 %909
+  %911 = getelementptr inbounds i32, ptr %910, i64 -9
+  %912 = call <2 x i64> @_mm_loadu_si128(ptr noundef %911)
+  %913 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %906, <2 x i64> noundef %912)
+  store <2 x i64> %913, ptr %64, align 16, !tbaa !10
+  %914 = load <2 x i64>, ptr %62, align 16, !tbaa !10
+  %915 = load ptr, ptr %7, align 8, !tbaa !3
+  %916 = load i32, ptr %13, align 4, !tbaa !8
+  %917 = sext i32 %916 to i64
+  %918 = getelementptr inbounds i32, ptr %915, i64 %917
+  %919 = getelementptr inbounds i32, ptr %918, i64 -8
+  %920 = call <2 x i64> @_mm_loadu_si128(ptr noundef %919)
+  %921 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %914, <2 x i64> noundef %920)
+  store <2 x i64> %921, ptr %65, align 16, !tbaa !10
+  %922 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %923 = load <2 x i64>, ptr %65, align 16, !tbaa !10
+  %924 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %922, <2 x i64> noundef %923)
+  store <2 x i64> %924, ptr %64, align 16, !tbaa !10
+  %925 = load <2 x i64>, ptr %61, align 16, !tbaa !10
+  %926 = load ptr, ptr %7, align 8, !tbaa !3
+  %927 = load i32, ptr %13, align 4, !tbaa !8
+  %928 = sext i32 %927 to i64
+  %929 = getelementptr inbounds i32, ptr %926, i64 %928
+  %930 = getelementptr inbounds i32, ptr %929, i64 -7
+  %931 = call <2 x i64> @_mm_loadu_si128(ptr noundef %930)
+  %932 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %925, <2 x i64> noundef %931)
+  store <2 x i64> %932, ptr %65, align 16, !tbaa !10
+  %933 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %934 = load <2 x i64>, ptr %65, align 16, !tbaa !10
+  %935 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %933, <2 x i64> noundef %934)
+  store <2 x i64> %935, ptr %64, align 16, !tbaa !10
+  %936 = load <2 x i64>, ptr %60, align 16, !tbaa !10
+  %937 = load ptr, ptr %7, align 8, !tbaa !3
+  %938 = load i32, ptr %13, align 4, !tbaa !8
+  %939 = sext i32 %938 to i64
+  %940 = getelementptr inbounds i32, ptr %937, i64 %939
+  %941 = getelementptr inbounds i32, ptr %940, i64 -6
+  %942 = call <2 x i64> @_mm_loadu_si128(ptr noundef %941)
+  %943 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %936, <2 x i64> noundef %942)
+  store <2 x i64> %943, ptr %65, align 16, !tbaa !10
+  %944 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %945 = load <2 x i64>, ptr %65, align 16, !tbaa !10
+  %946 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %944, <2 x i64> noundef %945)
+  store <2 x i64> %946, ptr %64, align 16, !tbaa !10
+  %947 = load <2 x i64>, ptr %59, align 16, !tbaa !10
+  %948 = load ptr, ptr %7, align 8, !tbaa !3
+  %949 = load i32, ptr %13, align 4, !tbaa !8
+  %950 = sext i32 %949 to i64
+  %951 = getelementptr inbounds i32, ptr %948, i64 %950
+  %952 = getelementptr inbounds i32, ptr %951, i64 -5
+  %953 = call <2 x i64> @_mm_loadu_si128(ptr noundef %952)
+  %954 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %947, <2 x i64> noundef %953)
+  store <2 x i64> %954, ptr %65, align 16, !tbaa !10
+  %955 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %956 = load <2 x i64>, ptr %65, align 16, !tbaa !10
+  %957 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %955, <2 x i64> noundef %956)
+  store <2 x i64> %957, ptr %64, align 16, !tbaa !10
+  %958 = load <2 x i64>, ptr %58, align 16, !tbaa !10
+  %959 = load ptr, ptr %7, align 8, !tbaa !3
+  %960 = load i32, ptr %13, align 4, !tbaa !8
+  %961 = sext i32 %960 to i64
+  %962 = getelementptr inbounds i32, ptr %959, i64 %961
+  %963 = getelementptr inbounds i32, ptr %962, i64 -4
+  %964 = call <2 x i64> @_mm_loadu_si128(ptr noundef %963)
+  %965 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %958, <2 x i64> noundef %964)
+  store <2 x i64> %965, ptr %65, align 16, !tbaa !10
+  %966 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %967 = load <2 x i64>, ptr %65, align 16, !tbaa !10
+  %968 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %966, <2 x i64> noundef %967)
+  store <2 x i64> %968, ptr %64, align 16, !tbaa !10
+  %969 = load <2 x i64>, ptr %57, align 16, !tbaa !10
+  %970 = load ptr, ptr %7, align 8, !tbaa !3
+  %971 = load i32, ptr %13, align 4, !tbaa !8
+  %972 = sext i32 %971 to i64
+  %973 = getelementptr inbounds i32, ptr %970, i64 %972
+  %974 = getelementptr inbounds i32, ptr %973, i64 -3
+  %975 = call <2 x i64> @_mm_loadu_si128(ptr noundef %974)
+  %976 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %969, <2 x i64> noundef %975)
+  store <2 x i64> %976, ptr %65, align 16, !tbaa !10
+  %977 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %978 = load <2 x i64>, ptr %65, align 16, !tbaa !10
+  %979 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %977, <2 x i64> noundef %978)
+  store <2 x i64> %979, ptr %64, align 16, !tbaa !10
+  %980 = load <2 x i64>, ptr %56, align 16, !tbaa !10
+  %981 = load ptr, ptr %7, align 8, !tbaa !3
+  %982 = load i32, ptr %13, align 4, !tbaa !8
+  %983 = sext i32 %982 to i64
+  %984 = getelementptr inbounds i32, ptr %981, i64 %983
+  %985 = getelementptr inbounds i32, ptr %984, i64 -2
+  %986 = call <2 x i64> @_mm_loadu_si128(ptr noundef %985)
+  %987 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %980, <2 x i64> noundef %986)
+  store <2 x i64> %987, ptr %65, align 16, !tbaa !10
+  %988 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %989 = load <2 x i64>, ptr %65, align 16, !tbaa !10
+  %990 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %988, <2 x i64> noundef %989)
+  store <2 x i64> %990, ptr %64, align 16, !tbaa !10
+  %991 = load <2 x i64>, ptr %55, align 16, !tbaa !10
+  %992 = load ptr, ptr %7, align 8, !tbaa !3
+  %993 = load i32, ptr %13, align 4, !tbaa !8
+  %994 = sext i32 %993 to i64
+  %995 = getelementptr inbounds i32, ptr %992, i64 %994
+  %996 = getelementptr inbounds i32, ptr %995, i64 -1
+  %997 = call <2 x i64> @_mm_loadu_si128(ptr noundef %996)
+  %998 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %991, <2 x i64> noundef %997)
+  store <2 x i64> %998, ptr %65, align 16, !tbaa !10
+  %999 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %1000 = load <2 x i64>, ptr %65, align 16, !tbaa !10
+  %1001 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %999, <2 x i64> noundef %1000)
+  store <2 x i64> %1001, ptr %64, align 16, !tbaa !10
+  %1002 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %1003 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %1004 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %1002, <2 x i64> noundef %1003)
+  store <2 x i64> %1004, ptr %64, align 16, !tbaa !10
+  %1005 = load ptr, ptr %12, align 8, !tbaa !3
+  %1006 = load i32, ptr %13, align 4, !tbaa !8
+  %1007 = sext i32 %1006 to i64
+  %1008 = getelementptr inbounds i32, ptr %1005, i64 %1007
+  %1009 = load ptr, ptr %7, align 8, !tbaa !3
+  %1010 = load i32, ptr %13, align 4, !tbaa !8
+  %1011 = sext i32 %1010 to i64
+  %1012 = getelementptr inbounds i32, ptr %1009, i64 %1011
+  %1013 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1012)
+  %1014 = load <2 x i64>, ptr %64, align 16, !tbaa !10
+  %1015 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %1013, <2 x i64> noundef %1014)
+  call void @_mm_storeu_si128(ptr noundef %1008, <2 x i64> noundef %1015)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %65) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %64) #5
+  br label %1016
 
-if.else361:                                       ; preds = %if.else243
-  %888 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx371 = getelementptr inbounds i32, ptr %888, i64 0
-  %889 = load i32, ptr %arrayidx371, align 4
-  store i32 %889, ptr %__a.addr.i1554, align 4
-  %890 = load i32, ptr %__a.addr.i1554, align 4
-  %vecinit.i1556 = insertelement <4 x i32> undef, i32 %890, i32 0
-  %vecinit1.i1557 = insertelement <4 x i32> %vecinit.i1556, i32 0, i32 1
-  %vecinit2.i1558 = insertelement <4 x i32> %vecinit1.i1557, i32 0, i32 2
-  %vecinit3.i1559 = insertelement <4 x i32> %vecinit2.i1558, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1559, ptr %.compoundliteral.i1555, align 16
-  %891 = load <4 x i32>, ptr %.compoundliteral.i1555, align 16
-  %892 = bitcast <4 x i32> %891 to <2 x i64>
-  store <2 x i64> %892, ptr %q0362, align 16
-  %893 = load <2 x i64>, ptr %q0362, align 16
-  %894 = bitcast <2 x i64> %893 to <4 x i32>
-  %permil373 = shufflevector <4 x i32> %894, <4 x i32> poison, <4 x i32> zeroinitializer
-  %895 = bitcast <4 x i32> %permil373 to <2 x i64>
-  store <2 x i64> %895, ptr %q0362, align 16
-  %896 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx374 = getelementptr inbounds i32, ptr %896, i64 1
-  %897 = load i32, ptr %arrayidx374, align 4
-  store i32 %897, ptr %__a.addr.i1548, align 4
-  %898 = load i32, ptr %__a.addr.i1548, align 4
-  %vecinit.i1550 = insertelement <4 x i32> undef, i32 %898, i32 0
-  %vecinit1.i1551 = insertelement <4 x i32> %vecinit.i1550, i32 0, i32 1
-  %vecinit2.i1552 = insertelement <4 x i32> %vecinit1.i1551, i32 0, i32 2
-  %vecinit3.i1553 = insertelement <4 x i32> %vecinit2.i1552, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1553, ptr %.compoundliteral.i1549, align 16
-  %899 = load <4 x i32>, ptr %.compoundliteral.i1549, align 16
-  %900 = bitcast <4 x i32> %899 to <2 x i64>
-  store <2 x i64> %900, ptr %q1363, align 16
-  %901 = load <2 x i64>, ptr %q1363, align 16
-  %902 = bitcast <2 x i64> %901 to <4 x i32>
-  %permil376 = shufflevector <4 x i32> %902, <4 x i32> poison, <4 x i32> zeroinitializer
-  %903 = bitcast <4 x i32> %permil376 to <2 x i64>
-  store <2 x i64> %903, ptr %q1363, align 16
-  %904 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx377 = getelementptr inbounds i32, ptr %904, i64 2
-  %905 = load i32, ptr %arrayidx377, align 4
-  store i32 %905, ptr %__a.addr.i1542, align 4
-  %906 = load i32, ptr %__a.addr.i1542, align 4
-  %vecinit.i1544 = insertelement <4 x i32> undef, i32 %906, i32 0
-  %vecinit1.i1545 = insertelement <4 x i32> %vecinit.i1544, i32 0, i32 1
-  %vecinit2.i1546 = insertelement <4 x i32> %vecinit1.i1545, i32 0, i32 2
-  %vecinit3.i1547 = insertelement <4 x i32> %vecinit2.i1546, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1547, ptr %.compoundliteral.i1543, align 16
-  %907 = load <4 x i32>, ptr %.compoundliteral.i1543, align 16
-  %908 = bitcast <4 x i32> %907 to <2 x i64>
-  store <2 x i64> %908, ptr %q2364, align 16
-  %909 = load <2 x i64>, ptr %q2364, align 16
-  %910 = bitcast <2 x i64> %909 to <4 x i32>
-  %permil379 = shufflevector <4 x i32> %910, <4 x i32> poison, <4 x i32> zeroinitializer
-  %911 = bitcast <4 x i32> %permil379 to <2 x i64>
-  store <2 x i64> %911, ptr %q2364, align 16
-  %912 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx380 = getelementptr inbounds i32, ptr %912, i64 3
-  %913 = load i32, ptr %arrayidx380, align 4
-  store i32 %913, ptr %__a.addr.i1536, align 4
-  %914 = load i32, ptr %__a.addr.i1536, align 4
-  %vecinit.i1538 = insertelement <4 x i32> undef, i32 %914, i32 0
-  %vecinit1.i1539 = insertelement <4 x i32> %vecinit.i1538, i32 0, i32 1
-  %vecinit2.i1540 = insertelement <4 x i32> %vecinit1.i1539, i32 0, i32 2
-  %vecinit3.i1541 = insertelement <4 x i32> %vecinit2.i1540, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1541, ptr %.compoundliteral.i1537, align 16
-  %915 = load <4 x i32>, ptr %.compoundliteral.i1537, align 16
-  %916 = bitcast <4 x i32> %915 to <2 x i64>
-  store <2 x i64> %916, ptr %q3365, align 16
-  %917 = load <2 x i64>, ptr %q3365, align 16
-  %918 = bitcast <2 x i64> %917 to <4 x i32>
-  %permil382 = shufflevector <4 x i32> %918, <4 x i32> poison, <4 x i32> zeroinitializer
-  %919 = bitcast <4 x i32> %permil382 to <2 x i64>
-  store <2 x i64> %919, ptr %q3365, align 16
-  %920 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx383 = getelementptr inbounds i32, ptr %920, i64 4
-  %921 = load i32, ptr %arrayidx383, align 4
-  store i32 %921, ptr %__a.addr.i1530, align 4
-  %922 = load i32, ptr %__a.addr.i1530, align 4
-  %vecinit.i1532 = insertelement <4 x i32> undef, i32 %922, i32 0
-  %vecinit1.i1533 = insertelement <4 x i32> %vecinit.i1532, i32 0, i32 1
-  %vecinit2.i1534 = insertelement <4 x i32> %vecinit1.i1533, i32 0, i32 2
-  %vecinit3.i1535 = insertelement <4 x i32> %vecinit2.i1534, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1535, ptr %.compoundliteral.i1531, align 16
-  %923 = load <4 x i32>, ptr %.compoundliteral.i1531, align 16
-  %924 = bitcast <4 x i32> %923 to <2 x i64>
-  store <2 x i64> %924, ptr %q4366, align 16
-  %925 = load <2 x i64>, ptr %q4366, align 16
-  %926 = bitcast <2 x i64> %925 to <4 x i32>
-  %permil385 = shufflevector <4 x i32> %926, <4 x i32> poison, <4 x i32> zeroinitializer
-  %927 = bitcast <4 x i32> %permil385 to <2 x i64>
-  store <2 x i64> %927, ptr %q4366, align 16
-  %928 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx386 = getelementptr inbounds i32, ptr %928, i64 5
-  %929 = load i32, ptr %arrayidx386, align 4
-  store i32 %929, ptr %__a.addr.i1524, align 4
-  %930 = load i32, ptr %__a.addr.i1524, align 4
-  %vecinit.i1526 = insertelement <4 x i32> undef, i32 %930, i32 0
-  %vecinit1.i1527 = insertelement <4 x i32> %vecinit.i1526, i32 0, i32 1
-  %vecinit2.i1528 = insertelement <4 x i32> %vecinit1.i1527, i32 0, i32 2
-  %vecinit3.i1529 = insertelement <4 x i32> %vecinit2.i1528, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1529, ptr %.compoundliteral.i1525, align 16
-  %931 = load <4 x i32>, ptr %.compoundliteral.i1525, align 16
-  %932 = bitcast <4 x i32> %931 to <2 x i64>
-  store <2 x i64> %932, ptr %q5367, align 16
-  %933 = load <2 x i64>, ptr %q5367, align 16
-  %934 = bitcast <2 x i64> %933 to <4 x i32>
-  %permil388 = shufflevector <4 x i32> %934, <4 x i32> poison, <4 x i32> zeroinitializer
-  %935 = bitcast <4 x i32> %permil388 to <2 x i64>
-  store <2 x i64> %935, ptr %q5367, align 16
-  %936 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx389 = getelementptr inbounds i32, ptr %936, i64 6
-  %937 = load i32, ptr %arrayidx389, align 4
-  store i32 %937, ptr %__a.addr.i1518, align 4
-  %938 = load i32, ptr %__a.addr.i1518, align 4
-  %vecinit.i1520 = insertelement <4 x i32> undef, i32 %938, i32 0
-  %vecinit1.i1521 = insertelement <4 x i32> %vecinit.i1520, i32 0, i32 1
-  %vecinit2.i1522 = insertelement <4 x i32> %vecinit1.i1521, i32 0, i32 2
-  %vecinit3.i1523 = insertelement <4 x i32> %vecinit2.i1522, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1523, ptr %.compoundliteral.i1519, align 16
-  %939 = load <4 x i32>, ptr %.compoundliteral.i1519, align 16
-  %940 = bitcast <4 x i32> %939 to <2 x i64>
-  store <2 x i64> %940, ptr %q6368, align 16
-  %941 = load <2 x i64>, ptr %q6368, align 16
-  %942 = bitcast <2 x i64> %941 to <4 x i32>
-  %permil391 = shufflevector <4 x i32> %942, <4 x i32> poison, <4 x i32> zeroinitializer
-  %943 = bitcast <4 x i32> %permil391 to <2 x i64>
-  store <2 x i64> %943, ptr %q6368, align 16
-  %944 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx392 = getelementptr inbounds i32, ptr %944, i64 7
-  %945 = load i32, ptr %arrayidx392, align 4
-  store i32 %945, ptr %__a.addr.i1512, align 4
-  %946 = load i32, ptr %__a.addr.i1512, align 4
-  %vecinit.i1514 = insertelement <4 x i32> undef, i32 %946, i32 0
-  %vecinit1.i1515 = insertelement <4 x i32> %vecinit.i1514, i32 0, i32 1
-  %vecinit2.i1516 = insertelement <4 x i32> %vecinit1.i1515, i32 0, i32 2
-  %vecinit3.i1517 = insertelement <4 x i32> %vecinit2.i1516, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1517, ptr %.compoundliteral.i1513, align 16
-  %947 = load <4 x i32>, ptr %.compoundliteral.i1513, align 16
-  %948 = bitcast <4 x i32> %947 to <2 x i64>
-  store <2 x i64> %948, ptr %q7369, align 16
-  %949 = load <2 x i64>, ptr %q7369, align 16
-  %950 = bitcast <2 x i64> %949 to <4 x i32>
-  %permil394 = shufflevector <4 x i32> %950, <4 x i32> poison, <4 x i32> zeroinitializer
-  %951 = bitcast <4 x i32> %permil394 to <2 x i64>
-  store <2 x i64> %951, ptr %q7369, align 16
-  %952 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx395 = getelementptr inbounds i32, ptr %952, i64 8
-  %953 = load i32, ptr %arrayidx395, align 4
-  store i32 %953, ptr %__a.addr.i1506, align 4
-  %954 = load i32, ptr %__a.addr.i1506, align 4
-  %vecinit.i1508 = insertelement <4 x i32> undef, i32 %954, i32 0
-  %vecinit1.i1509 = insertelement <4 x i32> %vecinit.i1508, i32 0, i32 1
-  %vecinit2.i1510 = insertelement <4 x i32> %vecinit1.i1509, i32 0, i32 2
-  %vecinit3.i1511 = insertelement <4 x i32> %vecinit2.i1510, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1511, ptr %.compoundliteral.i1507, align 16
-  %955 = load <4 x i32>, ptr %.compoundliteral.i1507, align 16
-  %956 = bitcast <4 x i32> %955 to <2 x i64>
-  store <2 x i64> %956, ptr %q8370, align 16
-  %957 = load <2 x i64>, ptr %q8370, align 16
-  %958 = bitcast <2 x i64> %957 to <4 x i32>
-  %permil397 = shufflevector <4 x i32> %958, <4 x i32> poison, <4 x i32> zeroinitializer
-  %959 = bitcast <4 x i32> %permil397 to <2 x i64>
-  store <2 x i64> %959, ptr %q8370, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond398
+1016:                                             ; preds = %905
+  %1017 = load i32, ptr %13, align 4, !tbaa !8
+  %1018 = add nsw i32 %1017, 4
+  store i32 %1018, ptr %13, align 4, !tbaa !8
+  br label %900, !llvm.loop !15
 
-for.cond398:                                      ; preds = %for.inc464, %if.else361
-  %960 = load i32, ptr %i, align 4
-  %961 = load i32, ptr %data_len.addr, align 4
-  %sub399 = sub nsw i32 %961, 3
-  %cmp400 = icmp slt i32 %960, %sub399
-  br i1 %cmp400, label %for.body401, label %for.end466
+1019:                                             ; preds = %900
+  call void @llvm.lifetime.end.p0(i64 16, ptr %63) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %62) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %61) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %60) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %59) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %58) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %57) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %56) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %55) #5
+  br label %1020
 
-for.body401:                                      ; preds = %for.cond398
-  %962 = load <2 x i64>, ptr %q8370, align 16
-  %963 = load ptr, ptr %data.addr, align 8
-  %964 = load i32, ptr %i, align 4
-  %idx.ext404 = sext i32 %964 to i64
-  %add.ptr405 = getelementptr inbounds i32, ptr %963, i64 %idx.ext404
-  %add.ptr406 = getelementptr inbounds i32, ptr %add.ptr405, i64 -9
-  store ptr %add.ptr406, ptr %__p.addr.i2047, align 8
-  %965 = load ptr, ptr %__p.addr.i2047, align 8
-  %966 = load <2 x i64>, ptr %965, align 1
-  store <2 x i64> %962, ptr %__V1.addr.i1893, align 16
-  store <2 x i64> %966, ptr %__V2.addr.i1894, align 16
-  %967 = load <2 x i64>, ptr %__V1.addr.i1893, align 16
-  %968 = bitcast <2 x i64> %967 to <4 x i32>
-  %969 = load <2 x i64>, ptr %__V2.addr.i1894, align 16
-  %970 = bitcast <2 x i64> %969 to <4 x i32>
-  %mul.i1895 = mul <4 x i32> %968, %970
-  %971 = bitcast <4 x i32> %mul.i1895 to <2 x i64>
-  store <2 x i64> %971, ptr %summ402, align 16
-  %972 = load <2 x i64>, ptr %q7369, align 16
-  %973 = load ptr, ptr %data.addr, align 8
-  %974 = load i32, ptr %i, align 4
-  %idx.ext409 = sext i32 %974 to i64
-  %add.ptr410 = getelementptr inbounds i32, ptr %973, i64 %idx.ext409
-  %add.ptr411 = getelementptr inbounds i32, ptr %add.ptr410, i64 -8
-  store ptr %add.ptr411, ptr %__p.addr.i2046, align 8
-  %975 = load ptr, ptr %__p.addr.i2046, align 8
-  %976 = load <2 x i64>, ptr %975, align 1
-  store <2 x i64> %972, ptr %__V1.addr.i1890, align 16
-  store <2 x i64> %976, ptr %__V2.addr.i1891, align 16
-  %977 = load <2 x i64>, ptr %__V1.addr.i1890, align 16
-  %978 = bitcast <2 x i64> %977 to <4 x i32>
-  %979 = load <2 x i64>, ptr %__V2.addr.i1891, align 16
-  %980 = bitcast <2 x i64> %979 to <4 x i32>
-  %mul.i1892 = mul <4 x i32> %978, %980
-  %981 = bitcast <4 x i32> %mul.i1892 to <2 x i64>
-  store <2 x i64> %981, ptr %mull403, align 16
-  %982 = load <2 x i64>, ptr %summ402, align 16
-  %983 = load <2 x i64>, ptr %mull403, align 16
-  store <2 x i64> %982, ptr %__a.addr.i2187, align 16
-  store <2 x i64> %983, ptr %__b.addr.i2188, align 16
-  %984 = load <2 x i64>, ptr %__a.addr.i2187, align 16
-  %985 = bitcast <2 x i64> %984 to <4 x i32>
-  %986 = load <2 x i64>, ptr %__b.addr.i2188, align 16
-  %987 = bitcast <2 x i64> %986 to <4 x i32>
-  %add.i2189 = add <4 x i32> %985, %987
-  %988 = bitcast <4 x i32> %add.i2189 to <2 x i64>
-  store <2 x i64> %988, ptr %summ402, align 16
-  %989 = load <2 x i64>, ptr %q6368, align 16
-  %990 = load ptr, ptr %data.addr, align 8
-  %991 = load i32, ptr %i, align 4
-  %idx.ext415 = sext i32 %991 to i64
-  %add.ptr416 = getelementptr inbounds i32, ptr %990, i64 %idx.ext415
-  %add.ptr417 = getelementptr inbounds i32, ptr %add.ptr416, i64 -7
-  store ptr %add.ptr417, ptr %__p.addr.i2045, align 8
-  %992 = load ptr, ptr %__p.addr.i2045, align 8
-  %993 = load <2 x i64>, ptr %992, align 1
-  store <2 x i64> %989, ptr %__V1.addr.i1887, align 16
-  store <2 x i64> %993, ptr %__V2.addr.i1888, align 16
-  %994 = load <2 x i64>, ptr %__V1.addr.i1887, align 16
-  %995 = bitcast <2 x i64> %994 to <4 x i32>
-  %996 = load <2 x i64>, ptr %__V2.addr.i1888, align 16
-  %997 = bitcast <2 x i64> %996 to <4 x i32>
-  %mul.i1889 = mul <4 x i32> %995, %997
-  %998 = bitcast <4 x i32> %mul.i1889 to <2 x i64>
-  store <2 x i64> %998, ptr %mull403, align 16
-  %999 = load <2 x i64>, ptr %summ402, align 16
-  %1000 = load <2 x i64>, ptr %mull403, align 16
-  store <2 x i64> %999, ptr %__a.addr.i2184, align 16
-  store <2 x i64> %1000, ptr %__b.addr.i2185, align 16
-  %1001 = load <2 x i64>, ptr %__a.addr.i2184, align 16
-  %1002 = bitcast <2 x i64> %1001 to <4 x i32>
-  %1003 = load <2 x i64>, ptr %__b.addr.i2185, align 16
-  %1004 = bitcast <2 x i64> %1003 to <4 x i32>
-  %add.i2186 = add <4 x i32> %1002, %1004
-  %1005 = bitcast <4 x i32> %add.i2186 to <2 x i64>
-  store <2 x i64> %1005, ptr %summ402, align 16
-  %1006 = load <2 x i64>, ptr %q5367, align 16
-  %1007 = load ptr, ptr %data.addr, align 8
-  %1008 = load i32, ptr %i, align 4
-  %idx.ext421 = sext i32 %1008 to i64
-  %add.ptr422 = getelementptr inbounds i32, ptr %1007, i64 %idx.ext421
-  %add.ptr423 = getelementptr inbounds i32, ptr %add.ptr422, i64 -6
-  store ptr %add.ptr423, ptr %__p.addr.i2044, align 8
-  %1009 = load ptr, ptr %__p.addr.i2044, align 8
-  %1010 = load <2 x i64>, ptr %1009, align 1
-  store <2 x i64> %1006, ptr %__V1.addr.i1884, align 16
-  store <2 x i64> %1010, ptr %__V2.addr.i1885, align 16
-  %1011 = load <2 x i64>, ptr %__V1.addr.i1884, align 16
-  %1012 = bitcast <2 x i64> %1011 to <4 x i32>
-  %1013 = load <2 x i64>, ptr %__V2.addr.i1885, align 16
-  %1014 = bitcast <2 x i64> %1013 to <4 x i32>
-  %mul.i1886 = mul <4 x i32> %1012, %1014
-  %1015 = bitcast <4 x i32> %mul.i1886 to <2 x i64>
-  store <2 x i64> %1015, ptr %mull403, align 16
-  %1016 = load <2 x i64>, ptr %summ402, align 16
-  %1017 = load <2 x i64>, ptr %mull403, align 16
-  store <2 x i64> %1016, ptr %__a.addr.i2181, align 16
-  store <2 x i64> %1017, ptr %__b.addr.i2182, align 16
-  %1018 = load <2 x i64>, ptr %__a.addr.i2181, align 16
-  %1019 = bitcast <2 x i64> %1018 to <4 x i32>
-  %1020 = load <2 x i64>, ptr %__b.addr.i2182, align 16
-  %1021 = bitcast <2 x i64> %1020 to <4 x i32>
-  %add.i2183 = add <4 x i32> %1019, %1021
-  %1022 = bitcast <4 x i32> %add.i2183 to <2 x i64>
-  store <2 x i64> %1022, ptr %summ402, align 16
-  %1023 = load <2 x i64>, ptr %q4366, align 16
-  %1024 = load ptr, ptr %data.addr, align 8
-  %1025 = load i32, ptr %i, align 4
-  %idx.ext427 = sext i32 %1025 to i64
-  %add.ptr428 = getelementptr inbounds i32, ptr %1024, i64 %idx.ext427
-  %add.ptr429 = getelementptr inbounds i32, ptr %add.ptr428, i64 -5
-  store ptr %add.ptr429, ptr %__p.addr.i2043, align 8
-  %1026 = load ptr, ptr %__p.addr.i2043, align 8
-  %1027 = load <2 x i64>, ptr %1026, align 1
-  store <2 x i64> %1023, ptr %__V1.addr.i1881, align 16
-  store <2 x i64> %1027, ptr %__V2.addr.i1882, align 16
-  %1028 = load <2 x i64>, ptr %__V1.addr.i1881, align 16
-  %1029 = bitcast <2 x i64> %1028 to <4 x i32>
-  %1030 = load <2 x i64>, ptr %__V2.addr.i1882, align 16
-  %1031 = bitcast <2 x i64> %1030 to <4 x i32>
-  %mul.i1883 = mul <4 x i32> %1029, %1031
-  %1032 = bitcast <4 x i32> %mul.i1883 to <2 x i64>
-  store <2 x i64> %1032, ptr %mull403, align 16
-  %1033 = load <2 x i64>, ptr %summ402, align 16
-  %1034 = load <2 x i64>, ptr %mull403, align 16
-  store <2 x i64> %1033, ptr %__a.addr.i2178, align 16
-  store <2 x i64> %1034, ptr %__b.addr.i2179, align 16
-  %1035 = load <2 x i64>, ptr %__a.addr.i2178, align 16
-  %1036 = bitcast <2 x i64> %1035 to <4 x i32>
-  %1037 = load <2 x i64>, ptr %__b.addr.i2179, align 16
-  %1038 = bitcast <2 x i64> %1037 to <4 x i32>
-  %add.i2180 = add <4 x i32> %1036, %1038
-  %1039 = bitcast <4 x i32> %add.i2180 to <2 x i64>
-  store <2 x i64> %1039, ptr %summ402, align 16
-  %1040 = load <2 x i64>, ptr %q3365, align 16
-  %1041 = load ptr, ptr %data.addr, align 8
-  %1042 = load i32, ptr %i, align 4
-  %idx.ext433 = sext i32 %1042 to i64
-  %add.ptr434 = getelementptr inbounds i32, ptr %1041, i64 %idx.ext433
-  %add.ptr435 = getelementptr inbounds i32, ptr %add.ptr434, i64 -4
-  store ptr %add.ptr435, ptr %__p.addr.i2042, align 8
-  %1043 = load ptr, ptr %__p.addr.i2042, align 8
-  %1044 = load <2 x i64>, ptr %1043, align 1
-  store <2 x i64> %1040, ptr %__V1.addr.i1878, align 16
-  store <2 x i64> %1044, ptr %__V2.addr.i1879, align 16
-  %1045 = load <2 x i64>, ptr %__V1.addr.i1878, align 16
-  %1046 = bitcast <2 x i64> %1045 to <4 x i32>
-  %1047 = load <2 x i64>, ptr %__V2.addr.i1879, align 16
-  %1048 = bitcast <2 x i64> %1047 to <4 x i32>
-  %mul.i1880 = mul <4 x i32> %1046, %1048
-  %1049 = bitcast <4 x i32> %mul.i1880 to <2 x i64>
-  store <2 x i64> %1049, ptr %mull403, align 16
-  %1050 = load <2 x i64>, ptr %summ402, align 16
-  %1051 = load <2 x i64>, ptr %mull403, align 16
-  store <2 x i64> %1050, ptr %__a.addr.i2175, align 16
-  store <2 x i64> %1051, ptr %__b.addr.i2176, align 16
-  %1052 = load <2 x i64>, ptr %__a.addr.i2175, align 16
+1020:                                             ; preds = %1019, %826
+  br label %1021
+
+1021:                                             ; preds = %1020, %611
+  br label %1910
+
+1022:                                             ; preds = %121
+  %1023 = load i32, ptr %10, align 4, !tbaa !8
+  %1024 = icmp ugt i32 %1023, 4
+  br i1 %1024, label %1025, label %1619
+
+1025:                                             ; preds = %1022
+  %1026 = load i32, ptr %10, align 4, !tbaa !8
+  %1027 = icmp ugt i32 %1026, 6
+  br i1 %1027, label %1028, label %1361
+
+1028:                                             ; preds = %1025
+  %1029 = load i32, ptr %10, align 4, !tbaa !8
+  %1030 = icmp eq i32 %1029, 8
+  br i1 %1030, label %1031, label %1205
+
+1031:                                             ; preds = %1028
+  call void @llvm.lifetime.start.p0(i64 16, ptr %66) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %67) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %68) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %69) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %70) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %71) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %72) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %73) #5
+  %1032 = load ptr, ptr %9, align 8, !tbaa !3
+  %1033 = getelementptr inbounds i32, ptr %1032, i64 0
+  %1034 = load i32, ptr %1033, align 4, !tbaa !8
+  %1035 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1034)
+  store <2 x i64> %1035, ptr %66, align 16, !tbaa !10
+  %1036 = load <2 x i64>, ptr %66, align 16, !tbaa !10
+  %1037 = bitcast <2 x i64> %1036 to <4 x i32>
+  %1038 = shufflevector <4 x i32> %1037, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1039 = bitcast <4 x i32> %1038 to <2 x i64>
+  store <2 x i64> %1039, ptr %66, align 16, !tbaa !10
+  %1040 = load ptr, ptr %9, align 8, !tbaa !3
+  %1041 = getelementptr inbounds i32, ptr %1040, i64 1
+  %1042 = load i32, ptr %1041, align 4, !tbaa !8
+  %1043 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1042)
+  store <2 x i64> %1043, ptr %67, align 16, !tbaa !10
+  %1044 = load <2 x i64>, ptr %67, align 16, !tbaa !10
+  %1045 = bitcast <2 x i64> %1044 to <4 x i32>
+  %1046 = shufflevector <4 x i32> %1045, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1047 = bitcast <4 x i32> %1046 to <2 x i64>
+  store <2 x i64> %1047, ptr %67, align 16, !tbaa !10
+  %1048 = load ptr, ptr %9, align 8, !tbaa !3
+  %1049 = getelementptr inbounds i32, ptr %1048, i64 2
+  %1050 = load i32, ptr %1049, align 4, !tbaa !8
+  %1051 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1050)
+  store <2 x i64> %1051, ptr %68, align 16, !tbaa !10
+  %1052 = load <2 x i64>, ptr %68, align 16, !tbaa !10
   %1053 = bitcast <2 x i64> %1052 to <4 x i32>
-  %1054 = load <2 x i64>, ptr %__b.addr.i2176, align 16
-  %1055 = bitcast <2 x i64> %1054 to <4 x i32>
-  %add.i2177 = add <4 x i32> %1053, %1055
-  %1056 = bitcast <4 x i32> %add.i2177 to <2 x i64>
-  store <2 x i64> %1056, ptr %summ402, align 16
-  %1057 = load <2 x i64>, ptr %q2364, align 16
-  %1058 = load ptr, ptr %data.addr, align 8
-  %1059 = load i32, ptr %i, align 4
-  %idx.ext439 = sext i32 %1059 to i64
-  %add.ptr440 = getelementptr inbounds i32, ptr %1058, i64 %idx.ext439
-  %add.ptr441 = getelementptr inbounds i32, ptr %add.ptr440, i64 -3
-  store ptr %add.ptr441, ptr %__p.addr.i2041, align 8
-  %1060 = load ptr, ptr %__p.addr.i2041, align 8
-  %1061 = load <2 x i64>, ptr %1060, align 1
-  store <2 x i64> %1057, ptr %__V1.addr.i1875, align 16
-  store <2 x i64> %1061, ptr %__V2.addr.i1876, align 16
-  %1062 = load <2 x i64>, ptr %__V1.addr.i1875, align 16
-  %1063 = bitcast <2 x i64> %1062 to <4 x i32>
-  %1064 = load <2 x i64>, ptr %__V2.addr.i1876, align 16
-  %1065 = bitcast <2 x i64> %1064 to <4 x i32>
-  %mul.i1877 = mul <4 x i32> %1063, %1065
-  %1066 = bitcast <4 x i32> %mul.i1877 to <2 x i64>
-  store <2 x i64> %1066, ptr %mull403, align 16
-  %1067 = load <2 x i64>, ptr %summ402, align 16
-  %1068 = load <2 x i64>, ptr %mull403, align 16
-  store <2 x i64> %1067, ptr %__a.addr.i2172, align 16
-  store <2 x i64> %1068, ptr %__b.addr.i2173, align 16
-  %1069 = load <2 x i64>, ptr %__a.addr.i2172, align 16
-  %1070 = bitcast <2 x i64> %1069 to <4 x i32>
-  %1071 = load <2 x i64>, ptr %__b.addr.i2173, align 16
-  %1072 = bitcast <2 x i64> %1071 to <4 x i32>
-  %add.i2174 = add <4 x i32> %1070, %1072
-  %1073 = bitcast <4 x i32> %add.i2174 to <2 x i64>
-  store <2 x i64> %1073, ptr %summ402, align 16
-  %1074 = load <2 x i64>, ptr %q1363, align 16
-  %1075 = load ptr, ptr %data.addr, align 8
-  %1076 = load i32, ptr %i, align 4
-  %idx.ext445 = sext i32 %1076 to i64
-  %add.ptr446 = getelementptr inbounds i32, ptr %1075, i64 %idx.ext445
-  %add.ptr447 = getelementptr inbounds i32, ptr %add.ptr446, i64 -2
-  store ptr %add.ptr447, ptr %__p.addr.i2040, align 8
-  %1077 = load ptr, ptr %__p.addr.i2040, align 8
-  %1078 = load <2 x i64>, ptr %1077, align 1
-  store <2 x i64> %1074, ptr %__V1.addr.i1872, align 16
-  store <2 x i64> %1078, ptr %__V2.addr.i1873, align 16
-  %1079 = load <2 x i64>, ptr %__V1.addr.i1872, align 16
-  %1080 = bitcast <2 x i64> %1079 to <4 x i32>
-  %1081 = load <2 x i64>, ptr %__V2.addr.i1873, align 16
-  %1082 = bitcast <2 x i64> %1081 to <4 x i32>
-  %mul.i1874 = mul <4 x i32> %1080, %1082
-  %1083 = bitcast <4 x i32> %mul.i1874 to <2 x i64>
-  store <2 x i64> %1083, ptr %mull403, align 16
-  %1084 = load <2 x i64>, ptr %summ402, align 16
-  %1085 = load <2 x i64>, ptr %mull403, align 16
-  store <2 x i64> %1084, ptr %__a.addr.i2169, align 16
-  store <2 x i64> %1085, ptr %__b.addr.i2170, align 16
-  %1086 = load <2 x i64>, ptr %__a.addr.i2169, align 16
-  %1087 = bitcast <2 x i64> %1086 to <4 x i32>
-  %1088 = load <2 x i64>, ptr %__b.addr.i2170, align 16
-  %1089 = bitcast <2 x i64> %1088 to <4 x i32>
-  %add.i2171 = add <4 x i32> %1087, %1089
-  %1090 = bitcast <4 x i32> %add.i2171 to <2 x i64>
-  store <2 x i64> %1090, ptr %summ402, align 16
-  %1091 = load <2 x i64>, ptr %q0362, align 16
-  %1092 = load ptr, ptr %data.addr, align 8
-  %1093 = load i32, ptr %i, align 4
-  %idx.ext451 = sext i32 %1093 to i64
-  %add.ptr452 = getelementptr inbounds i32, ptr %1092, i64 %idx.ext451
-  %add.ptr453 = getelementptr inbounds i32, ptr %add.ptr452, i64 -1
-  store ptr %add.ptr453, ptr %__p.addr.i2039, align 8
-  %1094 = load ptr, ptr %__p.addr.i2039, align 8
-  %1095 = load <2 x i64>, ptr %1094, align 1
-  store <2 x i64> %1091, ptr %__V1.addr.i1869, align 16
-  store <2 x i64> %1095, ptr %__V2.addr.i1870, align 16
-  %1096 = load <2 x i64>, ptr %__V1.addr.i1869, align 16
-  %1097 = bitcast <2 x i64> %1096 to <4 x i32>
-  %1098 = load <2 x i64>, ptr %__V2.addr.i1870, align 16
-  %1099 = bitcast <2 x i64> %1098 to <4 x i32>
-  %mul.i1871 = mul <4 x i32> %1097, %1099
-  %1100 = bitcast <4 x i32> %mul.i1871 to <2 x i64>
-  store <2 x i64> %1100, ptr %mull403, align 16
-  %1101 = load <2 x i64>, ptr %summ402, align 16
-  %1102 = load <2 x i64>, ptr %mull403, align 16
-  store <2 x i64> %1101, ptr %__a.addr.i2166, align 16
-  store <2 x i64> %1102, ptr %__b.addr.i2167, align 16
-  %1103 = load <2 x i64>, ptr %__a.addr.i2166, align 16
-  %1104 = bitcast <2 x i64> %1103 to <4 x i32>
-  %1105 = load <2 x i64>, ptr %__b.addr.i2167, align 16
-  %1106 = bitcast <2 x i64> %1105 to <4 x i32>
-  %add.i2168 = add <4 x i32> %1104, %1106
-  %1107 = bitcast <4 x i32> %add.i2168 to <2 x i64>
-  store <2 x i64> %1107, ptr %summ402, align 16
-  %1108 = load <2 x i64>, ptr %summ402, align 16
-  %1109 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %1108, ptr %__a.addr.i2295, align 16
-  store <2 x i64> %1109, ptr %__count.addr.i2296, align 16
-  %1110 = load <2 x i64>, ptr %__a.addr.i2295, align 16
-  %1111 = bitcast <2 x i64> %1110 to <4 x i32>
-  %1112 = load <2 x i64>, ptr %__count.addr.i2296, align 16
-  %1113 = bitcast <2 x i64> %1112 to <4 x i32>
-  %1114 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %1111, <4 x i32> %1113)
-  %1115 = bitcast <4 x i32> %1114 to <2 x i64>
-  store <2 x i64> %1115, ptr %summ402, align 16
-  %1116 = load ptr, ptr %residual.addr, align 8
-  %1117 = load i32, ptr %i, align 4
-  %idx.ext458 = sext i32 %1117 to i64
-  %add.ptr459 = getelementptr inbounds i32, ptr %1116, i64 %idx.ext458
-  %1118 = load ptr, ptr %data.addr, align 8
-  %1119 = load i32, ptr %i, align 4
-  %idx.ext460 = sext i32 %1119 to i64
-  %add.ptr461 = getelementptr inbounds i32, ptr %1118, i64 %idx.ext460
-  store ptr %add.ptr461, ptr %__p.addr.i2038, align 8
-  %1120 = load ptr, ptr %__p.addr.i2038, align 8
-  %1121 = load <2 x i64>, ptr %1120, align 1
-  %1122 = load <2 x i64>, ptr %summ402, align 16
-  store <2 x i64> %1121, ptr %__a.addr.i2350, align 16
-  store <2 x i64> %1122, ptr %__b.addr.i2351, align 16
-  %1123 = load <2 x i64>, ptr %__a.addr.i2350, align 16
-  %1124 = bitcast <2 x i64> %1123 to <4 x i32>
-  %1125 = load <2 x i64>, ptr %__b.addr.i2351, align 16
-  %1126 = bitcast <2 x i64> %1125 to <4 x i32>
-  %sub.i2352 = sub <4 x i32> %1124, %1126
-  %1127 = bitcast <4 x i32> %sub.i2352 to <2 x i64>
-  store ptr %add.ptr459, ptr %__p.addr.i2319, align 8
-  store <2 x i64> %1127, ptr %__b.addr.i2320, align 16
-  %1128 = load <2 x i64>, ptr %__b.addr.i2320, align 16
-  %1129 = load ptr, ptr %__p.addr.i2319, align 8
-  store <2 x i64> %1128, ptr %1129, align 1
-  br label %for.inc464
+  %1054 = shufflevector <4 x i32> %1053, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1055 = bitcast <4 x i32> %1054 to <2 x i64>
+  store <2 x i64> %1055, ptr %68, align 16, !tbaa !10
+  %1056 = load ptr, ptr %9, align 8, !tbaa !3
+  %1057 = getelementptr inbounds i32, ptr %1056, i64 3
+  %1058 = load i32, ptr %1057, align 4, !tbaa !8
+  %1059 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1058)
+  store <2 x i64> %1059, ptr %69, align 16, !tbaa !10
+  %1060 = load <2 x i64>, ptr %69, align 16, !tbaa !10
+  %1061 = bitcast <2 x i64> %1060 to <4 x i32>
+  %1062 = shufflevector <4 x i32> %1061, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1063 = bitcast <4 x i32> %1062 to <2 x i64>
+  store <2 x i64> %1063, ptr %69, align 16, !tbaa !10
+  %1064 = load ptr, ptr %9, align 8, !tbaa !3
+  %1065 = getelementptr inbounds i32, ptr %1064, i64 4
+  %1066 = load i32, ptr %1065, align 4, !tbaa !8
+  %1067 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1066)
+  store <2 x i64> %1067, ptr %70, align 16, !tbaa !10
+  %1068 = load <2 x i64>, ptr %70, align 16, !tbaa !10
+  %1069 = bitcast <2 x i64> %1068 to <4 x i32>
+  %1070 = shufflevector <4 x i32> %1069, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1071 = bitcast <4 x i32> %1070 to <2 x i64>
+  store <2 x i64> %1071, ptr %70, align 16, !tbaa !10
+  %1072 = load ptr, ptr %9, align 8, !tbaa !3
+  %1073 = getelementptr inbounds i32, ptr %1072, i64 5
+  %1074 = load i32, ptr %1073, align 4, !tbaa !8
+  %1075 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1074)
+  store <2 x i64> %1075, ptr %71, align 16, !tbaa !10
+  %1076 = load <2 x i64>, ptr %71, align 16, !tbaa !10
+  %1077 = bitcast <2 x i64> %1076 to <4 x i32>
+  %1078 = shufflevector <4 x i32> %1077, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1079 = bitcast <4 x i32> %1078 to <2 x i64>
+  store <2 x i64> %1079, ptr %71, align 16, !tbaa !10
+  %1080 = load ptr, ptr %9, align 8, !tbaa !3
+  %1081 = getelementptr inbounds i32, ptr %1080, i64 6
+  %1082 = load i32, ptr %1081, align 4, !tbaa !8
+  %1083 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1082)
+  store <2 x i64> %1083, ptr %72, align 16, !tbaa !10
+  %1084 = load <2 x i64>, ptr %72, align 16, !tbaa !10
+  %1085 = bitcast <2 x i64> %1084 to <4 x i32>
+  %1086 = shufflevector <4 x i32> %1085, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1087 = bitcast <4 x i32> %1086 to <2 x i64>
+  store <2 x i64> %1087, ptr %72, align 16, !tbaa !10
+  %1088 = load ptr, ptr %9, align 8, !tbaa !3
+  %1089 = getelementptr inbounds i32, ptr %1088, i64 7
+  %1090 = load i32, ptr %1089, align 4, !tbaa !8
+  %1091 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1090)
+  store <2 x i64> %1091, ptr %73, align 16, !tbaa !10
+  %1092 = load <2 x i64>, ptr %73, align 16, !tbaa !10
+  %1093 = bitcast <2 x i64> %1092 to <4 x i32>
+  %1094 = shufflevector <4 x i32> %1093, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1095 = bitcast <4 x i32> %1094 to <2 x i64>
+  store <2 x i64> %1095, ptr %73, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %1096
 
-for.inc464:                                       ; preds = %for.body401
-  %1130 = load i32, ptr %i, align 4
-  %add465 = add nsw i32 %1130, 4
-  store i32 %add465, ptr %i, align 4
-  br label %for.cond398, !llvm.loop !8
+1096:                                             ; preds = %1201, %1031
+  %1097 = load i32, ptr %13, align 4, !tbaa !8
+  %1098 = load i32, ptr %8, align 4, !tbaa !8
+  %1099 = sub nsw i32 %1098, 3
+  %1100 = icmp slt i32 %1097, %1099
+  br i1 %1100, label %1101, label %1204
 
-for.end466:                                       ; preds = %for.cond398
-  br label %if.end467
+1101:                                             ; preds = %1096
+  call void @llvm.lifetime.start.p0(i64 16, ptr %74) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %75) #5
+  %1102 = load <2 x i64>, ptr %73, align 16, !tbaa !10
+  %1103 = load ptr, ptr %7, align 8, !tbaa !3
+  %1104 = load i32, ptr %13, align 4, !tbaa !8
+  %1105 = sext i32 %1104 to i64
+  %1106 = getelementptr inbounds i32, ptr %1103, i64 %1105
+  %1107 = getelementptr inbounds i32, ptr %1106, i64 -8
+  %1108 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1107)
+  %1109 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1102, <2 x i64> noundef %1108)
+  store <2 x i64> %1109, ptr %74, align 16, !tbaa !10
+  %1110 = load <2 x i64>, ptr %72, align 16, !tbaa !10
+  %1111 = load ptr, ptr %7, align 8, !tbaa !3
+  %1112 = load i32, ptr %13, align 4, !tbaa !8
+  %1113 = sext i32 %1112 to i64
+  %1114 = getelementptr inbounds i32, ptr %1111, i64 %1113
+  %1115 = getelementptr inbounds i32, ptr %1114, i64 -7
+  %1116 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1115)
+  %1117 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1110, <2 x i64> noundef %1116)
+  store <2 x i64> %1117, ptr %75, align 16, !tbaa !10
+  %1118 = load <2 x i64>, ptr %74, align 16, !tbaa !10
+  %1119 = load <2 x i64>, ptr %75, align 16, !tbaa !10
+  %1120 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1118, <2 x i64> noundef %1119)
+  store <2 x i64> %1120, ptr %74, align 16, !tbaa !10
+  %1121 = load <2 x i64>, ptr %71, align 16, !tbaa !10
+  %1122 = load ptr, ptr %7, align 8, !tbaa !3
+  %1123 = load i32, ptr %13, align 4, !tbaa !8
+  %1124 = sext i32 %1123 to i64
+  %1125 = getelementptr inbounds i32, ptr %1122, i64 %1124
+  %1126 = getelementptr inbounds i32, ptr %1125, i64 -6
+  %1127 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1126)
+  %1128 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1121, <2 x i64> noundef %1127)
+  store <2 x i64> %1128, ptr %75, align 16, !tbaa !10
+  %1129 = load <2 x i64>, ptr %74, align 16, !tbaa !10
+  %1130 = load <2 x i64>, ptr %75, align 16, !tbaa !10
+  %1131 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1129, <2 x i64> noundef %1130)
+  store <2 x i64> %1131, ptr %74, align 16, !tbaa !10
+  %1132 = load <2 x i64>, ptr %70, align 16, !tbaa !10
+  %1133 = load ptr, ptr %7, align 8, !tbaa !3
+  %1134 = load i32, ptr %13, align 4, !tbaa !8
+  %1135 = sext i32 %1134 to i64
+  %1136 = getelementptr inbounds i32, ptr %1133, i64 %1135
+  %1137 = getelementptr inbounds i32, ptr %1136, i64 -5
+  %1138 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1137)
+  %1139 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1132, <2 x i64> noundef %1138)
+  store <2 x i64> %1139, ptr %75, align 16, !tbaa !10
+  %1140 = load <2 x i64>, ptr %74, align 16, !tbaa !10
+  %1141 = load <2 x i64>, ptr %75, align 16, !tbaa !10
+  %1142 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1140, <2 x i64> noundef %1141)
+  store <2 x i64> %1142, ptr %74, align 16, !tbaa !10
+  %1143 = load <2 x i64>, ptr %69, align 16, !tbaa !10
+  %1144 = load ptr, ptr %7, align 8, !tbaa !3
+  %1145 = load i32, ptr %13, align 4, !tbaa !8
+  %1146 = sext i32 %1145 to i64
+  %1147 = getelementptr inbounds i32, ptr %1144, i64 %1146
+  %1148 = getelementptr inbounds i32, ptr %1147, i64 -4
+  %1149 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1148)
+  %1150 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1143, <2 x i64> noundef %1149)
+  store <2 x i64> %1150, ptr %75, align 16, !tbaa !10
+  %1151 = load <2 x i64>, ptr %74, align 16, !tbaa !10
+  %1152 = load <2 x i64>, ptr %75, align 16, !tbaa !10
+  %1153 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1151, <2 x i64> noundef %1152)
+  store <2 x i64> %1153, ptr %74, align 16, !tbaa !10
+  %1154 = load <2 x i64>, ptr %68, align 16, !tbaa !10
+  %1155 = load ptr, ptr %7, align 8, !tbaa !3
+  %1156 = load i32, ptr %13, align 4, !tbaa !8
+  %1157 = sext i32 %1156 to i64
+  %1158 = getelementptr inbounds i32, ptr %1155, i64 %1157
+  %1159 = getelementptr inbounds i32, ptr %1158, i64 -3
+  %1160 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1159)
+  %1161 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1154, <2 x i64> noundef %1160)
+  store <2 x i64> %1161, ptr %75, align 16, !tbaa !10
+  %1162 = load <2 x i64>, ptr %74, align 16, !tbaa !10
+  %1163 = load <2 x i64>, ptr %75, align 16, !tbaa !10
+  %1164 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1162, <2 x i64> noundef %1163)
+  store <2 x i64> %1164, ptr %74, align 16, !tbaa !10
+  %1165 = load <2 x i64>, ptr %67, align 16, !tbaa !10
+  %1166 = load ptr, ptr %7, align 8, !tbaa !3
+  %1167 = load i32, ptr %13, align 4, !tbaa !8
+  %1168 = sext i32 %1167 to i64
+  %1169 = getelementptr inbounds i32, ptr %1166, i64 %1168
+  %1170 = getelementptr inbounds i32, ptr %1169, i64 -2
+  %1171 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1170)
+  %1172 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1165, <2 x i64> noundef %1171)
+  store <2 x i64> %1172, ptr %75, align 16, !tbaa !10
+  %1173 = load <2 x i64>, ptr %74, align 16, !tbaa !10
+  %1174 = load <2 x i64>, ptr %75, align 16, !tbaa !10
+  %1175 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1173, <2 x i64> noundef %1174)
+  store <2 x i64> %1175, ptr %74, align 16, !tbaa !10
+  %1176 = load <2 x i64>, ptr %66, align 16, !tbaa !10
+  %1177 = load ptr, ptr %7, align 8, !tbaa !3
+  %1178 = load i32, ptr %13, align 4, !tbaa !8
+  %1179 = sext i32 %1178 to i64
+  %1180 = getelementptr inbounds i32, ptr %1177, i64 %1179
+  %1181 = getelementptr inbounds i32, ptr %1180, i64 -1
+  %1182 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1181)
+  %1183 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1176, <2 x i64> noundef %1182)
+  store <2 x i64> %1183, ptr %75, align 16, !tbaa !10
+  %1184 = load <2 x i64>, ptr %74, align 16, !tbaa !10
+  %1185 = load <2 x i64>, ptr %75, align 16, !tbaa !10
+  %1186 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1184, <2 x i64> noundef %1185)
+  store <2 x i64> %1186, ptr %74, align 16, !tbaa !10
+  %1187 = load <2 x i64>, ptr %74, align 16, !tbaa !10
+  %1188 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %1189 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %1187, <2 x i64> noundef %1188)
+  store <2 x i64> %1189, ptr %74, align 16, !tbaa !10
+  %1190 = load ptr, ptr %12, align 8, !tbaa !3
+  %1191 = load i32, ptr %13, align 4, !tbaa !8
+  %1192 = sext i32 %1191 to i64
+  %1193 = getelementptr inbounds i32, ptr %1190, i64 %1192
+  %1194 = load ptr, ptr %7, align 8, !tbaa !3
+  %1195 = load i32, ptr %13, align 4, !tbaa !8
+  %1196 = sext i32 %1195 to i64
+  %1197 = getelementptr inbounds i32, ptr %1194, i64 %1196
+  %1198 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1197)
+  %1199 = load <2 x i64>, ptr %74, align 16, !tbaa !10
+  %1200 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %1198, <2 x i64> noundef %1199)
+  call void @_mm_storeu_si128(ptr noundef %1193, <2 x i64> noundef %1200)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %75) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %74) #5
+  br label %1201
 
-if.end467:                                        ; preds = %for.end466, %for.end360
-  br label %if.end468
+1201:                                             ; preds = %1101
+  %1202 = load i32, ptr %13, align 4, !tbaa !8
+  %1203 = add nsw i32 %1202, 4
+  store i32 %1203, ptr %13, align 4, !tbaa !8
+  br label %1096, !llvm.loop !16
 
-if.end468:                                        ; preds = %if.end467, %if.end
-  br label %if.end977
+1204:                                             ; preds = %1096
+  call void @llvm.lifetime.end.p0(i64 16, ptr %73) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %72) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %71) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %70) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %69) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %68) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %67) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %66) #5
+  br label %1360
 
-if.else469:                                       ; preds = %if.then
-  %1131 = load i32, ptr %order.addr, align 4
-  %cmp470 = icmp ugt i32 %1131, 4
-  br i1 %cmp470, label %if.then471, label %if.else804
-
-if.then471:                                       ; preds = %if.else469
-  %1132 = load i32, ptr %order.addr, align 4
-  %cmp472 = icmp ugt i32 %1132, 6
-  br i1 %cmp472, label %if.then473, label %if.else658
-
-if.then473:                                       ; preds = %if.then471
-  %1133 = load i32, ptr %order.addr, align 4
-  %cmp474 = icmp eq i32 %1133, 8
-  br i1 %cmp474, label %if.then475, label %if.else571
-
-if.then475:                                       ; preds = %if.then473
-  %1134 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx484 = getelementptr inbounds i32, ptr %1134, i64 0
-  %1135 = load i32, ptr %arrayidx484, align 4
-  store i32 %1135, ptr %__a.addr.i1500, align 4
-  %1136 = load i32, ptr %__a.addr.i1500, align 4
-  %vecinit.i1502 = insertelement <4 x i32> undef, i32 %1136, i32 0
-  %vecinit1.i1503 = insertelement <4 x i32> %vecinit.i1502, i32 0, i32 1
-  %vecinit2.i1504 = insertelement <4 x i32> %vecinit1.i1503, i32 0, i32 2
-  %vecinit3.i1505 = insertelement <4 x i32> %vecinit2.i1504, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1505, ptr %.compoundliteral.i1501, align 16
-  %1137 = load <4 x i32>, ptr %.compoundliteral.i1501, align 16
-  %1138 = bitcast <4 x i32> %1137 to <2 x i64>
-  store <2 x i64> %1138, ptr %q0476, align 16
-  %1139 = load <2 x i64>, ptr %q0476, align 16
-  %1140 = bitcast <2 x i64> %1139 to <4 x i32>
-  %permil486 = shufflevector <4 x i32> %1140, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1141 = bitcast <4 x i32> %permil486 to <2 x i64>
-  store <2 x i64> %1141, ptr %q0476, align 16
-  %1142 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx487 = getelementptr inbounds i32, ptr %1142, i64 1
-  %1143 = load i32, ptr %arrayidx487, align 4
-  store i32 %1143, ptr %__a.addr.i1494, align 4
-  %1144 = load i32, ptr %__a.addr.i1494, align 4
-  %vecinit.i1496 = insertelement <4 x i32> undef, i32 %1144, i32 0
-  %vecinit1.i1497 = insertelement <4 x i32> %vecinit.i1496, i32 0, i32 1
-  %vecinit2.i1498 = insertelement <4 x i32> %vecinit1.i1497, i32 0, i32 2
-  %vecinit3.i1499 = insertelement <4 x i32> %vecinit2.i1498, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1499, ptr %.compoundliteral.i1495, align 16
-  %1145 = load <4 x i32>, ptr %.compoundliteral.i1495, align 16
-  %1146 = bitcast <4 x i32> %1145 to <2 x i64>
-  store <2 x i64> %1146, ptr %q1477, align 16
-  %1147 = load <2 x i64>, ptr %q1477, align 16
-  %1148 = bitcast <2 x i64> %1147 to <4 x i32>
-  %permil489 = shufflevector <4 x i32> %1148, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1149 = bitcast <4 x i32> %permil489 to <2 x i64>
-  store <2 x i64> %1149, ptr %q1477, align 16
-  %1150 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx490 = getelementptr inbounds i32, ptr %1150, i64 2
-  %1151 = load i32, ptr %arrayidx490, align 4
-  store i32 %1151, ptr %__a.addr.i1488, align 4
-  %1152 = load i32, ptr %__a.addr.i1488, align 4
-  %vecinit.i1490 = insertelement <4 x i32> undef, i32 %1152, i32 0
-  %vecinit1.i1491 = insertelement <4 x i32> %vecinit.i1490, i32 0, i32 1
-  %vecinit2.i1492 = insertelement <4 x i32> %vecinit1.i1491, i32 0, i32 2
-  %vecinit3.i1493 = insertelement <4 x i32> %vecinit2.i1492, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1493, ptr %.compoundliteral.i1489, align 16
-  %1153 = load <4 x i32>, ptr %.compoundliteral.i1489, align 16
-  %1154 = bitcast <4 x i32> %1153 to <2 x i64>
-  store <2 x i64> %1154, ptr %q2478, align 16
-  %1155 = load <2 x i64>, ptr %q2478, align 16
-  %1156 = bitcast <2 x i64> %1155 to <4 x i32>
-  %permil492 = shufflevector <4 x i32> %1156, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1157 = bitcast <4 x i32> %permil492 to <2 x i64>
-  store <2 x i64> %1157, ptr %q2478, align 16
-  %1158 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx493 = getelementptr inbounds i32, ptr %1158, i64 3
-  %1159 = load i32, ptr %arrayidx493, align 4
-  store i32 %1159, ptr %__a.addr.i1482, align 4
-  %1160 = load i32, ptr %__a.addr.i1482, align 4
-  %vecinit.i1484 = insertelement <4 x i32> undef, i32 %1160, i32 0
-  %vecinit1.i1485 = insertelement <4 x i32> %vecinit.i1484, i32 0, i32 1
-  %vecinit2.i1486 = insertelement <4 x i32> %vecinit1.i1485, i32 0, i32 2
-  %vecinit3.i1487 = insertelement <4 x i32> %vecinit2.i1486, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1487, ptr %.compoundliteral.i1483, align 16
-  %1161 = load <4 x i32>, ptr %.compoundliteral.i1483, align 16
-  %1162 = bitcast <4 x i32> %1161 to <2 x i64>
-  store <2 x i64> %1162, ptr %q3479, align 16
-  %1163 = load <2 x i64>, ptr %q3479, align 16
-  %1164 = bitcast <2 x i64> %1163 to <4 x i32>
-  %permil495 = shufflevector <4 x i32> %1164, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1165 = bitcast <4 x i32> %permil495 to <2 x i64>
-  store <2 x i64> %1165, ptr %q3479, align 16
-  %1166 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx496 = getelementptr inbounds i32, ptr %1166, i64 4
-  %1167 = load i32, ptr %arrayidx496, align 4
-  store i32 %1167, ptr %__a.addr.i1476, align 4
-  %1168 = load i32, ptr %__a.addr.i1476, align 4
-  %vecinit.i1478 = insertelement <4 x i32> undef, i32 %1168, i32 0
-  %vecinit1.i1479 = insertelement <4 x i32> %vecinit.i1478, i32 0, i32 1
-  %vecinit2.i1480 = insertelement <4 x i32> %vecinit1.i1479, i32 0, i32 2
-  %vecinit3.i1481 = insertelement <4 x i32> %vecinit2.i1480, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1481, ptr %.compoundliteral.i1477, align 16
-  %1169 = load <4 x i32>, ptr %.compoundliteral.i1477, align 16
-  %1170 = bitcast <4 x i32> %1169 to <2 x i64>
-  store <2 x i64> %1170, ptr %q4480, align 16
-  %1171 = load <2 x i64>, ptr %q4480, align 16
-  %1172 = bitcast <2 x i64> %1171 to <4 x i32>
-  %permil498 = shufflevector <4 x i32> %1172, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1173 = bitcast <4 x i32> %permil498 to <2 x i64>
-  store <2 x i64> %1173, ptr %q4480, align 16
-  %1174 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx499 = getelementptr inbounds i32, ptr %1174, i64 5
-  %1175 = load i32, ptr %arrayidx499, align 4
-  store i32 %1175, ptr %__a.addr.i1470, align 4
-  %1176 = load i32, ptr %__a.addr.i1470, align 4
-  %vecinit.i1472 = insertelement <4 x i32> undef, i32 %1176, i32 0
-  %vecinit1.i1473 = insertelement <4 x i32> %vecinit.i1472, i32 0, i32 1
-  %vecinit2.i1474 = insertelement <4 x i32> %vecinit1.i1473, i32 0, i32 2
-  %vecinit3.i1475 = insertelement <4 x i32> %vecinit2.i1474, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1475, ptr %.compoundliteral.i1471, align 16
-  %1177 = load <4 x i32>, ptr %.compoundliteral.i1471, align 16
-  %1178 = bitcast <4 x i32> %1177 to <2 x i64>
-  store <2 x i64> %1178, ptr %q5481, align 16
-  %1179 = load <2 x i64>, ptr %q5481, align 16
-  %1180 = bitcast <2 x i64> %1179 to <4 x i32>
-  %permil501 = shufflevector <4 x i32> %1180, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1181 = bitcast <4 x i32> %permil501 to <2 x i64>
-  store <2 x i64> %1181, ptr %q5481, align 16
-  %1182 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx502 = getelementptr inbounds i32, ptr %1182, i64 6
-  %1183 = load i32, ptr %arrayidx502, align 4
-  store i32 %1183, ptr %__a.addr.i1464, align 4
-  %1184 = load i32, ptr %__a.addr.i1464, align 4
-  %vecinit.i1466 = insertelement <4 x i32> undef, i32 %1184, i32 0
-  %vecinit1.i1467 = insertelement <4 x i32> %vecinit.i1466, i32 0, i32 1
-  %vecinit2.i1468 = insertelement <4 x i32> %vecinit1.i1467, i32 0, i32 2
-  %vecinit3.i1469 = insertelement <4 x i32> %vecinit2.i1468, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1469, ptr %.compoundliteral.i1465, align 16
-  %1185 = load <4 x i32>, ptr %.compoundliteral.i1465, align 16
-  %1186 = bitcast <4 x i32> %1185 to <2 x i64>
-  store <2 x i64> %1186, ptr %q6482, align 16
-  %1187 = load <2 x i64>, ptr %q6482, align 16
-  %1188 = bitcast <2 x i64> %1187 to <4 x i32>
-  %permil504 = shufflevector <4 x i32> %1188, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1189 = bitcast <4 x i32> %permil504 to <2 x i64>
-  store <2 x i64> %1189, ptr %q6482, align 16
-  %1190 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx505 = getelementptr inbounds i32, ptr %1190, i64 7
-  %1191 = load i32, ptr %arrayidx505, align 4
-  store i32 %1191, ptr %__a.addr.i1458, align 4
-  %1192 = load i32, ptr %__a.addr.i1458, align 4
-  %vecinit.i1460 = insertelement <4 x i32> undef, i32 %1192, i32 0
-  %vecinit1.i1461 = insertelement <4 x i32> %vecinit.i1460, i32 0, i32 1
-  %vecinit2.i1462 = insertelement <4 x i32> %vecinit1.i1461, i32 0, i32 2
-  %vecinit3.i1463 = insertelement <4 x i32> %vecinit2.i1462, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1463, ptr %.compoundliteral.i1459, align 16
-  %1193 = load <4 x i32>, ptr %.compoundliteral.i1459, align 16
-  %1194 = bitcast <4 x i32> %1193 to <2 x i64>
-  store <2 x i64> %1194, ptr %q7483, align 16
-  %1195 = load <2 x i64>, ptr %q7483, align 16
-  %1196 = bitcast <2 x i64> %1195 to <4 x i32>
-  %permil507 = shufflevector <4 x i32> %1196, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1197 = bitcast <4 x i32> %permil507 to <2 x i64>
-  store <2 x i64> %1197, ptr %q7483, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond508
-
-for.cond508:                                      ; preds = %for.inc568, %if.then475
-  %1198 = load i32, ptr %i, align 4
-  %1199 = load i32, ptr %data_len.addr, align 4
-  %sub509 = sub nsw i32 %1199, 3
-  %cmp510 = icmp slt i32 %1198, %sub509
-  br i1 %cmp510, label %for.body511, label %for.end570
-
-for.body511:                                      ; preds = %for.cond508
-  %1200 = load <2 x i64>, ptr %q7483, align 16
-  %1201 = load ptr, ptr %data.addr, align 8
-  %1202 = load i32, ptr %i, align 4
-  %idx.ext514 = sext i32 %1202 to i64
-  %add.ptr515 = getelementptr inbounds i32, ptr %1201, i64 %idx.ext514
-  %add.ptr516 = getelementptr inbounds i32, ptr %add.ptr515, i64 -8
-  store ptr %add.ptr516, ptr %__p.addr.i2037, align 8
-  %1203 = load ptr, ptr %__p.addr.i2037, align 8
-  %1204 = load <2 x i64>, ptr %1203, align 1
-  store <2 x i64> %1200, ptr %__V1.addr.i1866, align 16
-  store <2 x i64> %1204, ptr %__V2.addr.i1867, align 16
-  %1205 = load <2 x i64>, ptr %__V1.addr.i1866, align 16
-  %1206 = bitcast <2 x i64> %1205 to <4 x i32>
-  %1207 = load <2 x i64>, ptr %__V2.addr.i1867, align 16
-  %1208 = bitcast <2 x i64> %1207 to <4 x i32>
-  %mul.i1868 = mul <4 x i32> %1206, %1208
-  %1209 = bitcast <4 x i32> %mul.i1868 to <2 x i64>
-  store <2 x i64> %1209, ptr %summ512, align 16
-  %1210 = load <2 x i64>, ptr %q6482, align 16
-  %1211 = load ptr, ptr %data.addr, align 8
-  %1212 = load i32, ptr %i, align 4
-  %idx.ext519 = sext i32 %1212 to i64
-  %add.ptr520 = getelementptr inbounds i32, ptr %1211, i64 %idx.ext519
-  %add.ptr521 = getelementptr inbounds i32, ptr %add.ptr520, i64 -7
-  store ptr %add.ptr521, ptr %__p.addr.i2036, align 8
-  %1213 = load ptr, ptr %__p.addr.i2036, align 8
-  %1214 = load <2 x i64>, ptr %1213, align 1
-  store <2 x i64> %1210, ptr %__V1.addr.i1863, align 16
-  store <2 x i64> %1214, ptr %__V2.addr.i1864, align 16
-  %1215 = load <2 x i64>, ptr %__V1.addr.i1863, align 16
-  %1216 = bitcast <2 x i64> %1215 to <4 x i32>
-  %1217 = load <2 x i64>, ptr %__V2.addr.i1864, align 16
-  %1218 = bitcast <2 x i64> %1217 to <4 x i32>
-  %mul.i1865 = mul <4 x i32> %1216, %1218
-  %1219 = bitcast <4 x i32> %mul.i1865 to <2 x i64>
-  store <2 x i64> %1219, ptr %mull513, align 16
-  %1220 = load <2 x i64>, ptr %summ512, align 16
-  %1221 = load <2 x i64>, ptr %mull513, align 16
-  store <2 x i64> %1220, ptr %__a.addr.i2163, align 16
-  store <2 x i64> %1221, ptr %__b.addr.i2164, align 16
-  %1222 = load <2 x i64>, ptr %__a.addr.i2163, align 16
-  %1223 = bitcast <2 x i64> %1222 to <4 x i32>
-  %1224 = load <2 x i64>, ptr %__b.addr.i2164, align 16
-  %1225 = bitcast <2 x i64> %1224 to <4 x i32>
-  %add.i2165 = add <4 x i32> %1223, %1225
-  %1226 = bitcast <4 x i32> %add.i2165 to <2 x i64>
-  store <2 x i64> %1226, ptr %summ512, align 16
-  %1227 = load <2 x i64>, ptr %q5481, align 16
-  %1228 = load ptr, ptr %data.addr, align 8
-  %1229 = load i32, ptr %i, align 4
-  %idx.ext525 = sext i32 %1229 to i64
-  %add.ptr526 = getelementptr inbounds i32, ptr %1228, i64 %idx.ext525
-  %add.ptr527 = getelementptr inbounds i32, ptr %add.ptr526, i64 -6
-  store ptr %add.ptr527, ptr %__p.addr.i2035, align 8
-  %1230 = load ptr, ptr %__p.addr.i2035, align 8
-  %1231 = load <2 x i64>, ptr %1230, align 1
-  store <2 x i64> %1227, ptr %__V1.addr.i1860, align 16
-  store <2 x i64> %1231, ptr %__V2.addr.i1861, align 16
-  %1232 = load <2 x i64>, ptr %__V1.addr.i1860, align 16
-  %1233 = bitcast <2 x i64> %1232 to <4 x i32>
-  %1234 = load <2 x i64>, ptr %__V2.addr.i1861, align 16
+1205:                                             ; preds = %1028
+  call void @llvm.lifetime.start.p0(i64 16, ptr %76) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %77) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %78) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %79) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %80) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %81) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %82) #5
+  %1206 = load ptr, ptr %9, align 8, !tbaa !3
+  %1207 = getelementptr inbounds i32, ptr %1206, i64 0
+  %1208 = load i32, ptr %1207, align 4, !tbaa !8
+  %1209 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1208)
+  store <2 x i64> %1209, ptr %76, align 16, !tbaa !10
+  %1210 = load <2 x i64>, ptr %76, align 16, !tbaa !10
+  %1211 = bitcast <2 x i64> %1210 to <4 x i32>
+  %1212 = shufflevector <4 x i32> %1211, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1213 = bitcast <4 x i32> %1212 to <2 x i64>
+  store <2 x i64> %1213, ptr %76, align 16, !tbaa !10
+  %1214 = load ptr, ptr %9, align 8, !tbaa !3
+  %1215 = getelementptr inbounds i32, ptr %1214, i64 1
+  %1216 = load i32, ptr %1215, align 4, !tbaa !8
+  %1217 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1216)
+  store <2 x i64> %1217, ptr %77, align 16, !tbaa !10
+  %1218 = load <2 x i64>, ptr %77, align 16, !tbaa !10
+  %1219 = bitcast <2 x i64> %1218 to <4 x i32>
+  %1220 = shufflevector <4 x i32> %1219, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1221 = bitcast <4 x i32> %1220 to <2 x i64>
+  store <2 x i64> %1221, ptr %77, align 16, !tbaa !10
+  %1222 = load ptr, ptr %9, align 8, !tbaa !3
+  %1223 = getelementptr inbounds i32, ptr %1222, i64 2
+  %1224 = load i32, ptr %1223, align 4, !tbaa !8
+  %1225 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1224)
+  store <2 x i64> %1225, ptr %78, align 16, !tbaa !10
+  %1226 = load <2 x i64>, ptr %78, align 16, !tbaa !10
+  %1227 = bitcast <2 x i64> %1226 to <4 x i32>
+  %1228 = shufflevector <4 x i32> %1227, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1229 = bitcast <4 x i32> %1228 to <2 x i64>
+  store <2 x i64> %1229, ptr %78, align 16, !tbaa !10
+  %1230 = load ptr, ptr %9, align 8, !tbaa !3
+  %1231 = getelementptr inbounds i32, ptr %1230, i64 3
+  %1232 = load i32, ptr %1231, align 4, !tbaa !8
+  %1233 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1232)
+  store <2 x i64> %1233, ptr %79, align 16, !tbaa !10
+  %1234 = load <2 x i64>, ptr %79, align 16, !tbaa !10
   %1235 = bitcast <2 x i64> %1234 to <4 x i32>
-  %mul.i1862 = mul <4 x i32> %1233, %1235
-  %1236 = bitcast <4 x i32> %mul.i1862 to <2 x i64>
-  store <2 x i64> %1236, ptr %mull513, align 16
-  %1237 = load <2 x i64>, ptr %summ512, align 16
-  %1238 = load <2 x i64>, ptr %mull513, align 16
-  store <2 x i64> %1237, ptr %__a.addr.i2160, align 16
-  store <2 x i64> %1238, ptr %__b.addr.i2161, align 16
-  %1239 = load <2 x i64>, ptr %__a.addr.i2160, align 16
-  %1240 = bitcast <2 x i64> %1239 to <4 x i32>
-  %1241 = load <2 x i64>, ptr %__b.addr.i2161, align 16
-  %1242 = bitcast <2 x i64> %1241 to <4 x i32>
-  %add.i2162 = add <4 x i32> %1240, %1242
-  %1243 = bitcast <4 x i32> %add.i2162 to <2 x i64>
-  store <2 x i64> %1243, ptr %summ512, align 16
-  %1244 = load <2 x i64>, ptr %q4480, align 16
-  %1245 = load ptr, ptr %data.addr, align 8
-  %1246 = load i32, ptr %i, align 4
-  %idx.ext531 = sext i32 %1246 to i64
-  %add.ptr532 = getelementptr inbounds i32, ptr %1245, i64 %idx.ext531
-  %add.ptr533 = getelementptr inbounds i32, ptr %add.ptr532, i64 -5
-  store ptr %add.ptr533, ptr %__p.addr.i2034, align 8
-  %1247 = load ptr, ptr %__p.addr.i2034, align 8
-  %1248 = load <2 x i64>, ptr %1247, align 1
-  store <2 x i64> %1244, ptr %__V1.addr.i1857, align 16
-  store <2 x i64> %1248, ptr %__V2.addr.i1858, align 16
-  %1249 = load <2 x i64>, ptr %__V1.addr.i1857, align 16
-  %1250 = bitcast <2 x i64> %1249 to <4 x i32>
-  %1251 = load <2 x i64>, ptr %__V2.addr.i1858, align 16
-  %1252 = bitcast <2 x i64> %1251 to <4 x i32>
-  %mul.i1859 = mul <4 x i32> %1250, %1252
-  %1253 = bitcast <4 x i32> %mul.i1859 to <2 x i64>
-  store <2 x i64> %1253, ptr %mull513, align 16
-  %1254 = load <2 x i64>, ptr %summ512, align 16
-  %1255 = load <2 x i64>, ptr %mull513, align 16
-  store <2 x i64> %1254, ptr %__a.addr.i2157, align 16
-  store <2 x i64> %1255, ptr %__b.addr.i2158, align 16
-  %1256 = load <2 x i64>, ptr %__a.addr.i2157, align 16
-  %1257 = bitcast <2 x i64> %1256 to <4 x i32>
-  %1258 = load <2 x i64>, ptr %__b.addr.i2158, align 16
+  %1236 = shufflevector <4 x i32> %1235, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1237 = bitcast <4 x i32> %1236 to <2 x i64>
+  store <2 x i64> %1237, ptr %79, align 16, !tbaa !10
+  %1238 = load ptr, ptr %9, align 8, !tbaa !3
+  %1239 = getelementptr inbounds i32, ptr %1238, i64 4
+  %1240 = load i32, ptr %1239, align 4, !tbaa !8
+  %1241 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1240)
+  store <2 x i64> %1241, ptr %80, align 16, !tbaa !10
+  %1242 = load <2 x i64>, ptr %80, align 16, !tbaa !10
+  %1243 = bitcast <2 x i64> %1242 to <4 x i32>
+  %1244 = shufflevector <4 x i32> %1243, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1245 = bitcast <4 x i32> %1244 to <2 x i64>
+  store <2 x i64> %1245, ptr %80, align 16, !tbaa !10
+  %1246 = load ptr, ptr %9, align 8, !tbaa !3
+  %1247 = getelementptr inbounds i32, ptr %1246, i64 5
+  %1248 = load i32, ptr %1247, align 4, !tbaa !8
+  %1249 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1248)
+  store <2 x i64> %1249, ptr %81, align 16, !tbaa !10
+  %1250 = load <2 x i64>, ptr %81, align 16, !tbaa !10
+  %1251 = bitcast <2 x i64> %1250 to <4 x i32>
+  %1252 = shufflevector <4 x i32> %1251, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1253 = bitcast <4 x i32> %1252 to <2 x i64>
+  store <2 x i64> %1253, ptr %81, align 16, !tbaa !10
+  %1254 = load ptr, ptr %9, align 8, !tbaa !3
+  %1255 = getelementptr inbounds i32, ptr %1254, i64 6
+  %1256 = load i32, ptr %1255, align 4, !tbaa !8
+  %1257 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1256)
+  store <2 x i64> %1257, ptr %82, align 16, !tbaa !10
+  %1258 = load <2 x i64>, ptr %82, align 16, !tbaa !10
   %1259 = bitcast <2 x i64> %1258 to <4 x i32>
-  %add.i2159 = add <4 x i32> %1257, %1259
-  %1260 = bitcast <4 x i32> %add.i2159 to <2 x i64>
-  store <2 x i64> %1260, ptr %summ512, align 16
-  %1261 = load <2 x i64>, ptr %q3479, align 16
-  %1262 = load ptr, ptr %data.addr, align 8
-  %1263 = load i32, ptr %i, align 4
-  %idx.ext537 = sext i32 %1263 to i64
-  %add.ptr538 = getelementptr inbounds i32, ptr %1262, i64 %idx.ext537
-  %add.ptr539 = getelementptr inbounds i32, ptr %add.ptr538, i64 -4
-  store ptr %add.ptr539, ptr %__p.addr.i2033, align 8
-  %1264 = load ptr, ptr %__p.addr.i2033, align 8
-  %1265 = load <2 x i64>, ptr %1264, align 1
-  store <2 x i64> %1261, ptr %__V1.addr.i1854, align 16
-  store <2 x i64> %1265, ptr %__V2.addr.i1855, align 16
-  %1266 = load <2 x i64>, ptr %__V1.addr.i1854, align 16
-  %1267 = bitcast <2 x i64> %1266 to <4 x i32>
-  %1268 = load <2 x i64>, ptr %__V2.addr.i1855, align 16
-  %1269 = bitcast <2 x i64> %1268 to <4 x i32>
-  %mul.i1856 = mul <4 x i32> %1267, %1269
-  %1270 = bitcast <4 x i32> %mul.i1856 to <2 x i64>
-  store <2 x i64> %1270, ptr %mull513, align 16
-  %1271 = load <2 x i64>, ptr %summ512, align 16
-  %1272 = load <2 x i64>, ptr %mull513, align 16
-  store <2 x i64> %1271, ptr %__a.addr.i2154, align 16
-  store <2 x i64> %1272, ptr %__b.addr.i2155, align 16
-  %1273 = load <2 x i64>, ptr %__a.addr.i2154, align 16
-  %1274 = bitcast <2 x i64> %1273 to <4 x i32>
-  %1275 = load <2 x i64>, ptr %__b.addr.i2155, align 16
-  %1276 = bitcast <2 x i64> %1275 to <4 x i32>
-  %add.i2156 = add <4 x i32> %1274, %1276
-  %1277 = bitcast <4 x i32> %add.i2156 to <2 x i64>
-  store <2 x i64> %1277, ptr %summ512, align 16
-  %1278 = load <2 x i64>, ptr %q2478, align 16
-  %1279 = load ptr, ptr %data.addr, align 8
-  %1280 = load i32, ptr %i, align 4
-  %idx.ext543 = sext i32 %1280 to i64
-  %add.ptr544 = getelementptr inbounds i32, ptr %1279, i64 %idx.ext543
-  %add.ptr545 = getelementptr inbounds i32, ptr %add.ptr544, i64 -3
-  store ptr %add.ptr545, ptr %__p.addr.i2032, align 8
-  %1281 = load ptr, ptr %__p.addr.i2032, align 8
-  %1282 = load <2 x i64>, ptr %1281, align 1
-  store <2 x i64> %1278, ptr %__V1.addr.i1851, align 16
-  store <2 x i64> %1282, ptr %__V2.addr.i1852, align 16
-  %1283 = load <2 x i64>, ptr %__V1.addr.i1851, align 16
-  %1284 = bitcast <2 x i64> %1283 to <4 x i32>
-  %1285 = load <2 x i64>, ptr %__V2.addr.i1852, align 16
-  %1286 = bitcast <2 x i64> %1285 to <4 x i32>
-  %mul.i1853 = mul <4 x i32> %1284, %1286
-  %1287 = bitcast <4 x i32> %mul.i1853 to <2 x i64>
-  store <2 x i64> %1287, ptr %mull513, align 16
-  %1288 = load <2 x i64>, ptr %summ512, align 16
-  %1289 = load <2 x i64>, ptr %mull513, align 16
-  store <2 x i64> %1288, ptr %__a.addr.i2151, align 16
-  store <2 x i64> %1289, ptr %__b.addr.i2152, align 16
-  %1290 = load <2 x i64>, ptr %__a.addr.i2151, align 16
-  %1291 = bitcast <2 x i64> %1290 to <4 x i32>
-  %1292 = load <2 x i64>, ptr %__b.addr.i2152, align 16
-  %1293 = bitcast <2 x i64> %1292 to <4 x i32>
-  %add.i2153 = add <4 x i32> %1291, %1293
-  %1294 = bitcast <4 x i32> %add.i2153 to <2 x i64>
-  store <2 x i64> %1294, ptr %summ512, align 16
-  %1295 = load <2 x i64>, ptr %q1477, align 16
-  %1296 = load ptr, ptr %data.addr, align 8
-  %1297 = load i32, ptr %i, align 4
-  %idx.ext549 = sext i32 %1297 to i64
-  %add.ptr550 = getelementptr inbounds i32, ptr %1296, i64 %idx.ext549
-  %add.ptr551 = getelementptr inbounds i32, ptr %add.ptr550, i64 -2
-  store ptr %add.ptr551, ptr %__p.addr.i2031, align 8
-  %1298 = load ptr, ptr %__p.addr.i2031, align 8
-  %1299 = load <2 x i64>, ptr %1298, align 1
-  store <2 x i64> %1295, ptr %__V1.addr.i1848, align 16
-  store <2 x i64> %1299, ptr %__V2.addr.i1849, align 16
-  %1300 = load <2 x i64>, ptr %__V1.addr.i1848, align 16
-  %1301 = bitcast <2 x i64> %1300 to <4 x i32>
-  %1302 = load <2 x i64>, ptr %__V2.addr.i1849, align 16
-  %1303 = bitcast <2 x i64> %1302 to <4 x i32>
-  %mul.i1850 = mul <4 x i32> %1301, %1303
-  %1304 = bitcast <4 x i32> %mul.i1850 to <2 x i64>
-  store <2 x i64> %1304, ptr %mull513, align 16
-  %1305 = load <2 x i64>, ptr %summ512, align 16
-  %1306 = load <2 x i64>, ptr %mull513, align 16
-  store <2 x i64> %1305, ptr %__a.addr.i2148, align 16
-  store <2 x i64> %1306, ptr %__b.addr.i2149, align 16
-  %1307 = load <2 x i64>, ptr %__a.addr.i2148, align 16
-  %1308 = bitcast <2 x i64> %1307 to <4 x i32>
-  %1309 = load <2 x i64>, ptr %__b.addr.i2149, align 16
-  %1310 = bitcast <2 x i64> %1309 to <4 x i32>
-  %add.i2150 = add <4 x i32> %1308, %1310
-  %1311 = bitcast <4 x i32> %add.i2150 to <2 x i64>
-  store <2 x i64> %1311, ptr %summ512, align 16
-  %1312 = load <2 x i64>, ptr %q0476, align 16
-  %1313 = load ptr, ptr %data.addr, align 8
-  %1314 = load i32, ptr %i, align 4
-  %idx.ext555 = sext i32 %1314 to i64
-  %add.ptr556 = getelementptr inbounds i32, ptr %1313, i64 %idx.ext555
-  %add.ptr557 = getelementptr inbounds i32, ptr %add.ptr556, i64 -1
-  store ptr %add.ptr557, ptr %__p.addr.i2030, align 8
-  %1315 = load ptr, ptr %__p.addr.i2030, align 8
-  %1316 = load <2 x i64>, ptr %1315, align 1
-  store <2 x i64> %1312, ptr %__V1.addr.i1845, align 16
-  store <2 x i64> %1316, ptr %__V2.addr.i1846, align 16
-  %1317 = load <2 x i64>, ptr %__V1.addr.i1845, align 16
-  %1318 = bitcast <2 x i64> %1317 to <4 x i32>
-  %1319 = load <2 x i64>, ptr %__V2.addr.i1846, align 16
-  %1320 = bitcast <2 x i64> %1319 to <4 x i32>
-  %mul.i1847 = mul <4 x i32> %1318, %1320
-  %1321 = bitcast <4 x i32> %mul.i1847 to <2 x i64>
-  store <2 x i64> %1321, ptr %mull513, align 16
-  %1322 = load <2 x i64>, ptr %summ512, align 16
-  %1323 = load <2 x i64>, ptr %mull513, align 16
-  store <2 x i64> %1322, ptr %__a.addr.i2145, align 16
-  store <2 x i64> %1323, ptr %__b.addr.i2146, align 16
-  %1324 = load <2 x i64>, ptr %__a.addr.i2145, align 16
-  %1325 = bitcast <2 x i64> %1324 to <4 x i32>
-  %1326 = load <2 x i64>, ptr %__b.addr.i2146, align 16
-  %1327 = bitcast <2 x i64> %1326 to <4 x i32>
-  %add.i2147 = add <4 x i32> %1325, %1327
-  %1328 = bitcast <4 x i32> %add.i2147 to <2 x i64>
-  store <2 x i64> %1328, ptr %summ512, align 16
-  %1329 = load <2 x i64>, ptr %summ512, align 16
-  %1330 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %1329, ptr %__a.addr.i2293, align 16
-  store <2 x i64> %1330, ptr %__count.addr.i2294, align 16
-  %1331 = load <2 x i64>, ptr %__a.addr.i2293, align 16
-  %1332 = bitcast <2 x i64> %1331 to <4 x i32>
-  %1333 = load <2 x i64>, ptr %__count.addr.i2294, align 16
-  %1334 = bitcast <2 x i64> %1333 to <4 x i32>
-  %1335 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %1332, <4 x i32> %1334)
-  %1336 = bitcast <4 x i32> %1335 to <2 x i64>
-  store <2 x i64> %1336, ptr %summ512, align 16
-  %1337 = load ptr, ptr %residual.addr, align 8
-  %1338 = load i32, ptr %i, align 4
-  %idx.ext562 = sext i32 %1338 to i64
-  %add.ptr563 = getelementptr inbounds i32, ptr %1337, i64 %idx.ext562
-  %1339 = load ptr, ptr %data.addr, align 8
-  %1340 = load i32, ptr %i, align 4
-  %idx.ext564 = sext i32 %1340 to i64
-  %add.ptr565 = getelementptr inbounds i32, ptr %1339, i64 %idx.ext564
-  store ptr %add.ptr565, ptr %__p.addr.i2029, align 8
-  %1341 = load ptr, ptr %__p.addr.i2029, align 8
-  %1342 = load <2 x i64>, ptr %1341, align 1
-  %1343 = load <2 x i64>, ptr %summ512, align 16
-  store <2 x i64> %1342, ptr %__a.addr.i2347, align 16
-  store <2 x i64> %1343, ptr %__b.addr.i2348, align 16
-  %1344 = load <2 x i64>, ptr %__a.addr.i2347, align 16
-  %1345 = bitcast <2 x i64> %1344 to <4 x i32>
-  %1346 = load <2 x i64>, ptr %__b.addr.i2348, align 16
-  %1347 = bitcast <2 x i64> %1346 to <4 x i32>
-  %sub.i2349 = sub <4 x i32> %1345, %1347
-  %1348 = bitcast <4 x i32> %sub.i2349 to <2 x i64>
-  store ptr %add.ptr563, ptr %__p.addr.i2317, align 8
-  store <2 x i64> %1348, ptr %__b.addr.i2318, align 16
-  %1349 = load <2 x i64>, ptr %__b.addr.i2318, align 16
-  %1350 = load ptr, ptr %__p.addr.i2317, align 8
-  store <2 x i64> %1349, ptr %1350, align 1
-  br label %for.inc568
+  %1260 = shufflevector <4 x i32> %1259, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1261 = bitcast <4 x i32> %1260 to <2 x i64>
+  store <2 x i64> %1261, ptr %82, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %1262
 
-for.inc568:                                       ; preds = %for.body511
-  %1351 = load i32, ptr %i, align 4
-  %add569 = add nsw i32 %1351, 4
-  store i32 %add569, ptr %i, align 4
-  br label %for.cond508, !llvm.loop !9
+1262:                                             ; preds = %1356, %1205
+  %1263 = load i32, ptr %13, align 4, !tbaa !8
+  %1264 = load i32, ptr %8, align 4, !tbaa !8
+  %1265 = sub nsw i32 %1264, 3
+  %1266 = icmp slt i32 %1263, %1265
+  br i1 %1266, label %1267, label %1359
 
-for.end570:                                       ; preds = %for.cond508
-  br label %if.end657
+1267:                                             ; preds = %1262
+  call void @llvm.lifetime.start.p0(i64 16, ptr %83) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %84) #5
+  %1268 = load <2 x i64>, ptr %82, align 16, !tbaa !10
+  %1269 = load ptr, ptr %7, align 8, !tbaa !3
+  %1270 = load i32, ptr %13, align 4, !tbaa !8
+  %1271 = sext i32 %1270 to i64
+  %1272 = getelementptr inbounds i32, ptr %1269, i64 %1271
+  %1273 = getelementptr inbounds i32, ptr %1272, i64 -7
+  %1274 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1273)
+  %1275 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1268, <2 x i64> noundef %1274)
+  store <2 x i64> %1275, ptr %83, align 16, !tbaa !10
+  %1276 = load <2 x i64>, ptr %81, align 16, !tbaa !10
+  %1277 = load ptr, ptr %7, align 8, !tbaa !3
+  %1278 = load i32, ptr %13, align 4, !tbaa !8
+  %1279 = sext i32 %1278 to i64
+  %1280 = getelementptr inbounds i32, ptr %1277, i64 %1279
+  %1281 = getelementptr inbounds i32, ptr %1280, i64 -6
+  %1282 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1281)
+  %1283 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1276, <2 x i64> noundef %1282)
+  store <2 x i64> %1283, ptr %84, align 16, !tbaa !10
+  %1284 = load <2 x i64>, ptr %83, align 16, !tbaa !10
+  %1285 = load <2 x i64>, ptr %84, align 16, !tbaa !10
+  %1286 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1284, <2 x i64> noundef %1285)
+  store <2 x i64> %1286, ptr %83, align 16, !tbaa !10
+  %1287 = load <2 x i64>, ptr %80, align 16, !tbaa !10
+  %1288 = load ptr, ptr %7, align 8, !tbaa !3
+  %1289 = load i32, ptr %13, align 4, !tbaa !8
+  %1290 = sext i32 %1289 to i64
+  %1291 = getelementptr inbounds i32, ptr %1288, i64 %1290
+  %1292 = getelementptr inbounds i32, ptr %1291, i64 -5
+  %1293 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1292)
+  %1294 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1287, <2 x i64> noundef %1293)
+  store <2 x i64> %1294, ptr %84, align 16, !tbaa !10
+  %1295 = load <2 x i64>, ptr %83, align 16, !tbaa !10
+  %1296 = load <2 x i64>, ptr %84, align 16, !tbaa !10
+  %1297 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1295, <2 x i64> noundef %1296)
+  store <2 x i64> %1297, ptr %83, align 16, !tbaa !10
+  %1298 = load <2 x i64>, ptr %79, align 16, !tbaa !10
+  %1299 = load ptr, ptr %7, align 8, !tbaa !3
+  %1300 = load i32, ptr %13, align 4, !tbaa !8
+  %1301 = sext i32 %1300 to i64
+  %1302 = getelementptr inbounds i32, ptr %1299, i64 %1301
+  %1303 = getelementptr inbounds i32, ptr %1302, i64 -4
+  %1304 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1303)
+  %1305 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1298, <2 x i64> noundef %1304)
+  store <2 x i64> %1305, ptr %84, align 16, !tbaa !10
+  %1306 = load <2 x i64>, ptr %83, align 16, !tbaa !10
+  %1307 = load <2 x i64>, ptr %84, align 16, !tbaa !10
+  %1308 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1306, <2 x i64> noundef %1307)
+  store <2 x i64> %1308, ptr %83, align 16, !tbaa !10
+  %1309 = load <2 x i64>, ptr %78, align 16, !tbaa !10
+  %1310 = load ptr, ptr %7, align 8, !tbaa !3
+  %1311 = load i32, ptr %13, align 4, !tbaa !8
+  %1312 = sext i32 %1311 to i64
+  %1313 = getelementptr inbounds i32, ptr %1310, i64 %1312
+  %1314 = getelementptr inbounds i32, ptr %1313, i64 -3
+  %1315 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1314)
+  %1316 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1309, <2 x i64> noundef %1315)
+  store <2 x i64> %1316, ptr %84, align 16, !tbaa !10
+  %1317 = load <2 x i64>, ptr %83, align 16, !tbaa !10
+  %1318 = load <2 x i64>, ptr %84, align 16, !tbaa !10
+  %1319 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1317, <2 x i64> noundef %1318)
+  store <2 x i64> %1319, ptr %83, align 16, !tbaa !10
+  %1320 = load <2 x i64>, ptr %77, align 16, !tbaa !10
+  %1321 = load ptr, ptr %7, align 8, !tbaa !3
+  %1322 = load i32, ptr %13, align 4, !tbaa !8
+  %1323 = sext i32 %1322 to i64
+  %1324 = getelementptr inbounds i32, ptr %1321, i64 %1323
+  %1325 = getelementptr inbounds i32, ptr %1324, i64 -2
+  %1326 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1325)
+  %1327 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1320, <2 x i64> noundef %1326)
+  store <2 x i64> %1327, ptr %84, align 16, !tbaa !10
+  %1328 = load <2 x i64>, ptr %83, align 16, !tbaa !10
+  %1329 = load <2 x i64>, ptr %84, align 16, !tbaa !10
+  %1330 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1328, <2 x i64> noundef %1329)
+  store <2 x i64> %1330, ptr %83, align 16, !tbaa !10
+  %1331 = load <2 x i64>, ptr %76, align 16, !tbaa !10
+  %1332 = load ptr, ptr %7, align 8, !tbaa !3
+  %1333 = load i32, ptr %13, align 4, !tbaa !8
+  %1334 = sext i32 %1333 to i64
+  %1335 = getelementptr inbounds i32, ptr %1332, i64 %1334
+  %1336 = getelementptr inbounds i32, ptr %1335, i64 -1
+  %1337 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1336)
+  %1338 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1331, <2 x i64> noundef %1337)
+  store <2 x i64> %1338, ptr %84, align 16, !tbaa !10
+  %1339 = load <2 x i64>, ptr %83, align 16, !tbaa !10
+  %1340 = load <2 x i64>, ptr %84, align 16, !tbaa !10
+  %1341 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1339, <2 x i64> noundef %1340)
+  store <2 x i64> %1341, ptr %83, align 16, !tbaa !10
+  %1342 = load <2 x i64>, ptr %83, align 16, !tbaa !10
+  %1343 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %1344 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %1342, <2 x i64> noundef %1343)
+  store <2 x i64> %1344, ptr %83, align 16, !tbaa !10
+  %1345 = load ptr, ptr %12, align 8, !tbaa !3
+  %1346 = load i32, ptr %13, align 4, !tbaa !8
+  %1347 = sext i32 %1346 to i64
+  %1348 = getelementptr inbounds i32, ptr %1345, i64 %1347
+  %1349 = load ptr, ptr %7, align 8, !tbaa !3
+  %1350 = load i32, ptr %13, align 4, !tbaa !8
+  %1351 = sext i32 %1350 to i64
+  %1352 = getelementptr inbounds i32, ptr %1349, i64 %1351
+  %1353 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1352)
+  %1354 = load <2 x i64>, ptr %83, align 16, !tbaa !10
+  %1355 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %1353, <2 x i64> noundef %1354)
+  call void @_mm_storeu_si128(ptr noundef %1348, <2 x i64> noundef %1355)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %84) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %83) #5
+  br label %1356
 
-if.else571:                                       ; preds = %if.then473
-  %1352 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx579 = getelementptr inbounds i32, ptr %1352, i64 0
-  %1353 = load i32, ptr %arrayidx579, align 4
-  store i32 %1353, ptr %__a.addr.i1452, align 4
-  %1354 = load i32, ptr %__a.addr.i1452, align 4
-  %vecinit.i1454 = insertelement <4 x i32> undef, i32 %1354, i32 0
-  %vecinit1.i1455 = insertelement <4 x i32> %vecinit.i1454, i32 0, i32 1
-  %vecinit2.i1456 = insertelement <4 x i32> %vecinit1.i1455, i32 0, i32 2
-  %vecinit3.i1457 = insertelement <4 x i32> %vecinit2.i1456, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1457, ptr %.compoundliteral.i1453, align 16
-  %1355 = load <4 x i32>, ptr %.compoundliteral.i1453, align 16
-  %1356 = bitcast <4 x i32> %1355 to <2 x i64>
-  store <2 x i64> %1356, ptr %q0572, align 16
-  %1357 = load <2 x i64>, ptr %q0572, align 16
-  %1358 = bitcast <2 x i64> %1357 to <4 x i32>
-  %permil581 = shufflevector <4 x i32> %1358, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1359 = bitcast <4 x i32> %permil581 to <2 x i64>
-  store <2 x i64> %1359, ptr %q0572, align 16
-  %1360 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx582 = getelementptr inbounds i32, ptr %1360, i64 1
-  %1361 = load i32, ptr %arrayidx582, align 4
-  store i32 %1361, ptr %__a.addr.i1446, align 4
-  %1362 = load i32, ptr %__a.addr.i1446, align 4
-  %vecinit.i1448 = insertelement <4 x i32> undef, i32 %1362, i32 0
-  %vecinit1.i1449 = insertelement <4 x i32> %vecinit.i1448, i32 0, i32 1
-  %vecinit2.i1450 = insertelement <4 x i32> %vecinit1.i1449, i32 0, i32 2
-  %vecinit3.i1451 = insertelement <4 x i32> %vecinit2.i1450, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1451, ptr %.compoundliteral.i1447, align 16
-  %1363 = load <4 x i32>, ptr %.compoundliteral.i1447, align 16
-  %1364 = bitcast <4 x i32> %1363 to <2 x i64>
-  store <2 x i64> %1364, ptr %q1573, align 16
-  %1365 = load <2 x i64>, ptr %q1573, align 16
-  %1366 = bitcast <2 x i64> %1365 to <4 x i32>
-  %permil584 = shufflevector <4 x i32> %1366, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1367 = bitcast <4 x i32> %permil584 to <2 x i64>
-  store <2 x i64> %1367, ptr %q1573, align 16
-  %1368 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx585 = getelementptr inbounds i32, ptr %1368, i64 2
-  %1369 = load i32, ptr %arrayidx585, align 4
-  store i32 %1369, ptr %__a.addr.i1440, align 4
-  %1370 = load i32, ptr %__a.addr.i1440, align 4
-  %vecinit.i1442 = insertelement <4 x i32> undef, i32 %1370, i32 0
-  %vecinit1.i1443 = insertelement <4 x i32> %vecinit.i1442, i32 0, i32 1
-  %vecinit2.i1444 = insertelement <4 x i32> %vecinit1.i1443, i32 0, i32 2
-  %vecinit3.i1445 = insertelement <4 x i32> %vecinit2.i1444, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1445, ptr %.compoundliteral.i1441, align 16
-  %1371 = load <4 x i32>, ptr %.compoundliteral.i1441, align 16
+1356:                                             ; preds = %1267
+  %1357 = load i32, ptr %13, align 4, !tbaa !8
+  %1358 = add nsw i32 %1357, 4
+  store i32 %1358, ptr %13, align 4, !tbaa !8
+  br label %1262, !llvm.loop !17
+
+1359:                                             ; preds = %1262
+  call void @llvm.lifetime.end.p0(i64 16, ptr %82) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %81) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %80) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %79) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %78) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %77) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %76) #5
+  br label %1360
+
+1360:                                             ; preds = %1359, %1204
+  br label %1618
+
+1361:                                             ; preds = %1025
+  %1362 = load i32, ptr %10, align 4, !tbaa !8
+  %1363 = icmp eq i32 %1362, 6
+  br i1 %1363, label %1364, label %1500
+
+1364:                                             ; preds = %1361
+  call void @llvm.lifetime.start.p0(i64 16, ptr %85) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %86) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %87) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %88) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %89) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %90) #5
+  %1365 = load ptr, ptr %9, align 8, !tbaa !3
+  %1366 = getelementptr inbounds i32, ptr %1365, i64 0
+  %1367 = load i32, ptr %1366, align 4, !tbaa !8
+  %1368 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1367)
+  store <2 x i64> %1368, ptr %85, align 16, !tbaa !10
+  %1369 = load <2 x i64>, ptr %85, align 16, !tbaa !10
+  %1370 = bitcast <2 x i64> %1369 to <4 x i32>
+  %1371 = shufflevector <4 x i32> %1370, <4 x i32> poison, <4 x i32> zeroinitializer
   %1372 = bitcast <4 x i32> %1371 to <2 x i64>
-  store <2 x i64> %1372, ptr %q2574, align 16
-  %1373 = load <2 x i64>, ptr %q2574, align 16
-  %1374 = bitcast <2 x i64> %1373 to <4 x i32>
-  %permil587 = shufflevector <4 x i32> %1374, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1375 = bitcast <4 x i32> %permil587 to <2 x i64>
-  store <2 x i64> %1375, ptr %q2574, align 16
-  %1376 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx588 = getelementptr inbounds i32, ptr %1376, i64 3
-  %1377 = load i32, ptr %arrayidx588, align 4
-  store i32 %1377, ptr %__a.addr.i1434, align 4
-  %1378 = load i32, ptr %__a.addr.i1434, align 4
-  %vecinit.i1436 = insertelement <4 x i32> undef, i32 %1378, i32 0
-  %vecinit1.i1437 = insertelement <4 x i32> %vecinit.i1436, i32 0, i32 1
-  %vecinit2.i1438 = insertelement <4 x i32> %vecinit1.i1437, i32 0, i32 2
-  %vecinit3.i1439 = insertelement <4 x i32> %vecinit2.i1438, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1439, ptr %.compoundliteral.i1435, align 16
-  %1379 = load <4 x i32>, ptr %.compoundliteral.i1435, align 16
+  store <2 x i64> %1372, ptr %85, align 16, !tbaa !10
+  %1373 = load ptr, ptr %9, align 8, !tbaa !3
+  %1374 = getelementptr inbounds i32, ptr %1373, i64 1
+  %1375 = load i32, ptr %1374, align 4, !tbaa !8
+  %1376 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1375)
+  store <2 x i64> %1376, ptr %86, align 16, !tbaa !10
+  %1377 = load <2 x i64>, ptr %86, align 16, !tbaa !10
+  %1378 = bitcast <2 x i64> %1377 to <4 x i32>
+  %1379 = shufflevector <4 x i32> %1378, <4 x i32> poison, <4 x i32> zeroinitializer
   %1380 = bitcast <4 x i32> %1379 to <2 x i64>
-  store <2 x i64> %1380, ptr %q3575, align 16
-  %1381 = load <2 x i64>, ptr %q3575, align 16
-  %1382 = bitcast <2 x i64> %1381 to <4 x i32>
-  %permil590 = shufflevector <4 x i32> %1382, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1383 = bitcast <4 x i32> %permil590 to <2 x i64>
-  store <2 x i64> %1383, ptr %q3575, align 16
-  %1384 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx591 = getelementptr inbounds i32, ptr %1384, i64 4
-  %1385 = load i32, ptr %arrayidx591, align 4
-  store i32 %1385, ptr %__a.addr.i1428, align 4
-  %1386 = load i32, ptr %__a.addr.i1428, align 4
-  %vecinit.i1430 = insertelement <4 x i32> undef, i32 %1386, i32 0
-  %vecinit1.i1431 = insertelement <4 x i32> %vecinit.i1430, i32 0, i32 1
-  %vecinit2.i1432 = insertelement <4 x i32> %vecinit1.i1431, i32 0, i32 2
-  %vecinit3.i1433 = insertelement <4 x i32> %vecinit2.i1432, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1433, ptr %.compoundliteral.i1429, align 16
-  %1387 = load <4 x i32>, ptr %.compoundliteral.i1429, align 16
+  store <2 x i64> %1380, ptr %86, align 16, !tbaa !10
+  %1381 = load ptr, ptr %9, align 8, !tbaa !3
+  %1382 = getelementptr inbounds i32, ptr %1381, i64 2
+  %1383 = load i32, ptr %1382, align 4, !tbaa !8
+  %1384 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1383)
+  store <2 x i64> %1384, ptr %87, align 16, !tbaa !10
+  %1385 = load <2 x i64>, ptr %87, align 16, !tbaa !10
+  %1386 = bitcast <2 x i64> %1385 to <4 x i32>
+  %1387 = shufflevector <4 x i32> %1386, <4 x i32> poison, <4 x i32> zeroinitializer
   %1388 = bitcast <4 x i32> %1387 to <2 x i64>
-  store <2 x i64> %1388, ptr %q4576, align 16
-  %1389 = load <2 x i64>, ptr %q4576, align 16
-  %1390 = bitcast <2 x i64> %1389 to <4 x i32>
-  %permil593 = shufflevector <4 x i32> %1390, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1391 = bitcast <4 x i32> %permil593 to <2 x i64>
-  store <2 x i64> %1391, ptr %q4576, align 16
-  %1392 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx594 = getelementptr inbounds i32, ptr %1392, i64 5
-  %1393 = load i32, ptr %arrayidx594, align 4
-  store i32 %1393, ptr %__a.addr.i1422, align 4
-  %1394 = load i32, ptr %__a.addr.i1422, align 4
-  %vecinit.i1424 = insertelement <4 x i32> undef, i32 %1394, i32 0
-  %vecinit1.i1425 = insertelement <4 x i32> %vecinit.i1424, i32 0, i32 1
-  %vecinit2.i1426 = insertelement <4 x i32> %vecinit1.i1425, i32 0, i32 2
-  %vecinit3.i1427 = insertelement <4 x i32> %vecinit2.i1426, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1427, ptr %.compoundliteral.i1423, align 16
-  %1395 = load <4 x i32>, ptr %.compoundliteral.i1423, align 16
+  store <2 x i64> %1388, ptr %87, align 16, !tbaa !10
+  %1389 = load ptr, ptr %9, align 8, !tbaa !3
+  %1390 = getelementptr inbounds i32, ptr %1389, i64 3
+  %1391 = load i32, ptr %1390, align 4, !tbaa !8
+  %1392 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1391)
+  store <2 x i64> %1392, ptr %88, align 16, !tbaa !10
+  %1393 = load <2 x i64>, ptr %88, align 16, !tbaa !10
+  %1394 = bitcast <2 x i64> %1393 to <4 x i32>
+  %1395 = shufflevector <4 x i32> %1394, <4 x i32> poison, <4 x i32> zeroinitializer
   %1396 = bitcast <4 x i32> %1395 to <2 x i64>
-  store <2 x i64> %1396, ptr %q5577, align 16
-  %1397 = load <2 x i64>, ptr %q5577, align 16
-  %1398 = bitcast <2 x i64> %1397 to <4 x i32>
-  %permil596 = shufflevector <4 x i32> %1398, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1399 = bitcast <4 x i32> %permil596 to <2 x i64>
-  store <2 x i64> %1399, ptr %q5577, align 16
-  %1400 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx597 = getelementptr inbounds i32, ptr %1400, i64 6
-  %1401 = load i32, ptr %arrayidx597, align 4
-  store i32 %1401, ptr %__a.addr.i1416, align 4
-  %1402 = load i32, ptr %__a.addr.i1416, align 4
-  %vecinit.i1418 = insertelement <4 x i32> undef, i32 %1402, i32 0
-  %vecinit1.i1419 = insertelement <4 x i32> %vecinit.i1418, i32 0, i32 1
-  %vecinit2.i1420 = insertelement <4 x i32> %vecinit1.i1419, i32 0, i32 2
-  %vecinit3.i1421 = insertelement <4 x i32> %vecinit2.i1420, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1421, ptr %.compoundliteral.i1417, align 16
-  %1403 = load <4 x i32>, ptr %.compoundliteral.i1417, align 16
+  store <2 x i64> %1396, ptr %88, align 16, !tbaa !10
+  %1397 = load ptr, ptr %9, align 8, !tbaa !3
+  %1398 = getelementptr inbounds i32, ptr %1397, i64 4
+  %1399 = load i32, ptr %1398, align 4, !tbaa !8
+  %1400 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1399)
+  store <2 x i64> %1400, ptr %89, align 16, !tbaa !10
+  %1401 = load <2 x i64>, ptr %89, align 16, !tbaa !10
+  %1402 = bitcast <2 x i64> %1401 to <4 x i32>
+  %1403 = shufflevector <4 x i32> %1402, <4 x i32> poison, <4 x i32> zeroinitializer
   %1404 = bitcast <4 x i32> %1403 to <2 x i64>
-  store <2 x i64> %1404, ptr %q6578, align 16
-  %1405 = load <2 x i64>, ptr %q6578, align 16
-  %1406 = bitcast <2 x i64> %1405 to <4 x i32>
-  %permil599 = shufflevector <4 x i32> %1406, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1407 = bitcast <4 x i32> %permil599 to <2 x i64>
-  store <2 x i64> %1407, ptr %q6578, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond600
+  store <2 x i64> %1404, ptr %89, align 16, !tbaa !10
+  %1405 = load ptr, ptr %9, align 8, !tbaa !3
+  %1406 = getelementptr inbounds i32, ptr %1405, i64 5
+  %1407 = load i32, ptr %1406, align 4, !tbaa !8
+  %1408 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1407)
+  store <2 x i64> %1408, ptr %90, align 16, !tbaa !10
+  %1409 = load <2 x i64>, ptr %90, align 16, !tbaa !10
+  %1410 = bitcast <2 x i64> %1409 to <4 x i32>
+  %1411 = shufflevector <4 x i32> %1410, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1412 = bitcast <4 x i32> %1411 to <2 x i64>
+  store <2 x i64> %1412, ptr %90, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %1413
 
-for.cond600:                                      ; preds = %for.inc654, %if.else571
-  %1408 = load i32, ptr %i, align 4
-  %1409 = load i32, ptr %data_len.addr, align 4
-  %sub601 = sub nsw i32 %1409, 3
-  %cmp602 = icmp slt i32 %1408, %sub601
-  br i1 %cmp602, label %for.body603, label %for.end656
+1413:                                             ; preds = %1496, %1364
+  %1414 = load i32, ptr %13, align 4, !tbaa !8
+  %1415 = load i32, ptr %8, align 4, !tbaa !8
+  %1416 = sub nsw i32 %1415, 3
+  %1417 = icmp slt i32 %1414, %1416
+  br i1 %1417, label %1418, label %1499
 
-for.body603:                                      ; preds = %for.cond600
-  %1410 = load <2 x i64>, ptr %q6578, align 16
-  %1411 = load ptr, ptr %data.addr, align 8
-  %1412 = load i32, ptr %i, align 4
-  %idx.ext606 = sext i32 %1412 to i64
-  %add.ptr607 = getelementptr inbounds i32, ptr %1411, i64 %idx.ext606
-  %add.ptr608 = getelementptr inbounds i32, ptr %add.ptr607, i64 -7
-  store ptr %add.ptr608, ptr %__p.addr.i2028, align 8
-  %1413 = load ptr, ptr %__p.addr.i2028, align 8
-  %1414 = load <2 x i64>, ptr %1413, align 1
-  store <2 x i64> %1410, ptr %__V1.addr.i1842, align 16
-  store <2 x i64> %1414, ptr %__V2.addr.i1843, align 16
-  %1415 = load <2 x i64>, ptr %__V1.addr.i1842, align 16
-  %1416 = bitcast <2 x i64> %1415 to <4 x i32>
-  %1417 = load <2 x i64>, ptr %__V2.addr.i1843, align 16
-  %1418 = bitcast <2 x i64> %1417 to <4 x i32>
-  %mul.i1844 = mul <4 x i32> %1416, %1418
-  %1419 = bitcast <4 x i32> %mul.i1844 to <2 x i64>
-  store <2 x i64> %1419, ptr %summ604, align 16
-  %1420 = load <2 x i64>, ptr %q5577, align 16
-  %1421 = load ptr, ptr %data.addr, align 8
-  %1422 = load i32, ptr %i, align 4
-  %idx.ext611 = sext i32 %1422 to i64
-  %add.ptr612 = getelementptr inbounds i32, ptr %1421, i64 %idx.ext611
-  %add.ptr613 = getelementptr inbounds i32, ptr %add.ptr612, i64 -6
-  store ptr %add.ptr613, ptr %__p.addr.i2027, align 8
-  %1423 = load ptr, ptr %__p.addr.i2027, align 8
-  %1424 = load <2 x i64>, ptr %1423, align 1
-  store <2 x i64> %1420, ptr %__V1.addr.i1839, align 16
-  store <2 x i64> %1424, ptr %__V2.addr.i1840, align 16
-  %1425 = load <2 x i64>, ptr %__V1.addr.i1839, align 16
-  %1426 = bitcast <2 x i64> %1425 to <4 x i32>
-  %1427 = load <2 x i64>, ptr %__V2.addr.i1840, align 16
-  %1428 = bitcast <2 x i64> %1427 to <4 x i32>
-  %mul.i1841 = mul <4 x i32> %1426, %1428
-  %1429 = bitcast <4 x i32> %mul.i1841 to <2 x i64>
-  store <2 x i64> %1429, ptr %mull605, align 16
-  %1430 = load <2 x i64>, ptr %summ604, align 16
-  %1431 = load <2 x i64>, ptr %mull605, align 16
-  store <2 x i64> %1430, ptr %__a.addr.i2142, align 16
-  store <2 x i64> %1431, ptr %__b.addr.i2143, align 16
-  %1432 = load <2 x i64>, ptr %__a.addr.i2142, align 16
-  %1433 = bitcast <2 x i64> %1432 to <4 x i32>
-  %1434 = load <2 x i64>, ptr %__b.addr.i2143, align 16
-  %1435 = bitcast <2 x i64> %1434 to <4 x i32>
-  %add.i2144 = add <4 x i32> %1433, %1435
-  %1436 = bitcast <4 x i32> %add.i2144 to <2 x i64>
-  store <2 x i64> %1436, ptr %summ604, align 16
-  %1437 = load <2 x i64>, ptr %q4576, align 16
-  %1438 = load ptr, ptr %data.addr, align 8
-  %1439 = load i32, ptr %i, align 4
-  %idx.ext617 = sext i32 %1439 to i64
-  %add.ptr618 = getelementptr inbounds i32, ptr %1438, i64 %idx.ext617
-  %add.ptr619 = getelementptr inbounds i32, ptr %add.ptr618, i64 -5
-  store ptr %add.ptr619, ptr %__p.addr.i2026, align 8
-  %1440 = load ptr, ptr %__p.addr.i2026, align 8
-  %1441 = load <2 x i64>, ptr %1440, align 1
-  store <2 x i64> %1437, ptr %__V1.addr.i1836, align 16
-  store <2 x i64> %1441, ptr %__V2.addr.i1837, align 16
-  %1442 = load <2 x i64>, ptr %__V1.addr.i1836, align 16
-  %1443 = bitcast <2 x i64> %1442 to <4 x i32>
-  %1444 = load <2 x i64>, ptr %__V2.addr.i1837, align 16
-  %1445 = bitcast <2 x i64> %1444 to <4 x i32>
-  %mul.i1838 = mul <4 x i32> %1443, %1445
-  %1446 = bitcast <4 x i32> %mul.i1838 to <2 x i64>
-  store <2 x i64> %1446, ptr %mull605, align 16
-  %1447 = load <2 x i64>, ptr %summ604, align 16
-  %1448 = load <2 x i64>, ptr %mull605, align 16
-  store <2 x i64> %1447, ptr %__a.addr.i2139, align 16
-  store <2 x i64> %1448, ptr %__b.addr.i2140, align 16
-  %1449 = load <2 x i64>, ptr %__a.addr.i2139, align 16
-  %1450 = bitcast <2 x i64> %1449 to <4 x i32>
-  %1451 = load <2 x i64>, ptr %__b.addr.i2140, align 16
-  %1452 = bitcast <2 x i64> %1451 to <4 x i32>
-  %add.i2141 = add <4 x i32> %1450, %1452
-  %1453 = bitcast <4 x i32> %add.i2141 to <2 x i64>
-  store <2 x i64> %1453, ptr %summ604, align 16
-  %1454 = load <2 x i64>, ptr %q3575, align 16
-  %1455 = load ptr, ptr %data.addr, align 8
-  %1456 = load i32, ptr %i, align 4
-  %idx.ext623 = sext i32 %1456 to i64
-  %add.ptr624 = getelementptr inbounds i32, ptr %1455, i64 %idx.ext623
-  %add.ptr625 = getelementptr inbounds i32, ptr %add.ptr624, i64 -4
-  store ptr %add.ptr625, ptr %__p.addr.i2025, align 8
-  %1457 = load ptr, ptr %__p.addr.i2025, align 8
-  %1458 = load <2 x i64>, ptr %1457, align 1
-  store <2 x i64> %1454, ptr %__V1.addr.i1833, align 16
-  store <2 x i64> %1458, ptr %__V2.addr.i1834, align 16
-  %1459 = load <2 x i64>, ptr %__V1.addr.i1833, align 16
-  %1460 = bitcast <2 x i64> %1459 to <4 x i32>
-  %1461 = load <2 x i64>, ptr %__V2.addr.i1834, align 16
-  %1462 = bitcast <2 x i64> %1461 to <4 x i32>
-  %mul.i1835 = mul <4 x i32> %1460, %1462
-  %1463 = bitcast <4 x i32> %mul.i1835 to <2 x i64>
-  store <2 x i64> %1463, ptr %mull605, align 16
-  %1464 = load <2 x i64>, ptr %summ604, align 16
-  %1465 = load <2 x i64>, ptr %mull605, align 16
-  store <2 x i64> %1464, ptr %__a.addr.i2136, align 16
-  store <2 x i64> %1465, ptr %__b.addr.i2137, align 16
-  %1466 = load <2 x i64>, ptr %__a.addr.i2136, align 16
-  %1467 = bitcast <2 x i64> %1466 to <4 x i32>
-  %1468 = load <2 x i64>, ptr %__b.addr.i2137, align 16
-  %1469 = bitcast <2 x i64> %1468 to <4 x i32>
-  %add.i2138 = add <4 x i32> %1467, %1469
-  %1470 = bitcast <4 x i32> %add.i2138 to <2 x i64>
-  store <2 x i64> %1470, ptr %summ604, align 16
-  %1471 = load <2 x i64>, ptr %q2574, align 16
-  %1472 = load ptr, ptr %data.addr, align 8
-  %1473 = load i32, ptr %i, align 4
-  %idx.ext629 = sext i32 %1473 to i64
-  %add.ptr630 = getelementptr inbounds i32, ptr %1472, i64 %idx.ext629
-  %add.ptr631 = getelementptr inbounds i32, ptr %add.ptr630, i64 -3
-  store ptr %add.ptr631, ptr %__p.addr.i2024, align 8
-  %1474 = load ptr, ptr %__p.addr.i2024, align 8
-  %1475 = load <2 x i64>, ptr %1474, align 1
-  store <2 x i64> %1471, ptr %__V1.addr.i1830, align 16
-  store <2 x i64> %1475, ptr %__V2.addr.i1831, align 16
-  %1476 = load <2 x i64>, ptr %__V1.addr.i1830, align 16
-  %1477 = bitcast <2 x i64> %1476 to <4 x i32>
-  %1478 = load <2 x i64>, ptr %__V2.addr.i1831, align 16
-  %1479 = bitcast <2 x i64> %1478 to <4 x i32>
-  %mul.i1832 = mul <4 x i32> %1477, %1479
-  %1480 = bitcast <4 x i32> %mul.i1832 to <2 x i64>
-  store <2 x i64> %1480, ptr %mull605, align 16
-  %1481 = load <2 x i64>, ptr %summ604, align 16
-  %1482 = load <2 x i64>, ptr %mull605, align 16
-  store <2 x i64> %1481, ptr %__a.addr.i2133, align 16
-  store <2 x i64> %1482, ptr %__b.addr.i2134, align 16
-  %1483 = load <2 x i64>, ptr %__a.addr.i2133, align 16
-  %1484 = bitcast <2 x i64> %1483 to <4 x i32>
-  %1485 = load <2 x i64>, ptr %__b.addr.i2134, align 16
-  %1486 = bitcast <2 x i64> %1485 to <4 x i32>
-  %add.i2135 = add <4 x i32> %1484, %1486
-  %1487 = bitcast <4 x i32> %add.i2135 to <2 x i64>
-  store <2 x i64> %1487, ptr %summ604, align 16
-  %1488 = load <2 x i64>, ptr %q1573, align 16
-  %1489 = load ptr, ptr %data.addr, align 8
-  %1490 = load i32, ptr %i, align 4
-  %idx.ext635 = sext i32 %1490 to i64
-  %add.ptr636 = getelementptr inbounds i32, ptr %1489, i64 %idx.ext635
-  %add.ptr637 = getelementptr inbounds i32, ptr %add.ptr636, i64 -2
-  store ptr %add.ptr637, ptr %__p.addr.i2023, align 8
-  %1491 = load ptr, ptr %__p.addr.i2023, align 8
-  %1492 = load <2 x i64>, ptr %1491, align 1
-  store <2 x i64> %1488, ptr %__V1.addr.i1827, align 16
-  store <2 x i64> %1492, ptr %__V2.addr.i1828, align 16
-  %1493 = load <2 x i64>, ptr %__V1.addr.i1827, align 16
-  %1494 = bitcast <2 x i64> %1493 to <4 x i32>
-  %1495 = load <2 x i64>, ptr %__V2.addr.i1828, align 16
-  %1496 = bitcast <2 x i64> %1495 to <4 x i32>
-  %mul.i1829 = mul <4 x i32> %1494, %1496
-  %1497 = bitcast <4 x i32> %mul.i1829 to <2 x i64>
-  store <2 x i64> %1497, ptr %mull605, align 16
-  %1498 = load <2 x i64>, ptr %summ604, align 16
-  %1499 = load <2 x i64>, ptr %mull605, align 16
-  store <2 x i64> %1498, ptr %__a.addr.i2130, align 16
-  store <2 x i64> %1499, ptr %__b.addr.i2131, align 16
-  %1500 = load <2 x i64>, ptr %__a.addr.i2130, align 16
-  %1501 = bitcast <2 x i64> %1500 to <4 x i32>
-  %1502 = load <2 x i64>, ptr %__b.addr.i2131, align 16
-  %1503 = bitcast <2 x i64> %1502 to <4 x i32>
-  %add.i2132 = add <4 x i32> %1501, %1503
-  %1504 = bitcast <4 x i32> %add.i2132 to <2 x i64>
-  store <2 x i64> %1504, ptr %summ604, align 16
-  %1505 = load <2 x i64>, ptr %q0572, align 16
-  %1506 = load ptr, ptr %data.addr, align 8
-  %1507 = load i32, ptr %i, align 4
-  %idx.ext641 = sext i32 %1507 to i64
-  %add.ptr642 = getelementptr inbounds i32, ptr %1506, i64 %idx.ext641
-  %add.ptr643 = getelementptr inbounds i32, ptr %add.ptr642, i64 -1
-  store ptr %add.ptr643, ptr %__p.addr.i2022, align 8
-  %1508 = load ptr, ptr %__p.addr.i2022, align 8
-  %1509 = load <2 x i64>, ptr %1508, align 1
-  store <2 x i64> %1505, ptr %__V1.addr.i1824, align 16
-  store <2 x i64> %1509, ptr %__V2.addr.i1825, align 16
-  %1510 = load <2 x i64>, ptr %__V1.addr.i1824, align 16
-  %1511 = bitcast <2 x i64> %1510 to <4 x i32>
-  %1512 = load <2 x i64>, ptr %__V2.addr.i1825, align 16
-  %1513 = bitcast <2 x i64> %1512 to <4 x i32>
-  %mul.i1826 = mul <4 x i32> %1511, %1513
-  %1514 = bitcast <4 x i32> %mul.i1826 to <2 x i64>
-  store <2 x i64> %1514, ptr %mull605, align 16
-  %1515 = load <2 x i64>, ptr %summ604, align 16
-  %1516 = load <2 x i64>, ptr %mull605, align 16
-  store <2 x i64> %1515, ptr %__a.addr.i2127, align 16
-  store <2 x i64> %1516, ptr %__b.addr.i2128, align 16
-  %1517 = load <2 x i64>, ptr %__a.addr.i2127, align 16
-  %1518 = bitcast <2 x i64> %1517 to <4 x i32>
-  %1519 = load <2 x i64>, ptr %__b.addr.i2128, align 16
-  %1520 = bitcast <2 x i64> %1519 to <4 x i32>
-  %add.i2129 = add <4 x i32> %1518, %1520
-  %1521 = bitcast <4 x i32> %add.i2129 to <2 x i64>
-  store <2 x i64> %1521, ptr %summ604, align 16
-  %1522 = load <2 x i64>, ptr %summ604, align 16
-  %1523 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %1522, ptr %__a.addr.i2291, align 16
-  store <2 x i64> %1523, ptr %__count.addr.i2292, align 16
-  %1524 = load <2 x i64>, ptr %__a.addr.i2291, align 16
-  %1525 = bitcast <2 x i64> %1524 to <4 x i32>
-  %1526 = load <2 x i64>, ptr %__count.addr.i2292, align 16
-  %1527 = bitcast <2 x i64> %1526 to <4 x i32>
-  %1528 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %1525, <4 x i32> %1527)
-  %1529 = bitcast <4 x i32> %1528 to <2 x i64>
-  store <2 x i64> %1529, ptr %summ604, align 16
-  %1530 = load ptr, ptr %residual.addr, align 8
-  %1531 = load i32, ptr %i, align 4
-  %idx.ext648 = sext i32 %1531 to i64
-  %add.ptr649 = getelementptr inbounds i32, ptr %1530, i64 %idx.ext648
-  %1532 = load ptr, ptr %data.addr, align 8
-  %1533 = load i32, ptr %i, align 4
-  %idx.ext650 = sext i32 %1533 to i64
-  %add.ptr651 = getelementptr inbounds i32, ptr %1532, i64 %idx.ext650
-  store ptr %add.ptr651, ptr %__p.addr.i2021, align 8
-  %1534 = load ptr, ptr %__p.addr.i2021, align 8
-  %1535 = load <2 x i64>, ptr %1534, align 1
-  %1536 = load <2 x i64>, ptr %summ604, align 16
-  store <2 x i64> %1535, ptr %__a.addr.i2344, align 16
-  store <2 x i64> %1536, ptr %__b.addr.i2345, align 16
-  %1537 = load <2 x i64>, ptr %__a.addr.i2344, align 16
+1418:                                             ; preds = %1413
+  call void @llvm.lifetime.start.p0(i64 16, ptr %91) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %92) #5
+  %1419 = load <2 x i64>, ptr %90, align 16, !tbaa !10
+  %1420 = load ptr, ptr %7, align 8, !tbaa !3
+  %1421 = load i32, ptr %13, align 4, !tbaa !8
+  %1422 = sext i32 %1421 to i64
+  %1423 = getelementptr inbounds i32, ptr %1420, i64 %1422
+  %1424 = getelementptr inbounds i32, ptr %1423, i64 -6
+  %1425 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1424)
+  %1426 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1419, <2 x i64> noundef %1425)
+  store <2 x i64> %1426, ptr %91, align 16, !tbaa !10
+  %1427 = load <2 x i64>, ptr %89, align 16, !tbaa !10
+  %1428 = load ptr, ptr %7, align 8, !tbaa !3
+  %1429 = load i32, ptr %13, align 4, !tbaa !8
+  %1430 = sext i32 %1429 to i64
+  %1431 = getelementptr inbounds i32, ptr %1428, i64 %1430
+  %1432 = getelementptr inbounds i32, ptr %1431, i64 -5
+  %1433 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1432)
+  %1434 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1427, <2 x i64> noundef %1433)
+  store <2 x i64> %1434, ptr %92, align 16, !tbaa !10
+  %1435 = load <2 x i64>, ptr %91, align 16, !tbaa !10
+  %1436 = load <2 x i64>, ptr %92, align 16, !tbaa !10
+  %1437 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1435, <2 x i64> noundef %1436)
+  store <2 x i64> %1437, ptr %91, align 16, !tbaa !10
+  %1438 = load <2 x i64>, ptr %88, align 16, !tbaa !10
+  %1439 = load ptr, ptr %7, align 8, !tbaa !3
+  %1440 = load i32, ptr %13, align 4, !tbaa !8
+  %1441 = sext i32 %1440 to i64
+  %1442 = getelementptr inbounds i32, ptr %1439, i64 %1441
+  %1443 = getelementptr inbounds i32, ptr %1442, i64 -4
+  %1444 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1443)
+  %1445 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1438, <2 x i64> noundef %1444)
+  store <2 x i64> %1445, ptr %92, align 16, !tbaa !10
+  %1446 = load <2 x i64>, ptr %91, align 16, !tbaa !10
+  %1447 = load <2 x i64>, ptr %92, align 16, !tbaa !10
+  %1448 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1446, <2 x i64> noundef %1447)
+  store <2 x i64> %1448, ptr %91, align 16, !tbaa !10
+  %1449 = load <2 x i64>, ptr %87, align 16, !tbaa !10
+  %1450 = load ptr, ptr %7, align 8, !tbaa !3
+  %1451 = load i32, ptr %13, align 4, !tbaa !8
+  %1452 = sext i32 %1451 to i64
+  %1453 = getelementptr inbounds i32, ptr %1450, i64 %1452
+  %1454 = getelementptr inbounds i32, ptr %1453, i64 -3
+  %1455 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1454)
+  %1456 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1449, <2 x i64> noundef %1455)
+  store <2 x i64> %1456, ptr %92, align 16, !tbaa !10
+  %1457 = load <2 x i64>, ptr %91, align 16, !tbaa !10
+  %1458 = load <2 x i64>, ptr %92, align 16, !tbaa !10
+  %1459 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1457, <2 x i64> noundef %1458)
+  store <2 x i64> %1459, ptr %91, align 16, !tbaa !10
+  %1460 = load <2 x i64>, ptr %86, align 16, !tbaa !10
+  %1461 = load ptr, ptr %7, align 8, !tbaa !3
+  %1462 = load i32, ptr %13, align 4, !tbaa !8
+  %1463 = sext i32 %1462 to i64
+  %1464 = getelementptr inbounds i32, ptr %1461, i64 %1463
+  %1465 = getelementptr inbounds i32, ptr %1464, i64 -2
+  %1466 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1465)
+  %1467 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1460, <2 x i64> noundef %1466)
+  store <2 x i64> %1467, ptr %92, align 16, !tbaa !10
+  %1468 = load <2 x i64>, ptr %91, align 16, !tbaa !10
+  %1469 = load <2 x i64>, ptr %92, align 16, !tbaa !10
+  %1470 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1468, <2 x i64> noundef %1469)
+  store <2 x i64> %1470, ptr %91, align 16, !tbaa !10
+  %1471 = load <2 x i64>, ptr %85, align 16, !tbaa !10
+  %1472 = load ptr, ptr %7, align 8, !tbaa !3
+  %1473 = load i32, ptr %13, align 4, !tbaa !8
+  %1474 = sext i32 %1473 to i64
+  %1475 = getelementptr inbounds i32, ptr %1472, i64 %1474
+  %1476 = getelementptr inbounds i32, ptr %1475, i64 -1
+  %1477 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1476)
+  %1478 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1471, <2 x i64> noundef %1477)
+  store <2 x i64> %1478, ptr %92, align 16, !tbaa !10
+  %1479 = load <2 x i64>, ptr %91, align 16, !tbaa !10
+  %1480 = load <2 x i64>, ptr %92, align 16, !tbaa !10
+  %1481 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1479, <2 x i64> noundef %1480)
+  store <2 x i64> %1481, ptr %91, align 16, !tbaa !10
+  %1482 = load <2 x i64>, ptr %91, align 16, !tbaa !10
+  %1483 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %1484 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %1482, <2 x i64> noundef %1483)
+  store <2 x i64> %1484, ptr %91, align 16, !tbaa !10
+  %1485 = load ptr, ptr %12, align 8, !tbaa !3
+  %1486 = load i32, ptr %13, align 4, !tbaa !8
+  %1487 = sext i32 %1486 to i64
+  %1488 = getelementptr inbounds i32, ptr %1485, i64 %1487
+  %1489 = load ptr, ptr %7, align 8, !tbaa !3
+  %1490 = load i32, ptr %13, align 4, !tbaa !8
+  %1491 = sext i32 %1490 to i64
+  %1492 = getelementptr inbounds i32, ptr %1489, i64 %1491
+  %1493 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1492)
+  %1494 = load <2 x i64>, ptr %91, align 16, !tbaa !10
+  %1495 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %1493, <2 x i64> noundef %1494)
+  call void @_mm_storeu_si128(ptr noundef %1488, <2 x i64> noundef %1495)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %92) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %91) #5
+  br label %1496
+
+1496:                                             ; preds = %1418
+  %1497 = load i32, ptr %13, align 4, !tbaa !8
+  %1498 = add nsw i32 %1497, 4
+  store i32 %1498, ptr %13, align 4, !tbaa !8
+  br label %1413, !llvm.loop !18
+
+1499:                                             ; preds = %1413
+  call void @llvm.lifetime.end.p0(i64 16, ptr %90) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %89) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %88) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %87) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %86) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %85) #5
+  br label %1617
+
+1500:                                             ; preds = %1361
+  call void @llvm.lifetime.start.p0(i64 16, ptr %93) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %94) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %95) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %96) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %97) #5
+  %1501 = load ptr, ptr %9, align 8, !tbaa !3
+  %1502 = getelementptr inbounds i32, ptr %1501, i64 0
+  %1503 = load i32, ptr %1502, align 4, !tbaa !8
+  %1504 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1503)
+  store <2 x i64> %1504, ptr %93, align 16, !tbaa !10
+  %1505 = load <2 x i64>, ptr %93, align 16, !tbaa !10
+  %1506 = bitcast <2 x i64> %1505 to <4 x i32>
+  %1507 = shufflevector <4 x i32> %1506, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1508 = bitcast <4 x i32> %1507 to <2 x i64>
+  store <2 x i64> %1508, ptr %93, align 16, !tbaa !10
+  %1509 = load ptr, ptr %9, align 8, !tbaa !3
+  %1510 = getelementptr inbounds i32, ptr %1509, i64 1
+  %1511 = load i32, ptr %1510, align 4, !tbaa !8
+  %1512 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1511)
+  store <2 x i64> %1512, ptr %94, align 16, !tbaa !10
+  %1513 = load <2 x i64>, ptr %94, align 16, !tbaa !10
+  %1514 = bitcast <2 x i64> %1513 to <4 x i32>
+  %1515 = shufflevector <4 x i32> %1514, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1516 = bitcast <4 x i32> %1515 to <2 x i64>
+  store <2 x i64> %1516, ptr %94, align 16, !tbaa !10
+  %1517 = load ptr, ptr %9, align 8, !tbaa !3
+  %1518 = getelementptr inbounds i32, ptr %1517, i64 2
+  %1519 = load i32, ptr %1518, align 4, !tbaa !8
+  %1520 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1519)
+  store <2 x i64> %1520, ptr %95, align 16, !tbaa !10
+  %1521 = load <2 x i64>, ptr %95, align 16, !tbaa !10
+  %1522 = bitcast <2 x i64> %1521 to <4 x i32>
+  %1523 = shufflevector <4 x i32> %1522, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1524 = bitcast <4 x i32> %1523 to <2 x i64>
+  store <2 x i64> %1524, ptr %95, align 16, !tbaa !10
+  %1525 = load ptr, ptr %9, align 8, !tbaa !3
+  %1526 = getelementptr inbounds i32, ptr %1525, i64 3
+  %1527 = load i32, ptr %1526, align 4, !tbaa !8
+  %1528 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1527)
+  store <2 x i64> %1528, ptr %96, align 16, !tbaa !10
+  %1529 = load <2 x i64>, ptr %96, align 16, !tbaa !10
+  %1530 = bitcast <2 x i64> %1529 to <4 x i32>
+  %1531 = shufflevector <4 x i32> %1530, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1532 = bitcast <4 x i32> %1531 to <2 x i64>
+  store <2 x i64> %1532, ptr %96, align 16, !tbaa !10
+  %1533 = load ptr, ptr %9, align 8, !tbaa !3
+  %1534 = getelementptr inbounds i32, ptr %1533, i64 4
+  %1535 = load i32, ptr %1534, align 4, !tbaa !8
+  %1536 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1535)
+  store <2 x i64> %1536, ptr %97, align 16, !tbaa !10
+  %1537 = load <2 x i64>, ptr %97, align 16, !tbaa !10
   %1538 = bitcast <2 x i64> %1537 to <4 x i32>
-  %1539 = load <2 x i64>, ptr %__b.addr.i2345, align 16
-  %1540 = bitcast <2 x i64> %1539 to <4 x i32>
-  %sub.i2346 = sub <4 x i32> %1538, %1540
-  %1541 = bitcast <4 x i32> %sub.i2346 to <2 x i64>
-  store ptr %add.ptr649, ptr %__p.addr.i2315, align 8
-  store <2 x i64> %1541, ptr %__b.addr.i2316, align 16
-  %1542 = load <2 x i64>, ptr %__b.addr.i2316, align 16
-  %1543 = load ptr, ptr %__p.addr.i2315, align 8
-  store <2 x i64> %1542, ptr %1543, align 1
-  br label %for.inc654
+  %1539 = shufflevector <4 x i32> %1538, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1540 = bitcast <4 x i32> %1539 to <2 x i64>
+  store <2 x i64> %1540, ptr %97, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %1541
 
-for.inc654:                                       ; preds = %for.body603
-  %1544 = load i32, ptr %i, align 4
-  %add655 = add nsw i32 %1544, 4
-  store i32 %add655, ptr %i, align 4
-  br label %for.cond600, !llvm.loop !10
+1541:                                             ; preds = %1613, %1500
+  %1542 = load i32, ptr %13, align 4, !tbaa !8
+  %1543 = load i32, ptr %8, align 4, !tbaa !8
+  %1544 = sub nsw i32 %1543, 3
+  %1545 = icmp slt i32 %1542, %1544
+  br i1 %1545, label %1546, label %1616
 
-for.end656:                                       ; preds = %for.cond600
-  br label %if.end657
+1546:                                             ; preds = %1541
+  call void @llvm.lifetime.start.p0(i64 16, ptr %98) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %99) #5
+  %1547 = load <2 x i64>, ptr %97, align 16, !tbaa !10
+  %1548 = load ptr, ptr %7, align 8, !tbaa !3
+  %1549 = load i32, ptr %13, align 4, !tbaa !8
+  %1550 = sext i32 %1549 to i64
+  %1551 = getelementptr inbounds i32, ptr %1548, i64 %1550
+  %1552 = getelementptr inbounds i32, ptr %1551, i64 -5
+  %1553 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1552)
+  %1554 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1547, <2 x i64> noundef %1553)
+  store <2 x i64> %1554, ptr %98, align 16, !tbaa !10
+  %1555 = load <2 x i64>, ptr %96, align 16, !tbaa !10
+  %1556 = load ptr, ptr %7, align 8, !tbaa !3
+  %1557 = load i32, ptr %13, align 4, !tbaa !8
+  %1558 = sext i32 %1557 to i64
+  %1559 = getelementptr inbounds i32, ptr %1556, i64 %1558
+  %1560 = getelementptr inbounds i32, ptr %1559, i64 -4
+  %1561 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1560)
+  %1562 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1555, <2 x i64> noundef %1561)
+  store <2 x i64> %1562, ptr %99, align 16, !tbaa !10
+  %1563 = load <2 x i64>, ptr %98, align 16, !tbaa !10
+  %1564 = load <2 x i64>, ptr %99, align 16, !tbaa !10
+  %1565 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1563, <2 x i64> noundef %1564)
+  store <2 x i64> %1565, ptr %98, align 16, !tbaa !10
+  %1566 = load <2 x i64>, ptr %95, align 16, !tbaa !10
+  %1567 = load ptr, ptr %7, align 8, !tbaa !3
+  %1568 = load i32, ptr %13, align 4, !tbaa !8
+  %1569 = sext i32 %1568 to i64
+  %1570 = getelementptr inbounds i32, ptr %1567, i64 %1569
+  %1571 = getelementptr inbounds i32, ptr %1570, i64 -3
+  %1572 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1571)
+  %1573 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1566, <2 x i64> noundef %1572)
+  store <2 x i64> %1573, ptr %99, align 16, !tbaa !10
+  %1574 = load <2 x i64>, ptr %98, align 16, !tbaa !10
+  %1575 = load <2 x i64>, ptr %99, align 16, !tbaa !10
+  %1576 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1574, <2 x i64> noundef %1575)
+  store <2 x i64> %1576, ptr %98, align 16, !tbaa !10
+  %1577 = load <2 x i64>, ptr %94, align 16, !tbaa !10
+  %1578 = load ptr, ptr %7, align 8, !tbaa !3
+  %1579 = load i32, ptr %13, align 4, !tbaa !8
+  %1580 = sext i32 %1579 to i64
+  %1581 = getelementptr inbounds i32, ptr %1578, i64 %1580
+  %1582 = getelementptr inbounds i32, ptr %1581, i64 -2
+  %1583 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1582)
+  %1584 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1577, <2 x i64> noundef %1583)
+  store <2 x i64> %1584, ptr %99, align 16, !tbaa !10
+  %1585 = load <2 x i64>, ptr %98, align 16, !tbaa !10
+  %1586 = load <2 x i64>, ptr %99, align 16, !tbaa !10
+  %1587 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1585, <2 x i64> noundef %1586)
+  store <2 x i64> %1587, ptr %98, align 16, !tbaa !10
+  %1588 = load <2 x i64>, ptr %93, align 16, !tbaa !10
+  %1589 = load ptr, ptr %7, align 8, !tbaa !3
+  %1590 = load i32, ptr %13, align 4, !tbaa !8
+  %1591 = sext i32 %1590 to i64
+  %1592 = getelementptr inbounds i32, ptr %1589, i64 %1591
+  %1593 = getelementptr inbounds i32, ptr %1592, i64 -1
+  %1594 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1593)
+  %1595 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1588, <2 x i64> noundef %1594)
+  store <2 x i64> %1595, ptr %99, align 16, !tbaa !10
+  %1596 = load <2 x i64>, ptr %98, align 16, !tbaa !10
+  %1597 = load <2 x i64>, ptr %99, align 16, !tbaa !10
+  %1598 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1596, <2 x i64> noundef %1597)
+  store <2 x i64> %1598, ptr %98, align 16, !tbaa !10
+  %1599 = load <2 x i64>, ptr %98, align 16, !tbaa !10
+  %1600 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %1601 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %1599, <2 x i64> noundef %1600)
+  store <2 x i64> %1601, ptr %98, align 16, !tbaa !10
+  %1602 = load ptr, ptr %12, align 8, !tbaa !3
+  %1603 = load i32, ptr %13, align 4, !tbaa !8
+  %1604 = sext i32 %1603 to i64
+  %1605 = getelementptr inbounds i32, ptr %1602, i64 %1604
+  %1606 = load ptr, ptr %7, align 8, !tbaa !3
+  %1607 = load i32, ptr %13, align 4, !tbaa !8
+  %1608 = sext i32 %1607 to i64
+  %1609 = getelementptr inbounds i32, ptr %1606, i64 %1608
+  %1610 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1609)
+  %1611 = load <2 x i64>, ptr %98, align 16, !tbaa !10
+  %1612 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %1610, <2 x i64> noundef %1611)
+  call void @_mm_storeu_si128(ptr noundef %1605, <2 x i64> noundef %1612)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %99) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %98) #5
+  br label %1613
 
-if.end657:                                        ; preds = %for.end656, %for.end570
-  br label %if.end803
+1613:                                             ; preds = %1546
+  %1614 = load i32, ptr %13, align 4, !tbaa !8
+  %1615 = add nsw i32 %1614, 4
+  store i32 %1615, ptr %13, align 4, !tbaa !8
+  br label %1541, !llvm.loop !19
 
-if.else658:                                       ; preds = %if.then471
-  %1545 = load i32, ptr %order.addr, align 4
-  %cmp659 = icmp eq i32 %1545, 6
-  br i1 %cmp659, label %if.then660, label %if.else736
+1616:                                             ; preds = %1541
+  call void @llvm.lifetime.end.p0(i64 16, ptr %97) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %96) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %95) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %94) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %93) #5
+  br label %1617
 
-if.then660:                                       ; preds = %if.else658
-  %1546 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx667 = getelementptr inbounds i32, ptr %1546, i64 0
-  %1547 = load i32, ptr %arrayidx667, align 4
-  store i32 %1547, ptr %__a.addr.i1410, align 4
-  %1548 = load i32, ptr %__a.addr.i1410, align 4
-  %vecinit.i1412 = insertelement <4 x i32> undef, i32 %1548, i32 0
-  %vecinit1.i1413 = insertelement <4 x i32> %vecinit.i1412, i32 0, i32 1
-  %vecinit2.i1414 = insertelement <4 x i32> %vecinit1.i1413, i32 0, i32 2
-  %vecinit3.i1415 = insertelement <4 x i32> %vecinit2.i1414, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1415, ptr %.compoundliteral.i1411, align 16
-  %1549 = load <4 x i32>, ptr %.compoundliteral.i1411, align 16
-  %1550 = bitcast <4 x i32> %1549 to <2 x i64>
-  store <2 x i64> %1550, ptr %q0661, align 16
-  %1551 = load <2 x i64>, ptr %q0661, align 16
-  %1552 = bitcast <2 x i64> %1551 to <4 x i32>
-  %permil669 = shufflevector <4 x i32> %1552, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1553 = bitcast <4 x i32> %permil669 to <2 x i64>
-  store <2 x i64> %1553, ptr %q0661, align 16
-  %1554 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx670 = getelementptr inbounds i32, ptr %1554, i64 1
-  %1555 = load i32, ptr %arrayidx670, align 4
-  store i32 %1555, ptr %__a.addr.i1404, align 4
-  %1556 = load i32, ptr %__a.addr.i1404, align 4
-  %vecinit.i1406 = insertelement <4 x i32> undef, i32 %1556, i32 0
-  %vecinit1.i1407 = insertelement <4 x i32> %vecinit.i1406, i32 0, i32 1
-  %vecinit2.i1408 = insertelement <4 x i32> %vecinit1.i1407, i32 0, i32 2
-  %vecinit3.i1409 = insertelement <4 x i32> %vecinit2.i1408, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1409, ptr %.compoundliteral.i1405, align 16
-  %1557 = load <4 x i32>, ptr %.compoundliteral.i1405, align 16
-  %1558 = bitcast <4 x i32> %1557 to <2 x i64>
-  store <2 x i64> %1558, ptr %q1662, align 16
-  %1559 = load <2 x i64>, ptr %q1662, align 16
-  %1560 = bitcast <2 x i64> %1559 to <4 x i32>
-  %permil672 = shufflevector <4 x i32> %1560, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1561 = bitcast <4 x i32> %permil672 to <2 x i64>
-  store <2 x i64> %1561, ptr %q1662, align 16
-  %1562 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx673 = getelementptr inbounds i32, ptr %1562, i64 2
-  %1563 = load i32, ptr %arrayidx673, align 4
-  store i32 %1563, ptr %__a.addr.i1398, align 4
-  %1564 = load i32, ptr %__a.addr.i1398, align 4
-  %vecinit.i1400 = insertelement <4 x i32> undef, i32 %1564, i32 0
-  %vecinit1.i1401 = insertelement <4 x i32> %vecinit.i1400, i32 0, i32 1
-  %vecinit2.i1402 = insertelement <4 x i32> %vecinit1.i1401, i32 0, i32 2
-  %vecinit3.i1403 = insertelement <4 x i32> %vecinit2.i1402, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1403, ptr %.compoundliteral.i1399, align 16
-  %1565 = load <4 x i32>, ptr %.compoundliteral.i1399, align 16
-  %1566 = bitcast <4 x i32> %1565 to <2 x i64>
-  store <2 x i64> %1566, ptr %q2663, align 16
-  %1567 = load <2 x i64>, ptr %q2663, align 16
-  %1568 = bitcast <2 x i64> %1567 to <4 x i32>
-  %permil675 = shufflevector <4 x i32> %1568, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1569 = bitcast <4 x i32> %permil675 to <2 x i64>
-  store <2 x i64> %1569, ptr %q2663, align 16
-  %1570 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx676 = getelementptr inbounds i32, ptr %1570, i64 3
-  %1571 = load i32, ptr %arrayidx676, align 4
-  store i32 %1571, ptr %__a.addr.i1392, align 4
-  %1572 = load i32, ptr %__a.addr.i1392, align 4
-  %vecinit.i1394 = insertelement <4 x i32> undef, i32 %1572, i32 0
-  %vecinit1.i1395 = insertelement <4 x i32> %vecinit.i1394, i32 0, i32 1
-  %vecinit2.i1396 = insertelement <4 x i32> %vecinit1.i1395, i32 0, i32 2
-  %vecinit3.i1397 = insertelement <4 x i32> %vecinit2.i1396, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1397, ptr %.compoundliteral.i1393, align 16
-  %1573 = load <4 x i32>, ptr %.compoundliteral.i1393, align 16
-  %1574 = bitcast <4 x i32> %1573 to <2 x i64>
-  store <2 x i64> %1574, ptr %q3664, align 16
-  %1575 = load <2 x i64>, ptr %q3664, align 16
-  %1576 = bitcast <2 x i64> %1575 to <4 x i32>
-  %permil678 = shufflevector <4 x i32> %1576, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1577 = bitcast <4 x i32> %permil678 to <2 x i64>
-  store <2 x i64> %1577, ptr %q3664, align 16
-  %1578 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx679 = getelementptr inbounds i32, ptr %1578, i64 4
-  %1579 = load i32, ptr %arrayidx679, align 4
-  store i32 %1579, ptr %__a.addr.i1386, align 4
-  %1580 = load i32, ptr %__a.addr.i1386, align 4
-  %vecinit.i1388 = insertelement <4 x i32> undef, i32 %1580, i32 0
-  %vecinit1.i1389 = insertelement <4 x i32> %vecinit.i1388, i32 0, i32 1
-  %vecinit2.i1390 = insertelement <4 x i32> %vecinit1.i1389, i32 0, i32 2
-  %vecinit3.i1391 = insertelement <4 x i32> %vecinit2.i1390, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1391, ptr %.compoundliteral.i1387, align 16
-  %1581 = load <4 x i32>, ptr %.compoundliteral.i1387, align 16
-  %1582 = bitcast <4 x i32> %1581 to <2 x i64>
-  store <2 x i64> %1582, ptr %q4665, align 16
-  %1583 = load <2 x i64>, ptr %q4665, align 16
-  %1584 = bitcast <2 x i64> %1583 to <4 x i32>
-  %permil681 = shufflevector <4 x i32> %1584, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1585 = bitcast <4 x i32> %permil681 to <2 x i64>
-  store <2 x i64> %1585, ptr %q4665, align 16
-  %1586 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx682 = getelementptr inbounds i32, ptr %1586, i64 5
-  %1587 = load i32, ptr %arrayidx682, align 4
-  store i32 %1587, ptr %__a.addr.i1380, align 4
-  %1588 = load i32, ptr %__a.addr.i1380, align 4
-  %vecinit.i1382 = insertelement <4 x i32> undef, i32 %1588, i32 0
-  %vecinit1.i1383 = insertelement <4 x i32> %vecinit.i1382, i32 0, i32 1
-  %vecinit2.i1384 = insertelement <4 x i32> %vecinit1.i1383, i32 0, i32 2
-  %vecinit3.i1385 = insertelement <4 x i32> %vecinit2.i1384, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1385, ptr %.compoundliteral.i1381, align 16
-  %1589 = load <4 x i32>, ptr %.compoundliteral.i1381, align 16
-  %1590 = bitcast <4 x i32> %1589 to <2 x i64>
-  store <2 x i64> %1590, ptr %q5666, align 16
-  %1591 = load <2 x i64>, ptr %q5666, align 16
-  %1592 = bitcast <2 x i64> %1591 to <4 x i32>
-  %permil684 = shufflevector <4 x i32> %1592, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1593 = bitcast <4 x i32> %permil684 to <2 x i64>
-  store <2 x i64> %1593, ptr %q5666, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond685
+1617:                                             ; preds = %1616, %1499
+  br label %1618
 
-for.cond685:                                      ; preds = %for.inc733, %if.then660
-  %1594 = load i32, ptr %i, align 4
-  %1595 = load i32, ptr %data_len.addr, align 4
-  %sub686 = sub nsw i32 %1595, 3
-  %cmp687 = icmp slt i32 %1594, %sub686
-  br i1 %cmp687, label %for.body688, label %for.end735
+1618:                                             ; preds = %1617, %1360
+  br label %1909
 
-for.body688:                                      ; preds = %for.cond685
-  %1596 = load <2 x i64>, ptr %q5666, align 16
-  %1597 = load ptr, ptr %data.addr, align 8
-  %1598 = load i32, ptr %i, align 4
-  %idx.ext691 = sext i32 %1598 to i64
-  %add.ptr692 = getelementptr inbounds i32, ptr %1597, i64 %idx.ext691
-  %add.ptr693 = getelementptr inbounds i32, ptr %add.ptr692, i64 -6
-  store ptr %add.ptr693, ptr %__p.addr.i2020, align 8
-  %1599 = load ptr, ptr %__p.addr.i2020, align 8
-  %1600 = load <2 x i64>, ptr %1599, align 1
-  store <2 x i64> %1596, ptr %__V1.addr.i1821, align 16
-  store <2 x i64> %1600, ptr %__V2.addr.i1822, align 16
-  %1601 = load <2 x i64>, ptr %__V1.addr.i1821, align 16
-  %1602 = bitcast <2 x i64> %1601 to <4 x i32>
-  %1603 = load <2 x i64>, ptr %__V2.addr.i1822, align 16
-  %1604 = bitcast <2 x i64> %1603 to <4 x i32>
-  %mul.i1823 = mul <4 x i32> %1602, %1604
-  %1605 = bitcast <4 x i32> %mul.i1823 to <2 x i64>
-  store <2 x i64> %1605, ptr %summ689, align 16
-  %1606 = load <2 x i64>, ptr %q4665, align 16
-  %1607 = load ptr, ptr %data.addr, align 8
-  %1608 = load i32, ptr %i, align 4
-  %idx.ext696 = sext i32 %1608 to i64
-  %add.ptr697 = getelementptr inbounds i32, ptr %1607, i64 %idx.ext696
-  %add.ptr698 = getelementptr inbounds i32, ptr %add.ptr697, i64 -5
-  store ptr %add.ptr698, ptr %__p.addr.i2019, align 8
-  %1609 = load ptr, ptr %__p.addr.i2019, align 8
-  %1610 = load <2 x i64>, ptr %1609, align 1
-  store <2 x i64> %1606, ptr %__V1.addr.i1818, align 16
-  store <2 x i64> %1610, ptr %__V2.addr.i1819, align 16
-  %1611 = load <2 x i64>, ptr %__V1.addr.i1818, align 16
-  %1612 = bitcast <2 x i64> %1611 to <4 x i32>
-  %1613 = load <2 x i64>, ptr %__V2.addr.i1819, align 16
-  %1614 = bitcast <2 x i64> %1613 to <4 x i32>
-  %mul.i1820 = mul <4 x i32> %1612, %1614
-  %1615 = bitcast <4 x i32> %mul.i1820 to <2 x i64>
-  store <2 x i64> %1615, ptr %mull690, align 16
-  %1616 = load <2 x i64>, ptr %summ689, align 16
-  %1617 = load <2 x i64>, ptr %mull690, align 16
-  store <2 x i64> %1616, ptr %__a.addr.i2124, align 16
-  store <2 x i64> %1617, ptr %__b.addr.i2125, align 16
-  %1618 = load <2 x i64>, ptr %__a.addr.i2124, align 16
-  %1619 = bitcast <2 x i64> %1618 to <4 x i32>
-  %1620 = load <2 x i64>, ptr %__b.addr.i2125, align 16
-  %1621 = bitcast <2 x i64> %1620 to <4 x i32>
-  %add.i2126 = add <4 x i32> %1619, %1621
-  %1622 = bitcast <4 x i32> %add.i2126 to <2 x i64>
-  store <2 x i64> %1622, ptr %summ689, align 16
-  %1623 = load <2 x i64>, ptr %q3664, align 16
-  %1624 = load ptr, ptr %data.addr, align 8
-  %1625 = load i32, ptr %i, align 4
-  %idx.ext702 = sext i32 %1625 to i64
-  %add.ptr703 = getelementptr inbounds i32, ptr %1624, i64 %idx.ext702
-  %add.ptr704 = getelementptr inbounds i32, ptr %add.ptr703, i64 -4
-  store ptr %add.ptr704, ptr %__p.addr.i2018, align 8
-  %1626 = load ptr, ptr %__p.addr.i2018, align 8
-  %1627 = load <2 x i64>, ptr %1626, align 1
-  store <2 x i64> %1623, ptr %__V1.addr.i1815, align 16
-  store <2 x i64> %1627, ptr %__V2.addr.i1816, align 16
-  %1628 = load <2 x i64>, ptr %__V1.addr.i1815, align 16
-  %1629 = bitcast <2 x i64> %1628 to <4 x i32>
-  %1630 = load <2 x i64>, ptr %__V2.addr.i1816, align 16
+1619:                                             ; preds = %1022
+  %1620 = load i32, ptr %10, align 4, !tbaa !8
+  %1621 = icmp ugt i32 %1620, 2
+  br i1 %1621, label %1622, label %1803
+
+1622:                                             ; preds = %1619
+  %1623 = load i32, ptr %10, align 4, !tbaa !8
+  %1624 = icmp eq i32 %1623, 4
+  br i1 %1624, label %1625, label %1723
+
+1625:                                             ; preds = %1622
+  call void @llvm.lifetime.start.p0(i64 16, ptr %100) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %101) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %102) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %103) #5
+  %1626 = load ptr, ptr %9, align 8, !tbaa !3
+  %1627 = getelementptr inbounds i32, ptr %1626, i64 0
+  %1628 = load i32, ptr %1627, align 4, !tbaa !8
+  %1629 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1628)
+  store <2 x i64> %1629, ptr %100, align 16, !tbaa !10
+  %1630 = load <2 x i64>, ptr %100, align 16, !tbaa !10
   %1631 = bitcast <2 x i64> %1630 to <4 x i32>
-  %mul.i1817 = mul <4 x i32> %1629, %1631
-  %1632 = bitcast <4 x i32> %mul.i1817 to <2 x i64>
-  store <2 x i64> %1632, ptr %mull690, align 16
-  %1633 = load <2 x i64>, ptr %summ689, align 16
-  %1634 = load <2 x i64>, ptr %mull690, align 16
-  store <2 x i64> %1633, ptr %__a.addr.i2121, align 16
-  store <2 x i64> %1634, ptr %__b.addr.i2122, align 16
-  %1635 = load <2 x i64>, ptr %__a.addr.i2121, align 16
-  %1636 = bitcast <2 x i64> %1635 to <4 x i32>
-  %1637 = load <2 x i64>, ptr %__b.addr.i2122, align 16
-  %1638 = bitcast <2 x i64> %1637 to <4 x i32>
-  %add.i2123 = add <4 x i32> %1636, %1638
-  %1639 = bitcast <4 x i32> %add.i2123 to <2 x i64>
-  store <2 x i64> %1639, ptr %summ689, align 16
-  %1640 = load <2 x i64>, ptr %q2663, align 16
-  %1641 = load ptr, ptr %data.addr, align 8
-  %1642 = load i32, ptr %i, align 4
-  %idx.ext708 = sext i32 %1642 to i64
-  %add.ptr709 = getelementptr inbounds i32, ptr %1641, i64 %idx.ext708
-  %add.ptr710 = getelementptr inbounds i32, ptr %add.ptr709, i64 -3
-  store ptr %add.ptr710, ptr %__p.addr.i2017, align 8
-  %1643 = load ptr, ptr %__p.addr.i2017, align 8
-  %1644 = load <2 x i64>, ptr %1643, align 1
-  store <2 x i64> %1640, ptr %__V1.addr.i1812, align 16
-  store <2 x i64> %1644, ptr %__V2.addr.i1813, align 16
-  %1645 = load <2 x i64>, ptr %__V1.addr.i1812, align 16
-  %1646 = bitcast <2 x i64> %1645 to <4 x i32>
-  %1647 = load <2 x i64>, ptr %__V2.addr.i1813, align 16
-  %1648 = bitcast <2 x i64> %1647 to <4 x i32>
-  %mul.i1814 = mul <4 x i32> %1646, %1648
-  %1649 = bitcast <4 x i32> %mul.i1814 to <2 x i64>
-  store <2 x i64> %1649, ptr %mull690, align 16
-  %1650 = load <2 x i64>, ptr %summ689, align 16
-  %1651 = load <2 x i64>, ptr %mull690, align 16
-  store <2 x i64> %1650, ptr %__a.addr.i2118, align 16
-  store <2 x i64> %1651, ptr %__b.addr.i2119, align 16
-  %1652 = load <2 x i64>, ptr %__a.addr.i2118, align 16
-  %1653 = bitcast <2 x i64> %1652 to <4 x i32>
-  %1654 = load <2 x i64>, ptr %__b.addr.i2119, align 16
+  %1632 = shufflevector <4 x i32> %1631, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1633 = bitcast <4 x i32> %1632 to <2 x i64>
+  store <2 x i64> %1633, ptr %100, align 16, !tbaa !10
+  %1634 = load ptr, ptr %9, align 8, !tbaa !3
+  %1635 = getelementptr inbounds i32, ptr %1634, i64 1
+  %1636 = load i32, ptr %1635, align 4, !tbaa !8
+  %1637 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1636)
+  store <2 x i64> %1637, ptr %101, align 16, !tbaa !10
+  %1638 = load <2 x i64>, ptr %101, align 16, !tbaa !10
+  %1639 = bitcast <2 x i64> %1638 to <4 x i32>
+  %1640 = shufflevector <4 x i32> %1639, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1641 = bitcast <4 x i32> %1640 to <2 x i64>
+  store <2 x i64> %1641, ptr %101, align 16, !tbaa !10
+  %1642 = load ptr, ptr %9, align 8, !tbaa !3
+  %1643 = getelementptr inbounds i32, ptr %1642, i64 2
+  %1644 = load i32, ptr %1643, align 4, !tbaa !8
+  %1645 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1644)
+  store <2 x i64> %1645, ptr %102, align 16, !tbaa !10
+  %1646 = load <2 x i64>, ptr %102, align 16, !tbaa !10
+  %1647 = bitcast <2 x i64> %1646 to <4 x i32>
+  %1648 = shufflevector <4 x i32> %1647, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1649 = bitcast <4 x i32> %1648 to <2 x i64>
+  store <2 x i64> %1649, ptr %102, align 16, !tbaa !10
+  %1650 = load ptr, ptr %9, align 8, !tbaa !3
+  %1651 = getelementptr inbounds i32, ptr %1650, i64 3
+  %1652 = load i32, ptr %1651, align 4, !tbaa !8
+  %1653 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1652)
+  store <2 x i64> %1653, ptr %103, align 16, !tbaa !10
+  %1654 = load <2 x i64>, ptr %103, align 16, !tbaa !10
   %1655 = bitcast <2 x i64> %1654 to <4 x i32>
-  %add.i2120 = add <4 x i32> %1653, %1655
-  %1656 = bitcast <4 x i32> %add.i2120 to <2 x i64>
-  store <2 x i64> %1656, ptr %summ689, align 16
-  %1657 = load <2 x i64>, ptr %q1662, align 16
-  %1658 = load ptr, ptr %data.addr, align 8
-  %1659 = load i32, ptr %i, align 4
-  %idx.ext714 = sext i32 %1659 to i64
-  %add.ptr715 = getelementptr inbounds i32, ptr %1658, i64 %idx.ext714
-  %add.ptr716 = getelementptr inbounds i32, ptr %add.ptr715, i64 -2
-  store ptr %add.ptr716, ptr %__p.addr.i2016, align 8
-  %1660 = load ptr, ptr %__p.addr.i2016, align 8
-  %1661 = load <2 x i64>, ptr %1660, align 1
-  store <2 x i64> %1657, ptr %__V1.addr.i1809, align 16
-  store <2 x i64> %1661, ptr %__V2.addr.i1810, align 16
-  %1662 = load <2 x i64>, ptr %__V1.addr.i1809, align 16
-  %1663 = bitcast <2 x i64> %1662 to <4 x i32>
-  %1664 = load <2 x i64>, ptr %__V2.addr.i1810, align 16
-  %1665 = bitcast <2 x i64> %1664 to <4 x i32>
-  %mul.i1811 = mul <4 x i32> %1663, %1665
-  %1666 = bitcast <4 x i32> %mul.i1811 to <2 x i64>
-  store <2 x i64> %1666, ptr %mull690, align 16
-  %1667 = load <2 x i64>, ptr %summ689, align 16
-  %1668 = load <2 x i64>, ptr %mull690, align 16
-  store <2 x i64> %1667, ptr %__a.addr.i2115, align 16
-  store <2 x i64> %1668, ptr %__b.addr.i2116, align 16
-  %1669 = load <2 x i64>, ptr %__a.addr.i2115, align 16
-  %1670 = bitcast <2 x i64> %1669 to <4 x i32>
-  %1671 = load <2 x i64>, ptr %__b.addr.i2116, align 16
-  %1672 = bitcast <2 x i64> %1671 to <4 x i32>
-  %add.i2117 = add <4 x i32> %1670, %1672
-  %1673 = bitcast <4 x i32> %add.i2117 to <2 x i64>
-  store <2 x i64> %1673, ptr %summ689, align 16
-  %1674 = load <2 x i64>, ptr %q0661, align 16
-  %1675 = load ptr, ptr %data.addr, align 8
-  %1676 = load i32, ptr %i, align 4
-  %idx.ext720 = sext i32 %1676 to i64
-  %add.ptr721 = getelementptr inbounds i32, ptr %1675, i64 %idx.ext720
-  %add.ptr722 = getelementptr inbounds i32, ptr %add.ptr721, i64 -1
-  store ptr %add.ptr722, ptr %__p.addr.i2015, align 8
-  %1677 = load ptr, ptr %__p.addr.i2015, align 8
-  %1678 = load <2 x i64>, ptr %1677, align 1
-  store <2 x i64> %1674, ptr %__V1.addr.i1806, align 16
-  store <2 x i64> %1678, ptr %__V2.addr.i1807, align 16
-  %1679 = load <2 x i64>, ptr %__V1.addr.i1806, align 16
-  %1680 = bitcast <2 x i64> %1679 to <4 x i32>
-  %1681 = load <2 x i64>, ptr %__V2.addr.i1807, align 16
-  %1682 = bitcast <2 x i64> %1681 to <4 x i32>
-  %mul.i1808 = mul <4 x i32> %1680, %1682
-  %1683 = bitcast <4 x i32> %mul.i1808 to <2 x i64>
-  store <2 x i64> %1683, ptr %mull690, align 16
-  %1684 = load <2 x i64>, ptr %summ689, align 16
-  %1685 = load <2 x i64>, ptr %mull690, align 16
-  store <2 x i64> %1684, ptr %__a.addr.i2112, align 16
-  store <2 x i64> %1685, ptr %__b.addr.i2113, align 16
-  %1686 = load <2 x i64>, ptr %__a.addr.i2112, align 16
-  %1687 = bitcast <2 x i64> %1686 to <4 x i32>
-  %1688 = load <2 x i64>, ptr %__b.addr.i2113, align 16
-  %1689 = bitcast <2 x i64> %1688 to <4 x i32>
-  %add.i2114 = add <4 x i32> %1687, %1689
-  %1690 = bitcast <4 x i32> %add.i2114 to <2 x i64>
-  store <2 x i64> %1690, ptr %summ689, align 16
-  %1691 = load <2 x i64>, ptr %summ689, align 16
-  %1692 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %1691, ptr %__a.addr.i2289, align 16
-  store <2 x i64> %1692, ptr %__count.addr.i2290, align 16
-  %1693 = load <2 x i64>, ptr %__a.addr.i2289, align 16
-  %1694 = bitcast <2 x i64> %1693 to <4 x i32>
-  %1695 = load <2 x i64>, ptr %__count.addr.i2290, align 16
-  %1696 = bitcast <2 x i64> %1695 to <4 x i32>
-  %1697 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %1694, <4 x i32> %1696)
-  %1698 = bitcast <4 x i32> %1697 to <2 x i64>
-  store <2 x i64> %1698, ptr %summ689, align 16
-  %1699 = load ptr, ptr %residual.addr, align 8
-  %1700 = load i32, ptr %i, align 4
-  %idx.ext727 = sext i32 %1700 to i64
-  %add.ptr728 = getelementptr inbounds i32, ptr %1699, i64 %idx.ext727
-  %1701 = load ptr, ptr %data.addr, align 8
-  %1702 = load i32, ptr %i, align 4
-  %idx.ext729 = sext i32 %1702 to i64
-  %add.ptr730 = getelementptr inbounds i32, ptr %1701, i64 %idx.ext729
-  store ptr %add.ptr730, ptr %__p.addr.i2014, align 8
-  %1703 = load ptr, ptr %__p.addr.i2014, align 8
-  %1704 = load <2 x i64>, ptr %1703, align 1
-  %1705 = load <2 x i64>, ptr %summ689, align 16
-  store <2 x i64> %1704, ptr %__a.addr.i2341, align 16
-  store <2 x i64> %1705, ptr %__b.addr.i2342, align 16
-  %1706 = load <2 x i64>, ptr %__a.addr.i2341, align 16
-  %1707 = bitcast <2 x i64> %1706 to <4 x i32>
-  %1708 = load <2 x i64>, ptr %__b.addr.i2342, align 16
-  %1709 = bitcast <2 x i64> %1708 to <4 x i32>
-  %sub.i2343 = sub <4 x i32> %1707, %1709
-  %1710 = bitcast <4 x i32> %sub.i2343 to <2 x i64>
-  store ptr %add.ptr728, ptr %__p.addr.i2313, align 8
-  store <2 x i64> %1710, ptr %__b.addr.i2314, align 16
-  %1711 = load <2 x i64>, ptr %__b.addr.i2314, align 16
-  %1712 = load ptr, ptr %__p.addr.i2313, align 8
-  store <2 x i64> %1711, ptr %1712, align 1
-  br label %for.inc733
+  %1656 = shufflevector <4 x i32> %1655, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1657 = bitcast <4 x i32> %1656 to <2 x i64>
+  store <2 x i64> %1657, ptr %103, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %1658
 
-for.inc733:                                       ; preds = %for.body688
-  %1713 = load i32, ptr %i, align 4
-  %add734 = add nsw i32 %1713, 4
-  store i32 %add734, ptr %i, align 4
-  br label %for.cond685, !llvm.loop !11
+1658:                                             ; preds = %1719, %1625
+  %1659 = load i32, ptr %13, align 4, !tbaa !8
+  %1660 = load i32, ptr %8, align 4, !tbaa !8
+  %1661 = sub nsw i32 %1660, 3
+  %1662 = icmp slt i32 %1659, %1661
+  br i1 %1662, label %1663, label %1722
 
-for.end735:                                       ; preds = %for.cond685
-  br label %if.end802
+1663:                                             ; preds = %1658
+  call void @llvm.lifetime.start.p0(i64 16, ptr %104) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %105) #5
+  %1664 = load <2 x i64>, ptr %103, align 16, !tbaa !10
+  %1665 = load ptr, ptr %7, align 8, !tbaa !3
+  %1666 = load i32, ptr %13, align 4, !tbaa !8
+  %1667 = sext i32 %1666 to i64
+  %1668 = getelementptr inbounds i32, ptr %1665, i64 %1667
+  %1669 = getelementptr inbounds i32, ptr %1668, i64 -4
+  %1670 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1669)
+  %1671 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1664, <2 x i64> noundef %1670)
+  store <2 x i64> %1671, ptr %104, align 16, !tbaa !10
+  %1672 = load <2 x i64>, ptr %102, align 16, !tbaa !10
+  %1673 = load ptr, ptr %7, align 8, !tbaa !3
+  %1674 = load i32, ptr %13, align 4, !tbaa !8
+  %1675 = sext i32 %1674 to i64
+  %1676 = getelementptr inbounds i32, ptr %1673, i64 %1675
+  %1677 = getelementptr inbounds i32, ptr %1676, i64 -3
+  %1678 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1677)
+  %1679 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1672, <2 x i64> noundef %1678)
+  store <2 x i64> %1679, ptr %105, align 16, !tbaa !10
+  %1680 = load <2 x i64>, ptr %104, align 16, !tbaa !10
+  %1681 = load <2 x i64>, ptr %105, align 16, !tbaa !10
+  %1682 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1680, <2 x i64> noundef %1681)
+  store <2 x i64> %1682, ptr %104, align 16, !tbaa !10
+  %1683 = load <2 x i64>, ptr %101, align 16, !tbaa !10
+  %1684 = load ptr, ptr %7, align 8, !tbaa !3
+  %1685 = load i32, ptr %13, align 4, !tbaa !8
+  %1686 = sext i32 %1685 to i64
+  %1687 = getelementptr inbounds i32, ptr %1684, i64 %1686
+  %1688 = getelementptr inbounds i32, ptr %1687, i64 -2
+  %1689 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1688)
+  %1690 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1683, <2 x i64> noundef %1689)
+  store <2 x i64> %1690, ptr %105, align 16, !tbaa !10
+  %1691 = load <2 x i64>, ptr %104, align 16, !tbaa !10
+  %1692 = load <2 x i64>, ptr %105, align 16, !tbaa !10
+  %1693 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1691, <2 x i64> noundef %1692)
+  store <2 x i64> %1693, ptr %104, align 16, !tbaa !10
+  %1694 = load <2 x i64>, ptr %100, align 16, !tbaa !10
+  %1695 = load ptr, ptr %7, align 8, !tbaa !3
+  %1696 = load i32, ptr %13, align 4, !tbaa !8
+  %1697 = sext i32 %1696 to i64
+  %1698 = getelementptr inbounds i32, ptr %1695, i64 %1697
+  %1699 = getelementptr inbounds i32, ptr %1698, i64 -1
+  %1700 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1699)
+  %1701 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1694, <2 x i64> noundef %1700)
+  store <2 x i64> %1701, ptr %105, align 16, !tbaa !10
+  %1702 = load <2 x i64>, ptr %104, align 16, !tbaa !10
+  %1703 = load <2 x i64>, ptr %105, align 16, !tbaa !10
+  %1704 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1702, <2 x i64> noundef %1703)
+  store <2 x i64> %1704, ptr %104, align 16, !tbaa !10
+  %1705 = load <2 x i64>, ptr %104, align 16, !tbaa !10
+  %1706 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %1707 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %1705, <2 x i64> noundef %1706)
+  store <2 x i64> %1707, ptr %104, align 16, !tbaa !10
+  %1708 = load ptr, ptr %12, align 8, !tbaa !3
+  %1709 = load i32, ptr %13, align 4, !tbaa !8
+  %1710 = sext i32 %1709 to i64
+  %1711 = getelementptr inbounds i32, ptr %1708, i64 %1710
+  %1712 = load ptr, ptr %7, align 8, !tbaa !3
+  %1713 = load i32, ptr %13, align 4, !tbaa !8
+  %1714 = sext i32 %1713 to i64
+  %1715 = getelementptr inbounds i32, ptr %1712, i64 %1714
+  %1716 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1715)
+  %1717 = load <2 x i64>, ptr %104, align 16, !tbaa !10
+  %1718 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %1716, <2 x i64> noundef %1717)
+  call void @_mm_storeu_si128(ptr noundef %1711, <2 x i64> noundef %1718)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %105) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %104) #5
+  br label %1719
 
-if.else736:                                       ; preds = %if.else658
-  %1714 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx742 = getelementptr inbounds i32, ptr %1714, i64 0
-  %1715 = load i32, ptr %arrayidx742, align 4
-  store i32 %1715, ptr %__a.addr.i1374, align 4
-  %1716 = load i32, ptr %__a.addr.i1374, align 4
-  %vecinit.i1376 = insertelement <4 x i32> undef, i32 %1716, i32 0
-  %vecinit1.i1377 = insertelement <4 x i32> %vecinit.i1376, i32 0, i32 1
-  %vecinit2.i1378 = insertelement <4 x i32> %vecinit1.i1377, i32 0, i32 2
-  %vecinit3.i1379 = insertelement <4 x i32> %vecinit2.i1378, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1379, ptr %.compoundliteral.i1375, align 16
-  %1717 = load <4 x i32>, ptr %.compoundliteral.i1375, align 16
-  %1718 = bitcast <4 x i32> %1717 to <2 x i64>
-  store <2 x i64> %1718, ptr %q0737, align 16
-  %1719 = load <2 x i64>, ptr %q0737, align 16
-  %1720 = bitcast <2 x i64> %1719 to <4 x i32>
-  %permil744 = shufflevector <4 x i32> %1720, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1721 = bitcast <4 x i32> %permil744 to <2 x i64>
-  store <2 x i64> %1721, ptr %q0737, align 16
-  %1722 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx745 = getelementptr inbounds i32, ptr %1722, i64 1
-  %1723 = load i32, ptr %arrayidx745, align 4
-  store i32 %1723, ptr %__a.addr.i1368, align 4
-  %1724 = load i32, ptr %__a.addr.i1368, align 4
-  %vecinit.i1370 = insertelement <4 x i32> undef, i32 %1724, i32 0
-  %vecinit1.i1371 = insertelement <4 x i32> %vecinit.i1370, i32 0, i32 1
-  %vecinit2.i1372 = insertelement <4 x i32> %vecinit1.i1371, i32 0, i32 2
-  %vecinit3.i1373 = insertelement <4 x i32> %vecinit2.i1372, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1373, ptr %.compoundliteral.i1369, align 16
-  %1725 = load <4 x i32>, ptr %.compoundliteral.i1369, align 16
-  %1726 = bitcast <4 x i32> %1725 to <2 x i64>
-  store <2 x i64> %1726, ptr %q1738, align 16
-  %1727 = load <2 x i64>, ptr %q1738, align 16
-  %1728 = bitcast <2 x i64> %1727 to <4 x i32>
-  %permil747 = shufflevector <4 x i32> %1728, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1729 = bitcast <4 x i32> %permil747 to <2 x i64>
-  store <2 x i64> %1729, ptr %q1738, align 16
-  %1730 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx748 = getelementptr inbounds i32, ptr %1730, i64 2
-  %1731 = load i32, ptr %arrayidx748, align 4
-  store i32 %1731, ptr %__a.addr.i1362, align 4
-  %1732 = load i32, ptr %__a.addr.i1362, align 4
-  %vecinit.i1364 = insertelement <4 x i32> undef, i32 %1732, i32 0
-  %vecinit1.i1365 = insertelement <4 x i32> %vecinit.i1364, i32 0, i32 1
-  %vecinit2.i1366 = insertelement <4 x i32> %vecinit1.i1365, i32 0, i32 2
-  %vecinit3.i1367 = insertelement <4 x i32> %vecinit2.i1366, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1367, ptr %.compoundliteral.i1363, align 16
-  %1733 = load <4 x i32>, ptr %.compoundliteral.i1363, align 16
-  %1734 = bitcast <4 x i32> %1733 to <2 x i64>
-  store <2 x i64> %1734, ptr %q2739, align 16
-  %1735 = load <2 x i64>, ptr %q2739, align 16
-  %1736 = bitcast <2 x i64> %1735 to <4 x i32>
-  %permil750 = shufflevector <4 x i32> %1736, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1737 = bitcast <4 x i32> %permil750 to <2 x i64>
-  store <2 x i64> %1737, ptr %q2739, align 16
-  %1738 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx751 = getelementptr inbounds i32, ptr %1738, i64 3
-  %1739 = load i32, ptr %arrayidx751, align 4
-  store i32 %1739, ptr %__a.addr.i1356, align 4
-  %1740 = load i32, ptr %__a.addr.i1356, align 4
-  %vecinit.i1358 = insertelement <4 x i32> undef, i32 %1740, i32 0
-  %vecinit1.i1359 = insertelement <4 x i32> %vecinit.i1358, i32 0, i32 1
-  %vecinit2.i1360 = insertelement <4 x i32> %vecinit1.i1359, i32 0, i32 2
-  %vecinit3.i1361 = insertelement <4 x i32> %vecinit2.i1360, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1361, ptr %.compoundliteral.i1357, align 16
-  %1741 = load <4 x i32>, ptr %.compoundliteral.i1357, align 16
-  %1742 = bitcast <4 x i32> %1741 to <2 x i64>
-  store <2 x i64> %1742, ptr %q3740, align 16
-  %1743 = load <2 x i64>, ptr %q3740, align 16
-  %1744 = bitcast <2 x i64> %1743 to <4 x i32>
-  %permil753 = shufflevector <4 x i32> %1744, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1745 = bitcast <4 x i32> %permil753 to <2 x i64>
-  store <2 x i64> %1745, ptr %q3740, align 16
-  %1746 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx754 = getelementptr inbounds i32, ptr %1746, i64 4
-  %1747 = load i32, ptr %arrayidx754, align 4
-  store i32 %1747, ptr %__a.addr.i1350, align 4
-  %1748 = load i32, ptr %__a.addr.i1350, align 4
-  %vecinit.i1352 = insertelement <4 x i32> undef, i32 %1748, i32 0
-  %vecinit1.i1353 = insertelement <4 x i32> %vecinit.i1352, i32 0, i32 1
-  %vecinit2.i1354 = insertelement <4 x i32> %vecinit1.i1353, i32 0, i32 2
-  %vecinit3.i1355 = insertelement <4 x i32> %vecinit2.i1354, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1355, ptr %.compoundliteral.i1351, align 16
-  %1749 = load <4 x i32>, ptr %.compoundliteral.i1351, align 16
-  %1750 = bitcast <4 x i32> %1749 to <2 x i64>
-  store <2 x i64> %1750, ptr %q4741, align 16
-  %1751 = load <2 x i64>, ptr %q4741, align 16
-  %1752 = bitcast <2 x i64> %1751 to <4 x i32>
-  %permil756 = shufflevector <4 x i32> %1752, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1753 = bitcast <4 x i32> %permil756 to <2 x i64>
-  store <2 x i64> %1753, ptr %q4741, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond757
+1719:                                             ; preds = %1663
+  %1720 = load i32, ptr %13, align 4, !tbaa !8
+  %1721 = add nsw i32 %1720, 4
+  store i32 %1721, ptr %13, align 4, !tbaa !8
+  br label %1658, !llvm.loop !20
 
-for.cond757:                                      ; preds = %for.inc799, %if.else736
-  %1754 = load i32, ptr %i, align 4
-  %1755 = load i32, ptr %data_len.addr, align 4
-  %sub758 = sub nsw i32 %1755, 3
-  %cmp759 = icmp slt i32 %1754, %sub758
-  br i1 %cmp759, label %for.body760, label %for.end801
+1722:                                             ; preds = %1658
+  call void @llvm.lifetime.end.p0(i64 16, ptr %103) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %102) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %101) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %100) #5
+  br label %1802
 
-for.body760:                                      ; preds = %for.cond757
-  %1756 = load <2 x i64>, ptr %q4741, align 16
-  %1757 = load ptr, ptr %data.addr, align 8
-  %1758 = load i32, ptr %i, align 4
-  %idx.ext763 = sext i32 %1758 to i64
-  %add.ptr764 = getelementptr inbounds i32, ptr %1757, i64 %idx.ext763
-  %add.ptr765 = getelementptr inbounds i32, ptr %add.ptr764, i64 -5
-  store ptr %add.ptr765, ptr %__p.addr.i2013, align 8
-  %1759 = load ptr, ptr %__p.addr.i2013, align 8
-  %1760 = load <2 x i64>, ptr %1759, align 1
-  store <2 x i64> %1756, ptr %__V1.addr.i1803, align 16
-  store <2 x i64> %1760, ptr %__V2.addr.i1804, align 16
-  %1761 = load <2 x i64>, ptr %__V1.addr.i1803, align 16
-  %1762 = bitcast <2 x i64> %1761 to <4 x i32>
-  %1763 = load <2 x i64>, ptr %__V2.addr.i1804, align 16
-  %1764 = bitcast <2 x i64> %1763 to <4 x i32>
-  %mul.i1805 = mul <4 x i32> %1762, %1764
-  %1765 = bitcast <4 x i32> %mul.i1805 to <2 x i64>
-  store <2 x i64> %1765, ptr %summ761, align 16
-  %1766 = load <2 x i64>, ptr %q3740, align 16
-  %1767 = load ptr, ptr %data.addr, align 8
-  %1768 = load i32, ptr %i, align 4
-  %idx.ext768 = sext i32 %1768 to i64
-  %add.ptr769 = getelementptr inbounds i32, ptr %1767, i64 %idx.ext768
-  %add.ptr770 = getelementptr inbounds i32, ptr %add.ptr769, i64 -4
-  store ptr %add.ptr770, ptr %__p.addr.i2012, align 8
-  %1769 = load ptr, ptr %__p.addr.i2012, align 8
-  %1770 = load <2 x i64>, ptr %1769, align 1
-  store <2 x i64> %1766, ptr %__V1.addr.i1800, align 16
-  store <2 x i64> %1770, ptr %__V2.addr.i1801, align 16
-  %1771 = load <2 x i64>, ptr %__V1.addr.i1800, align 16
-  %1772 = bitcast <2 x i64> %1771 to <4 x i32>
-  %1773 = load <2 x i64>, ptr %__V2.addr.i1801, align 16
-  %1774 = bitcast <2 x i64> %1773 to <4 x i32>
-  %mul.i1802 = mul <4 x i32> %1772, %1774
-  %1775 = bitcast <4 x i32> %mul.i1802 to <2 x i64>
-  store <2 x i64> %1775, ptr %mull762, align 16
-  %1776 = load <2 x i64>, ptr %summ761, align 16
-  %1777 = load <2 x i64>, ptr %mull762, align 16
-  store <2 x i64> %1776, ptr %__a.addr.i2109, align 16
-  store <2 x i64> %1777, ptr %__b.addr.i2110, align 16
-  %1778 = load <2 x i64>, ptr %__a.addr.i2109, align 16
-  %1779 = bitcast <2 x i64> %1778 to <4 x i32>
-  %1780 = load <2 x i64>, ptr %__b.addr.i2110, align 16
-  %1781 = bitcast <2 x i64> %1780 to <4 x i32>
-  %add.i2111 = add <4 x i32> %1779, %1781
-  %1782 = bitcast <4 x i32> %add.i2111 to <2 x i64>
-  store <2 x i64> %1782, ptr %summ761, align 16
-  %1783 = load <2 x i64>, ptr %q2739, align 16
-  %1784 = load ptr, ptr %data.addr, align 8
-  %1785 = load i32, ptr %i, align 4
-  %idx.ext774 = sext i32 %1785 to i64
-  %add.ptr775 = getelementptr inbounds i32, ptr %1784, i64 %idx.ext774
-  %add.ptr776 = getelementptr inbounds i32, ptr %add.ptr775, i64 -3
-  store ptr %add.ptr776, ptr %__p.addr.i2011, align 8
-  %1786 = load ptr, ptr %__p.addr.i2011, align 8
-  %1787 = load <2 x i64>, ptr %1786, align 1
-  store <2 x i64> %1783, ptr %__V1.addr.i1797, align 16
-  store <2 x i64> %1787, ptr %__V2.addr.i1798, align 16
-  %1788 = load <2 x i64>, ptr %__V1.addr.i1797, align 16
-  %1789 = bitcast <2 x i64> %1788 to <4 x i32>
-  %1790 = load <2 x i64>, ptr %__V2.addr.i1798, align 16
-  %1791 = bitcast <2 x i64> %1790 to <4 x i32>
-  %mul.i1799 = mul <4 x i32> %1789, %1791
-  %1792 = bitcast <4 x i32> %mul.i1799 to <2 x i64>
-  store <2 x i64> %1792, ptr %mull762, align 16
-  %1793 = load <2 x i64>, ptr %summ761, align 16
-  %1794 = load <2 x i64>, ptr %mull762, align 16
-  store <2 x i64> %1793, ptr %__a.addr.i2106, align 16
-  store <2 x i64> %1794, ptr %__b.addr.i2107, align 16
-  %1795 = load <2 x i64>, ptr %__a.addr.i2106, align 16
-  %1796 = bitcast <2 x i64> %1795 to <4 x i32>
-  %1797 = load <2 x i64>, ptr %__b.addr.i2107, align 16
-  %1798 = bitcast <2 x i64> %1797 to <4 x i32>
-  %add.i2108 = add <4 x i32> %1796, %1798
-  %1799 = bitcast <4 x i32> %add.i2108 to <2 x i64>
-  store <2 x i64> %1799, ptr %summ761, align 16
-  %1800 = load <2 x i64>, ptr %q1738, align 16
-  %1801 = load ptr, ptr %data.addr, align 8
-  %1802 = load i32, ptr %i, align 4
-  %idx.ext780 = sext i32 %1802 to i64
-  %add.ptr781 = getelementptr inbounds i32, ptr %1801, i64 %idx.ext780
-  %add.ptr782 = getelementptr inbounds i32, ptr %add.ptr781, i64 -2
-  store ptr %add.ptr782, ptr %__p.addr.i2010, align 8
-  %1803 = load ptr, ptr %__p.addr.i2010, align 8
-  %1804 = load <2 x i64>, ptr %1803, align 1
-  store <2 x i64> %1800, ptr %__V1.addr.i1794, align 16
-  store <2 x i64> %1804, ptr %__V2.addr.i1795, align 16
-  %1805 = load <2 x i64>, ptr %__V1.addr.i1794, align 16
-  %1806 = bitcast <2 x i64> %1805 to <4 x i32>
-  %1807 = load <2 x i64>, ptr %__V2.addr.i1795, align 16
-  %1808 = bitcast <2 x i64> %1807 to <4 x i32>
-  %mul.i1796 = mul <4 x i32> %1806, %1808
-  %1809 = bitcast <4 x i32> %mul.i1796 to <2 x i64>
-  store <2 x i64> %1809, ptr %mull762, align 16
-  %1810 = load <2 x i64>, ptr %summ761, align 16
-  %1811 = load <2 x i64>, ptr %mull762, align 16
-  store <2 x i64> %1810, ptr %__a.addr.i2103, align 16
-  store <2 x i64> %1811, ptr %__b.addr.i2104, align 16
-  %1812 = load <2 x i64>, ptr %__a.addr.i2103, align 16
-  %1813 = bitcast <2 x i64> %1812 to <4 x i32>
-  %1814 = load <2 x i64>, ptr %__b.addr.i2104, align 16
-  %1815 = bitcast <2 x i64> %1814 to <4 x i32>
-  %add.i2105 = add <4 x i32> %1813, %1815
-  %1816 = bitcast <4 x i32> %add.i2105 to <2 x i64>
-  store <2 x i64> %1816, ptr %summ761, align 16
-  %1817 = load <2 x i64>, ptr %q0737, align 16
-  %1818 = load ptr, ptr %data.addr, align 8
-  %1819 = load i32, ptr %i, align 4
-  %idx.ext786 = sext i32 %1819 to i64
-  %add.ptr787 = getelementptr inbounds i32, ptr %1818, i64 %idx.ext786
-  %add.ptr788 = getelementptr inbounds i32, ptr %add.ptr787, i64 -1
-  store ptr %add.ptr788, ptr %__p.addr.i2009, align 8
-  %1820 = load ptr, ptr %__p.addr.i2009, align 8
-  %1821 = load <2 x i64>, ptr %1820, align 1
-  store <2 x i64> %1817, ptr %__V1.addr.i1791, align 16
-  store <2 x i64> %1821, ptr %__V2.addr.i1792, align 16
-  %1822 = load <2 x i64>, ptr %__V1.addr.i1791, align 16
-  %1823 = bitcast <2 x i64> %1822 to <4 x i32>
-  %1824 = load <2 x i64>, ptr %__V2.addr.i1792, align 16
-  %1825 = bitcast <2 x i64> %1824 to <4 x i32>
-  %mul.i1793 = mul <4 x i32> %1823, %1825
-  %1826 = bitcast <4 x i32> %mul.i1793 to <2 x i64>
-  store <2 x i64> %1826, ptr %mull762, align 16
-  %1827 = load <2 x i64>, ptr %summ761, align 16
-  %1828 = load <2 x i64>, ptr %mull762, align 16
-  store <2 x i64> %1827, ptr %__a.addr.i2100, align 16
-  store <2 x i64> %1828, ptr %__b.addr.i2101, align 16
-  %1829 = load <2 x i64>, ptr %__a.addr.i2100, align 16
-  %1830 = bitcast <2 x i64> %1829 to <4 x i32>
-  %1831 = load <2 x i64>, ptr %__b.addr.i2101, align 16
-  %1832 = bitcast <2 x i64> %1831 to <4 x i32>
-  %add.i2102 = add <4 x i32> %1830, %1832
-  %1833 = bitcast <4 x i32> %add.i2102 to <2 x i64>
-  store <2 x i64> %1833, ptr %summ761, align 16
-  %1834 = load <2 x i64>, ptr %summ761, align 16
-  %1835 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %1834, ptr %__a.addr.i2287, align 16
-  store <2 x i64> %1835, ptr %__count.addr.i2288, align 16
-  %1836 = load <2 x i64>, ptr %__a.addr.i2287, align 16
-  %1837 = bitcast <2 x i64> %1836 to <4 x i32>
-  %1838 = load <2 x i64>, ptr %__count.addr.i2288, align 16
-  %1839 = bitcast <2 x i64> %1838 to <4 x i32>
-  %1840 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %1837, <4 x i32> %1839)
-  %1841 = bitcast <4 x i32> %1840 to <2 x i64>
-  store <2 x i64> %1841, ptr %summ761, align 16
-  %1842 = load ptr, ptr %residual.addr, align 8
-  %1843 = load i32, ptr %i, align 4
-  %idx.ext793 = sext i32 %1843 to i64
-  %add.ptr794 = getelementptr inbounds i32, ptr %1842, i64 %idx.ext793
-  %1844 = load ptr, ptr %data.addr, align 8
-  %1845 = load i32, ptr %i, align 4
-  %idx.ext795 = sext i32 %1845 to i64
-  %add.ptr796 = getelementptr inbounds i32, ptr %1844, i64 %idx.ext795
-  store ptr %add.ptr796, ptr %__p.addr.i2008, align 8
-  %1846 = load ptr, ptr %__p.addr.i2008, align 8
-  %1847 = load <2 x i64>, ptr %1846, align 1
-  %1848 = load <2 x i64>, ptr %summ761, align 16
-  store <2 x i64> %1847, ptr %__a.addr.i2338, align 16
-  store <2 x i64> %1848, ptr %__b.addr.i2339, align 16
-  %1849 = load <2 x i64>, ptr %__a.addr.i2338, align 16
-  %1850 = bitcast <2 x i64> %1849 to <4 x i32>
-  %1851 = load <2 x i64>, ptr %__b.addr.i2339, align 16
-  %1852 = bitcast <2 x i64> %1851 to <4 x i32>
-  %sub.i2340 = sub <4 x i32> %1850, %1852
-  %1853 = bitcast <4 x i32> %sub.i2340 to <2 x i64>
-  store ptr %add.ptr794, ptr %__p.addr.i2311, align 8
-  store <2 x i64> %1853, ptr %__b.addr.i2312, align 16
-  %1854 = load <2 x i64>, ptr %__b.addr.i2312, align 16
-  %1855 = load ptr, ptr %__p.addr.i2311, align 8
-  store <2 x i64> %1854, ptr %1855, align 1
-  br label %for.inc799
+1723:                                             ; preds = %1622
+  call void @llvm.lifetime.start.p0(i64 16, ptr %106) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %107) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %108) #5
+  %1724 = load ptr, ptr %9, align 8, !tbaa !3
+  %1725 = getelementptr inbounds i32, ptr %1724, i64 0
+  %1726 = load i32, ptr %1725, align 4, !tbaa !8
+  %1727 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1726)
+  store <2 x i64> %1727, ptr %106, align 16, !tbaa !10
+  %1728 = load <2 x i64>, ptr %106, align 16, !tbaa !10
+  %1729 = bitcast <2 x i64> %1728 to <4 x i32>
+  %1730 = shufflevector <4 x i32> %1729, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1731 = bitcast <4 x i32> %1730 to <2 x i64>
+  store <2 x i64> %1731, ptr %106, align 16, !tbaa !10
+  %1732 = load ptr, ptr %9, align 8, !tbaa !3
+  %1733 = getelementptr inbounds i32, ptr %1732, i64 1
+  %1734 = load i32, ptr %1733, align 4, !tbaa !8
+  %1735 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1734)
+  store <2 x i64> %1735, ptr %107, align 16, !tbaa !10
+  %1736 = load <2 x i64>, ptr %107, align 16, !tbaa !10
+  %1737 = bitcast <2 x i64> %1736 to <4 x i32>
+  %1738 = shufflevector <4 x i32> %1737, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1739 = bitcast <4 x i32> %1738 to <2 x i64>
+  store <2 x i64> %1739, ptr %107, align 16, !tbaa !10
+  %1740 = load ptr, ptr %9, align 8, !tbaa !3
+  %1741 = getelementptr inbounds i32, ptr %1740, i64 2
+  %1742 = load i32, ptr %1741, align 4, !tbaa !8
+  %1743 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1742)
+  store <2 x i64> %1743, ptr %108, align 16, !tbaa !10
+  %1744 = load <2 x i64>, ptr %108, align 16, !tbaa !10
+  %1745 = bitcast <2 x i64> %1744 to <4 x i32>
+  %1746 = shufflevector <4 x i32> %1745, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1747 = bitcast <4 x i32> %1746 to <2 x i64>
+  store <2 x i64> %1747, ptr %108, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %1748
 
-for.inc799:                                       ; preds = %for.body760
-  %1856 = load i32, ptr %i, align 4
-  %add800 = add nsw i32 %1856, 4
-  store i32 %add800, ptr %i, align 4
-  br label %for.cond757, !llvm.loop !12
+1748:                                             ; preds = %1798, %1723
+  %1749 = load i32, ptr %13, align 4, !tbaa !8
+  %1750 = load i32, ptr %8, align 4, !tbaa !8
+  %1751 = sub nsw i32 %1750, 3
+  %1752 = icmp slt i32 %1749, %1751
+  br i1 %1752, label %1753, label %1801
 
-for.end801:                                       ; preds = %for.cond757
-  br label %if.end802
+1753:                                             ; preds = %1748
+  call void @llvm.lifetime.start.p0(i64 16, ptr %109) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %110) #5
+  %1754 = load <2 x i64>, ptr %108, align 16, !tbaa !10
+  %1755 = load ptr, ptr %7, align 8, !tbaa !3
+  %1756 = load i32, ptr %13, align 4, !tbaa !8
+  %1757 = sext i32 %1756 to i64
+  %1758 = getelementptr inbounds i32, ptr %1755, i64 %1757
+  %1759 = getelementptr inbounds i32, ptr %1758, i64 -3
+  %1760 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1759)
+  %1761 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1754, <2 x i64> noundef %1760)
+  store <2 x i64> %1761, ptr %109, align 16, !tbaa !10
+  %1762 = load <2 x i64>, ptr %107, align 16, !tbaa !10
+  %1763 = load ptr, ptr %7, align 8, !tbaa !3
+  %1764 = load i32, ptr %13, align 4, !tbaa !8
+  %1765 = sext i32 %1764 to i64
+  %1766 = getelementptr inbounds i32, ptr %1763, i64 %1765
+  %1767 = getelementptr inbounds i32, ptr %1766, i64 -2
+  %1768 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1767)
+  %1769 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1762, <2 x i64> noundef %1768)
+  store <2 x i64> %1769, ptr %110, align 16, !tbaa !10
+  %1770 = load <2 x i64>, ptr %109, align 16, !tbaa !10
+  %1771 = load <2 x i64>, ptr %110, align 16, !tbaa !10
+  %1772 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1770, <2 x i64> noundef %1771)
+  store <2 x i64> %1772, ptr %109, align 16, !tbaa !10
+  %1773 = load <2 x i64>, ptr %106, align 16, !tbaa !10
+  %1774 = load ptr, ptr %7, align 8, !tbaa !3
+  %1775 = load i32, ptr %13, align 4, !tbaa !8
+  %1776 = sext i32 %1775 to i64
+  %1777 = getelementptr inbounds i32, ptr %1774, i64 %1776
+  %1778 = getelementptr inbounds i32, ptr %1777, i64 -1
+  %1779 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1778)
+  %1780 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1773, <2 x i64> noundef %1779)
+  store <2 x i64> %1780, ptr %110, align 16, !tbaa !10
+  %1781 = load <2 x i64>, ptr %109, align 16, !tbaa !10
+  %1782 = load <2 x i64>, ptr %110, align 16, !tbaa !10
+  %1783 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1781, <2 x i64> noundef %1782)
+  store <2 x i64> %1783, ptr %109, align 16, !tbaa !10
+  %1784 = load <2 x i64>, ptr %109, align 16, !tbaa !10
+  %1785 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %1786 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %1784, <2 x i64> noundef %1785)
+  store <2 x i64> %1786, ptr %109, align 16, !tbaa !10
+  %1787 = load ptr, ptr %12, align 8, !tbaa !3
+  %1788 = load i32, ptr %13, align 4, !tbaa !8
+  %1789 = sext i32 %1788 to i64
+  %1790 = getelementptr inbounds i32, ptr %1787, i64 %1789
+  %1791 = load ptr, ptr %7, align 8, !tbaa !3
+  %1792 = load i32, ptr %13, align 4, !tbaa !8
+  %1793 = sext i32 %1792 to i64
+  %1794 = getelementptr inbounds i32, ptr %1791, i64 %1793
+  %1795 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1794)
+  %1796 = load <2 x i64>, ptr %109, align 16, !tbaa !10
+  %1797 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %1795, <2 x i64> noundef %1796)
+  call void @_mm_storeu_si128(ptr noundef %1790, <2 x i64> noundef %1797)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %110) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %109) #5
+  br label %1798
 
-if.end802:                                        ; preds = %for.end801, %for.end735
-  br label %if.end803
+1798:                                             ; preds = %1753
+  %1799 = load i32, ptr %13, align 4, !tbaa !8
+  %1800 = add nsw i32 %1799, 4
+  store i32 %1800, ptr %13, align 4, !tbaa !8
+  br label %1748, !llvm.loop !21
 
-if.end803:                                        ; preds = %if.end802, %if.end657
-  br label %if.end976
+1801:                                             ; preds = %1748
+  call void @llvm.lifetime.end.p0(i64 16, ptr %108) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %107) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %106) #5
+  br label %1802
 
-if.else804:                                       ; preds = %if.else469
-  %1857 = load i32, ptr %order.addr, align 4
-  %cmp805 = icmp ugt i32 %1857, 2
-  br i1 %cmp805, label %if.then806, label %if.else911
+1802:                                             ; preds = %1801, %1722
+  br label %1908
 
-if.then806:                                       ; preds = %if.else804
-  %1858 = load i32, ptr %order.addr, align 4
-  %cmp807 = icmp eq i32 %1858, 4
-  br i1 %cmp807, label %if.then808, label %if.else864
+1803:                                             ; preds = %1619
+  %1804 = load i32, ptr %10, align 4, !tbaa !8
+  %1805 = icmp eq i32 %1804, 2
+  br i1 %1805, label %1806, label %1866
 
-if.then808:                                       ; preds = %if.then806
-  %1859 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx813 = getelementptr inbounds i32, ptr %1859, i64 0
-  %1860 = load i32, ptr %arrayidx813, align 4
-  store i32 %1860, ptr %__a.addr.i1344, align 4
-  %1861 = load i32, ptr %__a.addr.i1344, align 4
-  %vecinit.i1346 = insertelement <4 x i32> undef, i32 %1861, i32 0
-  %vecinit1.i1347 = insertelement <4 x i32> %vecinit.i1346, i32 0, i32 1
-  %vecinit2.i1348 = insertelement <4 x i32> %vecinit1.i1347, i32 0, i32 2
-  %vecinit3.i1349 = insertelement <4 x i32> %vecinit2.i1348, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1349, ptr %.compoundliteral.i1345, align 16
-  %1862 = load <4 x i32>, ptr %.compoundliteral.i1345, align 16
-  %1863 = bitcast <4 x i32> %1862 to <2 x i64>
-  store <2 x i64> %1863, ptr %q0809, align 16
-  %1864 = load <2 x i64>, ptr %q0809, align 16
-  %1865 = bitcast <2 x i64> %1864 to <4 x i32>
-  %permil815 = shufflevector <4 x i32> %1865, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1866 = bitcast <4 x i32> %permil815 to <2 x i64>
-  store <2 x i64> %1866, ptr %q0809, align 16
-  %1867 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx816 = getelementptr inbounds i32, ptr %1867, i64 1
-  %1868 = load i32, ptr %arrayidx816, align 4
-  store i32 %1868, ptr %__a.addr.i1338, align 4
-  %1869 = load i32, ptr %__a.addr.i1338, align 4
-  %vecinit.i1340 = insertelement <4 x i32> undef, i32 %1869, i32 0
-  %vecinit1.i1341 = insertelement <4 x i32> %vecinit.i1340, i32 0, i32 1
-  %vecinit2.i1342 = insertelement <4 x i32> %vecinit1.i1341, i32 0, i32 2
-  %vecinit3.i1343 = insertelement <4 x i32> %vecinit2.i1342, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1343, ptr %.compoundliteral.i1339, align 16
-  %1870 = load <4 x i32>, ptr %.compoundliteral.i1339, align 16
-  %1871 = bitcast <4 x i32> %1870 to <2 x i64>
-  store <2 x i64> %1871, ptr %q1810, align 16
-  %1872 = load <2 x i64>, ptr %q1810, align 16
-  %1873 = bitcast <2 x i64> %1872 to <4 x i32>
-  %permil818 = shufflevector <4 x i32> %1873, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1874 = bitcast <4 x i32> %permil818 to <2 x i64>
-  store <2 x i64> %1874, ptr %q1810, align 16
-  %1875 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx819 = getelementptr inbounds i32, ptr %1875, i64 2
-  %1876 = load i32, ptr %arrayidx819, align 4
-  store i32 %1876, ptr %__a.addr.i1332, align 4
-  %1877 = load i32, ptr %__a.addr.i1332, align 4
-  %vecinit.i1334 = insertelement <4 x i32> undef, i32 %1877, i32 0
-  %vecinit1.i1335 = insertelement <4 x i32> %vecinit.i1334, i32 0, i32 1
-  %vecinit2.i1336 = insertelement <4 x i32> %vecinit1.i1335, i32 0, i32 2
-  %vecinit3.i1337 = insertelement <4 x i32> %vecinit2.i1336, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1337, ptr %.compoundliteral.i1333, align 16
-  %1878 = load <4 x i32>, ptr %.compoundliteral.i1333, align 16
-  %1879 = bitcast <4 x i32> %1878 to <2 x i64>
-  store <2 x i64> %1879, ptr %q2811, align 16
-  %1880 = load <2 x i64>, ptr %q2811, align 16
-  %1881 = bitcast <2 x i64> %1880 to <4 x i32>
-  %permil821 = shufflevector <4 x i32> %1881, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1882 = bitcast <4 x i32> %permil821 to <2 x i64>
-  store <2 x i64> %1882, ptr %q2811, align 16
-  %1883 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx822 = getelementptr inbounds i32, ptr %1883, i64 3
-  %1884 = load i32, ptr %arrayidx822, align 4
-  store i32 %1884, ptr %__a.addr.i1326, align 4
-  %1885 = load i32, ptr %__a.addr.i1326, align 4
-  %vecinit.i1328 = insertelement <4 x i32> undef, i32 %1885, i32 0
-  %vecinit1.i1329 = insertelement <4 x i32> %vecinit.i1328, i32 0, i32 1
-  %vecinit2.i1330 = insertelement <4 x i32> %vecinit1.i1329, i32 0, i32 2
-  %vecinit3.i1331 = insertelement <4 x i32> %vecinit2.i1330, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1331, ptr %.compoundliteral.i1327, align 16
-  %1886 = load <4 x i32>, ptr %.compoundliteral.i1327, align 16
-  %1887 = bitcast <4 x i32> %1886 to <2 x i64>
-  store <2 x i64> %1887, ptr %q3812, align 16
-  %1888 = load <2 x i64>, ptr %q3812, align 16
-  %1889 = bitcast <2 x i64> %1888 to <4 x i32>
-  %permil824 = shufflevector <4 x i32> %1889, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1890 = bitcast <4 x i32> %permil824 to <2 x i64>
-  store <2 x i64> %1890, ptr %q3812, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond825
+1806:                                             ; preds = %1803
+  call void @llvm.lifetime.start.p0(i64 16, ptr %111) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %112) #5
+  %1807 = load ptr, ptr %9, align 8, !tbaa !3
+  %1808 = getelementptr inbounds i32, ptr %1807, i64 0
+  %1809 = load i32, ptr %1808, align 4, !tbaa !8
+  %1810 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1809)
+  store <2 x i64> %1810, ptr %111, align 16, !tbaa !10
+  %1811 = load <2 x i64>, ptr %111, align 16, !tbaa !10
+  %1812 = bitcast <2 x i64> %1811 to <4 x i32>
+  %1813 = shufflevector <4 x i32> %1812, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1814 = bitcast <4 x i32> %1813 to <2 x i64>
+  store <2 x i64> %1814, ptr %111, align 16, !tbaa !10
+  %1815 = load ptr, ptr %9, align 8, !tbaa !3
+  %1816 = getelementptr inbounds i32, ptr %1815, i64 1
+  %1817 = load i32, ptr %1816, align 4, !tbaa !8
+  %1818 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1817)
+  store <2 x i64> %1818, ptr %112, align 16, !tbaa !10
+  %1819 = load <2 x i64>, ptr %112, align 16, !tbaa !10
+  %1820 = bitcast <2 x i64> %1819 to <4 x i32>
+  %1821 = shufflevector <4 x i32> %1820, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1822 = bitcast <4 x i32> %1821 to <2 x i64>
+  store <2 x i64> %1822, ptr %112, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %1823
 
-for.cond825:                                      ; preds = %for.inc861, %if.then808
-  %1891 = load i32, ptr %i, align 4
-  %1892 = load i32, ptr %data_len.addr, align 4
-  %sub826 = sub nsw i32 %1892, 3
-  %cmp827 = icmp slt i32 %1891, %sub826
-  br i1 %cmp827, label %for.body828, label %for.end863
+1823:                                             ; preds = %1862, %1806
+  %1824 = load i32, ptr %13, align 4, !tbaa !8
+  %1825 = load i32, ptr %8, align 4, !tbaa !8
+  %1826 = sub nsw i32 %1825, 3
+  %1827 = icmp slt i32 %1824, %1826
+  br i1 %1827, label %1828, label %1865
 
-for.body828:                                      ; preds = %for.cond825
-  %1893 = load <2 x i64>, ptr %q3812, align 16
-  %1894 = load ptr, ptr %data.addr, align 8
-  %1895 = load i32, ptr %i, align 4
-  %idx.ext831 = sext i32 %1895 to i64
-  %add.ptr832 = getelementptr inbounds i32, ptr %1894, i64 %idx.ext831
-  %add.ptr833 = getelementptr inbounds i32, ptr %add.ptr832, i64 -4
-  store ptr %add.ptr833, ptr %__p.addr.i2007, align 8
-  %1896 = load ptr, ptr %__p.addr.i2007, align 8
-  %1897 = load <2 x i64>, ptr %1896, align 1
-  store <2 x i64> %1893, ptr %__V1.addr.i1788, align 16
-  store <2 x i64> %1897, ptr %__V2.addr.i1789, align 16
-  %1898 = load <2 x i64>, ptr %__V1.addr.i1788, align 16
-  %1899 = bitcast <2 x i64> %1898 to <4 x i32>
-  %1900 = load <2 x i64>, ptr %__V2.addr.i1789, align 16
-  %1901 = bitcast <2 x i64> %1900 to <4 x i32>
-  %mul.i1790 = mul <4 x i32> %1899, %1901
-  %1902 = bitcast <4 x i32> %mul.i1790 to <2 x i64>
-  store <2 x i64> %1902, ptr %summ829, align 16
-  %1903 = load <2 x i64>, ptr %q2811, align 16
-  %1904 = load ptr, ptr %data.addr, align 8
-  %1905 = load i32, ptr %i, align 4
-  %idx.ext836 = sext i32 %1905 to i64
-  %add.ptr837 = getelementptr inbounds i32, ptr %1904, i64 %idx.ext836
-  %add.ptr838 = getelementptr inbounds i32, ptr %add.ptr837, i64 -3
-  store ptr %add.ptr838, ptr %__p.addr.i2006, align 8
-  %1906 = load ptr, ptr %__p.addr.i2006, align 8
-  %1907 = load <2 x i64>, ptr %1906, align 1
-  store <2 x i64> %1903, ptr %__V1.addr.i1785, align 16
-  store <2 x i64> %1907, ptr %__V2.addr.i1786, align 16
-  %1908 = load <2 x i64>, ptr %__V1.addr.i1785, align 16
-  %1909 = bitcast <2 x i64> %1908 to <4 x i32>
-  %1910 = load <2 x i64>, ptr %__V2.addr.i1786, align 16
-  %1911 = bitcast <2 x i64> %1910 to <4 x i32>
-  %mul.i1787 = mul <4 x i32> %1909, %1911
-  %1912 = bitcast <4 x i32> %mul.i1787 to <2 x i64>
-  store <2 x i64> %1912, ptr %mull830, align 16
-  %1913 = load <2 x i64>, ptr %summ829, align 16
-  %1914 = load <2 x i64>, ptr %mull830, align 16
-  store <2 x i64> %1913, ptr %__a.addr.i2097, align 16
-  store <2 x i64> %1914, ptr %__b.addr.i2098, align 16
-  %1915 = load <2 x i64>, ptr %__a.addr.i2097, align 16
-  %1916 = bitcast <2 x i64> %1915 to <4 x i32>
-  %1917 = load <2 x i64>, ptr %__b.addr.i2098, align 16
-  %1918 = bitcast <2 x i64> %1917 to <4 x i32>
-  %add.i2099 = add <4 x i32> %1916, %1918
-  %1919 = bitcast <4 x i32> %add.i2099 to <2 x i64>
-  store <2 x i64> %1919, ptr %summ829, align 16
-  %1920 = load <2 x i64>, ptr %q1810, align 16
-  %1921 = load ptr, ptr %data.addr, align 8
-  %1922 = load i32, ptr %i, align 4
-  %idx.ext842 = sext i32 %1922 to i64
-  %add.ptr843 = getelementptr inbounds i32, ptr %1921, i64 %idx.ext842
-  %add.ptr844 = getelementptr inbounds i32, ptr %add.ptr843, i64 -2
-  store ptr %add.ptr844, ptr %__p.addr.i2005, align 8
-  %1923 = load ptr, ptr %__p.addr.i2005, align 8
-  %1924 = load <2 x i64>, ptr %1923, align 1
-  store <2 x i64> %1920, ptr %__V1.addr.i1782, align 16
-  store <2 x i64> %1924, ptr %__V2.addr.i1783, align 16
-  %1925 = load <2 x i64>, ptr %__V1.addr.i1782, align 16
-  %1926 = bitcast <2 x i64> %1925 to <4 x i32>
-  %1927 = load <2 x i64>, ptr %__V2.addr.i1783, align 16
-  %1928 = bitcast <2 x i64> %1927 to <4 x i32>
-  %mul.i1784 = mul <4 x i32> %1926, %1928
-  %1929 = bitcast <4 x i32> %mul.i1784 to <2 x i64>
-  store <2 x i64> %1929, ptr %mull830, align 16
-  %1930 = load <2 x i64>, ptr %summ829, align 16
-  %1931 = load <2 x i64>, ptr %mull830, align 16
-  store <2 x i64> %1930, ptr %__a.addr.i2094, align 16
-  store <2 x i64> %1931, ptr %__b.addr.i2095, align 16
-  %1932 = load <2 x i64>, ptr %__a.addr.i2094, align 16
-  %1933 = bitcast <2 x i64> %1932 to <4 x i32>
-  %1934 = load <2 x i64>, ptr %__b.addr.i2095, align 16
-  %1935 = bitcast <2 x i64> %1934 to <4 x i32>
-  %add.i2096 = add <4 x i32> %1933, %1935
-  %1936 = bitcast <4 x i32> %add.i2096 to <2 x i64>
-  store <2 x i64> %1936, ptr %summ829, align 16
-  %1937 = load <2 x i64>, ptr %q0809, align 16
-  %1938 = load ptr, ptr %data.addr, align 8
-  %1939 = load i32, ptr %i, align 4
-  %idx.ext848 = sext i32 %1939 to i64
-  %add.ptr849 = getelementptr inbounds i32, ptr %1938, i64 %idx.ext848
-  %add.ptr850 = getelementptr inbounds i32, ptr %add.ptr849, i64 -1
-  store ptr %add.ptr850, ptr %__p.addr.i2004, align 8
-  %1940 = load ptr, ptr %__p.addr.i2004, align 8
-  %1941 = load <2 x i64>, ptr %1940, align 1
-  store <2 x i64> %1937, ptr %__V1.addr.i1779, align 16
-  store <2 x i64> %1941, ptr %__V2.addr.i1780, align 16
-  %1942 = load <2 x i64>, ptr %__V1.addr.i1779, align 16
-  %1943 = bitcast <2 x i64> %1942 to <4 x i32>
-  %1944 = load <2 x i64>, ptr %__V2.addr.i1780, align 16
-  %1945 = bitcast <2 x i64> %1944 to <4 x i32>
-  %mul.i1781 = mul <4 x i32> %1943, %1945
-  %1946 = bitcast <4 x i32> %mul.i1781 to <2 x i64>
-  store <2 x i64> %1946, ptr %mull830, align 16
-  %1947 = load <2 x i64>, ptr %summ829, align 16
-  %1948 = load <2 x i64>, ptr %mull830, align 16
-  store <2 x i64> %1947, ptr %__a.addr.i2091, align 16
-  store <2 x i64> %1948, ptr %__b.addr.i2092, align 16
-  %1949 = load <2 x i64>, ptr %__a.addr.i2091, align 16
-  %1950 = bitcast <2 x i64> %1949 to <4 x i32>
-  %1951 = load <2 x i64>, ptr %__b.addr.i2092, align 16
-  %1952 = bitcast <2 x i64> %1951 to <4 x i32>
-  %add.i2093 = add <4 x i32> %1950, %1952
-  %1953 = bitcast <4 x i32> %add.i2093 to <2 x i64>
-  store <2 x i64> %1953, ptr %summ829, align 16
-  %1954 = load <2 x i64>, ptr %summ829, align 16
-  %1955 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %1954, ptr %__a.addr.i2285, align 16
-  store <2 x i64> %1955, ptr %__count.addr.i2286, align 16
-  %1956 = load <2 x i64>, ptr %__a.addr.i2285, align 16
-  %1957 = bitcast <2 x i64> %1956 to <4 x i32>
-  %1958 = load <2 x i64>, ptr %__count.addr.i2286, align 16
-  %1959 = bitcast <2 x i64> %1958 to <4 x i32>
-  %1960 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %1957, <4 x i32> %1959)
-  %1961 = bitcast <4 x i32> %1960 to <2 x i64>
-  store <2 x i64> %1961, ptr %summ829, align 16
-  %1962 = load ptr, ptr %residual.addr, align 8
-  %1963 = load i32, ptr %i, align 4
-  %idx.ext855 = sext i32 %1963 to i64
-  %add.ptr856 = getelementptr inbounds i32, ptr %1962, i64 %idx.ext855
-  %1964 = load ptr, ptr %data.addr, align 8
-  %1965 = load i32, ptr %i, align 4
-  %idx.ext857 = sext i32 %1965 to i64
-  %add.ptr858 = getelementptr inbounds i32, ptr %1964, i64 %idx.ext857
-  store ptr %add.ptr858, ptr %__p.addr.i2003, align 8
-  %1966 = load ptr, ptr %__p.addr.i2003, align 8
-  %1967 = load <2 x i64>, ptr %1966, align 1
-  %1968 = load <2 x i64>, ptr %summ829, align 16
-  store <2 x i64> %1967, ptr %__a.addr.i2335, align 16
-  store <2 x i64> %1968, ptr %__b.addr.i2336, align 16
-  %1969 = load <2 x i64>, ptr %__a.addr.i2335, align 16
-  %1970 = bitcast <2 x i64> %1969 to <4 x i32>
-  %1971 = load <2 x i64>, ptr %__b.addr.i2336, align 16
-  %1972 = bitcast <2 x i64> %1971 to <4 x i32>
-  %sub.i2337 = sub <4 x i32> %1970, %1972
-  %1973 = bitcast <4 x i32> %sub.i2337 to <2 x i64>
-  store ptr %add.ptr856, ptr %__p.addr.i2309, align 8
-  store <2 x i64> %1973, ptr %__b.addr.i2310, align 16
-  %1974 = load <2 x i64>, ptr %__b.addr.i2310, align 16
-  %1975 = load ptr, ptr %__p.addr.i2309, align 8
-  store <2 x i64> %1974, ptr %1975, align 1
-  br label %for.inc861
+1828:                                             ; preds = %1823
+  call void @llvm.lifetime.start.p0(i64 16, ptr %113) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %114) #5
+  %1829 = load <2 x i64>, ptr %112, align 16, !tbaa !10
+  %1830 = load ptr, ptr %7, align 8, !tbaa !3
+  %1831 = load i32, ptr %13, align 4, !tbaa !8
+  %1832 = sext i32 %1831 to i64
+  %1833 = getelementptr inbounds i32, ptr %1830, i64 %1832
+  %1834 = getelementptr inbounds i32, ptr %1833, i64 -2
+  %1835 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1834)
+  %1836 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1829, <2 x i64> noundef %1835)
+  store <2 x i64> %1836, ptr %113, align 16, !tbaa !10
+  %1837 = load <2 x i64>, ptr %111, align 16, !tbaa !10
+  %1838 = load ptr, ptr %7, align 8, !tbaa !3
+  %1839 = load i32, ptr %13, align 4, !tbaa !8
+  %1840 = sext i32 %1839 to i64
+  %1841 = getelementptr inbounds i32, ptr %1838, i64 %1840
+  %1842 = getelementptr inbounds i32, ptr %1841, i64 -1
+  %1843 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1842)
+  %1844 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1837, <2 x i64> noundef %1843)
+  store <2 x i64> %1844, ptr %114, align 16, !tbaa !10
+  %1845 = load <2 x i64>, ptr %113, align 16, !tbaa !10
+  %1846 = load <2 x i64>, ptr %114, align 16, !tbaa !10
+  %1847 = call <2 x i64> @_mm_add_epi32(<2 x i64> noundef %1845, <2 x i64> noundef %1846)
+  store <2 x i64> %1847, ptr %113, align 16, !tbaa !10
+  %1848 = load <2 x i64>, ptr %113, align 16, !tbaa !10
+  %1849 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %1850 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %1848, <2 x i64> noundef %1849)
+  store <2 x i64> %1850, ptr %113, align 16, !tbaa !10
+  %1851 = load ptr, ptr %12, align 8, !tbaa !3
+  %1852 = load i32, ptr %13, align 4, !tbaa !8
+  %1853 = sext i32 %1852 to i64
+  %1854 = getelementptr inbounds i32, ptr %1851, i64 %1853
+  %1855 = load ptr, ptr %7, align 8, !tbaa !3
+  %1856 = load i32, ptr %13, align 4, !tbaa !8
+  %1857 = sext i32 %1856 to i64
+  %1858 = getelementptr inbounds i32, ptr %1855, i64 %1857
+  %1859 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1858)
+  %1860 = load <2 x i64>, ptr %113, align 16, !tbaa !10
+  %1861 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %1859, <2 x i64> noundef %1860)
+  call void @_mm_storeu_si128(ptr noundef %1854, <2 x i64> noundef %1861)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %114) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %113) #5
+  br label %1862
 
-for.inc861:                                       ; preds = %for.body828
-  %1976 = load i32, ptr %i, align 4
-  %add862 = add nsw i32 %1976, 4
-  store i32 %add862, ptr %i, align 4
-  br label %for.cond825, !llvm.loop !13
+1862:                                             ; preds = %1828
+  %1863 = load i32, ptr %13, align 4, !tbaa !8
+  %1864 = add nsw i32 %1863, 4
+  store i32 %1864, ptr %13, align 4, !tbaa !8
+  br label %1823, !llvm.loop !22
 
-for.end863:                                       ; preds = %for.cond825
-  br label %if.end910
+1865:                                             ; preds = %1823
+  call void @llvm.lifetime.end.p0(i64 16, ptr %112) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %111) #5
+  br label %1907
 
-if.else864:                                       ; preds = %if.then806
-  %1977 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx868 = getelementptr inbounds i32, ptr %1977, i64 0
-  %1978 = load i32, ptr %arrayidx868, align 4
-  store i32 %1978, ptr %__a.addr.i1320, align 4
-  %1979 = load i32, ptr %__a.addr.i1320, align 4
-  %vecinit.i1322 = insertelement <4 x i32> undef, i32 %1979, i32 0
-  %vecinit1.i1323 = insertelement <4 x i32> %vecinit.i1322, i32 0, i32 1
-  %vecinit2.i1324 = insertelement <4 x i32> %vecinit1.i1323, i32 0, i32 2
-  %vecinit3.i1325 = insertelement <4 x i32> %vecinit2.i1324, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1325, ptr %.compoundliteral.i1321, align 16
-  %1980 = load <4 x i32>, ptr %.compoundliteral.i1321, align 16
-  %1981 = bitcast <4 x i32> %1980 to <2 x i64>
-  store <2 x i64> %1981, ptr %q0865, align 16
-  %1982 = load <2 x i64>, ptr %q0865, align 16
-  %1983 = bitcast <2 x i64> %1982 to <4 x i32>
-  %permil870 = shufflevector <4 x i32> %1983, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1984 = bitcast <4 x i32> %permil870 to <2 x i64>
-  store <2 x i64> %1984, ptr %q0865, align 16
-  %1985 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx871 = getelementptr inbounds i32, ptr %1985, i64 1
-  %1986 = load i32, ptr %arrayidx871, align 4
-  store i32 %1986, ptr %__a.addr.i1314, align 4
-  %1987 = load i32, ptr %__a.addr.i1314, align 4
-  %vecinit.i1316 = insertelement <4 x i32> undef, i32 %1987, i32 0
-  %vecinit1.i1317 = insertelement <4 x i32> %vecinit.i1316, i32 0, i32 1
-  %vecinit2.i1318 = insertelement <4 x i32> %vecinit1.i1317, i32 0, i32 2
-  %vecinit3.i1319 = insertelement <4 x i32> %vecinit2.i1318, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1319, ptr %.compoundliteral.i1315, align 16
-  %1988 = load <4 x i32>, ptr %.compoundliteral.i1315, align 16
-  %1989 = bitcast <4 x i32> %1988 to <2 x i64>
-  store <2 x i64> %1989, ptr %q1866, align 16
-  %1990 = load <2 x i64>, ptr %q1866, align 16
-  %1991 = bitcast <2 x i64> %1990 to <4 x i32>
-  %permil873 = shufflevector <4 x i32> %1991, <4 x i32> poison, <4 x i32> zeroinitializer
-  %1992 = bitcast <4 x i32> %permil873 to <2 x i64>
-  store <2 x i64> %1992, ptr %q1866, align 16
-  %1993 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx874 = getelementptr inbounds i32, ptr %1993, i64 2
-  %1994 = load i32, ptr %arrayidx874, align 4
-  store i32 %1994, ptr %__a.addr.i1308, align 4
-  %1995 = load i32, ptr %__a.addr.i1308, align 4
-  %vecinit.i1310 = insertelement <4 x i32> undef, i32 %1995, i32 0
-  %vecinit1.i1311 = insertelement <4 x i32> %vecinit.i1310, i32 0, i32 1
-  %vecinit2.i1312 = insertelement <4 x i32> %vecinit1.i1311, i32 0, i32 2
-  %vecinit3.i1313 = insertelement <4 x i32> %vecinit2.i1312, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1313, ptr %.compoundliteral.i1309, align 16
-  %1996 = load <4 x i32>, ptr %.compoundliteral.i1309, align 16
-  %1997 = bitcast <4 x i32> %1996 to <2 x i64>
-  store <2 x i64> %1997, ptr %q2867, align 16
-  %1998 = load <2 x i64>, ptr %q2867, align 16
-  %1999 = bitcast <2 x i64> %1998 to <4 x i32>
-  %permil876 = shufflevector <4 x i32> %1999, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2000 = bitcast <4 x i32> %permil876 to <2 x i64>
-  store <2 x i64> %2000, ptr %q2867, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond877
+1866:                                             ; preds = %1803
+  call void @llvm.lifetime.start.p0(i64 16, ptr %115) #5
+  %1867 = load ptr, ptr %9, align 8, !tbaa !3
+  %1868 = getelementptr inbounds i32, ptr %1867, i64 0
+  %1869 = load i32, ptr %1868, align 4, !tbaa !8
+  %1870 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %1869)
+  store <2 x i64> %1870, ptr %115, align 16, !tbaa !10
+  %1871 = load <2 x i64>, ptr %115, align 16, !tbaa !10
+  %1872 = bitcast <2 x i64> %1871 to <4 x i32>
+  %1873 = shufflevector <4 x i32> %1872, <4 x i32> poison, <4 x i32> zeroinitializer
+  %1874 = bitcast <4 x i32> %1873 to <2 x i64>
+  store <2 x i64> %1874, ptr %115, align 16, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %1875
 
-for.cond877:                                      ; preds = %for.inc907, %if.else864
-  %2001 = load i32, ptr %i, align 4
-  %2002 = load i32, ptr %data_len.addr, align 4
-  %sub878 = sub nsw i32 %2002, 3
-  %cmp879 = icmp slt i32 %2001, %sub878
-  br i1 %cmp879, label %for.body880, label %for.end909
+1875:                                             ; preds = %1903, %1866
+  %1876 = load i32, ptr %13, align 4, !tbaa !8
+  %1877 = load i32, ptr %8, align 4, !tbaa !8
+  %1878 = sub nsw i32 %1877, 3
+  %1879 = icmp slt i32 %1876, %1878
+  br i1 %1879, label %1880, label %1906
 
-for.body880:                                      ; preds = %for.cond877
-  %2003 = load <2 x i64>, ptr %q2867, align 16
-  %2004 = load ptr, ptr %data.addr, align 8
-  %2005 = load i32, ptr %i, align 4
-  %idx.ext883 = sext i32 %2005 to i64
-  %add.ptr884 = getelementptr inbounds i32, ptr %2004, i64 %idx.ext883
-  %add.ptr885 = getelementptr inbounds i32, ptr %add.ptr884, i64 -3
-  store ptr %add.ptr885, ptr %__p.addr.i2002, align 8
-  %2006 = load ptr, ptr %__p.addr.i2002, align 8
-  %2007 = load <2 x i64>, ptr %2006, align 1
-  store <2 x i64> %2003, ptr %__V1.addr.i1776, align 16
-  store <2 x i64> %2007, ptr %__V2.addr.i1777, align 16
-  %2008 = load <2 x i64>, ptr %__V1.addr.i1776, align 16
-  %2009 = bitcast <2 x i64> %2008 to <4 x i32>
-  %2010 = load <2 x i64>, ptr %__V2.addr.i1777, align 16
-  %2011 = bitcast <2 x i64> %2010 to <4 x i32>
-  %mul.i1778 = mul <4 x i32> %2009, %2011
-  %2012 = bitcast <4 x i32> %mul.i1778 to <2 x i64>
-  store <2 x i64> %2012, ptr %summ881, align 16
-  %2013 = load <2 x i64>, ptr %q1866, align 16
-  %2014 = load ptr, ptr %data.addr, align 8
-  %2015 = load i32, ptr %i, align 4
-  %idx.ext888 = sext i32 %2015 to i64
-  %add.ptr889 = getelementptr inbounds i32, ptr %2014, i64 %idx.ext888
-  %add.ptr890 = getelementptr inbounds i32, ptr %add.ptr889, i64 -2
-  store ptr %add.ptr890, ptr %__p.addr.i2001, align 8
-  %2016 = load ptr, ptr %__p.addr.i2001, align 8
-  %2017 = load <2 x i64>, ptr %2016, align 1
-  store <2 x i64> %2013, ptr %__V1.addr.i1773, align 16
-  store <2 x i64> %2017, ptr %__V2.addr.i1774, align 16
-  %2018 = load <2 x i64>, ptr %__V1.addr.i1773, align 16
-  %2019 = bitcast <2 x i64> %2018 to <4 x i32>
-  %2020 = load <2 x i64>, ptr %__V2.addr.i1774, align 16
-  %2021 = bitcast <2 x i64> %2020 to <4 x i32>
-  %mul.i1775 = mul <4 x i32> %2019, %2021
-  %2022 = bitcast <4 x i32> %mul.i1775 to <2 x i64>
-  store <2 x i64> %2022, ptr %mull882, align 16
-  %2023 = load <2 x i64>, ptr %summ881, align 16
-  %2024 = load <2 x i64>, ptr %mull882, align 16
-  store <2 x i64> %2023, ptr %__a.addr.i2088, align 16
-  store <2 x i64> %2024, ptr %__b.addr.i2089, align 16
-  %2025 = load <2 x i64>, ptr %__a.addr.i2088, align 16
-  %2026 = bitcast <2 x i64> %2025 to <4 x i32>
-  %2027 = load <2 x i64>, ptr %__b.addr.i2089, align 16
-  %2028 = bitcast <2 x i64> %2027 to <4 x i32>
-  %add.i2090 = add <4 x i32> %2026, %2028
-  %2029 = bitcast <4 x i32> %add.i2090 to <2 x i64>
-  store <2 x i64> %2029, ptr %summ881, align 16
-  %2030 = load <2 x i64>, ptr %q0865, align 16
-  %2031 = load ptr, ptr %data.addr, align 8
-  %2032 = load i32, ptr %i, align 4
-  %idx.ext894 = sext i32 %2032 to i64
-  %add.ptr895 = getelementptr inbounds i32, ptr %2031, i64 %idx.ext894
-  %add.ptr896 = getelementptr inbounds i32, ptr %add.ptr895, i64 -1
-  store ptr %add.ptr896, ptr %__p.addr.i2000, align 8
-  %2033 = load ptr, ptr %__p.addr.i2000, align 8
-  %2034 = load <2 x i64>, ptr %2033, align 1
-  store <2 x i64> %2030, ptr %__V1.addr.i1770, align 16
-  store <2 x i64> %2034, ptr %__V2.addr.i1771, align 16
-  %2035 = load <2 x i64>, ptr %__V1.addr.i1770, align 16
-  %2036 = bitcast <2 x i64> %2035 to <4 x i32>
-  %2037 = load <2 x i64>, ptr %__V2.addr.i1771, align 16
-  %2038 = bitcast <2 x i64> %2037 to <4 x i32>
-  %mul.i1772 = mul <4 x i32> %2036, %2038
-  %2039 = bitcast <4 x i32> %mul.i1772 to <2 x i64>
-  store <2 x i64> %2039, ptr %mull882, align 16
-  %2040 = load <2 x i64>, ptr %summ881, align 16
-  %2041 = load <2 x i64>, ptr %mull882, align 16
-  store <2 x i64> %2040, ptr %__a.addr.i2085, align 16
-  store <2 x i64> %2041, ptr %__b.addr.i2086, align 16
-  %2042 = load <2 x i64>, ptr %__a.addr.i2085, align 16
-  %2043 = bitcast <2 x i64> %2042 to <4 x i32>
-  %2044 = load <2 x i64>, ptr %__b.addr.i2086, align 16
-  %2045 = bitcast <2 x i64> %2044 to <4 x i32>
-  %add.i2087 = add <4 x i32> %2043, %2045
-  %2046 = bitcast <4 x i32> %add.i2087 to <2 x i64>
-  store <2 x i64> %2046, ptr %summ881, align 16
-  %2047 = load <2 x i64>, ptr %summ881, align 16
-  %2048 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %2047, ptr %__a.addr.i2283, align 16
-  store <2 x i64> %2048, ptr %__count.addr.i2284, align 16
-  %2049 = load <2 x i64>, ptr %__a.addr.i2283, align 16
-  %2050 = bitcast <2 x i64> %2049 to <4 x i32>
-  %2051 = load <2 x i64>, ptr %__count.addr.i2284, align 16
-  %2052 = bitcast <2 x i64> %2051 to <4 x i32>
-  %2053 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %2050, <4 x i32> %2052)
-  %2054 = bitcast <4 x i32> %2053 to <2 x i64>
-  store <2 x i64> %2054, ptr %summ881, align 16
-  %2055 = load ptr, ptr %residual.addr, align 8
-  %2056 = load i32, ptr %i, align 4
-  %idx.ext901 = sext i32 %2056 to i64
-  %add.ptr902 = getelementptr inbounds i32, ptr %2055, i64 %idx.ext901
-  %2057 = load ptr, ptr %data.addr, align 8
-  %2058 = load i32, ptr %i, align 4
-  %idx.ext903 = sext i32 %2058 to i64
-  %add.ptr904 = getelementptr inbounds i32, ptr %2057, i64 %idx.ext903
-  store ptr %add.ptr904, ptr %__p.addr.i1999, align 8
-  %2059 = load ptr, ptr %__p.addr.i1999, align 8
-  %2060 = load <2 x i64>, ptr %2059, align 1
-  %2061 = load <2 x i64>, ptr %summ881, align 16
-  store <2 x i64> %2060, ptr %__a.addr.i2332, align 16
-  store <2 x i64> %2061, ptr %__b.addr.i2333, align 16
-  %2062 = load <2 x i64>, ptr %__a.addr.i2332, align 16
-  %2063 = bitcast <2 x i64> %2062 to <4 x i32>
-  %2064 = load <2 x i64>, ptr %__b.addr.i2333, align 16
-  %2065 = bitcast <2 x i64> %2064 to <4 x i32>
-  %sub.i2334 = sub <4 x i32> %2063, %2065
-  %2066 = bitcast <4 x i32> %sub.i2334 to <2 x i64>
-  store ptr %add.ptr902, ptr %__p.addr.i2307, align 8
-  store <2 x i64> %2066, ptr %__b.addr.i2308, align 16
-  %2067 = load <2 x i64>, ptr %__b.addr.i2308, align 16
-  %2068 = load ptr, ptr %__p.addr.i2307, align 8
-  store <2 x i64> %2067, ptr %2068, align 1
-  br label %for.inc907
+1880:                                             ; preds = %1875
+  call void @llvm.lifetime.start.p0(i64 16, ptr %116) #5
+  %1881 = load <2 x i64>, ptr %115, align 16, !tbaa !10
+  %1882 = load ptr, ptr %7, align 8, !tbaa !3
+  %1883 = load i32, ptr %13, align 4, !tbaa !8
+  %1884 = sext i32 %1883 to i64
+  %1885 = getelementptr inbounds i32, ptr %1882, i64 %1884
+  %1886 = getelementptr inbounds i32, ptr %1885, i64 -1
+  %1887 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1886)
+  %1888 = call <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %1881, <2 x i64> noundef %1887)
+  store <2 x i64> %1888, ptr %116, align 16, !tbaa !10
+  %1889 = load <2 x i64>, ptr %116, align 16, !tbaa !10
+  %1890 = load <2 x i64>, ptr %15, align 16, !tbaa !10
+  %1891 = call <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %1889, <2 x i64> noundef %1890)
+  store <2 x i64> %1891, ptr %116, align 16, !tbaa !10
+  %1892 = load ptr, ptr %12, align 8, !tbaa !3
+  %1893 = load i32, ptr %13, align 4, !tbaa !8
+  %1894 = sext i32 %1893 to i64
+  %1895 = getelementptr inbounds i32, ptr %1892, i64 %1894
+  %1896 = load ptr, ptr %7, align 8, !tbaa !3
+  %1897 = load i32, ptr %13, align 4, !tbaa !8
+  %1898 = sext i32 %1897 to i64
+  %1899 = getelementptr inbounds i32, ptr %1896, i64 %1898
+  %1900 = call <2 x i64> @_mm_loadu_si128(ptr noundef %1899)
+  %1901 = load <2 x i64>, ptr %116, align 16, !tbaa !10
+  %1902 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %1900, <2 x i64> noundef %1901)
+  call void @_mm_storeu_si128(ptr noundef %1895, <2 x i64> noundef %1902)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %116) #5
+  br label %1903
 
-for.inc907:                                       ; preds = %for.body880
-  %2069 = load i32, ptr %i, align 4
-  %add908 = add nsw i32 %2069, 4
-  store i32 %add908, ptr %i, align 4
-  br label %for.cond877, !llvm.loop !14
+1903:                                             ; preds = %1880
+  %1904 = load i32, ptr %13, align 4, !tbaa !8
+  %1905 = add nsw i32 %1904, 4
+  store i32 %1905, ptr %13, align 4, !tbaa !8
+  br label %1875, !llvm.loop !23
 
-for.end909:                                       ; preds = %for.cond877
-  br label %if.end910
+1906:                                             ; preds = %1875
+  call void @llvm.lifetime.end.p0(i64 16, ptr %115) #5
+  br label %1907
 
-if.end910:                                        ; preds = %for.end909, %for.end863
-  br label %if.end975
+1907:                                             ; preds = %1906, %1865
+  br label %1908
 
-if.else911:                                       ; preds = %if.else804
-  %2070 = load i32, ptr %order.addr, align 4
-  %cmp912 = icmp eq i32 %2070, 2
-  br i1 %cmp912, label %if.then913, label %if.else949
+1908:                                             ; preds = %1907, %1802
+  br label %1909
 
-if.then913:                                       ; preds = %if.else911
-  %2071 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx916 = getelementptr inbounds i32, ptr %2071, i64 0
-  %2072 = load i32, ptr %arrayidx916, align 4
-  store i32 %2072, ptr %__a.addr.i1302, align 4
-  %2073 = load i32, ptr %__a.addr.i1302, align 4
-  %vecinit.i1304 = insertelement <4 x i32> undef, i32 %2073, i32 0
-  %vecinit1.i1305 = insertelement <4 x i32> %vecinit.i1304, i32 0, i32 1
-  %vecinit2.i1306 = insertelement <4 x i32> %vecinit1.i1305, i32 0, i32 2
-  %vecinit3.i1307 = insertelement <4 x i32> %vecinit2.i1306, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1307, ptr %.compoundliteral.i1303, align 16
-  %2074 = load <4 x i32>, ptr %.compoundliteral.i1303, align 16
-  %2075 = bitcast <4 x i32> %2074 to <2 x i64>
-  store <2 x i64> %2075, ptr %q0914, align 16
-  %2076 = load <2 x i64>, ptr %q0914, align 16
-  %2077 = bitcast <2 x i64> %2076 to <4 x i32>
-  %permil918 = shufflevector <4 x i32> %2077, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2078 = bitcast <4 x i32> %permil918 to <2 x i64>
-  store <2 x i64> %2078, ptr %q0914, align 16
-  %2079 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx919 = getelementptr inbounds i32, ptr %2079, i64 1
-  %2080 = load i32, ptr %arrayidx919, align 4
-  store i32 %2080, ptr %__a.addr.i1296, align 4
-  %2081 = load i32, ptr %__a.addr.i1296, align 4
-  %vecinit.i1298 = insertelement <4 x i32> undef, i32 %2081, i32 0
-  %vecinit1.i1299 = insertelement <4 x i32> %vecinit.i1298, i32 0, i32 1
-  %vecinit2.i1300 = insertelement <4 x i32> %vecinit1.i1299, i32 0, i32 2
-  %vecinit3.i1301 = insertelement <4 x i32> %vecinit2.i1300, i32 0, i32 3
-  store <4 x i32> %vecinit3.i1301, ptr %.compoundliteral.i1297, align 16
-  %2082 = load <4 x i32>, ptr %.compoundliteral.i1297, align 16
-  %2083 = bitcast <4 x i32> %2082 to <2 x i64>
-  store <2 x i64> %2083, ptr %q1915, align 16
-  %2084 = load <2 x i64>, ptr %q1915, align 16
-  %2085 = bitcast <2 x i64> %2084 to <4 x i32>
-  %permil921 = shufflevector <4 x i32> %2085, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2086 = bitcast <4 x i32> %permil921 to <2 x i64>
-  store <2 x i64> %2086, ptr %q1915, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond922
+1909:                                             ; preds = %1908, %1618
+  br label %1910
 
-for.cond922:                                      ; preds = %for.inc946, %if.then913
-  %2087 = load i32, ptr %i, align 4
-  %2088 = load i32, ptr %data_len.addr, align 4
-  %sub923 = sub nsw i32 %2088, 3
-  %cmp924 = icmp slt i32 %2087, %sub923
-  br i1 %cmp924, label %for.body925, label %for.end948
+1910:                                             ; preds = %1909, %1021
+  br label %1911
 
-for.body925:                                      ; preds = %for.cond922
-  %2089 = load <2 x i64>, ptr %q1915, align 16
-  %2090 = load ptr, ptr %data.addr, align 8
-  %2091 = load i32, ptr %i, align 4
-  %idx.ext928 = sext i32 %2091 to i64
-  %add.ptr929 = getelementptr inbounds i32, ptr %2090, i64 %idx.ext928
-  %add.ptr930 = getelementptr inbounds i32, ptr %add.ptr929, i64 -2
-  store ptr %add.ptr930, ptr %__p.addr.i1998, align 8
-  %2092 = load ptr, ptr %__p.addr.i1998, align 8
-  %2093 = load <2 x i64>, ptr %2092, align 1
-  store <2 x i64> %2089, ptr %__V1.addr.i1767, align 16
-  store <2 x i64> %2093, ptr %__V2.addr.i1768, align 16
-  %2094 = load <2 x i64>, ptr %__V1.addr.i1767, align 16
-  %2095 = bitcast <2 x i64> %2094 to <4 x i32>
-  %2096 = load <2 x i64>, ptr %__V2.addr.i1768, align 16
-  %2097 = bitcast <2 x i64> %2096 to <4 x i32>
-  %mul.i1769 = mul <4 x i32> %2095, %2097
-  %2098 = bitcast <4 x i32> %mul.i1769 to <2 x i64>
-  store <2 x i64> %2098, ptr %summ926, align 16
-  %2099 = load <2 x i64>, ptr %q0914, align 16
-  %2100 = load ptr, ptr %data.addr, align 8
-  %2101 = load i32, ptr %i, align 4
-  %idx.ext933 = sext i32 %2101 to i64
-  %add.ptr934 = getelementptr inbounds i32, ptr %2100, i64 %idx.ext933
-  %add.ptr935 = getelementptr inbounds i32, ptr %add.ptr934, i64 -1
-  store ptr %add.ptr935, ptr %__p.addr.i1997, align 8
-  %2102 = load ptr, ptr %__p.addr.i1997, align 8
-  %2103 = load <2 x i64>, ptr %2102, align 1
-  store <2 x i64> %2099, ptr %__V1.addr.i1764, align 16
-  store <2 x i64> %2103, ptr %__V2.addr.i1765, align 16
-  %2104 = load <2 x i64>, ptr %__V1.addr.i1764, align 16
-  %2105 = bitcast <2 x i64> %2104 to <4 x i32>
-  %2106 = load <2 x i64>, ptr %__V2.addr.i1765, align 16
-  %2107 = bitcast <2 x i64> %2106 to <4 x i32>
-  %mul.i1766 = mul <4 x i32> %2105, %2107
-  %2108 = bitcast <4 x i32> %mul.i1766 to <2 x i64>
-  store <2 x i64> %2108, ptr %mull927, align 16
-  %2109 = load <2 x i64>, ptr %summ926, align 16
-  %2110 = load <2 x i64>, ptr %mull927, align 16
-  store <2 x i64> %2109, ptr %__a.addr.i2084, align 16
-  store <2 x i64> %2110, ptr %__b.addr.i, align 16
-  %2111 = load <2 x i64>, ptr %__a.addr.i2084, align 16
-  %2112 = bitcast <2 x i64> %2111 to <4 x i32>
-  %2113 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %2114 = bitcast <2 x i64> %2113 to <4 x i32>
-  %add.i = add <4 x i32> %2112, %2114
-  %2115 = bitcast <4 x i32> %add.i to <2 x i64>
-  store <2 x i64> %2115, ptr %summ926, align 16
-  %2116 = load <2 x i64>, ptr %summ926, align 16
-  %2117 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %2116, ptr %__a.addr.i2281, align 16
-  store <2 x i64> %2117, ptr %__count.addr.i2282, align 16
-  %2118 = load <2 x i64>, ptr %__a.addr.i2281, align 16
-  %2119 = bitcast <2 x i64> %2118 to <4 x i32>
-  %2120 = load <2 x i64>, ptr %__count.addr.i2282, align 16
-  %2121 = bitcast <2 x i64> %2120 to <4 x i32>
-  %2122 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %2119, <4 x i32> %2121)
-  %2123 = bitcast <4 x i32> %2122 to <2 x i64>
-  store <2 x i64> %2123, ptr %summ926, align 16
-  %2124 = load ptr, ptr %residual.addr, align 8
-  %2125 = load i32, ptr %i, align 4
-  %idx.ext940 = sext i32 %2125 to i64
-  %add.ptr941 = getelementptr inbounds i32, ptr %2124, i64 %idx.ext940
-  %2126 = load ptr, ptr %data.addr, align 8
-  %2127 = load i32, ptr %i, align 4
-  %idx.ext942 = sext i32 %2127 to i64
-  %add.ptr943 = getelementptr inbounds i32, ptr %2126, i64 %idx.ext942
-  store ptr %add.ptr943, ptr %__p.addr.i1996, align 8
-  %2128 = load ptr, ptr %__p.addr.i1996, align 8
-  %2129 = load <2 x i64>, ptr %2128, align 1
-  %2130 = load <2 x i64>, ptr %summ926, align 16
-  store <2 x i64> %2129, ptr %__a.addr.i2329, align 16
-  store <2 x i64> %2130, ptr %__b.addr.i2330, align 16
-  %2131 = load <2 x i64>, ptr %__a.addr.i2329, align 16
-  %2132 = bitcast <2 x i64> %2131 to <4 x i32>
-  %2133 = load <2 x i64>, ptr %__b.addr.i2330, align 16
-  %2134 = bitcast <2 x i64> %2133 to <4 x i32>
-  %sub.i2331 = sub <4 x i32> %2132, %2134
-  %2135 = bitcast <4 x i32> %sub.i2331 to <2 x i64>
-  store ptr %add.ptr941, ptr %__p.addr.i2305, align 8
-  store <2 x i64> %2135, ptr %__b.addr.i2306, align 16
-  %2136 = load <2 x i64>, ptr %__b.addr.i2306, align 16
-  %2137 = load ptr, ptr %__p.addr.i2305, align 8
-  store <2 x i64> %2136, ptr %2137, align 1
-  br label %for.inc946
+1911:                                             ; preds = %2087, %1910
+  %1912 = load i32, ptr %13, align 4, !tbaa !8
+  %1913 = load i32, ptr %8, align 4, !tbaa !8
+  %1914 = icmp slt i32 %1912, %1913
+  br i1 %1914, label %1915, label %2090
 
-for.inc946:                                       ; preds = %for.body925
-  %2138 = load i32, ptr %i, align 4
-  %add947 = add nsw i32 %2138, 4
-  store i32 %add947, ptr %i, align 4
-  br label %for.cond922, !llvm.loop !15
-
-for.end948:                                       ; preds = %for.cond922
-  br label %if.end974
-
-if.else949:                                       ; preds = %if.else911
-  %2139 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx951 = getelementptr inbounds i32, ptr %2139, i64 0
-  %2140 = load i32, ptr %arrayidx951, align 4
-  store i32 %2140, ptr %__a.addr.i, align 4
-  %2141 = load i32, ptr %__a.addr.i, align 4
-  %vecinit.i = insertelement <4 x i32> undef, i32 %2141, i32 0
-  %vecinit1.i = insertelement <4 x i32> %vecinit.i, i32 0, i32 1
-  %vecinit2.i = insertelement <4 x i32> %vecinit1.i, i32 0, i32 2
-  %vecinit3.i = insertelement <4 x i32> %vecinit2.i, i32 0, i32 3
-  store <4 x i32> %vecinit3.i, ptr %.compoundliteral.i, align 16
-  %2142 = load <4 x i32>, ptr %.compoundliteral.i, align 16
-  %2143 = bitcast <4 x i32> %2142 to <2 x i64>
-  store <2 x i64> %2143, ptr %q0950, align 16
-  %2144 = load <2 x i64>, ptr %q0950, align 16
-  %2145 = bitcast <2 x i64> %2144 to <4 x i32>
-  %permil953 = shufflevector <4 x i32> %2145, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2146 = bitcast <4 x i32> %permil953 to <2 x i64>
-  store <2 x i64> %2146, ptr %q0950, align 16
-  store i32 0, ptr %i, align 4
-  br label %for.cond954
-
-for.cond954:                                      ; preds = %for.inc971, %if.else949
-  %2147 = load i32, ptr %i, align 4
-  %2148 = load i32, ptr %data_len.addr, align 4
-  %sub955 = sub nsw i32 %2148, 3
-  %cmp956 = icmp slt i32 %2147, %sub955
-  br i1 %cmp956, label %for.body957, label %for.end973
-
-for.body957:                                      ; preds = %for.cond954
-  %2149 = load <2 x i64>, ptr %q0950, align 16
-  %2150 = load ptr, ptr %data.addr, align 8
-  %2151 = load i32, ptr %i, align 4
-  %idx.ext959 = sext i32 %2151 to i64
-  %add.ptr960 = getelementptr inbounds i32, ptr %2150, i64 %idx.ext959
-  %add.ptr961 = getelementptr inbounds i32, ptr %add.ptr960, i64 -1
-  store ptr %add.ptr961, ptr %__p.addr.i1995, align 8
-  %2152 = load ptr, ptr %__p.addr.i1995, align 8
-  %2153 = load <2 x i64>, ptr %2152, align 1
-  store <2 x i64> %2149, ptr %__V1.addr.i, align 16
-  store <2 x i64> %2153, ptr %__V2.addr.i, align 16
-  %2154 = load <2 x i64>, ptr %__V1.addr.i, align 16
-  %2155 = bitcast <2 x i64> %2154 to <4 x i32>
-  %2156 = load <2 x i64>, ptr %__V2.addr.i, align 16
-  %2157 = bitcast <2 x i64> %2156 to <4 x i32>
-  %mul.i = mul <4 x i32> %2155, %2157
-  %2158 = bitcast <4 x i32> %mul.i to <2 x i64>
-  store <2 x i64> %2158, ptr %summ958, align 16
-  %2159 = load <2 x i64>, ptr %summ958, align 16
-  %2160 = load <2 x i64>, ptr %cnt, align 16
-  store <2 x i64> %2159, ptr %__a.addr.i2280, align 16
-  store <2 x i64> %2160, ptr %__count.addr.i, align 16
-  %2161 = load <2 x i64>, ptr %__a.addr.i2280, align 16
-  %2162 = bitcast <2 x i64> %2161 to <4 x i32>
-  %2163 = load <2 x i64>, ptr %__count.addr.i, align 16
-  %2164 = bitcast <2 x i64> %2163 to <4 x i32>
-  %2165 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %2162, <4 x i32> %2164)
-  %2166 = bitcast <4 x i32> %2165 to <2 x i64>
-  store <2 x i64> %2166, ptr %summ958, align 16
-  %2167 = load ptr, ptr %residual.addr, align 8
-  %2168 = load i32, ptr %i, align 4
-  %idx.ext965 = sext i32 %2168 to i64
-  %add.ptr966 = getelementptr inbounds i32, ptr %2167, i64 %idx.ext965
-  %2169 = load ptr, ptr %data.addr, align 8
-  %2170 = load i32, ptr %i, align 4
-  %idx.ext967 = sext i32 %2170 to i64
-  %add.ptr968 = getelementptr inbounds i32, ptr %2169, i64 %idx.ext967
-  store ptr %add.ptr968, ptr %__p.addr.i, align 8
-  %2171 = load ptr, ptr %__p.addr.i, align 8
-  %2172 = load <2 x i64>, ptr %2171, align 1
-  %2173 = load <2 x i64>, ptr %summ958, align 16
-  store <2 x i64> %2172, ptr %__a.addr.i2327, align 16
-  store <2 x i64> %2173, ptr %__b.addr.i2328, align 16
-  %2174 = load <2 x i64>, ptr %__a.addr.i2327, align 16
-  %2175 = bitcast <2 x i64> %2174 to <4 x i32>
-  %2176 = load <2 x i64>, ptr %__b.addr.i2328, align 16
-  %2177 = bitcast <2 x i64> %2176 to <4 x i32>
-  %sub.i = sub <4 x i32> %2175, %2177
-  %2178 = bitcast <4 x i32> %sub.i to <2 x i64>
-  store ptr %add.ptr966, ptr %__p.addr.i2303, align 8
-  store <2 x i64> %2178, ptr %__b.addr.i2304, align 16
-  %2179 = load <2 x i64>, ptr %__b.addr.i2304, align 16
-  %2180 = load ptr, ptr %__p.addr.i2303, align 8
-  store <2 x i64> %2179, ptr %2180, align 1
-  br label %for.inc971
-
-for.inc971:                                       ; preds = %for.body957
-  %2181 = load i32, ptr %i, align 4
-  %add972 = add nsw i32 %2181, 4
-  store i32 %add972, ptr %i, align 4
-  br label %for.cond954, !llvm.loop !16
-
-for.end973:                                       ; preds = %for.cond954
-  br label %if.end974
-
-if.end974:                                        ; preds = %for.end973, %for.end948
-  br label %if.end975
-
-if.end975:                                        ; preds = %if.end974, %if.end910
-  br label %if.end976
-
-if.end976:                                        ; preds = %if.end975, %if.end803
-  br label %if.end977
-
-if.end977:                                        ; preds = %if.end976, %if.end468
-  br label %for.cond978
-
-for.cond978:                                      ; preds = %for.inc1067, %if.end977
-  %2182 = load i32, ptr %i, align 4
-  %2183 = load i32, ptr %data_len.addr, align 4
-  %cmp979 = icmp slt i32 %2182, %2183
-  br i1 %cmp979, label %for.body980, label %for.end1068
-
-for.body980:                                      ; preds = %for.cond978
-  store i32 0, ptr %sum, align 4
-  %2184 = load i32, ptr %order.addr, align 4
-  switch i32 %2184, label %sw.epilog [
-    i32 12, label %sw.bb
-    i32 11, label %sw.bb985
-    i32 10, label %sw.bb992
-    i32 9, label %sw.bb999
-    i32 8, label %sw.bb1006
-    i32 7, label %sw.bb1013
-    i32 6, label %sw.bb1020
-    i32 5, label %sw.bb1027
-    i32 4, label %sw.bb1034
-    i32 3, label %sw.bb1041
-    i32 2, label %sw.bb1048
-    i32 1, label %sw.bb1055
+1915:                                             ; preds = %1911
+  store i32 0, ptr %14, align 4, !tbaa !8
+  %1916 = load i32, ptr %10, align 4, !tbaa !8
+  switch i32 %1916, label %2073 [
+    i32 12, label %1917
+    i32 11, label %1930
+    i32 10, label %1943
+    i32 9, label %1956
+    i32 8, label %1969
+    i32 7, label %1982
+    i32 6, label %1995
+    i32 5, label %2008
+    i32 4, label %2021
+    i32 3, label %2034
+    i32 2, label %2047
+    i32 1, label %2060
   ]
 
-sw.bb:                                            ; preds = %for.body980
-  %2185 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx981 = getelementptr inbounds i32, ptr %2185, i64 11
-  %2186 = load i32, ptr %arrayidx981, align 4
-  %2187 = load ptr, ptr %data.addr, align 8
-  %2188 = load i32, ptr %i, align 4
-  %sub982 = sub nsw i32 %2188, 12
-  %idxprom = sext i32 %sub982 to i64
-  %arrayidx983 = getelementptr inbounds i32, ptr %2187, i64 %idxprom
-  %2189 = load i32, ptr %arrayidx983, align 4
-  %mul = mul nsw i32 %2186, %2189
-  %2190 = load i32, ptr %sum, align 4
-  %add984 = add nsw i32 %2190, %mul
-  store i32 %add984, ptr %sum, align 4
-  br label %sw.bb985
+1917:                                             ; preds = %1915
+  %1918 = load ptr, ptr %9, align 8, !tbaa !3
+  %1919 = getelementptr inbounds i32, ptr %1918, i64 11
+  %1920 = load i32, ptr %1919, align 4, !tbaa !8
+  %1921 = load ptr, ptr %7, align 8, !tbaa !3
+  %1922 = load i32, ptr %13, align 4, !tbaa !8
+  %1923 = sub nsw i32 %1922, 12
+  %1924 = sext i32 %1923 to i64
+  %1925 = getelementptr inbounds i32, ptr %1921, i64 %1924
+  %1926 = load i32, ptr %1925, align 4, !tbaa !8
+  %1927 = mul nsw i32 %1920, %1926
+  %1928 = load i32, ptr %14, align 4, !tbaa !8
+  %1929 = add nsw i32 %1928, %1927
+  store i32 %1929, ptr %14, align 4, !tbaa !8
+  br label %1930
 
-sw.bb985:                                         ; preds = %sw.bb, %for.body980
-  %2191 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx986 = getelementptr inbounds i32, ptr %2191, i64 10
-  %2192 = load i32, ptr %arrayidx986, align 4
-  %2193 = load ptr, ptr %data.addr, align 8
-  %2194 = load i32, ptr %i, align 4
-  %sub987 = sub nsw i32 %2194, 11
-  %idxprom988 = sext i32 %sub987 to i64
-  %arrayidx989 = getelementptr inbounds i32, ptr %2193, i64 %idxprom988
-  %2195 = load i32, ptr %arrayidx989, align 4
-  %mul990 = mul nsw i32 %2192, %2195
-  %2196 = load i32, ptr %sum, align 4
-  %add991 = add nsw i32 %2196, %mul990
-  store i32 %add991, ptr %sum, align 4
-  br label %sw.bb992
+1930:                                             ; preds = %1915, %1917
+  %1931 = load ptr, ptr %9, align 8, !tbaa !3
+  %1932 = getelementptr inbounds i32, ptr %1931, i64 10
+  %1933 = load i32, ptr %1932, align 4, !tbaa !8
+  %1934 = load ptr, ptr %7, align 8, !tbaa !3
+  %1935 = load i32, ptr %13, align 4, !tbaa !8
+  %1936 = sub nsw i32 %1935, 11
+  %1937 = sext i32 %1936 to i64
+  %1938 = getelementptr inbounds i32, ptr %1934, i64 %1937
+  %1939 = load i32, ptr %1938, align 4, !tbaa !8
+  %1940 = mul nsw i32 %1933, %1939
+  %1941 = load i32, ptr %14, align 4, !tbaa !8
+  %1942 = add nsw i32 %1941, %1940
+  store i32 %1942, ptr %14, align 4, !tbaa !8
+  br label %1943
 
-sw.bb992:                                         ; preds = %sw.bb985, %for.body980
-  %2197 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx993 = getelementptr inbounds i32, ptr %2197, i64 9
-  %2198 = load i32, ptr %arrayidx993, align 4
-  %2199 = load ptr, ptr %data.addr, align 8
-  %2200 = load i32, ptr %i, align 4
-  %sub994 = sub nsw i32 %2200, 10
-  %idxprom995 = sext i32 %sub994 to i64
-  %arrayidx996 = getelementptr inbounds i32, ptr %2199, i64 %idxprom995
-  %2201 = load i32, ptr %arrayidx996, align 4
-  %mul997 = mul nsw i32 %2198, %2201
-  %2202 = load i32, ptr %sum, align 4
-  %add998 = add nsw i32 %2202, %mul997
-  store i32 %add998, ptr %sum, align 4
-  br label %sw.bb999
+1943:                                             ; preds = %1915, %1930
+  %1944 = load ptr, ptr %9, align 8, !tbaa !3
+  %1945 = getelementptr inbounds i32, ptr %1944, i64 9
+  %1946 = load i32, ptr %1945, align 4, !tbaa !8
+  %1947 = load ptr, ptr %7, align 8, !tbaa !3
+  %1948 = load i32, ptr %13, align 4, !tbaa !8
+  %1949 = sub nsw i32 %1948, 10
+  %1950 = sext i32 %1949 to i64
+  %1951 = getelementptr inbounds i32, ptr %1947, i64 %1950
+  %1952 = load i32, ptr %1951, align 4, !tbaa !8
+  %1953 = mul nsw i32 %1946, %1952
+  %1954 = load i32, ptr %14, align 4, !tbaa !8
+  %1955 = add nsw i32 %1954, %1953
+  store i32 %1955, ptr %14, align 4, !tbaa !8
+  br label %1956
 
-sw.bb999:                                         ; preds = %sw.bb992, %for.body980
-  %2203 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1000 = getelementptr inbounds i32, ptr %2203, i64 8
-  %2204 = load i32, ptr %arrayidx1000, align 4
-  %2205 = load ptr, ptr %data.addr, align 8
-  %2206 = load i32, ptr %i, align 4
-  %sub1001 = sub nsw i32 %2206, 9
-  %idxprom1002 = sext i32 %sub1001 to i64
-  %arrayidx1003 = getelementptr inbounds i32, ptr %2205, i64 %idxprom1002
-  %2207 = load i32, ptr %arrayidx1003, align 4
-  %mul1004 = mul nsw i32 %2204, %2207
-  %2208 = load i32, ptr %sum, align 4
-  %add1005 = add nsw i32 %2208, %mul1004
-  store i32 %add1005, ptr %sum, align 4
-  br label %sw.bb1006
+1956:                                             ; preds = %1915, %1943
+  %1957 = load ptr, ptr %9, align 8, !tbaa !3
+  %1958 = getelementptr inbounds i32, ptr %1957, i64 8
+  %1959 = load i32, ptr %1958, align 4, !tbaa !8
+  %1960 = load ptr, ptr %7, align 8, !tbaa !3
+  %1961 = load i32, ptr %13, align 4, !tbaa !8
+  %1962 = sub nsw i32 %1961, 9
+  %1963 = sext i32 %1962 to i64
+  %1964 = getelementptr inbounds i32, ptr %1960, i64 %1963
+  %1965 = load i32, ptr %1964, align 4, !tbaa !8
+  %1966 = mul nsw i32 %1959, %1965
+  %1967 = load i32, ptr %14, align 4, !tbaa !8
+  %1968 = add nsw i32 %1967, %1966
+  store i32 %1968, ptr %14, align 4, !tbaa !8
+  br label %1969
 
-sw.bb1006:                                        ; preds = %sw.bb999, %for.body980
-  %2209 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1007 = getelementptr inbounds i32, ptr %2209, i64 7
-  %2210 = load i32, ptr %arrayidx1007, align 4
-  %2211 = load ptr, ptr %data.addr, align 8
-  %2212 = load i32, ptr %i, align 4
-  %sub1008 = sub nsw i32 %2212, 8
-  %idxprom1009 = sext i32 %sub1008 to i64
-  %arrayidx1010 = getelementptr inbounds i32, ptr %2211, i64 %idxprom1009
-  %2213 = load i32, ptr %arrayidx1010, align 4
-  %mul1011 = mul nsw i32 %2210, %2213
-  %2214 = load i32, ptr %sum, align 4
-  %add1012 = add nsw i32 %2214, %mul1011
-  store i32 %add1012, ptr %sum, align 4
-  br label %sw.bb1013
+1969:                                             ; preds = %1915, %1956
+  %1970 = load ptr, ptr %9, align 8, !tbaa !3
+  %1971 = getelementptr inbounds i32, ptr %1970, i64 7
+  %1972 = load i32, ptr %1971, align 4, !tbaa !8
+  %1973 = load ptr, ptr %7, align 8, !tbaa !3
+  %1974 = load i32, ptr %13, align 4, !tbaa !8
+  %1975 = sub nsw i32 %1974, 8
+  %1976 = sext i32 %1975 to i64
+  %1977 = getelementptr inbounds i32, ptr %1973, i64 %1976
+  %1978 = load i32, ptr %1977, align 4, !tbaa !8
+  %1979 = mul nsw i32 %1972, %1978
+  %1980 = load i32, ptr %14, align 4, !tbaa !8
+  %1981 = add nsw i32 %1980, %1979
+  store i32 %1981, ptr %14, align 4, !tbaa !8
+  br label %1982
 
-sw.bb1013:                                        ; preds = %sw.bb1006, %for.body980
-  %2215 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1014 = getelementptr inbounds i32, ptr %2215, i64 6
-  %2216 = load i32, ptr %arrayidx1014, align 4
-  %2217 = load ptr, ptr %data.addr, align 8
-  %2218 = load i32, ptr %i, align 4
-  %sub1015 = sub nsw i32 %2218, 7
-  %idxprom1016 = sext i32 %sub1015 to i64
-  %arrayidx1017 = getelementptr inbounds i32, ptr %2217, i64 %idxprom1016
-  %2219 = load i32, ptr %arrayidx1017, align 4
-  %mul1018 = mul nsw i32 %2216, %2219
-  %2220 = load i32, ptr %sum, align 4
-  %add1019 = add nsw i32 %2220, %mul1018
-  store i32 %add1019, ptr %sum, align 4
-  br label %sw.bb1020
+1982:                                             ; preds = %1915, %1969
+  %1983 = load ptr, ptr %9, align 8, !tbaa !3
+  %1984 = getelementptr inbounds i32, ptr %1983, i64 6
+  %1985 = load i32, ptr %1984, align 4, !tbaa !8
+  %1986 = load ptr, ptr %7, align 8, !tbaa !3
+  %1987 = load i32, ptr %13, align 4, !tbaa !8
+  %1988 = sub nsw i32 %1987, 7
+  %1989 = sext i32 %1988 to i64
+  %1990 = getelementptr inbounds i32, ptr %1986, i64 %1989
+  %1991 = load i32, ptr %1990, align 4, !tbaa !8
+  %1992 = mul nsw i32 %1985, %1991
+  %1993 = load i32, ptr %14, align 4, !tbaa !8
+  %1994 = add nsw i32 %1993, %1992
+  store i32 %1994, ptr %14, align 4, !tbaa !8
+  br label %1995
 
-sw.bb1020:                                        ; preds = %sw.bb1013, %for.body980
-  %2221 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1021 = getelementptr inbounds i32, ptr %2221, i64 5
-  %2222 = load i32, ptr %arrayidx1021, align 4
-  %2223 = load ptr, ptr %data.addr, align 8
-  %2224 = load i32, ptr %i, align 4
-  %sub1022 = sub nsw i32 %2224, 6
-  %idxprom1023 = sext i32 %sub1022 to i64
-  %arrayidx1024 = getelementptr inbounds i32, ptr %2223, i64 %idxprom1023
-  %2225 = load i32, ptr %arrayidx1024, align 4
-  %mul1025 = mul nsw i32 %2222, %2225
-  %2226 = load i32, ptr %sum, align 4
-  %add1026 = add nsw i32 %2226, %mul1025
-  store i32 %add1026, ptr %sum, align 4
-  br label %sw.bb1027
+1995:                                             ; preds = %1915, %1982
+  %1996 = load ptr, ptr %9, align 8, !tbaa !3
+  %1997 = getelementptr inbounds i32, ptr %1996, i64 5
+  %1998 = load i32, ptr %1997, align 4, !tbaa !8
+  %1999 = load ptr, ptr %7, align 8, !tbaa !3
+  %2000 = load i32, ptr %13, align 4, !tbaa !8
+  %2001 = sub nsw i32 %2000, 6
+  %2002 = sext i32 %2001 to i64
+  %2003 = getelementptr inbounds i32, ptr %1999, i64 %2002
+  %2004 = load i32, ptr %2003, align 4, !tbaa !8
+  %2005 = mul nsw i32 %1998, %2004
+  %2006 = load i32, ptr %14, align 4, !tbaa !8
+  %2007 = add nsw i32 %2006, %2005
+  store i32 %2007, ptr %14, align 4, !tbaa !8
+  br label %2008
 
-sw.bb1027:                                        ; preds = %sw.bb1020, %for.body980
-  %2227 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1028 = getelementptr inbounds i32, ptr %2227, i64 4
-  %2228 = load i32, ptr %arrayidx1028, align 4
-  %2229 = load ptr, ptr %data.addr, align 8
-  %2230 = load i32, ptr %i, align 4
-  %sub1029 = sub nsw i32 %2230, 5
-  %idxprom1030 = sext i32 %sub1029 to i64
-  %arrayidx1031 = getelementptr inbounds i32, ptr %2229, i64 %idxprom1030
-  %2231 = load i32, ptr %arrayidx1031, align 4
-  %mul1032 = mul nsw i32 %2228, %2231
-  %2232 = load i32, ptr %sum, align 4
-  %add1033 = add nsw i32 %2232, %mul1032
-  store i32 %add1033, ptr %sum, align 4
-  br label %sw.bb1034
+2008:                                             ; preds = %1915, %1995
+  %2009 = load ptr, ptr %9, align 8, !tbaa !3
+  %2010 = getelementptr inbounds i32, ptr %2009, i64 4
+  %2011 = load i32, ptr %2010, align 4, !tbaa !8
+  %2012 = load ptr, ptr %7, align 8, !tbaa !3
+  %2013 = load i32, ptr %13, align 4, !tbaa !8
+  %2014 = sub nsw i32 %2013, 5
+  %2015 = sext i32 %2014 to i64
+  %2016 = getelementptr inbounds i32, ptr %2012, i64 %2015
+  %2017 = load i32, ptr %2016, align 4, !tbaa !8
+  %2018 = mul nsw i32 %2011, %2017
+  %2019 = load i32, ptr %14, align 4, !tbaa !8
+  %2020 = add nsw i32 %2019, %2018
+  store i32 %2020, ptr %14, align 4, !tbaa !8
+  br label %2021
 
-sw.bb1034:                                        ; preds = %sw.bb1027, %for.body980
-  %2233 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1035 = getelementptr inbounds i32, ptr %2233, i64 3
-  %2234 = load i32, ptr %arrayidx1035, align 4
-  %2235 = load ptr, ptr %data.addr, align 8
-  %2236 = load i32, ptr %i, align 4
-  %sub1036 = sub nsw i32 %2236, 4
-  %idxprom1037 = sext i32 %sub1036 to i64
-  %arrayidx1038 = getelementptr inbounds i32, ptr %2235, i64 %idxprom1037
-  %2237 = load i32, ptr %arrayidx1038, align 4
-  %mul1039 = mul nsw i32 %2234, %2237
-  %2238 = load i32, ptr %sum, align 4
-  %add1040 = add nsw i32 %2238, %mul1039
-  store i32 %add1040, ptr %sum, align 4
-  br label %sw.bb1041
+2021:                                             ; preds = %1915, %2008
+  %2022 = load ptr, ptr %9, align 8, !tbaa !3
+  %2023 = getelementptr inbounds i32, ptr %2022, i64 3
+  %2024 = load i32, ptr %2023, align 4, !tbaa !8
+  %2025 = load ptr, ptr %7, align 8, !tbaa !3
+  %2026 = load i32, ptr %13, align 4, !tbaa !8
+  %2027 = sub nsw i32 %2026, 4
+  %2028 = sext i32 %2027 to i64
+  %2029 = getelementptr inbounds i32, ptr %2025, i64 %2028
+  %2030 = load i32, ptr %2029, align 4, !tbaa !8
+  %2031 = mul nsw i32 %2024, %2030
+  %2032 = load i32, ptr %14, align 4, !tbaa !8
+  %2033 = add nsw i32 %2032, %2031
+  store i32 %2033, ptr %14, align 4, !tbaa !8
+  br label %2034
 
-sw.bb1041:                                        ; preds = %sw.bb1034, %for.body980
-  %2239 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1042 = getelementptr inbounds i32, ptr %2239, i64 2
-  %2240 = load i32, ptr %arrayidx1042, align 4
-  %2241 = load ptr, ptr %data.addr, align 8
-  %2242 = load i32, ptr %i, align 4
-  %sub1043 = sub nsw i32 %2242, 3
-  %idxprom1044 = sext i32 %sub1043 to i64
-  %arrayidx1045 = getelementptr inbounds i32, ptr %2241, i64 %idxprom1044
-  %2243 = load i32, ptr %arrayidx1045, align 4
-  %mul1046 = mul nsw i32 %2240, %2243
-  %2244 = load i32, ptr %sum, align 4
-  %add1047 = add nsw i32 %2244, %mul1046
-  store i32 %add1047, ptr %sum, align 4
-  br label %sw.bb1048
+2034:                                             ; preds = %1915, %2021
+  %2035 = load ptr, ptr %9, align 8, !tbaa !3
+  %2036 = getelementptr inbounds i32, ptr %2035, i64 2
+  %2037 = load i32, ptr %2036, align 4, !tbaa !8
+  %2038 = load ptr, ptr %7, align 8, !tbaa !3
+  %2039 = load i32, ptr %13, align 4, !tbaa !8
+  %2040 = sub nsw i32 %2039, 3
+  %2041 = sext i32 %2040 to i64
+  %2042 = getelementptr inbounds i32, ptr %2038, i64 %2041
+  %2043 = load i32, ptr %2042, align 4, !tbaa !8
+  %2044 = mul nsw i32 %2037, %2043
+  %2045 = load i32, ptr %14, align 4, !tbaa !8
+  %2046 = add nsw i32 %2045, %2044
+  store i32 %2046, ptr %14, align 4, !tbaa !8
+  br label %2047
 
-sw.bb1048:                                        ; preds = %sw.bb1041, %for.body980
-  %2245 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1049 = getelementptr inbounds i32, ptr %2245, i64 1
-  %2246 = load i32, ptr %arrayidx1049, align 4
-  %2247 = load ptr, ptr %data.addr, align 8
-  %2248 = load i32, ptr %i, align 4
-  %sub1050 = sub nsw i32 %2248, 2
-  %idxprom1051 = sext i32 %sub1050 to i64
-  %arrayidx1052 = getelementptr inbounds i32, ptr %2247, i64 %idxprom1051
-  %2249 = load i32, ptr %arrayidx1052, align 4
-  %mul1053 = mul nsw i32 %2246, %2249
-  %2250 = load i32, ptr %sum, align 4
-  %add1054 = add nsw i32 %2250, %mul1053
-  store i32 %add1054, ptr %sum, align 4
-  br label %sw.bb1055
+2047:                                             ; preds = %1915, %2034
+  %2048 = load ptr, ptr %9, align 8, !tbaa !3
+  %2049 = getelementptr inbounds i32, ptr %2048, i64 1
+  %2050 = load i32, ptr %2049, align 4, !tbaa !8
+  %2051 = load ptr, ptr %7, align 8, !tbaa !3
+  %2052 = load i32, ptr %13, align 4, !tbaa !8
+  %2053 = sub nsw i32 %2052, 2
+  %2054 = sext i32 %2053 to i64
+  %2055 = getelementptr inbounds i32, ptr %2051, i64 %2054
+  %2056 = load i32, ptr %2055, align 4, !tbaa !8
+  %2057 = mul nsw i32 %2050, %2056
+  %2058 = load i32, ptr %14, align 4, !tbaa !8
+  %2059 = add nsw i32 %2058, %2057
+  store i32 %2059, ptr %14, align 4, !tbaa !8
+  br label %2060
 
-sw.bb1055:                                        ; preds = %sw.bb1048, %for.body980
-  %2251 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1056 = getelementptr inbounds i32, ptr %2251, i64 0
-  %2252 = load i32, ptr %arrayidx1056, align 4
-  %2253 = load ptr, ptr %data.addr, align 8
-  %2254 = load i32, ptr %i, align 4
-  %sub1057 = sub nsw i32 %2254, 1
-  %idxprom1058 = sext i32 %sub1057 to i64
-  %arrayidx1059 = getelementptr inbounds i32, ptr %2253, i64 %idxprom1058
-  %2255 = load i32, ptr %arrayidx1059, align 4
-  %mul1060 = mul nsw i32 %2252, %2255
-  %2256 = load i32, ptr %sum, align 4
-  %add1061 = add nsw i32 %2256, %mul1060
-  store i32 %add1061, ptr %sum, align 4
-  br label %sw.epilog
+2060:                                             ; preds = %1915, %2047
+  %2061 = load ptr, ptr %9, align 8, !tbaa !3
+  %2062 = getelementptr inbounds i32, ptr %2061, i64 0
+  %2063 = load i32, ptr %2062, align 4, !tbaa !8
+  %2064 = load ptr, ptr %7, align 8, !tbaa !3
+  %2065 = load i32, ptr %13, align 4, !tbaa !8
+  %2066 = sub nsw i32 %2065, 1
+  %2067 = sext i32 %2066 to i64
+  %2068 = getelementptr inbounds i32, ptr %2064, i64 %2067
+  %2069 = load i32, ptr %2068, align 4, !tbaa !8
+  %2070 = mul nsw i32 %2063, %2069
+  %2071 = load i32, ptr %14, align 4, !tbaa !8
+  %2072 = add nsw i32 %2071, %2070
+  store i32 %2072, ptr %14, align 4, !tbaa !8
+  br label %2073
 
-sw.epilog:                                        ; preds = %sw.bb1055, %for.body980
-  %2257 = load ptr, ptr %data.addr, align 8
-  %2258 = load i32, ptr %i, align 4
-  %idxprom1062 = sext i32 %2258 to i64
-  %arrayidx1063 = getelementptr inbounds i32, ptr %2257, i64 %idxprom1062
-  %2259 = load i32, ptr %arrayidx1063, align 4
-  %2260 = load i32, ptr %sum, align 4
-  %2261 = load i32, ptr %lp_quantization.addr, align 4
-  %shr = ashr i32 %2260, %2261
-  %sub1064 = sub nsw i32 %2259, %shr
-  %2262 = load ptr, ptr %residual.addr, align 8
-  %2263 = load i32, ptr %i, align 4
-  %idxprom1065 = sext i32 %2263 to i64
-  %arrayidx1066 = getelementptr inbounds i32, ptr %2262, i64 %idxprom1065
-  store i32 %sub1064, ptr %arrayidx1066, align 4
-  br label %for.inc1067
+2073:                                             ; preds = %2060, %1915
+  %2074 = load ptr, ptr %7, align 8, !tbaa !3
+  %2075 = load i32, ptr %13, align 4, !tbaa !8
+  %2076 = sext i32 %2075 to i64
+  %2077 = getelementptr inbounds i32, ptr %2074, i64 %2076
+  %2078 = load i32, ptr %2077, align 4, !tbaa !8
+  %2079 = load i32, ptr %14, align 4, !tbaa !8
+  %2080 = load i32, ptr %11, align 4, !tbaa !8
+  %2081 = ashr i32 %2079, %2080
+  %2082 = sub nsw i32 %2078, %2081
+  %2083 = load ptr, ptr %12, align 8, !tbaa !3
+  %2084 = load i32, ptr %13, align 4, !tbaa !8
+  %2085 = sext i32 %2084 to i64
+  %2086 = getelementptr inbounds i32, ptr %2083, i64 %2085
+  store i32 %2082, ptr %2086, align 4, !tbaa !8
+  br label %2087
 
-for.inc1067:                                      ; preds = %sw.epilog
-  %2264 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %2264, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond978, !llvm.loop !17
+2087:                                             ; preds = %2073
+  %2088 = load i32, ptr %13, align 4, !tbaa !8
+  %2089 = add nsw i32 %2088, 1
+  store i32 %2089, ptr %13, align 4, !tbaa !8
+  br label %1911, !llvm.loop !24
 
-for.end1068:                                      ; preds = %for.cond978
-  br label %if.end1295
+2090:                                             ; preds = %1911
+  br label %2520
 
-if.else1069:                                      ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond1070
+2091:                                             ; preds = %6
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %2092
 
-for.cond1070:                                     ; preds = %for.inc1292, %if.else1069
-  %2265 = load i32, ptr %i, align 4
-  %2266 = load i32, ptr %data_len.addr, align 4
-  %cmp1071 = icmp slt i32 %2265, %2266
-  br i1 %cmp1071, label %for.body1072, label %for.end1294
+2092:                                             ; preds = %2516, %2091
+  %2093 = load i32, ptr %13, align 4, !tbaa !8
+  %2094 = load i32, ptr %8, align 4, !tbaa !8
+  %2095 = icmp slt i32 %2093, %2094
+  br i1 %2095, label %2096, label %2519
 
-for.body1072:                                     ; preds = %for.cond1070
-  store i32 0, ptr %sum, align 4
-  %2267 = load i32, ptr %order.addr, align 4
-  switch i32 %2267, label %sw.epilog1285 [
-    i32 32, label %sw.bb1073
-    i32 31, label %sw.bb1080
-    i32 30, label %sw.bb1087
-    i32 29, label %sw.bb1094
-    i32 28, label %sw.bb1101
-    i32 27, label %sw.bb1108
-    i32 26, label %sw.bb1115
-    i32 25, label %sw.bb1122
-    i32 24, label %sw.bb1129
-    i32 23, label %sw.bb1136
-    i32 22, label %sw.bb1143
-    i32 21, label %sw.bb1150
-    i32 20, label %sw.bb1157
-    i32 19, label %sw.bb1164
-    i32 18, label %sw.bb1171
-    i32 17, label %sw.bb1178
-    i32 16, label %sw.bb1185
-    i32 15, label %sw.bb1192
-    i32 14, label %sw.bb1199
-    i32 13, label %sw.bb1206
+2096:                                             ; preds = %2092
+  store i32 0, ptr %14, align 4, !tbaa !8
+  %2097 = load i32, ptr %10, align 4, !tbaa !8
+  switch i32 %2097, label %2502 [
+    i32 32, label %2098
+    i32 31, label %2111
+    i32 30, label %2124
+    i32 29, label %2137
+    i32 28, label %2150
+    i32 27, label %2163
+    i32 26, label %2176
+    i32 25, label %2189
+    i32 24, label %2202
+    i32 23, label %2215
+    i32 22, label %2228
+    i32 21, label %2241
+    i32 20, label %2254
+    i32 19, label %2267
+    i32 18, label %2280
+    i32 17, label %2293
+    i32 16, label %2306
+    i32 15, label %2319
+    i32 14, label %2332
+    i32 13, label %2345
   ]
 
-sw.bb1073:                                        ; preds = %for.body1072
-  %2268 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1074 = getelementptr inbounds i32, ptr %2268, i64 31
-  %2269 = load i32, ptr %arrayidx1074, align 4
-  %2270 = load ptr, ptr %data.addr, align 8
-  %2271 = load i32, ptr %i, align 4
-  %sub1075 = sub nsw i32 %2271, 32
-  %idxprom1076 = sext i32 %sub1075 to i64
-  %arrayidx1077 = getelementptr inbounds i32, ptr %2270, i64 %idxprom1076
-  %2272 = load i32, ptr %arrayidx1077, align 4
-  %mul1078 = mul nsw i32 %2269, %2272
-  %2273 = load i32, ptr %sum, align 4
-  %add1079 = add nsw i32 %2273, %mul1078
-  store i32 %add1079, ptr %sum, align 4
-  br label %sw.bb1080
+2098:                                             ; preds = %2096
+  %2099 = load ptr, ptr %9, align 8, !tbaa !3
+  %2100 = getelementptr inbounds i32, ptr %2099, i64 31
+  %2101 = load i32, ptr %2100, align 4, !tbaa !8
+  %2102 = load ptr, ptr %7, align 8, !tbaa !3
+  %2103 = load i32, ptr %13, align 4, !tbaa !8
+  %2104 = sub nsw i32 %2103, 32
+  %2105 = sext i32 %2104 to i64
+  %2106 = getelementptr inbounds i32, ptr %2102, i64 %2105
+  %2107 = load i32, ptr %2106, align 4, !tbaa !8
+  %2108 = mul nsw i32 %2101, %2107
+  %2109 = load i32, ptr %14, align 4, !tbaa !8
+  %2110 = add nsw i32 %2109, %2108
+  store i32 %2110, ptr %14, align 4, !tbaa !8
+  br label %2111
 
-sw.bb1080:                                        ; preds = %sw.bb1073, %for.body1072
-  %2274 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1081 = getelementptr inbounds i32, ptr %2274, i64 30
-  %2275 = load i32, ptr %arrayidx1081, align 4
-  %2276 = load ptr, ptr %data.addr, align 8
-  %2277 = load i32, ptr %i, align 4
-  %sub1082 = sub nsw i32 %2277, 31
-  %idxprom1083 = sext i32 %sub1082 to i64
-  %arrayidx1084 = getelementptr inbounds i32, ptr %2276, i64 %idxprom1083
-  %2278 = load i32, ptr %arrayidx1084, align 4
-  %mul1085 = mul nsw i32 %2275, %2278
-  %2279 = load i32, ptr %sum, align 4
-  %add1086 = add nsw i32 %2279, %mul1085
-  store i32 %add1086, ptr %sum, align 4
-  br label %sw.bb1087
+2111:                                             ; preds = %2096, %2098
+  %2112 = load ptr, ptr %9, align 8, !tbaa !3
+  %2113 = getelementptr inbounds i32, ptr %2112, i64 30
+  %2114 = load i32, ptr %2113, align 4, !tbaa !8
+  %2115 = load ptr, ptr %7, align 8, !tbaa !3
+  %2116 = load i32, ptr %13, align 4, !tbaa !8
+  %2117 = sub nsw i32 %2116, 31
+  %2118 = sext i32 %2117 to i64
+  %2119 = getelementptr inbounds i32, ptr %2115, i64 %2118
+  %2120 = load i32, ptr %2119, align 4, !tbaa !8
+  %2121 = mul nsw i32 %2114, %2120
+  %2122 = load i32, ptr %14, align 4, !tbaa !8
+  %2123 = add nsw i32 %2122, %2121
+  store i32 %2123, ptr %14, align 4, !tbaa !8
+  br label %2124
 
-sw.bb1087:                                        ; preds = %sw.bb1080, %for.body1072
-  %2280 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1088 = getelementptr inbounds i32, ptr %2280, i64 29
-  %2281 = load i32, ptr %arrayidx1088, align 4
-  %2282 = load ptr, ptr %data.addr, align 8
-  %2283 = load i32, ptr %i, align 4
-  %sub1089 = sub nsw i32 %2283, 30
-  %idxprom1090 = sext i32 %sub1089 to i64
-  %arrayidx1091 = getelementptr inbounds i32, ptr %2282, i64 %idxprom1090
-  %2284 = load i32, ptr %arrayidx1091, align 4
-  %mul1092 = mul nsw i32 %2281, %2284
-  %2285 = load i32, ptr %sum, align 4
-  %add1093 = add nsw i32 %2285, %mul1092
-  store i32 %add1093, ptr %sum, align 4
-  br label %sw.bb1094
+2124:                                             ; preds = %2096, %2111
+  %2125 = load ptr, ptr %9, align 8, !tbaa !3
+  %2126 = getelementptr inbounds i32, ptr %2125, i64 29
+  %2127 = load i32, ptr %2126, align 4, !tbaa !8
+  %2128 = load ptr, ptr %7, align 8, !tbaa !3
+  %2129 = load i32, ptr %13, align 4, !tbaa !8
+  %2130 = sub nsw i32 %2129, 30
+  %2131 = sext i32 %2130 to i64
+  %2132 = getelementptr inbounds i32, ptr %2128, i64 %2131
+  %2133 = load i32, ptr %2132, align 4, !tbaa !8
+  %2134 = mul nsw i32 %2127, %2133
+  %2135 = load i32, ptr %14, align 4, !tbaa !8
+  %2136 = add nsw i32 %2135, %2134
+  store i32 %2136, ptr %14, align 4, !tbaa !8
+  br label %2137
 
-sw.bb1094:                                        ; preds = %sw.bb1087, %for.body1072
-  %2286 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1095 = getelementptr inbounds i32, ptr %2286, i64 28
-  %2287 = load i32, ptr %arrayidx1095, align 4
-  %2288 = load ptr, ptr %data.addr, align 8
-  %2289 = load i32, ptr %i, align 4
-  %sub1096 = sub nsw i32 %2289, 29
-  %idxprom1097 = sext i32 %sub1096 to i64
-  %arrayidx1098 = getelementptr inbounds i32, ptr %2288, i64 %idxprom1097
-  %2290 = load i32, ptr %arrayidx1098, align 4
-  %mul1099 = mul nsw i32 %2287, %2290
-  %2291 = load i32, ptr %sum, align 4
-  %add1100 = add nsw i32 %2291, %mul1099
-  store i32 %add1100, ptr %sum, align 4
-  br label %sw.bb1101
+2137:                                             ; preds = %2096, %2124
+  %2138 = load ptr, ptr %9, align 8, !tbaa !3
+  %2139 = getelementptr inbounds i32, ptr %2138, i64 28
+  %2140 = load i32, ptr %2139, align 4, !tbaa !8
+  %2141 = load ptr, ptr %7, align 8, !tbaa !3
+  %2142 = load i32, ptr %13, align 4, !tbaa !8
+  %2143 = sub nsw i32 %2142, 29
+  %2144 = sext i32 %2143 to i64
+  %2145 = getelementptr inbounds i32, ptr %2141, i64 %2144
+  %2146 = load i32, ptr %2145, align 4, !tbaa !8
+  %2147 = mul nsw i32 %2140, %2146
+  %2148 = load i32, ptr %14, align 4, !tbaa !8
+  %2149 = add nsw i32 %2148, %2147
+  store i32 %2149, ptr %14, align 4, !tbaa !8
+  br label %2150
 
-sw.bb1101:                                        ; preds = %sw.bb1094, %for.body1072
-  %2292 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1102 = getelementptr inbounds i32, ptr %2292, i64 27
-  %2293 = load i32, ptr %arrayidx1102, align 4
-  %2294 = load ptr, ptr %data.addr, align 8
-  %2295 = load i32, ptr %i, align 4
-  %sub1103 = sub nsw i32 %2295, 28
-  %idxprom1104 = sext i32 %sub1103 to i64
-  %arrayidx1105 = getelementptr inbounds i32, ptr %2294, i64 %idxprom1104
-  %2296 = load i32, ptr %arrayidx1105, align 4
-  %mul1106 = mul nsw i32 %2293, %2296
-  %2297 = load i32, ptr %sum, align 4
-  %add1107 = add nsw i32 %2297, %mul1106
-  store i32 %add1107, ptr %sum, align 4
-  br label %sw.bb1108
+2150:                                             ; preds = %2096, %2137
+  %2151 = load ptr, ptr %9, align 8, !tbaa !3
+  %2152 = getelementptr inbounds i32, ptr %2151, i64 27
+  %2153 = load i32, ptr %2152, align 4, !tbaa !8
+  %2154 = load ptr, ptr %7, align 8, !tbaa !3
+  %2155 = load i32, ptr %13, align 4, !tbaa !8
+  %2156 = sub nsw i32 %2155, 28
+  %2157 = sext i32 %2156 to i64
+  %2158 = getelementptr inbounds i32, ptr %2154, i64 %2157
+  %2159 = load i32, ptr %2158, align 4, !tbaa !8
+  %2160 = mul nsw i32 %2153, %2159
+  %2161 = load i32, ptr %14, align 4, !tbaa !8
+  %2162 = add nsw i32 %2161, %2160
+  store i32 %2162, ptr %14, align 4, !tbaa !8
+  br label %2163
 
-sw.bb1108:                                        ; preds = %sw.bb1101, %for.body1072
-  %2298 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1109 = getelementptr inbounds i32, ptr %2298, i64 26
-  %2299 = load i32, ptr %arrayidx1109, align 4
-  %2300 = load ptr, ptr %data.addr, align 8
-  %2301 = load i32, ptr %i, align 4
-  %sub1110 = sub nsw i32 %2301, 27
-  %idxprom1111 = sext i32 %sub1110 to i64
-  %arrayidx1112 = getelementptr inbounds i32, ptr %2300, i64 %idxprom1111
-  %2302 = load i32, ptr %arrayidx1112, align 4
-  %mul1113 = mul nsw i32 %2299, %2302
-  %2303 = load i32, ptr %sum, align 4
-  %add1114 = add nsw i32 %2303, %mul1113
-  store i32 %add1114, ptr %sum, align 4
-  br label %sw.bb1115
+2163:                                             ; preds = %2096, %2150
+  %2164 = load ptr, ptr %9, align 8, !tbaa !3
+  %2165 = getelementptr inbounds i32, ptr %2164, i64 26
+  %2166 = load i32, ptr %2165, align 4, !tbaa !8
+  %2167 = load ptr, ptr %7, align 8, !tbaa !3
+  %2168 = load i32, ptr %13, align 4, !tbaa !8
+  %2169 = sub nsw i32 %2168, 27
+  %2170 = sext i32 %2169 to i64
+  %2171 = getelementptr inbounds i32, ptr %2167, i64 %2170
+  %2172 = load i32, ptr %2171, align 4, !tbaa !8
+  %2173 = mul nsw i32 %2166, %2172
+  %2174 = load i32, ptr %14, align 4, !tbaa !8
+  %2175 = add nsw i32 %2174, %2173
+  store i32 %2175, ptr %14, align 4, !tbaa !8
+  br label %2176
 
-sw.bb1115:                                        ; preds = %sw.bb1108, %for.body1072
-  %2304 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1116 = getelementptr inbounds i32, ptr %2304, i64 25
-  %2305 = load i32, ptr %arrayidx1116, align 4
-  %2306 = load ptr, ptr %data.addr, align 8
-  %2307 = load i32, ptr %i, align 4
-  %sub1117 = sub nsw i32 %2307, 26
-  %idxprom1118 = sext i32 %sub1117 to i64
-  %arrayidx1119 = getelementptr inbounds i32, ptr %2306, i64 %idxprom1118
-  %2308 = load i32, ptr %arrayidx1119, align 4
-  %mul1120 = mul nsw i32 %2305, %2308
-  %2309 = load i32, ptr %sum, align 4
-  %add1121 = add nsw i32 %2309, %mul1120
-  store i32 %add1121, ptr %sum, align 4
-  br label %sw.bb1122
+2176:                                             ; preds = %2096, %2163
+  %2177 = load ptr, ptr %9, align 8, !tbaa !3
+  %2178 = getelementptr inbounds i32, ptr %2177, i64 25
+  %2179 = load i32, ptr %2178, align 4, !tbaa !8
+  %2180 = load ptr, ptr %7, align 8, !tbaa !3
+  %2181 = load i32, ptr %13, align 4, !tbaa !8
+  %2182 = sub nsw i32 %2181, 26
+  %2183 = sext i32 %2182 to i64
+  %2184 = getelementptr inbounds i32, ptr %2180, i64 %2183
+  %2185 = load i32, ptr %2184, align 4, !tbaa !8
+  %2186 = mul nsw i32 %2179, %2185
+  %2187 = load i32, ptr %14, align 4, !tbaa !8
+  %2188 = add nsw i32 %2187, %2186
+  store i32 %2188, ptr %14, align 4, !tbaa !8
+  br label %2189
 
-sw.bb1122:                                        ; preds = %sw.bb1115, %for.body1072
-  %2310 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1123 = getelementptr inbounds i32, ptr %2310, i64 24
-  %2311 = load i32, ptr %arrayidx1123, align 4
-  %2312 = load ptr, ptr %data.addr, align 8
-  %2313 = load i32, ptr %i, align 4
-  %sub1124 = sub nsw i32 %2313, 25
-  %idxprom1125 = sext i32 %sub1124 to i64
-  %arrayidx1126 = getelementptr inbounds i32, ptr %2312, i64 %idxprom1125
-  %2314 = load i32, ptr %arrayidx1126, align 4
-  %mul1127 = mul nsw i32 %2311, %2314
-  %2315 = load i32, ptr %sum, align 4
-  %add1128 = add nsw i32 %2315, %mul1127
-  store i32 %add1128, ptr %sum, align 4
-  br label %sw.bb1129
+2189:                                             ; preds = %2096, %2176
+  %2190 = load ptr, ptr %9, align 8, !tbaa !3
+  %2191 = getelementptr inbounds i32, ptr %2190, i64 24
+  %2192 = load i32, ptr %2191, align 4, !tbaa !8
+  %2193 = load ptr, ptr %7, align 8, !tbaa !3
+  %2194 = load i32, ptr %13, align 4, !tbaa !8
+  %2195 = sub nsw i32 %2194, 25
+  %2196 = sext i32 %2195 to i64
+  %2197 = getelementptr inbounds i32, ptr %2193, i64 %2196
+  %2198 = load i32, ptr %2197, align 4, !tbaa !8
+  %2199 = mul nsw i32 %2192, %2198
+  %2200 = load i32, ptr %14, align 4, !tbaa !8
+  %2201 = add nsw i32 %2200, %2199
+  store i32 %2201, ptr %14, align 4, !tbaa !8
+  br label %2202
 
-sw.bb1129:                                        ; preds = %sw.bb1122, %for.body1072
-  %2316 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1130 = getelementptr inbounds i32, ptr %2316, i64 23
-  %2317 = load i32, ptr %arrayidx1130, align 4
-  %2318 = load ptr, ptr %data.addr, align 8
-  %2319 = load i32, ptr %i, align 4
-  %sub1131 = sub nsw i32 %2319, 24
-  %idxprom1132 = sext i32 %sub1131 to i64
-  %arrayidx1133 = getelementptr inbounds i32, ptr %2318, i64 %idxprom1132
-  %2320 = load i32, ptr %arrayidx1133, align 4
-  %mul1134 = mul nsw i32 %2317, %2320
-  %2321 = load i32, ptr %sum, align 4
-  %add1135 = add nsw i32 %2321, %mul1134
-  store i32 %add1135, ptr %sum, align 4
-  br label %sw.bb1136
+2202:                                             ; preds = %2096, %2189
+  %2203 = load ptr, ptr %9, align 8, !tbaa !3
+  %2204 = getelementptr inbounds i32, ptr %2203, i64 23
+  %2205 = load i32, ptr %2204, align 4, !tbaa !8
+  %2206 = load ptr, ptr %7, align 8, !tbaa !3
+  %2207 = load i32, ptr %13, align 4, !tbaa !8
+  %2208 = sub nsw i32 %2207, 24
+  %2209 = sext i32 %2208 to i64
+  %2210 = getelementptr inbounds i32, ptr %2206, i64 %2209
+  %2211 = load i32, ptr %2210, align 4, !tbaa !8
+  %2212 = mul nsw i32 %2205, %2211
+  %2213 = load i32, ptr %14, align 4, !tbaa !8
+  %2214 = add nsw i32 %2213, %2212
+  store i32 %2214, ptr %14, align 4, !tbaa !8
+  br label %2215
 
-sw.bb1136:                                        ; preds = %sw.bb1129, %for.body1072
-  %2322 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1137 = getelementptr inbounds i32, ptr %2322, i64 22
-  %2323 = load i32, ptr %arrayidx1137, align 4
-  %2324 = load ptr, ptr %data.addr, align 8
-  %2325 = load i32, ptr %i, align 4
-  %sub1138 = sub nsw i32 %2325, 23
-  %idxprom1139 = sext i32 %sub1138 to i64
-  %arrayidx1140 = getelementptr inbounds i32, ptr %2324, i64 %idxprom1139
-  %2326 = load i32, ptr %arrayidx1140, align 4
-  %mul1141 = mul nsw i32 %2323, %2326
-  %2327 = load i32, ptr %sum, align 4
-  %add1142 = add nsw i32 %2327, %mul1141
-  store i32 %add1142, ptr %sum, align 4
-  br label %sw.bb1143
+2215:                                             ; preds = %2096, %2202
+  %2216 = load ptr, ptr %9, align 8, !tbaa !3
+  %2217 = getelementptr inbounds i32, ptr %2216, i64 22
+  %2218 = load i32, ptr %2217, align 4, !tbaa !8
+  %2219 = load ptr, ptr %7, align 8, !tbaa !3
+  %2220 = load i32, ptr %13, align 4, !tbaa !8
+  %2221 = sub nsw i32 %2220, 23
+  %2222 = sext i32 %2221 to i64
+  %2223 = getelementptr inbounds i32, ptr %2219, i64 %2222
+  %2224 = load i32, ptr %2223, align 4, !tbaa !8
+  %2225 = mul nsw i32 %2218, %2224
+  %2226 = load i32, ptr %14, align 4, !tbaa !8
+  %2227 = add nsw i32 %2226, %2225
+  store i32 %2227, ptr %14, align 4, !tbaa !8
+  br label %2228
 
-sw.bb1143:                                        ; preds = %sw.bb1136, %for.body1072
-  %2328 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1144 = getelementptr inbounds i32, ptr %2328, i64 21
-  %2329 = load i32, ptr %arrayidx1144, align 4
-  %2330 = load ptr, ptr %data.addr, align 8
-  %2331 = load i32, ptr %i, align 4
-  %sub1145 = sub nsw i32 %2331, 22
-  %idxprom1146 = sext i32 %sub1145 to i64
-  %arrayidx1147 = getelementptr inbounds i32, ptr %2330, i64 %idxprom1146
-  %2332 = load i32, ptr %arrayidx1147, align 4
-  %mul1148 = mul nsw i32 %2329, %2332
-  %2333 = load i32, ptr %sum, align 4
-  %add1149 = add nsw i32 %2333, %mul1148
-  store i32 %add1149, ptr %sum, align 4
-  br label %sw.bb1150
+2228:                                             ; preds = %2096, %2215
+  %2229 = load ptr, ptr %9, align 8, !tbaa !3
+  %2230 = getelementptr inbounds i32, ptr %2229, i64 21
+  %2231 = load i32, ptr %2230, align 4, !tbaa !8
+  %2232 = load ptr, ptr %7, align 8, !tbaa !3
+  %2233 = load i32, ptr %13, align 4, !tbaa !8
+  %2234 = sub nsw i32 %2233, 22
+  %2235 = sext i32 %2234 to i64
+  %2236 = getelementptr inbounds i32, ptr %2232, i64 %2235
+  %2237 = load i32, ptr %2236, align 4, !tbaa !8
+  %2238 = mul nsw i32 %2231, %2237
+  %2239 = load i32, ptr %14, align 4, !tbaa !8
+  %2240 = add nsw i32 %2239, %2238
+  store i32 %2240, ptr %14, align 4, !tbaa !8
+  br label %2241
 
-sw.bb1150:                                        ; preds = %sw.bb1143, %for.body1072
-  %2334 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1151 = getelementptr inbounds i32, ptr %2334, i64 20
-  %2335 = load i32, ptr %arrayidx1151, align 4
-  %2336 = load ptr, ptr %data.addr, align 8
-  %2337 = load i32, ptr %i, align 4
-  %sub1152 = sub nsw i32 %2337, 21
-  %idxprom1153 = sext i32 %sub1152 to i64
-  %arrayidx1154 = getelementptr inbounds i32, ptr %2336, i64 %idxprom1153
-  %2338 = load i32, ptr %arrayidx1154, align 4
-  %mul1155 = mul nsw i32 %2335, %2338
-  %2339 = load i32, ptr %sum, align 4
-  %add1156 = add nsw i32 %2339, %mul1155
-  store i32 %add1156, ptr %sum, align 4
-  br label %sw.bb1157
+2241:                                             ; preds = %2096, %2228
+  %2242 = load ptr, ptr %9, align 8, !tbaa !3
+  %2243 = getelementptr inbounds i32, ptr %2242, i64 20
+  %2244 = load i32, ptr %2243, align 4, !tbaa !8
+  %2245 = load ptr, ptr %7, align 8, !tbaa !3
+  %2246 = load i32, ptr %13, align 4, !tbaa !8
+  %2247 = sub nsw i32 %2246, 21
+  %2248 = sext i32 %2247 to i64
+  %2249 = getelementptr inbounds i32, ptr %2245, i64 %2248
+  %2250 = load i32, ptr %2249, align 4, !tbaa !8
+  %2251 = mul nsw i32 %2244, %2250
+  %2252 = load i32, ptr %14, align 4, !tbaa !8
+  %2253 = add nsw i32 %2252, %2251
+  store i32 %2253, ptr %14, align 4, !tbaa !8
+  br label %2254
 
-sw.bb1157:                                        ; preds = %sw.bb1150, %for.body1072
-  %2340 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1158 = getelementptr inbounds i32, ptr %2340, i64 19
-  %2341 = load i32, ptr %arrayidx1158, align 4
-  %2342 = load ptr, ptr %data.addr, align 8
-  %2343 = load i32, ptr %i, align 4
-  %sub1159 = sub nsw i32 %2343, 20
-  %idxprom1160 = sext i32 %sub1159 to i64
-  %arrayidx1161 = getelementptr inbounds i32, ptr %2342, i64 %idxprom1160
-  %2344 = load i32, ptr %arrayidx1161, align 4
-  %mul1162 = mul nsw i32 %2341, %2344
-  %2345 = load i32, ptr %sum, align 4
-  %add1163 = add nsw i32 %2345, %mul1162
-  store i32 %add1163, ptr %sum, align 4
-  br label %sw.bb1164
+2254:                                             ; preds = %2096, %2241
+  %2255 = load ptr, ptr %9, align 8, !tbaa !3
+  %2256 = getelementptr inbounds i32, ptr %2255, i64 19
+  %2257 = load i32, ptr %2256, align 4, !tbaa !8
+  %2258 = load ptr, ptr %7, align 8, !tbaa !3
+  %2259 = load i32, ptr %13, align 4, !tbaa !8
+  %2260 = sub nsw i32 %2259, 20
+  %2261 = sext i32 %2260 to i64
+  %2262 = getelementptr inbounds i32, ptr %2258, i64 %2261
+  %2263 = load i32, ptr %2262, align 4, !tbaa !8
+  %2264 = mul nsw i32 %2257, %2263
+  %2265 = load i32, ptr %14, align 4, !tbaa !8
+  %2266 = add nsw i32 %2265, %2264
+  store i32 %2266, ptr %14, align 4, !tbaa !8
+  br label %2267
 
-sw.bb1164:                                        ; preds = %sw.bb1157, %for.body1072
-  %2346 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1165 = getelementptr inbounds i32, ptr %2346, i64 18
-  %2347 = load i32, ptr %arrayidx1165, align 4
-  %2348 = load ptr, ptr %data.addr, align 8
-  %2349 = load i32, ptr %i, align 4
-  %sub1166 = sub nsw i32 %2349, 19
-  %idxprom1167 = sext i32 %sub1166 to i64
-  %arrayidx1168 = getelementptr inbounds i32, ptr %2348, i64 %idxprom1167
-  %2350 = load i32, ptr %arrayidx1168, align 4
-  %mul1169 = mul nsw i32 %2347, %2350
-  %2351 = load i32, ptr %sum, align 4
-  %add1170 = add nsw i32 %2351, %mul1169
-  store i32 %add1170, ptr %sum, align 4
-  br label %sw.bb1171
+2267:                                             ; preds = %2096, %2254
+  %2268 = load ptr, ptr %9, align 8, !tbaa !3
+  %2269 = getelementptr inbounds i32, ptr %2268, i64 18
+  %2270 = load i32, ptr %2269, align 4, !tbaa !8
+  %2271 = load ptr, ptr %7, align 8, !tbaa !3
+  %2272 = load i32, ptr %13, align 4, !tbaa !8
+  %2273 = sub nsw i32 %2272, 19
+  %2274 = sext i32 %2273 to i64
+  %2275 = getelementptr inbounds i32, ptr %2271, i64 %2274
+  %2276 = load i32, ptr %2275, align 4, !tbaa !8
+  %2277 = mul nsw i32 %2270, %2276
+  %2278 = load i32, ptr %14, align 4, !tbaa !8
+  %2279 = add nsw i32 %2278, %2277
+  store i32 %2279, ptr %14, align 4, !tbaa !8
+  br label %2280
 
-sw.bb1171:                                        ; preds = %sw.bb1164, %for.body1072
-  %2352 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1172 = getelementptr inbounds i32, ptr %2352, i64 17
-  %2353 = load i32, ptr %arrayidx1172, align 4
-  %2354 = load ptr, ptr %data.addr, align 8
-  %2355 = load i32, ptr %i, align 4
-  %sub1173 = sub nsw i32 %2355, 18
-  %idxprom1174 = sext i32 %sub1173 to i64
-  %arrayidx1175 = getelementptr inbounds i32, ptr %2354, i64 %idxprom1174
-  %2356 = load i32, ptr %arrayidx1175, align 4
-  %mul1176 = mul nsw i32 %2353, %2356
-  %2357 = load i32, ptr %sum, align 4
-  %add1177 = add nsw i32 %2357, %mul1176
-  store i32 %add1177, ptr %sum, align 4
-  br label %sw.bb1178
+2280:                                             ; preds = %2096, %2267
+  %2281 = load ptr, ptr %9, align 8, !tbaa !3
+  %2282 = getelementptr inbounds i32, ptr %2281, i64 17
+  %2283 = load i32, ptr %2282, align 4, !tbaa !8
+  %2284 = load ptr, ptr %7, align 8, !tbaa !3
+  %2285 = load i32, ptr %13, align 4, !tbaa !8
+  %2286 = sub nsw i32 %2285, 18
+  %2287 = sext i32 %2286 to i64
+  %2288 = getelementptr inbounds i32, ptr %2284, i64 %2287
+  %2289 = load i32, ptr %2288, align 4, !tbaa !8
+  %2290 = mul nsw i32 %2283, %2289
+  %2291 = load i32, ptr %14, align 4, !tbaa !8
+  %2292 = add nsw i32 %2291, %2290
+  store i32 %2292, ptr %14, align 4, !tbaa !8
+  br label %2293
 
-sw.bb1178:                                        ; preds = %sw.bb1171, %for.body1072
-  %2358 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1179 = getelementptr inbounds i32, ptr %2358, i64 16
-  %2359 = load i32, ptr %arrayidx1179, align 4
-  %2360 = load ptr, ptr %data.addr, align 8
-  %2361 = load i32, ptr %i, align 4
-  %sub1180 = sub nsw i32 %2361, 17
-  %idxprom1181 = sext i32 %sub1180 to i64
-  %arrayidx1182 = getelementptr inbounds i32, ptr %2360, i64 %idxprom1181
-  %2362 = load i32, ptr %arrayidx1182, align 4
-  %mul1183 = mul nsw i32 %2359, %2362
-  %2363 = load i32, ptr %sum, align 4
-  %add1184 = add nsw i32 %2363, %mul1183
-  store i32 %add1184, ptr %sum, align 4
-  br label %sw.bb1185
+2293:                                             ; preds = %2096, %2280
+  %2294 = load ptr, ptr %9, align 8, !tbaa !3
+  %2295 = getelementptr inbounds i32, ptr %2294, i64 16
+  %2296 = load i32, ptr %2295, align 4, !tbaa !8
+  %2297 = load ptr, ptr %7, align 8, !tbaa !3
+  %2298 = load i32, ptr %13, align 4, !tbaa !8
+  %2299 = sub nsw i32 %2298, 17
+  %2300 = sext i32 %2299 to i64
+  %2301 = getelementptr inbounds i32, ptr %2297, i64 %2300
+  %2302 = load i32, ptr %2301, align 4, !tbaa !8
+  %2303 = mul nsw i32 %2296, %2302
+  %2304 = load i32, ptr %14, align 4, !tbaa !8
+  %2305 = add nsw i32 %2304, %2303
+  store i32 %2305, ptr %14, align 4, !tbaa !8
+  br label %2306
 
-sw.bb1185:                                        ; preds = %sw.bb1178, %for.body1072
-  %2364 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1186 = getelementptr inbounds i32, ptr %2364, i64 15
-  %2365 = load i32, ptr %arrayidx1186, align 4
-  %2366 = load ptr, ptr %data.addr, align 8
-  %2367 = load i32, ptr %i, align 4
-  %sub1187 = sub nsw i32 %2367, 16
-  %idxprom1188 = sext i32 %sub1187 to i64
-  %arrayidx1189 = getelementptr inbounds i32, ptr %2366, i64 %idxprom1188
-  %2368 = load i32, ptr %arrayidx1189, align 4
-  %mul1190 = mul nsw i32 %2365, %2368
-  %2369 = load i32, ptr %sum, align 4
-  %add1191 = add nsw i32 %2369, %mul1190
-  store i32 %add1191, ptr %sum, align 4
-  br label %sw.bb1192
+2306:                                             ; preds = %2096, %2293
+  %2307 = load ptr, ptr %9, align 8, !tbaa !3
+  %2308 = getelementptr inbounds i32, ptr %2307, i64 15
+  %2309 = load i32, ptr %2308, align 4, !tbaa !8
+  %2310 = load ptr, ptr %7, align 8, !tbaa !3
+  %2311 = load i32, ptr %13, align 4, !tbaa !8
+  %2312 = sub nsw i32 %2311, 16
+  %2313 = sext i32 %2312 to i64
+  %2314 = getelementptr inbounds i32, ptr %2310, i64 %2313
+  %2315 = load i32, ptr %2314, align 4, !tbaa !8
+  %2316 = mul nsw i32 %2309, %2315
+  %2317 = load i32, ptr %14, align 4, !tbaa !8
+  %2318 = add nsw i32 %2317, %2316
+  store i32 %2318, ptr %14, align 4, !tbaa !8
+  br label %2319
 
-sw.bb1192:                                        ; preds = %sw.bb1185, %for.body1072
-  %2370 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1193 = getelementptr inbounds i32, ptr %2370, i64 14
-  %2371 = load i32, ptr %arrayidx1193, align 4
-  %2372 = load ptr, ptr %data.addr, align 8
-  %2373 = load i32, ptr %i, align 4
-  %sub1194 = sub nsw i32 %2373, 15
-  %idxprom1195 = sext i32 %sub1194 to i64
-  %arrayidx1196 = getelementptr inbounds i32, ptr %2372, i64 %idxprom1195
-  %2374 = load i32, ptr %arrayidx1196, align 4
-  %mul1197 = mul nsw i32 %2371, %2374
-  %2375 = load i32, ptr %sum, align 4
-  %add1198 = add nsw i32 %2375, %mul1197
-  store i32 %add1198, ptr %sum, align 4
-  br label %sw.bb1199
+2319:                                             ; preds = %2096, %2306
+  %2320 = load ptr, ptr %9, align 8, !tbaa !3
+  %2321 = getelementptr inbounds i32, ptr %2320, i64 14
+  %2322 = load i32, ptr %2321, align 4, !tbaa !8
+  %2323 = load ptr, ptr %7, align 8, !tbaa !3
+  %2324 = load i32, ptr %13, align 4, !tbaa !8
+  %2325 = sub nsw i32 %2324, 15
+  %2326 = sext i32 %2325 to i64
+  %2327 = getelementptr inbounds i32, ptr %2323, i64 %2326
+  %2328 = load i32, ptr %2327, align 4, !tbaa !8
+  %2329 = mul nsw i32 %2322, %2328
+  %2330 = load i32, ptr %14, align 4, !tbaa !8
+  %2331 = add nsw i32 %2330, %2329
+  store i32 %2331, ptr %14, align 4, !tbaa !8
+  br label %2332
 
-sw.bb1199:                                        ; preds = %sw.bb1192, %for.body1072
-  %2376 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1200 = getelementptr inbounds i32, ptr %2376, i64 13
-  %2377 = load i32, ptr %arrayidx1200, align 4
-  %2378 = load ptr, ptr %data.addr, align 8
-  %2379 = load i32, ptr %i, align 4
-  %sub1201 = sub nsw i32 %2379, 14
-  %idxprom1202 = sext i32 %sub1201 to i64
-  %arrayidx1203 = getelementptr inbounds i32, ptr %2378, i64 %idxprom1202
-  %2380 = load i32, ptr %arrayidx1203, align 4
-  %mul1204 = mul nsw i32 %2377, %2380
-  %2381 = load i32, ptr %sum, align 4
-  %add1205 = add nsw i32 %2381, %mul1204
-  store i32 %add1205, ptr %sum, align 4
-  br label %sw.bb1206
+2332:                                             ; preds = %2096, %2319
+  %2333 = load ptr, ptr %9, align 8, !tbaa !3
+  %2334 = getelementptr inbounds i32, ptr %2333, i64 13
+  %2335 = load i32, ptr %2334, align 4, !tbaa !8
+  %2336 = load ptr, ptr %7, align 8, !tbaa !3
+  %2337 = load i32, ptr %13, align 4, !tbaa !8
+  %2338 = sub nsw i32 %2337, 14
+  %2339 = sext i32 %2338 to i64
+  %2340 = getelementptr inbounds i32, ptr %2336, i64 %2339
+  %2341 = load i32, ptr %2340, align 4, !tbaa !8
+  %2342 = mul nsw i32 %2335, %2341
+  %2343 = load i32, ptr %14, align 4, !tbaa !8
+  %2344 = add nsw i32 %2343, %2342
+  store i32 %2344, ptr %14, align 4, !tbaa !8
+  br label %2345
 
-sw.bb1206:                                        ; preds = %sw.bb1199, %for.body1072
-  %2382 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1207 = getelementptr inbounds i32, ptr %2382, i64 12
-  %2383 = load i32, ptr %arrayidx1207, align 4
-  %2384 = load ptr, ptr %data.addr, align 8
-  %2385 = load i32, ptr %i, align 4
-  %sub1208 = sub nsw i32 %2385, 13
-  %idxprom1209 = sext i32 %sub1208 to i64
-  %arrayidx1210 = getelementptr inbounds i32, ptr %2384, i64 %idxprom1209
-  %2386 = load i32, ptr %arrayidx1210, align 4
-  %mul1211 = mul nsw i32 %2383, %2386
-  %2387 = load i32, ptr %sum, align 4
-  %add1212 = add nsw i32 %2387, %mul1211
-  store i32 %add1212, ptr %sum, align 4
-  %2388 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1213 = getelementptr inbounds i32, ptr %2388, i64 11
-  %2389 = load i32, ptr %arrayidx1213, align 4
-  %2390 = load ptr, ptr %data.addr, align 8
-  %2391 = load i32, ptr %i, align 4
-  %sub1214 = sub nsw i32 %2391, 12
-  %idxprom1215 = sext i32 %sub1214 to i64
-  %arrayidx1216 = getelementptr inbounds i32, ptr %2390, i64 %idxprom1215
-  %2392 = load i32, ptr %arrayidx1216, align 4
-  %mul1217 = mul nsw i32 %2389, %2392
-  %2393 = load i32, ptr %sum, align 4
-  %add1218 = add nsw i32 %2393, %mul1217
-  store i32 %add1218, ptr %sum, align 4
-  %2394 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1219 = getelementptr inbounds i32, ptr %2394, i64 10
-  %2395 = load i32, ptr %arrayidx1219, align 4
-  %2396 = load ptr, ptr %data.addr, align 8
-  %2397 = load i32, ptr %i, align 4
-  %sub1220 = sub nsw i32 %2397, 11
-  %idxprom1221 = sext i32 %sub1220 to i64
-  %arrayidx1222 = getelementptr inbounds i32, ptr %2396, i64 %idxprom1221
-  %2398 = load i32, ptr %arrayidx1222, align 4
-  %mul1223 = mul nsw i32 %2395, %2398
-  %2399 = load i32, ptr %sum, align 4
-  %add1224 = add nsw i32 %2399, %mul1223
-  store i32 %add1224, ptr %sum, align 4
-  %2400 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1225 = getelementptr inbounds i32, ptr %2400, i64 9
-  %2401 = load i32, ptr %arrayidx1225, align 4
-  %2402 = load ptr, ptr %data.addr, align 8
-  %2403 = load i32, ptr %i, align 4
-  %sub1226 = sub nsw i32 %2403, 10
-  %idxprom1227 = sext i32 %sub1226 to i64
-  %arrayidx1228 = getelementptr inbounds i32, ptr %2402, i64 %idxprom1227
-  %2404 = load i32, ptr %arrayidx1228, align 4
-  %mul1229 = mul nsw i32 %2401, %2404
-  %2405 = load i32, ptr %sum, align 4
-  %add1230 = add nsw i32 %2405, %mul1229
-  store i32 %add1230, ptr %sum, align 4
-  %2406 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1231 = getelementptr inbounds i32, ptr %2406, i64 8
-  %2407 = load i32, ptr %arrayidx1231, align 4
-  %2408 = load ptr, ptr %data.addr, align 8
-  %2409 = load i32, ptr %i, align 4
-  %sub1232 = sub nsw i32 %2409, 9
-  %idxprom1233 = sext i32 %sub1232 to i64
-  %arrayidx1234 = getelementptr inbounds i32, ptr %2408, i64 %idxprom1233
-  %2410 = load i32, ptr %arrayidx1234, align 4
-  %mul1235 = mul nsw i32 %2407, %2410
-  %2411 = load i32, ptr %sum, align 4
-  %add1236 = add nsw i32 %2411, %mul1235
-  store i32 %add1236, ptr %sum, align 4
-  %2412 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1237 = getelementptr inbounds i32, ptr %2412, i64 7
-  %2413 = load i32, ptr %arrayidx1237, align 4
-  %2414 = load ptr, ptr %data.addr, align 8
-  %2415 = load i32, ptr %i, align 4
-  %sub1238 = sub nsw i32 %2415, 8
-  %idxprom1239 = sext i32 %sub1238 to i64
-  %arrayidx1240 = getelementptr inbounds i32, ptr %2414, i64 %idxprom1239
-  %2416 = load i32, ptr %arrayidx1240, align 4
-  %mul1241 = mul nsw i32 %2413, %2416
-  %2417 = load i32, ptr %sum, align 4
-  %add1242 = add nsw i32 %2417, %mul1241
-  store i32 %add1242, ptr %sum, align 4
-  %2418 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1243 = getelementptr inbounds i32, ptr %2418, i64 6
-  %2419 = load i32, ptr %arrayidx1243, align 4
-  %2420 = load ptr, ptr %data.addr, align 8
-  %2421 = load i32, ptr %i, align 4
-  %sub1244 = sub nsw i32 %2421, 7
-  %idxprom1245 = sext i32 %sub1244 to i64
-  %arrayidx1246 = getelementptr inbounds i32, ptr %2420, i64 %idxprom1245
-  %2422 = load i32, ptr %arrayidx1246, align 4
-  %mul1247 = mul nsw i32 %2419, %2422
-  %2423 = load i32, ptr %sum, align 4
-  %add1248 = add nsw i32 %2423, %mul1247
-  store i32 %add1248, ptr %sum, align 4
-  %2424 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1249 = getelementptr inbounds i32, ptr %2424, i64 5
-  %2425 = load i32, ptr %arrayidx1249, align 4
-  %2426 = load ptr, ptr %data.addr, align 8
-  %2427 = load i32, ptr %i, align 4
-  %sub1250 = sub nsw i32 %2427, 6
-  %idxprom1251 = sext i32 %sub1250 to i64
-  %arrayidx1252 = getelementptr inbounds i32, ptr %2426, i64 %idxprom1251
-  %2428 = load i32, ptr %arrayidx1252, align 4
-  %mul1253 = mul nsw i32 %2425, %2428
-  %2429 = load i32, ptr %sum, align 4
-  %add1254 = add nsw i32 %2429, %mul1253
-  store i32 %add1254, ptr %sum, align 4
-  %2430 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1255 = getelementptr inbounds i32, ptr %2430, i64 4
-  %2431 = load i32, ptr %arrayidx1255, align 4
-  %2432 = load ptr, ptr %data.addr, align 8
-  %2433 = load i32, ptr %i, align 4
-  %sub1256 = sub nsw i32 %2433, 5
-  %idxprom1257 = sext i32 %sub1256 to i64
-  %arrayidx1258 = getelementptr inbounds i32, ptr %2432, i64 %idxprom1257
-  %2434 = load i32, ptr %arrayidx1258, align 4
-  %mul1259 = mul nsw i32 %2431, %2434
-  %2435 = load i32, ptr %sum, align 4
-  %add1260 = add nsw i32 %2435, %mul1259
-  store i32 %add1260, ptr %sum, align 4
-  %2436 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1261 = getelementptr inbounds i32, ptr %2436, i64 3
-  %2437 = load i32, ptr %arrayidx1261, align 4
-  %2438 = load ptr, ptr %data.addr, align 8
-  %2439 = load i32, ptr %i, align 4
-  %sub1262 = sub nsw i32 %2439, 4
-  %idxprom1263 = sext i32 %sub1262 to i64
-  %arrayidx1264 = getelementptr inbounds i32, ptr %2438, i64 %idxprom1263
-  %2440 = load i32, ptr %arrayidx1264, align 4
-  %mul1265 = mul nsw i32 %2437, %2440
-  %2441 = load i32, ptr %sum, align 4
-  %add1266 = add nsw i32 %2441, %mul1265
-  store i32 %add1266, ptr %sum, align 4
-  %2442 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1267 = getelementptr inbounds i32, ptr %2442, i64 2
-  %2443 = load i32, ptr %arrayidx1267, align 4
-  %2444 = load ptr, ptr %data.addr, align 8
-  %2445 = load i32, ptr %i, align 4
-  %sub1268 = sub nsw i32 %2445, 3
-  %idxprom1269 = sext i32 %sub1268 to i64
-  %arrayidx1270 = getelementptr inbounds i32, ptr %2444, i64 %idxprom1269
-  %2446 = load i32, ptr %arrayidx1270, align 4
-  %mul1271 = mul nsw i32 %2443, %2446
-  %2447 = load i32, ptr %sum, align 4
-  %add1272 = add nsw i32 %2447, %mul1271
-  store i32 %add1272, ptr %sum, align 4
-  %2448 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1273 = getelementptr inbounds i32, ptr %2448, i64 1
-  %2449 = load i32, ptr %arrayidx1273, align 4
-  %2450 = load ptr, ptr %data.addr, align 8
-  %2451 = load i32, ptr %i, align 4
-  %sub1274 = sub nsw i32 %2451, 2
-  %idxprom1275 = sext i32 %sub1274 to i64
-  %arrayidx1276 = getelementptr inbounds i32, ptr %2450, i64 %idxprom1275
-  %2452 = load i32, ptr %arrayidx1276, align 4
-  %mul1277 = mul nsw i32 %2449, %2452
-  %2453 = load i32, ptr %sum, align 4
-  %add1278 = add nsw i32 %2453, %mul1277
-  store i32 %add1278, ptr %sum, align 4
-  %2454 = load ptr, ptr %qlp_coeff.addr, align 8
-  %arrayidx1279 = getelementptr inbounds i32, ptr %2454, i64 0
-  %2455 = load i32, ptr %arrayidx1279, align 4
-  %2456 = load ptr, ptr %data.addr, align 8
-  %2457 = load i32, ptr %i, align 4
-  %sub1280 = sub nsw i32 %2457, 1
-  %idxprom1281 = sext i32 %sub1280 to i64
-  %arrayidx1282 = getelementptr inbounds i32, ptr %2456, i64 %idxprom1281
-  %2458 = load i32, ptr %arrayidx1282, align 4
-  %mul1283 = mul nsw i32 %2455, %2458
-  %2459 = load i32, ptr %sum, align 4
-  %add1284 = add nsw i32 %2459, %mul1283
-  store i32 %add1284, ptr %sum, align 4
-  br label %sw.epilog1285
+2345:                                             ; preds = %2096, %2332
+  %2346 = load ptr, ptr %9, align 8, !tbaa !3
+  %2347 = getelementptr inbounds i32, ptr %2346, i64 12
+  %2348 = load i32, ptr %2347, align 4, !tbaa !8
+  %2349 = load ptr, ptr %7, align 8, !tbaa !3
+  %2350 = load i32, ptr %13, align 4, !tbaa !8
+  %2351 = sub nsw i32 %2350, 13
+  %2352 = sext i32 %2351 to i64
+  %2353 = getelementptr inbounds i32, ptr %2349, i64 %2352
+  %2354 = load i32, ptr %2353, align 4, !tbaa !8
+  %2355 = mul nsw i32 %2348, %2354
+  %2356 = load i32, ptr %14, align 4, !tbaa !8
+  %2357 = add nsw i32 %2356, %2355
+  store i32 %2357, ptr %14, align 4, !tbaa !8
+  %2358 = load ptr, ptr %9, align 8, !tbaa !3
+  %2359 = getelementptr inbounds i32, ptr %2358, i64 11
+  %2360 = load i32, ptr %2359, align 4, !tbaa !8
+  %2361 = load ptr, ptr %7, align 8, !tbaa !3
+  %2362 = load i32, ptr %13, align 4, !tbaa !8
+  %2363 = sub nsw i32 %2362, 12
+  %2364 = sext i32 %2363 to i64
+  %2365 = getelementptr inbounds i32, ptr %2361, i64 %2364
+  %2366 = load i32, ptr %2365, align 4, !tbaa !8
+  %2367 = mul nsw i32 %2360, %2366
+  %2368 = load i32, ptr %14, align 4, !tbaa !8
+  %2369 = add nsw i32 %2368, %2367
+  store i32 %2369, ptr %14, align 4, !tbaa !8
+  %2370 = load ptr, ptr %9, align 8, !tbaa !3
+  %2371 = getelementptr inbounds i32, ptr %2370, i64 10
+  %2372 = load i32, ptr %2371, align 4, !tbaa !8
+  %2373 = load ptr, ptr %7, align 8, !tbaa !3
+  %2374 = load i32, ptr %13, align 4, !tbaa !8
+  %2375 = sub nsw i32 %2374, 11
+  %2376 = sext i32 %2375 to i64
+  %2377 = getelementptr inbounds i32, ptr %2373, i64 %2376
+  %2378 = load i32, ptr %2377, align 4, !tbaa !8
+  %2379 = mul nsw i32 %2372, %2378
+  %2380 = load i32, ptr %14, align 4, !tbaa !8
+  %2381 = add nsw i32 %2380, %2379
+  store i32 %2381, ptr %14, align 4, !tbaa !8
+  %2382 = load ptr, ptr %9, align 8, !tbaa !3
+  %2383 = getelementptr inbounds i32, ptr %2382, i64 9
+  %2384 = load i32, ptr %2383, align 4, !tbaa !8
+  %2385 = load ptr, ptr %7, align 8, !tbaa !3
+  %2386 = load i32, ptr %13, align 4, !tbaa !8
+  %2387 = sub nsw i32 %2386, 10
+  %2388 = sext i32 %2387 to i64
+  %2389 = getelementptr inbounds i32, ptr %2385, i64 %2388
+  %2390 = load i32, ptr %2389, align 4, !tbaa !8
+  %2391 = mul nsw i32 %2384, %2390
+  %2392 = load i32, ptr %14, align 4, !tbaa !8
+  %2393 = add nsw i32 %2392, %2391
+  store i32 %2393, ptr %14, align 4, !tbaa !8
+  %2394 = load ptr, ptr %9, align 8, !tbaa !3
+  %2395 = getelementptr inbounds i32, ptr %2394, i64 8
+  %2396 = load i32, ptr %2395, align 4, !tbaa !8
+  %2397 = load ptr, ptr %7, align 8, !tbaa !3
+  %2398 = load i32, ptr %13, align 4, !tbaa !8
+  %2399 = sub nsw i32 %2398, 9
+  %2400 = sext i32 %2399 to i64
+  %2401 = getelementptr inbounds i32, ptr %2397, i64 %2400
+  %2402 = load i32, ptr %2401, align 4, !tbaa !8
+  %2403 = mul nsw i32 %2396, %2402
+  %2404 = load i32, ptr %14, align 4, !tbaa !8
+  %2405 = add nsw i32 %2404, %2403
+  store i32 %2405, ptr %14, align 4, !tbaa !8
+  %2406 = load ptr, ptr %9, align 8, !tbaa !3
+  %2407 = getelementptr inbounds i32, ptr %2406, i64 7
+  %2408 = load i32, ptr %2407, align 4, !tbaa !8
+  %2409 = load ptr, ptr %7, align 8, !tbaa !3
+  %2410 = load i32, ptr %13, align 4, !tbaa !8
+  %2411 = sub nsw i32 %2410, 8
+  %2412 = sext i32 %2411 to i64
+  %2413 = getelementptr inbounds i32, ptr %2409, i64 %2412
+  %2414 = load i32, ptr %2413, align 4, !tbaa !8
+  %2415 = mul nsw i32 %2408, %2414
+  %2416 = load i32, ptr %14, align 4, !tbaa !8
+  %2417 = add nsw i32 %2416, %2415
+  store i32 %2417, ptr %14, align 4, !tbaa !8
+  %2418 = load ptr, ptr %9, align 8, !tbaa !3
+  %2419 = getelementptr inbounds i32, ptr %2418, i64 6
+  %2420 = load i32, ptr %2419, align 4, !tbaa !8
+  %2421 = load ptr, ptr %7, align 8, !tbaa !3
+  %2422 = load i32, ptr %13, align 4, !tbaa !8
+  %2423 = sub nsw i32 %2422, 7
+  %2424 = sext i32 %2423 to i64
+  %2425 = getelementptr inbounds i32, ptr %2421, i64 %2424
+  %2426 = load i32, ptr %2425, align 4, !tbaa !8
+  %2427 = mul nsw i32 %2420, %2426
+  %2428 = load i32, ptr %14, align 4, !tbaa !8
+  %2429 = add nsw i32 %2428, %2427
+  store i32 %2429, ptr %14, align 4, !tbaa !8
+  %2430 = load ptr, ptr %9, align 8, !tbaa !3
+  %2431 = getelementptr inbounds i32, ptr %2430, i64 5
+  %2432 = load i32, ptr %2431, align 4, !tbaa !8
+  %2433 = load ptr, ptr %7, align 8, !tbaa !3
+  %2434 = load i32, ptr %13, align 4, !tbaa !8
+  %2435 = sub nsw i32 %2434, 6
+  %2436 = sext i32 %2435 to i64
+  %2437 = getelementptr inbounds i32, ptr %2433, i64 %2436
+  %2438 = load i32, ptr %2437, align 4, !tbaa !8
+  %2439 = mul nsw i32 %2432, %2438
+  %2440 = load i32, ptr %14, align 4, !tbaa !8
+  %2441 = add nsw i32 %2440, %2439
+  store i32 %2441, ptr %14, align 4, !tbaa !8
+  %2442 = load ptr, ptr %9, align 8, !tbaa !3
+  %2443 = getelementptr inbounds i32, ptr %2442, i64 4
+  %2444 = load i32, ptr %2443, align 4, !tbaa !8
+  %2445 = load ptr, ptr %7, align 8, !tbaa !3
+  %2446 = load i32, ptr %13, align 4, !tbaa !8
+  %2447 = sub nsw i32 %2446, 5
+  %2448 = sext i32 %2447 to i64
+  %2449 = getelementptr inbounds i32, ptr %2445, i64 %2448
+  %2450 = load i32, ptr %2449, align 4, !tbaa !8
+  %2451 = mul nsw i32 %2444, %2450
+  %2452 = load i32, ptr %14, align 4, !tbaa !8
+  %2453 = add nsw i32 %2452, %2451
+  store i32 %2453, ptr %14, align 4, !tbaa !8
+  %2454 = load ptr, ptr %9, align 8, !tbaa !3
+  %2455 = getelementptr inbounds i32, ptr %2454, i64 3
+  %2456 = load i32, ptr %2455, align 4, !tbaa !8
+  %2457 = load ptr, ptr %7, align 8, !tbaa !3
+  %2458 = load i32, ptr %13, align 4, !tbaa !8
+  %2459 = sub nsw i32 %2458, 4
+  %2460 = sext i32 %2459 to i64
+  %2461 = getelementptr inbounds i32, ptr %2457, i64 %2460
+  %2462 = load i32, ptr %2461, align 4, !tbaa !8
+  %2463 = mul nsw i32 %2456, %2462
+  %2464 = load i32, ptr %14, align 4, !tbaa !8
+  %2465 = add nsw i32 %2464, %2463
+  store i32 %2465, ptr %14, align 4, !tbaa !8
+  %2466 = load ptr, ptr %9, align 8, !tbaa !3
+  %2467 = getelementptr inbounds i32, ptr %2466, i64 2
+  %2468 = load i32, ptr %2467, align 4, !tbaa !8
+  %2469 = load ptr, ptr %7, align 8, !tbaa !3
+  %2470 = load i32, ptr %13, align 4, !tbaa !8
+  %2471 = sub nsw i32 %2470, 3
+  %2472 = sext i32 %2471 to i64
+  %2473 = getelementptr inbounds i32, ptr %2469, i64 %2472
+  %2474 = load i32, ptr %2473, align 4, !tbaa !8
+  %2475 = mul nsw i32 %2468, %2474
+  %2476 = load i32, ptr %14, align 4, !tbaa !8
+  %2477 = add nsw i32 %2476, %2475
+  store i32 %2477, ptr %14, align 4, !tbaa !8
+  %2478 = load ptr, ptr %9, align 8, !tbaa !3
+  %2479 = getelementptr inbounds i32, ptr %2478, i64 1
+  %2480 = load i32, ptr %2479, align 4, !tbaa !8
+  %2481 = load ptr, ptr %7, align 8, !tbaa !3
+  %2482 = load i32, ptr %13, align 4, !tbaa !8
+  %2483 = sub nsw i32 %2482, 2
+  %2484 = sext i32 %2483 to i64
+  %2485 = getelementptr inbounds i32, ptr %2481, i64 %2484
+  %2486 = load i32, ptr %2485, align 4, !tbaa !8
+  %2487 = mul nsw i32 %2480, %2486
+  %2488 = load i32, ptr %14, align 4, !tbaa !8
+  %2489 = add nsw i32 %2488, %2487
+  store i32 %2489, ptr %14, align 4, !tbaa !8
+  %2490 = load ptr, ptr %9, align 8, !tbaa !3
+  %2491 = getelementptr inbounds i32, ptr %2490, i64 0
+  %2492 = load i32, ptr %2491, align 4, !tbaa !8
+  %2493 = load ptr, ptr %7, align 8, !tbaa !3
+  %2494 = load i32, ptr %13, align 4, !tbaa !8
+  %2495 = sub nsw i32 %2494, 1
+  %2496 = sext i32 %2495 to i64
+  %2497 = getelementptr inbounds i32, ptr %2493, i64 %2496
+  %2498 = load i32, ptr %2497, align 4, !tbaa !8
+  %2499 = mul nsw i32 %2492, %2498
+  %2500 = load i32, ptr %14, align 4, !tbaa !8
+  %2501 = add nsw i32 %2500, %2499
+  store i32 %2501, ptr %14, align 4, !tbaa !8
+  br label %2502
 
-sw.epilog1285:                                    ; preds = %sw.bb1206, %for.body1072
-  %2460 = load ptr, ptr %data.addr, align 8
-  %2461 = load i32, ptr %i, align 4
-  %idxprom1286 = sext i32 %2461 to i64
-  %arrayidx1287 = getelementptr inbounds i32, ptr %2460, i64 %idxprom1286
-  %2462 = load i32, ptr %arrayidx1287, align 4
-  %2463 = load i32, ptr %sum, align 4
-  %2464 = load i32, ptr %lp_quantization.addr, align 4
-  %shr1288 = ashr i32 %2463, %2464
-  %sub1289 = sub nsw i32 %2462, %shr1288
-  %2465 = load ptr, ptr %residual.addr, align 8
-  %2466 = load i32, ptr %i, align 4
-  %idxprom1290 = sext i32 %2466 to i64
-  %arrayidx1291 = getelementptr inbounds i32, ptr %2465, i64 %idxprom1290
-  store i32 %sub1289, ptr %arrayidx1291, align 4
-  br label %for.inc1292
+2502:                                             ; preds = %2345, %2096
+  %2503 = load ptr, ptr %7, align 8, !tbaa !3
+  %2504 = load i32, ptr %13, align 4, !tbaa !8
+  %2505 = sext i32 %2504 to i64
+  %2506 = getelementptr inbounds i32, ptr %2503, i64 %2505
+  %2507 = load i32, ptr %2506, align 4, !tbaa !8
+  %2508 = load i32, ptr %14, align 4, !tbaa !8
+  %2509 = load i32, ptr %11, align 4, !tbaa !8
+  %2510 = ashr i32 %2508, %2509
+  %2511 = sub nsw i32 %2507, %2510
+  %2512 = load ptr, ptr %12, align 8, !tbaa !3
+  %2513 = load i32, ptr %13, align 4, !tbaa !8
+  %2514 = sext i32 %2513 to i64
+  %2515 = getelementptr inbounds i32, ptr %2512, i64 %2514
+  store i32 %2511, ptr %2515, align 4, !tbaa !8
+  br label %2516
 
-for.inc1292:                                      ; preds = %sw.epilog1285
-  %2467 = load i32, ptr %i, align 4
-  %inc1293 = add nsw i32 %2467, 1
-  store i32 %inc1293, ptr %i, align 4
-  br label %for.cond1070, !llvm.loop !18
+2516:                                             ; preds = %2502
+  %2517 = load i32, ptr %13, align 4, !tbaa !8
+  %2518 = add nsw i32 %2517, 1
+  store i32 %2518, ptr %13, align 4, !tbaa !8
+  br label %2092, !llvm.loop !25
 
-for.end1294:                                      ; preds = %for.cond1070
-  br label %if.end1295
+2519:                                             ; preds = %2092
+  br label %2520
 
-if.end1295:                                       ; preds = %for.end1294, %for.end1068
+2520:                                             ; preds = %2519, %2090
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: alwaysinline nounwind sspstrong uwtable
+define internal <2 x i64> @_mm_cvtsi32_si128(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  %3 = alloca <4 x i32>, align 16
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %4 = load i32, ptr %2, align 4, !tbaa !8
+  %5 = insertelement <4 x i32> poison, i32 %4, i32 0
+  %6 = insertelement <4 x i32> %5, i32 0, i32 1
+  %7 = insertelement <4 x i32> %6, i32 0, i32 2
+  %8 = insertelement <4 x i32> %7, i32 0, i32 3
+  store <4 x i32> %8, ptr %3, align 16, !tbaa !10
+  %9 = load <4 x i32>, ptr %3, align 16, !tbaa !10
+  %10 = bitcast <4 x i32> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind sspstrong uwtable
+define internal <2 x i64> @_mm_mullo_epi32(<2 x i64> noundef %0, <2 x i64> noundef %1) #3 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !10
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !10
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !10
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !10
+  %8 = bitcast <2 x i64> %7 to <4 x i32>
+  %9 = mul <4 x i32> %6, %8
+  %10 = bitcast <4 x i32> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind sspstrong uwtable
+define internal <2 x i64> @_mm_loadu_si128(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %4 = getelementptr inbounds nuw %struct.__loadu_si128, ptr %3, i32 0, i32 0
+  %5 = load <2 x i64>, ptr %4, align 1, !tbaa !10
+  ret <2 x i64> %5
+}
+
+; Function Attrs: alwaysinline nounwind sspstrong uwtable
+define internal <2 x i64> @_mm_add_epi32(<2 x i64> noundef %0, <2 x i64> noundef %1) #2 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !10
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !10
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !10
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !10
+  %8 = bitcast <2 x i64> %7 to <4 x i32>
+  %9 = add <4 x i32> %6, %8
+  %10 = bitcast <4 x i32> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind sspstrong uwtable
+define internal <2 x i64> @_mm_sra_epi32(<2 x i64> noundef %0, <2 x i64> noundef %1) #2 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !10
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !10
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !10
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !10
+  %8 = bitcast <2 x i64> %7 to <4 x i32>
+  %9 = call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %6, <4 x i32> %8)
+  %10 = bitcast <4 x i32> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind sspstrong uwtable
+define internal void @_mm_storeu_si128(ptr noundef %0, <2 x i64> noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !10
+  %5 = load <2 x i64>, ptr %4, align 16, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !26
+  %7 = getelementptr inbounds nuw %struct.__storeu_si128, ptr %6, i32 0, i32 0
+  store <2 x i64> %5, ptr %7, align 1, !tbaa !10
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind sspstrong uwtable
+define internal <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %0, <2 x i64> noundef %1) #2 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !10
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !10
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !10
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !10
+  %8 = bitcast <2 x i64> %7 to <4 x i32>
+  %9 = sub <4 x i32> %6, %8
+  %10 = bitcast <4 x i32> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32>, <4 x i32>) #1
+declare <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32>, <4 x i32>) #4
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { alwaysinline nounwind sspstrong uwtable "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { alwaysinline nounwind sspstrong uwtable "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 int", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}
+!20 = distinct !{!20, !12}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !12}
+!23 = distinct !{!23, !12}
+!24 = distinct !{!24, !12}
+!25 = distinct !{!25, !12}
+!26 = !{!5, !5, i64 0}

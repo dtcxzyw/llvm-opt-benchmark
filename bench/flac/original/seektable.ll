@@ -1,394 +1,508 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [3 x i8] c"X;\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @grabbag__seektable_convert_specification_to_template(ptr noundef %spec, i32 noundef %only_explicit_placeholders, i64 noundef %total_samples_to_encode, i32 noundef %sample_rate, ptr noundef %seektable_template, ptr noundef %spec_has_real_points) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %spec.addr = alloca ptr, align 8
-  %only_explicit_placeholders.addr = alloca i32, align 4
-  %total_samples_to_encode.addr = alloca i64, align 8
-  %sample_rate.addr = alloca i32, align 4
-  %seektable_template.addr = alloca ptr, align 8
-  %spec_has_real_points.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %pt = alloca ptr, align 8
-  %q = alloca ptr, align 8
-  %n = alloca i32, align 4
-  %sec = alloca double, align 8
-  %samples = alloca i32, align 4
-  %endptr = alloca ptr, align 8
-  %n81 = alloca i64, align 8
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %only_explicit_placeholders, ptr %only_explicit_placeholders.addr, align 4
-  store i64 %total_samples_to_encode, ptr %total_samples_to_encode.addr, align 8
-  store i32 %sample_rate, ptr %sample_rate.addr, align 4
-  store ptr %seektable_template, ptr %seektable_template.addr, align 8
-  store ptr %spec_has_real_points, ptr %spec_has_real_points.addr, align 8
-  %0 = load ptr, ptr %spec_has_real_points.addr, align 8
-  %cmp = icmp ne ptr null, %0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @grabbag__seektable_convert_specification_to_template(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca double, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca ptr, align 8
+  %22 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !4
+  store i32 %1, ptr %9, align 4, !tbaa !9
+  store i64 %2, ptr %10, align 8, !tbaa !11
+  store i32 %3, ptr %11, align 4, !tbaa !9
+  store ptr %4, ptr %12, align 8, !tbaa !13
+  store ptr %5, ptr %13, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %23 = load ptr, ptr %13, align 8, !tbaa !15
+  %24 = icmp ne ptr null, %23
+  br i1 %24, label %25, label %27
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %spec_has_real_points.addr, align 8
-  store i32 0, ptr %1, align 4
-  br label %if.end
+25:                                               ; preds = %6
+  %26 = load ptr, ptr %13, align 8, !tbaa !15
+  store i32 0, ptr %26, align 4, !tbaa !9
+  br label %27
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %spec.addr, align 8
-  store ptr %2, ptr %pt, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+27:                                               ; preds = %25, %6
+  %28 = load ptr, ptr %8, align 8, !tbaa !4
+  store ptr %28, ptr %15, align 8, !tbaa !4
+  store i32 0, ptr %14, align 4, !tbaa !9
+  br label %29
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %3 = load ptr, ptr %pt, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %land.rhs, label %land.end
+29:                                               ; preds = %203, %27
+  %30 = load ptr, ptr %15, align 8, !tbaa !4
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %37
 
-land.rhs:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %pt, align 8
-  %5 = load i8, ptr %4, align 1
-  %conv = sext i8 %5 to i32
-  %tobool1 = icmp ne i32 %conv, 0
-  br label %land.end
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %15, align 8, !tbaa !4
+  %34 = load i8, ptr %33, align 1, !tbaa !17
+  %35 = sext i8 %34 to i32
+  %36 = icmp ne i32 %35, 0
+  br label %37
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %6 = phi i1 [ false, %for.cond ], [ %tobool1, %land.rhs ]
-  br i1 %6, label %for.body, label %for.end
+37:                                               ; preds = %32, %29
+  %38 = phi i1 [ false, %29 ], [ %36, %32 ]
+  br i1 %38, label %39, label %206
 
-for.body:                                         ; preds = %land.end
-  %7 = load ptr, ptr %pt, align 8
-  %call = call ptr @strchr(ptr noundef %7, i32 noundef 59) #4
-  store ptr %call, ptr %q, align 8
-  %8 = load ptr, ptr %q, align 8
-  %9 = load ptr, ptr %pt, align 8
-  %cmp2 = icmp ugt ptr %8, %9
-  br i1 %cmp2, label %if.then4, label %if.end107
+39:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  %40 = load ptr, ptr %15, align 8, !tbaa !4
+  %41 = call ptr @strchr(ptr noundef %40, i32 noundef 59) #7
+  store ptr %41, ptr %16, align 8, !tbaa !4
+  %42 = load ptr, ptr %16, align 8, !tbaa !4
+  %43 = load ptr, ptr %15, align 8, !tbaa !4
+  %44 = icmp ugt ptr %42, %43
+  br i1 %44, label %45, label %197
 
-if.then4:                                         ; preds = %for.body
-  %10 = load ptr, ptr %pt, align 8
-  %call5 = call i32 @strncmp(ptr noundef %10, ptr noundef @.str, i64 noundef 2) #4
-  %cmp6 = icmp eq i32 0, %call5
-  br i1 %cmp6, label %if.then8, label %if.else
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %15, align 8, !tbaa !4
+  %47 = call i32 @strncmp(ptr noundef %46, ptr noundef @.str, i64 noundef 2) #7
+  %48 = icmp eq i32 0, %47
+  br i1 %48, label %49, label %55
 
-if.then8:                                         ; preds = %if.then4
-  %11 = load ptr, ptr %seektable_template.addr, align 8
-  %call9 = call i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef %11, i32 noundef 1)
-  %tobool10 = icmp ne i32 %call9, 0
-  br i1 %tobool10, label %if.end12, label %if.then11
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %12, align 8, !tbaa !13
+  %51 = call i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef %50, i32 noundef 1)
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %54, label %53
 
-if.then11:                                        ; preds = %if.then8
-  store i32 0, ptr %retval, align 4
-  br label %return
+53:                                               ; preds = %49
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %200
 
-if.end12:                                         ; preds = %if.then8
-  br label %if.end106
+54:                                               ; preds = %49
+  br label %196
 
-if.else:                                          ; preds = %if.then4
-  %12 = load ptr, ptr %q, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %12, i64 -1
-  %13 = load i8, ptr %arrayidx, align 1
-  %conv13 = sext i8 %13 to i32
-  %cmp14 = icmp eq i32 %conv13, 120
-  br i1 %cmp14, label %if.then16, label %if.else37
+55:                                               ; preds = %45
+  %56 = load ptr, ptr %16, align 8, !tbaa !4
+  %57 = getelementptr inbounds i8, ptr %56, i64 -1
+  %58 = load i8, ptr %57, align 1, !tbaa !17
+  %59 = sext i8 %58 to i32
+  %60 = icmp eq i32 %59, 120
+  br i1 %60, label %61, label %91
 
-if.then16:                                        ; preds = %if.else
-  %14 = load i64, ptr %total_samples_to_encode.addr, align 8
-  %cmp17 = icmp ugt i64 %14, 0
-  br i1 %cmp17, label %if.then19, label %if.end36
+61:                                               ; preds = %55
+  %62 = load i64, ptr %10, align 8, !tbaa !11
+  %63 = icmp ugt i64 %62, 0
+  br i1 %63, label %64, label %90
 
-if.then19:                                        ; preds = %if.then16
-  %15 = load ptr, ptr %spec_has_real_points.addr, align 8
-  %cmp20 = icmp ne ptr null, %15
-  br i1 %cmp20, label %if.then22, label %if.end23
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %13, align 8, !tbaa !15
+  %66 = icmp ne ptr null, %65
+  br i1 %66, label %67, label %69
 
-if.then22:                                        ; preds = %if.then19
-  %16 = load ptr, ptr %spec_has_real_points.addr, align 8
-  store i32 1, ptr %16, align 4
-  br label %if.end23
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %13, align 8, !tbaa !15
+  store i32 1, ptr %68, align 4, !tbaa !9
+  br label %69
 
-if.end23:                                         ; preds = %if.then22, %if.then19
-  %17 = load i32, ptr %only_explicit_placeholders.addr, align 4
-  %tobool24 = icmp ne i32 %17, 0
-  br i1 %tobool24, label %if.end35, label %if.then25
+69:                                               ; preds = %67, %64
+  %70 = load i32, ptr %9, align 4, !tbaa !9
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %89, label %72
 
-if.then25:                                        ; preds = %if.end23
-  %18 = load ptr, ptr %pt, align 8
-  %call26 = call i32 @atoi(ptr noundef %18) #4
-  store i32 %call26, ptr %n, align 4
-  %19 = load i32, ptr %n, align 4
-  %cmp27 = icmp sgt i32 %19, 0
-  br i1 %cmp27, label %if.then29, label %if.end34
+72:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %73 = load ptr, ptr %15, align 8, !tbaa !4
+  %74 = call i32 @atoi(ptr noundef %73) #7
+  store i32 %74, ptr %18, align 4, !tbaa !9
+  %75 = load i32, ptr %18, align 4, !tbaa !9
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %77, label %85
 
-if.then29:                                        ; preds = %if.then25
-  %20 = load ptr, ptr %seektable_template.addr, align 8
-  %21 = load i32, ptr %n, align 4
-  %22 = load i64, ptr %total_samples_to_encode.addr, align 8
-  %call30 = call i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef %20, i32 noundef %21, i64 noundef %22)
-  %tobool31 = icmp ne i32 %call30, 0
-  br i1 %tobool31, label %if.end33, label %if.then32
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %12, align 8, !tbaa !13
+  %79 = load i32, ptr %18, align 4, !tbaa !9
+  %80 = load i64, ptr %10, align 8, !tbaa !11
+  %81 = call i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef %78, i32 noundef %79, i64 noundef %80)
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %84, label %83
 
-if.then32:                                        ; preds = %if.then29
-  store i32 0, ptr %retval, align 4
-  br label %return
+83:                                               ; preds = %77
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %86
 
-if.end33:                                         ; preds = %if.then29
-  br label %if.end34
+84:                                               ; preds = %77
+  br label %85
 
-if.end34:                                         ; preds = %if.end33, %if.then25
-  br label %if.end35
+85:                                               ; preds = %84, %72
+  store i32 0, ptr %17, align 4
+  br label %86
 
-if.end35:                                         ; preds = %if.end34, %if.end23
-  br label %if.end36
+86:                                               ; preds = %85, %83
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  %87 = load i32, ptr %17, align 4
+  switch i32 %87, label %200 [
+    i32 0, label %88
+  ]
 
-if.end36:                                         ; preds = %if.end35, %if.then16
-  br label %if.end105
+88:                                               ; preds = %86
+  br label %89
 
-if.else37:                                        ; preds = %if.else
-  %23 = load ptr, ptr %q, align 8
-  %arrayidx38 = getelementptr inbounds i8, ptr %23, i64 -1
-  %24 = load i8, ptr %arrayidx38, align 1
-  %conv39 = sext i8 %24 to i32
-  %cmp40 = icmp eq i32 %conv39, 115
-  br i1 %cmp40, label %if.then42, label %if.else74
+89:                                               ; preds = %88, %69
+  br label %90
 
-if.then42:                                        ; preds = %if.else37
-  %25 = load i64, ptr %total_samples_to_encode.addr, align 8
-  %cmp43 = icmp ugt i64 %25, 0
-  br i1 %cmp43, label %land.lhs.true, label %if.end73
+90:                                               ; preds = %89, %61
+  br label %195
 
-land.lhs.true:                                    ; preds = %if.then42
-  %26 = load i32, ptr %sample_rate.addr, align 4
-  %cmp45 = icmp ugt i32 %26, 0
-  br i1 %cmp45, label %if.then47, label %if.end73
+91:                                               ; preds = %55
+  %92 = load ptr, ptr %16, align 8, !tbaa !4
+  %93 = getelementptr inbounds i8, ptr %92, i64 -1
+  %94 = load i8, ptr %93, align 1, !tbaa !17
+  %95 = sext i8 %94 to i32
+  %96 = icmp eq i32 %95, 115
+  br i1 %96, label %97, label %153
 
-if.then47:                                        ; preds = %land.lhs.true
-  %27 = load ptr, ptr %spec_has_real_points.addr, align 8
-  %cmp48 = icmp ne ptr null, %27
-  br i1 %cmp48, label %if.then50, label %if.end51
+97:                                               ; preds = %91
+  %98 = load i64, ptr %10, align 8, !tbaa !11
+  %99 = icmp ugt i64 %98, 0
+  br i1 %99, label %100, label %152
 
-if.then50:                                        ; preds = %if.then47
-  %28 = load ptr, ptr %spec_has_real_points.addr, align 8
-  store i32 1, ptr %28, align 4
-  br label %if.end51
+100:                                              ; preds = %97
+  %101 = load i32, ptr %11, align 4, !tbaa !9
+  %102 = icmp ugt i32 %101, 0
+  br i1 %102, label %103, label %152
 
-if.end51:                                         ; preds = %if.then50, %if.then47
-  %29 = load i32, ptr %only_explicit_placeholders.addr, align 4
-  %tobool52 = icmp ne i32 %29, 0
-  br i1 %tobool52, label %if.end72, label %if.then53
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %13, align 8, !tbaa !15
+  %105 = icmp ne ptr null, %104
+  br i1 %105, label %106, label %108
 
-if.then53:                                        ; preds = %if.end51
-  %30 = load ptr, ptr %pt, align 8
-  %call54 = call double @atof(ptr noundef %30) #4
-  store double %call54, ptr %sec, align 8
-  %31 = load double, ptr %sec, align 8
-  %cmp55 = fcmp ogt double %31, 0.000000e+00
-  br i1 %cmp55, label %if.then57, label %if.end71
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %13, align 8, !tbaa !15
+  store i32 1, ptr %107, align 4, !tbaa !9
+  br label %108
 
-if.then57:                                        ; preds = %if.then53
-  %32 = load double, ptr %sec, align 8
-  %33 = load i32, ptr %sample_rate.addr, align 4
-  %conv58 = uitofp i32 %33 to double
-  %mul = fmul double %32, %conv58
-  %conv59 = fptoui double %mul to i32
-  store i32 %conv59, ptr %samples, align 4
-  %34 = load i32, ptr %samples, align 4
-  %35 = load i32, ptr %sample_rate.addr, align 4
-  %div = udiv i32 %35, 2
-  %cmp60 = icmp ult i32 %34, %div
-  br i1 %cmp60, label %cond.true, label %cond.false
+108:                                              ; preds = %106, %103
+  %109 = load i32, ptr %9, align 4, !tbaa !9
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %151, label %111
 
-cond.true:                                        ; preds = %if.then57
-  %36 = load i32, ptr %sample_rate.addr, align 4
-  %div62 = udiv i32 %36, 2
-  br label %cond.end
+111:                                              ; preds = %108
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  %112 = load ptr, ptr %15, align 8, !tbaa !4
+  %113 = call double @atof(ptr noundef %112) #7
+  store double %113, ptr %19, align 8, !tbaa !18
+  %114 = load double, ptr %19, align 8, !tbaa !18
+  %115 = fcmp ogt double %114, 0.000000e+00
+  br i1 %115, label %116, label %147
 
-cond.false:                                       ; preds = %if.then57
-  %37 = load i32, ptr %samples, align 4
-  br label %cond.end
+116:                                              ; preds = %111
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  %117 = load double, ptr %19, align 8, !tbaa !18
+  %118 = load i32, ptr %11, align 4, !tbaa !9
+  %119 = uitofp i32 %118 to double
+  %120 = fmul double %117, %119
+  %121 = fptoui double %120 to i32
+  store i32 %121, ptr %20, align 4, !tbaa !9
+  %122 = load i32, ptr %20, align 4, !tbaa !9
+  %123 = load i32, ptr %11, align 4, !tbaa !9
+  %124 = udiv i32 %123, 2
+  %125 = icmp ult i32 %122, %124
+  br i1 %125, label %126, label %129
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %div62, %cond.true ], [ %37, %cond.false ]
-  store i32 %cond, ptr %samples, align 4
-  %38 = load i32, ptr %samples, align 4
-  %cmp63 = icmp ugt i32 %38, 0
-  br i1 %cmp63, label %if.then65, label %if.end70
+126:                                              ; preds = %116
+  %127 = load i32, ptr %11, align 4, !tbaa !9
+  %128 = udiv i32 %127, 2
+  br label %131
 
-if.then65:                                        ; preds = %cond.end
-  %39 = load ptr, ptr %seektable_template.addr, align 8
-  %40 = load i32, ptr %samples, align 4
-  %41 = load i64, ptr %total_samples_to_encode.addr, align 8
-  %call66 = call i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef %39, i32 noundef %40, i64 noundef %41)
-  %tobool67 = icmp ne i32 %call66, 0
-  br i1 %tobool67, label %if.end69, label %if.then68
+129:                                              ; preds = %116
+  %130 = load i32, ptr %20, align 4, !tbaa !9
+  br label %131
 
-if.then68:                                        ; preds = %if.then65
-  store i32 0, ptr %retval, align 4
-  br label %return
+131:                                              ; preds = %129, %126
+  %132 = phi i32 [ %128, %126 ], [ %130, %129 ]
+  store i32 %132, ptr %20, align 4, !tbaa !9
+  %133 = load i32, ptr %20, align 4, !tbaa !9
+  %134 = icmp ugt i32 %133, 0
+  br i1 %134, label %135, label %143
 
-if.end69:                                         ; preds = %if.then65
-  br label %if.end70
+135:                                              ; preds = %131
+  %136 = load ptr, ptr %12, align 8, !tbaa !13
+  %137 = load i32, ptr %20, align 4, !tbaa !9
+  %138 = load i64, ptr %10, align 8, !tbaa !11
+  %139 = call i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef %136, i32 noundef %137, i64 noundef %138)
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %142, label %141
 
-if.end70:                                         ; preds = %if.end69, %cond.end
-  br label %if.end71
+141:                                              ; preds = %135
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %144
 
-if.end71:                                         ; preds = %if.end70, %if.then53
-  br label %if.end72
+142:                                              ; preds = %135
+  br label %143
 
-if.end72:                                         ; preds = %if.end71, %if.end51
-  br label %if.end73
+143:                                              ; preds = %142, %131
+  store i32 0, ptr %17, align 4
+  br label %144
 
-if.end73:                                         ; preds = %if.end72, %land.lhs.true, %if.then42
-  br label %if.end104
+144:                                              ; preds = %143, %141
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  %145 = load i32, ptr %17, align 4
+  switch i32 %145, label %148 [
+    i32 0, label %146
+  ]
 
-if.else74:                                        ; preds = %if.else37
-  %42 = load ptr, ptr %spec_has_real_points.addr, align 8
-  %cmp75 = icmp ne ptr null, %42
-  br i1 %cmp75, label %if.then77, label %if.end78
+146:                                              ; preds = %144
+  br label %147
 
-if.then77:                                        ; preds = %if.else74
-  %43 = load ptr, ptr %spec_has_real_points.addr, align 8
-  store i32 1, ptr %43, align 4
-  br label %if.end78
+147:                                              ; preds = %146, %111
+  store i32 0, ptr %17, align 4
+  br label %148
 
-if.end78:                                         ; preds = %if.then77, %if.else74
-  %44 = load i32, ptr %only_explicit_placeholders.addr, align 4
-  %tobool79 = icmp ne i32 %44, 0
-  br i1 %tobool79, label %if.end103, label %if.then80
+148:                                              ; preds = %147, %144
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  %149 = load i32, ptr %17, align 4
+  switch i32 %149, label %200 [
+    i32 0, label %150
+  ]
 
-if.then80:                                        ; preds = %if.end78
-  %45 = load ptr, ptr %pt, align 8
-  %call82 = call i64 @strtoll(ptr noundef %45, ptr noundef %endptr, i32 noundef 10) #5
-  store i64 %call82, ptr %n81, align 8
-  %46 = load i64, ptr %n81, align 8
-  %cmp83 = icmp sgt i64 %46, 0
-  br i1 %cmp83, label %land.lhs.true91, label %lor.lhs.false
+150:                                              ; preds = %148
+  br label %151
 
-lor.lhs.false:                                    ; preds = %if.then80
-  %47 = load ptr, ptr %endptr, align 8
-  %48 = load ptr, ptr %pt, align 8
-  %cmp85 = icmp ugt ptr %47, %48
-  br i1 %cmp85, label %land.lhs.true87, label %if.end102
+151:                                              ; preds = %150, %108
+  br label %152
 
-land.lhs.true87:                                  ; preds = %lor.lhs.false
-  %49 = load ptr, ptr %endptr, align 8
-  %50 = load i8, ptr %49, align 1
-  %conv88 = sext i8 %50 to i32
-  %cmp89 = icmp eq i32 %conv88, 59
-  br i1 %cmp89, label %land.lhs.true91, label %if.end102
+152:                                              ; preds = %151, %100, %97
+  br label %194
 
-land.lhs.true91:                                  ; preds = %land.lhs.true87, %if.then80
-  %51 = load i64, ptr %total_samples_to_encode.addr, align 8
-  %cmp92 = icmp eq i64 %51, 0
-  br i1 %cmp92, label %if.then97, label %lor.lhs.false94
+153:                                              ; preds = %91
+  %154 = load ptr, ptr %13, align 8, !tbaa !15
+  %155 = icmp ne ptr null, %154
+  br i1 %155, label %156, label %158
 
-lor.lhs.false94:                                  ; preds = %land.lhs.true91
-  %52 = load i64, ptr %n81, align 8
-  %53 = load i64, ptr %total_samples_to_encode.addr, align 8
-  %cmp95 = icmp ult i64 %52, %53
-  br i1 %cmp95, label %if.then97, label %if.end102
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %13, align 8, !tbaa !15
+  store i32 1, ptr %157, align 4, !tbaa !9
+  br label %158
 
-if.then97:                                        ; preds = %lor.lhs.false94, %land.lhs.true91
-  %54 = load ptr, ptr %seektable_template.addr, align 8
-  %55 = load i64, ptr %n81, align 8
-  %call98 = call i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef %54, i64 noundef %55)
-  %tobool99 = icmp ne i32 %call98, 0
-  br i1 %tobool99, label %if.end101, label %if.then100
+158:                                              ; preds = %156, %153
+  %159 = load i32, ptr %9, align 4, !tbaa !9
+  %160 = icmp ne i32 %159, 0
+  br i1 %160, label %193, label %161
 
-if.then100:                                       ; preds = %if.then97
-  store i32 0, ptr %retval, align 4
-  br label %return
+161:                                              ; preds = %158
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  %162 = load ptr, ptr %15, align 8, !tbaa !4
+  %163 = call i64 @strtoll(ptr noundef %162, ptr noundef %21, i32 noundef 10) #6
+  store i64 %163, ptr %22, align 8, !tbaa !11
+  %164 = load i64, ptr %22, align 8, !tbaa !11
+  %165 = icmp sgt i64 %164, 0
+  br i1 %165, label %175, label %166
 
-if.end101:                                        ; preds = %if.then97
-  br label %if.end102
+166:                                              ; preds = %161
+  %167 = load ptr, ptr %21, align 8, !tbaa !4
+  %168 = load ptr, ptr %15, align 8, !tbaa !4
+  %169 = icmp ugt ptr %167, %168
+  br i1 %169, label %170, label %189
 
-if.end102:                                        ; preds = %if.end101, %lor.lhs.false94, %land.lhs.true87, %lor.lhs.false
-  br label %if.end103
+170:                                              ; preds = %166
+  %171 = load ptr, ptr %21, align 8, !tbaa !4
+  %172 = load i8, ptr %171, align 1, !tbaa !17
+  %173 = sext i8 %172 to i32
+  %174 = icmp eq i32 %173, 59
+  br i1 %174, label %175, label %189
 
-if.end103:                                        ; preds = %if.end102, %if.end78
-  br label %if.end104
+175:                                              ; preds = %170, %161
+  %176 = load i64, ptr %10, align 8, !tbaa !11
+  %177 = icmp eq i64 %176, 0
+  br i1 %177, label %182, label %178
 
-if.end104:                                        ; preds = %if.end103, %if.end73
-  br label %if.end105
+178:                                              ; preds = %175
+  %179 = load i64, ptr %22, align 8, !tbaa !11
+  %180 = load i64, ptr %10, align 8, !tbaa !11
+  %181 = icmp ult i64 %179, %180
+  br i1 %181, label %182, label %189
 
-if.end105:                                        ; preds = %if.end104, %if.end36
-  br label %if.end106
+182:                                              ; preds = %178, %175
+  %183 = load ptr, ptr %12, align 8, !tbaa !13
+  %184 = load i64, ptr %22, align 8, !tbaa !11
+  %185 = call i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef %183, i64 noundef %184)
+  %186 = icmp ne i32 %185, 0
+  br i1 %186, label %188, label %187
 
-if.end106:                                        ; preds = %if.end105, %if.end12
-  br label %if.end107
+187:                                              ; preds = %182
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %190
 
-if.end107:                                        ; preds = %if.end106, %for.body
-  %56 = load ptr, ptr %q, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %56, i32 1
-  store ptr %incdec.ptr, ptr %q, align 8
-  store ptr %incdec.ptr, ptr %pt, align 8
-  br label %for.inc
+188:                                              ; preds = %182
+  br label %189
 
-for.inc:                                          ; preds = %if.end107
-  %57 = load i32, ptr %i, align 4
-  %inc = add i32 %57, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+189:                                              ; preds = %188, %178, %170, %166
+  store i32 0, ptr %17, align 4
+  br label %190
 
-for.end:                                          ; preds = %land.end
-  %58 = load ptr, ptr %seektable_template.addr, align 8
-  %call108 = call i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef %58, i32 noundef 1)
-  %tobool109 = icmp ne i32 %call108, 0
-  br i1 %tobool109, label %if.end111, label %if.then110
+190:                                              ; preds = %189, %187
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  %191 = load i32, ptr %17, align 4
+  switch i32 %191, label %200 [
+    i32 0, label %192
+  ]
 
-if.then110:                                       ; preds = %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+192:                                              ; preds = %190
+  br label %193
 
-if.end111:                                        ; preds = %for.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+193:                                              ; preds = %192, %158
+  br label %194
 
-return:                                           ; preds = %if.end111, %if.then110, %if.then100, %if.then68, %if.then32, %if.then11
-  %59 = load i32, ptr %retval, align 4
-  ret i32 %59
+194:                                              ; preds = %193, %152
+  br label %195
+
+195:                                              ; preds = %194, %90
+  br label %196
+
+196:                                              ; preds = %195, %54
+  br label %197
+
+197:                                              ; preds = %196, %39
+  %198 = load ptr, ptr %16, align 8, !tbaa !4
+  %199 = getelementptr inbounds nuw i8, ptr %198, i32 1
+  store ptr %199, ptr %16, align 8, !tbaa !4
+  store ptr %199, ptr %15, align 8, !tbaa !4
+  store i32 0, ptr %17, align 4
+  br label %200
+
+200:                                              ; preds = %197, %190, %148, %86, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  %201 = load i32, ptr %17, align 4
+  switch i32 %201, label %212 [
+    i32 0, label %202
+  ]
+
+202:                                              ; preds = %200
+  br label %203
+
+203:                                              ; preds = %202
+  %204 = load i32, ptr %14, align 4, !tbaa !9
+  %205 = add i32 %204, 1
+  store i32 %205, ptr %14, align 4, !tbaa !9
+  br label %29, !llvm.loop !20
+
+206:                                              ; preds = %37
+  %207 = load ptr, ptr %12, align 8, !tbaa !13
+  %208 = call i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef %207, i32 noundef 1)
+  %209 = icmp ne i32 %208, 0
+  br i1 %209, label %211, label %210
+
+210:                                              ; preds = %206
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %212
+
+211:                                              ; preds = %206
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %212
+
+212:                                              ; preds = %211, %210, %200
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  %213 = load i32, ptr %7, align 4
+  ret i32 %213
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #1
-
-declare i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef, i32 noundef) #2
+declare ptr @strchr(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #1
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef, i32 noundef, i64 noundef) #2
+declare i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind willreturn memory(read)
-declare double @atof(ptr noundef) #1
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #6
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
 
-declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef, i32 noundef, i64 noundef) #2
+declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef, i32 noundef, i64 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define available_externally double @atof(ptr noundef nonnull %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call double @strtod(ptr noundef %3, ptr noundef null) #6
+  ret double %4
+}
+
+declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef, i32 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind
-declare i64 @strtoll(ptr noundef, ptr noundef, i32 noundef) #3
+declare i64 @strtoll(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef, i64 noundef) #2
+declare i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef, i64 noundef) #3
 
-declare i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef, i32 noundef) #2
+declare i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef, i32 noundef) #3
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind }
+; Function Attrs: nounwind
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #5
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+; Function Attrs: nounwind
+declare double @strtod(ptr noundef, ptr noundef) #5
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind sspstrong willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS20FLAC__StreamMetadata", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 int", !6, i64 0}
+!17 = !{!7, !7, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"double", !7, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}

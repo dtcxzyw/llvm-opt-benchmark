@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.DecoderInstance = type { i32, i32, i32, i32 }
 %struct.FLAC__Frame = type { %struct.FLAC__FrameHeader, [8 x %struct.FLAC__Subframe], %struct.FLAC__FrameFooter }
@@ -36,7 +36,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @title_peak_ = internal global double 0.000000e+00, align 8
 @grabbag__replaygain_analyze.lbuffer = internal global [2048 x float] zeroinitializer, align 16
 @grabbag__replaygain_analyze.rbuffer = internal global [2048 x float] zeroinitializer, align 16
-@grabbag__replaygain_analyze.nbuffer = internal constant i32 2048, align 4
 @.str.5 = private unnamed_addr constant [24 x i8] c"memory allocation error\00", align 1
 @.str.6 = private unnamed_addr constant [21 x i8] c"initializing decoder\00", align 1
 @.str.7 = private unnamed_addr constant [14 x i8] c"decoding file\00", align 1
@@ -51,767 +50,854 @@ target triple = "x86_64-unknown-linux-gnu"
 @FLAC__Metadata_ChainStatusString = external constant [0 x ptr], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @grabbag__replaygain_is_valid_sample_frequency(i32 noundef %sample_frequency) #0 {
-entry:
-  %sample_frequency.addr = alloca i32, align 4
-  store i32 %sample_frequency, ptr %sample_frequency.addr, align 4
-  %0 = load i32, ptr %sample_frequency.addr, align 4
-  %conv = zext i32 %0 to i64
-  %call = call i32 @ValidGainFrequency(i64 noundef %conv)
-  ret i32 %call
+define dso_local i32 @grabbag__replaygain_is_valid_sample_frequency(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !4
+  %3 = load i32, ptr %2, align 4, !tbaa !4
+  %4 = zext i32 %3 to i64
+  %5 = call i32 @ValidGainFrequency(i64 noundef %4)
+  ret i32 %5
 }
 
 declare i32 @ValidGainFrequency(i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @grabbag__replaygain_init(i32 noundef %sample_frequency) #0 {
-entry:
-  %sample_frequency.addr = alloca i32, align 4
-  store i32 %sample_frequency, ptr %sample_frequency.addr, align 4
-  store double 0.000000e+00, ptr @album_peak_, align 8
-  store double 0.000000e+00, ptr @title_peak_, align 8
-  %0 = load i32, ptr %sample_frequency.addr, align 4
-  %conv = zext i32 %0 to i64
-  %call = call i32 @InitGainAnalysis(i64 noundef %conv)
-  %cmp = icmp eq i32 %call, 1
-  %conv1 = zext i1 %cmp to i32
-  ret i32 %conv1
+define dso_local i32 @grabbag__replaygain_init(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !4
+  store double 0.000000e+00, ptr @album_peak_, align 8, !tbaa !8
+  store double 0.000000e+00, ptr @title_peak_, align 8, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !4
+  %4 = zext i32 %3 to i64
+  %5 = call i32 @InitGainAnalysis(i64 noundef %4)
+  %6 = icmp eq i32 %5, 1
+  %7 = zext i1 %6 to i32
+  ret i32 %7
 }
 
 declare i32 @InitGainAnalysis(i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @grabbag__replaygain_analyze(ptr noundef %input, i32 noundef %is_stereo, i32 noundef %bps, i32 noundef %samples) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %input.addr = alloca ptr, align 8
-  %is_stereo.addr = alloca i32, align 4
-  %bps.addr = alloca i32, align 4
-  %samples.addr = alloca i32, align 4
-  %block_peak = alloca i32, align 4
-  %s = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %n = alloca i32, align 4
-  %n35 = alloca i32, align 4
-  %scale = alloca double, align 8
-  %n89 = alloca i32, align 4
-  %n156 = alloca i32, align 4
-  %peak_scale = alloca double, align 8
-  %peak = alloca double, align 8
-  store ptr %input, ptr %input.addr, align 8
-  store i32 %is_stereo, ptr %is_stereo.addr, align 4
-  store i32 %bps, ptr %bps.addr, align 4
-  store i32 %samples, ptr %samples.addr, align 4
-  store i32 0, ptr %block_peak, align 4
-  %0 = load i32, ptr %bps.addr, align 4
-  %cmp = icmp eq i32 %0, 16
-  br i1 %cmp, label %if.then, label %if.else71
-
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %is_stereo.addr, align 4
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.then1, label %if.else
-
-if.then1:                                         ; preds = %if.then
-  store i32 0, ptr %j, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end, %if.then1
-  %2 = load i32, ptr %samples.addr, align 4
-  %cmp2 = icmp ugt i32 %2, 0
-  br i1 %cmp2, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %3 = load i32, ptr %samples.addr, align 4
-  %cmp3 = icmp ult i32 %3, 2048
-  br i1 %cmp3, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %while.body
-  %4 = load i32, ptr %samples.addr, align 4
-  br label %cond.end
-
-cond.false:                                       ; preds = %while.body
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %4, %cond.true ], [ 2048, %cond.false ]
-  store i32 %cond, ptr %n, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %cond.end
-  %5 = load i32, ptr %i, align 4
-  %6 = load i32, ptr %n, align 4
-  %cmp4 = icmp ult i32 %5, %6
-  br i1 %cmp4, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr %input.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 0
-  %8 = load ptr, ptr %arrayidx, align 8
-  %9 = load i32, ptr %j, align 4
-  %idxprom = zext i32 %9 to i64
-  %arrayidx5 = getelementptr inbounds i32, ptr %8, i64 %idxprom
-  %10 = load i32, ptr %arrayidx5, align 4
-  store i32 %10, ptr %s, align 4
-  %11 = load i32, ptr %s, align 4
-  %conv = sitofp i32 %11 to float
-  %12 = load i32, ptr %i, align 4
-  %idxprom6 = zext i32 %12 to i64
-  %arrayidx7 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %idxprom6
-  store float %conv, ptr %arrayidx7, align 4
-  %13 = load i32, ptr %s, align 4
-  %14 = call i32 @llvm.abs.i32(i32 %13, i1 true)
-  store i32 %14, ptr %s, align 4
-  %15 = load i32, ptr %block_peak, align 4
-  %16 = load i32, ptr %s, align 4
-  %cmp8 = icmp sgt i32 %15, %16
-  br i1 %cmp8, label %cond.true10, label %cond.false11
-
-cond.true10:                                      ; preds = %for.body
-  %17 = load i32, ptr %block_peak, align 4
-  br label %cond.end12
-
-cond.false11:                                     ; preds = %for.body
-  %18 = load i32, ptr %s, align 4
-  br label %cond.end12
-
-cond.end12:                                       ; preds = %cond.false11, %cond.true10
-  %cond13 = phi i32 [ %17, %cond.true10 ], [ %18, %cond.false11 ]
-  store i32 %cond13, ptr %block_peak, align 4
-  %19 = load ptr, ptr %input.addr, align 8
-  %arrayidx14 = getelementptr inbounds ptr, ptr %19, i64 1
-  %20 = load ptr, ptr %arrayidx14, align 8
-  %21 = load i32, ptr %j, align 4
-  %idxprom15 = zext i32 %21 to i64
-  %arrayidx16 = getelementptr inbounds i32, ptr %20, i64 %idxprom15
-  %22 = load i32, ptr %arrayidx16, align 4
-  store i32 %22, ptr %s, align 4
-  %23 = load i32, ptr %s, align 4
-  %conv17 = sitofp i32 %23 to float
-  %24 = load i32, ptr %i, align 4
-  %idxprom18 = zext i32 %24 to i64
-  %arrayidx19 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %idxprom18
-  store float %conv17, ptr %arrayidx19, align 4
-  %25 = load i32, ptr %s, align 4
-  %26 = call i32 @llvm.abs.i32(i32 %25, i1 true)
-  store i32 %26, ptr %s, align 4
-  %27 = load i32, ptr %block_peak, align 4
-  %28 = load i32, ptr %s, align 4
-  %cmp20 = icmp sgt i32 %27, %28
-  br i1 %cmp20, label %cond.true22, label %cond.false23
-
-cond.true22:                                      ; preds = %cond.end12
-  %29 = load i32, ptr %block_peak, align 4
-  br label %cond.end24
-
-cond.false23:                                     ; preds = %cond.end12
-  %30 = load i32, ptr %s, align 4
-  br label %cond.end24
-
-cond.end24:                                       ; preds = %cond.false23, %cond.true22
-  %cond25 = phi i32 [ %29, %cond.true22 ], [ %30, %cond.false23 ]
-  store i32 %cond25, ptr %block_peak, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %cond.end24
-  %31 = load i32, ptr %i, align 4
-  %inc = add i32 %31, 1
-  store i32 %inc, ptr %i, align 4
-  %32 = load i32, ptr %j, align 4
-  %inc26 = add i32 %32, 1
-  store i32 %inc26, ptr %j, align 4
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond
-  %33 = load i32, ptr %n, align 4
-  %34 = load i32, ptr %samples.addr, align 4
-  %sub = sub i32 %34, %33
-  store i32 %sub, ptr %samples.addr, align 4
-  %35 = load i32, ptr %n, align 4
-  %conv27 = zext i32 %35 to i64
-  %call = call i32 @AnalyzeSamples(ptr noundef @grabbag__replaygain_analyze.lbuffer, ptr noundef @grabbag__replaygain_analyze.rbuffer, i64 noundef %conv27, i32 noundef 2)
-  %cmp28 = icmp ne i32 %call, 1
-  br i1 %cmp28, label %if.then30, label %if.end
-
-if.then30:                                        ; preds = %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %for.end
-  br label %while.cond, !llvm.loop !7
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end70
-
-if.else:                                          ; preds = %if.then
-  store i32 0, ptr %j, align 4
-  br label %while.cond31
-
-while.cond31:                                     ; preds = %if.end68, %if.else
-  %36 = load i32, ptr %samples.addr, align 4
-  %cmp32 = icmp ugt i32 %36, 0
-  br i1 %cmp32, label %while.body34, label %while.end69
-
-while.body34:                                     ; preds = %while.cond31
-  %37 = load i32, ptr %samples.addr, align 4
-  %cmp36 = icmp ult i32 %37, 2048
-  br i1 %cmp36, label %cond.true38, label %cond.false39
-
-cond.true38:                                      ; preds = %while.body34
-  %38 = load i32, ptr %samples.addr, align 4
-  br label %cond.end40
-
-cond.false39:                                     ; preds = %while.body34
-  br label %cond.end40
-
-cond.end40:                                       ; preds = %cond.false39, %cond.true38
-  %cond41 = phi i32 [ %38, %cond.true38 ], [ 2048, %cond.false39 ]
-  store i32 %cond41, ptr %n35, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond42
-
-for.cond42:                                       ; preds = %for.inc58, %cond.end40
-  %39 = load i32, ptr %i, align 4
-  %40 = load i32, ptr %n35, align 4
-  %cmp43 = icmp ult i32 %39, %40
-  br i1 %cmp43, label %for.body45, label %for.end61
-
-for.body45:                                       ; preds = %for.cond42
-  %41 = load ptr, ptr %input.addr, align 8
-  %arrayidx46 = getelementptr inbounds ptr, ptr %41, i64 0
-  %42 = load ptr, ptr %arrayidx46, align 8
-  %43 = load i32, ptr %j, align 4
-  %idxprom47 = zext i32 %43 to i64
-  %arrayidx48 = getelementptr inbounds i32, ptr %42, i64 %idxprom47
-  %44 = load i32, ptr %arrayidx48, align 4
-  store i32 %44, ptr %s, align 4
-  %45 = load i32, ptr %s, align 4
-  %conv49 = sitofp i32 %45 to float
-  %46 = load i32, ptr %i, align 4
-  %idxprom50 = zext i32 %46 to i64
-  %arrayidx51 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %idxprom50
-  store float %conv49, ptr %arrayidx51, align 4
-  %47 = load i32, ptr %s, align 4
-  %48 = call i32 @llvm.abs.i32(i32 %47, i1 true)
-  store i32 %48, ptr %s, align 4
-  %49 = load i32, ptr %block_peak, align 4
-  %50 = load i32, ptr %s, align 4
-  %cmp52 = icmp sgt i32 %49, %50
-  br i1 %cmp52, label %cond.true54, label %cond.false55
-
-cond.true54:                                      ; preds = %for.body45
-  %51 = load i32, ptr %block_peak, align 4
-  br label %cond.end56
-
-cond.false55:                                     ; preds = %for.body45
-  %52 = load i32, ptr %s, align 4
-  br label %cond.end56
-
-cond.end56:                                       ; preds = %cond.false55, %cond.true54
-  %cond57 = phi i32 [ %51, %cond.true54 ], [ %52, %cond.false55 ]
-  store i32 %cond57, ptr %block_peak, align 4
-  br label %for.inc58
-
-for.inc58:                                        ; preds = %cond.end56
-  %53 = load i32, ptr %i, align 4
-  %inc59 = add i32 %53, 1
-  store i32 %inc59, ptr %i, align 4
-  %54 = load i32, ptr %j, align 4
-  %inc60 = add i32 %54, 1
-  store i32 %inc60, ptr %j, align 4
-  br label %for.cond42, !llvm.loop !8
-
-for.end61:                                        ; preds = %for.cond42
-  %55 = load i32, ptr %n35, align 4
-  %56 = load i32, ptr %samples.addr, align 4
-  %sub62 = sub i32 %56, %55
-  store i32 %sub62, ptr %samples.addr, align 4
-  %57 = load i32, ptr %n35, align 4
-  %conv63 = zext i32 %57 to i64
-  %call64 = call i32 @AnalyzeSamples(ptr noundef @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %conv63, i32 noundef 1)
-  %cmp65 = icmp ne i32 %call64, 1
-  br i1 %cmp65, label %if.then67, label %if.end68
-
-if.then67:                                        ; preds = %for.end61
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end68:                                         ; preds = %for.end61
-  br label %while.cond31, !llvm.loop !9
-
-while.end69:                                      ; preds = %while.cond31
-  br label %if.end70
-
-if.end70:                                         ; preds = %while.end69, %while.end
-  br label %if.end200
-
-if.else71:                                        ; preds = %entry
-  %58 = load i32, ptr %bps.addr, align 4
-  %cmp72 = icmp ugt i32 %58, 16
-  br i1 %cmp72, label %cond.true74, label %cond.false77
-
-cond.true74:                                      ; preds = %if.else71
-  %59 = load i32, ptr %bps.addr, align 4
-  %sub75 = sub i32 %59, 16
-  %shl = shl i32 1, %sub75
-  %conv76 = uitofp i32 %shl to double
-  %div = fdiv double 1.000000e+00, %conv76
-  br label %cond.end81
-
-cond.false77:                                     ; preds = %if.else71
-  %60 = load i32, ptr %bps.addr, align 4
-  %sub78 = sub i32 16, %60
-  %shl79 = shl i32 1, %sub78
-  %conv80 = uitofp i32 %shl79 to double
-  br label %cond.end81
-
-cond.end81:                                       ; preds = %cond.false77, %cond.true74
-  %cond82 = phi double [ %div, %cond.true74 ], [ %conv80, %cond.false77 ]
-  store double %cond82, ptr %scale, align 8
-  %61 = load i32, ptr %is_stereo.addr, align 4
-  %tobool83 = icmp ne i32 %61, 0
-  br i1 %tobool83, label %if.then84, label %if.else151
-
-if.then84:                                        ; preds = %cond.end81
-  store i32 0, ptr %j, align 4
-  br label %while.cond85
-
-while.cond85:                                     ; preds = %if.end149, %if.then84
-  %62 = load i32, ptr %samples.addr, align 4
-  %cmp86 = icmp ugt i32 %62, 0
-  br i1 %cmp86, label %while.body88, label %while.end150
-
-while.body88:                                     ; preds = %while.cond85
-  %63 = load i32, ptr %samples.addr, align 4
-  %cmp90 = icmp ult i32 %63, 2048
-  br i1 %cmp90, label %cond.true92, label %cond.false93
-
-cond.true92:                                      ; preds = %while.body88
-  %64 = load i32, ptr %samples.addr, align 4
-  br label %cond.end94
-
-cond.false93:                                     ; preds = %while.body88
-  br label %cond.end94
-
-cond.end94:                                       ; preds = %cond.false93, %cond.true92
-  %cond95 = phi i32 [ %64, %cond.true92 ], [ 2048, %cond.false93 ]
-  store i32 %cond95, ptr %n89, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond96
-
-for.cond96:                                       ; preds = %for.inc139, %cond.end94
-  %65 = load i32, ptr %i, align 4
-  %66 = load i32, ptr %n89, align 4
-  %cmp97 = icmp ult i32 %65, %66
-  br i1 %cmp97, label %for.body99, label %for.end142
-
-for.body99:                                       ; preds = %for.cond96
-  %67 = load ptr, ptr %input.addr, align 8
-  %arrayidx100 = getelementptr inbounds ptr, ptr %67, i64 0
-  %68 = load ptr, ptr %arrayidx100, align 8
-  %69 = load i32, ptr %j, align 4
-  %idxprom101 = zext i32 %69 to i64
-  %arrayidx102 = getelementptr inbounds i32, ptr %68, i64 %idxprom101
-  %70 = load i32, ptr %arrayidx102, align 4
-  store i32 %70, ptr %s, align 4
-  %71 = load double, ptr %scale, align 8
-  %72 = load i32, ptr %s, align 4
-  %conv103 = sitofp i32 %72 to double
-  %mul = fmul double %71, %conv103
-  %conv104 = fptrunc double %mul to float
-  %73 = load i32, ptr %i, align 4
-  %idxprom105 = zext i32 %73 to i64
-  %arrayidx106 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %idxprom105
-  store float %conv104, ptr %arrayidx106, align 4
-  %74 = load i32, ptr %s, align 4
-  %cmp107 = icmp eq i32 %74, -2147483648
-  br i1 %cmp107, label %cond.true109, label %cond.false110
-
-cond.true109:                                     ; preds = %for.body99
-  br label %cond.end111
-
-cond.false110:                                    ; preds = %for.body99
-  %75 = load i32, ptr %s, align 4
-  %76 = call i32 @llvm.abs.i32(i32 %75, i1 true)
-  br label %cond.end111
-
-cond.end111:                                      ; preds = %cond.false110, %cond.true109
-  %cond112 = phi i32 [ 2147483647, %cond.true109 ], [ %76, %cond.false110 ]
-  store i32 %cond112, ptr %s, align 4
-  %77 = load i32, ptr %block_peak, align 4
-  %78 = load i32, ptr %s, align 4
-  %cmp113 = icmp sgt i32 %77, %78
-  br i1 %cmp113, label %cond.true115, label %cond.false116
-
-cond.true115:                                     ; preds = %cond.end111
-  %79 = load i32, ptr %block_peak, align 4
-  br label %cond.end117
-
-cond.false116:                                    ; preds = %cond.end111
-  %80 = load i32, ptr %s, align 4
-  br label %cond.end117
-
-cond.end117:                                      ; preds = %cond.false116, %cond.true115
-  %cond118 = phi i32 [ %79, %cond.true115 ], [ %80, %cond.false116 ]
-  store i32 %cond118, ptr %block_peak, align 4
-  %81 = load ptr, ptr %input.addr, align 8
-  %arrayidx119 = getelementptr inbounds ptr, ptr %81, i64 1
-  %82 = load ptr, ptr %arrayidx119, align 8
-  %83 = load i32, ptr %j, align 4
-  %idxprom120 = zext i32 %83 to i64
-  %arrayidx121 = getelementptr inbounds i32, ptr %82, i64 %idxprom120
-  %84 = load i32, ptr %arrayidx121, align 4
-  store i32 %84, ptr %s, align 4
-  %85 = load double, ptr %scale, align 8
-  %86 = load i32, ptr %s, align 4
-  %conv122 = sitofp i32 %86 to double
-  %mul123 = fmul double %85, %conv122
-  %conv124 = fptrunc double %mul123 to float
-  %87 = load i32, ptr %i, align 4
-  %idxprom125 = zext i32 %87 to i64
-  %arrayidx126 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %idxprom125
-  store float %conv124, ptr %arrayidx126, align 4
-  %88 = load i32, ptr %s, align 4
-  %cmp127 = icmp eq i32 %88, -2147483648
-  br i1 %cmp127, label %cond.true129, label %cond.false130
-
-cond.true129:                                     ; preds = %cond.end117
-  br label %cond.end131
-
-cond.false130:                                    ; preds = %cond.end117
-  %89 = load i32, ptr %s, align 4
-  %90 = call i32 @llvm.abs.i32(i32 %89, i1 true)
-  br label %cond.end131
-
-cond.end131:                                      ; preds = %cond.false130, %cond.true129
-  %cond132 = phi i32 [ 2147483647, %cond.true129 ], [ %90, %cond.false130 ]
-  store i32 %cond132, ptr %s, align 4
-  %91 = load i32, ptr %block_peak, align 4
-  %92 = load i32, ptr %s, align 4
-  %cmp133 = icmp sgt i32 %91, %92
-  br i1 %cmp133, label %cond.true135, label %cond.false136
-
-cond.true135:                                     ; preds = %cond.end131
-  %93 = load i32, ptr %block_peak, align 4
-  br label %cond.end137
-
-cond.false136:                                    ; preds = %cond.end131
-  %94 = load i32, ptr %s, align 4
-  br label %cond.end137
-
-cond.end137:                                      ; preds = %cond.false136, %cond.true135
-  %cond138 = phi i32 [ %93, %cond.true135 ], [ %94, %cond.false136 ]
-  store i32 %cond138, ptr %block_peak, align 4
-  br label %for.inc139
-
-for.inc139:                                       ; preds = %cond.end137
-  %95 = load i32, ptr %i, align 4
-  %inc140 = add i32 %95, 1
-  store i32 %inc140, ptr %i, align 4
-  %96 = load i32, ptr %j, align 4
-  %inc141 = add i32 %96, 1
-  store i32 %inc141, ptr %j, align 4
-  br label %for.cond96, !llvm.loop !10
-
-for.end142:                                       ; preds = %for.cond96
-  %97 = load i32, ptr %n89, align 4
-  %98 = load i32, ptr %samples.addr, align 4
-  %sub143 = sub i32 %98, %97
-  store i32 %sub143, ptr %samples.addr, align 4
-  %99 = load i32, ptr %n89, align 4
-  %conv144 = zext i32 %99 to i64
-  %call145 = call i32 @AnalyzeSamples(ptr noundef @grabbag__replaygain_analyze.lbuffer, ptr noundef @grabbag__replaygain_analyze.rbuffer, i64 noundef %conv144, i32 noundef 2)
-  %cmp146 = icmp ne i32 %call145, 1
-  br i1 %cmp146, label %if.then148, label %if.end149
-
-if.then148:                                       ; preds = %for.end142
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end149:                                        ; preds = %for.end142
-  br label %while.cond85, !llvm.loop !11
-
-while.end150:                                     ; preds = %while.cond85
-  br label %if.end199
-
-if.else151:                                       ; preds = %cond.end81
-  store i32 0, ptr %j, align 4
-  br label %while.cond152
-
-while.cond152:                                    ; preds = %if.end197, %if.else151
-  %100 = load i32, ptr %samples.addr, align 4
-  %cmp153 = icmp ugt i32 %100, 0
-  br i1 %cmp153, label %while.body155, label %while.end198
-
-while.body155:                                    ; preds = %while.cond152
-  %101 = load i32, ptr %samples.addr, align 4
-  %cmp157 = icmp ult i32 %101, 2048
-  br i1 %cmp157, label %cond.true159, label %cond.false160
-
-cond.true159:                                     ; preds = %while.body155
-  %102 = load i32, ptr %samples.addr, align 4
-  br label %cond.end161
-
-cond.false160:                                    ; preds = %while.body155
-  br label %cond.end161
-
-cond.end161:                                      ; preds = %cond.false160, %cond.true159
-  %cond162 = phi i32 [ %102, %cond.true159 ], [ 2048, %cond.false160 ]
-  store i32 %cond162, ptr %n156, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond163
-
-for.cond163:                                      ; preds = %for.inc187, %cond.end161
-  %103 = load i32, ptr %i, align 4
-  %104 = load i32, ptr %n156, align 4
-  %cmp164 = icmp ult i32 %103, %104
-  br i1 %cmp164, label %for.body166, label %for.end190
-
-for.body166:                                      ; preds = %for.cond163
-  %105 = load ptr, ptr %input.addr, align 8
-  %arrayidx167 = getelementptr inbounds ptr, ptr %105, i64 0
-  %106 = load ptr, ptr %arrayidx167, align 8
-  %107 = load i32, ptr %j, align 4
-  %idxprom168 = zext i32 %107 to i64
-  %arrayidx169 = getelementptr inbounds i32, ptr %106, i64 %idxprom168
-  %108 = load i32, ptr %arrayidx169, align 4
-  store i32 %108, ptr %s, align 4
-  %109 = load double, ptr %scale, align 8
-  %110 = load i32, ptr %s, align 4
-  %conv170 = sitofp i32 %110 to double
-  %mul171 = fmul double %109, %conv170
-  %conv172 = fptrunc double %mul171 to float
-  %111 = load i32, ptr %i, align 4
-  %idxprom173 = zext i32 %111 to i64
-  %arrayidx174 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %idxprom173
-  store float %conv172, ptr %arrayidx174, align 4
-  %112 = load i32, ptr %s, align 4
-  %cmp175 = icmp eq i32 %112, -2147483648
-  br i1 %cmp175, label %cond.true177, label %cond.false178
-
-cond.true177:                                     ; preds = %for.body166
-  br label %cond.end179
-
-cond.false178:                                    ; preds = %for.body166
-  %113 = load i32, ptr %s, align 4
-  %114 = call i32 @llvm.abs.i32(i32 %113, i1 true)
-  br label %cond.end179
-
-cond.end179:                                      ; preds = %cond.false178, %cond.true177
-  %cond180 = phi i32 [ 2147483647, %cond.true177 ], [ %114, %cond.false178 ]
-  store i32 %cond180, ptr %s, align 4
-  %115 = load i32, ptr %block_peak, align 4
-  %116 = load i32, ptr %s, align 4
-  %cmp181 = icmp sgt i32 %115, %116
-  br i1 %cmp181, label %cond.true183, label %cond.false184
-
-cond.true183:                                     ; preds = %cond.end179
-  %117 = load i32, ptr %block_peak, align 4
-  br label %cond.end185
-
-cond.false184:                                    ; preds = %cond.end179
-  %118 = load i32, ptr %s, align 4
-  br label %cond.end185
-
-cond.end185:                                      ; preds = %cond.false184, %cond.true183
-  %cond186 = phi i32 [ %117, %cond.true183 ], [ %118, %cond.false184 ]
-  store i32 %cond186, ptr %block_peak, align 4
-  br label %for.inc187
-
-for.inc187:                                       ; preds = %cond.end185
-  %119 = load i32, ptr %i, align 4
-  %inc188 = add i32 %119, 1
-  store i32 %inc188, ptr %i, align 4
-  %120 = load i32, ptr %j, align 4
-  %inc189 = add i32 %120, 1
-  store i32 %inc189, ptr %j, align 4
-  br label %for.cond163, !llvm.loop !12
-
-for.end190:                                       ; preds = %for.cond163
-  %121 = load i32, ptr %n156, align 4
-  %122 = load i32, ptr %samples.addr, align 4
-  %sub191 = sub i32 %122, %121
-  store i32 %sub191, ptr %samples.addr, align 4
-  %123 = load i32, ptr %n156, align 4
-  %conv192 = zext i32 %123 to i64
-  %call193 = call i32 @AnalyzeSamples(ptr noundef @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %conv192, i32 noundef 1)
-  %cmp194 = icmp ne i32 %call193, 1
-  br i1 %cmp194, label %if.then196, label %if.end197
-
-if.then196:                                       ; preds = %for.end190
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end197:                                        ; preds = %for.end190
-  br label %while.cond152, !llvm.loop !13
-
-while.end198:                                     ; preds = %while.cond152
-  br label %if.end199
-
-if.end199:                                        ; preds = %while.end198, %while.end150
-  br label %if.end200
-
-if.end200:                                        ; preds = %if.end199, %if.end70
-  %124 = load i32, ptr %bps.addr, align 4
-  %sub201 = sub i32 %124, 1
-  %shl202 = shl i32 1, %sub201
-  %conv203 = uitofp i32 %shl202 to double
-  store double %conv203, ptr %peak_scale, align 8
-  %125 = load i32, ptr %block_peak, align 4
-  %conv204 = sitofp i32 %125 to double
-  %126 = load double, ptr %peak_scale, align 8
-  %div205 = fdiv double %conv204, %126
-  store double %div205, ptr %peak, align 8
-  %127 = load double, ptr %peak, align 8
-  %128 = load double, ptr @title_peak_, align 8
-  %cmp206 = fcmp ogt double %127, %128
-  br i1 %cmp206, label %if.then208, label %if.end209
-
-if.then208:                                       ; preds = %if.end200
-  %129 = load double, ptr %peak, align 8
-  store double %129, ptr @title_peak_, align 8
-  br label %if.end209
-
-if.end209:                                        ; preds = %if.then208, %if.end200
-  %130 = load double, ptr %peak, align 8
-  %131 = load double, ptr @album_peak_, align 8
-  %cmp210 = fcmp ogt double %130, %131
-  br i1 %cmp210, label %if.then212, label %if.end213
-
-if.then212:                                       ; preds = %if.end209
-  %132 = load double, ptr %peak, align 8
-  store double %132, ptr @album_peak_, align 8
-  br label %if.end213
-
-if.end213:                                        ; preds = %if.then212, %if.end209
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end213, %if.then196, %if.then148, %if.then67, %if.then30
-  %133 = load i32, ptr %retval, align 4
-  ret i32 %133
+define dso_local i32 @grabbag__replaygain_analyze(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca double, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca double, align 8
+  %21 = alloca double, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !10
+  store i32 %1, ptr %7, align 4, !tbaa !4
+  store i32 %2, ptr %8, align 4, !tbaa !4
+  store i32 %3, ptr %9, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %22 = load i32, ptr %8, align 4, !tbaa !4
+  %23 = icmp eq i32 %22, 16
+  br i1 %23, label %24, label %169
+
+24:                                               ; preds = %4
+  %25 = load i32, ptr %7, align 4, !tbaa !4
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %109
+
+27:                                               ; preds = %24
+  store i32 0, ptr %13, align 4, !tbaa !4
+  br label %28
+
+28:                                               ; preds = %107, %27
+  %29 = load i32, ptr %9, align 4, !tbaa !4
+  %30 = icmp ugt i32 %29, 0
+  br i1 %30, label %31, label %108
+
+31:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %32 = load i32, ptr %9, align 4, !tbaa !4
+  %33 = icmp ult i32 %32, 2048
+  br i1 %33, label %34, label %36
+
+34:                                               ; preds = %31
+  %35 = load i32, ptr %9, align 4, !tbaa !4
+  br label %37
+
+36:                                               ; preds = %31
+  br label %37
+
+37:                                               ; preds = %36, %34
+  %38 = phi i32 [ %35, %34 ], [ 2048, %36 ]
+  store i32 %38, ptr %14, align 4, !tbaa !4
+  store i32 0, ptr %12, align 4, !tbaa !4
+  br label %39
+
+39:                                               ; preds = %90, %37
+  %40 = load i32, ptr %12, align 4, !tbaa !4
+  %41 = load i32, ptr %14, align 4, !tbaa !4
+  %42 = icmp ult i32 %40, %41
+  br i1 %42, label %43, label %95
+
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %6, align 8, !tbaa !10
+  %45 = getelementptr inbounds ptr, ptr %44, i64 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !13
+  %47 = load i32, ptr %13, align 4, !tbaa !4
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %48
+  %50 = load i32, ptr %49, align 4, !tbaa !4
+  store i32 %50, ptr %11, align 4, !tbaa !4
+  %51 = load i32, ptr %11, align 4, !tbaa !4
+  %52 = sitofp i32 %51 to float
+  %53 = load i32, ptr %12, align 4, !tbaa !4
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %54
+  store float %52, ptr %55, align 4, !tbaa !15
+  %56 = load i32, ptr %11, align 4, !tbaa !4
+  %57 = call i32 @llvm.abs.i32(i32 %56, i1 true)
+  store i32 %57, ptr %11, align 4, !tbaa !4
+  %58 = load i32, ptr %10, align 4, !tbaa !4
+  %59 = load i32, ptr %11, align 4, !tbaa !4
+  %60 = icmp sgt i32 %58, %59
+  br i1 %60, label %61, label %63
+
+61:                                               ; preds = %43
+  %62 = load i32, ptr %10, align 4, !tbaa !4
+  br label %65
+
+63:                                               ; preds = %43
+  %64 = load i32, ptr %11, align 4, !tbaa !4
+  br label %65
+
+65:                                               ; preds = %63, %61
+  %66 = phi i32 [ %62, %61 ], [ %64, %63 ]
+  store i32 %66, ptr %10, align 4, !tbaa !4
+  %67 = load ptr, ptr %6, align 8, !tbaa !10
+  %68 = getelementptr inbounds ptr, ptr %67, i64 1
+  %69 = load ptr, ptr %68, align 8, !tbaa !13
+  %70 = load i32, ptr %13, align 4, !tbaa !4
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw i32, ptr %69, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !4
+  store i32 %73, ptr %11, align 4, !tbaa !4
+  %74 = load i32, ptr %11, align 4, !tbaa !4
+  %75 = sitofp i32 %74 to float
+  %76 = load i32, ptr %12, align 4, !tbaa !4
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %77
+  store float %75, ptr %78, align 4, !tbaa !15
+  %79 = load i32, ptr %11, align 4, !tbaa !4
+  %80 = call i32 @llvm.abs.i32(i32 %79, i1 true)
+  store i32 %80, ptr %11, align 4, !tbaa !4
+  %81 = load i32, ptr %10, align 4, !tbaa !4
+  %82 = load i32, ptr %11, align 4, !tbaa !4
+  %83 = icmp sgt i32 %81, %82
+  br i1 %83, label %84, label %86
+
+84:                                               ; preds = %65
+  %85 = load i32, ptr %10, align 4, !tbaa !4
+  br label %88
+
+86:                                               ; preds = %65
+  %87 = load i32, ptr %11, align 4, !tbaa !4
+  br label %88
+
+88:                                               ; preds = %86, %84
+  %89 = phi i32 [ %85, %84 ], [ %87, %86 ]
+  store i32 %89, ptr %10, align 4, !tbaa !4
+  br label %90
+
+90:                                               ; preds = %88
+  %91 = load i32, ptr %12, align 4, !tbaa !4
+  %92 = add i32 %91, 1
+  store i32 %92, ptr %12, align 4, !tbaa !4
+  %93 = load i32, ptr %13, align 4, !tbaa !4
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %13, align 4, !tbaa !4
+  br label %39, !llvm.loop !17
+
+95:                                               ; preds = %39
+  %96 = load i32, ptr %14, align 4, !tbaa !4
+  %97 = load i32, ptr %9, align 4, !tbaa !4
+  %98 = sub i32 %97, %96
+  store i32 %98, ptr %9, align 4, !tbaa !4
+  %99 = load i32, ptr %14, align 4, !tbaa !4
+  %100 = zext i32 %99 to i64
+  %101 = call i32 @AnalyzeSamples(ptr noundef @grabbag__replaygain_analyze.lbuffer, ptr noundef @grabbag__replaygain_analyze.rbuffer, i64 noundef %100, i32 noundef 2)
+  %102 = icmp ne i32 %101, 1
+  br i1 %102, label %103, label %104
+
+103:                                              ; preds = %95
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %105
+
+104:                                              ; preds = %95
+  store i32 0, ptr %15, align 4
+  br label %105
+
+105:                                              ; preds = %104, %103
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  %106 = load i32, ptr %15, align 4
+  switch i32 %106, label %380 [
+    i32 0, label %107
+  ]
+
+107:                                              ; preds = %105
+  br label %28, !llvm.loop !19
+
+108:                                              ; preds = %28
+  br label %168
+
+109:                                              ; preds = %24
+  store i32 0, ptr %13, align 4, !tbaa !4
+  br label %110
+
+110:                                              ; preds = %166, %109
+  %111 = load i32, ptr %9, align 4, !tbaa !4
+  %112 = icmp ugt i32 %111, 0
+  br i1 %112, label %113, label %167
+
+113:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %114 = load i32, ptr %9, align 4, !tbaa !4
+  %115 = icmp ult i32 %114, 2048
+  br i1 %115, label %116, label %118
+
+116:                                              ; preds = %113
+  %117 = load i32, ptr %9, align 4, !tbaa !4
+  br label %119
+
+118:                                              ; preds = %113
+  br label %119
+
+119:                                              ; preds = %118, %116
+  %120 = phi i32 [ %117, %116 ], [ 2048, %118 ]
+  store i32 %120, ptr %16, align 4, !tbaa !4
+  store i32 0, ptr %12, align 4, !tbaa !4
+  br label %121
+
+121:                                              ; preds = %149, %119
+  %122 = load i32, ptr %12, align 4, !tbaa !4
+  %123 = load i32, ptr %16, align 4, !tbaa !4
+  %124 = icmp ult i32 %122, %123
+  br i1 %124, label %125, label %154
+
+125:                                              ; preds = %121
+  %126 = load ptr, ptr %6, align 8, !tbaa !10
+  %127 = getelementptr inbounds ptr, ptr %126, i64 0
+  %128 = load ptr, ptr %127, align 8, !tbaa !13
+  %129 = load i32, ptr %13, align 4, !tbaa !4
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds nuw i32, ptr %128, i64 %130
+  %132 = load i32, ptr %131, align 4, !tbaa !4
+  store i32 %132, ptr %11, align 4, !tbaa !4
+  %133 = load i32, ptr %11, align 4, !tbaa !4
+  %134 = sitofp i32 %133 to float
+  %135 = load i32, ptr %12, align 4, !tbaa !4
+  %136 = zext i32 %135 to i64
+  %137 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %136
+  store float %134, ptr %137, align 4, !tbaa !15
+  %138 = load i32, ptr %11, align 4, !tbaa !4
+  %139 = call i32 @llvm.abs.i32(i32 %138, i1 true)
+  store i32 %139, ptr %11, align 4, !tbaa !4
+  %140 = load i32, ptr %10, align 4, !tbaa !4
+  %141 = load i32, ptr %11, align 4, !tbaa !4
+  %142 = icmp sgt i32 %140, %141
+  br i1 %142, label %143, label %145
+
+143:                                              ; preds = %125
+  %144 = load i32, ptr %10, align 4, !tbaa !4
+  br label %147
+
+145:                                              ; preds = %125
+  %146 = load i32, ptr %11, align 4, !tbaa !4
+  br label %147
+
+147:                                              ; preds = %145, %143
+  %148 = phi i32 [ %144, %143 ], [ %146, %145 ]
+  store i32 %148, ptr %10, align 4, !tbaa !4
+  br label %149
+
+149:                                              ; preds = %147
+  %150 = load i32, ptr %12, align 4, !tbaa !4
+  %151 = add i32 %150, 1
+  store i32 %151, ptr %12, align 4, !tbaa !4
+  %152 = load i32, ptr %13, align 4, !tbaa !4
+  %153 = add i32 %152, 1
+  store i32 %153, ptr %13, align 4, !tbaa !4
+  br label %121, !llvm.loop !20
+
+154:                                              ; preds = %121
+  %155 = load i32, ptr %16, align 4, !tbaa !4
+  %156 = load i32, ptr %9, align 4, !tbaa !4
+  %157 = sub i32 %156, %155
+  store i32 %157, ptr %9, align 4, !tbaa !4
+  %158 = load i32, ptr %16, align 4, !tbaa !4
+  %159 = zext i32 %158 to i64
+  %160 = call i32 @AnalyzeSamples(ptr noundef @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %159, i32 noundef 1)
+  %161 = icmp ne i32 %160, 1
+  br i1 %161, label %162, label %163
+
+162:                                              ; preds = %154
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %164
+
+163:                                              ; preds = %154
+  store i32 0, ptr %15, align 4
+  br label %164
+
+164:                                              ; preds = %163, %162
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  %165 = load i32, ptr %15, align 4
+  switch i32 %165, label %380 [
+    i32 0, label %166
+  ]
+
+166:                                              ; preds = %164
+  br label %110, !llvm.loop !21
+
+167:                                              ; preds = %110
+  br label %168
+
+168:                                              ; preds = %167, %108
+  br label %359
+
+169:                                              ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %170 = load i32, ptr %8, align 4, !tbaa !4
+  %171 = icmp ugt i32 %170, 16
+  br i1 %171, label %172, label %178
+
+172:                                              ; preds = %169
+  %173 = load i32, ptr %8, align 4, !tbaa !4
+  %174 = sub i32 %173, 16
+  %175 = shl i32 1, %174
+  %176 = uitofp i32 %175 to double
+  %177 = fdiv double 1.000000e+00, %176
+  br label %183
+
+178:                                              ; preds = %169
+  %179 = load i32, ptr %8, align 4, !tbaa !4
+  %180 = sub i32 16, %179
+  %181 = shl i32 1, %180
+  %182 = uitofp i32 %181 to double
+  br label %183
+
+183:                                              ; preds = %178, %172
+  %184 = phi double [ %177, %172 ], [ %182, %178 ]
+  store double %184, ptr %17, align 8, !tbaa !8
+  %185 = load i32, ptr %7, align 4, !tbaa !4
+  %186 = icmp ne i32 %185, 0
+  br i1 %186, label %187, label %287
+
+187:                                              ; preds = %183
+  store i32 0, ptr %13, align 4, !tbaa !4
+  br label %188
+
+188:                                              ; preds = %285, %187
+  %189 = load i32, ptr %9, align 4, !tbaa !4
+  %190 = icmp ugt i32 %189, 0
+  br i1 %190, label %191, label %286
+
+191:                                              ; preds = %188
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  %192 = load i32, ptr %9, align 4, !tbaa !4
+  %193 = icmp ult i32 %192, 2048
+  br i1 %193, label %194, label %196
+
+194:                                              ; preds = %191
+  %195 = load i32, ptr %9, align 4, !tbaa !4
+  br label %197
+
+196:                                              ; preds = %191
+  br label %197
+
+197:                                              ; preds = %196, %194
+  %198 = phi i32 [ %195, %194 ], [ 2048, %196 ]
+  store i32 %198, ptr %18, align 4, !tbaa !4
+  store i32 0, ptr %12, align 4, !tbaa !4
+  br label %199
+
+199:                                              ; preds = %268, %197
+  %200 = load i32, ptr %12, align 4, !tbaa !4
+  %201 = load i32, ptr %18, align 4, !tbaa !4
+  %202 = icmp ult i32 %200, %201
+  br i1 %202, label %203, label %273
+
+203:                                              ; preds = %199
+  %204 = load ptr, ptr %6, align 8, !tbaa !10
+  %205 = getelementptr inbounds ptr, ptr %204, i64 0
+  %206 = load ptr, ptr %205, align 8, !tbaa !13
+  %207 = load i32, ptr %13, align 4, !tbaa !4
+  %208 = zext i32 %207 to i64
+  %209 = getelementptr inbounds nuw i32, ptr %206, i64 %208
+  %210 = load i32, ptr %209, align 4, !tbaa !4
+  store i32 %210, ptr %11, align 4, !tbaa !4
+  %211 = load double, ptr %17, align 8, !tbaa !8
+  %212 = load i32, ptr %11, align 4, !tbaa !4
+  %213 = sitofp i32 %212 to double
+  %214 = fmul double %211, %213
+  %215 = fptrunc double %214 to float
+  %216 = load i32, ptr %12, align 4, !tbaa !4
+  %217 = zext i32 %216 to i64
+  %218 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %217
+  store float %215, ptr %218, align 4, !tbaa !15
+  %219 = load i32, ptr %11, align 4, !tbaa !4
+  %220 = icmp eq i32 %219, -2147483648
+  br i1 %220, label %221, label %222
+
+221:                                              ; preds = %203
+  br label %225
+
+222:                                              ; preds = %203
+  %223 = load i32, ptr %11, align 4, !tbaa !4
+  %224 = call i32 @llvm.abs.i32(i32 %223, i1 true)
+  br label %225
+
+225:                                              ; preds = %222, %221
+  %226 = phi i32 [ 2147483647, %221 ], [ %224, %222 ]
+  store i32 %226, ptr %11, align 4, !tbaa !4
+  %227 = load i32, ptr %10, align 4, !tbaa !4
+  %228 = load i32, ptr %11, align 4, !tbaa !4
+  %229 = icmp sgt i32 %227, %228
+  br i1 %229, label %230, label %232
+
+230:                                              ; preds = %225
+  %231 = load i32, ptr %10, align 4, !tbaa !4
+  br label %234
+
+232:                                              ; preds = %225
+  %233 = load i32, ptr %11, align 4, !tbaa !4
+  br label %234
+
+234:                                              ; preds = %232, %230
+  %235 = phi i32 [ %231, %230 ], [ %233, %232 ]
+  store i32 %235, ptr %10, align 4, !tbaa !4
+  %236 = load ptr, ptr %6, align 8, !tbaa !10
+  %237 = getelementptr inbounds ptr, ptr %236, i64 1
+  %238 = load ptr, ptr %237, align 8, !tbaa !13
+  %239 = load i32, ptr %13, align 4, !tbaa !4
+  %240 = zext i32 %239 to i64
+  %241 = getelementptr inbounds nuw i32, ptr %238, i64 %240
+  %242 = load i32, ptr %241, align 4, !tbaa !4
+  store i32 %242, ptr %11, align 4, !tbaa !4
+  %243 = load double, ptr %17, align 8, !tbaa !8
+  %244 = load i32, ptr %11, align 4, !tbaa !4
+  %245 = sitofp i32 %244 to double
+  %246 = fmul double %243, %245
+  %247 = fptrunc double %246 to float
+  %248 = load i32, ptr %12, align 4, !tbaa !4
+  %249 = zext i32 %248 to i64
+  %250 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %249
+  store float %247, ptr %250, align 4, !tbaa !15
+  %251 = load i32, ptr %11, align 4, !tbaa !4
+  %252 = icmp eq i32 %251, -2147483648
+  br i1 %252, label %253, label %254
+
+253:                                              ; preds = %234
+  br label %257
+
+254:                                              ; preds = %234
+  %255 = load i32, ptr %11, align 4, !tbaa !4
+  %256 = call i32 @llvm.abs.i32(i32 %255, i1 true)
+  br label %257
+
+257:                                              ; preds = %254, %253
+  %258 = phi i32 [ 2147483647, %253 ], [ %256, %254 ]
+  store i32 %258, ptr %11, align 4, !tbaa !4
+  %259 = load i32, ptr %10, align 4, !tbaa !4
+  %260 = load i32, ptr %11, align 4, !tbaa !4
+  %261 = icmp sgt i32 %259, %260
+  br i1 %261, label %262, label %264
+
+262:                                              ; preds = %257
+  %263 = load i32, ptr %10, align 4, !tbaa !4
+  br label %266
+
+264:                                              ; preds = %257
+  %265 = load i32, ptr %11, align 4, !tbaa !4
+  br label %266
+
+266:                                              ; preds = %264, %262
+  %267 = phi i32 [ %263, %262 ], [ %265, %264 ]
+  store i32 %267, ptr %10, align 4, !tbaa !4
+  br label %268
+
+268:                                              ; preds = %266
+  %269 = load i32, ptr %12, align 4, !tbaa !4
+  %270 = add i32 %269, 1
+  store i32 %270, ptr %12, align 4, !tbaa !4
+  %271 = load i32, ptr %13, align 4, !tbaa !4
+  %272 = add i32 %271, 1
+  store i32 %272, ptr %13, align 4, !tbaa !4
+  br label %199, !llvm.loop !22
+
+273:                                              ; preds = %199
+  %274 = load i32, ptr %18, align 4, !tbaa !4
+  %275 = load i32, ptr %9, align 4, !tbaa !4
+  %276 = sub i32 %275, %274
+  store i32 %276, ptr %9, align 4, !tbaa !4
+  %277 = load i32, ptr %18, align 4, !tbaa !4
+  %278 = zext i32 %277 to i64
+  %279 = call i32 @AnalyzeSamples(ptr noundef @grabbag__replaygain_analyze.lbuffer, ptr noundef @grabbag__replaygain_analyze.rbuffer, i64 noundef %278, i32 noundef 2)
+  %280 = icmp ne i32 %279, 1
+  br i1 %280, label %281, label %282
+
+281:                                              ; preds = %273
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %283
+
+282:                                              ; preds = %273
+  store i32 0, ptr %15, align 4
+  br label %283
+
+283:                                              ; preds = %282, %281
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  %284 = load i32, ptr %15, align 4
+  switch i32 %284, label %356 [
+    i32 0, label %285
+  ]
+
+285:                                              ; preds = %283
+  br label %188, !llvm.loop !23
+
+286:                                              ; preds = %188
+  br label %355
+
+287:                                              ; preds = %183
+  store i32 0, ptr %13, align 4, !tbaa !4
+  br label %288
+
+288:                                              ; preds = %353, %287
+  %289 = load i32, ptr %9, align 4, !tbaa !4
+  %290 = icmp ugt i32 %289, 0
+  br i1 %290, label %291, label %354
+
+291:                                              ; preds = %288
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  %292 = load i32, ptr %9, align 4, !tbaa !4
+  %293 = icmp ult i32 %292, 2048
+  br i1 %293, label %294, label %296
+
+294:                                              ; preds = %291
+  %295 = load i32, ptr %9, align 4, !tbaa !4
+  br label %297
+
+296:                                              ; preds = %291
+  br label %297
+
+297:                                              ; preds = %296, %294
+  %298 = phi i32 [ %295, %294 ], [ 2048, %296 ]
+  store i32 %298, ptr %19, align 4, !tbaa !4
+  store i32 0, ptr %12, align 4, !tbaa !4
+  br label %299
+
+299:                                              ; preds = %336, %297
+  %300 = load i32, ptr %12, align 4, !tbaa !4
+  %301 = load i32, ptr %19, align 4, !tbaa !4
+  %302 = icmp ult i32 %300, %301
+  br i1 %302, label %303, label %341
+
+303:                                              ; preds = %299
+  %304 = load ptr, ptr %6, align 8, !tbaa !10
+  %305 = getelementptr inbounds ptr, ptr %304, i64 0
+  %306 = load ptr, ptr %305, align 8, !tbaa !13
+  %307 = load i32, ptr %13, align 4, !tbaa !4
+  %308 = zext i32 %307 to i64
+  %309 = getelementptr inbounds nuw i32, ptr %306, i64 %308
+  %310 = load i32, ptr %309, align 4, !tbaa !4
+  store i32 %310, ptr %11, align 4, !tbaa !4
+  %311 = load double, ptr %17, align 8, !tbaa !8
+  %312 = load i32, ptr %11, align 4, !tbaa !4
+  %313 = sitofp i32 %312 to double
+  %314 = fmul double %311, %313
+  %315 = fptrunc double %314 to float
+  %316 = load i32, ptr %12, align 4, !tbaa !4
+  %317 = zext i32 %316 to i64
+  %318 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %317
+  store float %315, ptr %318, align 4, !tbaa !15
+  %319 = load i32, ptr %11, align 4, !tbaa !4
+  %320 = icmp eq i32 %319, -2147483648
+  br i1 %320, label %321, label %322
+
+321:                                              ; preds = %303
+  br label %325
+
+322:                                              ; preds = %303
+  %323 = load i32, ptr %11, align 4, !tbaa !4
+  %324 = call i32 @llvm.abs.i32(i32 %323, i1 true)
+  br label %325
+
+325:                                              ; preds = %322, %321
+  %326 = phi i32 [ 2147483647, %321 ], [ %324, %322 ]
+  store i32 %326, ptr %11, align 4, !tbaa !4
+  %327 = load i32, ptr %10, align 4, !tbaa !4
+  %328 = load i32, ptr %11, align 4, !tbaa !4
+  %329 = icmp sgt i32 %327, %328
+  br i1 %329, label %330, label %332
+
+330:                                              ; preds = %325
+  %331 = load i32, ptr %10, align 4, !tbaa !4
+  br label %334
+
+332:                                              ; preds = %325
+  %333 = load i32, ptr %11, align 4, !tbaa !4
+  br label %334
+
+334:                                              ; preds = %332, %330
+  %335 = phi i32 [ %331, %330 ], [ %333, %332 ]
+  store i32 %335, ptr %10, align 4, !tbaa !4
+  br label %336
+
+336:                                              ; preds = %334
+  %337 = load i32, ptr %12, align 4, !tbaa !4
+  %338 = add i32 %337, 1
+  store i32 %338, ptr %12, align 4, !tbaa !4
+  %339 = load i32, ptr %13, align 4, !tbaa !4
+  %340 = add i32 %339, 1
+  store i32 %340, ptr %13, align 4, !tbaa !4
+  br label %299, !llvm.loop !24
+
+341:                                              ; preds = %299
+  %342 = load i32, ptr %19, align 4, !tbaa !4
+  %343 = load i32, ptr %9, align 4, !tbaa !4
+  %344 = sub i32 %343, %342
+  store i32 %344, ptr %9, align 4, !tbaa !4
+  %345 = load i32, ptr %19, align 4, !tbaa !4
+  %346 = zext i32 %345 to i64
+  %347 = call i32 @AnalyzeSamples(ptr noundef @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %346, i32 noundef 1)
+  %348 = icmp ne i32 %347, 1
+  br i1 %348, label %349, label %350
+
+349:                                              ; preds = %341
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %351
+
+350:                                              ; preds = %341
+  store i32 0, ptr %15, align 4
+  br label %351
+
+351:                                              ; preds = %350, %349
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  %352 = load i32, ptr %15, align 4
+  switch i32 %352, label %356 [
+    i32 0, label %353
+  ]
+
+353:                                              ; preds = %351
+  br label %288, !llvm.loop !25
+
+354:                                              ; preds = %288
+  br label %355
+
+355:                                              ; preds = %354, %286
+  store i32 0, ptr %15, align 4
+  br label %356
+
+356:                                              ; preds = %355, %351, %283
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  %357 = load i32, ptr %15, align 4
+  switch i32 %357, label %380 [
+    i32 0, label %358
+  ]
+
+358:                                              ; preds = %356
+  br label %359
+
+359:                                              ; preds = %358, %168
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  %360 = load i32, ptr %8, align 4, !tbaa !4
+  %361 = sub i32 %360, 1
+  %362 = shl i32 1, %361
+  %363 = uitofp i32 %362 to double
+  store double %363, ptr %20, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %364 = load i32, ptr %10, align 4, !tbaa !4
+  %365 = sitofp i32 %364 to double
+  %366 = load double, ptr %20, align 8, !tbaa !8
+  %367 = fdiv double %365, %366
+  store double %367, ptr %21, align 8, !tbaa !8
+  %368 = load double, ptr %21, align 8, !tbaa !8
+  %369 = load double, ptr @title_peak_, align 8, !tbaa !8
+  %370 = fcmp ogt double %368, %369
+  br i1 %370, label %371, label %373
+
+371:                                              ; preds = %359
+  %372 = load double, ptr %21, align 8, !tbaa !8
+  store double %372, ptr @title_peak_, align 8, !tbaa !8
+  br label %373
+
+373:                                              ; preds = %371, %359
+  %374 = load double, ptr %21, align 8, !tbaa !8
+  %375 = load double, ptr @album_peak_, align 8, !tbaa !8
+  %376 = fcmp ogt double %374, %375
+  br i1 %376, label %377, label %379
+
+377:                                              ; preds = %373
+  %378 = load double, ptr %21, align 8, !tbaa !8
+  store double %378, ptr @album_peak_, align 8, !tbaa !8
+  br label %379
+
+379:                                              ; preds = %377, %373
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %380
+
+380:                                              ; preds = %379, %356, %164, %105
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %381 = load i32, ptr %5, align 4
+  ret i32 %381
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #2
+declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
 declare i32 @AnalyzeSamples(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @grabbag__replaygain_get_album(ptr noundef %gain, ptr noundef %peak) #0 {
-entry:
-  %gain.addr = alloca ptr, align 8
-  %peak.addr = alloca ptr, align 8
-  store ptr %gain, ptr %gain.addr, align 8
-  store ptr %peak, ptr %peak.addr, align 8
-  %call = call float @GetAlbumGain()
-  %0 = load ptr, ptr %gain.addr, align 8
-  store float %call, ptr %0, align 4
-  %1 = load double, ptr @album_peak_, align 8
-  %conv = fptrunc double %1 to float
-  %2 = load ptr, ptr %peak.addr, align 8
-  store float %conv, ptr %2, align 4
-  store double 0.000000e+00, ptr @album_peak_, align 8
+define dso_local void @grabbag__replaygain_get_album(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = call float @GetAlbumGain()
+  %6 = load ptr, ptr %3, align 8, !tbaa !26
+  store float %5, ptr %6, align 4, !tbaa !15
+  %7 = load double, ptr @album_peak_, align 8, !tbaa !8
+  %8 = fptrunc double %7 to float
+  %9 = load ptr, ptr %4, align 8, !tbaa !26
+  store float %8, ptr %9, align 4, !tbaa !15
+  store double 0.000000e+00, ptr @album_peak_, align 8, !tbaa !8
   ret void
 }
 
 declare float @GetAlbumGain() #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @grabbag__replaygain_get_title(ptr noundef %gain, ptr noundef %peak) #0 {
-entry:
-  %gain.addr = alloca ptr, align 8
-  %peak.addr = alloca ptr, align 8
-  store ptr %gain, ptr %gain.addr, align 8
-  store ptr %peak, ptr %peak.addr, align 8
-  %call = call float @GetTitleGain()
-  %0 = load ptr, ptr %gain.addr, align 8
-  store float %call, ptr %0, align 4
-  %1 = load double, ptr @title_peak_, align 8
-  %conv = fptrunc double %1 to float
-  %2 = load ptr, ptr %peak.addr, align 8
-  store float %conv, ptr %2, align 4
-  store double 0.000000e+00, ptr @title_peak_, align 8
+define dso_local void @grabbag__replaygain_get_title(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = call float @GetTitleGain()
+  %6 = load ptr, ptr %3, align 8, !tbaa !26
+  store float %5, ptr %6, align 4, !tbaa !15
+  %7 = load double, ptr @title_peak_, align 8, !tbaa !8
+  %8 = fptrunc double %7 to float
+  %9 = load ptr, ptr %4, align 8, !tbaa !26
+  store float %8, ptr %9, align 4, !tbaa !15
+  store double 0.000000e+00, ptr @title_peak_, align 8, !tbaa !8
   ret void
 }
 
 declare float @GetTitleGain() #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_analyze_file(ptr noundef %filename, ptr noundef %title_gain, ptr noundef %title_peak) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %filename.addr = alloca ptr, align 8
-  %title_gain.addr = alloca ptr, align 8
-  %title_peak.addr = alloca ptr, align 8
-  %instance = alloca %struct.DecoderInstance, align 4
-  %decoder = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store ptr %title_gain, ptr %title_gain.addr, align 8
-  store ptr %title_peak, ptr %title_peak.addr, align 8
-  %call = call ptr @FLAC__stream_decoder_new()
-  store ptr %call, ptr %decoder, align 8
-  %0 = load ptr, ptr %decoder, align 8
-  %cmp = icmp eq ptr null, %0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local ptr @grabbag__replaygain_analyze_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.DecoderInstance, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %11 = call ptr @FLAC__stream_decoder_new()
+  store ptr %11, ptr %9, align 8, !tbaa !30
+  %12 = load ptr, ptr %9, align 8, !tbaa !30
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %3
+  store ptr @.str.5, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %43
 
-if.end:                                           ; preds = %entry
-  %error = getelementptr inbounds %struct.DecoderInstance, ptr %instance, i32 0, i32 3
-  store i32 0, ptr %error, align 4
-  %1 = load ptr, ptr %decoder, align 8
-  %call1 = call i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef %1, i32 noundef 0)
-  %2 = load ptr, ptr %decoder, align 8
-  %call2 = call i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr noundef %2)
-  %3 = load ptr, ptr %decoder, align 8
-  %call3 = call i32 @FLAC__stream_decoder_set_metadata_respond(ptr noundef %3, i32 noundef 0)
-  %4 = load ptr, ptr %decoder, align 8
-  %5 = load ptr, ptr %filename.addr, align 8
-  %call4 = call i32 @FLAC__stream_decoder_init_file(ptr noundef %4, ptr noundef %5, ptr noundef @write_callback_, ptr noundef @metadata_callback_, ptr noundef @error_callback_, ptr noundef %instance)
-  %cmp5 = icmp ne i32 %call4, 0
-  br i1 %cmp5, label %if.then6, label %if.end7
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %8, i32 0, i32 3
+  store i32 0, ptr %16, align 4, !tbaa !31
+  %17 = load ptr, ptr %9, align 8, !tbaa !30
+  %18 = call i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef %17, i32 noundef 0)
+  %19 = load ptr, ptr %9, align 8, !tbaa !30
+  %20 = call i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr noundef %19)
+  %21 = load ptr, ptr %9, align 8, !tbaa !30
+  %22 = call i32 @FLAC__stream_decoder_set_metadata_respond(ptr noundef %21, i32 noundef 0)
+  %23 = load ptr, ptr %9, align 8, !tbaa !30
+  %24 = load ptr, ptr %5, align 8, !tbaa !28
+  %25 = call i32 @FLAC__stream_decoder_init_file(ptr noundef %23, ptr noundef %24, ptr noundef @write_callback_, ptr noundef @metadata_callback_, ptr noundef @error_callback_, ptr noundef %8)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %29
 
-if.then6:                                         ; preds = %if.end
-  %6 = load ptr, ptr %decoder, align 8
-  call void @FLAC__stream_decoder_delete(ptr noundef %6)
-  store ptr @.str.6, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %15
+  %28 = load ptr, ptr %9, align 8, !tbaa !30
+  call void @FLAC__stream_decoder_delete(ptr noundef %28)
+  store ptr @.str.6, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %43
 
-if.end7:                                          ; preds = %if.end
-  %7 = load ptr, ptr %decoder, align 8
-  %call8 = call i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef %7)
-  %tobool = icmp ne i32 %call8, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then11
+29:                                               ; preds = %15
+  %30 = load ptr, ptr %9, align 8, !tbaa !30
+  %31 = call i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef %30)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %37
 
-lor.lhs.false:                                    ; preds = %if.end7
-  %error9 = getelementptr inbounds %struct.DecoderInstance, ptr %instance, i32 0, i32 3
-  %8 = load i32, ptr %error9, align 4
-  %tobool10 = icmp ne i32 %8, 0
-  br i1 %tobool10, label %if.then11, label %if.end12
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %8, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4, !tbaa !31
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %39
 
-if.then11:                                        ; preds = %lor.lhs.false, %if.end7
-  %9 = load ptr, ptr %decoder, align 8
-  call void @FLAC__stream_decoder_delete(ptr noundef %9)
-  store ptr @.str.7, ptr %retval, align 8
-  br label %return
+37:                                               ; preds = %33, %29
+  %38 = load ptr, ptr %9, align 8, !tbaa !30
+  call void @FLAC__stream_decoder_delete(ptr noundef %38)
+  store ptr @.str.7, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %43
 
-if.end12:                                         ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %decoder, align 8
-  call void @FLAC__stream_decoder_delete(ptr noundef %10)
-  %11 = load ptr, ptr %title_gain.addr, align 8
-  %12 = load ptr, ptr %title_peak.addr, align 8
-  call void @grabbag__replaygain_get_title(ptr noundef %11, ptr noundef %12)
-  store ptr null, ptr %retval, align 8
-  br label %return
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %9, align 8, !tbaa !30
+  call void @FLAC__stream_decoder_delete(ptr noundef %40)
+  %41 = load ptr, ptr %6, align 8, !tbaa !26
+  %42 = load ptr, ptr %7, align 8, !tbaa !26
+  call void @grabbag__replaygain_get_title(ptr noundef %41, ptr noundef %42)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %43
 
-return:                                           ; preds = %if.end12, %if.then11, %if.then6, %if.then
-  %13 = load ptr, ptr %retval, align 8
-  ret ptr %13
+43:                                               ; preds = %39, %37, %27, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #8
+  %44 = load ptr, ptr %4, align 8
+  ret ptr %44
 }
 
 declare ptr @FLAC__stream_decoder_new() #1
@@ -825,221 +911,252 @@ declare i32 @FLAC__stream_decoder_set_metadata_respond(ptr noundef, i32 noundef)
 declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @write_callback_(ptr noundef %decoder, ptr noundef %frame, ptr noundef %buffer, ptr noundef %client_data) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %decoder.addr = alloca ptr, align 8
-  %frame.addr = alloca ptr, align 8
-  %buffer.addr = alloca ptr, align 8
-  %client_data.addr = alloca ptr, align 8
-  %instance = alloca ptr, align 8
-  %bits_per_sample = alloca i32, align 4
-  %channels = alloca i32, align 4
-  %sample_rate = alloca i32, align 4
-  %samples = alloca i32, align 4
-  store ptr %decoder, ptr %decoder.addr, align 8
-  store ptr %frame, ptr %frame.addr, align 8
-  store ptr %buffer, ptr %buffer.addr, align 8
-  store ptr %client_data, ptr %client_data.addr, align 8
-  %0 = load ptr, ptr %client_data.addr, align 8
-  store ptr %0, ptr %instance, align 8
-  %1 = load ptr, ptr %frame.addr, align 8
-  %header = getelementptr inbounds %struct.FLAC__Frame, ptr %1, i32 0, i32 0
-  %bits_per_sample1 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %header, i32 0, i32 4
-  %2 = load i32, ptr %bits_per_sample1, align 8
-  store i32 %2, ptr %bits_per_sample, align 4
-  %3 = load ptr, ptr %frame.addr, align 8
-  %header2 = getelementptr inbounds %struct.FLAC__Frame, ptr %3, i32 0, i32 0
-  %channels3 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %header2, i32 0, i32 2
-  %4 = load i32, ptr %channels3, align 8
-  store i32 %4, ptr %channels, align 4
-  %5 = load ptr, ptr %frame.addr, align 8
-  %header4 = getelementptr inbounds %struct.FLAC__Frame, ptr %5, i32 0, i32 0
-  %sample_rate5 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %header4, i32 0, i32 1
-  %6 = load i32, ptr %sample_rate5, align 4
-  store i32 %6, ptr %sample_rate, align 4
-  %7 = load ptr, ptr %frame.addr, align 8
-  %header6 = getelementptr inbounds %struct.FLAC__Frame, ptr %7, i32 0, i32 0
-  %blocksize = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %header6, i32 0, i32 0
-  %8 = load i32, ptr %blocksize, align 8
-  store i32 %8, ptr %samples, align 4
-  %9 = load ptr, ptr %instance, align 8
-  %error = getelementptr inbounds %struct.DecoderInstance, ptr %9, i32 0, i32 3
-  %10 = load i32, ptr %error, align 4
-  %tobool = icmp ne i32 %10, 0
-  br i1 %tobool, label %if.else, label %land.lhs.true
+define internal i32 @write_callback_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !30
+  store ptr %1, ptr %7, align 8, !tbaa !30
+  store ptr %2, ptr %8, align 8, !tbaa !10
+  store ptr %3, ptr %9, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %16 = load ptr, ptr %9, align 8, !tbaa !30
+  store ptr %16, ptr %10, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %17 = load ptr, ptr %7, align 8, !tbaa !30
+  %18 = getelementptr inbounds nuw %struct.FLAC__Frame, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8, !tbaa !33
+  store i32 %20, ptr %11, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %21 = load ptr, ptr %7, align 8, !tbaa !30
+  %22 = getelementptr inbounds nuw %struct.FLAC__Frame, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %22, i32 0, i32 2
+  %24 = load i32, ptr %23, align 8, !tbaa !38
+  store i32 %24, ptr %12, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %25 = load ptr, ptr %7, align 8, !tbaa !30
+  %26 = getelementptr inbounds nuw %struct.FLAC__Frame, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %26, i32 0, i32 1
+  %28 = load i32, ptr %27, align 4, !tbaa !39
+  store i32 %28, ptr %13, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %29 = load ptr, ptr %7, align 8, !tbaa !30
+  %30 = getelementptr inbounds nuw %struct.FLAC__Frame, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.FLAC__FrameHeader, ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 8, !tbaa !40
+  store i32 %32, ptr %14, align 4, !tbaa !4
+  %33 = load ptr, ptr %10, align 8, !tbaa !30
+  %34 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4, !tbaa !31
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %74, label %37
 
-land.lhs.true:                                    ; preds = %entry
-  %11 = load i32, ptr %channels, align 4
-  %cmp = icmp eq i32 %11, 2
-  br i1 %cmp, label %land.lhs.true8, label %lor.lhs.false
+37:                                               ; preds = %4
+  %38 = load i32, ptr %12, align 4, !tbaa !4
+  %39 = icmp eq i32 %38, 2
+  br i1 %39, label %43, label %40
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %12 = load i32, ptr %channels, align 4
-  %cmp7 = icmp eq i32 %12, 1
-  br i1 %cmp7, label %land.lhs.true8, label %if.else
+40:                                               ; preds = %37
+  %41 = load i32, ptr %12, align 4, !tbaa !4
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %43, label %74
 
-land.lhs.true8:                                   ; preds = %lor.lhs.false, %land.lhs.true
-  %13 = load i32, ptr %bits_per_sample, align 4
-  %14 = load ptr, ptr %instance, align 8
-  %bits_per_sample9 = getelementptr inbounds %struct.DecoderInstance, ptr %14, i32 0, i32 1
-  %15 = load i32, ptr %bits_per_sample9, align 4
-  %cmp10 = icmp eq i32 %13, %15
-  br i1 %cmp10, label %land.lhs.true11, label %if.else
+43:                                               ; preds = %40, %37
+  %44 = load i32, ptr %11, align 4, !tbaa !4
+  %45 = load ptr, ptr %10, align 8, !tbaa !30
+  %46 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %45, i32 0, i32 1
+  %47 = load i32, ptr %46, align 4, !tbaa !41
+  %48 = icmp eq i32 %44, %47
+  br i1 %48, label %49, label %74
 
-land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %16 = load i32, ptr %channels, align 4
-  %17 = load ptr, ptr %instance, align 8
-  %channels12 = getelementptr inbounds %struct.DecoderInstance, ptr %17, i32 0, i32 0
-  %18 = load i32, ptr %channels12, align 4
-  %cmp13 = icmp eq i32 %16, %18
-  br i1 %cmp13, label %land.lhs.true14, label %if.else
+49:                                               ; preds = %43
+  %50 = load i32, ptr %12, align 4, !tbaa !4
+  %51 = load ptr, ptr %10, align 8, !tbaa !30
+  %52 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 4, !tbaa !42
+  %54 = icmp eq i32 %50, %53
+  br i1 %54, label %55, label %74
 
-land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %19 = load i32, ptr %sample_rate, align 4
-  %20 = load ptr, ptr %instance, align 8
-  %sample_rate15 = getelementptr inbounds %struct.DecoderInstance, ptr %20, i32 0, i32 2
-  %21 = load i32, ptr %sample_rate15, align 4
-  %cmp16 = icmp eq i32 %19, %21
-  br i1 %cmp16, label %if.then, label %if.else
+55:                                               ; preds = %49
+  %56 = load i32, ptr %13, align 4, !tbaa !4
+  %57 = load ptr, ptr %10, align 8, !tbaa !30
+  %58 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %57, i32 0, i32 2
+  %59 = load i32, ptr %58, align 4, !tbaa !43
+  %60 = icmp eq i32 %56, %59
+  br i1 %60, label %61, label %74
 
-if.then:                                          ; preds = %land.lhs.true14
-  %22 = load ptr, ptr %buffer.addr, align 8
-  %23 = load i32, ptr %channels, align 4
-  %cmp17 = icmp eq i32 %23, 2
-  %conv = zext i1 %cmp17 to i32
-  %24 = load i32, ptr %bits_per_sample, align 4
-  %25 = load i32, ptr %samples, align 4
-  %call = call i32 @grabbag__replaygain_analyze(ptr noundef %22, i32 noundef %conv, i32 noundef %24, i32 noundef %25)
-  %tobool18 = icmp ne i32 %call, 0
-  %lnot = xor i1 %tobool18, true
-  %lnot.ext = zext i1 %lnot to i32
-  %26 = load ptr, ptr %instance, align 8
-  %error19 = getelementptr inbounds %struct.DecoderInstance, ptr %26, i32 0, i32 3
-  store i32 %lnot.ext, ptr %error19, align 4
-  br label %if.end
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %8, align 8, !tbaa !10
+  %63 = load i32, ptr %12, align 4, !tbaa !4
+  %64 = icmp eq i32 %63, 2
+  %65 = zext i1 %64 to i32
+  %66 = load i32, ptr %11, align 4, !tbaa !4
+  %67 = load i32, ptr %14, align 4, !tbaa !4
+  %68 = call i32 @grabbag__replaygain_analyze(ptr noundef %62, i32 noundef %65, i32 noundef %66, i32 noundef %67)
+  %69 = icmp ne i32 %68, 0
+  %70 = xor i1 %69, true
+  %71 = zext i1 %70 to i32
+  %72 = load ptr, ptr %10, align 8, !tbaa !30
+  %73 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %72, i32 0, i32 3
+  store i32 %71, ptr %73, align 4, !tbaa !31
+  br label %77
 
-if.else:                                          ; preds = %land.lhs.true14, %land.lhs.true11, %land.lhs.true8, %lor.lhs.false, %entry
-  %27 = load ptr, ptr %instance, align 8
-  %error20 = getelementptr inbounds %struct.DecoderInstance, ptr %27, i32 0, i32 3
-  store i32 1, ptr %error20, align 4
-  br label %if.end
+74:                                               ; preds = %55, %49, %43, %40, %4
+  %75 = load ptr, ptr %10, align 8, !tbaa !30
+  %76 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %75, i32 0, i32 3
+  store i32 1, ptr %76, align 4, !tbaa !31
+  br label %77
 
-if.end:                                           ; preds = %if.else, %if.then
-  %28 = load ptr, ptr %instance, align 8
-  %error21 = getelementptr inbounds %struct.DecoderInstance, ptr %28, i32 0, i32 3
-  %29 = load i32, ptr %error21, align 4
-  %tobool22 = icmp ne i32 %29, 0
-  br i1 %tobool22, label %if.else24, label %if.then23
+77:                                               ; preds = %74, %61
+  %78 = load ptr, ptr %10, align 8, !tbaa !30
+  %79 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %78, i32 0, i32 3
+  %80 = load i32, ptr %79, align 4, !tbaa !31
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %83, label %82
 
-if.then23:                                        ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+82:                                               ; preds = %77
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %84
 
-if.else24:                                        ; preds = %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+83:                                               ; preds = %77
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %84
 
-return:                                           ; preds = %if.else24, %if.then23
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+84:                                               ; preds = %83, %82
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %85 = load i32, ptr %5, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @metadata_callback_(ptr noundef %decoder, ptr noundef %metadata, ptr noundef %client_data) #0 {
-entry:
-  %decoder.addr = alloca ptr, align 8
-  %metadata.addr = alloca ptr, align 8
-  %client_data.addr = alloca ptr, align 8
-  %instance = alloca ptr, align 8
-  store ptr %decoder, ptr %decoder.addr, align 8
-  store ptr %metadata, ptr %metadata.addr, align 8
-  store ptr %client_data, ptr %client_data.addr, align 8
-  %0 = load ptr, ptr %client_data.addr, align 8
-  store ptr %0, ptr %instance, align 8
-  %1 = load ptr, ptr %metadata.addr, align 8
-  %type = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %type, align 8
-  %cmp = icmp eq i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end15
+define internal void @metadata_callback_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !30
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store ptr %2, ptr %6, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %9 = load ptr, ptr %6, align 8, !tbaa !30
+  store ptr %9, ptr %7, align 8, !tbaa !30
+  %10 = load ptr, ptr %5, align 8, !tbaa !44
+  %11 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8, !tbaa !46
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %55
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %metadata.addr, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %3, i32 0, i32 3
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data, i32 0, i32 6
-  %4 = load i32, ptr %bits_per_sample, align 8
-  %5 = load ptr, ptr %instance, align 8
-  %bits_per_sample1 = getelementptr inbounds %struct.DecoderInstance, ptr %5, i32 0, i32 1
-  store i32 %4, ptr %bits_per_sample1, align 4
-  %6 = load ptr, ptr %metadata.addr, align 8
-  %data2 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %6, i32 0, i32 3
-  %channels = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data2, i32 0, i32 5
-  %7 = load i32, ptr %channels, align 4
-  %8 = load ptr, ptr %instance, align 8
-  %channels3 = getelementptr inbounds %struct.DecoderInstance, ptr %8, i32 0, i32 0
-  store i32 %7, ptr %channels3, align 4
-  %9 = load ptr, ptr %metadata.addr, align 8
-  %data4 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %9, i32 0, i32 3
-  %sample_rate = getelementptr inbounds %struct.FLAC__StreamMetadata_StreamInfo, ptr %data4, i32 0, i32 4
-  %10 = load i32, ptr %sample_rate, align 8
-  %11 = load ptr, ptr %instance, align 8
-  %sample_rate5 = getelementptr inbounds %struct.DecoderInstance, ptr %11, i32 0, i32 2
-  store i32 %10, ptr %sample_rate5, align 4
-  %12 = load ptr, ptr %instance, align 8
-  %channels6 = getelementptr inbounds %struct.DecoderInstance, ptr %12, i32 0, i32 0
-  %13 = load i32, ptr %channels6, align 4
-  %cmp7 = icmp ne i32 %13, 1
-  br i1 %cmp7, label %land.lhs.true, label %if.end
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !44
+  %16 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %15, i32 0, i32 3
+  %17 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %16, i32 0, i32 6
+  %18 = load i32, ptr %17, align 8, !tbaa !48
+  %19 = load ptr, ptr %7, align 8, !tbaa !30
+  %20 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %19, i32 0, i32 1
+  store i32 %18, ptr %20, align 4, !tbaa !41
+  %21 = load ptr, ptr %5, align 8, !tbaa !44
+  %22 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %22, i32 0, i32 5
+  %24 = load i32, ptr %23, align 4, !tbaa !48
+  %25 = load ptr, ptr %7, align 8, !tbaa !30
+  %26 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %25, i32 0, i32 0
+  store i32 %24, ptr %26, align 4, !tbaa !42
+  %27 = load ptr, ptr %5, align 8, !tbaa !44
+  %28 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %27, i32 0, i32 3
+  %29 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_StreamInfo, ptr %28, i32 0, i32 4
+  %30 = load i32, ptr %29, align 8, !tbaa !48
+  %31 = load ptr, ptr %7, align 8, !tbaa !30
+  %32 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %31, i32 0, i32 2
+  store i32 %30, ptr %32, align 4, !tbaa !43
+  %33 = load ptr, ptr %7, align 8, !tbaa !30
+  %34 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 4, !tbaa !42
+  %36 = icmp ne i32 %35, 1
+  br i1 %36, label %37, label %45
 
-land.lhs.true:                                    ; preds = %if.then
-  %14 = load ptr, ptr %instance, align 8
-  %channels8 = getelementptr inbounds %struct.DecoderInstance, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %channels8, align 4
-  %cmp9 = icmp ne i32 %15, 2
-  br i1 %cmp9, label %if.then10, label %if.end
+37:                                               ; preds = %14
+  %38 = load ptr, ptr %7, align 8, !tbaa !30
+  %39 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %38, i32 0, i32 0
+  %40 = load i32, ptr %39, align 4, !tbaa !42
+  %41 = icmp ne i32 %40, 2
+  br i1 %41, label %42, label %45
 
-if.then10:                                        ; preds = %land.lhs.true
-  %16 = load ptr, ptr %instance, align 8
-  %error = getelementptr inbounds %struct.DecoderInstance, ptr %16, i32 0, i32 3
-  store i32 1, ptr %error, align 4
-  br label %if.end15
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %7, align 8, !tbaa !30
+  %44 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %43, i32 0, i32 3
+  store i32 1, ptr %44, align 4, !tbaa !31
+  store i32 1, ptr %8, align 4
+  br label %56
 
-if.end:                                           ; preds = %land.lhs.true, %if.then
-  %17 = load ptr, ptr %instance, align 8
-  %sample_rate11 = getelementptr inbounds %struct.DecoderInstance, ptr %17, i32 0, i32 2
-  %18 = load i32, ptr %sample_rate11, align 4
-  %call = call i32 @grabbag__replaygain_is_valid_sample_frequency(i32 noundef %18)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end14, label %if.then12
+45:                                               ; preds = %37, %14
+  %46 = load ptr, ptr %7, align 8, !tbaa !30
+  %47 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %46, i32 0, i32 2
+  %48 = load i32, ptr %47, align 4, !tbaa !43
+  %49 = call i32 @grabbag__replaygain_is_valid_sample_frequency(i32 noundef %48)
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %54, label %51
 
-if.then12:                                        ; preds = %if.end
-  %19 = load ptr, ptr %instance, align 8
-  %error13 = getelementptr inbounds %struct.DecoderInstance, ptr %19, i32 0, i32 3
-  store i32 1, ptr %error13, align 4
-  br label %if.end15
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %7, align 8, !tbaa !30
+  %53 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %52, i32 0, i32 3
+  store i32 1, ptr %53, align 4, !tbaa !31
+  store i32 1, ptr %8, align 4
+  br label %56
 
-if.end14:                                         ; preds = %if.end
-  br label %if.end15
+54:                                               ; preds = %45
+  br label %55
 
-if.end15:                                         ; preds = %if.end14, %if.then12, %if.then10, %entry
+55:                                               ; preds = %54, %3
+  store i32 0, ptr %8, align 4
+  br label %56
+
+56:                                               ; preds = %55, %51, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %57 = load i32, ptr %8, align 4
+  switch i32 %57, label %59 [
+    i32 0, label %58
+    i32 1, label %58
+  ]
+
+58:                                               ; preds = %56, %56
   ret void
+
+59:                                               ; preds = %56
+  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @error_callback_(ptr noundef %decoder, i32 noundef %status, ptr noundef %client_data) #0 {
-entry:
-  %decoder.addr = alloca ptr, align 8
-  %status.addr = alloca i32, align 4
-  %client_data.addr = alloca ptr, align 8
-  %instance = alloca ptr, align 8
-  store ptr %decoder, ptr %decoder.addr, align 8
-  store i32 %status, ptr %status.addr, align 4
-  store ptr %client_data, ptr %client_data.addr, align 8
-  %0 = load ptr, ptr %client_data.addr, align 8
-  store ptr %0, ptr %instance, align 8
-  %1 = load ptr, ptr %instance, align 8
-  %error = getelementptr inbounds %struct.DecoderInstance, ptr %1, i32 0, i32 3
-  store i32 1, ptr %error, align 4
+define internal void @error_callback_(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !30
+  store i32 %1, ptr %5, align 4, !tbaa !4
+  store ptr %2, ptr %6, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %8 = load ptr, ptr %6, align 8, !tbaa !30
+  store ptr %8, ptr %7, align 8, !tbaa !30
+  %9 = load ptr, ptr %7, align 8, !tbaa !30
+  %10 = getelementptr inbounds nuw %struct.DecoderInstance, ptr %9, i32 0, i32 3
+  store i32 1, ptr %10, align 4, !tbaa !31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret void
 }
 
@@ -1048,1122 +1165,1221 @@ declare void @FLAC__stream_decoder_delete(ptr noundef) #1
 declare i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment(ptr noundef %block, float noundef %album_gain, float noundef %album_peak, float noundef %title_gain, float noundef %title_peak) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %block.addr = alloca ptr, align 8
-  %album_gain.addr = alloca float, align 4
-  %album_peak.addr = alloca float, align 4
-  %title_gain.addr = alloca float, align 4
-  %title_peak.addr = alloca float, align 4
-  %error = alloca ptr, align 8
-  store ptr %block, ptr %block.addr, align 8
-  store float %album_gain, ptr %album_gain.addr, align 4
-  store float %album_peak, ptr %album_peak.addr, align 4
-  store float %title_gain, ptr %title_gain.addr, align 4
-  store float %title_peak, ptr %title_peak.addr, align 4
-  %0 = load ptr, ptr %block.addr, align 8
-  %call = call ptr @grabbag__replaygain_store_to_vorbiscomment_reference(ptr noundef %0)
-  store ptr %call, ptr %error, align 8
-  %cmp = icmp ne ptr null, %call
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !44
+  store float %1, ptr %8, align 4, !tbaa !15
+  store float %2, ptr %9, align 4, !tbaa !15
+  store float %3, ptr %10, align 4, !tbaa !15
+  store float %4, ptr %11, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %14 = load ptr, ptr %7, align 8, !tbaa !44
+  %15 = call ptr @grabbag__replaygain_store_to_vorbiscomment_reference(ptr noundef %14)
+  store ptr %15, ptr %12, align 8, !tbaa !28
+  %16 = icmp ne ptr null, %15
+  br i1 %16, label %17, label %19
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %error, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %5
+  %18 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %18, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %36
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %block.addr, align 8
-  %3 = load float, ptr %title_gain.addr, align 4
-  %4 = load float, ptr %title_peak.addr, align 4
-  %call1 = call ptr @grabbag__replaygain_store_to_vorbiscomment_title(ptr noundef %2, float noundef %3, float noundef %4)
-  store ptr %call1, ptr %error, align 8
-  %cmp2 = icmp ne ptr null, %call1
-  br i1 %cmp2, label %if.then3, label %if.end4
+19:                                               ; preds = %5
+  %20 = load ptr, ptr %7, align 8, !tbaa !44
+  %21 = load float, ptr %10, align 4, !tbaa !15
+  %22 = load float, ptr %11, align 4, !tbaa !15
+  %23 = call ptr @grabbag__replaygain_store_to_vorbiscomment_title(ptr noundef %20, float noundef %21, float noundef %22)
+  store ptr %23, ptr %12, align 8, !tbaa !28
+  %24 = icmp ne ptr null, %23
+  br i1 %24, label %25, label %27
 
-if.then3:                                         ; preds = %if.end
-  %5 = load ptr, ptr %error, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %26, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %36
 
-if.end4:                                          ; preds = %if.end
-  %6 = load ptr, ptr %block.addr, align 8
-  %7 = load float, ptr %album_gain.addr, align 4
-  %8 = load float, ptr %album_peak.addr, align 4
-  %call5 = call ptr @grabbag__replaygain_store_to_vorbiscomment_album(ptr noundef %6, float noundef %7, float noundef %8)
-  store ptr %call5, ptr %error, align 8
-  %cmp6 = icmp ne ptr null, %call5
-  br i1 %cmp6, label %if.then7, label %if.end8
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %7, align 8, !tbaa !44
+  %29 = load float, ptr %8, align 4, !tbaa !15
+  %30 = load float, ptr %9, align 4, !tbaa !15
+  %31 = call ptr @grabbag__replaygain_store_to_vorbiscomment_album(ptr noundef %28, float noundef %29, float noundef %30)
+  store ptr %31, ptr %12, align 8, !tbaa !28
+  %32 = icmp ne ptr null, %31
+  br i1 %32, label %33, label %35
 
-if.then7:                                         ; preds = %if.end4
-  %9 = load ptr, ptr %error, align 8
-  store ptr %9, ptr %retval, align 8
-  br label %return
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %34, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %36
 
-if.end8:                                          ; preds = %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
+35:                                               ; preds = %27
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %36
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then3, %if.then
-  %10 = load ptr, ptr %retval, align 8
-  ret ptr %10
+36:                                               ; preds = %35, %33, %25, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %37 = load ptr, ptr %6, align 8
+  ret ptr %37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_reference(ptr noundef %block) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %block.addr = alloca ptr, align 8
-  store ptr %block, ptr %block.addr, align 8
-  %0 = load ptr, ptr %block.addr, align 8
-  %call = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef @.str)
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_reference(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !44
+  %5 = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %4, ptr noundef @.str)
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %7, label %8
 
-if.then:                                          ; preds = %entry
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+7:                                                ; preds = %1
+  store ptr @.str.5, ptr %2, align 8
+  br label %16
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %block.addr, align 8
-  %2 = load ptr, ptr @reference_format_, align 8
-  %3 = load float, ptr @ReplayGainReferenceLoudness, align 4
-  %call1 = call i32 @append_tag_(ptr noundef %1, ptr noundef %2, ptr noundef @.str, float noundef %3)
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %if.end3, label %if.then2
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !44
+  %10 = load ptr, ptr @reference_format_, align 8, !tbaa !28
+  %11 = load float, ptr @ReplayGainReferenceLoudness, align 4, !tbaa !15
+  %12 = call i32 @append_tag_(ptr noundef %9, ptr noundef %10, ptr noundef @.str, float noundef %11)
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %15, label %14
 
-if.then2:                                         ; preds = %if.end
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %8
+  store ptr @.str.5, ptr %2, align 8
+  br label %16
 
-if.end3:                                          ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %8
+  store ptr null, ptr %2, align 8
+  br label %16
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+16:                                               ; preds = %15, %14, %7
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_title(ptr noundef %block, float noundef %title_gain, float noundef %title_peak) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %block.addr = alloca ptr, align 8
-  %title_gain.addr = alloca float, align 4
-  %title_peak.addr = alloca float, align 4
-  store ptr %block, ptr %block.addr, align 8
-  store float %title_gain, ptr %title_gain.addr, align 4
-  store float %title_peak, ptr %title_peak.addr, align 4
-  %0 = load ptr, ptr %block.addr, align 8
-  %call = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef @.str.1)
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_title(ptr noundef %0, float noundef %1, float noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !44
+  store float %1, ptr %6, align 4, !tbaa !15
+  store float %2, ptr %7, align 4, !tbaa !15
+  %8 = load ptr, ptr %5, align 8, !tbaa !44
+  %9 = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %8, ptr noundef @.str.1)
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %15, label %11
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %block.addr, align 8
-  %call1 = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %1, ptr noundef @.str.2)
-  %cmp2 = icmp slt i32 %call1, 0
-  br i1 %cmp2, label %if.then, label %if.end
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !44
+  %13 = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %12, ptr noundef @.str.2)
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %11, %3
+  store ptr @.str.5, ptr %4, align 8
+  br label %30
 
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %block.addr, align 8
-  %3 = load ptr, ptr @gain_format_, align 8
-  %4 = load float, ptr %title_gain.addr, align 4
-  %call3 = call i32 @append_tag_(ptr noundef %2, ptr noundef %3, ptr noundef @.str.1, float noundef %4)
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %lor.lhs.false4, label %if.then7
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %5, align 8, !tbaa !44
+  %18 = load ptr, ptr @gain_format_, align 8, !tbaa !28
+  %19 = load float, ptr %6, align 4, !tbaa !15
+  %20 = call i32 @append_tag_(ptr noundef %17, ptr noundef %18, ptr noundef @.str.1, float noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %28
 
-lor.lhs.false4:                                   ; preds = %if.end
-  %5 = load ptr, ptr %block.addr, align 8
-  %6 = load ptr, ptr @peak_format_, align 8
-  %7 = load float, ptr %title_peak.addr, align 4
-  %call5 = call i32 @append_tag_(ptr noundef %5, ptr noundef %6, ptr noundef @.str.2, float noundef %7)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.end8, label %if.then7
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %5, align 8, !tbaa !44
+  %24 = load ptr, ptr @peak_format_, align 8, !tbaa !28
+  %25 = load float, ptr %7, align 4, !tbaa !15
+  %26 = call i32 @append_tag_(ptr noundef %23, ptr noundef %24, ptr noundef @.str.2, float noundef %25)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %29, label %28
 
-if.then7:                                         ; preds = %lor.lhs.false4, %if.end
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %22, %16
+  store ptr @.str.5, ptr %4, align 8
+  br label %30
 
-if.end8:                                          ; preds = %lor.lhs.false4
-  store ptr null, ptr %retval, align 8
-  br label %return
+29:                                               ; preds = %22
+  store ptr null, ptr %4, align 8
+  br label %30
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+30:                                               ; preds = %29, %28, %15
+  %31 = load ptr, ptr %4, align 8
+  ret ptr %31
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_album(ptr noundef %block, float noundef %album_gain, float noundef %album_peak) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %block.addr = alloca ptr, align 8
-  %album_gain.addr = alloca float, align 4
-  %album_peak.addr = alloca float, align 4
-  store ptr %block, ptr %block.addr, align 8
-  store float %album_gain, ptr %album_gain.addr, align 4
-  store float %album_peak, ptr %album_peak.addr, align 4
-  %0 = load ptr, ptr %block.addr, align 8
-  %call = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef @.str.3)
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_album(ptr noundef %0, float noundef %1, float noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !44
+  store float %1, ptr %6, align 4, !tbaa !15
+  store float %2, ptr %7, align 4, !tbaa !15
+  %8 = load ptr, ptr %5, align 8, !tbaa !44
+  %9 = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %8, ptr noundef @.str.3)
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %15, label %11
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %block.addr, align 8
-  %call1 = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %1, ptr noundef @.str.4)
-  %cmp2 = icmp slt i32 %call1, 0
-  br i1 %cmp2, label %if.then, label %if.end
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !44
+  %13 = call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %12, ptr noundef @.str.4)
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %11, %3
+  store ptr @.str.5, ptr %4, align 8
+  br label %30
 
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %block.addr, align 8
-  %3 = load ptr, ptr @gain_format_, align 8
-  %4 = load float, ptr %album_gain.addr, align 4
-  %call3 = call i32 @append_tag_(ptr noundef %2, ptr noundef %3, ptr noundef @.str.3, float noundef %4)
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %lor.lhs.false4, label %if.then7
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %5, align 8, !tbaa !44
+  %18 = load ptr, ptr @gain_format_, align 8, !tbaa !28
+  %19 = load float, ptr %6, align 4, !tbaa !15
+  %20 = call i32 @append_tag_(ptr noundef %17, ptr noundef %18, ptr noundef @.str.3, float noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %28
 
-lor.lhs.false4:                                   ; preds = %if.end
-  %5 = load ptr, ptr %block.addr, align 8
-  %6 = load ptr, ptr @peak_format_, align 8
-  %7 = load float, ptr %album_peak.addr, align 4
-  %call5 = call i32 @append_tag_(ptr noundef %5, ptr noundef %6, ptr noundef @.str.4, float noundef %7)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.end8, label %if.then7
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %5, align 8, !tbaa !44
+  %24 = load ptr, ptr @peak_format_, align 8, !tbaa !28
+  %25 = load float, ptr %7, align 4, !tbaa !15
+  %26 = call i32 @append_tag_(ptr noundef %23, ptr noundef %24, ptr noundef @.str.4, float noundef %25)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %29, label %28
 
-if.then7:                                         ; preds = %lor.lhs.false4, %if.end
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %22, %16
+  store ptr @.str.5, ptr %4, align 8
+  br label %30
 
-if.end8:                                          ; preds = %lor.lhs.false4
-  store ptr null, ptr %retval, align 8
-  br label %return
+29:                                               ; preds = %22
+  store ptr null, ptr %4, align 8
+  br label %30
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+30:                                               ; preds = %29, %28, %15
+  %31 = load ptr, ptr %4, align 8
+  ret ptr %31
 }
 
 declare i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @append_tag_(ptr noundef %block, ptr noundef %format, ptr noundef %name, float noundef %value) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %block.addr = alloca ptr, align 8
-  %format.addr = alloca ptr, align 8
-  %name.addr = alloca ptr, align 8
-  %value.addr = alloca float, align 4
-  %buffer = alloca [256 x i8], align 16
-  %saved_locale = alloca ptr, align 8
-  %entry1 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
-  store ptr %block, ptr %block.addr, align 8
-  store ptr %format, ptr %format.addr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  store float %value, ptr %value.addr, align 4
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 255
-  store i8 0, ptr %arrayidx, align 1
-  %call = call ptr @setlocale(i32 noundef 6, ptr noundef null) #5
-  %call2 = call noalias ptr @strdup(ptr noundef %call) #5
-  store ptr %call2, ptr %saved_locale, align 8
-  %0 = load ptr, ptr %saved_locale, align 8
-  %cmp = icmp eq ptr null, %0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @append_tag_(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca float, align 4
+  %10 = alloca [256 x i8], align 16
+  %11 = alloca ptr, align 8
+  %12 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !44
+  store ptr %1, ptr %7, align 8, !tbaa !28
+  store ptr %2, ptr %8, align 8, !tbaa !28
+  store float %3, ptr %9, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 256, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #8
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 255
+  store i8 0, ptr %14, align 1, !tbaa !48
+  %15 = call ptr @setlocale(i32 noundef 6, ptr noundef null) #8
+  %16 = call noalias ptr @strdup(ptr noundef %15) #8
+  store ptr %16, ptr %11, align 8, !tbaa !28
+  %17 = load ptr, ptr %11, align 8, !tbaa !28
+  %18 = icmp eq ptr null, %17
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %4
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %43
 
-if.end:                                           ; preds = %entry
-  %call3 = call ptr @setlocale(i32 noundef 6, ptr noundef @.str.8) #5
-  %arraydecay = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 0
-  %1 = load ptr, ptr %format.addr, align 8
-  %2 = load ptr, ptr %name.addr, align 8
-  %3 = load float, ptr %value.addr, align 4
-  %conv = fpext float %3 to double
-  %call4 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef %arraydecay, i64 noundef 256, ptr noundef %1, ptr noundef %2, double noundef %conv)
-  %4 = load ptr, ptr %saved_locale, align 8
-  %call5 = call ptr @setlocale(i32 noundef 6, ptr noundef %4) #5
-  %5 = load ptr, ptr %saved_locale, align 8
-  call void @free(ptr noundef %5) #5
-  %arraydecay6 = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 0
-  %entry7 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %entry1, i32 0, i32 1
-  store ptr %arraydecay6, ptr %entry7, align 8
-  %arraydecay8 = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 0
-  %call9 = call i64 @strlen(ptr noundef %arraydecay8) #6
-  %conv10 = trunc i64 %call9 to i32
-  %length = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %entry1, i32 0, i32 0
-  store i32 %conv10, ptr %length, align 8
-  %6 = load ptr, ptr %block.addr, align 8
-  %7 = getelementptr inbounds { i32, ptr }, ptr %entry1, i32 0, i32 0
-  %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds { i32, ptr }, ptr %entry1, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %call11 = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %6, i32 %8, ptr %10, i32 noundef 1)
-  store i32 %call11, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %4
+  %21 = call ptr @setlocale(i32 noundef 6, ptr noundef @.str.8) #8
+  %22 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
+  %23 = load ptr, ptr %7, align 8, !tbaa !28
+  %24 = load ptr, ptr %8, align 8, !tbaa !28
+  %25 = load float, ptr %9, align 4, !tbaa !15
+  %26 = fpext float %25 to double
+  %27 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef %22, i64 noundef 256, ptr noundef %23, ptr noundef %24, double noundef %26)
+  %28 = load ptr, ptr %11, align 8, !tbaa !28
+  %29 = call ptr @setlocale(i32 noundef 6, ptr noundef %28) #8
+  %30 = load ptr, ptr %11, align 8, !tbaa !28
+  call void @free(ptr noundef %30) #8
+  %31 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
+  %32 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %12, i32 0, i32 1
+  store ptr %31, ptr %32, align 8, !tbaa !49
+  %33 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
+  %34 = call i64 @strlen(ptr noundef %33) #9
+  %35 = trunc i64 %34 to i32
+  %36 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %12, i32 0, i32 0
+  store i32 %35, ptr %36, align 8, !tbaa !51
+  %37 = load ptr, ptr %6, align 8, !tbaa !44
+  %38 = getelementptr inbounds nuw { i32, ptr }, ptr %12, i32 0, i32 0
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds nuw { i32, ptr }, ptr %12, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %37, i32 %39, ptr %41, i32 noundef 1)
+  store i32 %42, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %43
 
-return:                                           ; preds = %if.end, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+43:                                               ; preds = %20, %19
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr %10) #8
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_store_to_file(ptr noundef %filename, float noundef %album_gain, float noundef %album_peak, float noundef %title_gain, float noundef %title_peak, i32 noundef %preserve_modtime) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %filename.addr = alloca ptr, align 8
-  %album_gain.addr = alloca float, align 4
-  %album_peak.addr = alloca float, align 4
-  %title_gain.addr = alloca float, align 4
-  %title_peak.addr = alloca float, align 4
-  %preserve_modtime.addr = alloca i32, align 4
-  %chain = alloca ptr, align 8
-  %block = alloca ptr, align 8
-  %error = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store float %album_gain, ptr %album_gain.addr, align 4
-  store float %album_peak, ptr %album_peak.addr, align 4
-  store float %title_gain, ptr %title_gain.addr, align 4
-  store float %title_peak, ptr %title_peak.addr, align 4
-  store i32 %preserve_modtime, ptr %preserve_modtime.addr, align 4
-  store ptr null, ptr %block, align 8
-  %0 = load ptr, ptr %filename.addr, align 8
-  %call = call ptr @store_to_file_pre_(ptr noundef %0, ptr noundef %chain, ptr noundef %block)
-  store ptr %call, ptr %error, align 8
-  %cmp = icmp ne ptr null, %call
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local ptr @grabbag__replaygain_store_to_file(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !28
+  store float %1, ptr %9, align 4, !tbaa !15
+  store float %2, ptr %10, align 4, !tbaa !15
+  store float %3, ptr %11, align 4, !tbaa !15
+  store float %4, ptr %12, align 4, !tbaa !15
+  store i32 %5, ptr %13, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  store ptr null, ptr %15, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %18 = load ptr, ptr %8, align 8, !tbaa !28
+  %19 = call ptr @store_to_file_pre_(ptr noundef %18, ptr noundef %14, ptr noundef %15)
+  store ptr %19, ptr %16, align 8, !tbaa !28
+  %20 = icmp ne ptr null, %19
+  br i1 %20, label %21, label %23
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %error, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
+21:                                               ; preds = %6
+  %22 = load ptr, ptr %16, align 8, !tbaa !28
+  store ptr %22, ptr %7, align 8
+  store i32 1, ptr %17, align 4
+  br label %43
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %block, align 8
-  %3 = load float, ptr %album_gain.addr, align 4
-  %4 = load float, ptr %album_peak.addr, align 4
-  %5 = load float, ptr %title_gain.addr, align 4
-  %6 = load float, ptr %title_peak.addr, align 4
-  %call1 = call ptr @grabbag__replaygain_store_to_vorbiscomment(ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6)
-  store ptr %call1, ptr %error, align 8
-  %cmp2 = icmp ne ptr null, %call1
-  br i1 %cmp2, label %if.then3, label %if.end4
+23:                                               ; preds = %6
+  %24 = load ptr, ptr %15, align 8, !tbaa !44
+  %25 = load float, ptr %9, align 4, !tbaa !15
+  %26 = load float, ptr %10, align 4, !tbaa !15
+  %27 = load float, ptr %11, align 4, !tbaa !15
+  %28 = load float, ptr %12, align 4, !tbaa !15
+  %29 = call ptr @grabbag__replaygain_store_to_vorbiscomment(ptr noundef %24, float noundef %25, float noundef %26, float noundef %27, float noundef %28)
+  store ptr %29, ptr %16, align 8, !tbaa !28
+  %30 = icmp ne ptr null, %29
+  br i1 %30, label %31, label %34
 
-if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr %chain, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %7)
-  %8 = load ptr, ptr %error, align 8
-  store ptr %8, ptr %retval, align 8
-  br label %return
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %14, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %32)
+  %33 = load ptr, ptr %16, align 8, !tbaa !28
+  store ptr %33, ptr %7, align 8
+  store i32 1, ptr %17, align 4
+  br label %43
 
-if.end4:                                          ; preds = %if.end
-  %9 = load ptr, ptr %filename.addr, align 8
-  %10 = load ptr, ptr %chain, align 8
-  %11 = load i32, ptr %preserve_modtime.addr, align 4
-  %call5 = call ptr @store_to_file_post_(ptr noundef %9, ptr noundef %10, i32 noundef %11)
-  store ptr %call5, ptr %error, align 8
-  %cmp6 = icmp ne ptr null, %call5
-  br i1 %cmp6, label %if.then7, label %if.end8
+34:                                               ; preds = %23
+  %35 = load ptr, ptr %8, align 8, !tbaa !28
+  %36 = load ptr, ptr %14, align 8, !tbaa !52
+  %37 = load i32, ptr %13, align 4, !tbaa !4
+  %38 = call ptr @store_to_file_post_(ptr noundef %35, ptr noundef %36, i32 noundef %37)
+  store ptr %38, ptr %16, align 8, !tbaa !28
+  %39 = icmp ne ptr null, %38
+  br i1 %39, label %40, label %42
 
-if.then7:                                         ; preds = %if.end4
-  %12 = load ptr, ptr %error, align 8
-  store ptr %12, ptr %retval, align 8
-  br label %return
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %16, align 8, !tbaa !28
+  store ptr %41, ptr %7, align 8
+  store i32 1, ptr %17, align 4
+  br label %43
 
-if.end8:                                          ; preds = %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
+42:                                               ; preds = %34
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %17, align 4
+  br label %43
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then3, %if.then
-  %13 = load ptr, ptr %retval, align 8
-  ret ptr %13
+43:                                               ; preds = %42, %40, %31, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %44 = load ptr, ptr %7, align 8
+  ret ptr %44
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @store_to_file_pre_(ptr noundef %filename, ptr noundef %chain, ptr noundef %block) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %filename.addr = alloca ptr, align 8
-  %chain.addr = alloca ptr, align 8
-  %block.addr = alloca ptr, align 8
-  %iterator = alloca ptr, align 8
-  %error = alloca ptr, align 8
-  %found_vc_block = alloca i32, align 4
-  store ptr %filename, ptr %filename.addr, align 8
-  store ptr %chain, ptr %chain.addr, align 8
-  store ptr %block, ptr %block.addr, align 8
-  store i32 0, ptr %found_vc_block, align 4
-  %call = call ptr @FLAC__metadata_chain_new()
-  %0 = load ptr, ptr %chain.addr, align 8
-  store ptr %call, ptr %0, align 8
-  %cmp = icmp eq ptr null, %call
-  br i1 %cmp, label %if.then, label %if.end
+define internal ptr @store_to_file_pre_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !54
+  store ptr %2, ptr %7, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !4
+  %12 = call ptr @FLAC__metadata_chain_new()
+  %13 = load ptr, ptr %6, align 8, !tbaa !54
+  store ptr %12, ptr %13, align 8, !tbaa !52
+  %14 = icmp eq ptr null, %12
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %3
+  store ptr @.str.5, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %101
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %chain.addr, align 8
-  %2 = load ptr, ptr %1, align 8
-  %3 = load ptr, ptr %filename.addr, align 8
-  %call1 = call i32 @FLAC__metadata_chain_read(ptr noundef %2, ptr noundef %3)
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %if.end4, label %if.then2
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %6, align 8, !tbaa !54
+  %18 = load ptr, ptr %17, align 8, !tbaa !52
+  %19 = load ptr, ptr %5, align 8, !tbaa !28
+  %20 = call i32 @FLAC__metadata_chain_read(ptr noundef %18, ptr noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %32, label %22
 
-if.then2:                                         ; preds = %if.end
-  %4 = load ptr, ptr %chain.addr, align 8
-  %5 = load ptr, ptr %4, align 8
-  %call3 = call i32 @FLAC__metadata_chain_status(ptr noundef %5)
-  %idxprom = zext i32 %call3 to i64
-  %arrayidx = getelementptr inbounds [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  store ptr %6, ptr %error, align 8
-  %7 = load ptr, ptr %chain.addr, align 8
-  %8 = load ptr, ptr %7, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %8)
-  %9 = load ptr, ptr %error, align 8
-  store ptr %9, ptr %retval, align 8
-  br label %return
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %6, align 8, !tbaa !54
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
+  %25 = call i32 @FLAC__metadata_chain_status(ptr noundef %24)
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  store ptr %28, ptr %9, align 8, !tbaa !28
+  %29 = load ptr, ptr %6, align 8, !tbaa !54
+  %30 = load ptr, ptr %29, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %30)
+  %31 = load ptr, ptr %9, align 8, !tbaa !28
+  store ptr %31, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %101
 
-if.end4:                                          ; preds = %if.end
-  %call5 = call ptr @FLAC__metadata_iterator_new()
-  store ptr %call5, ptr %iterator, align 8
-  %cmp6 = icmp eq ptr null, %call5
-  br i1 %cmp6, label %if.then7, label %if.end8
+32:                                               ; preds = %16
+  %33 = call ptr @FLAC__metadata_iterator_new()
+  store ptr %33, ptr %8, align 8, !tbaa !58
+  %34 = icmp eq ptr null, %33
+  br i1 %34, label %35, label %38
 
-if.then7:                                         ; preds = %if.end4
-  %10 = load ptr, ptr %chain.addr, align 8
-  %11 = load ptr, ptr %10, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %11)
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %6, align 8, !tbaa !54
+  %37 = load ptr, ptr %36, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %37)
+  store ptr @.str.5, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %101
 
-if.end8:                                          ; preds = %if.end4
-  %12 = load ptr, ptr %iterator, align 8
-  %13 = load ptr, ptr %chain.addr, align 8
-  %14 = load ptr, ptr %13, align 8
-  call void @FLAC__metadata_iterator_init(ptr noundef %12, ptr noundef %14)
-  br label %do.body
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %8, align 8, !tbaa !58
+  %40 = load ptr, ptr %6, align 8, !tbaa !54
+  %41 = load ptr, ptr %40, align 8, !tbaa !52
+  call void @FLAC__metadata_iterator_init(ptr noundef %39, ptr noundef %41)
+  br label %42
 
-do.body:                                          ; preds = %land.end, %if.end8
-  %15 = load ptr, ptr %iterator, align 8
-  %call9 = call ptr @FLAC__metadata_iterator_get_block(ptr noundef %15)
-  %16 = load ptr, ptr %block.addr, align 8
-  store ptr %call9, ptr %16, align 8
-  %17 = load ptr, ptr %block.addr, align 8
-  %18 = load ptr, ptr %17, align 8
-  %type = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %18, i32 0, i32 0
-  %19 = load i32, ptr %type, align 8
-  %cmp10 = icmp eq i32 %19, 4
-  br i1 %cmp10, label %if.then11, label %if.end12
+42:                                               ; preds = %60, %38
+  %43 = load ptr, ptr %8, align 8, !tbaa !58
+  %44 = call ptr @FLAC__metadata_iterator_get_block(ptr noundef %43)
+  %45 = load ptr, ptr %7, align 8, !tbaa !56
+  store ptr %44, ptr %45, align 8, !tbaa !44
+  %46 = load ptr, ptr %7, align 8, !tbaa !56
+  %47 = load ptr, ptr %46, align 8, !tbaa !44
+  %48 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %47, i32 0, i32 0
+  %49 = load i32, ptr %48, align 8, !tbaa !46
+  %50 = icmp eq i32 %49, 4
+  br i1 %50, label %51, label %52
 
-if.then11:                                        ; preds = %do.body
-  store i32 1, ptr %found_vc_block, align 4
-  br label %if.end12
+51:                                               ; preds = %42
+  store i32 1, ptr %10, align 4, !tbaa !4
+  br label %52
 
-if.end12:                                         ; preds = %if.then11, %do.body
-  br label %do.cond
+52:                                               ; preds = %51, %42
+  br label %53
 
-do.cond:                                          ; preds = %if.end12
-  %20 = load i32, ptr %found_vc_block, align 4
-  %tobool13 = icmp ne i32 %20, 0
-  br i1 %tobool13, label %land.end, label %land.rhs
+53:                                               ; preds = %52
+  %54 = load i32, ptr %10, align 4, !tbaa !4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %60, label %56
 
-land.rhs:                                         ; preds = %do.cond
-  %21 = load ptr, ptr %iterator, align 8
-  %call14 = call i32 @FLAC__metadata_iterator_next(ptr noundef %21)
-  %tobool15 = icmp ne i32 %call14, 0
-  br label %land.end
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %8, align 8, !tbaa !58
+  %58 = call i32 @FLAC__metadata_iterator_next(ptr noundef %57)
+  %59 = icmp ne i32 %58, 0
+  br label %60
 
-land.end:                                         ; preds = %land.rhs, %do.cond
-  %22 = phi i1 [ false, %do.cond ], [ %tobool15, %land.rhs ]
-  br i1 %22, label %do.body, label %do.end, !llvm.loop !14
+60:                                               ; preds = %56, %53
+  %61 = phi i1 [ false, %53 ], [ %59, %56 ]
+  br i1 %61, label %42, label %62, !llvm.loop !60
 
-do.end:                                           ; preds = %land.end
-  %23 = load i32, ptr %found_vc_block, align 4
-  %tobool16 = icmp ne i32 %23, 0
-  br i1 %tobool16, label %if.end31, label %if.then17
+62:                                               ; preds = %60
+  %63 = load i32, ptr %10, align 4, !tbaa !4
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %99, label %65
 
-if.then17:                                        ; preds = %do.end
-  %call18 = call ptr @FLAC__metadata_object_new(i32 noundef 4)
-  %24 = load ptr, ptr %block.addr, align 8
-  store ptr %call18, ptr %24, align 8
-  %25 = load ptr, ptr %block.addr, align 8
-  %26 = load ptr, ptr %25, align 8
-  %cmp19 = icmp eq ptr null, %26
-  br i1 %cmp19, label %if.then20, label %if.end21
+65:                                               ; preds = %62
+  %66 = call ptr @FLAC__metadata_object_new(i32 noundef 4)
+  %67 = load ptr, ptr %7, align 8, !tbaa !56
+  store ptr %66, ptr %67, align 8, !tbaa !44
+  %68 = load ptr, ptr %7, align 8, !tbaa !56
+  %69 = load ptr, ptr %68, align 8, !tbaa !44
+  %70 = icmp eq ptr null, %69
+  br i1 %70, label %71, label %75
 
-if.then20:                                        ; preds = %if.then17
-  %27 = load ptr, ptr %chain.addr, align 8
-  %28 = load ptr, ptr %27, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %28)
-  %29 = load ptr, ptr %iterator, align 8
-  call void @FLAC__metadata_iterator_delete(ptr noundef %29)
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %6, align 8, !tbaa !54
+  %73 = load ptr, ptr %72, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %73)
+  %74 = load ptr, ptr %8, align 8, !tbaa !58
+  call void @FLAC__metadata_iterator_delete(ptr noundef %74)
+  store ptr @.str.5, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %101
 
-if.end21:                                         ; preds = %if.then17
-  br label %while.cond
+75:                                               ; preds = %65
+  br label %76
 
-while.cond:                                       ; preds = %while.body, %if.end21
-  %30 = load ptr, ptr %iterator, align 8
-  %call22 = call i32 @FLAC__metadata_iterator_next(ptr noundef %30)
-  %tobool23 = icmp ne i32 %call22, 0
-  br i1 %tobool23, label %while.body, label %while.end
+76:                                               ; preds = %80, %75
+  %77 = load ptr, ptr %8, align 8, !tbaa !58
+  %78 = call i32 @FLAC__metadata_iterator_next(ptr noundef %77)
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %81
 
-while.body:                                       ; preds = %while.cond
-  br label %while.cond, !llvm.loop !15
+80:                                               ; preds = %76
+  br label %76, !llvm.loop !61
 
-while.end:                                        ; preds = %while.cond
-  %31 = load ptr, ptr %iterator, align 8
-  %32 = load ptr, ptr %block.addr, align 8
-  %33 = load ptr, ptr %32, align 8
-  %call24 = call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %31, ptr noundef %33)
-  %tobool25 = icmp ne i32 %call24, 0
-  br i1 %tobool25, label %if.end30, label %if.then26
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %8, align 8, !tbaa !58
+  %83 = load ptr, ptr %7, align 8, !tbaa !56
+  %84 = load ptr, ptr %83, align 8, !tbaa !44
+  %85 = call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %82, ptr noundef %84)
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %98, label %87
 
-if.then26:                                        ; preds = %while.end
-  %34 = load ptr, ptr %chain.addr, align 8
-  %35 = load ptr, ptr %34, align 8
-  %call27 = call i32 @FLAC__metadata_chain_status(ptr noundef %35)
-  %idxprom28 = zext i32 %call27 to i64
-  %arrayidx29 = getelementptr inbounds [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom28
-  %36 = load ptr, ptr %arrayidx29, align 8
-  store ptr %36, ptr %error, align 8
-  %37 = load ptr, ptr %chain.addr, align 8
-  %38 = load ptr, ptr %37, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %38)
-  %39 = load ptr, ptr %iterator, align 8
-  call void @FLAC__metadata_iterator_delete(ptr noundef %39)
-  %40 = load ptr, ptr %error, align 8
-  store ptr %40, ptr %retval, align 8
-  br label %return
+87:                                               ; preds = %81
+  %88 = load ptr, ptr %6, align 8, !tbaa !54
+  %89 = load ptr, ptr %88, align 8, !tbaa !52
+  %90 = call i32 @FLAC__metadata_chain_status(ptr noundef %89)
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %91
+  %93 = load ptr, ptr %92, align 8, !tbaa !28
+  store ptr %93, ptr %9, align 8, !tbaa !28
+  %94 = load ptr, ptr %6, align 8, !tbaa !54
+  %95 = load ptr, ptr %94, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %95)
+  %96 = load ptr, ptr %8, align 8, !tbaa !58
+  call void @FLAC__metadata_iterator_delete(ptr noundef %96)
+  %97 = load ptr, ptr %9, align 8, !tbaa !28
+  store ptr %97, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %101
 
-if.end30:                                         ; preds = %while.end
-  br label %if.end31
+98:                                               ; preds = %81
+  br label %99
 
-if.end31:                                         ; preds = %if.end30, %do.end
-  %41 = load ptr, ptr %iterator, align 8
-  call void @FLAC__metadata_iterator_delete(ptr noundef %41)
-  store ptr null, ptr %retval, align 8
-  br label %return
+99:                                               ; preds = %98, %62
+  %100 = load ptr, ptr %8, align 8, !tbaa !58
+  call void @FLAC__metadata_iterator_delete(ptr noundef %100)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %101
 
-return:                                           ; preds = %if.end31, %if.then26, %if.then20, %if.then7, %if.then2, %if.then
-  %42 = load ptr, ptr %retval, align 8
-  ret ptr %42
+101:                                              ; preds = %99, %87, %71, %35, %22, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %102 = load ptr, ptr %4, align 8
+  ret ptr %102
 }
 
 declare void @FLAC__metadata_chain_delete(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @store_to_file_post_(ptr noundef %filename, ptr noundef %chain, i32 noundef %preserve_modtime) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %filename.addr = alloca ptr, align 8
-  %chain.addr = alloca ptr, align 8
-  %preserve_modtime.addr = alloca i32, align 4
-  %stats = alloca %struct.stat, align 8
-  %have_stats = alloca i32, align 4
-  %error = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store ptr %chain, ptr %chain.addr, align 8
-  store i32 %preserve_modtime, ptr %preserve_modtime.addr, align 4
-  %0 = load ptr, ptr %filename.addr, align 8
-  %call = call i32 @get_file_stats_(ptr noundef %0, ptr noundef %stats)
-  store i32 %call, ptr %have_stats, align 4
-  %1 = load ptr, ptr %filename.addr, align 8
-  %call1 = call i32 @grabbag__file_change_stats(ptr noundef %1, i32 noundef 0)
-  %2 = load ptr, ptr %chain.addr, align 8
-  call void @FLAC__metadata_chain_sort_padding(ptr noundef %2)
-  %3 = load ptr, ptr %chain.addr, align 8
-  %4 = load i32, ptr %preserve_modtime.addr, align 4
-  %call2 = call i32 @FLAC__metadata_chain_write(ptr noundef %3, i32 noundef 1, i32 noundef %4)
-  %tobool = icmp ne i32 %call2, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @store_to_file_post_(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.stat, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !52
+  store i32 %2, ptr %7, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 144, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %12 = load ptr, ptr %5, align 8, !tbaa !28
+  %13 = call i32 @get_file_stats_(ptr noundef %12, ptr noundef %8)
+  store i32 %13, ptr %9, align 4, !tbaa !4
+  %14 = load ptr, ptr %5, align 8, !tbaa !28
+  %15 = call i32 @grabbag__file_change_stats(ptr noundef %14, i32 noundef 0)
+  %16 = load ptr, ptr %6, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_sort_padding(ptr noundef %16)
+  %17 = load ptr, ptr %6, align 8, !tbaa !52
+  %18 = load i32, ptr %7, align 4, !tbaa !4
+  %19 = call i32 @FLAC__metadata_chain_write(ptr noundef %17, i32 noundef 1, i32 noundef %18)
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %29, label %21
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %chain.addr, align 8
-  %call3 = call i32 @FLAC__metadata_chain_status(ptr noundef %5)
-  %idxprom = zext i32 %call3 to i64
-  %arrayidx = getelementptr inbounds [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  store ptr %6, ptr %error, align 8
-  %7 = load ptr, ptr %chain.addr, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %7)
-  %8 = load ptr, ptr %error, align 8
-  store ptr %8, ptr %retval, align 8
-  br label %return
+21:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %22 = load ptr, ptr %6, align 8, !tbaa !52
+  %23 = call i32 @FLAC__metadata_chain_status(ptr noundef %22)
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  store ptr %26, ptr %10, align 8, !tbaa !28
+  %27 = load ptr, ptr %6, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %27)
+  %28 = load ptr, ptr %10, align 8, !tbaa !28
+  store ptr %28, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  br label %36
 
-if.end:                                           ; preds = %entry
-  %9 = load ptr, ptr %chain.addr, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %9)
-  %10 = load i32, ptr %have_stats, align 4
-  %tobool4 = icmp ne i32 %10, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
+29:                                               ; preds = %3
+  %30 = load ptr, ptr %6, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %30)
+  %31 = load i32, ptr %9, align 4, !tbaa !4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %35
 
-if.then5:                                         ; preds = %if.end
-  %11 = load ptr, ptr %filename.addr, align 8
-  call void @set_file_stats_(ptr noundef %11, ptr noundef %stats)
-  br label %if.end6
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @set_file_stats_(ptr noundef %34, ptr noundef %8)
+  br label %35
 
-if.end6:                                          ; preds = %if.then5, %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+35:                                               ; preds = %33, %29
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %36
 
-return:                                           ; preds = %if.end6, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+36:                                               ; preds = %35, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 144, ptr %8) #8
+  %37 = load ptr, ptr %4, align 8
+  ret ptr %37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_store_to_file_reference(ptr noundef %filename, i32 noundef %preserve_modtime) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %filename.addr = alloca ptr, align 8
-  %preserve_modtime.addr = alloca i32, align 4
-  %chain = alloca ptr, align 8
-  %block = alloca ptr, align 8
-  %error = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store i32 %preserve_modtime, ptr %preserve_modtime.addr, align 4
-  store ptr null, ptr %block, align 8
-  %0 = load ptr, ptr %filename.addr, align 8
-  %call = call ptr @store_to_file_pre_(ptr noundef %0, ptr noundef %chain, ptr noundef %block)
-  store ptr %call, ptr %error, align 8
-  %cmp = icmp ne ptr null, %call
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local ptr @grabbag__replaygain_store_to_file_reference(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store i32 %1, ptr %5, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  store ptr null, ptr %7, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %10 = load ptr, ptr %4, align 8, !tbaa !28
+  %11 = call ptr @store_to_file_pre_(ptr noundef %10, ptr noundef %6, ptr noundef %7)
+  store ptr %11, ptr %8, align 8, !tbaa !28
+  %12 = icmp ne ptr null, %11
+  br i1 %12, label %13, label %15
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %error, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %8, align 8, !tbaa !28
+  store ptr %14, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %31
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %block, align 8
-  %call1 = call ptr @grabbag__replaygain_store_to_vorbiscomment_reference(ptr noundef %2)
-  store ptr %call1, ptr %error, align 8
-  %cmp2 = icmp ne ptr null, %call1
-  br i1 %cmp2, label %if.then3, label %if.end4
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %7, align 8, !tbaa !44
+  %17 = call ptr @grabbag__replaygain_store_to_vorbiscomment_reference(ptr noundef %16)
+  store ptr %17, ptr %8, align 8, !tbaa !28
+  %18 = icmp ne ptr null, %17
+  br i1 %18, label %19, label %22
 
-if.then3:                                         ; preds = %if.end
-  %3 = load ptr, ptr %chain, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %3)
-  %4 = load ptr, ptr %error, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %6, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %20)
+  %21 = load ptr, ptr %8, align 8, !tbaa !28
+  store ptr %21, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %31
 
-if.end4:                                          ; preds = %if.end
-  %5 = load ptr, ptr %filename.addr, align 8
-  %6 = load ptr, ptr %chain, align 8
-  %7 = load i32, ptr %preserve_modtime.addr, align 4
-  %call5 = call ptr @store_to_file_post_(ptr noundef %5, ptr noundef %6, i32 noundef %7)
-  store ptr %call5, ptr %error, align 8
-  %cmp6 = icmp ne ptr null, %call5
-  br i1 %cmp6, label %if.then7, label %if.end8
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %4, align 8, !tbaa !28
+  %24 = load ptr, ptr %6, align 8, !tbaa !52
+  %25 = load i32, ptr %5, align 4, !tbaa !4
+  %26 = call ptr @store_to_file_post_(ptr noundef %23, ptr noundef %24, i32 noundef %25)
+  store ptr %26, ptr %8, align 8, !tbaa !28
+  %27 = icmp ne ptr null, %26
+  br i1 %27, label %28, label %30
 
-if.then7:                                         ; preds = %if.end4
-  %8 = load ptr, ptr %error, align 8
-  store ptr %8, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %8, align 8, !tbaa !28
+  store ptr %29, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %31
 
-if.end8:                                          ; preds = %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
+30:                                               ; preds = %22
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %31
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then3, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
+31:                                               ; preds = %30, %28, %19, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %32 = load ptr, ptr %3, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_store_to_file_album(ptr noundef %filename, float noundef %album_gain, float noundef %album_peak, i32 noundef %preserve_modtime) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %filename.addr = alloca ptr, align 8
-  %album_gain.addr = alloca float, align 4
-  %album_peak.addr = alloca float, align 4
-  %preserve_modtime.addr = alloca i32, align 4
-  %chain = alloca ptr, align 8
-  %block = alloca ptr, align 8
-  %error = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store float %album_gain, ptr %album_gain.addr, align 4
-  store float %album_peak, ptr %album_peak.addr, align 4
-  store i32 %preserve_modtime, ptr %preserve_modtime.addr, align 4
-  store ptr null, ptr %block, align 8
-  %0 = load ptr, ptr %filename.addr, align 8
-  %call = call ptr @store_to_file_pre_(ptr noundef %0, ptr noundef %chain, ptr noundef %block)
-  store ptr %call, ptr %error, align 8
-  %cmp = icmp ne ptr null, %call
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local ptr @grabbag__replaygain_store_to_file_album(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !28
+  store float %1, ptr %7, align 4, !tbaa !15
+  store float %2, ptr %8, align 4, !tbaa !15
+  store i32 %3, ptr %9, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store ptr null, ptr %11, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %14 = load ptr, ptr %6, align 8, !tbaa !28
+  %15 = call ptr @store_to_file_pre_(ptr noundef %14, ptr noundef %10, ptr noundef %11)
+  store ptr %15, ptr %12, align 8, !tbaa !28
+  %16 = icmp ne ptr null, %15
+  br i1 %16, label %17, label %19
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %error, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %18, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %37
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %block, align 8
-  %3 = load float, ptr %album_gain.addr, align 4
-  %4 = load float, ptr %album_peak.addr, align 4
-  %call1 = call ptr @grabbag__replaygain_store_to_vorbiscomment_album(ptr noundef %2, float noundef %3, float noundef %4)
-  store ptr %call1, ptr %error, align 8
-  %cmp2 = icmp ne ptr null, %call1
-  br i1 %cmp2, label %if.then3, label %if.end4
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %11, align 8, !tbaa !44
+  %21 = load float, ptr %7, align 4, !tbaa !15
+  %22 = load float, ptr %8, align 4, !tbaa !15
+  %23 = call ptr @grabbag__replaygain_store_to_vorbiscomment_album(ptr noundef %20, float noundef %21, float noundef %22)
+  store ptr %23, ptr %12, align 8, !tbaa !28
+  %24 = icmp ne ptr null, %23
+  br i1 %24, label %25, label %28
 
-if.then3:                                         ; preds = %if.end
-  %5 = load ptr, ptr %chain, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %5)
-  %6 = load ptr, ptr %error, align 8
-  store ptr %6, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %10, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %26)
+  %27 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %27, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %37
 
-if.end4:                                          ; preds = %if.end
-  %7 = load ptr, ptr %filename.addr, align 8
-  %8 = load ptr, ptr %chain, align 8
-  %9 = load i32, ptr %preserve_modtime.addr, align 4
-  %call5 = call ptr @store_to_file_post_(ptr noundef %7, ptr noundef %8, i32 noundef %9)
-  store ptr %call5, ptr %error, align 8
-  %cmp6 = icmp ne ptr null, %call5
-  br i1 %cmp6, label %if.then7, label %if.end8
+28:                                               ; preds = %19
+  %29 = load ptr, ptr %6, align 8, !tbaa !28
+  %30 = load ptr, ptr %10, align 8, !tbaa !52
+  %31 = load i32, ptr %9, align 4, !tbaa !4
+  %32 = call ptr @store_to_file_post_(ptr noundef %29, ptr noundef %30, i32 noundef %31)
+  store ptr %32, ptr %12, align 8, !tbaa !28
+  %33 = icmp ne ptr null, %32
+  br i1 %33, label %34, label %36
 
-if.then7:                                         ; preds = %if.end4
-  %10 = load ptr, ptr %error, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %35, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %37
 
-if.end8:                                          ; preds = %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
+36:                                               ; preds = %28
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %37
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then3, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+37:                                               ; preds = %36, %34, %25, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %38 = load ptr, ptr %5, align 8
+  ret ptr %38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_store_to_file_title(ptr noundef %filename, float noundef %title_gain, float noundef %title_peak, i32 noundef %preserve_modtime) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %filename.addr = alloca ptr, align 8
-  %title_gain.addr = alloca float, align 4
-  %title_peak.addr = alloca float, align 4
-  %preserve_modtime.addr = alloca i32, align 4
-  %chain = alloca ptr, align 8
-  %block = alloca ptr, align 8
-  %error = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store float %title_gain, ptr %title_gain.addr, align 4
-  store float %title_peak, ptr %title_peak.addr, align 4
-  store i32 %preserve_modtime, ptr %preserve_modtime.addr, align 4
-  store ptr null, ptr %block, align 8
-  %0 = load ptr, ptr %filename.addr, align 8
-  %call = call ptr @store_to_file_pre_(ptr noundef %0, ptr noundef %chain, ptr noundef %block)
-  store ptr %call, ptr %error, align 8
-  %cmp = icmp ne ptr null, %call
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local ptr @grabbag__replaygain_store_to_file_title(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !28
+  store float %1, ptr %7, align 4, !tbaa !15
+  store float %2, ptr %8, align 4, !tbaa !15
+  store i32 %3, ptr %9, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store ptr null, ptr %11, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %14 = load ptr, ptr %6, align 8, !tbaa !28
+  %15 = call ptr @store_to_file_pre_(ptr noundef %14, ptr noundef %10, ptr noundef %11)
+  store ptr %15, ptr %12, align 8, !tbaa !28
+  %16 = icmp ne ptr null, %15
+  br i1 %16, label %17, label %19
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %error, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %18, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %37
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %block, align 8
-  %3 = load float, ptr %title_gain.addr, align 4
-  %4 = load float, ptr %title_peak.addr, align 4
-  %call1 = call ptr @grabbag__replaygain_store_to_vorbiscomment_title(ptr noundef %2, float noundef %3, float noundef %4)
-  store ptr %call1, ptr %error, align 8
-  %cmp2 = icmp ne ptr null, %call1
-  br i1 %cmp2, label %if.then3, label %if.end4
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %11, align 8, !tbaa !44
+  %21 = load float, ptr %7, align 4, !tbaa !15
+  %22 = load float, ptr %8, align 4, !tbaa !15
+  %23 = call ptr @grabbag__replaygain_store_to_vorbiscomment_title(ptr noundef %20, float noundef %21, float noundef %22)
+  store ptr %23, ptr %12, align 8, !tbaa !28
+  %24 = icmp ne ptr null, %23
+  br i1 %24, label %25, label %28
 
-if.then3:                                         ; preds = %if.end
-  %5 = load ptr, ptr %chain, align 8
-  call void @FLAC__metadata_chain_delete(ptr noundef %5)
-  %6 = load ptr, ptr %error, align 8
-  store ptr %6, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %10, align 8, !tbaa !52
+  call void @FLAC__metadata_chain_delete(ptr noundef %26)
+  %27 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %27, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %37
 
-if.end4:                                          ; preds = %if.end
-  %7 = load ptr, ptr %filename.addr, align 8
-  %8 = load ptr, ptr %chain, align 8
-  %9 = load i32, ptr %preserve_modtime.addr, align 4
-  %call5 = call ptr @store_to_file_post_(ptr noundef %7, ptr noundef %8, i32 noundef %9)
-  store ptr %call5, ptr %error, align 8
-  %cmp6 = icmp ne ptr null, %call5
-  br i1 %cmp6, label %if.then7, label %if.end8
+28:                                               ; preds = %19
+  %29 = load ptr, ptr %6, align 8, !tbaa !28
+  %30 = load ptr, ptr %10, align 8, !tbaa !52
+  %31 = load i32, ptr %9, align 4, !tbaa !4
+  %32 = call ptr @store_to_file_post_(ptr noundef %29, ptr noundef %30, i32 noundef %31)
+  store ptr %32, ptr %12, align 8, !tbaa !28
+  %33 = icmp ne ptr null, %32
+  br i1 %33, label %34, label %36
 
-if.then7:                                         ; preds = %if.end4
-  %10 = load ptr, ptr %error, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %35, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %37
 
-if.end8:                                          ; preds = %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
+36:                                               ; preds = %28
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %37
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then3, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+37:                                               ; preds = %36, %34, %25, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %38 = load ptr, ptr %5, align 8
+  ret ptr %38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %block, i32 noundef %album_mode, i32 noundef %strict, ptr noundef %reference, ptr noundef %gain, ptr noundef %peak) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %block.addr = alloca ptr, align 8
-  %album_mode.addr = alloca i32, align 4
-  %strict.addr = alloca i32, align 4
-  %reference.addr = alloca ptr, align 8
-  %gain.addr = alloca ptr, align 8
-  %peak.addr = alloca ptr, align 8
-  %reference_offset = alloca i32, align 4
-  %gain_offset = alloca i32, align 4
-  %peak_offset = alloca i32, align 4
-  %saved_locale = alloca ptr, align 8
-  %res = alloca i32, align 4
-  store ptr %block, ptr %block.addr, align 8
-  store i32 %album_mode, ptr %album_mode.addr, align 4
-  store i32 %strict, ptr %strict.addr, align 4
-  store ptr %reference, ptr %reference.addr, align 8
-  store ptr %gain, ptr %gain.addr, align 8
-  store ptr %peak, ptr %peak.addr, align 8
-  store i32 1, ptr %res, align 4
-  %0 = load float, ptr @ReplayGainReferenceLoudness, align 4
-  %conv = fpext float %0 to double
-  %1 = load ptr, ptr %reference.addr, align 8
-  store double %conv, ptr %1, align 8
-  %call = call ptr @setlocale(i32 noundef 6, ptr noundef null) #5
-  %call1 = call noalias ptr @strdup(ptr noundef %call) #5
-  store ptr %call1, ptr %saved_locale, align 8
-  %2 = load ptr, ptr %saved_locale, align 8
-  %cmp = icmp eq ptr null, %2
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !44
+  store i32 %1, ptr %9, align 4, !tbaa !4
+  store i32 %2, ptr %10, align 4, !tbaa !4
+  store ptr %3, ptr %11, align 8, !tbaa !62
+  store ptr %4, ptr %12, align 8, !tbaa !62
+  store ptr %5, ptr %13, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  store i32 1, ptr %18, align 4, !tbaa !4
+  %20 = load float, ptr @ReplayGainReferenceLoudness, align 4, !tbaa !15
+  %21 = fpext float %20 to double
+  %22 = load ptr, ptr %11, align 8, !tbaa !62
+  store double %21, ptr %22, align 8, !tbaa !8
+  %23 = call ptr @setlocale(i32 noundef 6, ptr noundef null) #8
+  %24 = call noalias ptr @strdup(ptr noundef %23) #8
+  store ptr %24, ptr %17, align 8, !tbaa !28
+  %25 = load ptr, ptr %17, align 8, !tbaa !28
+  %26 = icmp eq ptr null, %25
+  br i1 %26, label %27, label %28
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %6
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %118
 
-if.end:                                           ; preds = %entry
-  %call3 = call ptr @setlocale(i32 noundef 6, ptr noundef @.str.8) #5
-  %3 = load ptr, ptr %block.addr, align 8
-  %call4 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %3, i32 noundef 0, ptr noundef @.str)
-  store i32 %call4, ptr %reference_offset, align 4
-  %cmp5 = icmp sle i32 0, %call4
-  br i1 %cmp5, label %if.then7, label %if.end9
+28:                                               ; preds = %6
+  %29 = call ptr @setlocale(i32 noundef 6, ptr noundef @.str.8) #8
+  %30 = load ptr, ptr %8, align 8, !tbaa !44
+  %31 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %30, i32 noundef 0, ptr noundef @.str)
+  store i32 %31, ptr %14, align 4, !tbaa !4
+  %32 = icmp sle i32 0, %31
+  br i1 %32, label %33, label %43
 
-if.then7:                                         ; preds = %if.end
-  %4 = load ptr, ptr %block.addr, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %4, i32 0, i32 3
-  %comments = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data, i32 0, i32 2
-  %5 = load ptr, ptr %comments, align 8
-  %6 = load i32, ptr %reference_offset, align 4
-  %idx.ext = sext i32 %6 to i64
-  %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %5, i64 %idx.ext
-  %7 = load ptr, ptr %reference.addr, align 8
-  %call8 = call i32 @parse_double_(ptr noundef %add.ptr, ptr noundef %7)
-  br label %if.end9
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %8, align 8, !tbaa !44
+  %35 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %34, i32 0, i32 3
+  %36 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !48
+  %38 = load i32, ptr %14, align 4, !tbaa !4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %37, i64 %39
+  %41 = load ptr, ptr %11, align 8, !tbaa !62
+  %42 = call i32 @parse_double_(ptr noundef %40, ptr noundef %41)
+  br label %43
 
-if.end9:                                          ; preds = %if.then7, %if.end
-  %8 = load ptr, ptr %block.addr, align 8
-  %9 = load i32, ptr %album_mode.addr, align 4
-  %tobool = icmp ne i32 %9, 0
-  %cond = select i1 %tobool, ptr @.str.3, ptr @.str.1
-  %call10 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %8, i32 noundef 0, ptr noundef %cond)
-  store i32 %call10, ptr %gain_offset, align 4
-  %cmp11 = icmp sgt i32 0, %call10
-  br i1 %cmp11, label %if.then13, label %if.end14
+43:                                               ; preds = %33, %28
+  %44 = load ptr, ptr %8, align 8, !tbaa !44
+  %45 = load i32, ptr %9, align 4, !tbaa !4
+  %46 = icmp ne i32 %45, 0
+  %47 = select i1 %46, ptr @.str.3, ptr @.str.1
+  %48 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %44, i32 noundef 0, ptr noundef %47)
+  store i32 %48, ptr %15, align 4, !tbaa !4
+  %49 = icmp sgt i32 0, %48
+  br i1 %49, label %50, label %51
 
-if.then13:                                        ; preds = %if.end9
-  store i32 0, ptr %res, align 4
-  br label %if.end14
+50:                                               ; preds = %43
+  store i32 0, ptr %18, align 4, !tbaa !4
+  br label %51
 
-if.end14:                                         ; preds = %if.then13, %if.end9
-  %10 = load ptr, ptr %block.addr, align 8
-  %11 = load i32, ptr %album_mode.addr, align 4
-  %tobool15 = icmp ne i32 %11, 0
-  %cond16 = select i1 %tobool15, ptr @.str.4, ptr @.str.2
-  %call17 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %10, i32 noundef 0, ptr noundef %cond16)
-  store i32 %call17, ptr %peak_offset, align 4
-  %cmp18 = icmp sgt i32 0, %call17
-  br i1 %cmp18, label %if.then20, label %if.end21
+51:                                               ; preds = %50, %43
+  %52 = load ptr, ptr %8, align 8, !tbaa !44
+  %53 = load i32, ptr %9, align 4, !tbaa !4
+  %54 = icmp ne i32 %53, 0
+  %55 = select i1 %54, ptr @.str.4, ptr @.str.2
+  %56 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %52, i32 noundef 0, ptr noundef %55)
+  store i32 %56, ptr %16, align 4, !tbaa !4
+  %57 = icmp sgt i32 0, %56
+  br i1 %57, label %58, label %59
 
-if.then20:                                        ; preds = %if.end14
-  store i32 0, ptr %res, align 4
-  br label %if.end21
+58:                                               ; preds = %51
+  store i32 0, ptr %18, align 4, !tbaa !4
+  br label %59
 
-if.end21:                                         ; preds = %if.then20, %if.end14
-  %12 = load i32, ptr %res, align 4
-  %tobool22 = icmp ne i32 %12, 0
-  br i1 %tobool22, label %land.lhs.true, label %if.end30
+59:                                               ; preds = %58, %51
+  %60 = load i32, ptr %18, align 4, !tbaa !4
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %74
 
-land.lhs.true:                                    ; preds = %if.end21
-  %13 = load ptr, ptr %block.addr, align 8
-  %data23 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %13, i32 0, i32 3
-  %comments24 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data23, i32 0, i32 2
-  %14 = load ptr, ptr %comments24, align 8
-  %15 = load i32, ptr %gain_offset, align 4
-  %idx.ext25 = sext i32 %15 to i64
-  %add.ptr26 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %14, i64 %idx.ext25
-  %16 = load ptr, ptr %gain.addr, align 8
-  %call27 = call i32 @parse_double_(ptr noundef %add.ptr26, ptr noundef %16)
-  %tobool28 = icmp ne i32 %call27, 0
-  br i1 %tobool28, label %if.end30, label %if.then29
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %8, align 8, !tbaa !44
+  %64 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %63, i32 0, i32 3
+  %65 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %64, i32 0, i32 2
+  %66 = load ptr, ptr %65, align 8, !tbaa !48
+  %67 = load i32, ptr %15, align 4, !tbaa !4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %66, i64 %68
+  %70 = load ptr, ptr %12, align 8, !tbaa !62
+  %71 = call i32 @parse_double_(ptr noundef %69, ptr noundef %70)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %74, label %73
 
-if.then29:                                        ; preds = %land.lhs.true
-  store i32 0, ptr %res, align 4
-  br label %if.end30
+73:                                               ; preds = %62
+  store i32 0, ptr %18, align 4, !tbaa !4
+  br label %74
 
-if.end30:                                         ; preds = %if.then29, %land.lhs.true, %if.end21
-  %17 = load i32, ptr %res, align 4
-  %tobool31 = icmp ne i32 %17, 0
-  br i1 %tobool31, label %land.lhs.true32, label %if.end40
+74:                                               ; preds = %73, %62, %59
+  %75 = load i32, ptr %18, align 4, !tbaa !4
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %89
 
-land.lhs.true32:                                  ; preds = %if.end30
-  %18 = load ptr, ptr %block.addr, align 8
-  %data33 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %18, i32 0, i32 3
-  %comments34 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %data33, i32 0, i32 2
-  %19 = load ptr, ptr %comments34, align 8
-  %20 = load i32, ptr %peak_offset, align 4
-  %idx.ext35 = sext i32 %20 to i64
-  %add.ptr36 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %19, i64 %idx.ext35
-  %21 = load ptr, ptr %peak.addr, align 8
-  %call37 = call i32 @parse_double_(ptr noundef %add.ptr36, ptr noundef %21)
-  %tobool38 = icmp ne i32 %call37, 0
-  br i1 %tobool38, label %if.end40, label %if.then39
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %8, align 8, !tbaa !44
+  %79 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata, ptr %78, i32 0, i32 3
+  %80 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment, ptr %79, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8, !tbaa !48
+  %82 = load i32, ptr %16, align 4, !tbaa !4
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %81, i64 %83
+  %85 = load ptr, ptr %13, align 8, !tbaa !62
+  %86 = call i32 @parse_double_(ptr noundef %84, ptr noundef %85)
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %89, label %88
 
-if.then39:                                        ; preds = %land.lhs.true32
-  store i32 0, ptr %res, align 4
-  br label %if.end40
+88:                                               ; preds = %77
+  store i32 0, ptr %18, align 4, !tbaa !4
+  br label %89
 
-if.end40:                                         ; preds = %if.then39, %land.lhs.true32, %if.end30
-  %22 = load i32, ptr %res, align 4
-  %tobool41 = icmp ne i32 %22, 0
-  br i1 %tobool41, label %land.lhs.true42, label %if.end46
+89:                                               ; preds = %88, %77, %74
+  %90 = load i32, ptr %18, align 4, !tbaa !4
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %97
 
-land.lhs.true42:                                  ; preds = %if.end40
-  %23 = load ptr, ptr %peak.addr, align 8
-  %24 = load double, ptr %23, align 8
-  %cmp43 = fcmp olt double %24, 0.000000e+00
-  br i1 %cmp43, label %if.then45, label %if.end46
+92:                                               ; preds = %89
+  %93 = load ptr, ptr %13, align 8, !tbaa !62
+  %94 = load double, ptr %93, align 8, !tbaa !8
+  %95 = fcmp olt double %94, 0.000000e+00
+  br i1 %95, label %96, label %97
 
-if.then45:                                        ; preds = %land.lhs.true42
-  store i32 0, ptr %res, align 4
-  br label %if.end46
+96:                                               ; preds = %92
+  store i32 0, ptr %18, align 4, !tbaa !4
+  br label %97
 
-if.end46:                                         ; preds = %if.then45, %land.lhs.true42, %if.end40
-  %25 = load ptr, ptr %saved_locale, align 8
-  %call47 = call ptr @setlocale(i32 noundef 6, ptr noundef %25) #5
-  %26 = load ptr, ptr %saved_locale, align 8
-  call void @free(ptr noundef %26) #5
-  %27 = load i32, ptr %res, align 4
-  %tobool48 = icmp ne i32 %27, 0
-  br i1 %tobool48, label %if.end54, label %land.lhs.true49
+97:                                               ; preds = %96, %92, %89
+  %98 = load ptr, ptr %17, align 8, !tbaa !28
+  %99 = call ptr @setlocale(i32 noundef 6, ptr noundef %98) #8
+  %100 = load ptr, ptr %17, align 8, !tbaa !28
+  call void @free(ptr noundef %100) #8
+  %101 = load i32, ptr %18, align 4, !tbaa !4
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %116, label %103
 
-land.lhs.true49:                                  ; preds = %if.end46
-  %28 = load i32, ptr %strict.addr, align 4
-  %tobool50 = icmp ne i32 %28, 0
-  br i1 %tobool50, label %if.end54, label %if.then51
+103:                                              ; preds = %97
+  %104 = load i32, ptr %10, align 4, !tbaa !4
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %116, label %106
 
-if.then51:                                        ; preds = %land.lhs.true49
-  %29 = load ptr, ptr %block.addr, align 8
-  %30 = load i32, ptr %album_mode.addr, align 4
-  %tobool52 = icmp ne i32 %30, 0
-  %lnot = xor i1 %tobool52, true
-  %lnot.ext = zext i1 %lnot to i32
-  %31 = load ptr, ptr %reference.addr, align 8
-  %32 = load ptr, ptr %gain.addr, align 8
-  %33 = load ptr, ptr %peak.addr, align 8
-  %call53 = call i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %29, i32 noundef %lnot.ext, i32 noundef 1, ptr noundef %31, ptr noundef %32, ptr noundef %33)
-  store i32 %call53, ptr %res, align 4
-  br label %if.end54
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %8, align 8, !tbaa !44
+  %108 = load i32, ptr %9, align 4, !tbaa !4
+  %109 = icmp ne i32 %108, 0
+  %110 = xor i1 %109, true
+  %111 = zext i1 %110 to i32
+  %112 = load ptr, ptr %11, align 8, !tbaa !62
+  %113 = load ptr, ptr %12, align 8, !tbaa !62
+  %114 = load ptr, ptr %13, align 8, !tbaa !62
+  %115 = call i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %107, i32 noundef %111, i32 noundef 1, ptr noundef %112, ptr noundef %113, ptr noundef %114)
+  store i32 %115, ptr %18, align 4, !tbaa !4
+  br label %116
 
-if.end54:                                         ; preds = %if.then51, %land.lhs.true49, %if.end46
-  %34 = load i32, ptr %res, align 4
-  store i32 %34, ptr %retval, align 4
-  br label %return
+116:                                              ; preds = %106, %103, %97
+  %117 = load i32, ptr %18, align 4, !tbaa !4
+  store i32 %117, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %118
 
-return:                                           ; preds = %if.end54, %if.then
-  %35 = load i32, ptr %retval, align 4
-  ret i32 %35
+118:                                              ; preds = %116, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  %119 = load i32, ptr %7, align 4
+  ret i32 %119
 }
 
 ; Function Attrs: nounwind
-declare noalias ptr @strdup(ptr noundef) #3
+declare noalias ptr @strdup(ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare ptr @setlocale(i32 noundef, ptr noundef) #3
+declare ptr @setlocale(i32 noundef, ptr noundef) #4
 
 declare i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parse_double_(ptr noundef %entry1, ptr noundef %val) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %entry.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %s = alloca [32 x i8], align 16
-  %end = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %q = alloca ptr, align 8
-  %v = alloca double, align 8
-  store ptr %entry1, ptr %entry.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  %0 = load ptr, ptr %entry.addr, align 8
-  %entry2 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %entry2, align 8
-  store ptr %1, ptr %p, align 8
-  %2 = load ptr, ptr %p, align 8
-  %call = call ptr @strchr(ptr noundef %2, i32 noundef 61) #6
-  store ptr %call, ptr %q, align 8
-  %3 = load ptr, ptr %q, align 8
-  %cmp = icmp eq ptr null, %3
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @parse_double_(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca [32 x i8], align 16
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca double, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !30
+  store ptr %1, ptr %5, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %12 = load ptr, ptr %4, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !49
+  store ptr %14, ptr %8, align 8, !tbaa !28
+  %15 = load ptr, ptr %8, align 8, !tbaa !28
+  %16 = call ptr @strchr(ptr noundef %15, i32 noundef 61) #9
+  store ptr %16, ptr %9, align 8, !tbaa !28
+  %17 = load ptr, ptr %9, align 8, !tbaa !28
+  %18 = icmp eq ptr null, %17
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %60
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %q, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %q, align 8
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %s, i64 0, i64 0
-  %5 = load ptr, ptr %q, align 8
-  %6 = load ptr, ptr %entry.addr, align 8
-  %length = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %length, align 8
-  %conv = zext i32 %7 to i64
-  %8 = load ptr, ptr %q, align 8
-  %9 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub = sub nsw i64 %conv, %sub.ptr.sub
-  %cmp3 = icmp ult i64 32, %sub
-  br i1 %cmp3, label %cond.true, label %cond.false
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %9, align 8, !tbaa !28
+  %22 = getelementptr inbounds nuw i8, ptr %21, i32 1
+  store ptr %22, ptr %9, align 8, !tbaa !28
+  %23 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 0
+  %24 = load ptr, ptr %9, align 8, !tbaa !28
+  %25 = load ptr, ptr %4, align 8, !tbaa !30
+  %26 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8, !tbaa !51
+  %28 = zext i32 %27 to i64
+  %29 = load ptr, ptr %9, align 8, !tbaa !28
+  %30 = load ptr, ptr %8, align 8, !tbaa !28
+  %31 = ptrtoint ptr %29 to i64
+  %32 = ptrtoint ptr %30 to i64
+  %33 = sub i64 %31, %32
+  %34 = sub nsw i64 %28, %33
+  %35 = icmp ult i64 32, %34
+  br i1 %35, label %36, label %37
 
-cond.true:                                        ; preds = %if.end
-  br label %cond.end
+36:                                               ; preds = %20
+  br label %48
 
-cond.false:                                       ; preds = %if.end
-  %10 = load ptr, ptr %entry.addr, align 8
-  %length5 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %length5, align 8
-  %conv6 = zext i32 %11 to i64
-  %12 = load ptr, ptr %q, align 8
-  %13 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast7 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast8 = ptrtoint ptr %13 to i64
-  %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
-  %sub10 = sub nsw i64 %conv6, %sub.ptr.sub9
-  br label %cond.end
+37:                                               ; preds = %20
+  %38 = load ptr, ptr %4, align 8, !tbaa !30
+  %39 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %38, i32 0, i32 0
+  %40 = load i32, ptr %39, align 8, !tbaa !51
+  %41 = zext i32 %40 to i64
+  %42 = load ptr, ptr %9, align 8, !tbaa !28
+  %43 = load ptr, ptr %8, align 8, !tbaa !28
+  %44 = ptrtoint ptr %42 to i64
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = sub nsw i64 %41, %46
+  br label %48
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 32, %cond.true ], [ %sub10, %cond.false ]
-  %call11 = call ptr @safe_strncpy(ptr noundef %arraydecay, ptr noundef %5, i64 noundef %cond)
-  %arraydecay12 = getelementptr inbounds [32 x i8], ptr %s, i64 0, i64 0
-  %call13 = call double @strtod(ptr noundef %arraydecay12, ptr noundef %end) #5
-  store double %call13, ptr %v, align 8
-  %14 = load ptr, ptr %end, align 8
-  %arraydecay14 = getelementptr inbounds [32 x i8], ptr %s, i64 0, i64 0
-  %cmp15 = icmp eq ptr %14, %arraydecay14
-  br i1 %cmp15, label %if.then17, label %if.end18
+48:                                               ; preds = %37, %36
+  %49 = phi i64 [ 32, %36 ], [ %47, %37 ]
+  %50 = call ptr @safe_strncpy(ptr noundef %23, ptr noundef %24, i64 noundef %49)
+  %51 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 0
+  %52 = call double @strtod(ptr noundef %51, ptr noundef %7) #8
+  store double %52, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !28
+  %54 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 0
+  %55 = icmp eq ptr %53, %54
+  br i1 %55, label %56, label %57
 
-if.then17:                                        ; preds = %cond.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+56:                                               ; preds = %48
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %60
 
-if.end18:                                         ; preds = %cond.end
-  %15 = load double, ptr %v, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  store double %15, ptr %16, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+57:                                               ; preds = %48
+  %58 = load double, ptr %10, align 8, !tbaa !8
+  %59 = load ptr, ptr %5, align 8, !tbaa !62
+  store double %58, ptr %59, align 8, !tbaa !8
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %60
 
-return:                                           ; preds = %if.end18, %if.then17, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+60:                                               ; preds = %57, %56, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #8
+  %61 = load i32, ptr %3, align 4
+  ret i32 %61
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local double @grabbag__replaygain_compute_scale_factor(double noundef %peak, double noundef %gain, double noundef %preamp, i32 noundef %prevent_clipping) #0 {
-entry:
-  %peak.addr = alloca double, align 8
-  %gain.addr = alloca double, align 8
-  %preamp.addr = alloca double, align 8
-  %prevent_clipping.addr = alloca i32, align 4
-  %scale = alloca double, align 8
-  %max_scale = alloca double, align 8
-  store double %peak, ptr %peak.addr, align 8
-  store double %gain, ptr %gain.addr, align 8
-  store double %preamp, ptr %preamp.addr, align 8
-  store i32 %prevent_clipping, ptr %prevent_clipping.addr, align 4
-  %0 = load double, ptr %preamp.addr, align 8
-  %1 = load double, ptr %gain.addr, align 8
-  %add = fadd double %1, %0
-  store double %add, ptr %gain.addr, align 8
-  %2 = load double, ptr %gain.addr, align 8
-  %mul = fmul double %2, 5.000000e-02
-  %call = call double @pow(double noundef 1.000000e+01, double noundef %mul) #5
-  %conv = fptrunc double %call to float
-  %conv1 = fpext float %conv to double
-  store double %conv1, ptr %scale, align 8
-  %3 = load i32, ptr %prevent_clipping.addr, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end8
+define dso_local double @grabbag__replaygain_compute_scale_factor(double noundef %0, double noundef %1, double noundef %2, i32 noundef %3) #0 {
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  store double %0, ptr %5, align 8, !tbaa !8
+  store double %1, ptr %6, align 8, !tbaa !8
+  store double %2, ptr %7, align 8, !tbaa !8
+  store i32 %3, ptr %8, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %11 = load double, ptr %7, align 8, !tbaa !8
+  %12 = load double, ptr %6, align 8, !tbaa !8
+  %13 = fadd double %12, %11
+  store double %13, ptr %6, align 8, !tbaa !8
+  %14 = load double, ptr %6, align 8, !tbaa !8
+  %15 = fmul double %14, 5.000000e-02
+  %16 = call double @pow(double noundef 1.000000e+01, double noundef %15) #8, !tbaa !4
+  %17 = fptrunc double %16 to float
+  %18 = fpext float %17 to double
+  store double %18, ptr %9, align 8, !tbaa !8
+  %19 = load i32, ptr %8, align 4, !tbaa !4
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %35
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load double, ptr %peak.addr, align 8
-  %cmp = fcmp ogt double %4, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end8
+21:                                               ; preds = %4
+  %22 = load double, ptr %5, align 8, !tbaa !8
+  %23 = fcmp ogt double %22, 0.000000e+00
+  br i1 %23, label %24, label %35
 
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load double, ptr %peak.addr, align 8
-  %div = fdiv double 1.000000e+00, %5
-  %conv3 = fptrunc double %div to float
-  %conv4 = fpext float %conv3 to double
-  store double %conv4, ptr %max_scale, align 8
-  %6 = load double, ptr %scale, align 8
-  %7 = load double, ptr %max_scale, align 8
-  %cmp5 = fcmp ogt double %6, %7
-  br i1 %cmp5, label %if.then7, label %if.end
+24:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %25 = load double, ptr %5, align 8, !tbaa !8
+  %26 = fdiv double 1.000000e+00, %25
+  %27 = fptrunc double %26 to float
+  %28 = fpext float %27 to double
+  store double %28, ptr %10, align 8, !tbaa !8
+  %29 = load double, ptr %9, align 8, !tbaa !8
+  %30 = load double, ptr %10, align 8, !tbaa !8
+  %31 = fcmp ogt double %29, %30
+  br i1 %31, label %32, label %34
 
-if.then7:                                         ; preds = %if.then
-  %8 = load double, ptr %max_scale, align 8
-  store double %8, ptr %scale, align 8
-  br label %if.end
+32:                                               ; preds = %24
+  %33 = load double, ptr %10, align 8, !tbaa !8
+  store double %33, ptr %9, align 8, !tbaa !8
+  br label %34
 
-if.end:                                           ; preds = %if.then7, %if.then
-  br label %if.end8
+34:                                               ; preds = %32, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  br label %35
 
-if.end8:                                          ; preds = %if.end, %land.lhs.true, %entry
-  %9 = load double, ptr %scale, align 8
-  ret double %9
+35:                                               ; preds = %34, %21, %4
+  %36 = load double, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret double %36
 }
 
 ; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #3
+declare double @pow(double noundef, double noundef) #4
 
 declare i32 @flac_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #5
 
 declare i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef, i32, ptr, i32 noundef) #1
 
@@ -2188,18 +2404,17 @@ declare void @FLAC__metadata_iterator_delete(ptr noundef) #1
 declare i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_file_stats_(ptr noundef %filename, ptr noundef %stats) #0 {
-entry:
-  %filename.addr = alloca ptr, align 8
-  %stats.addr = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store ptr %stats, ptr %stats.addr, align 8
-  %0 = load ptr, ptr %filename.addr, align 8
-  %1 = load ptr, ptr %stats.addr, align 8
-  %call = call i32 @stat64(ptr noundef %0, ptr noundef %1) #5
-  %cmp = icmp eq i32 0, %call
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+define internal i32 @get_file_stats_(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %4, align 8, !tbaa !64
+  %7 = call i32 @stat64(ptr noundef %5, ptr noundef %6) #8
+  %8 = icmp eq i32 0, %7
+  %9 = zext i1 %8 to i32
+  ret i32 %9
 }
 
 declare i32 @grabbag__file_change_stats(ptr noundef, i32 noundef) #1
@@ -2209,99 +2424,180 @@ declare void @FLAC__metadata_chain_sort_padding(ptr noundef) #1
 declare i32 @FLAC__metadata_chain_write(ptr noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_file_stats_(ptr noundef %filename, ptr noundef %stats) #0 {
-entry:
-  %filename.addr = alloca ptr, align 8
-  %stats.addr = alloca ptr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store ptr %stats, ptr %stats.addr, align 8
-  %0 = load ptr, ptr %filename.addr, align 8
-  %1 = load ptr, ptr %stats.addr, align 8
-  %st_mode = getelementptr inbounds %struct.stat, ptr %1, i32 0, i32 3
-  %2 = load i32, ptr %st_mode, align 8
-  %call = call i32 @chmod(ptr noundef %0, i32 noundef %2) #5
+define internal void @set_file_stats_(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %4, align 8, !tbaa !64
+  %7 = getelementptr inbounds nuw %struct.stat, ptr %6, i32 0, i32 3
+  %8 = load i32, ptr %7, align 8, !tbaa !66
+  %9 = call i32 @chmod(ptr noundef %5, i32 noundef %8) #8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @stat64(ptr noundef, ptr noundef) #3
+declare i32 @stat64(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @chmod(ptr noundef, i32 noundef) #3
+declare i32 @chmod(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #4
+declare ptr @strchr(ptr noundef, i32 noundef) #5
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @safe_strncpy(ptr noundef %dest, ptr noundef %src, i64 noundef %dest_size) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %dest_size.addr = alloca i64, align 8
-  %ret = alloca ptr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store i64 %dest_size, ptr %dest_size.addr, align 8
-  %0 = load i64, ptr %dest_size.addr, align 8
-  %cmp = icmp ult i64 %0, 1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @safe_strncpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #6 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !28
+  store i64 %2, ptr %7, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %10 = load i64, ptr %7, align 8, !tbaa !70
+  %11 = icmp ult i64 %10, 1
+  br i1 %11, label %12, label %14
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %dest.addr, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !28
+  store ptr %13, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %25
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %dest.addr, align 8
-  %3 = load ptr, ptr %src.addr, align 8
-  %4 = load i64, ptr %dest_size.addr, align 8
-  %sub = sub i64 %4, 1
-  %call = call ptr @strncpy(ptr noundef %2, ptr noundef %3, i64 noundef %sub) #5
-  store ptr %call, ptr %ret, align 8
-  %5 = load ptr, ptr %dest.addr, align 8
-  %6 = load i64, ptr %dest_size.addr, align 8
-  %sub1 = sub i64 %6, 1
-  %arrayidx = getelementptr inbounds i8, ptr %5, i64 %sub1
-  store i8 0, ptr %arrayidx, align 1
-  %7 = load ptr, ptr %ret, align 8
-  store ptr %7, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !28
+  %16 = load ptr, ptr %6, align 8, !tbaa !28
+  %17 = load i64, ptr %7, align 8, !tbaa !70
+  %18 = sub i64 %17, 1
+  %19 = call ptr @strncpy.inline(ptr noundef %15, ptr noundef %16, i64 noundef %18) #8
+  store ptr %19, ptr %8, align 8, !tbaa !28
+  %20 = load ptr, ptr %5, align 8, !tbaa !28
+  %21 = load i64, ptr %7, align 8, !tbaa !70
+  %22 = sub i64 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %22
+  store i8 0, ptr %23, align 1, !tbaa !48
+  %24 = load ptr, ptr %8, align 8, !tbaa !28
+  store ptr %24, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %25
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+25:                                               ; preds = %14, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %26 = load ptr, ptr %4, align 8
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind
-declare double @strtod(ptr noundef, ptr noundef) #3
+declare double @strtod(ptr noundef, ptr noundef) #4
+
+; Function Attrs: alwaysinline nounwind
+define internal ptr @strncpy.inline(ptr noalias nonnull %0, ptr noalias nonnull %1, i64 %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i64 %2, ptr %6, align 8, !tbaa !70
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = load i64, ptr %6, align 8, !tbaa !70
+  %10 = load ptr, ptr %4, align 8, !tbaa !28
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 false)
+  %12 = call ptr @__strncpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #8
+  ret ptr %12
+}
 
 ; Function Attrs: nounwind
-declare ptr @strncpy(ptr noundef, ptr noundef, i64 noundef) #3
+declare ptr @__strncpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #4
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"double", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p2 int", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 int", !12, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"float", !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 float", !12, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 omnipotent char", !12, i64 0}
+!30 = !{!12, !12, i64 0}
+!31 = !{!32, !5, i64 12}
+!32 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
+!33 = !{!34, !5, i64 16}
+!34 = !{!"", !35, i64 0, !6, i64 40, !36, i64 3624}
+!35 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !6, i64 24, !6, i64 32}
+!36 = !{!"", !37, i64 0}
+!37 = !{!"short", !6, i64 0}
+!38 = !{!34, !5, i64 8}
+!39 = !{!34, !5, i64 4}
+!40 = !{!34, !5, i64 0}
+!41 = !{!32, !5, i64 4}
+!42 = !{!32, !5, i64 0}
+!43 = !{!32, !5, i64 8}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS20FLAC__StreamMetadata", !12, i64 0}
+!46 = !{!47, !5, i64 0}
+!47 = !{!"FLAC__StreamMetadata", !5, i64 0, !5, i64 4, !5, i64 8, !6, i64 16}
+!48 = !{!6, !6, i64 0}
+!49 = !{!50, !29, i64 8}
+!50 = !{!"", !5, i64 0, !29, i64 8}
+!51 = !{!50, !5, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS20FLAC__Metadata_Chain", !12, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p2 _ZTS20FLAC__Metadata_Chain", !12, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p2 _ZTS20FLAC__StreamMetadata", !12, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS23FLAC__Metadata_Iterator", !12, i64 0}
+!60 = distinct !{!60, !18}
+!61 = distinct !{!61, !18}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 double", !12, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS4stat", !12, i64 0}
+!66 = !{!67, !5, i64 24}
+!67 = !{!"stat", !68, i64 0, !68, i64 8, !68, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !68, i64 40, !68, i64 48, !68, i64 56, !68, i64 64, !69, i64 72, !69, i64 88, !69, i64 104, !6, i64 120}
+!68 = !{!"long", !6, i64 0}
+!69 = !{!"timespec", !68, i64 0, !68, i64 8}
+!70 = !{!68, !68, i64 0}

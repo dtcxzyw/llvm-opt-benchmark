@@ -16,6 +16,7 @@ supported_project = [
     "cpython",
     "curl",
     "darktable",
+    "flac",
 ]
 
 modify_only = [
