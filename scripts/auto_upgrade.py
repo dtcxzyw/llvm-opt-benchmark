@@ -15,6 +15,7 @@ supported_project = [
     "coremark",
     "cpython",
     "curl",
+    "darktable",
 ]
 
 modify_only = [
@@ -30,8 +31,17 @@ def auto_upgrade(project, opt_exec):
         return
 
     with open(f"bench/{project}/build.sh", "r") as f:
-        if "DUMP_PREFIX" not in f.read():
+        content = f.read()
+        if "DUMP_PREFIX" not in content:
             print("Please update build.sh")
+            return
+
+        if "clang" in content and "clang-21" not in content:
+            print("Please update build.sh to use the latest clang")
+            return
+        
+        if "clang++" in content and "clang++-21" not in content:
+            print("Please update build.sh to use the latest clang++")
             return
 
     for git_dir in os.listdir(f"bench/{project}"):
@@ -45,6 +55,9 @@ def auto_upgrade(project, opt_exec):
                     "--merge",
                     f"bench/{project}/{git_dir}",
                 ]
+            )
+            subprocess.check_call(
+                ["git", "submodule", "update", "--init", "--recursive"], cwd=f"bench/{project}/{git_dir}"
             )
 
     subprocess.check_call(["bash", "build.sh"], cwd=f"bench/{project}")

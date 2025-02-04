@@ -1,16 +1,16 @@
-; ModuleID = 'bench/darktable/original/darktable.c.ll'
-source_filename = "bench/darktable/original/darktable.c.ll"
+; ModuleID = 'bench/darktable/original/darktable.ll'
+source_filename = "bench/darktable/original/darktable.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.darktable_t = type { %struct.dt_codepath_t, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [64 x %struct.dt_pthread_mutex_t], %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.dt_lua_state_t, ptr, double, ptr, i32, [46 x i32], i32, ptr, ptr, %struct.dt_sys_resources_t, %struct.dt_backthumb_t, %struct.dt_gimp_t }
+%struct.darktable_t = type { %struct.dt_codepath_t, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [64 x %struct.dt_pthread_mutex_t], %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.dt_lua_state_t, ptr, double, ptr, i32, [47 x i32], i32, i32, ptr, ptr, %struct.dt_sys_resources_t, %struct.dt_backthumb_t, %struct.dt_gimp_t }
 %struct.dt_codepath_t = type { i8, [3 x i8] }
 %struct.dt_pthread_mutex_t = type { %union.pthread_mutex_t }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.dt_lua_state_t = type { i32 }
-%struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32, i32, i32 }
+%struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [16 x i8] c"idbutton-%d.png\00", align 1
 @.str.4 = private unnamed_addr constant [13 x i8] c"idbutton.png\00", align 1
 @.str.5 = private unnamed_addr constant [8 x i8] c"pixmaps\00", align 1
-@.str.6 = private unnamed_addr constant [55 x i8] c"warning: can't load darktable logo from PNG file `%s'\0A\00", align 1
+@.str.6 = private unnamed_addr constant [54 x i8] c"warning: can't load darktable logo from PNG file `%s'\00", align 1
 @.str.7 = private unnamed_addr constant [6 x i8] c"color\00", align 1
 @.str.8 = private unnamed_addr constant [5 x i8] c"font\00", align 1
 @darktable_package_version = external constant [0 x i8], align 1
@@ -74,220 +74,220 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   store ptr %3, ptr %4, align 8, !tbaa !6
   %5 = tail call ptr @gtk_event_box_new() #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr %5, ptr %6, align 8, !tbaa !13
+  store ptr %5, ptr %6, align 8, !tbaa !17
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef 80) #9
   %8 = tail call i64 @g_signal_connect_data(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @_lib_darktable_draw_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #9
-  %9 = load ptr, ptr %6, align 8, !tbaa !13
+  %9 = load ptr, ptr %6, align 8, !tbaa !17
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef 80) #9
   %11 = tail call i64 @g_signal_connect_data(ptr noundef %10, ptr noundef nonnull @.str.2, ptr noundef nonnull @_lib_darktable_button_press_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #9
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1448
-  %14 = load double, ptr %13, align 8, !tbaa !24
-  %15 = fptrunc double %14 to float
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1424
+  %14 = load double, ptr %13, align 8, !tbaa !55
+  %15 = fptrunc reassoc nsz arcp contract afn double %14 to float
   %16 = fneg reassoc nsz arcp contract afn float %15
   %17 = tail call ptr @dt_util_get_logo(float noundef %16) #9
-  store ptr %17, ptr %3, align 8, !tbaa !28
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %22, label %19
+  store ptr %17, ptr %3, align 8, !tbaa !60
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %21, label %18
 
-19:                                               ; preds = %1
-  %20 = tail call ptr @cairo_image_surface_get_data(ptr noundef nonnull %17) #9
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %20, ptr %21, align 8, !tbaa !30
-  br label %76
+18:                                               ; preds = %1
+  %19 = tail call ptr @cairo_image_surface_get_data(ptr noundef nonnull %17) #9
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %19, ptr %20, align 8, !tbaa !63
+  br label %71
 
-22:                                               ; preds = %1
+21:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_datadir(ptr noundef nonnull %2, i64 noundef 4096) #9
-  %23 = call i32 @dt_util_get_logo_season() #9
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %27, label %25
+  %22 = call i32 @dt_util_get_logo_season() #9
+  %.not70 = icmp eq i32 %22, 0
+  br i1 %.not70, label %25, label %23
 
-25:                                               ; preds = %22
-  %26 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.3, i32 noundef %23) #9
-  br label %29
+23:                                               ; preds = %21
+  %24 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.3, i32 noundef %22) #9
+  br label %27
 
-27:                                               ; preds = %22
-  %28 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #9
-  br label %29
+25:                                               ; preds = %21
+  %26 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #9
+  br label %27
 
-29:                                               ; preds = %27, %25
-  %30 = phi ptr [ %26, %25 ], [ %28, %27 ]
-  %31 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, ptr noundef %30, ptr noundef null) #9
-  %32 = call ptr @cairo_image_surface_create_from_png(ptr noundef %31) #9
-  call void @g_free(ptr noundef %30) #9
-  %33 = call i32 @cairo_surface_status(ptr noundef %32) #9
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %36, label %35
+27:                                               ; preds = %25, %23
+  %.0 = phi ptr [ %24, %23 ], [ %26, %25 ]
+  %28 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, ptr noundef %.0, ptr noundef null) #9
+  %29 = call ptr @cairo_image_surface_create_from_png(ptr noundef %28) #9
+  call void @g_free(ptr noundef %.0) #9
+  %30 = call i32 @cairo_surface_status(ptr noundef %29) #9
+  %.not71 = icmp eq i32 %30, 0
+  br i1 %.not71, label %32, label %31
 
-35:                                               ; preds = %29
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef %31) #9
-  br label %75
+31:                                               ; preds = %27
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef %28) #9
+  br label %70
 
-36:                                               ; preds = %29
-  %37 = call i32 @cairo_image_surface_get_width(ptr noundef %32) #9
-  %38 = call i32 @cairo_image_surface_get_height(ptr noundef %32) #9
-  %39 = sitofp i32 %37 to double
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1448
-  %42 = load double, ptr %41, align 8, !tbaa !24
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 1456
-  %44 = load double, ptr %43, align 8, !tbaa !31
-  %45 = fmul reassoc nsz arcp contract afn double %44, %42
-  %46 = fmul reassoc nsz arcp contract afn double %45, %39
-  %47 = fptosi double %46 to i32
-  %48 = sitofp i32 %38 to double
-  %49 = fmul reassoc nsz arcp contract afn double %45, %48
-  %50 = fptosi double %49 to i32
-  %51 = call i32 @cairo_format_stride_for_width(i32 noundef 0, i32 noundef %47) #9
-  %52 = sext i32 %51 to i64
-  %53 = sext i32 %50 to i64
-  %54 = mul nsw i64 %53, %52
-  %55 = call noalias ptr @calloc(i64 noundef %54, i64 noundef 1) #11
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %55, ptr %56, align 8, !tbaa !30
-  %57 = call ptr @cairo_image_surface_create_for_data(ptr noundef %55, i32 noundef 0, i32 noundef %47, i32 noundef %50, i32 noundef %51) #9
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1456
-  %60 = load double, ptr %59, align 8, !tbaa !31
-  call void @cairo_surface_set_device_scale(ptr noundef %57, double noundef %60, double noundef %60) #9
-  store ptr %57, ptr %3, align 8, !tbaa !28
-  %61 = call i32 @cairo_surface_status(ptr noundef %57) #9
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %66, label %63
+32:                                               ; preds = %27
+  %33 = call i32 @cairo_image_surface_get_width(ptr noundef %29) #9
+  %34 = call i32 @cairo_image_surface_get_height(ptr noundef %29) #9
+  %35 = sitofp i32 %33 to double
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1424
+  %38 = load double, ptr %37, align 8, !tbaa !55
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 1432
+  %40 = load double, ptr %39, align 8, !tbaa !64
+  %41 = fmul reassoc nsz arcp contract afn double %40, %38
+  %42 = fmul reassoc nsz arcp contract afn double %41, %35
+  %43 = fptosi double %42 to i32
+  %44 = sitofp i32 %34 to double
+  %45 = fmul reassoc nsz arcp contract afn double %41, %44
+  %46 = fptosi double %45 to i32
+  %47 = call i32 @cairo_format_stride_for_width(i32 noundef 0, i32 noundef %43) #9
+  %48 = sext i32 %47 to i64
+  %49 = sext i32 %46 to i64
+  %50 = mul nsw i64 %49, %48
+  %51 = call noalias ptr @calloc(i64 noundef %50, i64 noundef 1) #11
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %51, ptr %52, align 8, !tbaa !63
+  %53 = call ptr @cairo_image_surface_create_for_data(ptr noundef %51, i32 noundef 0, i32 noundef %43, i32 noundef %46, i32 noundef %47) #9
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1432
+  %56 = load double, ptr %55, align 8, !tbaa !64
+  call void @cairo_surface_set_device_scale(ptr noundef %53, double noundef %56, double noundef %56) #9
+  store ptr %53, ptr %3, align 8, !tbaa !60
+  %57 = call i32 @cairo_surface_status(ptr noundef %53) #9
+  %.not72 = icmp eq i32 %57, 0
+  br i1 %.not72, label %61, label %58
 
-63:                                               ; preds = %36
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef %31) #9
-  %64 = load ptr, ptr %56, align 8, !tbaa !30
-  call void @free(ptr noundef %64) #9
-  store ptr null, ptr %56, align 8, !tbaa !30
-  %65 = load ptr, ptr %3, align 8, !tbaa !28
-  call void @cairo_surface_destroy(ptr noundef %65) #9
-  store ptr null, ptr %3, align 8, !tbaa !28
-  br label %75
+58:                                               ; preds = %32
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef %28) #9
+  %59 = load ptr, ptr %52, align 8, !tbaa !63
+  call void @free(ptr noundef %59) #9
+  store ptr null, ptr %52, align 8, !tbaa !63
+  %60 = load ptr, ptr %3, align 8, !tbaa !60
+  call void @cairo_surface_destroy(ptr noundef %60) #9
+  store ptr null, ptr %3, align 8, !tbaa !60
+  br label %70
 
-66:                                               ; preds = %36
-  %67 = load ptr, ptr %3, align 8, !tbaa !28
-  %68 = call ptr @cairo_create(ptr noundef %67) #9
-  %69 = sitofp i32 %47 to double
-  %70 = sitofp i32 %50 to double
-  call void @cairo_rectangle(ptr noundef %68, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %69, double noundef %70) #9
-  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1448
-  %73 = load double, ptr %72, align 8, !tbaa !24
-  call void @cairo_scale(ptr noundef %68, double noundef %73, double noundef %73) #9
-  call void @cairo_set_source_surface(ptr noundef %68, ptr noundef %32, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @cairo_fill(ptr noundef %68) #9
-  call void @cairo_destroy(ptr noundef %68) #9
-  %74 = load ptr, ptr %3, align 8, !tbaa !28
-  call void @cairo_surface_flush(ptr noundef %74) #9
-  br label %75
+61:                                               ; preds = %32
+  %62 = load ptr, ptr %3, align 8, !tbaa !60
+  %63 = call ptr @cairo_create(ptr noundef %62) #9
+  %64 = sitofp i32 %43 to double
+  %65 = sitofp i32 %46 to double
+  call void @cairo_rectangle(ptr noundef %63, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %64, double noundef %65) #9
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1424
+  %68 = load double, ptr %67, align 8, !tbaa !55
+  call void @cairo_scale(ptr noundef %63, double noundef %68, double noundef %68) #9
+  call void @cairo_set_source_surface(ptr noundef %63, ptr noundef %29, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
+  call void @cairo_fill(ptr noundef %63) #9
+  call void @cairo_destroy(ptr noundef %63) #9
+  %69 = load ptr, ptr %3, align 8, !tbaa !60
+  call void @cairo_surface_flush(ptr noundef %69) #9
+  br label %70
 
-75:                                               ; preds = %66, %63, %35
-  call void @cairo_surface_destroy(ptr noundef %32) #9
-  call void @g_free(ptr noundef %31) #9
+70:                                               ; preds = %31, %61, %58
+  call void @cairo_surface_destroy(ptr noundef %29) #9
+  call void @g_free(ptr noundef %28) #9
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #9
-  br label %76
+  br label %71
 
-76:                                               ; preds = %75, %19
-  %77 = load ptr, ptr %3, align 8, !tbaa !28
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %79, label %82
+71:                                               ; preds = %70, %18
+  %72 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not73 = icmp eq ptr %72, null
+  br i1 %.not73, label %.thread, label %74
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %80, align 8, !tbaa !32
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  br label %101
+.thread:                                          ; preds = %71
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 0, ptr %73, align 8, !tbaa !65
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  br label %91
 
-82:                                               ; preds = %76
-  %83 = call i32 @cairo_image_surface_get_width(ptr noundef nonnull %77) #9
-  %84 = sitofp i32 %83 to double
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1456
-  %87 = load double, ptr %86, align 8, !tbaa !31
-  %88 = fdiv reassoc nsz arcp contract afn double %84, %87
-  %89 = fptosi double %88 to i32
-  %90 = load ptr, ptr %3, align 8, !tbaa !28
-  %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %89, ptr %91, align 8, !tbaa !32
-  %92 = icmp eq ptr %90, null
-  br i1 %92, label %101, label %93
+74:                                               ; preds = %71
+  %75 = call i32 @cairo_image_surface_get_width(ptr noundef nonnull %72) #9
+  %76 = sitofp i32 %75 to double
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1432
+  %79 = load double, ptr %78, align 8, !tbaa !64
+  %80 = fdiv reassoc nsz arcp contract afn double %76, %79
+  %81 = fptosi double %80 to i32
+  %.pr = load ptr, ptr %3, align 8, !tbaa !60
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %81, ptr %82, align 8, !tbaa !65
+  %.not74 = icmp eq ptr %.pr, null
+  br i1 %.not74, label %91, label %83
 
-93:                                               ; preds = %82
-  %94 = call i32 @cairo_image_surface_get_height(ptr noundef nonnull %90) #9
-  %95 = sitofp i32 %94 to double
-  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1456
-  %98 = load double, ptr %97, align 8, !tbaa !31
-  %99 = fdiv reassoc nsz arcp contract afn double %95, %98
-  %100 = fptosi double %99 to i32
-  br label %101
+83:                                               ; preds = %74
+  %84 = call i32 @cairo_image_surface_get_height(ptr noundef nonnull %.pr) #9
+  %85 = sitofp i32 %84 to double
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1432
+  %88 = load double, ptr %87, align 8, !tbaa !64
+  %89 = fdiv reassoc nsz arcp contract afn double %85, %88
+  %90 = fptosi double %89 to i32
+  br label %91
 
-101:                                              ; preds = %93, %82, %79
-  %102 = phi ptr [ %96, %93 ], [ %85, %82 ], [ %81, %79 ]
-  %103 = phi ptr [ %91, %93 ], [ %91, %82 ], [ %80, %79 ]
-  %104 = phi i32 [ %100, %93 ], [ 0, %82 ], [ 0, %79 ]
-  %105 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %104, ptr %105, align 4, !tbaa !33
-  %106 = getelementptr inbounds nuw i8, ptr %102, i64 1448
-  %107 = load double, ptr %106, align 8, !tbaa !24
-  %108 = fptrunc double %107 to float
-  %109 = fneg reassoc nsz arcp contract afn float %108
-  %110 = call ptr @dt_util_get_logo_text(float noundef %109) #9
-  %111 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %110, ptr %111, align 8, !tbaa !34
-  %112 = icmp eq ptr %110, null
-  br i1 %112, label %113, label %116
+91:                                               ; preds = %.thread, %74, %83
+  %92 = phi ptr [ %86, %83 ], [ %77, %74 ], [ %.pre, %.thread ]
+  %93 = phi ptr [ %82, %83 ], [ %82, %74 ], [ %73, %.thread ]
+  %94 = phi i32 [ %90, %83 ], [ 0, %74 ], [ 0, %.thread ]
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 %94, ptr %95, align 4, !tbaa !66
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 1424
+  %97 = load double, ptr %96, align 8, !tbaa !55
+  %98 = fptrunc reassoc nsz arcp contract afn double %97 to float
+  %99 = fneg reassoc nsz arcp contract afn float %98
+  %100 = call ptr @dt_util_get_logo_text(float noundef %99) #9
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %100, ptr %101, align 8, !tbaa !67
+  %.not75 = icmp eq ptr %100, null
+  br i1 %.not75, label %.thread79, label %103
 
-113:                                              ; preds = %101
-  %114 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %114, align 8, !tbaa !35
-  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  br label %135
+.thread79:                                        ; preds = %91
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 0, ptr %102, align 8, !tbaa !68
+  %.pre81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  br label %120
 
-116:                                              ; preds = %101
-  %117 = call i32 @cairo_image_surface_get_width(ptr noundef nonnull %110) #9
-  %118 = sitofp i32 %117 to double
-  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1456
-  %121 = load double, ptr %120, align 8, !tbaa !31
-  %122 = fdiv reassoc nsz arcp contract afn double %118, %121
-  %123 = fptosi double %122 to i32
-  %124 = load ptr, ptr %111, align 8, !tbaa !34
-  %125 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 %123, ptr %125, align 8, !tbaa !35
-  %126 = icmp eq ptr %124, null
-  br i1 %126, label %135, label %127
+103:                                              ; preds = %91
+  %104 = call i32 @cairo_image_surface_get_width(ptr noundef nonnull %100) #9
+  %105 = sitofp i32 %104 to double
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1432
+  %108 = load double, ptr %107, align 8, !tbaa !64
+  %109 = fdiv reassoc nsz arcp contract afn double %105, %108
+  %110 = fptosi double %109 to i32
+  %.pr78 = load ptr, ptr %101, align 8, !tbaa !67
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 %110, ptr %111, align 8, !tbaa !68
+  %.not76 = icmp eq ptr %.pr78, null
+  br i1 %.not76, label %120, label %112
 
-127:                                              ; preds = %116
-  %128 = call i32 @cairo_image_surface_get_height(ptr noundef nonnull %124) #9
-  %129 = sitofp i32 %128 to double
-  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 1456
-  %132 = load double, ptr %131, align 8, !tbaa !31
-  %133 = fdiv reassoc nsz arcp contract afn double %129, %132
-  %134 = fptosi double %133 to i32
-  br label %135
+112:                                              ; preds = %103
+  %113 = call i32 @cairo_image_surface_get_height(ptr noundef nonnull %.pr78) #9
+  %114 = sitofp i32 %113 to double
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 1432
+  %117 = load double, ptr %116, align 8, !tbaa !64
+  %118 = fdiv reassoc nsz arcp contract afn double %114, %117
+  %119 = fptosi double %118 to i32
+  br label %120
 
-135:                                              ; preds = %127, %116, %113
-  %136 = phi ptr [ %130, %127 ], [ %119, %116 ], [ %115, %113 ]
-  %137 = phi i32 [ %134, %127 ], [ 0, %116 ], [ 0, %113 ]
-  %138 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %137, ptr %138, align 4, !tbaa !36
-  %139 = load ptr, ptr %6, align 8, !tbaa !13
-  %140 = load i32, ptr %103, align 8, !tbaa !32
-  %141 = getelementptr inbounds nuw i8, ptr %136, i64 1448
-  %142 = load double, ptr %141, align 8, !tbaa !24
-  %143 = fmul reassoc nsz arcp contract afn double %142, 1.800000e+02
-  %144 = fptosi double %143 to i32
-  %145 = add nsw i32 %140, %144
-  %146 = load i32, ptr %105, align 4, !tbaa !33
-  %147 = fmul reassoc nsz arcp contract afn double %142, 8.000000e+00
-  %148 = fptosi double %147 to i32
-  %149 = add nsw i32 %146, %148
-  call void @gtk_widget_set_size_request(ptr noundef %139, i32 noundef %145, i32 noundef %149) #9
+120:                                              ; preds = %.thread79, %103, %112
+  %121 = phi ptr [ %115, %112 ], [ %106, %103 ], [ %.pre81, %.thread79 ]
+  %122 = phi i32 [ %119, %112 ], [ 0, %103 ], [ 0, %.thread79 ]
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store i32 %122, ptr %123, align 4, !tbaa !69
+  %124 = load ptr, ptr %6, align 8, !tbaa !17
+  %125 = load i32, ptr %93, align 8, !tbaa !65
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 1424
+  %127 = load double, ptr %126, align 8, !tbaa !55
+  %128 = fmul reassoc nsz arcp contract afn double %127, 1.800000e+02
+  %129 = fptosi double %128 to i32
+  %130 = add nsw i32 %125, %129
+  %131 = load i32, ptr %95, align 4, !tbaa !66
+  %132 = fmul reassoc nsz arcp contract afn double %127, 8.000000e+00
+  %133 = fptosi double %132 to i32
+  %134 = add nsw i32 %131, %133
+  call void @gtk_widget_set_size_request(ptr noundef %124, i32 noundef %130, i32 noundef %134) #9
   ret void
 }
 
@@ -314,154 +314,154 @@ define internal noundef i32 @_lib_darktable_draw_callback(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #9
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !37
+  %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = sitofp i32 %11 to double
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !39
+  %14 = load i32, ptr %13, align 4, !tbaa !72
   %15 = sitofp i32 %14 to double
   call void @gtk_render_background(ptr noundef %9, ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %12, double noundef %15) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   call void (ptr, i32, ...) @gtk_style_context_get(ptr noundef %9, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull %5, ptr noundef null) #9
   %16 = call i32 @gtk_widget_get_state_flags(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store ptr null, ptr %6, align 8, !tbaa !40
+  store ptr null, ptr %6, align 8, !tbaa !73
   call void (ptr, i32, ...) @gtk_style_context_get(ptr noundef %9, i32 noundef %16, ptr noundef nonnull @.str.8, ptr noundef nonnull %6, ptr noundef null) #9
-  %17 = load ptr, ptr %8, align 8, !tbaa !28
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %39, label %19
+  %17 = load ptr, ptr %8, align 8, !tbaa !60
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %38, label %18
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1448
-  %22 = load double, ptr %21, align 8, !tbaa !24
-  %23 = fmul reassoc nsz arcp contract afn double %22, 7.000000e+00
-  %24 = fptosi double %23 to i32
-  %25 = sitofp i32 %24 to double
-  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef nonnull %17, double noundef 0.000000e+00, double noundef %25) #9
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !32
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1448
-  %30 = load double, ptr %29, align 8, !tbaa !24
-  %31 = fmul reassoc nsz arcp contract afn double %30, 8.000000e+00
-  %32 = fptosi double %31 to i32
-  %33 = add nsw i32 %27, %32
-  %34 = sitofp i32 %33 to double
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %36 = load i32, ptr %35, align 4, !tbaa !33
-  %37 = add nsw i32 %36, %32
-  %38 = sitofp i32 %37 to double
-  call void @cairo_rectangle(ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %34, double noundef %38) #9
+18:                                               ; preds = %3
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1424
+  %21 = load double, ptr %20, align 8, !tbaa !55
+  %22 = fmul reassoc nsz arcp contract afn double %21, 7.000000e+00
+  %23 = fptosi double %22 to i32
+  %24 = sitofp i32 %23 to double
+  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef nonnull %17, double noundef 0.000000e+00, double noundef %24) #9
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %26 = load i32, ptr %25, align 8, !tbaa !65
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1424
+  %29 = load double, ptr %28, align 8, !tbaa !55
+  %30 = fmul reassoc nsz arcp contract afn double %29, 8.000000e+00
+  %31 = fptosi double %30 to i32
+  %32 = add nsw i32 %26, %31
+  %33 = sitofp i32 %32 to double
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %35 = load i32, ptr %34, align 4, !tbaa !66
+  %36 = add nsw i32 %35, %31
+  %37 = sitofp i32 %36 to double
+  call void @cairo_rectangle(ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %33, double noundef %37) #9
   call void @cairo_fill(ptr noundef %1) #9
-  br label %39
+  br label %38
 
-39:                                               ; preds = %19, %3
-  %40 = call ptr @gtk_widget_create_pango_layout(ptr noundef %0, ptr noundef null) #9
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !34
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %74, label %44
+38:                                               ; preds = %18, %3
+  %39 = call ptr @gtk_widget_create_pango_layout(ptr noundef %0, ptr noundef null) #9
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %41 = load ptr, ptr %40, align 8, !tbaa !67
+  %.not41 = icmp eq ptr %41, null
+  br i1 %.not41, label %72, label %42
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !32
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1448
-  %49 = load double, ptr %48, align 8, !tbaa !24
-  %50 = fmul reassoc nsz arcp contract afn double %49, 5.000000e+00
-  %51 = fptosi double %50 to i32
-  %52 = add nsw i32 %46, %51
-  %53 = sitofp i32 %52 to double
-  %54 = fmul reassoc nsz arcp contract afn double %49, 1.200000e+01
-  %55 = fptosi double %54 to i32
-  %56 = sitofp i32 %55 to double
-  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef nonnull %42, double noundef %53, double noundef %56) #9
-  %57 = load i32, ptr %45, align 8, !tbaa !32
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %59 = load i32, ptr %58, align 8, !tbaa !35
-  %60 = add nsw i32 %59, %57
-  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1448
-  %63 = load double, ptr %62, align 8, !tbaa !24
-  %64 = fmul reassoc nsz arcp contract afn double %63, 1.100000e+01
-  %65 = fptosi double %64 to i32
-  %66 = add nsw i32 %60, %65
-  %67 = sitofp i32 %66 to double
-  %68 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %69 = load i32, ptr %68, align 4, !tbaa !36
-  %70 = fmul reassoc nsz arcp contract afn double %63, 1.300000e+01
-  %71 = fptosi double %70 to i32
-  %72 = add nsw i32 %69, %71
-  %73 = sitofp i32 %72 to double
-  call void @cairo_rectangle(ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %67, double noundef %73) #9
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %44 = load i32, ptr %43, align 8, !tbaa !65
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1424
+  %47 = load double, ptr %46, align 8, !tbaa !55
+  %48 = fmul reassoc nsz arcp contract afn double %47, 5.000000e+00
+  %49 = fptosi double %48 to i32
+  %50 = add nsw i32 %44, %49
+  %51 = sitofp i32 %50 to double
+  %52 = fmul reassoc nsz arcp contract afn double %47, 1.200000e+01
+  %53 = fptosi double %52 to i32
+  %54 = sitofp i32 %53 to double
+  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef nonnull %41, double noundef %51, double noundef %54) #9
+  %55 = load i32, ptr %43, align 8, !tbaa !65
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %57 = load i32, ptr %56, align 8, !tbaa !68
+  %58 = add nsw i32 %57, %55
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1424
+  %61 = load double, ptr %60, align 8, !tbaa !55
+  %62 = fmul reassoc nsz arcp contract afn double %61, 1.100000e+01
+  %63 = fptosi double %62 to i32
+  %64 = add nsw i32 %58, %63
+  %65 = sitofp i32 %64 to double
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %67 = load i32, ptr %66, align 4, !tbaa !69
+  %68 = fmul reassoc nsz arcp contract afn double %61, 1.300000e+01
+  %69 = fptosi double %68 to i32
+  %70 = add nsw i32 %67, %69
+  %71 = sitofp i32 %70 to double
+  call void @cairo_rectangle(ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %65, double noundef %71) #9
   call void @cairo_fill(ptr noundef %1) #9
-  br label %97
+  br label %95
 
-74:                                               ; preds = %39
-  %75 = load ptr, ptr %6, align 8, !tbaa !40
-  call void @pango_font_description_set_weight(ptr noundef %75, i32 noundef 700) #9
-  %76 = load ptr, ptr %6, align 8, !tbaa !40
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1448
-  %79 = load double, ptr %78, align 8, !tbaa !24
-  %80 = fmul reassoc nsz arcp contract afn double %79, 2.560000e+04
-  call void @pango_font_description_set_absolute_size(ptr noundef %76, double noundef %80) #9
-  %81 = load ptr, ptr %6, align 8, !tbaa !40
-  call void @pango_layout_set_font_description(ptr noundef %40, ptr noundef %81) #9
-  call void @pango_layout_set_text(ptr noundef %40, ptr noundef nonnull @.str, i32 noundef -1) #9
-  %82 = load ptr, ptr %5, align 8, !tbaa !40
-  %83 = load double, ptr %82, align 8, !tbaa !41
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %85 = load double, ptr %84, align 8, !tbaa !43
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %87 = load double, ptr %86, align 8, !tbaa !44
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %83, double noundef %85, double noundef %87, double noundef 0x3FE6666666666666) #9
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %89 = load i32, ptr %88, align 8, !tbaa !32
-  %90 = sitofp i32 %89 to double
-  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1448
-  %93 = load double, ptr %92, align 8, !tbaa !24
-  %94 = fmul reassoc nsz arcp contract afn double %93, 3.000000e+00
-  %95 = fadd reassoc nsz arcp contract afn double %94, %90
-  %96 = fmul reassoc nsz arcp contract afn double %93, 5.000000e+00
-  call void @cairo_move_to(ptr noundef %1, double noundef %95, double noundef %96) #9
-  call void @pango_cairo_show_layout(ptr noundef %1, ptr noundef %40) #9
-  br label %97
+72:                                               ; preds = %38
+  %73 = load ptr, ptr %6, align 8, !tbaa !73
+  call void @pango_font_description_set_weight(ptr noundef %73, i32 noundef 700) #9
+  %74 = load ptr, ptr %6, align 8, !tbaa !73
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1424
+  %77 = load double, ptr %76, align 8, !tbaa !55
+  %78 = fmul reassoc nsz arcp contract afn double %77, 2.560000e+04
+  call void @pango_font_description_set_absolute_size(ptr noundef %74, double noundef %78) #9
+  %79 = load ptr, ptr %6, align 8, !tbaa !73
+  call void @pango_layout_set_font_description(ptr noundef %39, ptr noundef %79) #9
+  call void @pango_layout_set_text(ptr noundef %39, ptr noundef nonnull @.str, i32 noundef -1) #9
+  %80 = load ptr, ptr %5, align 8, !tbaa !75
+  %81 = load double, ptr %80, align 8, !tbaa !77
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %83 = load double, ptr %82, align 8, !tbaa !79
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %85 = load double, ptr %84, align 8, !tbaa !80
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %81, double noundef %83, double noundef %85, double noundef 0x3FE6666666666666) #9
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %87 = load i32, ptr %86, align 8, !tbaa !65
+  %88 = sitofp i32 %87 to double
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1424
+  %91 = load double, ptr %90, align 8, !tbaa !55
+  %92 = fmul reassoc nsz arcp contract afn double %91, 3.000000e+00
+  %93 = fadd reassoc nsz arcp contract afn double %92, %88
+  %94 = fmul reassoc nsz arcp contract afn double %91, 5.000000e+00
+  call void @cairo_move_to(ptr noundef %1, double noundef %93, double noundef %94) #9
+  call void @pango_cairo_show_layout(ptr noundef %1, ptr noundef %39) #9
+  br label %95
 
-97:                                               ; preds = %74, %44
-  %98 = load ptr, ptr %6, align 8, !tbaa !40
-  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1448
-  %101 = load double, ptr %100, align 8, !tbaa !24
-  %102 = fmul reassoc nsz arcp contract afn double %101, 1.024000e+04
-  call void @pango_font_description_set_absolute_size(ptr noundef %98, double noundef %102) #9
-  %103 = load ptr, ptr %6, align 8, !tbaa !40
-  call void @pango_layout_set_font_description(ptr noundef %40, ptr noundef %103) #9
-  call void @pango_layout_set_text(ptr noundef %40, ptr noundef nonnull @darktable_package_version, i32 noundef -1) #9
-  %104 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %105 = load i32, ptr %104, align 8, !tbaa !32
-  %106 = sitofp i32 %105 to double
-  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1448
-  %109 = load double, ptr %108, align 8, !tbaa !24
-  %110 = fmul reassoc nsz arcp contract afn double %109, 4.000000e+00
-  %111 = fadd reassoc nsz arcp contract afn double %110, %106
-  %112 = fmul reassoc nsz arcp contract afn double %109, 3.200000e+01
-  call void @cairo_move_to(ptr noundef %1, double noundef %111, double noundef %112) #9
-  %113 = load ptr, ptr %5, align 8, !tbaa !40
-  %114 = load double, ptr %113, align 8, !tbaa !41
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %116 = load double, ptr %115, align 8, !tbaa !43
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %118 = load double, ptr %117, align 8, !tbaa !44
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %114, double noundef %116, double noundef %118, double noundef 0x3FE6666666666666) #9
-  call void @pango_cairo_show_layout(ptr noundef %1, ptr noundef %40) #9
-  %119 = load ptr, ptr %5, align 8, !tbaa !40
-  call void @gdk_rgba_free(ptr noundef %119) #9
-  call void @g_object_unref(ptr noundef %40) #9
-  %120 = load ptr, ptr %6, align 8, !tbaa !40
-  call void @pango_font_description_free(ptr noundef %120) #9
+95:                                               ; preds = %72, %42
+  %96 = load ptr, ptr %6, align 8, !tbaa !73
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1424
+  %99 = load double, ptr %98, align 8, !tbaa !55
+  %100 = fmul reassoc nsz arcp contract afn double %99, 1.024000e+04
+  call void @pango_font_description_set_absolute_size(ptr noundef %96, double noundef %100) #9
+  %101 = load ptr, ptr %6, align 8, !tbaa !73
+  call void @pango_layout_set_font_description(ptr noundef %39, ptr noundef %101) #9
+  call void @pango_layout_set_text(ptr noundef %39, ptr noundef nonnull @darktable_package_version, i32 noundef -1) #9
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %103 = load i32, ptr %102, align 8, !tbaa !65
+  %104 = sitofp i32 %103 to double
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !18
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1424
+  %107 = load double, ptr %106, align 8, !tbaa !55
+  %108 = fmul reassoc nsz arcp contract afn double %107, 4.000000e+00
+  %109 = fadd reassoc nsz arcp contract afn double %108, %104
+  %110 = fmul reassoc nsz arcp contract afn double %107, 3.200000e+01
+  call void @cairo_move_to(ptr noundef %1, double noundef %109, double noundef %110) #9
+  %111 = load ptr, ptr %5, align 8, !tbaa !75
+  %112 = load double, ptr %111, align 8, !tbaa !77
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %114 = load double, ptr %113, align 8, !tbaa !79
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %116 = load double, ptr %115, align 8, !tbaa !80
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %112, double noundef %114, double noundef %116, double noundef 0x3FE6666666666666) #9
+  call void @pango_cairo_show_layout(ptr noundef %1, ptr noundef %39) #9
+  %117 = load ptr, ptr %5, align 8, !tbaa !75
+  call void @gdk_rgba_free(ptr noundef %117) #9
+  call void @g_object_unref(ptr noundef %39) #9
+  %118 = load ptr, ptr %6, align 8, !tbaa !73
+  call void @pango_font_description_free(ptr noundef %118) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
@@ -538,28 +538,28 @@ declare void @gtk_widget_set_size_request(ptr noundef, i32 noundef, i32 noundef)
 define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !60
   tail call void @cairo_surface_destroy(ptr noundef %4) #9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
   tail call void @free(ptr noundef %6) #9
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %13, label %10
+  %8 = load ptr, ptr %7, align 8, !tbaa !67
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %11, label %9
 
-10:                                               ; preds = %1
-  %11 = tail call ptr @cairo_image_surface_get_data(ptr noundef nonnull %8) #9
-  %12 = load ptr, ptr %7, align 8, !tbaa !34
-  br label %13
+9:                                                ; preds = %1
+  %10 = tail call ptr @cairo_image_surface_get_data(ptr noundef nonnull %8) #9
+  %.pre = load ptr, ptr %7, align 8, !tbaa !67
+  br label %11
 
-13:                                               ; preds = %10, %1
-  %14 = phi ptr [ %12, %10 ], [ null, %1 ]
-  %15 = phi ptr [ %11, %10 ], [ null, %1 ]
-  tail call void @cairo_surface_destroy(ptr noundef %14) #9
-  tail call void @free(ptr noundef %15) #9
-  %16 = load ptr, ptr %2, align 8, !tbaa !6
-  tail call void @g_free(ptr noundef %16) #9
+11:                                               ; preds = %9, %1
+  %12 = phi ptr [ %.pre, %9 ], [ null, %1 ]
+  %.0 = phi ptr [ %10, %9 ], [ null, %1 ]
+  tail call void @cairo_surface_destroy(ptr noundef %12) #9
+  tail call void @free(ptr noundef %.0) #9
+  %13 = load ptr, ptr %2, align 8, !tbaa !6
+  tail call void @g_free(ptr noundef %13) #9
   store ptr null, ptr %2, align 8, !tbaa !6
   ret void
 }
@@ -602,15 +602,15 @@ declare void @pango_font_description_free(ptr noundef) local_unnamed_addr #5
 
 declare void @darktable_show_about_dialog(...) local_unnamed_addr #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #2 = { nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0) "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #5 = { "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
+attributes #4 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #5 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0) }
 attributes #11 = { nounwind allocsize(0,1) }
@@ -623,42 +623,78 @@ attributes #11 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = !{!7, !12, i64 280}
-!7 = !{!"dt_lib_module_t", !8, i64 0, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280, !10, i64 288, !12, i64 416, !12, i64 424, !9, i64 432, !12, i64 440, !12, i64 448, !12, i64 456, !12, i64 464, !9, i64 472, !9, i64 476}
-!8 = !{!"dt_action_t", !9, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40}
+!6 = !{!7, !13, i64 280}
+!7 = !{!"dt_lib_module_t", !8, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !15, i64 272, !13, i64 280, !10, i64 288, !16, i64 416, !16, i64 424, !9, i64 432, !16, i64 440, !16, i64 448, !16, i64 456, !9, i64 464}
+!8 = !{!"dt_action_t", !9, i64 0, !12, i64 8, !12, i64 16, !13, i64 24, !14, i64 32, !14, i64 40}
 !9 = !{!"int", !10, i64 0}
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"any pointer", !10, i64 0}
-!13 = !{!7, !12, i64 416}
-!14 = !{!15, !12, i64 104}
-!15 = !{!"darktable_t", !16, i64 0, !9, i64 4, !9, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !10, i64 232, !17, i64 2792, !17, i64 2832, !17, i64 2872, !17, i64 2912, !17, i64 2952, !12, i64 2992, !12, i64 3000, !12, i64 3008, !12, i64 3016, !12, i64 3024, !12, i64 3032, !12, i64 3040, !12, i64 3048, !12, i64 3056, !12, i64 3064, !12, i64 3072, !12, i64 3080, !18, i64 3088, !12, i64 3096, !19, i64 3104, !12, i64 3112, !9, i64 3120, !10, i64 3124, !9, i64 3308, !12, i64 3312, !12, i64 3320, !20, i64 3328, !22, i64 3376, !23, i64 3408}
-!16 = !{!"dt_codepath_t", !9, i64 0}
-!17 = !{!"dt_pthread_mutex_t", !10, i64 0}
-!18 = !{!"", !9, i64 0}
-!19 = !{!"double", !10, i64 0}
-!20 = !{!"dt_sys_resources_t", !21, i64 0, !21, i64 8, !12, i64 16, !12, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
-!21 = !{!"long", !10, i64 0}
-!22 = !{!"dt_backthumb_t", !19, i64 0, !19, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28}
-!23 = !{!"dt_gimp_t", !9, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28}
-!24 = !{!25, !19, i64 1448}
-!25 = !{!"dt_gui_gtk_t", !12, i64 0, !26, i64 8, !27, i64 72, !12, i64 96, !12, i64 104, !12, i64 112, !9, i64 120, !10, i64 128, !9, i64 1376, !9, i64 1380, !9, i64 1384, !9, i64 1388, !9, i64 1392, !19, i64 1400, !19, i64 1408, !19, i64 1416, !19, i64 1424, !12, i64 1432, !19, i64 1440, !19, i64 1448, !19, i64 1456, !19, i64 1464, !9, i64 1472, !9, i64 1476, !10, i64 1480, !9, i64 5576, !9, i64 5580, !9, i64 5584, !17, i64 5592}
-!26 = !{!"dt_gui_widgets_t", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !9, i64 48, !9, i64 52, !9, i64 56}
-!27 = !{!"dt_gui_scrollbars_t", !12, i64 0, !12, i64 8, !9, i64 16}
-!28 = !{!29, !12, i64 0}
-!29 = !{!"dt_lib_darktable_t", !12, i64 0, !12, i64 8, !9, i64 16, !9, i64 20, !12, i64 24, !9, i64 32, !9, i64 36}
-!30 = !{!29, !12, i64 8}
-!31 = !{!25, !19, i64 1456}
-!32 = !{!29, !9, i64 16}
-!33 = !{!29, !9, i64 20}
-!34 = !{!29, !12, i64 24}
-!35 = !{!29, !9, i64 32}
-!36 = !{!29, !9, i64 36}
-!37 = !{!38, !9, i64 8}
-!38 = !{!"_cairo_rectangle_int", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!39 = !{!38, !9, i64 12}
-!40 = !{!12, !12, i64 0}
-!41 = !{!42, !19, i64 0}
-!42 = !{!"_GdkRGBA", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24}
-!43 = !{!42, !19, i64 8}
-!44 = !{!42, !19, i64 16}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !10, i64 0}
+!14 = !{!"p1 _ZTS11dt_action_t", !13, i64 0}
+!15 = !{!"p1 _ZTS8_GModule", !13, i64 0}
+!16 = !{!"p1 _ZTS10_GtkWidget", !13, i64 0}
+!17 = !{!7, !16, i64 416}
+!18 = !{!19, !29, i64 104}
+!19 = !{!"darktable_t", !20, i64 0, !9, i64 4, !9, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !22, i64 48, !23, i64 56, !24, i64 64, !25, i64 72, !26, i64 80, !27, i64 88, !28, i64 96, !29, i64 104, !30, i64 112, !31, i64 120, !32, i64 128, !33, i64 136, !34, i64 144, !35, i64 152, !36, i64 160, !37, i64 168, !38, i64 176, !39, i64 184, !40, i64 192, !41, i64 200, !42, i64 208, !43, i64 216, !44, i64 224, !10, i64 232, !45, i64 2792, !45, i64 2832, !45, i64 2872, !45, i64 2912, !45, i64 2952, !12, i64 2992, !12, i64 3000, !12, i64 3008, !12, i64 3016, !12, i64 3024, !12, i64 3032, !12, i64 3040, !12, i64 3048, !12, i64 3056, !12, i64 3064, !12, i64 3072, !12, i64 3080, !12, i64 3088, !46, i64 3096, !21, i64 3104, !47, i64 3112, !21, i64 3120, !9, i64 3128, !10, i64 3132, !9, i64 3320, !9, i64 3324, !48, i64 3328, !49, i64 3336, !50, i64 3344, !53, i64 3384, !54, i64 3416}
+!20 = !{!"dt_codepath_t", !9, i64 0}
+!21 = !{!"p1 _ZTS6_GList", !13, i64 0}
+!22 = !{!"p1 _ZTS11_JsonParser", !13, i64 0}
+!23 = !{!"p1 _ZTS9dt_conf_t", !13, i64 0}
+!24 = !{!"p1 _ZTS12dt_develop_t", !13, i64 0}
+!25 = !{!"p1 _ZTS8dt_lib_t", !13, i64 0}
+!26 = !{!"p1 _ZTS17dt_view_manager_t", !13, i64 0}
+!27 = !{!"p1 _ZTS12dt_control_t", !13, i64 0}
+!28 = !{!"p1 _ZTS19dt_control_signal_t", !13, i64 0}
+!29 = !{!"p1 _ZTS12dt_gui_gtk_t", !13, i64 0}
+!30 = !{!"p1 _ZTS17dt_mipmap_cache_t", !13, i64 0}
+!31 = !{!"p1 _ZTS16dt_image_cache_t", !13, i64 0}
+!32 = !{!"p1 _ZTS12dt_bauhaus_t", !13, i64 0}
+!33 = !{!"p1 _ZTS13dt_database_t", !13, i64 0}
+!34 = !{!"p1 _ZTS14dt_pwstorage_t", !13, i64 0}
+!35 = !{!"p1 _ZTS11dt_camctl_t", !13, i64 0}
+!36 = !{!"p1 _ZTS15dt_collection_t", !13, i64 0}
+!37 = !{!"p1 _ZTS14dt_selection_t", !13, i64 0}
+!38 = !{!"p1 _ZTS11dt_points_t", !13, i64 0}
+!39 = !{!"p1 _ZTS12dt_imageio_t", !13, i64 0}
+!40 = !{!"p1 _ZTS11dt_opencl_t", !13, i64 0}
+!41 = !{!"p1 _ZTS9dt_dbus_t", !13, i64 0}
+!42 = !{!"p1 _ZTS9dt_undo_t", !13, i64 0}
+!43 = !{!"p1 _ZTS16dt_colorspaces_t", !13, i64 0}
+!44 = !{!"p1 _ZTS9dt_l10n_t", !13, i64 0}
+!45 = !{!"dt_pthread_mutex_t", !10, i64 0}
+!46 = !{!"", !9, i64 0}
+!47 = !{!"double", !10, i64 0}
+!48 = !{!"p1 _ZTS10_GTimeZone", !13, i64 0}
+!49 = !{!"p1 _ZTS10_GDateTime", !13, i64 0}
+!50 = !{!"dt_sys_resources_t", !51, i64 0, !51, i64 8, !52, i64 16, !52, i64 24, !9, i64 32}
+!51 = !{!"long", !10, i64 0}
+!52 = !{!"p1 int", !13, i64 0}
+!53 = !{!"dt_backthumb_t", !47, i64 0, !47, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28}
+!54 = !{!"dt_gimp_t", !9, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28}
+!55 = !{!56, !47, i64 1424}
+!56 = !{!"dt_gui_gtk_t", !57, i64 0, !58, i64 8, !59, i64 56, !9, i64 80, !12, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !47, i64 1376, !47, i64 1384, !47, i64 1392, !47, i64 1400, !16, i64 1408, !47, i64 1416, !47, i64 1424, !47, i64 1432, !47, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !45, i64 5568}
+!57 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
+!58 = !{!"dt_gui_widgets_t", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
+!59 = !{!"dt_gui_scrollbars_t", !16, i64 0, !16, i64 8, !9, i64 16}
+!60 = !{!61, !62, i64 0}
+!61 = !{!"dt_lib_darktable_t", !62, i64 0, !12, i64 8, !9, i64 16, !9, i64 20, !62, i64 24, !9, i64 32, !9, i64 36}
+!62 = !{!"p1 _ZTS14_cairo_surface", !13, i64 0}
+!63 = !{!61, !12, i64 8}
+!64 = !{!56, !47, i64 1432}
+!65 = !{!61, !9, i64 16}
+!66 = !{!61, !9, i64 20}
+!67 = !{!61, !62, i64 24}
+!68 = !{!61, !9, i64 32}
+!69 = !{!61, !9, i64 36}
+!70 = !{!71, !9, i64 8}
+!71 = !{!"_cairo_rectangle_int", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!72 = !{!71, !9, i64 12}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS21_PangoFontDescription", !13, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTS8_GdkRGBA", !13, i64 0}
+!77 = !{!78, !47, i64 0}
+!78 = !{!"_GdkRGBA", !47, i64 0, !47, i64 8, !47, i64 16, !47, i64 24}
+!79 = !{!78, !47, i64 8}
+!80 = !{!78, !47, i64 16}

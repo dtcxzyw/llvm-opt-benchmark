@@ -1,0 +1,412 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct._help_url = type { ptr, ptr }
+
+@.str = private unnamed_addr constant [14 x i8] c"document_root\00", align 1
+@.str.1 = private unnamed_addr constant [2 x i8] c"/\00", align 1
+@.str.2 = private unnamed_addr constant [8 x i8] c"ratings\00", align 1
+@.str.3 = private unnamed_addr constant [61 x i8] c"lighttable/digital-asset-management/star-color/#star-ratings\00", align 1
+@.str.4 = private unnamed_addr constant [19 x i8] c"layout_filemanager\00", align 1
+@.str.5 = private unnamed_addr constant [41 x i8] c"lighttable/lighttable-modes/filemanager/\00", align 1
+@.str.6 = private unnamed_addr constant [16 x i8] c"layout_zoomable\00", align 1
+@.str.7 = private unnamed_addr constant [49 x i8] c"lighttable/lighttable-modes/zoomable-lighttable/\00", align 1
+@.str.8 = private unnamed_addr constant [15 x i8] c"layout_culling\00", align 1
+@.str.9 = private unnamed_addr constant [37 x i8] c"lighttable/lighttable-modes/culling/\00", align 1
+@.str.10 = private unnamed_addr constant [15 x i8] c"layout_preview\00", align 1
+@.str.11 = private unnamed_addr constant [42 x i8] c"lighttable/lighttable-modes/full-preview/\00", align 1
+@.str.12 = private unnamed_addr constant [12 x i8] c"colorlabels\00", align 1
+@.str.13 = private unnamed_addr constant [61 x i8] c"lighttable/digital-asset-management/star-color/#color-labels\00", align 1
+@.str.14 = private unnamed_addr constant [7 x i8] c"import\00", align 1
+@.str.15 = private unnamed_addr constant [52 x i8] c"module-reference/utility-modules/lighttable/import/\00", align 1
+@.str.16 = private unnamed_addr constant [14 x i8] c"import_dialog\00", align 1
+@.str.17 = private unnamed_addr constant [66 x i8] c"module-reference/utility-modules/lighttable/import/#import-dialog\00", align 1
+@.str.18 = private unnamed_addr constant [7 x i8] c"select\00", align 1
+@.str.19 = private unnamed_addr constant [52 x i8] c"module-reference/utility-modules/lighttable/select/\00", align 1
+@.str.20 = private unnamed_addr constant [6 x i8] c"image\00", align 1
+@.str.21 = private unnamed_addr constant [60 x i8] c"module-reference/utility-modules/lighttable/selected-image/\00", align 1
+@.str.22 = private unnamed_addr constant [13 x i8] c"copy_history\00", align 1
+@.str.23 = private unnamed_addr constant [59 x i8] c"module-reference/utility-modules/lighttable/history-stack/\00", align 1
+@.str.24 = private unnamed_addr constant [7 x i8] c"styles\00", align 1
+@.str.25 = private unnamed_addr constant [68 x i8] c"module-reference/utility-modules/lighttable/styles/#module-controls\00", align 1
+@.str.26 = private unnamed_addr constant [9 x i8] c"timeline\00", align 1
+@.str.27 = private unnamed_addr constant [54 x i8] c"module-reference/utility-modules/lighttable/timeline/\00", align 1
+@.str.28 = private unnamed_addr constant [9 x i8] c"metadata\00", align 1
+@.str.29 = private unnamed_addr constant [57 x i8] c"module-reference/utility-modules/shared/metadata-editor/\00", align 1
+@.str.30 = private unnamed_addr constant [21 x i8] c"metadata_preferences\00", align 1
+@.str.31 = private unnamed_addr constant [69 x i8] c"module-reference/utility-modules/shared/metadata-editor/#preferences\00", align 1
+@.str.32 = private unnamed_addr constant [8 x i8] c"tagging\00", align 1
+@.str.33 = private unnamed_addr constant [49 x i8] c"module-reference/utility-modules/shared/tagging/\00", align 1
+@.str.34 = private unnamed_addr constant [11 x i8] c"geotagging\00", align 1
+@.str.35 = private unnamed_addr constant [52 x i8] c"module-reference/utility-modules/shared/geotagging/\00", align 1
+@.str.36 = private unnamed_addr constant [8 x i8] c"collect\00", align 1
+@.str.37 = private unnamed_addr constant [53 x i8] c"module-reference/utility-modules/shared/collections/\00", align 1
+@.str.38 = private unnamed_addr constant [14 x i8] c"recentcollect\00", align 1
+@.str.39 = private unnamed_addr constant [60 x i8] c"module-reference/utility-modules/shared/recent-collections/\00", align 1
+@.str.40 = private unnamed_addr constant [14 x i8] c"metadata_view\00", align 1
+@.str.41 = private unnamed_addr constant [59 x i8] c"module-reference/utility-modules/shared/image-information/\00", align 1
+@.str.42 = private unnamed_addr constant [7 x i8] c"export\00", align 1
+@.str.43 = private unnamed_addr constant [48 x i8] c"module-reference/utility-modules/shared/export/\00", align 1
+@.str.44 = private unnamed_addr constant [14 x i8] c"export_dialog\00", align 1
+@.str.45 = private unnamed_addr constant [69 x i8] c"module-reference/utility-modules/shared/export/#metadata-preferences\00", align 1
+@.str.46 = private unnamed_addr constant [10 x i8] c"histogram\00", align 1
+@.str.47 = private unnamed_addr constant [48 x i8] c"module-reference/utility-modules/shared/scopes/\00", align 1
+@.str.48 = private unnamed_addr constant [11 x i8] c"navigation\00", align 1
+@.str.49 = private unnamed_addr constant [54 x i8] c"module-reference/utility-modules/darkroom/navigation/\00", align 1
+@.str.50 = private unnamed_addr constant [10 x i8] c"snapshots\00", align 1
+@.str.51 = private unnamed_addr constant [53 x i8] c"module-reference/utility-modules/darkroom/snapshots/\00", align 1
+@.str.52 = private unnamed_addr constant [8 x i8] c"history\00", align 1
+@.str.53 = private unnamed_addr constant [57 x i8] c"module-reference/utility-modules/darkroom/history-stack/\00", align 1
+@.str.54 = private unnamed_addr constant [12 x i8] c"colorpicker\00", align 1
+@.str.55 = private unnamed_addr constant [63 x i8] c"module-reference/utility-modules/darkroom/global-color-picker/\00", align 1
+@.str.56 = private unnamed_addr constant [6 x i8] c"masks\00", align 1
+@.str.57 = private unnamed_addr constant [56 x i8] c"module-reference/utility-modules/darkroom/mask-manager/\00", align 1
+@.str.58 = private unnamed_addr constant [13 x i8] c"modulegroups\00", align 1
+@.str.59 = private unnamed_addr constant [45 x i8] c"darkroom/organization/manage-module-layouts/\00", align 1
+@.str.60 = private unnamed_addr constant [12 x i8] c"masks_drawn\00", align 1
+@.str.61 = private unnamed_addr constant [43 x i8] c"darkroom/masking-and-blending/masks/drawn/\00", align 1
+@.str.62 = private unnamed_addr constant [17 x i8] c"masks_parametric\00", align 1
+@.str.63 = private unnamed_addr constant [48 x i8] c"darkroom/masking-and-blending/masks/parametric/\00", align 1
+@.str.64 = private unnamed_addr constant [13 x i8] c"masks_raster\00", align 1
+@.str.65 = private unnamed_addr constant [44 x i8] c"darkroom/masking-and-blending/masks/raster/\00", align 1
+@.str.66 = private unnamed_addr constant [18 x i8] c"masks_blending_op\00", align 1
+@.str.67 = private unnamed_addr constant [58 x i8] c"darkroom/masking-and-blending/masks/drawn-and-parametric/\00", align 1
+@.str.68 = private unnamed_addr constant [15 x i8] c"masks_blending\00", align 1
+@.str.69 = private unnamed_addr constant [40 x i8] c"darkroom/masking-and-blending/overview/\00", align 1
+@.str.70 = private unnamed_addr constant [15 x i8] c"masks_combined\00", align 1
+@.str.71 = private unnamed_addr constant [17 x i8] c"masks_refinement\00", align 1
+@.str.72 = private unnamed_addr constant [57 x i8] c"darkroom/masking-and-blending/masks/refinement-controls/\00", align 1
+@.str.73 = private unnamed_addr constant [10 x i8] c"duplicate\00", align 1
+@.str.74 = private unnamed_addr constant [61 x i8] c"module-reference/utility-modules/darkroom/duplicate-manager/\00", align 1
+@.str.75 = private unnamed_addr constant [9 x i8] c"location\00", align 1
+@.str.76 = private unnamed_addr constant [52 x i8] c"module-reference/utility-modules/map/find-location/\00", align 1
+@.str.77 = private unnamed_addr constant [13 x i8] c"map_settings\00", align 1
+@.str.78 = private unnamed_addr constant [51 x i8] c"module-reference/utility-modules/map/map-settings/\00", align 1
+@.str.79 = private unnamed_addr constant [15 x i8] c"print_settings\00", align 1
+@.str.80 = private unnamed_addr constant [55 x i8] c"module-reference/utility-modules/print/print-settings/\00", align 1
+@.str.81 = private unnamed_addr constant [85 x i8] c"print_settings_printermodule-reference/utility-modules/print/print-settings/#printer\00", align 1
+@.str.82 = private unnamed_addr constant [79 x i8] c"print_settings_pagemodule-reference/utility-modules/print/print-settings/#page\00", align 1
+@.str.83 = private unnamed_addr constant [89 x i8] c"print_settings_buttonmodule-reference/utility-modules/print/print-settings/#print-button\00", align 1
+@.str.84 = private unnamed_addr constant [15 x i8] c"print_overview\00", align 1
+@.str.85 = private unnamed_addr constant [16 x i8] c"print/overview/\00", align 1
+@.str.86 = private unnamed_addr constant [7 x i8] c"camera\00", align 1
+@.str.87 = private unnamed_addr constant [60 x i8] c"module-reference/utility-modules/tethering/camera-settings/\00", align 1
+@.str.88 = private unnamed_addr constant [14 x i8] c"import_camera\00", align 1
+@.str.89 = private unnamed_addr constant [35 x i8] c"overview/workflow/import-rate-tag/\00", align 1
+@.str.90 = private unnamed_addr constant [10 x i8] c"import_fr\00", align 1
+@.str.91 = private unnamed_addr constant [15 x i8] c"global_toolbox\00", align 1
+@.str.92 = private unnamed_addr constant [58 x i8] c"overview/user-interface/top-panel/#on-the-right-hand-side\00", align 1
+@.str.93 = private unnamed_addr constant [16 x i8] c"lighttable_mode\00", align 1
+@.str.94 = private unnamed_addr constant [21 x i8] c"lighttable/overview/\00", align 1
+@.str.95 = private unnamed_addr constant [23 x i8] c"lighttable_filemanager\00", align 1
+@.str.96 = private unnamed_addr constant [20 x i8] c"lighttable_zoomable\00", align 1
+@.str.97 = private unnamed_addr constant [22 x i8] c"darkroom_bottom_panel\00", align 1
+@.str.98 = private unnamed_addr constant [44 x i8] c"darkroom/darkroom-view-layout/#bottom-panel\00", align 1
+@.str.99 = private unnamed_addr constant [14 x i8] c"module_header\00", align 1
+@.str.100 = private unnamed_addr constant [43 x i8] c"darkroom/processing-modules/module-header/\00", align 1
+@.str.101 = private unnamed_addr constant [8 x i8] c"session\00", align 1
+@.str.102 = private unnamed_addr constant [52 x i8] c"module-reference/utility-modules/tethering/session/\00", align 1
+@.str.103 = private unnamed_addr constant [10 x i8] c"live_view\00", align 1
+@.str.104 = private unnamed_addr constant [54 x i8] c"module-reference/utility-modules/tethering/live-view/\00", align 1
+@.str.105 = private unnamed_addr constant [15 x i8] c"module_toolbox\00", align 1
+@.str.106 = private unnamed_addr constant [13 x i8] c"view_toolbox\00", align 1
+@.str.107 = private unnamed_addr constant [15 x i8] c"backgroundjobs\00", align 1
+@.str.108 = private unnamed_addr constant [7 x i8] c"hinter\00", align 1
+@.str.109 = private unnamed_addr constant [7 x i8] c"filter\00", align 1
+@.str.110 = private unnamed_addr constant [10 x i8] c"filmstrip\00", align 1
+@.str.111 = private unnamed_addr constant [35 x i8] c"overview/user-interface/filmstrip/\00", align 1
+@.str.112 = private unnamed_addr constant [13 x i8] c"viewswitcher\00", align 1
+@.str.113 = private unnamed_addr constant [31 x i8] c"overview/user-interface/views/\00", align 1
+@.str.114 = private unnamed_addr constant [17 x i8] c"favorite_presets\00", align 1
+@.str.115 = private unnamed_addr constant [20 x i8] c"bottom_panel_styles\00", align 1
+@.str.116 = private unnamed_addr constant [15 x i8] c"rawoverexposed\00", align 1
+@.str.117 = private unnamed_addr constant [59 x i8] c"module-reference/utility-modules/darkroom/raw-overexposed/\00", align 1
+@.str.118 = private unnamed_addr constant [12 x i8] c"overexposed\00", align 1
+@.str.119 = private unnamed_addr constant [52 x i8] c"module-reference/utility-modules/darkroom/clipping/\00", align 1
+@.str.120 = private unnamed_addr constant [10 x i8] c"softproof\00", align 1
+@.str.121 = private unnamed_addr constant [54 x i8] c"module-reference/utility-modules/darkroom/soft-proof/\00", align 1
+@.str.122 = private unnamed_addr constant [6 x i8] c"gamut\00", align 1
+@.str.123 = private unnamed_addr constant [49 x i8] c"module-reference/utility-modules/darkroom/gamut/\00", align 1
+@.str.124 = private unnamed_addr constant [10 x i8] c"shortcuts\00", align 1
+@.str.125 = private unnamed_addr constant [32 x i8] c"preferences-settings/shortcuts/\00", align 1
+@.str.126 = private unnamed_addr constant [8 x i8] c"presets\00", align 1
+@.str.127 = private unnamed_addr constant [30 x i8] c"preferences-settings/presets/\00", align 1
+@.str.128 = private unnamed_addr constant [11 x i8] c"css_tweaks\00", align 1
+@.str.129 = private unnamed_addr constant [54 x i8] c"preferences-settings/general/#css-theme-modifications\00", align 1
+@.str.130 = private unnamed_addr constant [14 x i8] c"preset_dialog\00", align 1
+@.str.131 = private unnamed_addr constant [66 x i8] c"darkroom/processing-modules/presets/#creating-and-editing-presets\00", align 1
+@.str.132 = private unnamed_addr constant [7 x i8] c"ashift\00", align 1
+@.str.133 = private unnamed_addr constant [56 x i8] c"module-reference/processing-modules/rotate-perspective/\00", align 1
+@.str.134 = private unnamed_addr constant [7 x i8] c"atrous\00", align 1
+@.str.135 = private unnamed_addr constant [56 x i8] c"module-reference/processing-modules/contrast-equalizer/\00", align 1
+@.str.136 = private unnamed_addr constant [10 x i8] c"basecurve\00", align 1
+@.str.137 = private unnamed_addr constant [48 x i8] c"module-reference/processing-modules/base-curve/\00", align 1
+@.str.138 = private unnamed_addr constant [10 x i8] c"bilateral\00", align 1
+@.str.139 = private unnamed_addr constant [50 x i8] c"module-reference/processing-modules/surface-blur/\00", align 1
+@.str.140 = private unnamed_addr constant [6 x i8] c"bilat\00", align 1
+@.str.141 = private unnamed_addr constant [52 x i8] c"module-reference/processing-modules/local-contrast/\00", align 1
+@.str.142 = private unnamed_addr constant [6 x i8] c"bloom\00", align 1
+@.str.143 = private unnamed_addr constant [43 x i8] c"module-reference/processing-modules/bloom/\00", align 1
+@.str.144 = private unnamed_addr constant [8 x i8] c"borders\00", align 1
+@.str.145 = private unnamed_addr constant [45 x i8] c"module-reference/processing-modules/framing/\00", align 1
+@.str.146 = private unnamed_addr constant [10 x i8] c"cacorrect\00", align 1
+@.str.147 = private unnamed_addr constant [63 x i8] c"module-reference/processing-modules/raw-chromatic-aberrations/\00", align 1
+@.str.148 = private unnamed_addr constant [13 x i8] c"cacorrectrgb\00", align 1
+@.str.149 = private unnamed_addr constant [59 x i8] c"module-reference/processing-modules/chromatic-aberrations/\00", align 1
+@.str.150 = private unnamed_addr constant [10 x i8] c"censorize\00", align 1
+@.str.151 = private unnamed_addr constant [47 x i8] c"module-reference/processing-modules/censorize/\00", align 1
+@.str.152 = private unnamed_addr constant [13 x i8] c"channelmixer\00", align 1
+@.str.153 = private unnamed_addr constant [51 x i8] c"module-reference/processing-modules/channel-mixer/\00", align 1
+@.str.154 = private unnamed_addr constant [16 x i8] c"channelmixerrgb\00", align 1
+@.str.155 = private unnamed_addr constant [55 x i8] c"module-reference/processing-modules/color-calibration/\00", align 1
+@.str.156 = private unnamed_addr constant [6 x i8] c"clahe\00", align 1
+@.str.157 = private unnamed_addr constant [9 x i8] c"clipping\00", align 1
+@.str.158 = private unnamed_addr constant [49 x i8] c"module-reference/processing-modules/crop-rotate/\00", align 1
+@.str.159 = private unnamed_addr constant [7 x i8] c"colisa\00", align 1
+@.str.160 = private unnamed_addr constant [68 x i8] c"module-reference/processing-modules/contrast-brightness-saturation/\00", align 1
+@.str.161 = private unnamed_addr constant [13 x i8] c"colorbalance\00", align 1
+@.str.162 = private unnamed_addr constant [51 x i8] c"module-reference/processing-modules/color-balance/\00", align 1
+@.str.163 = private unnamed_addr constant [16 x i8] c"colorbalancergb\00", align 1
+@.str.164 = private unnamed_addr constant [55 x i8] c"module-reference/processing-modules/color-balance-rgb/\00", align 1
+@.str.165 = private unnamed_addr constant [13 x i8] c"colorchecker\00", align 1
+@.str.166 = private unnamed_addr constant [57 x i8] c"module-reference/processing-modules/color-look-up-table/\00", align 1
+@.str.167 = private unnamed_addr constant [14 x i8] c"colorcontrast\00", align 1
+@.str.168 = private unnamed_addr constant [52 x i8] c"module-reference/processing-modules/color-contrast/\00", align 1
+@.str.169 = private unnamed_addr constant [16 x i8] c"colorcorrection\00", align 1
+@.str.170 = private unnamed_addr constant [54 x i8] c"module-reference/processing-modules/color-correction/\00", align 1
+@.str.171 = private unnamed_addr constant [11 x i8] c"colorequal\00", align 1
+@.str.172 = private unnamed_addr constant [53 x i8] c"module-reference/processing-modules/color-equalizer/\00", align 1
+@.str.173 = private unnamed_addr constant [8 x i8] c"colorin\00", align 1
+@.str.174 = private unnamed_addr constant [57 x i8] c"module-reference/processing-modules/input-color-profile/\00", align 1
+@.str.175 = private unnamed_addr constant [9 x i8] c"colorize\00", align 1
+@.str.176 = private unnamed_addr constant [46 x i8] c"module-reference/processing-modules/colorize/\00", align 1
+@.str.177 = private unnamed_addr constant [13 x i8] c"colormapping\00", align 1
+@.str.178 = private unnamed_addr constant [51 x i8] c"module-reference/processing-modules/color-mapping/\00", align 1
+@.str.179 = private unnamed_addr constant [9 x i8] c"colorout\00", align 1
+@.str.180 = private unnamed_addr constant [58 x i8] c"module-reference/processing-modules/output-color-profile/\00", align 1
+@.str.181 = private unnamed_addr constant [17 x i8] c"colorreconstruct\00", align 1
+@.str.182 = private unnamed_addr constant [58 x i8] c"module-reference/processing-modules/color-reconstruction/\00", align 1
+@.str.183 = private unnamed_addr constant [14 x i8] c"colortransfer\00", align 1
+@.str.184 = private unnamed_addr constant [11 x i8] c"colorzones\00", align 1
+@.str.185 = private unnamed_addr constant [49 x i8] c"module-reference/processing-modules/color-zones/\00", align 1
+@.str.186 = private unnamed_addr constant [5 x i8] c"crop\00", align 1
+@.str.187 = private unnamed_addr constant [42 x i8] c"module-reference/processing-modules/crop/\00", align 1
+@.str.188 = private unnamed_addr constant [9 x i8] c"defringe\00", align 1
+@.str.189 = private unnamed_addr constant [46 x i8] c"module-reference/processing-modules/defringe/\00", align 1
+@.str.190 = private unnamed_addr constant [9 x i8] c"demosaic\00", align 1
+@.str.191 = private unnamed_addr constant [46 x i8] c"module-reference/processing-modules/demosaic/\00", align 1
+@.str.192 = private unnamed_addr constant [15 x i8] c"denoiseprofile\00", align 1
+@.str.193 = private unnamed_addr constant [54 x i8] c"module-reference/processing-modules/denoise-profiled/\00", align 1
+@.str.194 = private unnamed_addr constant [7 x i8] c"dither\00", align 1
+@.str.195 = private unnamed_addr constant [47 x i8] c"module-reference/processing-modules/dithering/\00", align 1
+@.str.196 = private unnamed_addr constant [14 x i8] c"enlargecanvas\00", align 1
+@.str.197 = private unnamed_addr constant [52 x i8] c"module-reference/processing-modules/enlarge-canvas/\00", align 1
+@.str.198 = private unnamed_addr constant [10 x i8] c"equalizer\00", align 1
+@.str.199 = private unnamed_addr constant [9 x i8] c"exposure\00", align 1
+@.str.200 = private unnamed_addr constant [46 x i8] c"module-reference/processing-modules/exposure/\00", align 1
+@.str.201 = private unnamed_addr constant [7 x i8] c"filmic\00", align 1
+@.str.202 = private unnamed_addr constant [48 x i8] c"module-reference/processing-modules/filmic-rgb/\00", align 1
+@.str.203 = private unnamed_addr constant [10 x i8] c"filmicrgb\00", align 1
+@.str.204 = private unnamed_addr constant [8 x i8] c"sigmoid\00", align 1
+@.str.205 = private unnamed_addr constant [45 x i8] c"module-reference/processing-modules/sigmoid/\00", align 1
+@.str.206 = private unnamed_addr constant [5 x i8] c"flip\00", align 1
+@.str.207 = private unnamed_addr constant [49 x i8] c"module-reference/processing-modules/orientation/\00", align 1
+@.str.208 = private unnamed_addr constant [14 x i8] c"globaltonemap\00", align 1
+@.str.209 = private unnamed_addr constant [52 x i8] c"module-reference/processing-modules/global-tonemap/\00", align 1
+@.str.210 = private unnamed_addr constant [12 x i8] c"graduatednd\00", align 1
+@.str.211 = private unnamed_addr constant [55 x i8] c"module-reference/processing-modules/graduated-density/\00", align 1
+@.str.212 = private unnamed_addr constant [6 x i8] c"grain\00", align 1
+@.str.213 = private unnamed_addr constant [43 x i8] c"module-reference/processing-modules/grain/\00", align 1
+@.str.214 = private unnamed_addr constant [12 x i8] c"hazeremoval\00", align 1
+@.str.215 = private unnamed_addr constant [50 x i8] c"module-reference/processing-modules/haze-removal/\00", align 1
+@.str.216 = private unnamed_addr constant [11 x i8] c"highlights\00", align 1
+@.str.217 = private unnamed_addr constant [62 x i8] c"module-reference/processing-modules/highlight-reconstruction/\00", align 1
+@.str.218 = private unnamed_addr constant [9 x i8] c"highpass\00", align 1
+@.str.219 = private unnamed_addr constant [46 x i8] c"module-reference/processing-modules/highpass/\00", align 1
+@.str.220 = private unnamed_addr constant [10 x i8] c"hotpixels\00", align 1
+@.str.221 = private unnamed_addr constant [48 x i8] c"module-reference/processing-modules/hot-pixels/\00", align 1
+@.str.222 = private unnamed_addr constant [7 x i8] c"invert\00", align 1
+@.str.223 = private unnamed_addr constant [44 x i8] c"module-reference/processing-modules/invert/\00", align 1
+@.str.224 = private unnamed_addr constant [5 x i8] c"lens\00", align 1
+@.str.225 = private unnamed_addr constant [53 x i8] c"module-reference/processing-modules/lens-correction/\00", align 1
+@.str.226 = private unnamed_addr constant [7 x i8] c"levels\00", align 1
+@.str.227 = private unnamed_addr constant [44 x i8] c"module-reference/processing-modules/levels/\00", align 1
+@.str.228 = private unnamed_addr constant [8 x i8] c"liquify\00", align 1
+@.str.229 = private unnamed_addr constant [45 x i8] c"module-reference/processing-modules/liquify/\00", align 1
+@.str.230 = private unnamed_addr constant [9 x i8] c"lowlight\00", align 1
+@.str.231 = private unnamed_addr constant [53 x i8] c"module-reference/processing-modules/lowlight-vision/\00", align 1
+@.str.232 = private unnamed_addr constant [8 x i8] c"lowpass\00", align 1
+@.str.233 = private unnamed_addr constant [45 x i8] c"module-reference/processing-modules/lowpass/\00", align 1
+@.str.234 = private unnamed_addr constant [6 x i8] c"lut3d\00", align 1
+@.str.235 = private unnamed_addr constant [44 x i8] c"module-reference/processing-modules/lut-3d/\00", align 1
+@.str.236 = private unnamed_addr constant [11 x i8] c"monochrome\00", align 1
+@.str.237 = private unnamed_addr constant [48 x i8] c"module-reference/processing-modules/monochrome/\00", align 1
+@.str.238 = private unnamed_addr constant [11 x i8] c"negadoctor\00", align 1
+@.str.239 = private unnamed_addr constant [48 x i8] c"module-reference/processing-modules/negadoctor/\00", align 1
+@.str.240 = private unnamed_addr constant [8 x i8] c"nlmeans\00", align 1
+@.str.241 = private unnamed_addr constant [56 x i8] c"module-reference/processing-modules/astrophoto-denoise/\00", align 1
+@.str.242 = private unnamed_addr constant [8 x i8] c"overlay\00", align 1
+@.str.243 = private unnamed_addr constant [47 x i8] c"module-reference/processing-modules/composite/\00", align 1
+@.str.244 = private unnamed_addr constant [10 x i8] c"primaries\00", align 1
+@.str.245 = private unnamed_addr constant [51 x i8] c"module-reference/processing-modules/rgb-primaries/\00", align 1
+@.str.246 = private unnamed_addr constant [14 x i8] c"profile_gamma\00", align 1
+@.str.247 = private unnamed_addr constant [59 x i8] c"module-reference/processing-modules/unbreak-input-profile/\00", align 1
+@.str.248 = private unnamed_addr constant [11 x i8] c"rawdenoise\00", align 1
+@.str.249 = private unnamed_addr constant [49 x i8] c"module-reference/processing-modules/raw-denoise/\00", align 1
+@.str.250 = private unnamed_addr constant [11 x i8] c"rawprepare\00", align 1
+@.str.251 = private unnamed_addr constant [59 x i8] c"module-reference/processing-modules/raw-black-white-point/\00", align 1
+@.str.252 = private unnamed_addr constant [8 x i8] c"relight\00", align 1
+@.str.253 = private unnamed_addr constant [48 x i8] c"module-reference/processing-modules/fill-light/\00", align 1
+@.str.254 = private unnamed_addr constant [8 x i8] c"retouch\00", align 1
+@.str.255 = private unnamed_addr constant [45 x i8] c"module-reference/processing-modules/retouch/\00", align 1
+@.str.256 = private unnamed_addr constant [9 x i8] c"rgbcurve\00", align 1
+@.str.257 = private unnamed_addr constant [47 x i8] c"module-reference/processing-modules/rgb-curve/\00", align 1
+@.str.258 = private unnamed_addr constant [10 x i8] c"rgblevels\00", align 1
+@.str.259 = private unnamed_addr constant [48 x i8] c"module-reference/processing-modules/rgb-levels/\00", align 1
+@.str.260 = private unnamed_addr constant [13 x i8] c"rotatepixels\00", align 1
+@.str.261 = private unnamed_addr constant [51 x i8] c"module-reference/processing-modules/rotate-pixels/\00", align 1
+@.str.262 = private unnamed_addr constant [12 x i8] c"scalepixels\00", align 1
+@.str.263 = private unnamed_addr constant [50 x i8] c"module-reference/processing-modules/scale-pixels/\00", align 1
+@.str.264 = private unnamed_addr constant [7 x i8] c"shadhi\00", align 1
+@.str.265 = private unnamed_addr constant [60 x i8] c"module-reference/processing-modules/shadows-and-highlights/\00", align 1
+@.str.266 = private unnamed_addr constant [8 x i8] c"sharpen\00", align 1
+@.str.267 = private unnamed_addr constant [45 x i8] c"module-reference/processing-modules/sharpen/\00", align 1
+@.str.268 = private unnamed_addr constant [7 x i8] c"soften\00", align 1
+@.str.269 = private unnamed_addr constant [44 x i8] c"module-reference/processing-modules/soften/\00", align 1
+@.str.270 = private unnamed_addr constant [12 x i8] c"splittoning\00", align 1
+@.str.271 = private unnamed_addr constant [50 x i8] c"module-reference/processing-modules/split-toning/\00", align 1
+@.str.272 = private unnamed_addr constant [6 x i8] c"spots\00", align 1
+@.str.273 = private unnamed_addr constant [50 x i8] c"module-reference/processing-modules/spot-removal/\00", align 1
+@.str.274 = private unnamed_addr constant [12 x i8] c"temperature\00", align 1
+@.str.275 = private unnamed_addr constant [51 x i8] c"module-reference/processing-modules/white-balance/\00", align 1
+@.str.276 = private unnamed_addr constant [10 x i8] c"tonecurve\00", align 1
+@.str.277 = private unnamed_addr constant [48 x i8] c"module-reference/processing-modules/tone-curve/\00", align 1
+@.str.278 = private unnamed_addr constant [10 x i8] c"toneequal\00", align 1
+@.str.279 = private unnamed_addr constant [52 x i8] c"module-reference/processing-modules/tone-equalizer/\00", align 1
+@.str.280 = private unnamed_addr constant [8 x i8] c"tonemap\00", align 1
+@.str.281 = private unnamed_addr constant [50 x i8] c"module-reference/processing-modules/tone-mapping/\00", align 1
+@.str.282 = private unnamed_addr constant [7 x i8] c"velvia\00", align 1
+@.str.283 = private unnamed_addr constant [44 x i8] c"module-reference/processing-modules/velvia/\00", align 1
+@.str.284 = private unnamed_addr constant [9 x i8] c"vibrance\00", align 1
+@.str.285 = private unnamed_addr constant [46 x i8] c"module-reference/processing-modules/vibrance/\00", align 1
+@.str.286 = private unnamed_addr constant [9 x i8] c"vignette\00", align 1
+@.str.287 = private unnamed_addr constant [48 x i8] c"module-reference/processing-modules/vignetting/\00", align 1
+@.str.288 = private unnamed_addr constant [10 x i8] c"watermark\00", align 1
+@.str.289 = private unnamed_addr constant [47 x i8] c"module-reference/processing-modules/watermark/\00", align 1
+@.str.290 = private unnamed_addr constant [11 x i8] c"zonesystem\00", align 1
+@.str.291 = private unnamed_addr constant [49 x i8] c"module-reference/processing-modules/zone-system/\00", align 1
+@urls_db = global [155 x %struct._help_url] [%struct._help_url { ptr @.str, ptr @.str.1 }, %struct._help_url { ptr @.str.2, ptr @.str.3 }, %struct._help_url { ptr @.str.4, ptr @.str.5 }, %struct._help_url { ptr @.str.6, ptr @.str.7 }, %struct._help_url { ptr @.str.8, ptr @.str.9 }, %struct._help_url { ptr @.str.10, ptr @.str.11 }, %struct._help_url { ptr @.str.12, ptr @.str.13 }, %struct._help_url { ptr @.str.14, ptr @.str.15 }, %struct._help_url { ptr @.str.16, ptr @.str.17 }, %struct._help_url { ptr @.str.18, ptr @.str.19 }, %struct._help_url { ptr @.str.20, ptr @.str.21 }, %struct._help_url { ptr @.str.22, ptr @.str.23 }, %struct._help_url { ptr @.str.24, ptr @.str.25 }, %struct._help_url { ptr @.str.26, ptr @.str.27 }, %struct._help_url { ptr @.str.28, ptr @.str.29 }, %struct._help_url { ptr @.str.30, ptr @.str.31 }, %struct._help_url { ptr @.str.32, ptr @.str.33 }, %struct._help_url { ptr @.str.34, ptr @.str.35 }, %struct._help_url { ptr @.str.36, ptr @.str.37 }, %struct._help_url { ptr @.str.38, ptr @.str.39 }, %struct._help_url { ptr @.str.40, ptr @.str.41 }, %struct._help_url { ptr @.str.42, ptr @.str.43 }, %struct._help_url { ptr @.str.44, ptr @.str.45 }, %struct._help_url { ptr @.str.46, ptr @.str.47 }, %struct._help_url { ptr @.str.48, ptr @.str.49 }, %struct._help_url { ptr @.str.50, ptr @.str.51 }, %struct._help_url { ptr @.str.52, ptr @.str.53 }, %struct._help_url { ptr @.str.54, ptr @.str.55 }, %struct._help_url { ptr @.str.56, ptr @.str.57 }, %struct._help_url { ptr @.str.58, ptr @.str.59 }, %struct._help_url { ptr @.str.60, ptr @.str.61 }, %struct._help_url { ptr @.str.62, ptr @.str.63 }, %struct._help_url { ptr @.str.64, ptr @.str.65 }, %struct._help_url { ptr @.str.66, ptr @.str.67 }, %struct._help_url { ptr @.str.68, ptr @.str.69 }, %struct._help_url { ptr @.str.70, ptr @.str.67 }, %struct._help_url { ptr @.str.71, ptr @.str.72 }, %struct._help_url { ptr @.str.73, ptr @.str.74 }, %struct._help_url { ptr @.str.75, ptr @.str.76 }, %struct._help_url { ptr @.str.77, ptr @.str.78 }, %struct._help_url { ptr @.str.79, ptr @.str.80 }, %struct._help_url { ptr @.str.81, ptr null }, %struct._help_url { ptr @.str.82, ptr null }, %struct._help_url { ptr @.str.83, ptr null }, %struct._help_url { ptr @.str.84, ptr @.str.85 }, %struct._help_url { ptr @.str.86, ptr @.str.87 }, %struct._help_url { ptr @.str.88, ptr @.str.89 }, %struct._help_url { ptr @.str.90, ptr @.str.89 }, %struct._help_url { ptr @.str.91, ptr @.str.92 }, %struct._help_url { ptr @.str.93, ptr @.str.94 }, %struct._help_url { ptr @.str.95, ptr @.str.5 }, %struct._help_url { ptr @.str.96, ptr @.str.7 }, %struct._help_url { ptr @.str.97, ptr @.str.98 }, %struct._help_url { ptr @.str.99, ptr @.str.100 }, %struct._help_url { ptr @.str.101, ptr @.str.102 }, %struct._help_url { ptr @.str.103, ptr @.str.104 }, %struct._help_url { ptr @.str.105, ptr null }, %struct._help_url { ptr @.str.106, ptr null }, %struct._help_url { ptr @.str.107, ptr null }, %struct._help_url { ptr @.str.108, ptr null }, %struct._help_url { ptr @.str.109, ptr null }, %struct._help_url { ptr @.str.110, ptr @.str.111 }, %struct._help_url { ptr @.str.112, ptr @.str.113 }, %struct._help_url { ptr @.str.114, ptr @.str.98 }, %struct._help_url { ptr @.str.115, ptr @.str.98 }, %struct._help_url { ptr @.str.116, ptr @.str.117 }, %struct._help_url { ptr @.str.118, ptr @.str.119 }, %struct._help_url { ptr @.str.120, ptr @.str.121 }, %struct._help_url { ptr @.str.122, ptr @.str.123 }, %struct._help_url { ptr @.str.124, ptr @.str.125 }, %struct._help_url { ptr @.str.126, ptr @.str.127 }, %struct._help_url { ptr @.str.128, ptr @.str.129 }, %struct._help_url { ptr @.str.130, ptr @.str.131 }, %struct._help_url { ptr @.str.132, ptr @.str.133 }, %struct._help_url { ptr @.str.134, ptr @.str.135 }, %struct._help_url { ptr @.str.136, ptr @.str.137 }, %struct._help_url { ptr @.str.138, ptr @.str.139 }, %struct._help_url { ptr @.str.140, ptr @.str.141 }, %struct._help_url { ptr @.str.142, ptr @.str.143 }, %struct._help_url { ptr @.str.144, ptr @.str.145 }, %struct._help_url { ptr @.str.146, ptr @.str.147 }, %struct._help_url { ptr @.str.148, ptr @.str.149 }, %struct._help_url { ptr @.str.150, ptr @.str.151 }, %struct._help_url { ptr @.str.152, ptr @.str.153 }, %struct._help_url { ptr @.str.154, ptr @.str.155 }, %struct._help_url { ptr @.str.156, ptr null }, %struct._help_url { ptr @.str.157, ptr @.str.158 }, %struct._help_url { ptr @.str.159, ptr @.str.160 }, %struct._help_url { ptr @.str.161, ptr @.str.162 }, %struct._help_url { ptr @.str.163, ptr @.str.164 }, %struct._help_url { ptr @.str.165, ptr @.str.166 }, %struct._help_url { ptr @.str.167, ptr @.str.168 }, %struct._help_url { ptr @.str.169, ptr @.str.170 }, %struct._help_url { ptr @.str.171, ptr @.str.172 }, %struct._help_url { ptr @.str.173, ptr @.str.174 }, %struct._help_url { ptr @.str.175, ptr @.str.176 }, %struct._help_url { ptr @.str.177, ptr @.str.178 }, %struct._help_url { ptr @.str.179, ptr @.str.180 }, %struct._help_url { ptr @.str.181, ptr @.str.182 }, %struct._help_url { ptr @.str.183, ptr null }, %struct._help_url { ptr @.str.184, ptr @.str.185 }, %struct._help_url { ptr @.str.186, ptr @.str.187 }, %struct._help_url { ptr @.str.188, ptr @.str.189 }, %struct._help_url { ptr @.str.190, ptr @.str.191 }, %struct._help_url { ptr @.str.192, ptr @.str.193 }, %struct._help_url { ptr @.str.194, ptr @.str.195 }, %struct._help_url { ptr @.str.196, ptr @.str.197 }, %struct._help_url { ptr @.str.198, ptr null }, %struct._help_url { ptr @.str.199, ptr @.str.200 }, %struct._help_url { ptr @.str.201, ptr @.str.202 }, %struct._help_url { ptr @.str.203, ptr @.str.202 }, %struct._help_url { ptr @.str.204, ptr @.str.205 }, %struct._help_url { ptr @.str.206, ptr @.str.207 }, %struct._help_url { ptr @.str.208, ptr @.str.209 }, %struct._help_url { ptr @.str.210, ptr @.str.211 }, %struct._help_url { ptr @.str.212, ptr @.str.213 }, %struct._help_url { ptr @.str.214, ptr @.str.215 }, %struct._help_url { ptr @.str.216, ptr @.str.217 }, %struct._help_url { ptr @.str.218, ptr @.str.219 }, %struct._help_url { ptr @.str.220, ptr @.str.221 }, %struct._help_url { ptr @.str.222, ptr @.str.223 }, %struct._help_url { ptr @.str.224, ptr @.str.225 }, %struct._help_url { ptr @.str.226, ptr @.str.227 }, %struct._help_url { ptr @.str.228, ptr @.str.229 }, %struct._help_url { ptr @.str.230, ptr @.str.231 }, %struct._help_url { ptr @.str.232, ptr @.str.233 }, %struct._help_url { ptr @.str.234, ptr @.str.235 }, %struct._help_url { ptr @.str.236, ptr @.str.237 }, %struct._help_url { ptr @.str.238, ptr @.str.239 }, %struct._help_url { ptr @.str.240, ptr @.str.241 }, %struct._help_url { ptr @.str.242, ptr @.str.243 }, %struct._help_url { ptr @.str.244, ptr @.str.245 }, %struct._help_url { ptr @.str.246, ptr @.str.247 }, %struct._help_url { ptr @.str.248, ptr @.str.249 }, %struct._help_url { ptr @.str.250, ptr @.str.251 }, %struct._help_url { ptr @.str.252, ptr @.str.253 }, %struct._help_url { ptr @.str.254, ptr @.str.255 }, %struct._help_url { ptr @.str.256, ptr @.str.257 }, %struct._help_url { ptr @.str.258, ptr @.str.259 }, %struct._help_url { ptr @.str.260, ptr @.str.261 }, %struct._help_url { ptr @.str.262, ptr @.str.263 }, %struct._help_url { ptr @.str.264, ptr @.str.265 }, %struct._help_url { ptr @.str.266, ptr @.str.267 }, %struct._help_url { ptr @.str.268, ptr @.str.269 }, %struct._help_url { ptr @.str.270, ptr @.str.271 }, %struct._help_url { ptr @.str.272, ptr @.str.273 }, %struct._help_url { ptr @.str.274, ptr @.str.275 }, %struct._help_url { ptr @.str.276, ptr @.str.277 }, %struct._help_url { ptr @.str.278, ptr @.str.279 }, %struct._help_url { ptr @.str.280, ptr @.str.281 }, %struct._help_url { ptr @.str.282, ptr @.str.283 }, %struct._help_url { ptr @.str.284, ptr @.str.285 }, %struct._help_url { ptr @.str.286, ptr @.str.287 }, %struct._help_url { ptr @.str.288, ptr @.str.289 }, %struct._help_url { ptr @.str.290, ptr @.str.291 }], align 16
+
+; Function Attrs: nounwind uwtable
+define ptr @dt_get_help_url(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  %6 = load ptr, ptr %3, align 8, !tbaa !6
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %37
+
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  store i32 0, ptr %4, align 4, !tbaa !11
+  br label %10
+
+10:                                               ; preds = %31, %9
+  %11 = load i32, ptr %4, align 4, !tbaa !11
+  %12 = sext i32 %11 to i64
+  %13 = icmp ult i64 %12, 155
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %10
+  store i32 2, ptr %5, align 4
+  br label %34
+
+15:                                               ; preds = %10
+  %16 = load i32, ptr %4, align 4, !tbaa !11
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [155 x %struct._help_url], ptr @urls_db, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct._help_url, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 16, !tbaa !13
+  %21 = load ptr, ptr %3, align 8, !tbaa !6
+  %22 = call i32 @strcmp(ptr noundef %20, ptr noundef %21) #4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %30, label %24
+
+24:                                               ; preds = %15
+  %25 = load i32, ptr %4, align 4, !tbaa !11
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [155 x %struct._help_url], ptr @urls_db, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct._help_url, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !15
+  store ptr %29, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %34
+
+30:                                               ; preds = %15
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load i32, ptr %4, align 4, !tbaa !11
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %4, align 4, !tbaa !11
+  br label %10
+
+34:                                               ; preds = %24, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %35 = load i32, ptr %5, align 4
+  switch i32 %35, label %39 [
+    i32 2, label %36
+    i32 1, label %37
+  ]
+
+36:                                               ; preds = %34
+  store ptr null, ptr %2, align 8
+  br label %37
+
+37:                                               ; preds = %36, %34, %8
+  %38 = load ptr, ptr %2, align 8
+  ret ptr %38
+
+39:                                               ; preds = %34
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #3 = { nounwind }
+attributes #4 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !9, i64 0}
+!13 = !{!14, !7, i64 0}
+!14 = !{!"_help_url", !7, i64 0, !7, i64 8}
+!15 = !{!14, !7, i64 8}

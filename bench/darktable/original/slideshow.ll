@@ -1,28 +1,35 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.darktable_t = type { %struct.dt_codepath_t, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [64 x %struct.dt_pthread_mutex_t], %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.dt_lua_state_t, ptr, double, ptr, i32, [46 x i32], i32, ptr, ptr, %struct.dt_sys_resources_t, %struct.dt_backthumb_t, %struct.dt_gimp_t }
+%struct.darktable_t = type { %struct.dt_codepath_t, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [64 x %struct.dt_pthread_mutex_t], %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.dt_lua_state_t, ptr, double, ptr, i32, [47 x i32], i32, i32, ptr, ptr, %struct.dt_sys_resources_t, %struct.dt_backthumb_t, %struct.dt_gimp_t }
 %struct.dt_codepath_t = type { i8, [3 x i8] }
 %struct.dt_pthread_mutex_t = type { %union.pthread_mutex_t }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.dt_lua_state_t = type { i32 }
-%struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32, i32, i32 }
+%struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
-%struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
-%struct.dt_mipmap_buffer_t = type { i32, i32, i32, i32, float, ptr, i32, ptr }
+%struct.dt_view_t = type { %struct.dt_action_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [64 x i8], ptr, ptr, i32, i32, float, float, float, float, float, float, float, float }
+%struct.dt_action_t = type { i32, ptr, ptr, ptr, ptr, ptr }
+%struct.dt_slideshow_t = type { i32, i64, i64, [5 x %struct._slideshow_buf_t], i32, i32, %struct.dt_pthread_mutex_t, i32, i32, i32, i32 }
 %struct._slideshow_buf_t = type { ptr, i64, i64, i32, i32, i32 }
+%struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
+%struct.dt_gui_gtk_t = type { ptr, %struct.dt_gui_widgets_t, %struct.dt_gui_scrollbars_t, i32, ptr, i32, [39 x %struct._GdkRGBA], i32, i32, i32, i32, i32, double, double, double, double, ptr, double, double, double, double, i32, i32, [4096 x i8], i32, i32, i32, %struct.dt_pthread_mutex_t }
+%struct.dt_gui_widgets_t = type { ptr, ptr, ptr, ptr, i32, i32, i32 }
+%struct.dt_gui_scrollbars_t = type { ptr, ptr, i32 }
+%struct._GdkRGBA = type { double, double, double, double }
+%struct.dt_mipmap_buffer_t = type { i32, i32, i32, i32, float, ptr, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"slideshow\00", align 1
-@darktable = external local_unnamed_addr global %struct.darktable_t, align 8
+@darktable = external global %struct.darktable_t, align 8
 @.str.1 = private unnamed_addr constant [39 x i8] c"there are no images in this collection\00", align 1
 @.str.2 = private unnamed_addr constant [57 x i8] c"SELECT rowid FROM memory.collected_images WHERE imgid=%d\00", align 1
-@.str.3 = private unnamed_addr constant [42 x i8] c"[sql] %s:%d, function %s(): prepare \22%s\22\0A\00", align 1
+@.str.3 = private unnamed_addr constant [41 x i8] c"[sql] %s:%d, function %s(): prepare \22%s\22\00", align 1
 @.str.4 = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/darktable/darktable/src/views/slideshow.c\00", align 1
 @__FUNCTION__.enter = private unnamed_addr constant [6 x i8] c"enter\00", align 1
-@stderr = external local_unnamed_addr global ptr, align 8
+@stderr = external global ptr, align 8
 @.str.5 = private unnamed_addr constant [53 x i8] c"sqlite3 error: %s:%d, function %s(), query \22%s\22: %s\0A\00", align 1
 @.str.6 = private unnamed_addr constant [16 x i8] c"slideshow_delay\00", align 1
 @.str.7 = private unnamed_addr constant [27 x i8] c"waiting to start slideshow\00", align 1
@@ -44,1719 +51,2780 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [33 x i8] c"slideshow delay set to %d second\00", align 1
 @.str.23 = private unnamed_addr constant [34 x i8] c"slideshow delay set to %d seconds\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @dt_module_dt_version() local_unnamed_addr #0 {
+; Function Attrs: nounwind uwtable
+define i32 @dt_module_dt_version() #0 {
   ret i32 25
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
+; Function Attrs: nounwind uwtable
+define i32 @dt_module_mod_version() #0 {
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #13
-  ret ptr %2
+define ptr @name(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str, i32 noundef 5) #7
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind
-declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @view(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind uwtable
+define i32 @view(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
   ret i32 16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @init(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
-  %2 = tail call noalias dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 288
-  store ptr %2, ptr %3, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %2, i64 232
-  %5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #13
-  ret void
-}
-
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
-
-; Function Attrs: nounwind uwtable
-define void @cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
-  %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 232
-  %5 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %4) #13
-  %6 = load ptr, ptr %2, align 8, !tbaa !6
-  tail call void @free(ptr noundef %6) #13
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
-
-; Function Attrs: nounwind uwtable
-define noundef i32 @try_enter(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 21
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
-  %4 = tail call i32 @dt_collection_get_count(ptr noundef %3) #13
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %8
-
-6:                                                ; preds = %1
-  %7 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 5) #13
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %7) #13
-  br label %8
-
-8:                                                ; preds = %6, %1
-  %9 = phi i32 [ 1, %6 ], [ 0, %1 ]
-  ret i32 %9
-}
-
-declare i32 @dt_collection_get_count(ptr noundef) local_unnamed_addr #6
-
-declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #6
-
-; Function Attrs: nounwind uwtable
-define void @enter(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = alloca %struct._cairo_rectangle_int, align 4
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 288
-  %5 = load ptr, ptr %4, align 8, !tbaa !6
-  tail call void @dt_control_change_cursor(i32 noundef -2) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 284
-  store i32 0, ptr %6, align 4, !tbaa !24
-  %7 = getelementptr inbounds i8, ptr %5, i64 276
-  store i32 0, ptr %7, align 4, !tbaa !26
-  %8 = getelementptr inbounds i8, ptr %5, i64 228
-  store i32 -1, ptr %8, align 4, !tbaa !27
-  %9 = getelementptr inbounds i8, ptr %5, i64 224
-  store i32 -1, ptr %9, align 8, !tbaa !28
-  %10 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
-  tail call void @dt_ui_panel_show(ptr noundef %12, i32 noundef 3, i32 noundef 0, i32 noundef 1) #13
-  %13 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %14 = load ptr, ptr %13, align 8, !tbaa !29
-  %15 = load ptr, ptr %14, align 8, !tbaa !30
-  tail call void @dt_ui_panel_show(ptr noundef %15, i32 noundef 4, i32 noundef 0, i32 noundef 1) #13
-  %16 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
-  %18 = load ptr, ptr %17, align 8, !tbaa !30
-  tail call void @dt_ui_panel_show(ptr noundef %18, i32 noundef 0, i32 noundef 0, i32 noundef 1) #13
-  %19 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %20 = load ptr, ptr %19, align 8, !tbaa !29
-  %21 = load ptr, ptr %20, align 8, !tbaa !30
-  tail call void @dt_ui_panel_show(ptr noundef %21, i32 noundef 5, i32 noundef 0, i32 noundef 1) #13
-  %22 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %23 = load ptr, ptr %22, align 8, !tbaa !29
-  %24 = load ptr, ptr %23, align 8, !tbaa !30
-  tail call void @dt_ui_panel_show(ptr noundef %24, i32 noundef 1, i32 noundef 0, i32 noundef 1) #13
-  %25 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %26 = load ptr, ptr %25, align 8, !tbaa !29
-  %27 = load ptr, ptr %26, align 8, !tbaa !30
-  tail call void @dt_ui_panel_show(ptr noundef %27, i32 noundef 2, i32 noundef 0, i32 noundef 1) #13
-  %28 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %29 = load ptr, ptr %28, align 8, !tbaa !29
-  %30 = load ptr, ptr %29, align 8, !tbaa !30
-  %31 = tail call ptr @dt_ui_main_window(ptr noundef %30) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
-  %32 = tail call ptr @gtk_widget_get_display(ptr noundef %31) #13
-  %33 = tail call ptr @gtk_widget_get_window(ptr noundef %31) #13
-  %34 = tail call ptr @gdk_display_get_monitor_at_window(ptr noundef %32, ptr noundef %33) #13
-  call void @gdk_monitor_get_geometry(ptr noundef %34, ptr noundef nonnull %2) #13
-  %35 = getelementptr inbounds i8, ptr %5, i64 232
-  %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull %35) #13
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
-  %38 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %39 = load ptr, ptr %38, align 8, !tbaa !29
-  %40 = getelementptr inbounds i8, ptr %39, i64 1456
-  %41 = load double, ptr %40, align 8, !tbaa !34
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
-  %43 = load <2 x i32>, ptr %37, align 4, !tbaa !35
-  %44 = sitofp <2 x i32> %43 to <2 x double>
-  %45 = insertelement <2 x double> poison, double %41, i64 0
-  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> zeroinitializer
-  %47 = fmul reassoc nsz arcp contract afn <2 x double> %46, %44
-  %48 = fptoui <2 x double> %47 to <2 x i64>
-  store <2 x i64> %48, ptr %42, align 8, !tbaa !36
-  %49 = getelementptr inbounds i8, ptr %5, i64 24
-  %50 = getelementptr inbounds i8, ptr %5, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %50, align 8, !tbaa !37
-  %51 = getelementptr inbounds i8, ptr %5, i64 52
-  store i32 0, ptr %51, align 4, !tbaa !39
-  %52 = getelementptr inbounds i8, ptr %5, i64 56
-  store i32 1, ptr %52, align 8, !tbaa !40
-  %53 = getelementptr inbounds i8, ptr %5, i64 64
-  %54 = getelementptr inbounds i8, ptr %5, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %54, align 8, !tbaa !37
-  %55 = getelementptr inbounds i8, ptr %5, i64 92
-  store i32 0, ptr %55, align 4, !tbaa !39
-  %56 = getelementptr inbounds i8, ptr %5, i64 96
-  store i32 1, ptr %56, align 8, !tbaa !40
-  %57 = getelementptr inbounds i8, ptr %5, i64 104
-  %58 = getelementptr inbounds i8, ptr %5, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %58, align 8, !tbaa !37
-  %59 = getelementptr inbounds i8, ptr %5, i64 132
-  store i32 0, ptr %59, align 4, !tbaa !39
-  %60 = getelementptr inbounds i8, ptr %5, i64 136
-  store i32 1, ptr %60, align 8, !tbaa !40
-  %61 = getelementptr inbounds i8, ptr %5, i64 144
-  %62 = getelementptr inbounds i8, ptr %5, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %62, align 8, !tbaa !37
-  %63 = getelementptr inbounds i8, ptr %5, i64 172
-  store i32 0, ptr %63, align 4, !tbaa !39
-  %64 = getelementptr inbounds i8, ptr %5, i64 176
-  store i32 1, ptr %64, align 8, !tbaa !40
-  %65 = getelementptr inbounds i8, ptr %5, i64 184
-  %66 = getelementptr inbounds i8, ptr %5, i64 208
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %66, align 8, !tbaa !37
-  %67 = getelementptr inbounds i8, ptr %5, i64 212
-  store i32 0, ptr %67, align 4, !tbaa !39
-  %68 = getelementptr inbounds i8, ptr %5, i64 216
-  store i32 1, ptr %68, align 8, !tbaa !40
-  %69 = call i32 (...) @dt_act_on_get_main_image() #13
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %104
-
-71:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  %72 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.2, i32 noundef %69) #13
-  %73 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
-  %74 = load i32, ptr %73, align 8, !tbaa !41
-  %75 = and i32 %74, 256
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %78, label %77
-
-77:                                               ; preds = %71
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 479, ptr noundef nonnull @__FUNCTION__.enter, ptr noundef %72) #13
-  br label %78
-
-78:                                               ; preds = %77, %71
-  %79 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
-  %80 = load ptr, ptr %79, align 8, !tbaa !42
-  %81 = call ptr @dt_database_get(ptr noundef %80) #13
-  %82 = call i32 @sqlite3_prepare_v2(ptr noundef %81, ptr noundef %72, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #13
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %91, label %84
-
-84:                                               ; preds = %78
-  %85 = load ptr, ptr @stderr, align 8, !tbaa !43
-  %86 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
-  %87 = load ptr, ptr %86, align 8, !tbaa !42
-  %88 = call ptr @dt_database_get(ptr noundef %87) #13
-  %89 = call ptr @sqlite3_errmsg(ptr noundef %88) #13
-  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 479, ptr noundef nonnull @__FUNCTION__.enter, ptr noundef %72, ptr noundef %89) #15
-  br label %91
-
-91:                                               ; preds = %84, %78
-  %92 = load ptr, ptr %3, align 8, !tbaa !43
-  %93 = call i32 @sqlite3_step(ptr noundef %92) #13
-  %94 = icmp eq i32 %93, 100
-  br i1 %94, label %95, label %99
-
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %3, align 8, !tbaa !43
-  %97 = call i32 @sqlite3_column_int(ptr noundef %96, i32 noundef 0) #13
-  %98 = add nsw i32 %97, -1
-  br label %99
-
-99:                                               ; preds = %95, %91
-  %100 = phi i32 [ %98, %95 ], [ -1, %91 ]
-  call void @g_free(ptr noundef %72) #13
-  %101 = load ptr, ptr %3, align 8, !tbaa !43
-  %102 = call i32 @sqlite3_finalize(ptr noundef %101) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  %103 = icmp eq i32 %100, -1
-  br i1 %103, label %104, label %110
-
-104:                                              ; preds = %99, %1
-  %105 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %106 = load ptr, ptr %105, align 8, !tbaa !29
-  %107 = load ptr, ptr %106, align 8, !tbaa !30
-  %108 = call ptr @dt_ui_thumbtable(ptr noundef %107) #13
-  %109 = call i32 @dt_thumbtable_get_offset(ptr noundef %108) #13
-  br label %110
-
-110:                                              ; preds = %104, %99
-  %111 = phi i32 [ %109, %104 ], [ %100, %99 ]
-  %112 = add nsw i32 %111, -2
-  %113 = getelementptr inbounds i8, ptr %5, i64 48
-  store i32 %112, ptr %113, align 8, !tbaa !37
-  %114 = add nsw i32 %111, -1
-  %115 = getelementptr inbounds i8, ptr %5, i64 88
-  store i32 %114, ptr %115, align 8, !tbaa !37
-  %116 = getelementptr inbounds i8, ptr %5, i64 128
-  store i32 %111, ptr %116, align 8, !tbaa !37
-  %117 = add nsw i32 %111, 1
-  %118 = getelementptr inbounds i8, ptr %5, i64 168
-  store i32 %117, ptr %118, align 8, !tbaa !37
-  %119 = add nsw i32 %111, 2
-  %120 = getelementptr inbounds i8, ptr %5, i64 208
-  store i32 %119, ptr %120, align 8, !tbaa !37
-  %121 = call fastcc i32 @_get_image_at_rank(i32 noundef %112)
-  store i32 %121, ptr %51, align 4, !tbaa !39
-  %122 = load i32, ptr %54, align 8, !tbaa !37
-  %123 = call fastcc i32 @_get_image_at_rank(i32 noundef %122)
-  store i32 %123, ptr %55, align 4, !tbaa !39
-  %124 = load i32, ptr %58, align 8, !tbaa !37
-  %125 = call fastcc i32 @_get_image_at_rank(i32 noundef %124)
-  store i32 %125, ptr %59, align 4, !tbaa !39
-  %126 = load i32, ptr %62, align 8, !tbaa !37
-  %127 = call fastcc i32 @_get_image_at_rank(i32 noundef %126)
-  store i32 %127, ptr %63, align 4, !tbaa !39
-  %128 = load i32, ptr %66, align 8, !tbaa !37
-  %129 = call fastcc i32 @_get_image_at_rank(i32 noundef %128)
-  store i32 %129, ptr %67, align 4, !tbaa !39
-  %130 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 21
-  %131 = load ptr, ptr %130, align 8, !tbaa !14
-  %132 = call i32 @dt_collection_get_count(ptr noundef %131) #13
-  store i32 %132, ptr %5, align 8, !tbaa !44
-  %133 = getelementptr inbounds i8, ptr %5, i64 272
-  store i32 0, ptr %133, align 8, !tbaa !45
-  %134 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.6) #13
-  %135 = getelementptr inbounds i8, ptr %5, i64 280
-  store i32 %134, ptr %135, align 8, !tbaa !46
-  %136 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #13
-  %137 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %138 = load ptr, ptr %137, align 8, !tbaa !29
-  %139 = load ptr, ptr %138, align 8, !tbaa !30
-  %140 = call ptr @dt_ui_center(ptr noundef %139) #13
-  call void @gtk_widget_grab_focus(ptr noundef %140) #13
-  call void (...) @dt_control_queue_redraw_center() #13
-  %141 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
-  %142 = load ptr, ptr %141, align 8, !tbaa !47
-  %143 = call ptr (ptr, ptr, ...) @dt_control_job_create(ptr noundef nonnull @_process_job_run, ptr noundef nonnull @.str.17) #13
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %146, label %145
-
-145:                                              ; preds = %110
-  call void @dt_control_job_set_params(ptr noundef nonnull %143, ptr noundef nonnull %5, ptr noundef null) #13
-  br label %146
-
-146:                                              ; preds = %145, %110
-  %147 = call i32 @dt_control_add_job(ptr noundef %142, i32 noundef 2, ptr noundef %143) #13
-  %148 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #13
-  call void (ptr, ...) @dt_control_log(ptr noundef %148) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
-  ret void
-}
-
-declare void @dt_control_change_cursor(i32 noundef) local_unnamed_addr #6
-
-declare void @dt_ui_panel_show(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
-
-declare ptr @dt_ui_main_window(ptr noundef) local_unnamed_addr #6
-
-declare ptr @gtk_widget_get_display(ptr noundef) local_unnamed_addr #6
-
-declare ptr @gdk_display_get_monitor_at_window(ptr noundef, ptr noundef) local_unnamed_addr #6
-
-declare ptr @gtk_widget_get_window(ptr noundef) local_unnamed_addr #6
-
-declare void @gdk_monitor_get_geometry(ptr noundef, ptr noundef) local_unnamed_addr #6
-
-declare i32 @dt_act_on_get_main_image(...) local_unnamed_addr #6
-
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #6
-
-declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #6
-
-declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
-
-declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
-
-declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #6
-
-declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #6
-
-declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #6
-
-declare void @g_free(ptr noundef) local_unnamed_addr #6
-
-declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #6
-
-declare i32 @dt_thumbtable_get_offset(ptr noundef) local_unnamed_addr #6
-
-declare ptr @dt_ui_thumbtable(ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_get_image_at_rank(i32 noundef %0) unnamed_addr #1 {
+define void @init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  %3 = icmp sgt i32 %0, -1
-  br i1 %3, label %4, label %59
-
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 21
-  %6 = load ptr, ptr %5, align 8, !tbaa !14
-  %7 = tail call ptr @dt_collection_get_query(ptr noundef %6) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
-  %8 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
-  %9 = load i32, ptr %8, align 8, !tbaa !41
-  %10 = and i32 %9, 256
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %4
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 106, ptr noundef nonnull @__FUNCTION__._get_image_at_rank, ptr noundef %7) #13
-  br label %13
-
-13:                                               ; preds = %12, %4
-  %14 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
-  %15 = load ptr, ptr %14, align 8, !tbaa !42
-  %16 = tail call ptr @dt_database_get(ptr noundef %15) #13
-  %17 = call i32 @sqlite3_prepare_v2(ptr noundef %16, ptr noundef %7, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #13
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %26, label %19
-
-19:                                               ; preds = %13
-  %20 = load ptr, ptr @stderr, align 8, !tbaa !43
-  %21 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
-  %22 = load ptr, ptr %21, align 8, !tbaa !42
-  %23 = call ptr @dt_database_get(ptr noundef %22) #13
-  %24 = call ptr @sqlite3_errmsg(ptr noundef %23) #13
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 106, ptr noundef nonnull @__FUNCTION__._get_image_at_rank, ptr noundef %7, ptr noundef %24) #15
-  br label %26
-
-26:                                               ; preds = %19, %13
-  %27 = load ptr, ptr %2, align 8, !tbaa !43
-  %28 = call i32 @sqlite3_bind_int(ptr noundef %27, i32 noundef 1, i32 noundef %0) #13
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %37, label %30
-
-30:                                               ; preds = %26
-  %31 = load ptr, ptr @stderr, align 8, !tbaa !43
-  %32 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
-  %33 = load ptr, ptr %32, align 8, !tbaa !42
-  %34 = call ptr @dt_database_get(ptr noundef %33) #13
-  %35 = call ptr @sqlite3_errmsg(ptr noundef %34) #13
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @__FUNCTION__._get_image_at_rank, ptr noundef %35) #15
-  br label %37
-
-37:                                               ; preds = %30, %26
-  %38 = load ptr, ptr %2, align 8, !tbaa !43
-  %39 = call i32 @sqlite3_bind_int(ptr noundef %38, i32 noundef 2, i32 noundef 1) #13
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %48, label %41
-
-41:                                               ; preds = %37
-  %42 = load ptr, ptr @stderr, align 8, !tbaa !43
-  %43 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
-  %44 = load ptr, ptr %43, align 8, !tbaa !42
-  %45 = call ptr @dt_database_get(ptr noundef %44) #13
-  %46 = call ptr @sqlite3_errmsg(ptr noundef %45) #13
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4, i32 noundef 108, ptr noundef nonnull @__FUNCTION__._get_image_at_rank, ptr noundef %46) #15
-  br label %48
-
-48:                                               ; preds = %41, %37
-  %49 = load ptr, ptr %2, align 8, !tbaa !43
-  %50 = call i32 @sqlite3_step(ptr noundef %49) #13
-  %51 = icmp eq i32 %50, 100
-  br i1 %51, label %52, label %55
-
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %2, align 8, !tbaa !43
-  %54 = call i32 @sqlite3_column_int(ptr noundef %53, i32 noundef 0) #13
-  br label %55
-
-55:                                               ; preds = %52, %48
-  %56 = phi i32 [ %54, %52 ], [ 0, %48 ]
-  %57 = load ptr, ptr %2, align 8, !tbaa !43
-  %58 = call i32 @sqlite3_finalize(ptr noundef %57) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
-  br label %59
-
-59:                                               ; preds = %55, %1
-  %60 = phi i32 [ %56, %55 ], [ 0, %1 ]
-  ret i32 %60
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %4 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 288) #8
+  %5 = load ptr, ptr %2, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw %struct.dt_view_t, ptr %5, i32 0, i32 24
+  store ptr %4, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %7 = load ptr, ptr %2, align 8, !tbaa !6
+  %8 = getelementptr inbounds nuw %struct.dt_view_t, ptr %7, i32 0, i32 24
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  store ptr %9, ptr %3, align 8, !tbaa !19
+  %10 = load ptr, ptr %3, align 8, !tbaa !19
+  %11 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %10, i32 0, i32 6
+  %12 = call i32 @dt_pthread_mutex_init(ptr noundef %11, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
 }
 
-declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #6
+; Function Attrs: nounwind allocsize(0,1)
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #2
 
-declare void @gtk_widget_grab_focus(ptr noundef) local_unnamed_addr #6
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-declare ptr @dt_ui_center(ptr noundef) local_unnamed_addr #6
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @dt_pthread_mutex_init(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %3, align 8, !tbaa !21
+  %6 = getelementptr inbounds nuw %struct.dt_pthread_mutex_t, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !23
+  %8 = call i32 @pthread_mutex_init(ptr noundef %6, ptr noundef %7) #7
+  ret i32 %8
+}
 
-declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #6
-
-declare i32 @dt_control_add_job(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define void @leave(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
-  %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 284
-  %5 = load i32, ptr %4, align 4, !tbaa !24
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %9, label %7
+define void @cleanup(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !6
+  %5 = getelementptr inbounds nuw %struct.dt_view_t, ptr %4, i32 0, i32 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  store ptr %6, ptr %3, align 8, !tbaa !19
+  %7 = load ptr, ptr %3, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %7, i32 0, i32 6
+  %9 = call i32 @dt_pthread_mutex_destroy(ptr noundef %8)
+  %10 = load ptr, ptr %2, align 8, !tbaa !6
+  %11 = getelementptr inbounds nuw %struct.dt_view_t, ptr %10, i32 0, i32 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !11
+  call void @free(ptr noundef %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @dt_pthread_mutex_destroy(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !21
+  %5 = getelementptr inbounds nuw %struct.dt_pthread_mutex_t, ptr %4, i32 0, i32 0
+  %6 = call i32 @pthread_mutex_destroy(ptr noundef %5) #7
+  store i32 %6, ptr %3, align 4, !tbaa !24
+  %7 = load i32, ptr %3, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i32 %7
+}
+
+; Function Attrs: nounwind
+declare void @free(ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @try_enter(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  %4 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 21), align 8, !tbaa !25
+  %5 = call i32 @dt_collection_get_count(ptr noundef %4)
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @g_source_remove(i32 noundef %5) #13
-  br label %9
+  store i32 0, ptr %2, align 4
+  br label %10
 
-9:                                                ; preds = %7, %1
-  store i32 0, ptr %4, align 4, !tbaa !24
-  tail call void @dt_control_change_cursor(i32 noundef 68) #13
-  %10 = getelementptr inbounds i8, ptr %3, i64 272
-  store i32 0, ptr %10, align 8, !tbaa !45
-  %11 = getelementptr inbounds i8, ptr %3, i64 276
-  %12 = load i32, ptr %11, align 4, !tbaa !26
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %18
+8:                                                ; preds = %1
+  %9 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.1, i32 noundef 5) #7
+  call void (ptr, ...) @dt_control_log(ptr noundef %9)
+  store i32 1, ptr %2, align 4
+  br label %10
 
-14:                                               ; preds = %14, %9
-  %15 = tail call i32 @sleep(i32 noundef 1) #13
-  %16 = load i32, ptr %11, align 4, !tbaa !26
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %14, label %18
-
-18:                                               ; preds = %14, %9
-  %19 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %20 = load ptr, ptr %19, align 8, !tbaa !29
-  %21 = load ptr, ptr %20, align 8, !tbaa !30
-  %22 = tail call ptr @dt_ui_thumbtable(ptr noundef %21) #13
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
-  %24 = getelementptr inbounds i8, ptr %3, i64 128
-  %25 = load i32, ptr %24, align 8, !tbaa !37
-  %26 = tail call i32 @dt_thumbtable_set_offset(ptr noundef %22, i32 noundef %25, i32 noundef 0) #13
-  %27 = getelementptr inbounds i8, ptr %3, i64 232
-  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %27) #13
-  %29 = load ptr, ptr %23, align 8, !tbaa !48
-  tail call void @free(ptr noundef %29) #13
-  store ptr null, ptr %23, align 8, !tbaa !48
-  %30 = getelementptr inbounds i8, ptr %3, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !48
-  tail call void @free(ptr noundef %31) #13
-  store ptr null, ptr %30, align 8, !tbaa !48
-  %32 = getelementptr inbounds i8, ptr %3, i64 104
-  %33 = load ptr, ptr %32, align 8, !tbaa !48
-  tail call void @free(ptr noundef %33) #13
-  store ptr null, ptr %32, align 8, !tbaa !48
-  %34 = getelementptr inbounds i8, ptr %3, i64 144
-  %35 = load ptr, ptr %34, align 8, !tbaa !48
-  tail call void @free(ptr noundef %35) #13
-  store ptr null, ptr %34, align 8, !tbaa !48
-  %36 = getelementptr inbounds i8, ptr %3, i64 184
-  %37 = load ptr, ptr %36, align 8, !tbaa !48
-  tail call void @free(ptr noundef %37) #13
-  store ptr null, ptr %36, align 8, !tbaa !48
-  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %27) #13
-  ret void
+10:                                               ; preds = %8, %7
+  %11 = load i32, ptr %2, align 4
+  ret i32 %11
 }
 
-declare i32 @g_source_remove(i32 noundef) local_unnamed_addr #6
+declare i32 @dt_collection_get_count(ptr noundef) #5
 
-declare i32 @sleep(i32 noundef) local_unnamed_addr #6
-
-declare i32 @dt_thumbtable_set_offset(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare void @dt_control_log(ptr noundef, ...) #5
 
 ; Function Attrs: nounwind uwtable
-define void @expose(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = alloca %struct.dt_mipmap_buffer_t, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 288
-  %9 = load ptr, ptr %8, align 8, !tbaa !6
-  %10 = getelementptr inbounds i8, ptr %9, i64 232
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #13
-  %12 = getelementptr inbounds i8, ptr %9, i64 104
-  %13 = getelementptr inbounds i8, ptr %9, i64 132
-  %14 = load i32, ptr %13, align 4, !tbaa !39
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !49
-  %17 = getelementptr inbounds i8, ptr %9, i64 112
-  %18 = load i64, ptr %17, align 8, !tbaa !50
-  %19 = icmp ult i64 %16, %18
-  br i1 %19, label %26, label %20
-
-20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %9, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !51
-  %23 = getelementptr inbounds i8, ptr %9, i64 120
-  %24 = load i64, ptr %23, align 8, !tbaa !52
-  %25 = icmp ult i64 %22, %24
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %20, %6
-  %27 = getelementptr inbounds i8, ptr %9, i64 136
-  store i32 1, ptr %27, align 8, !tbaa !40
-  %28 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
-  %29 = load ptr, ptr %28, align 8, !tbaa !47
-  %30 = tail call ptr (ptr, ptr, ...) @dt_control_job_create(ptr noundef nonnull @_process_job_run, ptr noundef nonnull @.str.17) #13
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %33, label %32
-
-32:                                               ; preds = %26
-  tail call void @dt_control_job_set_params(ptr noundef nonnull %30, ptr noundef nonnull %9, ptr noundef null) #13
-  br label %33
-
-33:                                               ; preds = %32, %26
-  %34 = tail call i32 @dt_control_add_job(ptr noundef %29, i32 noundef 2, ptr noundef %30) #13
-  br label %35
-
-35:                                               ; preds = %33, %20
-  tail call void @cairo_paint(ptr noundef %1) #13
-  tail call void @cairo_save(ptr noundef %1) #13
-  %36 = insertelement <2 x i32> poison, i32 %2, i64 0
-  %37 = insertelement <2 x i32> %36, i32 %3, i64 1
-  %38 = sitofp <2 x i32> %37 to <2 x double>
-  %39 = extractelement <2 x double> %38, i64 0
-  %40 = fmul reassoc nsz arcp contract afn double %39, 5.000000e-01
-  %41 = extractelement <2 x double> %38, i64 1
-  %42 = fmul reassoc nsz arcp contract afn double %41, 5.000000e-01
-  tail call void @cairo_translate(ptr noundef %1, double noundef %40, double noundef %42) #13
-  %43 = load ptr, ptr %12, align 8, !tbaa !48
-  %44 = icmp ne ptr %43, null
-  %45 = icmp sgt i32 %14, 0
-  %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %47, label %73
-
-47:                                               ; preds = %35
-  %48 = getelementptr inbounds i8, ptr %9, i64 136
-  %49 = load i32, ptr %48, align 8, !tbaa !40
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %74
-
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %9, i64 120
-  %53 = load <2 x i64>, ptr %17, align 8, !tbaa !36
-  %54 = uitofp <2 x i64> %53 to <2 x double>
-  %55 = fdiv reassoc nsz arcp contract afn <2 x double> %38, %54
-  %56 = extractelement <2 x double> %55, i64 0
-  %57 = extractelement <2 x double> %55, i64 1
-  %58 = fcmp reassoc nsz arcp contract afn olt double %56, %57
-  %59 = select reassoc nsz arcp contract afn i1 %58, double %56, double %57
-  tail call void @cairo_scale(ptr noundef %1, double noundef %59, double noundef %59) #13
-  %60 = load ptr, ptr %12, align 8, !tbaa !48
-  %61 = load i64, ptr %17, align 8, !tbaa !50
-  %62 = load i64, ptr %52, align 8, !tbaa !52
-  %63 = tail call ptr @dt_view_create_surface(ptr noundef %60, i64 noundef %61, i64 noundef %62) #13
-  %64 = load i64, ptr %17, align 8, !tbaa !50
-  %65 = uitofp i64 %64 to double
-  %66 = fmul reassoc nsz arcp contract afn double %65, -5.000000e-01
-  %67 = load i64, ptr %52, align 8, !tbaa !52
-  %68 = uitofp i64 %67 to double
-  %69 = fmul reassoc nsz arcp contract afn double %68, -5.000000e-01
-  tail call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %63, double noundef %66, double noundef %69) #13
-  %70 = tail call ptr @cairo_get_source(ptr noundef %1) #13
-  tail call void @cairo_pattern_set_filter(ptr noundef %70, i32 noundef 2) #13
-  tail call void @cairo_paint(ptr noundef %1) #13
-  tail call void @cairo_surface_destroy(ptr noundef %63) #13
-  %71 = getelementptr inbounds i8, ptr %9, i64 228
-  store i32 %14, ptr %71, align 4, !tbaa !27
-  %72 = getelementptr inbounds i8, ptr %9, i64 224
-  store i32 %14, ptr %72, align 8, !tbaa !28
-  br label %114
-
-73:                                               ; preds = %35
-  br i1 %45, label %74, label %114
-
-74:                                               ; preds = %73, %47
-  %75 = getelementptr inbounds i8, ptr %9, i64 224
-  %76 = load i32, ptr %75, align 8, !tbaa !28
-  %77 = icmp eq i32 %14, %76
-  br i1 %77, label %114, label %78
-
-78:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #13
-  %79 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 15
-  %80 = load ptr, ptr %79, align 8, !tbaa !53
-  %81 = sdiv i32 %2, 8
-  %82 = sdiv i32 %3, 8
-  %83 = tail call i32 @dt_mipmap_cache_get_matching_size(ptr noundef %80, i32 noundef %81, i32 noundef %82) #13
-  %84 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 15
-  %85 = load ptr, ptr %84, align 8, !tbaa !53
-  call void @dt_mipmap_cache_get_with_caller(ptr noundef %85, ptr noundef nonnull %7, i32 noundef %14, i32 noundef %83, i32 noundef 3, i8 noundef signext 114, ptr noundef nonnull @.str.4, i32 noundef 590) #13
-  %86 = getelementptr inbounds i8, ptr %7, i64 24
-  %87 = load ptr, ptr %86, align 8, !tbaa !54
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %111, label %89
-
-89:                                               ; preds = %78
-  %90 = getelementptr inbounds i8, ptr %7, i64 8
-  %91 = getelementptr inbounds i8, ptr %7, i64 12
-  %92 = load <2 x i32>, ptr %90, align 8, !tbaa !35
-  %93 = sitofp <2 x i32> %92 to <2 x double>
-  %94 = fdiv reassoc nsz arcp contract afn <2 x double> %38, %93
-  %95 = extractelement <2 x double> %94, i64 0
-  %96 = extractelement <2 x double> %94, i64 1
-  %97 = fcmp reassoc nsz arcp contract afn olt double %95, %96
-  %98 = select reassoc nsz arcp contract afn i1 %97, double %95, double %96
-  call void @cairo_scale(ptr noundef %1, double noundef %98, double noundef %98) #13
-  %99 = load ptr, ptr %86, align 8, !tbaa !54
-  %100 = load i32, ptr %90, align 8, !tbaa !56
-  %101 = load i32, ptr %91, align 4, !tbaa !57
-  %102 = shl nsw i32 %100, 2
-  %103 = call ptr @gdk_pixbuf_new_from_data(ptr noundef %99, i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef null, ptr noundef null) #13
-  %104 = load i32, ptr %90, align 8, !tbaa !56
-  %105 = sitofp i32 %104 to double
-  %106 = fmul reassoc nsz arcp contract afn double %105, -5.000000e-01
-  %107 = load i32, ptr %91, align 4, !tbaa !57
-  %108 = sitofp i32 %107 to double
-  %109 = fmul reassoc nsz arcp contract afn double %108, -5.000000e-01
-  call void @gdk_cairo_set_source_pixbuf(ptr noundef %1, ptr noundef %103, double noundef %106, double noundef %109) #13
-  %110 = call ptr @cairo_get_source(ptr noundef %1) #13
-  call void @cairo_pattern_set_filter(ptr noundef %110, i32 noundef 1) #13
-  call void @cairo_paint(ptr noundef %1) #13
-  call void @g_object_unref(ptr noundef %103) #13
-  br label %111
-
-111:                                              ; preds = %89, %78
-  store i32 %14, ptr %75, align 8, !tbaa !28
-  %112 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 15
-  %113 = load ptr, ptr %112, align 8, !tbaa !53
-  call void @dt_mipmap_cache_release_with_caller(ptr noundef %113, ptr noundef nonnull %7, ptr noundef nonnull @.str.4, i32 noundef 605) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #13
-  br label %114
-
-114:                                              ; preds = %111, %74, %73, %51
-  call void @cairo_restore(ptr noundef %1) #13
-  %115 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %116 = load ptr, ptr %115, align 8, !tbaa !29
-  %117 = getelementptr inbounds i8, ptr %116, i64 1456
-  %118 = load double, ptr %117, align 8, !tbaa !34
-  %119 = fmul reassoc nsz arcp contract afn double %118, %39
-  %120 = fptoui double %119 to i64
-  store i64 %120, ptr %15, align 8, !tbaa !49
-  %121 = fmul reassoc nsz arcp contract afn double %118, %41
-  %122 = fptoui double %121 to i64
-  %123 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %122, ptr %123, align 8, !tbaa !51
-  %124 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #13
-  ret void
-}
-
-declare void @cairo_paint(ptr noundef) local_unnamed_addr #6
-
-declare void @cairo_save(ptr noundef) local_unnamed_addr #6
-
-declare void @cairo_translate(ptr noundef, double noundef, double noundef) local_unnamed_addr #6
-
-declare void @cairo_scale(ptr noundef, double noundef, double noundef) local_unnamed_addr #6
-
-declare ptr @dt_view_create_surface(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
-
-declare void @cairo_set_source_surface(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #6
-
-declare void @cairo_pattern_set_filter(ptr noundef, i32 noundef) local_unnamed_addr #6
-
-declare ptr @cairo_get_source(ptr noundef) local_unnamed_addr #6
-
-declare void @cairo_surface_destroy(ptr noundef) local_unnamed_addr #6
-
-declare i32 @dt_mipmap_cache_get_matching_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
-
-declare void @dt_mipmap_cache_get_with_caller(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i8 noundef signext, ptr noundef, i32 noundef) local_unnamed_addr #6
-
-declare ptr @gdk_pixbuf_new_from_data(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
-
-declare void @gdk_cairo_set_source_pixbuf(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #6
-
-declare void @g_object_unref(ptr noundef) local_unnamed_addr #6
-
-declare void @dt_mipmap_cache_release_with_caller(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
-
-declare void @cairo_restore(ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: nounwind uwtable
-define void @mouse_moved(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 288
-  %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = getelementptr inbounds i8, ptr %7, i64 284
-  %9 = load i32, ptr %8, align 4, !tbaa !24
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %13, label %11
-
-11:                                               ; preds = %5
-  %12 = tail call i32 @g_source_remove(i32 noundef %9) #13
-  br label %14
-
-13:                                               ; preds = %5
-  tail call void @dt_control_change_cursor(i32 noundef 68) #13
-  br label %14
-
-14:                                               ; preds = %13, %11
-  %15 = tail call i32 @g_timeout_add_seconds(i32 noundef 1, ptr noundef nonnull @_hide_mouse, ptr noundef nonnull %0) #13
-  store i32 %15, ptr %8, align 4, !tbaa !24
-  ret void
-}
-
-declare i32 @g_timeout_add_seconds(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @_hide_mouse(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
-  %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 284
-  store i32 0, ptr %4, align 4, !tbaa !24
-  tail call void @dt_control_change_cursor(i32 noundef -2) #13
-  ret i32 0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @button_released(ptr nocapture noundef readnone %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  ret i32 0
-}
-
-; Function Attrs: nounwind uwtable
-define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 288
-  %9 = load ptr, ptr %8, align 8, !tbaa !6
-  switch i32 %4, label %13 [
-    i32 1, label %11
-    i32 3, label %10
-  ]
-
-10:                                               ; preds = %7
-  br label %11
-
-11:                                               ; preds = %10, %7
-  %12 = phi i32 [ 1, %10 ], [ 0, %7 ]
-  tail call fastcc void @_step_state(ptr noundef %9, i32 noundef %12)
-  br label %13
-
-13:                                               ; preds = %11, %7
-  %14 = phi i32 [ 1, %7 ], [ 0, %11 ]
-  ret i32 %14
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @_step_state(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 232
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #13
-  %5 = icmp eq i32 %1, 0
-  br i1 %5, label %6, label %45
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = load i32, ptr %7, align 8, !tbaa !37
-  %9 = load i32, ptr %0, align 8, !tbaa !44
-  %10 = add nsw i32 %9, -1
-  %11 = icmp slt i32 %8, %10
-  br i1 %11, label %12, label %81
-
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !48
-  %15 = getelementptr i8, ptr %0, i64 64
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull align 8 dereferenceable(160) %15, i64 160, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
-  %17 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 212
-  store i32 0, ptr %18, align 4, !tbaa !39
-  %19 = getelementptr inbounds i8, ptr %0, i64 216
-  store i32 1, ptr %19, align 8, !tbaa !40
-  %20 = load i32, ptr %7, align 8, !tbaa !37
-  %21 = add nsw i32 %20, 2
-  store i32 %21, ptr %17, align 8, !tbaa !37
-  %22 = icmp sgt i32 %21, %9
-  br i1 %22, label %25, label %23
-
-23:                                               ; preds = %12
-  %24 = tail call fastcc i32 @_get_image_at_rank(i32 noundef %21)
-  br label %25
-
-25:                                               ; preds = %23, %12
-  %26 = phi i32 [ %24, %23 ], [ 0, %12 ]
-  store i32 %26, ptr %18, align 4, !tbaa !39
-  %27 = getelementptr inbounds i8, ptr %0, i64 228
-  store i32 -1, ptr %27, align 4, !tbaa !27
-  %28 = getelementptr inbounds i8, ptr %0, i64 224
-  store i32 -1, ptr %28, align 8, !tbaa !28
-  tail call void @free(ptr noundef %14) #13
-  %29 = load i32, ptr %7, align 8, !tbaa !37
-  %30 = add nsw i32 %29, 2
-  store i32 %30, ptr %17, align 8, !tbaa !37
-  %31 = load i32, ptr %0, align 8, !tbaa !44
-  %32 = icmp slt i32 %30, %31
-  br i1 %32, label %33, label %35
-
-33:                                               ; preds = %25
-  %34 = tail call fastcc i32 @_get_image_at_rank(i32 noundef %30)
-  br label %35
-
-35:                                               ; preds = %33, %25
-  %36 = phi i32 [ %34, %33 ], [ 0, %25 ]
-  store i32 %36, ptr %18, align 4, !tbaa !39
-  store i32 1, ptr %19, align 8, !tbaa !40
-  %37 = load ptr, ptr %16, align 8, !tbaa !48
-  tail call void @free(ptr noundef %37) #13
-  store ptr null, ptr %16, align 8, !tbaa !48
-  %38 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
-  %39 = load ptr, ptr %38, align 8, !tbaa !47
-  %40 = tail call ptr (ptr, ptr, ...) @dt_control_job_create(ptr noundef nonnull @_process_job_run, ptr noundef nonnull @.str.17) #13
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %43, label %42
-
-42:                                               ; preds = %35
-  tail call void @dt_control_job_set_params(ptr noundef nonnull %40, ptr noundef nonnull %0, ptr noundef null) #13
-  br label %43
-
-43:                                               ; preds = %42, %35
-  %44 = tail call i32 @dt_control_add_job(ptr noundef %39, i32 noundef 2, ptr noundef %40) #13
-  br label %86
-
-45:                                               ; preds = %2
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
-  %48 = load i32, ptr %47, align 8, !tbaa !37
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %50, label %81
-
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %0, i64 184
-  %52 = load ptr, ptr %51, align 8, !tbaa !48
-  %53 = getelementptr i8, ptr %0, i64 64
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %53, ptr noundef nonnull align 8 dereferenceable(160) %46, i64 160, i1 false)
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
-  %55 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 0, ptr %55, align 4, !tbaa !39
-  %56 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 1, ptr %56, align 8, !tbaa !40
-  %57 = load i32, ptr %47, align 8, !tbaa !37
-  %58 = add nsw i32 %57, -2
-  store i32 %58, ptr %54, align 8, !tbaa !37
-  %59 = icmp sgt i32 %57, 1
-  br i1 %59, label %60, label %62
-
-60:                                               ; preds = %50
-  %61 = tail call fastcc i32 @_get_image_at_rank(i32 noundef %58)
-  br label %62
-
-62:                                               ; preds = %60, %50
-  %63 = phi i32 [ %61, %60 ], [ 0, %50 ]
-  store i32 %63, ptr %55, align 4, !tbaa !39
-  %64 = getelementptr inbounds i8, ptr %0, i64 228
-  store i32 -1, ptr %64, align 4, !tbaa !27
-  %65 = getelementptr inbounds i8, ptr %0, i64 224
-  store i32 -1, ptr %65, align 8, !tbaa !28
-  tail call void @free(ptr noundef %52) #13
-  %66 = load i32, ptr %47, align 8, !tbaa !37
-  %67 = add nsw i32 %66, -2
-  store i32 %67, ptr %54, align 8, !tbaa !37
-  %68 = icmp sgt i32 %66, 1
-  br i1 %68, label %69, label %71
-
-69:                                               ; preds = %62
-  %70 = tail call fastcc i32 @_get_image_at_rank(i32 noundef %67)
-  br label %71
-
-71:                                               ; preds = %69, %62
-  %72 = phi i32 [ %70, %69 ], [ 0, %62 ]
-  store i32 %72, ptr %55, align 4, !tbaa !39
-  store i32 1, ptr %56, align 8, !tbaa !40
-  %73 = load ptr, ptr %46, align 8, !tbaa !48
-  tail call void @free(ptr noundef %73) #13
-  store ptr null, ptr %46, align 8, !tbaa !48
-  %74 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
-  %75 = load ptr, ptr %74, align 8, !tbaa !47
-  %76 = tail call ptr (ptr, ptr, ...) @dt_control_job_create(ptr noundef nonnull @_process_job_run, ptr noundef nonnull @.str.17) #13
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %79, label %78
-
-78:                                               ; preds = %71
-  tail call void @dt_control_job_set_params(ptr noundef nonnull %76, ptr noundef nonnull %0, ptr noundef null) #13
+define void @enter(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct._cairo_rectangle_int, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %16 = load ptr, ptr %2, align 8, !tbaa !6
+  %17 = getelementptr inbounds nuw %struct.dt_view_t, ptr %16, i32 0, i32 24
+  %18 = load ptr, ptr %17, align 8, !tbaa !11
+  store ptr %18, ptr %3, align 8, !tbaa !19
+  call void @dt_control_change_cursor(i32 noundef -2)
+  %19 = load ptr, ptr %3, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %19, i32 0, i32 10
+  store i32 0, ptr %20, align 4, !tbaa !62
+  %21 = load ptr, ptr %3, align 8, !tbaa !19
+  %22 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %21, i32 0, i32 8
+  store i32 0, ptr %22, align 4, !tbaa !64
+  %23 = load ptr, ptr %3, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %23, i32 0, i32 5
+  store i32 -1, ptr %24, align 4, !tbaa !65
+  %25 = load ptr, ptr %3, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %25, i32 0, i32 4
+  store i32 -1, ptr %26, align 8, !tbaa !66
+  %27 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %28 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !68
+  call void @dt_ui_panel_show(ptr noundef %29, i32 noundef 3, i32 noundef 0, i32 noundef 1)
+  %30 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %31 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !68
+  call void @dt_ui_panel_show(ptr noundef %32, i32 noundef 4, i32 noundef 0, i32 noundef 1)
+  %33 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %34 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !68
+  call void @dt_ui_panel_show(ptr noundef %35, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %36 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %37 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !68
+  call void @dt_ui_panel_show(ptr noundef %38, i32 noundef 5, i32 noundef 0, i32 noundef 1)
+  %39 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %40 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !68
+  call void @dt_ui_panel_show(ptr noundef %41, i32 noundef 1, i32 noundef 0, i32 noundef 1)
+  %42 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %43 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !68
+  call void @dt_ui_panel_show(ptr noundef %44, i32 noundef 2, i32 noundef 0, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %45 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %46 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !68
+  %48 = call ptr @dt_ui_main_window(ptr noundef %47)
+  store ptr %48, ptr %4, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %49 = load ptr, ptr %4, align 8, !tbaa !74
+  %50 = call ptr @gtk_widget_get_display(ptr noundef %49)
+  store ptr %50, ptr %6, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %51 = load ptr, ptr %6, align 8, !tbaa !75
+  %52 = load ptr, ptr %4, align 8, !tbaa !74
+  %53 = call ptr @gtk_widget_get_window(ptr noundef %52)
+  %54 = call ptr @gdk_display_get_monitor_at_window(ptr noundef %51, ptr noundef %53)
+  store ptr %54, ptr %7, align 8, !tbaa !77
+  %55 = load ptr, ptr %7, align 8, !tbaa !77
+  call void @gdk_monitor_get_geometry(ptr noundef %55, ptr noundef %5)
+  %56 = load ptr, ptr %3, align 8, !tbaa !19
+  %57 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %56, i32 0, i32 6
+  %58 = call i32 @dt_pthread_mutex_lock(ptr noundef %57)
+  %59 = getelementptr inbounds nuw %struct._cairo_rectangle_int, ptr %5, i32 0, i32 2
+  %60 = load i32, ptr %59, align 4, !tbaa !79
+  %61 = sitofp i32 %60 to double
+  %62 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %63 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %62, i32 0, i32 19
+  %64 = load double, ptr %63, align 8, !tbaa !81
+  %65 = fmul reassoc nsz arcp contract afn double %61, %64
+  %66 = fptoui double %65 to i64
+  %67 = load ptr, ptr %3, align 8, !tbaa !19
+  %68 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %67, i32 0, i32 1
+  store i64 %66, ptr %68, align 8, !tbaa !82
+  %69 = getelementptr inbounds nuw %struct._cairo_rectangle_int, ptr %5, i32 0, i32 3
+  %70 = load i32, ptr %69, align 4, !tbaa !83
+  %71 = sitofp i32 %70 to double
+  %72 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %73 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %72, i32 0, i32 19
+  %74 = load double, ptr %73, align 8, !tbaa !81
+  %75 = fmul reassoc nsz arcp contract afn double %71, %74
+  %76 = fptoui double %75 to i64
+  %77 = load ptr, ptr %3, align 8, !tbaa !19
+  %78 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %77, i32 0, i32 2
+  store i64 %76, ptr %78, align 8, !tbaa !84
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  store i32 0, ptr %8, align 4, !tbaa !24
   br label %79
 
-79:                                               ; preds = %78, %71
-  %80 = tail call i32 @dt_control_add_job(ptr noundef %75, i32 noundef 2, ptr noundef %76) #13
-  br label %86
-
-81:                                               ; preds = %45, %6
-  %82 = phi ptr [ @.str.18, %6 ], [ @.str.19, %45 ]
-  %83 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %82, i32 noundef 5) #13
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %83) #13
-  %84 = getelementptr inbounds i8, ptr %0, i64 272
-  store i32 0, ptr %84, align 8, !tbaa !45
-  %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
-  br label %88
-
-86:                                               ; preds = %79, %43
-  %87 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
-  tail call void (...) @dt_control_queue_redraw_center() #13
-  br label %88
-
-88:                                               ; preds = %86, %81
-  %89 = getelementptr inbounds i8, ptr %0, i64 272
-  %90 = load i32, ptr %89, align 8, !tbaa !45
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %96, label %92
-
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %0, i64 280
-  %94 = load i32, ptr %93, align 8, !tbaa !46
-  %95 = tail call i32 @g_timeout_add_seconds(i32 noundef %94, ptr noundef nonnull @_auto_advance, ptr noundef nonnull %0) #13
-  br label %96
-
-96:                                               ; preds = %92, %88
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @_start_stop_callback, i32 noundef 32, i32 noundef 0) #13
-  %3 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @_exit_callback, i32 noundef 65307, i32 noundef 0) #13
-  %4 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @_slow_down_callback, i32 noundef 65362, i32 noundef 0) #13
-  tail call void @dt_shortcut_register(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 65451, i32 noundef 0) #13
-  tail call void @dt_shortcut_register(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 43, i32 noundef 0) #13
-  %5 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull @_speed_up_callback, i32 noundef 65364, i32 noundef 0) #13
-  tail call void @dt_shortcut_register(ptr noundef %5, i32 noundef 0, i32 noundef 0, i32 noundef 65453, i32 noundef 0) #13
-  tail call void @dt_shortcut_register(ptr noundef %5, i32 noundef 0, i32 noundef 0, i32 noundef 45, i32 noundef 0) #13
-  %6 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @_step_forward_callback, i32 noundef 65363, i32 noundef 0) #13
-  %7 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @_step_back_callback, i32 noundef 65361, i32 noundef 0) #13
-  ret void
-}
-
-declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
-
-; Function Attrs: nounwind uwtable
-define internal void @_start_stop_callback(ptr noundef readonly %0) #1 {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = load i32, ptr %0, align 8, !tbaa !58
-  %4 = icmp eq i32 %3, 2
-  br i1 %4, label %11, label %5
-
-5:                                                ; preds = %5, %1
-  %6 = phi ptr [ %8, %5 ], [ %0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !59, !nonnull !60, !noundef !60
-  %9 = load i32, ptr %8, align 8, !tbaa !58
-  %10 = icmp eq i32 %9, 2
-  br i1 %10, label %11, label %5
-
-11:                                               ; preds = %5, %1
-  %12 = phi ptr [ %0, %1 ], [ %8, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 288
-  %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
-  %16 = load i32, ptr %15, align 8, !tbaa !45
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %11
-  store i32 1, ptr %15, align 8, !tbaa !45
-  tail call fastcc void @_step_state(ptr noundef nonnull %14, i32 noundef 0)
-  br label %21
-
-19:                                               ; preds = %11
-  store i32 0, ptr %15, align 8, !tbaa !45
-  %20 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #13
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %20) #13
-  br label %21
-
-21:                                               ; preds = %19, %18
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @_exit_callback(ptr noundef readonly %0) #1 {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = load i32, ptr %0, align 8, !tbaa !58
-  %4 = icmp eq i32 %3, 2
-  br i1 %4, label %11, label %5
-
-5:                                                ; preds = %5, %1
-  %6 = phi ptr [ %8, %5 ], [ %0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !59, !nonnull !60, !noundef !60
-  %9 = load i32, ptr %8, align 8, !tbaa !58
-  %10 = icmp eq i32 %9, 2
-  br i1 %10, label %11, label %5
-
-11:                                               ; preds = %5, %1
-  %12 = phi ptr [ %0, %1 ], [ %8, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 288
-  %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
-  store i32 0, ptr %15, align 8, !tbaa !45
-  tail call void @dt_ctl_switch_mode_to(ptr noundef nonnull @.str.21) #13
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @_slow_down_callback(ptr noundef readonly %0) #1 {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = load i32, ptr %0, align 8, !tbaa !58
-  %4 = icmp eq i32 %3, 2
-  br i1 %4, label %11, label %5
-
-5:                                                ; preds = %5, %1
-  %6 = phi ptr [ %8, %5 ], [ %0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !59, !nonnull !60, !noundef !60
-  %9 = load i32, ptr %8, align 8, !tbaa !58
-  %10 = icmp eq i32 %9, 2
-  br i1 %10, label %11, label %5
-
-11:                                               ; preds = %5, %1
-  %12 = phi ptr [ %0, %1 ], [ %8, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 288
-  %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds i8, ptr %14, i64 280
-  %16 = load i32, ptr %15, align 8, !tbaa !46
-  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
-  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 59)
-  %19 = add nuw nsw i32 %18, 1
-  store i32 %19, ptr %15, align 8, !tbaa !46
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.6, i32 noundef %19) #13
-  %20 = load i32, ptr %15, align 8, !tbaa !46
-  %21 = sext i32 %20 to i64
-  %22 = tail call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i64 noundef %21, i32 noundef 5) #13
-  %23 = load i32, ptr %15, align 8, !tbaa !46
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %22, i32 noundef %23) #13
-  ret void
-}
-
-declare void @dt_shortcut_register(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
-
-; Function Attrs: nounwind uwtable
-define internal void @_speed_up_callback(ptr noundef readonly %0) #1 {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = load i32, ptr %0, align 8, !tbaa !58
-  %4 = icmp eq i32 %3, 2
-  br i1 %4, label %11, label %5
-
-5:                                                ; preds = %5, %1
-  %6 = phi ptr [ %8, %5 ], [ %0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !59, !nonnull !60, !noundef !60
-  %9 = load i32, ptr %8, align 8, !tbaa !58
-  %10 = icmp eq i32 %9, 2
-  br i1 %10, label %11, label %5
-
-11:                                               ; preds = %5, %1
-  %12 = phi ptr [ %0, %1 ], [ %8, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 288
-  %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds i8, ptr %14, i64 280
-  %16 = load i32, ptr %15, align 8, !tbaa !46
-  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 2)
-  %18 = add nsw i32 %17, -1
-  %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 60)
-  store i32 %19, ptr %15, align 8, !tbaa !46
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.6, i32 noundef %19) #13
-  %20 = load i32, ptr %15, align 8, !tbaa !46
-  %21 = sext i32 %20 to i64
-  %22 = tail call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i64 noundef %21, i32 noundef 5) #13
-  %23 = load i32, ptr %15, align 8, !tbaa !46
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %22, i32 noundef %23) #13
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @_step_forward_callback(ptr noundef readonly %0) #1 {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = load i32, ptr %0, align 8, !tbaa !58
-  %4 = icmp eq i32 %3, 2
-  br i1 %4, label %11, label %5
-
-5:                                                ; preds = %5, %1
-  %6 = phi ptr [ %8, %5 ], [ %0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !59, !nonnull !60, !noundef !60
-  %9 = load i32, ptr %8, align 8, !tbaa !58
-  %10 = icmp eq i32 %9, 2
-  br i1 %10, label %11, label %5
-
-11:                                               ; preds = %5, %1
-  %12 = phi ptr [ %0, %1 ], [ %8, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 288
-  %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
-  %16 = load i32, ptr %15, align 8, !tbaa !45
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %20, label %18
-
-18:                                               ; preds = %11
-  %19 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #13
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %19) #13
-  br label %20
-
-20:                                               ; preds = %18, %11
-  store i32 0, ptr %15, align 8, !tbaa !45
-  tail call fastcc void @_step_state(ptr noundef nonnull %14, i32 noundef 0)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @_step_back_callback(ptr noundef readonly %0) #1 {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = load i32, ptr %0, align 8, !tbaa !58
-  %4 = icmp eq i32 %3, 2
-  br i1 %4, label %11, label %5
-
-5:                                                ; preds = %5, %1
-  %6 = phi ptr [ %8, %5 ], [ %0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !59, !nonnull !60, !noundef !60
-  %9 = load i32, ptr %8, align 8, !tbaa !58
-  %10 = icmp eq i32 %9, 2
-  br i1 %10, label %11, label %5
-
-11:                                               ; preds = %5, %1
-  %12 = phi ptr [ %0, %1 ], [ %8, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 288
-  %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
-  %16 = load i32, ptr %15, align 8, !tbaa !45
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %20, label %18
-
-18:                                               ; preds = %11
-  %19 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #13
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %19) #13
-  br label %20
-
-20:                                               ; preds = %18, %11
-  store i32 0, ptr %15, align 8, !tbaa !45
-  tail call fastcc void @_step_state(ptr noundef nonnull %14, i32 noundef 1)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mouse_actions(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef 5) #13
-  %3 = tail call ptr @dt_mouse_action_create_simple(ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %2) #13
-  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #13
-  %5 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef %4) #13
-  ret ptr %5
-}
-
-declare ptr @dt_mouse_action_create_simple(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
-
-declare ptr @dt_collection_get_query(ptr noundef) local_unnamed_addr #6
-
-declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
-
-declare ptr @dt_control_job_create(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
-
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @_process_job_run(ptr noundef %0) #1 {
-  %2 = tail call ptr @dt_control_job_get_params(ptr noundef %0) #13
-  %3 = getelementptr inbounds i8, ptr %2, i64 232
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #13
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %2, i64 136
-  %7 = load i32, ptr %6, align 8, !tbaa !40
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %23, label %9
-
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %2, i64 104
-  %11 = load ptr, ptr %10, align 8, !tbaa !48
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %23
-
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 132
-  %15 = load i32, ptr %14, align 4, !tbaa !39
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %17, label %23
-
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 128
-  %19 = load i32, ptr %18, align 8, !tbaa !37
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %23, label %21
-
-21:                                               ; preds = %17
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
-  tail call fastcc void @_process_image(ptr noundef nonnull %2, i32 noundef 2)
-  tail call void (...) @dt_control_queue_redraw_center() #13
-  br label %96
-
-23:                                               ; preds = %17, %13, %9, %1
-  %24 = getelementptr inbounds i8, ptr %2, i64 176
-  %25 = load i32, ptr %24, align 8, !tbaa !40
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %41, label %27
-
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %2, i64 144
-  %29 = load ptr, ptr %28, align 8, !tbaa !48
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %41
-
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %2, i64 172
-  %33 = load i32, ptr %32, align 4, !tbaa !39
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %41
-
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %2, i64 168
-  %37 = load i32, ptr %36, align 8, !tbaa !37
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %41, label %39
-
-39:                                               ; preds = %35
-  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
-  tail call fastcc void @_process_image(ptr noundef nonnull %2, i32 noundef 3)
-  br label %96
-
-41:                                               ; preds = %35, %31, %27, %23
-  %42 = getelementptr inbounds i8, ptr %2, i64 216
-  %43 = load i32, ptr %42, align 8, !tbaa !40
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %59, label %45
-
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %2, i64 184
-  %47 = load ptr, ptr %46, align 8, !tbaa !48
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %59
-
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %2, i64 212
-  %51 = load i32, ptr %50, align 4, !tbaa !39
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %53, label %59
-
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %2, i64 208
-  %55 = load i32, ptr %54, align 8, !tbaa !37
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %59, label %57
-
-57:                                               ; preds = %53
-  %58 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
-  tail call fastcc void @_process_image(ptr noundef nonnull %2, i32 noundef 4)
-  br label %96
-
-59:                                               ; preds = %53, %49, %45, %41
-  %60 = getelementptr inbounds i8, ptr %2, i64 96
-  %61 = load i32, ptr %60, align 8, !tbaa !40
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %77, label %63
-
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %2, i64 64
-  %65 = load ptr, ptr %64, align 8, !tbaa !48
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %77
-
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %2, i64 92
-  %69 = load i32, ptr %68, align 4, !tbaa !39
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %77
-
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %2, i64 88
-  %73 = load i32, ptr %72, align 8, !tbaa !37
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %77, label %75
-
-75:                                               ; preds = %71
-  %76 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
-  tail call fastcc void @_process_image(ptr noundef nonnull %2, i32 noundef 1)
-  br label %96
-
-77:                                               ; preds = %71, %67, %63, %59
-  %78 = getelementptr inbounds i8, ptr %2, i64 56
-  %79 = load i32, ptr %78, align 8, !tbaa !40
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %94, label %81
-
-81:                                               ; preds = %77
-  %82 = load ptr, ptr %5, align 8, !tbaa !48
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %94
-
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %2, i64 52
-  %86 = load i32, ptr %85, align 4, !tbaa !39
-  %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %88, label %94
-
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %2, i64 48
-  %90 = load i32, ptr %89, align 8, !tbaa !37
-  %91 = icmp slt i32 %90, 0
-  br i1 %91, label %94, label %92
-
-92:                                               ; preds = %88
-  %93 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
-  tail call fastcc void @_process_image(ptr noundef nonnull %2, i32 noundef 0)
-  br label %96
-
-94:                                               ; preds = %88, %84, %81, %77
-  %95 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
-  br label %96
-
-96:                                               ; preds = %94, %92, %75, %57, %39, %21
-  %97 = tail call fastcc i32 @_is_idle(ptr noundef nonnull %2), !range !61
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %107
+79:                                               ; preds = %89, %1
+  %80 = load i32, ptr %8, align 4, !tbaa !24
+  %81 = icmp ult i32 %80, 5
+  br i1 %81, label %83, label %82
+
+82:                                               ; preds = %79
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  br label %92
+
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %3, align 8, !tbaa !19
+  %85 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %84, i32 0, i32 3
+  %86 = load i32, ptr %8, align 4, !tbaa !24
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %85, i64 0, i64 %87
+  call void @_init_slot(ptr noundef %88)
+  br label %89
+
+89:                                               ; preds = %83
+  %90 = load i32, ptr %8, align 4, !tbaa !24
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %8, align 4, !tbaa !24
+  br label %79
+
+92:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  %93 = call i32 (...) @dt_act_on_get_main_image()
+  store i32 %93, ptr %9, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 -1, ptr %10, align 4, !tbaa !24
+  %94 = load i32, ptr %9, align 4, !tbaa !24
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %96, label %141
+
+96:                                               ; preds = %92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %97 = load i32, ptr %9, align 4, !tbaa !24
+  %98 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.2, i32 noundef %97)
+  store ptr %98, ptr %12, align 8, !tbaa !85
+  br label %99
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
-  %101 = load ptr, ptr %100, align 8, !tbaa !47
-  %102 = tail call ptr (ptr, ptr, ...) @dt_control_job_create(ptr noundef nonnull @_process_job_run, ptr noundef nonnull @.str.17) #13
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %105, label %104
+  br label %100
 
-104:                                              ; preds = %99
-  tail call void @dt_control_job_set_params(ptr noundef nonnull %102, ptr noundef nonnull %2, ptr noundef null) #13
-  br label %105
+100:                                              ; preds = %99
+  %101 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !86
+  %102 = and i32 256, %101
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %111
 
-105:                                              ; preds = %104, %99
-  %106 = tail call i32 @dt_control_add_job(ptr noundef %101, i32 noundef 2, ptr noundef %102) #13
+104:                                              ; preds = %100
+  %105 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !86
+  %106 = xor i32 %105, -1
+  %107 = and i32 0, %106
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %111, label %109
+
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %12, align 8, !tbaa !85
+  call void (ptr, ...) @dt_print_ext(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 479, ptr noundef @__FUNCTION__.enter, ptr noundef %110)
+  br label %111
+
+111:                                              ; preds = %109, %104, %100
+  br label %112
+
+112:                                              ; preds = %111
+  br label %113
+
+113:                                              ; preds = %112
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  %114 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 18), align 8, !tbaa !87
+  %115 = call ptr @dt_database_get(ptr noundef %114)
+  %116 = load ptr, ptr %12, align 8, !tbaa !85
+  %117 = call i32 @sqlite3_prepare_v2(ptr noundef %115, ptr noundef %116, i32 noundef -1, ptr noundef %11, ptr noundef null)
+  store i32 %117, ptr %13, align 4, !tbaa !24
+  %118 = load i32, ptr %13, align 4, !tbaa !24
+  %119 = icmp ne i32 %118, 0
+  br i1 %119, label %120, label %127
+
+120:                                              ; preds = %113
+  %121 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %122 = load ptr, ptr %12, align 8, !tbaa !85
+  %123 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 18), align 8, !tbaa !87
+  %124 = call ptr @dt_database_get(ptr noundef %123)
+  %125 = call ptr @sqlite3_errmsg(ptr noundef %124)
+  %126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef @.str.5, ptr noundef @.str.4, i32 noundef 479, ptr noundef @__FUNCTION__.enter, ptr noundef %122, ptr noundef %125) #7
+  br label %127
+
+127:                                              ; preds = %120, %113
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  br label %128
+
+128:                                              ; preds = %127
+  br label %129
+
+129:                                              ; preds = %128
+  %130 = load ptr, ptr %11, align 8, !tbaa !90
+  %131 = call i32 @sqlite3_step(ptr noundef %130)
+  %132 = icmp eq i32 %131, 100
+  br i1 %132, label %133, label %137
+
+133:                                              ; preds = %129
+  %134 = load ptr, ptr %11, align 8, !tbaa !90
+  %135 = call i32 @sqlite3_column_int(ptr noundef %134, i32 noundef 0)
+  %136 = sub nsw i32 %135, 1
+  store i32 %136, ptr %10, align 4, !tbaa !24
+  br label %137
+
+137:                                              ; preds = %133, %129
+  %138 = load ptr, ptr %12, align 8, !tbaa !85
+  call void @g_free(ptr noundef %138)
+  %139 = load ptr, ptr %11, align 8, !tbaa !90
+  %140 = call i32 @sqlite3_finalize(ptr noundef %139)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %141
+
+141:                                              ; preds = %137, %92
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %142 = load i32, ptr %10, align 4, !tbaa !24
+  %143 = icmp eq i32 %142, -1
+  br i1 %143, label %144, label %150
+
+144:                                              ; preds = %141
+  %145 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %146 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %145, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8, !tbaa !68
+  %148 = call ptr @dt_ui_thumbtable(ptr noundef %147)
+  %149 = call i32 @dt_thumbtable_get_offset(ptr noundef %148)
+  br label %152
+
+150:                                              ; preds = %141
+  %151 = load i32, ptr %10, align 4, !tbaa !24
+  br label %152
+
+152:                                              ; preds = %150, %144
+  %153 = phi i32 [ %149, %144 ], [ %151, %150 ]
+  store i32 %153, ptr %14, align 4, !tbaa !24
+  %154 = load i32, ptr %14, align 4, !tbaa !24
+  %155 = sub nsw i32 %154, 2
+  %156 = load ptr, ptr %3, align 8, !tbaa !19
+  %157 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %156, i32 0, i32 3
+  %158 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %157, i64 0, i64 0
+  %159 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %158, i32 0, i32 3
+  store i32 %155, ptr %159, align 8, !tbaa !92
+  %160 = load i32, ptr %14, align 4, !tbaa !24
+  %161 = sub nsw i32 %160, 1
+  %162 = load ptr, ptr %3, align 8, !tbaa !19
+  %163 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %162, i32 0, i32 3
+  %164 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %163, i64 0, i64 1
+  %165 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %164, i32 0, i32 3
+  store i32 %161, ptr %165, align 8, !tbaa !92
+  %166 = load i32, ptr %14, align 4, !tbaa !24
+  %167 = load ptr, ptr %3, align 8, !tbaa !19
+  %168 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %167, i32 0, i32 3
+  %169 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %168, i64 0, i64 2
+  %170 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %169, i32 0, i32 3
+  store i32 %166, ptr %170, align 8, !tbaa !92
+  %171 = load i32, ptr %14, align 4, !tbaa !24
+  %172 = add nsw i32 %171, 1
+  %173 = load ptr, ptr %3, align 8, !tbaa !19
+  %174 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %173, i32 0, i32 3
+  %175 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %174, i64 0, i64 3
+  %176 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %175, i32 0, i32 3
+  store i32 %172, ptr %176, align 8, !tbaa !92
+  %177 = load i32, ptr %14, align 4, !tbaa !24
+  %178 = add nsw i32 %177, 2
+  %179 = load ptr, ptr %3, align 8, !tbaa !19
+  %180 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %179, i32 0, i32 3
+  %181 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %180, i64 0, i64 4
+  %182 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %181, i32 0, i32 3
+  store i32 %178, ptr %182, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  store i32 0, ptr %15, align 4, !tbaa !24
+  br label %183
+
+183:                                              ; preds = %202, %152
+  %184 = load i32, ptr %15, align 4, !tbaa !24
+  %185 = icmp ult i32 %184, 5
+  br i1 %185, label %187, label %186
+
+186:                                              ; preds = %183
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  br label %205
+
+187:                                              ; preds = %183
+  %188 = load ptr, ptr %3, align 8, !tbaa !19
+  %189 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %188, i32 0, i32 3
+  %190 = load i32, ptr %15, align 4, !tbaa !24
+  %191 = zext i32 %190 to i64
+  %192 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %189, i64 0, i64 %191
+  %193 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %192, i32 0, i32 3
+  %194 = load i32, ptr %193, align 8, !tbaa !92
+  %195 = call i32 @_get_image_at_rank(i32 noundef %194)
+  %196 = load ptr, ptr %3, align 8, !tbaa !19
+  %197 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %196, i32 0, i32 3
+  %198 = load i32, ptr %15, align 4, !tbaa !24
+  %199 = zext i32 %198 to i64
+  %200 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %197, i64 0, i64 %199
+  %201 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %200, i32 0, i32 4
+  store i32 %195, ptr %201, align 4, !tbaa !94
+  br label %202
+
+202:                                              ; preds = %187
+  %203 = load i32, ptr %15, align 4, !tbaa !24
+  %204 = add i32 %203, 1
+  store i32 %204, ptr %15, align 4, !tbaa !24
+  br label %183
+
+205:                                              ; preds = %186
+  %206 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 21), align 8, !tbaa !25
+  %207 = call i32 @dt_collection_get_count(ptr noundef %206)
+  %208 = load ptr, ptr %3, align 8, !tbaa !19
+  %209 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %208, i32 0, i32 0
+  store i32 %207, ptr %209, align 8, !tbaa !95
+  %210 = load ptr, ptr %3, align 8, !tbaa !19
+  %211 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %210, i32 0, i32 7
+  store i32 0, ptr %211, align 8, !tbaa !96
+  %212 = call i32 @dt_conf_get_int(ptr noundef @.str.6)
+  %213 = load ptr, ptr %3, align 8, !tbaa !19
+  %214 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %213, i32 0, i32 9
+  store i32 %212, ptr %214, align 8, !tbaa !97
+  %215 = load ptr, ptr %3, align 8, !tbaa !19
+  %216 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %215, i32 0, i32 6
+  %217 = call i32 @dt_pthread_mutex_unlock(ptr noundef %216)
+  %218 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %219 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %218, i32 0, i32 0
+  %220 = load ptr, ptr %219, align 8, !tbaa !68
+  %221 = call ptr @dt_ui_center(ptr noundef %220)
+  call void @gtk_widget_grab_focus(ptr noundef %221)
+  call void (...) @dt_control_queue_redraw_center()
+  %222 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 12), align 8, !tbaa !98
+  %223 = load ptr, ptr %3, align 8, !tbaa !19
+  %224 = call ptr @_process_job_create(ptr noundef %223)
+  %225 = call i32 @dt_control_add_job(ptr noundef %222, i32 noundef 2, ptr noundef %224)
+  %226 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.7, i32 noundef 5) #7
+  call void (ptr, ...) @dt_control_log(ptr noundef %226)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare void @dt_control_change_cursor(i32 noundef) #5
+
+declare void @dt_ui_panel_show(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #5
+
+declare ptr @dt_ui_main_window(ptr noundef) #5
+
+declare ptr @gtk_widget_get_display(ptr noundef) #5
+
+declare ptr @gdk_display_get_monitor_at_window(ptr noundef, ptr noundef) #5
+
+declare ptr @gtk_widget_get_window(ptr noundef) #5
+
+declare void @gdk_monitor_get_geometry(ptr noundef, ptr noundef) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @dt_pthread_mutex_lock(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = getelementptr inbounds nuw %struct.dt_pthread_mutex_t, ptr %3, i32 0, i32 0
+  %5 = call i32 @pthread_mutex_lock(ptr noundef %4) #7
+  ret i32 %5
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_init_slot(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %4 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !101
+  %5 = load ptr, ptr %2, align 8, !tbaa !99
+  %6 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %5, i32 0, i32 1
+  store i64 0, ptr %6, align 8, !tbaa !102
+  %7 = load ptr, ptr %2, align 8, !tbaa !99
+  %8 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %7, i32 0, i32 2
+  store i64 0, ptr %8, align 8, !tbaa !103
+  %9 = load ptr, ptr %2, align 8, !tbaa !99
+  %10 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %9, i32 0, i32 3
+  store i32 -1, ptr %10, align 8, !tbaa !92
+  %11 = load ptr, ptr %2, align 8, !tbaa !99
+  %12 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %11, i32 0, i32 4
+  store i32 0, ptr %12, align 4, !tbaa !94
+  %13 = load ptr, ptr %2, align 8, !tbaa !99
+  %14 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %13, i32 0, i32 5
+  store i32 1, ptr %14, align 8, !tbaa !104
+  ret void
+}
+
+declare i32 @dt_act_on_get_main_image(...) #5
+
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) #5
+
+declare void @dt_print_ext(ptr noundef, ...) #5
+
+declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #5
+
+declare ptr @dt_database_get(ptr noundef) #5
+
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+
+declare ptr @sqlite3_errmsg(ptr noundef) #5
+
+declare i32 @sqlite3_step(ptr noundef) #5
+
+declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) #5
+
+declare void @g_free(ptr noundef) #5
+
+declare i32 @sqlite3_finalize(ptr noundef) #5
+
+declare i32 @dt_thumbtable_get_offset(ptr noundef) #5
+
+declare ptr @dt_ui_thumbtable(ptr noundef) #5
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_get_image_at_rank(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  store i32 0, ptr %3, align 4, !tbaa !24
+  %9 = load i32, ptr %2, align 4, !tbaa !24
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %77
+
+11:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %12 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 21), align 8, !tbaa !25
+  %13 = call ptr @dt_collection_get_query(ptr noundef %12)
+  store ptr %13, ptr %4, align 8, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  br label %14
+
+14:                                               ; preds = %11
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !86
+  %17 = and i32 256, %16
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %26
+
+19:                                               ; preds = %15
+  %20 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !86
+  %21 = xor i32 %20, -1
+  %22 = and i32 0, %21
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %26, label %24
+
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %4, align 8, !tbaa !85
+  call void (ptr, ...) @dt_print_ext(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 106, ptr noundef @__FUNCTION__._get_image_at_rank, ptr noundef %25)
+  br label %26
+
+26:                                               ; preds = %24, %19, %15
+  br label %27
+
+27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %29 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 18), align 8, !tbaa !87
+  %30 = call ptr @dt_database_get(ptr noundef %29)
+  %31 = load ptr, ptr %4, align 8, !tbaa !85
+  %32 = call i32 @sqlite3_prepare_v2(ptr noundef %30, ptr noundef %31, i32 noundef -1, ptr noundef %5, ptr noundef null)
+  store i32 %32, ptr %6, align 4, !tbaa !24
+  %33 = load i32, ptr %6, align 4, !tbaa !24
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %42
+
+35:                                               ; preds = %28
+  %36 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %37 = load ptr, ptr %4, align 8, !tbaa !85
+  %38 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 18), align 8, !tbaa !87
+  %39 = call ptr @dt_database_get(ptr noundef %38)
+  %40 = call ptr @sqlite3_errmsg(ptr noundef %39)
+  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.5, ptr noundef @.str.4, i32 noundef 106, ptr noundef @__FUNCTION__._get_image_at_rank, ptr noundef %37, ptr noundef %40) #7
+  br label %42
+
+42:                                               ; preds = %35, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  br label %43
+
+43:                                               ; preds = %42
+  br label %44
+
+44:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %45 = load ptr, ptr %5, align 8, !tbaa !90
+  %46 = load i32, ptr %2, align 4, !tbaa !24
+  %47 = call i32 @sqlite3_bind_int(ptr noundef %45, i32 noundef 1, i32 noundef %46)
+  store i32 %47, ptr %7, align 4, !tbaa !24
+  %48 = load i32, ptr %7, align 4, !tbaa !24
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %56
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %52 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 18), align 8, !tbaa !87
+  %53 = call ptr @dt_database_get(ptr noundef %52)
+  %54 = call ptr @sqlite3_errmsg(ptr noundef %53)
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.16, ptr noundef @.str.4, i32 noundef 107, ptr noundef @__FUNCTION__._get_image_at_rank, ptr noundef %54) #7
+  br label %56
+
+56:                                               ; preds = %50, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %57 = load ptr, ptr %5, align 8, !tbaa !90
+  %58 = call i32 @sqlite3_bind_int(ptr noundef %57, i32 noundef 2, i32 noundef 1)
+  store i32 %58, ptr %8, align 4, !tbaa !24
+  %59 = load i32, ptr %8, align 4, !tbaa !24
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %67
+
+61:                                               ; preds = %56
+  %62 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %63 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 18), align 8, !tbaa !87
+  %64 = call ptr @dt_database_get(ptr noundef %63)
+  %65 = call ptr @sqlite3_errmsg(ptr noundef %64)
+  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef @.str.16, ptr noundef @.str.4, i32 noundef 108, ptr noundef @__FUNCTION__._get_image_at_rank, ptr noundef %65) #7
+  br label %67
+
+67:                                               ; preds = %61, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %68 = load ptr, ptr %5, align 8, !tbaa !90
+  %69 = call i32 @sqlite3_step(ptr noundef %68)
+  %70 = icmp eq i32 %69, 100
+  br i1 %70, label %71, label %74
+
+71:                                               ; preds = %67
+  %72 = load ptr, ptr %5, align 8, !tbaa !90
+  %73 = call i32 @sqlite3_column_int(ptr noundef %72, i32 noundef 0)
+  store i32 %73, ptr %3, align 4, !tbaa !24
+  br label %74
+
+74:                                               ; preds = %71, %67
+  %75 = load ptr, ptr %5, align 8, !tbaa !90
+  %76 = call i32 @sqlite3_finalize(ptr noundef %75)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %77
+
+77:                                               ; preds = %74, %1
+  %78 = load i32, ptr %3, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i32 %78
+}
+
+declare i32 @dt_conf_get_int(ptr noundef) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @dt_pthread_mutex_unlock(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = getelementptr inbounds nuw %struct.dt_pthread_mutex_t, ptr %3, i32 0, i32 0
+  %5 = call i32 @pthread_mutex_unlock(ptr noundef %4) #7
+  ret i32 %5
+}
+
+declare void @gtk_widget_grab_focus(ptr noundef) #5
+
+declare ptr @dt_ui_center(ptr noundef) #5
+
+declare void @dt_control_queue_redraw_center(...) #5
+
+declare i32 @dt_control_add_job(ptr noundef, i32 noundef, ptr noundef) #5
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_process_job_create(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %6 = call ptr (ptr, ptr, ...) @dt_control_job_create(ptr noundef @_process_job_run, ptr noundef @.str.17)
+  store ptr %6, ptr %4, align 8, !tbaa !105
+  %7 = load ptr, ptr %4, align 8, !tbaa !105
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %10, label %9
+
+9:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %14
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %4, align 8, !tbaa !105
+  %12 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @dt_control_job_set_params(ptr noundef %11, ptr noundef %12, ptr noundef null)
+  %13 = load ptr, ptr %4, align 8, !tbaa !105
+  store ptr %13, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %14
+
+14:                                               ; preds = %10, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %15 = load ptr, ptr %2, align 8
+  ret ptr %15
+}
+
+; Function Attrs: nounwind uwtable
+define void @leave(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr %2, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw %struct.dt_view_t, ptr %5, i32 0, i32 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %7, ptr %3, align 8, !tbaa !19
+  %8 = load ptr, ptr %3, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %8, i32 0, i32 10
+  %10 = load i32, ptr %9, align 4, !tbaa !62
+  %11 = icmp ugt i32 %10, 0
+  br i1 %11, label %12, label %17
+
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %13, i32 0, i32 10
+  %15 = load i32, ptr %14, align 4, !tbaa !62
+  %16 = call i32 @g_source_remove(i32 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %1
+  %18 = load ptr, ptr %3, align 8, !tbaa !19
+  %19 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %18, i32 0, i32 10
+  store i32 0, ptr %19, align 4, !tbaa !62
+  call void @dt_control_change_cursor(i32 noundef 68)
+  %20 = load ptr, ptr %3, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %20, i32 0, i32 7
+  store i32 0, ptr %21, align 8, !tbaa !96
+  br label %22
+
+22:                                               ; preds = %27, %17
+  %23 = load ptr, ptr %3, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %23, i32 0, i32 8
+  %25 = load i32, ptr %24, align 4, !tbaa !64
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %27, label %29
+
+27:                                               ; preds = %22
+  %28 = call i32 @sleep(i32 noundef 1)
+  br label %22
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %31 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !68
+  %33 = call ptr @dt_ui_thumbtable(ptr noundef %32)
+  %34 = load ptr, ptr %3, align 8, !tbaa !19
+  %35 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %34, i32 0, i32 3
+  %36 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %35, i64 0, i64 2
+  %37 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %36, i32 0, i32 3
+  %38 = load i32, ptr %37, align 8, !tbaa !92
+  %39 = call i32 @dt_thumbtable_set_offset(ptr noundef %33, i32 noundef %38, i32 noundef 0)
+  %40 = load ptr, ptr %3, align 8, !tbaa !19
+  %41 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %40, i32 0, i32 6
+  %42 = call i32 @dt_pthread_mutex_lock(ptr noundef %41)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  store i32 0, ptr %4, align 4, !tbaa !24
+  br label %43
+
+43:                                               ; preds = %61, %29
+  %44 = load i32, ptr %4, align 4, !tbaa !24
+  %45 = icmp ult i32 %44, 5
+  br i1 %45, label %47, label %46
+
+46:                                               ; preds = %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  br label %64
+
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %3, align 8, !tbaa !19
+  %49 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %48, i32 0, i32 3
+  %50 = load i32, ptr %4, align 4, !tbaa !24
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %49, i64 0, i64 %51
+  %53 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !101
+  call void @free(ptr noundef %54) #7
+  %55 = load ptr, ptr %3, align 8, !tbaa !19
+  %56 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %55, i32 0, i32 3
+  %57 = load i32, ptr %4, align 4, !tbaa !24
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %56, i64 0, i64 %58
+  %60 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %59, i32 0, i32 0
+  store ptr null, ptr %60, align 8, !tbaa !101
+  br label %61
+
+61:                                               ; preds = %47
+  %62 = load i32, ptr %4, align 4, !tbaa !24
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %4, align 4, !tbaa !24
+  br label %43
+
+64:                                               ; preds = %46
+  %65 = load ptr, ptr %3, align 8, !tbaa !19
+  %66 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %65, i32 0, i32 6
+  %67 = call i32 @dt_pthread_mutex_unlock(ptr noundef %66)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare i32 @g_source_remove(i32 noundef) #5
+
+declare i32 @sleep(i32 noundef) #5
+
+declare i32 @dt_thumbtable_set_offset(ptr noundef, i32 noundef, i32 noundef) #5
+
+; Function Attrs: nounwind uwtable
+define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca double, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca %struct.dt_mipmap_buffer_t, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca double, align 8
+  %21 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !6
+  store ptr %1, ptr %8, align 8, !tbaa !107
+  store i32 %2, ptr %9, align 4, !tbaa !24
+  store i32 %3, ptr %10, align 4, !tbaa !24
+  store i32 %4, ptr %11, align 4, !tbaa !24
+  store i32 %5, ptr %12, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %22 = load ptr, ptr %7, align 8, !tbaa !6
+  %23 = getelementptr inbounds nuw %struct.dt_view_t, ptr %22, i32 0, i32 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !11
+  store ptr %24, ptr %13, align 8, !tbaa !19
+  %25 = load ptr, ptr %13, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %25, i32 0, i32 6
+  %27 = call i32 @dt_pthread_mutex_lock(ptr noundef %26)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %28 = load ptr, ptr %13, align 8, !tbaa !19
+  %29 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %28, i32 0, i32 3
+  %30 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %29, i64 0, i64 2
+  store ptr %30, ptr %14, align 8, !tbaa !99
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  %31 = load ptr, ptr %14, align 8, !tbaa !99
+  %32 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %31, i32 0, i32 4
+  %33 = load i32, ptr %32, align 4, !tbaa !94
+  store i32 %33, ptr %15, align 4, !tbaa !24
+  %34 = load ptr, ptr %13, align 8, !tbaa !19
+  %35 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %34, i32 0, i32 1
+  %36 = load i64, ptr %35, align 8, !tbaa !82
+  %37 = load ptr, ptr %14, align 8, !tbaa !99
+  %38 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %37, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8, !tbaa !102
+  %40 = icmp ult i64 %36, %39
+  br i1 %40, label %49, label %41
+
+41:                                               ; preds = %6
+  %42 = load ptr, ptr %13, align 8, !tbaa !19
+  %43 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %42, i32 0, i32 2
+  %44 = load i64, ptr %43, align 8, !tbaa !84
+  %45 = load ptr, ptr %14, align 8, !tbaa !99
+  %46 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %45, i32 0, i32 2
+  %47 = load i64, ptr %46, align 8, !tbaa !103
+  %48 = icmp ult i64 %44, %47
+  br i1 %48, label %49, label %53
+
+49:                                               ; preds = %41, %6
+  %50 = load ptr, ptr %14, align 8, !tbaa !99
+  %51 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %50, i32 0, i32 5
+  store i32 1, ptr %51, align 8, !tbaa !104
+  %52 = load ptr, ptr %13, align 8, !tbaa !19
+  call void @_requeue_job(ptr noundef %52)
+  br label %53
+
+53:                                               ; preds = %49, %41
+  %54 = load ptr, ptr %8, align 8, !tbaa !107
+  call void @cairo_paint(ptr noundef %54)
+  %55 = load ptr, ptr %8, align 8, !tbaa !107
+  call void @cairo_save(ptr noundef %55)
+  %56 = load ptr, ptr %8, align 8, !tbaa !107
+  %57 = load i32, ptr %9, align 4, !tbaa !24
+  %58 = sitofp i32 %57 to double
+  %59 = fmul reassoc nsz arcp contract afn double 5.000000e-01, %58
+  %60 = load i32, ptr %10, align 4, !tbaa !24
+  %61 = sitofp i32 %60 to double
+  %62 = fmul reassoc nsz arcp contract afn double 5.000000e-01, %61
+  call void @cairo_translate(ptr noundef %56, double noundef %59, double noundef %62)
+  %63 = load ptr, ptr %14, align 8, !tbaa !99
+  %64 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8, !tbaa !101
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %144
+
+67:                                               ; preds = %53
+  %68 = load i32, ptr %15, align 4, !tbaa !24
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %70, label %144
+
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %14, align 8, !tbaa !99
+  %72 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %71, i32 0, i32 5
+  %73 = load i32, ptr %72, align 8, !tbaa !104
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %144, label %75
+
+75:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %76 = load i32, ptr %9, align 4, !tbaa !24
+  %77 = sitofp i32 %76 to double
+  %78 = load ptr, ptr %14, align 8, !tbaa !99
+  %79 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %78, i32 0, i32 1
+  %80 = load i64, ptr %79, align 8, !tbaa !102
+  %81 = uitofp i64 %80 to double
+  %82 = fdiv reassoc nsz arcp contract afn double %77, %81
+  %83 = load i32, ptr %10, align 4, !tbaa !24
+  %84 = sitofp i32 %83 to double
+  %85 = load ptr, ptr %14, align 8, !tbaa !99
+  %86 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %85, i32 0, i32 2
+  %87 = load i64, ptr %86, align 8, !tbaa !103
+  %88 = uitofp i64 %87 to double
+  %89 = fdiv reassoc nsz arcp contract afn double %84, %88
+  %90 = fcmp reassoc nsz arcp contract afn olt double %82, %89
+  br i1 %90, label %91, label %99
+
+91:                                               ; preds = %75
+  %92 = load i32, ptr %9, align 4, !tbaa !24
+  %93 = sitofp i32 %92 to double
+  %94 = load ptr, ptr %14, align 8, !tbaa !99
+  %95 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %94, i32 0, i32 1
+  %96 = load i64, ptr %95, align 8, !tbaa !102
+  %97 = uitofp i64 %96 to double
+  %98 = fdiv reassoc nsz arcp contract afn double %93, %97
   br label %107
 
-107:                                              ; preds = %105, %96
+99:                                               ; preds = %75
+  %100 = load i32, ptr %10, align 4, !tbaa !24
+  %101 = sitofp i32 %100 to double
+  %102 = load ptr, ptr %14, align 8, !tbaa !99
+  %103 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %102, i32 0, i32 2
+  %104 = load i64, ptr %103, align 8, !tbaa !103
+  %105 = uitofp i64 %104 to double
+  %106 = fdiv reassoc nsz arcp contract afn double %101, %105
+  br label %107
+
+107:                                              ; preds = %99, %91
+  %108 = phi reassoc nsz arcp contract afn double [ %98, %91 ], [ %106, %99 ]
+  store double %108, ptr %16, align 8, !tbaa !109
+  %109 = load ptr, ptr %8, align 8, !tbaa !107
+  %110 = load double, ptr %16, align 8, !tbaa !109
+  %111 = load double, ptr %16, align 8, !tbaa !109
+  call void @cairo_scale(ptr noundef %109, double noundef %110, double noundef %111)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %112 = load ptr, ptr %14, align 8, !tbaa !99
+  %113 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %112, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8, !tbaa !101
+  %115 = load ptr, ptr %14, align 8, !tbaa !99
+  %116 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %115, i32 0, i32 1
+  %117 = load i64, ptr %116, align 8, !tbaa !102
+  %118 = load ptr, ptr %14, align 8, !tbaa !99
+  %119 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %118, i32 0, i32 2
+  %120 = load i64, ptr %119, align 8, !tbaa !103
+  %121 = call ptr @dt_view_create_surface(ptr noundef %114, i64 noundef %117, i64 noundef %120)
+  store ptr %121, ptr %17, align 8, !tbaa !110
+  %122 = load ptr, ptr %8, align 8, !tbaa !107
+  %123 = load ptr, ptr %17, align 8, !tbaa !110
+  %124 = load ptr, ptr %14, align 8, !tbaa !99
+  %125 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %124, i32 0, i32 1
+  %126 = load i64, ptr %125, align 8, !tbaa !102
+  %127 = uitofp i64 %126 to double
+  %128 = fmul reassoc nsz arcp contract afn double -5.000000e-01, %127
+  %129 = load ptr, ptr %14, align 8, !tbaa !99
+  %130 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %129, i32 0, i32 2
+  %131 = load i64, ptr %130, align 8, !tbaa !103
+  %132 = uitofp i64 %131 to double
+  %133 = fmul reassoc nsz arcp contract afn double -5.000000e-01, %132
+  call void @cairo_set_source_surface(ptr noundef %122, ptr noundef %123, double noundef %128, double noundef %133)
+  %134 = load ptr, ptr %8, align 8, !tbaa !107
+  %135 = call ptr @cairo_get_source(ptr noundef %134)
+  call void @cairo_pattern_set_filter(ptr noundef %135, i32 noundef 2)
+  %136 = load ptr, ptr %8, align 8, !tbaa !107
+  call void @cairo_paint(ptr noundef %136)
+  %137 = load ptr, ptr %17, align 8, !tbaa !110
+  call void @cairo_surface_destroy(ptr noundef %137)
+  %138 = load i32, ptr %15, align 4, !tbaa !24
+  %139 = load ptr, ptr %13, align 8, !tbaa !19
+  %140 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %139, i32 0, i32 5
+  store i32 %138, ptr %140, align 4, !tbaa !65
+  %141 = load i32, ptr %15, align 4, !tbaa !24
+  %142 = load ptr, ptr %13, align 8, !tbaa !19
+  %143 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %142, i32 0, i32 4
+  store i32 %141, ptr %143, align 8, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %229
+
+144:                                              ; preds = %70, %67, %53
+  %145 = load i32, ptr %15, align 4, !tbaa !24
+  %146 = icmp sgt i32 %145, 0
+  br i1 %146, label %147, label %228
+
+147:                                              ; preds = %144
+  %148 = load i32, ptr %15, align 4, !tbaa !24
+  %149 = load ptr, ptr %13, align 8, !tbaa !19
+  %150 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %149, i32 0, i32 4
+  %151 = load i32, ptr %150, align 8, !tbaa !66
+  %152 = icmp ne i32 %148, %151
+  br i1 %152, label %153, label %228
+
+153:                                              ; preds = %147
+  call void @llvm.lifetime.start.p0(i64 48, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
+  %154 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 15), align 8, !tbaa !112
+  %155 = load i32, ptr %9, align 4, !tbaa !24
+  %156 = sdiv i32 %155, 8
+  %157 = load i32, ptr %10, align 4, !tbaa !24
+  %158 = sdiv i32 %157, 8
+  %159 = call i32 @dt_mipmap_cache_get_matching_size(ptr noundef %154, i32 noundef %156, i32 noundef %158)
+  store i32 %159, ptr %19, align 4, !tbaa !24
+  %160 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 15), align 8, !tbaa !112
+  %161 = load i32, ptr %15, align 4, !tbaa !24
+  %162 = load i32, ptr %19, align 4, !tbaa !24
+  call void @dt_mipmap_cache_get_with_caller(ptr noundef %160, ptr noundef %18, i32 noundef %161, i32 noundef %162, i32 noundef 3, i8 noundef signext 114, ptr noundef @.str.4, i32 noundef 590)
+  %163 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 5
+  %164 = load ptr, ptr %163, align 8, !tbaa !113
+  %165 = icmp ne ptr %164, null
+  br i1 %165, label %166, label %223
+
+166:                                              ; preds = %153
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %167 = load i32, ptr %9, align 4, !tbaa !24
+  %168 = sitofp i32 %167 to double
+  %169 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 2
+  %170 = load i32, ptr %169, align 8, !tbaa !116
+  %171 = sitofp i32 %170 to double
+  %172 = fdiv reassoc nsz arcp contract afn double %168, %171
+  %173 = load i32, ptr %10, align 4, !tbaa !24
+  %174 = sitofp i32 %173 to double
+  %175 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 3
+  %176 = load i32, ptr %175, align 4, !tbaa !117
+  %177 = sitofp i32 %176 to double
+  %178 = fdiv reassoc nsz arcp contract afn double %174, %177
+  %179 = fcmp reassoc nsz arcp contract afn olt double %172, %178
+  br i1 %179, label %180, label %187
+
+180:                                              ; preds = %166
+  %181 = load i32, ptr %9, align 4, !tbaa !24
+  %182 = sitofp i32 %181 to double
+  %183 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 2
+  %184 = load i32, ptr %183, align 8, !tbaa !116
+  %185 = sitofp i32 %184 to double
+  %186 = fdiv reassoc nsz arcp contract afn double %182, %185
+  br label %194
+
+187:                                              ; preds = %166
+  %188 = load i32, ptr %10, align 4, !tbaa !24
+  %189 = sitofp i32 %188 to double
+  %190 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 3
+  %191 = load i32, ptr %190, align 4, !tbaa !117
+  %192 = sitofp i32 %191 to double
+  %193 = fdiv reassoc nsz arcp contract afn double %189, %192
+  br label %194
+
+194:                                              ; preds = %187, %180
+  %195 = phi reassoc nsz arcp contract afn double [ %186, %180 ], [ %193, %187 ]
+  store double %195, ptr %20, align 8, !tbaa !109
+  %196 = load ptr, ptr %8, align 8, !tbaa !107
+  %197 = load double, ptr %20, align 8, !tbaa !109
+  %198 = load double, ptr %20, align 8, !tbaa !109
+  call void @cairo_scale(ptr noundef %196, double noundef %197, double noundef %198)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  %199 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 5
+  %200 = load ptr, ptr %199, align 8, !tbaa !113
+  %201 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 2
+  %202 = load i32, ptr %201, align 8, !tbaa !116
+  %203 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 3
+  %204 = load i32, ptr %203, align 4, !tbaa !117
+  %205 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 2
+  %206 = load i32, ptr %205, align 8, !tbaa !116
+  %207 = mul nsw i32 %206, 4
+  %208 = call ptr @gdk_pixbuf_new_from_data(ptr noundef %200, i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %202, i32 noundef %204, i32 noundef %207, ptr noundef null, ptr noundef null)
+  store ptr %208, ptr %21, align 8, !tbaa !118
+  %209 = load ptr, ptr %8, align 8, !tbaa !107
+  %210 = load ptr, ptr %21, align 8, !tbaa !118
+  %211 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 2
+  %212 = load i32, ptr %211, align 8, !tbaa !116
+  %213 = sitofp i32 %212 to double
+  %214 = fmul reassoc nsz arcp contract afn double -5.000000e-01, %213
+  %215 = getelementptr inbounds nuw %struct.dt_mipmap_buffer_t, ptr %18, i32 0, i32 3
+  %216 = load i32, ptr %215, align 4, !tbaa !117
+  %217 = sitofp i32 %216 to double
+  %218 = fmul reassoc nsz arcp contract afn double -5.000000e-01, %217
+  call void @gdk_cairo_set_source_pixbuf(ptr noundef %209, ptr noundef %210, double noundef %214, double noundef %218)
+  %219 = load ptr, ptr %8, align 8, !tbaa !107
+  %220 = call ptr @cairo_get_source(ptr noundef %219)
+  call void @cairo_pattern_set_filter(ptr noundef %220, i32 noundef 1)
+  %221 = load ptr, ptr %8, align 8, !tbaa !107
+  call void @cairo_paint(ptr noundef %221)
+  %222 = load ptr, ptr %21, align 8, !tbaa !118
+  call void @g_object_unref(ptr noundef %222)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  br label %223
+
+223:                                              ; preds = %194, %153
+  %224 = load i32, ptr %15, align 4, !tbaa !24
+  %225 = load ptr, ptr %13, align 8, !tbaa !19
+  %226 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %225, i32 0, i32 4
+  store i32 %224, ptr %226, align 8, !tbaa !66
+  %227 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 15), align 8, !tbaa !112
+  call void @dt_mipmap_cache_release_with_caller(ptr noundef %227, ptr noundef %18, ptr noundef @.str.4, i32 noundef 605)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr %18) #7
+  br label %228
+
+228:                                              ; preds = %223, %147, %144
+  br label %229
+
+229:                                              ; preds = %228, %107
+  %230 = load ptr, ptr %8, align 8, !tbaa !107
+  call void @cairo_restore(ptr noundef %230)
+  %231 = load i32, ptr %9, align 4, !tbaa !24
+  %232 = sitofp i32 %231 to double
+  %233 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %234 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %233, i32 0, i32 19
+  %235 = load double, ptr %234, align 8, !tbaa !81
+  %236 = fmul reassoc nsz arcp contract afn double %232, %235
+  %237 = fptoui double %236 to i64
+  %238 = load ptr, ptr %13, align 8, !tbaa !19
+  %239 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %238, i32 0, i32 1
+  store i64 %237, ptr %239, align 8, !tbaa !82
+  %240 = load i32, ptr %10, align 4, !tbaa !24
+  %241 = sitofp i32 %240 to double
+  %242 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %243 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %242, i32 0, i32 19
+  %244 = load double, ptr %243, align 8, !tbaa !81
+  %245 = fmul reassoc nsz arcp contract afn double %241, %244
+  %246 = fptoui double %245 to i64
+  %247 = load ptr, ptr %13, align 8, !tbaa !19
+  %248 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %247, i32 0, i32 2
+  store i64 %246, ptr %248, align 8, !tbaa !84
+  %249 = load ptr, ptr %13, align 8, !tbaa !19
+  %250 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %249, i32 0, i32 6
+  %251 = call i32 @dt_pthread_mutex_unlock(ptr noundef %250)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_requeue_job(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 12), align 8, !tbaa !98
+  %4 = load ptr, ptr %2, align 8, !tbaa !19
+  %5 = call ptr @_process_job_create(ptr noundef %4)
+  %6 = call i32 @dt_control_add_job(ptr noundef %3, i32 noundef 2, ptr noundef %5)
+  ret void
+}
+
+declare void @cairo_paint(ptr noundef) #5
+
+declare void @cairo_save(ptr noundef) #5
+
+declare void @cairo_translate(ptr noundef, double noundef, double noundef) #5
+
+declare void @cairo_scale(ptr noundef, double noundef, double noundef) #5
+
+declare ptr @dt_view_create_surface(ptr noundef, i64 noundef, i64 noundef) #5
+
+declare void @cairo_set_source_surface(ptr noundef, ptr noundef, double noundef, double noundef) #5
+
+declare void @cairo_pattern_set_filter(ptr noundef, i32 noundef) #5
+
+declare ptr @cairo_get_source(ptr noundef) #5
+
+declare void @cairo_surface_destroy(ptr noundef) #5
+
+declare i32 @dt_mipmap_cache_get_matching_size(ptr noundef, i32 noundef, i32 noundef) #5
+
+declare void @dt_mipmap_cache_get_with_caller(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i8 noundef signext, ptr noundef, i32 noundef) #5
+
+declare ptr @gdk_pixbuf_new_from_data(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #5
+
+declare void @gdk_cairo_set_source_pixbuf(ptr noundef, ptr noundef, double noundef, double noundef) #5
+
+declare void @g_object_unref(ptr noundef) #5
+
+declare void @dt_mipmap_cache_release_with_caller(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #5
+
+declare void @cairo_restore(ptr noundef) #5
+
+; Function Attrs: nounwind uwtable
+define void @mouse_moved(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store double %1, ptr %7, align 8, !tbaa !109
+  store double %2, ptr %8, align 8, !tbaa !109
+  store double %3, ptr %9, align 8, !tbaa !109
+  store i32 %4, ptr %10, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %12 = load ptr, ptr %6, align 8, !tbaa !6
+  %13 = getelementptr inbounds nuw %struct.dt_view_t, ptr %12, i32 0, i32 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !11
+  store ptr %14, ptr %11, align 8, !tbaa !19
+  %15 = load ptr, ptr %11, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %15, i32 0, i32 10
+  %17 = load i32, ptr %16, align 4, !tbaa !62
+  %18 = icmp ugt i32 %17, 0
+  br i1 %18, label %19, label %24
+
+19:                                               ; preds = %5
+  %20 = load ptr, ptr %11, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %20, i32 0, i32 10
+  %22 = load i32, ptr %21, align 4, !tbaa !62
+  %23 = call i32 @g_source_remove(i32 noundef %22)
+  br label %25
+
+24:                                               ; preds = %5
+  call void @dt_control_change_cursor(i32 noundef 68)
+  br label %25
+
+25:                                               ; preds = %24, %19
+  %26 = load ptr, ptr %6, align 8, !tbaa !6
+  %27 = call i32 @g_timeout_add_seconds(i32 noundef 1, ptr noundef @_hide_mouse, ptr noundef %26)
+  %28 = load ptr, ptr %11, align 8, !tbaa !19
+  %29 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %28, i32 0, i32 10
+  store i32 %27, ptr %29, align 4, !tbaa !62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  ret void
+}
+
+declare i32 @g_timeout_add_seconds(i32 noundef, ptr noundef, ptr noundef) #5
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_hide_mouse(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr %2, align 8, !tbaa !23
+  store ptr %5, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !6
+  %7 = getelementptr inbounds nuw %struct.dt_view_t, ptr %6, i32 0, i32 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !11
+  store ptr %8, ptr %4, align 8, !tbaa !19
+  %9 = load ptr, ptr %4, align 8, !tbaa !19
+  %10 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %9, i32 0, i32 10
+  store i32 0, ptr %10, align 4, !tbaa !62
+  call void @dt_control_change_cursor(i32 noundef -2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i32 0
 }
 
-declare void @dt_control_job_set_params(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
-
-declare ptr @dt_control_job_get_params(ptr noundef) local_unnamed_addr #6
+; Function Attrs: nounwind uwtable
+define i32 @button_released(ptr noundef %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store double %1, ptr %7, align 8, !tbaa !109
+  store double %2, ptr %8, align 8, !tbaa !109
+  store i32 %3, ptr %9, align 4, !tbaa !24
+  store i32 %4, ptr %10, align 4, !tbaa !24
+  ret i32 0
+}
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_process_image(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 276
-  %9 = load i32, ptr %8, align 4, !tbaa !26
-  %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 4, !tbaa !26
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !49
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !51
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %15, i64 0, i64 %16, i32 4
-  %18 = load i32, ptr %17, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  store ptr null, ptr %5, align 8, !tbaa !43
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #13
-  %20 = load i64, ptr %11, align 8, !tbaa !49
-  %21 = uitofp i64 %20 to double
-  %22 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
-  %23 = load ptr, ptr %22, align 8, !tbaa !29
-  %24 = getelementptr inbounds i8, ptr %23, i64 1456
-  %25 = load double, ptr %24, align 8, !tbaa !34
-  %26 = fdiv reassoc nsz arcp contract afn double %21, %25
-  %27 = fptoui double %26 to i64
-  %28 = load i64, ptr %13, align 8, !tbaa !51
-  %29 = uitofp i64 %28 to double
-  %30 = fdiv reassoc nsz arcp contract afn double %29, %25
-  %31 = fptoui double %30 to i64
-  call void @dt_dev_image(i32 noundef %18, i64 noundef %27, i64 noundef %31, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef -2, i32 noundef 0) #13
-  %32 = call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #13
-  %33 = load i32, ptr %17, align 4, !tbaa !39
-  %34 = icmp eq i32 %33, %18
-  br i1 %34, label %55, label %35
+define i32 @button_pressed(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !6
+  store double %1, ptr %10, align 8, !tbaa !109
+  store double %2, ptr %11, align 8, !tbaa !109
+  store double %3, ptr %12, align 8, !tbaa !109
+  store i32 %4, ptr %13, align 4, !tbaa !24
+  store i32 %5, ptr %14, align 4, !tbaa !24
+  store i32 %6, ptr %15, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %18 = load ptr, ptr %9, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw %struct.dt_view_t, ptr %18, i32 0, i32 24
+  %20 = load ptr, ptr %19, align 8, !tbaa !11
+  store ptr %20, ptr %16, align 8, !tbaa !19
+  %21 = load i32, ptr %13, align 4, !tbaa !24
+  %22 = icmp eq i32 %21, 1
+  br i1 %22, label %23, label %25
 
-35:                                               ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %0, i64 52
-  %37 = load i32, ptr %36, align 4, !tbaa !39
-  %38 = icmp eq i32 %37, %18
-  br i1 %38, label %57, label %39
+23:                                               ; preds = %7
+  %24 = load ptr, ptr %16, align 8, !tbaa !19
+  call void @_step_state(ptr noundef %24, i32 noundef 0)
+  br label %32
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 92
-  %41 = load i32, ptr %40, align 4, !tbaa !39
-  %42 = icmp eq i32 %41, %18
-  br i1 %42, label %57, label %43
+25:                                               ; preds = %7
+  %26 = load i32, ptr %13, align 4, !tbaa !24
+  %27 = icmp eq i32 %26, 3
+  br i1 %27, label %28, label %30
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 132
-  %45 = load i32, ptr %44, align 4, !tbaa !39
-  %46 = icmp eq i32 %45, %18
-  br i1 %46, label %57, label %47
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %16, align 8, !tbaa !19
+  call void @_step_state(ptr noundef %29, i32 noundef 1)
+  br label %31
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 172
-  %49 = load i32, ptr %48, align 4, !tbaa !39
-  %50 = icmp eq i32 %49, %18
-  br i1 %50, label %57, label %51
+30:                                               ; preds = %25
+  store i32 1, ptr %8, align 4
+  store i32 1, ptr %17, align 4
+  br label %33
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 212
-  %53 = load i32, ptr %52, align 4, !tbaa !39
-  %54 = icmp eq i32 %53, %18
-  br i1 %54, label %57, label %73
+31:                                               ; preds = %28
+  br label %32
 
-55:                                               ; preds = %2
-  %56 = icmp eq i32 %1, -1
-  br i1 %56, label %73, label %57
+32:                                               ; preds = %31, %23
+  store i32 0, ptr %8, align 4
+  store i32 1, ptr %17, align 4
+  br label %33
 
-57:                                               ; preds = %55, %51, %47, %43, %39, %35
-  %58 = phi i32 [ %1, %55 ], [ 3, %47 ], [ 2, %43 ], [ 1, %39 ], [ 0, %35 ], [ 4, %51 ]
-  %59 = load i64, ptr %11, align 8, !tbaa !49
-  %60 = icmp eq i64 %59, %12
-  br i1 %60, label %61, label %73
+33:                                               ; preds = %32, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  %34 = load i32, ptr %8, align 4
+  ret i32 %34
+}
 
-61:                                               ; preds = %57
-  %62 = load i64, ptr %13, align 8, !tbaa !51
-  %63 = icmp eq i64 %62, %14
-  br i1 %63, label %64, label %73
+; Function Attrs: nounwind uwtable
+define internal void @_step_state(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store i32 %1, ptr %4, align 4, !tbaa !24
+  %6 = load ptr, ptr %3, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %6, i32 0, i32 6
+  %8 = call i32 @dt_pthread_mutex_lock(ptr noundef %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  store i32 0, ptr %5, align 4, !tbaa !24
+  %9 = load i32, ptr %4, align 4, !tbaa !24
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %76
 
-64:                                               ; preds = %61
-  %65 = load i64, ptr %3, align 8, !tbaa !36
-  %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %15, i64 0, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
-  store i64 %65, ptr %68, align 8, !tbaa !50
-  %69 = load i64, ptr %4, align 8, !tbaa !36
-  %70 = getelementptr inbounds i8, ptr %67, i64 16
-  store i64 %69, ptr %70, align 8, !tbaa !52
-  %71 = load ptr, ptr %5, align 8, !tbaa !43
-  store ptr %71, ptr %67, align 8, !tbaa !48
-  %72 = getelementptr inbounds i8, ptr %67, i64 32
-  store i32 0, ptr %72, align 8, !tbaa !40
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %3, align 8, !tbaa !19
+  %13 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %12, i32 0, i32 3
+  %14 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %13, i64 0, i64 2
+  %15 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %14, i32 0, i32 3
+  %16 = load i32, ptr %15, align 8, !tbaa !92
+  %17 = load ptr, ptr %3, align 8, !tbaa !19
+  %18 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !95
+  %20 = sub nsw i32 %19, 1
+  %21 = icmp slt i32 %16, %20
+  br i1 %21, label %22, label %71
+
+22:                                               ; preds = %11
+  %23 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_shift_left(ptr noundef %23)
+  %24 = load ptr, ptr %3, align 8, !tbaa !19
+  %25 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %24, i32 0, i32 3
+  %26 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %25, i64 0, i64 2
+  %27 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %26, i32 0, i32 3
+  %28 = load i32, ptr %27, align 8, !tbaa !92
+  %29 = add nsw i32 %28, 2
+  %30 = load ptr, ptr %3, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %30, i32 0, i32 3
+  %32 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %31, i64 0, i64 4
+  %33 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %32, i32 0, i32 3
+  store i32 %29, ptr %33, align 8, !tbaa !92
+  %34 = load ptr, ptr %3, align 8, !tbaa !19
+  %35 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %34, i32 0, i32 3
+  %36 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %35, i64 0, i64 4
+  %37 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %36, i32 0, i32 3
+  %38 = load i32, ptr %37, align 8, !tbaa !92
+  %39 = load ptr, ptr %3, align 8, !tbaa !19
+  %40 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %40, align 8, !tbaa !95
+  %42 = icmp slt i32 %38, %41
+  br i1 %42, label %43, label %50
+
+43:                                               ; preds = %22
+  %44 = load ptr, ptr %3, align 8, !tbaa !19
+  %45 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %44, i32 0, i32 3
+  %46 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %45, i64 0, i64 4
+  %47 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %46, i32 0, i32 3
+  %48 = load i32, ptr %47, align 8, !tbaa !92
+  %49 = call i32 @_get_image_at_rank(i32 noundef %48)
+  br label %51
+
+50:                                               ; preds = %22
+  br label %51
+
+51:                                               ; preds = %50, %43
+  %52 = phi i32 [ %49, %43 ], [ 0, %50 ]
+  %53 = load ptr, ptr %3, align 8, !tbaa !19
+  %54 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %53, i32 0, i32 3
+  %55 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %54, i64 0, i64 4
+  %56 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %55, i32 0, i32 4
+  store i32 %52, ptr %56, align 4, !tbaa !94
+  %57 = load ptr, ptr %3, align 8, !tbaa !19
+  %58 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %57, i32 0, i32 3
+  %59 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %58, i64 0, i64 4
+  %60 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %59, i32 0, i32 5
+  store i32 1, ptr %60, align 8, !tbaa !104
+  %61 = load ptr, ptr %3, align 8, !tbaa !19
+  %62 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %61, i32 0, i32 3
+  %63 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %62, i64 0, i64 4
+  %64 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8, !tbaa !101
+  call void @free(ptr noundef %65) #7
+  %66 = load ptr, ptr %3, align 8, !tbaa !19
+  %67 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %66, i32 0, i32 3
+  %68 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %67, i64 0, i64 4
+  %69 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %68, i32 0, i32 0
+  store ptr null, ptr %69, align 8, !tbaa !101
+  store i32 1, ptr %5, align 4, !tbaa !24
+  %70 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_requeue_job(ptr noundef %70)
   br label %75
 
-73:                                               ; preds = %61, %57, %55, %51
-  %74 = load ptr, ptr %5, align 8, !tbaa !43
-  call void @free(ptr noundef %74) #13
+71:                                               ; preds = %11
+  %72 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.18, i32 noundef 5) #7
+  call void (ptr, ...) @dt_control_log(ptr noundef %72)
+  %73 = load ptr, ptr %3, align 8, !tbaa !19
+  %74 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %73, i32 0, i32 7
+  store i32 0, ptr %74, align 8, !tbaa !96
   br label %75
 
-75:                                               ; preds = %73, %64
-  %76 = load i32, ptr %8, align 4, !tbaa !26
-  %77 = add nsw i32 %76, -1
-  store i32 %77, ptr %8, align 4, !tbaa !26
-  %78 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+75:                                               ; preds = %71, %51
+  br label %138
+
+76:                                               ; preds = %2
+  %77 = load i32, ptr %4, align 4, !tbaa !24
+  %78 = icmp eq i32 %77, 1
+  br i1 %78, label %79, label %137
+
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %3, align 8, !tbaa !19
+  %81 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %80, i32 0, i32 3
+  %82 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %81, i64 0, i64 2
+  %83 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %82, i32 0, i32 3
+  %84 = load i32, ptr %83, align 8, !tbaa !92
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %86, label %132
+
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_shift_right(ptr noundef %87)
+  %88 = load ptr, ptr %3, align 8, !tbaa !19
+  %89 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %88, i32 0, i32 3
+  %90 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %89, i64 0, i64 2
+  %91 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %90, i32 0, i32 3
+  %92 = load i32, ptr %91, align 8, !tbaa !92
+  %93 = sub nsw i32 %92, 2
+  %94 = load ptr, ptr %3, align 8, !tbaa !19
+  %95 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %94, i32 0, i32 3
+  %96 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %95, i64 0, i64 0
+  %97 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %96, i32 0, i32 3
+  store i32 %93, ptr %97, align 8, !tbaa !92
+  %98 = load ptr, ptr %3, align 8, !tbaa !19
+  %99 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %98, i32 0, i32 3
+  %100 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %99, i64 0, i64 0
+  %101 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %100, i32 0, i32 3
+  %102 = load i32, ptr %101, align 8, !tbaa !92
+  %103 = icmp sge i32 %102, 0
+  br i1 %103, label %104, label %111
+
+104:                                              ; preds = %86
+  %105 = load ptr, ptr %3, align 8, !tbaa !19
+  %106 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %105, i32 0, i32 3
+  %107 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %106, i64 0, i64 0
+  %108 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %107, i32 0, i32 3
+  %109 = load i32, ptr %108, align 8, !tbaa !92
+  %110 = call i32 @_get_image_at_rank(i32 noundef %109)
+  br label %112
+
+111:                                              ; preds = %86
+  br label %112
+
+112:                                              ; preds = %111, %104
+  %113 = phi i32 [ %110, %104 ], [ 0, %111 ]
+  %114 = load ptr, ptr %3, align 8, !tbaa !19
+  %115 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %114, i32 0, i32 3
+  %116 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %115, i64 0, i64 0
+  %117 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %116, i32 0, i32 4
+  store i32 %113, ptr %117, align 4, !tbaa !94
+  %118 = load ptr, ptr %3, align 8, !tbaa !19
+  %119 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %118, i32 0, i32 3
+  %120 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %119, i64 0, i64 0
+  %121 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %120, i32 0, i32 5
+  store i32 1, ptr %121, align 8, !tbaa !104
+  %122 = load ptr, ptr %3, align 8, !tbaa !19
+  %123 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %122, i32 0, i32 3
+  %124 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %123, i64 0, i64 0
+  %125 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8, !tbaa !101
+  call void @free(ptr noundef %126) #7
+  %127 = load ptr, ptr %3, align 8, !tbaa !19
+  %128 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %127, i32 0, i32 3
+  %129 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %128, i64 0, i64 0
+  %130 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %129, i32 0, i32 0
+  store ptr null, ptr %130, align 8, !tbaa !101
+  store i32 1, ptr %5, align 4, !tbaa !24
+  %131 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_requeue_job(ptr noundef %131)
+  br label %136
+
+132:                                              ; preds = %79
+  %133 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.19, i32 noundef 5) #7
+  call void (ptr, ...) @dt_control_log(ptr noundef %133)
+  %134 = load ptr, ptr %3, align 8, !tbaa !19
+  %135 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %134, i32 0, i32 7
+  store i32 0, ptr %135, align 8, !tbaa !96
+  br label %136
+
+136:                                              ; preds = %132, %112
+  br label %137
+
+137:                                              ; preds = %136, %76
+  br label %138
+
+138:                                              ; preds = %137, %75
+  %139 = load ptr, ptr %3, align 8, !tbaa !19
+  %140 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %139, i32 0, i32 6
+  %141 = call i32 @dt_pthread_mutex_unlock(ptr noundef %140)
+  %142 = load i32, ptr %5, align 4, !tbaa !24
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %145
+
+144:                                              ; preds = %138
+  call void (...) @dt_control_queue_redraw_center()
+  br label %145
+
+145:                                              ; preds = %144, %138
+  %146 = load ptr, ptr %3, align 8, !tbaa !19
+  %147 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %146, i32 0, i32 7
+  %148 = load i32, ptr %147, align 8, !tbaa !96
+  %149 = icmp ne i32 %148, 0
+  br i1 %149, label %150, label %156
+
+150:                                              ; preds = %145
+  %151 = load ptr, ptr %3, align 8, !tbaa !19
+  %152 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %151, i32 0, i32 9
+  %153 = load i32, ptr %152, align 8, !tbaa !97
+  %154 = load ptr, ptr %3, align 8, !tbaa !19
+  %155 = call i32 @g_timeout_add_seconds(i32 noundef %153, ptr noundef @_auto_advance, ptr noundef %154)
+  br label %156
+
+156:                                              ; preds = %150, %145
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @_is_idle(ptr nocapture noundef readonly %0) unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = load i32, ptr %2, align 8, !tbaa !40
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %17, label %5
+; Function Attrs: nounwind uwtable
+define void @gui_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %4 = load ptr, ptr %2, align 8, !tbaa !6
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %17
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !6
+  %8 = getelementptr inbounds nuw %struct.dt_view_t, ptr %7, i32 0, i32 0
+  br label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 52
-  %11 = load i32, ptr %10, align 4, !tbaa !39
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %17
+9:                                                ; preds = %1
+  br label %10
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = load i32, ptr %14, align 8, !tbaa !37
-  %16 = lshr i32 %15, 31
-  br label %17
+10:                                               ; preds = %9, %6
+  %11 = phi ptr [ %8, %6 ], [ null, %9 ]
+  %12 = call ptr @dt_action_register(ptr noundef %11, ptr noundef @.str.8, ptr noundef @_start_stop_callback, i32 noundef 32, i32 noundef 0)
+  %13 = load ptr, ptr %2, align 8, !tbaa !6
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %18
 
-17:                                               ; preds = %13, %9, %5, %1
-  %18 = phi i32 [ 1, %9 ], [ 1, %5 ], [ 1, %1 ], [ %16, %13 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
-  %20 = load i32, ptr %19, align 8, !tbaa !40
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %34, label %22
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %2, align 8, !tbaa !6
+  %17 = getelementptr inbounds nuw %struct.dt_view_t, ptr %16, i32 0, i32 0
+  br label %19
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !48
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %34
+18:                                               ; preds = %10
+  br label %19
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 92
-  %28 = load i32, ptr %27, align 4, !tbaa !39
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %34
+19:                                               ; preds = %18, %15
+  %20 = phi ptr [ %17, %15 ], [ null, %18 ]
+  %21 = call ptr @dt_action_register(ptr noundef %20, ptr noundef @.str.9, ptr noundef @_exit_callback, i32 noundef 65307, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %22 = load ptr, ptr %2, align 8, !tbaa !6
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %27
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 88
-  %32 = load i32, ptr %31, align 8, !tbaa !37
-  %33 = lshr i32 %32, 31
-  br label %34
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %2, align 8, !tbaa !6
+  %26 = getelementptr inbounds nuw %struct.dt_view_t, ptr %25, i32 0, i32 0
+  br label %28
 
-34:                                               ; preds = %30, %26, %22, %17
-  %35 = phi i32 [ 1, %26 ], [ 1, %22 ], [ 1, %17 ], [ %33, %30 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
-  %37 = load i32, ptr %36, align 8, !tbaa !40
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %51, label %39
+27:                                               ; preds = %19
+  br label %28
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 104
-  %41 = load ptr, ptr %40, align 8, !tbaa !48
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %51
+28:                                               ; preds = %27, %24
+  %29 = phi ptr [ %26, %24 ], [ null, %27 ]
+  %30 = call ptr @dt_action_register(ptr noundef %29, ptr noundef @.str.10, ptr noundef @_slow_down_callback, i32 noundef 65362, i32 noundef 0)
+  store ptr %30, ptr %3, align 8, !tbaa !120
+  %31 = load ptr, ptr %3, align 8, !tbaa !120
+  call void @dt_shortcut_register(ptr noundef %31, i32 noundef 0, i32 noundef 0, i32 noundef 65451, i32 noundef 0)
+  %32 = load ptr, ptr %3, align 8, !tbaa !120
+  call void @dt_shortcut_register(ptr noundef %32, i32 noundef 0, i32 noundef 0, i32 noundef 43, i32 noundef 0)
+  %33 = load ptr, ptr %2, align 8, !tbaa !6
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %38
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 132
-  %45 = load i32, ptr %44, align 4, !tbaa !39
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %51
+35:                                               ; preds = %28
+  %36 = load ptr, ptr %2, align 8, !tbaa !6
+  %37 = getelementptr inbounds nuw %struct.dt_view_t, ptr %36, i32 0, i32 0
+  br label %39
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 128
-  %49 = load i32, ptr %48, align 8, !tbaa !37
-  %50 = lshr i32 %49, 31
-  br label %51
+38:                                               ; preds = %28
+  br label %39
 
-51:                                               ; preds = %47, %43, %39, %34
-  %52 = phi i32 [ 1, %43 ], [ 1, %39 ], [ 1, %34 ], [ %50, %47 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 176
-  %54 = load i32, ptr %53, align 8, !tbaa !40
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %68, label %56
+39:                                               ; preds = %38, %35
+  %40 = phi ptr [ %37, %35 ], [ null, %38 ]
+  %41 = call ptr @dt_action_register(ptr noundef %40, ptr noundef @.str.11, ptr noundef @_speed_up_callback, i32 noundef 65364, i32 noundef 0)
+  store ptr %41, ptr %3, align 8, !tbaa !120
+  %42 = load ptr, ptr %3, align 8, !tbaa !120
+  call void @dt_shortcut_register(ptr noundef %42, i32 noundef 0, i32 noundef 0, i32 noundef 65453, i32 noundef 0)
+  %43 = load ptr, ptr %3, align 8, !tbaa !120
+  call void @dt_shortcut_register(ptr noundef %43, i32 noundef 0, i32 noundef 0, i32 noundef 45, i32 noundef 0)
+  %44 = load ptr, ptr %2, align 8, !tbaa !6
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %49
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 144
-  %58 = load ptr, ptr %57, align 8, !tbaa !48
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %68
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %2, align 8, !tbaa !6
+  %48 = getelementptr inbounds nuw %struct.dt_view_t, ptr %47, i32 0, i32 0
+  br label %50
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 172
-  %62 = load i32, ptr %61, align 4, !tbaa !39
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %64, label %68
+49:                                               ; preds = %39
+  br label %50
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 168
-  %66 = load i32, ptr %65, align 8, !tbaa !37
-  %67 = lshr i32 %66, 31
-  br label %68
+50:                                               ; preds = %49, %46
+  %51 = phi ptr [ %48, %46 ], [ null, %49 ]
+  %52 = call ptr @dt_action_register(ptr noundef %51, ptr noundef @.str.12, ptr noundef @_step_forward_callback, i32 noundef 65363, i32 noundef 0)
+  %53 = load ptr, ptr %2, align 8, !tbaa !6
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %58
 
-68:                                               ; preds = %64, %60, %56, %51
-  %69 = phi i32 [ 1, %60 ], [ 1, %56 ], [ 1, %51 ], [ %67, %64 ]
-  %70 = getelementptr inbounds i8, ptr %0, i64 216
-  %71 = load i32, ptr %70, align 8, !tbaa !40
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %85, label %73
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %2, align 8, !tbaa !6
+  %57 = getelementptr inbounds nuw %struct.dt_view_t, ptr %56, i32 0, i32 0
+  br label %59
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds i8, ptr %0, i64 184
-  %75 = load ptr, ptr %74, align 8, !tbaa !48
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %85
+58:                                               ; preds = %50
+  br label %59
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %0, i64 212
-  %79 = load i32, ptr %78, align 4, !tbaa !39
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %81, label %85
-
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %0, i64 208
-  %83 = load i32, ptr %82, align 8, !tbaa !37
-  %84 = lshr i32 %83, 31
-  br label %85
-
-85:                                               ; preds = %81, %77, %73, %68
-  %86 = phi i32 [ 1, %77 ], [ 1, %73 ], [ 1, %68 ], [ %84, %81 ]
-  %87 = and i32 %35, %18
-  %88 = and i32 %52, %87
-  %89 = and i32 %69, %88
-  %90 = and i32 %86, %89
-  ret i32 %90
+59:                                               ; preds = %58, %55
+  %60 = phi ptr [ %57, %55 ], [ null, %58 ]
+  %61 = call ptr @dt_action_register(ptr noundef %60, ptr noundef @.str.13, ptr noundef @_step_back_callback, i32 noundef 65361, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
 }
 
-declare void @dt_dev_image(i32 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_auto_advance(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 272
-  %3 = load i32, ptr %2, align 8, !tbaa !45
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %9, label %5
+define internal void @_start_stop_callback(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !120
+  %5 = call ptr @dt_action_view(ptr noundef %4)
+  %6 = getelementptr inbounds nuw %struct.dt_view_t, ptr %5, i32 0, i32 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %7, ptr %3, align 8, !tbaa !19
+  %8 = load ptr, ptr %3, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %8, i32 0, i32 7
+  %10 = load i32, ptr %9, align 8, !tbaa !96
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %16, label %12
 
-5:                                                ; preds = %1
-  %6 = tail call fastcc i32 @_is_idle(ptr noundef nonnull %0), !range !61
-  %7 = icmp eq i32 %6, 0
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %13, i32 0, i32 7
+  store i32 1, ptr %14, align 8, !tbaa !96
+  %15 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_step_state(ptr noundef %15, i32 noundef 0)
+  br label %20
+
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8, !tbaa !19
+  %18 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %17, i32 0, i32 7
+  store i32 0, ptr %18, align 8, !tbaa !96
+  %19 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.20, i32 noundef 5) #7
+  call void (ptr, ...) @dt_control_log(ptr noundef %19)
+  br label %20
+
+20:                                               ; preds = %16, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_exit_callback(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !120
+  %5 = call ptr @dt_action_view(ptr noundef %4)
+  %6 = getelementptr inbounds nuw %struct.dt_view_t, ptr %5, i32 0, i32 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %7, ptr %3, align 8, !tbaa !19
+  %8 = load ptr, ptr %3, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %8, i32 0, i32 7
+  store i32 0, ptr %9, align 8, !tbaa !96
+  call void @dt_ctl_switch_mode_to(ptr noundef @.str.21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_slow_down_callback(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !120
+  %5 = call ptr @dt_action_view(ptr noundef %4)
+  %6 = getelementptr inbounds nuw %struct.dt_view_t, ptr %5, i32 0, i32 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %7, ptr %3, align 8, !tbaa !19
+  %8 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_set_delay(ptr noundef %8, i32 noundef 1)
+  %9 = load ptr, ptr %3, align 8, !tbaa !19
+  %10 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %9, i32 0, i32 9
+  %11 = load i32, ptr %10, align 8, !tbaa !97
+  %12 = sext i32 %11 to i64
+  %13 = call ptr @dcngettext(ptr noundef null, ptr noundef @.str.22, ptr noundef @.str.23, i64 noundef %12, i32 noundef 5) #7
+  %14 = load ptr, ptr %3, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %14, i32 0, i32 9
+  %16 = load i32, ptr %15, align 8, !tbaa !97
+  call void (ptr, ...) @dt_control_log(ptr noundef %13, i32 noundef %16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare void @dt_shortcut_register(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
+
+; Function Attrs: nounwind uwtable
+define internal void @_speed_up_callback(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !120
+  %5 = call ptr @dt_action_view(ptr noundef %4)
+  %6 = getelementptr inbounds nuw %struct.dt_view_t, ptr %5, i32 0, i32 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %7, ptr %3, align 8, !tbaa !19
+  %8 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_set_delay(ptr noundef %8, i32 noundef -1)
+  %9 = load ptr, ptr %3, align 8, !tbaa !19
+  %10 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %9, i32 0, i32 9
+  %11 = load i32, ptr %10, align 8, !tbaa !97
+  %12 = sext i32 %11 to i64
+  %13 = call ptr @dcngettext(ptr noundef null, ptr noundef @.str.22, ptr noundef @.str.23, i64 noundef %12, i32 noundef 5) #7
+  %14 = load ptr, ptr %3, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %14, i32 0, i32 9
+  %16 = load i32, ptr %15, align 8, !tbaa !97
+  call void (ptr, ...) @dt_control_log(ptr noundef %13, i32 noundef %16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_step_forward_callback(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !120
+  %5 = call ptr @dt_action_view(ptr noundef %4)
+  %6 = getelementptr inbounds nuw %struct.dt_view_t, ptr %5, i32 0, i32 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %7, ptr %3, align 8, !tbaa !19
+  %8 = load ptr, ptr %3, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %8, i32 0, i32 7
+  %10 = load i32, ptr %9, align 8, !tbaa !96
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %1
+  %13 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.20, i32 noundef 5) #7
+  call void (ptr, ...) @dt_control_log(ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %12, %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %15, i32 0, i32 7
+  store i32 0, ptr %16, align 8, !tbaa !96
+  %17 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_step_state(ptr noundef %17, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_step_back_callback(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !120
+  %5 = call ptr @dt_action_view(ptr noundef %4)
+  %6 = getelementptr inbounds nuw %struct.dt_view_t, ptr %5, i32 0, i32 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %7, ptr %3, align 8, !tbaa !19
+  %8 = load ptr, ptr %3, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %8, i32 0, i32 7
+  %10 = load i32, ptr %9, align 8, !tbaa !96
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %1
+  %13 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.20, i32 noundef 5) #7
+  call void (ptr, ...) @dt_control_log(ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %12, %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %15, i32 0, i32 7
+  store i32 0, ptr %16, align 8, !tbaa !96
+  %17 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_step_state(ptr noundef %17, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @mouse_actions(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  store ptr null, ptr %3, align 8, !tbaa !121
+  %4 = load ptr, ptr %3, align 8, !tbaa !121
+  %5 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.14, i32 noundef 5) #7
+  %6 = call ptr @dt_mouse_action_create_simple(ptr noundef %4, i32 noundef 0, i32 noundef 0, ptr noundef %5)
+  store ptr %6, ptr %3, align 8, !tbaa !121
+  %7 = load ptr, ptr %3, align 8, !tbaa !121
+  %8 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.15, i32 noundef 5) #7
+  %9 = call ptr @dt_mouse_action_create_simple(ptr noundef %7, i32 noundef 1, i32 noundef 0, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !121
+  %10 = load ptr, ptr %3, align 8, !tbaa !121
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %10
+}
+
+declare ptr @dt_mouse_action_create_simple(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #5
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_destroy(ptr noundef) #1
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_lock(ptr noundef) #1
+
+declare ptr @dt_collection_get_query(ptr noundef) #5
+
+declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) #5
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) #1
+
+declare ptr @dt_control_job_create(ptr noundef, ptr noundef, ...) #5
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_process_job_run(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !105
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !105
+  %5 = call ptr @dt_control_job_get_params(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !19
+  %6 = load ptr, ptr %3, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %6, i32 0, i32 6
+  %8 = call i32 @dt_pthread_mutex_lock(ptr noundef %7)
+  %9 = load ptr, ptr %3, align 8, !tbaa !19
+  %10 = call i32 @_is_slot_waiting(ptr noundef %9, i32 noundef 2)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %18
+
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %13, i32 0, i32 6
+  %15 = call i32 @dt_pthread_mutex_unlock(ptr noundef %14)
+  %16 = load ptr, ptr %3, align 8, !tbaa !19
+  %17 = call i32 @_process_image(ptr noundef %16, i32 noundef 2)
+  call void (...) @dt_control_queue_redraw_center()
+  br label %66
+
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %3, align 8, !tbaa !19
+  %20 = call i32 @_is_slot_waiting(ptr noundef %19, i32 noundef 3)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %28
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %3, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %23, i32 0, i32 6
+  %25 = call i32 @dt_pthread_mutex_unlock(ptr noundef %24)
+  %26 = load ptr, ptr %3, align 8, !tbaa !19
+  %27 = call i32 @_process_image(ptr noundef %26, i32 noundef 3)
+  br label %65
+
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %3, align 8, !tbaa !19
+  %30 = call i32 @_is_slot_waiting(ptr noundef %29, i32 noundef 4)
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %3, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %33, i32 0, i32 6
+  %35 = call i32 @dt_pthread_mutex_unlock(ptr noundef %34)
+  %36 = load ptr, ptr %3, align 8, !tbaa !19
+  %37 = call i32 @_process_image(ptr noundef %36, i32 noundef 4)
+  br label %64
+
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %3, align 8, !tbaa !19
+  %40 = call i32 @_is_slot_waiting(ptr noundef %39, i32 noundef 1)
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %48
+
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %3, align 8, !tbaa !19
+  %44 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %43, i32 0, i32 6
+  %45 = call i32 @dt_pthread_mutex_unlock(ptr noundef %44)
+  %46 = load ptr, ptr %3, align 8, !tbaa !19
+  %47 = call i32 @_process_image(ptr noundef %46, i32 noundef 1)
+  br label %63
+
+48:                                               ; preds = %38
+  %49 = load ptr, ptr %3, align 8, !tbaa !19
+  %50 = call i32 @_is_slot_waiting(ptr noundef %49, i32 noundef 0)
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %58
+
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %3, align 8, !tbaa !19
+  %54 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %53, i32 0, i32 6
+  %55 = call i32 @dt_pthread_mutex_unlock(ptr noundef %54)
+  %56 = load ptr, ptr %3, align 8, !tbaa !19
+  %57 = call i32 @_process_image(ptr noundef %56, i32 noundef 0)
+  br label %62
+
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %3, align 8, !tbaa !19
+  %60 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %59, i32 0, i32 6
+  %61 = call i32 @dt_pthread_mutex_unlock(ptr noundef %60)
+  br label %62
+
+62:                                               ; preds = %58, %52
+  br label %63
+
+63:                                               ; preds = %62, %42
+  br label %64
+
+64:                                               ; preds = %63, %32
+  br label %65
+
+65:                                               ; preds = %64, %22
+  br label %66
+
+66:                                               ; preds = %65, %12
+  %67 = load ptr, ptr %3, align 8, !tbaa !19
+  %68 = call i32 @_is_idle(ptr noundef %67)
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %72, label %70
+
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @_requeue_job(ptr noundef %71)
+  br label %72
+
+72:                                               ; preds = %70, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i32 0
+}
+
+declare void @dt_control_job_set_params(ptr noundef, ptr noundef, ptr noundef) #5
+
+declare ptr @dt_control_job_get_params(ptr noundef) #5
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_is_slot_waiting(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store i32 %1, ptr %4, align 4, !tbaa !24
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %5, i32 0, i32 3
+  %7 = load i32, ptr %4, align 4, !tbaa !24
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %6, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %9, i32 0, i32 5
+  %11 = load i32, ptr %10, align 8, !tbaa !104
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %40
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %14, i32 0, i32 3
+  %16 = load i32, ptr %4, align 4, !tbaa !24
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %15, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !101
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %40
+
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %3, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %4, align 4, !tbaa !24
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %24, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %27, i32 0, i32 4
+  %29 = load i32, ptr %28, align 4, !tbaa !94
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %31, label %40
+
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %3, align 8, !tbaa !19
+  %33 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %32, i32 0, i32 3
+  %34 = load i32, ptr %4, align 4, !tbaa !24
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %33, i64 0, i64 %35
+  %37 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %36, i32 0, i32 3
+  %38 = load i32, ptr %37, align 8, !tbaa !92
+  %39 = icmp sge i32 %38, 0
+  br label %40
+
+40:                                               ; preds = %31, %22, %13, %2
+  %41 = phi i1 [ false, %22 ], [ false, %13 ], [ false, %2 ], [ %39, %31 ]
+  %42 = zext i1 %41 to i32
+  ret i32 %42
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_process_image(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store i32 %1, ptr %4, align 4, !tbaa !24
+  %12 = load ptr, ptr %3, align 8, !tbaa !19
+  %13 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %12, i32 0, i32 6
+  %14 = call i32 @dt_pthread_mutex_lock(ptr noundef %13)
+  %15 = load ptr, ptr %3, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %15, i32 0, i32 8
+  %17 = load i32, ptr %16, align 4, !tbaa !64
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %16, align 4, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %19 = load ptr, ptr %3, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %19, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !82
+  store i64 %21, ptr %5, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %22 = load ptr, ptr %3, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %22, i32 0, i32 2
+  %24 = load i64, ptr %23, align 8, !tbaa !84
+  store i64 %24, ptr %6, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %25 = load ptr, ptr %3, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %4, align 4, !tbaa !24
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %26, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %29, i32 0, i32 4
+  %31 = load i32, ptr %30, align 4, !tbaa !94
+  store i32 %31, ptr %7, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store ptr null, ptr %10, align 8, !tbaa !85
+  %32 = load ptr, ptr %3, align 8, !tbaa !19
+  %33 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %32, i32 0, i32 6
+  %34 = call i32 @dt_pthread_mutex_unlock(ptr noundef %33)
+  %35 = load i32, ptr %7, align 4, !tbaa !24
+  %36 = load ptr, ptr %3, align 8, !tbaa !19
+  %37 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8, !tbaa !82
+  %39 = uitofp i64 %38 to double
+  %40 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %41 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %40, i32 0, i32 19
+  %42 = load double, ptr %41, align 8, !tbaa !81
+  %43 = fdiv reassoc nsz arcp contract afn double %39, %42
+  %44 = fptoui double %43 to i64
+  %45 = load ptr, ptr %3, align 8, !tbaa !19
+  %46 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %45, i32 0, i32 2
+  %47 = load i64, ptr %46, align 8, !tbaa !84
+  %48 = uitofp i64 %47 to double
+  %49 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 14), align 8, !tbaa !67
+  %50 = getelementptr inbounds nuw %struct.dt_gui_gtk_t, ptr %49, i32 0, i32 19
+  %51 = load double, ptr %50, align 8, !tbaa !81
+  %52 = fdiv reassoc nsz arcp contract afn double %48, %51
+  %53 = fptoui double %52 to i64
+  call void @dt_dev_image(i32 noundef %35, i64 noundef %44, i64 noundef %53, i32 noundef -1, ptr noundef %10, ptr noundef null, ptr noundef %8, ptr noundef %9, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef -2, i32 noundef 0)
+  %54 = load ptr, ptr %3, align 8, !tbaa !19
+  %55 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %54, i32 0, i32 6
+  %56 = call i32 @dt_pthread_mutex_lock(ptr noundef %55)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  %57 = load i32, ptr %4, align 4, !tbaa !24
+  store i32 %57, ptr %11, align 4, !tbaa !24
+  %58 = load ptr, ptr %3, align 8, !tbaa !19
+  %59 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %58, i32 0, i32 3
+  %60 = load i32, ptr %11, align 4, !tbaa !24
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %59, i64 0, i64 %61
+  %63 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %62, i32 0, i32 4
+  %64 = load i32, ptr %63, align 4, !tbaa !94
+  %65 = load i32, ptr %7, align 4, !tbaa !24
+  %66 = icmp ne i32 %64, %65
+  br i1 %66, label %67, label %71
+
+67:                                               ; preds = %2
+  %68 = load ptr, ptr %3, align 8, !tbaa !19
+  %69 = load i32, ptr %7, align 4, !tbaa !24
+  %70 = call i32 @_get_slot_for_image(ptr noundef %68, i32 noundef %69)
+  store i32 %70, ptr %11, align 4, !tbaa !24
+  br label %71
+
+71:                                               ; preds = %67, %2
+  %72 = load i32, ptr %11, align 4, !tbaa !24
+  %73 = icmp ne i32 %72, -1
+  br i1 %73, label %74, label %114
+
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %3, align 8, !tbaa !19
+  %76 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %75, i32 0, i32 1
+  %77 = load i64, ptr %76, align 8, !tbaa !82
+  %78 = load i64, ptr %5, align 8, !tbaa !123
+  %79 = icmp eq i64 %77, %78
+  br i1 %79, label %80, label %114
+
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %3, align 8, !tbaa !19
+  %82 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %81, i32 0, i32 2
+  %83 = load i64, ptr %82, align 8, !tbaa !84
+  %84 = load i64, ptr %6, align 8, !tbaa !123
+  %85 = icmp eq i64 %83, %84
+  br i1 %85, label %86, label %114
+
+86:                                               ; preds = %80
+  %87 = load i64, ptr %8, align 8, !tbaa !123
+  %88 = load ptr, ptr %3, align 8, !tbaa !19
+  %89 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %88, i32 0, i32 3
+  %90 = load i32, ptr %11, align 4, !tbaa !24
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %89, i64 0, i64 %91
+  %93 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %92, i32 0, i32 1
+  store i64 %87, ptr %93, align 8, !tbaa !102
+  %94 = load i64, ptr %9, align 8, !tbaa !123
+  %95 = load ptr, ptr %3, align 8, !tbaa !19
+  %96 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %95, i32 0, i32 3
+  %97 = load i32, ptr %11, align 4, !tbaa !24
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %96, i64 0, i64 %98
+  %100 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %99, i32 0, i32 2
+  store i64 %94, ptr %100, align 8, !tbaa !103
+  %101 = load ptr, ptr %10, align 8, !tbaa !85
+  %102 = load ptr, ptr %3, align 8, !tbaa !19
+  %103 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %102, i32 0, i32 3
+  %104 = load i32, ptr %11, align 4, !tbaa !24
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %103, i64 0, i64 %105
+  %107 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %106, i32 0, i32 0
+  store ptr %101, ptr %107, align 8, !tbaa !101
+  %108 = load ptr, ptr %3, align 8, !tbaa !19
+  %109 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %108, i32 0, i32 3
+  %110 = load i32, ptr %11, align 4, !tbaa !24
+  %111 = zext i32 %110 to i64
+  %112 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %109, i64 0, i64 %111
+  %113 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %112, i32 0, i32 5
+  store i32 0, ptr %113, align 8, !tbaa !104
+  br label %116
+
+114:                                              ; preds = %80, %74, %71
+  %115 = load ptr, ptr %10, align 8, !tbaa !85
+  call void @free(ptr noundef %115) #7
+  br label %116
+
+116:                                              ; preds = %114, %86
+  %117 = load ptr, ptr %3, align 8, !tbaa !19
+  %118 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %117, i32 0, i32 8
+  %119 = load i32, ptr %118, align 4, !tbaa !64
+  %120 = add nsw i32 %119, -1
+  store i32 %120, ptr %118, align 4, !tbaa !64
+  %121 = load ptr, ptr %3, align 8, !tbaa !19
+  %122 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %121, i32 0, i32 6
+  %123 = call i32 @dt_pthread_mutex_unlock(ptr noundef %122)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_is_idle(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  store i32 1, ptr %3, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  store i32 0, ptr %4, align 4, !tbaa !24
+  br label %5
+
+5:                                                ; preds = %18, %1
+  %6 = load i32, ptr %4, align 4, !tbaa !24
+  %7 = icmp ult i32 %6, 5
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call fastcc void @_step_state(ptr noundef nonnull %0, i32 noundef 0)
-  br label %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  br label %21
 
-9:                                                ; preds = %8, %5, %1
-  %10 = phi i32 [ 0, %8 ], [ 0, %1 ], [ 1, %5 ]
-  ret i32 %10
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %2, align 8, !tbaa !19
+  %11 = load i32, ptr %4, align 4, !tbaa !24
+  %12 = call i32 @_is_slot_waiting(ptr noundef %10, i32 noundef %11)
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = zext i1 %14 to i32
+  %16 = load i32, ptr %3, align 4, !tbaa !24
+  %17 = and i32 %16, %15
+  store i32 %17, ptr %3, align 4, !tbaa !24
+  br label %18
+
+18:                                               ; preds = %9
+  %19 = load i32, ptr %4, align 4, !tbaa !24
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %4, align 4, !tbaa !24
+  br label %5
+
+21:                                               ; preds = %8
+  %22 = load i32, ptr %3, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i32 %22
 }
 
-declare void @dt_ctl_switch_mode_to(ptr noundef) local_unnamed_addr #6
+declare void @dt_dev_image(i32 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-; Function Attrs: nounwind
-declare ptr @dcngettext(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: nounwind uwtable
+define internal i32 @_get_slot_for_image(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store i32 %1, ptr %4, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  store i32 -1, ptr %5, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  store i32 0, ptr %6, align 4, !tbaa !24
+  br label %8
 
-declare void @dt_conf_set_int(ptr noundef, i32 noundef) local_unnamed_addr #6
+8:                                                ; preds = %25, %2
+  %9 = load i32, ptr %6, align 4, !tbaa !24
+  %10 = icmp ult i32 %9, 5
+  br i1 %10, label %12, label %11
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+11:                                               ; preds = %8
+  store i32 2, ptr %7, align 4
+  br label %28
+
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %3, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %13, i32 0, i32 3
+  %15 = load i32, ptr %6, align 4, !tbaa !24
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %14, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %17, i32 0, i32 4
+  %19 = load i32, ptr %18, align 4, !tbaa !94
+  %20 = load i32, ptr %4, align 4, !tbaa !24
+  %21 = icmp eq i32 %19, %20
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %12
+  %23 = load i32, ptr %6, align 4, !tbaa !24
+  store i32 %23, ptr %5, align 4, !tbaa !24
+  store i32 2, ptr %7, align 4
+  br label %28
+
+24:                                               ; preds = %12
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load i32, ptr %6, align 4, !tbaa !24
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %6, align 4, !tbaa !24
+  br label %8
+
+28:                                               ; preds = %22, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load i32, ptr %5, align 4, !tbaa !24
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  ret i32 %30
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_shift_left(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr %2, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %5, i32 0, i32 3
+  %7 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %6, i64 0, i64 0
+  %8 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !101
+  store ptr %9, ptr %3, align 8, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  store i32 0, ptr %4, align 4, !tbaa !24
+  br label %10
+
+10:                                               ; preds = %26, %1
+  %11 = load i32, ptr %4, align 4, !tbaa !24
+  %12 = icmp ult i32 %11, 4
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  br label %29
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %2, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %15, i32 0, i32 3
+  %17 = load i32, ptr %4, align 4, !tbaa !24
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %16, i64 0, i64 %18
+  %20 = load ptr, ptr %2, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %4, align 4, !tbaa !24
+  %23 = add i32 %22, 1
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %21, i64 0, i64 %24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %25, i64 40, i1 false)
+  br label %26
+
+26:                                               ; preds = %14
+  %27 = load i32, ptr %4, align 4, !tbaa !24
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %4, align 4, !tbaa !24
+  br label %10
+
+29:                                               ; preds = %13
+  %30 = load ptr, ptr %2, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %30, i32 0, i32 3
+  %32 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %31, i64 0, i64 4
+  call void @_init_slot(ptr noundef %32)
+  %33 = load ptr, ptr %2, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %33, i32 0, i32 3
+  %35 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %34, i64 0, i64 2
+  %36 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %35, i32 0, i32 3
+  %37 = load i32, ptr %36, align 8, !tbaa !92
+  %38 = add nsw i32 %37, 2
+  %39 = load ptr, ptr %2, align 8, !tbaa !19
+  %40 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %39, i32 0, i32 3
+  %41 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %40, i64 0, i64 4
+  %42 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %41, i32 0, i32 3
+  store i32 %38, ptr %42, align 8, !tbaa !92
+  %43 = load ptr, ptr %2, align 8, !tbaa !19
+  %44 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %43, i32 0, i32 3
+  %45 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %44, i64 0, i64 4
+  %46 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %45, i32 0, i32 3
+  %47 = load i32, ptr %46, align 8, !tbaa !92
+  %48 = load ptr, ptr %2, align 8, !tbaa !19
+  %49 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %48, i32 0, i32 0
+  %50 = load i32, ptr %49, align 8, !tbaa !95
+  %51 = icmp sle i32 %47, %50
+  br i1 %51, label %52, label %59
+
+52:                                               ; preds = %29
+  %53 = load ptr, ptr %2, align 8, !tbaa !19
+  %54 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %53, i32 0, i32 3
+  %55 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %54, i64 0, i64 4
+  %56 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %55, i32 0, i32 3
+  %57 = load i32, ptr %56, align 8, !tbaa !92
+  %58 = call i32 @_get_image_at_rank(i32 noundef %57)
+  br label %60
+
+59:                                               ; preds = %29
+  br label %60
+
+60:                                               ; preds = %59, %52
+  %61 = phi i32 [ %58, %52 ], [ 0, %59 ]
+  %62 = load ptr, ptr %2, align 8, !tbaa !19
+  %63 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %62, i32 0, i32 3
+  %64 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %63, i64 0, i64 4
+  %65 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %64, i32 0, i32 4
+  store i32 %61, ptr %65, align 4, !tbaa !94
+  %66 = load ptr, ptr %2, align 8, !tbaa !19
+  %67 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %66, i32 0, i32 5
+  store i32 -1, ptr %67, align 4, !tbaa !65
+  %68 = load ptr, ptr %2, align 8, !tbaa !19
+  %69 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %68, i32 0, i32 4
+  store i32 -1, ptr %69, align 8, !tbaa !66
+  %70 = load ptr, ptr %3, align 8, !tbaa !85
+  call void @free(ptr noundef %70) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_shift_right(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr %2, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %5, i32 0, i32 3
+  %7 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %6, i64 0, i64 4
+  %8 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !101
+  store ptr %9, ptr %3, align 8, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  store i32 4, ptr %4, align 4, !tbaa !24
+  br label %10
+
+10:                                               ; preds = %26, %1
+  %11 = load i32, ptr %4, align 4, !tbaa !24
+  %12 = icmp ugt i32 %11, 0
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  br label %29
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %2, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %15, i32 0, i32 3
+  %17 = load i32, ptr %4, align 4, !tbaa !24
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %16, i64 0, i64 %18
+  %20 = load ptr, ptr %2, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %4, align 4, !tbaa !24
+  %23 = sub i32 %22, 1
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %21, i64 0, i64 %24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %25, i64 40, i1 false)
+  br label %26
+
+26:                                               ; preds = %14
+  %27 = load i32, ptr %4, align 4, !tbaa !24
+  %28 = add i32 %27, -1
+  store i32 %28, ptr %4, align 4, !tbaa !24
+  br label %10
+
+29:                                               ; preds = %13
+  %30 = load ptr, ptr %2, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %30, i32 0, i32 3
+  %32 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %31, i64 0, i64 0
+  call void @_init_slot(ptr noundef %32)
+  %33 = load ptr, ptr %2, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %33, i32 0, i32 3
+  %35 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %34, i64 0, i64 2
+  %36 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %35, i32 0, i32 3
+  %37 = load i32, ptr %36, align 8, !tbaa !92
+  %38 = sub nsw i32 %37, 2
+  %39 = load ptr, ptr %2, align 8, !tbaa !19
+  %40 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %39, i32 0, i32 3
+  %41 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %40, i64 0, i64 0
+  %42 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %41, i32 0, i32 3
+  store i32 %38, ptr %42, align 8, !tbaa !92
+  %43 = load ptr, ptr %2, align 8, !tbaa !19
+  %44 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %43, i32 0, i32 3
+  %45 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %44, i64 0, i64 0
+  %46 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %45, i32 0, i32 3
+  %47 = load i32, ptr %46, align 8, !tbaa !92
+  %48 = icmp sge i32 %47, 0
+  br i1 %48, label %49, label %56
+
+49:                                               ; preds = %29
+  %50 = load ptr, ptr %2, align 8, !tbaa !19
+  %51 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %50, i32 0, i32 3
+  %52 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %51, i64 0, i64 0
+  %53 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %52, i32 0, i32 3
+  %54 = load i32, ptr %53, align 8, !tbaa !92
+  %55 = call i32 @_get_image_at_rank(i32 noundef %54)
+  br label %57
+
+56:                                               ; preds = %29
+  br label %57
+
+57:                                               ; preds = %56, %49
+  %58 = phi i32 [ %55, %49 ], [ 0, %56 ]
+  %59 = load ptr, ptr %2, align 8, !tbaa !19
+  %60 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %59, i32 0, i32 3
+  %61 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %60, i64 0, i64 0
+  %62 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %61, i32 0, i32 4
+  store i32 %58, ptr %62, align 4, !tbaa !94
+  %63 = load ptr, ptr %2, align 8, !tbaa !19
+  %64 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %63, i32 0, i32 5
+  store i32 -1, ptr %64, align 4, !tbaa !65
+  %65 = load ptr, ptr %2, align 8, !tbaa !19
+  %66 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %65, i32 0, i32 4
+  store i32 -1, ptr %66, align 8, !tbaa !66
+  %67 = load ptr, ptr %3, align 8, !tbaa !85
+  call void @free(ptr noundef %67) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_auto_advance(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !23
+  store ptr %6, ptr %4, align 8, !tbaa !19
+  %7 = load ptr, ptr %4, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %7, i32 0, i32 7
+  %9 = load i32, ptr %8, align 8, !tbaa !96
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %12, label %11
+
+11:                                               ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
+
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %4, align 8, !tbaa !19
+  %14 = call i32 @_is_idle(ptr noundef %13)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %12
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8, !tbaa !19
+  call void @_step_state(ptr noundef %18, i32 noundef 0)
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
+
+19:                                               ; preds = %17, %16, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %20 = load i32, ptr %2, align 4
+  ret i32 %20
+}
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @dt_action_view(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  br label %3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+3:                                                ; preds = %13, %1
+  %4 = load ptr, ptr %2, align 8, !tbaa !120
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+6:                                                ; preds = %3
+  %7 = load ptr, ptr %2, align 8, !tbaa !120
+  %8 = getelementptr inbounds nuw %struct.dt_action_t, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8, !tbaa !124
+  %10 = icmp ne i32 %9, 2
+  br label %11
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #2 = { nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #6 = { "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #7 = { nofree nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0,1) }
-attributes #15 = { cold nounwind }
+11:                                               ; preds = %6, %3
+  %12 = phi i1 [ false, %3 ], [ %10, %6 ]
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %11
+  %14 = load ptr, ptr %2, align 8, !tbaa !120
+  %15 = getelementptr inbounds nuw %struct.dt_action_t, ptr %14, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !125
+  store ptr %16, ptr %2, align 8, !tbaa !120
+  br label %3
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %2, align 8, !tbaa !120
+  ret ptr %18
+}
+
+declare void @dt_ctl_switch_mode_to(ptr noundef) #5
+
+; Function Attrs: nounwind uwtable
+define internal void @_set_delay(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store i32 %1, ptr %4, align 4, !tbaa !24
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %5, i32 0, i32 9
+  %7 = load i32, ptr %6, align 8, !tbaa !97
+  %8 = load i32, ptr %4, align 4, !tbaa !24
+  %9 = add nsw i32 %7, %8
+  %10 = icmp sgt i32 %9, 60
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %2
+  br label %28
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %3, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %13, i32 0, i32 9
+  %15 = load i32, ptr %14, align 8, !tbaa !97
+  %16 = load i32, ptr %4, align 4, !tbaa !24
+  %17 = add nsw i32 %15, %16
+  %18 = icmp slt i32 %17, 1
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %12
+  br label %26
+
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %3, align 8, !tbaa !19
+  %22 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %21, i32 0, i32 9
+  %23 = load i32, ptr %22, align 8, !tbaa !97
+  %24 = load i32, ptr %4, align 4, !tbaa !24
+  %25 = add nsw i32 %23, %24
+  br label %26
+
+26:                                               ; preds = %20, %19
+  %27 = phi i32 [ 1, %19 ], [ %25, %20 ]
+  br label %28
+
+28:                                               ; preds = %26, %11
+  %29 = phi i32 [ 60, %11 ], [ %27, %26 ]
+  %30 = load ptr, ptr %3, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %30, i32 0, i32 9
+  store i32 %29, ptr %31, align 8, !tbaa !97
+  %32 = load ptr, ptr %3, align 8, !tbaa !19
+  %33 = getelementptr inbounds nuw %struct.dt_slideshow_t, ptr %32, i32 0, i32 9
+  %34 = load i32, ptr %33, align 8, !tbaa !97
+  call void @dt_conf_set_int(ptr noundef @.str.6, i32 noundef %34)
+  ret void
+}
+
+; Function Attrs: nounwind
+declare ptr @dcngettext(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
+
+declare void @dt_conf_set_int(ptr noundef, i32 noundef) #5
+
+attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #1 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { nounwind allocsize(0,1) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #5 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -1766,59 +2834,123 @@ attributes #15 = { cold nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = !{!7, !12, i64 288}
-!7 = !{!"dt_view_t", !8, i64 0, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !10, i64 216, !12, i64 280, !12, i64 288, !9, i64 296, !9, i64 300, !13, i64 304, !13, i64 308, !13, i64 312, !13, i64 316, !13, i64 320, !13, i64 324, !13, i64 328, !13, i64 332}
-!8 = !{!"dt_action_t", !9, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40}
-!9 = !{!"int", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"any pointer", !10, i64 0}
-!13 = !{!"float", !10, i64 0}
-!14 = !{!15, !12, i64 160}
-!15 = !{!"darktable_t", !16, i64 0, !9, i64 4, !9, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !10, i64 232, !17, i64 2792, !17, i64 2832, !17, i64 2872, !17, i64 2912, !17, i64 2952, !12, i64 2992, !12, i64 3000, !12, i64 3008, !12, i64 3016, !12, i64 3024, !12, i64 3032, !12, i64 3040, !12, i64 3048, !12, i64 3056, !12, i64 3064, !12, i64 3072, !12, i64 3080, !18, i64 3088, !12, i64 3096, !19, i64 3104, !12, i64 3112, !9, i64 3120, !10, i64 3124, !9, i64 3308, !12, i64 3312, !12, i64 3320, !20, i64 3328, !22, i64 3376, !23, i64 3408}
-!16 = !{!"dt_codepath_t", !9, i64 0}
-!17 = !{!"dt_pthread_mutex_t", !10, i64 0}
-!18 = !{!"", !9, i64 0}
-!19 = !{!"double", !10, i64 0}
-!20 = !{!"dt_sys_resources_t", !21, i64 0, !21, i64 8, !12, i64 16, !12, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
-!21 = !{!"long", !10, i64 0}
-!22 = !{!"dt_backthumb_t", !19, i64 0, !19, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28}
-!23 = !{!"dt_gimp_t", !9, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28}
-!24 = !{!25, !9, i64 284}
-!25 = !{!"dt_slideshow_t", !9, i64 0, !21, i64 8, !21, i64 16, !10, i64 24, !9, i64 224, !9, i64 228, !17, i64 232, !9, i64 272, !9, i64 276, !9, i64 280, !9, i64 284}
-!26 = !{!25, !9, i64 276}
-!27 = !{!25, !9, i64 228}
-!28 = !{!25, !9, i64 224}
-!29 = !{!15, !12, i64 104}
-!30 = !{!31, !12, i64 0}
-!31 = !{!"dt_gui_gtk_t", !12, i64 0, !32, i64 8, !33, i64 72, !12, i64 96, !12, i64 104, !12, i64 112, !9, i64 120, !10, i64 128, !9, i64 1376, !9, i64 1380, !9, i64 1384, !9, i64 1388, !9, i64 1392, !19, i64 1400, !19, i64 1408, !19, i64 1416, !19, i64 1424, !12, i64 1432, !19, i64 1440, !19, i64 1448, !19, i64 1456, !19, i64 1464, !9, i64 1472, !9, i64 1476, !10, i64 1480, !9, i64 5576, !9, i64 5580, !9, i64 5584, !17, i64 5592}
-!32 = !{!"dt_gui_widgets_t", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !9, i64 48, !9, i64 52, !9, i64 56}
-!33 = !{!"dt_gui_scrollbars_t", !12, i64 0, !12, i64 8, !9, i64 16}
-!34 = !{!31, !19, i64 1456}
-!35 = !{!9, !9, i64 0}
-!36 = !{!21, !21, i64 0}
-!37 = !{!38, !9, i64 24}
-!38 = !{!"_slideshow_buf_t", !12, i64 0, !21, i64 8, !21, i64 16, !9, i64 24, !9, i64 28, !9, i64 32}
-!39 = !{!38, !9, i64 28}
-!40 = !{!38, !9, i64 32}
-!41 = !{!15, !9, i64 8}
-!42 = !{!15, !12, i64 136}
-!43 = !{!12, !12, i64 0}
-!44 = !{!25, !9, i64 0}
-!45 = !{!25, !9, i64 272}
-!46 = !{!25, !9, i64 280}
-!47 = !{!15, !12, i64 88}
-!48 = !{!38, !12, i64 0}
-!49 = !{!25, !21, i64 8}
-!50 = !{!38, !21, i64 8}
-!51 = !{!25, !21, i64 16}
-!52 = !{!38, !21, i64 16}
-!53 = !{!15, !12, i64 112}
-!54 = !{!55, !12, i64 24}
-!55 = !{!"dt_mipmap_buffer_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !13, i64 16, !12, i64 24, !9, i64 32, !12, i64 40}
-!56 = !{!55, !9, i64 8}
-!57 = !{!55, !9, i64 12}
-!58 = !{!8, !9, i64 0}
-!59 = !{!8, !12, i64 32}
-!60 = !{}
-!61 = !{i32 0, i32 2}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS9dt_view_t", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !8, i64 288}
+!12 = !{!"dt_view_t", !13, i64 0, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !8, i64 208, !9, i64 216, !17, i64 280, !8, i64 288, !14, i64 296, !14, i64 300, !18, i64 304, !18, i64 308, !18, i64 312, !18, i64 316, !18, i64 320, !18, i64 324, !18, i64 328, !18, i64 332}
+!13 = !{!"dt_action_t", !14, i64 0, !15, i64 8, !15, i64 16, !8, i64 24, !16, i64 32, !16, i64 40}
+!14 = !{!"int", !9, i64 0}
+!15 = !{!"p1 omnipotent char", !8, i64 0}
+!16 = !{!"p1 _ZTS11dt_action_t", !8, i64 0}
+!17 = !{!"p1 _ZTS8_GModule", !8, i64 0}
+!18 = !{!"float", !9, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS14dt_slideshow_t", !8, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS18dt_pthread_mutex_t", !8, i64 0}
+!23 = !{!8, !8, i64 0}
+!24 = !{!14, !14, i64 0}
+!25 = !{!26, !43, i64 160}
+!26 = !{!"darktable_t", !27, i64 0, !14, i64 4, !14, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !28, i64 40, !29, i64 48, !30, i64 56, !31, i64 64, !32, i64 72, !33, i64 80, !34, i64 88, !35, i64 96, !36, i64 104, !37, i64 112, !38, i64 120, !39, i64 128, !40, i64 136, !41, i64 144, !42, i64 152, !43, i64 160, !44, i64 168, !45, i64 176, !46, i64 184, !47, i64 192, !48, i64 200, !49, i64 208, !50, i64 216, !51, i64 224, !9, i64 232, !52, i64 2792, !52, i64 2832, !52, i64 2872, !52, i64 2912, !52, i64 2952, !15, i64 2992, !15, i64 3000, !15, i64 3008, !15, i64 3016, !15, i64 3024, !15, i64 3032, !15, i64 3040, !15, i64 3048, !15, i64 3056, !15, i64 3064, !15, i64 3072, !15, i64 3080, !15, i64 3088, !53, i64 3096, !28, i64 3104, !54, i64 3112, !28, i64 3120, !14, i64 3128, !9, i64 3132, !14, i64 3320, !14, i64 3324, !55, i64 3328, !56, i64 3336, !57, i64 3344, !60, i64 3384, !61, i64 3416}
+!27 = !{!"dt_codepath_t", !14, i64 0}
+!28 = !{!"p1 _ZTS6_GList", !8, i64 0}
+!29 = !{!"p1 _ZTS11_JsonParser", !8, i64 0}
+!30 = !{!"p1 _ZTS9dt_conf_t", !8, i64 0}
+!31 = !{!"p1 _ZTS12dt_develop_t", !8, i64 0}
+!32 = !{!"p1 _ZTS8dt_lib_t", !8, i64 0}
+!33 = !{!"p1 _ZTS17dt_view_manager_t", !8, i64 0}
+!34 = !{!"p1 _ZTS12dt_control_t", !8, i64 0}
+!35 = !{!"p1 _ZTS19dt_control_signal_t", !8, i64 0}
+!36 = !{!"p1 _ZTS12dt_gui_gtk_t", !8, i64 0}
+!37 = !{!"p1 _ZTS17dt_mipmap_cache_t", !8, i64 0}
+!38 = !{!"p1 _ZTS16dt_image_cache_t", !8, i64 0}
+!39 = !{!"p1 _ZTS12dt_bauhaus_t", !8, i64 0}
+!40 = !{!"p1 _ZTS13dt_database_t", !8, i64 0}
+!41 = !{!"p1 _ZTS14dt_pwstorage_t", !8, i64 0}
+!42 = !{!"p1 _ZTS11dt_camctl_t", !8, i64 0}
+!43 = !{!"p1 _ZTS15dt_collection_t", !8, i64 0}
+!44 = !{!"p1 _ZTS14dt_selection_t", !8, i64 0}
+!45 = !{!"p1 _ZTS11dt_points_t", !8, i64 0}
+!46 = !{!"p1 _ZTS12dt_imageio_t", !8, i64 0}
+!47 = !{!"p1 _ZTS11dt_opencl_t", !8, i64 0}
+!48 = !{!"p1 _ZTS9dt_dbus_t", !8, i64 0}
+!49 = !{!"p1 _ZTS9dt_undo_t", !8, i64 0}
+!50 = !{!"p1 _ZTS16dt_colorspaces_t", !8, i64 0}
+!51 = !{!"p1 _ZTS9dt_l10n_t", !8, i64 0}
+!52 = !{!"dt_pthread_mutex_t", !9, i64 0}
+!53 = !{!"", !14, i64 0}
+!54 = !{!"double", !9, i64 0}
+!55 = !{!"p1 _ZTS10_GTimeZone", !8, i64 0}
+!56 = !{!"p1 _ZTS10_GDateTime", !8, i64 0}
+!57 = !{!"dt_sys_resources_t", !58, i64 0, !58, i64 8, !59, i64 16, !59, i64 24, !14, i64 32}
+!58 = !{!"long", !9, i64 0}
+!59 = !{!"p1 int", !8, i64 0}
+!60 = !{!"dt_backthumb_t", !54, i64 0, !54, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28}
+!61 = !{!"dt_gimp_t", !14, i64 0, !15, i64 8, !15, i64 16, !14, i64 24, !14, i64 28}
+!62 = !{!63, !14, i64 284}
+!63 = !{!"dt_slideshow_t", !14, i64 0, !58, i64 8, !58, i64 16, !9, i64 24, !14, i64 224, !14, i64 228, !52, i64 232, !14, i64 272, !14, i64 276, !14, i64 280, !14, i64 284}
+!64 = !{!63, !14, i64 276}
+!65 = !{!63, !14, i64 228}
+!66 = !{!63, !14, i64 224}
+!67 = !{!26, !36, i64 104}
+!68 = !{!69, !70, i64 0}
+!69 = !{!"dt_gui_gtk_t", !70, i64 0, !71, i64 8, !73, i64 56, !14, i64 80, !15, i64 88, !14, i64 96, !9, i64 104, !14, i64 1352, !14, i64 1356, !14, i64 1360, !14, i64 1364, !14, i64 1368, !54, i64 1376, !54, i64 1384, !54, i64 1392, !54, i64 1400, !72, i64 1408, !54, i64 1416, !54, i64 1424, !54, i64 1432, !54, i64 1440, !14, i64 1448, !14, i64 1452, !9, i64 1456, !14, i64 5552, !14, i64 5556, !14, i64 5560, !52, i64 5568}
+!70 = !{!"p1 _ZTS7dt_ui_t", !8, i64 0}
+!71 = !{!"dt_gui_widgets_t", !72, i64 0, !72, i64 8, !72, i64 16, !72, i64 24, !14, i64 32, !14, i64 36, !14, i64 40}
+!72 = !{!"p1 _ZTS10_GtkWidget", !8, i64 0}
+!73 = !{!"dt_gui_scrollbars_t", !72, i64 0, !72, i64 8, !14, i64 16}
+!74 = !{!72, !72, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTS11_GdkDisplay", !8, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTS11_GdkMonitor", !8, i64 0}
+!79 = !{!80, !14, i64 8}
+!80 = !{!"_cairo_rectangle_int", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
+!81 = !{!69, !54, i64 1432}
+!82 = !{!63, !58, i64 8}
+!83 = !{!80, !14, i64 12}
+!84 = !{!63, !58, i64 16}
+!85 = !{!15, !15, i64 0}
+!86 = !{!26, !14, i64 8}
+!87 = !{!26, !40, i64 136}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTS12sqlite3_stmt", !8, i64 0}
+!92 = !{!93, !14, i64 24}
+!93 = !{!"_slideshow_buf_t", !15, i64 0, !58, i64 8, !58, i64 16, !14, i64 24, !14, i64 28, !14, i64 32}
+!94 = !{!93, !14, i64 28}
+!95 = !{!63, !14, i64 0}
+!96 = !{!63, !14, i64 272}
+!97 = !{!63, !14, i64 280}
+!98 = !{!26, !34, i64 88}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTS16_slideshow_buf_t", !8, i64 0}
+!101 = !{!93, !15, i64 0}
+!102 = !{!93, !58, i64 8}
+!103 = !{!93, !58, i64 16}
+!104 = !{!93, !14, i64 32}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTS9_dt_job_t", !8, i64 0}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTS6_cairo", !8, i64 0}
+!109 = !{!54, !54, i64 0}
+!110 = !{!111, !111, i64 0}
+!111 = !{!"p1 _ZTS14_cairo_surface", !8, i64 0}
+!112 = !{!26, !37, i64 112}
+!113 = !{!114, !15, i64 24}
+!114 = !{!"dt_mipmap_buffer_t", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !18, i64 16, !15, i64 24, !14, i64 32, !14, i64 36, !115, i64 40}
+!115 = !{!"p1 _ZTS16dt_cache_entry_t", !8, i64 0}
+!116 = !{!114, !14, i64 8}
+!117 = !{!114, !14, i64 12}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTS10_GdkPixbuf", !8, i64 0}
+!120 = !{!16, !16, i64 0}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"p1 _ZTS7_GSList", !8, i64 0}
+!123 = !{!58, !58, i64 0}
+!124 = !{!13, !14, i64 0}
+!125 = !{!13, !16, i64 32}

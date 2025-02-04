@@ -1,567 +1,951 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.darktable_t = type { %struct.dt_codepath_t, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [64 x %struct.dt_pthread_mutex_t], %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.dt_lua_state_t, ptr, double, ptr, i32, [46 x i32], i32, ptr, ptr, %struct.dt_sys_resources_t, %struct.dt_backthumb_t, %struct.dt_gimp_t }
+%struct.darktable_t = type { %struct.dt_codepath_t, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [64 x %struct.dt_pthread_mutex_t], %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, %struct.dt_pthread_mutex_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.dt_lua_state_t, ptr, double, ptr, i32, [47 x i32], i32, i32, ptr, ptr, %struct.dt_sys_resources_t, %struct.dt_backthumb_t, %struct.dt_gimp_t }
 %struct.dt_codepath_t = type { i8, [3 x i8] }
 %struct.dt_pthread_mutex_t = type { %union.pthread_mutex_t }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.dt_lua_state_t = type { i32 }
-%struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32, i32, i32 }
+%struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
+%struct.dt_lib_module_t = type { %struct.dt_action_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [128 x i8], ptr, ptr, i32, ptr, ptr, ptr, i32 }
+%struct.dt_action_t = type { i32, ptr, ptr, ptr, ptr, ptr }
+%struct.dt_lib_ioporder_t = type { i32, ptr }
+%struct.dt_develop_t = type { i32, i32, i32, ptr, double, double, i32, i32, i32, i32, i32, double, i32, i32, i32, ptr, ptr, [8 x i8], %struct.dt_image_t, i32, i32, %struct.dt_pthread_mutex_t, i32, ptr, i32, ptr, i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i32, i32, float, float, ptr, i32, %struct.anon.5, %struct.dt_dev_chroma_t, %struct.anon.8, %struct.anon.9, %struct.anon.10, %struct.anon.11, %struct.anon.12, %struct.anon.13, ptr, ptr, %struct.dt_dev_viewport_t, %struct.dt_dev_viewport_t, i32, i32, i32, ptr, [8 x i8] }
+%struct.dt_image_t = type { i32, i32, float, float, float, float, float, float, float, [64 x i8], [64 x i8], [128 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], i64, i32, %union.dt_image_correction_data_t, [64 x i8], [64 x i8], [64 x i8], [128 x i8], i32, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i32, [12 x i8], %struct.dt_iop_buffer_dsc_t, [9 x float], ptr, i32, i32, %struct.dt_image_raw_parameters_t, %struct.dt_image_geoloc_t, %struct._color_harmony_t, i16, [4 x i16], i32, i32, float, float, [4 x float], [4 x [3 x float]], [4 x float], ptr, ptr, i32, i32, [8 x i8] }
+%union.dt_image_correction_data_t = type { %struct.anon.0 }
+%struct.anon.0 = type { i32, float, [11 x float], [11 x float], [11 x float], [11 x float], [11 x float] }
+%struct.dt_iop_buffer_dsc_t = type { i32, i32, i32, [6 x [6 x i8]], %struct.anon.3, [12 x i8], %struct.anon.4, [4 x float], i32, [12 x i8] }
+%struct.anon.3 = type { i16, i16 }
+%struct.anon.4 = type { i32, [12 x i8], [4 x float] }
+%struct.dt_image_raw_parameters_t = type { i32 }
+%struct.dt_image_geoloc_t = type { double, double, double }
+%struct._color_harmony_t = type { i32, i32, i32 }
+%struct.anon.5 = type { %struct.dt_dev_proxy_exposure_t, ptr, %struct.anon.6, %struct.anon.7 }
+%struct.dt_dev_proxy_exposure_t = type { ptr, ptr, ptr, ptr }
+%struct.anon.6 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.anon.7 = type { ptr, ptr, ptr, ptr, ptr }
+%struct.dt_dev_chroma_t = type { ptr, ptr, [4 x double], [4 x double], [4 x double], i32 }
+%struct.anon.8 = type { ptr, ptr, ptr }
+%struct.anon.9 = type { ptr, ptr, i32, i32, float, float, i32 }
+%struct.anon.10 = type { ptr, ptr, i32, i32, i32, float }
+%struct.anon.11 = type { ptr }
+%struct.anon.12 = type { ptr, i32 }
+%struct.anon.13 = type { ptr, ptr, ptr }
+%struct.dt_dev_viewport_t = type { ptr, i32, i32, i32, i32, i32, double, double, double, i32, i32, i32, float, float, float, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"module order\00", align 1
-@darktable = external local_unnamed_addr global %struct.darktable_t, align 8
-@.str.1 = private unnamed_addr constant [42 x i8] c"[sql] %s:%d, function %s(): prepare \22%s\22\0A\00", align 1
-@.str.2 = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/darktable/darktable/src/libs/ioporder.c\00", align 1
-@__FUNCTION__.update = private unnamed_addr constant [7 x i8] c"update\00", align 1
-@.str.3 = private unnamed_addr constant [95 x i8] c"SELECT op_params, name FROM data.presets WHERE operation='ioporder' ORDER BY writeprotect DESC\00", align 1
-@stderr = external local_unnamed_addr global ptr, align 8
-@.str.4 = private unnamed_addr constant [53 x i8] c"sqlite3 error: %s:%d, function %s(), query \22%s\22: %s\0A\00", align 1
-@.str.5 = private unnamed_addr constant [64 x i8] c"[signal] %s:%d, function: %s() connect handler %s to signal %s\0A\00", align 1
+@darktable = external global %struct.darktable_t, align 8
+@.str.1 = private unnamed_addr constant [52 x i8] c"[signal] connect    %s to %s; %s:%d, function: %s()\00", align 1
+@.str.2 = private unnamed_addr constant [23 x i8] c"_image_loaded_callback\00", align 1
+@.str.3 = private unnamed_addr constant [32 x i8] c"DT_SIGNAL_DEVELOP_IMAGE_CHANGED\00", align 1
+@.str.4 = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/darktable/darktable/src/libs/ioporder.c\00", align 1
 @__FUNCTION__.gui_init = private unnamed_addr constant [9 x i8] c"gui_init\00", align 1
-@.str.6 = private unnamed_addr constant [35 x i8] c"G_CALLBACK(_image_loaded_callback)\00", align 1
-@.str.7 = private unnamed_addr constant [32 x i8] c"DT_SIGNAL_DEVELOP_IMAGE_CHANGED\00", align 1
-@.str.8 = private unnamed_addr constant [29 x i8] c"DT_SIGNAL_DEVELOP_INITIALIZE\00", align 1
-@.str.9 = private unnamed_addr constant [33 x i8] c"DT_SIGNAL_DEVELOP_HISTORY_CHANGE\00", align 1
-@.str.10 = private unnamed_addr constant [54 x i8] c"[signal] %s:%d, function: %s() disconnect handler %s\0A\00", align 1
-@__FUNCTION__.gui_cleanup = private unnamed_addr constant [12 x i8] c"gui_cleanup\00", align 1
-@.str.11 = private unnamed_addr constant [7 x i8] c"legacy\00", align 1
-@.str.12 = private unnamed_addr constant [29 x i8] c"v3.0 for RAW input (default)\00", align 1
-@.str.13 = private unnamed_addr constant [28 x i8] c"v3.0 for JPEG/non-RAW input\00", align 1
+@.str.5 = private unnamed_addr constant [29 x i8] c"DT_SIGNAL_DEVELOP_INITIALIZE\00", align 1
+@.str.6 = private unnamed_addr constant [33 x i8] c"DT_SIGNAL_DEVELOP_HISTORY_CHANGE\00", align 1
+@.str.7 = private unnamed_addr constant [7 x i8] c"legacy\00", align 1
+@.str.8 = private unnamed_addr constant [19 x i8] c"v3.0 for RAW input\00", align 1
+@.str.9 = private unnamed_addr constant [28 x i8] c"v3.0 for JPEG/non-RAW input\00", align 1
+@.str.10 = private unnamed_addr constant [19 x i8] c"v5.0 for RAW input\00", align 1
+@.str.11 = private unnamed_addr constant [28 x i8] c"v5.0 for JPEG/non-RAW input\00", align 1
+@.str.12 = private unnamed_addr constant [41 x i8] c"[sql] %s:%d, function %s(): prepare \22%s\22\00", align 1
+@__FUNCTION__._update = private unnamed_addr constant [8 x i8] c"_update\00", align 1
+@.str.13 = private unnamed_addr constant [95 x i8] c"SELECT op_params, name FROM data.presets WHERE operation='ioporder' ORDER BY writeprotect DESC\00", align 1
+@stderr = external global ptr, align 8
+@.str.14 = private unnamed_addr constant [53 x i8] c"sqlite3 error: %s:%d, function %s(), query \22%s\22: %s\0A\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @dt_module_dt_version() local_unnamed_addr #0 {
+; Function Attrs: nounwind uwtable
+define i32 @dt_module_dt_version() #0 {
   ret i32 25
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
+; Function Attrs: nounwind uwtable
+define i32 @dt_module_mod_version() #0 {
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #9
-  ret ptr %2
+define ptr @name(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str, i32 noundef 5) #6
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind
-declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind uwtable
+define i32 @views(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
   ret i32 2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind uwtable
+define i32 @container(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
   ret i32 5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind uwtable
+define i32 @position(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
   ret i32 880
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @update(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
-  %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
-  %6 = load ptr, ptr %5, align 8, !tbaa !13
-  %7 = getelementptr inbounds i8, ptr %6, i64 2080
-  %8 = load ptr, ptr %7, align 16, !tbaa !23
-  %9 = tail call i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef %8) #9
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %66
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = call noalias ptr @malloc(i64 noundef 16) #7
+  store ptr %4, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = load ptr, ptr %2, align 8, !tbaa !6
+  %7 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %6, i32 0, i32 30
+  store ptr %5, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %3, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.dt_lib_ioporder_t, ptr %8, i32 0, i32 0
+  store i32 -1, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.dt_lib_ioporder_t, ptr %10, i32 0, i32 1
+  store ptr null, ptr %11, align 8, !tbaa !24
+  br label %12
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
-  %13 = load ptr, ptr %12, align 8, !tbaa !13
-  %14 = getelementptr inbounds i8, ptr %13, i64 2080
-  %15 = load ptr, ptr %14, align 16, !tbaa !23
-  %16 = tail call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %15) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  %17 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
-  %18 = load i32, ptr %17, align 8, !tbaa !45
-  %19 = and i32 %18, 256
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %22, label %21
+12:                                               ; preds = %1
+  %13 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 53), align 8, !tbaa !25
+  %14 = and i32 %13, 2
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %33
 
-21:                                               ; preds = %11
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 78, ptr noundef nonnull @__FUNCTION__.update, ptr noundef nonnull @.str.3) #9
-  br label %22
+16:                                               ; preds = %12
+  %17 = load i32, ptr getelementptr inbounds ([47 x i32], ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 54), i64 0, i64 29), align 4, !tbaa !61
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %33
 
-22:                                               ; preds = %21, %11
-  %23 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
-  %24 = load ptr, ptr %23, align 8, !tbaa !46
-  %25 = tail call ptr @dt_database_get(ptr noundef %24) #9
-  %26 = call i32 @sqlite3_prepare_v2(ptr noundef %25, ptr noundef nonnull @.str.3, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #9
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %35, label %28
+19:                                               ; preds = %16
+  br label %20
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !47
-  %30 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
-  %31 = load ptr, ptr %30, align 8, !tbaa !46
-  %32 = call ptr @dt_database_get(ptr noundef %31) #9
-  %33 = call ptr @sqlite3_errmsg(ptr noundef %32) #9
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 78, ptr noundef nonnull @__FUNCTION__.update, ptr noundef nonnull @.str.3, ptr noundef %33) #10
-  br label %35
+20:                                               ; preds = %19
+  %21 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !62
+  %22 = and i32 1048576, %21
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %30
 
-35:                                               ; preds = %28, %22
-  %36 = load ptr, ptr %2, align 8, !tbaa !47
-  %37 = call i32 @sqlite3_step(ptr noundef %36) #9
-  %38 = icmp eq i32 %37, 100
-  br i1 %38, label %39, label %60
-
-39:                                               ; preds = %56, %35
-  %40 = phi i32 [ %50, %56 ], [ 0, %35 ]
-  %41 = load ptr, ptr %2, align 8, !tbaa !47
-  %42 = call ptr @sqlite3_column_blob(ptr noundef %41, i32 noundef 0) #9
-  %43 = load ptr, ptr %2, align 8, !tbaa !47
-  %44 = call i32 @sqlite3_column_bytes(ptr noundef %43, i32 noundef 0) #9
-  %45 = load ptr, ptr %2, align 8, !tbaa !47
-  %46 = call ptr @sqlite3_column_text(ptr noundef %45, i32 noundef 1) #9
-  %47 = sext i32 %44 to i64
-  %48 = call ptr @dt_ioppr_deserialize_iop_order_list(ptr noundef %42, i64 noundef %47) #9
-  %49 = call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %48) #9
-  call void @g_list_free(ptr noundef %48) #9
-  %50 = add nuw nsw i32 %40, 1
-  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %49) #11
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %56
-
-53:                                               ; preds = %39
-  call void @dt_lib_gui_set_label(ptr noundef %0, ptr noundef %46) #9
-  store i32 %50, ptr %4, align 8, !tbaa !48
-  call void @g_free(ptr noundef %49) #9
-  %54 = load ptr, ptr %2, align 8, !tbaa !47
-  %55 = call i32 @sqlite3_finalize(ptr noundef %54) #9
-  call void @g_free(ptr noundef %16) #9
-  br label %65
-
-56:                                               ; preds = %39
-  call void @g_free(ptr noundef %49) #9
-  %57 = load ptr, ptr %2, align 8, !tbaa !47
-  %58 = call i32 @sqlite3_step(ptr noundef %57) #9
-  %59 = icmp eq i32 %58, 100
-  br i1 %59, label %39, label %60
-
-60:                                               ; preds = %56, %35
-  %61 = load ptr, ptr %2, align 8, !tbaa !47
-  %62 = call i32 @sqlite3_finalize(ptr noundef %61) #9
-  call void @g_free(ptr noundef %16) #9
-  store i32 0, ptr %4, align 8, !tbaa !48
-  %63 = call ptr @dt_iop_order_string(i32 noundef 0) #9
-  %64 = call ptr @dcgettext(ptr noundef null, ptr noundef %63, i32 noundef 5) #9
-  call void @dt_lib_gui_set_label(ptr noundef %0, ptr noundef %64) #9
-  br label %65
-
-65:                                               ; preds = %60, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  br label %69
-
-66:                                               ; preds = %1
-  store i32 %9, ptr %4, align 8, !tbaa !48
-  %67 = tail call ptr @dt_iop_order_string(i32 noundef %9) #9
-  %68 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %67, i32 noundef 5) #9
-  tail call void @dt_lib_gui_set_label(ptr noundef nonnull %0, ptr noundef %68) #9
-  br label %69
-
-69:                                               ; preds = %66, %65
-  ret void
-}
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
-
-declare i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef) local_unnamed_addr #4
-
-declare ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef) local_unnamed_addr #4
-
-declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #4
-
-declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
-
-declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
-
-declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #4
-
-declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare ptr @dt_ioppr_deserialize_iop_order_list(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-declare void @g_list_free(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
-
-declare void @dt_lib_gui_set_label(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare void @g_free(ptr noundef) local_unnamed_addr #4
-
-declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #4
-
-declare ptr @dt_iop_order_string(i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
-  store ptr %2, ptr %3, align 8, !tbaa !6
-  %4 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr %4, ptr %5, align 8, !tbaa !50
-  %6 = getelementptr inbounds i8, ptr %0, i64 476
-  store i32 1, ptr %6, align 4, !tbaa !51
-  store i32 -1, ptr %2, align 8, !tbaa !48
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !52
-  %8 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
-  %9 = load i32, ptr %8, align 8, !tbaa !53
-  %10 = and i32 %9, 2
-  %11 = icmp ne i32 %10, 0
-  %12 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 29
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp ne i32 %13, 0
-  %15 = select i1 %11, i1 %14, i1 false
-  br i1 %15, label %16, label %22
-
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
-  %18 = load i32, ptr %17, align 8, !tbaa !45
-  %19 = and i32 %18, 1048576
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %22, label %21
-
-21:                                               ; preds = %16
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 142, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
-  br label %22
-
-22:                                               ; preds = %21, %16, %1
-  %23 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
-  %24 = load ptr, ptr %23, align 8, !tbaa !54
-  tail call void @dt_control_signal_connect(ptr noundef %24, i32 noundef 29, ptr noundef nonnull @_image_loaded_callback, ptr noundef nonnull %0) #9
-  %25 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
-  %26 = load i32, ptr %25, align 8, !tbaa !53
-  %27 = and i32 %26, 2
+24:                                               ; preds = %20
+  %25 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !62
+  %26 = xor i32 %25, -1
+  %27 = and i32 0, %26
   %28 = icmp ne i32 %27, 0
-  %29 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 19
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp ne i32 %30, 0
-  %32 = select i1 %28, i1 %31, i1 false
-  br i1 %32, label %33, label %39
+  br i1 %28, label %30, label %29
 
-33:                                               ; preds = %22
-  %34 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
-  %35 = load i32, ptr %34, align 8, !tbaa !45
-  %36 = and i32 %35, 1048576
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %39, label %38
+29:                                               ; preds = %24
+  call void (ptr, ...) @dt_print_ext(ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 140, ptr noundef @__FUNCTION__.gui_init)
+  br label %30
 
-38:                                               ; preds = %33
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 144, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #9
-  br label %39
+30:                                               ; preds = %29, %24, %20
+  br label %31
 
-39:                                               ; preds = %38, %33, %22
-  %40 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
-  %41 = load ptr, ptr %40, align 8, !tbaa !54
-  tail call void @dt_control_signal_connect(ptr noundef %41, i32 noundef 19, ptr noundef nonnull @_image_loaded_callback, ptr noundef nonnull %0) #9
-  %42 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
-  %43 = load i32, ptr %42, align 8, !tbaa !53
-  %44 = and i32 %43, 2
-  %45 = icmp ne i32 %44, 0
-  %46 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 25
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp ne i32 %47, 0
-  %49 = select i1 %45, i1 %48, i1 false
+31:                                               ; preds = %30
+  br label %32
+
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32, %16, %12
+  %34 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 13), align 8, !tbaa !63
+  %35 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dt_control_signal_connect(ptr noundef %34, i32 noundef 29, ptr noundef @_image_loaded_callback, ptr noundef %35)
+  br label %36
+
+36:                                               ; preds = %33
+  br label %37
+
+37:                                               ; preds = %36
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 53), align 8, !tbaa !25
+  %40 = and i32 %39, 2
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %59
+
+42:                                               ; preds = %38
+  %43 = load i32, ptr getelementptr inbounds ([47 x i32], ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 54), i64 0, i64 19), align 4, !tbaa !61
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %59
+
+45:                                               ; preds = %42
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !62
+  %48 = and i32 1048576, %47
+  %49 = icmp ne i32 %48, 0
   br i1 %49, label %50, label %56
 
-50:                                               ; preds = %39
-  %51 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
-  %52 = load i32, ptr %51, align 8, !tbaa !45
-  %53 = and i32 %52, 1048576
-  %54 = icmp eq i32 %53, 0
+50:                                               ; preds = %46
+  %51 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !62
+  %52 = xor i32 %51, -1
+  %53 = and i32 0, %52
+  %54 = icmp ne i32 %53, 0
   br i1 %54, label %56, label %55
 
 55:                                               ; preds = %50
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 146, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9) #9
+  call void (ptr, ...) @dt_print_ext(ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.5, ptr noundef @.str.4, i32 noundef 141, ptr noundef @__FUNCTION__.gui_init)
   br label %56
 
-56:                                               ; preds = %55, %50, %39
-  %57 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
-  %58 = load ptr, ptr %57, align 8, !tbaa !54
-  tail call void @dt_control_signal_connect(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @_image_loaded_callback, ptr noundef nonnull %0) #9
+56:                                               ; preds = %55, %50, %46
+  br label %57
+
+57:                                               ; preds = %56
+  br label %58
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58, %42, %38
+  %60 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 13), align 8, !tbaa !63
+  %61 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dt_control_signal_connect(ptr noundef %60, i32 noundef 19, ptr noundef @_image_loaded_callback, ptr noundef %61)
+  br label %62
+
+62:                                               ; preds = %59
+  br label %63
+
+63:                                               ; preds = %62
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 53), align 8, !tbaa !25
+  %66 = and i32 %65, 2
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %85
+
+68:                                               ; preds = %64
+  %69 = load i32, ptr getelementptr inbounds ([47 x i32], ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 54), i64 0, i64 25), align 4, !tbaa !61
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %85
+
+71:                                               ; preds = %68
+  br label %72
+
+72:                                               ; preds = %71
+  %73 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !62
+  %74 = and i32 1048576, %73
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %82
+
+76:                                               ; preds = %72
+  %77 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !62
+  %78 = xor i32 %77, -1
+  %79 = and i32 0, %78
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %82, label %81
+
+81:                                               ; preds = %76
+  call void (ptr, ...) @dt_print_ext(ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.6, ptr noundef @.str.4, i32 noundef 142, ptr noundef @__FUNCTION__.gui_init)
+  br label %82
+
+82:                                               ; preds = %81, %76, %72
+  br label %83
+
+83:                                               ; preds = %82
+  br label %84
+
+84:                                               ; preds = %83
+  br label %85
+
+85:                                               ; preds = %84, %68, %64
+  %86 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 13), align 8, !tbaa !63
+  %87 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dt_control_signal_connect(ptr noundef %86, i32 noundef 25, ptr noundef @_image_loaded_callback, ptr noundef %87)
+  br label %88
+
+88:                                               ; preds = %85
+  br label %89
+
+89:                                               ; preds = %88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #4
+; Function Attrs: nounwind allocsize(0)
+declare noalias ptr @malloc(i64 noundef) #3
 
-declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @dt_print_ext(ptr noundef, ...) #4
+
+declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_image_loaded_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = tail call i32 @dt_view_get_current() #9
-  %4 = icmp eq i32 %3, 2
-  br i1 %4, label %5, label %6
+define internal void @_image_loaded_callback(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !64
+  store ptr %1, ptr %4, align 8, !tbaa !6
+  %5 = call i32 @dt_view_get_current()
+  %6 = icmp eq i32 %5, 2
+  br i1 %6, label %7, label %9
 
-5:                                                ; preds = %2
-  tail call void @update(ptr noundef %1)
-  br label %6
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !6
+  call void @_update(ptr noundef %8)
+  br label %9
 
-6:                                                ; preds = %5, %2
+9:                                                ; preds = %7, %2
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+define void @gui_cleanup(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  tail call void @free(ptr noundef %3) #9
-  store ptr null, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
-  %5 = load i32, ptr %4, align 8, !tbaa !53
-  %6 = and i32 %5, 4
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %14, label %8
+  %4 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %3, i32 0, i32 30
+  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  call void @free(ptr noundef %5) #6
+  %6 = load ptr, ptr %2, align 8, !tbaa !6
+  %7 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %6, i32 0, i32 30
+  store ptr null, ptr %7, align 8, !tbaa !13
+  ret void
+}
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
-  %10 = load i32, ptr %9, align 8, !tbaa !45
-  %11 = and i32 %10, 1048576
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %14, label %13
+; Function Attrs: nounwind
+declare void @free(ptr noundef) #1
 
-13:                                               ; preds = %8
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 154, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.6) #9
-  br label %14
+; Function Attrs: nounwind uwtable
+define void @gui_reset(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %8 = load ptr, ptr %2, align 8, !tbaa !6
+  %9 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %8, i32 0, i32 30
+  %10 = load ptr, ptr %9, align 8, !tbaa !13
+  store ptr %10, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  %11 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  %12 = getelementptr inbounds nuw %struct.dt_develop_t, ptr %11, i32 0, i32 18
+  %13 = call i32 @dt_image_is_ldr(ptr noundef %12)
+  store i32 %13, ptr %4, align 4, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %14 = load i32, ptr %4, align 4, !tbaa !61
+  %15 = icmp ne i32 %14, 0
+  %16 = select i1 %15, i32 5, i32 4
+  store i32 %16, ptr %5, align 4, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %17 = load i32, ptr %5, align 4, !tbaa !61
+  %18 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef %17)
+  store ptr %18, ptr %6, align 8, !tbaa !66
+  %19 = load ptr, ptr %6, align 8, !tbaa !66
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %40
 
-14:                                               ; preds = %13, %8, %1
-  %15 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
-  %16 = load ptr, ptr %15, align 8, !tbaa !54
-  tail call void @dt_control_signal_disconnect(ptr noundef %16, ptr noundef nonnull @_image_loaded_callback, ptr noundef nonnull %0) #9
-  %17 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
-  %18 = load i32, ptr %17, align 8, !tbaa !53
-  %19 = and i32 %18, 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %27, label %21
-
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
-  %23 = load i32, ptr %22, align 8, !tbaa !45
-  %24 = and i32 %23, 1048576
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %27, label %26
-
-26:                                               ; preds = %21
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 156, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.6) #9
-  br label %27
-
-27:                                               ; preds = %26, %21, %14
-  %28 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
-  %29 = load ptr, ptr %28, align 8, !tbaa !54
-  tail call void @dt_control_signal_disconnect(ptr noundef %29, ptr noundef nonnull @_image_loaded_callback, ptr noundef nonnull %0) #9
-  %30 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
-  %31 = load i32, ptr %30, align 8, !tbaa !53
-  %32 = and i32 %31, 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %40, label %34
-
-34:                                               ; preds = %27
-  %35 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
-  %36 = load i32, ptr %35, align 8, !tbaa !45
-  %37 = and i32 %36, 1048576
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %40, label %39
-
-39:                                               ; preds = %34
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 158, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.6) #9
+21:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %22 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  %23 = getelementptr inbounds nuw %struct.dt_develop_t, ptr %22, i32 0, i32 18
+  %24 = getelementptr inbounds nuw %struct.dt_image_t, ptr %23, i32 0, i32 40
+  %25 = load i32, ptr %24, align 8, !tbaa !67
+  store i32 %25, ptr %7, align 4, !tbaa !61
+  %26 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  %27 = load i32, ptr %7, align 4, !tbaa !61
+  %28 = load ptr, ptr %6, align 8, !tbaa !66
+  call void @dt_ioppr_change_iop_order(ptr noundef %26, i32 noundef %27, ptr noundef %28)
+  %29 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  call void @dt_dev_pixelpipe_rebuild(ptr noundef %29)
+  %30 = load i32, ptr %5, align 4, !tbaa !61
+  %31 = load ptr, ptr %3, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.dt_lib_ioporder_t, ptr %31, i32 0, i32 0
+  store i32 %30, ptr %32, align 8, !tbaa !21
+  %33 = load ptr, ptr %2, align 8, !tbaa !6
+  %34 = load ptr, ptr %3, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.dt_lib_ioporder_t, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %35, align 8, !tbaa !21
+  %37 = call ptr @dt_iop_order_string(i32 noundef %36)
+  %38 = call ptr @dcgettext(ptr noundef null, ptr noundef %37, i32 noundef 5) #6
+  call void @dt_lib_gui_set_label(ptr noundef %33, ptr noundef %38)
+  %39 = load ptr, ptr %6, align 8, !tbaa !66
+  call void @g_list_free_full(ptr noundef %39, ptr noundef @free)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
   br label %40
 
-40:                                               ; preds = %39, %34, %27
-  %41 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
-  %42 = load ptr, ptr %41, align 8, !tbaa !54
-  tail call void @dt_control_signal_disconnect(ptr noundef %42, ptr noundef nonnull @_image_loaded_callback, ptr noundef nonnull %0) #9
+40:                                               ; preds = %21, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #8
+declare i32 @dt_image_is_ldr(ptr noundef) #4
 
-declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @dt_ioppr_get_iop_order_list_version(i32 noundef) #4
 
-; Function Attrs: nounwind uwtable
-define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
-  %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = tail call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 2) #9
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %15, label %6
+declare void @dt_ioppr_change_iop_order(ptr noundef, i32 noundef, ptr noundef) #4
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
-  %8 = load ptr, ptr %7, align 8, !tbaa !13
-  %9 = getelementptr inbounds i8, ptr %8, i64 1544
-  %10 = load i32, ptr %9, align 8, !tbaa !55
-  tail call void @dt_ioppr_change_iop_order(ptr noundef %8, i32 noundef %10, ptr noundef nonnull %4) #9
-  %11 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
-  %12 = load ptr, ptr %11, align 8, !tbaa !13
-  tail call void @dt_dev_pixelpipe_rebuild(ptr noundef %12) #9
-  store i32 2, ptr %3, align 8, !tbaa !48
-  %13 = tail call ptr @dt_iop_order_string(i32 noundef 2) #9
-  %14 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %13, i32 noundef 5) #9
-  tail call void @dt_lib_gui_set_label(ptr noundef nonnull %0, ptr noundef %14) #9
-  tail call void @g_list_free_full(ptr noundef nonnull %4, ptr noundef nonnull @free) #9
-  br label %15
+declare void @dt_dev_pixelpipe_rebuild(ptr noundef) #4
 
-15:                                               ; preds = %6, %1
-  ret void
-}
+declare void @dt_lib_gui_set_label(ptr noundef, ptr noundef) #4
 
-declare ptr @dt_ioppr_get_iop_order_list_version(i32 noundef) local_unnamed_addr #4
+declare ptr @dt_iop_order_string(i32 noundef) #4
 
-declare void @dt_ioppr_change_iop_order(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
-
-declare void @dt_dev_pixelpipe_rebuild(ptr noundef) local_unnamed_addr #4
-
-declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @g_list_free_full(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  store i64 0, ptr %2, align 8, !tbaa !56
-  %3 = getelementptr inbounds i8, ptr %0, i64 472
-  store i32 1, ptr %3, align 8, !tbaa !57
-  %4 = tail call i32 @dt_is_display_referred() #9
-  %5 = tail call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 1) #9
-  %6 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %5, ptr noundef nonnull %2) #9
-  %7 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 288
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !58
-  %11 = call i32 (...) %10() #9
-  %12 = load i64, ptr %2, align 8, !tbaa !56
-  %13 = trunc i64 %12 to i32
-  %14 = icmp eq i32 %4, 0
-  %15 = select i1 %14, i32 0, i32 3
-  call void @dt_lib_presets_add(ptr noundef %7, ptr noundef nonnull %8, i32 noundef %11, ptr noundef %6, i32 noundef %13, i32 noundef 1, i32 noundef %15) #9
-  call void @free(ptr noundef %6) #9
-  %16 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 2) #9
-  %17 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %16, ptr noundef nonnull %2) #9
-  %18 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #9
-  %19 = load ptr, ptr %9, align 8, !tbaa !58
-  %20 = call i32 (...) %19() #9
-  %21 = load i64, ptr %2, align 8, !tbaa !56
-  %22 = trunc i64 %21 to i32
-  %23 = select i1 %14, i32 34, i32 0
-  call void @dt_lib_presets_add(ptr noundef %18, ptr noundef nonnull %8, i32 noundef %20, ptr noundef %17, i32 noundef %22, i32 noundef 1, i32 noundef %23) #9
-  %24 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 3) #9
-  %25 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %24, ptr noundef nonnull %2) #9
-  %26 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #9
-  %27 = load ptr, ptr %9, align 8, !tbaa !58
-  %28 = call i32 (...) %27() #9
-  %29 = load i64, ptr %2, align 8, !tbaa !56
-  %30 = trunc i64 %29 to i32
-  %31 = select i1 %14, i32 9, i32 0
-  call void @dt_lib_presets_add(ptr noundef %26, ptr noundef nonnull %8, i32 noundef %28, ptr noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef %31) #9
-  call void @free(ptr noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  ret void
-}
-
-declare i32 @dt_is_display_referred() local_unnamed_addr #4
-
-declare ptr @dt_ioppr_serialize_iop_order_list(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare void @dt_lib_presets_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = icmp eq ptr %1, null
-  br i1 %4, label %16, label %5
-
-5:                                                ; preds = %3
-  %6 = sext i32 %2 to i64
-  %7 = tail call ptr @dt_ioppr_deserialize_iop_order_list(ptr noundef nonnull %1, i64 noundef %6) #9
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %16, label %9
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
-  %11 = load ptr, ptr %10, align 8, !tbaa !13
-  %12 = getelementptr inbounds i8, ptr %11, i64 1544
-  %13 = load i32, ptr %12, align 8, !tbaa !55
-  tail call void @dt_ioppr_change_iop_order(ptr noundef %11, i32 noundef %13, ptr noundef nonnull %7) #9
-  %14 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
-  %15 = load ptr, ptr %14, align 8, !tbaa !13
-  tail call void @dt_dev_pixelpipe_rebuild(ptr noundef %15) #9
-  tail call void @update(ptr noundef %0)
-  tail call void @g_list_free_full(ptr noundef nonnull %7, ptr noundef nonnull @free) #9
-  br label %16
-
-16:                                               ; preds = %9, %5, %3
-  %17 = phi i32 [ 1, %3 ], [ 0, %9 ], [ 1, %5 ]
-  ret i32 %17
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @init_presets(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store i64 0, ptr %3, align 8, !tbaa !56
-  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
-  %5 = load ptr, ptr %4, align 8, !tbaa !13
-  %6 = getelementptr inbounds i8, ptr %5, i64 2080
-  %7 = load ptr, ptr %6, align 16, !tbaa !23
-  %8 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %7, ptr noundef nonnull %3) #9
-  %9 = load i64, ptr %3, align 8, !tbaa !56
-  %10 = trunc i64 %9 to i32
-  store i32 %10, ptr %1, align 4, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  ret ptr %8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  store i64 0, ptr %3, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  store ptr null, ptr %4, align 8, !tbaa !96
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %7 = load ptr, ptr %2, align 8, !tbaa !6
+  %8 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %7, i32 0, i32 38
+  store i32 1, ptr %8, align 8, !tbaa !97
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %9 = call i32 @dt_is_display_referred()
+  store i32 %9, ptr %6, align 4, !tbaa !61
+  %10 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 1)
+  store ptr %10, ptr %5, align 8, !tbaa !66
+  %11 = load ptr, ptr %5, align 8, !tbaa !66
+  %12 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %11, ptr noundef %3)
+  store ptr %12, ptr %4, align 8, !tbaa !96
+  %13 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.7, i32 noundef 5) #6
+  %14 = load ptr, ptr %2, align 8, !tbaa !6
+  %15 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %14, i32 0, i32 31
+  %16 = getelementptr inbounds [128 x i8], ptr %15, i64 0, i64 0
+  %17 = load ptr, ptr %2, align 8, !tbaa !6
+  %18 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !98
+  %20 = call i32 (...) %19()
+  %21 = load ptr, ptr %4, align 8, !tbaa !96
+  %22 = load i64, ptr %3, align 8, !tbaa !95
+  %23 = trunc i64 %22 to i32
+  %24 = load i32, ptr %6, align 4, !tbaa !61
+  %25 = icmp ne i32 %24, 0
+  %26 = select i1 %25, i32 3, i32 0
+  call void @dt_lib_presets_add(ptr noundef %13, ptr noundef %16, i32 noundef %20, ptr noundef %21, i32 noundef %23, i32 noundef 1, i32 noundef %26)
+  %27 = load ptr, ptr %4, align 8, !tbaa !96
+  call void @free(ptr noundef %27) #6
+  %28 = load ptr, ptr %5, align 8, !tbaa !66
+  call void @dt_ioppr_iop_order_list_free(ptr noundef %28)
+  %29 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 2)
+  store ptr %29, ptr %5, align 8, !tbaa !66
+  %30 = load ptr, ptr %5, align 8, !tbaa !66
+  %31 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %30, ptr noundef %3)
+  store ptr %31, ptr %4, align 8, !tbaa !96
+  %32 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.8, i32 noundef 5) #6
+  %33 = load ptr, ptr %2, align 8, !tbaa !6
+  %34 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %33, i32 0, i32 31
+  %35 = getelementptr inbounds [128 x i8], ptr %34, i64 0, i64 0
+  %36 = load ptr, ptr %2, align 8, !tbaa !6
+  %37 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !98
+  %39 = call i32 (...) %38()
+  %40 = load ptr, ptr %4, align 8, !tbaa !96
+  %41 = load i64, ptr %3, align 8, !tbaa !95
+  %42 = trunc i64 %41 to i32
+  call void @dt_lib_presets_add(ptr noundef %32, ptr noundef %35, i32 noundef %39, ptr noundef %40, i32 noundef %42, i32 noundef 1, i32 noundef 0)
+  %43 = load ptr, ptr %4, align 8, !tbaa !96
+  call void @free(ptr noundef %43) #6
+  %44 = load ptr, ptr %5, align 8, !tbaa !66
+  call void @dt_ioppr_iop_order_list_free(ptr noundef %44)
+  %45 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 3)
+  store ptr %45, ptr %5, align 8, !tbaa !66
+  %46 = load ptr, ptr %5, align 8, !tbaa !66
+  %47 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %46, ptr noundef %3)
+  store ptr %47, ptr %4, align 8, !tbaa !96
+  %48 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.9, i32 noundef 5) #6
+  %49 = load ptr, ptr %2, align 8, !tbaa !6
+  %50 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %49, i32 0, i32 31
+  %51 = getelementptr inbounds [128 x i8], ptr %50, i64 0, i64 0
+  %52 = load ptr, ptr %2, align 8, !tbaa !6
+  %53 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !98
+  %55 = call i32 (...) %54()
+  %56 = load ptr, ptr %4, align 8, !tbaa !96
+  %57 = load i64, ptr %3, align 8, !tbaa !95
+  %58 = trunc i64 %57 to i32
+  call void @dt_lib_presets_add(ptr noundef %48, ptr noundef %51, i32 noundef %55, ptr noundef %56, i32 noundef %58, i32 noundef 1, i32 noundef 0)
+  %59 = load ptr, ptr %4, align 8, !tbaa !96
+  call void @free(ptr noundef %59) #6
+  %60 = load ptr, ptr %5, align 8, !tbaa !66
+  call void @dt_ioppr_iop_order_list_free(ptr noundef %60)
+  %61 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 4)
+  store ptr %61, ptr %5, align 8, !tbaa !66
+  %62 = load ptr, ptr %5, align 8, !tbaa !66
+  %63 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %62, ptr noundef %3)
+  store ptr %63, ptr %4, align 8, !tbaa !96
+  %64 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.10, i32 noundef 5) #6
+  %65 = load ptr, ptr %2, align 8, !tbaa !6
+  %66 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %65, i32 0, i32 31
+  %67 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 0
+  %68 = load ptr, ptr %2, align 8, !tbaa !6
+  %69 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !98
+  %71 = call i32 (...) %70()
+  %72 = load ptr, ptr %4, align 8, !tbaa !96
+  %73 = load i64, ptr %3, align 8, !tbaa !95
+  %74 = trunc i64 %73 to i32
+  %75 = load i32, ptr %6, align 4, !tbaa !61
+  %76 = icmp ne i32 %75, 0
+  %77 = select i1 %76, i32 0, i32 34
+  call void @dt_lib_presets_add(ptr noundef %64, ptr noundef %67, i32 noundef %71, ptr noundef %72, i32 noundef %74, i32 noundef 1, i32 noundef %77)
+  %78 = load ptr, ptr %4, align 8, !tbaa !96
+  call void @free(ptr noundef %78) #6
+  %79 = load ptr, ptr %5, align 8, !tbaa !66
+  call void @dt_ioppr_iop_order_list_free(ptr noundef %79)
+  %80 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 5)
+  store ptr %80, ptr %5, align 8, !tbaa !66
+  %81 = load ptr, ptr %5, align 8, !tbaa !66
+  %82 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %81, ptr noundef %3)
+  store ptr %82, ptr %4, align 8, !tbaa !96
+  %83 = call ptr @dcgettext(ptr noundef null, ptr noundef @.str.11, i32 noundef 5) #6
+  %84 = load ptr, ptr %2, align 8, !tbaa !6
+  %85 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %84, i32 0, i32 31
+  %86 = getelementptr inbounds [128 x i8], ptr %85, i64 0, i64 0
+  %87 = load ptr, ptr %2, align 8, !tbaa !6
+  %88 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !98
+  %90 = call i32 (...) %89()
+  %91 = load ptr, ptr %4, align 8, !tbaa !96
+  %92 = load i64, ptr %3, align 8, !tbaa !95
+  %93 = trunc i64 %92 to i32
+  %94 = load i32, ptr %6, align 4, !tbaa !61
+  %95 = icmp ne i32 %94, 0
+  %96 = select i1 %95, i32 0, i32 9
+  call void @dt_lib_presets_add(ptr noundef %83, ptr noundef %86, i32 noundef %90, ptr noundef %91, i32 noundef %93, i32 noundef 1, i32 noundef %96)
+  %97 = load ptr, ptr %4, align 8, !tbaa !96
+  call void @free(ptr noundef %97) #6
+  %98 = load ptr, ptr %5, align 8, !tbaa !66
+  call void @dt_ioppr_iop_order_list_free(ptr noundef %98)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @preset_autoapply(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+declare i32 @dt_is_display_referred() #4
+
+declare ptr @dt_ioppr_serialize_iop_order_list(ptr noundef, ptr noundef) #4
+
+declare void @dt_lib_presets_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #4
+
+declare void @dt_ioppr_iop_order_list_free(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !64
+  store i32 %2, ptr %7, align 4, !tbaa !61
+  %11 = load ptr, ptr %6, align 8, !tbaa !64
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %3
+  store i32 1, ptr %4, align 4
+  br label %34
+
+14:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %15 = load ptr, ptr %6, align 8, !tbaa !64
+  %16 = load i32, ptr %7, align 4, !tbaa !61
+  %17 = sext i32 %16 to i64
+  %18 = call ptr @dt_ioppr_deserialize_iop_order_list(ptr noundef %15, i64 noundef %17)
+  store ptr %18, ptr %8, align 8, !tbaa !66
+  %19 = load ptr, ptr %8, align 8, !tbaa !66
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %22 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  %23 = getelementptr inbounds nuw %struct.dt_develop_t, ptr %22, i32 0, i32 18
+  %24 = getelementptr inbounds nuw %struct.dt_image_t, ptr %23, i32 0, i32 40
+  %25 = load i32, ptr %24, align 8, !tbaa !67
+  store i32 %25, ptr %9, align 4, !tbaa !61
+  %26 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  %27 = load i32, ptr %9, align 4, !tbaa !61
+  %28 = load ptr, ptr %8, align 8, !tbaa !66
+  call void @dt_ioppr_change_iop_order(ptr noundef %26, i32 noundef %27, ptr noundef %28)
+  %29 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  call void @dt_dev_pixelpipe_rebuild(ptr noundef %29)
+  %30 = load ptr, ptr %5, align 8, !tbaa !6
+  call void @_update(ptr noundef %30)
+  %31 = load ptr, ptr %8, align 8, !tbaa !66
+  call void @g_list_free_full(ptr noundef %31, ptr noundef @free)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  br label %33
+
+32:                                               ; preds = %14
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %33
+
+33:                                               ; preds = %32, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %34
+
+34:                                               ; preds = %33, %13
+  %35 = load i32, ptr %4, align 4
+  ret i32 %35
+}
+
+declare ptr @dt_ioppr_deserialize_iop_order_list(ptr noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal void @_update(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %16 = load ptr, ptr %2, align 8, !tbaa !6
+  %17 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %16, i32 0, i32 30
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  store ptr %18, ptr %3, align 8, !tbaa !11
+  %19 = load ptr, ptr %2, align 8, !tbaa !6
+  %20 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %19, i32 0, i32 35
+  %21 = load ptr, ptr %20, align 8, !tbaa !99
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %27
+
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %2, align 8, !tbaa !6
+  %25 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %24, i32 0, i32 35
+  %26 = load ptr, ptr %25, align 8, !tbaa !99
+  call void @gtk_widget_destroy(ptr noundef %26)
+  br label %27
+
+27:                                               ; preds = %23, %1
+  %28 = load ptr, ptr %2, align 8, !tbaa !6
+  %29 = getelementptr inbounds nuw %struct.dt_lib_module_t, ptr %28, i32 0, i32 35
+  store ptr null, ptr %29, align 8, !tbaa !99
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  %30 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  %31 = getelementptr inbounds nuw %struct.dt_develop_t, ptr %30, i32 0, i32 30
+  %32 = load ptr, ptr %31, align 16, !tbaa !100
+  %33 = call i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef %32)
+  store i32 %33, ptr %4, align 4, !tbaa !61
+  %34 = load i32, ptr %4, align 4, !tbaa !61
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %121
+
+36:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %37 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  %38 = getelementptr inbounds nuw %struct.dt_develop_t, ptr %37, i32 0, i32 30
+  %39 = load ptr, ptr %38, align 16, !tbaa !100
+  %40 = call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %39)
+  store ptr %40, ptr %5, align 8, !tbaa !96
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  store i32 0, ptr %6, align 4, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  store i32 0, ptr %7, align 4, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  br label %41
+
+41:                                               ; preds = %36
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !62
+  %44 = and i32 256, %43
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %52
+
+46:                                               ; preds = %42
+  %47 = load i32, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 2), align 8, !tbaa !62
+  %48 = xor i32 %47, -1
+  %49 = and i32 0, %48
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %52, label %51
+
+51:                                               ; preds = %46
+  call void (ptr, ...) @dt_print_ext(ptr noundef @.str.12, ptr noundef @.str.4, i32 noundef 81, ptr noundef @__FUNCTION__._update, ptr noundef @.str.13)
+  br label %52
+
+52:                                               ; preds = %51, %46, %42
+  br label %53
+
+53:                                               ; preds = %52
+  br label %54
+
+54:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %55 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 18), align 8, !tbaa !101
+  %56 = call ptr @dt_database_get(ptr noundef %55)
+  %57 = call i32 @sqlite3_prepare_v2(ptr noundef %56, ptr noundef @.str.13, i32 noundef -1, ptr noundef %8, ptr noundef null)
+  store i32 %57, ptr %9, align 4, !tbaa !61
+  %58 = load i32, ptr %9, align 4, !tbaa !61
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %66
+
+60:                                               ; preds = %54
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !102
+  %62 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 18), align 8, !tbaa !101
+  %63 = call ptr @dt_database_get(ptr noundef %62)
+  %64 = call ptr @sqlite3_errmsg(ptr noundef %63)
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.14, ptr noundef @.str.4, i32 noundef 81, ptr noundef @__FUNCTION__._update, ptr noundef @.str.13, ptr noundef %64) #6
+  br label %66
+
+66:                                               ; preds = %60, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  br label %67
+
+67:                                               ; preds = %66
+  br label %68
+
+68:                                               ; preds = %67
+  br label %69
+
+69:                                               ; preds = %104, %68
+  %70 = load ptr, ptr %8, align 8, !tbaa !104
+  %71 = call i32 @sqlite3_step(ptr noundef %70)
+  %72 = icmp eq i32 %71, 100
+  br i1 %72, label %73, label %105
+
+73:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %74 = load ptr, ptr %8, align 8, !tbaa !104
+  %75 = call ptr @sqlite3_column_blob(ptr noundef %74, i32 noundef 0)
+  store ptr %75, ptr %10, align 8, !tbaa !96
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %76 = load ptr, ptr %8, align 8, !tbaa !104
+  %77 = call i32 @sqlite3_column_bytes(ptr noundef %76, i32 noundef 0)
+  store i32 %77, ptr %11, align 4, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %78 = load ptr, ptr %8, align 8, !tbaa !104
+  %79 = call ptr @sqlite3_column_text(ptr noundef %78, i32 noundef 1)
+  store ptr %79, ptr %12, align 8, !tbaa !96
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %80 = load ptr, ptr %10, align 8, !tbaa !96
+  %81 = load i32, ptr %11, align 4, !tbaa !61
+  %82 = sext i32 %81 to i64
+  %83 = call ptr @dt_ioppr_deserialize_iop_order_list(ptr noundef %80, i64 noundef %82)
+  store ptr %83, ptr %13, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %84 = load ptr, ptr %13, align 8, !tbaa !66
+  %85 = call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %84)
+  store ptr %85, ptr %14, align 8, !tbaa !96
+  %86 = load ptr, ptr %13, align 8, !tbaa !66
+  call void @g_list_free(ptr noundef %86)
+  %87 = load i32, ptr %7, align 4, !tbaa !61
+  %88 = add nsw i32 %87, 1
+  store i32 %88, ptr %7, align 4, !tbaa !61
+  %89 = load ptr, ptr %5, align 8, !tbaa !96
+  %90 = load ptr, ptr %14, align 8, !tbaa !96
+  %91 = call i32 @strcmp(ptr noundef %89, ptr noundef %90) #8
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %100, label %93
+
+93:                                               ; preds = %73
+  %94 = load ptr, ptr %2, align 8, !tbaa !6
+  %95 = load ptr, ptr %12, align 8, !tbaa !96
+  call void @dt_lib_gui_set_label(ptr noundef %94, ptr noundef %95)
+  %96 = load i32, ptr %7, align 4, !tbaa !61
+  %97 = load ptr, ptr %3, align 8, !tbaa !11
+  %98 = getelementptr inbounds nuw %struct.dt_lib_ioporder_t, ptr %97, i32 0, i32 0
+  store i32 %96, ptr %98, align 8, !tbaa !21
+  store i32 1, ptr %6, align 4, !tbaa !61
+  %99 = load ptr, ptr %14, align 8, !tbaa !96
+  call void @g_free(ptr noundef %99)
+  store i32 7, ptr %15, align 4
+  br label %102
+
+100:                                              ; preds = %73
+  %101 = load ptr, ptr %14, align 8, !tbaa !96
+  call void @g_free(ptr noundef %101)
+  store i32 0, ptr %15, align 4
+  br label %102
+
+102:                                              ; preds = %100, %93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %103 = load i32, ptr %15, align 4
+  switch i32 %103, label %132 [
+    i32 0, label %104
+    i32 7, label %105
+  ]
+
+104:                                              ; preds = %102
+  br label %69
+
+105:                                              ; preds = %102, %69
+  %106 = load ptr, ptr %8, align 8, !tbaa !104
+  %107 = call i32 @sqlite3_finalize(ptr noundef %106)
+  %108 = load ptr, ptr %5, align 8, !tbaa !96
+  call void @g_free(ptr noundef %108)
+  %109 = load i32, ptr %6, align 4, !tbaa !61
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %120, label %111
+
+111:                                              ; preds = %105
+  %112 = load ptr, ptr %3, align 8, !tbaa !11
+  %113 = getelementptr inbounds nuw %struct.dt_lib_ioporder_t, ptr %112, i32 0, i32 0
+  store i32 0, ptr %113, align 8, !tbaa !21
+  %114 = load ptr, ptr %2, align 8, !tbaa !6
+  %115 = load ptr, ptr %3, align 8, !tbaa !11
+  %116 = getelementptr inbounds nuw %struct.dt_lib_ioporder_t, ptr %115, i32 0, i32 0
+  %117 = load i32, ptr %116, align 8, !tbaa !21
+  %118 = call ptr @dt_iop_order_string(i32 noundef %117)
+  %119 = call ptr @dcgettext(ptr noundef null, ptr noundef %118, i32 noundef 5) #6
+  call void @dt_lib_gui_set_label(ptr noundef %114, ptr noundef %119)
+  br label %120
+
+120:                                              ; preds = %111, %105
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  br label %131
+
+121:                                              ; preds = %27
+  %122 = load i32, ptr %4, align 4, !tbaa !61
+  %123 = load ptr, ptr %3, align 8, !tbaa !11
+  %124 = getelementptr inbounds nuw %struct.dt_lib_ioporder_t, ptr %123, i32 0, i32 0
+  store i32 %122, ptr %124, align 8, !tbaa !21
+  %125 = load ptr, ptr %2, align 8, !tbaa !6
+  %126 = load ptr, ptr %3, align 8, !tbaa !11
+  %127 = getelementptr inbounds nuw %struct.dt_lib_ioporder_t, ptr %126, i32 0, i32 0
+  %128 = load i32, ptr %127, align 8, !tbaa !21
+  %129 = call ptr @dt_iop_order_string(i32 noundef %128)
+  %130 = call ptr @dcgettext(ptr noundef null, ptr noundef %129, i32 noundef 5) #6
+  call void @dt_lib_gui_set_label(ptr noundef %125, ptr noundef %130)
+  br label %131
+
+131:                                              ; preds = %121, %120
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret void
+
+132:                                              ; preds = %102
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @get_params(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !106
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  store i64 0, ptr %5, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %7 = load ptr, ptr getelementptr inbounds nuw (%struct.darktable_t, ptr @darktable, i32 0, i32 9), align 8, !tbaa !65
+  %8 = getelementptr inbounds nuw %struct.dt_develop_t, ptr %7, i32 0, i32 30
+  %9 = load ptr, ptr %8, align 16, !tbaa !100
+  %10 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %9, ptr noundef %5)
+  store ptr %10, ptr %6, align 8, !tbaa !64
+  %11 = load i64, ptr %5, align 8, !tbaa !95
+  %12 = trunc i64 %11 to i32
+  %13 = load ptr, ptr %4, align 8, !tbaa !106
+  store i32 %12, ptr %13, align 4, !tbaa !61
+  %14 = load ptr, ptr %6, align 8, !tbaa !64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret ptr %14
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @preset_autoapply(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
   ret i32 1
 }
 
-declare i32 @dt_view_get_current() local_unnamed_addr #4
+declare i32 @dt_view_get_current() #4
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #2 = { nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #5 = { nofree nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind allocsize(0) }
+declare void @gtk_widget_destroy(ptr noundef) #4
+
+declare i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef) #4
+
+declare ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef) #4
+
+declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #4
+
+declare ptr @dt_database_get(ptr noundef) #4
+
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+
+declare ptr @sqlite3_errmsg(ptr noundef) #4
+
+declare i32 @sqlite3_step(ptr noundef) #4
+
+declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) #4
+
+declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) #4
+
+declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) #4
+
+declare void @g_list_free(ptr noundef) #4
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
+
+declare void @g_free(ptr noundef) #4
+
+declare i32 @sqlite3_finalize(ptr noundef) #4
+
+attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #1 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #4 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #5 = { nounwind willreturn memory(read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -571,57 +955,104 @@ attributes #12 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = !{!7, !12, i64 280}
-!7 = !{!"dt_lib_module_t", !8, i64 0, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280, !10, i64 288, !12, i64 416, !12, i64 424, !9, i64 432, !12, i64 440, !12, i64 448, !12, i64 456, !12, i64 464, !9, i64 472, !9, i64 476}
-!8 = !{!"dt_action_t", !9, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40}
-!9 = !{!"int", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"any pointer", !10, i64 0}
-!13 = !{!14, !12, i64 64}
-!14 = !{!"darktable_t", !15, i64 0, !9, i64 4, !9, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !10, i64 232, !16, i64 2792, !16, i64 2832, !16, i64 2872, !16, i64 2912, !16, i64 2952, !12, i64 2992, !12, i64 3000, !12, i64 3008, !12, i64 3016, !12, i64 3024, !12, i64 3032, !12, i64 3040, !12, i64 3048, !12, i64 3056, !12, i64 3064, !12, i64 3072, !12, i64 3080, !17, i64 3088, !12, i64 3096, !18, i64 3104, !12, i64 3112, !9, i64 3120, !10, i64 3124, !9, i64 3308, !12, i64 3312, !12, i64 3320, !19, i64 3328, !21, i64 3376, !22, i64 3408}
-!15 = !{!"dt_codepath_t", !9, i64 0}
-!16 = !{!"dt_pthread_mutex_t", !10, i64 0}
-!17 = !{!"", !9, i64 0}
-!18 = !{!"double", !10, i64 0}
-!19 = !{!"dt_sys_resources_t", !20, i64 0, !20, i64 8, !12, i64 16, !12, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
-!20 = !{!"long", !10, i64 0}
-!21 = !{!"dt_backthumb_t", !18, i64 0, !18, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28}
-!22 = !{!"dt_gimp_t", !9, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28}
-!23 = !{!24, !12, i64 2080}
-!24 = !{!"dt_develop_t", !9, i64 0, !9, i64 4, !9, i64 8, !12, i64 16, !18, i64 24, !18, i64 32, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !18, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !12, i64 88, !12, i64 96, !25, i64 112, !9, i64 1968, !9, i64 1972, !16, i64 1976, !9, i64 2016, !12, i64 2024, !9, i64 2032, !12, i64 2040, !9, i64 2048, !12, i64 2056, !12, i64 2064, !9, i64 2072, !12, i64 2080, !12, i64 2088, !12, i64 2096, !12, i64 2104, !9, i64 2112, !9, i64 2116, !12, i64 2120, !12, i64 2128, !12, i64 2136, !12, i64 2144, !9, i64 2152, !9, i64 2156, !9, i64 2160, !26, i64 2164, !26, i64 2168, !12, i64 2176, !9, i64 2184, !34, i64 2192, !38, i64 2352, !39, i64 2472, !40, i64 2480, !41, i64 2520, !39, i64 2552, !42, i64 2560, !43, i64 2576, !12, i64 2600, !12, i64 2608, !44, i64 2616, !44, i64 2704, !9, i64 2792, !9, i64 2796, !9, i64 2800, !12, i64 2808}
-!25 = !{!"dt_image_t", !9, i64 0, !9, i64 4, !26, i64 8, !26, i64 12, !26, i64 16, !26, i64 20, !26, i64 24, !26, i64 28, !26, i64 32, !10, i64 36, !10, i64 100, !10, i64 164, !10, i64 292, !10, i64 356, !10, i64 420, !10, i64 484, !20, i64 552, !9, i64 560, !10, i64 564, !10, i64 792, !10, i64 856, !10, i64 920, !10, i64 984, !9, i64 1112, !10, i64 1116, !9, i64 1372, !9, i64 1376, !9, i64 1380, !9, i64 1384, !9, i64 1388, !9, i64 1392, !9, i64 1396, !9, i64 1400, !9, i64 1404, !9, i64 1408, !26, i64 1412, !9, i64 1416, !9, i64 1420, !9, i64 1424, !9, i64 1428, !9, i64 1432, !9, i64 1436, !20, i64 1440, !20, i64 1448, !20, i64 1456, !20, i64 1464, !9, i64 1472, !27, i64 1488, !10, i64 1616, !12, i64 1656, !9, i64 1664, !9, i64 1668, !31, i64 1672, !32, i64 1680, !33, i64 1704, !29, i64 1716, !10, i64 1718, !9, i64 1728, !9, i64 1732, !26, i64 1736, !10, i64 1744, !10, i64 1760, !10, i64 1808, !12, i64 1824, !12, i64 1832, !9, i64 1840}
-!26 = !{!"float", !10, i64 0}
-!27 = !{!"dt_iop_buffer_dsc_t", !9, i64 0, !9, i64 4, !9, i64 8, !10, i64 12, !28, i64 48, !30, i64 64, !10, i64 96, !9, i64 112}
-!28 = !{!"", !29, i64 0, !29, i64 2}
-!29 = !{!"short", !10, i64 0}
-!30 = !{!"", !9, i64 0, !10, i64 16}
-!31 = !{!"dt_image_raw_parameters_t", !9, i64 0, !9, i64 3}
-!32 = !{!"dt_image_geoloc_t", !18, i64 0, !18, i64 8, !18, i64 16}
-!33 = !{!"_color_harmony_t", !9, i64 0, !9, i64 4, !9, i64 8}
-!34 = !{!"", !35, i64 0, !12, i64 40, !36, i64 48, !37, i64 120}
-!35 = !{!"dt_dev_proxy_exposure_t", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
-!36 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64}
-!37 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
-!38 = !{!"dt_dev_chroma_t", !12, i64 0, !12, i64 8, !10, i64 16, !10, i64 48, !10, i64 80, !9, i64 112}
-!39 = !{!"", !12, i64 0}
-!40 = !{!"", !12, i64 0, !12, i64 8, !9, i64 16, !9, i64 20, !26, i64 24, !26, i64 28, !9, i64 32}
-!41 = !{!"", !12, i64 0, !12, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !26, i64 28}
-!42 = !{!"", !12, i64 0, !9, i64 8}
-!43 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16}
-!44 = !{!"dt_dev_viewport_t", !12, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !9, i64 56, !9, i64 60, !9, i64 64, !26, i64 68, !26, i64 72, !26, i64 76, !12, i64 80}
-!45 = !{!14, !9, i64 8}
-!46 = !{!14, !12, i64 136}
-!47 = !{!12, !12, i64 0}
-!48 = !{!49, !9, i64 0}
-!49 = !{!"dt_lib_ioporder_t", !9, i64 0, !12, i64 8}
-!50 = !{!7, !12, i64 416}
-!51 = !{!7, !9, i64 476}
-!52 = !{!49, !12, i64 8}
-!53 = !{!14, !9, i64 3120}
-!54 = !{!14, !12, i64 96}
-!55 = !{!24, !9, i64 1544}
-!56 = !{!20, !20, i64 0}
-!57 = !{!7, !9, i64 472}
-!58 = !{!7, !12, i64 48}
-!59 = !{!9, !9, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS15dt_lib_module_t", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS17dt_lib_ioporder_t", !8, i64 0}
+!13 = !{!14, !8, i64 280}
+!14 = !{!"dt_lib_module_t", !15, i64 0, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !8, i64 240, !8, i64 248, !8, i64 256, !8, i64 264, !19, i64 272, !8, i64 280, !9, i64 288, !20, i64 416, !20, i64 424, !16, i64 432, !20, i64 440, !20, i64 448, !20, i64 456, !16, i64 464}
+!15 = !{!"dt_action_t", !16, i64 0, !17, i64 8, !17, i64 16, !8, i64 24, !18, i64 32, !18, i64 40}
+!16 = !{!"int", !9, i64 0}
+!17 = !{!"p1 omnipotent char", !8, i64 0}
+!18 = !{!"p1 _ZTS11dt_action_t", !8, i64 0}
+!19 = !{!"p1 _ZTS8_GModule", !8, i64 0}
+!20 = !{!"p1 _ZTS10_GtkWidget", !8, i64 0}
+!21 = !{!22, !16, i64 0}
+!22 = !{!"dt_lib_ioporder_t", !16, i64 0, !23, i64 8}
+!23 = !{!"p1 _ZTS6_GList", !8, i64 0}
+!24 = !{!22, !23, i64 8}
+!25 = !{!26, !16, i64 3128}
+!26 = !{!"darktable_t", !27, i64 0, !16, i64 4, !16, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !28, i64 48, !29, i64 56, !30, i64 64, !31, i64 72, !32, i64 80, !33, i64 88, !34, i64 96, !35, i64 104, !36, i64 112, !37, i64 120, !38, i64 128, !39, i64 136, !40, i64 144, !41, i64 152, !42, i64 160, !43, i64 168, !44, i64 176, !45, i64 184, !46, i64 192, !47, i64 200, !48, i64 208, !49, i64 216, !50, i64 224, !9, i64 232, !51, i64 2792, !51, i64 2832, !51, i64 2872, !51, i64 2912, !51, i64 2952, !17, i64 2992, !17, i64 3000, !17, i64 3008, !17, i64 3016, !17, i64 3024, !17, i64 3032, !17, i64 3040, !17, i64 3048, !17, i64 3056, !17, i64 3064, !17, i64 3072, !17, i64 3080, !17, i64 3088, !52, i64 3096, !23, i64 3104, !53, i64 3112, !23, i64 3120, !16, i64 3128, !9, i64 3132, !16, i64 3320, !16, i64 3324, !54, i64 3328, !55, i64 3336, !56, i64 3344, !59, i64 3384, !60, i64 3416}
+!27 = !{!"dt_codepath_t", !16, i64 0}
+!28 = !{!"p1 _ZTS11_JsonParser", !8, i64 0}
+!29 = !{!"p1 _ZTS9dt_conf_t", !8, i64 0}
+!30 = !{!"p1 _ZTS12dt_develop_t", !8, i64 0}
+!31 = !{!"p1 _ZTS8dt_lib_t", !8, i64 0}
+!32 = !{!"p1 _ZTS17dt_view_manager_t", !8, i64 0}
+!33 = !{!"p1 _ZTS12dt_control_t", !8, i64 0}
+!34 = !{!"p1 _ZTS19dt_control_signal_t", !8, i64 0}
+!35 = !{!"p1 _ZTS12dt_gui_gtk_t", !8, i64 0}
+!36 = !{!"p1 _ZTS17dt_mipmap_cache_t", !8, i64 0}
+!37 = !{!"p1 _ZTS16dt_image_cache_t", !8, i64 0}
+!38 = !{!"p1 _ZTS12dt_bauhaus_t", !8, i64 0}
+!39 = !{!"p1 _ZTS13dt_database_t", !8, i64 0}
+!40 = !{!"p1 _ZTS14dt_pwstorage_t", !8, i64 0}
+!41 = !{!"p1 _ZTS11dt_camctl_t", !8, i64 0}
+!42 = !{!"p1 _ZTS15dt_collection_t", !8, i64 0}
+!43 = !{!"p1 _ZTS14dt_selection_t", !8, i64 0}
+!44 = !{!"p1 _ZTS11dt_points_t", !8, i64 0}
+!45 = !{!"p1 _ZTS12dt_imageio_t", !8, i64 0}
+!46 = !{!"p1 _ZTS11dt_opencl_t", !8, i64 0}
+!47 = !{!"p1 _ZTS9dt_dbus_t", !8, i64 0}
+!48 = !{!"p1 _ZTS9dt_undo_t", !8, i64 0}
+!49 = !{!"p1 _ZTS16dt_colorspaces_t", !8, i64 0}
+!50 = !{!"p1 _ZTS9dt_l10n_t", !8, i64 0}
+!51 = !{!"dt_pthread_mutex_t", !9, i64 0}
+!52 = !{!"", !16, i64 0}
+!53 = !{!"double", !9, i64 0}
+!54 = !{!"p1 _ZTS10_GTimeZone", !8, i64 0}
+!55 = !{!"p1 _ZTS10_GDateTime", !8, i64 0}
+!56 = !{!"dt_sys_resources_t", !57, i64 0, !57, i64 8, !58, i64 16, !58, i64 24, !16, i64 32}
+!57 = !{!"long", !9, i64 0}
+!58 = !{!"p1 int", !8, i64 0}
+!59 = !{!"dt_backthumb_t", !53, i64 0, !53, i64 8, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28}
+!60 = !{!"dt_gimp_t", !16, i64 0, !17, i64 8, !17, i64 16, !16, i64 24, !16, i64 28}
+!61 = !{!16, !16, i64 0}
+!62 = !{!26, !16, i64 8}
+!63 = !{!26, !34, i64 96}
+!64 = !{!8, !8, i64 0}
+!65 = !{!26, !30, i64 64}
+!66 = !{!23, !23, i64 0}
+!67 = !{!68, !16, i64 1544}
+!68 = !{!"dt_develop_t", !16, i64 0, !16, i64 4, !16, i64 8, !8, i64 16, !53, i64 24, !53, i64 32, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !16, i64 56, !53, i64 64, !16, i64 72, !16, i64 76, !16, i64 80, !69, i64 88, !70, i64 96, !71, i64 112, !16, i64 1968, !16, i64 1972, !51, i64 1976, !16, i64 2016, !23, i64 2024, !16, i64 2032, !69, i64 2040, !16, i64 2048, !23, i64 2056, !23, i64 2064, !16, i64 2072, !23, i64 2080, !23, i64 2088, !58, i64 2096, !58, i64 2104, !16, i64 2112, !16, i64 2116, !23, i64 2120, !81, i64 2128, !82, i64 2136, !23, i64 2144, !16, i64 2152, !16, i64 2156, !16, i64 2160, !72, i64 2164, !72, i64 2168, !69, i64 2176, !16, i64 2184, !83, i64 2192, !87, i64 2344, !88, i64 2464, !89, i64 2488, !90, i64 2528, !91, i64 2560, !92, i64 2568, !93, i64 2584, !20, i64 2608, !20, i64 2616, !94, i64 2624, !94, i64 2712, !16, i64 2800, !16, i64 2804, !16, i64 2808, !23, i64 2816}
+!69 = !{!"p1 _ZTS15dt_iop_module_t", !8, i64 0}
+!70 = !{!"p1 _ZTS18dt_dev_pixelpipe_t", !8, i64 0}
+!71 = !{!"dt_image_t", !16, i64 0, !16, i64 4, !72, i64 8, !72, i64 12, !72, i64 16, !72, i64 20, !72, i64 24, !72, i64 28, !72, i64 32, !9, i64 36, !9, i64 100, !9, i64 164, !9, i64 292, !9, i64 356, !9, i64 420, !9, i64 484, !57, i64 552, !16, i64 560, !9, i64 564, !9, i64 792, !9, i64 856, !9, i64 920, !9, i64 984, !16, i64 1112, !9, i64 1116, !16, i64 1372, !16, i64 1376, !16, i64 1380, !16, i64 1384, !16, i64 1388, !16, i64 1392, !16, i64 1396, !16, i64 1400, !16, i64 1404, !16, i64 1408, !72, i64 1412, !16, i64 1416, !16, i64 1420, !16, i64 1424, !16, i64 1428, !16, i64 1432, !16, i64 1436, !57, i64 1440, !57, i64 1448, !57, i64 1456, !57, i64 1464, !16, i64 1472, !73, i64 1488, !9, i64 1616, !17, i64 1656, !16, i64 1664, !16, i64 1668, !77, i64 1672, !78, i64 1680, !79, i64 1704, !75, i64 1716, !9, i64 1718, !16, i64 1728, !16, i64 1732, !72, i64 1736, !72, i64 1740, !9, i64 1744, !9, i64 1760, !9, i64 1808, !23, i64 1824, !80, i64 1832, !16, i64 1840, !16, i64 1844}
+!72 = !{!"float", !9, i64 0}
+!73 = !{!"dt_iop_buffer_dsc_t", !16, i64 0, !16, i64 4, !16, i64 8, !9, i64 12, !74, i64 48, !76, i64 64, !9, i64 96, !16, i64 112}
+!74 = !{!"", !75, i64 0, !75, i64 2}
+!75 = !{!"short", !9, i64 0}
+!76 = !{!"", !16, i64 0, !9, i64 16}
+!77 = !{!"dt_image_raw_parameters_t", !16, i64 0, !16, i64 3}
+!78 = !{!"dt_image_geoloc_t", !53, i64 0, !53, i64 8, !53, i64 16}
+!79 = !{!"_color_harmony_t", !16, i64 0, !16, i64 4, !16, i64 8}
+!80 = !{!"p1 _ZTS16dt_cache_entry_t", !8, i64 0}
+!81 = !{!"p1 _ZTS15dt_masks_form_t", !8, i64 0}
+!82 = !{!"p1 _ZTS19dt_masks_form_gui_t", !8, i64 0}
+!83 = !{!"", !84, i64 0, !69, i64 32, !85, i64 40, !86, i64 112}
+!84 = !{!"dt_dev_proxy_exposure_t", !69, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
+!85 = !{!"", !7, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64}
+!86 = !{!"", !7, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
+!87 = !{!"dt_dev_chroma_t", !69, i64 0, !69, i64 8, !9, i64 16, !9, i64 48, !9, i64 80, !16, i64 112}
+!88 = !{!"", !69, i64 0, !69, i64 8, !8, i64 16}
+!89 = !{!"", !20, i64 0, !20, i64 8, !16, i64 16, !16, i64 20, !72, i64 24, !72, i64 28, !16, i64 32}
+!90 = !{!"", !20, i64 0, !20, i64 8, !16, i64 16, !16, i64 20, !16, i64 24, !72, i64 28}
+!91 = !{!"", !20, i64 0}
+!92 = !{!"", !20, i64 0, !16, i64 8}
+!93 = !{!"", !20, i64 0, !20, i64 8, !20, i64 16}
+!94 = !{!"dt_dev_viewport_t", !20, i64 0, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !16, i64 24, !53, i64 32, !53, i64 40, !53, i64 48, !16, i64 56, !16, i64 60, !16, i64 64, !72, i64 68, !72, i64 72, !72, i64 76, !70, i64 80}
+!95 = !{!57, !57, i64 0}
+!96 = !{!17, !17, i64 0}
+!97 = !{!14, !16, i64 464}
+!98 = !{!14, !8, i64 48}
+!99 = !{!14, !20, i64 440}
+!100 = !{!68, !23, i64 2080}
+!101 = !{!26, !39, i64 136}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTS12sqlite3_stmt", !8, i64 0}
+!106 = !{!58, !58, i64 0}

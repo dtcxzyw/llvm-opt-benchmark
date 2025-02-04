@@ -10,6 +10,17 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cimg_library::CImg.2" = type { i32, i32, i32, i32, i8, ptr }
 %"struct.cimg_library::CImg.3" = type { i32, i32, i32, i32, i8, ptr }
 %"struct.cimg_library::CImg.4" = type { i32, i32, i32, i32, i8, ptr }
+%struct.gmic_exception = type { %"struct.cimg_library::CImg.3", %"struct.cimg_library::CImg.3" }
+
+$_ZN12cimg_library8CImgListIfEC2Ev = comdat any
+
+$_ZN12cimg_library8CImgListIcEC2Ev = comdat any
+
+$_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv = comdat any
+
+$_ZN12cimg_library4CImgIfEcvPfEv = comdat any
+
+$_ZNK14gmic_exception4whatEv = comdat any
 
 $__clang_call_terminate = comdat any
 
@@ -17,19 +28,25 @@ $_ZN12cimg_library8CImgListIcED2Ev = comdat any
 
 $_ZN12cimg_library8CImgListIfED2Ev = comdat any
 
-$_ZTS14gmic_exception = comdat any
+$_ZN12cimg_library8CImgListIcEcvPNS_4CImgIcEEEv = comdat any
+
+$_ZN12cimg_library4CImgIfED2Ev = comdat any
+
+$_ZN12cimg_library4CImgIcED2Ev = comdat any
 
 $_ZTI14gmic_exception = comdat any
+
+$_ZTS14gmic_exception = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @.str = private unnamed_addr constant [37 x i8] c"-decompress_clut %u,%u,%u -cut 0,255\00", align 1
+@_ZTI14gmic_exception = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS14gmic_exception }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTS14gmic_exception = linkonce_odr hidden constant [17 x i8] c"14gmic_exception\00", comdat, align 1
-@_ZTI14gmic_exception = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS14gmic_exception }, comdat, align 8
 @.str.1 = private unnamed_addr constant [26 x i8] c"[lut3d gmic] error: \22%s\22\0A\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"-o \22%s\22,uchar\00", align 1
-@stderr = external local_unnamed_addr global ptr, align 8
+@stderr = external global ptr, align 8
 @.str.3 = private unnamed_addr constant [70 x i8] c"[lut3d gmic] error - saving cache LUT (does the cache folder exist?)\0A\00", align 1
 @.str.4 = private unnamed_addr constant [25 x i8] c"-div 255.0 -permute cxyz\00", align 1
 @.str.5 = private unnamed_addr constant [8 x i8] c"-i \22%s\22\00", align 1
@@ -38,1587 +55,1969 @@ $_ZTI14gmic_exception = comdat any
 @.str.8 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_lut3dgmic.cpp, ptr null }]
 
-declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+  call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  ret void
+}
+
+declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
-
-; Function Attrs: mustprogress uwtable
-define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"struct.cimg_library::CImgList", align 8
-  %7 = alloca %"struct.cimg_library::CImgList.0", align 8
-  %8 = alloca %struct.gmic, align 8
-  %9 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %8) #15
-  invoke void @_ZN4gmicC1Ev(ptr noundef nonnull align 8 dereferenceable(416) %8)
-          to label %10 unwind label %91
-
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 360
-  store i32 -1, ptr %11, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #15
-  %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 1)
-          to label %13 unwind label %95
-
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !20
-  %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN12cimg_library4CImgIfE6assignEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 1, i32 noundef %1, i32 noundef 1, i32 noundef 6)
-          to label %17 unwind label %99
-
-17:                                               ; preds = %13
-  %18 = mul i32 %1, 6
-  %19 = zext i32 %18 to i64
-  %20 = icmp eq i32 %18, 0
-  br i1 %20, label %88, label %21
-
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !22
-  %24 = icmp ult i32 %18, 32
-  br i1 %24, label %59, label %25
-
-25:                                               ; preds = %21
-  %26 = shl nuw nsw i64 %19, 2
-  %27 = getelementptr i8, ptr %23, i64 %26
-  %28 = getelementptr i8, ptr %0, i64 %19
-  %29 = icmp ult ptr %23, %28
-  %30 = icmp ugt ptr %27, %0
-  %31 = and i1 %29, %30
-  br i1 %31, label %59, label %32
-
-32:                                               ; preds = %25
-  %33 = and i64 %19, 4294967264
-  %34 = shl nuw nsw i64 %33, 2
-  %35 = getelementptr i8, ptr %23, i64 %34
-  br label %36
-
-36:                                               ; preds = %36, %32
-  %37 = phi i64 [ 0, %32 ], [ %55, %36 ]
-  %38 = shl i64 %37, 2
-  %39 = getelementptr i8, ptr %23, i64 %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 %37
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
-  %43 = getelementptr inbounds i8, ptr %40, i64 24
-  %44 = load <8 x i8>, ptr %40, align 1, !tbaa !24, !alias.scope !25
-  %45 = load <8 x i8>, ptr %41, align 1, !tbaa !24, !alias.scope !25
-  %46 = load <8 x i8>, ptr %42, align 1, !tbaa !24, !alias.scope !25
-  %47 = load <8 x i8>, ptr %43, align 1, !tbaa !24, !alias.scope !25
-  %48 = uitofp <8 x i8> %44 to <8 x float>
-  %49 = uitofp <8 x i8> %45 to <8 x float>
-  %50 = uitofp <8 x i8> %46 to <8 x float>
-  %51 = uitofp <8 x i8> %47 to <8 x float>
-  %52 = getelementptr i8, ptr %39, i64 32
-  %53 = getelementptr i8, ptr %39, i64 64
-  %54 = getelementptr i8, ptr %39, i64 96
-  store <8 x float> %48, ptr %39, align 4, !tbaa !28, !alias.scope !29, !noalias !25
-  store <8 x float> %49, ptr %52, align 4, !tbaa !28, !alias.scope !29, !noalias !25
-  store <8 x float> %50, ptr %53, align 4, !tbaa !28, !alias.scope !29, !noalias !25
-  store <8 x float> %51, ptr %54, align 4, !tbaa !28, !alias.scope !29, !noalias !25
-  %55 = add nuw i64 %37, 32
-  %56 = icmp eq i64 %55, %33
-  br i1 %56, label %57, label %36, !llvm.loop !31
-
-57:                                               ; preds = %36
-  %58 = icmp eq i64 %33, %19
-  br i1 %58, label %88, label %59
-
-59:                                               ; preds = %57, %25, %21
-  %60 = phi ptr [ %23, %25 ], [ %23, %21 ], [ %35, %57 ]
-  %61 = phi i64 [ 0, %25 ], [ 0, %21 ], [ %33, %57 ]
-  %62 = and i64 %19, 6
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %75, label %64
-
-64:                                               ; preds = %64, %59
-  %65 = phi ptr [ %71, %64 ], [ %60, %59 ]
-  %66 = phi i64 [ %72, %64 ], [ %61, %59 ]
-  %67 = phi i64 [ %73, %64 ], [ 0, %59 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 %66
-  %69 = load i8, ptr %68, align 1, !tbaa !24
-  %70 = uitofp i8 %69 to float
-  %71 = getelementptr inbounds i8, ptr %65, i64 4
-  store float %70, ptr %65, align 4, !tbaa !28
-  %72 = add nuw nsw i64 %66, 1
-  %73 = add i64 %67, 1
-  %74 = icmp eq i64 %73, %62
-  br i1 %74, label %75, label %64, !llvm.loop !35
-
-75:                                               ; preds = %64, %59
-  %76 = phi ptr [ %60, %59 ], [ %71, %64 ]
-  %77 = phi i64 [ %61, %59 ], [ %72, %64 ]
-  %78 = sub nsw i64 %61, %19
-  %79 = icmp ugt i64 %78, -8
-  br i1 %79, label %88, label %80
-
-80:                                               ; preds = %75
-  %81 = getelementptr i8, ptr %0, i64 1
-  %82 = getelementptr i8, ptr %0, i64 2
-  %83 = getelementptr i8, ptr %0, i64 3
-  %84 = getelementptr i8, ptr %0, i64 4
-  %85 = getelementptr i8, ptr %0, i64 5
-  %86 = getelementptr i8, ptr %0, i64 6
-  %87 = getelementptr i8, ptr %0, i64 7
-  br label %107
-
-88:                                               ; preds = %107, %75, %57, %17
-  %89 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 512, ptr noundef nonnull @.str, i32 noundef %2, i32 noundef %2, i32 noundef %2) #15
-  %90 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef null)
-          to label %167 unwind label %144
-
-91:                                               ; preds = %5
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  %94 = extractvalue { ptr, i32 } %92, 1
-  br label %265
-
-95:                                               ; preds = %10
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  %98 = extractvalue { ptr, i32 } %96, 1
-  br label %262
-
-99:                                               ; preds = %13
-  %100 = landingpad { ptr, i32 }
-          cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  %102 = extractvalue { ptr, i32 } %100, 1
-  br label %262
-
-103:                                              ; preds = %170
-  %104 = landingpad { ptr, i32 }
-          cleanup
-  %105 = extractvalue { ptr, i32 } %104, 0
-  %106 = extractvalue { ptr, i32 } %104, 1
-  br label %262
-
-107:                                              ; preds = %107, %80
-  %108 = phi ptr [ %76, %80 ], [ %141, %107 ]
-  %109 = phi i64 [ %77, %80 ], [ %142, %107 ]
-  %110 = getelementptr inbounds i8, ptr %0, i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !24
-  %112 = uitofp i8 %111 to float
-  %113 = getelementptr inbounds i8, ptr %108, i64 4
-  store float %112, ptr %108, align 4, !tbaa !28
-  %114 = getelementptr i8, ptr %81, i64 %109
-  %115 = load i8, ptr %114, align 1, !tbaa !24
-  %116 = uitofp i8 %115 to float
-  %117 = getelementptr inbounds i8, ptr %108, i64 8
-  store float %116, ptr %113, align 4, !tbaa !28
-  %118 = getelementptr i8, ptr %82, i64 %109
-  %119 = load i8, ptr %118, align 1, !tbaa !24
-  %120 = uitofp i8 %119 to float
-  %121 = getelementptr inbounds i8, ptr %108, i64 12
-  store float %120, ptr %117, align 4, !tbaa !28
-  %122 = getelementptr i8, ptr %83, i64 %109
-  %123 = load i8, ptr %122, align 1, !tbaa !24
-  %124 = uitofp i8 %123 to float
-  %125 = getelementptr inbounds i8, ptr %108, i64 16
-  store float %124, ptr %121, align 4, !tbaa !28
-  %126 = getelementptr i8, ptr %84, i64 %109
-  %127 = load i8, ptr %126, align 1, !tbaa !24
-  %128 = uitofp i8 %127 to float
-  %129 = getelementptr inbounds i8, ptr %108, i64 20
-  store float %128, ptr %125, align 4, !tbaa !28
-  %130 = getelementptr i8, ptr %85, i64 %109
-  %131 = load i8, ptr %130, align 1, !tbaa !24
-  %132 = uitofp i8 %131 to float
-  %133 = getelementptr inbounds i8, ptr %108, i64 24
-  store float %132, ptr %129, align 4, !tbaa !28
-  %134 = getelementptr i8, ptr %86, i64 %109
-  %135 = load i8, ptr %134, align 1, !tbaa !24
-  %136 = uitofp i8 %135 to float
-  %137 = getelementptr inbounds i8, ptr %108, i64 28
-  store float %136, ptr %133, align 4, !tbaa !28
-  %138 = getelementptr i8, ptr %87, i64 %109
-  %139 = load i8, ptr %138, align 1, !tbaa !24
-  %140 = uitofp i8 %139 to float
-  %141 = getelementptr inbounds i8, ptr %108, i64 32
-  store float %140, ptr %137, align 4, !tbaa !28
-  %142 = add nuw nsw i64 %109, 8
-  %143 = icmp eq i64 %142, %19
-  br i1 %143, label %88, label %107, !llvm.loop !37
-
-144:                                              ; preds = %88
-  %145 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTI14gmic_exception
-  %146 = extractvalue { ptr, i32 } %145, 0
-  %147 = extractvalue { ptr, i32 } %145, 1
-  %148 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI14gmic_exception) #15
-  %149 = icmp eq i32 %147, %148
-  br i1 %149, label %150, label %262
-
-150:                                              ; preds = %144
-  %151 = call ptr @__cxa_begin_catch(ptr %146) #15
-  %152 = getelementptr inbounds i8, ptr %151, i64 56
-  %153 = load ptr, ptr %152, align 8, !tbaa !38
-  %154 = icmp eq ptr %153, null
-  %155 = select i1 %154, ptr @.str.8, ptr %153
-  %156 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %155)
-  %157 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
-          to label %158 unwind label %159
-
-158:                                              ; preds = %150
-  invoke void @__cxa_end_catch()
-          to label %210 unwind label %161
-
-159:                                              ; preds = %150
-  %160 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %163 unwind label %270
-
-161:                                              ; preds = %158
-  %162 = landingpad { ptr, i32 }
-          cleanup
-  br label %163
-
-163:                                              ; preds = %161, %159
-  %164 = phi { ptr, i32 } [ %162, %161 ], [ %160, %159 ]
-  %165 = extractvalue { ptr, i32 } %164, 0
-  %166 = extractvalue { ptr, i32 } %164, 1
-  br label %262
-
-167:                                              ; preds = %88
-  %168 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 512, ptr noundef nonnull @.str.2, ptr noundef %4) #15
-  %169 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef null)
-          to label %176 unwind label %170
-
-170:                                              ; preds = %167
-  %171 = landingpad { ptr, i32 }
-          catch ptr null
-  %172 = extractvalue { ptr, i32 } %171, 0
-  %173 = call ptr @__cxa_begin_catch(ptr %172) #15
-  %174 = load ptr, ptr @stderr, align 8, !tbaa !40
-  %175 = call i64 @fwrite(ptr nonnull @.str.3, i64 69, i64 1, ptr %174) #16
-  invoke void @__cxa_end_catch()
-          to label %176 unwind label %103
-
-176:                                              ; preds = %170, %167
-  %177 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %8, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef null)
-          to label %201 unwind label %178
-
-178:                                              ; preds = %176
-  %179 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTI14gmic_exception
-  %180 = extractvalue { ptr, i32 } %179, 0
-  %181 = extractvalue { ptr, i32 } %179, 1
-  %182 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI14gmic_exception) #15
-  %183 = icmp eq i32 %181, %182
-  br i1 %183, label %184, label %262
-
-184:                                              ; preds = %178
-  %185 = call ptr @__cxa_begin_catch(ptr %180) #15
-  %186 = getelementptr inbounds i8, ptr %185, i64 56
-  %187 = load ptr, ptr %186, align 8, !tbaa !38
-  %188 = icmp eq ptr %187, null
-  %189 = select i1 %188, ptr @.str.8, ptr %187
-  %190 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %189)
-  %191 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
-          to label %192 unwind label %193
-
-192:                                              ; preds = %184
-  invoke void @__cxa_end_catch()
-          to label %210 unwind label %195
-
-193:                                              ; preds = %184
-  %194 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %197 unwind label %270
-
-195:                                              ; preds = %192
-  %196 = landingpad { ptr, i32 }
-          cleanup
-  br label %197
-
-197:                                              ; preds = %195, %193
-  %198 = phi { ptr, i32 } [ %196, %195 ], [ %194, %193 ]
-  %199 = extractvalue { ptr, i32 } %198, 0
-  %200 = extractvalue { ptr, i32 } %198, 1
-  br label %262
-
-201:                                              ; preds = %176
-  %202 = load ptr, ptr %14, align 8, !tbaa !20
-  %203 = load <4 x i32>, ptr %202, align 8, !tbaa !41
-  %204 = call i32 @llvm.vector.reduce.mul.v4i32(<4 x i32> %203)
-  %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds i8, ptr %202, i64 24
-  %207 = load ptr, ptr %206, align 8, !tbaa !22
-  %208 = shl nuw nsw i64 %205, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %207, i64 %208, i1 false)
-  %209 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
-          to label %210 unwind label %258
-
-210:                                              ; preds = %201, %192, %158
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #15
-  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %8) #15
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %8) #15
-  %211 = getelementptr inbounds i8, ptr %7, i64 8
-  %212 = load ptr, ptr %211, align 8, !tbaa !42
-  %213 = icmp eq ptr %212, null
-  br i1 %213, label %234, label %214
-
-214:                                              ; preds = %210
-  %215 = getelementptr inbounds i8, ptr %212, i64 -8
-  %216 = load i64, ptr %215, align 8
-  %217 = icmp eq i64 %216, 0
-  br i1 %217, label %233, label %218
-
-218:                                              ; preds = %214
-  %219 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %212, i64 %216
-  br label %220
-
-220:                                              ; preds = %231, %218
-  %221 = phi ptr [ %222, %231 ], [ %219, %218 ]
-  %222 = getelementptr inbounds i8, ptr %221, i64 -32
-  %223 = getelementptr inbounds i8, ptr %221, i64 -16
-  %224 = load i8, ptr %223, align 8, !tbaa !43, !range !44, !noundef !45
-  %225 = icmp eq i8 %224, 0
-  br i1 %225, label %226, label %231
-
-226:                                              ; preds = %220
-  %227 = getelementptr inbounds i8, ptr %221, i64 -8
-  %228 = load ptr, ptr %227, align 8, !tbaa !46
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %231, label %230
-
-230:                                              ; preds = %226
-  call void @_ZdaPv(ptr noundef nonnull %228) #17
-  br label %231
-
-231:                                              ; preds = %230, %226, %220
-  %232 = icmp eq ptr %222, %212
-  br i1 %232, label %233, label %220
-
-233:                                              ; preds = %231, %214
-  call void @_ZdaPv(ptr noundef nonnull %215) #17
-  br label %234
-
-234:                                              ; preds = %233, %210
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
-  %235 = load ptr, ptr %14, align 8, !tbaa !20
-  %236 = icmp eq ptr %235, null
-  br i1 %236, label %257, label %237
-
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds i8, ptr %235, i64 -8
-  %239 = load i64, ptr %238, align 8
-  %240 = icmp eq i64 %239, 0
-  br i1 %240, label %256, label %241
-
-241:                                              ; preds = %237
-  %242 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %235, i64 %239
-  br label %243
-
-243:                                              ; preds = %254, %241
-  %244 = phi ptr [ %245, %254 ], [ %242, %241 ]
-  %245 = getelementptr inbounds i8, ptr %244, i64 -32
-  %246 = getelementptr inbounds i8, ptr %244, i64 -16
-  %247 = load i8, ptr %246, align 8, !tbaa !47, !range !44, !noundef !45
-  %248 = icmp eq i8 %247, 0
-  br i1 %248, label %249, label %254
-
-249:                                              ; preds = %243
-  %250 = getelementptr inbounds i8, ptr %244, i64 -8
-  %251 = load ptr, ptr %250, align 8, !tbaa !22
-  %252 = icmp eq ptr %251, null
-  br i1 %252, label %254, label %253
-
-253:                                              ; preds = %249
-  call void @_ZdaPv(ptr noundef nonnull %251) #17
-  br label %254
-
-254:                                              ; preds = %253, %249, %243
-  %255 = icmp eq ptr %245, %235
-  br i1 %255, label %256, label %243
-
-256:                                              ; preds = %254, %237
-  call void @_ZdaPv(ptr noundef nonnull %238) #17
-  br label %257
-
-257:                                              ; preds = %256, %234
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
-  ret void
-
-258:                                              ; preds = %201
-  %259 = landingpad { ptr, i32 }
-          cleanup
-  %260 = extractvalue { ptr, i32 } %259, 0
-  %261 = extractvalue { ptr, i32 } %259, 1
-  br label %262
-
-262:                                              ; preds = %258, %197, %178, %163, %144, %103, %99, %95
-  %263 = phi i32 [ %98, %95 ], [ %102, %99 ], [ %261, %258 ], [ %200, %197 ], [ %181, %178 ], [ %106, %103 ], [ %166, %163 ], [ %147, %144 ]
-  %264 = phi ptr [ %97, %95 ], [ %101, %99 ], [ %260, %258 ], [ %199, %197 ], [ %180, %178 ], [ %105, %103 ], [ %165, %163 ], [ %146, %144 ]
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #15
-  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %8) #15
-  br label %265
-
-265:                                              ; preds = %262, %91
-  %266 = phi i32 [ %263, %262 ], [ %94, %91 ]
-  %267 = phi ptr [ %264, %262 ], [ %93, %91 ]
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %8) #15
-  call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
-  call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
-  %268 = insertvalue { ptr, i32 } poison, ptr %267, 0
-  %269 = insertvalue { ptr, i32 } %268, i32 %266, 1
-  resume { ptr, i32 } %269
-
-270:                                              ; preds = %193, %159
-  %271 = landingpad { ptr, i32 }
-          catch ptr null
-  %272 = extractvalue { ptr, i32 } %271, 0
-  call void @__clang_call_terminate(ptr %272) #18
-  unreachable
-}
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
-
-declare i32 @__gxx_personality_v0(...)
-
-declare void @_ZN4gmicC1Ev(ptr noundef nonnull align 8 dereferenceable(416)) unnamed_addr #0
-
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
-
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN12cimg_library4CImgIfE6assignEjjjj(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
-
-declare noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #0
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #6
-
-declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
-
-declare void @__cxa_end_catch() local_unnamed_addr
-
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #18
-  unreachable
-}
-
-declare void @_ZSt9terminatev() local_unnamed_addr
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416)) unnamed_addr #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %25, label %5
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 -8
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %24, label %9
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %3, i64 %7
-  br label %11
-
-11:                                               ; preds = %22, %9
-  %12 = phi ptr [ %13, %22 ], [ %10, %9 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 -32
-  %14 = getelementptr inbounds i8, ptr %12, i64 -16
-  %15 = load i8, ptr %14, align 8, !tbaa !43, !range !44, !noundef !45
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %17, label %22
-
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %12, i64 -8
-  %19 = load ptr, ptr %18, align 8, !tbaa !46
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %22, label %21
-
-21:                                               ; preds = %17
-  tail call void @_ZdaPv(ptr noundef nonnull %19) #17
-  br label %22
-
-22:                                               ; preds = %21, %17, %11
-  %23 = icmp eq ptr %13, %3
-  br i1 %23, label %24, label %11
-
-24:                                               ; preds = %22, %5
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #17
-  br label %25
-
-25:                                               ; preds = %24, %1
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !20
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %25, label %5
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 -8
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %24, label %9
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %3, i64 %7
-  br label %11
-
-11:                                               ; preds = %22, %9
-  %12 = phi ptr [ %13, %22 ], [ %10, %9 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 -32
-  %14 = getelementptr inbounds i8, ptr %12, i64 -16
-  %15 = load i8, ptr %14, align 8, !tbaa !47, !range !44, !noundef !45
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %17, label %22
-
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %12, i64 -8
-  %19 = load ptr, ptr %18, align 8, !tbaa !22
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %22, label %21
-
-21:                                               ; preds = %17
-  tail call void @_ZdaPv(ptr noundef nonnull %19) #17
-  br label %22
-
-22:                                               ; preds = %21, %17, %11
-  %23 = icmp eq ptr %13, %3
-  br i1 %23, label %24, label %11
-
-24:                                               ; preds = %22, %5
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #17
-  br label %25
-
-25:                                               ; preds = %24, %1
-  ret void
-}
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"struct.cimg_library::CImgList", align 8
-  %5 = alloca %"struct.cimg_library::CImgList.0", align 8
-  %6 = alloca [512 x i8], align 16
-  %7 = alloca %struct.gmic, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %7) #15
-  invoke void @_ZN4gmicC1Ev(ptr noundef nonnull align 8 dereferenceable(416) %7)
-          to label %8 unwind label %12
+define hidden void @lut3d_decompress_clut(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #4 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"struct.cimg_library::CImgList", align 8
+  %12 = alloca %"struct.cimg_library::CImgList.0", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %struct.gmic, align 8
+  %16 = alloca [512 x i8], align 16
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store i32 %1, ptr %7, align 4, !tbaa !11
+  store i32 %2, ptr %8, align 4, !tbaa !11
+  store ptr %3, ptr %9, align 8, !tbaa !13
+  store ptr %4, ptr %10, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #3
+  call void @_ZN12cimg_library8CImgListIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #3
+  invoke void @_ZN12cimg_library8CImgListIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %24 unwind label %46
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 360
-  store i32 -1, ptr %9, align 8, !tbaa !6
-  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 512, ptr noundef nonnull @.str.5, ptr noundef %2) #15
-  %11 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef null)
-          to label %30 unwind label %16
+24:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 416, ptr %15) #3
+  invoke void @_ZN4gmicC1Ev(ptr noundef nonnull align 8 dereferenceable(416) %15)
+          to label %25 unwind label %50
 
-12:                                               ; preds = %3
-  %13 = landingpad { ptr, i32 }
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds nuw %struct.gmic, ptr %15, i32 0, i32 32
+  store i32 -1, ptr %26, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 512, ptr %16) #3
+  %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 1)
+          to label %28 unwind label %54
+
+28:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  %29 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %30 unwind label %58
+
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %29, i64 0
+  store ptr %31, ptr %17, align 8, !tbaa !30
+  %32 = load ptr, ptr %17, align 8, !tbaa !30
+  %33 = load i32, ptr %7, align 4, !tbaa !11
+  %34 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN12cimg_library4CImgIfE6assignEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 1, i32 noundef %33, i32 noundef 1, i32 noundef 6)
+          to label %35 unwind label %58
+
+35:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  %36 = load ptr, ptr %17, align 8, !tbaa !30
+  %37 = invoke noundef ptr @_ZN12cimg_library4CImgIfEcvPfEv(ptr noundef nonnull align 8 dereferenceable(32) %36)
+          to label %38 unwind label %62
+
+38:                                               ; preds = %35
+  store ptr %37, ptr %18, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  store i64 0, ptr %19, align 8, !tbaa !32
+  br label %39
+
+39:                                               ; preds = %74, %38
+  %40 = load i64, ptr %19, align 8, !tbaa !32
+  %41 = load i32, ptr %7, align 4, !tbaa !11
+  %42 = mul i32 %41, 6
+  %43 = zext i32 %42 to i64
+  %44 = icmp ult i64 %40, %43
+  br i1 %44, label %66, label %45
+
+45:                                               ; preds = %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  br label %77
+
+46:                                               ; preds = %5
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = extractvalue { ptr, i32 } %13, 1
-  br label %171
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %13, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %14, align 4
+  br label %210
 
-16:                                               ; preds = %8
-  %17 = landingpad { ptr, i32 }
-          catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #15
-  %20 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-          to label %21 unwind label %22
-
-21:                                               ; preds = %16
-  invoke void @__cxa_end_catch()
-          to label %118 unwind label %26
-
-22:                                               ; preds = %16
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  %25 = extractvalue { ptr, i32 } %23, 1
-  invoke void @__cxa_end_catch()
-          to label %168 unwind label %176
-
-26:                                               ; preds = %21
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  %29 = extractvalue { ptr, i32 } %27, 1
-  br label %168
-
-30:                                               ; preds = %8
-  %31 = mul i32 %1, 3
-  %32 = mul i32 %31, %1
-  %33 = mul i32 %32, %1
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !20
-  %36 = load i32, ptr %35, align 8, !tbaa !48
-  %37 = getelementptr inbounds i8, ptr %35, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !49
-  %39 = mul i32 %38, %36
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !50
-  %42 = mul i32 %39, %41
-  %43 = getelementptr inbounds i8, ptr %35, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !51
-  %45 = mul i32 %42, %44
-  %46 = icmp ult i32 %33, %45
-  br i1 %46, label %47, label %81
-
-47:                                               ; preds = %30
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 512, ptr noundef nonnull @.str.6, i32 noundef %1, i32 noundef %1, i32 noundef %1) #15
-  %49 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef null)
-          to label %77 unwind label %54
-
-50:                                               ; preds = %111
+50:                                               ; preds = %24
   %51 = landingpad { ptr, i32 }
           cleanup
   %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
   %53 = extractvalue { ptr, i32 } %51, 1
-  br label %168
+  store i32 %53, ptr %14, align 4
+  br label %209
 
-54:                                               ; preds = %47
+54:                                               ; preds = %25
   %55 = landingpad { ptr, i32 }
           cleanup
-          catch ptr @_ZTI14gmic_exception
   %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %13, align 8
   %57 = extractvalue { ptr, i32 } %55, 1
-  %58 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI14gmic_exception) #15
-  %59 = icmp eq i32 %57, %58
-  br i1 %59, label %60, label %168
+  store i32 %57, ptr %14, align 4
+  br label %208
 
-60:                                               ; preds = %54
-  %61 = call ptr @__cxa_begin_catch(ptr %56) #15
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
-  %63 = load ptr, ptr %62, align 8, !tbaa !38
-  %64 = icmp eq ptr %63, null
-  %65 = select i1 %64, ptr @.str.8, ptr %63
-  %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %65)
-  %67 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-          to label %68 unwind label %69
-
-68:                                               ; preds = %60
-  invoke void @__cxa_end_catch()
-          to label %118 unwind label %71
-
-69:                                               ; preds = %60
-  %70 = landingpad { ptr, i32 }
+58:                                               ; preds = %30, %28
+  %59 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__cxa_end_catch()
-          to label %73 unwind label %176
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %13, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %14, align 4
+  br label %207
 
-71:                                               ; preds = %68
-  %72 = landingpad { ptr, i32 }
+62:                                               ; preds = %126, %35
+  %63 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %13, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %14, align 4
+  br label %206
 
-73:                                               ; preds = %71, %69
-  %74 = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ]
-  %75 = extractvalue { ptr, i32 } %74, 0
-  %76 = extractvalue { ptr, i32 } %74, 1
-  br label %168
+66:                                               ; preds = %39
+  %67 = load ptr, ptr %6, align 8, !tbaa !6
+  %68 = load i64, ptr %19, align 8, !tbaa !32
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !33
+  %71 = uitofp i8 %70 to float
+  %72 = load ptr, ptr %18, align 8, !tbaa !13
+  %73 = getelementptr inbounds nuw float, ptr %72, i32 1
+  store ptr %73, ptr %18, align 8, !tbaa !13
+  store float %71, ptr %72, align 4, !tbaa !34
+  br label %74
 
-77:                                               ; preds = %47
-  %78 = load ptr, ptr %34, align 8, !tbaa !20
-  %79 = load <4 x i32>, ptr %78, align 8, !tbaa !41
-  %80 = call i32 @llvm.vector.reduce.mul.v4i32(<4 x i32> %79)
-  br label %84
+74:                                               ; preds = %66
+  %75 = load i64, ptr %19, align 8, !tbaa !32
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %19, align 8, !tbaa !32
+  br label %39, !llvm.loop !35
 
-81:                                               ; preds = %30
-  %82 = icmp ugt i32 %33, %45
-  %83 = select i1 %82, i32 %36, i32 %1
-  br label %84
+77:                                               ; preds = %45
+  %78 = getelementptr inbounds [512 x i8], ptr %16, i64 0, i64 0
+  %79 = load i32, ptr %8, align 4, !tbaa !11
+  %80 = load i32, ptr %8, align 4, !tbaa !11
+  %81 = load i32, ptr %8, align 4, !tbaa !11
+  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %78, i64 noundef 512, ptr noundef @.str, i32 noundef %79, i32 noundef %80, i32 noundef %81) #3
+  %83 = getelementptr inbounds [512 x i8], ptr %16, i64 0, i64 0
+  %84 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %15, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef null, ptr noundef null)
+          to label %85 unwind label %86
 
-84:                                               ; preds = %81, %77
-  %85 = phi i32 [ %1, %77 ], [ %83, %81 ]
-  %86 = phi i32 [ %80, %77 ], [ %45, %81 ]
-  %87 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef null)
-          to label %111 unwind label %88
+85:                                               ; preds = %77
+  br label %115
 
-88:                                               ; preds = %84
-  %89 = landingpad { ptr, i32 }
+86:                                               ; preds = %77
+  %87 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI14gmic_exception
-  %90 = extractvalue { ptr, i32 } %89, 0
-  %91 = extractvalue { ptr, i32 } %89, 1
-  %92 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI14gmic_exception) #15
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %13, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %14, align 4
+  br label %90
+
+90:                                               ; preds = %86
+  %91 = load i32, ptr %14, align 4
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI14gmic_exception) #3
   %93 = icmp eq i32 %91, %92
-  br i1 %93, label %94, label %168
+  br i1 %93, label %94, label %206
 
-94:                                               ; preds = %88
-  %95 = call ptr @__cxa_begin_catch(ptr %90) #15
-  %96 = getelementptr inbounds i8, ptr %95, i64 56
-  %97 = load ptr, ptr %96, align 8, !tbaa !38
-  %98 = icmp eq ptr %97, null
-  %99 = select i1 %98, ptr @.str.8, ptr %97
-  %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %99)
-  %101 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-          to label %102 unwind label %103
+94:                                               ; preds = %90
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  %95 = load ptr, ptr %13, align 8
+  %96 = call ptr @__cxa_begin_catch(ptr %95) #3
+  store ptr %96, ptr %20, align 8
+  %97 = load ptr, ptr %20, align 8, !tbaa !37
+  %98 = invoke noundef ptr @_ZNK14gmic_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(64) %97)
+          to label %99 unwind label %104
 
-102:                                              ; preds = %94
+99:                                               ; preds = %94
+  %100 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %98)
+          to label %101 unwind label %104
+
+101:                                              ; preds = %99
+  %102 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 0)
+          to label %103 unwind label %104
+
+103:                                              ; preds = %101
+  store i32 1, ptr %21, align 4
   invoke void @__cxa_end_catch()
-          to label %118 unwind label %105
+          to label %108 unwind label %109
 
-103:                                              ; preds = %94
-  %104 = landingpad { ptr, i32 }
+104:                                              ; preds = %101, %99, %94
+  %105 = landingpad { ptr, i32 }
           cleanup
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %13, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %14, align 4
   invoke void @__cxa_end_catch()
-          to label %107 unwind label %176
+          to label %113 unwind label %216
 
-105:                                              ; preds = %102
-  %106 = landingpad { ptr, i32 }
+108:                                              ; preds = %103
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  br label %199
+
+109:                                              ; preds = %103
+  %110 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %13, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %14, align 4
+  br label %114
 
-107:                                              ; preds = %105, %103
-  %108 = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
-  %109 = extractvalue { ptr, i32 } %108, 0
-  %110 = extractvalue { ptr, i32 } %108, 1
-  br label %168
+113:                                              ; preds = %104
+  br label %114
 
-111:                                              ; preds = %84
-  %112 = zext i32 %86 to i64
-  %113 = load ptr, ptr %34, align 8, !tbaa !20
-  %114 = getelementptr inbounds i8, ptr %113, i64 24
-  %115 = load ptr, ptr %114, align 8, !tbaa !22
-  %116 = shl nuw nsw i64 %112, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %115, i64 %116, i1 false)
-  %117 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-          to label %118 unwind label %50
+114:                                              ; preds = %113, %109
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  br label %206
 
-118:                                              ; preds = %111, %102, %68, %21
-  %119 = phi i32 [ 0, %21 ], [ 0, %68 ], [ 0, %102 ], [ %85, %111 ]
-  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %7) #15
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #15
-  %120 = getelementptr inbounds i8, ptr %5, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !42
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %143, label %123
+115:                                              ; preds = %85
+  %116 = getelementptr inbounds [512 x i8], ptr %16, i64 0, i64 0
+  %117 = load ptr, ptr %10, align 8, !tbaa !6
+  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %116, i64 noundef 512, ptr noundef @.str.2, ptr noundef %117) #3
+  %119 = getelementptr inbounds [512 x i8], ptr %16, i64 0, i64 0
+  %120 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %15, ptr noundef %119, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef null, ptr noundef null)
+          to label %121 unwind label %122
 
-123:                                              ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %121, i64 -8
-  %125 = load i64, ptr %124, align 8
-  %126 = icmp eq i64 %125, 0
-  br i1 %126, label %142, label %127
+121:                                              ; preds = %115
+  br label %132
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %121, i64 %125
-  br label %129
+122:                                              ; preds = %115
+  %123 = landingpad { ptr, i32 }
+          catch ptr null
+  %124 = extractvalue { ptr, i32 } %123, 0
+  store ptr %124, ptr %13, align 8
+  %125 = extractvalue { ptr, i32 } %123, 1
+  store i32 %125, ptr %14, align 4
+  br label %126
 
-129:                                              ; preds = %140, %127
-  %130 = phi ptr [ %131, %140 ], [ %128, %127 ]
-  %131 = getelementptr inbounds i8, ptr %130, i64 -32
-  %132 = getelementptr inbounds i8, ptr %130, i64 -16
-  %133 = load i8, ptr %132, align 8, !tbaa !43, !range !44, !noundef !45
-  %134 = icmp eq i8 %133, 0
-  br i1 %134, label %135, label %140
+126:                                              ; preds = %122
+  %127 = load ptr, ptr %13, align 8
+  %128 = call ptr @__cxa_begin_catch(ptr %127) #3
+  %129 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef @.str.3) #3
+  invoke void @__cxa_end_catch()
+          to label %131 unwind label %62
 
-135:                                              ; preds = %129
-  %136 = getelementptr inbounds i8, ptr %130, i64 -8
-  %137 = load ptr, ptr %136, align 8, !tbaa !46
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %140, label %139
+131:                                              ; preds = %126
+  br label %132
 
-139:                                              ; preds = %135
-  call void @_ZdaPv(ptr noundef nonnull %137) #17
-  br label %140
+132:                                              ; preds = %131, %121
+  %133 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %15, ptr noundef @.str.4, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef null, ptr noundef null)
+          to label %134 unwind label %135
 
-140:                                              ; preds = %139, %135, %129
-  %141 = icmp eq ptr %131, %121
-  br i1 %141, label %142, label %129
-
-142:                                              ; preds = %140, %123
-  call void @_ZdaPv(ptr noundef nonnull %124) #17
-  br label %143
-
-143:                                              ; preds = %142, %118
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  %144 = getelementptr inbounds i8, ptr %4, i64 8
-  %145 = load ptr, ptr %144, align 8, !tbaa !20
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %167, label %147
-
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds i8, ptr %145, i64 -8
-  %149 = load i64, ptr %148, align 8
-  %150 = icmp eq i64 %149, 0
-  br i1 %150, label %166, label %151
-
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %145, i64 %149
-  br label %153
-
-153:                                              ; preds = %164, %151
-  %154 = phi ptr [ %155, %164 ], [ %152, %151 ]
-  %155 = getelementptr inbounds i8, ptr %154, i64 -32
-  %156 = getelementptr inbounds i8, ptr %154, i64 -16
-  %157 = load i8, ptr %156, align 8, !tbaa !47, !range !44, !noundef !45
-  %158 = icmp eq i8 %157, 0
-  br i1 %158, label %159, label %164
-
-159:                                              ; preds = %153
-  %160 = getelementptr inbounds i8, ptr %154, i64 -8
-  %161 = load ptr, ptr %160, align 8, !tbaa !22
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %164, label %163
-
-163:                                              ; preds = %159
-  call void @_ZdaPv(ptr noundef nonnull %161) #17
+134:                                              ; preds = %132
   br label %164
 
-164:                                              ; preds = %163, %159, %153
-  %165 = icmp eq ptr %155, %145
-  br i1 %165, label %166, label %153
+135:                                              ; preds = %132
+  %136 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTI14gmic_exception
+  %137 = extractvalue { ptr, i32 } %136, 0
+  store ptr %137, ptr %13, align 8
+  %138 = extractvalue { ptr, i32 } %136, 1
+  store i32 %138, ptr %14, align 4
+  br label %139
 
-166:                                              ; preds = %164, %147
-  call void @_ZdaPv(ptr noundef nonnull %148) #17
-  br label %167
+139:                                              ; preds = %135
+  %140 = load i32, ptr %14, align 4
+  %141 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI14gmic_exception) #3
+  %142 = icmp eq i32 %140, %141
+  br i1 %142, label %143, label %206
 
-167:                                              ; preds = %166, %143
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
-  ret i32 %119
+143:                                              ; preds = %139
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #3
+  %144 = load ptr, ptr %13, align 8
+  %145 = call ptr @__cxa_begin_catch(ptr %144) #3
+  store ptr %145, ptr %22, align 8
+  %146 = load ptr, ptr %22, align 8, !tbaa !37
+  %147 = invoke noundef ptr @_ZNK14gmic_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(64) %146)
+          to label %148 unwind label %153
 
-168:                                              ; preds = %107, %88, %73, %54, %50, %26, %22
-  %169 = phi i32 [ %29, %26 ], [ %25, %22 ], [ %53, %50 ], [ %110, %107 ], [ %91, %88 ], [ %76, %73 ], [ %57, %54 ]
-  %170 = phi ptr [ %28, %26 ], [ %24, %22 ], [ %52, %50 ], [ %109, %107 ], [ %90, %88 ], [ %75, %73 ], [ %56, %54 ]
-  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %7) #15
+148:                                              ; preds = %143
+  %149 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %147)
+          to label %150 unwind label %153
+
+150:                                              ; preds = %148
+  %151 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 0)
+          to label %152 unwind label %153
+
+152:                                              ; preds = %150
+  store i32 1, ptr %21, align 4
+  invoke void @__cxa_end_catch()
+          to label %157 unwind label %158
+
+153:                                              ; preds = %150, %148, %143
+  %154 = landingpad { ptr, i32 }
+          cleanup
+  %155 = extractvalue { ptr, i32 } %154, 0
+  store ptr %155, ptr %13, align 8
+  %156 = extractvalue { ptr, i32 } %154, 1
+  store i32 %156, ptr %14, align 4
+  invoke void @__cxa_end_catch()
+          to label %162 unwind label %216
+
+157:                                              ; preds = %152
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  br label %199
+
+158:                                              ; preds = %152
+  %159 = landingpad { ptr, i32 }
+          cleanup
+  %160 = extractvalue { ptr, i32 } %159, 0
+  store ptr %160, ptr %13, align 8
+  %161 = extractvalue { ptr, i32 } %159, 1
+  store i32 %161, ptr %14, align 4
+  br label %163
+
+162:                                              ; preds = %153
+  br label %163
+
+163:                                              ; preds = %162, %158
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  br label %206
+
+164:                                              ; preds = %134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #3
+  %165 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %166 unwind label %202
+
+166:                                              ; preds = %164
+  %167 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %165, i64 0
+  %168 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %167, i32 0, i32 0
+  %169 = load i32, ptr %168, align 8, !tbaa !41
+  %170 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %171 unwind label %202
+
+171:                                              ; preds = %166
+  %172 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %170, i64 0
+  %173 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %172, i32 0, i32 1
+  %174 = load i32, ptr %173, align 4, !tbaa !43
+  %175 = mul i32 %169, %174
+  %176 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %177 unwind label %202
+
+177:                                              ; preds = %171
+  %178 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %176, i64 0
+  %179 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %178, i32 0, i32 2
+  %180 = load i32, ptr %179, align 8, !tbaa !44
+  %181 = mul i32 %175, %180
+  %182 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %183 unwind label %202
+
+183:                                              ; preds = %177
+  %184 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %182, i64 0
+  %185 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %184, i32 0, i32 3
+  %186 = load i32, ptr %185, align 4, !tbaa !45
+  %187 = mul i32 %181, %186
+  %188 = zext i32 %187 to i64
+  store i64 %188, ptr %23, align 8, !tbaa !32
+  %189 = load ptr, ptr %9, align 8, !tbaa !13
+  %190 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %191 unwind label %202
+
+191:                                              ; preds = %183
+  %192 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %190, i64 0
+  %193 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %192, i32 0, i32 5
+  %194 = load ptr, ptr %193, align 8, !tbaa !46
+  %195 = load i64, ptr %23, align 8, !tbaa !32
+  %196 = mul i64 %195, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %189, ptr align 4 %194, i64 %196, i1 false)
+  %197 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 0)
+          to label %198 unwind label %202
+
+198:                                              ; preds = %191
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  store i32 0, ptr %21, align 4
+  br label %199
+
+199:                                              ; preds = %198, %157, %108
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 512, ptr %16) #3
+  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %15) #3
+  call void @llvm.lifetime.end.p0(i64 416, ptr %15) #3
+  call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #3
+  call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #3
+  %200 = load i32, ptr %21, align 4
+  switch i32 %200, label %219 [
+    i32 0, label %201
+    i32 1, label %201
+  ]
+
+201:                                              ; preds = %199, %199
+  ret void
+
+202:                                              ; preds = %191, %183, %177, %171, %166, %164
+  %203 = landingpad { ptr, i32 }
+          cleanup
+  %204 = extractvalue { ptr, i32 } %203, 0
+  store ptr %204, ptr %13, align 8
+  %205 = extractvalue { ptr, i32 } %203, 1
+  store i32 %205, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  br label %206
+
+206:                                              ; preds = %202, %163, %139, %114, %90, %62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  br label %207
+
+207:                                              ; preds = %206, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  br label %208
+
+208:                                              ; preds = %207, %54
+  call void @llvm.lifetime.end.p0(i64 512, ptr %16) #3
+  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %15) #3
+  br label %209
+
+209:                                              ; preds = %208, %50
+  call void @llvm.lifetime.end.p0(i64 416, ptr %15) #3
+  call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  br label %210
+
+210:                                              ; preds = %209, %46
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #3
+  call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #3
+  br label %211
+
+211:                                              ; preds = %210
+  %212 = load ptr, ptr %13, align 8
+  %213 = load i32, ptr %14, align 4
+  %214 = insertvalue { ptr, i32 } poison, ptr %212, 0
+  %215 = insertvalue { ptr, i32 } %214, i32 %213, 1
+  resume { ptr, i32 } %215
+
+216:                                              ; preds = %153, %104
+  %217 = landingpad { ptr, i32 }
+          catch ptr null
+  %218 = extractvalue { ptr, i32 } %217, 0
+  call void @__clang_call_terminate(ptr %218) #12
+  unreachable
+
+219:                                              ; preds = %199
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN12cimg_library8CImgListIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.cimg_library::CImgList", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 8, !tbaa !49
+  %5 = getelementptr inbounds nuw %"struct.cimg_library::CImgList", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 4, !tbaa !51
+  %6 = getelementptr inbounds nuw %"struct.cimg_library::CImgList", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !52
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN12cimg_library8CImgListIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.cimg_library::CImgList.0", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 8, !tbaa !54
+  %5 = getelementptr inbounds nuw %"struct.cimg_library::CImgList.0", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 4, !tbaa !55
+  %6 = getelementptr inbounds nuw %"struct.cimg_library::CImgList.0", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !56
+  ret void
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+declare void @_ZN4gmicC1Ev(ptr noundef nonnull align 8 dereferenceable(416)) unnamed_addr #1
+
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.cimg_library::CImgList", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
+  ret ptr %5
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN12cimg_library4CImgIfE6assignEjjjj(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN12cimg_library4CImgIfEcvPfEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %3, i32 0, i32 5
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  ret ptr %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: nounwind
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+
+declare noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #7
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare i32 @printf(ptr noundef, ...) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK14gmic_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.gmic_exception, ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %4, i32 0, i32 5
+  %6 = load ptr, ptr %5, align 8, !tbaa !57
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %struct.gmic_exception, ptr %3, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %9, i32 0, i32 5
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
+  br label %13
+
+12:                                               ; preds = %1
+  br label %13
+
+13:                                               ; preds = %12, %8
+  %14 = phi ptr [ %11, %8 ], [ @.str.8, %12 ]
+  ret ptr %14
+}
+
+declare void @__cxa_end_catch()
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #3
+  call void @_ZSt9terminatev() #12
+  unreachable
+}
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+
+; Function Attrs: nounwind
+declare void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.cimg_library::CImgList.0", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %19, label %7
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %5, i64 -8
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %5, i64 %9
+  %11 = icmp eq ptr %5, %10
+  br i1 %11, label %16, label %12
+
+12:                                               ; preds = %12, %7
+  %13 = phi ptr [ %10, %7 ], [ %14, %12 ]
+  %14 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %13, i64 -1
+  call void @_ZN12cimg_library4CImgIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %15 = icmp eq ptr %14, %5
+  br i1 %15, label %16, label %12
+
+16:                                               ; preds = %12, %7
+  %17 = mul i64 32, %9
+  %18 = add i64 %17, 8
+  call void @_ZdaPvm(ptr noundef %8, i64 noundef %18) #13
+  br label %19
+
+19:                                               ; preds = %16, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.cimg_library::CImgList", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %19, label %7
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %5, i64 -8
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %5, i64 %9
+  %11 = icmp eq ptr %5, %10
+  br i1 %11, label %16, label %12
+
+12:                                               ; preds = %12, %7
+  %13 = phi ptr [ %10, %7 ], [ %14, %12 ]
+  %14 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %13, i64 -1
+  call void @_ZN12cimg_library4CImgIfED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %15 = icmp eq ptr %14, %5
+  br i1 %15, label %16, label %12
+
+16:                                               ; preds = %12, %7
+  %17 = mul i64 32, %9
+  %18 = add i64 %17, 8
+  call void @_ZdaPvm(ptr noundef %8, i64 noundef %18) #13
+  br label %19
+
+19:                                               ; preds = %16, %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden i32 @lut3d_get_cached_clut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #4 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.cimg_library::CImgList", align 8
+  %9 = alloca %"struct.cimg_library::CImgList.0", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca [512 x i8], align 16
+  %13 = alloca %struct.gmic, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store i32 %1, ptr %6, align 4, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #3
+  call void @_ZN12cimg_library8CImgListIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #3
+  invoke void @_ZN12cimg_library8CImgListIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %20 unwind label %29
+
+20:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 512, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 416, ptr %13) #3
+  invoke void @_ZN4gmicC1Ev(ptr noundef nonnull align 8 dereferenceable(416) %13)
+          to label %21 unwind label %33
+
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds nuw %struct.gmic, ptr %13, i32 0, i32 32
+  store i32 -1, ptr %22, align 8, !tbaa !15
+  %23 = getelementptr inbounds [512 x i8], ptr %12, i64 0, i64 0
+  %24 = load ptr, ptr %7, align 8, !tbaa !6
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef 512, ptr noundef @.str.5, ptr noundef %24) #3
+  %26 = getelementptr inbounds [512 x i8], ptr %12, i64 0, i64 0
+  %27 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %13, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %37
+
+28:                                               ; preds = %21
+  br label %56
+
+29:                                               ; preds = %3
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %10, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %11, align 4
+  br label %221
+
+33:                                               ; preds = %20
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %10, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %11, align 4
+  br label %220
+
+37:                                               ; preds = %21
+  %38 = landingpad { ptr, i32 }
+          catch ptr null
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %10, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %11, align 4
+  br label %41
+
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %10, align 8
+  %43 = call ptr @__cxa_begin_catch(ptr %42) #3
+  %44 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
+          to label %45 unwind label %46
+
+45:                                               ; preds = %41
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  invoke void @__cxa_end_catch()
+          to label %50 unwind label %51
+
+46:                                               ; preds = %41
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %10, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %11, align 4
+  invoke void @__cxa_end_catch()
+          to label %55 unwind label %227
+
+50:                                               ; preds = %45
+  br label %217
+
+51:                                               ; preds = %45
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %10, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %11, align 4
+  br label %219
+
+55:                                               ; preds = %46
+  br label %219
+
+56:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %57 = load i32, ptr %6, align 4, !tbaa !11
+  %58 = mul i32 3, %57
+  %59 = load i32, ptr %6, align 4, !tbaa !11
+  %60 = mul i32 %58, %59
+  %61 = load i32, ptr %6, align 4, !tbaa !11
+  %62 = mul i32 %60, %61
+  store i32 %62, ptr %15, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %63 = load i32, ptr %6, align 4, !tbaa !11
+  store i32 %63, ptr %16, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  %64 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %65 unwind label %101
+
+65:                                               ; preds = %56
+  %66 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %64, i64 0
+  %67 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %66, i32 0, i32 0
+  %68 = load i32, ptr %67, align 8, !tbaa !41
+  %69 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %70 unwind label %101
+
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %69, i64 0
+  %72 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %71, i32 0, i32 1
+  %73 = load i32, ptr %72, align 4, !tbaa !43
+  %74 = mul i32 %68, %73
+  %75 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %76 unwind label %101
+
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %75, i64 0
+  %78 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %77, i32 0, i32 2
+  %79 = load i32, ptr %78, align 8, !tbaa !44
+  %80 = mul i32 %74, %79
+  %81 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %82 unwind label %101
+
+82:                                               ; preds = %76
+  %83 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %81, i64 0
+  %84 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %83, i32 0, i32 3
+  %85 = load i32, ptr %84, align 4, !tbaa !45
+  %86 = mul i32 %80, %85
+  %87 = zext i32 %86 to i64
+  store i64 %87, ptr %17, align 8, !tbaa !32
+  %88 = load i32, ptr %15, align 4, !tbaa !11
+  %89 = zext i32 %88 to i64
+  %90 = load i64, ptr %17, align 8, !tbaa !32
+  %91 = icmp ult i64 %89, %90
+  br i1 %91, label %92, label %159
+
+92:                                               ; preds = %82
+  %93 = getelementptr inbounds [512 x i8], ptr %12, i64 0, i64 0
+  %94 = load i32, ptr %6, align 4, !tbaa !11
+  %95 = load i32, ptr %6, align 4, !tbaa !11
+  %96 = load i32, ptr %6, align 4, !tbaa !11
+  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %93, i64 noundef 512, ptr noundef @.str.6, i32 noundef %94, i32 noundef %95, i32 noundef %96) #3
+  %98 = getelementptr inbounds [512 x i8], ptr %12, i64 0, i64 0
+  %99 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %13, ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, ptr noundef null)
+          to label %100 unwind label %105
+
+100:                                              ; preds = %92
+  br label %134
+
+101:                                              ; preds = %206, %203, %164, %147, %141, %136, %134, %76, %70, %65, %56
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %10, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %11, align 4
+  br label %216
+
+105:                                              ; preds = %92
+  %106 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTI14gmic_exception
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %10, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %11, align 4
+  br label %109
+
+109:                                              ; preds = %105
+  %110 = load i32, ptr %11, align 4
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI14gmic_exception) #3
+  %112 = icmp eq i32 %110, %111
+  br i1 %112, label %113, label %216
+
+113:                                              ; preds = %109
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  %114 = load ptr, ptr %10, align 8
+  %115 = call ptr @__cxa_begin_catch(ptr %114) #3
+  store ptr %115, ptr %18, align 8
+  %116 = load ptr, ptr %18, align 8, !tbaa !37
+  %117 = invoke noundef ptr @_ZNK14gmic_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(64) %116)
+          to label %118 unwind label %123
+
+118:                                              ; preds = %113
+  %119 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %117)
+          to label %120 unwind label %123
+
+120:                                              ; preds = %118
+  %121 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
+          to label %122 unwind label %123
+
+122:                                              ; preds = %120
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  invoke void @__cxa_end_catch()
+          to label %127 unwind label %128
+
+123:                                              ; preds = %120, %118, %113
+  %124 = landingpad { ptr, i32 }
+          cleanup
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %10, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %11, align 4
+  invoke void @__cxa_end_catch()
+          to label %132 unwind label %227
+
+127:                                              ; preds = %122
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  br label %215
+
+128:                                              ; preds = %122
+  %129 = landingpad { ptr, i32 }
+          cleanup
+  %130 = extractvalue { ptr, i32 } %129, 0
+  store ptr %130, ptr %10, align 8
+  %131 = extractvalue { ptr, i32 } %129, 1
+  store i32 %131, ptr %11, align 4
+  br label %133
+
+132:                                              ; preds = %123
+  br label %133
+
+133:                                              ; preds = %132, %128
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  br label %216
+
+134:                                              ; preds = %100
+  %135 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %136 unwind label %101
+
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %135, i64 0
+  %138 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %137, i32 0, i32 0
+  %139 = load i32, ptr %138, align 8, !tbaa !41
+  %140 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %141 unwind label %101
+
+141:                                              ; preds = %136
+  %142 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %140, i64 0
+  %143 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %142, i32 0, i32 1
+  %144 = load i32, ptr %143, align 4, !tbaa !43
+  %145 = mul i32 %139, %144
+  %146 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %147 unwind label %101
+
+147:                                              ; preds = %141
+  %148 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %146, i64 0
+  %149 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %148, i32 0, i32 2
+  %150 = load i32, ptr %149, align 8, !tbaa !44
+  %151 = mul i32 %145, %150
+  %152 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %153 unwind label %101
+
+153:                                              ; preds = %147
+  %154 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %152, i64 0
+  %155 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %154, i32 0, i32 3
+  %156 = load i32, ptr %155, align 4, !tbaa !45
+  %157 = mul i32 %151, %156
+  %158 = zext i32 %157 to i64
+  store i64 %158, ptr %17, align 8, !tbaa !32
   br label %171
 
-171:                                              ; preds = %168, %12
-  %172 = phi i32 [ %169, %168 ], [ %15, %12 ]
-  %173 = phi ptr [ %170, %168 ], [ %14, %12 ]
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #15
-  call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
-  %174 = insertvalue { ptr, i32 } poison, ptr %173, 0
-  %175 = insertvalue { ptr, i32 } %174, i32 %172, 1
-  resume { ptr, i32 } %175
+159:                                              ; preds = %82
+  %160 = load i32, ptr %15, align 4, !tbaa !11
+  %161 = zext i32 %160 to i64
+  %162 = load i64, ptr %17, align 8, !tbaa !32
+  %163 = icmp ugt i64 %161, %162
+  br i1 %163, label %164, label %170
 
-176:                                              ; preds = %103, %69, %22
-  %177 = landingpad { ptr, i32 }
+164:                                              ; preds = %159
+  %165 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %166 unwind label %101
+
+166:                                              ; preds = %164
+  %167 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %165, i64 0
+  %168 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %167, i32 0, i32 0
+  %169 = load i32, ptr %168, align 8, !tbaa !41
+  store i32 %169, ptr %16, align 4, !tbaa !11
+  br label %170
+
+170:                                              ; preds = %166, %159
+  br label %171
+
+171:                                              ; preds = %170, %153
+  %172 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %13, ptr noundef @.str.4, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, ptr noundef null)
+          to label %173 unwind label %174
+
+173:                                              ; preds = %171
+  br label %203
+
+174:                                              ; preds = %171
+  %175 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTI14gmic_exception
+  %176 = extractvalue { ptr, i32 } %175, 0
+  store ptr %176, ptr %10, align 8
+  %177 = extractvalue { ptr, i32 } %175, 1
+  store i32 %177, ptr %11, align 4
+  br label %178
+
+178:                                              ; preds = %174
+  %179 = load i32, ptr %11, align 4
+  %180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI14gmic_exception) #3
+  %181 = icmp eq i32 %179, %180
+  br i1 %181, label %182, label %216
+
+182:                                              ; preds = %178
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  %183 = load ptr, ptr %10, align 8
+  %184 = call ptr @__cxa_begin_catch(ptr %183) #3
+  store ptr %184, ptr %19, align 8
+  %185 = load ptr, ptr %19, align 8, !tbaa !37
+  %186 = invoke noundef ptr @_ZNK14gmic_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(64) %185)
+          to label %187 unwind label %192
+
+187:                                              ; preds = %182
+  %188 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %186)
+          to label %189 unwind label %192
+
+189:                                              ; preds = %187
+  %190 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
+          to label %191 unwind label %192
+
+191:                                              ; preds = %189
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  invoke void @__cxa_end_catch()
+          to label %196 unwind label %197
+
+192:                                              ; preds = %189, %187, %182
+  %193 = landingpad { ptr, i32 }
+          cleanup
+  %194 = extractvalue { ptr, i32 } %193, 0
+  store ptr %194, ptr %10, align 8
+  %195 = extractvalue { ptr, i32 } %193, 1
+  store i32 %195, ptr %11, align 4
+  invoke void @__cxa_end_catch()
+          to label %201 unwind label %227
+
+196:                                              ; preds = %191
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  br label %215
+
+197:                                              ; preds = %191
+  %198 = landingpad { ptr, i32 }
+          cleanup
+  %199 = extractvalue { ptr, i32 } %198, 0
+  store ptr %199, ptr %10, align 8
+  %200 = extractvalue { ptr, i32 } %198, 1
+  store i32 %200, ptr %11, align 4
+  br label %202
+
+201:                                              ; preds = %192
+  br label %202
+
+202:                                              ; preds = %201, %197
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  br label %216
+
+203:                                              ; preds = %173
+  %204 = load ptr, ptr %5, align 8, !tbaa !13
+  %205 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %206 unwind label %101
+
+206:                                              ; preds = %203
+  %207 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %205, i64 0
+  %208 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %207, i32 0, i32 5
+  %209 = load ptr, ptr %208, align 8, !tbaa !46
+  %210 = load i64, ptr %17, align 8, !tbaa !32
+  %211 = mul i64 %210, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %204, ptr align 4 %209, i64 %211, i1 false)
+  %212 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
+          to label %213 unwind label %101
+
+213:                                              ; preds = %206
+  %214 = load i32, ptr %16, align 4, !tbaa !11
+  store i32 %214, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  br label %215
+
+215:                                              ; preds = %213, %196, %127
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  br label %217
+
+216:                                              ; preds = %202, %178, %133, %109, %101
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  br label %219
+
+217:                                              ; preds = %215, %50
+  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %13) #3
+  call void @llvm.lifetime.end.p0(i64 416, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 512, ptr %12) #3
+  call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #3
+  call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #3
+  %218 = load i32, ptr %4, align 4
+  ret i32 %218
+
+219:                                              ; preds = %216, %55, %51
+  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %13) #3
+  br label %220
+
+220:                                              ; preds = %219, %33
+  call void @llvm.lifetime.end.p0(i64 416, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 512, ptr %12) #3
+  call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  br label %221
+
+221:                                              ; preds = %220, %29
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #3
+  call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #3
+  br label %222
+
+222:                                              ; preds = %221
+  %223 = load ptr, ptr %10, align 8
+  %224 = load i32, ptr %11, align 4
+  %225 = insertvalue { ptr, i32 } poison, ptr %223, 0
+  %226 = insertvalue { ptr, i32 } %225, i32 %224, 1
+  resume { ptr, i32 } %226
+
+227:                                              ; preds = %192, %123, %46
+  %228 = landingpad { ptr, i32 }
           catch ptr null
-  %178 = extractvalue { ptr, i32 } %177, 0
-  call void @__clang_call_terminate(ptr %178) #18
+  %229 = extractvalue { ptr, i32 } %228, 0
+  call void @__clang_call_terminate(ptr %229) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @lut3d_read_gmz(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %8 = alloca %"struct.cimg_library::CImgList", align 8
-  %9 = alloca %"struct.cimg_library::CImgList.0", align 8
-  %10 = alloca [512 x i8], align 16
-  %11 = alloca %struct.gmic, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %11) #15
-  invoke void @_ZN4gmicC1Ev(ptr noundef nonnull align 8 dereferenceable(416) %11)
-          to label %12 unwind label %16
+define hidden i32 @lut3d_read_gmz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #4 personality ptr @__gxx_personality_v0 {
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca %"struct.cimg_library::CImgList", align 8
+  %17 = alloca %"struct.cimg_library::CImgList.0", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca [512 x i8], align 16
+  %21 = alloca %struct.gmic, align 8
+  %22 = alloca i32, align 4
+  %23 = alloca ptr, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca ptr, align 8
+  %30 = alloca i32, align 4
+  %31 = alloca ptr, align 8
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !59
+  store ptr %1, ptr %10, align 8, !tbaa !6
+  store ptr %2, ptr %11, align 8, !tbaa !6
+  store ptr %3, ptr %12, align 8, !tbaa !59
+  store ptr %4, ptr %13, align 8, !tbaa !60
+  store ptr %5, ptr %14, align 8, !tbaa !6
+  store i32 %6, ptr %15, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #3
+  call void @_ZN12cimg_library8CImgListIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #3
+  invoke void @_ZN12cimg_library8CImgListIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17)
+          to label %34 unwind label %43
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %11, i64 360
-  store i32 -1, ptr %13, align 8, !tbaa !6
-  %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 512, ptr noundef nonnull @.str.5, ptr noundef %2) #15
-  %15 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %11, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, ptr noundef null)
-          to label %45 unwind label %20
+34:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 512, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 416, ptr %21) #3
+  invoke void @_ZN4gmicC1Ev(ptr noundef nonnull align 8 dereferenceable(416) %21)
+          to label %35 unwind label %47
 
-16:                                               ; preds = %7
-  %17 = landingpad { ptr, i32 }
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds nuw %struct.gmic, ptr %21, i32 0, i32 32
+  store i32 -1, ptr %36, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  store i32 0, ptr %22, align 4, !tbaa !11
+  %37 = getelementptr inbounds [512 x i8], ptr %20, i64 0, i64 0
+  %38 = load ptr, ptr %11, align 8, !tbaa !6
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef 512, ptr noundef @.str.5, ptr noundef %38) #3
+  %40 = getelementptr inbounds [512 x i8], ptr %20, i64 0, i64 0
+  %41 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %21, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef null, ptr noundef null)
+          to label %42 unwind label %51
+
+42:                                               ; preds = %35
+  br label %84
+
+43:                                               ; preds = %7
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  %19 = extractvalue { ptr, i32 } %17, 1
-  br label %410
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %18, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %19, align 4
+  br label %386
 
-20:                                               ; preds = %12
-  %21 = landingpad { ptr, i32 }
+47:                                               ; preds = %34
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %18, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %19, align 4
+  br label %385
+
+51:                                               ; preds = %35
+  %52 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI14gmic_exception
-  %22 = extractvalue { ptr, i32 } %21, 0
-  %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI14gmic_exception) #15
-  %25 = icmp eq i32 %23, %24
-  br i1 %25, label %26, label %407
-
-26:                                               ; preds = %20
-  %27 = call ptr @__cxa_begin_catch(ptr %22) #15
-  %28 = getelementptr inbounds i8, ptr %27, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !38
-  %30 = icmp eq ptr %29, null
-  %31 = select i1 %30, ptr @.str.8, ptr %29
-  %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %31)
-  store i32 0, ptr %3, align 4, !tbaa !41
-  %33 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
-          to label %34 unwind label %37
-
-34:                                               ; preds = %26
-  %35 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 0)
-          to label %36 unwind label %37
-
-36:                                               ; preds = %34
-  invoke void @__cxa_end_catch()
-          to label %357 unwind label %39
-
-37:                                               ; preds = %34, %26
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %41 unwind label %415
-
-39:                                               ; preds = %36
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  br label %41
-
-41:                                               ; preds = %39, %37
-  %42 = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
-  %43 = extractvalue { ptr, i32 } %42, 0
-  %44 = extractvalue { ptr, i32 } %42, 1
-  br label %407
-
-45:                                               ; preds = %12
-  %46 = load i8, ptr %5, align 1, !tbaa !24
-  %47 = icmp eq i8 %46, 0
-  %48 = load i32, ptr %9, align 8, !tbaa !52
-  %49 = icmp eq i32 %48, 0
-  %50 = select i1 %47, i1 true, i1 %49
-  br i1 %50, label %66, label %51
-
-51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %9, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !42
-  %54 = zext i32 %48 to i64
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %18, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %19, align 4
   br label %55
 
-55:                                               ; preds = %61, %51
-  %56 = phi i64 [ 0, %51 ], [ %62, %61 ]
-  %57 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %53, i64 %56, i32 5
-  %58 = load ptr, ptr %57, align 8, !tbaa !46
-  %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %5) #19
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %64, label %61
+55:                                               ; preds = %51
+  %56 = load i32, ptr %19, align 4
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI14gmic_exception) #3
+  %58 = icmp eq i32 %56, %57
+  br i1 %58, label %59, label %384
 
-61:                                               ; preds = %55
-  %62 = add nuw nsw i64 %56, 1
-  %63 = icmp eq i64 %62, %54
-  br i1 %63, label %66, label %55, !llvm.loop !53
+59:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #3
+  %60 = load ptr, ptr %18, align 8
+  %61 = call ptr @__cxa_begin_catch(ptr %60) #3
+  store ptr %61, ptr %23, align 8
+  %62 = load ptr, ptr %23, align 8, !tbaa !37
+  %63 = invoke noundef ptr @_ZNK14gmic_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(64) %62)
+          to label %64 unwind label %73
 
-64:                                               ; preds = %55
-  %65 = trunc i64 %56 to i32
-  br label %66
+64:                                               ; preds = %59
+  %65 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %63)
+          to label %66 unwind label %73
 
-66:                                               ; preds = %64, %61, %45
-  %67 = phi i32 [ 0, %45 ], [ 1, %64 ], [ 0, %61 ]
-  %68 = phi i32 [ 0, %45 ], [ %65, %64 ], [ 0, %61 ]
-  store i32 %48, ptr %3, align 4, !tbaa !41
-  %69 = icmp eq i32 %6, 0
-  br i1 %69, label %70, label %90
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %12, align 8, !tbaa !59
+  store i32 0, ptr %67, align 4, !tbaa !11
+  %68 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 0)
+          to label %69 unwind label %73
 
-70:                                               ; preds = %66
-  invoke void @lut3d_clear_lutname_list(ptr noundef %4)
-          to label %71 unwind label %76
+69:                                               ; preds = %66
+  %70 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 0)
+          to label %71 unwind label %73
 
-71:                                               ; preds = %70
-  %72 = load i32, ptr %9, align 8, !tbaa !52
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %90, label %74
+71:                                               ; preds = %69
+  %72 = load i32, ptr %22, align 4, !tbaa !11
+  store i32 %72, ptr %8, align 4
+  store i32 1, ptr %24, align 4
+  invoke void @__cxa_end_catch()
+          to label %77 unwind label %78
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %9, i64 8
-  br label %78
-
-76:                                               ; preds = %70
-  %77 = landingpad { ptr, i32 }
+73:                                               ; preds = %69, %66, %64, %59
+  %74 = landingpad { ptr, i32 }
           cleanup
-  br label %353
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %18, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %19, align 4
+  invoke void @__cxa_end_catch()
+          to label %82 unwind label %392
 
-78:                                               ; preds = %83, %74
-  %79 = phi i64 [ 0, %74 ], [ %84, %83 ]
-  %80 = load ptr, ptr %75, align 8, !tbaa !42
-  %81 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %80, i64 %79, i32 5
-  %82 = load ptr, ptr %81, align 8, !tbaa !46
-  invoke void @lut3d_add_lutname_to_list(ptr noundef %4, ptr noundef %82)
-          to label %83 unwind label %88
-
-83:                                               ; preds = %78
-  %84 = add nuw nsw i64 %79, 1
-  %85 = load i32, ptr %9, align 8, !tbaa !52
-  %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %84, %86
-  br i1 %87, label %78, label %90, !llvm.loop !54
-
-88:                                               ; preds = %78
-  %89 = landingpad { ptr, i32 }
-          cleanup
-  br label %353
-
-90:                                               ; preds = %83, %71, %66
-  %91 = getelementptr inbounds i8, ptr %8, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !20
-  %93 = zext i32 %68 to i64
-  %94 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %92, i64 %93, i32 1
-  %95 = load i32, ptr %94, align 4, !tbaa !49
-  store i32 %95, ptr %0, align 4, !tbaa !41
-  %96 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %92, i64 %93
-  %97 = load i32, ptr %96, align 8, !tbaa !48
-  %98 = icmp eq i32 %97, 1
-  %99 = icmp ult i32 %95, 2049
-  %100 = select i1 %98, i1 %99, i1 false
-  br i1 %100, label %101, label %312
-
-101:                                              ; preds = %90
-  %102 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %92, i64 %93, i32 2
-  %103 = load i32, ptr %102, align 8, !tbaa !50
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %105, label %312
-
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %92, i64 %93, i32 3
-  %107 = load i32, ptr %106, align 4, !tbaa !51
-  %108 = icmp eq i32 %107, 6
-  br i1 %108, label %109, label %174
-
-109:                                              ; preds = %105
-  %110 = icmp eq i32 %95, 0
-  br i1 %110, label %349, label %111
-
-111:                                              ; preds = %109
-  %112 = mul nuw nsw i32 %95, 6
-  %113 = getelementptr inbounds i8, ptr %96, i64 24
-  %114 = zext nneg i32 %112 to i64
-  %115 = and i64 %114, 6
-  %116 = icmp eq i32 %95, 1
-  br i1 %116, label %318, label %117
-
-117:                                              ; preds = %111
-  %118 = and i64 %114, 32760
-  br label %121
-
-119:                                              ; preds = %351, %349
-  %120 = landingpad { ptr, i32 }
-          cleanup
-  br label %353
-
-121:                                              ; preds = %121, %117
-  %122 = phi i64 [ 0, %117 ], [ %171, %121 ]
-  %123 = phi i64 [ 0, %117 ], [ %172, %121 ]
-  %124 = load ptr, ptr %113, align 8, !tbaa !22
-  %125 = getelementptr inbounds float, ptr %124, i64 %122
-  %126 = load float, ptr %125, align 4, !tbaa !28
-  %127 = fptoui float %126 to i8
-  %128 = getelementptr inbounds i8, ptr %1, i64 %122
-  store i8 %127, ptr %128, align 1, !tbaa !24
-  %129 = or disjoint i64 %122, 1
-  %130 = load ptr, ptr %113, align 8, !tbaa !22
-  %131 = getelementptr inbounds float, ptr %130, i64 %129
-  %132 = load float, ptr %131, align 4, !tbaa !28
-  %133 = fptoui float %132 to i8
-  %134 = getelementptr inbounds i8, ptr %1, i64 %129
-  store i8 %133, ptr %134, align 1, !tbaa !24
-  %135 = or disjoint i64 %122, 2
-  %136 = load ptr, ptr %113, align 8, !tbaa !22
-  %137 = getelementptr inbounds float, ptr %136, i64 %135
-  %138 = load float, ptr %137, align 4, !tbaa !28
-  %139 = fptoui float %138 to i8
-  %140 = getelementptr inbounds i8, ptr %1, i64 %135
-  store i8 %139, ptr %140, align 1, !tbaa !24
-  %141 = or disjoint i64 %122, 3
-  %142 = load ptr, ptr %113, align 8, !tbaa !22
-  %143 = getelementptr inbounds float, ptr %142, i64 %141
-  %144 = load float, ptr %143, align 4, !tbaa !28
-  %145 = fptoui float %144 to i8
-  %146 = getelementptr inbounds i8, ptr %1, i64 %141
-  store i8 %145, ptr %146, align 1, !tbaa !24
-  %147 = or disjoint i64 %122, 4
-  %148 = load ptr, ptr %113, align 8, !tbaa !22
-  %149 = getelementptr inbounds float, ptr %148, i64 %147
-  %150 = load float, ptr %149, align 4, !tbaa !28
-  %151 = fptoui float %150 to i8
-  %152 = getelementptr inbounds i8, ptr %1, i64 %147
-  store i8 %151, ptr %152, align 1, !tbaa !24
-  %153 = or disjoint i64 %122, 5
-  %154 = load ptr, ptr %113, align 8, !tbaa !22
-  %155 = getelementptr inbounds float, ptr %154, i64 %153
-  %156 = load float, ptr %155, align 4, !tbaa !28
-  %157 = fptoui float %156 to i8
-  %158 = getelementptr inbounds i8, ptr %1, i64 %153
-  store i8 %157, ptr %158, align 1, !tbaa !24
-  %159 = or disjoint i64 %122, 6
-  %160 = load ptr, ptr %113, align 8, !tbaa !22
-  %161 = getelementptr inbounds float, ptr %160, i64 %159
-  %162 = load float, ptr %161, align 4, !tbaa !28
-  %163 = fptoui float %162 to i8
-  %164 = getelementptr inbounds i8, ptr %1, i64 %159
-  store i8 %163, ptr %164, align 1, !tbaa !24
-  %165 = or disjoint i64 %122, 7
-  %166 = load ptr, ptr %113, align 8, !tbaa !22
-  %167 = getelementptr inbounds float, ptr %166, i64 %165
-  %168 = load float, ptr %167, align 4, !tbaa !28
-  %169 = fptoui float %168 to i8
-  %170 = getelementptr inbounds i8, ptr %1, i64 %165
-  store i8 %169, ptr %170, align 1, !tbaa !24
-  %171 = add nuw nsw i64 %122, 8
-  %172 = add i64 %123, 8
-  %173 = icmp eq i64 %172, %118
-  br i1 %173, label %318, label %121, !llvm.loop !55
-
-174:                                              ; preds = %105
-  %175 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %92, i64 %93, i32 3
-  %176 = load i32, ptr %175, align 4, !tbaa !51
-  %177 = icmp eq i32 %176, 4
-  br i1 %177, label %178, label %312
-
-178:                                              ; preds = %174
-  %179 = mul nuw nsw i32 %95, 3
-  %180 = icmp eq i32 %95, 0
-  br i1 %180, label %349, label %181
-
-181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %96, i64 24
-  %183 = call i32 @llvm.umax.i32(i32 %179, i32 1)
-  %184 = zext nneg i32 %183 to i64
-  %185 = and i64 %184, 7
-  %186 = icmp ult i32 %95, 3
-  br i1 %186, label %189, label %187
-
-187:                                              ; preds = %181
-  %188 = and i64 %184, 16376
-  br label %218
-
-189:                                              ; preds = %218, %181
-  %190 = phi i64 [ 0, %181 ], [ %268, %218 ]
-  %191 = icmp eq i64 %185, 0
-  br i1 %191, label %203, label %192
-
-192:                                              ; preds = %192, %189
-  %193 = phi i64 [ %200, %192 ], [ %190, %189 ]
-  %194 = phi i64 [ %201, %192 ], [ 0, %189 ]
-  %195 = load ptr, ptr %182, align 8, !tbaa !22
-  %196 = getelementptr inbounds float, ptr %195, i64 %193
-  %197 = load float, ptr %196, align 4, !tbaa !28
-  %198 = fptoui float %197 to i8
-  %199 = getelementptr inbounds i8, ptr %1, i64 %193
-  store i8 %198, ptr %199, align 1, !tbaa !24
-  %200 = add nuw nsw i64 %193, 1
-  %201 = add i64 %194, 1
-  %202 = icmp eq i64 %201, %185
-  br i1 %202, label %203, label %192, !llvm.loop !56
-
-203:                                              ; preds = %192, %189
-  br i1 %180, label %349, label %204
-
-204:                                              ; preds = %203
-  %205 = getelementptr inbounds i8, ptr %96, i64 24
-  %206 = mul nuw nsw i32 %95, 5
-  %207 = shl nuw nsw i32 %95, 2
-  %208 = zext nneg i32 %179 to i64
-  %209 = zext nneg i32 %206 to i64
-  %210 = zext nneg i32 %207 to i64
-  %211 = zext nneg i32 %95 to i64
-  %212 = getelementptr i8, ptr %1, i64 %209
-  %213 = getelementptr i8, ptr %1, i64 %210
-  %214 = and i64 %211, 3
-  %215 = icmp ult i32 %95, 4
-  br i1 %215, label %332, label %216
-
-216:                                              ; preds = %204
-  %217 = and i64 %211, 4092
-  br label %271
-
-218:                                              ; preds = %218, %187
-  %219 = phi i64 [ 0, %187 ], [ %268, %218 ]
-  %220 = phi i64 [ 0, %187 ], [ %269, %218 ]
-  %221 = load ptr, ptr %182, align 8, !tbaa !22
-  %222 = getelementptr inbounds float, ptr %221, i64 %219
-  %223 = load float, ptr %222, align 4, !tbaa !28
-  %224 = fptoui float %223 to i8
-  %225 = getelementptr inbounds i8, ptr %1, i64 %219
-  store i8 %224, ptr %225, align 1, !tbaa !24
-  %226 = or disjoint i64 %219, 1
-  %227 = load ptr, ptr %182, align 8, !tbaa !22
-  %228 = getelementptr inbounds float, ptr %227, i64 %226
-  %229 = load float, ptr %228, align 4, !tbaa !28
-  %230 = fptoui float %229 to i8
-  %231 = getelementptr inbounds i8, ptr %1, i64 %226
-  store i8 %230, ptr %231, align 1, !tbaa !24
-  %232 = or disjoint i64 %219, 2
-  %233 = load ptr, ptr %182, align 8, !tbaa !22
-  %234 = getelementptr inbounds float, ptr %233, i64 %232
-  %235 = load float, ptr %234, align 4, !tbaa !28
-  %236 = fptoui float %235 to i8
-  %237 = getelementptr inbounds i8, ptr %1, i64 %232
-  store i8 %236, ptr %237, align 1, !tbaa !24
-  %238 = or disjoint i64 %219, 3
-  %239 = load ptr, ptr %182, align 8, !tbaa !22
-  %240 = getelementptr inbounds float, ptr %239, i64 %238
-  %241 = load float, ptr %240, align 4, !tbaa !28
-  %242 = fptoui float %241 to i8
-  %243 = getelementptr inbounds i8, ptr %1, i64 %238
-  store i8 %242, ptr %243, align 1, !tbaa !24
-  %244 = or disjoint i64 %219, 4
-  %245 = load ptr, ptr %182, align 8, !tbaa !22
-  %246 = getelementptr inbounds float, ptr %245, i64 %244
-  %247 = load float, ptr %246, align 4, !tbaa !28
-  %248 = fptoui float %247 to i8
-  %249 = getelementptr inbounds i8, ptr %1, i64 %244
-  store i8 %248, ptr %249, align 1, !tbaa !24
-  %250 = or disjoint i64 %219, 5
-  %251 = load ptr, ptr %182, align 8, !tbaa !22
-  %252 = getelementptr inbounds float, ptr %251, i64 %250
-  %253 = load float, ptr %252, align 4, !tbaa !28
-  %254 = fptoui float %253 to i8
-  %255 = getelementptr inbounds i8, ptr %1, i64 %250
-  store i8 %254, ptr %255, align 1, !tbaa !24
-  %256 = or disjoint i64 %219, 6
-  %257 = load ptr, ptr %182, align 8, !tbaa !22
-  %258 = getelementptr inbounds float, ptr %257, i64 %256
-  %259 = load float, ptr %258, align 4, !tbaa !28
-  %260 = fptoui float %259 to i8
-  %261 = getelementptr inbounds i8, ptr %1, i64 %256
-  store i8 %260, ptr %261, align 1, !tbaa !24
-  %262 = or disjoint i64 %219, 7
-  %263 = load ptr, ptr %182, align 8, !tbaa !22
-  %264 = getelementptr inbounds float, ptr %263, i64 %262
-  %265 = load float, ptr %264, align 4, !tbaa !28
-  %266 = fptoui float %265 to i8
-  %267 = getelementptr inbounds i8, ptr %1, i64 %262
-  store i8 %266, ptr %267, align 1, !tbaa !24
-  %268 = add nuw nsw i64 %219, 8
-  %269 = add i64 %220, 8
-  %270 = icmp eq i64 %269, %188
-  br i1 %270, label %189, label %218, !llvm.loop !57
-
-271:                                              ; preds = %271, %216
-  %272 = phi i64 [ 0, %216 ], [ %309, %271 ]
-  %273 = phi i64 [ 0, %216 ], [ %310, %271 ]
-  %274 = load ptr, ptr %205, align 8, !tbaa !22
-  %275 = add nuw nsw i64 %272, %208
-  %276 = getelementptr inbounds float, ptr %274, i64 %275
-  %277 = load float, ptr %276, align 4, !tbaa !28
-  %278 = fptoui float %277 to i8
-  %279 = getelementptr i8, ptr %212, i64 %272
-  store i8 %278, ptr %279, align 1, !tbaa !24
-  %280 = getelementptr i8, ptr %213, i64 %272
-  store i8 %278, ptr %280, align 1, !tbaa !24
-  %281 = getelementptr inbounds i8, ptr %1, i64 %275
-  store i8 %278, ptr %281, align 1, !tbaa !24
-  %282 = or disjoint i64 %272, 1
-  %283 = load ptr, ptr %205, align 8, !tbaa !22
-  %284 = add nuw nsw i64 %282, %208
-  %285 = getelementptr inbounds float, ptr %283, i64 %284
-  %286 = load float, ptr %285, align 4, !tbaa !28
-  %287 = fptoui float %286 to i8
-  %288 = getelementptr i8, ptr %212, i64 %282
-  store i8 %287, ptr %288, align 1, !tbaa !24
-  %289 = getelementptr i8, ptr %213, i64 %282
-  store i8 %287, ptr %289, align 1, !tbaa !24
-  %290 = getelementptr inbounds i8, ptr %1, i64 %284
-  store i8 %287, ptr %290, align 1, !tbaa !24
-  %291 = or disjoint i64 %272, 2
-  %292 = load ptr, ptr %205, align 8, !tbaa !22
-  %293 = add nuw nsw i64 %291, %208
-  %294 = getelementptr inbounds float, ptr %292, i64 %293
-  %295 = load float, ptr %294, align 4, !tbaa !28
-  %296 = fptoui float %295 to i8
-  %297 = getelementptr i8, ptr %212, i64 %291
-  store i8 %296, ptr %297, align 1, !tbaa !24
-  %298 = getelementptr i8, ptr %213, i64 %291
-  store i8 %296, ptr %298, align 1, !tbaa !24
-  %299 = getelementptr inbounds i8, ptr %1, i64 %293
-  store i8 %296, ptr %299, align 1, !tbaa !24
-  %300 = or disjoint i64 %272, 3
-  %301 = load ptr, ptr %205, align 8, !tbaa !22
-  %302 = add nuw nsw i64 %300, %208
-  %303 = getelementptr inbounds float, ptr %301, i64 %302
-  %304 = load float, ptr %303, align 4, !tbaa !28
-  %305 = fptoui float %304 to i8
-  %306 = getelementptr i8, ptr %212, i64 %300
-  store i8 %305, ptr %306, align 1, !tbaa !24
-  %307 = getelementptr i8, ptr %213, i64 %300
-  store i8 %305, ptr %307, align 1, !tbaa !24
-  %308 = getelementptr inbounds i8, ptr %1, i64 %302
-  store i8 %305, ptr %308, align 1, !tbaa !24
-  %309 = add nuw nsw i64 %272, 4
-  %310 = add i64 %273, 4
-  %311 = icmp eq i64 %310, %217
-  br i1 %311, label %332, label %271, !llvm.loop !58
-
-312:                                              ; preds = %174, %101, %90
-  %313 = getelementptr inbounds i8, ptr %9, i64 8
-  %314 = load ptr, ptr %313, align 8, !tbaa !42
-  %315 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %314, i64 %93, i32 5
-  %316 = load ptr, ptr %315, align 8, !tbaa !46
-  %317 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %68, ptr noundef %316)
-  br label %349
-
-318:                                              ; preds = %121, %111
-  %319 = phi i64 [ 0, %111 ], [ %171, %121 ]
-  %320 = icmp eq i64 %115, 0
-  br i1 %320, label %349, label %321
-
-321:                                              ; preds = %321, %318
-  %322 = phi i64 [ %329, %321 ], [ %319, %318 ]
-  %323 = phi i64 [ %330, %321 ], [ 0, %318 ]
-  %324 = load ptr, ptr %113, align 8, !tbaa !22
-  %325 = getelementptr inbounds float, ptr %324, i64 %322
-  %326 = load float, ptr %325, align 4, !tbaa !28
-  %327 = fptoui float %326 to i8
-  %328 = getelementptr inbounds i8, ptr %1, i64 %322
-  store i8 %327, ptr %328, align 1, !tbaa !24
-  %329 = add nuw nsw i64 %322, 1
-  %330 = add i64 %323, 1
-  %331 = icmp eq i64 %330, %115
-  br i1 %331, label %349, label %321, !llvm.loop !59
-
-332:                                              ; preds = %271, %204
-  %333 = phi i64 [ 0, %204 ], [ %309, %271 ]
-  %334 = icmp eq i64 %214, 0
-  br i1 %334, label %349, label %335
-
-335:                                              ; preds = %335, %332
-  %336 = phi i64 [ %346, %335 ], [ %333, %332 ]
-  %337 = phi i64 [ %347, %335 ], [ 0, %332 ]
-  %338 = load ptr, ptr %205, align 8, !tbaa !22
-  %339 = add nuw nsw i64 %336, %208
-  %340 = getelementptr inbounds float, ptr %338, i64 %339
-  %341 = load float, ptr %340, align 4, !tbaa !28
-  %342 = fptoui float %341 to i8
-  %343 = getelementptr i8, ptr %212, i64 %336
-  store i8 %342, ptr %343, align 1, !tbaa !24
-  %344 = getelementptr i8, ptr %213, i64 %336
-  store i8 %342, ptr %344, align 1, !tbaa !24
-  %345 = getelementptr inbounds i8, ptr %1, i64 %339
-  store i8 %342, ptr %345, align 1, !tbaa !24
-  %346 = add nuw nsw i64 %336, 1
-  %347 = add i64 %337, 1
-  %348 = icmp eq i64 %347, %214
-  br i1 %348, label %349, label %335, !llvm.loop !60
-
-349:                                              ; preds = %335, %332, %321, %318, %312, %203, %178, %109
-  %350 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
-          to label %351 unwind label %119
-
-351:                                              ; preds = %349
-  %352 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 0)
-          to label %357 unwind label %119
-
-353:                                              ; preds = %119, %88, %76
-  %354 = phi { ptr, i32 } [ %120, %119 ], [ %89, %88 ], [ %77, %76 ]
-  %355 = extractvalue { ptr, i32 } %354, 0
-  %356 = extractvalue { ptr, i32 } %354, 1
-  br label %407
-
-357:                                              ; preds = %351, %36
-  %358 = phi i32 [ 0, %36 ], [ %67, %351 ]
-  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %11) #15
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #15
-  %359 = getelementptr inbounds i8, ptr %9, i64 8
-  %360 = load ptr, ptr %359, align 8, !tbaa !42
-  %361 = icmp eq ptr %360, null
-  br i1 %361, label %382, label %362
-
-362:                                              ; preds = %357
-  %363 = getelementptr inbounds i8, ptr %360, i64 -8
-  %364 = load i64, ptr %363, align 8
-  %365 = icmp eq i64 %364, 0
-  br i1 %365, label %381, label %366
-
-366:                                              ; preds = %362
-  %367 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %360, i64 %364
-  br label %368
-
-368:                                              ; preds = %379, %366
-  %369 = phi ptr [ %370, %379 ], [ %367, %366 ]
-  %370 = getelementptr inbounds i8, ptr %369, i64 -32
-  %371 = getelementptr inbounds i8, ptr %369, i64 -16
-  %372 = load i8, ptr %371, align 8, !tbaa !43, !range !44, !noundef !45
-  %373 = icmp eq i8 %372, 0
-  br i1 %373, label %374, label %379
-
-374:                                              ; preds = %368
-  %375 = getelementptr inbounds i8, ptr %369, i64 -8
-  %376 = load ptr, ptr %375, align 8, !tbaa !46
-  %377 = icmp eq ptr %376, null
-  br i1 %377, label %379, label %378
-
-378:                                              ; preds = %374
-  call void @_ZdaPv(ptr noundef nonnull %376) #17
-  br label %379
-
-379:                                              ; preds = %378, %374, %368
-  %380 = icmp eq ptr %370, %360
-  br i1 %380, label %381, label %368
-
-381:                                              ; preds = %379, %362
-  call void @_ZdaPv(ptr noundef nonnull %363) #17
+77:                                               ; preds = %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
   br label %382
 
-382:                                              ; preds = %381, %357
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  %383 = getelementptr inbounds i8, ptr %8, i64 8
-  %384 = load ptr, ptr %383, align 8, !tbaa !20
-  %385 = icmp eq ptr %384, null
-  br i1 %385, label %406, label %386
+78:                                               ; preds = %71
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %18, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %19, align 4
+  br label %83
 
-386:                                              ; preds = %382
-  %387 = getelementptr inbounds i8, ptr %384, i64 -8
-  %388 = load i64, ptr %387, align 8
-  %389 = icmp eq i64 %388, 0
-  br i1 %389, label %405, label %390
+82:                                               ; preds = %73
+  br label %83
 
-390:                                              ; preds = %386
-  %391 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %384, i64 %388
-  br label %392
+83:                                               ; preds = %82, %78
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  br label %384
 
-392:                                              ; preds = %403, %390
-  %393 = phi ptr [ %394, %403 ], [ %391, %390 ]
-  %394 = getelementptr inbounds i8, ptr %393, i64 -32
-  %395 = getelementptr inbounds i8, ptr %393, i64 -16
-  %396 = load i8, ptr %395, align 8, !tbaa !47, !range !44, !noundef !45
-  %397 = icmp eq i8 %396, 0
-  br i1 %397, label %398, label %403
+84:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  store i32 0, ptr %25, align 4, !tbaa !11
+  %85 = load ptr, ptr %14, align 8, !tbaa !6
+  %86 = getelementptr inbounds i8, ptr %85, i64 0
+  %87 = load i8, ptr %86, align 1, !tbaa !33
+  %88 = icmp ne i8 %87, 0
+  br i1 %88, label %89, label %119
 
-398:                                              ; preds = %392
-  %399 = getelementptr inbounds i8, ptr %393, i64 -8
-  %400 = load ptr, ptr %399, align 8, !tbaa !22
-  %401 = icmp eq ptr %400, null
-  br i1 %401, label %403, label %402
+89:                                               ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  store i32 0, ptr %26, align 4, !tbaa !11
+  br label %90
 
-402:                                              ; preds = %398
-  call void @_ZdaPv(ptr noundef nonnull %400) #17
-  br label %403
+90:                                               ; preds = %114, %89
+  %91 = load i32, ptr %26, align 4, !tbaa !11
+  %92 = getelementptr inbounds nuw %"struct.cimg_library::CImgList.0", ptr %17, i32 0, i32 0
+  %93 = load i32, ptr %92, align 8, !tbaa !54
+  %94 = icmp ult i32 %91, %93
+  br i1 %94, label %96, label %95
 
-403:                                              ; preds = %402, %398, %392
-  %404 = icmp eq ptr %394, %384
-  br i1 %404, label %405, label %392
+95:                                               ; preds = %90
+  store i32 2, ptr %24, align 4
+  br label %117
 
-405:                                              ; preds = %403, %386
-  call void @_ZdaPv(ptr noundef nonnull %387) #17
-  br label %406
+96:                                               ; preds = %90
+  %97 = invoke noundef ptr @_ZN12cimg_library8CImgListIcEcvPNS_4CImgIcEEEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+          to label %98 unwind label %109
 
-406:                                              ; preds = %405, %382
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  ret i32 %358
+98:                                               ; preds = %96
+  %99 = load i32, ptr %26, align 4, !tbaa !11
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %97, i64 %100
+  %102 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %101, i32 0, i32 5
+  %103 = load ptr, ptr %102, align 8, !tbaa !61
+  %104 = load ptr, ptr %14, align 8, !tbaa !6
+  %105 = call i32 @strcmp(ptr noundef %103, ptr noundef %104) #14
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %113
 
-407:                                              ; preds = %353, %41, %20
-  %408 = phi i32 [ %356, %353 ], [ %44, %41 ], [ %23, %20 ]
-  %409 = phi ptr [ %355, %353 ], [ %43, %41 ], [ %22, %20 ]
-  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %11) #15
-  br label %410
+107:                                              ; preds = %98
+  %108 = load i32, ptr %26, align 4, !tbaa !11
+  store i32 %108, ptr %25, align 4, !tbaa !11
+  store i32 1, ptr %22, align 4, !tbaa !11
+  store i32 2, ptr %24, align 4
+  br label %117
 
-410:                                              ; preds = %407, %16
-  %411 = phi i32 [ %408, %407 ], [ %19, %16 ]
-  %412 = phi ptr [ %409, %407 ], [ %18, %16 ]
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #15
-  call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  %413 = insertvalue { ptr, i32 } poison, ptr %412, 0
-  %414 = insertvalue { ptr, i32 } %413, i32 %411, 1
-  resume { ptr, i32 } %414
+109:                                              ; preds = %96
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %18, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  br label %381
 
-415:                                              ; preds = %37
-  %416 = landingpad { ptr, i32 }
+113:                                              ; preds = %98
+  br label %114
+
+114:                                              ; preds = %113
+  %115 = load i32, ptr %26, align 4, !tbaa !11
+  %116 = add i32 %115, 1
+  store i32 %116, ptr %26, align 4, !tbaa !11
+  br label %90, !llvm.loop !62
+
+117:                                              ; preds = %107, %95
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  br label %118
+
+118:                                              ; preds = %117
+  br label %119
+
+119:                                              ; preds = %118, %84
+  %120 = getelementptr inbounds nuw %"struct.cimg_library::CImgList.0", ptr %17, i32 0, i32 0
+  %121 = load i32, ptr %120, align 8, !tbaa !54
+  %122 = load ptr, ptr %12, align 8, !tbaa !59
+  store i32 %121, ptr %122, align 4, !tbaa !11
+  %123 = load i32, ptr %15, align 4, !tbaa !11
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %156, label %125
+
+125:                                              ; preds = %119
+  %126 = load ptr, ptr %13, align 8, !tbaa !60
+  invoke void @lut3d_clear_lutname_list(ptr noundef %126)
+          to label %127 unwind label %134
+
+127:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  store i32 0, ptr %27, align 4, !tbaa !11
+  br label %128
+
+128:                                              ; preds = %148, %127
+  %129 = load i32, ptr %27, align 4, !tbaa !11
+  %130 = getelementptr inbounds nuw %"struct.cimg_library::CImgList.0", ptr %17, i32 0, i32 0
+  %131 = load i32, ptr %130, align 8, !tbaa !54
+  %132 = icmp ult i32 %129, %131
+  br i1 %132, label %138, label %133
+
+133:                                              ; preds = %128
+  store i32 5, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  br label %155
+
+134:                                              ; preds = %125
+  %135 = landingpad { ptr, i32 }
+          cleanup
+  %136 = extractvalue { ptr, i32 } %135, 0
+  store ptr %136, ptr %18, align 8
+  %137 = extractvalue { ptr, i32 } %135, 1
+  store i32 %137, ptr %19, align 4
+  br label %381
+
+138:                                              ; preds = %128
+  %139 = load ptr, ptr %13, align 8, !tbaa !60
+  %140 = invoke noundef ptr @_ZN12cimg_library8CImgListIcEcvPNS_4CImgIcEEEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+          to label %141 unwind label %151
+
+141:                                              ; preds = %138
+  %142 = load i32, ptr %27, align 4, !tbaa !11
+  %143 = zext i32 %142 to i64
+  %144 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %140, i64 %143
+  %145 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %144, i32 0, i32 5
+  %146 = load ptr, ptr %145, align 8, !tbaa !61
+  invoke void @lut3d_add_lutname_to_list(ptr noundef %139, ptr noundef %146)
+          to label %147 unwind label %151
+
+147:                                              ; preds = %141
+  br label %148
+
+148:                                              ; preds = %147
+  %149 = load i32, ptr %27, align 4, !tbaa !11
+  %150 = add i32 %149, 1
+  store i32 %150, ptr %27, align 4, !tbaa !11
+  br label %128, !llvm.loop !63
+
+151:                                              ; preds = %141, %138
+  %152 = landingpad { ptr, i32 }
+          cleanup
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %18, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  br label %381
+
+155:                                              ; preds = %133
+  br label %156
+
+156:                                              ; preds = %155, %119
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #3
+  %157 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %158 unwind label %212
+
+158:                                              ; preds = %156
+  %159 = load i32, ptr %25, align 4, !tbaa !11
+  %160 = zext i32 %159 to i64
+  %161 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %157, i64 %160
+  %162 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %161, i32 0, i32 1
+  %163 = load i32, ptr %162, align 4, !tbaa !43
+  %164 = load ptr, ptr %9, align 8, !tbaa !59
+  store i32 %163, ptr %164, align 4, !tbaa !11
+  store i32 %163, ptr %28, align 4, !tbaa !11
+  %165 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %166 unwind label %212
+
+166:                                              ; preds = %158
+  %167 = load i32, ptr %25, align 4, !tbaa !11
+  %168 = zext i32 %167 to i64
+  %169 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %165, i64 %168
+  %170 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %169, i32 0, i32 0
+  %171 = load i32, ptr %170, align 8, !tbaa !41
+  %172 = icmp eq i32 %171, 1
+  br i1 %172, label %173, label %242
+
+173:                                              ; preds = %166
+  %174 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %175 unwind label %212
+
+175:                                              ; preds = %173
+  %176 = load i32, ptr %25, align 4, !tbaa !11
+  %177 = zext i32 %176 to i64
+  %178 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %174, i64 %177
+  %179 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %178, i32 0, i32 1
+  %180 = load i32, ptr %179, align 4, !tbaa !43
+  %181 = icmp ule i32 %180, 2048
+  br i1 %181, label %182, label %242
+
+182:                                              ; preds = %175
+  %183 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %184 unwind label %212
+
+184:                                              ; preds = %182
+  %185 = load i32, ptr %25, align 4, !tbaa !11
+  %186 = zext i32 %185 to i64
+  %187 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %183, i64 %186
+  %188 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %187, i32 0, i32 2
+  %189 = load i32, ptr %188, align 8, !tbaa !44
+  %190 = icmp eq i32 %189, 1
+  br i1 %190, label %191, label %242
+
+191:                                              ; preds = %184
+  %192 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %193 unwind label %212
+
+193:                                              ; preds = %191
+  %194 = load i32, ptr %25, align 4, !tbaa !11
+  %195 = zext i32 %194 to i64
+  %196 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %192, i64 %195
+  %197 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %196, i32 0, i32 3
+  %198 = load i32, ptr %197, align 4, !tbaa !45
+  %199 = icmp eq i32 %198, 6
+  br i1 %199, label %200, label %242
+
+200:                                              ; preds = %193
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #3
+  %201 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %202 unwind label %216
+
+202:                                              ; preds = %200
+  %203 = load i32, ptr %25, align 4, !tbaa !11
+  %204 = zext i32 %203 to i64
+  %205 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %201, i64 %204
+  store ptr %205, ptr %29, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  store i32 0, ptr %30, align 4, !tbaa !11
+  br label %206
+
+206:                                              ; preds = %233, %202
+  %207 = load i32, ptr %30, align 4, !tbaa !11
+  %208 = load i32, ptr %28, align 4, !tbaa !11
+  %209 = mul nsw i32 %208, 6
+  %210 = icmp slt i32 %207, %209
+  br i1 %210, label %220, label %211
+
+211:                                              ; preds = %206
+  store i32 8, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  br label %240
+
+212:                                              ; preds = %376, %374, %365, %362, %269, %260, %251, %242, %191, %182, %173, %158, %156
+  %213 = landingpad { ptr, i32 }
+          cleanup
+  %214 = extractvalue { ptr, i32 } %213, 0
+  store ptr %214, ptr %18, align 8
+  %215 = extractvalue { ptr, i32 } %213, 1
+  store i32 %215, ptr %19, align 4
+  br label %380
+
+216:                                              ; preds = %200
+  %217 = landingpad { ptr, i32 }
+          cleanup
+  %218 = extractvalue { ptr, i32 } %217, 0
+  store ptr %218, ptr %18, align 8
+  %219 = extractvalue { ptr, i32 } %217, 1
+  store i32 %219, ptr %19, align 4
+  br label %241
+
+220:                                              ; preds = %206
+  %221 = load ptr, ptr %29, align 8, !tbaa !30
+  %222 = invoke noundef ptr @_ZN12cimg_library4CImgIfEcvPfEv(ptr noundef nonnull align 8 dereferenceable(32) %221)
+          to label %223 unwind label %236
+
+223:                                              ; preds = %220
+  %224 = load i32, ptr %30, align 4, !tbaa !11
+  %225 = sext i32 %224 to i64
+  %226 = getelementptr inbounds float, ptr %222, i64 %225
+  %227 = load float, ptr %226, align 4, !tbaa !34
+  %228 = fptoui float %227 to i8
+  %229 = load ptr, ptr %10, align 8, !tbaa !6
+  %230 = load i32, ptr %30, align 4, !tbaa !11
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr inbounds i8, ptr %229, i64 %231
+  store i8 %228, ptr %232, align 1, !tbaa !33
+  br label %233
+
+233:                                              ; preds = %223
+  %234 = load i32, ptr %30, align 4, !tbaa !11
+  %235 = add nsw i32 %234, 1
+  store i32 %235, ptr %30, align 4, !tbaa !11
+  br label %206, !llvm.loop !64
+
+236:                                              ; preds = %220
+  %237 = landingpad { ptr, i32 }
+          cleanup
+  %238 = extractvalue { ptr, i32 } %237, 0
+  store ptr %238, ptr %18, align 8
+  %239 = extractvalue { ptr, i32 } %237, 1
+  store i32 %239, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  br label %241
+
+240:                                              ; preds = %211
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #3
+  br label %374
+
+241:                                              ; preds = %236, %216
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #3
+  br label %380
+
+242:                                              ; preds = %193, %184, %175, %166
+  %243 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %244 unwind label %212
+
+244:                                              ; preds = %242
+  %245 = load i32, ptr %25, align 4, !tbaa !11
+  %246 = zext i32 %245 to i64
+  %247 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %243, i64 %246
+  %248 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %247, i32 0, i32 0
+  %249 = load i32, ptr %248, align 8, !tbaa !41
+  %250 = icmp eq i32 %249, 1
+  br i1 %250, label %251, label %362
+
+251:                                              ; preds = %244
+  %252 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %253 unwind label %212
+
+253:                                              ; preds = %251
+  %254 = load i32, ptr %25, align 4, !tbaa !11
+  %255 = zext i32 %254 to i64
+  %256 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %252, i64 %255
+  %257 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %256, i32 0, i32 1
+  %258 = load i32, ptr %257, align 4, !tbaa !43
+  %259 = icmp ule i32 %258, 2048
+  br i1 %259, label %260, label %362
+
+260:                                              ; preds = %253
+  %261 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %262 unwind label %212
+
+262:                                              ; preds = %260
+  %263 = load i32, ptr %25, align 4, !tbaa !11
+  %264 = zext i32 %263 to i64
+  %265 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %261, i64 %264
+  %266 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %265, i32 0, i32 2
+  %267 = load i32, ptr %266, align 8, !tbaa !44
+  %268 = icmp eq i32 %267, 1
+  br i1 %268, label %269, label %362
+
+269:                                              ; preds = %262
+  %270 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %271 unwind label %212
+
+271:                                              ; preds = %269
+  %272 = load i32, ptr %25, align 4, !tbaa !11
+  %273 = zext i32 %272 to i64
+  %274 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %270, i64 %273
+  %275 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %274, i32 0, i32 3
+  %276 = load i32, ptr %275, align 4, !tbaa !45
+  %277 = icmp eq i32 %276, 4
+  br i1 %277, label %278, label %362
+
+278:                                              ; preds = %271
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #3
+  %279 = invoke noundef ptr @_ZN12cimg_library8CImgListIfEcvPNS_4CImgIfEEEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %280 unwind label %290
+
+280:                                              ; preds = %278
+  %281 = load i32, ptr %25, align 4, !tbaa !11
+  %282 = zext i32 %281 to i64
+  %283 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %279, i64 %282
+  store ptr %283, ptr %31, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #3
+  store i32 0, ptr %32, align 4, !tbaa !11
+  br label %284
+
+284:                                              ; preds = %307, %280
+  %285 = load i32, ptr %32, align 4, !tbaa !11
+  %286 = load i32, ptr %28, align 4, !tbaa !11
+  %287 = mul nsw i32 %286, 3
+  %288 = icmp slt i32 %285, %287
+  br i1 %288, label %294, label %289
+
+289:                                              ; preds = %284
+  store i32 11, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #3
+  br label %314
+
+290:                                              ; preds = %278
+  %291 = landingpad { ptr, i32 }
+          cleanup
+  %292 = extractvalue { ptr, i32 } %291, 0
+  store ptr %292, ptr %18, align 8
+  %293 = extractvalue { ptr, i32 } %291, 1
+  store i32 %293, ptr %19, align 4
+  br label %361
+
+294:                                              ; preds = %284
+  %295 = load ptr, ptr %31, align 8, !tbaa !30
+  %296 = invoke noundef ptr @_ZN12cimg_library4CImgIfEcvPfEv(ptr noundef nonnull align 8 dereferenceable(32) %295)
+          to label %297 unwind label %310
+
+297:                                              ; preds = %294
+  %298 = load i32, ptr %32, align 4, !tbaa !11
+  %299 = sext i32 %298 to i64
+  %300 = getelementptr inbounds float, ptr %296, i64 %299
+  %301 = load float, ptr %300, align 4, !tbaa !34
+  %302 = fptoui float %301 to i8
+  %303 = load ptr, ptr %10, align 8, !tbaa !6
+  %304 = load i32, ptr %32, align 4, !tbaa !11
+  %305 = sext i32 %304 to i64
+  %306 = getelementptr inbounds i8, ptr %303, i64 %305
+  store i8 %302, ptr %306, align 1, !tbaa !33
+  br label %307
+
+307:                                              ; preds = %297
+  %308 = load i32, ptr %32, align 4, !tbaa !11
+  %309 = add nsw i32 %308, 1
+  store i32 %309, ptr %32, align 4, !tbaa !11
+  br label %284, !llvm.loop !65
+
+310:                                              ; preds = %294
+  %311 = landingpad { ptr, i32 }
+          cleanup
+  %312 = extractvalue { ptr, i32 } %311, 0
+  store ptr %312, ptr %18, align 8
+  %313 = extractvalue { ptr, i32 } %311, 1
+  store i32 %313, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #3
+  br label %361
+
+314:                                              ; preds = %289
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #3
+  store i32 0, ptr %33, align 4, !tbaa !11
+  br label %315
+
+315:                                              ; preds = %353, %314
+  %316 = load i32, ptr %33, align 4, !tbaa !11
+  %317 = load i32, ptr %28, align 4, !tbaa !11
+  %318 = icmp slt i32 %316, %317
+  br i1 %318, label %320, label %319
+
+319:                                              ; preds = %315
+  store i32 14, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #3
+  br label %360
+
+320:                                              ; preds = %315
+  %321 = load ptr, ptr %31, align 8, !tbaa !30
+  %322 = invoke noundef ptr @_ZN12cimg_library4CImgIfEcvPfEv(ptr noundef nonnull align 8 dereferenceable(32) %321)
+          to label %323 unwind label %356
+
+323:                                              ; preds = %320
+  %324 = load i32, ptr %28, align 4, !tbaa !11
+  %325 = mul nsw i32 %324, 3
+  %326 = load i32, ptr %33, align 4, !tbaa !11
+  %327 = add nsw i32 %325, %326
+  %328 = sext i32 %327 to i64
+  %329 = getelementptr inbounds float, ptr %322, i64 %328
+  %330 = load float, ptr %329, align 4, !tbaa !34
+  %331 = fptoui float %330 to i8
+  %332 = load ptr, ptr %10, align 8, !tbaa !6
+  %333 = load i32, ptr %28, align 4, !tbaa !11
+  %334 = mul nsw i32 %333, 5
+  %335 = load i32, ptr %33, align 4, !tbaa !11
+  %336 = add nsw i32 %334, %335
+  %337 = sext i32 %336 to i64
+  %338 = getelementptr inbounds i8, ptr %332, i64 %337
+  store i8 %331, ptr %338, align 1, !tbaa !33
+  %339 = load ptr, ptr %10, align 8, !tbaa !6
+  %340 = load i32, ptr %28, align 4, !tbaa !11
+  %341 = mul nsw i32 %340, 4
+  %342 = load i32, ptr %33, align 4, !tbaa !11
+  %343 = add nsw i32 %341, %342
+  %344 = sext i32 %343 to i64
+  %345 = getelementptr inbounds i8, ptr %339, i64 %344
+  store i8 %331, ptr %345, align 1, !tbaa !33
+  %346 = load ptr, ptr %10, align 8, !tbaa !6
+  %347 = load i32, ptr %28, align 4, !tbaa !11
+  %348 = mul nsw i32 %347, 3
+  %349 = load i32, ptr %33, align 4, !tbaa !11
+  %350 = add nsw i32 %348, %349
+  %351 = sext i32 %350 to i64
+  %352 = getelementptr inbounds i8, ptr %346, i64 %351
+  store i8 %331, ptr %352, align 1, !tbaa !33
+  br label %353
+
+353:                                              ; preds = %323
+  %354 = load i32, ptr %33, align 4, !tbaa !11
+  %355 = add nsw i32 %354, 1
+  store i32 %355, ptr %33, align 4, !tbaa !11
+  br label %315, !llvm.loop !66
+
+356:                                              ; preds = %320
+  %357 = landingpad { ptr, i32 }
+          cleanup
+  %358 = extractvalue { ptr, i32 } %357, 0
+  store ptr %358, ptr %18, align 8
+  %359 = extractvalue { ptr, i32 } %357, 1
+  store i32 %359, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #3
+  br label %361
+
+360:                                              ; preds = %319
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #3
+  br label %373
+
+361:                                              ; preds = %356, %310, %290
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #3
+  br label %380
+
+362:                                              ; preds = %271, %262, %253, %244
+  %363 = load i32, ptr %25, align 4, !tbaa !11
+  %364 = invoke noundef ptr @_ZN12cimg_library8CImgListIcEcvPNS_4CImgIcEEEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+          to label %365 unwind label %212
+
+365:                                              ; preds = %362
+  %366 = load i32, ptr %25, align 4, !tbaa !11
+  %367 = zext i32 %366 to i64
+  %368 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %364, i64 %367
+  %369 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %368, i32 0, i32 5
+  %370 = load ptr, ptr %369, align 8, !tbaa !61
+  %371 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %363, ptr noundef %370)
+          to label %372 unwind label %212
+
+372:                                              ; preds = %365
+  br label %373
+
+373:                                              ; preds = %372, %360
+  br label %374
+
+374:                                              ; preds = %373, %240
+  %375 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 0)
+          to label %376 unwind label %212
+
+376:                                              ; preds = %374
+  %377 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 0)
+          to label %378 unwind label %212
+
+378:                                              ; preds = %376
+  %379 = load i32, ptr %22, align 4, !tbaa !11
+  store i32 %379, ptr %8, align 4
+  store i32 1, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  br label %382
+
+380:                                              ; preds = %361, %241, %212
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #3
+  br label %381
+
+381:                                              ; preds = %380, %151, %134, %109
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  br label %384
+
+382:                                              ; preds = %378, %77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %21) #3
+  call void @llvm.lifetime.end.p0(i64 416, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 512, ptr %20) #3
+  call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #3
+  call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #3
+  %383 = load i32, ptr %8, align 4
+  ret i32 %383
+
+384:                                              ; preds = %381, %83, %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %21) #3
+  br label %385
+
+385:                                              ; preds = %384, %47
+  call void @llvm.lifetime.end.p0(i64 416, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 512, ptr %20) #3
+  call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  br label %386
+
+386:                                              ; preds = %385, %43
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #3
+  call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #3
+  br label %387
+
+387:                                              ; preds = %386
+  %388 = load ptr, ptr %18, align 8
+  %389 = load i32, ptr %19, align 4
+  %390 = insertvalue { ptr, i32 } poison, ptr %388, 0
+  %391 = insertvalue { ptr, i32 } %390, i32 %389, 1
+  resume { ptr, i32 } %391
+
+392:                                              ; preds = %73
+  %393 = landingpad { ptr, i32 }
           catch ptr null
-  %417 = extractvalue { ptr, i32 } %416, 0
-  call void @__clang_call_terminate(ptr %417) #18
+  %394 = extractvalue { ptr, i32 } %393, 0
+  call void @__clang_call_terminate(ptr %394) #12
   unreachable
 }
 
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #10
 
-declare void @lut3d_clear_lutname_list(ptr noundef) local_unnamed_addr #0
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN12cimg_library8CImgListIcEcvPNS_4CImgIcEEEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.cimg_library::CImgList.0", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  ret ptr %5
+}
 
-declare void @lut3d_add_lutname_to_list(ptr noundef, ptr noundef) local_unnamed_addr #0
+declare void @lut3d_clear_lutname_list(ptr noundef) #1
 
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
+declare void @lut3d_add_lutname_to_list(ptr noundef, ptr noundef) #1
 
-; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_lut3dgmic.cpp() #12 section ".text.startup" {
-  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN12cimg_library4CImgIfED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %3, i32 0, i32 4
+  %5 = load i8, ptr %4, align 8, !tbaa !67, !range !68, !noundef !69
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %13, label %7
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %3, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %12, label %11
+
+11:                                               ; preds = %7
+  call void @_ZdaPv(ptr noundef %9) #13
+  br label %12
+
+12:                                               ; preds = %11, %7
+  br label %13
+
+13:                                               ; preds = %12, %1
   ret void
 }
 
-; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdaPvm(ptr noundef, i64 noundef) #11
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdaPv(ptr noundef) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN12cimg_library4CImgIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %3, i32 0, i32 4
+  %5 = load i8, ptr %4, align 8, !tbaa !71, !range !68, !noundef !69
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %13, label %7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.mul.v4i32(<4 x i32>) #14
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %3, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8, !tbaa !61
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %12, label %11
 
-attributes #0 = { "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #1 = { nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #6 = { nounwind memory(none) }
-attributes #7 = { noreturn nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #11 = { nobuiltin nounwind "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #12 = { uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { cold }
-attributes #17 = { builtin nounwind }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
+11:                                               ; preds = %7
+  call void @_ZdaPv(ptr noundef %9) #13
+  br label %12
+
+12:                                               ; preds = %11, %7
+  br label %13
+
+13:                                               ; preds = %12, %1
+  ret void
+}
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_lut3dgmic.cpp() #0 section ".text.startup" {
+  call void @__cxx_global_var_init()
+  ret void
+}
+
+attributes #0 = { uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #3 = { nounwind }
+attributes #4 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #7 = { nounwind memory(none) }
+attributes #8 = { noinline noreturn nounwind uwtable "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind willreturn memory(read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #11 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -1628,58 +2027,69 @@ attributes #19 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = !{!7, !12, i64 360}
-!7 = !{!"_ZTS4gmic", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !11, i64 56, !11, i64 72, !13, i64 88, !13, i64 120, !13, i64 152, !15, i64 184, !16, i64 216, !17, i64 248, !18, i64 280, !18, i64 284, !18, i64 288, !18, i64 292, !18, i64 296, !18, i64 300, !18, i64 304, !8, i64 312, !19, i64 320, !12, i64 328, !12, i64 332, !12, i64 336, !12, i64 340, !12, i64 344, !12, i64 348, !12, i64 352, !12, i64 356, !12, i64 360, !12, i64 364, !12, i64 368, !12, i64 372, !14, i64 376, !14, i64 377, !14, i64 378, !14, i64 379, !14, i64 380, !14, i64 381, !14, i64 382, !14, i64 383, !14, i64 384, !14, i64 385, !8, i64 392, !14, i64 400, !8, i64 408}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
 !8 = !{!"any pointer", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C++ TBAA"}
-!11 = !{!"_ZTSN12cimg_library8CImgListIcEE", !12, i64 0, !12, i64 4, !8, i64 8}
+!11 = !{!12, !12, i64 0}
 !12 = !{!"int", !9, i64 0}
-!13 = !{!"_ZTSN12cimg_library4CImgIjEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !14, i64 16, !8, i64 24}
-!14 = !{!"bool", !9, i64 0}
-!15 = !{!"_ZTSN12cimg_library4CImgIhEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !14, i64 16, !8, i64 24}
-!16 = !{!"_ZTSN12cimg_library4CImgIPvEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !14, i64 16, !8, i64 24}
-!17 = !{!"_ZTSN12cimg_library4CImgIcEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !14, i64 16, !8, i64 24}
-!18 = !{!"float", !9, i64 0}
-!19 = !{!"long", !9, i64 0}
-!20 = !{!21, !8, i64 8}
-!21 = !{!"_ZTSN12cimg_library8CImgListIfEE", !12, i64 0, !12, i64 4, !8, i64 8}
-!22 = !{!23, !8, i64 24}
-!23 = !{!"_ZTSN12cimg_library4CImgIfEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !14, i64 16, !8, i64 24}
-!24 = !{!9, !9, i64 0}
-!25 = !{!26}
-!26 = distinct !{!26, !27}
-!27 = distinct !{!27, !"LVerDomain"}
-!28 = !{!18, !18, i64 0}
-!29 = !{!30}
-!30 = distinct !{!30, !27}
-!31 = distinct !{!31, !32, !33, !34}
-!32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.isvectorized", i32 1}
-!34 = !{!"llvm.loop.unroll.runtime.disable"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 float", !8, i64 0}
+!15 = !{!16, !12, i64 360}
+!16 = !{!"_ZTS4gmic", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !18, i64 40, !18, i64 48, !19, i64 56, !19, i64 72, !21, i64 88, !21, i64 120, !21, i64 152, !24, i64 184, !25, i64 216, !26, i64 248, !27, i64 280, !27, i64 284, !27, i64 288, !27, i64 292, !27, i64 296, !27, i64 300, !27, i64 304, !14, i64 312, !28, i64 320, !12, i64 328, !12, i64 332, !12, i64 336, !12, i64 340, !12, i64 344, !12, i64 348, !12, i64 352, !12, i64 356, !12, i64 360, !12, i64 364, !12, i64 368, !12, i64 372, !22, i64 376, !22, i64 377, !22, i64 378, !22, i64 379, !22, i64 380, !22, i64 381, !22, i64 382, !22, i64 383, !22, i64 384, !22, i64 385, !29, i64 392, !22, i64 400, !7, i64 408}
+!17 = !{!"p1 _ZTSN12cimg_library8CImgListIcEE", !8, i64 0}
+!18 = !{!"p2 _ZTSN12cimg_library8CImgListIcEE", !8, i64 0}
+!19 = !{!"_ZTSN12cimg_library8CImgListIcEE", !12, i64 0, !12, i64 4, !20, i64 8}
+!20 = !{!"p1 _ZTSN12cimg_library4CImgIcEE", !8, i64 0}
+!21 = !{!"_ZTSN12cimg_library4CImgIjEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !22, i64 16, !23, i64 24}
+!22 = !{!"bool", !9, i64 0}
+!23 = !{!"p1 int", !8, i64 0}
+!24 = !{!"_ZTSN12cimg_library4CImgIhEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !22, i64 16, !7, i64 24}
+!25 = !{!"_ZTSN12cimg_library4CImgIPvEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !22, i64 16, !8, i64 24}
+!26 = !{!"_ZTSN12cimg_library4CImgIcEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !22, i64 16, !7, i64 24}
+!27 = !{!"float", !9, i64 0}
+!28 = !{!"long", !9, i64 0}
+!29 = !{!"p1 bool", !8, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSN12cimg_library4CImgIfEE", !8, i64 0}
+!32 = !{!28, !28, i64 0}
+!33 = !{!9, !9, i64 0}
+!34 = !{!27, !27, i64 0}
 !35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.unroll.disable"}
-!37 = distinct !{!37, !32, !33}
-!38 = !{!39, !8, i64 56}
-!39 = !{!"_ZTS14gmic_exception", !17, i64 0, !17, i64 32}
-!40 = !{!8, !8, i64 0}
-!41 = !{!12, !12, i64 0}
-!42 = !{!11, !8, i64 8}
-!43 = !{!17, !14, i64 16}
-!44 = !{i8 0, i8 2}
-!45 = !{}
-!46 = !{!17, !8, i64 24}
-!47 = !{!23, !14, i64 16}
-!48 = !{!23, !12, i64 0}
-!49 = !{!23, !12, i64 4}
-!50 = !{!23, !12, i64 8}
-!51 = !{!23, !12, i64 12}
-!52 = !{!11, !12, i64 0}
-!53 = distinct !{!53, !32}
-!54 = distinct !{!54, !32}
-!55 = distinct !{!55, !32}
-!56 = distinct !{!56, !36}
-!57 = distinct !{!57, !32}
-!58 = distinct !{!58, !32}
-!59 = distinct !{!59, !36}
-!60 = distinct !{!60, !36}
+!36 = !{!"llvm.loop.mustprogress"}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS14gmic_exception", !8, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!41 = !{!42, !12, i64 0}
+!42 = !{!"_ZTSN12cimg_library4CImgIfEE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !22, i64 16, !14, i64 24}
+!43 = !{!42, !12, i64 4}
+!44 = !{!42, !12, i64 8}
+!45 = !{!42, !12, i64 12}
+!46 = !{!42, !14, i64 24}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN12cimg_library8CImgListIfEE", !8, i64 0}
+!49 = !{!50, !12, i64 0}
+!50 = !{!"_ZTSN12cimg_library8CImgListIfEE", !12, i64 0, !12, i64 4, !31, i64 8}
+!51 = !{!50, !12, i64 4}
+!52 = !{!50, !31, i64 8}
+!53 = !{!17, !17, i64 0}
+!54 = !{!19, !12, i64 0}
+!55 = !{!19, !12, i64 4}
+!56 = !{!19, !20, i64 8}
+!57 = !{!58, !7, i64 56}
+!58 = !{!"_ZTS14gmic_exception", !26, i64 0, !26, i64 32}
+!59 = !{!23, !23, i64 0}
+!60 = !{!8, !8, i64 0}
+!61 = !{!26, !7, i64 24}
+!62 = distinct !{!62, !36}
+!63 = distinct !{!63, !36}
+!64 = distinct !{!64, !36}
+!65 = distinct !{!65, !36}
+!66 = distinct !{!66, !36}
+!67 = !{!42, !22, i64 16}
+!68 = !{i8 0, i8 2}
+!69 = !{}
+!70 = !{!20, !20, i64 0}
+!71 = !{!26, !22, i64 16}
